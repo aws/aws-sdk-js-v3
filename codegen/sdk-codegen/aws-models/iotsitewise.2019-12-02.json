@@ -116,6 +116,9 @@
           "target": "com.amazonaws.iotsitewise#DescribeDashboard"
         },
         {
+          "target": "com.amazonaws.iotsitewise#DescribeDefaultEncryptionConfiguration"
+        },
+        {
           "target": "com.amazonaws.iotsitewise#DescribeGateway"
         },
         {
@@ -171,6 +174,9 @@
         },
         {
           "target": "com.amazonaws.iotsitewise#ListTagsForResource"
+        },
+        {
+          "target": "com.amazonaws.iotsitewise#PutDefaultEncryptionConfiguration"
         },
         {
           "target": "com.amazonaws.iotsitewise#PutLoggingOptions"
@@ -1399,7 +1405,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Sends a list of asset property values to AWS IoT SiteWise. Each value is a timestamp-quality-value\n      (TQV) data point. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ingest-api.html\">Ingesting data using the API</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p> \n         <p>To identify an asset property, you must specify one of the following:</p>\n         <ul>\n            <li>\n               <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p>\n            </li>\n            <li>\n               <p>A <code>propertyAlias</code>, which is a data stream alias (for example,\n          <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html\">UpdateAssetProperty</a>.</p>\n            </li>\n         </ul> \n         <important>\n            <p>With respect to Unix epoch time, AWS IoT SiteWise accepts only TQVs that have a timestamp of no more\n        than 15 minutes in the past and no more than 5 minutes in the future. AWS IoT SiteWise rejects\n        timestamps outside of the inclusive range of [-15, +5] minutes and returns a\n          <code>TimestampOutOfRangeException</code> error.</p>\n            <p>For each asset property, AWS IoT SiteWise overwrites TQVs with duplicate timestamps unless the newer\n        TQV has a different quality. For example, if you store a TQV <code>{T1, GOOD, V1}</code>,\n        then storing <code>{T1, GOOD, V2}</code> replaces the existing TQV.</p>\n         </important>\n         <p>AWS IoT SiteWise authorizes access to each <code>BatchPutAssetPropertyValue</code> entry individually.\n      For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-batchputassetpropertyvalue-action\">BatchPutAssetPropertyValue authorization</a> in the\n      <i>AWS IoT SiteWise User Guide</i>.</p>",
+        "smithy.api#documentation": "<p>Sends a list of asset property values to AWS IoT SiteWise. Each value is a timestamp-quality-value\n      (TQV) data point. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ingest-api.html\">Ingesting data using the API</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p>\n         <p>To identify an asset property, you must specify one of the following:</p>\n         <ul>\n            <li>\n               <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p>\n            </li>\n            <li>\n               <p>A <code>propertyAlias</code>, which is a data stream alias (for example,\n          <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html\">UpdateAssetProperty</a>.</p>\n            </li>\n         </ul>\n         <important>\n            <p>With respect to Unix epoch time, AWS IoT SiteWise accepts only TQVs that have a timestamp of no more\n        than 15 minutes in the past and no more than 5 minutes in the future. AWS IoT SiteWise rejects\n        timestamps outside of the inclusive range of [-15, +5] minutes and returns a\n          <code>TimestampOutOfRangeException</code> error.</p>\n            <p>For each asset property, AWS IoT SiteWise overwrites TQVs with duplicate timestamps unless the newer\n        TQV has a different quality. For example, if you store a TQV <code>{T1, GOOD, V1}</code>,\n        then storing <code>{T1, GOOD, V2}</code> replaces the existing TQV.</p>\n         </important>\n         <p>AWS IoT SiteWise authorizes access to each <code>BatchPutAssetPropertyValue</code> entry individually.\n      For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-batchputassetpropertyvalue-action\">BatchPutAssetPropertyValue authorization</a> in the\n      <i>AWS IoT SiteWise User Guide</i>.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "data."
         },
@@ -1523,6 +1529,68 @@
           "max": 64
         },
         "smithy.api#pattern": "\\S{36,64}"
+      }
+    },
+    "com.amazonaws.iotsitewise#ConfigurationErrorDetails": {
+      "type": "structure",
+      "members": {
+        "code": {
+          "target": "com.amazonaws.iotsitewise#ErrorCode",
+          "traits": {
+            "smithy.api#documentation": "<p></p>",
+            "smithy.api#required": {}
+          }
+        },
+        "message": {
+          "target": "com.amazonaws.iotsitewise#ErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p></p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p></p>"
+      }
+    },
+    "com.amazonaws.iotsitewise#ConfigurationState": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "ACTIVE",
+            "name": "ACTIVE"
+          },
+          {
+            "value": "UPDATE_IN_PROGRESS",
+            "name": "UPDATE_IN_PROGRESS"
+          },
+          {
+            "value": "UPDATE_FAILED",
+            "name": "UPDATE_FAILED"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.iotsitewise#ConfigurationStatus": {
+      "type": "structure",
+      "members": {
+        "state": {
+          "target": "com.amazonaws.iotsitewise#ConfigurationState",
+          "traits": {
+            "smithy.api#documentation": "<p></p>",
+            "smithy.api#required": {}
+          }
+        },
+        "error": {
+          "target": "com.amazonaws.iotsitewise#ConfigurationErrorDetails",
+          "traits": {
+            "smithy.api#documentation": "<p></p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p></p>"
       }
     },
     "com.amazonaws.iotsitewise#ConflictingOperationException": {
@@ -2134,7 +2202,7 @@
         "portalAuthMode": {
           "target": "com.amazonaws.iotsitewise#AuthMode",
           "traits": {
-            "smithy.api#documentation": "<p>The service to use to authenticate users to the portal. Choose from the following\n      options:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>SSO</code> – The portal uses AWS Single Sign-On to authenticate users and manage\n          user permissions. Before you can create a portal that uses AWS SSO, you must enable AWS SSO.\n          For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso\">Enabling AWS SSO</a> in the\n          <i>AWS IoT SiteWise User Guide</i>. This option is only available in AWS Regions other\n          than the China Regions.</p>\n            </li>\n            <li>\n               <p>\n                  <code>IAM</code> – The portal uses AWS Identity and Access Management (IAM) to authenticate users and manage\n          user permissions. IAM users must have the\n        <code>iotsitewise:CreatePresignedPortalUrl</code> permission to sign in to the portal. This option is only available in the China Regions.</p>\n            </li>\n         </ul>\n         <p>You can't change this value after you create a portal.</p>\n         <p>Default: <code>SSO</code>\n         </p>"
+            "smithy.api#documentation": "<p>The service to use to authenticate users to the portal. Choose from the following\n      options:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>SSO</code> – The portal uses AWS Single Sign-On to authenticate users and manage\n          user permissions. Before you can create a portal that uses AWS SSO, you must enable AWS SSO.\n          For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso\">Enabling AWS SSO</a> in the\n            <i>AWS IoT SiteWise User Guide</i>. This option is only available in AWS Regions other than\n          the China Regions.</p>\n            </li>\n            <li>\n               <p>\n                  <code>IAM</code> – The portal uses AWS Identity and Access Management (IAM) to authenticate users and manage\n          user permissions. IAM users must have the\n        <code>iotsitewise:CreatePresignedPortalUrl</code> permission to sign in to the portal. This option is only available in the\n          China Regions.</p>\n            </li>\n         </ul>\n         <p>You can't change this value after you create a portal.</p>\n         <p>Default: <code>SSO</code>\n         </p>"
           }
         }
       }
@@ -2199,7 +2267,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a pre-signed URL to a portal. Use this operation to create URLs to portals that\n      use AWS Identity and Access Management (IAM) to authenticate users. An IAM user with access to a portal can call this API\n      to get a URL to that portal. The URL contains a session token that lets the IAM user access\n      the portal.</p>",
+        "smithy.api#documentation": "<p>Creates a pre-signed URL to a portal. Use this operation to create URLs to portals that\n      use AWS Identity and Access Management (IAM) to authenticate users. An IAM user with access to a portal can call this API\n      to get a URL to that portal. The URL contains an authentication token that lets the IAM user\n      access the portal.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "monitor."
         },
@@ -2224,7 +2292,7 @@
         "sessionDurationSeconds": {
           "target": "com.amazonaws.iotsitewise#SessionDurationSeconds",
           "traits": {
-            "smithy.api#documentation": "<p>The duration (in seconds) for which the session at the URL is valid.</p>\n         <p>Default: 900 seconds (15 minutes)</p>",
+            "smithy.api#documentation": "<p>The duration (in seconds) for which the session at the URL is valid.</p>\n         <p>Default: 43,200 seconds (12 hours)</p>",
             "smithy.api#httpQuery": "sessionDurationSeconds"
           }
         }
@@ -2236,7 +2304,7 @@
         "presignedPortalUrl": {
           "target": "com.amazonaws.iotsitewise#Url",
           "traits": {
-            "smithy.api#documentation": "<p>The pre-signed URL to the portal. The URL contains the portal ID and a session token that\n      lets you access the portal. The URL has the following format.</p>\n         <p>\n            <code>https://<portal-id>.app.iotsitewise.aws/auth?token=<encrypted-token></code>\n         </p>",
+            "smithy.api#documentation": "<p>The pre-signed URL to the portal. The URL contains the portal ID and an authentication\n      token that lets you access the portal. The URL has the following format.</p>\n         <p>\n            <code>https://<portal-id>.app.iotsitewise.aws/iam?token=<encrypted-token></code>\n         </p>",
             "smithy.api#required": {}
           }
         }
@@ -3359,6 +3427,63 @@
         }
       }
     },
+    "com.amazonaws.iotsitewise#DescribeDefaultEncryptionConfiguration": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.iotsitewise#DescribeDefaultEncryptionConfigurationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.iotsitewise#DescribeDefaultEncryptionConfigurationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.iotsitewise#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.iotsitewise#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.iotsitewise#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves information about the default encryption configuration for the\n      AWS account in the default or specified region. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html\">Key management</a>\n      in the <i>AWS IoT SiteWise User Guide</i>.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/configuration/account/encryption",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.iotsitewise#DescribeDefaultEncryptionConfigurationRequest": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.iotsitewise#DescribeDefaultEncryptionConfigurationResponse": {
+      "type": "structure",
+      "members": {
+        "encryptionType": {
+          "target": "com.amazonaws.iotsitewise#EncryptionType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of encryption used for the encryption configuration.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "kmsKeyArn": {
+          "target": "com.amazonaws.iotsitewise#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The key ARN of the customer managed customer master key (CMK) used for AWS KMS encryption\n      if you use <code>KMS_BASED_ENCRYPTION</code>.</p>"
+          }
+        },
+        "configurationStatus": {
+          "target": "com.amazonaws.iotsitewise#ConfigurationStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the account configuration. This contains the\n      <code>ConfigurationState</code>. If\n      there's an error, it also contains the <code>ErrorDetails</code>.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
     "com.amazonaws.iotsitewise#DescribeGateway": {
       "type": "operation",
       "input": {
@@ -3924,6 +4049,21 @@
         "smithy.api#pattern": "[^@]+@[^@]+"
       }
     },
+    "com.amazonaws.iotsitewise#EncryptionType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "SITEWISE_DEFAULT_ENCRYPTION",
+            "name": "SITEWISE_DEFAULT_ENCRYPTION"
+          },
+          {
+            "value": "KMS_BASED_ENCRYPTION",
+            "name": "KMS_BASED_ENCRYPTION"
+          }
+        ]
+      }
+    },
     "com.amazonaws.iotsitewise#EntryId": {
       "type": "string",
       "traits": {
@@ -4131,7 +4271,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Gets aggregated values for an asset property. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates\">Querying\n        aggregates</a> in the <i>AWS IoT SiteWise User Guide</i>.</p> \n         <p>To identify an asset property, you must specify one of the following:</p>\n         <ul>\n            <li>\n               <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p>\n            </li>\n            <li>\n               <p>A <code>propertyAlias</code>, which is a data stream alias (for example,\n          <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html\">UpdateAssetProperty</a>.</p>\n            </li>\n         </ul>",
+        "smithy.api#documentation": "<p>Gets aggregated values for an asset property. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates\">Querying\n        aggregates</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>\n         <p>To identify an asset property, you must specify one of the following:</p>\n         <ul>\n            <li>\n               <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p>\n            </li>\n            <li>\n               <p>A <code>propertyAlias</code>, which is a data stream alias (for example,\n          <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html\">UpdateAssetProperty</a>.</p>\n            </li>\n         </ul>",
         "smithy.api#endpoint": {
           "hostPrefix": "data."
         },
@@ -4277,7 +4417,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Gets an asset property's current value. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values\">Querying\n        current values</a> in the <i>AWS IoT SiteWise User Guide</i>.</p> \n         <p>To identify an asset property, you must specify one of the following:</p>\n         <ul>\n            <li>\n               <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p>\n            </li>\n            <li>\n               <p>A <code>propertyAlias</code>, which is a data stream alias (for example,\n          <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html\">UpdateAssetProperty</a>.</p>\n            </li>\n         </ul>",
+        "smithy.api#documentation": "<p>Gets an asset property's current value. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values\">Querying\n        current values</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>\n         <p>To identify an asset property, you must specify one of the following:</p>\n         <ul>\n            <li>\n               <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p>\n            </li>\n            <li>\n               <p>A <code>propertyAlias</code>, which is a data stream alias (for example,\n          <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html\">UpdateAssetProperty</a>.</p>\n            </li>\n         </ul>",
         "smithy.api#endpoint": {
           "hostPrefix": "data."
         },
@@ -4543,7 +4683,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains an identity that can access an AWS IoT SiteWise Monitor resource.</p>\n         <note>\n            <p>Currently, you can't use AWS APIs to retrieve AWS SSO identity IDs. You can find the AWS SSO\n        identity IDs in the URL of user and group pages in the <a href=\"https://console.aws.amazon.com/singlesignon\">AWS SSO console</a>.</p>\n         </note>"
+        "smithy.api#documentation": "<p>Contains an identity that can access an AWS IoT SiteWise Monitor resource.</p>\n         <note>\n            <p>Currently, you can't use AWS APIs to retrieve AWS SSO identity IDs. You can find the\n        AWS SSO identity IDs in the URL of user and group pages in the <a href=\"https://console.aws.amazon.com/singlesignon\">AWS SSO console</a>.</p>\n         </note>"
       }
     },
     "com.amazonaws.iotsitewise#IdentityId": {
@@ -4696,6 +4836,15 @@
         "smithy.api#documentation": "<p>The request isn't valid. This can occur if your request contains malformed JSON or\n      unsupported characters. Check your request and try again.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.iotsitewise#KmsKeyId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2048
+        }
       }
     },
     "com.amazonaws.iotsitewise#LimitExceededException": {
@@ -6172,6 +6321,83 @@
         "smithy.api#documentation": "<p>Contains a list of value updates for an asset property in the list of asset entries\n      consumed by the <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchPutAssetPropertyValue.html\">BatchPutAssetPropertyValue</a> API\n      operation.</p>"
       }
     },
+    "com.amazonaws.iotsitewise#PutDefaultEncryptionConfiguration": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.iotsitewise#PutDefaultEncryptionConfigurationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.iotsitewise#PutDefaultEncryptionConfigurationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.iotsitewise#ConflictingOperationException"
+        },
+        {
+          "target": "com.amazonaws.iotsitewise#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.iotsitewise#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.iotsitewise#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.iotsitewise#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Sets the default encryption configuration for the AWS\n      account. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html\">Key management</a>\n      in the <i>AWS IoT SiteWise User Guide</i>.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/configuration/account/encryption",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.iotsitewise#PutDefaultEncryptionConfigurationRequest": {
+      "type": "structure",
+      "members": {
+        "encryptionType": {
+          "target": "com.amazonaws.iotsitewise#EncryptionType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of encryption used for the encryption configuration.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "kmsKeyId": {
+          "target": "com.amazonaws.iotsitewise#KmsKeyId",
+          "traits": {
+            "smithy.api#documentation": "<p>The Key ID of the customer managed customer master key (CMK) used for AWS KMS encryption. This is required if you use\n      <code>KMS_BASED_ENCRYPTION</code>.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.iotsitewise#PutDefaultEncryptionConfigurationResponse": {
+      "type": "structure",
+      "members": {
+        "encryptionType": {
+          "target": "com.amazonaws.iotsitewise#EncryptionType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of encryption used for the encryption configuration.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "kmsKeyArn": {
+          "target": "com.amazonaws.iotsitewise#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The Key ARN of the AWS KMS CMK used for AWS KMS encryption if you use \n      <code>KMS_BASED_ENCRYPTION</code>.</p>"
+          }
+        },
+        "configurationStatus": {
+          "target": "com.amazonaws.iotsitewise#ConfigurationStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the account configuration. This contains the\n      <code>ConfigurationState</code>. If there is an error, it also contains the\n        <code>ErrorDetails</code>.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
     "com.amazonaws.iotsitewise#PutLoggingOptions": {
       "type": "operation",
       "input": {
@@ -7213,7 +7439,7 @@
         "capabilitySyncStatus": {
           "target": "com.amazonaws.iotsitewise#CapabilitySyncStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The synchronization status of the capability configuration. The sync status can be one of the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>IN_SYNC</code> – The gateway is running the capability configuration.</p>\n            </li>\n            <li>\n               <p>\n                  <code>OUT_OF_SYNC</code> – The gateway hasn't received the capability configuration.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SYNC_FAILED</code> – The gateway rejected the capability configuration.</p>\n            </li>\n         </ul> \n         <p>After you update a capability configuration, its sync status is\n        <code>OUT_OF_SYNC</code> until the gateway receives and applies or rejects the updated\n      configuration.</p>",
+            "smithy.api#documentation": "<p>The synchronization status of the capability configuration. The sync status can be one of the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>IN_SYNC</code> – The gateway is running the capability configuration.</p>\n            </li>\n            <li>\n               <p>\n                  <code>OUT_OF_SYNC</code> – The gateway hasn't received the capability configuration.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SYNC_FAILED</code> – The gateway rejected the capability configuration.</p>\n            </li>\n         </ul>\n         <p>After you update a capability configuration, its sync status is <code>OUT_OF_SYNC</code>\n      until the gateway receives and applies or rejects the updated configuration.</p>",
             "smithy.api#required": {}
           }
         }

@@ -45168,6 +45168,31 @@
         ]
       }
     },
+    "com.amazonaws.ec2#PrivateDnsDetails": {
+      "type": "structure",
+      "members": {
+        "PrivateDnsName": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "PrivateDnsName",
+            "smithy.api#documentation": "<p>The private DNS name assigned to the VPC endpoint service.</p>",
+            "smithy.api#xmlName": "privateDnsName"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about the Private DNS name for interface endpoints.</p>"
+      }
+    },
+    "com.amazonaws.ec2#PrivateDnsDetailsSet": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#PrivateDnsDetails",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
+    },
     "com.amazonaws.ec2#PrivateDnsNameConfiguration": {
       "type": "structure",
       "members": {
@@ -51952,6 +51977,14 @@
             "aws.protocols#ec2QueryName": "PrivateDnsName",
             "smithy.api#documentation": "<p>The private DNS name for the service.</p>",
             "smithy.api#xmlName": "privateDnsName"
+          }
+        },
+        "PrivateDnsNames": {
+          "target": "com.amazonaws.ec2#PrivateDnsDetailsSet",
+          "traits": {
+            "aws.protocols#ec2QueryName": "PrivateDnsNameSet",
+            "smithy.api#documentation": "<p>The private DNS names assigned to the VPC endpoint service. </p>",
+            "smithy.api#xmlName": "privateDnsNameSet"
           }
         },
         "VpcEndpointPolicySupported": {

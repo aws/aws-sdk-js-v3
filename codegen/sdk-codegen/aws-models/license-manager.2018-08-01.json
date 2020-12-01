@@ -93,7 +93,7 @@
           "name": "license-manager"
         },
         "aws.protocols#awsJson1_1": {},
-        "smithy.api#documentation": "<fullname> AWS License Manager </fullname>\n         <p>AWS License Manager makes it easier to manage licenses from software vendors across multiple \n         AWS accounts and on-premises servers.</p>",
+        "smithy.api#documentation": "<fullname> AWS License Manager </fullname>\n         <p>AWS License Manager makes it easier to manage licenses from software vendors across multiple\n         AWS accounts and on-premises servers.</p>",
         "smithy.api#title": "AWS License Manager",
         "smithy.api#xmlNamespace": {
           "uri": "https://license-manager.amazonaws.com/doc/2018_08_01"
@@ -216,28 +216,23 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a license configuration.</p> \n         <p>A license configuration is an abstraction of a customer license agreement that can be\n         consumed and enforced by License Manager. Components include specifications for the license\n         type (licensing by instance, socket, CPU, or vCPU), allowed tenancy (shared tenancy, \n         Dedicated Instance, Dedicated Host, or all of these), license affinity  to host (how long a \n         license must be associated with a host), and the number of licenses purchased and used.</p>"
+        "smithy.api#documentation": "<p>Creates a license configuration.</p>\n         <p>A license configuration is an abstraction of a customer license agreement that can be\n         consumed and enforced by License Manager. Components include specifications for the license\n         type (licensing by instance, socket, CPU, or vCPU), allowed tenancy (shared tenancy,\n         Dedicated Instance, Dedicated Host, or all of these), license affinity to host (how long a\n         license must be associated with a host), and the number of licenses purchased and\n         used.</p>"
       }
     },
     "com.amazonaws.licensemanager#CreateLicenseConfigurationRequest": {
       "type": "structure",
       "members": {
+        "Name": {
+          "target": "com.amazonaws.licensemanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Name of the license configuration.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "Description": {
           "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Description of the license configuration.</p>"
-          }
-        },
-        "LicenseCountHardLimit": {
-          "target": "com.amazonaws.licensemanager#BoxBoolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates whether hard or soft license enforcement is used. Exceeding a hard limit\n         blocks the launch of new instances.</p>"
-          }
-        },
-        "ProductInformationList": {
-          "target": "com.amazonaws.licensemanager#ProductInformationList",
-          "traits": {
-            "smithy.api#documentation": "<p>Product information.</p>"
           }
         },
         "LicenseCountingType": {
@@ -253,11 +248,16 @@
             "smithy.api#documentation": "<p>Number of licenses managed by the license configuration.</p>"
           }
         },
-        "Name": {
-          "target": "com.amazonaws.licensemanager#String",
+        "LicenseCountHardLimit": {
+          "target": "com.amazonaws.licensemanager#BoxBoolean",
           "traits": {
-            "smithy.api#documentation": "<p>Name of the license configuration.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Indicates whether hard or soft license enforcement is used. Exceeding a hard limit\n         blocks the launch of new instances.</p>"
+          }
+        },
+        "LicenseRules": {
+          "target": "com.amazonaws.licensemanager#StringList",
+          "traits": {
+            "smithy.api#documentation": "<p>License rules. The syntax is #name=value (for example,\n         #allowedTenancy=EC2-DedicatedHost). The available rules vary by dimension, as\n         follows.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Cores</code> dimension: <code>allowedTenancy</code> |\n                  <code>licenseAffinityToHost</code> | <code>maximumCores</code> |\n                  <code>minimumCores</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>Instances</code> dimension: <code>allowedTenancy</code> |\n                  <code>maximumCores</code> | <code>minimumCores</code> |\n                  <code>maximumSockets</code> | <code>minimumSockets</code> |\n                  <code>maximumVcpus</code> | <code>minimumVcpus</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>Sockets</code> dimension: <code>allowedTenancy</code> |\n                  <code>licenseAffinityToHost</code> | <code>maximumSockets</code> |\n                  <code>minimumSockets</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>vCPUs</code> dimension: <code>allowedTenancy</code> |\n                  <code>honorVcpuOptimization</code> | <code>maximumVcpus</code> |\n                  <code>minimumVcpus</code>\n               </p>\n            </li>\n         </ul>\n         <p>The unit for <code>licenseAffinityToHost</code> is days and the range is 1 to 180. The\n         possible values for <code>allowedTenancy</code> are <code>EC2-Default</code>,\n            <code>EC2-DedicatedHost</code>, and <code>EC2-DedicatedInstance</code>. The possible\n         values for <code>honorVcpuOptimization</code> are <code>True</code> and\n         <code>False</code>.</p>"
           }
         },
         "Tags": {
@@ -266,10 +266,10 @@
             "smithy.api#documentation": "<p>Tags to add to the license configuration.</p>"
           }
         },
-        "LicenseRules": {
-          "target": "com.amazonaws.licensemanager#StringList",
+        "ProductInformationList": {
+          "target": "com.amazonaws.licensemanager#ProductInformationList",
           "traits": {
-            "smithy.api#documentation": "<p>License rules. The syntax is #name=value (for example, #allowedTenancy=EC2-DedicatedHost). The available rules \n         vary by dimension, as follows.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Cores</code> dimension: <code>allowedTenancy</code> |\n               <code>licenseAffinityToHost</code> |\n               <code>maximumCores</code> | <code>minimumCores</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>Instances</code> dimension: <code>allowedTenancy</code> | \n               <code>maximumCores</code> | <code>minimumCores</code> |\n               <code>maximumSockets</code> | <code>minimumSockets</code> |\n               <code>maximumVcpus</code> | <code>minimumVcpus</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>Sockets</code> dimension: <code>allowedTenancy</code> | \n               <code>licenseAffinityToHost</code> |\n               <code>maximumSockets</code> | <code>minimumSockets</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>vCPUs</code> dimension: <code>allowedTenancy</code> | \n               <code>honorVcpuOptimization</code> | \n               <code>maximumVcpus</code> | <code>minimumVcpus</code>\n               </p>\n            </li>\n         </ul>\n         <p>The unit for <code>licenseAffinityToHost</code> is days and the range is 1 to 180. The possible \n         values for <code>allowedTenancy</code> are <code>EC2-Default</code>, <code>EC2-DedicatedHost</code>, and \n         <code>EC2-DedicatedInstance</code>. The possible values for <code>honorVcpuOptimization</code> are \n         <code>True</code> and <code>False</code>.</p>"
+            "smithy.api#documentation": "<p>Product information.</p>"
           }
         }
       }
@@ -314,7 +314,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes the specified license configuration.</p> \n         <p>You cannot delete a license configuration that is in use.</p>"
+        "smithy.api#documentation": "<p>Deletes the specified license configuration.</p>\n         <p>You cannot delete a license configuration that is in use.</p>"
       }
     },
     "com.amazonaws.licensemanager#DeleteLicenseConfigurationRequest": {
@@ -447,88 +447,10 @@
     "com.amazonaws.licensemanager#GetLicenseConfigurationResponse": {
       "type": "structure",
       "members": {
-        "ProductInformationList": {
-          "target": "com.amazonaws.licensemanager#ProductInformationList",
-          "traits": {
-            "smithy.api#documentation": "<p>Product information.</p>"
-          }
-        },
-        "OwnerAccountId": {
-          "target": "com.amazonaws.licensemanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Account ID of the owner of the license configuration.</p>"
-          }
-        },
         "LicenseConfigurationId": {
           "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Unique ID for the license configuration.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.licensemanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Name of the license configuration.</p>"
-          }
-        },
-        "ManagedResourceSummaryList": {
-          "target": "com.amazonaws.licensemanager#ManagedResourceSummaryList",
-          "traits": {
-            "smithy.api#documentation": "<p>Summaries of the managed resources.</p>"
-          }
-        },
-        "LicenseCountingType": {
-          "target": "com.amazonaws.licensemanager#LicenseCountingType",
-          "traits": {
-            "smithy.api#documentation": "<p>Dimension on which the licenses are counted.</p>"
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.licensemanager#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>Tags for the license configuration.</p>"
-          }
-        },
-        "AutomatedDiscoveryInformation": {
-          "target": "com.amazonaws.licensemanager#AutomatedDiscoveryInformation",
-          "traits": {
-            "smithy.api#documentation": "<p>Automated discovery information.</p>"
-          }
-        },
-        "LicenseCount": {
-          "target": "com.amazonaws.licensemanager#BoxLong",
-          "traits": {
-            "smithy.api#documentation": "<p>Number of available licenses.</p>"
-          }
-        },
-        "LicenseRules": {
-          "target": "com.amazonaws.licensemanager#StringList",
-          "traits": {
-            "smithy.api#documentation": "<p>License rules.</p>"
-          }
-        },
-        "LicenseCountHardLimit": {
-          "target": "com.amazonaws.licensemanager#BoxBoolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Sets the number of available licenses as a hard limit.</p>"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.licensemanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Description of the license configuration.</p>"
-          }
-        },
-        "Status": {
-          "target": "com.amazonaws.licensemanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>License configuration status.</p>"
-          }
-        },
-        "ConsumedLicenses": {
-          "target": "com.amazonaws.licensemanager#BoxLong",
-          "traits": {
-            "smithy.api#documentation": "<p>Number of licenses assigned to resources.</p>"
           }
         },
         "LicenseConfigurationArn": {
@@ -537,10 +459,88 @@
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the license configuration.</p>"
           }
         },
+        "Name": {
+          "target": "com.amazonaws.licensemanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Name of the license configuration.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.licensemanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Description of the license configuration.</p>"
+          }
+        },
+        "LicenseCountingType": {
+          "target": "com.amazonaws.licensemanager#LicenseCountingType",
+          "traits": {
+            "smithy.api#documentation": "<p>Dimension on which the licenses are counted.</p>"
+          }
+        },
+        "LicenseRules": {
+          "target": "com.amazonaws.licensemanager#StringList",
+          "traits": {
+            "smithy.api#documentation": "<p>License rules.</p>"
+          }
+        },
+        "LicenseCount": {
+          "target": "com.amazonaws.licensemanager#BoxLong",
+          "traits": {
+            "smithy.api#documentation": "<p>Number of available licenses.</p>"
+          }
+        },
+        "LicenseCountHardLimit": {
+          "target": "com.amazonaws.licensemanager#BoxBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Sets the number of available licenses as a hard limit.</p>"
+          }
+        },
+        "ConsumedLicenses": {
+          "target": "com.amazonaws.licensemanager#BoxLong",
+          "traits": {
+            "smithy.api#documentation": "<p>Number of licenses assigned to resources.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.licensemanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>License configuration status.</p>"
+          }
+        },
+        "OwnerAccountId": {
+          "target": "com.amazonaws.licensemanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Account ID of the owner of the license configuration.</p>"
+          }
+        },
         "ConsumedLicenseSummaryList": {
           "target": "com.amazonaws.licensemanager#ConsumedLicenseSummaryList",
           "traits": {
             "smithy.api#documentation": "<p>Summaries of the licenses consumed by resources.</p>"
+          }
+        },
+        "ManagedResourceSummaryList": {
+          "target": "com.amazonaws.licensemanager#ManagedResourceSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>Summaries of the managed resources.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.licensemanager#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>Tags for the license configuration.</p>"
+          }
+        },
+        "ProductInformationList": {
+          "target": "com.amazonaws.licensemanager#ProductInformationList",
+          "traits": {
+            "smithy.api#documentation": "<p>Product information.</p>"
+          }
+        },
+        "AutomatedDiscoveryInformation": {
+          "target": "com.amazonaws.licensemanager#AutomatedDiscoveryInformation",
+          "traits": {
+            "smithy.api#documentation": "<p>Automated discovery information.</p>"
           }
         }
       }
@@ -578,22 +578,22 @@
     "com.amazonaws.licensemanager#GetServiceSettingsResponse": {
       "type": "structure",
       "members": {
-        "OrganizationConfiguration": {
-          "target": "com.amazonaws.licensemanager#OrganizationConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates whether AWS Organizations has been integrated with License Manager for\n         cross-account discovery.</p>"
-          }
-        },
         "S3BucketArn": {
           "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Regional S3 bucket path for storing reports, license trail event data, discovery data,\n         and so on.</p>"
           }
         },
-        "LicenseManagerResourceShareArn": {
+        "SnsTopicArn": {
           "target": "com.amazonaws.licensemanager#String",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the AWS resource share. The License Manager master account will provide member\n         accounts with access to this share.</p>"
+            "smithy.api#documentation": "<p>SNS topic configured to receive notifications from License Manager.</p>"
+          }
+        },
+        "OrganizationConfiguration": {
+          "target": "com.amazonaws.licensemanager#OrganizationConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether AWS Organizations has been integrated with License Manager for\n         cross-account discovery.</p>"
           }
         },
         "EnableCrossAccountsDiscovery": {
@@ -602,10 +602,10 @@
             "smithy.api#documentation": "<p>Indicates whether cross-account discovery has been enabled.</p>"
           }
         },
-        "SnsTopicArn": {
+        "LicenseManagerResourceShareArn": {
           "target": "com.amazonaws.licensemanager#String",
           "traits": {
-            "smithy.api#documentation": "<p>SNS topic configured to receive notifications from License Manager.</p>"
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the AWS resource share. The License Manager master account\n         will provide member accounts with access to this share.</p>"
           }
         }
       }
@@ -639,10 +639,11 @@
     "com.amazonaws.licensemanager#InventoryFilter": {
       "type": "structure",
       "members": {
-        "Value": {
+        "Name": {
           "target": "com.amazonaws.licensemanager#String",
           "traits": {
-            "smithy.api#documentation": "<p>Value of the filter.</p>"
+            "smithy.api#documentation": "<p>Name of the filter.</p>",
+            "smithy.api#required": {}
           }
         },
         "Condition": {
@@ -652,11 +653,10 @@
             "smithy.api#required": {}
           }
         },
-        "Name": {
+        "Value": {
           "target": "com.amazonaws.licensemanager#String",
           "traits": {
-            "smithy.api#documentation": "<p>Name of the filter.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Value of the filter.</p>"
           }
         }
       },
@@ -696,76 +696,10 @@
     "com.amazonaws.licensemanager#LicenseConfiguration": {
       "type": "structure",
       "members": {
-        "LicenseCount": {
-          "target": "com.amazonaws.licensemanager#BoxLong",
-          "traits": {
-            "smithy.api#documentation": "<p>Number of licenses managed by the license configuration.</p>"
-          }
-        },
-        "AutomatedDiscoveryInformation": {
-          "target": "com.amazonaws.licensemanager#AutomatedDiscoveryInformation",
-          "traits": {
-            "smithy.api#documentation": "<p>Automated discovery information.</p>"
-          }
-        },
-        "Status": {
-          "target": "com.amazonaws.licensemanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Status of the license configuration.</p>"
-          }
-        },
-        "LicenseCountHardLimit": {
-          "target": "com.amazonaws.licensemanager#BoxBoolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Number of available licenses as a hard limit.</p>"
-          }
-        },
-        "ProductInformationList": {
-          "target": "com.amazonaws.licensemanager#ProductInformationList",
-          "traits": {
-            "smithy.api#documentation": "<p>Product information.</p>"
-          }
-        },
-        "LicenseRules": {
-          "target": "com.amazonaws.licensemanager#StringList",
-          "traits": {
-            "smithy.api#documentation": "<p>License rules.</p>"
-          }
-        },
         "LicenseConfigurationId": {
           "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Unique ID of the license configuration.</p>"
-          }
-        },
-        "OwnerAccountId": {
-          "target": "com.amazonaws.licensemanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Account ID of the license configuration's owner.</p>"
-          }
-        },
-        "ManagedResourceSummaryList": {
-          "target": "com.amazonaws.licensemanager#ManagedResourceSummaryList",
-          "traits": {
-            "smithy.api#documentation": "<p>Summaries for managed resources.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.licensemanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Name of the license configuration.</p>"
-          }
-        },
-        "LicenseCountingType": {
-          "target": "com.amazonaws.licensemanager#LicenseCountingType",
-          "traits": {
-            "smithy.api#documentation": "<p>Dimension to use to track the license inventory.</p>"
-          }
-        },
-        "ConsumedLicenses": {
-          "target": "com.amazonaws.licensemanager#BoxLong",
-          "traits": {
-            "smithy.api#documentation": "<p>Number of licenses consumed. </p>"
           }
         },
         "LicenseConfigurationArn": {
@@ -774,10 +708,10 @@
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the license configuration.</p>"
           }
         },
-        "ConsumedLicenseSummaryList": {
-          "target": "com.amazonaws.licensemanager#ConsumedLicenseSummaryList",
+        "Name": {
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
-            "smithy.api#documentation": "<p>Summaries for licenses consumed by various resources.</p>"
+            "smithy.api#documentation": "<p>Name of the license configuration.</p>"
           }
         },
         "Description": {
@@ -785,10 +719,76 @@
           "traits": {
             "smithy.api#documentation": "<p>Description of the license configuration.</p>"
           }
+        },
+        "LicenseCountingType": {
+          "target": "com.amazonaws.licensemanager#LicenseCountingType",
+          "traits": {
+            "smithy.api#documentation": "<p>Dimension to use to track the license inventory.</p>"
+          }
+        },
+        "LicenseRules": {
+          "target": "com.amazonaws.licensemanager#StringList",
+          "traits": {
+            "smithy.api#documentation": "<p>License rules.</p>"
+          }
+        },
+        "LicenseCount": {
+          "target": "com.amazonaws.licensemanager#BoxLong",
+          "traits": {
+            "smithy.api#documentation": "<p>Number of licenses managed by the license configuration.</p>"
+          }
+        },
+        "LicenseCountHardLimit": {
+          "target": "com.amazonaws.licensemanager#BoxBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Number of available licenses as a hard limit.</p>"
+          }
+        },
+        "ConsumedLicenses": {
+          "target": "com.amazonaws.licensemanager#BoxLong",
+          "traits": {
+            "smithy.api#documentation": "<p>Number of licenses consumed. </p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.licensemanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Status of the license configuration.</p>"
+          }
+        },
+        "OwnerAccountId": {
+          "target": "com.amazonaws.licensemanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Account ID of the license configuration's owner.</p>"
+          }
+        },
+        "ConsumedLicenseSummaryList": {
+          "target": "com.amazonaws.licensemanager#ConsumedLicenseSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>Summaries for licenses consumed by various resources.</p>"
+          }
+        },
+        "ManagedResourceSummaryList": {
+          "target": "com.amazonaws.licensemanager#ManagedResourceSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>Summaries for managed resources.</p>"
+          }
+        },
+        "ProductInformationList": {
+          "target": "com.amazonaws.licensemanager#ProductInformationList",
+          "traits": {
+            "smithy.api#documentation": "<p>Product information.</p>"
+          }
+        },
+        "AutomatedDiscoveryInformation": {
+          "target": "com.amazonaws.licensemanager#AutomatedDiscoveryInformation",
+          "traits": {
+            "smithy.api#documentation": "<p>Automated discovery information.</p>"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>A license configuration is an abstraction of a customer license agreement that can be\n         consumed and enforced by License Manager. Components include specifications for the license\n         type (licensing by instance, socket, CPU, or vCPU), allowed tenancy (shared tenancy, \n         Dedicated Instance, Dedicated Host, or all of these), host affinity (how long a VM\n         must be associated with a host), and the number of licenses purchased and used.</p>"
+        "smithy.api#documentation": "<p>A license configuration is an abstraction of a customer license agreement that can be\n         consumed and enforced by License Manager. Components include specifications for the license\n         type (licensing by instance, socket, CPU, or vCPU), allowed tenancy (shared tenancy,\n         Dedicated Instance, Dedicated Host, or all of these), host affinity (how long a VM must be\n         associated with a host), and the number of licenses purchased and used.</p>"
       }
     },
     "com.amazonaws.licensemanager#LicenseConfigurationAssociation": {
@@ -798,6 +798,12 @@
           "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resource.</p>"
+          }
+        },
+        "ResourceType": {
+          "target": "com.amazonaws.licensemanager#ResourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>Type of server resource.</p>"
           }
         },
         "ResourceOwnerId": {
@@ -812,10 +818,10 @@
             "smithy.api#documentation": "<p>Time when the license configuration was associated with the resource.</p>"
           }
         },
-        "ResourceType": {
-          "target": "com.amazonaws.licensemanager#ResourceType",
+        "AmiAssociationScope": {
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
-            "smithy.api#documentation": "<p>Type of server resource.</p>"
+            "smithy.api#documentation": "<p>Scope of AMI associations.</p>"
           }
         }
       },
@@ -847,24 +853,6 @@
     "com.amazonaws.licensemanager#LicenseConfigurationUsage": {
       "type": "structure",
       "members": {
-        "AssociationTime": {
-          "target": "com.amazonaws.licensemanager#DateTime",
-          "traits": {
-            "smithy.api#documentation": "<p>Time when the license configuration was initially associated with the resource.</p>"
-          }
-        },
-        "ConsumedLicenses": {
-          "target": "com.amazonaws.licensemanager#BoxLong",
-          "traits": {
-            "smithy.api#documentation": "<p>Number of licenses consumed by the resource.</p>"
-          }
-        },
-        "ResourceOwnerId": {
-          "target": "com.amazonaws.licensemanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>ID of the account that owns the resource.</p>"
-          }
-        },
         "ResourceArn": {
           "target": "com.amazonaws.licensemanager#String",
           "traits": {
@@ -881,6 +869,24 @@
           "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Status of the resource.</p>"
+          }
+        },
+        "ResourceOwnerId": {
+          "target": "com.amazonaws.licensemanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>ID of the account that owns the resource.</p>"
+          }
+        },
+        "AssociationTime": {
+          "target": "com.amazonaws.licensemanager#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>Time when the license configuration was initially associated with the resource.</p>"
+          }
+        },
+        "ConsumedLicenses": {
+          "target": "com.amazonaws.licensemanager#BoxLong",
+          "traits": {
+            "smithy.api#documentation": "<p>Number of licenses consumed by the resource.</p>"
           }
         }
       },
@@ -926,22 +932,16 @@
     "com.amazonaws.licensemanager#LicenseOperationFailure": {
       "type": "structure",
       "members": {
+        "ResourceArn": {
+          "target": "com.amazonaws.licensemanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resource.</p>"
+          }
+        },
         "ResourceType": {
           "target": "com.amazonaws.licensemanager#ResourceType",
           "traits": {
             "smithy.api#documentation": "<p>Resource type.</p>"
-          }
-        },
-        "OperationName": {
-          "target": "com.amazonaws.licensemanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Name of the operation.</p>"
-          }
-        },
-        "OperationRequestedBy": {
-          "target": "com.amazonaws.licensemanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The requester is \"License Manager Automated Discovery\".</p>"
           }
         },
         "ErrorMessage": {
@@ -950,28 +950,34 @@
             "smithy.api#documentation": "<p>Error message.</p>"
           }
         },
-        "MetadataList": {
-          "target": "com.amazonaws.licensemanager#MetadataList",
-          "traits": {
-            "smithy.api#documentation": "<p>Reserved.</p>"
-          }
-        },
         "FailureTime": {
           "target": "com.amazonaws.licensemanager#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>Failure time.</p>"
           }
         },
-        "ResourceArn": {
+        "OperationName": {
           "target": "com.amazonaws.licensemanager#String",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resource.</p>"
+            "smithy.api#documentation": "<p>Name of the operation.</p>"
           }
         },
         "ResourceOwnerId": {
           "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>ID of the AWS account that owns the resource.</p>"
+          }
+        },
+        "OperationRequestedBy": {
+          "target": "com.amazonaws.licensemanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The requester is \"License Manager Automated Discovery\".</p>"
+          }
+        },
+        "MetadataList": {
+          "target": "com.amazonaws.licensemanager#MetadataList",
+          "traits": {
+            "smithy.api#documentation": "<p>Reserved.</p>"
           }
         }
       },
@@ -993,6 +999,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the license configuration.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "AmiAssociationScope": {
+          "target": "com.amazonaws.licensemanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Scope of AMI associations.</p>"
           }
         }
       },
@@ -1048,7 +1060,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists the resource associations for the specified license configuration.</p> \n         <p>Resource associations need not consume licenses from a license configuration. \n         For example, an AMI or a stopped instance might not consume a license (depending on \n         the license rules).</p>"
+        "smithy.api#documentation": "<p>Lists the resource associations for the specified license configuration.</p>\n         <p>Resource associations need not consume licenses from a license configuration. For\n         example, an AMI or a stopped instance might not consume a license (depending on the license\n         rules).</p>"
       }
     },
     "com.amazonaws.licensemanager#ListAssociationsForLicenseConfigurationRequest": {
@@ -1131,16 +1143,16 @@
             "smithy.api#required": {}
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.licensemanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Token for the next set of results.</p>"
-          }
-        },
         "MaxResults": {
           "target": "com.amazonaws.licensemanager#BoxInteger",
           "traits": {
             "smithy.api#documentation": "<p>Maximum number of results to return in a single call.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.licensemanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
       }
@@ -1197,12 +1209,6 @@
     "com.amazonaws.licensemanager#ListLicenseConfigurationsRequest": {
       "type": "structure",
       "members": {
-        "Filters": {
-          "target": "com.amazonaws.licensemanager#Filters",
-          "traits": {
-            "smithy.api#documentation": "<p>Filters to scope the results. The following filters and logical operators\n        are supported:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>licenseCountingType</code> - The dimension on which licenses are counted.\n               Possible values are <code>vCPU</code> | <code>Instance</code> | <code>Core</code> | <code>Socket</code>.\n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>enforceLicenseCount</code> - A Boolean value that indicates whether hard license enforcement is used. \n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>usagelimitExceeded</code> - A Boolean value that indicates whether the available licenses have been exceeded. \n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>\n            </li>\n         </ul>"
-          }
-        },
         "LicenseConfigurationArns": {
           "target": "com.amazonaws.licensemanager#StringList",
           "traits": {
@@ -1220,22 +1226,28 @@
           "traits": {
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
+        },
+        "Filters": {
+          "target": "com.amazonaws.licensemanager#Filters",
+          "traits": {
+            "smithy.api#documentation": "<p>Filters to scope the results. The following filters and logical operators are\n         supported:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>licenseCountingType</code> - The dimension on which licenses are counted.\n               Possible values are <code>vCPU</code> | <code>Instance</code> | <code>Core</code> |\n                  <code>Socket</code>. Logical operators are <code>EQUALS</code> |\n                  <code>NOT_EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>enforceLicenseCount</code> - A Boolean value that indicates whether hard\n               license enforcement is used. Logical operators are <code>EQUALS</code> |\n                  <code>NOT_EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>usagelimitExceeded</code> - A Boolean value that indicates whether the\n               available licenses have been exceeded. Logical operators are <code>EQUALS</code> |\n                  <code>NOT_EQUALS</code>.</p>\n            </li>\n         </ul>"
+          }
         }
       }
     },
     "com.amazonaws.licensemanager#ListLicenseConfigurationsResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.licensemanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Token for the next set of results.</p>"
-          }
-        },
         "LicenseConfigurations": {
           "target": "com.amazonaws.licensemanager#LicenseConfigurations",
           "traits": {
             "smithy.api#documentation": "<p>Information about the license configurations.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.licensemanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
       }
@@ -1275,7 +1287,7 @@
         "ResourceArn": {
           "target": "com.amazonaws.licensemanager#String",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of a resource that has an associated license configuration.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of a resource that has an associated license\n         configuration.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1296,16 +1308,16 @@
     "com.amazonaws.licensemanager#ListLicenseSpecificationsForResourceResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.licensemanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Token for the next set of results.</p>"
-          }
-        },
         "LicenseSpecifications": {
           "target": "com.amazonaws.licensemanager#LicenseSpecifications",
           "traits": {
             "smithy.api#documentation": "<p>License configurations associated with a resource.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.licensemanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
       }
@@ -1354,16 +1366,16 @@
             "smithy.api#documentation": "<p>Maximum number of results to return in a single call.</p>"
           }
         },
-        "Filters": {
-          "target": "com.amazonaws.licensemanager#InventoryFilterList",
-          "traits": {
-            "smithy.api#documentation": "<p>Filters to scope the results. The following filters and logical operators\n        are supported:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>account_id</code> - The ID of the AWS account that owns the resource.\n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>application_name</code> - The name of the application. \n               Logical operators are <code>EQUALS</code> | <code>BEGINS_WITH</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>license_included</code> - The type of license included. \n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.\n               Possible values are <code>sql-server-enterprise</code> | \n               <code>sql-server-standard</code> | \n               <code>sql-server-web</code> |  \n               <code>windows-server-datacenter</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>platform</code> - The platform of the resource.\n               Logical operators are <code>EQUALS</code> | <code>BEGINS_WITH</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>resource_id</code> - The ID of the resource. \n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>\n            </li>\n         </ul>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
+          }
+        },
+        "Filters": {
+          "target": "com.amazonaws.licensemanager#InventoryFilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>Filters to scope the results. The following filters and logical operators are\n         supported:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>account_id</code> - The ID of the AWS account that owns the resource.\n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>application_name</code> - The name of the application. Logical operators are\n                  <code>EQUALS</code> | <code>BEGINS_WITH</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>license_included</code> - The type of license included. Logical operators\n               are <code>EQUALS</code> | <code>NOT_EQUALS</code>. Possible values are\n                  <code>sql-server-enterprise</code> | <code>sql-server-standard</code> |\n                  <code>sql-server-web</code> | <code>windows-server-datacenter</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>platform</code> - The platform of the resource. Logical operators are\n                  <code>EQUALS</code> | <code>BEGINS_WITH</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>resource_id</code> - The ID of the resource. Logical operators are\n                  <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>\n            </li>\n         </ul>"
           }
         }
       }
@@ -1479,6 +1491,12 @@
             "smithy.api#required": {}
           }
         },
+        "MaxResults": {
+          "target": "com.amazonaws.licensemanager#BoxInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>Maximum number of results to return in a single call.</p>"
+          }
+        },
         "NextToken": {
           "target": "com.amazonaws.licensemanager#String",
           "traits": {
@@ -1488,13 +1506,7 @@
         "Filters": {
           "target": "com.amazonaws.licensemanager#Filters",
           "traits": {
-            "smithy.api#documentation": "<p>Filters to scope the results. The following filters and logical operators\n        are supported:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>resourceArn</code> - The ARN of the license configuration resource.\n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>resourceType</code> - The resource type (EC2_INSTANCE | EC2_HOST | EC2_AMI | SYSTEMS_MANAGER_MANAGED_INSTANCE). \n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>resourceAccount</code> - The ID of the account that owns the resource. \n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>\n            </li>\n         </ul>"
-          }
-        },
-        "MaxResults": {
-          "target": "com.amazonaws.licensemanager#BoxInteger",
-          "traits": {
-            "smithy.api#documentation": "<p>Maximum number of results to return in a single call.</p>"
+            "smithy.api#documentation": "<p>Filters to scope the results. The following filters and logical operators are\n         supported:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>resourceArn</code> - The ARN of the license configuration resource. Logical\n               operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>resourceType</code> - The resource type (EC2_INSTANCE | EC2_HOST | EC2_AMI |\n               SYSTEMS_MANAGER_MANAGED_INSTANCE). Logical operators are <code>EQUALS</code> |\n                  <code>NOT_EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>resourceAccount</code> - The ID of the account that owns the resource.\n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>\n            </li>\n         </ul>"
           }
         }
       }
@@ -1502,16 +1514,16 @@
     "com.amazonaws.licensemanager#ListUsageForLicenseConfigurationResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.licensemanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Token for the next set of results.</p>"
-          }
-        },
         "LicenseConfigurationUsageList": {
           "target": "com.amazonaws.licensemanager#LicenseConfigurationUsageList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the license configurations.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.licensemanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
       }
@@ -1548,13 +1560,13 @@
     "com.amazonaws.licensemanager#Metadata": {
       "type": "structure",
       "members": {
-        "Value": {
+        "Name": {
           "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Reserved.</p>"
           }
         },
-        "Name": {
+        "Value": {
           "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Reserved.</p>"
@@ -1592,14 +1604,14 @@
         "ResourceType": {
           "target": "com.amazonaws.licensemanager#String",
           "traits": {
-            "smithy.api#documentation": "<p>Resource type. The possible values are <code>SSM_MANAGED</code> | <code>RDS</code>.</p>",
+            "smithy.api#documentation": "<p>Resource type. The possible values are <code>SSM_MANAGED</code> |\n         <code>RDS</code>.</p>",
             "smithy.api#required": {}
           }
         },
         "ProductInformationFilterList": {
           "target": "com.amazonaws.licensemanager#ProductInformationFilterList",
           "traits": {
-            "smithy.api#documentation": "<p>Product information filters.</p> \n         <p>The following filters and logical operators are supported when the resource type \n         is <code>SSM_MANAGED</code>:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Application Name</code> - The name of the application.\n              Logical operator is <code>EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Application Publisher</code> - The publisher of the application.\n               Logical operator is <code>EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Application Version</code> - The version of the application.\n               Logical operator is <code>EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Platform Name</code> - The name of the platform.\n               Logical operator is <code>EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Platform Type</code> - The platform type.\n               Logical operator is <code>EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>License Included</code> - The type of license included.\n               Logical operators are <code>EQUALS</code> and <code>NOT_EQUALS</code>.\n               Possible values are: <code>sql-server-enterprise</code> | \n               <code>sql-server-standard</code> | \n               <code>sql-server-web</code> |  \n               <code>windows-server-datacenter</code>.</p>\n            </li>\n         </ul>\n         <p>The following filters and logical operators are supported when the resource type\n         is <code>RDS</code>:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Engine Edition</code> - The edition of the database engine.\n               Logical operator is <code>EQUALS</code>.\n               Possible values are: <code>oracle-ee</code> | <code>oracle-se</code> | <code>oracle-se1</code> | <code>oracle-se2</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>License Pack</code> - The license pack.\n               Logical operator is <code>EQUALS</code>.\n               Possible values are: <code>data guard</code> | \n               <code>diagnostic pack sqlt</code> | \n               <code>tuning pack sqlt</code> | \n               <code>ols</code> | \n               <code>olap</code>.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>Product information filters.</p>\n         <p>The following filters and logical operators are supported when the resource type is\n            <code>SSM_MANAGED</code>:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Application Name</code> - The name of the application. Logical operator is\n                  <code>EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Application Publisher</code> - The publisher of the application. Logical\n               operator is <code>EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Application Version</code> - The version of the application. Logical\n               operator is <code>EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Platform Name</code> - The name of the platform. Logical operator is\n                  <code>EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Platform Type</code> - The platform type. Logical operator is\n                  <code>EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>License Included</code> - The type of license included. Logical operators\n               are <code>EQUALS</code> and <code>NOT_EQUALS</code>. Possible values are:\n                  <code>sql-server-enterprise</code> | <code>sql-server-standard</code> |\n                  <code>sql-server-web</code> | <code>windows-server-datacenter</code>.</p>\n            </li>\n         </ul>\n         <p>The following filters and logical operators are supported when the resource type is\n            <code>RDS</code>:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Engine Edition</code> - The edition of the database engine. Logical operator\n               is <code>EQUALS</code>. Possible values are: <code>oracle-ee</code> |\n                  <code>oracle-se</code> | <code>oracle-se1</code> | <code>oracle-se2</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>License Pack</code> - The license pack. Logical operator is\n                  <code>EQUALS</code>. Possible values are: <code>data guard</code> |\n                  <code>diagnostic pack sqlt</code> | <code>tuning pack sqlt</code> |\n                  <code>ols</code> | <code>olap</code>.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         }
@@ -1611,6 +1623,13 @@
     "com.amazonaws.licensemanager#ProductInformationFilter": {
       "type": "structure",
       "members": {
+        "ProductInformationFilterName": {
+          "target": "com.amazonaws.licensemanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Filter name.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "ProductInformationFilterValue": {
           "target": "com.amazonaws.licensemanager#StringList",
           "traits": {
@@ -1622,13 +1641,6 @@
           "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Logical operator.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "ProductInformationFilterName": {
-          "target": "com.amazonaws.licensemanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Filter name.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1665,28 +1677,16 @@
     "com.amazonaws.licensemanager#ResourceInventory": {
       "type": "structure",
       "members": {
-        "ResourceType": {
-          "target": "com.amazonaws.licensemanager#ResourceType",
-          "traits": {
-            "smithy.api#documentation": "<p>Type of resource.</p>"
-          }
-        },
         "ResourceId": {
           "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>ID of the resource.</p>"
           }
         },
-        "Platform": {
-          "target": "com.amazonaws.licensemanager#String",
+        "ResourceType": {
+          "target": "com.amazonaws.licensemanager#ResourceType",
           "traits": {
-            "smithy.api#documentation": "<p>Platform of the resource.</p>"
-          }
-        },
-        "ResourceOwningAccountId": {
-          "target": "com.amazonaws.licensemanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>ID of the account that owns the resource.</p>"
+            "smithy.api#documentation": "<p>Type of resource.</p>"
           }
         },
         "ResourceArn": {
@@ -1695,10 +1695,22 @@
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resource.</p>"
           }
         },
+        "Platform": {
+          "target": "com.amazonaws.licensemanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Platform of the resource.</p>"
+          }
+        },
         "PlatformVersion": {
           "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Platform version of the resource in the inventory.</p>"
+          }
+        },
+        "ResourceOwningAccountId": {
+          "target": "com.amazonaws.licensemanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>ID of the account that owns the resource.</p>"
           }
         }
       },
@@ -1890,17 +1902,17 @@
     "com.amazonaws.licensemanager#UntagResourceRequest": {
       "type": "structure",
       "members": {
-        "TagKeys": {
-          "target": "com.amazonaws.licensemanager#TagKeyList",
-          "traits": {
-            "smithy.api#documentation": "<p>Keys identifying the tags to remove.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ResourceArn": {
           "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the license configuration.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TagKeys": {
+          "target": "com.amazonaws.licensemanager#TagKeyList",
+          "traits": {
+            "smithy.api#documentation": "<p>Keys identifying the tags to remove.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1942,36 +1954,6 @@
     "com.amazonaws.licensemanager#UpdateLicenseConfigurationRequest": {
       "type": "structure",
       "members": {
-        "Description": {
-          "target": "com.amazonaws.licensemanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>New description of the license configuration.</p>"
-          }
-        },
-        "LicenseCountHardLimit": {
-          "target": "com.amazonaws.licensemanager#BoxBoolean",
-          "traits": {
-            "smithy.api#documentation": "<p>New hard limit of the number of available licenses.</p>"
-          }
-        },
-        "ProductInformationList": {
-          "target": "com.amazonaws.licensemanager#ProductInformationList",
-          "traits": {
-            "smithy.api#documentation": "<p>New product information.</p>"
-          }
-        },
-        "LicenseRules": {
-          "target": "com.amazonaws.licensemanager#StringList",
-          "traits": {
-            "smithy.api#documentation": "<p>New license rule. The only rule that you can add after you create a license\n          configuration is licenseAffinityToHost.</p>"
-          }
-        },
-        "LicenseCount": {
-          "target": "com.amazonaws.licensemanager#BoxLong",
-          "traits": {
-            "smithy.api#documentation": "<p>New number of licenses managed by the license configuration.</p>"
-          }
-        },
         "LicenseConfigurationArn": {
           "target": "com.amazonaws.licensemanager#String",
           "traits": {
@@ -1985,10 +1967,40 @@
             "smithy.api#documentation": "<p>New status of the license configuration.</p>"
           }
         },
+        "LicenseRules": {
+          "target": "com.amazonaws.licensemanager#StringList",
+          "traits": {
+            "smithy.api#documentation": "<p>New license rule. The only rule that you can add after you create a license\n         configuration is licenseAffinityToHost.</p>"
+          }
+        },
+        "LicenseCount": {
+          "target": "com.amazonaws.licensemanager#BoxLong",
+          "traits": {
+            "smithy.api#documentation": "<p>New number of licenses managed by the license configuration.</p>"
+          }
+        },
+        "LicenseCountHardLimit": {
+          "target": "com.amazonaws.licensemanager#BoxBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p>New hard limit of the number of available licenses.</p>"
+          }
+        },
         "Name": {
           "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>New name of the license configuration.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.licensemanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>New description of the license configuration.</p>"
+          }
+        },
+        "ProductInformationList": {
+          "target": "com.amazonaws.licensemanager#ProductInformationList",
+          "traits": {
+            "smithy.api#documentation": "<p>New product information.</p>"
           }
         }
       }
@@ -2029,23 +2041,23 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Adds or removes the specified license configurations for the specified AWS resource.</p> \n         <p>You can update the license specifications of AMIs, instances, and hosts.\n         You cannot update the license specifications for launch templates and AWS CloudFormation templates, \n         as they send license configurations to the operation that creates the resource.</p>"
+        "smithy.api#documentation": "<p>Adds or removes the specified license configurations for the specified AWS\n         resource.</p>\n         <p>You can update the license specifications of AMIs, instances, and hosts. You cannot\n         update the license specifications for launch templates and AWS CloudFormation templates, as\n         they send license configurations to the operation that creates the resource.</p>"
       }
     },
     "com.amazonaws.licensemanager#UpdateLicenseSpecificationsForResourceRequest": {
       "type": "structure",
       "members": {
-        "AddLicenseSpecifications": {
-          "target": "com.amazonaws.licensemanager#LicenseSpecifications",
-          "traits": {
-            "smithy.api#documentation": "<p>ARNs of the license configurations to add.</p>"
-          }
-        },
         "ResourceArn": {
           "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the AWS resource.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "AddLicenseSpecifications": {
+          "target": "com.amazonaws.licensemanager#LicenseSpecifications",
+          "traits": {
+            "smithy.api#documentation": "<p>ARNs of the license configurations to add.</p>"
           }
         },
         "RemoveLicenseSpecifications": {
@@ -2095,7 +2107,7 @@
         "S3BucketArn": {
           "target": "com.amazonaws.licensemanager#String",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Amazon S3 bucket where the License Manager information is stored.</p>"
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Amazon S3 bucket where the License Manager information is\n         stored.</p>"
           }
         },
         "SnsTopicArn": {

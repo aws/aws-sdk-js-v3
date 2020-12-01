@@ -146,6 +146,18 @@
         "smithy.api#documentation": "<p>Ad hoc (one-time) filtering option.</p>"
       }
     },
+    "com.amazonaws.quicksight#AdditionalDashboardIdList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.quicksight#RestrictiveResourceId"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 20
+        }
+      }
+    },
     "com.amazonaws.quicksight#AliasName": {
       "type": "string",
       "traits": {
@@ -3748,7 +3760,7 @@
         "ColumnLevelPermissionRulesApplied": {
           "target": "com.amazonaws.quicksight#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates if the dataset has column level permission\n            configured. </p>"
+            "smithy.api#documentation": "<p>Indicates if the dataset has column level permission\n            configured.</p>"
           }
         }
       },
@@ -3929,7 +3941,7 @@
       }
     },
     "com.amazonaws.quicksight#DataSourceParameters": {
-      "type": "structure",
+      "type": "union",
       "members": {
         "AmazonElasticsearchParameters": {
           "target": "com.amazonaws.quicksight#AmazonElasticsearchParameters",
@@ -7572,6 +7584,25 @@
         ]
       }
     },
+    "com.amazonaws.quicksight#EmbeddingIdentityType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "IAM",
+            "name": "IAM"
+          },
+          {
+            "value": "QUICKSIGHT",
+            "name": "QUICKSIGHT"
+          },
+          {
+            "value": "ANONYMOUS",
+            "name": "ANONYMOUS"
+          }
+        ]
+      }
+    },
     "com.amazonaws.quicksight#EmbeddingUrl": {
       "type": "string",
       "traits": {
@@ -7845,6 +7876,9 @@
           "target": "com.amazonaws.quicksight#ThrottlingException"
         },
         {
+          "target": "com.amazonaws.quicksight#UnsupportedPricingPlanException"
+        },
+        {
           "target": "com.amazonaws.quicksight#UnsupportedUserEditionException"
         }
       ],
@@ -7877,7 +7911,7 @@
           }
         },
         "IdentityType": {
-          "target": "com.amazonaws.quicksight#IdentityType",
+          "target": "com.amazonaws.quicksight#EmbeddingIdentityType",
           "traits": {
             "smithy.api#documentation": "<p>The authentication method that the user uses to sign in.</p>",
             "smithy.api#httpQuery": "creds-type",
@@ -7918,7 +7952,24 @@
             "smithy.api#documentation": "<p>The Amazon QuickSight user's Amazon Resource Name (ARN), for use with <code>QUICKSIGHT</code> identity type.\n\t\t\tYou can use this for any Amazon QuickSight users in your account (readers, authors, or\n\t\t\tadmins) authenticated as one of the following:</p>\n\t\t       <ul>\n            <li>\n\t\t\t\t           <p>Active Directory (AD) users or group members</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>Invited nonfederated users</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>IAM users and IAM role-based sessions authenticated through Federated Single Sign-On using\n\t\t\t\t\tSAML, OpenID Connect, or IAM federation.</p>\n\t\t\t         </li>\n         </ul>\n         <p>Omit this parameter for users in the third group – IAM users and IAM\n            role-based sessions.</p>",
             "smithy.api#httpQuery": "user-arn"
           }
+        },
+        "Namespace": {
+          "target": "com.amazonaws.quicksight#Namespace",
+          "traits": {
+            "smithy.api#documentation": "<p>The QuickSight namespace that contains the dashboard IDs in this request.\n    \t   If you're not using a custom namespace, set this to \n    \t    \"<code>default</code>\".</p>",
+            "smithy.api#httpQuery": "namespace"
+          }
+        },
+        "AdditionalDashboardIds": {
+          "target": "com.amazonaws.quicksight#AdditionalDashboardIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of one or more dashboard ids that you want to add to a session that \n            includes anonymous authorizations. <code>IdentityType</code> must be set to ANONYMOUS \n            for this to work, because other other identity types authenticate as QuickSight users. \n            For example, if you set \"<code>--dashboard-id dash_id1 --dashboard-id dash_id2 \n            dash_id3 identity-type ANONYMOUS</code>\", the session can access all \n            three dashboards.\n        </p>",
+            "smithy.api#httpQuery": "additional-dashboard-ids"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Parameter input for the <code>GetDashboardEmbedUrl</code> operation.</p>"
       }
     },
     "com.amazonaws.quicksight#GetDashboardEmbedUrlResponse": {
@@ -7943,6 +7994,9 @@
             "smithy.api#documentation": "<p>The AWS request ID for this operation.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Output returned from the <code>GetDashboardEmbedUrl</code> operation.</p>"
       }
     },
     "com.amazonaws.quicksight#GetSessionEmbedUrl": {
@@ -11445,7 +11499,7 @@
       }
     },
     "com.amazonaws.quicksight#PhysicalTable": {
-      "type": "structure",
+      "type": "union",
       "members": {
         "RelationalTable": {
           "target": "com.amazonaws.quicksight#RelationalTable",
@@ -14146,7 +14200,7 @@
       }
     },
     "com.amazonaws.quicksight#TransformOperation": {
-      "type": "structure",
+      "type": "union",
       "members": {
         "ProjectOperation": {
           "target": "com.amazonaws.quicksight#ProjectOperation",
@@ -14334,6 +14388,25 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>The theme colors that apply to UI and to charts, excluding data colors. The colors\n            description is a hexadecimal color code that consists of six alphanumerical characters,\n            prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href=\"https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html\">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User\n                Guide.</i>\n        </p>"
+      }
+    },
+    "com.amazonaws.quicksight#UnsupportedPricingPlanException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.quicksight#String"
+        },
+        "RequestId": {
+          "target": "com.amazonaws.quicksight#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS request ID for this request.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>This error indicates that you are calling an embedding operation in Amazon QuickSight\n\t\t\twithout the required pricing plan on your AWS account. Before you can use anonymous \n\t\t\tembedding, a QuickSight administrator needs to add capacity pricing to QuickSight. You \n\t\t    can do this on the <b>Manage QuickSight</b> page. </p>\n        <p>After capacity pricing is added, you can enable anonymous embedding by using the \n            <code>\n               <a>GetDashboardEmbedUrl</a>\n            </code> API operation with the \n            <code>--identity-type ANONYMOUS</code> option.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazonaws.quicksight#UnsupportedUserEditionException": {

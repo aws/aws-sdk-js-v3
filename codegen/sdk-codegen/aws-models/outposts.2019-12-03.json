@@ -131,6 +131,12 @@
         },
         "AvailabilityZoneId": {
           "target": "com.amazonaws.outposts#AvailabilityZoneId"
+        },
+        "Tags": {
+          "target": "com.amazonaws.outposts#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to apply to the Outpost.</p>"
+          }
         }
       }
     },
@@ -589,6 +595,12 @@
         },
         "AvailabilityZoneId": {
           "target": "com.amazonaws.outposts#AvailabilityZoneId"
+        },
+        "Tags": {
+          "target": "com.amazonaws.outposts#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The Outpost tags.</p>"
+          }
         }
       },
       "traits": {
@@ -718,6 +730,12 @@
         },
         "Description": {
           "target": "com.amazonaws.outposts#SiteDescription"
+        },
+        "Tags": {
+          "target": "com.amazonaws.outposts#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The site tags.</p>"
+          }
         }
       },
       "traits": {
@@ -755,6 +773,41 @@
           "max": 1000
         },
         "smithy.api#pattern": "^[\\S ]+$"
+      }
+    },
+    "com.amazonaws.outposts#TagKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        },
+        "smithy.api#pattern": "^(?!aws:)[a-zA-Z+-=._:/]+$"
+      }
+    },
+    "com.amazonaws.outposts#TagMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.outposts#TagKey"
+      },
+      "value": {
+        "target": "com.amazonaws.outposts#TagValue"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 50
+        }
+      }
+    },
+    "com.amazonaws.outposts#TagValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        },
+        "smithy.api#pattern": "^[\\S \\n]+$"
       }
     },
     "com.amazonaws.outposts#Token": {

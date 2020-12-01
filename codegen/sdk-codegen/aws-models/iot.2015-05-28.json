@@ -1423,7 +1423,7 @@
       }
     },
     "com.amazonaws.iot#AssetPropertyVariant": {
-      "type": "structure",
+      "type": "union",
       "members": {
         "stringValue": {
           "target": "com.amazonaws.iot#AssetPropertyStringValue",
@@ -11990,6 +11990,16 @@
     "com.amazonaws.iot#FileName": {
       "type": "string"
     },
+    "com.amazonaws.iot#FileType": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": {},
+        "smithy.api#range": {
+          "min": 0,
+          "max": 255
+        }
+      }
+    },
     "com.amazonaws.iot#FindingId": {
       "type": "string",
       "traits": {
@@ -19244,6 +19254,12 @@
           "target": "com.amazonaws.iot#FileName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the file.</p>"
+          }
+        },
+        "fileType": {
+          "target": "com.amazonaws.iot#FileType",
+          "traits": {
+            "smithy.api#documentation": "<p>An integer value you can include in the job document to allow your devices to identify the type of file received \n            from the cloud.</p>"
           }
         },
         "fileVersion": {

@@ -4214,7 +4214,7 @@
         "OfferingType": {
           "target": "com.amazonaws.elasticache#String",
           "traits": {
-            "smithy.api#documentation": "<p>The offering type filter value. \n            Use this parameter to show only the available offerings matching the specified offering type.</p>\n        <p>Valid Values: <code>\"Light Utilization\"|\"Medium Utilization\"|\"Heavy Utilization\"</code>\n         </p>"
+            "smithy.api#documentation": "<p>The offering type filter value. \n            Use this parameter to show only the available offerings matching the specified offering type.</p>\n        <p>Valid Values: <code>\"Light Utilization\"|\"Medium Utilization\"|\"Heavy Utilization\" |\"All Upfront\"|\"Partial Upfront\"| \"No Upfront\"</code>\n         </p>"
           }
         },
         "MaxRecords": {

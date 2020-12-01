@@ -29,6 +29,87 @@
     ]
   },
   "shapes": {
+    "com.amazonaws.ssoadmin#AccessControlAttribute": {
+      "type": "structure",
+      "members": {
+        "Value": {
+          "target": "com.amazonaws.ssoadmin#AccessControlAttributeValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The value used for mapping a specified attribute to an identity source.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Key": {
+          "target": "com.amazonaws.ssoadmin#AccessControlAttributeKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>These are AWS SSO identity store attributes that you can configure for use in attributes-based access control (ABAC). You can create permission policies that determine who can access your AWS resources based upon the configured attribute value(s). When you enable ABAC and specify AccessControlAttributes, AWS SSO passes the attribute(s) value of the authenticated user into IAM for use in policy evaluation.</p>"
+      }
+    },
+    "com.amazonaws.ssoadmin#AccessControlAttributeKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        },
+        "smithy.api#pattern": "[\\p{L}\\p{Z}\\p{N}_.:\\/=+\\-@]+"
+      }
+    },
+    "com.amazonaws.ssoadmin#AccessControlAttributeList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ssoadmin#AccessControlAttribute"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 50
+        }
+      }
+    },
+    "com.amazonaws.ssoadmin#AccessControlAttributeValue": {
+      "type": "structure",
+      "members": {
+        "Source": {
+          "target": "com.amazonaws.ssoadmin#AccessControlAttributeValueSourceList",
+          "traits": {
+            "smithy.api#documentation": "<p>The identity source to use when mapping a specified attribute to AWS SSO.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The value used for mapping a specified attribute to an identity source.</p>"
+      }
+    },
+    "com.amazonaws.ssoadmin#AccessControlAttributeValueSource": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        },
+        "smithy.api#pattern": "[\\p{L}\\p{Z}\\p{N}_.:\\/=+\\-@\\[\\]\\{\\}\\$\\\\\"]*"
+      }
+    },
+    "com.amazonaws.ssoadmin#AccessControlAttributeValueSourceList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ssoadmin#AccessControlAttributeValueSource"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1
+        }
+      }
+    },
     "com.amazonaws.ssoadmin#AccessDeniedException": {
       "type": "structure",
       "members": {
@@ -54,16 +135,16 @@
             "smithy.api#documentation": "<p>The ARN of the permission set. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>"
           }
         },
-        "PrincipalType": {
-          "target": "com.amazonaws.ssoadmin#PrincipalType",
-          "traits": {
-            "smithy.api#documentation": "<p>The entity type for which the assignment will be created.</p>"
-          }
-        },
         "AccountId": {
           "target": "com.amazonaws.ssoadmin#AccountId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the AWS account.</p>"
+          }
+        },
+        "PrincipalType": {
+          "target": "com.amazonaws.ssoadmin#PrincipalType",
+          "traits": {
+            "smithy.api#documentation": "<p>The entity type for which the assignment will be created.</p>"
           }
         },
         "PrincipalId": {
@@ -86,14 +167,8 @@
     "com.amazonaws.ssoadmin#AccountAssignmentOperationStatus": {
       "type": "structure",
       "members": {
-        "FailureReason": {
-          "target": "com.amazonaws.ssoadmin#Reason",
-          "traits": {
-            "smithy.api#documentation": "<p>The message that contains an error or exception in case of an operation failure.</p>"
-          }
-        },
-        "PrincipalType": {
-          "target": "com.amazonaws.ssoadmin#PrincipalType",
+        "TargetType": {
+          "target": "com.amazonaws.ssoadmin#TargetType",
           "traits": {
             "smithy.api#documentation": "<p>The entity type for which the assignment will be created.</p>"
           }
@@ -110,22 +185,22 @@
             "smithy.api#documentation": "<p>The date that the permission set was created.</p>"
           }
         },
-        "TargetType": {
-          "target": "com.amazonaws.ssoadmin#TargetType",
-          "traits": {
-            "smithy.api#documentation": "<p>The entity type for which the assignment will be created.</p>"
-          }
-        },
-        "TargetId": {
-          "target": "com.amazonaws.ssoadmin#TargetId",
-          "traits": {
-            "smithy.api#documentation": "<p>TargetID is an AWS account identifier, typically a 10-12 digit string (For example, 123456789012).</p>"
-          }
-        },
         "PrincipalId": {
           "target": "com.amazonaws.ssoadmin#PrincipalId",
           "traits": {
             "smithy.api#documentation": "<p>An identifier for an object in AWS SSO, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in AWS SSO, see the <a href=\"/singlesignon/latest/IdentityStoreAPIReference/welcome.html\">AWS SSO Identity Store API Reference</a>.</p>"
+          }
+        },
+        "RequestId": {
+          "target": "com.amazonaws.ssoadmin#UUId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for tracking the request operation that is generated by the universally\n      unique identifier (UUID) workflow.</p>"
+          }
+        },
+        "FailureReason": {
+          "target": "com.amazonaws.ssoadmin#Reason",
+          "traits": {
+            "smithy.api#documentation": "<p>The message that contains an error or exception in case of an operation failure.</p>"
           }
         },
         "Status": {
@@ -134,10 +209,16 @@
             "smithy.api#documentation": "<p>The status of the permission set provisioning process.</p>"
           }
         },
-        "RequestId": {
-          "target": "com.amazonaws.ssoadmin#UUId",
+        "PrincipalType": {
+          "target": "com.amazonaws.ssoadmin#PrincipalType",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier for tracking the request operation that is generated by the universally\n      unique identifier (UUID) workflow.</p>"
+            "smithy.api#documentation": "<p>The entity type for which the assignment will be created.</p>"
+          }
+        },
+        "TargetId": {
+          "target": "com.amazonaws.ssoadmin#TargetId",
+          "traits": {
+            "smithy.api#documentation": "<p>TargetID is an AWS account identifier, typically a 10-12 digit string (For example, 123456789012).</p>"
           }
         }
       },
@@ -154,12 +235,6 @@
     "com.amazonaws.ssoadmin#AccountAssignmentOperationStatusMetadata": {
       "type": "structure",
       "members": {
-        "Status": {
-          "target": "com.amazonaws.ssoadmin#StatusValues",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the permission set provisioning process.</p>"
-          }
-        },
         "RequestId": {
           "target": "com.amazonaws.ssoadmin#UUId",
           "traits": {
@@ -170,6 +245,12 @@
           "target": "com.amazonaws.ssoadmin#Date",
           "traits": {
             "smithy.api#documentation": "<p>The date that the permission set was created.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.ssoadmin#StatusValues",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the permission set provisioning process.</p>"
           }
         }
       },
@@ -227,6 +308,13 @@
     "com.amazonaws.ssoadmin#AttachManagedPolicyToPermissionSetRequest": {
       "type": "structure",
       "members": {
+        "ManagedPolicyArn": {
+          "target": "com.amazonaws.ssoadmin#ManagedPolicyArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The IAM managed policy ARN to be attached to a permission set.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "PermissionSetArn": {
           "target": "com.amazonaws.ssoadmin#PermissionSetArn",
           "traits": {
@@ -238,13 +326,6 @@
           "target": "com.amazonaws.ssoadmin#InstanceArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "ManagedPolicyArn": {
-          "target": "com.amazonaws.ssoadmin#ManagedPolicyArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The IAM managed policy ARN to be attached to a permission set.</p>",
             "smithy.api#required": {}
           }
         }
@@ -334,24 +415,17 @@
     "com.amazonaws.ssoadmin#CreateAccountAssignmentRequest": {
       "type": "structure",
       "members": {
+        "PrincipalId": {
+          "target": "com.amazonaws.ssoadmin#PrincipalId",
+          "traits": {
+            "smithy.api#documentation": "<p>An identifier for an object in AWS SSO, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in AWS SSO, see the <a href=\"/singlesignon/latest/IdentityStoreAPIReference/welcome.html\">AWS SSO Identity Store API Reference</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "PermissionSetArn": {
           "target": "com.amazonaws.ssoadmin#PermissionSetArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the permission set that the admin wants to grant the principal access to.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "InstanceArn": {
-          "target": "com.amazonaws.ssoadmin#InstanceArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "TargetId": {
-          "target": "com.amazonaws.ssoadmin#TargetId",
-          "traits": {
-            "smithy.api#documentation": "<p>TargetID is an AWS account identifier, typically a 10-12 digit string (For example, 123456789012).</p>",
             "smithy.api#required": {}
           }
         },
@@ -362,6 +436,13 @@
             "smithy.api#required": {}
           }
         },
+        "TargetId": {
+          "target": "com.amazonaws.ssoadmin#TargetId",
+          "traits": {
+            "smithy.api#documentation": "<p>TargetID is an AWS account identifier, typically a 10-12 digit string (For example, 123456789012).</p>",
+            "smithy.api#required": {}
+          }
+        },
         "PrincipalType": {
           "target": "com.amazonaws.ssoadmin#PrincipalType",
           "traits": {
@@ -369,10 +450,10 @@
             "smithy.api#required": {}
           }
         },
-        "PrincipalId": {
-          "target": "com.amazonaws.ssoadmin#PrincipalId",
+        "InstanceArn": {
+          "target": "com.amazonaws.ssoadmin#InstanceArn",
           "traits": {
-            "smithy.api#documentation": "<p>An identifier for an object in AWS SSO, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in AWS SSO, see the <a href=\"/singlesignon/latest/IdentityStoreAPIReference/welcome.html\">AWS SSO Identity Store API Reference</a>.</p>",
+            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -388,6 +469,61 @@
           }
         }
       }
+    },
+    "com.amazonaws.ssoadmin#CreateInstanceAccessControlAttributeConfiguration": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ssoadmin#CreateInstanceAccessControlAttributeConfigurationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ssoadmin#CreateInstanceAccessControlAttributeConfigurationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.ssoadmin#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.ssoadmin#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.ssoadmin#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.ssoadmin#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.ssoadmin#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.ssoadmin#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Enables the attributes-based access control (ABAC) feature for the specified AWS SSO instance. You can also specify new attributes to add to your ABAC configuration during the enabling process. For more information about ABAC, see <a href=\"/singlesignon/latest/userguide/abac.html\">Attribute-Based Access Control</a> in the <i>AWS SSO User Guide</i>.</p>"
+      }
+    },
+    "com.amazonaws.ssoadmin#CreateInstanceAccessControlAttributeConfigurationRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceAccessControlAttributeConfiguration": {
+          "target": "com.amazonaws.ssoadmin#InstanceAccessControlAttributeConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the AWS SSO identity store attributes to add to your ABAC configuration. When using an external identity provider as an identity source, you can pass attributes through the SAML assertion as an alternative to configuring attributes from the AWS SSO identity store. If a SAML assertion passes any of these attributes, AWS SSO will replace the attribute value with the value from the AWS SSO identity store.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "InstanceArn": {
+          "target": "com.amazonaws.ssoadmin#InstanceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.ssoadmin#CreateInstanceAccessControlAttributeConfigurationResponse": {
+      "type": "structure",
+      "members": {}
     },
     "com.amazonaws.ssoadmin#CreatePermissionSet": {
       "type": "operation",
@@ -427,29 +563,28 @@
     "com.amazonaws.ssoadmin#CreatePermissionSetRequest": {
       "type": "structure",
       "members": {
-        "RelayState": {
-          "target": "com.amazonaws.ssoadmin#RelayState",
-          "traits": {
-            "smithy.api#documentation": "<p>Used to redirect users within the application during the federation authentication\n       process.</p>"
-          }
-        },
         "Description": {
           "target": "com.amazonaws.ssoadmin#PermissionSetDescription",
           "traits": {
             "smithy.api#documentation": "<p>The description of the <a>PermissionSet</a>.</p>"
           }
         },
-        "InstanceArn": {
-          "target": "com.amazonaws.ssoadmin#InstanceArn",
+        "RelayState": {
+          "target": "com.amazonaws.ssoadmin#RelayState",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Used to redirect users within the application during the federation authentication\n       process.</p>"
           }
         },
         "SessionDuration": {
           "target": "com.amazonaws.ssoadmin#Duration",
           "traits": {
             "smithy.api#documentation": "<p>The length of time that the application user sessions are valid in the ISO-8601\n      standard.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.ssoadmin#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to attach to the new <a>PermissionSet</a>.</p>"
           }
         },
         "Name": {
@@ -459,10 +594,11 @@
             "smithy.api#required": {}
           }
         },
-        "Tags": {
-          "target": "com.amazonaws.ssoadmin#TagList",
+        "InstanceArn": {
+          "target": "com.amazonaws.ssoadmin#InstanceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The tags to attach to the new <a>PermissionSet</a>.</p>"
+            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -516,17 +652,10 @@
     "com.amazonaws.ssoadmin#DeleteAccountAssignmentRequest": {
       "type": "structure",
       "members": {
-        "InstanceArn": {
-          "target": "com.amazonaws.ssoadmin#InstanceArn",
+        "PrincipalType": {
+          "target": "com.amazonaws.ssoadmin#PrincipalType",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "TargetId": {
-          "target": "com.amazonaws.ssoadmin#TargetId",
-          "traits": {
-            "smithy.api#documentation": "<p>TargetID is an AWS account identifier, typically a 10-12 digit string (For example, 123456789012).</p>",
+            "smithy.api#documentation": "<p>The entity type for which the assignment will be deleted.</p>",
             "smithy.api#required": {}
           }
         },
@@ -537,10 +666,10 @@
             "smithy.api#required": {}
           }
         },
-        "PrincipalId": {
-          "target": "com.amazonaws.ssoadmin#PrincipalId",
+        "TargetId": {
+          "target": "com.amazonaws.ssoadmin#TargetId",
           "traits": {
-            "smithy.api#documentation": "<p>An identifier for an object in AWS SSO, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in AWS SSO, see the <a href=\"/singlesignon/latest/IdentityStoreAPIReference/welcome.html\">AWS SSO Identity Store API Reference</a>.</p>",
+            "smithy.api#documentation": "<p>TargetID is an AWS account identifier, typically a 10-12 digit string (For example, 123456789012).</p>",
             "smithy.api#required": {}
           }
         },
@@ -551,10 +680,17 @@
             "smithy.api#required": {}
           }
         },
-        "PrincipalType": {
-          "target": "com.amazonaws.ssoadmin#PrincipalType",
+        "PrincipalId": {
+          "target": "com.amazonaws.ssoadmin#PrincipalId",
           "traits": {
-            "smithy.api#documentation": "<p>The entity type for which the assignment will be deleted.</p>",
+            "smithy.api#documentation": "<p>An identifier for an object in AWS SSO, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in AWS SSO, see the <a href=\"/singlesignon/latest/IdentityStoreAPIReference/welcome.html\">AWS SSO Identity Store API Reference</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "InstanceArn": {
+          "target": "com.amazonaws.ssoadmin#InstanceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -626,6 +762,54 @@
       "type": "structure",
       "members": {}
     },
+    "com.amazonaws.ssoadmin#DeleteInstanceAccessControlAttributeConfiguration": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ssoadmin#DeleteInstanceAccessControlAttributeConfigurationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ssoadmin#DeleteInstanceAccessControlAttributeConfigurationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.ssoadmin#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.ssoadmin#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.ssoadmin#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.ssoadmin#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.ssoadmin#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.ssoadmin#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Disables the attributes-based access control (ABAC) feature for the specified AWS SSO instance and deletes all of the attribute mappings that have been configured. Once deleted, any attributes that are received from an identity source and any custom attributes you have previously configured will not be passed. For more information about ABAC, see <a href=\"/singlesignon/latest/userguide/abac.html\">Attribute-Based Access Control</a> in the <i>AWS SSO User Guide</i>.</p>"
+      }
+    },
+    "com.amazonaws.ssoadmin#DeleteInstanceAccessControlAttributeConfigurationRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceArn": {
+          "target": "com.amazonaws.ssoadmin#InstanceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.ssoadmin#DeleteInstanceAccessControlAttributeConfigurationResponse": {
+      "type": "structure",
+      "members": {}
+    },
     "com.amazonaws.ssoadmin#DeletePermissionSet": {
       "type": "operation",
       "input": {
@@ -661,17 +845,17 @@
     "com.amazonaws.ssoadmin#DeletePermissionSetRequest": {
       "type": "structure",
       "members": {
-        "InstanceArn": {
-          "target": "com.amazonaws.ssoadmin#InstanceArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "PermissionSetArn": {
           "target": "com.amazonaws.ssoadmin#PermissionSetArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the permission set that should be deleted.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "InstanceArn": {
+          "target": "com.amazonaws.ssoadmin#InstanceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -713,17 +897,17 @@
     "com.amazonaws.ssoadmin#DescribeAccountAssignmentCreationStatusRequest": {
       "type": "structure",
       "members": {
-        "InstanceArn": {
-          "target": "com.amazonaws.ssoadmin#InstanceArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "AccountAssignmentCreationRequestId": {
           "target": "com.amazonaws.ssoadmin#UUId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier that is used to track the request operation progress.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "InstanceArn": {
+          "target": "com.amazonaws.ssoadmin#InstanceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -772,17 +956,17 @@
     "com.amazonaws.ssoadmin#DescribeAccountAssignmentDeletionStatusRequest": {
       "type": "structure",
       "members": {
-        "InstanceArn": {
-          "target": "com.amazonaws.ssoadmin#InstanceArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "AccountAssignmentDeletionRequestId": {
           "target": "com.amazonaws.ssoadmin#UUId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier that is used to track the request operation progress.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "InstanceArn": {
+          "target": "com.amazonaws.ssoadmin#InstanceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -795,6 +979,70 @@
           "target": "com.amazonaws.ssoadmin#AccountAssignmentOperationStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status object for the account assignment deletion operation.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ssoadmin#DescribeInstanceAccessControlAttributeConfiguration": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ssoadmin#DescribeInstanceAccessControlAttributeConfigurationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ssoadmin#DescribeInstanceAccessControlAttributeConfigurationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.ssoadmin#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.ssoadmin#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.ssoadmin#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.ssoadmin#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.ssoadmin#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns the list of AWS SSO identity store attributes that have been configured to work with attributes-based access control (ABAC) for the specified AWS SSO instance. This will not return attributes configured and sent by an external identity provider. For more information about ABAC, see <a href=\"/singlesignon/latest/userguide/abac.html\">Attribute-Based Access Control</a> in the <i>AWS SSO User Guide</i>.</p>"
+      }
+    },
+    "com.amazonaws.ssoadmin#DescribeInstanceAccessControlAttributeConfigurationRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceArn": {
+          "target": "com.amazonaws.ssoadmin#InstanceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.ssoadmin#DescribeInstanceAccessControlAttributeConfigurationResponse": {
+      "type": "structure",
+      "members": {
+        "StatusReason": {
+          "target": "com.amazonaws.ssoadmin#InstanceAccessControlAttributeConfigurationStatusReason",
+          "traits": {
+            "smithy.api#documentation": "<p>Provides more details about the current status of the specified attribute.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.ssoadmin#InstanceAccessControlAttributeConfigurationStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the attribute configuration process.</p>"
+          }
+        },
+        "InstanceAccessControlAttributeConfiguration": {
+          "target": "com.amazonaws.ssoadmin#InstanceAccessControlAttributeConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Gets the list of AWS SSO identity store attributes added to your ABAC configuration.</p>"
           }
         }
       }
@@ -860,17 +1108,17 @@
     "com.amazonaws.ssoadmin#DescribePermissionSetProvisioningStatusRequest": {
       "type": "structure",
       "members": {
-        "InstanceArn": {
-          "target": "com.amazonaws.ssoadmin#InstanceArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ProvisionPermissionSetRequestId": {
           "target": "com.amazonaws.ssoadmin#UUId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier that is provided by the <a>ProvisionPermissionSet</a> call to\n       retrieve the current status of the provisioning workflow.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "InstanceArn": {
+          "target": "com.amazonaws.ssoadmin#InstanceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -890,17 +1138,17 @@
     "com.amazonaws.ssoadmin#DescribePermissionSetRequest": {
       "type": "structure",
       "members": {
-        "InstanceArn": {
-          "target": "com.amazonaws.ssoadmin#InstanceArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "PermissionSetArn": {
           "target": "com.amazonaws.ssoadmin#PermissionSetArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the permission set.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "InstanceArn": {
+          "target": "com.amazonaws.ssoadmin#InstanceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -952,13 +1200,6 @@
     "com.amazonaws.ssoadmin#DetachManagedPolicyFromPermissionSetRequest": {
       "type": "structure",
       "members": {
-        "ManagedPolicyArn": {
-          "target": "com.amazonaws.ssoadmin#ManagedPolicyArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The IAM managed policy ARN to be attached to a permission set.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "InstanceArn": {
           "target": "com.amazonaws.ssoadmin#InstanceArn",
           "traits": {
@@ -970,6 +1211,13 @@
           "target": "com.amazonaws.ssoadmin#PermissionSetArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the <a>PermissionSet</a> from which the policy should be detached.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ManagedPolicyArn": {
+          "target": "com.amazonaws.ssoadmin#ManagedPolicyArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The IAM managed policy ARN to be attached to a permission set.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1031,17 +1279,17 @@
     "com.amazonaws.ssoadmin#GetInlinePolicyForPermissionSetRequest": {
       "type": "structure",
       "members": {
-        "InstanceArn": {
-          "target": "com.amazonaws.ssoadmin#InstanceArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "PermissionSetArn": {
           "target": "com.amazonaws.ssoadmin#PermissionSetArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the permission set.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "InstanceArn": {
+          "target": "com.amazonaws.ssoadmin#InstanceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1067,6 +1315,43 @@
         },
         "smithy.api#pattern": "^[a-zA-Z0-9-]*"
       }
+    },
+    "com.amazonaws.ssoadmin#InstanceAccessControlAttributeConfiguration": {
+      "type": "structure",
+      "members": {
+        "AccessControlAttributes": {
+          "target": "com.amazonaws.ssoadmin#AccessControlAttributeList",
+          "traits": {
+            "smithy.api#documentation": "<p>Lists the attributes that are configured for ABAC in the specified AWS SSO instance.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies the attributes to add to your attribute-based access control (ABAC) configuration.</p>"
+      }
+    },
+    "com.amazonaws.ssoadmin#InstanceAccessControlAttributeConfigurationStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "ENABLED",
+            "name": "ENABLED"
+          },
+          {
+            "value": "CREATION_IN_PROGRESS",
+            "name": "CREATION_IN_PROGRESS"
+          },
+          {
+            "value": "CREATION_FAILED",
+            "name": "CREATION_FAILED"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.ssoadmin#InstanceAccessControlAttributeConfigurationStatusReason": {
+      "type": "string"
     },
     "com.amazonaws.ssoadmin#InstanceArn": {
       "type": "string",
@@ -1164,10 +1449,10 @@
             "smithy.api#documentation": "<p>The maximum number of results to display for the assignment.</p>"
           }
         },
-        "Filter": {
-          "target": "com.amazonaws.ssoadmin#OperationStatusFilter",
+        "NextToken": {
+          "target": "com.amazonaws.ssoadmin#Token",
           "traits": {
-            "smithy.api#documentation": "<p>Filters results based on the passed attribute value.</p>"
+            "smithy.api#documentation": "<p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>"
           }
         },
         "InstanceArn": {
@@ -1177,10 +1462,10 @@
             "smithy.api#required": {}
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.ssoadmin#Token",
+        "Filter": {
+          "target": "com.amazonaws.ssoadmin#OperationStatusFilter",
           "traits": {
-            "smithy.api#documentation": "<p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>"
+            "smithy.api#documentation": "<p>Filters results based on the passed attribute value.</p>"
           }
         }
       }
@@ -1240,22 +1525,10 @@
     "com.amazonaws.ssoadmin#ListAccountAssignmentDeletionStatusRequest": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.ssoadmin#Token",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>"
-          }
-        },
         "Filter": {
           "target": "com.amazonaws.ssoadmin#OperationStatusFilter",
           "traits": {
             "smithy.api#documentation": "<p>Filters results based on the passed attribute value.</p>"
-          }
-        },
-        "MaxResults": {
-          "target": "com.amazonaws.ssoadmin#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to display for the assignment.</p>"
           }
         },
         "InstanceArn": {
@@ -1264,22 +1537,34 @@
             "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
             "smithy.api#required": {}
           }
-        }
-      }
-    },
-    "com.amazonaws.ssoadmin#ListAccountAssignmentDeletionStatusResponse": {
-      "type": "structure",
-      "members": {
-        "AccountAssignmentsDeletionStatus": {
-          "target": "com.amazonaws.ssoadmin#AccountAssignmentOperationStatusList",
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.ssoadmin#MaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>The status object for the account assignment deletion operation.</p>"
+            "smithy.api#documentation": "<p>The maximum number of results to display for the assignment.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.ssoadmin#Token",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ssoadmin#ListAccountAssignmentDeletionStatusResponse": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.ssoadmin#Token",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>"
+          }
+        },
+        "AccountAssignmentsDeletionStatus": {
+          "target": "com.amazonaws.ssoadmin#AccountAssignmentOperationStatusList",
+          "traits": {
+            "smithy.api#documentation": "<p>The status object for the account assignment deletion operation.</p>"
           }
         }
       }
@@ -1322,23 +1607,10 @@
     "com.amazonaws.ssoadmin#ListAccountAssignmentsRequest": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.ssoadmin#Token",
+        "InstanceArn": {
+          "target": "com.amazonaws.ssoadmin#InstanceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>"
-          }
-        },
-        "PermissionSetArn": {
-          "target": "com.amazonaws.ssoadmin#PermissionSetArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the permission set from which to list assignments.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "AccountId": {
-          "target": "com.amazonaws.ssoadmin#TargetId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the AWS account from which to list the assignments.</p>",
+            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1348,10 +1620,23 @@
             "smithy.api#documentation": "<p>The maximum number of results to display for the assignment.</p>"
           }
         },
-        "InstanceArn": {
-          "target": "com.amazonaws.ssoadmin#InstanceArn",
+        "NextToken": {
+          "target": "com.amazonaws.ssoadmin#Token",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
+            "smithy.api#documentation": "<p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>"
+          }
+        },
+        "AccountId": {
+          "target": "com.amazonaws.ssoadmin#TargetId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the AWS account from which to list the assignments.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "PermissionSetArn": {
+          "target": "com.amazonaws.ssoadmin#PermissionSetArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the permission set from which to list assignments.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1360,16 +1645,16 @@
     "com.amazonaws.ssoadmin#ListAccountAssignmentsResponse": {
       "type": "structure",
       "members": {
-        "AccountAssignments": {
-          "target": "com.amazonaws.ssoadmin#AccountAssignmentList",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of assignments that match the input AWS account and permission set.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.ssoadmin#Token",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>"
+          }
+        },
+        "AccountAssignments": {
+          "target": "com.amazonaws.ssoadmin#AccountAssignmentList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of assignments that match the input AWS account and permission set.</p>"
           }
         }
       }
@@ -1425,10 +1710,10 @@
             "smithy.api#required": {}
           }
         },
-        "ProvisioningStatus": {
-          "target": "com.amazonaws.ssoadmin#ProvisioningStatus",
+        "MaxResults": {
+          "target": "com.amazonaws.ssoadmin#MaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>The permission set provisioning status for an AWS account.</p>"
+            "smithy.api#documentation": "<p>The maximum number of results to display for the <a>PermissionSet</a>.</p>"
           }
         },
         "InstanceArn": {
@@ -1438,10 +1723,10 @@
             "smithy.api#required": {}
           }
         },
-        "MaxResults": {
-          "target": "com.amazonaws.ssoadmin#MaxResults",
+        "ProvisioningStatus": {
+          "target": "com.amazonaws.ssoadmin#ProvisioningStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to display for the <a>PermissionSet</a>.</p>"
+            "smithy.api#documentation": "<p>The permission set provisioning status for an AWS account.</p>"
           }
         }
       }
@@ -1449,16 +1734,16 @@
     "com.amazonaws.ssoadmin#ListAccountsForProvisionedPermissionSetResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.ssoadmin#Token",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>"
-          }
-        },
         "AccountIds": {
           "target": "com.amazonaws.ssoadmin#AccountList",
           "traits": {
             "smithy.api#documentation": "<p>The list of AWS <code>AccountIds</code>.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ssoadmin#Token",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>"
           }
         }
       }
@@ -1515,16 +1800,16 @@
     "com.amazonaws.ssoadmin#ListInstancesResponse": {
       "type": "structure",
       "members": {
-        "Instances": {
-          "target": "com.amazonaws.ssoadmin#InstanceList",
-          "traits": {
-            "smithy.api#documentation": "<p>Lists the SSO instances that the caller has access to.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.ssoadmin#Token",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>"
+          }
+        },
+        "Instances": {
+          "target": "com.amazonaws.ssoadmin#InstanceList",
+          "traits": {
+            "smithy.api#documentation": "<p>Lists the SSO instances that the caller has access to.</p>"
           }
         }
       }
@@ -1574,11 +1859,10 @@
             "smithy.api#required": {}
           }
         },
-        "InstanceArn": {
-          "target": "com.amazonaws.ssoadmin#InstanceArn",
+        "NextToken": {
+          "target": "com.amazonaws.ssoadmin#Token",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>"
           }
         },
         "MaxResults": {
@@ -1587,10 +1871,11 @@
             "smithy.api#documentation": "<p>The maximum number of results to display for the <a>PermissionSet</a>.</p>"
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.ssoadmin#Token",
+        "InstanceArn": {
+          "target": "com.amazonaws.ssoadmin#InstanceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>"
+            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -1598,16 +1883,16 @@
     "com.amazonaws.ssoadmin#ListManagedPoliciesInPermissionSetResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.ssoadmin#Token",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>"
-          }
-        },
         "AttachedManagedPolicies": {
           "target": "com.amazonaws.ssoadmin#AttachedManagedPolicyList",
           "traits": {
             "smithy.api#documentation": "<p>The array of the <a>AttachedManagedPolicy</a> data type object.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ssoadmin#Token",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>"
           }
         }
       }
@@ -1650,6 +1935,12 @@
     "com.amazonaws.ssoadmin#ListPermissionSetProvisioningStatusRequest": {
       "type": "structure",
       "members": {
+        "NextToken": {
+          "target": "com.amazonaws.ssoadmin#Token",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>"
+          }
+        },
         "MaxResults": {
           "target": "com.amazonaws.ssoadmin#MaxResults",
           "traits": {
@@ -1668,28 +1959,22 @@
             "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
             "smithy.api#required": {}
           }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.ssoadmin#Token",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>"
-          }
         }
       }
     },
     "com.amazonaws.ssoadmin#ListPermissionSetProvisioningStatusResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.ssoadmin#Token",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>"
-          }
-        },
         "PermissionSetsProvisioningStatus": {
           "target": "com.amazonaws.ssoadmin#PermissionSetProvisioningStatusList",
           "traits": {
             "smithy.api#documentation": "<p>The status object for the permission set provisioning operation.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ssoadmin#Token",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>"
           }
         }
       }
@@ -1767,12 +2052,6 @@
     "com.amazonaws.ssoadmin#ListPermissionSetsProvisionedToAccountRequest": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.ssoadmin#Token",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>"
-          }
-        },
         "InstanceArn": {
           "target": "com.amazonaws.ssoadmin#InstanceArn",
           "traits": {
@@ -1786,17 +2065,23 @@
             "smithy.api#documentation": "<p>The maximum number of results to display for the assignment.</p>"
           }
         },
+        "ProvisioningStatus": {
+          "target": "com.amazonaws.ssoadmin#ProvisioningStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status object for the permission set provisioning operation.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ssoadmin#Token",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>"
+          }
+        },
         "AccountId": {
           "target": "com.amazonaws.ssoadmin#AccountId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the AWS account from which to list the assignments.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "ProvisioningStatus": {
-          "target": "com.amazonaws.ssoadmin#ProvisioningStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status object for the permission set provisioning operation.</p>"
           }
         }
       }
@@ -1804,16 +2089,16 @@
     "com.amazonaws.ssoadmin#ListPermissionSetsProvisionedToAccountResponse": {
       "type": "structure",
       "members": {
-        "PermissionSets": {
-          "target": "com.amazonaws.ssoadmin#PermissionSetList",
-          "traits": {
-            "smithy.api#documentation": "<p>Defines the level of access that an AWS account has.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.ssoadmin#Token",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>"
+          }
+        },
+        "PermissionSets": {
+          "target": "com.amazonaws.ssoadmin#PermissionSetList",
+          "traits": {
+            "smithy.api#documentation": "<p>Defines the level of access that an AWS account has.</p>"
           }
         }
       }
@@ -1821,17 +2106,17 @@
     "com.amazonaws.ssoadmin#ListPermissionSetsRequest": {
       "type": "structure",
       "members": {
+        "NextToken": {
+          "target": "com.amazonaws.ssoadmin#Token",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>"
+          }
+        },
         "InstanceArn": {
           "target": "com.amazonaws.ssoadmin#InstanceArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.ssoadmin#Token",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>"
           }
         },
         "MaxResults": {
@@ -1896,6 +2181,13 @@
     "com.amazonaws.ssoadmin#ListTagsForResourceRequest": {
       "type": "structure",
       "members": {
+        "ResourceArn": {
+          "target": "com.amazonaws.ssoadmin#GeneralArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the resource with the tags to be listed.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "InstanceArn": {
           "target": "com.amazonaws.ssoadmin#InstanceArn",
           "traits": {
@@ -1908,29 +2200,22 @@
           "traits": {
             "smithy.api#documentation": "<p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>"
           }
-        },
-        "ResourceArn": {
-          "target": "com.amazonaws.ssoadmin#GeneralArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the resource with the tags to be listed.</p>",
-            "smithy.api#required": {}
-          }
         }
       }
     },
     "com.amazonaws.ssoadmin#ListTagsForResourceResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.ssoadmin#Token",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>"
-          }
-        },
         "Tags": {
           "target": "com.amazonaws.ssoadmin#TagList",
           "traits": {
             "smithy.api#documentation": "<p>A set of key-value pairs that are used to manage the resource.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ssoadmin#Token",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>"
           }
         }
       }
@@ -1980,16 +2265,16 @@
     "com.amazonaws.ssoadmin#PermissionSet": {
       "type": "structure",
       "members": {
-        "CreatedDate": {
-          "target": "com.amazonaws.ssoadmin#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>The date that the permission set was created.</p>"
-          }
-        },
         "PermissionSetArn": {
           "target": "com.amazonaws.ssoadmin#PermissionSetArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the permission set. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.ssoadmin#PermissionSetDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the <a>PermissionSet</a>.</p>"
           }
         },
         "Name": {
@@ -1998,16 +2283,16 @@
             "smithy.api#documentation": "<p>The name of the permission set.</p>"
           }
         },
+        "CreatedDate": {
+          "target": "com.amazonaws.ssoadmin#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The date that the permission set was created.</p>"
+          }
+        },
         "SessionDuration": {
           "target": "com.amazonaws.ssoadmin#Duration",
           "traits": {
             "smithy.api#documentation": "<p>The length of time that the application user sessions are valid for in the ISO-8601\n       standard.</p>"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.ssoadmin#PermissionSetDescription",
-          "traits": {
-            "smithy.api#documentation": "<p>The description of the <a>PermissionSet</a>.</p>"
           }
         },
         "RelayState": {
@@ -2071,16 +2356,10 @@
     "com.amazonaws.ssoadmin#PermissionSetProvisioningStatus": {
       "type": "structure",
       "members": {
-        "Status": {
-          "target": "com.amazonaws.ssoadmin#StatusValues",
+        "FailureReason": {
+          "target": "com.amazonaws.ssoadmin#Reason",
           "traits": {
-            "smithy.api#documentation": "<p>The status of the permission set provisioning process.</p>"
-          }
-        },
-        "AccountId": {
-          "target": "com.amazonaws.ssoadmin#AccountId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the AWS account from which to list the assignments.</p>"
+            "smithy.api#documentation": "<p>The message that contains an error or exception in case of an operation failure.</p>"
           }
         },
         "CreatedDate": {
@@ -2089,10 +2368,10 @@
             "smithy.api#documentation": "<p>The date that the permission set was created.</p>"
           }
         },
-        "PermissionSetArn": {
-          "target": "com.amazonaws.ssoadmin#PermissionSetArn",
+        "Status": {
+          "target": "com.amazonaws.ssoadmin#StatusValues",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the permission set that is being provisioned. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>"
+            "smithy.api#documentation": "<p>The status of the permission set provisioning process.</p>"
           }
         },
         "RequestId": {
@@ -2101,10 +2380,16 @@
             "smithy.api#documentation": "<p>The identifier for tracking the request operation that is generated by the universally\n      unique identifier (UUID) workflow.</p>"
           }
         },
-        "FailureReason": {
-          "target": "com.amazonaws.ssoadmin#Reason",
+        "AccountId": {
+          "target": "com.amazonaws.ssoadmin#AccountId",
           "traits": {
-            "smithy.api#documentation": "<p>The message that contains an error or exception in case of an operation failure.</p>"
+            "smithy.api#documentation": "<p>The identifier of the AWS account from which to list the assignments.</p>"
+          }
+        },
+        "PermissionSetArn": {
+          "target": "com.amazonaws.ssoadmin#PermissionSetArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the permission set that is being provisioned. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>"
           }
         }
       },
@@ -2121,16 +2406,16 @@
     "com.amazonaws.ssoadmin#PermissionSetProvisioningStatusMetadata": {
       "type": "structure",
       "members": {
-        "RequestId": {
-          "target": "com.amazonaws.ssoadmin#UUId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier for tracking the request operation that is generated by the universally\n      unique identifier (UUID) workflow.</p>"
-          }
-        },
         "Status": {
           "target": "com.amazonaws.ssoadmin#StatusValues",
           "traits": {
             "smithy.api#documentation": "<p>The status of the permission set provisioning process.</p>"
+          }
+        },
+        "RequestId": {
+          "target": "com.amazonaws.ssoadmin#UUId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for tracking the request operation that is generated by the universally\n      unique identifier (UUID) workflow.</p>"
           }
         },
         "CreatedDate": {
@@ -2204,10 +2489,16 @@
     "com.amazonaws.ssoadmin#ProvisionPermissionSetRequest": {
       "type": "structure",
       "members": {
-        "InstanceArn": {
-          "target": "com.amazonaws.ssoadmin#InstanceArn",
+        "TargetId": {
+          "target": "com.amazonaws.ssoadmin#TargetId",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
+            "smithy.api#documentation": "<p>TargetID is an AWS account identifier, typically a 10-12 digit string (For example, 123456789012).</p>"
+          }
+        },
+        "TargetType": {
+          "target": "com.amazonaws.ssoadmin#ProvisionTargetType",
+          "traits": {
+            "smithy.api#documentation": "<p>The entity type for which the assignment will be created.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2218,17 +2509,11 @@
             "smithy.api#required": {}
           }
         },
-        "TargetType": {
-          "target": "com.amazonaws.ssoadmin#ProvisionTargetType",
+        "InstanceArn": {
+          "target": "com.amazonaws.ssoadmin#InstanceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The entity type for which the assignment will be created.</p>",
+            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "TargetId": {
-          "target": "com.amazonaws.ssoadmin#TargetId",
-          "traits": {
-            "smithy.api#documentation": "<p>TargetID is an AWS account identifier, typically a 10-12 digit string (For example, 123456789012).</p>"
           }
         }
       }
@@ -2312,10 +2597,10 @@
     "com.amazonaws.ssoadmin#PutInlinePolicyToPermissionSetRequest": {
       "type": "structure",
       "members": {
-        "InstanceArn": {
-          "target": "com.amazonaws.ssoadmin#InstanceArn",
+        "PermissionSetArn": {
+          "target": "com.amazonaws.ssoadmin#PermissionSetArn",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
+            "smithy.api#documentation": "<p>The ARN of the permission set.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2326,10 +2611,10 @@
             "smithy.api#required": {}
           }
         },
-        "PermissionSetArn": {
-          "target": "com.amazonaws.ssoadmin#PermissionSetArn",
+        "InstanceArn": {
+          "target": "com.amazonaws.ssoadmin#InstanceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the permission set.</p>",
+            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2382,6 +2667,9 @@
           "target": "com.amazonaws.ssoadmin#CreateAccountAssignment"
         },
         {
+          "target": "com.amazonaws.ssoadmin#CreateInstanceAccessControlAttributeConfiguration"
+        },
+        {
           "target": "com.amazonaws.ssoadmin#CreatePermissionSet"
         },
         {
@@ -2391,6 +2679,9 @@
           "target": "com.amazonaws.ssoadmin#DeleteInlinePolicyFromPermissionSet"
         },
         {
+          "target": "com.amazonaws.ssoadmin#DeleteInstanceAccessControlAttributeConfiguration"
+        },
+        {
           "target": "com.amazonaws.ssoadmin#DeletePermissionSet"
         },
         {
@@ -2398,6 +2689,9 @@
         },
         {
           "target": "com.amazonaws.ssoadmin#DescribeAccountAssignmentDeletionStatus"
+        },
+        {
+          "target": "com.amazonaws.ssoadmin#DescribeInstanceAccessControlAttributeConfiguration"
         },
         {
           "target": "com.amazonaws.ssoadmin#DescribePermissionSet"
@@ -2454,6 +2748,9 @@
           "target": "com.amazonaws.ssoadmin#UntagResource"
         },
         {
+          "target": "com.amazonaws.ssoadmin#UpdateInstanceAccessControlAttributeConfiguration"
+        },
+        {
           "target": "com.amazonaws.ssoadmin#UpdatePermissionSet"
         }
       ],
@@ -2462,7 +2759,7 @@
           "sdkId": "SSO Admin",
           "arnNamespace": "sso",
           "cloudFormationName": "SSOAdmin",
-          "cloudTrailEventSource": "service.sso.amazon.com"
+          "cloudTrailEventSource": "ssoadmin.amazonaws.com"
         },
         "aws.auth#sigv4": {
           "name": "sso"
@@ -2598,6 +2895,13 @@
     "com.amazonaws.ssoadmin#TagResourceRequest": {
       "type": "structure",
       "members": {
+        "Tags": {
+          "target": "com.amazonaws.ssoadmin#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>A set of key-value pairs that are used to manage the resource.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "InstanceArn": {
           "target": "com.amazonaws.ssoadmin#InstanceArn",
           "traits": {
@@ -2609,13 +2913,6 @@
           "target": "com.amazonaws.ssoadmin#GeneralArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the resource with the tags to be listed.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.ssoadmin#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>A set of key-value pairs that are used to manage the resource.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2719,6 +3016,13 @@
     "com.amazonaws.ssoadmin#UntagResourceRequest": {
       "type": "structure",
       "members": {
+        "InstanceArn": {
+          "target": "com.amazonaws.ssoadmin#InstanceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "ResourceArn": {
           "target": "com.amazonaws.ssoadmin#GeneralArn",
           "traits": {
@@ -2732,17 +3036,65 @@
             "smithy.api#documentation": "<p>The keys of tags that are attached to the resource.</p>",
             "smithy.api#required": {}
           }
+        }
+      }
+    },
+    "com.amazonaws.ssoadmin#UntagResourceResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.ssoadmin#UpdateInstanceAccessControlAttributeConfiguration": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ssoadmin#UpdateInstanceAccessControlAttributeConfigurationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ssoadmin#UpdateInstanceAccessControlAttributeConfigurationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.ssoadmin#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.ssoadmin#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.ssoadmin#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.ssoadmin#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.ssoadmin#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.ssoadmin#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates the AWS SSO identity store attributes to use with the AWS SSO instance for attributes-based access control (ABAC). When using an external identity provider as an identity source, you can pass attributes through the SAML assertion as an alternative to configuring attributes from the AWS SSO identity store. If a SAML assertion passes any of these attributes, AWS SSO will replace the attribute value with the value from the AWS SSO identity store. For more information about ABAC, see <a href=\"/singlesignon/latest/userguide/abac.html\">Attribute-Based Access Control</a> in the <i>AWS SSO User Guide</i>.</p>"
+      }
+    },
+    "com.amazonaws.ssoadmin#UpdateInstanceAccessControlAttributeConfigurationRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceAccessControlAttributeConfiguration": {
+          "target": "com.amazonaws.ssoadmin#InstanceAccessControlAttributeConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Updates the attributes for your ABAC configuration.</p>",
+            "smithy.api#required": {}
+          }
         },
         "InstanceArn": {
           "target": "com.amazonaws.ssoadmin#InstanceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.\n      For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\nNames (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>",
+            "smithy.api#documentation": "<p>The ARN of the SSO instance under which the operation will be executed.</p>",
             "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.ssoadmin#UntagResourceResponse": {
+    "com.amazonaws.ssoadmin#UpdateInstanceAccessControlAttributeConfigurationResponse": {
       "type": "structure",
       "members": {}
     },
@@ -2781,10 +3133,10 @@
     "com.amazonaws.ssoadmin#UpdatePermissionSetRequest": {
       "type": "structure",
       "members": {
-        "Description": {
-          "target": "com.amazonaws.ssoadmin#PermissionSetDescription",
+        "SessionDuration": {
+          "target": "com.amazonaws.ssoadmin#Duration",
           "traits": {
-            "smithy.api#documentation": "<p>The description of the <a>PermissionSet</a>.</p>"
+            "smithy.api#documentation": "<p>The length of time that the application user sessions are valid for in the ISO-8601\n       standard.</p>"
           }
         },
         "PermissionSetArn": {
@@ -2807,10 +3159,10 @@
             "smithy.api#documentation": "<p>Used to redirect users within the application during the federation authentication\n       process.</p>"
           }
         },
-        "SessionDuration": {
-          "target": "com.amazonaws.ssoadmin#Duration",
+        "Description": {
+          "target": "com.amazonaws.ssoadmin#PermissionSetDescription",
           "traits": {
-            "smithy.api#documentation": "<p>The length of time that the application user sessions are valid for in the ISO-8601\n       standard.</p>"
+            "smithy.api#documentation": "<p>The description of the <a>PermissionSet</a>.</p>"
           }
         }
       }
