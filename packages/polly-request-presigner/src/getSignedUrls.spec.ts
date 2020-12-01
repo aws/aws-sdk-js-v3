@@ -8,7 +8,7 @@ jest.mock("@aws-sdk/signature-v4", () => ({
   SignatureV4: mockV4,
 }));
 
-import { SynthesizeSpeechCommand, PollyClient } from "@aws-sdk/client-polly";
+import { PollyClient, SynthesizeSpeechCommand } from "@aws-sdk/client-polly";
 
 jest.mock("@aws-sdk/util-format-url", () => ({
   formatUrl: (url: any) => url,
