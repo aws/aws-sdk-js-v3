@@ -1,3 +1,2 @@
-export const invalidFunction = (message: string) => () => {
-  throw new Error(message);
-};
+export * from "./invalidFunction";
+export * from "./invalidAsyncFunction";
