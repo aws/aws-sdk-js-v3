@@ -67,10 +67,10 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_MIDDLEWARE)
                         // See operationUsesAwsAuth() below for AwsAuth Middleware customizations.
                         .servicePredicate(
-                            (m, s) -> 
-                                !testServiceId(s, "Cognito Identity") &&
-                                !testServiceId(s, "STS") &&
-                                !hasOptionalAuthOperation(m, s)
+                            (m, s) ->
+                                !testServiceId(s, "Cognito Identity")
+                                && !testServiceId(s, "STS")
+                                && !hasOptionalAuthOperation(m, s)
                         ).build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(TypeScriptDependency.MIDDLEWARE_RETRY.dependency, "Retry")
