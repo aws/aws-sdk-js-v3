@@ -310,24 +310,23 @@ Given("I setup the listObjects request for the bucket", function (callback) {
 
 // progress events
 
-When(/^I put (?:a |an )(empty|small|large|\d+KB|\d+MB) buffer to the key "([^"]*)" with progress events$/, function (
-  size,
-  key,
-  callback
-) {
-  const self = this;
-  const body = self.createBuffer(size);
-  this.progress = [];
-  const req = this.s3.putObject({
-    Bucket: this.sharedBucket,
-    Key: key,
-    Body: body,
-  });
-  req.on("httpUploadProgress", function (p) {
-    self.progress.push(p);
-  });
-  req.send(callback);
-});
+When(
+  /^I put (?:a |an )(empty|small|large|\d+KB|\d+MB) buffer to the key "([^"]*)" with progress events$/,
+  function (size, key, callback) {
+    const self = this;
+    const body = self.createBuffer(size);
+    this.progress = [];
+    const req = this.s3.putObject({
+      Bucket: this.sharedBucket,
+      Key: key,
+      Body: body,
+    });
+    req.on("httpUploadProgress", function (p) {
+      self.progress.push(p);
+    });
+    req.send(callback);
+  }
+);
 
 Then("more than {int} {string} event should fire", function (numEvents, eventName, callback) {
   this.assert.compare(this.progress.length, ">", numEvents);
@@ -339,14 +338,13 @@ Then("the {string} value of the progress event should equal {int}MB", function (
   callback();
 });
 
-Then("the {string} value of the first progress event should be greater than {int} bytes", function (
-  prop,
-  bytes,
-  callback
-) {
-  this.assert.compare(this.progress[0][prop], ">", bytes);
-  callback();
-});
+Then(
+  "the {string} value of the first progress event should be greater than {int} bytes",
+  function (prop, bytes, callback) {
+    this.assert.compare(this.progress[0][prop], ">", bytes);
+    callback();
+  }
+);
 
 When("I read the key {string} with progress events", function (key, callback) {
   const self = this;

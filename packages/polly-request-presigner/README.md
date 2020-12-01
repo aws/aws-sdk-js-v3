@@ -38,5 +38,4 @@ const synthesizeSpeechParams = {
   });
   console.log(url);
 })();
-
 ```

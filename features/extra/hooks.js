@@ -126,39 +126,37 @@ Given("I have a {string} service in the {string} region", function (svc, region,
   callback();
 });
 
-Given(/^I paginate the "([^"]*)" operation(?: with limit (\d+))?(?: and max pages (\d+))?$/, function (
-  operation,
-  limit,
-  maxPages,
-  callback
-) {
-  limit = parseInt(limit);
-  if (maxPages) maxPages = parseInt(maxPages);
+Given(
+  /^I paginate the "([^"]*)" operation(?: with limit (\d+))?(?: and max pages (\d+))?$/,
+  function (operation, limit, maxPages, callback) {
+    limit = parseInt(limit);
+    if (maxPages) maxPages = parseInt(maxPages);
 
-  const world = this;
-  this.numPages = 0;
-  this.numMarkers = 0;
-  this.operation = operation;
-  this.paginationConfig = this.service.paginationConfig(operation);
-  this.params = this.params || {};
+    const world = this;
+    this.numPages = 0;
+    this.numMarkers = 0;
+    this.operation = operation;
+    this.paginationConfig = this.service.paginationConfig(operation);
+    this.params = this.params || {};
 
-  const marker = this.paginationConfig.outputToken;
-  if (this.paginationConfig.limitKey) {
-    this.params[this.paginationConfig.limitKey] = limit;
-  }
-  this.service[operation](this.params).eachPage(function (err, data) {
-    if (err) callback(err);
-    else if (data === null) callback();
-    else if (maxPages && world.numPages === maxPages) {
-      callback();
-      return false;
-    } else {
-      if (data[marker]) world.numMarkers++;
-      world.numPages++;
-      world.data = data;
+    const marker = this.paginationConfig.outputToken;
+    if (this.paginationConfig.limitKey) {
+      this.params[this.paginationConfig.limitKey] = limit;
     }
-  });
-});
+    this.service[operation](this.params).eachPage(function (err, data) {
+      if (err) callback(err);
+      else if (data === null) callback();
+      else if (maxPages && world.numPages === maxPages) {
+        callback();
+        return false;
+      } else {
+        if (data[marker]) world.numMarkers++;
+        world.numPages++;
+        world.data = data;
+      }
+    });
+  }
+);
 
 Then("I should get more than one page", function (callback) {
   this.assert.compare(this.numPages, ">", 1);
@@ -186,19 +184,17 @@ Then("the last page should not contain a marker", function (callback) {
   callback();
 });
 
-Then("the result at {word} should contain a property {word} with a(n) {word}", function (
-  wrapper,
-  property,
-  type,
-  callback
-) {
-  if (type === "Array" || type === "Date") {
-    this.assert.equal(isType(this.data[wrapper][property], type), true);
-  } else {
-    this.assert.equal(typeof this.data[wrapper][property], type);
+Then(
+  "the result at {word} should contain a property {word} with a(n) {word}",
+  function (wrapper, property, type, callback) {
+    if (type === "Array" || type === "Date") {
+      this.assert.equal(isType(this.data[wrapper][property], type), true);
+    } else {
+      this.assert.equal(typeof this.data[wrapper][property], type);
+    }
+    callback();
   }
-  callback();
-});
+);
 
 Then("the result should contain a property {word} with a(n) {word}", function (property, type, callback) {
   if (type === "Array" || type === "Date") {

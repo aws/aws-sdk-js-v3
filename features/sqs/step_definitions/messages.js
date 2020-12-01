@@ -34,18 +34,18 @@ When("I send the message {string} with a binary attribute", function (message, c
   this.request(null, "sendMessage", params, callback);
 });
 
-Then("I should eventually be able to receive {string} from the queue with a binary attribute", function (
-  message,
-  callback
-) {
-  this.eventually(callback, function (next) {
-    next.condition = function () {
-      return this.data.Messages[0].MessageAttributes.binary.BinaryValue.toString() === "1,2,3";
-    };
-    const params = {
-      QueueUrl: this.queueUrl,
-      MessageAttributeNames: ["binary"],
-    };
-    this.request(null, "receiveMessage", params, next);
-  });
-});
+Then(
+  "I should eventually be able to receive {string} from the queue with a binary attribute",
+  function (message, callback) {
+    this.eventually(callback, function (next) {
+      next.condition = function () {
+        return this.data.Messages[0].MessageAttributes.binary.BinaryValue.toString() === "1,2,3";
+      };
+      const params = {
+        QueueUrl: this.queueUrl,
+        MessageAttributeNames: ["binary"],
+      };
+      this.request(null, "receiveMessage", params, next);
+    });
+  }
+);

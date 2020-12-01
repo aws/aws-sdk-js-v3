@@ -8,17 +8,16 @@ Given("I am using the S3 {string} region", function (region, callback) {
   callback();
 });
 
-Given("I am using the S3 {string} region with signatureVersion {string}", function (
-  region,
-  signatureVersion,
-  callback
-) {
-  this.s3 = new S3({
-    region: region,
-    signatureVersion: signatureVersion,
-  });
-  callback();
-});
+Given(
+  "I am using the S3 {string} region with signatureVersion {string}",
+  function (region, signatureVersion, callback) {
+    this.s3 = new S3({
+      region: region,
+      signatureVersion: signatureVersion,
+    });
+    callback();
+  }
+);
 
 When("I create a bucket with the location constraint {string}", function (location, callback) {
   const bucket = (this.bucket = this.uniqueName("aws-sdk-js-integration"));
