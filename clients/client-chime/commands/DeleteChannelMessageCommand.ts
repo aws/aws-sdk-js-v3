@@ -20,6 +20,10 @@ import {
 export type DeleteChannelMessageCommandInput = DeleteChannelMessageRequest;
 export type DeleteChannelMessageCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a channel message. Only admins can perform this action. Deletion makes messages inaccessible immediately. A
+ *            background process deletes any revisions created by <code>UpdateChannelMessage</code>.</p>
+ */
 export class DeleteChannelMessageCommand extends $Command<
   DeleteChannelMessageCommandInput,
   DeleteChannelMessageCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteChannelMessageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

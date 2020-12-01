@@ -26,7 +26,8 @@ export type GetCostAndUsageCommandOutput = GetCostAndUsageResponse & __MetadataB
  * 			your data by various dimensions, such as <code>SERVICE</code> or <code>AZ</code>, in a specific time range. For a complete list
  * 			of valid dimensions, see the
  * 			<a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a>
- * 		  operation. Master account in an organization in AWS Organizations have access to all member accounts.</p>
+ * 		  operation. Management account in an organization in AWS Organizations have access to all member accounts.</p>
+ * 	        <p>For information about filter limitations, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-limits.html">Quotas and restrictions</a> in the <i>Billing and Cost Management User Guide</i>.</p>
  */
 export class GetCostAndUsageCommand extends $Command<
   GetCostAndUsageCommandInput,

@@ -20,6 +20,9 @@ import {
 export type ListSchemaVersionsCommandInput = ListSchemaVersionsInput;
 export type ListSchemaVersionsCommandOutput = ListSchemaVersionsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of schema versions that you have created, with minimal information. Schema versions in Deleted status will not be included in the results. Empty results will be returned if there are no schema versions available.</p>
+ */
 export class ListSchemaVersionsCommand extends $Command<
   ListSchemaVersionsCommandInput,
   ListSchemaVersionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListSchemaVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

@@ -24,6 +24,10 @@ export type ListChannelMembershipsForAppInstanceUserCommandInput = ListChannelMe
 export type ListChannelMembershipsForAppInstanceUserCommandOutput = ListChannelMembershipsForAppInstanceUserResponse &
   __MetadataBearer;
 
+/**
+ * <p>Lists all channels that a particular <code>AppInstanceUser</code> is a part of. Only an <code>AppInstanceAdmin</code> can call the
+ *            API with a user ARN that is not their own.</p>
+ */
 export class ListChannelMembershipsForAppInstanceUserCommand extends $Command<
   ListChannelMembershipsForAppInstanceUserCommandInput,
   ListChannelMembershipsForAppInstanceUserCommandOutput,
@@ -38,6 +42,9 @@ export class ListChannelMembershipsForAppInstanceUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

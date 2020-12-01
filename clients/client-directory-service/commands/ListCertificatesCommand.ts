@@ -21,7 +21,8 @@ export type ListCertificatesCommandInput = ListCertificatesRequest;
 export type ListCertificatesCommandOutput = ListCertificatesResult & __MetadataBearer;
 
 /**
- * <p>For the specified directory, lists all the certificates registered for a secured LDAP connection.</p>
+ * <p>For the specified directory, lists all the certificates registered for a secured LDAP
+ *       connection.</p>
  */
 export class ListCertificatesCommand extends $Command<
   ListCertificatesCommandInput,

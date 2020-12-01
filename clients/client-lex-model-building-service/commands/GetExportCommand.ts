@@ -25,7 +25,8 @@ export type GetExportCommandInput = GetExportRequest;
 export type GetExportCommandOutput = GetExportResponse & __MetadataBearer;
 
 /**
- * <p>Exports the contents of a Amazon Lex resource in a specified format. </p>
+ * <p>Exports the contents of a Amazon Lex resource in a specified format.
+ *     </p>
  */
 export class GetExportCommand extends $Command<
   GetExportCommandInput,

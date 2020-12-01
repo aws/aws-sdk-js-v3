@@ -17,6 +17,9 @@ import {
 export type GetSchemaCommandInput = GetSchemaInput;
 export type GetSchemaCommandOutput = GetSchemaResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the specified schema in detail.</p>
+ */
 export class GetSchemaCommand extends $Command<
   GetSchemaCommandInput,
   GetSchemaCommandOutput,
@@ -31,6 +34,9 @@ export class GetSchemaCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

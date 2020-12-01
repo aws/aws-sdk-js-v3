@@ -36,6 +36,7 @@ export type PutBucketLifecycleConfigurationCommandOutput = __MetadataBearer;
  *          </note>
  *
  *
+ *
  *          <p>
  *             <b>Rules</b>
  *          </p>

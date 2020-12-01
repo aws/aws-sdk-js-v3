@@ -40,8 +40,6 @@ export type DeleteBucketPolicyCommandOutput = __MetadataBearer;
  *             ability to perform this action.</p>
  *          </important>
  *
- *
- *
  *          <p>For more information about bucket policies, see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and
  *             UserPolicies</a>. </p>
  *          <p>The following operations are related to <code>DeleteBucketPolicy</code>

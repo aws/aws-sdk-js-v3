@@ -20,6 +20,9 @@ import {
 export type AssociateLambdaFunctionCommandInput = AssociateLambdaFunctionRequest;
 export type AssociateLambdaFunctionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Allows the specified Amazon Connect instance to access the specified Lambda function.</p>
+ */
 export class AssociateLambdaFunctionCommand extends $Command<
   AssociateLambdaFunctionCommandInput,
   AssociateLambdaFunctionCommandOutput,
@@ -34,6 +37,9 @@ export class AssociateLambdaFunctionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type PutAppInstanceRetentionSettingsCommandInput = PutAppInstanceRetentionSettingsRequest;
 export type PutAppInstanceRetentionSettingsCommandOutput = PutAppInstanceRetentionSettingsResponse & __MetadataBearer;
 
+/**
+ * <p>Sets the amount of time in days that a given app instance retains data.</p>
+ */
 export class PutAppInstanceRetentionSettingsCommand extends $Command<
   PutAppInstanceRetentionSettingsCommandInput,
   PutAppInstanceRetentionSettingsCommandOutput,
@@ -34,6 +37,9 @@ export class PutAppInstanceRetentionSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

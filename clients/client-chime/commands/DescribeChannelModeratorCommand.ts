@@ -20,6 +20,9 @@ import {
 export type DescribeChannelModeratorCommandInput = DescribeChannelModeratorRequest;
 export type DescribeChannelModeratorCommandOutput = DescribeChannelModeratorResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the full details of a single ChannelModerator.</p>
+ */
 export class DescribeChannelModeratorCommand extends $Command<
   DescribeChannelModeratorCommandInput,
   DescribeChannelModeratorCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeChannelModeratorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

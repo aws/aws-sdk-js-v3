@@ -25,7 +25,9 @@ export type AssociateAttributeGroupCommandInput = AssociateAttributeGroupRequest
 export type AssociateAttributeGroupCommandOutput = AssociateAttributeGroupResponse & __MetadataBearer;
 
 /**
- * <p>Associates an attribute group with an application to augment the application's metadata with the group's attributes. This way applications can be described with user-defined details which are machine-readable (e.g. for third-party integrations).</p>
+ * <p>Associates an attribute group with an application to augment the application's metadata
+ *       with the group's attributes. This feature enables applications to be described with
+ *       user-defined details that are machine-readable, such as third-party integrations.</p>
  */
 export class AssociateAttributeGroupCommand extends $Command<
   AssociateAttributeGroupCommandInput,

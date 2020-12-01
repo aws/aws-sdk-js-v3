@@ -20,6 +20,9 @@ import {
 export type ListAppInstancesCommandInput = ListAppInstancesRequest;
 export type ListAppInstancesCommandOutput = ListAppInstancesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all Amazon Chime app instances created under a single AWS account.</p>
+ */
 export class ListAppInstancesCommand extends $Command<
   ListAppInstancesCommandInput,
   ListAppInstancesCommandOutput,
@@ -34,6 +37,9 @@ export class ListAppInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

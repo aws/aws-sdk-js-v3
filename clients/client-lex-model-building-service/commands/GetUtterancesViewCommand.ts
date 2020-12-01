@@ -25,24 +25,29 @@ export type GetUtterancesViewCommandInput = GetUtterancesViewRequest;
 export type GetUtterancesViewCommandOutput = GetUtterancesViewResponse & __MetadataBearer;
 
 /**
- * <p>Use the <code>GetUtterancesView</code> operation to get information about the
- *       utterances that your users have made to your bot. You can use this list to tune the utterances
- *       that your bot responds to.</p>
- *          <p>For example, say that you have created a bot to order flowers. After your users have
- *       used your bot for a while, use the <code>GetUtterancesView</code> operation to see the
- *       requests that they have made and whether they have been successful. You might find that the
- *       utterance "I want flowers" is not being recognized. You could add this utterance to the
- *         <code>OrderFlowers</code> intent so that your bot recognizes that utterance.</p>
- *          <p>After you publish a new version of a bot, you can get information about the old version
- *       and the new so that you can compare the performance across the two versions. </p>
- *          <p>Utterance statistics are generated once a day. Data is available for the last 15 days.
- *       You can request information for up to 5 versions of your bot in each request. Amazon Lex returns
- *       the most frequent utterances received by the bot in the last 15 days. The response contains
- *       information about a maximum of 100 utterances for each version.</p>
- *          <p>If you set <code>childDirected</code> field to true when you created your bot, or if
- *       you opted out of participating in improving Amazon Lex, utterances are not available.</p>
- *          <p>This operation requires permissions for the <code>lex:GetUtterancesView</code>
- *       action.</p>
+ * <p>Use the <code>GetUtterancesView</code> operation to get information
+ *       about the utterances that your users have made to your bot. You can use
+ *       this list to tune the utterances that your bot responds to.</p>
+ *          <p>For example, say that you have created a bot to order flowers.
+ *       After your users have used your bot for a while, use the
+ *         <code>GetUtterancesView</code> operation to see the requests that they
+ *       have made and whether they have been successful. You might find that the
+ *       utterance "I want flowers" is not being recognized. You could add this
+ *       utterance to the <code>OrderFlowers</code> intent so that your bot
+ *       recognizes that utterance.</p>
+ *          <p>After you publish a new version of a bot, you can get information
+ *       about the old version and the new so that you can compare the performance
+ *       across the two versions. </p>
+ *          <p>Utterance statistics are generated once a day. Data is available
+ *       for the last 15 days. You can request information for up to 5 versions of
+ *       your bot in each request. Amazon Lex returns the most frequent utterances
+ *       received by the bot in the last 15 days. The response contains information
+ *       about a maximum of 100 utterances for each version.</p>
+ *          <p>If you set <code>childDirected</code> field to true when you
+ *       created your bot, or if you opted out of participating in improving Amazon Lex,
+ *       utterances are not available.</p>
+ *          <p>This operation requires permissions for the
+ *         <code>lex:GetUtterancesView</code> action.</p>
  */
 export class GetUtterancesViewCommand extends $Command<
   GetUtterancesViewCommandInput,

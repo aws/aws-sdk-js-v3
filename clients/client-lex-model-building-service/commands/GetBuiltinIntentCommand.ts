@@ -26,8 +26,8 @@ export type GetBuiltinIntentCommandOutput = GetBuiltinIntentResponse & __Metadat
 
 /**
  * <p>Returns information about a built-in intent.</p>
- *          <p>This operation requires permission for the <code>lex:GetBuiltinIntent</code>
- *       action.</p>
+ *          <p>This operation requires permission for the
+ *         <code>lex:GetBuiltinIntent</code> action.</p>
  */
 export class GetBuiltinIntentCommand extends $Command<
   GetBuiltinIntentCommandInput,

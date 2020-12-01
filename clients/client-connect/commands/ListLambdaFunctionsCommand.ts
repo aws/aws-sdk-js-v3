@@ -20,6 +20,9 @@ import {
 export type ListLambdaFunctionsCommandInput = ListLambdaFunctionsRequest;
 export type ListLambdaFunctionsCommandOutput = ListLambdaFunctionsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a paginated list of all the Lambda functions that show up in the drop-down options in the relevant contact flow blocks.</p>
+ */
 export class ListLambdaFunctionsCommand extends $Command<
   ListLambdaFunctionsCommandInput,
   ListLambdaFunctionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListLambdaFunctionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

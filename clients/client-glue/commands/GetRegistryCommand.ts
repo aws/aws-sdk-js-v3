@@ -20,6 +20,9 @@ import {
 export type GetRegistryCommandInput = GetRegistryInput;
 export type GetRegistryCommandOutput = GetRegistryResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the specified registry in detail.</p>
+ */
 export class GetRegistryCommand extends $Command<
   GetRegistryCommandInput,
   GetRegistryCommandOutput,
@@ -34,6 +37,9 @@ export class GetRegistryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

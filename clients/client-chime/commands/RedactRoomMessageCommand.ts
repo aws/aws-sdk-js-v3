@@ -21,7 +21,7 @@ export type RedactRoomMessageCommandInput = RedactRoomMessageRequest;
 export type RedactRoomMessageCommandOutput = RedactRoomMessageResponse & __MetadataBearer;
 
 /**
- * <p>Redacts the specified message from the specified Amazon Chime chat room.</p>
+ * <p>Redacts the specified message from the specified Amazon Chime channel.</p>
  */
 export class RedactRoomMessageCommand extends $Command<
   RedactRoomMessageCommandInput,

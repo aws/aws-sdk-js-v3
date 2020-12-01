@@ -25,19 +25,22 @@ export type PutSlotTypeCommandInput = PutSlotTypeRequest;
 export type PutSlotTypeCommandOutput = PutSlotTypeResponse & __MetadataBearer;
 
 /**
- * <p>Creates a custom slot type or replaces an existing custom slot type.</p>
- *          <p>To create a custom slot type, specify a name for the slot type and a set of enumeration
- *       values, which are the values that a slot of this type can assume. For more information, see
- *         <a>how-it-works</a>.</p>
- *          <p>If you specify the name of an existing slot type, the fields in the request replace the
- *       existing values in the <code>$LATEST</code> version of the slot type. Amazon Lex removes the fields
- *       that you don't provide in the request. If you don't specify required fields, Amazon Lex throws an
- *       exception. When you update the <code>$LATEST</code> version of a slot type, if a bot uses the
- *         <code>$LATEST</code> version of an intent that contains the slot type, the bot's
- *         <code>status</code> field is set to <code>NOT_BUILT</code>.</p>
+ * <p>Creates a custom slot type or replaces an existing custom slot
+ *       type.</p>
+ *          <p>To create a custom slot type, specify a name for the slot type and
+ *       a set of enumeration values, which are the values that a slot of this type
+ *       can assume. For more information, see <a>how-it-works</a>.</p>
+ *          <p>If you specify the name of an existing slot type, the fields in the
+ *       request replace the existing values in the <code>$LATEST</code> version of
+ *       the slot type. Amazon Lex removes the fields that you don't provide in the
+ *       request. If you don't specify required fields, Amazon Lex throws an exception.
+ *       When you update the <code>$LATEST</code> version of a slot type, if a bot
+ *       uses the <code>$LATEST</code> version of an intent that contains the slot
+ *       type, the bot's <code>status</code> field is set to
+ *       <code>NOT_BUILT</code>.</p>
  *
- *          <p>This operation requires permissions for the <code>lex:PutSlotType</code>
- *       action.</p>
+ *          <p>This operation requires permissions for the
+ *         <code>lex:PutSlotType</code> action.</p>
  */
 export class PutSlotTypeCommand extends $Command<
   PutSlotTypeCommandInput,

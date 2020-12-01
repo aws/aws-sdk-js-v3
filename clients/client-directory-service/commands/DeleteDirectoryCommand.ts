@@ -22,7 +22,10 @@ export type DeleteDirectoryCommandOutput = DeleteDirectoryResult & __MetadataBea
 
 /**
  * <p>Deletes an AWS Directory Service directory.</p>
- *          <p>Before you call <code>DeleteDirectory</code>, ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the <code>DeleteDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.</p>
+ *          <p>Before you call <code>DeleteDirectory</code>, ensure that all of the required permissions
+ *       have been explicitly granted through a policy. For details about what permissions are required
+ *       to run the <code>DeleteDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS Directory Service API Permissions: Actions, Resources, and Conditions
+ *       Reference</a>.</p>
  */
 export class DeleteDirectoryCommand extends $Command<
   DeleteDirectoryCommandInput,

@@ -20,6 +20,11 @@ import {
 export type CreateInstanceCommandInput = CreateInstanceRequest;
 export type CreateInstanceCommandOutput = CreateInstanceResponse & __MetadataBearer;
 
+/**
+ * <p>Initiates an Amazon Connect instance with all the supported channels enabled. It does not attach any
+ *    storage (such as Amazon S3, or Kinesis) or allow for any configurations on features such as
+ *    Contact Lens for Amazon Connect. </p>
+ */
 export class CreateInstanceCommand extends $Command<
   CreateInstanceCommandInput,
   CreateInstanceCommandOutput,
@@ -34,6 +39,9 @@ export class CreateInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

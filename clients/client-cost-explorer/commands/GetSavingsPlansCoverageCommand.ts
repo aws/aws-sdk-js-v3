@@ -21,7 +21,7 @@ export type GetSavingsPlansCoverageCommandInput = GetSavingsPlansCoverageRequest
 export type GetSavingsPlansCoverageCommandOutput = GetSavingsPlansCoverageResponse & __MetadataBearer;
 
 /**
- * <p>Retrieves the Savings Plans covered for your account. This enables you to see how much of your cost is covered by a Savings Plan. An organization’s master account can see the coverage of the associated member accounts. This supports dimensions, Cost Categories, and nested expressions. For any time period, you can filter data for Savings Plans usage with the following dimensions:</p>
+ * <p>Retrieves the Savings Plans covered for your account. This enables you to see how much of your cost is covered by a Savings Plan. An organization’s management account can see the coverage of the associated member accounts. This supports dimensions, Cost Categories, and nested expressions. For any time period, you can filter data for Savings Plans usage with the following dimensions:</p>
  * 	        <ul>
  *             <li>
  *                <p>

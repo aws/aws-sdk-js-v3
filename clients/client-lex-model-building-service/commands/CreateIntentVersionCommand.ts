@@ -25,19 +25,20 @@ export type CreateIntentVersionCommandInput = CreateIntentVersionRequest;
 export type CreateIntentVersionCommandOutput = CreateIntentVersionResponse & __MetadataBearer;
 
 /**
- * <p>Creates a new version of an intent based on the <code>$LATEST</code> version of the
- *       intent. If the <code>$LATEST</code> version of this intent hasn't changed since you last
- *       updated it, Amazon Lex doesn't create a new version. It returns the last version you
+ * <p>Creates a new version of an intent based on the
+ *         <code>$LATEST</code> version of the intent. If the <code>$LATEST</code>
+ *       version of this intent hasn't changed since you last updated it, Amazon Lex
+ *       doesn't create a new version. It returns the last version you
  *       created.</p>
  *          <note>
- *             <p>You can update only the <code>$LATEST</code> version of the intent. You can't update
- *         the numbered versions that you create with the <code>CreateIntentVersion</code>
- *         operation.</p>
+ *             <p>You can update only the <code>$LATEST</code> version of the
+ *         intent. You can't update the numbered versions that you create with the
+ *           <code>CreateIntentVersion</code> operation.</p>
  *          </note>
- *          <p> When you create a version of an intent, Amazon Lex sets the version to 1. Subsequent
- *       versions increment by 1. For more information, see <a>versioning-intro</a>. </p>
- *          <p>This operation requires permissions to perform the <code>lex:CreateIntentVersion</code>
- *       action. </p>
+ *          <p> When you create a version of an intent, Amazon Lex sets the version to
+ *       1. Subsequent versions increment by 1. For more information, see <a>versioning-intro</a>. </p>
+ *          <p>This operation requires permissions to perform the
+ *         <code>lex:CreateIntentVersion</code> action. </p>
  */
 export class CreateIntentVersionCommand extends $Command<
   CreateIntentVersionCommandInput,

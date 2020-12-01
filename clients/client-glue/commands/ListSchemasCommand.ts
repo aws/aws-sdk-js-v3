@@ -20,6 +20,10 @@ import {
 export type ListSchemasCommandInput = ListSchemasInput;
 export type ListSchemasCommandOutput = ListSchemasResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of schemas with minimal details. Schemas in Deleting status will not be included in the results. Empty results will be returned if there are no schemas available.</p>
+ *          <p>When the <code>RegistryId</code> is not provided, all the schemas across registries will be part of the API response.</p>
+ */
 export class ListSchemasCommand extends $Command<
   ListSchemasCommandInput,
   ListSchemasCommandOutput,
@@ -34,6 +38,9 @@ export class ListSchemasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

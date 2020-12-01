@@ -20,6 +20,10 @@ import {
 export type RedactChannelMessageCommandInput = RedactChannelMessageRequest;
 export type RedactChannelMessageCommandOutput = RedactChannelMessageResponse & __MetadataBearer;
 
+/**
+ * <p>Redacts message content, but not metadata. The message exists in the back end, but the action returns null content, and the state
+ *            shows as redacted.</p>
+ */
 export class RedactChannelMessageCommand extends $Command<
   RedactChannelMessageCommandInput,
   RedactChannelMessageCommandOutput,
@@ -34,6 +38,9 @@ export class RedactChannelMessageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

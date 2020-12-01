@@ -20,6 +20,9 @@ import {
 export type GetSchemaVersionCommandInput = GetSchemaVersionInput;
 export type GetSchemaVersionCommandOutput = GetSchemaVersionResponse & __MetadataBearer;
 
+/**
+ * <p>Get the specified schema by its unique ID assigned when a version of the schema is created or registered. Schema versions in Deleted status will not be included in the results.</p>
+ */
 export class GetSchemaVersionCommand extends $Command<
   GetSchemaVersionCommandInput,
   GetSchemaVersionCommandOutput,
@@ -34,6 +37,9 @@ export class GetSchemaVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

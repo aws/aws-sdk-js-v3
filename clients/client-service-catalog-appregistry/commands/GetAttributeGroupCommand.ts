@@ -25,7 +25,7 @@ export type GetAttributeGroupCommandInput = GetAttributeGroupRequest;
 export type GetAttributeGroupCommandOutput = GetAttributeGroupResponse & __MetadataBearer;
 
 /**
- * <p>Retrieves an attribute group, either by its name or its ID.</p>
+ * <p>Retrieves an attribute group, either by its name or its ID. The attribute group can be specified either by its unique ID or by its name.</p>
  */
 export class GetAttributeGroupCommand extends $Command<
   GetAttributeGroupCommandInput,

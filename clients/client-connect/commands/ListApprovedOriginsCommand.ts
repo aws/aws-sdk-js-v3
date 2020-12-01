@@ -20,6 +20,9 @@ import {
 export type ListApprovedOriginsCommandInput = ListApprovedOriginsRequest;
 export type ListApprovedOriginsCommandOutput = ListApprovedOriginsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a paginated list of all approved origins associated with the instance.</p>
+ */
 export class ListApprovedOriginsCommand extends $Command<
   ListApprovedOriginsCommandInput,
   ListApprovedOriginsCommandOutput,
@@ -34,6 +37,9 @@ export class ListApprovedOriginsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

@@ -26,9 +26,12 @@ export type StopApplicationCommandOutput = StopApplicationResponse & __MetadataB
 
 /**
  * <p>Stops the application from processing data. You can stop
- *       an application only if it is in the running state.
- *       You can use the <a>DescribeApplication</a> operation to find the application state.
+ *       an application only if it is in the running status, unless you set the <code>Force</code>
+ *         parameter to <code>true</code>.</p>
+ *          <p>You can use the <a>DescribeApplication</a> operation to find the application status.
  *        </p>
+ *          <p>Kinesis Data Analytics takes a snapshot when the application is stopped, unless <code>Force</code> is set
+ *           to <code>true</code>.</p>
  */
 export class StopApplicationCommand extends $Command<
   StopApplicationCommandInput,

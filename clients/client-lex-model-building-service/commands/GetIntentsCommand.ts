@@ -29,15 +29,17 @@ export type GetIntentsCommandOutput = GetIntentsResponse & __MetadataBearer;
  *          <ul>
  *             <li>
  *                <p>If you specify the <code>nameContains</code> field, returns the
- *             <code>$LATEST</code> version of all intents that contain the specified string.</p>
+ *             <code>$LATEST</code> version of all intents that contain the
+ *           specified string.</p>
  *             </li>
  *             <li>
- *                <p> If you don't specify the <code>nameContains</code> field, returns information
- *           about the <code>$LATEST</code> version of all intents. </p>
+ *                <p> If you don't specify the <code>nameContains</code> field,
+ *           returns information about the <code>$LATEST</code> version of all
+ *           intents. </p>
  *             </li>
  *          </ul>
- *          <p> The operation requires permission for the <code>lex:GetIntents</code> action.
- *     </p>
+ *          <p> The operation requires permission for the
+ *         <code>lex:GetIntents</code> action. </p>
  */
 export class GetIntentsCommand extends $Command<
   GetIntentsCommandInput,

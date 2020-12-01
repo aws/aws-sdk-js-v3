@@ -24,6 +24,9 @@ export type DescribeChannelModeratedByAppInstanceUserCommandInput = DescribeChan
 export type DescribeChannelModeratedByAppInstanceUserCommandOutput = DescribeChannelModeratedByAppInstanceUserResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns the full details of a channel moderated by the specified <code>AppInstanceUser</code>.</p>
+ */
 export class DescribeChannelModeratedByAppInstanceUserCommand extends $Command<
   DescribeChannelModeratedByAppInstanceUserCommandInput,
   DescribeChannelModeratedByAppInstanceUserCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeChannelModeratedByAppInstanceUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

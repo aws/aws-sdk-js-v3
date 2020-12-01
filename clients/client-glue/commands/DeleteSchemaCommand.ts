@@ -20,6 +20,9 @@ import {
 export type DeleteSchemaCommandInput = DeleteSchemaInput;
 export type DeleteSchemaCommandOutput = DeleteSchemaResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the entire schema set, including the schema set and all of its versions. To get the status of the delete operation, you can call <code>GetSchema</code> API after the asynchronous call. Deleting a registry will disable all online operations for the schema, such as the <code>GetSchemaByDefinition</code>, and <code>RegisterSchemaVersion</code> APIs.</p>
+ */
 export class DeleteSchemaCommand extends $Command<
   DeleteSchemaCommandInput,
   DeleteSchemaCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteSchemaCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

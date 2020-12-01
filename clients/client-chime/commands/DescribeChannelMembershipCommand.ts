@@ -20,6 +20,9 @@ import {
 export type DescribeChannelMembershipCommandInput = DescribeChannelMembershipRequest;
 export type DescribeChannelMembershipCommandOutput = DescribeChannelMembershipResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the full details of a user's channel membership.</p>
+ */
 export class DescribeChannelMembershipCommand extends $Command<
   DescribeChannelMembershipCommandInput,
   DescribeChannelMembershipCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeChannelMembershipCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

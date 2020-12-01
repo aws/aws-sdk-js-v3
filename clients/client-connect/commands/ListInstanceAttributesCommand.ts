@@ -20,6 +20,9 @@ import {
 export type ListInstanceAttributesCommandInput = ListInstanceAttributesRequest;
 export type ListInstanceAttributesCommandOutput = ListInstanceAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a paginated list of all attribute types for the given instance.</p>
+ */
 export class ListInstanceAttributesCommand extends $Command<
   ListInstanceAttributesCommandInput,
   ListInstanceAttributesCommandOutput,
@@ -34,6 +37,9 @@ export class ListInstanceAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

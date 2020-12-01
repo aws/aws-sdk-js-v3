@@ -21,7 +21,7 @@ export type GetSavingsPlansUtilizationCommandInput = GetSavingsPlansUtilizationR
 export type GetSavingsPlansUtilizationCommandOutput = GetSavingsPlansUtilizationResponse & __MetadataBearer;
 
 /**
- * <p>Retrieves the Savings Plans utilization for your account across date ranges with daily or monthly granularity. Master account in an organization have access to member accounts. You can use <code>GetDimensionValues</code> in <code>SAVINGS_PLANS</code> to determine the possible dimension values.</p>
+ * <p>Retrieves the Savings Plans utilization for your account across date ranges with daily or monthly granularity. Management account in an organization have access to member accounts. You can use <code>GetDimensionValues</code> in <code>SAVINGS_PLANS</code> to determine the possible dimension values.</p>
  * 	        <note>
  *             <p>You cannot group by any dimension values for <code>GetSavingsPlansUtilization</code>.</p>
  *          </note>

@@ -20,6 +20,9 @@ import {
 export type ModifyClusterCommandInput = ModifyClusterRequest;
 export type ModifyClusterCommandOutput = ModifyClusterResponse & __MetadataBearer;
 
+/**
+ * <p>Modifies AWS CloudHSM cluster.</p>
+ */
 export class ModifyClusterCommand extends $Command<
   ModifyClusterCommandInput,
   ModifyClusterCommandOutput,
@@ -34,6 +37,9 @@ export class ModifyClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudHSMV2ClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteChannelCommandInput = DeleteChannelRequest;
 export type DeleteChannelCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Immediately makes a channel and its memberships inaccessible and marks them for deletion. This is an irreversible process.</p>
+ */
 export class DeleteChannelCommand extends $Command<
   DeleteChannelCommandInput,
   DeleteChannelCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

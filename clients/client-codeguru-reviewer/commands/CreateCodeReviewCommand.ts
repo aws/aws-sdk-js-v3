@@ -22,7 +22,11 @@ export type CreateCodeReviewCommandOutput = CreateCodeReviewResponse & __Metadat
 
 /**
  * <p>
- *          Use to create a code review for a repository analysis.
+ *          Use to create a code review with a <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReviewType.html">
+ *                <code>CodeReviewType</code>
+ *             </a>
+ *          of <code>RepositoryAnalysis</code>. This type of code review analyzes all code under a specified branch in an associated repository.
+ *          <code>PullRequest</code> code reviews are automatically triggered by a pull request so cannot be created using this method.
  *       </p>
  */
 export class CreateCodeReviewCommand extends $Command<

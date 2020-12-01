@@ -25,7 +25,7 @@ export type DisassociateAttributeGroupCommandInput = DisassociateAttributeGroupR
 export type DisassociateAttributeGroupCommandOutput = DisassociateAttributeGroupResponse & __MetadataBearer;
 
 /**
- * <p>Disassociates an attribute group from an application to remove the extra attributes contained in the attribute group from the application's metadata. This operation reverts AssociateAttributeGroup.</p>
+ * <p>Disassociates an attribute group from an application to remove the extra attributes contained in the attribute group from the application's metadata. This operation reverts <code>AssociateAttributeGroup</code>.</p>
  */
 export class DisassociateAttributeGroupCommand extends $Command<
   DisassociateAttributeGroupCommandInput,

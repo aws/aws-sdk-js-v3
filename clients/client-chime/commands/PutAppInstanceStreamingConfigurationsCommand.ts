@@ -24,6 +24,9 @@ export type PutAppInstanceStreamingConfigurationsCommandInput = PutAppInstanceSt
 export type PutAppInstanceStreamingConfigurationsCommandOutput = PutAppInstanceStreamingConfigurationsResponse &
   __MetadataBearer;
 
+/**
+ * <p>The data streaming configurations of an app instance.</p>
+ */
 export class PutAppInstanceStreamingConfigurationsCommand extends $Command<
   PutAppInstanceStreamingConfigurationsCommandInput,
   PutAppInstanceStreamingConfigurationsCommandOutput,
@@ -38,6 +41,9 @@ export class PutAppInstanceStreamingConfigurationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type CreateSchemaCommandInput = CreateSchemaInput;
 export type CreateSchemaCommandOutput = CreateSchemaResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new schema set and registers the schema definition. Returns an error if the schema set already exists without actually registering the version.</p>
+ *          <p>When the schema set is created, a version checkpoint will be set to the first version. Compatibility mode "DISABLED" restricts any additional schema versions from being added after the first schema version. For all other compatibility modes, validation of compatibility settings will be applied only from the second version onwards when the <code>RegisterSchemaVersion</code> API is used.</p>
+ *          <p>When this API is called without a <code>RegistryId</code>, this will create an entry for a "default-registry" in the registry database tables, if it is not already present.</p>
+ */
 export class CreateSchemaCommand extends $Command<
   CreateSchemaCommandInput,
   CreateSchemaCommandOutput,
@@ -34,6 +39,9 @@ export class CreateSchemaCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

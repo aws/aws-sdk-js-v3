@@ -42,12 +42,13 @@ export type GetObjectCommandOutput = GetObjectOutput & __MetadataBearer;
  *          BitTorrent. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3Torrent.html">Amazon S3
  *             Torrent</a>. For more information about returning the ACL of an object, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a>.</p>
  *
- *          <p>If the object you are retrieving is stored in the S3 Glacier, S3 Glacier Deep Archive,
- *          S3 Intelligent-Tiering Archive, or S3 Intelligent-Tiering Deep Archive storage classes, before you can retrieve
- *          the object you must first restore a copy using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html">RestoreObject</a>. Otherwise, this
- *          operation returns an <code>InvalidObjectStateError</code> error. For information about
- *          restoring archived objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html">Restoring
- *             Archived Objects</a>.</p>
+ *          <p>If the object you are retrieving is stored in the S3 Glacier or
+ *          S3 Glacier Deep Archive storage class, or S3 Intelligent-Tiering Archive or
+ *          S3 Intelligent-Tiering Deep Archive tiers, before you can retrieve the object you must first restore a
+ *          copy using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html">RestoreObject</a>. Otherwise, this operation returns an
+ *             <code>InvalidObjectStateError</code> error. For information about restoring archived
+ *          objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html">Restoring Archived
+ *             Objects</a>.</p>
  *
  *          <p>Encryption request headers, like <code>x-amz-server-side-encryption</code>, should not
  *          be sent for GET requests if your object uses server-side encryption with CMKs stored in AWS

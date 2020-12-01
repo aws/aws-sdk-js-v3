@@ -25,9 +25,11 @@ export type GetBotChannelAssociationsCommandInput = GetBotChannelAssociationsReq
 export type GetBotChannelAssociationsCommandOutput = GetBotChannelAssociationsResponse & __MetadataBearer;
 
 /**
- * <p> Returns a list of all of the channels associated with the specified bot. </p>
- *          <p>The <code>GetBotChannelAssociations</code> operation requires permissions for the
- *         <code>lex:GetBotChannelAssociations</code> action.</p>
+ * <p> Returns a list of all of the channels associated with the
+ *       specified bot. </p>
+ *          <p>The <code>GetBotChannelAssociations</code> operation requires
+ *       permissions for the <code>lex:GetBotChannelAssociations</code>
+ *       action.</p>
  */
 export class GetBotChannelAssociationsCommand extends $Command<
   GetBotChannelAssociationsCommandInput,

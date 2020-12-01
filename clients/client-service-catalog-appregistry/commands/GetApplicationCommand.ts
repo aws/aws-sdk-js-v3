@@ -25,7 +25,7 @@ export type GetApplicationCommandInput = GetApplicationRequest;
 export type GetApplicationCommandOutput = GetApplicationResponse & __MetadataBearer;
 
 /**
- * <p>Retrieves metadata information about one of your applications. The application can be specified either by its unique ID or by its name (which is unique within one account in one region at a given point in time). Specify by ID in automated workflows if you want to make sure that the exact same application is returned or a ResourceNotFoundException is thrown, avoiding the ABA addressing problem.</p>
+ * <p>Retrieves metadata information about one of your applications. The application can be specified either by its unique ID or by its name (which is unique within one account in one region at a given point in time). Specify by ID in automated workflows if you want to make sure that the exact same application is returned or a <code>ResourceNotFoundException</code> is thrown, avoiding the ABA addressing problem.</p>
  */
 export class GetApplicationCommand extends $Command<
   GetApplicationCommandInput,

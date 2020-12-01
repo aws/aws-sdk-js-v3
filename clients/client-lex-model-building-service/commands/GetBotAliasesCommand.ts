@@ -26,8 +26,8 @@ export type GetBotAliasesCommandOutput = GetBotAliasesResponse & __MetadataBeare
 
 /**
  * <p>Returns a list of aliases for a specified Amazon Lex bot.</p>
- *          <p>This operation requires permissions for the <code>lex:GetBotAliases</code>
- *       action.</p>
+ *          <p>This operation requires permissions for the
+ *         <code>lex:GetBotAliases</code> action.</p>
  */
 export class GetBotAliasesCommand extends $Command<
   GetBotAliasesCommandInput,

@@ -20,6 +20,10 @@ import {
 export type CreateAppInstanceCommandInput = CreateAppInstanceRequest;
 export type CreateAppInstanceCommandOutput = CreateAppInstanceResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an Amazon Chime Messaging SDK <code>AppInstance</code> under an AWS Account. Only Messaging SDK customers use this API.
+ *            <code>CreateAppInstance</code> supports <code>idempotency</code> behavior as described in the AWS API Standard.</p>
+ */
 export class CreateAppInstanceCommand extends $Command<
   CreateAppInstanceCommandInput,
   CreateAppInstanceCommandOutput,
@@ -34,6 +38,9 @@ export class CreateAppInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

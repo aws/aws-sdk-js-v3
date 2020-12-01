@@ -20,6 +20,9 @@ import {
 export type DisassociateApprovedOriginCommandInput = DisassociateApprovedOriginRequest;
 export type DisassociateApprovedOriginCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Revokes access to integrated applications from Amazon Connect.</p>
+ */
 export class DisassociateApprovedOriginCommand extends $Command<
   DisassociateApprovedOriginCommandInput,
   DisassociateApprovedOriginCommandOutput,
@@ -34,6 +37,9 @@ export class DisassociateApprovedOriginCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

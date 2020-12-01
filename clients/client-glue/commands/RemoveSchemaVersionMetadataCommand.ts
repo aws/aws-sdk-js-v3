@@ -20,6 +20,9 @@ import {
 export type RemoveSchemaVersionMetadataCommandInput = RemoveSchemaVersionMetadataInput;
 export type RemoveSchemaVersionMetadataCommandOutput = RemoveSchemaVersionMetadataResponse & __MetadataBearer;
 
+/**
+ * <p>Removes a key value pair from the schema version metadata for the specified schema version ID.</p>
+ */
 export class RemoveSchemaVersionMetadataCommand extends $Command<
   RemoveSchemaVersionMetadataCommandInput,
   RemoveSchemaVersionMetadataCommandOutput,
@@ -34,6 +37,9 @@ export class RemoveSchemaVersionMetadataCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

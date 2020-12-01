@@ -20,6 +20,9 @@ import {
 export type GetMessagingSessionEndpointCommandInput = GetMessagingSessionEndpointRequest;
 export type GetMessagingSessionEndpointCommandOutput = GetMessagingSessionEndpointResponse & __MetadataBearer;
 
+/**
+ * <p>The endpoint for the messaging session.</p>
+ */
 export class GetMessagingSessionEndpointCommand extends $Command<
   GetMessagingSessionEndpointCommandInput,
   GetMessagingSessionEndpointCommandOutput,
@@ -34,6 +37,9 @@ export class GetMessagingSessionEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

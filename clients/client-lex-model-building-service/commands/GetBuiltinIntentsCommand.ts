@@ -25,9 +25,10 @@ export type GetBuiltinIntentsCommandInput = GetBuiltinIntentsRequest;
 export type GetBuiltinIntentsCommandOutput = GetBuiltinIntentsResponse & __MetadataBearer;
 
 /**
- * <p>Gets a list of built-in intents that meet the specified criteria.</p>
- *          <p>This operation requires permission for the <code>lex:GetBuiltinIntents</code>
- *       action.</p>
+ * <p>Gets a list of built-in intents that meet the specified
+ *       criteria.</p>
+ *          <p>This operation requires permission for the
+ *         <code>lex:GetBuiltinIntents</code> action.</p>
  */
 export class GetBuiltinIntentsCommand extends $Command<
   GetBuiltinIntentsCommandInput,

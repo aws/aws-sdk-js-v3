@@ -20,6 +20,9 @@ import {
 export type GetAppInstanceRetentionSettingsCommandInput = GetAppInstanceRetentionSettingsRequest;
 export type GetAppInstanceRetentionSettingsCommandOutput = GetAppInstanceRetentionSettingsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the retention settings for an app instance.</p>
+ */
 export class GetAppInstanceRetentionSettingsCommand extends $Command<
   GetAppInstanceRetentionSettingsCommandInput,
   GetAppInstanceRetentionSettingsCommandOutput,
@@ -34,6 +37,9 @@ export class GetAppInstanceRetentionSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type UpdateChannelMessageCommandInput = UpdateChannelMessageRequest;
 export type UpdateChannelMessageCommandOutput = UpdateChannelMessageResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the content of a message.</p>
+ */
 export class UpdateChannelMessageCommand extends $Command<
   UpdateChannelMessageCommandInput,
   UpdateChannelMessageCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateChannelMessageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

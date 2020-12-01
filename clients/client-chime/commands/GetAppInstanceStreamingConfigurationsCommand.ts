@@ -24,6 +24,9 @@ export type GetAppInstanceStreamingConfigurationsCommandInput = GetAppInstanceSt
 export type GetAppInstanceStreamingConfigurationsCommandOutput = GetAppInstanceStreamingConfigurationsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Gets the streaming settings for an app instance.</p>
+ */
 export class GetAppInstanceStreamingConfigurationsCommand extends $Command<
   GetAppInstanceStreamingConfigurationsCommandInput,
   GetAppInstanceStreamingConfigurationsCommandOutput,
@@ -38,6 +41,9 @@ export class GetAppInstanceStreamingConfigurationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
