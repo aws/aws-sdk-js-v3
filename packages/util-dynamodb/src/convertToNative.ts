@@ -38,7 +38,7 @@ export const convertToNative = (data: AttributeValue, options?: unmarshallOption
       }
     }
   }
-  throw new Error(`No value defined: ${data}`);
+  throw new Error(`No value defined: ${JSON.stringify(data)}`);
 };
 
 const convertNumber = (numString: string, options?: unmarshallOptions): number | bigint | NumberValue => {
