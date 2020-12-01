@@ -46,7 +46,7 @@ export class WebSocketHandler implements HttpHandler {
   }
 }
 
-const waitForReady = (socket: WebSocket, connectionTimeout: number) =>
+const waitForReady = (socket: WebSocket, connectionTimeout: number): Promise<void> =>
   new Promise((resolve, reject) => {
     const timeout = setTimeout(() => {
       reject({
