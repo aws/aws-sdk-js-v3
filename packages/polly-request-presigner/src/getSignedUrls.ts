@@ -1,15 +1,14 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { formatUrl } from "@aws-sdk/util-format-url";
-
 import { PollyClient, SynthesizeSpeechCommand } from "@aws-sdk/client-polly";
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import { SignatureV4 } from "@aws-sdk/signature-v4";
+import { formatUrl } from "@aws-sdk/util-format-url";
 
 export const getSignedUrl = async (
   client: PollyClient,
   command: SynthesizeSpeechCommand,
   options: any = {}
 ): Promise<string> => {
-  let signer = new SignatureV4({
+  const signer = new SignatureV4({
     service: options.service || "polly",
     uriEscapePath: options.uriEscapePath || false,
     ...client.config,
@@ -32,7 +31,7 @@ export const getSignedUrl = async (
       ...args.input,
     };
 
-    let unsignableHeaders = new Set();
+    const unsignableHeaders = new Set();
     unsignableHeaders.add("content-type");
     const presigned = await signer.presign(request, {
       expiresIn: 3600,

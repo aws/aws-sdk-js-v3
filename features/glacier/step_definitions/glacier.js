@@ -14,23 +14,22 @@ Given("I have a Glacier vault", function (callback) {
   this.request(null, "createVault", params, callback, false);
 });
 
-Given(/^I upload a (\d+(?:\.\d+)?)MB Glacier archive to the vault( with (?:invalid|incorrect) checksum)?$/, function (
-  size,
-  invalid,
-  callback
-) {
-  const data = Buffer.alloc(parseFloat(size) * 1024 * 1024);
-  data.fill("0");
-  const params = {
-    vaultName: this.vaultName,
-    body: data,
-  };
-  if (invalid) {
-    if (invalid.match("invalid")) params.checksum = "000";
-    else params.checksum = "00000000000000000000000000000000";
+Given(
+  /^I upload a (\d+(?:\.\d+)?)MB Glacier archive to the vault( with (?:invalid|incorrect) checksum)?$/,
+  function (size, invalid, callback) {
+    const data = Buffer.alloc(parseFloat(size) * 1024 * 1024);
+    data.fill("0");
+    const params = {
+      vaultName: this.vaultName,
+      body: data,
+    };
+    if (invalid) {
+      if (invalid.match("invalid")) params.checksum = "000";
+      else params.checksum = "00000000000000000000000000000000";
+    }
+    this.request(null, "uploadArchive", params, callback, false);
   }
-  this.request(null, "uploadArchive", params, callback, false);
-});
+);
 
 Then("the result should contain the Glacier archive ID", function (callback) {
   this.archiveId = this.data.archiveId;
@@ -67,25 +66,24 @@ Then("I delete the Glacier vault", function (callback) {
   });
 });
 
-When(/^I initiate a Glacier multi-part upload on a (\d+(?:\.\d+)?)MB archive in (\d+)MB chunks$/, function (
-  totalSize,
-  partSize,
-  callback
-) {
-  // setup multi-part upload
-  this.uploadData = Buffer.alloc(totalSize * 1024 * 1024);
-  this.uploadData.fill("0");
-  // Computed by running bodyChecksumGenerator from body-checksum-node
-  this.treeHash = "86118ad0c187fd240db59a37360e0e7f8a3a0c608eed740b4cd7b4271ab45171";
-  this.partCounter = 0;
-  this.partSize = partSize * 1024 * 1024;
+When(
+  /^I initiate a Glacier multi-part upload on a (\d+(?:\.\d+)?)MB archive in (\d+)MB chunks$/,
+  function (totalSize, partSize, callback) {
+    // setup multi-part upload
+    this.uploadData = Buffer.alloc(totalSize * 1024 * 1024);
+    this.uploadData.fill("0");
+    // Computed by running bodyChecksumGenerator from body-checksum-node
+    this.treeHash = "86118ad0c187fd240db59a37360e0e7f8a3a0c608eed740b4cd7b4271ab45171";
+    this.partCounter = 0;
+    this.partSize = partSize * 1024 * 1024;
 
-  const params = {
-    vaultName: this.vaultName,
-    partSize: this.partSize.toString(),
-  };
-  this.request(null, "initiateMultipartUpload", params, callback);
-});
+    const params = {
+      vaultName: this.vaultName,
+      partSize: this.partSize.toString(),
+    };
+    this.request(null, "initiateMultipartUpload", params, callback);
+  }
+);
 
 Then("the result should contain the Glacier multi-part upload ID", function (callback) {
   this.uploadId = this.data.uploadId;

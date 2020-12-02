@@ -31,6 +31,7 @@ export async function* readabletoIterable<T>(readStream: Readable): AsyncIterabl
   });
 
   while (!generationEnded) {
+    // @ts-ignore TS2345: Argument of type 'T | undefined' is not assignable to type 'T | PromiseLike<T>'.
     const value = await new Promise<T>((resolve) => setTimeout(() => resolve(records.shift()), 0));
     if (value) {
       yield value;

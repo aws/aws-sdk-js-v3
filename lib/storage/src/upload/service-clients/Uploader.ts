@@ -42,10 +42,10 @@ export abstract class Uploader extends EventEmitter {
     this.uploadedParts = [];
   }
 
-  abstract async _initiateUpload(command: CreateMultipartUploadRequest): Promise<ServiceOutputTypes>;
-  abstract async _uploadPart(command: UploadPartCommandInput): Promise<UploadPartCommandOutput>;
-  abstract async _completeMultipartUpload(command: CompleteMultipartUploadRequest): Promise<ServiceOutputTypes>;
-  abstract async _abortUpload(command: AbortMultipartUploadRequest): Promise<ServiceOutputTypes>;
+  abstract _initiateUpload(command: CreateMultipartUploadRequest): Promise<ServiceOutputTypes>;
+  abstract _uploadPart(command: UploadPartCommandInput): Promise<UploadPartCommandOutput>;
+  abstract _completeMultipartUpload(command: CompleteMultipartUploadRequest): Promise<ServiceOutputTypes>;
+  abstract _abortUpload(command: AbortMultipartUploadRequest): Promise<ServiceOutputTypes>;
 
   async intialize() {
     const intializeCommand = {
