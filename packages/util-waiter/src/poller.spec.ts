@@ -4,7 +4,26 @@ import { WaiterState } from "./waiter";
 
 jest.mock("./utils/sleep");
 
-describe("poller", () => {
+describe(runPolling.name, () => {
+  const config = {
+    minDelay: 2,
+    maxDelay: 30,
+    maxWaitTime: 99999,
+  };
+  const client = "mockClient";
+  const input = "mockInput";
+  const failureState = {
+    state: WaiterState.FAILURE,
+  };
+  const successState = {
+    state: WaiterState.SUCCESS,
+  };
+  const retryState = {
+    state: WaiterState.RETRY,
+  };
+
+  let mockAcceptorChecks;
+
   beforeEach(() => {
     (sleep as jest.Mock).mockResolvedValueOnce("");
   });
@@ -13,21 +32,10 @@ describe("poller", () => {
     jest.clearAllMocks();
   });
 
-  it("returns state in case of failure", async () => {
-    const config = {
-      minDelay: 2,
-      maxDelay: 30,
-      maxWaitTime: 99999,
-    };
-    const stateToReturn = {
-      state: WaiterState.FAILURE,
-    };
-    const mockAcceptorChecks = jest.fn().mockResolvedValueOnce(stateToReturn);
-    const client = "mockClient";
-    const input = "mockInput";
-
+  it("should returns state in case of failure", async () => {
+    mockAcceptorChecks = jest.fn().mockResolvedValueOnce(failureState);
     await expect(runPolling<string, string>(config, client, input, mockAcceptorChecks)).resolves.toStrictEqual(
-      stateToReturn
+      failureState
     );
 
     expect(mockAcceptorChecks).toHaveBeenCalled();
@@ -45,12 +53,10 @@ describe("poller", () => {
       maxDelay: 30,
       maxWaitTime: 99999,
     };
-    const stateToReturn = {
-      state: WaiterState.SUCCESS,
-    };
 
-    await expect(runPolling<any, any>(config, {}, {}, async (a: any, b: any) => stateToReturn)).resolves.toStrictEqual(
-      stateToReturn
+    mockAcceptorChecks = jest.fn().mockResolvedValueOnce(successState);
+    await expect(runPolling<string, string>(config, client, input, mockAcceptorChecks)).resolves.toStrictEqual(
+      successState
     );
     expect(sleep).toHaveBeenCalled();
     expect(sleep).toHaveBeenCalledTimes(1);
@@ -58,30 +64,28 @@ describe("poller", () => {
   });
 
   it("sleeps as per exponentialBackoff in case of retry", async () => {
-    const config = {
-      minDelay: 2,
-      maxDelay: 30,
-      maxWaitTime: 99999,
-    };
-    const mockAcceptorChecks = jest
+    mockAcceptorChecks = jest
       .fn()
-      .mockResolvedValueOnce({
-        state: WaiterState.RETRY,
-      })
-      .mockResolvedValueOnce({
-        state: WaiterState.RETRY,
-      })
-      .mockResolvedValueOnce({
-        state: WaiterState.SUCCESS,
-      });
+      .mockResolvedValueOnce(retryState)
+      .mockResolvedValueOnce(retryState)
+      .mockResolvedValueOnce(retryState)
+      .mockResolvedValueOnce(retryState)
+      .mockResolvedValueOnce(retryState)
+      .mockResolvedValueOnce(retryState)
+      .mockResolvedValueOnce(successState);
 
-    await expect(runPolling<any, any>(config, {}, {}, mockAcceptorChecks)).resolves.toStrictEqual({
-      state: WaiterState.SUCCESS,
-    });
+    await expect(runPolling<string, string>(config, client, input, mockAcceptorChecks)).resolves.toStrictEqual(
+      successState
+    );
+
     expect(sleep).toHaveBeenCalled();
-    expect(sleep).toHaveBeenCalledTimes(3);
+    expect(sleep).toHaveBeenCalledTimes(7);
     expect(sleep).toHaveBeenNthCalledWith(1, 2);
     expect(sleep).toHaveBeenNthCalledWith(2, 4);
     expect(sleep).toHaveBeenNthCalledWith(3, 8);
+    expect(sleep).toHaveBeenNthCalledWith(4, 16);
+    expect(sleep).toHaveBeenNthCalledWith(5, 30);
+    expect(sleep).toHaveBeenNthCalledWith(6, 30);
+    expect(sleep).toHaveBeenNthCalledWith(7, 30);
   });
 });
