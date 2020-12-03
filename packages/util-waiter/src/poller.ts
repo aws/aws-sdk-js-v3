@@ -23,10 +23,6 @@ export async function runPolling<T, S>(
 
   while (true) {
     await sleep(currentDelay);
-    if (params.abortController && params.abortController.signal) {
-      return { state: WaiterState.RETRY };
-    }
-
     const { state } = await acceptorChecks(client, input);
     if (state == WaiterState.SUCCESS || state == WaiterState.FAILURE) {
       return { state };

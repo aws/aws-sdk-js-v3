@@ -1,3 +1,5 @@
+import { AbortSignal } from "@aws-sdk/abort-controller";
+
 import { WaiterResult, WaiterState } from "../waiter";
 
 export const sleep = (seconds: number) => {
@@ -7,4 +9,11 @@ export const sleep = (seconds: number) => {
 export const waiterTimeout = async (seconds: number): Promise<WaiterResult> => {
   await sleep(seconds);
   return { state: WaiterState.RETRY };
+};
+
+export const abortTimeout = async (abortSignal: AbortSignal): Promise<WaiterResult> => {
+  await new Promise((resolve, reject) => {
+    abortSignal.onabort = () => resolve();
+  });
+  return { state: WaiterState.ABORTED };
 };
