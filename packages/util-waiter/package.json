@@ -30,10 +30,10 @@
   "engines": {
     "node": ">= 10.0.0"
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/xml-builder",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/package/util-waiter",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/xml-builder"
+    "directory": "packages/util-waiter"
   }
 }
