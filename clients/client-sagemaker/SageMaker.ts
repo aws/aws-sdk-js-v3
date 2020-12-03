@@ -1,10 +1,20 @@
 import { SageMakerClient } from "./SageMakerClient";
+import {
+  AddAssociationCommand,
+  AddAssociationCommandInput,
+  AddAssociationCommandOutput,
+} from "./commands/AddAssociationCommand";
 import { AddTagsCommand, AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import {
   AssociateTrialComponentCommand,
   AssociateTrialComponentCommandInput,
   AssociateTrialComponentCommandOutput,
 } from "./commands/AssociateTrialComponentCommand";
+import {
+  CreateActionCommand,
+  CreateActionCommandInput,
+  CreateActionCommandOutput,
+} from "./commands/CreateActionCommand";
 import {
   CreateAlgorithmCommand,
   CreateAlgorithmCommandInput,
@@ -16,6 +26,11 @@ import {
   CreateAppImageConfigCommandInput,
   CreateAppImageConfigCommandOutput,
 } from "./commands/CreateAppImageConfigCommand";
+import {
+  CreateArtifactCommand,
+  CreateArtifactCommandInput,
+  CreateArtifactCommandOutput,
+} from "./commands/CreateArtifactCommand";
 import {
   CreateAutoMLJobCommand,
   CreateAutoMLJobCommandInput,
@@ -31,6 +46,11 @@ import {
   CreateCompilationJobCommandInput,
   CreateCompilationJobCommandOutput,
 } from "./commands/CreateCompilationJobCommand";
+import {
+  CreateContextCommand,
+  CreateContextCommandInput,
+  CreateContextCommandOutput,
+} from "./commands/CreateContextCommand";
 import {
   CreateDomainCommand,
   CreateDomainCommandInput,
@@ -51,6 +71,11 @@ import {
   CreateExperimentCommandInput,
   CreateExperimentCommandOutput,
 } from "./commands/CreateExperimentCommand";
+import {
+  CreateFeatureGroupCommand,
+  CreateFeatureGroupCommandInput,
+  CreateFeatureGroupCommandOutput,
+} from "./commands/CreateFeatureGroupCommand";
 import {
   CreateFlowDefinitionCommand,
   CreateFlowDefinitionCommandInput,
@@ -84,6 +109,11 @@ import {
   CreateModelPackageCommandOutput,
 } from "./commands/CreateModelPackageCommand";
 import {
+  CreateModelPackageGroupCommand,
+  CreateModelPackageGroupCommandInput,
+  CreateModelPackageGroupCommandOutput,
+} from "./commands/CreateModelPackageGroupCommand";
+import {
   CreateMonitoringScheduleCommand,
   CreateMonitoringScheduleCommandInput,
   CreateMonitoringScheduleCommandOutput,
@@ -99,6 +129,11 @@ import {
   CreateNotebookInstanceLifecycleConfigCommandOutput,
 } from "./commands/CreateNotebookInstanceLifecycleConfigCommand";
 import {
+  CreatePipelineCommand,
+  CreatePipelineCommandInput,
+  CreatePipelineCommandOutput,
+} from "./commands/CreatePipelineCommand";
+import {
   CreatePresignedDomainUrlCommand,
   CreatePresignedDomainUrlCommandInput,
   CreatePresignedDomainUrlCommandOutput,
@@ -113,6 +148,11 @@ import {
   CreateProcessingJobCommandInput,
   CreateProcessingJobCommandOutput,
 } from "./commands/CreateProcessingJobCommand";
+import {
+  CreateProjectCommand,
+  CreateProjectCommandInput,
+  CreateProjectCommandOutput,
+} from "./commands/CreateProjectCommand";
 import {
   CreateTrainingJobCommand,
   CreateTrainingJobCommandInput,
@@ -145,6 +185,11 @@ import {
   CreateWorkteamCommandOutput,
 } from "./commands/CreateWorkteamCommand";
 import {
+  DeleteActionCommand,
+  DeleteActionCommandInput,
+  DeleteActionCommandOutput,
+} from "./commands/DeleteActionCommand";
+import {
   DeleteAlgorithmCommand,
   DeleteAlgorithmCommandInput,
   DeleteAlgorithmCommandOutput,
@@ -156,10 +201,25 @@ import {
   DeleteAppImageConfigCommandOutput,
 } from "./commands/DeleteAppImageConfigCommand";
 import {
+  DeleteArtifactCommand,
+  DeleteArtifactCommandInput,
+  DeleteArtifactCommandOutput,
+} from "./commands/DeleteArtifactCommand";
+import {
+  DeleteAssociationCommand,
+  DeleteAssociationCommandInput,
+  DeleteAssociationCommandOutput,
+} from "./commands/DeleteAssociationCommand";
+import {
   DeleteCodeRepositoryCommand,
   DeleteCodeRepositoryCommandInput,
   DeleteCodeRepositoryCommandOutput,
 } from "./commands/DeleteCodeRepositoryCommand";
+import {
+  DeleteContextCommand,
+  DeleteContextCommandInput,
+  DeleteContextCommandOutput,
+} from "./commands/DeleteContextCommand";
 import {
   DeleteDomainCommand,
   DeleteDomainCommandInput,
@@ -180,6 +240,11 @@ import {
   DeleteExperimentCommandInput,
   DeleteExperimentCommandOutput,
 } from "./commands/DeleteExperimentCommand";
+import {
+  DeleteFeatureGroupCommand,
+  DeleteFeatureGroupCommandInput,
+  DeleteFeatureGroupCommandOutput,
+} from "./commands/DeleteFeatureGroupCommand";
 import {
   DeleteFlowDefinitionCommand,
   DeleteFlowDefinitionCommandInput,
@@ -203,6 +268,16 @@ import {
   DeleteModelPackageCommandOutput,
 } from "./commands/DeleteModelPackageCommand";
 import {
+  DeleteModelPackageGroupCommand,
+  DeleteModelPackageGroupCommandInput,
+  DeleteModelPackageGroupCommandOutput,
+} from "./commands/DeleteModelPackageGroupCommand";
+import {
+  DeleteModelPackageGroupPolicyCommand,
+  DeleteModelPackageGroupPolicyCommandInput,
+  DeleteModelPackageGroupPolicyCommandOutput,
+} from "./commands/DeleteModelPackageGroupPolicyCommand";
+import {
   DeleteMonitoringScheduleCommand,
   DeleteMonitoringScheduleCommandInput,
   DeleteMonitoringScheduleCommandOutput,
@@ -217,6 +292,16 @@ import {
   DeleteNotebookInstanceLifecycleConfigCommandInput,
   DeleteNotebookInstanceLifecycleConfigCommandOutput,
 } from "./commands/DeleteNotebookInstanceLifecycleConfigCommand";
+import {
+  DeletePipelineCommand,
+  DeletePipelineCommandInput,
+  DeletePipelineCommandOutput,
+} from "./commands/DeletePipelineCommand";
+import {
+  DeleteProjectCommand,
+  DeleteProjectCommandInput,
+  DeleteProjectCommandOutput,
+} from "./commands/DeleteProjectCommand";
 import { DeleteTagsCommand, DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import { DeleteTrialCommand, DeleteTrialCommandInput, DeleteTrialCommandOutput } from "./commands/DeleteTrialCommand";
 import {
@@ -240,6 +325,11 @@ import {
   DeleteWorkteamCommandOutput,
 } from "./commands/DeleteWorkteamCommand";
 import {
+  DescribeActionCommand,
+  DescribeActionCommandInput,
+  DescribeActionCommandOutput,
+} from "./commands/DescribeActionCommand";
+import {
   DescribeAlgorithmCommand,
   DescribeAlgorithmCommandInput,
   DescribeAlgorithmCommandOutput,
@@ -250,6 +340,11 @@ import {
   DescribeAppImageConfigCommandInput,
   DescribeAppImageConfigCommandOutput,
 } from "./commands/DescribeAppImageConfigCommand";
+import {
+  DescribeArtifactCommand,
+  DescribeArtifactCommandInput,
+  DescribeArtifactCommandOutput,
+} from "./commands/DescribeArtifactCommand";
 import {
   DescribeAutoMLJobCommand,
   DescribeAutoMLJobCommandInput,
@@ -265,6 +360,11 @@ import {
   DescribeCompilationJobCommandInput,
   DescribeCompilationJobCommandOutput,
 } from "./commands/DescribeCompilationJobCommand";
+import {
+  DescribeContextCommand,
+  DescribeContextCommandInput,
+  DescribeContextCommandOutput,
+} from "./commands/DescribeContextCommand";
 import {
   DescribeDomainCommand,
   DescribeDomainCommandInput,
@@ -285,6 +385,11 @@ import {
   DescribeExperimentCommandInput,
   DescribeExperimentCommandOutput,
 } from "./commands/DescribeExperimentCommand";
+import {
+  DescribeFeatureGroupCommand,
+  DescribeFeatureGroupCommandInput,
+  DescribeFeatureGroupCommandOutput,
+} from "./commands/DescribeFeatureGroupCommand";
 import {
   DescribeFlowDefinitionCommand,
   DescribeFlowDefinitionCommandInput,
@@ -326,6 +431,11 @@ import {
   DescribeModelPackageCommandOutput,
 } from "./commands/DescribeModelPackageCommand";
 import {
+  DescribeModelPackageGroupCommand,
+  DescribeModelPackageGroupCommandInput,
+  DescribeModelPackageGroupCommandOutput,
+} from "./commands/DescribeModelPackageGroupCommand";
+import {
   DescribeMonitoringScheduleCommand,
   DescribeMonitoringScheduleCommandInput,
   DescribeMonitoringScheduleCommandOutput,
@@ -341,10 +451,30 @@ import {
   DescribeNotebookInstanceLifecycleConfigCommandOutput,
 } from "./commands/DescribeNotebookInstanceLifecycleConfigCommand";
 import {
+  DescribePipelineCommand,
+  DescribePipelineCommandInput,
+  DescribePipelineCommandOutput,
+} from "./commands/DescribePipelineCommand";
+import {
+  DescribePipelineDefinitionForExecutionCommand,
+  DescribePipelineDefinitionForExecutionCommandInput,
+  DescribePipelineDefinitionForExecutionCommandOutput,
+} from "./commands/DescribePipelineDefinitionForExecutionCommand";
+import {
+  DescribePipelineExecutionCommand,
+  DescribePipelineExecutionCommandInput,
+  DescribePipelineExecutionCommandOutput,
+} from "./commands/DescribePipelineExecutionCommand";
+import {
   DescribeProcessingJobCommand,
   DescribeProcessingJobCommandInput,
   DescribeProcessingJobCommandOutput,
 } from "./commands/DescribeProcessingJobCommand";
+import {
+  DescribeProjectCommand,
+  DescribeProjectCommandInput,
+  DescribeProjectCommandOutput,
+} from "./commands/DescribeProjectCommand";
 import {
   DescribeSubscribedWorkteamCommand,
   DescribeSubscribedWorkteamCommandInput,
@@ -386,15 +516,36 @@ import {
   DescribeWorkteamCommandOutput,
 } from "./commands/DescribeWorkteamCommand";
 import {
+  DisableSagemakerServicecatalogPortfolioCommand,
+  DisableSagemakerServicecatalogPortfolioCommandInput,
+  DisableSagemakerServicecatalogPortfolioCommandOutput,
+} from "./commands/DisableSagemakerServicecatalogPortfolioCommand";
+import {
   DisassociateTrialComponentCommand,
   DisassociateTrialComponentCommandInput,
   DisassociateTrialComponentCommandOutput,
 } from "./commands/DisassociateTrialComponentCommand";
 import {
+  EnableSagemakerServicecatalogPortfolioCommand,
+  EnableSagemakerServicecatalogPortfolioCommandInput,
+  EnableSagemakerServicecatalogPortfolioCommandOutput,
+} from "./commands/EnableSagemakerServicecatalogPortfolioCommand";
+import {
+  GetModelPackageGroupPolicyCommand,
+  GetModelPackageGroupPolicyCommandInput,
+  GetModelPackageGroupPolicyCommandOutput,
+} from "./commands/GetModelPackageGroupPolicyCommand";
+import {
+  GetSagemakerServicecatalogPortfolioStatusCommand,
+  GetSagemakerServicecatalogPortfolioStatusCommandInput,
+  GetSagemakerServicecatalogPortfolioStatusCommandOutput,
+} from "./commands/GetSagemakerServicecatalogPortfolioStatusCommand";
+import {
   GetSearchSuggestionsCommand,
   GetSearchSuggestionsCommandInput,
   GetSearchSuggestionsCommandOutput,
 } from "./commands/GetSearchSuggestionsCommand";
+import { ListActionsCommand, ListActionsCommandInput, ListActionsCommandOutput } from "./commands/ListActionsCommand";
 import {
   ListAlgorithmsCommand,
   ListAlgorithmsCommandInput,
@@ -406,6 +557,16 @@ import {
   ListAppImageConfigsCommandOutput,
 } from "./commands/ListAppImageConfigsCommand";
 import { ListAppsCommand, ListAppsCommandInput, ListAppsCommandOutput } from "./commands/ListAppsCommand";
+import {
+  ListArtifactsCommand,
+  ListArtifactsCommandInput,
+  ListArtifactsCommandOutput,
+} from "./commands/ListArtifactsCommand";
+import {
+  ListAssociationsCommand,
+  ListAssociationsCommandInput,
+  ListAssociationsCommandOutput,
+} from "./commands/ListAssociationsCommand";
 import {
   ListAutoMLJobsCommand,
   ListAutoMLJobsCommandInput,
@@ -426,6 +587,11 @@ import {
   ListCompilationJobsCommandInput,
   ListCompilationJobsCommandOutput,
 } from "./commands/ListCompilationJobsCommand";
+import {
+  ListContextsCommand,
+  ListContextsCommandInput,
+  ListContextsCommandOutput,
+} from "./commands/ListContextsCommand";
 import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
   ListEndpointConfigsCommand,
@@ -442,6 +608,11 @@ import {
   ListExperimentsCommandInput,
   ListExperimentsCommandOutput,
 } from "./commands/ListExperimentsCommand";
+import {
+  ListFeatureGroupsCommand,
+  ListFeatureGroupsCommandInput,
+  ListFeatureGroupsCommandOutput,
+} from "./commands/ListFeatureGroupsCommand";
 import {
   ListFlowDefinitionsCommand,
   ListFlowDefinitionsCommandInput,
@@ -474,6 +645,11 @@ import {
   ListLabelingJobsForWorkteamCommandOutput,
 } from "./commands/ListLabelingJobsForWorkteamCommand";
 import {
+  ListModelPackageGroupsCommand,
+  ListModelPackageGroupsCommandInput,
+  ListModelPackageGroupsCommandOutput,
+} from "./commands/ListModelPackageGroupsCommand";
+import {
   ListModelPackagesCommand,
   ListModelPackagesCommandInput,
   ListModelPackagesCommandOutput,
@@ -500,10 +676,35 @@ import {
   ListNotebookInstancesCommandOutput,
 } from "./commands/ListNotebookInstancesCommand";
 import {
+  ListPipelineExecutionStepsCommand,
+  ListPipelineExecutionStepsCommandInput,
+  ListPipelineExecutionStepsCommandOutput,
+} from "./commands/ListPipelineExecutionStepsCommand";
+import {
+  ListPipelineExecutionsCommand,
+  ListPipelineExecutionsCommandInput,
+  ListPipelineExecutionsCommandOutput,
+} from "./commands/ListPipelineExecutionsCommand";
+import {
+  ListPipelineParametersForExecutionCommand,
+  ListPipelineParametersForExecutionCommandInput,
+  ListPipelineParametersForExecutionCommandOutput,
+} from "./commands/ListPipelineParametersForExecutionCommand";
+import {
+  ListPipelinesCommand,
+  ListPipelinesCommandInput,
+  ListPipelinesCommandOutput,
+} from "./commands/ListPipelinesCommand";
+import {
   ListProcessingJobsCommand,
   ListProcessingJobsCommandInput,
   ListProcessingJobsCommandOutput,
 } from "./commands/ListProcessingJobsCommand";
+import {
+  ListProjectsCommand,
+  ListProjectsCommandInput,
+  ListProjectsCommandOutput,
+} from "./commands/ListProjectsCommand";
 import {
   ListSubscribedWorkteamsCommand,
   ListSubscribedWorkteamsCommandInput,
@@ -547,6 +748,11 @@ import {
   ListWorkteamsCommandOutput,
 } from "./commands/ListWorkteamsCommand";
 import {
+  PutModelPackageGroupPolicyCommand,
+  PutModelPackageGroupPolicyCommandInput,
+  PutModelPackageGroupPolicyCommandOutput,
+} from "./commands/PutModelPackageGroupPolicyCommand";
+import {
   RenderUiTemplateCommand,
   RenderUiTemplateCommandInput,
   RenderUiTemplateCommandOutput,
@@ -562,6 +768,11 @@ import {
   StartNotebookInstanceCommandInput,
   StartNotebookInstanceCommandOutput,
 } from "./commands/StartNotebookInstanceCommand";
+import {
+  StartPipelineExecutionCommand,
+  StartPipelineExecutionCommandInput,
+  StartPipelineExecutionCommandOutput,
+} from "./commands/StartPipelineExecutionCommand";
 import {
   StopAutoMLJobCommand,
   StopAutoMLJobCommandInput,
@@ -593,6 +804,11 @@ import {
   StopNotebookInstanceCommandOutput,
 } from "./commands/StopNotebookInstanceCommand";
 import {
+  StopPipelineExecutionCommand,
+  StopPipelineExecutionCommandInput,
+  StopPipelineExecutionCommandOutput,
+} from "./commands/StopPipelineExecutionCommand";
+import {
   StopProcessingJobCommand,
   StopProcessingJobCommandInput,
   StopProcessingJobCommandOutput,
@@ -608,15 +824,30 @@ import {
   StopTransformJobCommandOutput,
 } from "./commands/StopTransformJobCommand";
 import {
+  UpdateActionCommand,
+  UpdateActionCommandInput,
+  UpdateActionCommandOutput,
+} from "./commands/UpdateActionCommand";
+import {
   UpdateAppImageConfigCommand,
   UpdateAppImageConfigCommandInput,
   UpdateAppImageConfigCommandOutput,
 } from "./commands/UpdateAppImageConfigCommand";
 import {
+  UpdateArtifactCommand,
+  UpdateArtifactCommandInput,
+  UpdateArtifactCommandOutput,
+} from "./commands/UpdateArtifactCommand";
+import {
   UpdateCodeRepositoryCommand,
   UpdateCodeRepositoryCommandInput,
   UpdateCodeRepositoryCommandOutput,
 } from "./commands/UpdateCodeRepositoryCommand";
+import {
+  UpdateContextCommand,
+  UpdateContextCommandInput,
+  UpdateContextCommandOutput,
+} from "./commands/UpdateContextCommand";
 import {
   UpdateDomainCommand,
   UpdateDomainCommandInput,
@@ -639,6 +870,11 @@ import {
 } from "./commands/UpdateExperimentCommand";
 import { UpdateImageCommand, UpdateImageCommandInput, UpdateImageCommandOutput } from "./commands/UpdateImageCommand";
 import {
+  UpdateModelPackageCommand,
+  UpdateModelPackageCommandInput,
+  UpdateModelPackageCommandOutput,
+} from "./commands/UpdateModelPackageCommand";
+import {
   UpdateMonitoringScheduleCommand,
   UpdateMonitoringScheduleCommandInput,
   UpdateMonitoringScheduleCommandOutput,
@@ -653,6 +889,16 @@ import {
   UpdateNotebookInstanceLifecycleConfigCommandInput,
   UpdateNotebookInstanceLifecycleConfigCommandOutput,
 } from "./commands/UpdateNotebookInstanceLifecycleConfigCommand";
+import {
+  UpdatePipelineCommand,
+  UpdatePipelineCommandInput,
+  UpdatePipelineCommandOutput,
+} from "./commands/UpdatePipelineCommand";
+import {
+  UpdatePipelineExecutionCommand,
+  UpdatePipelineExecutionCommandInput,
+  UpdatePipelineExecutionCommandOutput,
+} from "./commands/UpdatePipelineExecutionCommand";
 import { UpdateTrialCommand, UpdateTrialCommandInput, UpdateTrialCommandOutput } from "./commands/UpdateTrialCommand";
 import {
   UpdateTrialComponentCommand,
@@ -695,6 +941,42 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *          </ul>
  */
 export class SageMaker extends SageMakerClient {
+  /**
+   * <p>Creates an <i>association</i> between the source and the destination. A
+   *         source can be associated with multiple destinations, and a destination can be associated
+   *         with multiple sources. An association is a lineage tracking entity. For more information, see
+   *         <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html">Amazon SageMaker
+   *           ML Lineage Tracking</a>.</p>
+   */
+  public addAssociation(
+    args: AddAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddAssociationCommandOutput>;
+  public addAssociation(
+    args: AddAssociationCommandInput,
+    cb: (err: any, data?: AddAssociationCommandOutput) => void
+  ): void;
+  public addAssociation(
+    args: AddAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AddAssociationCommandOutput) => void
+  ): void;
+  public addAssociation(
+    args: AddAssociationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddAssociationCommandOutput) => void),
+    cb?: (err: any, data?: AddAssociationCommandOutput) => void
+  ): Promise<AddAssociationCommandOutput> | void {
+    const command = new AddAssociationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Adds or overwrites one or more tags for the specified Amazon SageMaker resource. You can add
    *             tags to notebook instances, training jobs, hyperparameter tuning jobs, batch transform
@@ -760,6 +1042,39 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: AssociateTrialComponentCommandOutput) => void
   ): Promise<AssociateTrialComponentCommandOutput> | void {
     const command = new AssociateTrialComponentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an <i>action</i>. An action is a lineage tracking entity that
+   *         represents an action or activity. For example, a model deployment or an HPO job.
+   *         Generally, an action involves at least one input or output artifact. For more information, see
+   *         <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html">Amazon SageMaker
+   *           ML Lineage Tracking</a>.</p>
+   */
+  public createAction(
+    args: CreateActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateActionCommandOutput>;
+  public createAction(args: CreateActionCommandInput, cb: (err: any, data?: CreateActionCommandOutput) => void): void;
+  public createAction(
+    args: CreateActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateActionCommandOutput) => void
+  ): void;
+  public createAction(
+    args: CreateActionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateActionCommandOutput) => void),
+    cb?: (err: any, data?: CreateActionCommandOutput) => void
+  ): Promise<CreateActionCommandOutput> | void {
+    const command = new CreateActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -858,6 +1173,42 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: CreateAppImageConfigCommandOutput) => void
   ): Promise<CreateAppImageConfigCommandOutput> | void {
     const command = new CreateAppImageConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an <i>artifact</i>. An artifact is a lineage tracking entity that
+   *         represents a URI addressable object or data. Some examples are the S3 URI of a dataset and
+   *         the ECR registry path of an image. For more information, see
+   *         <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html">Amazon SageMaker
+   *           ML Lineage Tracking</a>.</p>
+   */
+  public createArtifact(
+    args: CreateArtifactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateArtifactCommandOutput>;
+  public createArtifact(
+    args: CreateArtifactCommandInput,
+    cb: (err: any, data?: CreateArtifactCommandOutput) => void
+  ): void;
+  public createArtifact(
+    args: CreateArtifactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateArtifactCommandOutput) => void
+  ): void;
+  public createArtifact(
+    args: CreateArtifactCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateArtifactCommandOutput) => void),
+    cb?: (err: any, data?: CreateArtifactCommandOutput) => void
+  ): Promise<CreateArtifactCommandOutput> | void {
+    const command = new CreateArtifactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1007,13 +1358,59 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Creates a <i>context</i>. A context is a lineage tracking entity that
+   *         represents a logical grouping of other tracking or experiment entities. Some examples are
+   *         an endpoint and a model package. For more information, see
+   *         <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html">Amazon SageMaker
+   *           ML Lineage Tracking</a>.</p>
+   */
+  public createContext(
+    args: CreateContextCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateContextCommandOutput>;
+  public createContext(
+    args: CreateContextCommandInput,
+    cb: (err: any, data?: CreateContextCommandOutput) => void
+  ): void;
+  public createContext(
+    args: CreateContextCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateContextCommandOutput) => void
+  ): void;
+  public createContext(
+    args: CreateContextCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateContextCommandOutput) => void),
+    cb?: (err: any, data?: CreateContextCommandOutput) => void
+  ): Promise<CreateContextCommandOutput> | void {
+    const command = new CreateContextCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a <code>Domain</code> used by Amazon SageMaker Studio. A domain consists of an associated
    *     Amazon Elastic File System (EFS) volume, a list of authorized users, and a variety of security, application,
    *     policy, and Amazon Virtual Private Cloud (VPC) configurations. An AWS account is limited to one domain per region.
    *     Users within a domain can share notebook files and other artifacts with each other.</p>
+   *
+   *          <p>
+   *             <b>EFS storage</b>
+   *          </p>
    *          <p>When a domain is created, an EFS volume is created for use by all of the users within the
    *     domain. Each user receives a private home directory within the EFS volume for notebooks,
    *     Git repositories, and data files.</p>
+   *          <p>SageMaker uses the AWS Key Management Service (AWS KMS) to encrypt the EFS volume attached to the domain with
+   *     an AWS managed customer master key (CMK) by default. For more control, you can specify a
+   *     customer managed CMK. For more information, see
+   *     <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/encryption-at-rest.html">Protect Data at
+   *       Rest Using Encryption</a>.</p>
+   *
    *          <p>
    *             <b>VPC configuration</b>
    *          </p>
@@ -1278,6 +1675,50 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: CreateExperimentCommandOutput) => void
   ): Promise<CreateExperimentCommandOutput> | void {
     const command = new CreateExperimentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Create a new <code>FeatureGroup</code>. A <code>FeatureGroup</code> is a group of
+   *             <code>Features</code> defined in the <code>FeatureStore</code> to describe a
+   *             <code>Record</code>. </p>
+   *          <p>The <code>FeatureGroup</code> defines the schema and features contained in the
+   *          FeatureGroup. A <code>FeatureGroup</code> definition is composed of a list of
+   *             <code>Features</code>, a <code>RecordIdentifierFeatureName</code>, an
+   *             <code>EventTimeFeatureName</code> and configurations for its <code>OnlineStore</code>
+   *          and <code>OfflineStore</code>. Check <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS service quotas</a> to see
+   *          the <code>FeatureGroup</code>s quota for your AWS account.</p>
+   *          <important>
+   *             <p>You must include at least one of <code>OnlineStoreConfig</code> and
+   *                <code>OfflineStoreConfig</code> to create a <code>FeatureGroup</code>.</p>
+   *          </important>
+   */
+  public createFeatureGroup(
+    args: CreateFeatureGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFeatureGroupCommandOutput>;
+  public createFeatureGroup(
+    args: CreateFeatureGroupCommandInput,
+    cb: (err: any, data?: CreateFeatureGroupCommandOutput) => void
+  ): void;
+  public createFeatureGroup(
+    args: CreateFeatureGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateFeatureGroupCommandOutput) => void
+  ): void;
+  public createFeatureGroup(
+    args: CreateFeatureGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFeatureGroupCommandOutput) => void),
+    cb?: (err: any, data?: CreateFeatureGroupCommandOutput) => void
+  ): Promise<CreateFeatureGroupCommandOutput> | void {
+    const command = new CreateFeatureGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1562,13 +2003,24 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Creates a model package that you can use to create Amazon SageMaker models or list on AWS
-   *             Marketplace. Buyers can subscribe to model packages listed on AWS Marketplace to create
+   *             Marketplace, or a versioned model that is part of a model group. Buyers can subscribe to model packages listed on AWS Marketplace to create
    *             models in Amazon SageMaker.</p>
    *         <p>To create a model package by specifying a Docker container that contains your
    *             inference code and the Amazon S3 location of your model artifacts, provide values for
    *                 <code>InferenceSpecification</code>. To create a model from an algorithm resource
    *             that you created or subscribed to in AWS Marketplace, provide a value for
    *                 <code>SourceAlgorithmSpecification</code>.</p>
+   *         <note>
+   *             <p>There are two types of model packages:</p>
+   *             <ul>
+   *                <li>
+   *                     <p>Versioned - a model that is part of a model group in the model registry.</p>
+   *                 </li>
+   *                <li>
+   *                     <p>Unversioned - a model package that is not part of a model group.</p>
+   *                 </li>
+   *             </ul>
+   *         </note>
    */
   public createModelPackage(
     args: CreateModelPackageCommandInput,
@@ -1589,6 +2041,38 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: CreateModelPackageCommandOutput) => void
   ): Promise<CreateModelPackageCommandOutput> | void {
     const command = new CreateModelPackageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a model group. A model group contains a group of model versions.</p>
+   */
+  public createModelPackageGroup(
+    args: CreateModelPackageGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateModelPackageGroupCommandOutput>;
+  public createModelPackageGroup(
+    args: CreateModelPackageGroupCommandInput,
+    cb: (err: any, data?: CreateModelPackageGroupCommandOutput) => void
+  ): void;
+  public createModelPackageGroup(
+    args: CreateModelPackageGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateModelPackageGroupCommandOutput) => void
+  ): void;
+  public createModelPackageGroup(
+    args: CreateModelPackageGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateModelPackageGroupCommandOutput) => void),
+    cb?: (err: any, data?: CreateModelPackageGroupCommandOutput) => void
+  ): Promise<CreateModelPackageGroupCommandOutput> | void {
+    const command = new CreateModelPackageGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1748,6 +2232,38 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Creates a pipeline using a JSON pipeline definition.</p>
+   */
+  public createPipeline(
+    args: CreatePipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePipelineCommandOutput>;
+  public createPipeline(
+    args: CreatePipelineCommandInput,
+    cb: (err: any, data?: CreatePipelineCommandOutput) => void
+  ): void;
+  public createPipeline(
+    args: CreatePipelineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePipelineCommandOutput) => void
+  ): void;
+  public createPipeline(
+    args: CreatePipelineCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePipelineCommandOutput) => void),
+    cb?: (err: any, data?: CreatePipelineCommandOutput) => void
+  ): Promise<CreatePipelineCommandOutput> | void {
+    const command = new CreatePipelineCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a URL for a specified UserProfile in a Domain.  When accessed in a web browser,
    *        the user will be automatically signed in to Amazon SageMaker Studio, and granted access to all of
    *        the Apps and files associated with the Domain's Amazon Elastic File System (EFS) volume.
@@ -1870,12 +2386,45 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Creates a machine learning (ML) project that can contain one or more templates that set
+   *             up an ML pipeline from training to deploying an approved model.</p>
+   */
+  public createProject(
+    args: CreateProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateProjectCommandOutput>;
+  public createProject(
+    args: CreateProjectCommandInput,
+    cb: (err: any, data?: CreateProjectCommandOutput) => void
+  ): void;
+  public createProject(
+    args: CreateProjectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateProjectCommandOutput) => void
+  ): void;
+  public createProject(
+    args: CreateProjectCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProjectCommandOutput) => void),
+    cb?: (err: any, data?: CreateProjectCommandOutput) => void
+  ): Promise<CreateProjectCommandOutput> | void {
+    const command = new CreateProjectCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Starts a model training job. After training completes, Amazon SageMaker saves the resulting
    *             model artifacts to an Amazon S3 location that you specify. </p>
-   *         <p>If you choose to host your model using Amazon SageMaker hosting services, you can use the
-   *             resulting model artifacts as part of the model. You can also use the artifacts in a
-   *             machine learning service other than Amazon SageMaker, provided that you know how to use them for
-   *             inferences.
+   *         <p>If you choose to host your model using Amazon SageMaker hosting services, you can use the resulting
+   *             model artifacts as part of the model. You can also use the artifacts in a machine
+   *             learning service other than Amazon SageMaker, provided that you know how to use them for
+   *             inference.
    *
    *         </p>
    *         <p>In the request body, you provide the following: </p>
@@ -1920,7 +2469,7 @@ export class SageMaker extends SageMakerClient {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>RoleARN</code> - The Amazon Resource Number (ARN) that Amazon SageMaker assumes
+   *                   <code>RoleArn</code> - The Amazon Resource Number (ARN) that Amazon SageMaker assumes
    *                     to perform tasks on your behalf during model training.
    *
    *                     You must grant this role the necessary permissions so that Amazon SageMaker can successfully
@@ -2241,6 +2790,35 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Deletes an action.</p>
+   */
+  public deleteAction(
+    args: DeleteActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteActionCommandOutput>;
+  public deleteAction(args: DeleteActionCommandInput, cb: (err: any, data?: DeleteActionCommandOutput) => void): void;
+  public deleteAction(
+    args: DeleteActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteActionCommandOutput) => void
+  ): void;
+  public deleteAction(
+    args: DeleteActionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteActionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteActionCommandOutput) => void
+  ): Promise<DeleteActionCommandOutput> | void {
+    const command = new DeleteActionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Removes the specified algorithm from your account.</p>
    */
   public deleteAlgorithm(
@@ -2331,6 +2909,71 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Deletes an artifact. Either <code>ArtifactArn</code> or <code>Source</code> must be
+   *         specified.</p>
+   */
+  public deleteArtifact(
+    args: DeleteArtifactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteArtifactCommandOutput>;
+  public deleteArtifact(
+    args: DeleteArtifactCommandInput,
+    cb: (err: any, data?: DeleteArtifactCommandOutput) => void
+  ): void;
+  public deleteArtifact(
+    args: DeleteArtifactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteArtifactCommandOutput) => void
+  ): void;
+  public deleteArtifact(
+    args: DeleteArtifactCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteArtifactCommandOutput) => void),
+    cb?: (err: any, data?: DeleteArtifactCommandOutput) => void
+  ): Promise<DeleteArtifactCommandOutput> | void {
+    const command = new DeleteArtifactCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an association.</p>
+   */
+  public deleteAssociation(
+    args: DeleteAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAssociationCommandOutput>;
+  public deleteAssociation(
+    args: DeleteAssociationCommandInput,
+    cb: (err: any, data?: DeleteAssociationCommandOutput) => void
+  ): void;
+  public deleteAssociation(
+    args: DeleteAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAssociationCommandOutput) => void
+  ): void;
+  public deleteAssociation(
+    args: DeleteAssociationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAssociationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAssociationCommandOutput) => void
+  ): Promise<DeleteAssociationCommandOutput> | void {
+    const command = new DeleteAssociationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the specified Git repository from your account.</p>
    */
   public deleteCodeRepository(
@@ -2352,6 +2995,38 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: DeleteCodeRepositoryCommandOutput) => void
   ): Promise<DeleteCodeRepositoryCommandOutput> | void {
     const command = new DeleteCodeRepositoryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an context.</p>
+   */
+  public deleteContext(
+    args: DeleteContextCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteContextCommandOutput>;
+  public deleteContext(
+    args: DeleteContextCommandInput,
+    cb: (err: any, data?: DeleteContextCommandOutput) => void
+  ): void;
+  public deleteContext(
+    args: DeleteContextCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteContextCommandOutput) => void
+  ): void;
+  public deleteContext(
+    args: DeleteContextCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteContextCommandOutput) => void),
+    cb?: (err: any, data?: DeleteContextCommandOutput) => void
+  ): Promise<DeleteContextCommandOutput> | void {
+    const command = new DeleteContextCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2494,6 +3169,43 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: DeleteExperimentCommandOutput) => void
   ): Promise<DeleteExperimentCommandOutput> | void {
     const command = new DeleteExperimentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Delete the <code>FeatureGroup</code> and any data that was written to the
+   *             <code>OnlineStore</code> of the <code>FeatureGroup</code>. Data cannot be accessed from
+   *          the <code>OnlineStore</code> immediately after <code>DeleteFeatureGroup</code> is called. </p>
+   *          <p>Data written into the <code>OfflineStore</code> will not be deleted. The AWS Glue
+   *          database and tables that are automatically created for your <code>OfflineStore</code> are
+   *          not deleted. </p>
+   */
+  public deleteFeatureGroup(
+    args: DeleteFeatureGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFeatureGroupCommandOutput>;
+  public deleteFeatureGroup(
+    args: DeleteFeatureGroupCommandInput,
+    cb: (err: any, data?: DeleteFeatureGroupCommandOutput) => void
+  ): void;
+  public deleteFeatureGroup(
+    args: DeleteFeatureGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFeatureGroupCommandOutput) => void
+  ): void;
+  public deleteFeatureGroup(
+    args: DeleteFeatureGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFeatureGroupCommandOutput) => void),
+    cb?: (err: any, data?: DeleteFeatureGroupCommandOutput) => void
+  ): Promise<DeleteFeatureGroupCommandOutput> | void {
+    const command = new DeleteFeatureGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2696,6 +3408,70 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Deletes the specified model group.</p>
+   */
+  public deleteModelPackageGroup(
+    args: DeleteModelPackageGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteModelPackageGroupCommandOutput>;
+  public deleteModelPackageGroup(
+    args: DeleteModelPackageGroupCommandInput,
+    cb: (err: any, data?: DeleteModelPackageGroupCommandOutput) => void
+  ): void;
+  public deleteModelPackageGroup(
+    args: DeleteModelPackageGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteModelPackageGroupCommandOutput) => void
+  ): void;
+  public deleteModelPackageGroup(
+    args: DeleteModelPackageGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteModelPackageGroupCommandOutput) => void),
+    cb?: (err: any, data?: DeleteModelPackageGroupCommandOutput) => void
+  ): Promise<DeleteModelPackageGroupCommandOutput> | void {
+    const command = new DeleteModelPackageGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a model group resource policy.</p>
+   */
+  public deleteModelPackageGroupPolicy(
+    args: DeleteModelPackageGroupPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteModelPackageGroupPolicyCommandOutput>;
+  public deleteModelPackageGroupPolicy(
+    args: DeleteModelPackageGroupPolicyCommandInput,
+    cb: (err: any, data?: DeleteModelPackageGroupPolicyCommandOutput) => void
+  ): void;
+  public deleteModelPackageGroupPolicy(
+    args: DeleteModelPackageGroupPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteModelPackageGroupPolicyCommandOutput) => void
+  ): void;
+  public deleteModelPackageGroupPolicy(
+    args: DeleteModelPackageGroupPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteModelPackageGroupPolicyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteModelPackageGroupPolicyCommandOutput) => void
+  ): Promise<DeleteModelPackageGroupPolicyCommandOutput> | void {
+    const command = new DeleteModelPackageGroupPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a monitoring schedule. Also stops the schedule had not already been stopped.
    *          This does not delete the job execution history of the monitoring schedule. </p>
    */
@@ -2790,6 +3566,70 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: DeleteNotebookInstanceLifecycleConfigCommandOutput) => void
   ): Promise<DeleteNotebookInstanceLifecycleConfigCommandOutput> | void {
     const command = new DeleteNotebookInstanceLifecycleConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a pipeline.</p>
+   */
+  public deletePipeline(
+    args: DeletePipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePipelineCommandOutput>;
+  public deletePipeline(
+    args: DeletePipelineCommandInput,
+    cb: (err: any, data?: DeletePipelineCommandOutput) => void
+  ): void;
+  public deletePipeline(
+    args: DeletePipelineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePipelineCommandOutput) => void
+  ): void;
+  public deletePipeline(
+    args: DeletePipelineCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePipelineCommandOutput) => void),
+    cb?: (err: any, data?: DeletePipelineCommandOutput) => void
+  ): Promise<DeletePipelineCommandOutput> | void {
+    const command = new DeletePipelineCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Delete the specified project.</p>
+   */
+  public deleteProject(
+    args: DeleteProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProjectCommandOutput>;
+  public deleteProject(
+    args: DeleteProjectCommandInput,
+    cb: (err: any, data?: DeleteProjectCommandOutput) => void
+  ): void;
+  public deleteProject(
+    args: DeleteProjectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteProjectCommandOutput) => void
+  ): void;
+  public deleteProject(
+    args: DeleteProjectCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProjectCommandOutput) => void),
+    cb?: (err: any, data?: DeleteProjectCommandOutput) => void
+  ): Promise<DeleteProjectCommandOutput> | void {
+    const command = new DeleteProjectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3004,6 +3844,38 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Describes an action.</p>
+   */
+  public describeAction(
+    args: DescribeActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeActionCommandOutput>;
+  public describeAction(
+    args: DescribeActionCommandInput,
+    cb: (err: any, data?: DescribeActionCommandOutput) => void
+  ): void;
+  public describeAction(
+    args: DescribeActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeActionCommandOutput) => void
+  ): void;
+  public describeAction(
+    args: DescribeActionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeActionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeActionCommandOutput) => void
+  ): Promise<DescribeActionCommandOutput> | void {
+    const command = new DescribeActionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a description of the specified algorithm that is in your account.</p>
    */
   public describeAlgorithm(
@@ -3083,6 +3955,38 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: DescribeAppImageConfigCommandOutput) => void
   ): Promise<DescribeAppImageConfigCommandOutput> | void {
     const command = new DescribeAppImageConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes an artifact.</p>
+   */
+  public describeArtifact(
+    args: DescribeArtifactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeArtifactCommandOutput>;
+  public describeArtifact(
+    args: DescribeArtifactCommandInput,
+    cb: (err: any, data?: DescribeArtifactCommandOutput) => void
+  ): void;
+  public describeArtifact(
+    args: DescribeArtifactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeArtifactCommandOutput) => void
+  ): void;
+  public describeArtifact(
+    args: DescribeArtifactCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeArtifactCommandOutput) => void),
+    cb?: (err: any, data?: DescribeArtifactCommandOutput) => void
+  ): Promise<DescribeArtifactCommandOutput> | void {
+    const command = new DescribeArtifactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3181,6 +4085,38 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: DescribeCompilationJobCommandOutput) => void
   ): Promise<DescribeCompilationJobCommandOutput> | void {
     const command = new DescribeCompilationJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes a context.</p>
+   */
+  public describeContext(
+    args: DescribeContextCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeContextCommandOutput>;
+  public describeContext(
+    args: DescribeContextCommandInput,
+    cb: (err: any, data?: DescribeContextCommandOutput) => void
+  ): void;
+  public describeContext(
+    args: DescribeContextCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeContextCommandOutput) => void
+  ): void;
+  public describeContext(
+    args: DescribeContextCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeContextCommandOutput) => void),
+    cb?: (err: any, data?: DescribeContextCommandOutput) => void
+  ): Promise<DescribeContextCommandOutput> | void {
+    const command = new DescribeContextCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3310,6 +4246,40 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: DescribeExperimentCommandOutput) => void
   ): Promise<DescribeExperimentCommandOutput> | void {
     const command = new DescribeExperimentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Use this operation to describe a <code>FeatureGroup</code>. The response includes
+   *          information on the creation time, <code>FeatureGroup</code> name, the unique identifier for
+   *          each <code>FeatureGroup</code>, and more.</p>
+   */
+  public describeFeatureGroup(
+    args: DescribeFeatureGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFeatureGroupCommandOutput>;
+  public describeFeatureGroup(
+    args: DescribeFeatureGroupCommandInput,
+    cb: (err: any, data?: DescribeFeatureGroupCommandOutput) => void
+  ): void;
+  public describeFeatureGroup(
+    args: DescribeFeatureGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFeatureGroupCommandOutput) => void
+  ): void;
+  public describeFeatureGroup(
+    args: DescribeFeatureGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFeatureGroupCommandOutput) => void),
+    cb?: (err: any, data?: DescribeFeatureGroupCommandOutput) => void
+  ): Promise<DescribeFeatureGroupCommandOutput> | void {
+    const command = new DescribeFeatureGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3582,6 +4552,38 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Gets a description for the specified model group.</p>
+   */
+  public describeModelPackageGroup(
+    args: DescribeModelPackageGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeModelPackageGroupCommandOutput>;
+  public describeModelPackageGroup(
+    args: DescribeModelPackageGroupCommandInput,
+    cb: (err: any, data?: DescribeModelPackageGroupCommandOutput) => void
+  ): void;
+  public describeModelPackageGroup(
+    args: DescribeModelPackageGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeModelPackageGroupCommandOutput) => void
+  ): void;
+  public describeModelPackageGroup(
+    args: DescribeModelPackageGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeModelPackageGroupCommandOutput) => void),
+    cb?: (err: any, data?: DescribeModelPackageGroupCommandOutput) => void
+  ): Promise<DescribeModelPackageGroupCommandOutput> | void {
+    const command = new DescribeModelPackageGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes the schedule for a monitoring job.</p>
    */
   public describeMonitoringSchedule(
@@ -3682,6 +4684,104 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Describes the details of a pipeline.</p>
+   */
+  public describePipeline(
+    args: DescribePipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePipelineCommandOutput>;
+  public describePipeline(
+    args: DescribePipelineCommandInput,
+    cb: (err: any, data?: DescribePipelineCommandOutput) => void
+  ): void;
+  public describePipeline(
+    args: DescribePipelineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribePipelineCommandOutput) => void
+  ): void;
+  public describePipeline(
+    args: DescribePipelineCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePipelineCommandOutput) => void),
+    cb?: (err: any, data?: DescribePipelineCommandOutput) => void
+  ): Promise<DescribePipelineCommandOutput> | void {
+    const command = new DescribePipelineCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the details of an execution's pipeline definition.</p>
+   */
+  public describePipelineDefinitionForExecution(
+    args: DescribePipelineDefinitionForExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePipelineDefinitionForExecutionCommandOutput>;
+  public describePipelineDefinitionForExecution(
+    args: DescribePipelineDefinitionForExecutionCommandInput,
+    cb: (err: any, data?: DescribePipelineDefinitionForExecutionCommandOutput) => void
+  ): void;
+  public describePipelineDefinitionForExecution(
+    args: DescribePipelineDefinitionForExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribePipelineDefinitionForExecutionCommandOutput) => void
+  ): void;
+  public describePipelineDefinitionForExecution(
+    args: DescribePipelineDefinitionForExecutionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribePipelineDefinitionForExecutionCommandOutput) => void),
+    cb?: (err: any, data?: DescribePipelineDefinitionForExecutionCommandOutput) => void
+  ): Promise<DescribePipelineDefinitionForExecutionCommandOutput> | void {
+    const command = new DescribePipelineDefinitionForExecutionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the details of a pipeline execution.</p>
+   */
+  public describePipelineExecution(
+    args: DescribePipelineExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePipelineExecutionCommandOutput>;
+  public describePipelineExecution(
+    args: DescribePipelineExecutionCommandInput,
+    cb: (err: any, data?: DescribePipelineExecutionCommandOutput) => void
+  ): void;
+  public describePipelineExecution(
+    args: DescribePipelineExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribePipelineExecutionCommandOutput) => void
+  ): void;
+  public describePipelineExecution(
+    args: DescribePipelineExecutionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePipelineExecutionCommandOutput) => void),
+    cb?: (err: any, data?: DescribePipelineExecutionCommandOutput) => void
+  ): Promise<DescribePipelineExecutionCommandOutput> | void {
+    const command = new DescribePipelineExecutionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a description of a processing job.</p>
    */
   public describeProcessingJob(
@@ -3703,6 +4803,38 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: DescribeProcessingJobCommandOutput) => void
   ): Promise<DescribeProcessingJobCommandOutput> | void {
     const command = new DescribeProcessingJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the details of a project.</p>
+   */
+  public describeProject(
+    args: DescribeProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeProjectCommandOutput>;
+  public describeProject(
+    args: DescribeProjectCommandInput,
+    cb: (err: any, data?: DescribeProjectCommandOutput) => void
+  ): void;
+  public describeProject(
+    args: DescribeProjectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeProjectCommandOutput) => void
+  ): void;
+  public describeProject(
+    args: DescribeProjectCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProjectCommandOutput) => void),
+    cb?: (err: any, data?: DescribeProjectCommandOutput) => void
+  ): Promise<DescribeProjectCommandOutput> | void {
+    const command = new DescribeProjectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3978,6 +5110,41 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Disables using Service Catalog in SageMaker. Service Catalog is used to create
+   *             SageMaker projects.</p>
+   */
+  public disableSagemakerServicecatalogPortfolio(
+    args: DisableSagemakerServicecatalogPortfolioCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableSagemakerServicecatalogPortfolioCommandOutput>;
+  public disableSagemakerServicecatalogPortfolio(
+    args: DisableSagemakerServicecatalogPortfolioCommandInput,
+    cb: (err: any, data?: DisableSagemakerServicecatalogPortfolioCommandOutput) => void
+  ): void;
+  public disableSagemakerServicecatalogPortfolio(
+    args: DisableSagemakerServicecatalogPortfolioCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableSagemakerServicecatalogPortfolioCommandOutput) => void
+  ): void;
+  public disableSagemakerServicecatalogPortfolio(
+    args: DisableSagemakerServicecatalogPortfolioCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisableSagemakerServicecatalogPortfolioCommandOutput) => void),
+    cb?: (err: any, data?: DisableSagemakerServicecatalogPortfolioCommandOutput) => void
+  ): Promise<DisableSagemakerServicecatalogPortfolioCommandOutput> | void {
+    const command = new DisableSagemakerServicecatalogPortfolioCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Disassociates a trial component from a trial. This doesn't effect other trials the
    *       component is associated with. Before you can delete a component, you must disassociate the
    *       component from all trials it is associated with. To associate a trial component with a trial,
@@ -4015,6 +5182,111 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Enables using Service Catalog in SageMaker. Service Catalog is used to create
+   *             SageMaker projects.</p>
+   */
+  public enableSagemakerServicecatalogPortfolio(
+    args: EnableSagemakerServicecatalogPortfolioCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableSagemakerServicecatalogPortfolioCommandOutput>;
+  public enableSagemakerServicecatalogPortfolio(
+    args: EnableSagemakerServicecatalogPortfolioCommandInput,
+    cb: (err: any, data?: EnableSagemakerServicecatalogPortfolioCommandOutput) => void
+  ): void;
+  public enableSagemakerServicecatalogPortfolio(
+    args: EnableSagemakerServicecatalogPortfolioCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableSagemakerServicecatalogPortfolioCommandOutput) => void
+  ): void;
+  public enableSagemakerServicecatalogPortfolio(
+    args: EnableSagemakerServicecatalogPortfolioCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: EnableSagemakerServicecatalogPortfolioCommandOutput) => void),
+    cb?: (err: any, data?: EnableSagemakerServicecatalogPortfolioCommandOutput) => void
+  ): Promise<EnableSagemakerServicecatalogPortfolioCommandOutput> | void {
+    const command = new EnableSagemakerServicecatalogPortfolioCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a resource policy that manages access for a model group. For information about
+   *             resource policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html">Identity-based
+   *                 policies and resource-based policies</a> in the <i>AWS Identity and
+   *                     Access Management User Guide.</i>.</p>
+   */
+  public getModelPackageGroupPolicy(
+    args: GetModelPackageGroupPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetModelPackageGroupPolicyCommandOutput>;
+  public getModelPackageGroupPolicy(
+    args: GetModelPackageGroupPolicyCommandInput,
+    cb: (err: any, data?: GetModelPackageGroupPolicyCommandOutput) => void
+  ): void;
+  public getModelPackageGroupPolicy(
+    args: GetModelPackageGroupPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetModelPackageGroupPolicyCommandOutput) => void
+  ): void;
+  public getModelPackageGroupPolicy(
+    args: GetModelPackageGroupPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetModelPackageGroupPolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetModelPackageGroupPolicyCommandOutput) => void
+  ): Promise<GetModelPackageGroupPolicyCommandOutput> | void {
+    const command = new GetModelPackageGroupPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the status of Service Catalog in SageMaker. Service Catalog is used to create
+   *             SageMaker projects.</p>
+   */
+  public getSagemakerServicecatalogPortfolioStatus(
+    args: GetSagemakerServicecatalogPortfolioStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSagemakerServicecatalogPortfolioStatusCommandOutput>;
+  public getSagemakerServicecatalogPortfolioStatus(
+    args: GetSagemakerServicecatalogPortfolioStatusCommandInput,
+    cb: (err: any, data?: GetSagemakerServicecatalogPortfolioStatusCommandOutput) => void
+  ): void;
+  public getSagemakerServicecatalogPortfolioStatus(
+    args: GetSagemakerServicecatalogPortfolioStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSagemakerServicecatalogPortfolioStatusCommandOutput) => void
+  ): void;
+  public getSagemakerServicecatalogPortfolioStatus(
+    args: GetSagemakerServicecatalogPortfolioStatusCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetSagemakerServicecatalogPortfolioStatusCommandOutput) => void),
+    cb?: (err: any, data?: GetSagemakerServicecatalogPortfolioStatusCommandOutput) => void
+  ): Promise<GetSagemakerServicecatalogPortfolioStatusCommandOutput> | void {
+    const command = new GetSagemakerServicecatalogPortfolioStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>An auto-complete API for the search functionality in the Amazon SageMaker console. It returns
    *       suggestions of possible matches for the property name to use in <code>Search</code>
    *       queries. Provides suggestions for <code>HyperParameters</code>, <code>Tags</code>, and
@@ -4039,6 +5311,32 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: GetSearchSuggestionsCommandOutput) => void
   ): Promise<GetSearchSuggestionsCommandOutput> | void {
     const command = new GetSearchSuggestionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the actions in your account and their properties.</p>
+   */
+  public listActions(args: ListActionsCommandInput, options?: __HttpHandlerOptions): Promise<ListActionsCommandOutput>;
+  public listActions(args: ListActionsCommandInput, cb: (err: any, data?: ListActionsCommandOutput) => void): void;
+  public listActions(
+    args: ListActionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListActionsCommandOutput) => void
+  ): void;
+  public listActions(
+    args: ListActionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListActionsCommandOutput) => void),
+    cb?: (err: any, data?: ListActionsCommandOutput) => void
+  ): Promise<ListActionsCommandOutput> | void {
+    const command = new ListActionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4131,6 +5429,70 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: ListAppsCommandOutput) => void
   ): Promise<ListAppsCommandOutput> | void {
     const command = new ListAppsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the artifacts in your account and their properties.</p>
+   */
+  public listArtifacts(
+    args: ListArtifactsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListArtifactsCommandOutput>;
+  public listArtifacts(
+    args: ListArtifactsCommandInput,
+    cb: (err: any, data?: ListArtifactsCommandOutput) => void
+  ): void;
+  public listArtifacts(
+    args: ListArtifactsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListArtifactsCommandOutput) => void
+  ): void;
+  public listArtifacts(
+    args: ListArtifactsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListArtifactsCommandOutput) => void),
+    cb?: (err: any, data?: ListArtifactsCommandOutput) => void
+  ): Promise<ListArtifactsCommandOutput> | void {
+    const command = new ListArtifactsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the associations in your account and their properties.</p>
+   */
+  public listAssociations(
+    args: ListAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssociationsCommandOutput>;
+  public listAssociations(
+    args: ListAssociationsCommandInput,
+    cb: (err: any, data?: ListAssociationsCommandOutput) => void
+  ): void;
+  public listAssociations(
+    args: ListAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssociationsCommandOutput) => void
+  ): void;
+  public listAssociations(
+    args: ListAssociationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: ListAssociationsCommandOutput) => void
+  ): Promise<ListAssociationsCommandOutput> | void {
+    const command = new ListAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4272,6 +5634,35 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Lists the contexts in your account and their properties.</p>
+   */
+  public listContexts(
+    args: ListContextsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListContextsCommandOutput>;
+  public listContexts(args: ListContextsCommandInput, cb: (err: any, data?: ListContextsCommandOutput) => void): void;
+  public listContexts(
+    args: ListContextsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListContextsCommandOutput) => void
+  ): void;
+  public listContexts(
+    args: ListContextsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListContextsCommandOutput) => void),
+    cb?: (err: any, data?: ListContextsCommandOutput) => void
+  ): Promise<ListContextsCommandOutput> | void {
+    const command = new ListContextsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the domains.</p>
    */
   public listDomains(args: ListDomainsCommandInput, options?: __HttpHandlerOptions): Promise<ListDomainsCommandOutput>;
@@ -4385,6 +5776,38 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: ListExperimentsCommandOutput) => void
   ): Promise<ListExperimentsCommandOutput> | void {
     const command = new ListExperimentsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List <code>FeatureGroup</code>s based on given filter and order.</p>
+   */
+  public listFeatureGroups(
+    args: ListFeatureGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFeatureGroupsCommandOutput>;
+  public listFeatureGroups(
+    args: ListFeatureGroupsCommandInput,
+    cb: (err: any, data?: ListFeatureGroupsCommandOutput) => void
+  ): void;
+  public listFeatureGroups(
+    args: ListFeatureGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFeatureGroupsCommandOutput) => void
+  ): void;
+  public listFeatureGroups(
+    args: ListFeatureGroupsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFeatureGroupsCommandOutput) => void),
+    cb?: (err: any, data?: ListFeatureGroupsCommandOutput) => void
+  ): Promise<ListFeatureGroupsCommandOutput> | void {
+    const command = new ListFeatureGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4618,6 +6041,38 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Gets a list of the model groups in your AWS account.</p>
+   */
+  public listModelPackageGroups(
+    args: ListModelPackageGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListModelPackageGroupsCommandOutput>;
+  public listModelPackageGroups(
+    args: ListModelPackageGroupsCommandInput,
+    cb: (err: any, data?: ListModelPackageGroupsCommandOutput) => void
+  ): void;
+  public listModelPackageGroups(
+    args: ListModelPackageGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListModelPackageGroupsCommandOutput) => void
+  ): void;
+  public listModelPackageGroups(
+    args: ListModelPackageGroupsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListModelPackageGroupsCommandOutput) => void),
+    cb?: (err: any, data?: ListModelPackageGroupsCommandOutput) => void
+  ): Promise<ListModelPackageGroupsCommandOutput> | void {
+    const command = new ListModelPackageGroupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the model packages that have been created.</p>
    */
   public listModelPackages(
@@ -4805,6 +6260,134 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Gets a list of the pipeline executions.</p>
+   */
+  public listPipelineExecutions(
+    args: ListPipelineExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPipelineExecutionsCommandOutput>;
+  public listPipelineExecutions(
+    args: ListPipelineExecutionsCommandInput,
+    cb: (err: any, data?: ListPipelineExecutionsCommandOutput) => void
+  ): void;
+  public listPipelineExecutions(
+    args: ListPipelineExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPipelineExecutionsCommandOutput) => void
+  ): void;
+  public listPipelineExecutions(
+    args: ListPipelineExecutionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPipelineExecutionsCommandOutput) => void),
+    cb?: (err: any, data?: ListPipelineExecutionsCommandOutput) => void
+  ): Promise<ListPipelineExecutionsCommandOutput> | void {
+    const command = new ListPipelineExecutionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a list of <code>PipeLineExecutionStep</code> objects.</p>
+   */
+  public listPipelineExecutionSteps(
+    args: ListPipelineExecutionStepsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPipelineExecutionStepsCommandOutput>;
+  public listPipelineExecutionSteps(
+    args: ListPipelineExecutionStepsCommandInput,
+    cb: (err: any, data?: ListPipelineExecutionStepsCommandOutput) => void
+  ): void;
+  public listPipelineExecutionSteps(
+    args: ListPipelineExecutionStepsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPipelineExecutionStepsCommandOutput) => void
+  ): void;
+  public listPipelineExecutionSteps(
+    args: ListPipelineExecutionStepsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPipelineExecutionStepsCommandOutput) => void),
+    cb?: (err: any, data?: ListPipelineExecutionStepsCommandOutput) => void
+  ): Promise<ListPipelineExecutionStepsCommandOutput> | void {
+    const command = new ListPipelineExecutionStepsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a list of parameters for a pipeline execution.</p>
+   */
+  public listPipelineParametersForExecution(
+    args: ListPipelineParametersForExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPipelineParametersForExecutionCommandOutput>;
+  public listPipelineParametersForExecution(
+    args: ListPipelineParametersForExecutionCommandInput,
+    cb: (err: any, data?: ListPipelineParametersForExecutionCommandOutput) => void
+  ): void;
+  public listPipelineParametersForExecution(
+    args: ListPipelineParametersForExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPipelineParametersForExecutionCommandOutput) => void
+  ): void;
+  public listPipelineParametersForExecution(
+    args: ListPipelineParametersForExecutionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPipelineParametersForExecutionCommandOutput) => void),
+    cb?: (err: any, data?: ListPipelineParametersForExecutionCommandOutput) => void
+  ): Promise<ListPipelineParametersForExecutionCommandOutput> | void {
+    const command = new ListPipelineParametersForExecutionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a list of pipelines.</p>
+   */
+  public listPipelines(
+    args: ListPipelinesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPipelinesCommandOutput>;
+  public listPipelines(
+    args: ListPipelinesCommandInput,
+    cb: (err: any, data?: ListPipelinesCommandOutput) => void
+  ): void;
+  public listPipelines(
+    args: ListPipelinesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPipelinesCommandOutput) => void
+  ): void;
+  public listPipelines(
+    args: ListPipelinesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPipelinesCommandOutput) => void),
+    cb?: (err: any, data?: ListPipelinesCommandOutput) => void
+  ): Promise<ListPipelinesCommandOutput> | void {
+    const command = new ListPipelinesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists processing jobs that satisfy various filters.</p>
    */
   public listProcessingJobs(
@@ -4826,6 +6409,35 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: ListProcessingJobsCommandOutput) => void
   ): Promise<ListProcessingJobsCommandOutput> | void {
     const command = new ListProcessingJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a list of the projects in an AWS account.</p>
+   */
+  public listProjects(
+    args: ListProjectsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProjectsCommandOutput>;
+  public listProjects(args: ListProjectsCommandInput, cb: (err: any, data?: ListProjectsCommandOutput) => void): void;
+  public listProjects(
+    args: ListProjectsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProjectsCommandOutput) => void
+  ): void;
+  public listProjects(
+    args: ListProjectsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProjectsCommandOutput) => void),
+    cb?: (err: any, data?: ListProjectsCommandOutput) => void
+  ): Promise<ListProjectsCommandOutput> | void {
+    const command = new ListProjectsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -5176,6 +6788,40 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Adds a resouce policy to control access to a model group. For information about
+   *             resoure policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html">Identity-based
+   *                 policies and resource-based policies</a> in the <i>AWS Identity and Access Management User Guide.</i>.</p>
+   */
+  public putModelPackageGroupPolicy(
+    args: PutModelPackageGroupPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutModelPackageGroupPolicyCommandOutput>;
+  public putModelPackageGroupPolicy(
+    args: PutModelPackageGroupPolicyCommandInput,
+    cb: (err: any, data?: PutModelPackageGroupPolicyCommandOutput) => void
+  ): void;
+  public putModelPackageGroupPolicy(
+    args: PutModelPackageGroupPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutModelPackageGroupPolicyCommandOutput) => void
+  ): void;
+  public putModelPackageGroupPolicy(
+    args: PutModelPackageGroupPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutModelPackageGroupPolicyCommandOutput) => void),
+    cb?: (err: any, data?: PutModelPackageGroupPolicyCommandOutput) => void
+  ): Promise<PutModelPackageGroupPolicyCommandOutput> | void {
+    const command = new PutModelPackageGroupPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Renders the UI template so that you can preview the worker's experience. </p>
    */
   public renderUiTemplate(
@@ -5297,6 +6943,38 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: StartNotebookInstanceCommandOutput) => void
   ): Promise<StartNotebookInstanceCommandOutput> | void {
     const command = new StartNotebookInstanceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts a pipeline execution.</p>
+   */
+  public startPipelineExecution(
+    args: StartPipelineExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartPipelineExecutionCommandOutput>;
+  public startPipelineExecution(
+    args: StartPipelineExecutionCommandInput,
+    cb: (err: any, data?: StartPipelineExecutionCommandOutput) => void
+  ): void;
+  public startPipelineExecution(
+    args: StartPipelineExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartPipelineExecutionCommandOutput) => void
+  ): void;
+  public startPipelineExecution(
+    args: StartPipelineExecutionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartPipelineExecutionCommandOutput) => void),
+    cb?: (err: any, data?: StartPipelineExecutionCommandOutput) => void
+  ): Promise<StartPipelineExecutionCommandOutput> | void {
+    const command = new StartPipelineExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -5520,6 +7198,38 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Stops a pipeline execution.</p>
+   */
+  public stopPipelineExecution(
+    args: StopPipelineExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopPipelineExecutionCommandOutput>;
+  public stopPipelineExecution(
+    args: StopPipelineExecutionCommandInput,
+    cb: (err: any, data?: StopPipelineExecutionCommandOutput) => void
+  ): void;
+  public stopPipelineExecution(
+    args: StopPipelineExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopPipelineExecutionCommandOutput) => void
+  ): void;
+  public stopPipelineExecution(
+    args: StopPipelineExecutionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopPipelineExecutionCommandOutput) => void),
+    cb?: (err: any, data?: StopPipelineExecutionCommandOutput) => void
+  ): Promise<StopPipelineExecutionCommandOutput> | void {
+    const command = new StopPipelineExecutionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Stops a processing job.</p>
    */
   public stopProcessingJob(
@@ -5627,6 +7337,35 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Updates an action.</p>
+   */
+  public updateAction(
+    args: UpdateActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateActionCommandOutput>;
+  public updateAction(args: UpdateActionCommandInput, cb: (err: any, data?: UpdateActionCommandOutput) => void): void;
+  public updateAction(
+    args: UpdateActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateActionCommandOutput) => void
+  ): void;
+  public updateAction(
+    args: UpdateActionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateActionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateActionCommandOutput) => void
+  ): Promise<UpdateActionCommandOutput> | void {
+    const command = new UpdateActionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates the properties of an AppImageConfig.</p>
    */
   public updateAppImageConfig(
@@ -5659,6 +7398,38 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Updates an artifact.</p>
+   */
+  public updateArtifact(
+    args: UpdateArtifactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateArtifactCommandOutput>;
+  public updateArtifact(
+    args: UpdateArtifactCommandInput,
+    cb: (err: any, data?: UpdateArtifactCommandOutput) => void
+  ): void;
+  public updateArtifact(
+    args: UpdateArtifactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateArtifactCommandOutput) => void
+  ): void;
+  public updateArtifact(
+    args: UpdateArtifactCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateArtifactCommandOutput) => void),
+    cb?: (err: any, data?: UpdateArtifactCommandOutput) => void
+  ): Promise<UpdateArtifactCommandOutput> | void {
+    const command = new UpdateArtifactCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates the specified Git repository with the specified values.</p>
    */
   public updateCodeRepository(
@@ -5680,6 +7451,38 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: UpdateCodeRepositoryCommandOutput) => void
   ): Promise<UpdateCodeRepositoryCommandOutput> | void {
     const command = new UpdateCodeRepositoryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a context.</p>
+   */
+  public updateContext(
+    args: UpdateContextCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateContextCommandOutput>;
+  public updateContext(
+    args: UpdateContextCommandInput,
+    cb: (err: any, data?: UpdateContextCommandOutput) => void
+  ): void;
+  public updateContext(
+    args: UpdateContextCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateContextCommandOutput) => void
+  ): void;
+  public updateContext(
+    args: UpdateContextCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateContextCommandOutput) => void),
+    cb?: (err: any, data?: UpdateContextCommandOutput) => void
+  ): Promise<UpdateContextCommandOutput> | void {
+    const command = new UpdateContextCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -5864,6 +7667,38 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Updates a versioned model.</p>
+   */
+  public updateModelPackage(
+    args: UpdateModelPackageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateModelPackageCommandOutput>;
+  public updateModelPackage(
+    args: UpdateModelPackageCommandInput,
+    cb: (err: any, data?: UpdateModelPackageCommandOutput) => void
+  ): void;
+  public updateModelPackage(
+    args: UpdateModelPackageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateModelPackageCommandOutput) => void
+  ): void;
+  public updateModelPackage(
+    args: UpdateModelPackageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateModelPackageCommandOutput) => void),
+    cb?: (err: any, data?: UpdateModelPackageCommandOutput) => void
+  ): Promise<UpdateModelPackageCommandOutput> | void {
+    const command = new UpdateModelPackageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates a previously created schedule.</p>
    */
   public updateMonitoringSchedule(
@@ -5953,6 +7788,70 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: UpdateNotebookInstanceLifecycleConfigCommandOutput) => void
   ): Promise<UpdateNotebookInstanceLifecycleConfigCommandOutput> | void {
     const command = new UpdateNotebookInstanceLifecycleConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a pipeline.</p>
+   */
+  public updatePipeline(
+    args: UpdatePipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePipelineCommandOutput>;
+  public updatePipeline(
+    args: UpdatePipelineCommandInput,
+    cb: (err: any, data?: UpdatePipelineCommandOutput) => void
+  ): void;
+  public updatePipeline(
+    args: UpdatePipelineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePipelineCommandOutput) => void
+  ): void;
+  public updatePipeline(
+    args: UpdatePipelineCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePipelineCommandOutput) => void),
+    cb?: (err: any, data?: UpdatePipelineCommandOutput) => void
+  ): Promise<UpdatePipelineCommandOutput> | void {
+    const command = new UpdatePipelineCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a pipeline execution.</p>
+   */
+  public updatePipelineExecution(
+    args: UpdatePipelineExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePipelineExecutionCommandOutput>;
+  public updatePipelineExecution(
+    args: UpdatePipelineExecutionCommandInput,
+    cb: (err: any, data?: UpdatePipelineExecutionCommandOutput) => void
+  ): void;
+  public updatePipelineExecution(
+    args: UpdatePipelineExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePipelineExecutionCommandOutput) => void
+  ): void;
+  public updatePipelineExecution(
+    args: UpdatePipelineExecutionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePipelineExecutionCommandOutput) => void),
+    cb?: (err: any, data?: UpdatePipelineExecutionCommandOutput) => void
+  ): Promise<UpdatePipelineExecutionCommandOutput> | void {
+    const command = new UpdatePipelineExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

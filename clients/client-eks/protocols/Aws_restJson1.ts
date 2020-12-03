@@ -1,15 +1,22 @@
+import { CreateAddonCommandInput, CreateAddonCommandOutput } from "../commands/CreateAddonCommand";
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "../commands/CreateClusterCommand";
 import {
   CreateFargateProfileCommandInput,
   CreateFargateProfileCommandOutput,
 } from "../commands/CreateFargateProfileCommand";
 import { CreateNodegroupCommandInput, CreateNodegroupCommandOutput } from "../commands/CreateNodegroupCommand";
+import { DeleteAddonCommandInput, DeleteAddonCommandOutput } from "../commands/DeleteAddonCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "../commands/DeleteClusterCommand";
 import {
   DeleteFargateProfileCommandInput,
   DeleteFargateProfileCommandOutput,
 } from "../commands/DeleteFargateProfileCommand";
 import { DeleteNodegroupCommandInput, DeleteNodegroupCommandOutput } from "../commands/DeleteNodegroupCommand";
+import { DescribeAddonCommandInput, DescribeAddonCommandOutput } from "../commands/DescribeAddonCommand";
+import {
+  DescribeAddonVersionsCommandInput,
+  DescribeAddonVersionsCommandOutput,
+} from "../commands/DescribeAddonVersionsCommand";
 import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "../commands/DescribeClusterCommand";
 import {
   DescribeFargateProfileCommandInput,
@@ -17,6 +24,7 @@ import {
 } from "../commands/DescribeFargateProfileCommand";
 import { DescribeNodegroupCommandInput, DescribeNodegroupCommandOutput } from "../commands/DescribeNodegroupCommand";
 import { DescribeUpdateCommandInput, DescribeUpdateCommandOutput } from "../commands/DescribeUpdateCommand";
+import { ListAddonsCommandInput, ListAddonsCommandOutput } from "../commands/ListAddonsCommand";
 import { ListClustersCommandInput, ListClustersCommandOutput } from "../commands/ListClustersCommand";
 import {
   ListFargateProfilesCommandInput,
@@ -30,6 +38,7 @@ import {
 import { ListUpdatesCommandInput, ListUpdatesCommandOutput } from "../commands/ListUpdatesCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateAddonCommandInput, UpdateAddonCommandOutput } from "../commands/UpdateAddonCommand";
 import {
   UpdateClusterConfigCommandInput,
   UpdateClusterConfigCommandOutput,
@@ -47,11 +56,17 @@ import {
   UpdateNodegroupVersionCommandOutput,
 } from "../commands/UpdateNodegroupVersionCommand";
 import {
+  Addon,
+  AddonHealth,
+  AddonInfo,
+  AddonIssue,
+  AddonVersionInfo,
   AutoScalingGroup,
   BadRequestException,
   Certificate,
   ClientException,
   Cluster,
+  Compatibility,
   EncryptionConfig,
   ErrorDetail,
   FargateProfile,
@@ -98,6 +113,44 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
+
+export const serializeAws_restJson1CreateAddonCommand = async (
+  input: CreateAddonCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/clusters/{clusterName}/addons";
+  if (input.clusterName !== undefined) {
+    const labelValue: string = input.clusterName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: clusterName.");
+    }
+    resolvedPath = resolvedPath.replace("{clusterName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: clusterName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.addonName !== undefined && { addonName: input.addonName }),
+    ...(input.addonVersion !== undefined && { addonVersion: input.addonVersion }),
+    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.resolveConflicts !== undefined && { resolveConflicts: input.resolveConflicts }),
+    ...(input.serviceAccountRoleArn !== undefined && { serviceAccountRoleArn: input.serviceAccountRoleArn }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1CreateClusterCommand = async (
   input: CreateClusterCommandInput,
@@ -200,6 +253,7 @@ export const serializeAws_restJson1CreateNodegroupCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.amiType !== undefined && { amiType: input.amiType }),
+    ...(input.capacityType !== undefined && { capacityType: input.capacityType }),
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
     ...(input.diskSize !== undefined && { diskSize: input.diskSize }),
     ...(input.instanceTypes !== undefined && {
@@ -228,6 +282,45 @@ export const serializeAws_restJson1CreateNodegroupCommand = async (
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteAddonCommand = async (
+  input: DeleteAddonCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/clusters/{clusterName}/addons/{addonName}";
+  if (input.clusterName !== undefined) {
+    const labelValue: string = input.clusterName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: clusterName.");
+    }
+    resolvedPath = resolvedPath.replace("{clusterName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: clusterName.");
+  }
+  if (input.addonName !== undefined) {
+    const labelValue: string = input.addonName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: addonName.");
+    }
+    resolvedPath = resolvedPath.replace("{addonName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: addonName.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
     headers,
     path: resolvedPath,
     body,
@@ -342,6 +435,73 @@ export const serializeAws_restJson1DeleteNodegroupCommand = async (
   });
 };
 
+export const serializeAws_restJson1DescribeAddonCommand = async (
+  input: DescribeAddonCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/clusters/{clusterName}/addons/{addonName}";
+  if (input.clusterName !== undefined) {
+    const labelValue: string = input.clusterName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: clusterName.");
+    }
+    resolvedPath = resolvedPath.replace("{clusterName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: clusterName.");
+  }
+  if (input.addonName !== undefined) {
+    const labelValue: string = input.addonName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: addonName.");
+    }
+    resolvedPath = resolvedPath.replace("{addonName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: addonName.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeAddonVersionsCommand = async (
+  input: DescribeAddonVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/addons/supported-versions";
+  const query: any = {
+    ...(input.kubernetesVersion !== undefined && { kubernetesVersion: input.kubernetesVersion }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.addonName !== undefined && { addonName: input.addonName }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DescribeClusterCommand = async (
   input: DescribeClusterCommandInput,
   context: __SerdeContext
@@ -380,15 +540,6 @@ export const serializeAws_restJson1DescribeFargateProfileCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/clusters/{clusterName}/fargate-profiles/{fargateProfileName}";
-  if (input.fargateProfileName !== undefined) {
-    const labelValue: string = input.fargateProfileName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: fargateProfileName.");
-    }
-    resolvedPath = resolvedPath.replace("{fargateProfileName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: fargateProfileName.");
-  }
   if (input.clusterName !== undefined) {
     const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
@@ -397,6 +548,15 @@ export const serializeAws_restJson1DescribeFargateProfileCommand = async (
     resolvedPath = resolvedPath.replace("{clusterName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: clusterName.");
+  }
+  if (input.fargateProfileName !== undefined) {
+    const labelValue: string = input.fargateProfileName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: fargateProfileName.");
+    }
+    resolvedPath = resolvedPath.replace("{fargateProfileName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: fargateProfileName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -478,6 +638,42 @@ export const serializeAws_restJson1DescribeUpdateCommand = async (
   }
   const query: any = {
     ...(input.nodegroupName !== undefined && { nodegroupName: input.nodegroupName }),
+    ...(input.addonName !== undefined && { addonName: input.addonName }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListAddonsCommand = async (
+  input: ListAddonsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/clusters/{clusterName}/addons";
+  if (input.clusterName !== undefined) {
+    const labelValue: string = input.clusterName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: clusterName.");
+    }
+    resolvedPath = resolvedPath.replace("{clusterName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: clusterName.");
+  }
+  const query: any = {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -537,8 +733,8 @@ export const serializeAws_restJson1ListFargateProfilesCommand = async (
     throw new Error("No value provided for input HTTP label: clusterName.");
   }
   const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -637,9 +833,10 @@ export const serializeAws_restJson1ListUpdatesCommand = async (
     throw new Error("No value provided for input HTTP label: name.");
   }
   const query: any = {
+    ...(input.nodegroupName !== undefined && { nodegroupName: input.nodegroupName }),
+    ...(input.addonName !== undefined && { addonName: input.addonName }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nodegroupName !== undefined && { nodegroupName: input.nodegroupName }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -718,6 +915,51 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateAddonCommand = async (
+  input: UpdateAddonCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/clusters/{clusterName}/addons/{addonName}/update";
+  if (input.clusterName !== undefined) {
+    const labelValue: string = input.clusterName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: clusterName.");
+    }
+    resolvedPath = resolvedPath.replace("{clusterName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: clusterName.");
+  }
+  if (input.addonName !== undefined) {
+    const labelValue: string = input.addonName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: addonName.");
+    }
+    resolvedPath = resolvedPath.replace("{addonName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: addonName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.addonVersion !== undefined && { addonVersion: input.addonVersion }),
+    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.resolveConflicts !== undefined && { resolveConflicts: input.resolveConflicts }),
+    ...(input.serviceAccountRoleArn !== undefined && { serviceAccountRoleArn: input.serviceAccountRoleArn }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -801,15 +1043,6 @@ export const serializeAws_restJson1UpdateNodegroupConfigCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/clusters/{clusterName}/node-groups/{nodegroupName}/update-config";
-  if (input.nodegroupName !== undefined) {
-    const labelValue: string = input.nodegroupName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: nodegroupName.");
-    }
-    resolvedPath = resolvedPath.replace("{nodegroupName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: nodegroupName.");
-  }
   if (input.clusterName !== undefined) {
     const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
@@ -818,6 +1051,15 @@ export const serializeAws_restJson1UpdateNodegroupConfigCommand = async (
     resolvedPath = resolvedPath.replace("{clusterName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: clusterName.");
+  }
+  if (input.nodegroupName !== undefined) {
+    const labelValue: string = input.nodegroupName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: nodegroupName.");
+    }
+    resolvedPath = resolvedPath.replace("{nodegroupName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: nodegroupName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -847,15 +1089,6 @@ export const serializeAws_restJson1UpdateNodegroupVersionCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/clusters/{clusterName}/node-groups/{nodegroupName}/update-version";
-  if (input.nodegroupName !== undefined) {
-    const labelValue: string = input.nodegroupName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: nodegroupName.");
-    }
-    resolvedPath = resolvedPath.replace("{nodegroupName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: nodegroupName.");
-  }
   if (input.clusterName !== undefined) {
     const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
@@ -864,6 +1097,15 @@ export const serializeAws_restJson1UpdateNodegroupVersionCommand = async (
     resolvedPath = resolvedPath.replace("{clusterName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: clusterName.");
+  }
+  if (input.nodegroupName !== undefined) {
+    const labelValue: string = input.nodegroupName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: nodegroupName.");
+    }
+    resolvedPath = resolvedPath.replace("{nodegroupName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: nodegroupName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -885,6 +1127,101 @@ export const serializeAws_restJson1UpdateNodegroupVersionCommand = async (
     path: resolvedPath,
     body,
   });
+};
+
+export const deserializeAws_restJson1CreateAddonCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAddonCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateAddonCommandError(output, context);
+  }
+  const contents: CreateAddonCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    addon: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.addon !== undefined && data.addon !== null) {
+    contents.addon = deserializeAws_restJson1Addon(data.addon, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateAddonCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAddonCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClientException":
+    case "com.amazonaws.eks#ClientException":
+      response = {
+        ...(await deserializeAws_restJson1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.eks#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.eks#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.eks#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      response = {
+        ...(await deserializeAws_restJson1ServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateClusterCommand = async (
@@ -1188,6 +1525,93 @@ const deserializeAws_restJson1CreateNodegroupCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DeleteAddonCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAddonCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteAddonCommandError(output, context);
+  }
+  const contents: DeleteAddonCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    addon: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.addon !== undefined && data.addon !== null) {
+    contents.addon = deserializeAws_restJson1Addon(data.addon, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteAddonCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAddonCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClientException":
+    case "com.amazonaws.eks#ClientException":
+      response = {
+        ...(await deserializeAws_restJson1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.eks#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.eks#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      response = {
+        ...(await deserializeAws_restJson1ServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DeleteClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1428,6 +1852,168 @@ const deserializeAws_restJson1DeleteNodegroupCommandError = async (
     case "com.amazonaws.eks#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeAddonCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAddonCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeAddonCommandError(output, context);
+  }
+  const contents: DescribeAddonCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    addon: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.addon !== undefined && data.addon !== null) {
+    contents.addon = deserializeAws_restJson1Addon(data.addon, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeAddonCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAddonCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClientException":
+    case "com.amazonaws.eks#ClientException":
+      response = {
+        ...(await deserializeAws_restJson1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.eks#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.eks#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      response = {
+        ...(await deserializeAws_restJson1ServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeAddonVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAddonVersionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeAddonVersionsCommandError(output, context);
+  }
+  const contents: DescribeAddonVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    addons: undefined,
+    nextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.addons !== undefined && data.addons !== null) {
+    contents.addons = deserializeAws_restJson1Addons(data.addons, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = data.nextToken;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeAddonVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAddonVersionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.eks#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      response = {
+        ...(await deserializeAws_restJson1ServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1736,6 +2322,97 @@ const deserializeAws_restJson1DescribeUpdateCommandError = async (
     case "com.amazonaws.eks#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      response = {
+        ...(await deserializeAws_restJson1ServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListAddonsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAddonsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListAddonsCommandError(output, context);
+  }
+  const contents: ListAddonsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    addons: undefined,
+    nextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.addons !== undefined && data.addons !== null) {
+    contents.addons = deserializeAws_restJson1StringList(data.addons, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = data.nextToken;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListAddonsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAddonsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClientException":
+    case "com.amazonaws.eks#ClientException":
+      response = {
+        ...(await deserializeAws_restJson1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.eks#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.eks#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2294,6 +2971,101 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateAddonCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAddonCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateAddonCommandError(output, context);
+  }
+  const contents: UpdateAddonCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    update: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.update !== undefined && data.update !== null) {
+    contents.update = deserializeAws_restJson1Update(data.update, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateAddonCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAddonCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClientException":
+    case "com.amazonaws.eks#ClientException":
+      response = {
+        ...(await deserializeAws_restJson1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.eks#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.eks#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.eks#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      response = {
+        ...(await deserializeAws_restJson1ServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1UpdateClusterConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2699,11 +3471,15 @@ const deserializeAws_restJson1ClientExceptionResponse = async (
     name: "ClientException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
+    addonName: undefined,
     clusterName: undefined,
     message: undefined,
     nodegroupName: undefined,
   };
   const data: any = parsedOutput.body;
+  if (data.addonName !== undefined && data.addonName !== null) {
+    contents.addonName = data.addonName;
+  }
   if (data.clusterName !== undefined && data.clusterName !== null) {
     contents.clusterName = data.clusterName;
   }
@@ -2724,12 +3500,16 @@ const deserializeAws_restJson1InvalidParameterExceptionResponse = async (
     name: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
+    addonName: undefined,
     clusterName: undefined,
     fargateProfileName: undefined,
     message: undefined,
     nodegroupName: undefined,
   };
   const data: any = parsedOutput.body;
+  if (data.addonName !== undefined && data.addonName !== null) {
+    contents.addonName = data.addonName;
+  }
   if (data.clusterName !== undefined && data.clusterName !== null) {
     contents.clusterName = data.clusterName;
   }
@@ -2753,11 +3533,15 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
     name: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
+    addonName: undefined,
     clusterName: undefined,
     message: undefined,
     nodegroupName: undefined,
   };
   const data: any = parsedOutput.body;
+  if (data.addonName !== undefined && data.addonName !== null) {
+    contents.addonName = data.addonName;
+  }
   if (data.clusterName !== undefined && data.clusterName !== null) {
     contents.clusterName = data.clusterName;
   }
@@ -2795,11 +3579,15 @@ const deserializeAws_restJson1ResourceInUseExceptionResponse = async (
     name: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
+    addonName: undefined,
     clusterName: undefined,
     message: undefined,
     nodegroupName: undefined,
   };
   const data: any = parsedOutput.body;
+  if (data.addonName !== undefined && data.addonName !== null) {
+    contents.addonName = data.addonName;
+  }
   if (data.clusterName !== undefined && data.clusterName !== null) {
     contents.clusterName = data.clusterName;
   }
@@ -2845,12 +3633,16 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
     name: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
+    addonName: undefined,
     clusterName: undefined,
     fargateProfileName: undefined,
     message: undefined,
     nodegroupName: undefined,
   };
   const data: any = parsedOutput.body;
+  if (data.addonName !== undefined && data.addonName !== null) {
+    contents.addonName = data.addonName;
+  }
   if (data.clusterName !== undefined && data.clusterName !== null) {
     contents.clusterName = data.clusterName;
   }
@@ -2874,11 +3666,15 @@ const deserializeAws_restJson1ServerExceptionResponse = async (
     name: "ServerException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
+    addonName: undefined,
     clusterName: undefined,
     message: undefined,
     nodegroupName: undefined,
   };
   const data: any = parsedOutput.body;
+  if (data.addonName !== undefined && data.addonName !== null) {
+    contents.addonName = data.addonName;
+  }
   if (data.clusterName !== undefined && data.clusterName !== null) {
     contents.clusterName = data.clusterName;
   }
@@ -3091,6 +3887,93 @@ const serializeAws_restJson1VpcConfigRequest = (input: VpcConfigRequest, context
   };
 };
 
+const deserializeAws_restJson1Addon = (output: any, context: __SerdeContext): Addon => {
+  return {
+    addonArn: output.addonArn !== undefined && output.addonArn !== null ? output.addonArn : undefined,
+    addonName: output.addonName !== undefined && output.addonName !== null ? output.addonName : undefined,
+    addonVersion: output.addonVersion !== undefined && output.addonVersion !== null ? output.addonVersion : undefined,
+    clusterName: output.clusterName !== undefined && output.clusterName !== null ? output.clusterName : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    health:
+      output.health !== undefined && output.health !== null
+        ? deserializeAws_restJson1AddonHealth(output.health, context)
+        : undefined,
+    modifiedAt:
+      output.modifiedAt !== undefined && output.modifiedAt !== null
+        ? new Date(Math.round(output.modifiedAt * 1000))
+        : undefined,
+    serviceAccountRoleArn:
+      output.serviceAccountRoleArn !== undefined && output.serviceAccountRoleArn !== null
+        ? output.serviceAccountRoleArn
+        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1TagMap(output.tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AddonHealth = (output: any, context: __SerdeContext): AddonHealth => {
+  return {
+    issues:
+      output.issues !== undefined && output.issues !== null
+        ? deserializeAws_restJson1AddonIssueList(output.issues, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AddonInfo = (output: any, context: __SerdeContext): AddonInfo => {
+  return {
+    addonName: output.addonName !== undefined && output.addonName !== null ? output.addonName : undefined,
+    addonVersions:
+      output.addonVersions !== undefined && output.addonVersions !== null
+        ? deserializeAws_restJson1AddonVersionInfoList(output.addonVersions, context)
+        : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AddonIssue = (output: any, context: __SerdeContext): AddonIssue => {
+  return {
+    code: output.code !== undefined && output.code !== null ? output.code : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    resourceIds:
+      output.resourceIds !== undefined && output.resourceIds !== null
+        ? deserializeAws_restJson1StringList(output.resourceIds, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AddonIssueList = (output: any, context: __SerdeContext): AddonIssue[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AddonIssue(entry, context));
+};
+
+const deserializeAws_restJson1Addons = (output: any, context: __SerdeContext): AddonInfo[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AddonInfo(entry, context));
+};
+
+const deserializeAws_restJson1AddonVersionInfo = (output: any, context: __SerdeContext): AddonVersionInfo => {
+  return {
+    addonVersion: output.addonVersion !== undefined && output.addonVersion !== null ? output.addonVersion : undefined,
+    architecture:
+      output.architecture !== undefined && output.architecture !== null
+        ? deserializeAws_restJson1StringList(output.architecture, context)
+        : undefined,
+    compatibilities:
+      output.compatibilities !== undefined && output.compatibilities !== null
+        ? deserializeAws_restJson1Compatibilities(output.compatibilities, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AddonVersionInfoList = (output: any, context: __SerdeContext): AddonVersionInfo[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AddonVersionInfo(entry, context));
+};
+
 const deserializeAws_restJson1AutoScalingGroup = (output: any, context: __SerdeContext): AutoScalingGroup => {
   return {
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
@@ -3153,6 +4036,23 @@ const deserializeAws_restJson1Cluster = (output: any, context: __SerdeContext): 
         ? deserializeAws_restJson1TagMap(output.tags, context)
         : undefined,
     version: output.version !== undefined && output.version !== null ? output.version : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Compatibilities = (output: any, context: __SerdeContext): Compatibility[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Compatibility(entry, context));
+};
+
+const deserializeAws_restJson1Compatibility = (output: any, context: __SerdeContext): Compatibility => {
+  return {
+    clusterVersion:
+      output.clusterVersion !== undefined && output.clusterVersion !== null ? output.clusterVersion : undefined,
+    defaultVersion:
+      output.defaultVersion !== undefined && output.defaultVersion !== null ? output.defaultVersion : undefined,
+    platformVersions:
+      output.platformVersions !== undefined && output.platformVersions !== null
+        ? deserializeAws_restJson1StringList(output.platformVersions, context)
+        : undefined,
   } as any;
 };
 
@@ -3341,6 +4241,7 @@ const deserializeAws_restJson1LogTypes = (output: any, context: __SerdeContext):
 const deserializeAws_restJson1Nodegroup = (output: any, context: __SerdeContext): Nodegroup => {
   return {
     amiType: output.amiType !== undefined && output.amiType !== null ? output.amiType : undefined,
+    capacityType: output.capacityType !== undefined && output.capacityType !== null ? output.capacityType : undefined,
     clusterName: output.clusterName !== undefined && output.clusterName !== null ? output.clusterName : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null

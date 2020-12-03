@@ -296,7 +296,6 @@ import {
   LifecycleRuleAndOperator,
   LifecycleRuleFilter,
   LoggingEnabled,
-  MetadataEntry,
   Metrics,
   MetricsAndOperator,
   MetricsConfiguration,
@@ -326,6 +325,7 @@ import {
   QueueConfiguration,
   Redirect,
   RedirectAllRequestsTo,
+  ReplicaModifications,
   ReplicationConfiguration,
   ReplicationRule,
   ReplicationRuleAndOperator,
@@ -335,7 +335,6 @@ import {
   RequestPaymentConfiguration,
   RoutingRule,
   S3KeyFilter,
-  S3Location,
   SSEKMS,
   SSES3,
   ServerSideEncryptionByDefault,
@@ -365,6 +364,7 @@ import {
   InputSerialization,
   JSONInput,
   JSONOutput,
+  MetadataEntry,
   OutputLocation,
   OutputSerialization,
   ParquetInput,
@@ -372,6 +372,7 @@ import {
   RecordsEvent,
   RequestProgress,
   RestoreRequest,
+  S3Location,
   ScanRange,
   SelectObjectContentEventStream,
   SelectParameters,
@@ -563,6 +564,9 @@ export const serializeAws_restXmlCopyObjectCommand = async (
     ...(isSerializableHeaderValue(input.SSEKMSEncryptionContext) && {
       "x-amz-server-side-encryption-context": input.SSEKMSEncryptionContext!,
     }),
+    ...(isSerializableHeaderValue(input.BucketKeyEnabled) && {
+      "x-amz-server-side-encryption-bucket-key-enabled": input.BucketKeyEnabled!.toString(),
+    }),
     ...(isSerializableHeaderValue(input.CopySourceSSECustomerAlgorithm) && {
       "x-amz-copy-source-server-side-encryption-customer-algorithm": input.CopySourceSSECustomerAlgorithm!,
     }),
@@ -721,6 +725,9 @@ export const serializeAws_restXmlCreateMultipartUploadCommand = async (
     }),
     ...(isSerializableHeaderValue(input.SSEKMSEncryptionContext) && {
       "x-amz-server-side-encryption-context": input.SSEKMSEncryptionContext!,
+    }),
+    ...(isSerializableHeaderValue(input.BucketKeyEnabled) && {
+      "x-amz-server-side-encryption-bucket-key-enabled": input.BucketKeyEnabled!.toString(),
     }),
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
     ...(isSerializableHeaderValue(input.Tagging) && { "x-amz-tagging": input.Tagging! }),
@@ -3992,6 +3999,9 @@ export const serializeAws_restXmlPutObjectCommand = async (
     ...(isSerializableHeaderValue(input.SSEKMSEncryptionContext) && {
       "x-amz-server-side-encryption-context": input.SSEKMSEncryptionContext!,
     }),
+    ...(isSerializableHeaderValue(input.BucketKeyEnabled) && {
+      "x-amz-server-side-encryption-bucket-key-enabled": input.BucketKeyEnabled!.toString(),
+    }),
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
     ...(isSerializableHeaderValue(input.Tagging) && { "x-amz-tagging": input.Tagging! }),
     ...(isSerializableHeaderValue(input.ObjectLockMode) && { "x-amz-object-lock-mode": input.ObjectLockMode! }),
@@ -4790,6 +4800,7 @@ export const deserializeAws_restXmlCompleteMultipartUploadCommand = async (
   const contents: CompleteMultipartUploadCommandOutput = {
     $metadata: deserializeMetadata(output),
     Bucket: undefined,
+    BucketKeyEnabled: undefined,
     ETag: undefined,
     Expiration: undefined,
     Key: undefined,
@@ -4810,6 +4821,9 @@ export const deserializeAws_restXmlCompleteMultipartUploadCommand = async (
   }
   if (output.headers["x-amz-server-side-encryption-aws-kms-key-id"] !== undefined) {
     contents.SSEKMSKeyId = output.headers["x-amz-server-side-encryption-aws-kms-key-id"];
+  }
+  if (output.headers["x-amz-server-side-encryption-bucket-key-enabled"] !== undefined) {
+    contents.BucketKeyEnabled = output.headers["x-amz-server-side-encryption-bucket-key-enabled"] === "true";
   }
   if (output.headers["x-amz-request-charged"] !== undefined) {
     contents.RequestCharged = output.headers["x-amz-request-charged"];
@@ -4868,6 +4882,7 @@ export const deserializeAws_restXmlCopyObjectCommand = async (
   }
   const contents: CopyObjectCommandOutput = {
     $metadata: deserializeMetadata(output),
+    BucketKeyEnabled: undefined,
     CopyObjectResult: undefined,
     CopySourceVersionId: undefined,
     Expiration: undefined,
@@ -4902,6 +4917,9 @@ export const deserializeAws_restXmlCopyObjectCommand = async (
   }
   if (output.headers["x-amz-server-side-encryption-context"] !== undefined) {
     contents.SSEKMSEncryptionContext = output.headers["x-amz-server-side-encryption-context"];
+  }
+  if (output.headers["x-amz-server-side-encryption-bucket-key-enabled"] !== undefined) {
+    contents.BucketKeyEnabled = output.headers["x-amz-server-side-encryption-bucket-key-enabled"] === "true";
   }
   if (output.headers["x-amz-request-charged"] !== undefined) {
     contents.RequestCharged = output.headers["x-amz-request-charged"];
@@ -5023,6 +5041,7 @@ export const deserializeAws_restXmlCreateMultipartUploadCommand = async (
     AbortDate: undefined,
     AbortRuleId: undefined,
     Bucket: undefined,
+    BucketKeyEnabled: undefined,
     Key: undefined,
     RequestCharged: undefined,
     SSECustomerAlgorithm: undefined,
@@ -5052,6 +5071,9 @@ export const deserializeAws_restXmlCreateMultipartUploadCommand = async (
   }
   if (output.headers["x-amz-server-side-encryption-context"] !== undefined) {
     contents.SSEKMSEncryptionContext = output.headers["x-amz-server-side-encryption-context"];
+  }
+  if (output.headers["x-amz-server-side-encryption-bucket-key-enabled"] !== undefined) {
+    contents.BucketKeyEnabled = output.headers["x-amz-server-side-encryption-bucket-key-enabled"] === "true";
   }
   if (output.headers["x-amz-request-charged"] !== undefined) {
     contents.RequestCharged = output.headers["x-amz-request-charged"];
@@ -6865,6 +6887,7 @@ export const deserializeAws_restXmlGetObjectCommand = async (
     $metadata: deserializeMetadata(output),
     AcceptRanges: undefined,
     Body: undefined,
+    BucketKeyEnabled: undefined,
     CacheControl: undefined,
     ContentDisposition: undefined,
     ContentEncoding: undefined,
@@ -6957,6 +6980,9 @@ export const deserializeAws_restXmlGetObjectCommand = async (
   }
   if (output.headers["x-amz-server-side-encryption-aws-kms-key-id"] !== undefined) {
     contents.SSEKMSKeyId = output.headers["x-amz-server-side-encryption-aws-kms-key-id"];
+  }
+  if (output.headers["x-amz-server-side-encryption-bucket-key-enabled"] !== undefined) {
+    contents.BucketKeyEnabled = output.headers["x-amz-server-side-encryption-bucket-key-enabled"] === "true";
   }
   if (output.headers["x-amz-storage-class"] !== undefined) {
     contents.StorageClass = output.headers["x-amz-storage-class"];
@@ -7451,6 +7477,7 @@ export const deserializeAws_restXmlHeadObjectCommand = async (
     $metadata: deserializeMetadata(output),
     AcceptRanges: undefined,
     ArchiveStatus: undefined,
+    BucketKeyEnabled: undefined,
     CacheControl: undefined,
     ContentDisposition: undefined,
     ContentEncoding: undefined,
@@ -7541,6 +7568,9 @@ export const deserializeAws_restXmlHeadObjectCommand = async (
   }
   if (output.headers["x-amz-server-side-encryption-aws-kms-key-id"] !== undefined) {
     contents.SSEKMSKeyId = output.headers["x-amz-server-side-encryption-aws-kms-key-id"];
+  }
+  if (output.headers["x-amz-server-side-encryption-bucket-key-enabled"] !== undefined) {
+    contents.BucketKeyEnabled = output.headers["x-amz-server-side-encryption-bucket-key-enabled"] === "true";
   }
   if (output.headers["x-amz-storage-class"] !== undefined) {
     contents.StorageClass = output.headers["x-amz-storage-class"];
@@ -9226,6 +9256,7 @@ export const deserializeAws_restXmlPutObjectCommand = async (
   }
   const contents: PutObjectCommandOutput = {
     $metadata: deserializeMetadata(output),
+    BucketKeyEnabled: undefined,
     ETag: undefined,
     Expiration: undefined,
     RequestCharged: undefined,
@@ -9259,6 +9290,9 @@ export const deserializeAws_restXmlPutObjectCommand = async (
   }
   if (output.headers["x-amz-server-side-encryption-context"] !== undefined) {
     contents.SSEKMSEncryptionContext = output.headers["x-amz-server-side-encryption-context"];
+  }
+  if (output.headers["x-amz-server-side-encryption-bucket-key-enabled"] !== undefined) {
+    contents.BucketKeyEnabled = output.headers["x-amz-server-side-encryption-bucket-key-enabled"] === "true";
   }
   if (output.headers["x-amz-request-charged"] !== undefined) {
     contents.RequestCharged = output.headers["x-amz-request-charged"];
@@ -9709,6 +9743,7 @@ export const deserializeAws_restXmlUploadPartCommand = async (
   }
   const contents: UploadPartCommandOutput = {
     $metadata: deserializeMetadata(output),
+    BucketKeyEnabled: undefined,
     ETag: undefined,
     RequestCharged: undefined,
     SSECustomerAlgorithm: undefined,
@@ -9730,6 +9765,9 @@ export const deserializeAws_restXmlUploadPartCommand = async (
   }
   if (output.headers["x-amz-server-side-encryption-aws-kms-key-id"] !== undefined) {
     contents.SSEKMSKeyId = output.headers["x-amz-server-side-encryption-aws-kms-key-id"];
+  }
+  if (output.headers["x-amz-server-side-encryption-bucket-key-enabled"] !== undefined) {
+    contents.BucketKeyEnabled = output.headers["x-amz-server-side-encryption-bucket-key-enabled"] === "true";
   }
   if (output.headers["x-amz-request-charged"] !== undefined) {
     contents.RequestCharged = output.headers["x-amz-request-charged"];
@@ -9776,6 +9814,7 @@ export const deserializeAws_restXmlUploadPartCopyCommand = async (
   }
   const contents: UploadPartCopyCommandOutput = {
     $metadata: deserializeMetadata(output),
+    BucketKeyEnabled: undefined,
     CopyPartResult: undefined,
     CopySourceVersionId: undefined,
     RequestCharged: undefined,
@@ -9798,6 +9837,9 @@ export const deserializeAws_restXmlUploadPartCopyCommand = async (
   }
   if (output.headers["x-amz-server-side-encryption-aws-kms-key-id"] !== undefined) {
     contents.SSEKMSKeyId = output.headers["x-amz-server-side-encryption-aws-kms-key-id"];
+  }
+  if (output.headers["x-amz-server-side-encryption-bucket-key-enabled"] !== undefined) {
+    contents.BucketKeyEnabled = output.headers["x-amz-server-side-encryption-bucket-key-enabled"] === "true";
   }
   if (output.headers["x-amz-request-charged"] !== undefined) {
     contents.RequestCharged = output.headers["x-amz-request-charged"];
@@ -11468,6 +11510,17 @@ const serializeAws_restXmlRedirectAllRequestsTo = (input: RedirectAllRequestsTo,
   return bodyNode;
 };
 
+const serializeAws_restXmlReplicaModifications = (input: ReplicaModifications, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("ReplicaModifications");
+  if (input.Status !== undefined) {
+    const node = new __XmlNode("ReplicaModificationsStatus")
+      .addChildNode(new __XmlText(input.Status))
+      .withName("Status");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
 const serializeAws_restXmlReplicationConfiguration = (
   input: ReplicationConfiguration,
   context: __SerdeContext
@@ -11829,6 +11882,12 @@ const serializeAws_restXmlServerSideEncryptionRule = (
     ).withName("ApplyServerSideEncryptionByDefault");
     bodyNode.addChildNode(node);
   }
+  if (input.BucketKeyEnabled !== undefined) {
+    const node = new __XmlNode("BucketKeyEnabled")
+      .addChildNode(new __XmlText(String(input.BucketKeyEnabled)))
+      .withName("BucketKeyEnabled");
+    bodyNode.addChildNode(node);
+  }
   return bodyNode;
 };
 
@@ -11847,6 +11906,12 @@ const serializeAws_restXmlSourceSelectionCriteria = (input: SourceSelectionCrite
   if (input.SseKmsEncryptedObjects !== undefined) {
     const node = serializeAws_restXmlSseKmsEncryptedObjects(input.SseKmsEncryptedObjects, context).withName(
       "SseKmsEncryptedObjects"
+    );
+    bodyNode.addChildNode(node);
+  }
+  if (input.ReplicaModifications !== undefined) {
+    const node = serializeAws_restXmlReplicaModifications(input.ReplicaModifications, context).withName(
+      "ReplicaModifications"
     );
     bodyNode.addChildNode(node);
   }
@@ -13480,6 +13545,16 @@ const deserializeAws_restXmlRedirectAllRequestsTo = (output: any, context: __Ser
   return contents;
 };
 
+const deserializeAws_restXmlReplicaModifications = (output: any, context: __SerdeContext): ReplicaModifications => {
+  let contents: any = {
+    Status: undefined,
+  };
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
+  }
+  return contents;
+};
+
 const deserializeAws_restXmlReplicationConfiguration = (
   output: any,
   context: __SerdeContext
@@ -13688,12 +13763,16 @@ const deserializeAws_restXmlServerSideEncryptionRule = (
 ): ServerSideEncryptionRule => {
   let contents: any = {
     ApplyServerSideEncryptionByDefault: undefined,
+    BucketKeyEnabled: undefined,
   };
   if (output["ApplyServerSideEncryptionByDefault"] !== undefined) {
     contents.ApplyServerSideEncryptionByDefault = deserializeAws_restXmlServerSideEncryptionByDefault(
       output["ApplyServerSideEncryptionByDefault"],
       context
     );
+  }
+  if (output["BucketKeyEnabled"] !== undefined) {
+    contents.BucketKeyEnabled = output["BucketKeyEnabled"] == "true";
   }
   return contents;
 };
@@ -13711,12 +13790,16 @@ const deserializeAws_restXmlSourceSelectionCriteria = (
 ): SourceSelectionCriteria => {
   let contents: any = {
     SseKmsEncryptedObjects: undefined,
+    ReplicaModifications: undefined,
   };
   if (output["SseKmsEncryptedObjects"] !== undefined) {
     contents.SseKmsEncryptedObjects = deserializeAws_restXmlSseKmsEncryptedObjects(
       output["SseKmsEncryptedObjects"],
       context
     );
+  }
+  if (output["ReplicaModifications"] !== undefined) {
+    contents.ReplicaModifications = deserializeAws_restXmlReplicaModifications(output["ReplicaModifications"], context);
   }
   return contents;
 };

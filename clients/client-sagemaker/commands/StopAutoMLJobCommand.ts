@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { StopAutoMLJobRequest } from "../models/models_1";
+import { StopAutoMLJobRequest } from "../models/models_2";
 import {
   deserializeAws_json1_1StopAutoMLJobCommand,
   serializeAws_json1_1StopAutoMLJobCommand,

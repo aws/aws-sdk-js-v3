@@ -21,7 +21,7 @@ export type AttachVolumeCommandOutput = VolumeAttachment & __MetadataBearer;
  * <p>Attaches an EBS volume to a running or stopped instance and exposes it to the instance
  *       with the specified device name.</p>
  *          <p>Encrypted EBS volumes must be attached to instances that support Amazon EBS encryption. For
- *       more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *       more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          <p>After you attach an EBS volume, you must make it available. For more information, see
  *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html">Making an EBS volume available for use</a>.</p>
  *          <p>If a volume has an AWS Marketplace product code:</p>

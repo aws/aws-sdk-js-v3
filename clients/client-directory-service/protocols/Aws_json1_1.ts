@@ -74,9 +74,17 @@ import {
 } from "../commands/DescribeSharedDirectoriesCommand";
 import { DescribeSnapshotsCommandInput, DescribeSnapshotsCommandOutput } from "../commands/DescribeSnapshotsCommand";
 import { DescribeTrustsCommandInput, DescribeTrustsCommandOutput } from "../commands/DescribeTrustsCommand";
+import {
+  DisableClientAuthenticationCommandInput,
+  DisableClientAuthenticationCommandOutput,
+} from "../commands/DisableClientAuthenticationCommand";
 import { DisableLDAPSCommandInput, DisableLDAPSCommandOutput } from "../commands/DisableLDAPSCommand";
 import { DisableRadiusCommandInput, DisableRadiusCommandOutput } from "../commands/DisableRadiusCommand";
 import { DisableSsoCommandInput, DisableSsoCommandOutput } from "../commands/DisableSsoCommand";
+import {
+  EnableClientAuthenticationCommandInput,
+  EnableClientAuthenticationCommandOutput,
+} from "../commands/EnableClientAuthenticationCommand";
 import { EnableLDAPSCommandInput, EnableLDAPSCommandOutput } from "../commands/EnableLDAPSCommand";
 import { EnableRadiusCommandInput, EnableRadiusCommandOutput } from "../commands/EnableRadiusCommand";
 import { EnableSsoCommandInput, EnableSsoCommandOutput } from "../commands/EnableSsoCommand";
@@ -153,6 +161,7 @@ import {
   CertificateInUseException,
   CertificateInfo,
   CertificateLimitExceededException,
+  ClientCertAuthSettings,
   ClientException,
   Computer,
   ConditionalForwarder,
@@ -220,6 +229,8 @@ import {
   DirectoryUnavailableException,
   DirectoryVpcSettings,
   DirectoryVpcSettingsDescription,
+  DisableClientAuthenticationRequest,
+  DisableClientAuthenticationResult,
   DisableLDAPSRequest,
   DisableLDAPSResult,
   DisableRadiusRequest,
@@ -228,6 +239,8 @@ import {
   DisableSsoResult,
   DomainController,
   DomainControllerLimitExceededException,
+  EnableClientAuthenticationRequest,
+  EnableClientAuthenticationResult,
   EnableLDAPSRequest,
   EnableLDAPSResult,
   EnableRadiusRequest,
@@ -243,6 +256,7 @@ import {
   GetSnapshotLimitsResult,
   InsufficientPermissionsException,
   InvalidCertificateException,
+  InvalidClientAuthStatusException,
   InvalidLDAPSStatusException,
   InvalidNextTokenException,
   InvalidParameterException,
@@ -730,6 +744,19 @@ export const serializeAws_json1_1DescribeTrustsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DisableClientAuthenticationCommand = async (
+  input: DisableClientAuthenticationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.DisableClientAuthentication",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DisableClientAuthenticationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DisableLDAPSCommand = async (
   input: DisableLDAPSCommandInput,
   context: __SerdeContext
@@ -766,6 +793,19 @@ export const serializeAws_json1_1DisableSsoCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisableSsoRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1EnableClientAuthenticationCommand = async (
+  input: EnableClientAuthenticationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.EnableClientAuthentication",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1EnableClientAuthenticationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3932,6 +3972,101 @@ const deserializeAws_json1_1DescribeTrustsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DisableClientAuthenticationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableClientAuthenticationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DisableClientAuthenticationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DisableClientAuthenticationResult(data, context);
+  const response: DisableClientAuthenticationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DisableClientAuthenticationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableClientAuthenticationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.directoryservice#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ClientException":
+    case "com.amazonaws.directoryservice#ClientException":
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DirectoryDoesNotExistException":
+    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
+      response = {
+        ...(await deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidClientAuthStatusException":
+    case "com.amazonaws.directoryservice#InvalidClientAuthStatusException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidClientAuthStatusExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.directoryservice#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedOperationException":
+    case "com.amazonaws.directoryservice#UnsupportedOperationException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DisableLDAPSCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4172,6 +4307,109 @@ const deserializeAws_json1_1DisableSsoCommandError = async (
     case "com.amazonaws.directoryservice#ServiceException":
       response = {
         ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1EnableClientAuthenticationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableClientAuthenticationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1EnableClientAuthenticationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1EnableClientAuthenticationResult(data, context);
+  const response: EnableClientAuthenticationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1EnableClientAuthenticationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableClientAuthenticationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.directoryservice#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ClientException":
+    case "com.amazonaws.directoryservice#ClientException":
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DirectoryDoesNotExistException":
+    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
+      response = {
+        ...(await deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidClientAuthStatusException":
+    case "com.amazonaws.directoryservice#InvalidClientAuthStatusException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidClientAuthStatusExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoAvailableCertificateException":
+    case "com.amazonaws.directoryservice#NoAvailableCertificateException":
+      response = {
+        ...(await deserializeAws_json1_1NoAvailableCertificateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.directoryservice#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedOperationException":
+    case "com.amazonaws.directoryservice#UnsupportedOperationException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6797,6 +7035,21 @@ const deserializeAws_json1_1InvalidCertificateExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1InvalidClientAuthStatusExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidClientAuthStatusException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidClientAuthStatusException(body, context);
+  const contents: InvalidClientAuthStatusException = {
+    name: "InvalidClientAuthStatusException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1InvalidLDAPSStatusExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -7084,6 +7337,12 @@ const serializeAws_json1_1CancelSchemaExtensionRequest = (
 
 const serializeAws_json1_1CidrIps = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1ClientCertAuthSettings = (input: ClientCertAuthSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.OCSPUrl !== undefined && { OCSPUrl: input.OCSPUrl }),
+  };
 };
 
 const serializeAws_json1_1ConnectDirectoryRequest = (input: ConnectDirectoryRequest, context: __SerdeContext): any => {
@@ -7395,6 +7654,16 @@ const serializeAws_json1_1DirectoryVpcSettings = (input: DirectoryVpcSettings, c
   };
 };
 
+const serializeAws_json1_1DisableClientAuthenticationRequest = (
+  input: DisableClientAuthenticationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.Type !== undefined && { Type: input.Type }),
+  };
+};
+
 const serializeAws_json1_1DisableLDAPSRequest = (input: DisableLDAPSRequest, context: __SerdeContext): any => {
   return {
     ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
@@ -7422,6 +7691,16 @@ const serializeAws_json1_1DnsIpAddrs = (input: string[], context: __SerdeContext
 
 const serializeAws_json1_1DomainControllerIds = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1EnableClientAuthenticationRequest = (
+  input: EnableClientAuthenticationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.Type !== undefined && { Type: input.Type }),
+  };
 };
 
 const serializeAws_json1_1EnableLDAPSRequest = (input: EnableLDAPSRequest, context: __SerdeContext): any => {
@@ -7545,7 +7824,11 @@ const serializeAws_json1_1RegisterCertificateRequest = (
 ): any => {
   return {
     ...(input.CertificateData !== undefined && { CertificateData: input.CertificateData }),
+    ...(input.ClientCertAuthSettings !== undefined && {
+      ClientCertAuthSettings: serializeAws_json1_1ClientCertAuthSettings(input.ClientCertAuthSettings, context),
+    }),
     ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.Type !== undefined && { Type: input.Type }),
   };
 };
 
@@ -7815,6 +8098,10 @@ const deserializeAws_json1_1Certificate = (output: any, context: __SerdeContext)
   return {
     CertificateId:
       output.CertificateId !== undefined && output.CertificateId !== null ? output.CertificateId : undefined,
+    ClientCertAuthSettings:
+      output.ClientCertAuthSettings !== undefined && output.ClientCertAuthSettings !== null
+        ? deserializeAws_json1_1ClientCertAuthSettings(output.ClientCertAuthSettings, context)
+        : undefined,
     CommonName: output.CommonName !== undefined && output.CommonName !== null ? output.CommonName : undefined,
     ExpiryDateTime:
       output.ExpiryDateTime !== undefined && output.ExpiryDateTime !== null
@@ -7826,6 +8113,7 @@ const deserializeAws_json1_1Certificate = (output: any, context: __SerdeContext)
         : undefined,
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
     StateReason: output.StateReason !== undefined && output.StateReason !== null ? output.StateReason : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
 };
 
@@ -7859,6 +8147,7 @@ const deserializeAws_json1_1CertificateInfo = (output: any, context: __SerdeCont
         ? new Date(Math.round(output.ExpiryDateTime * 1000))
         : undefined,
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
 };
 
@@ -7884,6 +8173,12 @@ const deserializeAws_json1_1CertificateLimitExceededException = (
 
 const deserializeAws_json1_1CertificatesInfo = (output: any, context: __SerdeContext): CertificateInfo[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1CertificateInfo(entry, context));
+};
+
+const deserializeAws_json1_1ClientCertAuthSettings = (output: any, context: __SerdeContext): ClientCertAuthSettings => {
+  return {
+    OCSPUrl: output.OCSPUrl !== undefined && output.OCSPUrl !== null ? output.OCSPUrl : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1ClientException = (output: any, context: __SerdeContext): ClientException => {
@@ -8367,6 +8662,13 @@ const deserializeAws_json1_1DirectoryVpcSettingsDescription = (
   } as any;
 };
 
+const deserializeAws_json1_1DisableClientAuthenticationResult = (
+  output: any,
+  context: __SerdeContext
+): DisableClientAuthenticationResult => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DisableLDAPSResult = (output: any, context: __SerdeContext): DisableLDAPSResult => {
   return {} as any;
 };
@@ -8420,6 +8722,13 @@ const deserializeAws_json1_1DomainControllerLimitExceededException = (
 
 const deserializeAws_json1_1DomainControllers = (output: any, context: __SerdeContext): DomainController[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1DomainController(entry, context));
+};
+
+const deserializeAws_json1_1EnableClientAuthenticationResult = (
+  output: any,
+  context: __SerdeContext
+): EnableClientAuthenticationResult => {
+  return {} as any;
 };
 
 const deserializeAws_json1_1EnableLDAPSResult = (output: any, context: __SerdeContext): EnableLDAPSResult => {
@@ -8509,6 +8818,16 @@ const deserializeAws_json1_1InvalidCertificateException = (
   output: any,
   context: __SerdeContext
 ): InvalidCertificateException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidClientAuthStatusException = (
+  output: any,
+  context: __SerdeContext
+): InvalidClientAuthStatusException => {
   return {
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,

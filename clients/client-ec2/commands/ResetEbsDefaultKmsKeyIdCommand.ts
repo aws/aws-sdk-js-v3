@@ -25,7 +25,7 @@ export type ResetEbsDefaultKmsKeyIdCommandOutput = ResetEbsDefaultKmsKeyIdResult
  *       to the AWS managed CMK for EBS.</p>
  *          <p>After resetting the default CMK to the AWS managed CMK, you can continue to encrypt by a
  *       customer managed CMK by specifying it when you create the volume. For more information, see
- *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a>
+ *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a>
  *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 export class ResetEbsDefaultKmsKeyIdCommand extends $Command<

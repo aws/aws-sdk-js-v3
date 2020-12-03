@@ -21,7 +21,8 @@ export type ListInstanceAttributesCommandInput = ListInstanceAttributesRequest;
 export type ListInstanceAttributesCommandOutput = ListInstanceAttributesResponse & __MetadataBearer;
 
 /**
- * <p>Returns a paginated list of all attribute types for the given instance.</p>
+ * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ *          <p>Returns a paginated list of all attribute types for the given instance.</p>
  */
 export class ListInstanceAttributesCommand extends $Command<
   ListInstanceAttributesCommandInput,

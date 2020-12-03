@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { ListMonitoringExecutionsRequest, ListMonitoringExecutionsResponse } from "../models/models_1";
+import { ListMonitoringExecutionsRequest, ListMonitoringExecutionsResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1ListMonitoringExecutionsCommand,
   serializeAws_json1_1ListMonitoringExecutionsCommand,

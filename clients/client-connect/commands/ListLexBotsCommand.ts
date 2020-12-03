@@ -21,7 +21,8 @@ export type ListLexBotsCommandInput = ListLexBotsRequest;
 export type ListLexBotsCommandOutput = ListLexBotsResponse & __MetadataBearer;
 
 /**
- * <p>Returns a paginated list of all the Amazon Lex bots currently associated with the instance.</p>
+ * <p>Returns a paginated list of all the Amazon Lex bots currently associated with the
+ *    instance.</p>
  */
 export class ListLexBotsCommand extends $Command<
   ListLexBotsCommandInput,

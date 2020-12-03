@@ -74,9 +74,17 @@ import {
 } from "./commands/DescribeSharedDirectoriesCommand";
 import { DescribeSnapshotsCommandInput, DescribeSnapshotsCommandOutput } from "./commands/DescribeSnapshotsCommand";
 import { DescribeTrustsCommandInput, DescribeTrustsCommandOutput } from "./commands/DescribeTrustsCommand";
+import {
+  DisableClientAuthenticationCommandInput,
+  DisableClientAuthenticationCommandOutput,
+} from "./commands/DisableClientAuthenticationCommand";
 import { DisableLDAPSCommandInput, DisableLDAPSCommandOutput } from "./commands/DisableLDAPSCommand";
 import { DisableRadiusCommandInput, DisableRadiusCommandOutput } from "./commands/DisableRadiusCommand";
 import { DisableSsoCommandInput, DisableSsoCommandOutput } from "./commands/DisableSsoCommand";
+import {
+  EnableClientAuthenticationCommandInput,
+  EnableClientAuthenticationCommandOutput,
+} from "./commands/EnableClientAuthenticationCommand";
 import { EnableLDAPSCommandInput, EnableLDAPSCommandOutput } from "./commands/EnableLDAPSCommand";
 import { EnableRadiusCommandInput, EnableRadiusCommandOutput } from "./commands/EnableRadiusCommand";
 import { EnableSsoCommandInput, EnableSsoCommandOutput } from "./commands/EnableSsoCommand";
@@ -214,9 +222,11 @@ export type ServiceInputTypes =
   | DescribeSharedDirectoriesCommandInput
   | DescribeSnapshotsCommandInput
   | DescribeTrustsCommandInput
+  | DisableClientAuthenticationCommandInput
   | DisableLDAPSCommandInput
   | DisableRadiusCommandInput
   | DisableSsoCommandInput
+  | EnableClientAuthenticationCommandInput
   | EnableLDAPSCommandInput
   | EnableRadiusCommandInput
   | EnableSsoCommandInput
@@ -276,9 +286,11 @@ export type ServiceOutputTypes =
   | DescribeSharedDirectoriesCommandOutput
   | DescribeSnapshotsCommandOutput
   | DescribeTrustsCommandOutput
+  | DisableClientAuthenticationCommandOutput
   | DisableLDAPSCommandOutput
   | DisableRadiusCommandOutput
   | DisableSsoCommandOutput
+  | EnableClientAuthenticationCommandOutput
   | EnableLDAPSCommandOutput
   | EnableRadiusCommandOutput
   | EnableSsoCommandOutput

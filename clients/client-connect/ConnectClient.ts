@@ -22,15 +22,25 @@ import {
 import { CreateContactFlowCommandInput, CreateContactFlowCommandOutput } from "./commands/CreateContactFlowCommand";
 import { CreateInstanceCommandInput, CreateInstanceCommandOutput } from "./commands/CreateInstanceCommand";
 import {
+  CreateIntegrationAssociationCommandInput,
+  CreateIntegrationAssociationCommandOutput,
+} from "./commands/CreateIntegrationAssociationCommand";
+import {
   CreateRoutingProfileCommandInput,
   CreateRoutingProfileCommandOutput,
 } from "./commands/CreateRoutingProfileCommand";
+import { CreateUseCaseCommandInput, CreateUseCaseCommandOutput } from "./commands/CreateUseCaseCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
   CreateUserHierarchyGroupCommandInput,
   CreateUserHierarchyGroupCommandOutput,
 } from "./commands/CreateUserHierarchyGroupCommand";
 import { DeleteInstanceCommandInput, DeleteInstanceCommandOutput } from "./commands/DeleteInstanceCommand";
+import {
+  DeleteIntegrationAssociationCommandInput,
+  DeleteIntegrationAssociationCommandOutput,
+} from "./commands/DeleteIntegrationAssociationCommand";
+import { DeleteUseCaseCommandInput, DeleteUseCaseCommandOutput } from "./commands/DeleteUseCaseCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
   DeleteUserHierarchyGroupCommandInput,
@@ -112,6 +122,10 @@ import {
 } from "./commands/ListInstanceStorageConfigsCommand";
 import { ListInstancesCommandInput, ListInstancesCommandOutput } from "./commands/ListInstancesCommand";
 import {
+  ListIntegrationAssociationsCommandInput,
+  ListIntegrationAssociationsCommandOutput,
+} from "./commands/ListIntegrationAssociationsCommand";
+import {
   ListLambdaFunctionsCommandInput,
   ListLambdaFunctionsCommandOutput,
 } from "./commands/ListLambdaFunctionsCommand";
@@ -136,6 +150,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListUseCasesCommandInput, ListUseCasesCommandOutput } from "./commands/ListUseCasesCommand";
 import {
   ListUserHierarchyGroupsCommandInput,
   ListUserHierarchyGroupsCommandOutput,
@@ -154,6 +169,7 @@ import {
   StartOutboundVoiceContactCommandInput,
   StartOutboundVoiceContactCommandOutput,
 } from "./commands/StartOutboundVoiceContactCommand";
+import { StartTaskContactCommandInput, StartTaskContactCommandOutput } from "./commands/StartTaskContactCommand";
 import { StopContactCommandInput, StopContactCommandOutput } from "./commands/StopContactCommand";
 import {
   StopContactRecordingCommandInput,
@@ -287,10 +303,14 @@ export type ServiceInputTypes =
   | AssociateSecurityKeyCommandInput
   | CreateContactFlowCommandInput
   | CreateInstanceCommandInput
+  | CreateIntegrationAssociationCommandInput
   | CreateRoutingProfileCommandInput
+  | CreateUseCaseCommandInput
   | CreateUserCommandInput
   | CreateUserHierarchyGroupCommandInput
   | DeleteInstanceCommandInput
+  | DeleteIntegrationAssociationCommandInput
+  | DeleteUseCaseCommandInput
   | DeleteUserCommandInput
   | DeleteUserHierarchyGroupCommandInput
   | DescribeContactFlowCommandInput
@@ -317,6 +337,7 @@ export type ServiceInputTypes =
   | ListInstanceAttributesCommandInput
   | ListInstanceStorageConfigsCommandInput
   | ListInstancesCommandInput
+  | ListIntegrationAssociationsCommandInput
   | ListLambdaFunctionsCommandInput
   | ListLexBotsCommandInput
   | ListPhoneNumbersCommandInput
@@ -327,12 +348,14 @@ export type ServiceInputTypes =
   | ListSecurityKeysCommandInput
   | ListSecurityProfilesCommandInput
   | ListTagsForResourceCommandInput
+  | ListUseCasesCommandInput
   | ListUserHierarchyGroupsCommandInput
   | ListUsersCommandInput
   | ResumeContactRecordingCommandInput
   | StartChatContactCommandInput
   | StartContactRecordingCommandInput
   | StartOutboundVoiceContactCommandInput
+  | StartTaskContactCommandInput
   | StopContactCommandInput
   | StopContactRecordingCommandInput
   | SuspendContactRecordingCommandInput
@@ -364,10 +387,14 @@ export type ServiceOutputTypes =
   | AssociateSecurityKeyCommandOutput
   | CreateContactFlowCommandOutput
   | CreateInstanceCommandOutput
+  | CreateIntegrationAssociationCommandOutput
   | CreateRoutingProfileCommandOutput
+  | CreateUseCaseCommandOutput
   | CreateUserCommandOutput
   | CreateUserHierarchyGroupCommandOutput
   | DeleteInstanceCommandOutput
+  | DeleteIntegrationAssociationCommandOutput
+  | DeleteUseCaseCommandOutput
   | DeleteUserCommandOutput
   | DeleteUserHierarchyGroupCommandOutput
   | DescribeContactFlowCommandOutput
@@ -394,6 +421,7 @@ export type ServiceOutputTypes =
   | ListInstanceAttributesCommandOutput
   | ListInstanceStorageConfigsCommandOutput
   | ListInstancesCommandOutput
+  | ListIntegrationAssociationsCommandOutput
   | ListLambdaFunctionsCommandOutput
   | ListLexBotsCommandOutput
   | ListPhoneNumbersCommandOutput
@@ -404,12 +432,14 @@ export type ServiceOutputTypes =
   | ListSecurityKeysCommandOutput
   | ListSecurityProfilesCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListUseCasesCommandOutput
   | ListUserHierarchyGroupsCommandOutput
   | ListUsersCommandOutput
   | ResumeContactRecordingCommandOutput
   | StartChatContactCommandOutput
   | StartContactRecordingCommandOutput
   | StartOutboundVoiceContactCommandOutput
+  | StartTaskContactCommandOutput
   | StopContactCommandOutput
   | StopContactRecordingCommandOutput
   | SuspendContactRecordingCommandOutput
@@ -557,8 +587,7 @@ export type ConnectClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHa
  *    endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect
  *     Endpoints</a>.</p>
  *          <note>
- *             <p>Working with contact flows? Check out the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
- *    Flow language</a>.</p>
+ *             <p>Working with contact flows? Check out the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect Flow language</a>.</p>
  *          </note>
  */
 export class ConnectClient extends __Client<

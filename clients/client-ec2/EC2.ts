@@ -2987,7 +2987,7 @@ export class EC2 extends EC2Client {
    * <p>Attaches an EBS volume to a running or stopped instance and exposes it to the instance
    *       with the specified device name.</p>
    *          <p>Encrypted EBS volumes must be attached to instances that support Amazon EBS encryption. For
-   *       more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *       more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <p>After you attach an EBS volume, you must make it available. For more information, see
    *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html">Making an EBS volume available for use</a>.</p>
    *          <p>If a volume has an AWS Marketplace product code:</p>
@@ -4871,7 +4871,7 @@ export class EC2 extends EC2Client {
    *       source volume are propagated to the snapshot.</p>
    *          <p>You can take a snapshot of an attached volume that is in use. However, snapshots only
    *       capture data that has been written to your EBS volume at the time the snapshot command is
-   *       issued; this may exclude any data that has been cached by any applications or the operating
+   *       issued; this might exclude any data that has been cached by any applications or the operating
    *       system. If you can pause any file systems on the volume long enough to take a snapshot, your
    *       snapshot should be complete. However, if you cannot pause all file writes to the volume, you
    *       should unmount the volume from within the instance, issue the snapshot command, and then
@@ -4884,7 +4884,7 @@ export class EC2 extends EC2Client {
    *       and any associated snapshots always remain protected.</p>
    *          <p>You can tag your snapshots during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging your Amazon EC2
    *         resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html">Amazon Elastic Block Store</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html">Amazon Elastic Block Store</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public createSnapshot(
     args: CreateSnapshotCommandInput,
@@ -5460,15 +5460,12 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Creates an EBS volume that can be attached to an instance in the same Availability Zone.
-   *       The volume is created in the regional endpoint that you send the HTTP request to. For more
-   *       information see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and
-   *         Endpoints</a>.</p>
+   * <p>Creates an EBS volume that can be attached to an instance in the same Availability Zone.</p>
    *          <p>You can create a new empty volume or restore a volume from an EBS snapshot.
    *       Any AWS Marketplace product codes from the snapshot are propagated to the volume.</p>
    *          <p>You can create encrypted volumes. Encrypted volumes must be attached to instances that
    *       support Amazon EBS encryption. Volumes that are created from encrypted snapshots are also automatically
-   *       encrypted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a>
+   *       encrypted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a>
    *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <p>You can tag your volumes during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging your Amazon EC2
    *         resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -10445,7 +10442,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Describes the specified attribute of the specified snapshot. You can specify only one
    *       attribute at a time.</p>
-   *          <p>For more information about EBS snapshots, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html">Amazon EBS Snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>For more information about EBS snapshots, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html">Amazon EBS snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public describeSnapshotAttribute(
     args: DescribeSnapshotAttributeCommandInput,
@@ -10523,7 +10520,7 @@ export class EC2 extends EC2Client {
    *       passed to a subsequent <code>DescribeSnapshots</code> request to retrieve the remaining
    *       results.</p>
    *          <p>To get the state of fast snapshot restores for a snapshot, use <a>DescribeFastSnapshotRestores</a>.</p>
-   *          <p>For more information about EBS snapshots, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html">Amazon EBS Snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>For more information about EBS snapshots, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html">Amazon EBS snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public describeSnapshots(
     args: DescribeSnapshotsCommandInput,
@@ -11165,7 +11162,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Describes the specified attribute of the specified volume. You can specify only one
    *       attribute at a time.</p>
-   *          <p>For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html">Amazon EBS Volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html">Amazon EBS volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public describeVolumeAttribute(
     args: DescribeVolumeAttributeCommandInput,
@@ -11204,7 +11201,7 @@ export class EC2 extends EC2Client {
    *       then that number of results is returned along with a <code>NextToken</code> value that can be
    *       passed to a subsequent <code>DescribeVolumes</code> request to retrieve the remaining
    *       results.</p>
-   *          <p>For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html">Amazon EBS Volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html">Amazon EBS volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public describeVolumes(
     args: DescribeVolumesCommandInput,
@@ -11289,18 +11286,18 @@ export class EC2 extends EC2Client {
    *       values are <code>ok</code>, <code>impaired</code> , <code>warning</code>, or
    *         <code>insufficient-data</code>. If all checks pass, the overall status of the volume is
    *         <code>ok</code>. If the check fails, the overall status is <code>impaired</code>. If the
-   *       status is <code>insufficient-data</code>, then the checks may still be taking place on your
+   *       status is <code>insufficient-data</code>, then the checks might still be taking place on your
    *       volume at the time. We recommend that you retry the request. For more information about volume
    *       status, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html">Monitoring the status of your volumes</a> in the
    *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <p>
-   *             <i>Events</i>: Reflect the cause of a volume status and may require you to
+   *             <i>Events</i>: Reflect the cause of a volume status and might require you to
    *       take action. For example, if your volume returns an <code>impaired</code> status, then the
    *       volume event might be <code>potential-data-inconsistency</code>. This means that your volume
    *       has been affected by an issue with the underlying host, has all I/O operations disabled, and
-   *       may have inconsistent data.</p>
+   *       might have inconsistent data.</p>
    *          <p>
-   *             <i>Actions</i>: Reflect the actions you may have to take in response to an
+   *             <i>Actions</i>: Reflect the actions you might have to take in response to an
    *       event. For example, if the status of the volume is <code>impaired</code> and the volume event
    *       shows <code>potential-data-inconsistency</code>, then the action shows
    *         <code>enable-volume-io</code>. This means that you may want to enable the I/O operations for
@@ -11951,7 +11948,7 @@ export class EC2 extends EC2Client {
    *       enabling encryption when you create each volume.</p>
    *          <p>Disabling encryption by default does not change the encryption status of your
    *       existing volumes.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the
    *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public disableEbsEncryptionByDefault(
@@ -12481,7 +12478,7 @@ export class EC2 extends EC2Client {
    * <p>Enables EBS encryption by default for your account in the current Region.</p>
    *          <p>After you enable encryption by default, the EBS volumes that you create are
    *       are always encrypted, either using the default CMK or the CMK that you specified
-   *       when you created each volume. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the
+   *       when you created each volume. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the
    *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <p>You can specify the default CMK for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a>
    *       or <a>ResetEbsDefaultKmsKeyId</a>.</p>
@@ -13116,7 +13113,7 @@ export class EC2 extends EC2Client {
    * <p>Describes the default customer master key (CMK) for EBS encryption by default for your account in this Region.
    *       You can change the default CMK for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a> or
    *       <a>ResetEbsDefaultKmsKeyId</a>.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a>
    *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public getEbsDefaultKmsKeyId(
@@ -13151,7 +13148,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Describes whether EBS encryption by default is enabled for your account in the current
    *       Region.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a>
    *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public getEbsEncryptionByDefault(
@@ -13953,7 +13950,7 @@ export class EC2 extends EC2Client {
    *       managed CMK. To reset the default CMK to the AWS managed CMK for EBS, use <a>ResetEbsDefaultKmsKeyId</a>. Amazon EBS does not support asymmetric CMKs.</p>
    *          <p>If you delete or disable the customer managed CMK that you specified for use with
    *       encryption by default, your instances will fail to launch.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a>
    *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public modifyEbsDefaultKmsKeyId(
@@ -14959,10 +14956,10 @@ export class EC2 extends EC2Client {
   /**
    * <p>You can modify several parameters of an existing EBS volume, including volume size, volume
    *       type, and IOPS capacity. If your EBS volume is attached to a current-generation EC2 instance
-   *       type, you may be able to apply these changes without stopping the instance or detaching the
+   *       type, you might be able to apply these changes without stopping the instance or detaching the
    *       volume from it. For more information about modifying an EBS volume running Linux, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html">Modifying the size, IOPS, or
    *         type of an EBS volume on Linux</a>. For more information about modifying an EBS volume
-   *       running Windows, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html">Modifying the size, IOPS, or type of an EBS volume on Windows</a>. </p>
+   *       running Windows, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html">Modifying the size, IOPS, or type of an EBS volume on Windows</a>.</p>
    *          <p> When you complete a resize operation on your volume, you need to extend the volume's
    *       file-system size to take advantage of the new storage capacity. For information about
    *       extending a Linux file system, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#recognize-expanded-volume-linux">Extending a Linux
@@ -14973,11 +14970,10 @@ export class EC2 extends EC2Client {
    *       modification using <a>DescribeVolumesModifications</a>. For information
    *       about tracking status changes using either method, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#monitoring_mods">Monitoring volume
    *         modifications</a>. </p>
-   *          <p>With previous-generation instance types, resizing an EBS volume may require detaching and
+   *          <p>With previous-generation instance types, resizing an EBS volume might require detaching and
    *       reattaching the volume or stopping and restarting the instance. For more information, see
-   *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html">Modifying the size,
-   *         IOPS, or type of an EBS volume on Linux</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html">Modifying the size, IOPS, or type of an EBS
-   *         volume on Windows</a>.</p>
+   *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modify-volume.html">Amazon EBS Elastic
+   *           Volumes</a> (Linux) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-modify-volume.html">Amazon EBS Elastic Volumes</a> (Windows).</p>
    *          <p>If you reach the maximum volume modification rate per volume limit, you will need to wait
    *       at least six hours before applying further modifications to the affected EBS volume.</p>
    */
@@ -16478,7 +16474,7 @@ export class EC2 extends EC2Client {
    *       to the AWS managed CMK for EBS.</p>
    *          <p>After resetting the default CMK to the AWS managed CMK, you can continue to encrypt by a
    *       customer managed CMK by specifying it when you create the volume. For more information, see
-   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a>
+   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a>
    *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public resetEbsDefaultKmsKeyId(

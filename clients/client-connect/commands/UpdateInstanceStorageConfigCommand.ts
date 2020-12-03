@@ -21,7 +21,8 @@ export type UpdateInstanceStorageConfigCommandInput = UpdateInstanceStorageConfi
 export type UpdateInstanceStorageConfigCommandOutput = __MetadataBearer;
 
 /**
- * <p>Updates an existing configuration for a resource type. This API is idempotent.</p>
+ * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ *          <p>Updates an existing configuration for a resource type. This API is idempotent.</p>
  */
 export class UpdateInstanceStorageConfigCommand extends $Command<
   UpdateInstanceStorageConfigCommandInput,

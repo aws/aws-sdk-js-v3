@@ -40,10 +40,20 @@ import {
   CreateInstanceCommandOutput,
 } from "./commands/CreateInstanceCommand";
 import {
+  CreateIntegrationAssociationCommand,
+  CreateIntegrationAssociationCommandInput,
+  CreateIntegrationAssociationCommandOutput,
+} from "./commands/CreateIntegrationAssociationCommand";
+import {
   CreateRoutingProfileCommand,
   CreateRoutingProfileCommandInput,
   CreateRoutingProfileCommandOutput,
 } from "./commands/CreateRoutingProfileCommand";
+import {
+  CreateUseCaseCommand,
+  CreateUseCaseCommandInput,
+  CreateUseCaseCommandOutput,
+} from "./commands/CreateUseCaseCommand";
 import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
   CreateUserHierarchyGroupCommand,
@@ -55,6 +65,16 @@ import {
   DeleteInstanceCommandInput,
   DeleteInstanceCommandOutput,
 } from "./commands/DeleteInstanceCommand";
+import {
+  DeleteIntegrationAssociationCommand,
+  DeleteIntegrationAssociationCommandInput,
+  DeleteIntegrationAssociationCommandOutput,
+} from "./commands/DeleteIntegrationAssociationCommand";
+import {
+  DeleteUseCaseCommand,
+  DeleteUseCaseCommandInput,
+  DeleteUseCaseCommandOutput,
+} from "./commands/DeleteUseCaseCommand";
 import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
   DeleteUserHierarchyGroupCommand,
@@ -182,6 +202,11 @@ import {
   ListInstancesCommandOutput,
 } from "./commands/ListInstancesCommand";
 import {
+  ListIntegrationAssociationsCommand,
+  ListIntegrationAssociationsCommandInput,
+  ListIntegrationAssociationsCommandOutput,
+} from "./commands/ListIntegrationAssociationsCommand";
+import {
   ListLambdaFunctionsCommand,
   ListLambdaFunctionsCommandInput,
   ListLambdaFunctionsCommandOutput,
@@ -220,6 +245,11 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  ListUseCasesCommand,
+  ListUseCasesCommandInput,
+  ListUseCasesCommandOutput,
+} from "./commands/ListUseCasesCommand";
+import {
   ListUserHierarchyGroupsCommand,
   ListUserHierarchyGroupsCommandInput,
   ListUserHierarchyGroupsCommandOutput,
@@ -245,6 +275,11 @@ import {
   StartOutboundVoiceContactCommandInput,
   StartOutboundVoiceContactCommandOutput,
 } from "./commands/StartOutboundVoiceContactCommand";
+import {
+  StartTaskContactCommand,
+  StartTaskContactCommandInput,
+  StartTaskContactCommandOutput,
+} from "./commands/StartTaskContactCommand";
 import { StopContactCommand, StopContactCommandInput, StopContactCommandOutput } from "./commands/StopContactCommand";
 import {
   StopContactRecordingCommand,
@@ -357,8 +392,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *    endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect
  *     Endpoints</a>.</p>
  *          <note>
- *             <p>Working with contact flows? Check out the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
- *    Flow language</a>.</p>
+ *             <p>Working with contact flows? Check out the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect Flow language</a>.</p>
  *          </note>
  */
 export class Connect extends ConnectClient {
@@ -396,12 +430,11 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Associates a storage resource type for the first time. You can only associate one type of
-   *      storage configuration in a single call. This means, for example, that you can't define an
-   *      instance with multiple S3 buckets for storing chat transcripts.</p>
-   *
+   *    storage configuration in a single call. This means, for example, that you can't define an
+   *    instance with multiple S3 buckets for storing chat transcripts.</p>
    *          <p>This API does not create a resource that doesn't exist. It only associates it to the
-   *      instance. Ensure that the resource being specified in the storage configuration, like an Amazon
-   *      S3 bucket, exists when being used for association.</p>
+   *    instance. Ensure that the resource being specified in the storage configuration, like an Amazon
+   *    S3 bucket, exists when being used for association.</p>
    */
   public associateInstanceStorageConfig(
     args: AssociateInstanceStorageConfigCommandInput,
@@ -595,7 +628,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Initiates an Amazon Connect instance with all the supported channels enabled. It does not attach any
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Initiates an Amazon Connect instance with all the supported channels enabled. It does not attach any
    *    storage (such as Amazon S3, or Kinesis) or allow for any configurations on features such as
    *    Contact Lens for Amazon Connect. </p>
    */
@@ -629,6 +663,39 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Create an AppIntegration association with anAmazon Connect instance.</p>
+   */
+  public createIntegrationAssociation(
+    args: CreateIntegrationAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIntegrationAssociationCommandOutput>;
+  public createIntegrationAssociation(
+    args: CreateIntegrationAssociationCommandInput,
+    cb: (err: any, data?: CreateIntegrationAssociationCommandOutput) => void
+  ): void;
+  public createIntegrationAssociation(
+    args: CreateIntegrationAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIntegrationAssociationCommandOutput) => void
+  ): void;
+  public createIntegrationAssociation(
+    args: CreateIntegrationAssociationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIntegrationAssociationCommandOutput) => void),
+    cb?: (err: any, data?: CreateIntegrationAssociationCommandOutput) => void
+  ): Promise<CreateIntegrationAssociationCommandOutput> | void {
+    const command = new CreateIntegrationAssociationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a new routing profile.</p>
    */
   public createRoutingProfile(
@@ -650,6 +717,39 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: CreateRoutingProfileCommandOutput) => void
   ): Promise<CreateRoutingProfileCommandOutput> | void {
     const command = new CreateRoutingProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Creates a use case for an AppIntegration association.</p>
+   */
+  public createUseCase(
+    args: CreateUseCaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateUseCaseCommandOutput>;
+  public createUseCase(
+    args: CreateUseCaseCommandInput,
+    cb: (err: any, data?: CreateUseCaseCommandOutput) => void
+  ): void;
+  public createUseCase(
+    args: CreateUseCaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateUseCaseCommandOutput) => void
+  ): void;
+  public createUseCase(
+    args: CreateUseCaseCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUseCaseCommandOutput) => void),
+    cb?: (err: any, data?: CreateUseCaseCommandOutput) => void
+  ): Promise<CreateUseCaseCommandOutput> | void {
+    const command = new CreateUseCaseCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -721,7 +821,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Deletes the Amazon Connect instance.</p>
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Deletes the Amazon Connect instance.</p>
    */
   public deleteInstance(
     args: DeleteInstanceCommandInput,
@@ -753,11 +854,77 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Deletes an AppIntegration association from an Amazon Connect instance. The association must not have
+   *    any use cases associated with it.</p>
+   */
+  public deleteIntegrationAssociation(
+    args: DeleteIntegrationAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIntegrationAssociationCommandOutput>;
+  public deleteIntegrationAssociation(
+    args: DeleteIntegrationAssociationCommandInput,
+    cb: (err: any, data?: DeleteIntegrationAssociationCommandOutput) => void
+  ): void;
+  public deleteIntegrationAssociation(
+    args: DeleteIntegrationAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIntegrationAssociationCommandOutput) => void
+  ): void;
+  public deleteIntegrationAssociation(
+    args: DeleteIntegrationAssociationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIntegrationAssociationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteIntegrationAssociationCommandOutput) => void
+  ): Promise<DeleteIntegrationAssociationCommandOutput> | void {
+    const command = new DeleteIntegrationAssociationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Deletes a use case from an AppIntegration association.</p>
+   */
+  public deleteUseCase(
+    args: DeleteUseCaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteUseCaseCommandOutput>;
+  public deleteUseCase(
+    args: DeleteUseCaseCommandInput,
+    cb: (err: any, data?: DeleteUseCaseCommandOutput) => void
+  ): void;
+  public deleteUseCase(
+    args: DeleteUseCaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteUseCaseCommandOutput) => void
+  ): void;
+  public deleteUseCase(
+    args: DeleteUseCaseCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUseCaseCommandOutput) => void),
+    cb?: (err: any, data?: DeleteUseCaseCommandOutput) => void
+  ): Promise<DeleteUseCaseCommandOutput> | void {
+    const command = new DeleteUseCaseCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a user account from the specified Amazon Connect instance.</p>
    *          <p>For information about what happens to a user's data when their account is deleted, see
    *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html">Delete Users from
-   *     Your Amazon Connect Instance</a> in the <i>Amazon Connect Administrator
-   *    Guide</i>.</p>
+   *     Your Amazon Connect Instance</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
   public deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
   public deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
@@ -783,7 +950,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Deletes an existing user hierarchy group. It must not be associated with any agents or have any active child groups.</p>
+   * <p>Deletes an existing user hierarchy group. It must not be associated with any agents or have
+   *    any active child groups.</p>
    */
   public deleteUserHierarchyGroup(
     args: DeleteUserHierarchyGroupCommandInput,
@@ -849,12 +1017,11 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Returns the current state of the specified instance identifier. It tracks the instance while it is
-   *    being created and returns an error status if applicable. </p>
-   *          <p>If an instance is not created
-   *    successfully, the instance status reason field returns details relevant to the reason. The instance
-   *    in a failed state is returned only for 24 hours after
-   *    the CreateInstance API was invoked.</p>
+   * <p>Returns the current state of the specified instance identifier. It tracks the instance while
+   *    it is being created and returns an error status if applicable. </p>
+   *          <p>If an instance is not created successfully, the instance status reason field returns details
+   *    relevant to the reason. The instance in a failed state is returned only for 24 hours after the
+   *    CreateInstance API was invoked.</p>
    */
   public describeInstance(
     args: DescribeInstanceCommandInput,
@@ -918,7 +1085,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Retrieves the current storage configurations for the specified resource type, association ID, and instance ID.</p>
+   * <p>Retrieves the current storage configurations for the specified resource type, association
+   *    ID, and instance ID.</p>
    */
   public describeInstanceStorageConfig(
     args: DescribeInstanceStorageConfigCommandInput,
@@ -1109,7 +1277,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Removes the storage type configurations for the specified resource type and association ID.</p>
+   * <p>Removes the storage type configurations for the specified resource type and association
+   *    ID.</p>
    */
   public disassociateInstanceStorageConfig(
     args: DisassociateInstanceStorageConfigCommandInput,
@@ -1504,7 +1673,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Returns a paginated list of all attribute types for the given instance.</p>
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Returns a paginated list of all attribute types for the given instance.</p>
    */
   public listInstanceAttributes(
     args: ListInstanceAttributesCommandInput,
@@ -1536,7 +1706,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Return a list of instances which are in active state, creation-in-progress state, and failed
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Return a list of instances which are in active state, creation-in-progress state, and failed
    *    state. Instances that aren't successfully created (they are in a failed state) are returned only
    *    for 24 hours after the CreateInstance API was invoked.</p>
    */
@@ -1570,7 +1741,9 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Returns a paginated list of storage configs for the identified instance and resource
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *
+   *          <p>Returns a paginated list of storage configs for the identified instance and resource
    *    type.</p>
    */
   public listInstanceStorageConfigs(
@@ -1603,7 +1776,42 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Returns a paginated list of all the Lambda functions that show up in the drop-down options in the relevant contact flow blocks.</p>
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Provides summary information about the AppIntegration associations for the specified Amazon Connect
+   *    instance.</p>
+   */
+  public listIntegrationAssociations(
+    args: ListIntegrationAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIntegrationAssociationsCommandOutput>;
+  public listIntegrationAssociations(
+    args: ListIntegrationAssociationsCommandInput,
+    cb: (err: any, data?: ListIntegrationAssociationsCommandOutput) => void
+  ): void;
+  public listIntegrationAssociations(
+    args: ListIntegrationAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListIntegrationAssociationsCommandOutput) => void
+  ): void;
+  public listIntegrationAssociations(
+    args: ListIntegrationAssociationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListIntegrationAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: ListIntegrationAssociationsCommandOutput) => void
+  ): Promise<ListIntegrationAssociationsCommandOutput> | void {
+    const command = new ListIntegrationAssociationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a paginated list of all the Lambda functions that show up in the drop-down options
+   *    in the relevant contact flow blocks.</p>
    */
   public listLambdaFunctions(
     args: ListLambdaFunctionsCommandInput,
@@ -1635,7 +1843,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Returns a paginated list of all the Amazon Lex bots currently associated with the instance.</p>
+   * <p>Returns a paginated list of all the Amazon Lex bots currently associated with the
+   *    instance.</p>
    */
   public listLexBots(args: ListLexBotsCommandInput, options?: __HttpHandlerOptions): Promise<ListLexBotsCommandOutput>;
   public listLexBots(args: ListLexBotsCommandInput, cb: (err: any, data?: ListLexBotsCommandOutput) => void): void;
@@ -1695,8 +1904,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Provides information about the prompts for the specified Amazon Connect
-   *    instance.</p>
+   * <p>Provides information about the prompts for the specified Amazon Connect instance.</p>
    */
   public listPrompts(args: ListPromptsCommandInput, options?: __HttpHandlerOptions): Promise<ListPromptsCommandOutput>;
   public listPrompts(args: ListPromptsCommandInput, cb: (err: any, data?: ListPromptsCommandOutput) => void): void;
@@ -1918,6 +2126,36 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>List the use cases. </p>
+   */
+  public listUseCases(
+    args: ListUseCasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListUseCasesCommandOutput>;
+  public listUseCases(args: ListUseCasesCommandInput, cb: (err: any, data?: ListUseCasesCommandOutput) => void): void;
+  public listUseCases(
+    args: ListUseCasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListUseCasesCommandOutput) => void
+  ): void;
+  public listUseCases(
+    args: ListUseCasesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUseCasesCommandOutput) => void),
+    cb?: (err: any, data?: ListUseCasesCommandOutput) => void
+  ): Promise<ListUseCasesCommandOutput> | void {
+    const command = new ListUseCasesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Provides summary information about the hierarchy groups for the specified Amazon Connect
    *    instance.</p>
    *          <p>For more information about agent hierarchies, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/agent-hierarchy.html">Set Up Agent Hierarchies</a> in the
@@ -2073,7 +2311,7 @@ export class Connect extends ConnectClient {
    *    started and you want to suspend and resume it, such as when collecting sensitive information (for
    *    example, a credit card number), use SuspendContactRecording and ResumeContactRecording.</p>
    *          <p>You can use this API to override the recording behavior configured in the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-recording-behavior.html">Set recording
-   *    behavior</a> block.</p>
+   *     behavior</a> block.</p>
    *          <p>Only voice recordings are supported at this time.</p>
    */
   public startContactRecording(
@@ -2118,7 +2356,7 @@ export class Connect extends ConnectClient {
    *          <note>
    *             <p>UK numbers with a 447 prefix are not allowed by default. Before you can dial these UK
    *     mobile numbers, you must submit a service quota increase request. For more information, see
-   *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+   *      <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
    *          </note>
    */
   public startOutboundVoiceContact(
@@ -2140,6 +2378,38 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: StartOutboundVoiceContactCommandOutput) => void
   ): Promise<StartOutboundVoiceContactCommandOutput> | void {
     const command = new StartOutboundVoiceContactCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Initiates a contact flow to start a new task.</p>
+   */
+  public startTaskContact(
+    args: StartTaskContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartTaskContactCommandOutput>;
+  public startTaskContact(
+    args: StartTaskContactCommandInput,
+    cb: (err: any, data?: StartTaskContactCommandOutput) => void
+  ): void;
+  public startTaskContact(
+    args: StartTaskContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartTaskContactCommandOutput) => void
+  ): void;
+  public startTaskContact(
+    args: StartTaskContactCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartTaskContactCommandOutput) => void),
+    cb?: (err: any, data?: StartTaskContactCommandOutput) => void
+  ): Promise<StartTaskContactCommandOutput> | void {
+    const command = new StartTaskContactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2428,7 +2698,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Updates the value for the specified attribute type.</p>
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Updates the value for the specified attribute type.</p>
    */
   public updateInstanceAttribute(
     args: UpdateInstanceAttributeCommandInput,
@@ -2460,7 +2731,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Updates an existing configuration for a resource type. This API is idempotent.</p>
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Updates an existing configuration for a resource type. This API is idempotent.</p>
    */
   public updateInstanceStorageConfig(
     args: UpdateInstanceStorageConfigCommandInput,
@@ -2492,7 +2764,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Updates the channels that agents can handle in the Contact Control Panel (CCP) for a routing profile.</p>
+   * <p>Updates the channels that agents can handle in the Contact Control Panel (CCP) for a routing
+   *    profile.</p>
    */
   public updateRoutingProfileConcurrency(
     args: UpdateRoutingProfileConcurrencyCommandInput,
@@ -2558,7 +2831,9 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Updates the name and description of a routing profile. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>
+   * <p>Updates the name and description of a routing profile. The request accepts the following
+   *    data in JSON format. At least <code>Name</code> or <code>Description</code> must be
+   *    provided.</p>
    */
   public updateRoutingProfileName(
     args: UpdateRoutingProfileNameCommandInput,

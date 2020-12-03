@@ -21,7 +21,8 @@ export type DescribeInstanceStorageConfigCommandInput = DescribeInstanceStorageC
 export type DescribeInstanceStorageConfigCommandOutput = DescribeInstanceStorageConfigResponse & __MetadataBearer;
 
 /**
- * <p>Retrieves the current storage configurations for the specified resource type, association ID, and instance ID.</p>
+ * <p>Retrieves the current storage configurations for the specified resource type, association
+ *    ID, and instance ID.</p>
  */
 export class DescribeInstanceStorageConfigCommand extends $Command<
   DescribeInstanceStorageConfigCommandInput,

@@ -30,15 +30,15 @@ export type PutBucketReplicationCommandOutput = __MetadataBearer;
  *                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">iam:PassRole</a> permission.</p>
  *          </note>
  *          <p>Specify the replication configuration in the request body. In the replication
- *          configuration, you provide the name of the destination bucket where you want Amazon S3 to
- *          replicate objects, the IAM role that Amazon S3 can assume to replicate objects on your behalf,
- *          and other relevant information.</p>
+ *          configuration, you provide the name of the destination bucket or buckets where you want
+ *          Amazon S3 to replicate objects, the IAM role that Amazon S3 can assume to replicate objects on your
+ *          behalf, and other relevant information.</p>
  *
  *
  *          <p>A replication configuration must include at least one rule, and can contain a maximum of
  *          1,000. Each rule identifies a subset of objects to replicate by filtering the objects in
  *          the source bucket. To choose additional subsets of objects to replicate, add a rule for
- *          each subset. All rules must specify the same destination bucket.</p>
+ *          each subset.</p>
  *
  *          <p>To specify a subset of the objects in the source bucket to apply a replication rule to,
  *          add the Filter element as a child of the Rule element. You can filter objects based on an

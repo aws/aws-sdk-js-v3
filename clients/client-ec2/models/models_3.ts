@@ -3765,8 +3765,8 @@ export interface DescribeSnapshotsRequest {
    *         <code>MaxResults</code> results in a single page along with a <code>NextToken</code>
    *       response element. The remaining results of the initial request can be seen by sending another
    *         <code>DescribeSnapshots</code> request with the returned <code>NextToken</code> value. This
-   *       value can be between 5 and 1000; if <code>MaxResults</code> is given a value larger than 1000,
-   *       only 1000 results are returned. If this parameter is not used, then
+   *       value can be between 5 and 1,000; if <code>MaxResults</code> is given a value larger than 1,000,
+   *       only 1,000 results are returned. If this parameter is not used, then
    *         <code>DescribeSnapshots</code> returns all results. You cannot specify this parameter and
    *       the snapshot IDs parameter in the same request.</p>
    */
@@ -6846,9 +6846,8 @@ export interface DescribeVolumesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>volume-type</code> - The Amazon EBS volume type. This can be <code>gp2</code>
-   *           for General Purpose SSD, <code>io1</code> or <code>io2</code> for Provisioned IOPS SSD, <code>st1</code> for Throughput Optimized HDD,
-   *             <code>sc1</code> for Cold HDD, or <code>standard</code> for Magnetic volumes.</p>
+   *                   <code>volume-type</code> - The Amazon EBS volume type (<code>gp2</code> | <code>gp3</code> | <code>io1</code> | <code>io2</code> |
+   *           <code>st1</code> | <code>sc1</code>| <code>standard</code>)</p>
    *             </li>
    *          </ul>
    */
@@ -7040,6 +7039,11 @@ export interface VolumeModification {
   TargetVolumeType?: VolumeType | string;
 
   /**
+   * <p>The target throughput of the volume, in MiB/s.</p>
+   */
+  TargetThroughput?: number;
+
+  /**
    * <p>The original size of the volume, in GiB.</p>
    */
   OriginalSize?: number;
@@ -7053,6 +7057,11 @@ export interface VolumeModification {
    * <p>The original EBS volume type of the volume.</p>
    */
   OriginalVolumeType?: VolumeType | string;
+
+  /**
+   * <p>The original throughput of the volume, in MiB/s.</p>
+   */
+  OriginalThroughput?: number;
 
   /**
    * <p>The modification progress, from 0 to 100 percent complete.</p>
@@ -7166,8 +7175,8 @@ export interface DescribeVolumeStatusRequest {
    *       paginated output. When this parameter is used, the request only returns
    *         <code>MaxResults</code> results in a single page along with a <code>NextToken</code>
    *       response element. The remaining results of the initial request can be seen by sending another
-   *       request with the returned <code>NextToken</code> value. This value can be between 5 and 1000;
-   *       if <code>MaxResults</code> is given a value larger than 1000, only 1000 results are returned.
+   *       request with the returned <code>NextToken</code> value. This value can be between 5 and 1,000;
+   *       if <code>MaxResults</code> is given a value larger than 1,000, only 1,000 results are returned.
    *       If this parameter is not used, then <code>DescribeVolumeStatus</code> returns all results. You
    *       cannot specify this parameter and the volume IDs parameter in the same request.</p>
    */

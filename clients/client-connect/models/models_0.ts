@@ -214,7 +214,6 @@ export interface KinesisVideoStreamConfig {
   /**
    * <p>The number of hours data is retained in the stream. Kinesis Video Streams retains the data
    *    in a data store that is associated with the stream.</p>
-   *
    *          <p>The default value is 0, indicating that the stream does not persist data.</p>
    */
   RetentionPeriodHours: number | undefined;
@@ -401,6 +400,7 @@ export namespace AssociateLexBotRequest {
 
 export enum Channel {
   CHAT = "CHAT",
+  TASK = "TASK",
   VOICE = "VOICE",
 }
 
@@ -427,7 +427,8 @@ export namespace RoutingProfileQueueReference {
 }
 
 /**
- * <p>Contains information about the queue and channel for which priority and delay can be set.</p>
+ * <p>Contains information about the queue and channel for which priority and delay can be
+ *    set.</p>
  */
 export interface RoutingProfileQueueConfig {
   /**
@@ -436,8 +437,9 @@ export interface RoutingProfileQueueConfig {
   QueueReference: RoutingProfileQueueReference | undefined;
 
   /**
-   * <p>The order in which contacts are to be handled for the queue. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html">Queues: priority and
-   *    delay</a>.</p>
+   * <p>The order in which contacts are to be handled for the queue. For more information, see
+   *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html">Queues: priority and
+   *     delay</a>.</p>
    */
   Priority: number | undefined;
 
@@ -534,7 +536,7 @@ export interface CreateContactFlowRequest {
 
   /**
    * <p>The type of the contact flow. For descriptions of the available types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types">Choose a Contact Flow Type</a> in the <i>Amazon Connect Administrator
-   *     Guide</i>.</p>
+   *    Guide</i>.</p>
    */
   Type: ContactFlowType | string | undefined;
 
@@ -544,9 +546,7 @@ export interface CreateContactFlowRequest {
   Description?: string;
 
   /**
-   * <p>The content of the contact flow.
-   *
-   *   </p>
+   * <p>The content of the contact flow. </p>
    */
   Content: string | undefined;
 
@@ -710,6 +710,71 @@ export namespace CreateInstanceResponse {
   });
 }
 
+export enum IntegrationType {
+  EVENT = "EVENT",
+}
+
+export enum SourceType {
+  SALESFORCE = "SALESFORCE",
+  ZENDESK = "ZENDESK",
+}
+
+export interface CreateIntegrationAssociationRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The type of information to be ingested.</p>
+   */
+  IntegrationType: IntegrationType | string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the integration.</p>
+   */
+  IntegrationArn: string | undefined;
+
+  /**
+   * <p>The URL for the external application.</p>
+   */
+  SourceApplicationUrl: string | undefined;
+
+  /**
+   * <p>The name of the external application.</p>
+   */
+  SourceApplicationName: string | undefined;
+
+  /**
+   * <p>The type of the data source.</p>
+   */
+  SourceType: SourceType | string | undefined;
+}
+
+export namespace CreateIntegrationAssociationRequest {
+  export const filterSensitiveLog = (obj: CreateIntegrationAssociationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateIntegrationAssociationResponse {
+  /**
+   * <p>The identifier for the association.</p>
+   */
+  IntegrationAssociationId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the association.</p>
+   */
+  IntegrationAssociationArn?: string;
+}
+
+export namespace CreateIntegrationAssociationResponse {
+  export const filterSensitiveLog = (obj: CreateIntegrationAssociationResponse): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Contains information about which channels are supported, and how many contacts an agent can
  *    have on a channel simultaneously.</p>
@@ -791,6 +856,52 @@ export interface CreateRoutingProfileResponse {
 
 export namespace CreateRoutingProfileResponse {
   export const filterSensitiveLog = (obj: CreateRoutingProfileResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum UseCaseType {
+  RULES_EVALUATION = "RULES_EVALUATION",
+}
+
+export interface CreateUseCaseRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the AppIntegration association.</p>
+   */
+  IntegrationAssociationId: string | undefined;
+
+  /**
+   * <p>The type of use case to associate to the AppIntegration association. Each AppIntegration
+   *    association can have only one of each use case type.</p>
+   */
+  UseCaseType: UseCaseType | string | undefined;
+}
+
+export namespace CreateUseCaseRequest {
+  export const filterSensitiveLog = (obj: CreateUseCaseRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateUseCaseResponse {
+  /**
+   * <p>The identifier of the use case.</p>
+   */
+  UseCaseId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the use case.</p>
+   */
+  UseCaseArn?: string;
+}
+
+export namespace CreateUseCaseResponse {
+  export const filterSensitiveLog = (obj: CreateUseCaseResponse): any => ({
     ...obj,
   });
 }
@@ -952,7 +1063,8 @@ export interface CreateUserHierarchyGroupRequest {
   Name: string | undefined;
 
   /**
-   * <p>The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.</p>
+   * <p>The identifier for the parent hierarchy group. The user hierarchy is created at level one if
+   *    the parent group ID is null.</p>
    */
   ParentGroupId?: string;
 
@@ -995,6 +1107,47 @@ export interface DeleteInstanceRequest {
 
 export namespace DeleteInstanceRequest {
   export const filterSensitiveLog = (obj: DeleteInstanceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteIntegrationAssociationRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the AppIntegration association.</p>
+   */
+  IntegrationAssociationId: string | undefined;
+}
+
+export namespace DeleteIntegrationAssociationRequest {
+  export const filterSensitiveLog = (obj: DeleteIntegrationAssociationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteUseCaseRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the AppIntegration association.</p>
+   */
+  IntegrationAssociationId: string | undefined;
+
+  /**
+   * <p>The identifier for the use case.</p>
+   */
+  UseCaseId: string | undefined;
+}
+
+export namespace DeleteUseCaseRequest {
+  export const filterSensitiveLog = (obj: DeleteUseCaseRequest): any => ({
     ...obj,
   });
 }
@@ -1123,7 +1276,7 @@ export interface ContactFlow {
 
   /**
    * <p>The type of the contact flow. For descriptions of the available types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types">Choose a Contact Flow Type</a> in the <i>Amazon Connect Administrator
-   *     Guide</i>.</p>
+   *    Guide</i>.</p>
    */
   Type?: ContactFlowType | string;
 
@@ -1419,7 +1572,8 @@ export interface RoutingProfile {
   Description?: string;
 
   /**
-   * <p>The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.</p>
+   * <p>The channels agents can handle in the Contact Control Panel (CCP) for this routing
+   *    profile.</p>
    */
   MediaConcurrencies?: MediaConcurrency[];
 
@@ -1996,14 +2150,15 @@ export interface GetCurrentMetricDataRequest {
   /**
    * <p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is
    *    retrieved only for the resources associated with the queues or channels included in the filter.
-   *    You can include both queue IDs and queue ARNs in the same request. Both <code>VOICE</code> and <code>CHAT</code> channels are supported.</p>
+   *    You can include both queue IDs and queue ARNs in the same request. VOICE, CHAT, and TASK channels are supported.</p>
    */
   Filters: Filters | undefined;
 
   /**
    * <p>The grouping applied to the metrics returned. For example, when grouped by
    *     <code>QUEUE</code>, the metrics returned apply to each queue rather than aggregated for all
-   *    queues. If you group by <code>CHANNEL</code>, you should include a Channels filter. Both <code>VOICE</code> and <code>CHAT</code> channels are supported.</p>
+   *    queues. If you group by <code>CHANNEL</code>, you should include a Channels filter.
+   *    VOICE, CHAT, and TASK channels are supported.</p>
    *          <p>If no <code>Grouping</code> is included in the request, a summary of metrics is
    *    returned.</p>
    */
@@ -2081,8 +2236,8 @@ export interface GetCurrentMetricDataRequest {
    *             <dt>OLDEST_CONTACT_AGE</dt>
    *             <dd>
    *                <p>Unit: SECONDS</p>
-   *                <p>When you use groupings, Unit says SECONDS but the Value is returned in MILLISECONDS. For example, if you get a
-   *       response like this:</p>
+   *                <p>When you use groupings, Unit says SECONDS but the Value is returned in MILLISECONDS. For
+   *       example, if you get a response like this:</p>
    *                <p>
    *                   <code>{ "Metric": { "Name": "OLDEST_CONTACT_AGE", "Unit": "SECONDS" }, "Value": 24113.0
    *       </code>}</p>
@@ -2429,7 +2584,7 @@ export interface GetMetricDataRequest {
   /**
    * <p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is
    *    retrieved only for the resources associated with the queues or channels included in the filter.
-   *    You can include both queue IDs and queue ARNs in the same request. Both <code>VOICE</code> and <code>CHAT</code> channels are supported.</p>
+   *    You can include both queue IDs and queue ARNs in the same request. VOICE, CHAT, and TASK channels are supported.</p>
    */
   Filters: Filters | undefined;
 
@@ -3031,6 +3186,99 @@ export interface ListInstanceStorageConfigsResponse {
 
 export namespace ListInstanceStorageConfigsResponse {
   export const filterSensitiveLog = (obj: ListInstanceStorageConfigsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListIntegrationAssociationsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximimum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListIntegrationAssociationsRequest {
+  export const filterSensitiveLog = (obj: ListIntegrationAssociationsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains summary information about the associated AppIntegrations.</p>
+ */
+export interface IntegrationAssociationSummary {
+  /**
+   * <p>The identifier for the AppIntegration association.</p>
+   */
+  IntegrationAssociationId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the AppIntegration association.</p>
+   */
+  IntegrationAssociationArn?: string;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The integration type.</p>
+   */
+  IntegrationType?: IntegrationType | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the AppIntegration.</p>
+   */
+  IntegrationArn?: string;
+
+  /**
+   * <p>The URL for the external application.</p>
+   */
+  SourceApplicationUrl?: string;
+
+  /**
+   * <p>The user-provided, friendly name for the external application.</p>
+   */
+  SourceApplicationName?: string;
+
+  /**
+   * <p>The name of the source.</p>
+   */
+  SourceType?: SourceType | string;
+}
+
+export namespace IntegrationAssociationSummary {
+  export const filterSensitiveLog = (obj: IntegrationAssociationSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListIntegrationAssociationsResponse {
+  /**
+   * <p>The AppIntegration associations.</p>
+   */
+  IntegrationAssociationSummaryList?: IntegrationAssociationSummary[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListIntegrationAssociationsResponse {
+  export const filterSensitiveLog = (obj: ListIntegrationAssociationsResponse): any => ({
     ...obj,
   });
 }
@@ -3652,8 +3900,9 @@ export interface RoutingProfileQueueConfigSummary {
   QueueName: string | undefined;
 
   /**
-   * <p>The order in which contacts are to be handled for the queue. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html">Queues: priority and
-   *    delay</a>.</p>
+   * <p>The order in which contacts are to be handled for the queue. For more information, see
+   *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html">Queues: priority and
+   *     delay</a>.</p>
    */
   Priority: number | undefined;
 
@@ -3920,6 +4169,84 @@ export interface ListTagsForResourceResponse {
 
 export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides summary information about the use cases for the specified Amazon Connect AppIntegration
+ *    association.</p>
+ */
+export interface ListUseCasesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the integration association.</p>
+   */
+  IntegrationAssociationId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximimum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListUseCasesRequest {
+  export const filterSensitiveLog = (obj: ListUseCasesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the use case.</p>
+ */
+export interface UseCase {
+  /**
+   * <p>The identifier for the use case.</p>
+   */
+  UseCaseId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the use case.</p>
+   */
+  UseCaseArn?: string;
+
+  /**
+   * <p>The type of use case to associate to the AppIntegration association. Each AppIntegration
+   *    association can have only one of each use case type.</p>
+   */
+  UseCaseType?: UseCaseType | string;
+}
+
+export namespace UseCase {
+  export const filterSensitiveLog = (obj: UseCase): any => ({
+    ...obj,
+  });
+}
+
+export interface ListUseCasesResponse {
+  /**
+   * <p>The use cases.</p>
+   */
+  UseCaseSummaryList?: UseCase[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListUseCasesResponse {
+  export const filterSensitiveLog = (obj: ListUseCasesResponse): any => ({
     ...obj,
   });
 }
@@ -4342,6 +4669,104 @@ export namespace StartOutboundVoiceContactResponse {
   });
 }
 
+export enum ReferenceType {
+  URL = "URL",
+}
+
+/**
+ * <p>A link that an agent selects to complete a given task. You can have up to 4,096 UTF-8 bytes
+ *    across all references for a contact.</p>
+ */
+export interface Reference {
+  /**
+   * <p>A formatted URL that will be shown to an agent in the Contact Control Panel (CCP)</p>
+   */
+  Value: string | undefined;
+
+  /**
+   * <p>A valid URL.</p>
+   */
+  Type: ReferenceType | string | undefined;
+}
+
+export namespace Reference {
+  export const filterSensitiveLog = (obj: Reference): any => ({
+    ...obj,
+  });
+}
+
+export interface StartTaskContactRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the previous chat, voice, or task contact. </p>
+   */
+  PreviousContactId?: string;
+
+  /**
+   * <p>The identifier of the contact flow for initiating the tasks. To see the ContactFlowId in the
+   *    Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the contact flow. On
+   *    the contact flow page, under the name of the contact flow, choose <b>Show
+   *     additional flow information</b>. The ContactFlowId is the last part of the ARN, shown
+   *    here in bold: </p>
+   *          <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b>
+   *          </p>
+   */
+  ContactFlowId: string | undefined;
+
+  /**
+   * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect
+   *    attributes, and can be accessed in contact flows just like any other contact attributes.</p>
+   *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys
+   *    can include only alphanumeric, dash, and underscore characters.</p>
+   */
+  Attributes?: { [key: string]: string };
+
+  /**
+   * <p>The name of a task that is shown to an agent in the Contact Control Panel (CCP).</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP).</p>
+   */
+  References?: { [key: string]: Reference };
+
+  /**
+   * <p>A description of the task that is shown to an agent in the Contact Control Panel
+   *    (CCP).</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *    request.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace StartTaskContactRequest {
+  export const filterSensitiveLog = (obj: StartTaskContactRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartTaskContactResponse {
+  /**
+   * <p>The identifier of this contact within the Amazon Connect instance.</p>
+   */
+  ContactId?: string;
+}
+
+export namespace StartTaskContactResponse {
+  export const filterSensitiveLog = (obj: StartTaskContactResponse): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>The contact with the specified ID is not active or does not exist.</p>
  */
@@ -4533,7 +4958,9 @@ export interface UpdateContactFlowContentRequest {
   ContactFlowId: string | undefined;
 
   /**
-   * <p>The JSON string that represents contact flow’s content. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language-example.html">Example contact flow in Amazon Connect Flow language</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+   * <p>The JSON string that represents contact flow’s content. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language-example.html">Example contact
+   *     flow in Amazon Connect Flow language</a> in the <i>Amazon Connect Administrator Guide</i>.
+   *   </p>
    */
   Content: string | undefined;
 }
@@ -4709,7 +5136,8 @@ export interface UpdateRoutingProfileQueuesRequest {
   RoutingProfileId: string | undefined;
 
   /**
-   * <p>The queues to be updated for this routing profile.</p>
+   * <p>The queues to be updated for this routing profile. Queues must first be associated to the
+   *    routing profile. You can do this using AssociateRoutingProfileQueues.</p>
    */
   QueueConfigs: RoutingProfileQueueConfig[] | undefined;
 }

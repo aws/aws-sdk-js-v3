@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { CreateTrainingJobRequest, CreateTrainingJobResponse } from "../models/models_0";
+import { CreateTrainingJobRequest, CreateTrainingJobResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1CreateTrainingJobCommand,
   serializeAws_json1_1CreateTrainingJobCommand,
@@ -23,10 +23,10 @@ export type CreateTrainingJobCommandOutput = CreateTrainingJobResponse & __Metad
 /**
  * <p>Starts a model training job. After training completes, Amazon SageMaker saves the resulting
  *             model artifacts to an Amazon S3 location that you specify. </p>
- *         <p>If you choose to host your model using Amazon SageMaker hosting services, you can use the
- *             resulting model artifacts as part of the model. You can also use the artifacts in a
- *             machine learning service other than Amazon SageMaker, provided that you know how to use them for
- *             inferences.
+ *         <p>If you choose to host your model using Amazon SageMaker hosting services, you can use the resulting
+ *             model artifacts as part of the model. You can also use the artifacts in a machine
+ *             learning service other than Amazon SageMaker, provided that you know how to use them for
+ *             inference.
  *
  *         </p>
  *         <p>In the request body, you provide the following: </p>
@@ -71,7 +71,7 @@ export type CreateTrainingJobCommandOutput = CreateTrainingJobResponse & __Metad
  *             </li>
  *             <li>
  *                 <p>
- *                   <code>RoleARN</code> - The Amazon Resource Number (ARN) that Amazon SageMaker assumes
+ *                   <code>RoleArn</code> - The Amazon Resource Number (ARN) that Amazon SageMaker assumes
  *                     to perform tasks on your behalf during model training.
  *
  *                     You must grant this role the necessary permissions so that Amazon SageMaker can successfully

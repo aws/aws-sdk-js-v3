@@ -189,6 +189,9 @@ import {
   FunctionCodeLocation,
   FunctionConfiguration,
   FunctionEventInvokeConfig,
+  ImageConfig,
+  ImageConfigError,
+  ImageConfigResponse,
   InvalidCodeSignatureException,
   InvalidParameterValueException,
   InvalidRequestContentException,
@@ -476,9 +479,13 @@ export const serializeAws_restJson1CreateFunctionCommand = async (
     }),
     ...(input.FunctionName !== undefined && { FunctionName: input.FunctionName }),
     ...(input.Handler !== undefined && { Handler: input.Handler }),
+    ...(input.ImageConfig !== undefined && {
+      ImageConfig: serializeAws_restJson1ImageConfig(input.ImageConfig, context),
+    }),
     ...(input.KMSKeyArn !== undefined && { KMSKeyArn: input.KMSKeyArn }),
     ...(input.Layers !== undefined && { Layers: serializeAws_restJson1LayerList(input.Layers, context) }),
     ...(input.MemorySize !== undefined && { MemorySize: input.MemorySize }),
+    ...(input.PackageType !== undefined && { PackageType: input.PackageType }),
     ...(input.Publish !== undefined && { Publish: input.Publish }),
     ...(input.Role !== undefined && { Role: input.Role }),
     ...(input.Runtime !== undefined && { Runtime: input.Runtime }),
@@ -2228,6 +2235,7 @@ export const serializeAws_restJson1UpdateFunctionCodeCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
+    ...(input.ImageUri !== undefined && { ImageUri: input.ImageUri }),
     ...(input.Publish !== undefined && { Publish: input.Publish }),
     ...(input.RevisionId !== undefined && { RevisionId: input.RevisionId }),
     ...(input.S3Bucket !== undefined && { S3Bucket: input.S3Bucket }),
@@ -2277,6 +2285,9 @@ export const serializeAws_restJson1UpdateFunctionConfigurationCommand = async (
       FileSystemConfigs: serializeAws_restJson1FileSystemConfigList(input.FileSystemConfigs, context),
     }),
     ...(input.Handler !== undefined && { Handler: input.Handler }),
+    ...(input.ImageConfig !== undefined && {
+      ImageConfig: serializeAws_restJson1ImageConfig(input.ImageConfig, context),
+    }),
     ...(input.KMSKeyArn !== undefined && { KMSKeyArn: input.KMSKeyArn }),
     ...(input.Layers !== undefined && { Layers: serializeAws_restJson1LayerList(input.Layers, context) }),
     ...(input.MemorySize !== undefined && { MemorySize: input.MemorySize }),
@@ -2902,6 +2913,7 @@ export const deserializeAws_restJson1CreateFunctionCommand = async (
     FunctionArn: undefined,
     FunctionName: undefined,
     Handler: undefined,
+    ImageConfigResponse: undefined,
     KMSKeyArn: undefined,
     LastModified: undefined,
     LastUpdateStatus: undefined,
@@ -2910,6 +2922,7 @@ export const deserializeAws_restJson1CreateFunctionCommand = async (
     Layers: undefined,
     MasterArn: undefined,
     MemorySize: undefined,
+    PackageType: undefined,
     RevisionId: undefined,
     Role: undefined,
     Runtime: undefined,
@@ -2951,6 +2964,9 @@ export const deserializeAws_restJson1CreateFunctionCommand = async (
   if (data.Handler !== undefined && data.Handler !== null) {
     contents.Handler = data.Handler;
   }
+  if (data.ImageConfigResponse !== undefined && data.ImageConfigResponse !== null) {
+    contents.ImageConfigResponse = deserializeAws_restJson1ImageConfigResponse(data.ImageConfigResponse, context);
+  }
   if (data.KMSKeyArn !== undefined && data.KMSKeyArn !== null) {
     contents.KMSKeyArn = data.KMSKeyArn;
   }
@@ -2974,6 +2990,9 @@ export const deserializeAws_restJson1CreateFunctionCommand = async (
   }
   if (data.MemorySize !== undefined && data.MemorySize !== null) {
     contents.MemorySize = data.MemorySize;
+  }
+  if (data.PackageType !== undefined && data.PackageType !== null) {
+    contents.PackageType = data.PackageType;
   }
   if (data.RevisionId !== undefined && data.RevisionId !== null) {
     contents.RevisionId = data.RevisionId;
@@ -4563,6 +4582,7 @@ export const deserializeAws_restJson1GetFunctionConfigurationCommand = async (
     FunctionArn: undefined,
     FunctionName: undefined,
     Handler: undefined,
+    ImageConfigResponse: undefined,
     KMSKeyArn: undefined,
     LastModified: undefined,
     LastUpdateStatus: undefined,
@@ -4571,6 +4591,7 @@ export const deserializeAws_restJson1GetFunctionConfigurationCommand = async (
     Layers: undefined,
     MasterArn: undefined,
     MemorySize: undefined,
+    PackageType: undefined,
     RevisionId: undefined,
     Role: undefined,
     Runtime: undefined,
@@ -4612,6 +4633,9 @@ export const deserializeAws_restJson1GetFunctionConfigurationCommand = async (
   if (data.Handler !== undefined && data.Handler !== null) {
     contents.Handler = data.Handler;
   }
+  if (data.ImageConfigResponse !== undefined && data.ImageConfigResponse !== null) {
+    contents.ImageConfigResponse = deserializeAws_restJson1ImageConfigResponse(data.ImageConfigResponse, context);
+  }
   if (data.KMSKeyArn !== undefined && data.KMSKeyArn !== null) {
     contents.KMSKeyArn = data.KMSKeyArn;
   }
@@ -4635,6 +4659,9 @@ export const deserializeAws_restJson1GetFunctionConfigurationCommand = async (
   }
   if (data.MemorySize !== undefined && data.MemorySize !== null) {
     contents.MemorySize = data.MemorySize;
+  }
+  if (data.PackageType !== undefined && data.PackageType !== null) {
+    contents.PackageType = data.PackageType;
   }
   if (data.RevisionId !== undefined && data.RevisionId !== null) {
     contents.RevisionId = data.RevisionId;
@@ -6685,6 +6712,7 @@ export const deserializeAws_restJson1PublishVersionCommand = async (
     FunctionArn: undefined,
     FunctionName: undefined,
     Handler: undefined,
+    ImageConfigResponse: undefined,
     KMSKeyArn: undefined,
     LastModified: undefined,
     LastUpdateStatus: undefined,
@@ -6693,6 +6721,7 @@ export const deserializeAws_restJson1PublishVersionCommand = async (
     Layers: undefined,
     MasterArn: undefined,
     MemorySize: undefined,
+    PackageType: undefined,
     RevisionId: undefined,
     Role: undefined,
     Runtime: undefined,
@@ -6734,6 +6763,9 @@ export const deserializeAws_restJson1PublishVersionCommand = async (
   if (data.Handler !== undefined && data.Handler !== null) {
     contents.Handler = data.Handler;
   }
+  if (data.ImageConfigResponse !== undefined && data.ImageConfigResponse !== null) {
+    contents.ImageConfigResponse = deserializeAws_restJson1ImageConfigResponse(data.ImageConfigResponse, context);
+  }
   if (data.KMSKeyArn !== undefined && data.KMSKeyArn !== null) {
     contents.KMSKeyArn = data.KMSKeyArn;
   }
@@ -6757,6 +6789,9 @@ export const deserializeAws_restJson1PublishVersionCommand = async (
   }
   if (data.MemorySize !== undefined && data.MemorySize !== null) {
     contents.MemorySize = data.MemorySize;
+  }
+  if (data.PackageType !== undefined && data.PackageType !== null) {
+    contents.PackageType = data.PackageType;
   }
   if (data.RevisionId !== undefined && data.RevisionId !== null) {
     contents.RevisionId = data.RevisionId;
@@ -7985,6 +8020,7 @@ export const deserializeAws_restJson1UpdateFunctionCodeCommand = async (
     FunctionArn: undefined,
     FunctionName: undefined,
     Handler: undefined,
+    ImageConfigResponse: undefined,
     KMSKeyArn: undefined,
     LastModified: undefined,
     LastUpdateStatus: undefined,
@@ -7993,6 +8029,7 @@ export const deserializeAws_restJson1UpdateFunctionCodeCommand = async (
     Layers: undefined,
     MasterArn: undefined,
     MemorySize: undefined,
+    PackageType: undefined,
     RevisionId: undefined,
     Role: undefined,
     Runtime: undefined,
@@ -8034,6 +8071,9 @@ export const deserializeAws_restJson1UpdateFunctionCodeCommand = async (
   if (data.Handler !== undefined && data.Handler !== null) {
     contents.Handler = data.Handler;
   }
+  if (data.ImageConfigResponse !== undefined && data.ImageConfigResponse !== null) {
+    contents.ImageConfigResponse = deserializeAws_restJson1ImageConfigResponse(data.ImageConfigResponse, context);
+  }
   if (data.KMSKeyArn !== undefined && data.KMSKeyArn !== null) {
     contents.KMSKeyArn = data.KMSKeyArn;
   }
@@ -8057,6 +8097,9 @@ export const deserializeAws_restJson1UpdateFunctionCodeCommand = async (
   }
   if (data.MemorySize !== undefined && data.MemorySize !== null) {
     contents.MemorySize = data.MemorySize;
+  }
+  if (data.PackageType !== undefined && data.PackageType !== null) {
+    contents.PackageType = data.PackageType;
   }
   if (data.RevisionId !== undefined && data.RevisionId !== null) {
     contents.RevisionId = data.RevisionId;
@@ -8224,6 +8267,7 @@ export const deserializeAws_restJson1UpdateFunctionConfigurationCommand = async 
     FunctionArn: undefined,
     FunctionName: undefined,
     Handler: undefined,
+    ImageConfigResponse: undefined,
     KMSKeyArn: undefined,
     LastModified: undefined,
     LastUpdateStatus: undefined,
@@ -8232,6 +8276,7 @@ export const deserializeAws_restJson1UpdateFunctionConfigurationCommand = async 
     Layers: undefined,
     MasterArn: undefined,
     MemorySize: undefined,
+    PackageType: undefined,
     RevisionId: undefined,
     Role: undefined,
     Runtime: undefined,
@@ -8273,6 +8318,9 @@ export const deserializeAws_restJson1UpdateFunctionConfigurationCommand = async 
   if (data.Handler !== undefined && data.Handler !== null) {
     contents.Handler = data.Handler;
   }
+  if (data.ImageConfigResponse !== undefined && data.ImageConfigResponse !== null) {
+    contents.ImageConfigResponse = deserializeAws_restJson1ImageConfigResponse(data.ImageConfigResponse, context);
+  }
   if (data.KMSKeyArn !== undefined && data.KMSKeyArn !== null) {
     contents.KMSKeyArn = data.KMSKeyArn;
   }
@@ -8296,6 +8344,9 @@ export const deserializeAws_restJson1UpdateFunctionConfigurationCommand = async 
   }
   if (data.MemorySize !== undefined && data.MemorySize !== null) {
     contents.MemorySize = data.MemorySize;
+  }
+  if (data.PackageType !== undefined && data.PackageType !== null) {
+    contents.PackageType = data.PackageType;
   }
   if (data.RevisionId !== undefined && data.RevisionId !== null) {
     contents.RevisionId = data.RevisionId;
@@ -9349,10 +9400,19 @@ const serializeAws_restJson1FileSystemConfigList = (input: FileSystemConfig[], c
 
 const serializeAws_restJson1FunctionCode = (input: FunctionCode, context: __SerdeContext): any => {
   return {
+    ...(input.ImageUri !== undefined && { ImageUri: input.ImageUri }),
     ...(input.S3Bucket !== undefined && { S3Bucket: input.S3Bucket }),
     ...(input.S3Key !== undefined && { S3Key: input.S3Key }),
     ...(input.S3ObjectVersion !== undefined && { S3ObjectVersion: input.S3ObjectVersion }),
     ...(input.ZipFile !== undefined && { ZipFile: context.base64Encoder(input.ZipFile) }),
+  };
+};
+
+const serializeAws_restJson1ImageConfig = (input: ImageConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.Command !== undefined && { Command: serializeAws_restJson1StringList(input.Command, context) }),
+    ...(input.EntryPoint !== undefined && { EntryPoint: serializeAws_restJson1StringList(input.EntryPoint, context) }),
+    ...(input.WorkingDirectory !== undefined && { WorkingDirectory: input.WorkingDirectory }),
   };
 };
 
@@ -9411,6 +9471,10 @@ const serializeAws_restJson1SourceAccessConfigurations = (
   context: __SerdeContext
 ): any => {
   return input.map((entry) => serializeAws_restJson1SourceAccessConfiguration(entry, context));
+};
+
+const serializeAws_restJson1StringList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
 const serializeAws_restJson1SubnetIds = (input: string[], context: __SerdeContext): any => {
@@ -9721,9 +9785,12 @@ const deserializeAws_restJson1FunctionArnList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1FunctionCodeLocation = (output: any, context: __SerdeContext): FunctionCodeLocation => {
   return {
+    ImageUri: output.ImageUri !== undefined && output.ImageUri !== null ? output.ImageUri : undefined,
     Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
     RepositoryType:
       output.RepositoryType !== undefined && output.RepositoryType !== null ? output.RepositoryType : undefined,
+    ResolvedImageUri:
+      output.ResolvedImageUri !== undefined && output.ResolvedImageUri !== null ? output.ResolvedImageUri : undefined,
   } as any;
 };
 
@@ -9747,6 +9814,10 @@ const deserializeAws_restJson1FunctionConfiguration = (output: any, context: __S
     FunctionArn: output.FunctionArn !== undefined && output.FunctionArn !== null ? output.FunctionArn : undefined,
     FunctionName: output.FunctionName !== undefined && output.FunctionName !== null ? output.FunctionName : undefined,
     Handler: output.Handler !== undefined && output.Handler !== null ? output.Handler : undefined,
+    ImageConfigResponse:
+      output.ImageConfigResponse !== undefined && output.ImageConfigResponse !== null
+        ? deserializeAws_restJson1ImageConfigResponse(output.ImageConfigResponse, context)
+        : undefined,
     KMSKeyArn: output.KMSKeyArn !== undefined && output.KMSKeyArn !== null ? output.KMSKeyArn : undefined,
     LastModified: output.LastModified !== undefined && output.LastModified !== null ? output.LastModified : undefined,
     LastUpdateStatus:
@@ -9765,6 +9836,7 @@ const deserializeAws_restJson1FunctionConfiguration = (output: any, context: __S
         : undefined,
     MasterArn: output.MasterArn !== undefined && output.MasterArn !== null ? output.MasterArn : undefined,
     MemorySize: output.MemorySize !== undefined && output.MemorySize !== null ? output.MemorySize : undefined,
+    PackageType: output.PackageType !== undefined && output.PackageType !== null ? output.PackageType : undefined,
     RevisionId: output.RevisionId !== undefined && output.RevisionId !== null ? output.RevisionId : undefined,
     Role: output.Role !== undefined && output.Role !== null ? output.Role : undefined,
     Runtime: output.Runtime !== undefined && output.Runtime !== null ? output.Runtime : undefined,
@@ -9825,6 +9897,41 @@ const deserializeAws_restJson1FunctionEventInvokeConfigList = (
 
 const deserializeAws_restJson1FunctionList = (output: any, context: __SerdeContext): FunctionConfiguration[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1FunctionConfiguration(entry, context));
+};
+
+const deserializeAws_restJson1ImageConfig = (output: any, context: __SerdeContext): ImageConfig => {
+  return {
+    Command:
+      output.Command !== undefined && output.Command !== null
+        ? deserializeAws_restJson1StringList(output.Command, context)
+        : undefined,
+    EntryPoint:
+      output.EntryPoint !== undefined && output.EntryPoint !== null
+        ? deserializeAws_restJson1StringList(output.EntryPoint, context)
+        : undefined,
+    WorkingDirectory:
+      output.WorkingDirectory !== undefined && output.WorkingDirectory !== null ? output.WorkingDirectory : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ImageConfigError = (output: any, context: __SerdeContext): ImageConfigError => {
+  return {
+    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ImageConfigResponse = (output: any, context: __SerdeContext): ImageConfigResponse => {
+  return {
+    Error:
+      output.Error !== undefined && output.Error !== null
+        ? deserializeAws_restJson1ImageConfigError(output.Error, context)
+        : undefined,
+    ImageConfig:
+      output.ImageConfig !== undefined && output.ImageConfig !== null
+        ? deserializeAws_restJson1ImageConfig(output.ImageConfig, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1Layer = (output: any, context: __SerdeContext): Layer => {
@@ -9970,6 +10077,10 @@ const deserializeAws_restJson1SourceAccessConfigurations = (
   context: __SerdeContext
 ): SourceAccessConfiguration[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1SourceAccessConfiguration(entry, context));
+};
+
+const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1SubnetIds = (output: any, context: __SerdeContext): string[] => {

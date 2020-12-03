@@ -21,8 +21,7 @@ export type ListPromptsCommandInput = ListPromptsRequest;
 export type ListPromptsCommandOutput = ListPromptsResponse & __MetadataBearer;
 
 /**
- * <p>Provides information about the prompts for the specified Amazon Connect
- *    instance.</p>
+ * <p>Provides information about the prompts for the specified Amazon Connect instance.</p>
  */
 export class ListPromptsCommand extends $Command<
   ListPromptsCommandInput,

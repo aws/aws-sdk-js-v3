@@ -26,7 +26,7 @@ export type DisableEbsEncryptionByDefaultCommandOutput = DisableEbsEncryptionByD
  *       enabling encryption when you create each volume.</p>
  *          <p>Disabling encryption by default does not change the encryption status of your
  *       existing volumes.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the
  *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 export class DisableEbsEncryptionByDefaultCommand extends $Command<

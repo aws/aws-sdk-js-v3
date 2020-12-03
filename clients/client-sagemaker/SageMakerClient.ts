@@ -1,14 +1,17 @@
+import { AddAssociationCommandInput, AddAssociationCommandOutput } from "./commands/AddAssociationCommand";
 import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import {
   AssociateTrialComponentCommandInput,
   AssociateTrialComponentCommandOutput,
 } from "./commands/AssociateTrialComponentCommand";
+import { CreateActionCommandInput, CreateActionCommandOutput } from "./commands/CreateActionCommand";
 import { CreateAlgorithmCommandInput, CreateAlgorithmCommandOutput } from "./commands/CreateAlgorithmCommand";
 import { CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
 import {
   CreateAppImageConfigCommandInput,
   CreateAppImageConfigCommandOutput,
 } from "./commands/CreateAppImageConfigCommand";
+import { CreateArtifactCommandInput, CreateArtifactCommandOutput } from "./commands/CreateArtifactCommand";
 import { CreateAutoMLJobCommandInput, CreateAutoMLJobCommandOutput } from "./commands/CreateAutoMLJobCommand";
 import {
   CreateCodeRepositoryCommandInput,
@@ -18,6 +21,7 @@ import {
   CreateCompilationJobCommandInput,
   CreateCompilationJobCommandOutput,
 } from "./commands/CreateCompilationJobCommand";
+import { CreateContextCommandInput, CreateContextCommandOutput } from "./commands/CreateContextCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
 import { CreateEndpointCommandInput, CreateEndpointCommandOutput } from "./commands/CreateEndpointCommand";
 import {
@@ -25,6 +29,7 @@ import {
   CreateEndpointConfigCommandOutput,
 } from "./commands/CreateEndpointConfigCommand";
 import { CreateExperimentCommandInput, CreateExperimentCommandOutput } from "./commands/CreateExperimentCommand";
+import { CreateFeatureGroupCommandInput, CreateFeatureGroupCommandOutput } from "./commands/CreateFeatureGroupCommand";
 import {
   CreateFlowDefinitionCommandInput,
   CreateFlowDefinitionCommandOutput,
@@ -40,6 +45,10 @@ import { CreateLabelingJobCommandInput, CreateLabelingJobCommandOutput } from ".
 import { CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
 import { CreateModelPackageCommandInput, CreateModelPackageCommandOutput } from "./commands/CreateModelPackageCommand";
 import {
+  CreateModelPackageGroupCommandInput,
+  CreateModelPackageGroupCommandOutput,
+} from "./commands/CreateModelPackageGroupCommand";
+import {
   CreateMonitoringScheduleCommandInput,
   CreateMonitoringScheduleCommandOutput,
 } from "./commands/CreateMonitoringScheduleCommand";
@@ -51,6 +60,7 @@ import {
   CreateNotebookInstanceLifecycleConfigCommandInput,
   CreateNotebookInstanceLifecycleConfigCommandOutput,
 } from "./commands/CreateNotebookInstanceLifecycleConfigCommand";
+import { CreatePipelineCommandInput, CreatePipelineCommandOutput } from "./commands/CreatePipelineCommand";
 import {
   CreatePresignedDomainUrlCommandInput,
   CreatePresignedDomainUrlCommandOutput,
@@ -63,6 +73,7 @@ import {
   CreateProcessingJobCommandInput,
   CreateProcessingJobCommandOutput,
 } from "./commands/CreateProcessingJobCommand";
+import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
 import { CreateTrainingJobCommandInput, CreateTrainingJobCommandOutput } from "./commands/CreateTrainingJobCommand";
 import { CreateTransformJobCommandInput, CreateTransformJobCommandOutput } from "./commands/CreateTransformJobCommand";
 import { CreateTrialCommandInput, CreateTrialCommandOutput } from "./commands/CreateTrialCommand";
@@ -73,16 +84,20 @@ import {
 import { CreateUserProfileCommandInput, CreateUserProfileCommandOutput } from "./commands/CreateUserProfileCommand";
 import { CreateWorkforceCommandInput, CreateWorkforceCommandOutput } from "./commands/CreateWorkforceCommand";
 import { CreateWorkteamCommandInput, CreateWorkteamCommandOutput } from "./commands/CreateWorkteamCommand";
+import { DeleteActionCommandInput, DeleteActionCommandOutput } from "./commands/DeleteActionCommand";
 import { DeleteAlgorithmCommandInput, DeleteAlgorithmCommandOutput } from "./commands/DeleteAlgorithmCommand";
 import { DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
 import {
   DeleteAppImageConfigCommandInput,
   DeleteAppImageConfigCommandOutput,
 } from "./commands/DeleteAppImageConfigCommand";
+import { DeleteArtifactCommandInput, DeleteArtifactCommandOutput } from "./commands/DeleteArtifactCommand";
+import { DeleteAssociationCommandInput, DeleteAssociationCommandOutput } from "./commands/DeleteAssociationCommand";
 import {
   DeleteCodeRepositoryCommandInput,
   DeleteCodeRepositoryCommandOutput,
 } from "./commands/DeleteCodeRepositoryCommand";
+import { DeleteContextCommandInput, DeleteContextCommandOutput } from "./commands/DeleteContextCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
 import { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "./commands/DeleteEndpointCommand";
 import {
@@ -90,6 +105,7 @@ import {
   DeleteEndpointConfigCommandOutput,
 } from "./commands/DeleteEndpointConfigCommand";
 import { DeleteExperimentCommandInput, DeleteExperimentCommandOutput } from "./commands/DeleteExperimentCommand";
+import { DeleteFeatureGroupCommandInput, DeleteFeatureGroupCommandOutput } from "./commands/DeleteFeatureGroupCommand";
 import {
   DeleteFlowDefinitionCommandInput,
   DeleteFlowDefinitionCommandOutput,
@@ -99,6 +115,14 @@ import { DeleteImageCommandInput, DeleteImageCommandOutput } from "./commands/De
 import { DeleteImageVersionCommandInput, DeleteImageVersionCommandOutput } from "./commands/DeleteImageVersionCommand";
 import { DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
 import { DeleteModelPackageCommandInput, DeleteModelPackageCommandOutput } from "./commands/DeleteModelPackageCommand";
+import {
+  DeleteModelPackageGroupCommandInput,
+  DeleteModelPackageGroupCommandOutput,
+} from "./commands/DeleteModelPackageGroupCommand";
+import {
+  DeleteModelPackageGroupPolicyCommandInput,
+  DeleteModelPackageGroupPolicyCommandOutput,
+} from "./commands/DeleteModelPackageGroupPolicyCommand";
 import {
   DeleteMonitoringScheduleCommandInput,
   DeleteMonitoringScheduleCommandOutput,
@@ -111,6 +135,8 @@ import {
   DeleteNotebookInstanceLifecycleConfigCommandInput,
   DeleteNotebookInstanceLifecycleConfigCommandOutput,
 } from "./commands/DeleteNotebookInstanceLifecycleConfigCommand";
+import { DeletePipelineCommandInput, DeletePipelineCommandOutput } from "./commands/DeletePipelineCommand";
+import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
 import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import { DeleteTrialCommandInput, DeleteTrialCommandOutput } from "./commands/DeleteTrialCommand";
 import {
@@ -120,12 +146,14 @@ import {
 import { DeleteUserProfileCommandInput, DeleteUserProfileCommandOutput } from "./commands/DeleteUserProfileCommand";
 import { DeleteWorkforceCommandInput, DeleteWorkforceCommandOutput } from "./commands/DeleteWorkforceCommand";
 import { DeleteWorkteamCommandInput, DeleteWorkteamCommandOutput } from "./commands/DeleteWorkteamCommand";
+import { DescribeActionCommandInput, DescribeActionCommandOutput } from "./commands/DescribeActionCommand";
 import { DescribeAlgorithmCommandInput, DescribeAlgorithmCommandOutput } from "./commands/DescribeAlgorithmCommand";
 import { DescribeAppCommandInput, DescribeAppCommandOutput } from "./commands/DescribeAppCommand";
 import {
   DescribeAppImageConfigCommandInput,
   DescribeAppImageConfigCommandOutput,
 } from "./commands/DescribeAppImageConfigCommand";
+import { DescribeArtifactCommandInput, DescribeArtifactCommandOutput } from "./commands/DescribeArtifactCommand";
 import { DescribeAutoMLJobCommandInput, DescribeAutoMLJobCommandOutput } from "./commands/DescribeAutoMLJobCommand";
 import {
   DescribeCodeRepositoryCommandInput,
@@ -135,6 +163,7 @@ import {
   DescribeCompilationJobCommandInput,
   DescribeCompilationJobCommandOutput,
 } from "./commands/DescribeCompilationJobCommand";
+import { DescribeContextCommandInput, DescribeContextCommandOutput } from "./commands/DescribeContextCommand";
 import { DescribeDomainCommandInput, DescribeDomainCommandOutput } from "./commands/DescribeDomainCommand";
 import { DescribeEndpointCommandInput, DescribeEndpointCommandOutput } from "./commands/DescribeEndpointCommand";
 import {
@@ -142,6 +171,10 @@ import {
   DescribeEndpointConfigCommandOutput,
 } from "./commands/DescribeEndpointConfigCommand";
 import { DescribeExperimentCommandInput, DescribeExperimentCommandOutput } from "./commands/DescribeExperimentCommand";
+import {
+  DescribeFeatureGroupCommandInput,
+  DescribeFeatureGroupCommandOutput,
+} from "./commands/DescribeFeatureGroupCommand";
 import {
   DescribeFlowDefinitionCommandInput,
   DescribeFlowDefinitionCommandOutput,
@@ -169,6 +202,10 @@ import {
   DescribeModelPackageCommandOutput,
 } from "./commands/DescribeModelPackageCommand";
 import {
+  DescribeModelPackageGroupCommandInput,
+  DescribeModelPackageGroupCommandOutput,
+} from "./commands/DescribeModelPackageGroupCommand";
+import {
   DescribeMonitoringScheduleCommandInput,
   DescribeMonitoringScheduleCommandOutput,
 } from "./commands/DescribeMonitoringScheduleCommand";
@@ -180,10 +217,20 @@ import {
   DescribeNotebookInstanceLifecycleConfigCommandInput,
   DescribeNotebookInstanceLifecycleConfigCommandOutput,
 } from "./commands/DescribeNotebookInstanceLifecycleConfigCommand";
+import { DescribePipelineCommandInput, DescribePipelineCommandOutput } from "./commands/DescribePipelineCommand";
+import {
+  DescribePipelineDefinitionForExecutionCommandInput,
+  DescribePipelineDefinitionForExecutionCommandOutput,
+} from "./commands/DescribePipelineDefinitionForExecutionCommand";
+import {
+  DescribePipelineExecutionCommandInput,
+  DescribePipelineExecutionCommandOutput,
+} from "./commands/DescribePipelineExecutionCommand";
 import {
   DescribeProcessingJobCommandInput,
   DescribeProcessingJobCommandOutput,
 } from "./commands/DescribeProcessingJobCommand";
+import { DescribeProjectCommandInput, DescribeProjectCommandOutput } from "./commands/DescribeProjectCommand";
 import {
   DescribeSubscribedWorkteamCommandInput,
   DescribeSubscribedWorkteamCommandOutput,
@@ -208,19 +255,38 @@ import {
 import { DescribeWorkforceCommandInput, DescribeWorkforceCommandOutput } from "./commands/DescribeWorkforceCommand";
 import { DescribeWorkteamCommandInput, DescribeWorkteamCommandOutput } from "./commands/DescribeWorkteamCommand";
 import {
+  DisableSagemakerServicecatalogPortfolioCommandInput,
+  DisableSagemakerServicecatalogPortfolioCommandOutput,
+} from "./commands/DisableSagemakerServicecatalogPortfolioCommand";
+import {
   DisassociateTrialComponentCommandInput,
   DisassociateTrialComponentCommandOutput,
 } from "./commands/DisassociateTrialComponentCommand";
 import {
+  EnableSagemakerServicecatalogPortfolioCommandInput,
+  EnableSagemakerServicecatalogPortfolioCommandOutput,
+} from "./commands/EnableSagemakerServicecatalogPortfolioCommand";
+import {
+  GetModelPackageGroupPolicyCommandInput,
+  GetModelPackageGroupPolicyCommandOutput,
+} from "./commands/GetModelPackageGroupPolicyCommand";
+import {
+  GetSagemakerServicecatalogPortfolioStatusCommandInput,
+  GetSagemakerServicecatalogPortfolioStatusCommandOutput,
+} from "./commands/GetSagemakerServicecatalogPortfolioStatusCommand";
+import {
   GetSearchSuggestionsCommandInput,
   GetSearchSuggestionsCommandOutput,
 } from "./commands/GetSearchSuggestionsCommand";
+import { ListActionsCommandInput, ListActionsCommandOutput } from "./commands/ListActionsCommand";
 import { ListAlgorithmsCommandInput, ListAlgorithmsCommandOutput } from "./commands/ListAlgorithmsCommand";
 import {
   ListAppImageConfigsCommandInput,
   ListAppImageConfigsCommandOutput,
 } from "./commands/ListAppImageConfigsCommand";
 import { ListAppsCommandInput, ListAppsCommandOutput } from "./commands/ListAppsCommand";
+import { ListArtifactsCommandInput, ListArtifactsCommandOutput } from "./commands/ListArtifactsCommand";
+import { ListAssociationsCommandInput, ListAssociationsCommandOutput } from "./commands/ListAssociationsCommand";
 import { ListAutoMLJobsCommandInput, ListAutoMLJobsCommandOutput } from "./commands/ListAutoMLJobsCommand";
 import {
   ListCandidatesForAutoMLJobCommandInput,
@@ -234,6 +300,7 @@ import {
   ListCompilationJobsCommandInput,
   ListCompilationJobsCommandOutput,
 } from "./commands/ListCompilationJobsCommand";
+import { ListContextsCommandInput, ListContextsCommandOutput } from "./commands/ListContextsCommand";
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
   ListEndpointConfigsCommandInput,
@@ -241,6 +308,7 @@ import {
 } from "./commands/ListEndpointConfigsCommand";
 import { ListEndpointsCommandInput, ListEndpointsCommandOutput } from "./commands/ListEndpointsCommand";
 import { ListExperimentsCommandInput, ListExperimentsCommandOutput } from "./commands/ListExperimentsCommand";
+import { ListFeatureGroupsCommandInput, ListFeatureGroupsCommandOutput } from "./commands/ListFeatureGroupsCommand";
 import {
   ListFlowDefinitionsCommandInput,
   ListFlowDefinitionsCommandOutput,
@@ -257,6 +325,10 @@ import {
   ListLabelingJobsForWorkteamCommandInput,
   ListLabelingJobsForWorkteamCommandOutput,
 } from "./commands/ListLabelingJobsForWorkteamCommand";
+import {
+  ListModelPackageGroupsCommandInput,
+  ListModelPackageGroupsCommandOutput,
+} from "./commands/ListModelPackageGroupsCommand";
 import { ListModelPackagesCommandInput, ListModelPackagesCommandOutput } from "./commands/ListModelPackagesCommand";
 import { ListModelsCommandInput, ListModelsCommandOutput } from "./commands/ListModelsCommand";
 import {
@@ -275,7 +347,21 @@ import {
   ListNotebookInstancesCommandInput,
   ListNotebookInstancesCommandOutput,
 } from "./commands/ListNotebookInstancesCommand";
+import {
+  ListPipelineExecutionStepsCommandInput,
+  ListPipelineExecutionStepsCommandOutput,
+} from "./commands/ListPipelineExecutionStepsCommand";
+import {
+  ListPipelineExecutionsCommandInput,
+  ListPipelineExecutionsCommandOutput,
+} from "./commands/ListPipelineExecutionsCommand";
+import {
+  ListPipelineParametersForExecutionCommandInput,
+  ListPipelineParametersForExecutionCommandOutput,
+} from "./commands/ListPipelineParametersForExecutionCommand";
+import { ListPipelinesCommandInput, ListPipelinesCommandOutput } from "./commands/ListPipelinesCommand";
 import { ListProcessingJobsCommandInput, ListProcessingJobsCommandOutput } from "./commands/ListProcessingJobsCommand";
+import { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
 import {
   ListSubscribedWorkteamsCommandInput,
   ListSubscribedWorkteamsCommandOutput,
@@ -295,6 +381,10 @@ import { ListTrialsCommandInput, ListTrialsCommandOutput } from "./commands/List
 import { ListUserProfilesCommandInput, ListUserProfilesCommandOutput } from "./commands/ListUserProfilesCommand";
 import { ListWorkforcesCommandInput, ListWorkforcesCommandOutput } from "./commands/ListWorkforcesCommand";
 import { ListWorkteamsCommandInput, ListWorkteamsCommandOutput } from "./commands/ListWorkteamsCommand";
+import {
+  PutModelPackageGroupPolicyCommandInput,
+  PutModelPackageGroupPolicyCommandOutput,
+} from "./commands/PutModelPackageGroupPolicyCommand";
 import { RenderUiTemplateCommandInput, RenderUiTemplateCommandOutput } from "./commands/RenderUiTemplateCommand";
 import { SearchCommandInput, SearchCommandOutput } from "./commands/SearchCommand";
 import {
@@ -305,6 +395,10 @@ import {
   StartNotebookInstanceCommandInput,
   StartNotebookInstanceCommandOutput,
 } from "./commands/StartNotebookInstanceCommand";
+import {
+  StartPipelineExecutionCommandInput,
+  StartPipelineExecutionCommandOutput,
+} from "./commands/StartPipelineExecutionCommand";
 import { StopAutoMLJobCommandInput, StopAutoMLJobCommandOutput } from "./commands/StopAutoMLJobCommand";
 import { StopCompilationJobCommandInput, StopCompilationJobCommandOutput } from "./commands/StopCompilationJobCommand";
 import {
@@ -320,17 +414,24 @@ import {
   StopNotebookInstanceCommandInput,
   StopNotebookInstanceCommandOutput,
 } from "./commands/StopNotebookInstanceCommand";
+import {
+  StopPipelineExecutionCommandInput,
+  StopPipelineExecutionCommandOutput,
+} from "./commands/StopPipelineExecutionCommand";
 import { StopProcessingJobCommandInput, StopProcessingJobCommandOutput } from "./commands/StopProcessingJobCommand";
 import { StopTrainingJobCommandInput, StopTrainingJobCommandOutput } from "./commands/StopTrainingJobCommand";
 import { StopTransformJobCommandInput, StopTransformJobCommandOutput } from "./commands/StopTransformJobCommand";
+import { UpdateActionCommandInput, UpdateActionCommandOutput } from "./commands/UpdateActionCommand";
 import {
   UpdateAppImageConfigCommandInput,
   UpdateAppImageConfigCommandOutput,
 } from "./commands/UpdateAppImageConfigCommand";
+import { UpdateArtifactCommandInput, UpdateArtifactCommandOutput } from "./commands/UpdateArtifactCommand";
 import {
   UpdateCodeRepositoryCommandInput,
   UpdateCodeRepositoryCommandOutput,
 } from "./commands/UpdateCodeRepositoryCommand";
+import { UpdateContextCommandInput, UpdateContextCommandOutput } from "./commands/UpdateContextCommand";
 import { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "./commands/UpdateDomainCommand";
 import { UpdateEndpointCommandInput, UpdateEndpointCommandOutput } from "./commands/UpdateEndpointCommand";
 import {
@@ -339,6 +440,7 @@ import {
 } from "./commands/UpdateEndpointWeightsAndCapacitiesCommand";
 import { UpdateExperimentCommandInput, UpdateExperimentCommandOutput } from "./commands/UpdateExperimentCommand";
 import { UpdateImageCommandInput, UpdateImageCommandOutput } from "./commands/UpdateImageCommand";
+import { UpdateModelPackageCommandInput, UpdateModelPackageCommandOutput } from "./commands/UpdateModelPackageCommand";
 import {
   UpdateMonitoringScheduleCommandInput,
   UpdateMonitoringScheduleCommandOutput,
@@ -351,6 +453,11 @@ import {
   UpdateNotebookInstanceLifecycleConfigCommandInput,
   UpdateNotebookInstanceLifecycleConfigCommandOutput,
 } from "./commands/UpdateNotebookInstanceLifecycleConfigCommand";
+import { UpdatePipelineCommandInput, UpdatePipelineCommandOutput } from "./commands/UpdatePipelineCommand";
+import {
+  UpdatePipelineExecutionCommandInput,
+  UpdatePipelineExecutionCommandOutput,
+} from "./commands/UpdatePipelineExecutionCommand";
 import { UpdateTrialCommandInput, UpdateTrialCommandOutput } from "./commands/UpdateTrialCommand";
 import {
   UpdateTrialComponentCommandInput,
@@ -409,18 +516,23 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | AddAssociationCommandInput
   | AddTagsCommandInput
   | AssociateTrialComponentCommandInput
+  | CreateActionCommandInput
   | CreateAlgorithmCommandInput
   | CreateAppCommandInput
   | CreateAppImageConfigCommandInput
+  | CreateArtifactCommandInput
   | CreateAutoMLJobCommandInput
   | CreateCodeRepositoryCommandInput
   | CreateCompilationJobCommandInput
+  | CreateContextCommandInput
   | CreateDomainCommandInput
   | CreateEndpointCommandInput
   | CreateEndpointConfigCommandInput
   | CreateExperimentCommandInput
+  | CreateFeatureGroupCommandInput
   | CreateFlowDefinitionCommandInput
   | CreateHumanTaskUiCommandInput
   | CreateHyperParameterTuningJobCommandInput
@@ -429,12 +541,15 @@ export type ServiceInputTypes =
   | CreateLabelingJobCommandInput
   | CreateModelCommandInput
   | CreateModelPackageCommandInput
+  | CreateModelPackageGroupCommandInput
   | CreateMonitoringScheduleCommandInput
   | CreateNotebookInstanceCommandInput
   | CreateNotebookInstanceLifecycleConfigCommandInput
+  | CreatePipelineCommandInput
   | CreatePresignedDomainUrlCommandInput
   | CreatePresignedNotebookInstanceUrlCommandInput
   | CreateProcessingJobCommandInput
+  | CreateProjectCommandInput
   | CreateTrainingJobCommandInput
   | CreateTransformJobCommandInput
   | CreateTrialCommandInput
@@ -442,39 +557,52 @@ export type ServiceInputTypes =
   | CreateUserProfileCommandInput
   | CreateWorkforceCommandInput
   | CreateWorkteamCommandInput
+  | DeleteActionCommandInput
   | DeleteAlgorithmCommandInput
   | DeleteAppCommandInput
   | DeleteAppImageConfigCommandInput
+  | DeleteArtifactCommandInput
+  | DeleteAssociationCommandInput
   | DeleteCodeRepositoryCommandInput
+  | DeleteContextCommandInput
   | DeleteDomainCommandInput
   | DeleteEndpointCommandInput
   | DeleteEndpointConfigCommandInput
   | DeleteExperimentCommandInput
+  | DeleteFeatureGroupCommandInput
   | DeleteFlowDefinitionCommandInput
   | DeleteHumanTaskUiCommandInput
   | DeleteImageCommandInput
   | DeleteImageVersionCommandInput
   | DeleteModelCommandInput
   | DeleteModelPackageCommandInput
+  | DeleteModelPackageGroupCommandInput
+  | DeleteModelPackageGroupPolicyCommandInput
   | DeleteMonitoringScheduleCommandInput
   | DeleteNotebookInstanceCommandInput
   | DeleteNotebookInstanceLifecycleConfigCommandInput
+  | DeletePipelineCommandInput
+  | DeleteProjectCommandInput
   | DeleteTagsCommandInput
   | DeleteTrialCommandInput
   | DeleteTrialComponentCommandInput
   | DeleteUserProfileCommandInput
   | DeleteWorkforceCommandInput
   | DeleteWorkteamCommandInput
+  | DescribeActionCommandInput
   | DescribeAlgorithmCommandInput
   | DescribeAppCommandInput
   | DescribeAppImageConfigCommandInput
+  | DescribeArtifactCommandInput
   | DescribeAutoMLJobCommandInput
   | DescribeCodeRepositoryCommandInput
   | DescribeCompilationJobCommandInput
+  | DescribeContextCommandInput
   | DescribeDomainCommandInput
   | DescribeEndpointCommandInput
   | DescribeEndpointConfigCommandInput
   | DescribeExperimentCommandInput
+  | DescribeFeatureGroupCommandInput
   | DescribeFlowDefinitionCommandInput
   | DescribeHumanTaskUiCommandInput
   | DescribeHyperParameterTuningJobCommandInput
@@ -483,10 +611,15 @@ export type ServiceInputTypes =
   | DescribeLabelingJobCommandInput
   | DescribeModelCommandInput
   | DescribeModelPackageCommandInput
+  | DescribeModelPackageGroupCommandInput
   | DescribeMonitoringScheduleCommandInput
   | DescribeNotebookInstanceCommandInput
   | DescribeNotebookInstanceLifecycleConfigCommandInput
+  | DescribePipelineCommandInput
+  | DescribePipelineDefinitionForExecutionCommandInput
+  | DescribePipelineExecutionCommandInput
   | DescribeProcessingJobCommandInput
+  | DescribeProjectCommandInput
   | DescribeSubscribedWorkteamCommandInput
   | DescribeTrainingJobCommandInput
   | DescribeTransformJobCommandInput
@@ -495,19 +628,28 @@ export type ServiceInputTypes =
   | DescribeUserProfileCommandInput
   | DescribeWorkforceCommandInput
   | DescribeWorkteamCommandInput
+  | DisableSagemakerServicecatalogPortfolioCommandInput
   | DisassociateTrialComponentCommandInput
+  | EnableSagemakerServicecatalogPortfolioCommandInput
+  | GetModelPackageGroupPolicyCommandInput
+  | GetSagemakerServicecatalogPortfolioStatusCommandInput
   | GetSearchSuggestionsCommandInput
+  | ListActionsCommandInput
   | ListAlgorithmsCommandInput
   | ListAppImageConfigsCommandInput
   | ListAppsCommandInput
+  | ListArtifactsCommandInput
+  | ListAssociationsCommandInput
   | ListAutoMLJobsCommandInput
   | ListCandidatesForAutoMLJobCommandInput
   | ListCodeRepositoriesCommandInput
   | ListCompilationJobsCommandInput
+  | ListContextsCommandInput
   | ListDomainsCommandInput
   | ListEndpointConfigsCommandInput
   | ListEndpointsCommandInput
   | ListExperimentsCommandInput
+  | ListFeatureGroupsCommandInput
   | ListFlowDefinitionsCommandInput
   | ListHumanTaskUisCommandInput
   | ListHyperParameterTuningJobsCommandInput
@@ -515,13 +657,19 @@ export type ServiceInputTypes =
   | ListImagesCommandInput
   | ListLabelingJobsCommandInput
   | ListLabelingJobsForWorkteamCommandInput
+  | ListModelPackageGroupsCommandInput
   | ListModelPackagesCommandInput
   | ListModelsCommandInput
   | ListMonitoringExecutionsCommandInput
   | ListMonitoringSchedulesCommandInput
   | ListNotebookInstanceLifecycleConfigsCommandInput
   | ListNotebookInstancesCommandInput
+  | ListPipelineExecutionStepsCommandInput
+  | ListPipelineExecutionsCommandInput
+  | ListPipelineParametersForExecutionCommandInput
+  | ListPipelinesCommandInput
   | ListProcessingJobsCommandInput
+  | ListProjectsCommandInput
   | ListSubscribedWorkteamsCommandInput
   | ListTagsCommandInput
   | ListTrainingJobsCommandInput
@@ -532,29 +680,38 @@ export type ServiceInputTypes =
   | ListUserProfilesCommandInput
   | ListWorkforcesCommandInput
   | ListWorkteamsCommandInput
+  | PutModelPackageGroupPolicyCommandInput
   | RenderUiTemplateCommandInput
   | SearchCommandInput
   | StartMonitoringScheduleCommandInput
   | StartNotebookInstanceCommandInput
+  | StartPipelineExecutionCommandInput
   | StopAutoMLJobCommandInput
   | StopCompilationJobCommandInput
   | StopHyperParameterTuningJobCommandInput
   | StopLabelingJobCommandInput
   | StopMonitoringScheduleCommandInput
   | StopNotebookInstanceCommandInput
+  | StopPipelineExecutionCommandInput
   | StopProcessingJobCommandInput
   | StopTrainingJobCommandInput
   | StopTransformJobCommandInput
+  | UpdateActionCommandInput
   | UpdateAppImageConfigCommandInput
+  | UpdateArtifactCommandInput
   | UpdateCodeRepositoryCommandInput
+  | UpdateContextCommandInput
   | UpdateDomainCommandInput
   | UpdateEndpointCommandInput
   | UpdateEndpointWeightsAndCapacitiesCommandInput
   | UpdateExperimentCommandInput
   | UpdateImageCommandInput
+  | UpdateModelPackageCommandInput
   | UpdateMonitoringScheduleCommandInput
   | UpdateNotebookInstanceCommandInput
   | UpdateNotebookInstanceLifecycleConfigCommandInput
+  | UpdatePipelineCommandInput
+  | UpdatePipelineExecutionCommandInput
   | UpdateTrialCommandInput
   | UpdateTrialComponentCommandInput
   | UpdateUserProfileCommandInput
@@ -562,18 +719,23 @@ export type ServiceInputTypes =
   | UpdateWorkteamCommandInput;
 
 export type ServiceOutputTypes =
+  | AddAssociationCommandOutput
   | AddTagsCommandOutput
   | AssociateTrialComponentCommandOutput
+  | CreateActionCommandOutput
   | CreateAlgorithmCommandOutput
   | CreateAppCommandOutput
   | CreateAppImageConfigCommandOutput
+  | CreateArtifactCommandOutput
   | CreateAutoMLJobCommandOutput
   | CreateCodeRepositoryCommandOutput
   | CreateCompilationJobCommandOutput
+  | CreateContextCommandOutput
   | CreateDomainCommandOutput
   | CreateEndpointCommandOutput
   | CreateEndpointConfigCommandOutput
   | CreateExperimentCommandOutput
+  | CreateFeatureGroupCommandOutput
   | CreateFlowDefinitionCommandOutput
   | CreateHumanTaskUiCommandOutput
   | CreateHyperParameterTuningJobCommandOutput
@@ -582,12 +744,15 @@ export type ServiceOutputTypes =
   | CreateLabelingJobCommandOutput
   | CreateModelCommandOutput
   | CreateModelPackageCommandOutput
+  | CreateModelPackageGroupCommandOutput
   | CreateMonitoringScheduleCommandOutput
   | CreateNotebookInstanceCommandOutput
   | CreateNotebookInstanceLifecycleConfigCommandOutput
+  | CreatePipelineCommandOutput
   | CreatePresignedDomainUrlCommandOutput
   | CreatePresignedNotebookInstanceUrlCommandOutput
   | CreateProcessingJobCommandOutput
+  | CreateProjectCommandOutput
   | CreateTrainingJobCommandOutput
   | CreateTransformJobCommandOutput
   | CreateTrialCommandOutput
@@ -595,39 +760,52 @@ export type ServiceOutputTypes =
   | CreateUserProfileCommandOutput
   | CreateWorkforceCommandOutput
   | CreateWorkteamCommandOutput
+  | DeleteActionCommandOutput
   | DeleteAlgorithmCommandOutput
   | DeleteAppCommandOutput
   | DeleteAppImageConfigCommandOutput
+  | DeleteArtifactCommandOutput
+  | DeleteAssociationCommandOutput
   | DeleteCodeRepositoryCommandOutput
+  | DeleteContextCommandOutput
   | DeleteDomainCommandOutput
   | DeleteEndpointCommandOutput
   | DeleteEndpointConfigCommandOutput
   | DeleteExperimentCommandOutput
+  | DeleteFeatureGroupCommandOutput
   | DeleteFlowDefinitionCommandOutput
   | DeleteHumanTaskUiCommandOutput
   | DeleteImageCommandOutput
   | DeleteImageVersionCommandOutput
   | DeleteModelCommandOutput
   | DeleteModelPackageCommandOutput
+  | DeleteModelPackageGroupCommandOutput
+  | DeleteModelPackageGroupPolicyCommandOutput
   | DeleteMonitoringScheduleCommandOutput
   | DeleteNotebookInstanceCommandOutput
   | DeleteNotebookInstanceLifecycleConfigCommandOutput
+  | DeletePipelineCommandOutput
+  | DeleteProjectCommandOutput
   | DeleteTagsCommandOutput
   | DeleteTrialCommandOutput
   | DeleteTrialComponentCommandOutput
   | DeleteUserProfileCommandOutput
   | DeleteWorkforceCommandOutput
   | DeleteWorkteamCommandOutput
+  | DescribeActionCommandOutput
   | DescribeAlgorithmCommandOutput
   | DescribeAppCommandOutput
   | DescribeAppImageConfigCommandOutput
+  | DescribeArtifactCommandOutput
   | DescribeAutoMLJobCommandOutput
   | DescribeCodeRepositoryCommandOutput
   | DescribeCompilationJobCommandOutput
+  | DescribeContextCommandOutput
   | DescribeDomainCommandOutput
   | DescribeEndpointCommandOutput
   | DescribeEndpointConfigCommandOutput
   | DescribeExperimentCommandOutput
+  | DescribeFeatureGroupCommandOutput
   | DescribeFlowDefinitionCommandOutput
   | DescribeHumanTaskUiCommandOutput
   | DescribeHyperParameterTuningJobCommandOutput
@@ -636,10 +814,15 @@ export type ServiceOutputTypes =
   | DescribeLabelingJobCommandOutput
   | DescribeModelCommandOutput
   | DescribeModelPackageCommandOutput
+  | DescribeModelPackageGroupCommandOutput
   | DescribeMonitoringScheduleCommandOutput
   | DescribeNotebookInstanceCommandOutput
   | DescribeNotebookInstanceLifecycleConfigCommandOutput
+  | DescribePipelineCommandOutput
+  | DescribePipelineDefinitionForExecutionCommandOutput
+  | DescribePipelineExecutionCommandOutput
   | DescribeProcessingJobCommandOutput
+  | DescribeProjectCommandOutput
   | DescribeSubscribedWorkteamCommandOutput
   | DescribeTrainingJobCommandOutput
   | DescribeTransformJobCommandOutput
@@ -648,19 +831,28 @@ export type ServiceOutputTypes =
   | DescribeUserProfileCommandOutput
   | DescribeWorkforceCommandOutput
   | DescribeWorkteamCommandOutput
+  | DisableSagemakerServicecatalogPortfolioCommandOutput
   | DisassociateTrialComponentCommandOutput
+  | EnableSagemakerServicecatalogPortfolioCommandOutput
+  | GetModelPackageGroupPolicyCommandOutput
+  | GetSagemakerServicecatalogPortfolioStatusCommandOutput
   | GetSearchSuggestionsCommandOutput
+  | ListActionsCommandOutput
   | ListAlgorithmsCommandOutput
   | ListAppImageConfigsCommandOutput
   | ListAppsCommandOutput
+  | ListArtifactsCommandOutput
+  | ListAssociationsCommandOutput
   | ListAutoMLJobsCommandOutput
   | ListCandidatesForAutoMLJobCommandOutput
   | ListCodeRepositoriesCommandOutput
   | ListCompilationJobsCommandOutput
+  | ListContextsCommandOutput
   | ListDomainsCommandOutput
   | ListEndpointConfigsCommandOutput
   | ListEndpointsCommandOutput
   | ListExperimentsCommandOutput
+  | ListFeatureGroupsCommandOutput
   | ListFlowDefinitionsCommandOutput
   | ListHumanTaskUisCommandOutput
   | ListHyperParameterTuningJobsCommandOutput
@@ -668,13 +860,19 @@ export type ServiceOutputTypes =
   | ListImagesCommandOutput
   | ListLabelingJobsCommandOutput
   | ListLabelingJobsForWorkteamCommandOutput
+  | ListModelPackageGroupsCommandOutput
   | ListModelPackagesCommandOutput
   | ListModelsCommandOutput
   | ListMonitoringExecutionsCommandOutput
   | ListMonitoringSchedulesCommandOutput
   | ListNotebookInstanceLifecycleConfigsCommandOutput
   | ListNotebookInstancesCommandOutput
+  | ListPipelineExecutionStepsCommandOutput
+  | ListPipelineExecutionsCommandOutput
+  | ListPipelineParametersForExecutionCommandOutput
+  | ListPipelinesCommandOutput
   | ListProcessingJobsCommandOutput
+  | ListProjectsCommandOutput
   | ListSubscribedWorkteamsCommandOutput
   | ListTagsCommandOutput
   | ListTrainingJobsCommandOutput
@@ -685,29 +883,38 @@ export type ServiceOutputTypes =
   | ListUserProfilesCommandOutput
   | ListWorkforcesCommandOutput
   | ListWorkteamsCommandOutput
+  | PutModelPackageGroupPolicyCommandOutput
   | RenderUiTemplateCommandOutput
   | SearchCommandOutput
   | StartMonitoringScheduleCommandOutput
   | StartNotebookInstanceCommandOutput
+  | StartPipelineExecutionCommandOutput
   | StopAutoMLJobCommandOutput
   | StopCompilationJobCommandOutput
   | StopHyperParameterTuningJobCommandOutput
   | StopLabelingJobCommandOutput
   | StopMonitoringScheduleCommandOutput
   | StopNotebookInstanceCommandOutput
+  | StopPipelineExecutionCommandOutput
   | StopProcessingJobCommandOutput
   | StopTrainingJobCommandOutput
   | StopTransformJobCommandOutput
+  | UpdateActionCommandOutput
   | UpdateAppImageConfigCommandOutput
+  | UpdateArtifactCommandOutput
   | UpdateCodeRepositoryCommandOutput
+  | UpdateContextCommandOutput
   | UpdateDomainCommandOutput
   | UpdateEndpointCommandOutput
   | UpdateEndpointWeightsAndCapacitiesCommandOutput
   | UpdateExperimentCommandOutput
   | UpdateImageCommandOutput
+  | UpdateModelPackageCommandOutput
   | UpdateMonitoringScheduleCommandOutput
   | UpdateNotebookInstanceCommandOutput
   | UpdateNotebookInstanceLifecycleConfigCommandOutput
+  | UpdatePipelineCommandOutput
+  | UpdatePipelineExecutionCommandOutput
   | UpdateTrialCommandOutput
   | UpdateTrialComponentCommandOutput
   | UpdateUserProfileCommandOutput

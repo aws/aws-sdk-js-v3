@@ -25,7 +25,7 @@ export type CreateSnapshotCommandOutput = Snapshot & __MetadataBearer;
  *       source volume are propagated to the snapshot.</p>
  *          <p>You can take a snapshot of an attached volume that is in use. However, snapshots only
  *       capture data that has been written to your EBS volume at the time the snapshot command is
- *       issued; this may exclude any data that has been cached by any applications or the operating
+ *       issued; this might exclude any data that has been cached by any applications or the operating
  *       system. If you can pause any file systems on the volume long enough to take a snapshot, your
  *       snapshot should be complete. However, if you cannot pause all file writes to the volume, you
  *       should unmount the volume from within the instance, issue the snapshot command, and then
@@ -38,7 +38,7 @@ export type CreateSnapshotCommandOutput = Snapshot & __MetadataBearer;
  *       and any associated snapshots always remain protected.</p>
  *          <p>You can tag your snapshots during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging your Amazon EC2
  *         resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html">Amazon Elastic Block Store</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html">Amazon Elastic Block Store</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 export class CreateSnapshotCommand extends $Command<
   CreateSnapshotCommandInput,

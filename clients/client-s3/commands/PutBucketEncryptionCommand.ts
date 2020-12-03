@@ -22,13 +22,14 @@ export type PutBucketEncryptionCommandInput = PutBucketEncryptionRequest;
 export type PutBucketEncryptionCommandOutput = __MetadataBearer;
 
 /**
- * <p>This implementation of the <code>PUT</code> operation uses the <code>encryption</code>
- *          subresource to set the default encryption state of an existing bucket.</p>
- *          <p>This implementation of the <code>PUT</code> operation sets default encryption for a
- *          bucket using server-side encryption with Amazon S3-managed keys SSE-S3 or AWS KMS customer
- *          master keys (CMKs) (SSE-KMS). For information about the Amazon S3 default encryption feature,
- *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 Default Bucket
- *          Encryption</a>.</p>
+ * <p>This operation uses the <code>encryption</code> subresource to configure default
+ *          encryption and Amazon S3 Bucket Key for an existing bucket.</p>
+ *          <p>Default encryption for a bucket can use server-side encryption with Amazon S3-managed keys
+ *          (SSE-S3) or AWS KMS customer master keys (SSE-KMS). If you specify default encryption
+ *          using SSE-KMS, you can also configure Amazon S3 Bucket Key. For information about default
+ *          encryption, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 default bucket encryption</a>
+ *          in the <i>Amazon Simple Storage Service Developer Guide</i>. For more information about S3 Bucket Keys,
+ *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html">Amazon S3 Bucket Keys</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
  *          <important>
  *             <p>This operation requires AWS Signature Version 4. For more information, see <a href="sig-v4-authenticating-requests.html"> Authenticating Requests (AWS Signature
  *                Version 4)</a>. </p>
