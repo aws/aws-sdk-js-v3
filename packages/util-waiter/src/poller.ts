@@ -22,7 +22,7 @@ export async function runPolling<T, S>(
   let currentDelay = params.minDelay;
 
   while (true) {
-    console.log("calling sleep (top of loop)", currentDelay);
+    // console.log("calling sleep (top of loop)", currentDelay);
     await sleep(currentDelay);
     const { state } = await acceptorChecks(client, input);
     if (state == WaiterState.SUCCESS || state == WaiterState.FAILURE) {
@@ -31,6 +31,6 @@ export async function runPolling<T, S>(
 
     currentDelay = exponentialBackoff(params.minDelay, params.maxDelay, currentAttempt);
     currentAttempt += 1;
-    console.log("bottom of loop");
+    // console.log("bottom of loop");
   }
 }

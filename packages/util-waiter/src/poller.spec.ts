@@ -1,51 +1,87 @@
 import { runPolling } from "./poller";
+import { sleep } from "./utils/sleep";
 import { WaiterState } from "./waiter";
 
-jest.useFakeTimers();
+jest.mock("./utils/sleep");
 
-describe(runPolling.name, () => {
+describe("poller", () => {
   beforeEach(() => {
-    jest.clearAllMocks();
-    jest.clearAllTimers();
+    (sleep as jest.Mock).mockResolvedValueOnce("");
   });
 
-  it("should progressively call sleep then check acceptor with a higher time topping at maxDelay", async (done) => {
-    const acceptorMock = jest.fn();
-    acceptorMock.mockReturnValue(Promise.resolve({ state: WaiterState.RETRY }));
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it("returns state in case of failure", async () => {
     const config = {
       minDelay: 2,
       maxDelay: 30,
       maxWaitTime: 99999,
     };
-    runPolling<any, any>(config, {}, {}, async (a: any, b: any) => {
-      return {
-        state: WaiterState.RETRY,
-      };
-    });
-    const exponentialTime = (floor: number, ciel: number, attempt: number): number => {
-      return Math.min(ciel, floor * 2 ** (attempt - 1));
+    const stateToReturn = {
+      state: WaiterState.FAILURE,
+    };
+    const mockAcceptorChecks = jest.fn().mockResolvedValueOnce(stateToReturn);
+    const client = "mockClient";
+    const input = "mockInput";
+
+    await expect(runPolling<string, string>(config, client, input, mockAcceptorChecks)).resolves.toStrictEqual(
+      stateToReturn
+    );
+
+    expect(mockAcceptorChecks).toHaveBeenCalled();
+    expect(mockAcceptorChecks).toHaveBeenCalledTimes(1);
+    expect(mockAcceptorChecks).toHaveBeenCalledWith(client, input);
+
+    expect(sleep).toHaveBeenCalled();
+    expect(sleep).toHaveBeenCalledTimes(1);
+    expect(sleep).toHaveBeenCalledWith(config.minDelay);
+  });
+
+  it("returns state in case of success", async () => {
+    const config = {
+      minDelay: 2,
+      maxDelay: 30,
+      maxWaitTime: 99999,
+    };
+    const stateToReturn = {
+      state: WaiterState.SUCCESS,
     };
 
-    jest.runAllTimers();
-    // jest.runAllTimers();
-    // jest.runAllTimers();
-    // jest.runOnlyPendingTimers();
-    // jest.runOnlyPendingTimers();
-    // jest.runOnlyPendingTimers();
-    console.log("finished pending");
-
-    done();
+    await expect(runPolling<any, any>(config, {}, {}, async (a: any, b: any) => stateToReturn)).resolves.toStrictEqual(
+      stateToReturn
+    );
+    expect(sleep).toHaveBeenCalled();
+    expect(sleep).toHaveBeenCalledTimes(1);
+    expect(sleep).toHaveBeenCalledWith(config.minDelay);
   });
 
-  it("should sleep before checking for a new state", () => {
-    expect(1).toBe(1);
-  });
+  it("sleeps as per exponentialBackoff in case of retry", async () => {
+    const config = {
+      minDelay: 2,
+      maxDelay: 30,
+      maxWaitTime: 99999,
+    };
+    const mockAcceptorChecks = jest
+      .fn()
+      .mockResolvedValueOnce({
+        state: WaiterState.RETRY,
+      })
+      .mockResolvedValueOnce({
+        state: WaiterState.RETRY,
+      })
+      .mockResolvedValueOnce({
+        state: WaiterState.SUCCESS,
+      });
 
-  it("should exit on return state success", () => {
-    expect(1).toBe(1);
-  });
-
-  it("should exit on return state failure", () => {
-    expect(1).toBe(1);
+    await expect(runPolling<any, any>(config, {}, {}, mockAcceptorChecks)).resolves.toStrictEqual({
+      state: WaiterState.SUCCESS,
+    });
+    expect(sleep).toHaveBeenCalled();
+    expect(sleep).toHaveBeenCalledTimes(3);
+    expect(sleep).toHaveBeenNthCalledWith(1, 2);
+    expect(sleep).toHaveBeenNthCalledWith(2, 4);
+    expect(sleep).toHaveBeenNthCalledWith(3, 8);
   });
 });
