@@ -2,7 +2,7 @@ import { sleep } from "./utils/sleep";
 import { WaiterOptions, WaiterResult, WaiterState } from "./waiter";
 
 function exponentialBackoff(floor: number, ciel: number, attempt: number): number {
-  return Math.min(ciel, floor * 2 ** (attempt - 1));
+  return Math.min(ciel, floor * 2 ** attempt);
 }
 
 /**
@@ -22,13 +22,15 @@ export async function runPolling<T, S>(
   let currentDelay = params.minDelay;
 
   while (true) {
+    console.log("calling sleep (top of loop)", currentDelay);
     await sleep(currentDelay);
     const { state } = await acceptorChecks(client, input);
     if (state == WaiterState.SUCCESS || state == WaiterState.FAILURE) {
       return { state };
     }
 
-    currentAttempt += 1;
     currentDelay = exponentialBackoff(params.minDelay, params.maxDelay, currentAttempt);
+    currentAttempt += 1;
+    console.log("bottom of loop");
   }
 }
