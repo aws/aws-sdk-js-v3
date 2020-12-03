@@ -3475,7 +3475,7 @@
         "target": "com.amazonaws.ec2#VolumeAttachment"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Attaches an EBS volume to a running or stopped instance and exposes it to the instance\n      with the specified device name.</p>\n         <p>Encrypted EBS volumes must be attached to instances that support Amazon EBS encryption. For\n      more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>After you attach an EBS volume, you must make it available. For more information, see \n      <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html\">Making an EBS volume available for use</a>.</p>\n         <p>If a volume has an AWS Marketplace product code:</p>\n         <ul>\n            <li>\n               <p>The volume can be attached only to a stopped instance.</p>\n            </li>\n            <li>\n               <p>AWS Marketplace product codes are copied from the volume to the instance.</p>\n            </li>\n            <li>\n               <p>You must be subscribed to the product.</p>\n            </li>\n            <li>\n               <p>The instance type and operating system of the instance must support the product. For\n          example, you can't detach a volume from a Windows instance and attach it to a Linux\n          instance.</p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html\">Attaching Amazon EBS volumes</a> in the\n        <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Attaches an EBS volume to a running or stopped instance and exposes it to the instance\n      with the specified device name.</p>\n         <p>Encrypted EBS volumes must be attached to instances that support Amazon EBS encryption. For\n      more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\">Amazon EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>After you attach an EBS volume, you must make it available. For more information, see \n      <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html\">Making an EBS volume available for use</a>.</p>\n         <p>If a volume has an AWS Marketplace product code:</p>\n         <ul>\n            <li>\n               <p>The volume can be attached only to a stopped instance.</p>\n            </li>\n            <li>\n               <p>AWS Marketplace product codes are copied from the volume to the instance.</p>\n            </li>\n            <li>\n               <p>You must be subscribed to the product.</p>\n            </li>\n            <li>\n               <p>The instance type and operating system of the instance must support the product. For\n          example, you can't detach a volume from a Windows instance and attach it to a Linux\n          instance.</p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html\">Attaching Amazon EBS volumes</a> in the\n        <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#AttachVolumeRequest": {
@@ -7369,7 +7369,7 @@
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
             "aws.protocols#ec2QueryName": "Encrypted",
-            "smithy.api#documentation": "<p>To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, \n      enable encryption using this parameter. Otherwise, omit this parameter. Encrypted snapshots \n      are encrypted, even if you omit this parameter and encryption by default is not enabled. You \n      cannot set this parameter to false. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\">Amazon EBS Encryption</a> in the \n      <i>Amazon Elastic Compute Cloud User Guide</i>.</p>",
+            "smithy.api#documentation": "<p>To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, \n      enable encryption using this parameter. Otherwise, omit this parameter. Encrypted snapshots \n      are encrypted, even if you omit this parameter and encryption by default is not enabled. You \n      cannot set this parameter to false. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\">Amazon EBS encryption</a> in the \n      <i>Amazon Elastic Compute Cloud User Guide</i>.</p>",
             "smithy.api#xmlName": "encrypted"
           }
         },
@@ -7385,7 +7385,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "PresignedUrl",
-            "smithy.api#documentation": "<p>When you copy an encrypted source snapshot using the Amazon EC2 Query API, you must supply a\n      pre-signed URL. This parameter is optional for unencrypted snapshots. For more information,\n      see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html\">Query\n        Requests</a>.</p>\n         <p>The <code>PresignedUrl</code> should use the snapshot source endpoint, the\n        <code>CopySnapshot</code> action, and include the <code>SourceRegion</code>,\n        <code>SourceSnapshotId</code>, and <code>DestinationRegion</code> parameters. The\n        <code>PresignedUrl</code> must be signed using AWS Signature Version 4. Because EBS\n      snapshots are stored in Amazon S3, the signing algorithm for this parameter uses the same logic\n      that is described in <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html\">Authenticating Requests by Using Query\n        Parameters (AWS Signature Version 4)</a> in the <i>Amazon Simple Storage Service API Reference</i>. An\n      invalid or improperly signed <code>PresignedUrl</code> will cause the copy operation to fail\n      asynchronously, and the snapshot will move to an <code>error</code> state.</p>",
+            "smithy.api#documentation": "<p>When you copy an encrypted source snapshot using the Amazon EC2 Query API, you must supply a\n      pre-signed URL. This parameter is optional for unencrypted snapshots. For more information,\n      see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html\">Query\n        requests</a>.</p>\n         <p>The <code>PresignedUrl</code> should use the snapshot source endpoint, the\n        <code>CopySnapshot</code> action, and include the <code>SourceRegion</code>,\n        <code>SourceSnapshotId</code>, and <code>DestinationRegion</code> parameters. The\n        <code>PresignedUrl</code> must be signed using AWS Signature Version 4. Because EBS\n      snapshots are stored in Amazon S3, the signing algorithm for this parameter uses the same logic\n      that is described in <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html\">Authenticating Requests: Using Query\n        Parameters (AWS Signature Version 4)</a> in the <i>Amazon Simple Storage Service API Reference</i>. An\n      invalid or improperly signed <code>PresignedUrl</code> will cause the copy operation to fail\n      asynchronously, and the snapshot will move to an <code>error</code> state.</p>",
             "smithy.api#xmlName": "presignedUrl"
           }
         },
@@ -10038,7 +10038,7 @@
         "target": "com.amazonaws.ec2#Snapshot"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Creates a snapshot of an EBS volume and stores it in Amazon S3. You can use snapshots for\n      backups, to make copies of EBS volumes, and to save data before shutting down an\n      instance.</p>\n         <p>When a snapshot is created, any AWS Marketplace product codes that are associated with the\n      source volume are propagated to the snapshot.</p>\n         <p>You can take a snapshot of an attached volume that is in use. However, snapshots only\n      capture data that has been written to your EBS volume at the time the snapshot command is\n      issued; this may exclude any data that has been cached by any applications or the operating\n      system. If you can pause any file systems on the volume long enough to take a snapshot, your\n      snapshot should be complete. However, if you cannot pause all file writes to the volume, you\n      should unmount the volume from within the instance, issue the snapshot command, and then\n      remount the volume to ensure a consistent and complete snapshot. You may remount and use your\n      volume while the snapshot status is <code>pending</code>.</p>\n         <p>To create a snapshot for EBS volumes that serve as root devices, you should stop the\n      instance before taking the snapshot.</p>\n         <p>Snapshots that are taken from encrypted volumes are automatically encrypted. Volumes that\n      are created from encrypted snapshots are also automatically encrypted. Your encrypted volumes\n      and any associated snapshots always remain protected.</p>\n         <p>You can tag your snapshots during creation. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tagging your Amazon EC2\n        resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html\">Amazon Elastic Block Store</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Creates a snapshot of an EBS volume and stores it in Amazon S3. You can use snapshots for\n      backups, to make copies of EBS volumes, and to save data before shutting down an\n      instance.</p>\n         <p>When a snapshot is created, any AWS Marketplace product codes that are associated with the\n      source volume are propagated to the snapshot.</p>\n         <p>You can take a snapshot of an attached volume that is in use. However, snapshots only\n      capture data that has been written to your EBS volume at the time the snapshot command is\n      issued; this might exclude any data that has been cached by any applications or the operating\n      system. If you can pause any file systems on the volume long enough to take a snapshot, your\n      snapshot should be complete. However, if you cannot pause all file writes to the volume, you\n      should unmount the volume from within the instance, issue the snapshot command, and then\n      remount the volume to ensure a consistent and complete snapshot. You may remount and use your\n      volume while the snapshot status is <code>pending</code>.</p>\n         <p>To create a snapshot for EBS volumes that serve as root devices, you should stop the\n      instance before taking the snapshot.</p>\n         <p>Snapshots that are taken from encrypted volumes are automatically encrypted. Volumes that\n      are created from encrypted snapshots are also automatically encrypted. Your encrypted volumes\n      and any associated snapshots always remain protected.</p>\n         <p>You can tag your snapshots during creation. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tagging your Amazon EC2\n        resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html\">Amazon Elastic Block Store</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\">Amazon EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#CreateSnapshotRequest": {
@@ -11132,7 +11132,7 @@
         "target": "com.amazonaws.ec2#Volume"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Creates an EBS volume that can be attached to an instance in the same Availability Zone.\n      The volume is created in the regional endpoint that you send the HTTP request to. For more\n      information see <a href=\"https://docs.aws.amazon.com/general/latest/gr/rande.html\">Regions and\n        Endpoints</a>.</p>\n         <p>You can create a new empty volume or restore a volume from an EBS snapshot.\n      Any AWS Marketplace product codes from the snapshot are propagated to the volume.</p>\n         <p>You can create encrypted volumes. Encrypted volumes must be attached to instances that \n      support Amazon EBS encryption. Volumes that are created from encrypted snapshots are also automatically \n      encrypted. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\">Amazon EBS Encryption</a>\n      in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>You can tag your volumes during creation. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tagging your Amazon EC2\n        resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html\">Creating an Amazon EBS volume</a> in the\n        <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Creates an EBS volume that can be attached to an instance in the same Availability Zone.</p>\n         <p>You can create a new empty volume or restore a volume from an EBS snapshot.\n      Any AWS Marketplace product codes from the snapshot are propagated to the volume.</p>\n         <p>You can create encrypted volumes. Encrypted volumes must be attached to instances that \n      support Amazon EBS encryption. Volumes that are created from encrypted snapshots are also automatically \n      encrypted. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\">Amazon EBS encryption</a>\n      in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>You can tag your volumes during creation. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tagging your Amazon EC2\n        resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html\">Creating an Amazon EBS volume</a> in the\n        <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#CreateVolumePermission": {
@@ -11202,14 +11202,14 @@
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
             "aws.protocols#ec2QueryName": "Encrypted",
-            "smithy.api#documentation": "<p>Specifies whether the volume should be encrypted. \n      The effect of setting the encryption state to <code>true</code> depends on \nthe volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. \n      For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default\">Encryption by default</a>\n      in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. \n      For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances\">Supported\n        instance types</a>.</p>",
+            "smithy.api#documentation": "<p>Indicates whether the volume should be encrypted. \n      The effect of setting the encryption state to <code>true</code> depends on \nthe volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. \n      For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default\">Encryption by default</a>\n      in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. \n      For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances\">Supported\n        instance types</a>.</p>",
             "smithy.api#xmlName": "encrypted"
           }
         },
         "Iops": {
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The number of I/O operations per second (IOPS) to provision for an <code>io1</code> or <code>io2</code> volume, with a maximum\n    \tratio of 50 IOPS/GiB for <code>io1</code>, and 500 IOPS/GiB for <code>io2</code>. Range is 100 to 64,000 IOPS for\n      volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on\n        <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances\">Nitro-based instances</a>. Other instance families guarantee performance up to\n      32,000 IOPS. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html\">Amazon EBS volume types</a> in the\n        <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>This parameter is valid only for Provisioned IOPS SSD (<code>io1</code> and <code>io2</code>) volumes.</p>"
+            "smithy.api#documentation": "<p>The number of I/O operations per second (IOPS). For <code>gp3</code>, <code>io1</code>, and <code>io2</code> volumes, this represents \n      the number of IOPS that are provisioned for the volume. For <code>gp2</code> volumes, this represents the baseline \n      performance of the volume and the rate at which the volume accumulates I/O credits for bursting.</p>\n         <p>The following are the supported values for each volume type:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>gp3</code>: 3,000-16,000 IOPS</p>\n            </li>\n            <li>\n               <p>\n                  <code>io1</code>: 100-64,000 IOPS</p>\n            </li>\n            <li>\n               <p>\n                  <code>io2</code>: 100-64,000 IOPS</p>\n            </li>\n         </ul>\n         <p>For <code>io1</code> and <code>io2</code> volumes, we guarantee 64,000 IOPS only for  \n      <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances\">Instances built on the Nitro System</a>. Other instance families guarantee performance \n      up to 32,000 IOPS.</p>\n         <p>This parameter is required for <code>io1</code> and <code>io2</code> volumes.\n      The default for <code>gp3</code> volumes is 3,000 IOPS.\n      This parameter is not supported for <code>gp2</code>, <code>st1</code>, <code>sc1</code>, or <code>standard</code> volumes.</p>"
           }
         },
         "KmsKeyId": {
@@ -11227,7 +11227,7 @@
         "Size": {
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.</p>\n         <p>Constraints: 1-16,384 for <code>gp2</code>,\n      4-16,384 for <code>io1</code> and <code>io2</code>, 500-16,384 for\n        <code>st1</code>, 500-16,384 for <code>sc1</code>, and\n      1-1,024 for <code>standard</code>. If you specify a\n      snapshot, the volume size must be equal to or larger than the snapshot size.</p>\n         <p>Default: If you're creating the volume from a snapshot and don't specify a volume size,\n      the default is the snapshot size.</p>"
+            "smithy.api#documentation": "<p>The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.\n      If you specify a snapshot, the default is the snapshot size. You can specify a volume \n      size that is equal to or larger than the snapshot size.</p>\n         <p>The following are the supported volumes sizes for each volume type:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>gp2</code> and <code>gp3</code>: 1-16,384</p>\n            </li>\n            <li>\n               <p>\n                  <code>io1</code> and <code>io2</code>: 4-16,384</p>\n            </li>\n            <li>\n               <p>\n                  <code>st1</code> and <code>sc1</code>: 125-16,384</p>\n            </li>\n            <li>\n               <p>\n                  <code>standard</code>: 1-1,024</p>\n            </li>\n         </ul>"
           }
         },
         "SnapshotId": {
@@ -11239,7 +11239,7 @@
         "VolumeType": {
           "target": "com.amazonaws.ec2#VolumeType",
           "traits": {
-            "smithy.api#documentation": "<p>The volume type. This can be <code>gp2</code> for General Purpose SSD, <code>io1</code> or <code>io2</code> for Provisioned IOPS SSD,\n        <code>st1</code> for Throughput Optimized HDD, <code>sc1</code> for Cold HDD, or\n        <code>standard</code> for Magnetic volumes.</p>\n         <p>Default: <code>gp2</code>\n         </p>"
+            "smithy.api#documentation": "<p>The volume type. This parameter can be one of the following values:</p>\n         <ul>\n            <li>\n               <p>General Purpose SSD: <code>gp2</code> | <code>gp3</code>\n               </p>\n            </li>\n            <li>\n               <p>Provisioned IOPS SSD: <code>io1</code> | <code>io2</code>\n               </p>\n            </li>\n            <li>\n               <p>Throughput Optimized HDD: <code>st1</code>\n               </p>\n            </li>\n            <li>\n               <p>Cold HDD: <code>sc1</code>\n               </p>\n            </li>\n            <li>\n               <p>Magnetic: <code>standard</code>\n               </p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html\">Amazon EBS volume types</a> in the\n      <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>Default: <code>gp2</code>\n         </p>"
           }
         },
         "DryRun": {
@@ -11260,7 +11260,13 @@
         "MultiAttachEnabled": {
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the \n    \tvolume to up to 16 <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances\">Nitro-based instances</a> in the same Availability Zone. For more information, \n    \tsee <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html\">\n    \t\tAmazon EBS Multi-Attach</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>Indicates whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the \n    \tvolume to up to 16 <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances\">Instances built on the Nitro System</a> in the same Availability Zone. This parameter is \n    \tsupported with  <code>io1</code> volumes only. For more information, \n    \tsee <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html\">\n    \t\tAmazon EBS Multi-Attach</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+          }
+        },
+        "Throughput": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The throughput to provision for a volume, with a maximum of 1,000 MiB/s.</p>\n         <p>This parameter is valid only for <code>gp3</code> volumes.</p>\n  \t      <p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>"
           }
         }
       }
@@ -20814,7 +20820,7 @@
         "target": "com.amazonaws.ec2#DescribeSnapshotAttributeResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the specified attribute of the specified snapshot. You can specify only one\n      attribute at a time.</p>\n         <p>For more information about EBS snapshots, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html\">Amazon EBS Snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Describes the specified attribute of the specified snapshot. You can specify only one\n      attribute at a time.</p>\n         <p>For more information about EBS snapshots, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html\">Amazon EBS snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#DescribeSnapshotAttributeRequest": {
@@ -20882,7 +20888,7 @@
         "target": "com.amazonaws.ec2#DescribeSnapshotsResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the specified EBS snapshots available to you or all of the EBS snapshots\n      available to you.</p>\n         <p>The snapshots available to you include public snapshots, private snapshots that you own,\n      and private snapshots owned by other AWS accounts for which you have explicit create volume\n      permissions.</p>\n         <p>The create volume permissions fall into the following categories:</p>\n         <ul>\n            <li>\n               <p>\n                  <i>public</i>: The owner of the snapshot granted create volume\n          permissions for the snapshot to the <code>all</code> group. All AWS accounts have create\n          volume permissions for these snapshots.</p>\n            </li>\n            <li>\n               <p>\n                  <i>explicit</i>: The owner of the snapshot granted create volume\n          permissions to a specific AWS account.</p>\n            </li>\n            <li>\n               <p>\n                  <i>implicit</i>: An AWS account has implicit create volume permissions\n          for all snapshots it owns.</p>\n            </li>\n         </ul>\n         <p>The list of snapshots returned can be filtered by specifying snapshot IDs, snapshot\n      owners, or AWS accounts with create volume permissions. If no options are specified, Amazon\n      EC2 returns all snapshots for which you have create volume permissions.</p>\n         <p>If you specify one or more snapshot IDs, only snapshots that have the specified IDs are\n      returned. If you specify an invalid snapshot ID, an error is returned. If you specify a\n      snapshot ID for which you do not have access, it is not included in the returned\n      results.</p>\n         <p>If you specify one or more snapshot owners using the <code>OwnerIds</code> option, only\n      snapshots from the specified owners and for which you have access are returned. The results\n      can include the AWS account IDs of the specified owners, <code>amazon</code> for snapshots\n      owned by Amazon, or <code>self</code> for snapshots that you own.</p>\n         <p>If you specify a list of restorable users, only snapshots with create snapshot permissions\n      for those users are returned. You can specify AWS account IDs (if you own the snapshots),\n        <code>self</code> for snapshots for which you own or have explicit permissions, or\n        <code>all</code> for public snapshots.</p>\n         <p>If you are describing a long list of snapshots, we recommend that you paginate the output to make the\n      list more manageable. The <code>MaxResults</code> parameter sets the maximum number of results\n      returned in a single page. If the list of results exceeds your <code>MaxResults</code> value,\n      then that number of results is returned along with a <code>NextToken</code> value that can be\n      passed to a subsequent <code>DescribeSnapshots</code> request to retrieve the remaining\n      results.</p>\n         <p>To get the state of fast snapshot restores for a snapshot, use <a>DescribeFastSnapshotRestores</a>.</p>\n         <p>For more information about EBS snapshots, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html\">Amazon EBS Snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>",
+        "smithy.api#documentation": "<p>Describes the specified EBS snapshots available to you or all of the EBS snapshots\n      available to you.</p>\n         <p>The snapshots available to you include public snapshots, private snapshots that you own,\n      and private snapshots owned by other AWS accounts for which you have explicit create volume\n      permissions.</p>\n         <p>The create volume permissions fall into the following categories:</p>\n         <ul>\n            <li>\n               <p>\n                  <i>public</i>: The owner of the snapshot granted create volume\n          permissions for the snapshot to the <code>all</code> group. All AWS accounts have create\n          volume permissions for these snapshots.</p>\n            </li>\n            <li>\n               <p>\n                  <i>explicit</i>: The owner of the snapshot granted create volume\n          permissions to a specific AWS account.</p>\n            </li>\n            <li>\n               <p>\n                  <i>implicit</i>: An AWS account has implicit create volume permissions\n          for all snapshots it owns.</p>\n            </li>\n         </ul>\n         <p>The list of snapshots returned can be filtered by specifying snapshot IDs, snapshot\n      owners, or AWS accounts with create volume permissions. If no options are specified, Amazon\n      EC2 returns all snapshots for which you have create volume permissions.</p>\n         <p>If you specify one or more snapshot IDs, only snapshots that have the specified IDs are\n      returned. If you specify an invalid snapshot ID, an error is returned. If you specify a\n      snapshot ID for which you do not have access, it is not included in the returned\n      results.</p>\n         <p>If you specify one or more snapshot owners using the <code>OwnerIds</code> option, only\n      snapshots from the specified owners and for which you have access are returned. The results\n      can include the AWS account IDs of the specified owners, <code>amazon</code> for snapshots\n      owned by Amazon, or <code>self</code> for snapshots that you own.</p>\n         <p>If you specify a list of restorable users, only snapshots with create snapshot permissions\n      for those users are returned. You can specify AWS account IDs (if you own the snapshots),\n        <code>self</code> for snapshots for which you own or have explicit permissions, or\n        <code>all</code> for public snapshots.</p>\n         <p>If you are describing a long list of snapshots, we recommend that you paginate the output to make the\n      list more manageable. The <code>MaxResults</code> parameter sets the maximum number of results\n      returned in a single page. If the list of results exceeds your <code>MaxResults</code> value,\n      then that number of results is returned along with a <code>NextToken</code> value that can be\n      passed to a subsequent <code>DescribeSnapshots</code> request to retrieve the remaining\n      results.</p>\n         <p>To get the state of fast snapshot restores for a snapshot, use <a>DescribeFastSnapshotRestores</a>.</p>\n         <p>For more information about EBS snapshots, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html\">Amazon EBS snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -20904,7 +20910,7 @@
         "MaxResults": {
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of snapshot results returned by <code>DescribeSnapshots</code> in\n      paginated output. When this parameter is used, <code>DescribeSnapshots</code> only returns\n        <code>MaxResults</code> results in a single page along with a <code>NextToken</code>\n      response element. The remaining results of the initial request can be seen by sending another\n        <code>DescribeSnapshots</code> request with the returned <code>NextToken</code> value. This\n      value can be between 5 and 1000; if <code>MaxResults</code> is given a value larger than 1000,\n      only 1000 results are returned. If this parameter is not used, then\n        <code>DescribeSnapshots</code> returns all results. You cannot specify this parameter and\n      the snapshot IDs parameter in the same request.</p>"
+            "smithy.api#documentation": "<p>The maximum number of snapshot results returned by <code>DescribeSnapshots</code> in\n      paginated output. When this parameter is used, <code>DescribeSnapshots</code> only returns\n        <code>MaxResults</code> results in a single page along with a <code>NextToken</code>\n      response element. The remaining results of the initial request can be seen by sending another\n        <code>DescribeSnapshots</code> request with the returned <code>NextToken</code> value. This\n      value can be between 5 and 1,000; if <code>MaxResults</code> is given a value larger than 1,000,\n      only 1,000 results are returned. If this parameter is not used, then\n        <code>DescribeSnapshots</code> returns all results. You cannot specify this parameter and\n      the snapshot IDs parameter in the same request.</p>"
           }
         },
         "NextToken": {
@@ -22451,7 +22457,7 @@
         "target": "com.amazonaws.ec2#DescribeVolumeAttributeResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the specified attribute of the specified volume. You can specify only one\n      attribute at a time.</p>\n         <p>For more information about EBS volumes, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html\">Amazon EBS Volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Describes the specified attribute of the specified volume. You can specify only one\n      attribute at a time.</p>\n         <p>For more information about EBS volumes, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html\">Amazon EBS volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#DescribeVolumeAttributeRequest": {
@@ -22519,7 +22525,7 @@
         "target": "com.amazonaws.ec2#DescribeVolumeStatusResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the status of the specified volumes. Volume status provides the result of the\n      checks performed on your volumes to determine events that can impair the performance of your\n      volumes. The performance of a volume can be affected if an issue occurs on the volume's\n      underlying host. If the volume's underlying host experiences a power outage or system issue,\n      after the system is restored, there could be data inconsistencies on the volume. Volume events\n      notify you if this occurs. Volume actions notify you if any action needs to be taken in\n      response to the event.</p>\n         <p>The <code>DescribeVolumeStatus</code> operation provides the following information about\n      the specified volumes:</p>\n         <p>\n            <i>Status</i>: Reflects the current status of the volume. The possible\n      values are <code>ok</code>, <code>impaired</code> , <code>warning</code>, or\n        <code>insufficient-data</code>. If all checks pass, the overall status of the volume is\n        <code>ok</code>. If the check fails, the overall status is <code>impaired</code>. If the\n      status is <code>insufficient-data</code>, then the checks may still be taking place on your\n      volume at the time. We recommend that you retry the request. For more information about volume\n      status, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html\">Monitoring the status of your volumes</a> in the\n      <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>\n            <i>Events</i>: Reflect the cause of a volume status and may require you to\n      take action. For example, if your volume returns an <code>impaired</code> status, then the\n      volume event might be <code>potential-data-inconsistency</code>. This means that your volume\n      has been affected by an issue with the underlying host, has all I/O operations disabled, and\n      may have inconsistent data.</p>\n         <p>\n            <i>Actions</i>: Reflect the actions you may have to take in response to an\n      event. For example, if the status of the volume is <code>impaired</code> and the volume event\n      shows <code>potential-data-inconsistency</code>, then the action shows\n        <code>enable-volume-io</code>. This means that you may want to enable the I/O operations for\n      the volume by calling the <a>EnableVolumeIO</a> action and then check the volume\n      for data consistency.</p>\n         <p>Volume status is based on the volume status checks, and does not reflect the volume state.\n      Therefore, volume status does not indicate volumes in the <code>error</code> state (for\n      example, when a volume is incapable of accepting I/O.)</p>",
+        "smithy.api#documentation": "<p>Describes the status of the specified volumes. Volume status provides the result of the\n      checks performed on your volumes to determine events that can impair the performance of your\n      volumes. The performance of a volume can be affected if an issue occurs on the volume's\n      underlying host. If the volume's underlying host experiences a power outage or system issue,\n      after the system is restored, there could be data inconsistencies on the volume. Volume events\n      notify you if this occurs. Volume actions notify you if any action needs to be taken in\n      response to the event.</p>\n         <p>The <code>DescribeVolumeStatus</code> operation provides the following information about\n      the specified volumes:</p>\n         <p>\n            <i>Status</i>: Reflects the current status of the volume. The possible\n      values are <code>ok</code>, <code>impaired</code> , <code>warning</code>, or\n        <code>insufficient-data</code>. If all checks pass, the overall status of the volume is\n        <code>ok</code>. If the check fails, the overall status is <code>impaired</code>. If the\n      status is <code>insufficient-data</code>, then the checks might still be taking place on your\n      volume at the time. We recommend that you retry the request. For more information about volume\n      status, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html\">Monitoring the status of your volumes</a> in the\n      <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>\n            <i>Events</i>: Reflect the cause of a volume status and might require you to\n      take action. For example, if your volume returns an <code>impaired</code> status, then the\n      volume event might be <code>potential-data-inconsistency</code>. This means that your volume\n      has been affected by an issue with the underlying host, has all I/O operations disabled, and\n      might have inconsistent data.</p>\n         <p>\n            <i>Actions</i>: Reflect the actions you might have to take in response to an\n      event. For example, if the status of the volume is <code>impaired</code> and the volume event\n      shows <code>potential-data-inconsistency</code>, then the action shows\n        <code>enable-volume-io</code>. This means that you may want to enable the I/O operations for\n      the volume by calling the <a>EnableVolumeIO</a> action and then check the volume\n      for data consistency.</p>\n         <p>Volume status is based on the volume status checks, and does not reflect the volume state.\n      Therefore, volume status does not indicate volumes in the <code>error</code> state (for\n      example, when a volume is incapable of accepting I/O.)</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -22541,7 +22547,7 @@
         "MaxResults": {
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of volume results returned by <code>DescribeVolumeStatus</code> in\n      paginated output. When this parameter is used, the request only returns\n        <code>MaxResults</code> results in a single page along with a <code>NextToken</code>\n      response element. The remaining results of the initial request can be seen by sending another\n      request with the returned <code>NextToken</code> value. This value can be between 5 and 1000;\n      if <code>MaxResults</code> is given a value larger than 1000, only 1000 results are returned.\n      If this parameter is not used, then <code>DescribeVolumeStatus</code> returns all results. You\n      cannot specify this parameter and the volume IDs parameter in the same request.</p>"
+            "smithy.api#documentation": "<p>The maximum number of volume results returned by <code>DescribeVolumeStatus</code> in\n      paginated output. When this parameter is used, the request only returns\n        <code>MaxResults</code> results in a single page along with a <code>NextToken</code>\n      response element. The remaining results of the initial request can be seen by sending another\n      request with the returned <code>NextToken</code> value. This value can be between 5 and 1,000;\n      if <code>MaxResults</code> is given a value larger than 1,000, only 1,000 results are returned.\n      If this parameter is not used, then <code>DescribeVolumeStatus</code> returns all results. You\n      cannot specify this parameter and the volume IDs parameter in the same request.</p>"
           }
         },
         "NextToken": {
@@ -22597,7 +22603,7 @@
         "target": "com.amazonaws.ec2#DescribeVolumesResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the specified EBS volumes or all of your EBS volumes.</p>\n         <p>If you are describing a long list of volumes, we recommend that you paginate the output to make the list\n      more manageable. The <code>MaxResults</code> parameter sets the maximum number of results\n      returned in a single page. If the list of results exceeds your <code>MaxResults</code> value,\n      then that number of results is returned along with a <code>NextToken</code> value that can be\n      passed to a subsequent <code>DescribeVolumes</code> request to retrieve the remaining\n      results.</p>\n         <p>For more information about EBS volumes, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html\">Amazon EBS Volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>",
+        "smithy.api#documentation": "<p>Describes the specified EBS volumes or all of your EBS volumes.</p>\n         <p>If you are describing a long list of volumes, we recommend that you paginate the output to make the list\n      more manageable. The <code>MaxResults</code> parameter sets the maximum number of results\n      returned in a single page. If the list of results exceeds your <code>MaxResults</code> value,\n      then that number of results is returned along with a <code>NextToken</code> value that can be\n      passed to a subsequent <code>DescribeVolumes</code> request to retrieve the remaining\n      results.</p>\n         <p>For more information about EBS volumes, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html\">Amazon EBS volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -22688,7 +22694,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>The filters.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>attachment.attach-time</code> - The time stamp when the attachment\n          initiated.</p>\n            </li>\n            <li>\n               <p>\n                  <code>attachment.delete-on-termination</code> - Whether the volume is deleted on\n          instance termination.</p>\n            </li>\n            <li>\n               <p>\n                  <code>attachment.device</code> - The device name specified in the block device mapping\n          (for example, <code>/dev/sda1</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>attachment.instance-id</code> - The ID of the instance the volume is attached\n          to.</p>\n            </li>\n            <li>\n               <p>\n                  <code>attachment.status</code> - The attachment state (<code>attaching</code> |\n            <code>attached</code> | <code>detaching</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>availability-zone</code> - The Availability Zone in which the volume was\n          created.</p>\n            </li>\n            <li>\n               <p>\n                  <code>create-time</code> - The time stamp when the volume was created.</p>\n            </li>\n            <li>\n               <p>\n                  <code>encrypted</code> - Indicates whether the volume is encrypted (<code>true</code>\n          | <code>false</code>)</p>\n            </li>\n            <li>\n    \t\t         <p>\n                  <code>multi-attach-enabled</code> - Indicates whether the volume is enabled for Multi-Attach (<code>true</code>\n    \t\t\t| <code>false</code>)</p>\n    \t       </li>\n            <li>\n               <p>\n                  <code>fast-restored</code> - Indicates whether the volume was created from a \n          snapshot that is enabled for fast snapshot restore (<code>true</code> | \n          <code>false</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>size</code> - The size of the volume, in GiB.</p>\n            </li>\n            <li>\n               <p>\n                  <code>snapshot-id</code> - The snapshot from which the volume was created.</p>\n            </li>\n            <li>\n               <p>\n                  <code>status</code> - The state of the volume (<code>creating</code> |\n            <code>available</code> | <code>in-use</code> | <code>deleting</code> |\n            <code>deleted</code> | <code>error</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.\n    For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>\n            </li>\n            <li>\n               <p>\n                  <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>\n            </li>\n            <li>\n               <p>\n                  <code>volume-id</code> - The volume ID.</p>\n            </li>\n            <li>\n               <p>\n                  <code>volume-type</code> - The Amazon EBS volume type. This can be <code>gp2</code>\n          for General Purpose SSD, <code>io1</code> or <code>io2</code> for Provisioned IOPS SSD, <code>st1</code> for Throughput Optimized HDD,\n            <code>sc1</code> for Cold HDD, or <code>standard</code> for Magnetic volumes.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The filters.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>attachment.attach-time</code> - The time stamp when the attachment\n          initiated.</p>\n            </li>\n            <li>\n               <p>\n                  <code>attachment.delete-on-termination</code> - Whether the volume is deleted on\n          instance termination.</p>\n            </li>\n            <li>\n               <p>\n                  <code>attachment.device</code> - The device name specified in the block device mapping\n          (for example, <code>/dev/sda1</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>attachment.instance-id</code> - The ID of the instance the volume is attached\n          to.</p>\n            </li>\n            <li>\n               <p>\n                  <code>attachment.status</code> - The attachment state (<code>attaching</code> |\n            <code>attached</code> | <code>detaching</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>availability-zone</code> - The Availability Zone in which the volume was\n          created.</p>\n            </li>\n            <li>\n               <p>\n                  <code>create-time</code> - The time stamp when the volume was created.</p>\n            </li>\n            <li>\n               <p>\n                  <code>encrypted</code> - Indicates whether the volume is encrypted (<code>true</code>\n          | <code>false</code>)</p>\n            </li>\n            <li>\n    \t\t         <p>\n                  <code>multi-attach-enabled</code> - Indicates whether the volume is enabled for Multi-Attach (<code>true</code>\n    \t\t\t| <code>false</code>)</p>\n    \t       </li>\n            <li>\n               <p>\n                  <code>fast-restored</code> - Indicates whether the volume was created from a \n          snapshot that is enabled for fast snapshot restore (<code>true</code> | \n          <code>false</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>size</code> - The size of the volume, in GiB.</p>\n            </li>\n            <li>\n               <p>\n                  <code>snapshot-id</code> - The snapshot from which the volume was created.</p>\n            </li>\n            <li>\n               <p>\n                  <code>status</code> - The state of the volume (<code>creating</code> |\n            <code>available</code> | <code>in-use</code> | <code>deleting</code> |\n            <code>deleted</code> | <code>error</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.\n    For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>\n            </li>\n            <li>\n               <p>\n                  <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>\n            </li>\n            <li>\n               <p>\n                  <code>volume-id</code> - The volume ID.</p>\n            </li>\n            <li>\n               <p>\n                  <code>volume-type</code> - The Amazon EBS volume type (<code>gp2</code> | <code>gp3</code> | <code>io1</code> | <code>io2</code> | \n          <code>st1</code> | <code>sc1</code>| <code>standard</code>)</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "Filter"
           }
         },
@@ -24085,7 +24091,7 @@
         "target": "com.amazonaws.ec2#DisableEbsEncryptionByDefaultResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Disables EBS encryption by default for your account in the current Region.</p>\n         <p>After you disable encryption by default, you can still create encrypted volumes by \n      enabling encryption when you create each volume.</p>\n         <p>Disabling encryption by default does not change the encryption status of your\n      existing volumes.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\">Amazon EBS Encryption</a> in the\n      <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Disables EBS encryption by default for your account in the current Region.</p>\n         <p>After you disable encryption by default, you can still create encrypted volumes by \n      enabling encryption when you create each volume.</p>\n         <p>Disabling encryption by default does not change the encryption status of your\n      existing volumes.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\">Amazon EBS encryption</a> in the\n      <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#DisableEbsEncryptionByDefaultRequest": {
@@ -25281,7 +25287,7 @@
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
             "aws.protocols#ec2QueryName": "Iops",
-            "smithy.api#documentation": "<p>The number of I/O operations per second (IOPS) that the volume supports. For\n            <code>io1</code> and <code>io2</code> volumes, this represents the number of IOPS that are provisioned\n            for the volume. For <code>gp2</code> volumes, this represents the baseline performance\n            of the volume and the rate at which the volume accumulates I/O credits for bursting. For\n            more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html\">Amazon EBS volume types</a> in the\n            <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n        <p>Constraints: Range is 100-16,000 IOPS for <code>gp2</code> volumes and\n            100 to 64,000 IOPS for <code>io1</code> and <code>io2</code> volumes in\n            most Regions. Maximum <code>io1</code> and <code>io2</code> IOPS of 64,000 is guaranteed\n            only on <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances\">Nitro-based\n                instances</a>. Other instance families guarantee performance up to\n            32,000 IOPS. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html\">Amazon EBS Volume\n                Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n        <p>Condition: This parameter is required for requests to create <code>io1</code> and <code>io2</code> volumes;\n            it is not used in requests to create <code>gp2</code>, <code>st1</code>,\n                <code>sc1</code>, or <code>standard</code> volumes.</p>",
+            "smithy.api#documentation": "<p>The number of I/O operations per second (IOPS). For <code>gp3</code>, <code>io1</code>, and <code>io2</code> volumes, this \n            represents the number of IOPS that are provisioned for the volume. For <code>gp2</code> volumes, this \n            represents the baseline performance of the volume and the rate at which the volume accumulates \n            I/O credits for bursting.</p>\n        <p>The following are the supported values for each volume type:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>gp3</code>: 3,000-16,000 IOPS</p>\n            </li>\n            <li>\n                <p>\n                  <code>io1</code>: 100-64,000 IOPS</p>\n            </li>\n            <li>\n                <p>\n                  <code>io2</code>: 100-64,000 IOPS</p>\n            </li>\n         </ul>\n        <p>For <code>io1</code> and <code>io2</code> volumes, we guarantee 64,000 IOPS only for\n            <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances\">Instances built on the Nitro System</a>. Other instance families guarantee performance \n            up to 32,000 IOPS.</p>\n        <p>This parameter is required for <code>io1</code> and <code>io2</code> volumes.\n            The default for <code>gp3</code> volumes is 3,000 IOPS.\n            This parameter is not supported for <code>gp2</code>, <code>st1</code>, <code>sc1</code>, or <code>standard</code> volumes.</p>",
             "smithy.api#xmlName": "iops"
           }
         },
@@ -25297,7 +25303,7 @@
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
             "aws.protocols#ec2QueryName": "VolumeSize",
-            "smithy.api#documentation": "<p>The size of the volume, in GiB.</p>\n        <p>Default: If you're creating the volume from a snapshot and don't specify a volume\n            size, the default is the snapshot size.</p>\n        <p>Constraints: 1-16384 for General Purpose SSD (<code>gp2</code>), 4-16384 for\n            Provisioned IOPS SSD (<code>io1</code> and <code>io2</code>), 500-16384 for Throughput Optimized HDD\n                (<code>st1</code>), 500-16384 for Cold HDD (<code>sc1</code>), and 1-1024 for\n            Magnetic (<code>standard</code>) volumes. If you specify a snapshot, the volume size\n            must be equal to or larger than the snapshot size.</p>",
+            "smithy.api#documentation": "<p>The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.\n            If you specify a snapshot, the default is the snapshot size. You can specify a volume \n            size that is equal to or larger than the snapshot size.</p>\n        <p>The following are the supported volumes sizes for each volume type:</p>\n        <ul>\n            <li>\n               <p>\n                  <code>gp2</code> and <code>gp3</code>:1-16,384</p>\n            </li>\n            <li>\n               <p>\n                  <code>io1</code> and <code>io2</code>: 4-16,384</p>\n            </li>\n            <li>\n               <p>\n                  <code>st1</code>: 500-16,384</p>\n            </li>\n            <li>\n               <p>\n                  <code>sc1</code>: 500-16,384</p>\n            </li>\n            <li>\n               <p>\n                  <code>standard</code>: 1-1,024</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "volumeSize"
           }
         },
@@ -25305,7 +25311,7 @@
           "target": "com.amazonaws.ec2#VolumeType",
           "traits": {
             "aws.protocols#ec2QueryName": "VolumeType",
-            "smithy.api#documentation": "<p>The volume type. If you set the type to <code>io1</code> or <code>io2</code>, you must also specify\n        \tthe <b>Iops</b> parameter. If you set the type to <code>gp2</code>, \n        \t<code>st1</code>, <code>sc1</code>, or <code>standard</code>, you must omit \n        \tthe <b>Iops</b> parameter.</p>\n        <p>Default: <code>gp2</code>\n         </p>",
+            "smithy.api#documentation": "<p>The volume type. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html\">Amazon EBS volume types</a> in the\n            <i>Amazon Elastic Compute Cloud User Guide</i>. If the volume type is <code>io1</code> or <code>io2</code>, \n            you must specify the IOPS that the volume supports.</p>",
             "smithy.api#xmlName": "volumeType"
           }
         },
@@ -25314,6 +25320,14 @@
           "traits": {
             "smithy.api#documentation": "<p>Identifier (key ID, key alias, ID ARN, or alias ARN) for a customer managed CMK under\n            which the EBS volume is encrypted.</p>\n        <p>This parameter is only supported on <code>BlockDeviceMapping</code> objects called by\n                <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html\">RunInstances</a>, <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html\">RequestSpotFleet</a>,\n            and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html\">RequestSpotInstances</a>.</p>",
             "smithy.api#xmlName": "KmsKeyId"
+          }
+        },
+        "Throughput": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Throughput",
+            "smithy.api#documentation": "<p>The throughput that the volume supports, in MiB/s.</p>\n    \t    <p>This parameter is valid only for <code>gp3</code> volumes.</p>\n    \t    <p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>",
+            "smithy.api#xmlName": "throughput"
           }
         },
         "Encrypted": {
@@ -25945,7 +25959,7 @@
         "target": "com.amazonaws.ec2#EnableEbsEncryptionByDefaultResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Enables EBS encryption by default for your account in the current Region.</p>\n         <p>After you enable encryption by default, the EBS volumes that you create are\n      are always encrypted, either using the default CMK or the CMK that you specified\n      when you created each volume. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\">Amazon EBS Encryption</a> in the\n      <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>You can specify the default CMK for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a>\n      or <a>ResetEbsDefaultKmsKeyId</a>.</p>\n         <p>Enabling encryption by default has no effect on the encryption status of your \n      existing volumes.</p>\n         <p>After you enable encryption by default, you can no longer launch instances\n      using instance types that do not support encryption. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances\">Supported\n        instance types</a>.</p>"
+        "smithy.api#documentation": "<p>Enables EBS encryption by default for your account in the current Region.</p>\n         <p>After you enable encryption by default, the EBS volumes that you create are\n      are always encrypted, either using the default CMK or the CMK that you specified\n      when you created each volume. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\">Amazon EBS encryption</a> in the\n      <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>You can specify the default CMK for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a>\n      or <a>ResetEbsDefaultKmsKeyId</a>.</p>\n         <p>Enabling encryption by default has no effect on the encryption status of your \n      existing volumes.</p>\n         <p>After you enable encryption by default, you can no longer launch instances\n      using instance types that do not support encryption. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances\">Supported\n        instance types</a>.</p>"
       }
     },
     "com.amazonaws.ec2#EnableEbsEncryptionByDefaultRequest": {
@@ -29072,7 +29086,7 @@
         "target": "com.amazonaws.ec2#GetEbsDefaultKmsKeyIdResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the default customer master key (CMK) for EBS encryption by default for your account in this Region. \n      You can change the default CMK for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a> or\n      <a>ResetEbsDefaultKmsKeyId</a>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\">Amazon EBS Encryption</a>\n      in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Describes the default customer master key (CMK) for EBS encryption by default for your account in this Region. \n      You can change the default CMK for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a> or\n      <a>ResetEbsDefaultKmsKeyId</a>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\">Amazon EBS encryption</a>\n      in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#GetEbsDefaultKmsKeyIdRequest": {
@@ -29108,7 +29122,7 @@
         "target": "com.amazonaws.ec2#GetEbsEncryptionByDefaultResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes whether EBS encryption by default is enabled for your account in the current\n      Region.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\">Amazon EBS Encryption</a>\n      in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Describes whether EBS encryption by default is enabled for your account in the current\n      Region.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\">Amazon EBS encryption</a>\n      in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#GetEbsEncryptionByDefaultRequest": {
@@ -34898,6 +34912,33 @@
             "value": "r5a.24xlarge"
           },
           {
+            "value": "r5b.large"
+          },
+          {
+            "value": "r5b.xlarge"
+          },
+          {
+            "value": "r5b.2xlarge"
+          },
+          {
+            "value": "r5b.4xlarge"
+          },
+          {
+            "value": "r5b.8xlarge"
+          },
+          {
+            "value": "r5b.12xlarge"
+          },
+          {
+            "value": "r5b.16xlarge"
+          },
+          {
+            "value": "r5b.24xlarge"
+          },
+          {
+            "value": "r5b.metal"
+          },
+          {
             "value": "r5d.large"
           },
           {
@@ -35384,6 +35425,36 @@
             "value": "d2.8xlarge"
           },
           {
+            "value": "d3.xlarge"
+          },
+          {
+            "value": "d3.2xlarge"
+          },
+          {
+            "value": "d3.4xlarge"
+          },
+          {
+            "value": "d3.8xlarge"
+          },
+          {
+            "value": "d3en.xlarge"
+          },
+          {
+            "value": "d3en.2xlarge"
+          },
+          {
+            "value": "d3en.4xlarge"
+          },
+          {
+            "value": "d3en.6xlarge"
+          },
+          {
+            "value": "d3en.8xlarge"
+          },
+          {
+            "value": "d3en.12xlarge"
+          },
+          {
             "value": "f1.2xlarge"
           },
           {
@@ -35493,6 +35564,27 @@
           },
           {
             "value": "m5ad.24xlarge"
+          },
+          {
+            "value": "m5zn.large"
+          },
+          {
+            "value": "m5zn.xlarge"
+          },
+          {
+            "value": "m5zn.2xlarge"
+          },
+          {
+            "value": "m5zn.3xlarge"
+          },
+          {
+            "value": "m5zn.6xlarge"
+          },
+          {
+            "value": "m5zn.12xlarge"
+          },
+          {
+            "value": "m5zn.metal"
           },
           {
             "value": "h1.2xlarge"
@@ -37141,6 +37233,14 @@
             "smithy.api#documentation": "<p>The volume type.</p>",
             "smithy.api#xmlName": "volumeType"
           }
+        },
+        "Throughput": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Throughput",
+            "smithy.api#documentation": "<p>The throughput that the volume supports, in MiB/s.</p>",
+            "smithy.api#xmlName": "throughput"
+          }
         }
       },
       "traits": {
@@ -37153,7 +37253,7 @@
         "Encrypted": {
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.</p>"
+            "smithy.api#documentation": "<p>Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. \n            If you are creating a volume from a snapshot, you can't specify an encryption value.</p>"
           }
         },
         "DeleteOnTermination": {
@@ -37165,7 +37265,7 @@
         "Iops": {
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The number of I/O operations per second (IOPS) to provision for an <code>io1</code> or <code>io2</code> volume, with a maximum\n    \t\tratio of 50 IOPS/GiB for <code>io1</code>, and 500 IOPS/GiB for <code>io2</code>. Range is 100 to 64,000 IOPS for\n    \t\tvolumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on\n    \t\t<a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances\">Nitro-based instances</a>. Other instance families guarantee performance up to\n    \t\t32,000 IOPS. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html\">Amazon EBS Volume Types</a> in the\n    \t\t<i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n    \t    <p>This parameter is valid only for Provisioned IOPS SSD (<code>io1</code> and <code>io2</code>) volumes.</p>"
+            "smithy.api#documentation": "<p>The number of I/O operations per second (IOPS). For <code>gp3</code>, <code>io1</code>, and <code>io2</code> \n            volumes, this represents the number of IOPS that are provisioned for the volume. For <code>gp2</code> volumes, \n            this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits \n            for bursting.</p>\n        <p>The following are the supported values for each volume type:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>gp3</code>: 3,000-16,000 IOPS</p>\n            </li>\n            <li>\n                <p>\n                  <code>io1</code>: 100-64,000 IOPS</p>\n            </li>\n            <li>\n                <p>\n                  <code>io2</code>: 100-64,000 IOPS</p>\n            </li>\n         </ul>\n        <p>For <code>io1</code> and <code>io2</code> volumes, we guarantee 64,000 IOPS  \n            only for <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances\">Instances built on the Nitro System</a>. Other instance families guarantee performance up\n            to 32,000 IOPS.</p>\n        <p>This parameter is required for <code>io1</code> and <code>io2</code> volumes.\n            The default for <code>gp3</code> volumes is 3,000 IOPS.\n            This parameter is not supported for <code>gp2</code>, <code>st1</code>, <code>sc1</code>, or <code>standard</code> volumes.</p>"
           }
         },
         "KmsKeyId": {
@@ -37183,13 +37283,19 @@
         "VolumeSize": {
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The size of the volume, in GiB.</p>\n        <p>Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.</p>"
+            "smithy.api#documentation": "<p>The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.\n            If you specify a snapshot, the default is the snapshot size. You can specify a volume \n            size that is equal to or larger than the snapshot size.</p>\n        <p>The following are the supported volumes sizes for each volume type:</p>\n        <ul>\n            <li>\n               <p>\n                  <code>gp2</code> and <code>gp3</code>: 1-16,384</p>\n            </li>\n            <li>\n               <p>\n                  <code>io1</code> and <code>io2</code>: 4-16,384</p>\n            </li>\n            <li>\n               <p>\n                  <code>st1</code> and <code>sc1</code>: 125-16,384</p>\n            </li>\n            <li>\n               <p>\n                  <code>standard</code>: 1-1,024</p>\n            </li>\n         </ul>"
           }
         },
         "VolumeType": {
           "target": "com.amazonaws.ec2#VolumeType",
           "traits": {
-            "smithy.api#documentation": "<p>The volume type.</p>"
+            "smithy.api#documentation": "<p>The volume type. The default is <code>gp2</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html\">Amazon EBS volume types</a> in the\n            <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+          }
+        },
+        "Throughput": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The throughput to provision for a <code>gp3</code> volume, with a maximum of 1,000 MiB/s.</p>\n    \t    <p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>"
           }
         }
       },
@@ -39700,7 +39806,7 @@
         "target": "com.amazonaws.ec2#ModifyEbsDefaultKmsKeyIdResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Changes the default customer master key (CMK) for EBS encryption by default for your account in this Region.</p>\n         <p>AWS creates a unique AWS managed CMK in each Region for use with encryption by default. If\n      you change the default CMK to a symmetric customer managed CMK, it is used instead of the AWS\n      managed CMK. To reset the default CMK to the AWS managed CMK for EBS, use <a>ResetEbsDefaultKmsKeyId</a>. Amazon EBS does not support asymmetric CMKs.</p>\n         <p>If you delete or disable the customer managed CMK that you specified for use with\n      encryption by default, your instances will fail to launch.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\">Amazon EBS Encryption</a>\n      in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Changes the default customer master key (CMK) for EBS encryption by default for your account in this Region.</p>\n         <p>AWS creates a unique AWS managed CMK in each Region for use with encryption by default. If\n      you change the default CMK to a symmetric customer managed CMK, it is used instead of the AWS\n      managed CMK. To reset the default CMK to the AWS managed CMK for EBS, use <a>ResetEbsDefaultKmsKeyId</a>. Amazon EBS does not support asymmetric CMKs.</p>\n         <p>If you delete or disable the customer managed CMK that you specified for use with\n      encryption by default, your instances will fail to launch.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\">Amazon EBS encryption</a>\n      in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#ModifyEbsDefaultKmsKeyIdRequest": {
@@ -41515,7 +41621,7 @@
         "target": "com.amazonaws.ec2#ModifyVolumeResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>You can modify several parameters of an existing EBS volume, including volume size, volume\n      type, and IOPS capacity. If your EBS volume is attached to a current-generation EC2 instance\n      type, you may be able to apply these changes without stopping the instance or detaching the\n      volume from it. For more information about modifying an EBS volume running Linux, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html\">Modifying the size, IOPS, or\n        type of an EBS volume on Linux</a>. For more information about modifying an EBS volume\n      running Windows, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html\">Modifying the size, IOPS, or type of an EBS volume on Windows</a>. </p>\n         <p> When you complete a resize operation on your volume, you need to extend the volume's\n      file-system size to take advantage of the new storage capacity. For information about\n      extending a Linux file system, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#recognize-expanded-volume-linux\">Extending a Linux\n        file system</a>. For information about extending a Windows file system, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html#recognize-expanded-volume-windows\">Extending a\n        Windows file system</a>. </p>\n         <p> You can use CloudWatch Events to check the status of a modification to an EBS volume. For\n      information about CloudWatch Events, see the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/\">Amazon CloudWatch Events User Guide</a>. You can also track the status of a\n      modification using <a>DescribeVolumesModifications</a>. For information\n      about tracking status changes using either method, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#monitoring_mods\">Monitoring volume\n        modifications</a>. </p>\n         <p>With previous-generation instance types, resizing an EBS volume may require detaching and\n      reattaching the volume or stopping and restarting the instance. For more information, see\n        <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html\">Modifying the size,\n        IOPS, or type of an EBS volume on Linux</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html\">Modifying the size, IOPS, or type of an EBS\n        volume on Windows</a>.</p>\n         <p>If you reach the maximum volume modification rate per volume limit, you will need to wait\n      at least six hours before applying further modifications to the affected EBS volume.</p>"
+        "smithy.api#documentation": "<p>You can modify several parameters of an existing EBS volume, including volume size, volume\n      type, and IOPS capacity. If your EBS volume is attached to a current-generation EC2 instance\n      type, you might be able to apply these changes without stopping the instance or detaching the\n      volume from it. For more information about modifying an EBS volume running Linux, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html\">Modifying the size, IOPS, or\n        type of an EBS volume on Linux</a>. For more information about modifying an EBS volume\n      running Windows, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html\">Modifying the size, IOPS, or type of an EBS volume on Windows</a>.</p>\n         <p> When you complete a resize operation on your volume, you need to extend the volume's\n      file-system size to take advantage of the new storage capacity. For information about\n      extending a Linux file system, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#recognize-expanded-volume-linux\">Extending a Linux\n        file system</a>. For information about extending a Windows file system, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html#recognize-expanded-volume-windows\">Extending a\n        Windows file system</a>. </p>\n         <p> You can use CloudWatch Events to check the status of a modification to an EBS volume. For\n      information about CloudWatch Events, see the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/\">Amazon CloudWatch Events User Guide</a>. You can also track the status of a\n      modification using <a>DescribeVolumesModifications</a>. For information\n      about tracking status changes using either method, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#monitoring_mods\">Monitoring volume\n        modifications</a>. </p>\n         <p>With previous-generation instance types, resizing an EBS volume might require detaching and\n      reattaching the volume or stopping and restarting the instance. For more information, see\n        <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modify-volume.html\">Amazon EBS Elastic \n          Volumes</a> (Linux) or <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-modify-volume.html\">Amazon EBS Elastic Volumes</a> (Windows).</p>\n         <p>If you reach the maximum volume modification rate per volume limit, you will need to wait\n      at least six hours before applying further modifications to the affected EBS volume.</p>"
       }
     },
     "com.amazonaws.ec2#ModifyVolumeAttribute": {
@@ -41572,19 +41678,25 @@
         "Size": {
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The target size of the volume, in GiB. The target volume size must be greater than or\n      equal to than the existing size of the volume. For information about available EBS volume\n      sizes, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html\">Amazon EBS Volume\n        Types</a>.</p>\n         <p>Default: If no size is specified, the existing size is retained.</p>"
+            "smithy.api#documentation": "<p>The target size of the volume, in GiB. The target volume size must be greater than or\n      equal to the existing size of the volume.</p>\n         <p>The following are the supported volumes sizes for each volume type:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>gp2</code> and <code>gp3</code>: 1-16,384</p>\n            </li>\n            <li>\n               <p>\n                  <code>io1</code> and <code>io2</code>: 4-16,384</p>\n            </li>\n            <li>\n               <p>\n                  <code>st1</code> and <code>sc1</code>: 125-16,384</p>\n            </li>\n            <li>\n               <p>\n                  <code>standard</code>: 1-1,024</p>\n            </li>\n         </ul>\n         <p>Default: If no size is specified, the existing size is retained.</p>"
           }
         },
         "VolumeType": {
           "target": "com.amazonaws.ec2#VolumeType",
           "traits": {
-            "smithy.api#documentation": "<p>The target EBS volume type of the volume.</p>\n         <p>Default: If no type is specified, the existing type is retained.</p>"
+            "smithy.api#documentation": "<p>The target EBS volume type of the volume. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html\">Amazon EBS volume types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>Default: If no type is specified, the existing type is retained.</p>"
           }
         },
         "Iops": {
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The target IOPS rate of the volume.</p>\n         <p>This is only valid for Provisioned IOPS SSD (<code>io1</code> and <code>io2</code>) volumes. For moreinformation, see \n    \t<a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops\">\n    \t\tProvisioned IOPS SSD (io1 and io2) volumes</a>.</p>\n         <p>Default: If no IOPS value is specified, the existing value is retained.</p>"
+            "smithy.api#documentation": "<p>The target IOPS rate of the volume. This parameter is valid only for <code>gp3</code>, <code>io1</code>, and <code>io2</code> volumes.</p>\n         <p>The following are the supported values for each volume type:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>gp3</code>: 3,000-16,000 IOPS</p>\n            </li>\n            <li>\n               <p>\n                  <code>io1</code>: 100-64,000 IOPS</p>\n            </li>\n            <li>\n               <p>\n                  <code>io2</code>: 100-64,000 IOPS</p>\n            </li>\n         </ul>\n         <p>Default: If no IOPS value is specified, the existing value is retained.</p>"
+          }
+        },
+        "Throughput": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The target throughput of the volume, in MiB/s. This parameter is valid only for <code>gp3</code> volumes. \n      The maximum value is 1,000.</p>\n         <p>Default: If no throughput value is specified, the existing value is retained.</p>\n  \t      <p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>"
           }
         }
       }
@@ -48764,7 +48876,7 @@
         "target": "com.amazonaws.ec2#ResetEbsDefaultKmsKeyIdResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Resets the default customer master key (CMK) for EBS encryption for your account in this Region \n      to the AWS managed CMK for EBS.</p>\n         <p>After resetting the default CMK to the AWS managed CMK, you can continue to encrypt by a \n      customer managed CMK by specifying it when you create the volume. For more information, see\n      <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\">Amazon EBS Encryption</a>\n      in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Resets the default customer master key (CMK) for EBS encryption for your account in this Region \n      to the AWS managed CMK for EBS.</p>\n         <p>After resetting the default CMK to the AWS managed CMK, you can continue to encrypt by a \n      customer managed CMK by specifying it when you create the volume. For more information, see\n      <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\">Amazon EBS encryption</a>\n      in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#ResetEbsDefaultKmsKeyIdRequest": {
@@ -58544,7 +58656,7 @@
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
             "aws.protocols#ec2QueryName": "Iops",
-            "smithy.api#documentation": "<p>The number of I/O operations per second (IOPS) that the volume supports. For Provisioned IOPS SSD\n      volumes, this represents the number of IOPS that are provisioned for the volume. For General Purpose SSD\n      volumes, this represents the baseline performance of the volume and the rate at which the\n      volume accumulates I/O credits for bursting. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html\">Amazon EBS volume types</a> in\n      the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>Constraints: Range is 100-16,000 IOPS for <code>gp2</code> volumes and 100\n      to 64,000 IOPS for <code>io1</code> and <code>io2</code> volumes, in most Regions. The maximum\n      IOPS for <code>io1</code> and <code>io2</code> of 64,000 is guaranteed only on <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances\">Nitro-based\n        instances</a>. Other instance families guarantee performance up to\n      32,000 IOPS.</p>\n         <p>Condition: This parameter is required for requests to create <code>io1</code> and <code>io2</code> volumes;\n      it is not used in requests to create <code>gp2</code>, <code>st1</code>,\n        <code>sc1</code>, or <code>standard</code> volumes.</p>",
+            "smithy.api#documentation": "<p>The number of I/O operations per second (IOPS). For <code>gp3</code>, <code>io1</code>, and <code>io2</code> volumes, this represents \n      the number of IOPS that are provisioned for the volume. For <code>gp2</code> volumes, this represents the baseline \n      performance of the volume and the rate at which the volume accumulates I/O credits for bursting.</p>",
             "smithy.api#xmlName": "iops"
           }
         },
@@ -58560,7 +58672,7 @@
           "target": "com.amazonaws.ec2#VolumeType",
           "traits": {
             "aws.protocols#ec2QueryName": "VolumeType",
-            "smithy.api#documentation": "<p>The volume type. This can be <code>gp2</code> for General Purpose SSD, <code>io1</code> or <code>io2</code> for Provisioned IOPS SSD,\n        <code>st1</code> for Throughput Optimized HDD, <code>sc1</code> for Cold HDD, or\n        <code>standard</code> for Magnetic volumes.</p>",
+            "smithy.api#documentation": "<p>The volume type.</p>",
             "smithy.api#xmlName": "volumeType"
           }
         },
@@ -58578,6 +58690,14 @@
             "aws.protocols#ec2QueryName": "MultiAttachEnabled",
             "smithy.api#documentation": "<p>Indicates whether Amazon EBS Multi-Attach is enabled.</p>",
             "smithy.api#xmlName": "multiAttachEnabled"
+          }
+        },
+        "Throughput": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Throughput",
+            "smithy.api#documentation": "<p>The throughput that the volume supports, in MiB/s.</p>",
+            "smithy.api#xmlName": "throughput"
           }
         }
       },
@@ -58774,6 +58894,14 @@
             "smithy.api#xmlName": "targetVolumeType"
           }
         },
+        "TargetThroughput": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TargetThroughput",
+            "smithy.api#documentation": "<p>The target throughput of the volume, in MiB/s.</p>",
+            "smithy.api#xmlName": "targetThroughput"
+          }
+        },
         "OriginalSize": {
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
@@ -58796,6 +58924,14 @@
             "aws.protocols#ec2QueryName": "OriginalVolumeType",
             "smithy.api#documentation": "<p>The original EBS volume type of the volume.</p>",
             "smithy.api#xmlName": "originalVolumeType"
+          }
+        },
+        "OriginalThroughput": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "aws.protocols#ec2QueryName": "OriginalThroughput",
+            "smithy.api#documentation": "<p>The original throughput of the volume, in MiB/s.</p>",
+            "smithy.api#xmlName": "originalThroughput"
           }
         },
         "Progress": {
@@ -59207,6 +59343,9 @@
           },
           {
             "value": "st1"
+          },
+          {
+            "value": "gp3"
           }
         ]
       }

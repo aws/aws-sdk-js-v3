@@ -84,11 +84,11 @@
     "com.amazonaws.directoryservice#AccessDeniedException": {
       "type": "structure",
       "members": {
-        "RequestId": {
-          "target": "com.amazonaws.directoryservice#RequestId"
-        },
         "Message": {
           "target": "com.amazonaws.directoryservice#ExceptionMessage"
+        },
+        "RequestId": {
+          "target": "com.amazonaws.directoryservice#RequestId"
         }
       },
       "traits": {
@@ -216,12 +216,6 @@
     "com.amazonaws.directoryservice#AddRegionRequest": {
       "type": "structure",
       "members": {
-        "VPCSettings": {
-          "target": "com.amazonaws.directoryservice#DirectoryVpcSettings",
-          "traits": {
-            "smithy.api#required": {}
-          }
-        },
         "DirectoryId": {
           "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
@@ -233,6 +227,12 @@
           "target": "com.amazonaws.directoryservice#RegionName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Region where you want to add domain controllers for replication. For example, <code>us-east-1</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "VPCSettings": {
+          "target": "com.amazonaws.directoryservice#DirectoryVpcSettings",
+          "traits": {
             "smithy.api#required": {}
           }
         }
@@ -316,16 +316,16 @@
     "com.amazonaws.directoryservice#Attribute": {
       "type": "structure",
       "members": {
-        "Value": {
-          "target": "com.amazonaws.directoryservice#AttributeValue",
-          "traits": {
-            "smithy.api#documentation": "<p>The value of the attribute.</p>"
-          }
-        },
         "Name": {
           "target": "com.amazonaws.directoryservice#AttributeName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the attribute.</p>"
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.directoryservice#AttributeValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The value of the attribute.</p>"
           }
         }
       },
@@ -353,16 +353,16 @@
     "com.amazonaws.directoryservice#AuthenticationFailedException": {
       "type": "structure",
       "members": {
-        "RequestId": {
-          "target": "com.amazonaws.directoryservice#RequestId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the request that caused the exception.</p>"
-          }
-        },
         "Message": {
           "target": "com.amazonaws.directoryservice#ExceptionMessage",
           "traits": {
             "smithy.api#documentation": "<p>The textual message for the exception.</p>"
+          }
+        },
+        "RequestId": {
+          "target": "com.amazonaws.directoryservice#RequestId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the request that caused the exception.</p>"
           }
         }
       },
@@ -435,6 +435,12 @@
             "smithy.api#documentation": "<p>The identifier of the certificate.</p>"
           }
         },
+        "State": {
+          "target": "com.amazonaws.directoryservice#CertificateState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the certificate.</p>"
+          }
+        },
         "StateReason": {
           "target": "com.amazonaws.directoryservice#CertificateStateReason",
           "traits": {
@@ -447,22 +453,28 @@
             "smithy.api#documentation": "<p>The common name for the certificate.</p>"
           }
         },
+        "RegisteredDateTime": {
+          "target": "com.amazonaws.directoryservice#CertificateRegisteredDateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time that the certificate was registered.</p>"
+          }
+        },
         "ExpiryDateTime": {
           "target": "com.amazonaws.directoryservice#CertificateExpiryDateTime",
           "traits": {
             "smithy.api#documentation": "<p>The date and time when the certificate will expire.</p>"
           }
         },
-        "State": {
-          "target": "com.amazonaws.directoryservice#CertificateState",
+        "Type": {
+          "target": "com.amazonaws.directoryservice#CertificateType",
           "traits": {
-            "smithy.api#documentation": "<p>The state of the certificate.</p>"
+            "smithy.api#documentation": "<p>Select <code>ClientCertAuth</code> for smart card integration.</p>"
           }
         },
-        "RegisteredDateTime": {
-          "target": "com.amazonaws.directoryservice#CertificateRegisteredDateTime",
+        "ClientCertAuthSettings": {
+          "target": "com.amazonaws.directoryservice#ClientCertAuthSettings",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time that the certificate was registered.</p>"
+            "smithy.api#documentation": "<p>Provides information about the client certificate authentication settings. The default value is <code>ClientLDAPS</code>.</p>"
           }
         }
       },
@@ -500,11 +512,11 @@
     "com.amazonaws.directoryservice#CertificateDoesNotExistException": {
       "type": "structure",
       "members": {
-        "RequestId": {
-          "target": "com.amazonaws.directoryservice#RequestId"
-        },
         "Message": {
           "target": "com.amazonaws.directoryservice#ExceptionMessage"
+        },
+        "RequestId": {
+          "target": "com.amazonaws.directoryservice#RequestId"
         }
       },
       "traits": {
@@ -524,11 +536,11 @@
     "com.amazonaws.directoryservice#CertificateInUseException": {
       "type": "structure",
       "members": {
-        "RequestId": {
-          "target": "com.amazonaws.directoryservice#RequestId"
-        },
         "Message": {
           "target": "com.amazonaws.directoryservice#ExceptionMessage"
+        },
+        "RequestId": {
+          "target": "com.amazonaws.directoryservice#RequestId"
         }
       },
       "traits": {
@@ -539,6 +551,18 @@
     "com.amazonaws.directoryservice#CertificateInfo": {
       "type": "structure",
       "members": {
+        "CertificateId": {
+          "target": "com.amazonaws.directoryservice#CertificateId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the certificate.</p>"
+          }
+        },
+        "CommonName": {
+          "target": "com.amazonaws.directoryservice#CertificateCN",
+          "traits": {
+            "smithy.api#documentation": "<p>The common name for the certificate.</p>"
+          }
+        },
         "State": {
           "target": "com.amazonaws.directoryservice#CertificateState",
           "traits": {
@@ -551,16 +575,10 @@
             "smithy.api#documentation": "<p>The date and time when the certificate will expire.</p>"
           }
         },
-        "CertificateId": {
-          "target": "com.amazonaws.directoryservice#CertificateId",
+        "Type": {
+          "target": "com.amazonaws.directoryservice#CertificateType",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the certificate.</p>"
-          }
-        },
-        "CommonName": {
-          "target": "com.amazonaws.directoryservice#CertificateCN",
-          "traits": {
-            "smithy.api#documentation": "<p>The common name for the certificate.</p>"
+            "smithy.api#documentation": "<p>Displays the type of certificate.</p>"
           }
         }
       },
@@ -571,11 +589,11 @@
     "com.amazonaws.directoryservice#CertificateLimitExceededException": {
       "type": "structure",
       "members": {
-        "RequestId": {
-          "target": "com.amazonaws.directoryservice#RequestId"
-        },
         "Message": {
           "target": "com.amazonaws.directoryservice#ExceptionMessage"
+        },
+        "RequestId": {
+          "target": "com.amazonaws.directoryservice#RequestId"
         }
       },
       "traits": {
@@ -620,6 +638,21 @@
     "com.amazonaws.directoryservice#CertificateStateReason": {
       "type": "string"
     },
+    "com.amazonaws.directoryservice#CertificateType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "ClientCertAuth",
+            "name": "CLIENT_CERT_AUTH"
+          },
+          {
+            "value": "ClientLDAPS",
+            "name": "CLIENT_LDAPS"
+          }
+        ]
+      }
+    },
     "com.amazonaws.directoryservice#CertificatesInfo": {
       "type": "list",
       "member": {
@@ -636,6 +669,31 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.directoryservice#CidrIp"
+      }
+    },
+    "com.amazonaws.directoryservice#ClientAuthenticationType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "SmartCard",
+            "name": "SMART_CARD"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.directoryservice#ClientCertAuthSettings": {
+      "type": "structure",
+      "members": {
+        "OCSPUrl": {
+          "target": "com.amazonaws.directoryservice#OCSPUrl",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the URL of the default OCSP server used to check for revocation status.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains information about the client certificate authentication settings, such as <code>ClientLDAPS</code> or <code>ClientCertAuth</code>.</p>"
       }
     },
     "com.amazonaws.directoryservice#ClientException": {
@@ -659,12 +717,6 @@
     "com.amazonaws.directoryservice#Computer": {
       "type": "structure",
       "members": {
-        "ComputerAttributes": {
-          "target": "com.amazonaws.directoryservice#Attributes",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of <a>Attribute</a> objects containing the LDAP attributes that belong to the\n            computer account.</p>"
-          }
-        },
         "ComputerId": {
           "target": "com.amazonaws.directoryservice#SID",
           "traits": {
@@ -675,6 +727,12 @@
           "target": "com.amazonaws.directoryservice#ComputerName",
           "traits": {
             "smithy.api#documentation": "<p>The computer name.</p>"
+          }
+        },
+        "ComputerAttributes": {
+          "target": "com.amazonaws.directoryservice#Attributes",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of <a>Attribute</a> objects containing the LDAP attributes that belong to the\n            computer account.</p>"
           }
         }
       },
@@ -763,6 +821,26 @@
     "com.amazonaws.directoryservice#ConnectDirectoryRequest": {
       "type": "structure",
       "members": {
+        "Name": {
+          "target": "com.amazonaws.directoryservice#DirectoryName",
+          "traits": {
+            "smithy.api#documentation": "<p>The fully qualified name of the on-premises directory, such as\n        <code>corp.example.com</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ShortName": {
+          "target": "com.amazonaws.directoryservice#DirectoryShortName",
+          "traits": {
+            "smithy.api#documentation": "<p>The NetBIOS name of the on-premises directory, such as <code>CORP</code>.</p>"
+          }
+        },
+        "Password": {
+          "target": "com.amazonaws.directoryservice#ConnectPassword",
+          "traits": {
+            "smithy.api#documentation": "<p>The password for the on-premises user account.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "Description": {
           "target": "com.amazonaws.directoryservice#Description",
           "traits": {
@@ -776,12 +854,6 @@
             "smithy.api#required": {}
           }
         },
-        "ShortName": {
-          "target": "com.amazonaws.directoryservice#DirectoryShortName",
-          "traits": {
-            "smithy.api#documentation": "<p>The NetBIOS name of the on-premises directory, such as <code>CORP</code>.</p>"
-          }
-        },
         "ConnectSettings": {
           "target": "com.amazonaws.directoryservice#DirectoryConnectSettings",
           "traits": {
@@ -793,20 +865,6 @@
           "target": "com.amazonaws.directoryservice#Tags",
           "traits": {
             "smithy.api#documentation": "<p>The tags to be assigned to AD Connector.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.directoryservice#DirectoryName",
-          "traits": {
-            "smithy.api#documentation": "<p>The fully qualified name of the on-premises directory, such as\n        <code>corp.example.com</code>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Password": {
-          "target": "com.amazonaws.directoryservice#ConnectPassword",
-          "traits": {
-            "smithy.api#documentation": "<p>The password for the on-premises user account.</p>",
-            "smithy.api#required": {}
           }
         }
       },
@@ -953,10 +1011,11 @@
     "com.amazonaws.directoryservice#CreateComputerRequest": {
       "type": "structure",
       "members": {
-        "OrganizationalUnitDistinguishedName": {
-          "target": "com.amazonaws.directoryservice#OrganizationalUnitDN",
+        "DirectoryId": {
+          "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
-            "smithy.api#documentation": "<p>The fully-qualified distinguished name of the organizational unit to place the computer account in.</p>"
+            "smithy.api#documentation": "<p>The identifier of the directory in which to create the computer account.</p>",
+            "smithy.api#required": {}
           }
         },
         "ComputerName": {
@@ -966,24 +1025,23 @@
             "smithy.api#required": {}
           }
         },
-        "DirectoryId": {
-          "target": "com.amazonaws.directoryservice#DirectoryId",
+        "Password": {
+          "target": "com.amazonaws.directoryservice#ComputerPassword",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the directory in which to create the computer account.</p>",
+            "smithy.api#documentation": "<p>A one-time password that is used to join the computer to the directory. You should generate a random, strong password to use for this parameter.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "OrganizationalUnitDistinguishedName": {
+          "target": "com.amazonaws.directoryservice#OrganizationalUnitDN",
+          "traits": {
+            "smithy.api#documentation": "<p>The fully-qualified distinguished name of the organizational unit to place the computer account in.</p>"
           }
         },
         "ComputerAttributes": {
           "target": "com.amazonaws.directoryservice#Attributes",
           "traits": {
             "smithy.api#documentation": "<p>An array of <a>Attribute</a> objects that contain any LDAP attributes to apply to the\n            computer account.</p>"
-          }
-        },
-        "Password": {
-          "target": "com.amazonaws.directoryservice#ComputerPassword",
-          "traits": {
-            "smithy.api#documentation": "<p>A one-time password that is used to join the computer to the directory. You should generate a random, strong password to use for this parameter.</p>",
-            "smithy.api#required": {}
           }
         }
       },
@@ -1043,13 +1101,6 @@
     "com.amazonaws.directoryservice#CreateConditionalForwarderRequest": {
       "type": "structure",
       "members": {
-        "DnsIpAddrs": {
-          "target": "com.amazonaws.directoryservice#DnsIpAddrs",
-          "traits": {
-            "smithy.api#documentation": "<p>The IP addresses of the remote DNS server associated with RemoteDomainName.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "DirectoryId": {
           "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
@@ -1061,6 +1112,13 @@
           "target": "com.amazonaws.directoryservice#RemoteDomainName",
           "traits": {
             "smithy.api#documentation": "<p>The fully qualified domain name (FQDN) of the remote domain with which you will set up a trust relationship.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DnsIpAddrs": {
+          "target": "com.amazonaws.directoryservice#DnsIpAddrs",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP addresses of the remote DNS server associated with RemoteDomainName.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1105,28 +1163,10 @@
     "com.amazonaws.directoryservice#CreateDirectoryRequest": {
       "type": "structure",
       "members": {
-        "Tags": {
-          "target": "com.amazonaws.directoryservice#Tags",
+        "Name": {
+          "target": "com.amazonaws.directoryservice#DirectoryName",
           "traits": {
-            "smithy.api#documentation": "<p>The tags to be assigned to the Simple AD directory.</p>"
-          }
-        },
-        "VpcSettings": {
-          "target": "com.amazonaws.directoryservice#DirectoryVpcSettings",
-          "traits": {
-            "smithy.api#documentation": "<p>A <a>DirectoryVpcSettings</a> object that contains additional information for\n      the operation.</p>"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.directoryservice#Description",
-          "traits": {
-            "smithy.api#documentation": "<p>A description for the directory.</p>"
-          }
-        },
-        "Size": {
-          "target": "com.amazonaws.directoryservice#DirectorySize",
-          "traits": {
-            "smithy.api#documentation": "<p>The size of the directory.</p>",
+            "smithy.api#documentation": "<p>The fully qualified name for the directory, such as <code>corp.example.com</code>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1143,11 +1183,29 @@
             "smithy.api#required": {}
           }
         },
-        "Name": {
-          "target": "com.amazonaws.directoryservice#DirectoryName",
+        "Description": {
+          "target": "com.amazonaws.directoryservice#Description",
           "traits": {
-            "smithy.api#documentation": "<p>The fully qualified name for the directory, such as <code>corp.example.com</code>.</p>",
+            "smithy.api#documentation": "<p>A description for the directory.</p>"
+          }
+        },
+        "Size": {
+          "target": "com.amazonaws.directoryservice#DirectorySize",
+          "traits": {
+            "smithy.api#documentation": "<p>The size of the directory.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "VpcSettings": {
+          "target": "com.amazonaws.directoryservice#DirectoryVpcSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>A <a>DirectoryVpcSettings</a> object that contains additional information for\n      the operation.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.directoryservice#Tags",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to be assigned to the Simple AD directory.</p>"
           }
         }
       },
@@ -1204,17 +1262,17 @@
     "com.amazonaws.directoryservice#CreateLogSubscriptionRequest": {
       "type": "structure",
       "members": {
-        "LogGroupName": {
-          "target": "com.amazonaws.directoryservice#LogGroupName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the CloudWatch log group where the real-time domain controller logs are\n      forwarded.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "DirectoryId": {
           "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
             "smithy.api#documentation": "<p>Identifier of the directory to which you want to subscribe and receive real-time logs to\n      your specified CloudWatch log group.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "LogGroupName": {
+          "target": "com.amazonaws.directoryservice#LogGroupName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the CloudWatch log group where the real-time domain controller logs are\n      forwarded.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1256,11 +1314,17 @@
     "com.amazonaws.directoryservice#CreateMicrosoftADRequest": {
       "type": "structure",
       "members": {
-        "VpcSettings": {
-          "target": "com.amazonaws.directoryservice#DirectoryVpcSettings",
+        "Name": {
+          "target": "com.amazonaws.directoryservice#DirectoryName",
           "traits": {
-            "smithy.api#documentation": "<p>Contains VPC information for the <a>CreateDirectory</a> or <a>CreateMicrosoftAD</a> operation.</p>",
+            "smithy.api#documentation": "<p>The fully qualified domain name for the AWS Managed Microsoft AD directory, such as\n       <code>corp.example.com</code>. This name will resolve inside your VPC only. It does not need\n       to be publicly resolvable.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "ShortName": {
+          "target": "com.amazonaws.directoryservice#DirectoryShortName",
+          "traits": {
+            "smithy.api#documentation": "<p>The NetBIOS name for your domain, such as <code>CORP</code>. If you don't specify a NetBIOS name, it will default to the first part of your directory DNS. For example, <code>CORP</code> for the directory DNS <code>corp.example.com</code>. </p>"
           }
         },
         "Password": {
@@ -1270,23 +1334,17 @@
             "smithy.api#required": {}
           }
         },
-        "Name": {
-          "target": "com.amazonaws.directoryservice#DirectoryName",
-          "traits": {
-            "smithy.api#documentation": "<p>The fully qualified domain name for the AWS Managed Microsoft AD directory, such as\n       <code>corp.example.com</code>. This name will resolve inside your VPC only. It does not need\n       to be publicly resolvable.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.directoryservice#Tags",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags to be assigned to the AWS Managed Microsoft AD directory.</p>"
-          }
-        },
         "Description": {
           "target": "com.amazonaws.directoryservice#Description",
           "traits": {
             "smithy.api#documentation": "<p>A description for the directory. This label will appear on the AWS console <code>Directory Details</code> page after the directory is created.</p>"
+          }
+        },
+        "VpcSettings": {
+          "target": "com.amazonaws.directoryservice#DirectoryVpcSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains VPC information for the <a>CreateDirectory</a> or <a>CreateMicrosoftAD</a> operation.</p>",
+            "smithy.api#required": {}
           }
         },
         "Edition": {
@@ -1295,10 +1353,10 @@
             "smithy.api#documentation": "<p>AWS Managed Microsoft AD is available in two editions: <code>Standard</code> and <code>Enterprise</code>. <code>Enterprise</code> is the default.</p>"
           }
         },
-        "ShortName": {
-          "target": "com.amazonaws.directoryservice#DirectoryShortName",
+        "Tags": {
+          "target": "com.amazonaws.directoryservice#Tags",
           "traits": {
-            "smithy.api#documentation": "<p>The NetBIOS name for your domain, such as <code>CORP</code>. If you don't specify a NetBIOS name, it will default to the first part of your directory DNS. For example, <code>CORP</code> for the directory DNS <code>corp.example.com</code>. </p>"
+            "smithy.api#documentation": "<p>The tags to be assigned to the AWS Managed Microsoft AD directory.</p>"
           }
         }
       },
@@ -1355,17 +1413,17 @@
     "com.amazonaws.directoryservice#CreateSnapshotRequest": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.directoryservice#SnapshotName",
-          "traits": {
-            "smithy.api#documentation": "<p>The descriptive name to apply to the snapshot.</p>"
-          }
-        },
         "DirectoryId": {
           "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the directory of which to take a snapshot.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.directoryservice#SnapshotName",
+          "traits": {
+            "smithy.api#documentation": "<p>The descriptive name to apply to the snapshot.</p>"
           }
         }
       },
@@ -1422,10 +1480,17 @@
     "com.amazonaws.directoryservice#CreateTrustRequest": {
       "type": "structure",
       "members": {
-        "TrustDirection": {
-          "target": "com.amazonaws.directoryservice#TrustDirection",
+        "DirectoryId": {
+          "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
-            "smithy.api#documentation": "<p>The direction of the trust relationship.</p>",
+            "smithy.api#documentation": "<p>The Directory ID of the AWS Managed Microsoft AD directory for which to establish the trust relationship.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "RemoteDomainName": {
+          "target": "com.amazonaws.directoryservice#RemoteDomainName",
+          "traits": {
+            "smithy.api#documentation": "<p>The Fully Qualified Domain Name (FQDN) of the external domain for which to create the trust relationship.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1436,24 +1501,17 @@
             "smithy.api#required": {}
           }
         },
-        "DirectoryId": {
-          "target": "com.amazonaws.directoryservice#DirectoryId",
+        "TrustDirection": {
+          "target": "com.amazonaws.directoryservice#TrustDirection",
           "traits": {
-            "smithy.api#documentation": "<p>The Directory ID of the AWS Managed Microsoft AD directory for which to establish the trust relationship.</p>",
+            "smithy.api#documentation": "<p>The direction of the trust relationship.</p>",
             "smithy.api#required": {}
           }
         },
-        "SelectiveAuth": {
-          "target": "com.amazonaws.directoryservice#SelectiveAuth",
+        "TrustType": {
+          "target": "com.amazonaws.directoryservice#TrustType",
           "traits": {
-            "smithy.api#documentation": "<p>Optional parameter to enable selective authentication for the trust.</p>"
-          }
-        },
-        "RemoteDomainName": {
-          "target": "com.amazonaws.directoryservice#RemoteDomainName",
-          "traits": {
-            "smithy.api#documentation": "<p>The Fully Qualified Domain Name (FQDN) of the external domain for which to create the trust relationship.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The trust relationship type. <code>Forest</code> is the default.</p>"
           }
         },
         "ConditionalForwarderIpAddrs": {
@@ -1462,10 +1520,10 @@
             "smithy.api#documentation": "<p>The IP addresses of the remote DNS server associated with RemoteDomainName.</p>"
           }
         },
-        "TrustType": {
-          "target": "com.amazonaws.directoryservice#TrustType",
+        "SelectiveAuth": {
+          "target": "com.amazonaws.directoryservice#SelectiveAuth",
           "traits": {
-            "smithy.api#documentation": "<p>The trust relationship type. <code>Forest</code> is the default.</p>"
+            "smithy.api#documentation": "<p>Optional parameter to enable selective authentication for the trust.</p>"
           }
         }
       },
@@ -1824,17 +1882,17 @@
     "com.amazonaws.directoryservice#DeregisterCertificateRequest": {
       "type": "structure",
       "members": {
-        "CertificateId": {
-          "target": "com.amazonaws.directoryservice#CertificateId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the certificate.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "DirectoryId": {
           "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the directory.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "CertificateId": {
+          "target": "com.amazonaws.directoryservice#CertificateId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the certificate.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1996,17 +2054,17 @@
     "com.amazonaws.directoryservice#DescribeConditionalForwardersRequest": {
       "type": "structure",
       "members": {
-        "RemoteDomainNames": {
-          "target": "com.amazonaws.directoryservice#RemoteDomainNames",
-          "traits": {
-            "smithy.api#documentation": "<p>The fully qualified domain names (FQDN) of the remote domains for which to get the list of associated conditional forwarders. If this member is null, all conditional forwarders are returned.</p>"
-          }
-        },
         "DirectoryId": {
           "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
             "smithy.api#documentation": "<p>The directory ID for which to get the list of associated conditional forwarders.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "RemoteDomainNames": {
+          "target": "com.amazonaws.directoryservice#RemoteDomainNames",
+          "traits": {
+            "smithy.api#documentation": "<p>The fully qualified domain names (FQDN) of the remote domains for which to get the list of associated conditional forwarders. If this member is null, all conditional forwarders are returned.</p>"
           }
         }
       },
@@ -2060,6 +2118,12 @@
     "com.amazonaws.directoryservice#DescribeDirectoriesRequest": {
       "type": "structure",
       "members": {
+        "DirectoryIds": {
+          "target": "com.amazonaws.directoryservice#DirectoryIds",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of identifiers of the directories for which to obtain the information. If this\n      member is null, all directories that belong to the current account are returned.</p>\n         <p>An empty list results in an <code>InvalidParameterException</code> being thrown.</p>"
+          }
+        },
         "NextToken": {
           "target": "com.amazonaws.directoryservice#NextToken",
           "traits": {
@@ -2071,12 +2135,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of items to return. If this value is zero, the maximum number of items\n      is specified by the limitations of the operation.</p>"
           }
-        },
-        "DirectoryIds": {
-          "target": "com.amazonaws.directoryservice#DirectoryIds",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of identifiers of the directories for which to obtain the information. If this\n      member is null, all directories that belong to the current account are returned.</p>\n         <p>An empty list results in an <code>InvalidParameterException</code> being thrown.</p>"
-          }
         }
       },
       "traits": {
@@ -2086,16 +2144,16 @@
     "com.amazonaws.directoryservice#DescribeDirectoriesResult": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.directoryservice#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If not null, more results are available. Pass this value for the <code>NextToken</code>\n      parameter in a subsequent call to <a>DescribeDirectories</a> to retrieve the next\n      set of items.</p>"
-          }
-        },
         "DirectoryDescriptions": {
           "target": "com.amazonaws.directoryservice#DirectoryDescriptions",
           "traits": {
             "smithy.api#documentation": "<p>The list of <a>DirectoryDescription</a> objects that were retrieved.</p>\n         <p>It is possible that this list contains less than the number of items specified in the\n        <code>Limit</code> member of the request. This occurs if there are less than the requested\n      number of items left to retrieve, or if the limitations of the operation have been\n      exceeded.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.directoryservice#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If not null, more results are available. Pass this value for the <code>NextToken</code>\n      parameter in a subsequent call to <a>DescribeDirectories</a> to retrieve the next\n      set of items.</p>"
           }
         }
       },
@@ -2143,10 +2201,11 @@
     "com.amazonaws.directoryservice#DescribeDomainControllersRequest": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.directoryservice#NextToken",
+        "DirectoryId": {
+          "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
-            "smithy.api#documentation": "<p>The <i>DescribeDomainControllers.NextToken</i> value from a previous call to <a>DescribeDomainControllers</a>. Pass null if this is the first call. </p>"
+            "smithy.api#documentation": "<p>Identifier of the directory for which to retrieve the domain controller information.</p>",
+            "smithy.api#required": {}
           }
         },
         "DomainControllerIds": {
@@ -2155,11 +2214,10 @@
             "smithy.api#documentation": "<p>A list of identifiers for the domain controllers whose information will be provided.</p>"
           }
         },
-        "DirectoryId": {
-          "target": "com.amazonaws.directoryservice#DirectoryId",
+        "NextToken": {
+          "target": "com.amazonaws.directoryservice#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>Identifier of the directory for which to retrieve the domain controller information.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The <i>DescribeDomainControllers.NextToken</i> value from a previous call to <a>DescribeDomainControllers</a>. Pass null if this is the first call. </p>"
           }
         },
         "Limit": {
@@ -2216,16 +2274,16 @@
     "com.amazonaws.directoryservice#DescribeEventTopicsRequest": {
       "type": "structure",
       "members": {
-        "TopicNames": {
-          "target": "com.amazonaws.directoryservice#TopicNames",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of SNS topic names for which to obtain the information. If this member is null, all associations for the specified Directory ID are returned.</p>\n         <p>An empty list results in an <code>InvalidParameterException</code> being thrown.</p>"
-          }
-        },
         "DirectoryId": {
           "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
             "smithy.api#documentation": "<p>The Directory ID for which to get the list of associated SNS topics. If this member is null, associations for all Directory IDs are returned.</p>"
+          }
+        },
+        "TopicNames": {
+          "target": "com.amazonaws.directoryservice#TopicNames",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of SNS topic names for which to obtain the information. If this member is null, all associations for the specified Directory ID are returned.</p>\n         <p>An empty list results in an <code>InvalidParameterException</code> being thrown.</p>"
           }
         }
       },
@@ -2282,10 +2340,11 @@
     "com.amazonaws.directoryservice#DescribeLDAPSSettingsRequest": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.directoryservice#NextToken",
+        "DirectoryId": {
+          "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
-            "smithy.api#documentation": "<p>The type of next token used for pagination.</p>"
+            "smithy.api#documentation": "<p>The identifier of the directory.</p>",
+            "smithy.api#required": {}
           }
         },
         "Type": {
@@ -2294,11 +2353,10 @@
             "smithy.api#documentation": "<p>The type of LDAP security to enable. Currently only the value <code>Client</code> is\n      supported.</p>"
           }
         },
-        "DirectoryId": {
-          "target": "com.amazonaws.directoryservice#DirectoryId",
+        "NextToken": {
+          "target": "com.amazonaws.directoryservice#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the directory.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The type of next token used for pagination.</p>"
           }
         },
         "Limit": {
@@ -2380,7 +2438,7 @@
         "NextToken": {
           "target": "com.amazonaws.directoryservice#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The <i>DescribeRegionsResult.NextToken</i> value from a previous call to\n      <a>DescribeRegions</a>. Pass null if this is the first call.</p>"
+            "smithy.api#documentation": "<p>The <code>DescribeRegionsResult.NextToken</code> value from a previous call to\n      <a>DescribeRegions</a>. Pass null if this is the first call.</p>"
           }
         }
       }
@@ -2391,13 +2449,13 @@
         "RegionsDescription": {
           "target": "com.amazonaws.directoryservice#RegionsDescription",
           "traits": {
-            "smithy.api#documentation": "<p>List of regional information related to the directory per replicated Region.</p>"
+            "smithy.api#documentation": "<p>List of Region information related to the directory for each replicated Region.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.directoryservice#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>If not null, more results are available. Pass this value for the <i>NextToken</i> parameter\n      in a subsequent call to <a>DescribeRegions</a> to retrieve the next set of items.</p>"
+            "smithy.api#documentation": "<p>If not null, more results are available. Pass this value for the <code>NextToken</code> parameter\n      in a subsequent call to <a>DescribeRegions</a> to retrieve the next set of items.</p>"
           }
         }
       }
@@ -2437,10 +2495,11 @@
     "com.amazonaws.directoryservice#DescribeSharedDirectoriesRequest": {
       "type": "structure",
       "members": {
-        "Limit": {
-          "target": "com.amazonaws.directoryservice#Limit",
+        "OwnerDirectoryId": {
+          "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
-            "smithy.api#documentation": "<p>The number of shared directories to return in the response object.</p>"
+            "smithy.api#documentation": "<p>Returns the identifier of the directory in the directory owner account. </p>",
+            "smithy.api#required": {}
           }
         },
         "SharedDirectoryIds": {
@@ -2455,11 +2514,10 @@
             "smithy.api#documentation": "<p>The <code>DescribeSharedDirectoriesResult.NextToken</code> value from a previous call to\n        <a>DescribeSharedDirectories</a>. Pass null if this is the first call. </p>"
           }
         },
-        "OwnerDirectoryId": {
-          "target": "com.amazonaws.directoryservice#DirectoryId",
+        "Limit": {
+          "target": "com.amazonaws.directoryservice#Limit",
           "traits": {
-            "smithy.api#documentation": "<p>Returns the identifier of the directory in the directory owner account. </p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The number of shared directories to return in the response object.</p>"
           }
         }
       }
@@ -2467,16 +2525,16 @@
     "com.amazonaws.directoryservice#DescribeSharedDirectoriesResult": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.directoryservice#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If not null, token that indicates that more results are available. Pass this value for the\n        <code>NextToken</code> parameter in a subsequent call to <a>DescribeSharedDirectories</a> to retrieve the next set of items.</p>"
-          }
-        },
         "SharedDirectories": {
           "target": "com.amazonaws.directoryservice#SharedDirectories",
           "traits": {
             "smithy.api#documentation": "<p>A list of all shared directories in your account.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.directoryservice#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If not null, token that indicates that more results are available. Pass this value for the\n        <code>NextToken</code> parameter in a subsequent call to <a>DescribeSharedDirectories</a> to retrieve the next set of items.</p>"
           }
         }
       }
@@ -2513,28 +2571,28 @@
     "com.amazonaws.directoryservice#DescribeSnapshotsRequest": {
       "type": "structure",
       "members": {
-        "SnapshotIds": {
-          "target": "com.amazonaws.directoryservice#SnapshotIds",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of identifiers of the snapshots to obtain the information for. If this member is\n         null or empty, all snapshots are returned using the <i>Limit</i> and <i>NextToken</i>\n         members.</p>"
-          }
-        },
-        "Limit": {
-          "target": "com.amazonaws.directoryservice#Limit",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of objects to return.</p>"
-          }
-        },
         "DirectoryId": {
           "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the directory for which to retrieve snapshot information.</p>"
           }
         },
+        "SnapshotIds": {
+          "target": "com.amazonaws.directoryservice#SnapshotIds",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of identifiers of the snapshots to obtain the information for. If this member is\n         null or empty, all snapshots are returned using the <i>Limit</i> and <i>NextToken</i>\n         members.</p>"
+          }
+        },
         "NextToken": {
           "target": "com.amazonaws.directoryservice#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The <i>DescribeSnapshotsResult.NextToken</i> value from a previous call to\n            <a>DescribeSnapshots</a>. Pass null if this is the first call.</p>"
+          }
+        },
+        "Limit": {
+          "target": "com.amazonaws.directoryservice#Limit",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of objects to return.</p>"
           }
         }
       },
@@ -2597,12 +2655,6 @@
     "com.amazonaws.directoryservice#DescribeTrustsRequest": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.directoryservice#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The <i>DescribeTrustsResult.NextToken</i> value from a previous call to\n      <a>DescribeTrusts</a>. Pass null if this is the first call.</p>"
-          }
-        },
         "DirectoryId": {
           "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
@@ -2613,6 +2665,12 @@
           "target": "com.amazonaws.directoryservice#TrustIds",
           "traits": {
             "smithy.api#documentation": "<p>A list of identifiers of the trust relationships for which to obtain the information. If this member is null, all trust relationships that belong to the current account are returned.</p>\n         <p>An empty list results in an <code>InvalidParameterException</code> being thrown.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.directoryservice#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The <i>DescribeTrustsResult.NextToken</i> value from a previous call to\n      <a>DescribeTrusts</a>. Pass null if this is the first call.</p>"
           }
         },
         "Limit": {
@@ -2667,11 +2725,11 @@
     "com.amazonaws.directoryservice#DirectoryAlreadyInRegionException": {
       "type": "structure",
       "members": {
-        "RequestId": {
-          "target": "com.amazonaws.directoryservice#RequestId"
-        },
         "Message": {
           "target": "com.amazonaws.directoryservice#ExceptionMessage"
+        },
+        "RequestId": {
+          "target": "com.amazonaws.directoryservice#RequestId"
         }
       },
       "traits": {
@@ -2733,12 +2791,6 @@
     "com.amazonaws.directoryservice#DirectoryConnectSettingsDescription": {
       "type": "structure",
       "members": {
-        "AvailabilityZones": {
-          "target": "com.amazonaws.directoryservice#AvailabilityZones",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of the Availability Zones that the directory is in.</p>"
-          }
-        },
         "VpcId": {
           "target": "com.amazonaws.directoryservice#VpcId",
           "traits": {
@@ -2757,16 +2809,22 @@
             "smithy.api#documentation": "<p>The user name of the service account in the on-premises directory.</p>"
           }
         },
-        "ConnectIps": {
-          "target": "com.amazonaws.directoryservice#IpAddrs",
-          "traits": {
-            "smithy.api#documentation": "<p>The IP addresses of the AD Connector servers.</p>"
-          }
-        },
         "SecurityGroupId": {
           "target": "com.amazonaws.directoryservice#SecurityGroupId",
           "traits": {
             "smithy.api#documentation": "<p>The security group identifier for the AD Connector directory.</p>"
+          }
+        },
+        "AvailabilityZones": {
+          "target": "com.amazonaws.directoryservice#AvailabilityZones",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of the Availability Zones that the directory is in.</p>"
+          }
+        },
+        "ConnectIps": {
+          "target": "com.amazonaws.directoryservice#IpAddrs",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP addresses of the AD Connector servers.</p>"
           }
         }
       },
@@ -2777,112 +2835,10 @@
     "com.amazonaws.directoryservice#DirectoryDescription": {
       "type": "structure",
       "members": {
-        "ShareStatus": {
-          "target": "com.amazonaws.directoryservice#ShareStatus",
+        "DirectoryId": {
+          "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
-            "smithy.api#documentation": "<p>Current directory status of the shared AWS Managed Microsoft AD directory.</p>"
-          }
-        },
-        "Stage": {
-          "target": "com.amazonaws.directoryservice#DirectoryStage",
-          "traits": {
-            "smithy.api#documentation": "<p>The current stage of the directory.</p>"
-          }
-        },
-        "ConnectSettings": {
-          "target": "com.amazonaws.directoryservice#DirectoryConnectSettingsDescription",
-          "traits": {
-            "smithy.api#documentation": "<p>A <a>DirectoryConnectSettingsDescription</a> object that contains additional\n      information about an AD Connector directory. This member is only present if the directory is\n      an AD Connector directory.</p>"
-          }
-        },
-        "LaunchTime": {
-          "target": "com.amazonaws.directoryservice#LaunchTime",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies when the directory was created.</p>"
-          }
-        },
-        "StageReason": {
-          "target": "com.amazonaws.directoryservice#StageReason",
-          "traits": {
-            "smithy.api#documentation": "<p>Additional information about the directory stage.</p>"
-          }
-        },
-        "Alias": {
-          "target": "com.amazonaws.directoryservice#AliasName",
-          "traits": {
-            "smithy.api#documentation": "<p>The alias for the directory. If no alias has been created for the directory, the alias is\n      the directory identifier, such as <code>d-XXXXXXXXXX</code>.</p>"
-          }
-        },
-        "DesiredNumberOfDomainControllers": {
-          "target": "com.amazonaws.directoryservice#DesiredNumberOfDomainControllers",
-          "traits": {
-            "smithy.api#documentation": "<p>The desired number of domain controllers in the directory if the directory is Microsoft AD.</p>"
-          }
-        },
-        "ShareMethod": {
-          "target": "com.amazonaws.directoryservice#ShareMethod",
-          "traits": {
-            "smithy.api#documentation": "<p>The method used when sharing a directory to determine whether the directory should be\n      shared within your AWS organization (<code>ORGANIZATIONS</code>) or with any AWS account by\n      sending a shared directory request (<code>HANDSHAKE</code>).</p>"
-          }
-        },
-        "AccessUrl": {
-          "target": "com.amazonaws.directoryservice#AccessUrl",
-          "traits": {
-            "smithy.api#documentation": "<p>The access URL for the directory, such as\n        <code>http://<alias>.awsapps.com</code>. If no alias has been created for the\n      directory, <code><alias></code> is the directory identifier, such as\n        <code>d-XXXXXXXXXX</code>.</p>"
-          }
-        },
-        "Size": {
-          "target": "com.amazonaws.directoryservice#DirectorySize",
-          "traits": {
-            "smithy.api#documentation": "<p>The directory size.</p>"
-          }
-        },
-        "ShareNotes": {
-          "target": "com.amazonaws.directoryservice#Notes",
-          "traits": {
-            "smithy.api#documentation": "<p>A directory share request that is sent by the directory owner to the directory consumer.\n      The request includes a typed message to help the directory consumer administrator determine\n      whether to approve or reject the share invitation.</p>"
-          }
-        },
-        "Type": {
-          "target": "com.amazonaws.directoryservice#DirectoryType",
-          "traits": {
-            "smithy.api#documentation": "<p>The directory size.</p>"
-          }
-        },
-        "ShortName": {
-          "target": "com.amazonaws.directoryservice#DirectoryShortName",
-          "traits": {
-            "smithy.api#documentation": "<p>The short name of the directory.</p>"
-          }
-        },
-        "RadiusStatus": {
-          "target": "com.amazonaws.directoryservice#RadiusStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the RADIUS MFA server connection.</p>"
-          }
-        },
-        "OwnerDirectoryDescription": {
-          "target": "com.amazonaws.directoryservice#OwnerDirectoryDescription",
-          "traits": {
-            "smithy.api#documentation": "<p>Describes the AWS Managed Microsoft AD directory in the directory owner account.</p>"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.directoryservice#Description",
-          "traits": {
-            "smithy.api#documentation": "<p>The description for the directory.</p>"
-          }
-        },
-        "RadiusSettings": {
-          "target": "com.amazonaws.directoryservice#RadiusSettings",
-          "traits": {
-            "smithy.api#documentation": "<p>A <a>RadiusSettings</a> object that contains information about the RADIUS\n      server configured for this directory.</p>"
-          }
-        },
-        "StageLastUpdatedDateTime": {
-          "target": "com.amazonaws.directoryservice#LastUpdatedDateTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time that the stage was last updated.</p>"
+            "smithy.api#documentation": "<p>The directory identifier.</p>"
           }
         },
         "Name": {
@@ -2891,16 +2847,16 @@
             "smithy.api#documentation": "<p>The fully qualified name of the directory.</p>"
           }
         },
-        "VpcSettings": {
-          "target": "com.amazonaws.directoryservice#DirectoryVpcSettingsDescription",
+        "ShortName": {
+          "target": "com.amazonaws.directoryservice#DirectoryShortName",
           "traits": {
-            "smithy.api#documentation": "<p>A <a>DirectoryVpcSettingsDescription</a> object that contains additional\n      information about a directory. This member is only present if the directory is a Simple AD or\n      Managed AD directory.</p>"
+            "smithy.api#documentation": "<p>The short name of the directory.</p>"
           }
         },
-        "DirectoryId": {
-          "target": "com.amazonaws.directoryservice#DirectoryId",
+        "Size": {
+          "target": "com.amazonaws.directoryservice#DirectorySize",
           "traits": {
-            "smithy.api#documentation": "<p>The directory identifier.</p>"
+            "smithy.api#documentation": "<p>The directory size.</p>"
           }
         },
         "Edition": {
@@ -2909,22 +2865,124 @@
             "smithy.api#documentation": "<p>The edition associated with this directory.</p>"
           }
         },
-        "SsoEnabled": {
-          "target": "com.amazonaws.directoryservice#SsoEnabled",
+        "Alias": {
+          "target": "com.amazonaws.directoryservice#AliasName",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates if single sign-on is enabled for the directory. For more information, see <a>EnableSso</a> and <a>DisableSso</a>.</p>"
+            "smithy.api#documentation": "<p>The alias for the directory. If no alias has been created for the directory, the alias is\n      the directory identifier, such as <code>d-XXXXXXXXXX</code>.</p>"
           }
         },
-        "RegionsInfo": {
-          "target": "com.amazonaws.directoryservice#RegionsInfo",
+        "AccessUrl": {
+          "target": "com.amazonaws.directoryservice#AccessUrl",
           "traits": {
-            "smithy.api#documentation": "<p>Lists the Regions where the directory has replicated.</p>"
+            "smithy.api#documentation": "<p>The access URL for the directory, such as\n        <code>http://<alias>.awsapps.com</code>. If no alias has been created for the\n      directory, <code><alias></code> is the directory identifier, such as\n        <code>d-XXXXXXXXXX</code>.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.directoryservice#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The description for the directory.</p>"
           }
         },
         "DnsIpAddrs": {
           "target": "com.amazonaws.directoryservice#DnsIpAddrs",
           "traits": {
             "smithy.api#documentation": "<p>The IP addresses of the DNS servers for the directory. For a Simple AD or Microsoft AD\n      directory, these are the IP addresses of the Simple AD or Microsoft AD directory servers. For\n      an AD Connector directory, these are the IP addresses of the DNS servers or domain controllers\n      in the on-premises directory to which the AD Connector is connected.</p>"
+          }
+        },
+        "Stage": {
+          "target": "com.amazonaws.directoryservice#DirectoryStage",
+          "traits": {
+            "smithy.api#documentation": "<p>The current stage of the directory.</p>"
+          }
+        },
+        "ShareStatus": {
+          "target": "com.amazonaws.directoryservice#ShareStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Current directory status of the shared AWS Managed Microsoft AD directory.</p>"
+          }
+        },
+        "ShareMethod": {
+          "target": "com.amazonaws.directoryservice#ShareMethod",
+          "traits": {
+            "smithy.api#documentation": "<p>The method used when sharing a directory to determine whether the directory should be\n      shared within your AWS organization (<code>ORGANIZATIONS</code>) or with any AWS account by\n      sending a shared directory request (<code>HANDSHAKE</code>).</p>"
+          }
+        },
+        "ShareNotes": {
+          "target": "com.amazonaws.directoryservice#Notes",
+          "traits": {
+            "smithy.api#documentation": "<p>A directory share request that is sent by the directory owner to the directory consumer.\n      The request includes a typed message to help the directory consumer administrator determine\n      whether to approve or reject the share invitation.</p>"
+          }
+        },
+        "LaunchTime": {
+          "target": "com.amazonaws.directoryservice#LaunchTime",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies when the directory was created.</p>"
+          }
+        },
+        "StageLastUpdatedDateTime": {
+          "target": "com.amazonaws.directoryservice#LastUpdatedDateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time that the stage was last updated.</p>"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.directoryservice#DirectoryType",
+          "traits": {
+            "smithy.api#documentation": "<p>The directory size.</p>"
+          }
+        },
+        "VpcSettings": {
+          "target": "com.amazonaws.directoryservice#DirectoryVpcSettingsDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>A <a>DirectoryVpcSettingsDescription</a> object that contains additional\n      information about a directory. This member is only present if the directory is a Simple AD or\n      Managed AD directory.</p>"
+          }
+        },
+        "ConnectSettings": {
+          "target": "com.amazonaws.directoryservice#DirectoryConnectSettingsDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>A <a>DirectoryConnectSettingsDescription</a> object that contains additional\n      information about an AD Connector directory. This member is only present if the directory is\n      an AD Connector directory.</p>"
+          }
+        },
+        "RadiusSettings": {
+          "target": "com.amazonaws.directoryservice#RadiusSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>A <a>RadiusSettings</a> object that contains information about the RADIUS\n      server configured for this directory.</p>"
+          }
+        },
+        "RadiusStatus": {
+          "target": "com.amazonaws.directoryservice#RadiusStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the RADIUS MFA server connection.</p>"
+          }
+        },
+        "StageReason": {
+          "target": "com.amazonaws.directoryservice#StageReason",
+          "traits": {
+            "smithy.api#documentation": "<p>Additional information about the directory stage.</p>"
+          }
+        },
+        "SsoEnabled": {
+          "target": "com.amazonaws.directoryservice#SsoEnabled",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates if single sign-on is enabled for the directory. For more information, see <a>EnableSso</a> and <a>DisableSso</a>.</p>"
+          }
+        },
+        "DesiredNumberOfDomainControllers": {
+          "target": "com.amazonaws.directoryservice#DesiredNumberOfDomainControllers",
+          "traits": {
+            "smithy.api#documentation": "<p>The desired number of domain controllers in the directory if the directory is Microsoft AD.</p>"
+          }
+        },
+        "OwnerDirectoryDescription": {
+          "target": "com.amazonaws.directoryservice#OwnerDirectoryDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the AWS Managed Microsoft AD directory in the directory owner account.</p>"
+          }
+        },
+        "RegionsInfo": {
+          "target": "com.amazonaws.directoryservice#RegionsInfo",
+          "traits": {
+            "smithy.api#documentation": "<p>Lists the Regions where the directory has replicated.</p>"
           }
         }
       },
@@ -2989,11 +3047,11 @@
     "com.amazonaws.directoryservice#DirectoryLimitExceededException": {
       "type": "structure",
       "members": {
-        "RequestId": {
-          "target": "com.amazonaws.directoryservice#RequestId"
-        },
         "Message": {
           "target": "com.amazonaws.directoryservice#ExceptionMessage"
+        },
+        "RequestId": {
+          "target": "com.amazonaws.directoryservice#RequestId"
         }
       },
       "traits": {
@@ -3004,42 +3062,6 @@
     "com.amazonaws.directoryservice#DirectoryLimits": {
       "type": "structure",
       "members": {
-        "ConnectedDirectoriesLimit": {
-          "target": "com.amazonaws.directoryservice#Limit",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of connected directories allowed in the Region.</p>"
-          }
-        },
-        "CloudOnlyMicrosoftADLimit": {
-          "target": "com.amazonaws.directoryservice#Limit",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of AWS Managed Microsoft AD directories allowed in the region.</p>"
-          }
-        },
-        "ConnectedDirectoriesCurrentCount": {
-          "target": "com.amazonaws.directoryservice#Limit",
-          "traits": {
-            "smithy.api#documentation": "<p>The current number of connected directories in the Region.</p>"
-          }
-        },
-        "CloudOnlyMicrosoftADLimitReached": {
-          "target": "com.amazonaws.directoryservice#CloudOnlyDirectoriesLimitReached",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates if the AWS Managed Microsoft AD directory limit has been reached.</p>"
-          }
-        },
-        "CloudOnlyMicrosoftADCurrentCount": {
-          "target": "com.amazonaws.directoryservice#Limit",
-          "traits": {
-            "smithy.api#documentation": "<p>The current number of AWS Managed Microsoft AD directories in the region.</p>"
-          }
-        },
-        "ConnectedDirectoriesLimitReached": {
-          "target": "com.amazonaws.directoryservice#ConnectedDirectoriesLimitReached",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates if the connected directory limit has been reached.</p>"
-          }
-        },
         "CloudOnlyDirectoriesLimit": {
           "target": "com.amazonaws.directoryservice#Limit",
           "traits": {
@@ -3057,6 +3079,42 @@
           "traits": {
             "smithy.api#documentation": "<p>Indicates if the cloud directory limit has been reached.</p>"
           }
+        },
+        "CloudOnlyMicrosoftADLimit": {
+          "target": "com.amazonaws.directoryservice#Limit",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of AWS Managed Microsoft AD directories allowed in the region.</p>"
+          }
+        },
+        "CloudOnlyMicrosoftADCurrentCount": {
+          "target": "com.amazonaws.directoryservice#Limit",
+          "traits": {
+            "smithy.api#documentation": "<p>The current number of AWS Managed Microsoft AD directories in the region.</p>"
+          }
+        },
+        "CloudOnlyMicrosoftADLimitReached": {
+          "target": "com.amazonaws.directoryservice#CloudOnlyDirectoriesLimitReached",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates if the AWS Managed Microsoft AD directory limit has been reached.</p>"
+          }
+        },
+        "ConnectedDirectoriesLimit": {
+          "target": "com.amazonaws.directoryservice#Limit",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of connected directories allowed in the Region.</p>"
+          }
+        },
+        "ConnectedDirectoriesCurrentCount": {
+          "target": "com.amazonaws.directoryservice#Limit",
+          "traits": {
+            "smithy.api#documentation": "<p>The current number of connected directories in the Region.</p>"
+          }
+        },
+        "ConnectedDirectoriesLimitReached": {
+          "target": "com.amazonaws.directoryservice#ConnectedDirectoriesLimitReached",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates if the connected directory limit has been reached.</p>"
+          }
         }
       },
       "traits": {
@@ -3072,11 +3130,11 @@
     "com.amazonaws.directoryservice#DirectoryNotSharedException": {
       "type": "structure",
       "members": {
-        "RequestId": {
-          "target": "com.amazonaws.directoryservice#RequestId"
-        },
         "Message": {
           "target": "com.amazonaws.directoryservice#ExceptionMessage"
+        },
+        "RequestId": {
+          "target": "com.amazonaws.directoryservice#RequestId"
         }
       },
       "traits": {
@@ -3182,6 +3240,9 @@
           "target": "com.amazonaws.directoryservice#DescribeTrusts"
         },
         {
+          "target": "com.amazonaws.directoryservice#DisableClientAuthentication"
+        },
+        {
           "target": "com.amazonaws.directoryservice#DisableLDAPS"
         },
         {
@@ -3189,6 +3250,9 @@
         },
         {
           "target": "com.amazonaws.directoryservice#DisableSso"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#EnableClientAuthentication"
         },
         {
           "target": "com.amazonaws.directoryservice#EnableLDAPS"
@@ -3400,17 +3464,17 @@
     "com.amazonaws.directoryservice#DirectoryVpcSettings": {
       "type": "structure",
       "members": {
-        "SubnetIds": {
-          "target": "com.amazonaws.directoryservice#SubnetIds",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifiers of the subnets for the directory servers. The two subnets must be in\n      different Availability Zones. AWS Directory Service creates a directory server and a DNS\n      server in each of these subnets.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "VpcId": {
           "target": "com.amazonaws.directoryservice#VpcId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the VPC in which to create the directory.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SubnetIds": {
+          "target": "com.amazonaws.directoryservice#SubnetIds",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifiers of the subnets for the directory servers. The two subnets must be in\n      different Availability Zones. AWS Directory Service creates a directory server and a DNS\n      server in each of these subnets.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3422,22 +3486,10 @@
     "com.amazonaws.directoryservice#DirectoryVpcSettingsDescription": {
       "type": "structure",
       "members": {
-        "SecurityGroupId": {
-          "target": "com.amazonaws.directoryservice#SecurityGroupId",
-          "traits": {
-            "smithy.api#documentation": "<p>The domain controller security group identifier for the directory.</p>"
-          }
-        },
         "VpcId": {
           "target": "com.amazonaws.directoryservice#VpcId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the VPC that the directory is in.</p>"
-          }
-        },
-        "AvailabilityZones": {
-          "target": "com.amazonaws.directoryservice#AvailabilityZones",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of Availability Zones that the directory is in.</p>"
           }
         },
         "SubnetIds": {
@@ -3445,11 +3497,78 @@
           "traits": {
             "smithy.api#documentation": "<p>The identifiers of the subnets for the directory servers.</p>"
           }
+        },
+        "SecurityGroupId": {
+          "target": "com.amazonaws.directoryservice#SecurityGroupId",
+          "traits": {
+            "smithy.api#documentation": "<p>The domain controller security group identifier for the directory.</p>"
+          }
+        },
+        "AvailabilityZones": {
+          "target": "com.amazonaws.directoryservice#AvailabilityZones",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of Availability Zones that the directory is in.</p>"
+          }
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>Contains information about the directory.</p>"
       }
+    },
+    "com.amazonaws.directoryservice#DisableClientAuthentication": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.directoryservice#DisableClientAuthenticationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.directoryservice#DisableClientAuthenticationResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.directoryservice#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#ClientException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#DirectoryDoesNotExistException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#InvalidClientAuthStatusException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#UnsupportedOperationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Disable client authentication for smart cards.</p>"
+      }
+    },
+    "com.amazonaws.directoryservice#DisableClientAuthenticationRequest": {
+      "type": "structure",
+      "members": {
+        "DirectoryId": {
+          "target": "com.amazonaws.directoryservice#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>Disable client authentication in a specified directory for smart cards. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.directoryservice#ClientAuthenticationType",
+          "traits": {
+            "smithy.api#documentation": "<p>Disable the type of client authentication request. </p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.directoryservice#DisableClientAuthenticationResult": {
+      "type": "structure",
+      "members": {}
     },
     "com.amazonaws.directoryservice#DisableLDAPS": {
       "type": "operation",
@@ -3586,12 +3705,6 @@
     "com.amazonaws.directoryservice#DisableSsoRequest": {
       "type": "structure",
       "members": {
-        "Password": {
-          "target": "com.amazonaws.directoryservice#ConnectPassword",
-          "traits": {
-            "smithy.api#documentation": "<p>The password of an alternate account to use to disable single-sign on. This is only used\n         for AD Connector directories. For more information, see the <i>UserName</i> parameter.</p>"
-          }
-        },
         "DirectoryId": {
           "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
@@ -3603,6 +3716,12 @@
           "target": "com.amazonaws.directoryservice#UserName",
           "traits": {
             "smithy.api#documentation": "<p>The username of an alternate account to use to disable single-sign on. This is only used for AD Connector directories. This account must have privileges to remove a service principal name.</p>\n         <p>If the AD Connector service account does not have privileges to remove a service principal\n         name, you can specify an alternate account with the <i>UserName</i> and <i>Password</i>\n         parameters. These credentials are only used to disable single sign-on and are not stored by\n         the service. The AD Connector service account is not changed.</p>"
+          }
+        },
+        "Password": {
+          "target": "com.amazonaws.directoryservice#ConnectPassword",
+          "traits": {
+            "smithy.api#documentation": "<p>The password of an alternate account to use to disable single-sign on. This is only used\n         for AD Connector directories. For more information, see the <i>UserName</i> parameter.</p>"
           }
         }
       },
@@ -3626,16 +3745,52 @@
     "com.amazonaws.directoryservice#DomainController": {
       "type": "structure",
       "members": {
+        "DirectoryId": {
+          "target": "com.amazonaws.directoryservice#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifier of the directory where the domain controller resides.</p>"
+          }
+        },
+        "DomainControllerId": {
+          "target": "com.amazonaws.directoryservice#DomainControllerId",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifies a specific domain controller in the directory.</p>"
+          }
+        },
         "DnsIpAddr": {
           "target": "com.amazonaws.directoryservice#IpAddr",
           "traits": {
             "smithy.api#documentation": "<p>The IP address of the domain controller.</p>"
           }
         },
-        "DirectoryId": {
-          "target": "com.amazonaws.directoryservice#DirectoryId",
+        "VpcId": {
+          "target": "com.amazonaws.directoryservice#VpcId",
           "traits": {
-            "smithy.api#documentation": "<p>Identifier of the directory where the domain controller resides.</p>"
+            "smithy.api#documentation": "<p>The identifier of the VPC that contains the domain controller.</p>"
+          }
+        },
+        "SubnetId": {
+          "target": "com.amazonaws.directoryservice#SubnetId",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifier of the subnet in the VPC that contains the domain controller.</p>"
+          }
+        },
+        "AvailabilityZone": {
+          "target": "com.amazonaws.directoryservice#AvailabilityZone",
+          "traits": {
+            "smithy.api#documentation": "<p>The Availability Zone where the domain controller is located.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.directoryservice#DomainControllerStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the domain controller.</p>"
+          }
+        },
+        "StatusReason": {
+          "target": "com.amazonaws.directoryservice#DomainControllerStatusReason",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the domain controller state.</p>"
           }
         },
         "LaunchTime": {
@@ -3648,42 +3803,6 @@
           "target": "com.amazonaws.directoryservice#LastUpdatedDateTime",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the status was last updated.</p>"
-          }
-        },
-        "VpcId": {
-          "target": "com.amazonaws.directoryservice#VpcId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the VPC that contains the domain controller.</p>"
-          }
-        },
-        "DomainControllerId": {
-          "target": "com.amazonaws.directoryservice#DomainControllerId",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifies a specific domain controller in the directory.</p>"
-          }
-        },
-        "SubnetId": {
-          "target": "com.amazonaws.directoryservice#SubnetId",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifier of the subnet in the VPC that contains the domain controller.</p>"
-          }
-        },
-        "Status": {
-          "target": "com.amazonaws.directoryservice#DomainControllerStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the domain controller.</p>"
-          }
-        },
-        "AvailabilityZone": {
-          "target": "com.amazonaws.directoryservice#AvailabilityZone",
-          "traits": {
-            "smithy.api#documentation": "<p>The Availability Zone where the domain controller is located.</p>"
-          }
-        },
-        "StatusReason": {
-          "target": "com.amazonaws.directoryservice#DomainControllerStatusReason",
-          "traits": {
-            "smithy.api#documentation": "<p>A description of the domain controller state.</p>"
           }
         }
       },
@@ -3761,6 +3880,64 @@
       "member": {
         "target": "com.amazonaws.directoryservice#DomainController"
       }
+    },
+    "com.amazonaws.directoryservice#EnableClientAuthentication": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.directoryservice#EnableClientAuthenticationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.directoryservice#EnableClientAuthenticationResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.directoryservice#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#ClientException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#DirectoryDoesNotExistException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#InvalidClientAuthStatusException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#NoAvailableCertificateException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#UnsupportedOperationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Enable client authentication for smardtcards.</p>"
+      }
+    },
+    "com.amazonaws.directoryservice#EnableClientAuthenticationRequest": {
+      "type": "structure",
+      "members": {
+        "DirectoryId": {
+          "target": "com.amazonaws.directoryservice#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>Enable client authentication in a specified directory for smart cards. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.directoryservice#ClientAuthenticationType",
+          "traits": {
+            "smithy.api#documentation": "<p>Enable the type of client authentication request. </p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.directoryservice#EnableClientAuthenticationResult": {
+      "type": "structure",
+      "members": {}
     },
     "com.amazonaws.directoryservice#EnableLDAPS": {
       "type": "operation",
@@ -3950,11 +4127,11 @@
     "com.amazonaws.directoryservice#EntityAlreadyExistsException": {
       "type": "structure",
       "members": {
-        "RequestId": {
-          "target": "com.amazonaws.directoryservice#RequestId"
-        },
         "Message": {
           "target": "com.amazonaws.directoryservice#ExceptionMessage"
+        },
+        "RequestId": {
+          "target": "com.amazonaws.directoryservice#RequestId"
         }
       },
       "traits": {
@@ -3965,11 +4142,11 @@
     "com.amazonaws.directoryservice#EntityDoesNotExistException": {
       "type": "structure",
       "members": {
-        "RequestId": {
-          "target": "com.amazonaws.directoryservice#RequestId"
-        },
         "Message": {
           "target": "com.amazonaws.directoryservice#ExceptionMessage"
+        },
+        "RequestId": {
+          "target": "com.amazonaws.directoryservice#RequestId"
         }
       },
       "traits": {
@@ -3986,28 +4163,28 @@
             "smithy.api#documentation": "<p>The Directory ID of an AWS Directory Service directory that will publish status messages to an SNS topic.</p>"
           }
         },
-        "TopicArn": {
-          "target": "com.amazonaws.directoryservice#TopicArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The SNS topic ARN (Amazon Resource Name).</p>"
-          }
-        },
-        "Status": {
-          "target": "com.amazonaws.directoryservice#TopicStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The topic registration status.</p>"
-          }
-        },
         "TopicName": {
           "target": "com.amazonaws.directoryservice#TopicName",
           "traits": {
             "smithy.api#documentation": "<p>The name of an AWS SNS topic the receives status messages from the directory.</p>"
           }
         },
+        "TopicArn": {
+          "target": "com.amazonaws.directoryservice#TopicArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The SNS topic ARN (Amazon Resource Name).</p>"
+          }
+        },
         "CreatedDateTime": {
           "target": "com.amazonaws.directoryservice#CreatedDateTime",
           "traits": {
             "smithy.api#documentation": "<p>The date and time of when you associated your directory with the SNS topic.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.directoryservice#TopicStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The topic registration status.</p>"
           }
         }
       },
@@ -4153,14 +4330,29 @@
         "smithy.api#error": "client"
       }
     },
+    "com.amazonaws.directoryservice#InvalidClientAuthStatusException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.directoryservice#ExceptionMessage"
+        },
+        "RequestId": {
+          "target": "com.amazonaws.directoryservice#RequestId"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The client authorization was invalid.</p>",
+        "smithy.api#error": "client"
+      }
+    },
     "com.amazonaws.directoryservice#InvalidLDAPSStatusException": {
       "type": "structure",
       "members": {
-        "RequestId": {
-          "target": "com.amazonaws.directoryservice#RequestId"
-        },
         "Message": {
           "target": "com.amazonaws.directoryservice#ExceptionMessage"
+        },
+        "RequestId": {
+          "target": "com.amazonaws.directoryservice#RequestId"
         }
       },
       "traits": {
@@ -4171,11 +4363,11 @@
     "com.amazonaws.directoryservice#InvalidNextTokenException": {
       "type": "structure",
       "members": {
-        "RequestId": {
-          "target": "com.amazonaws.directoryservice#RequestId"
-        },
         "Message": {
           "target": "com.amazonaws.directoryservice#ExceptionMessage"
+        },
+        "RequestId": {
+          "target": "com.amazonaws.directoryservice#RequestId"
         }
       },
       "traits": {
@@ -4216,11 +4408,11 @@
     "com.amazonaws.directoryservice#InvalidTargetException": {
       "type": "structure",
       "members": {
-        "RequestId": {
-          "target": "com.amazonaws.directoryservice#RequestId"
-        },
         "Message": {
           "target": "com.amazonaws.directoryservice#ExceptionMessage"
+        },
+        "RequestId": {
+          "target": "com.amazonaws.directoryservice#RequestId"
         }
       },
       "traits": {
@@ -4263,16 +4455,16 @@
     "com.amazonaws.directoryservice#IpRouteInfo": {
       "type": "structure",
       "members": {
+        "DirectoryId": {
+          "target": "com.amazonaws.directoryservice#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifier (ID) of the directory associated with the IP addresses.</p>"
+          }
+        },
         "CidrIp": {
           "target": "com.amazonaws.directoryservice#CidrIp",
           "traits": {
             "smithy.api#documentation": "<p>IP address block in the <a>IpRoute</a>.</p>"
-          }
-        },
-        "AddedDateTime": {
-          "target": "com.amazonaws.directoryservice#AddedDateTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time the address block was added to the directory.</p>"
           }
         },
         "IpRouteStatusMsg": {
@@ -4281,22 +4473,22 @@
             "smithy.api#documentation": "<p>The status of the IP address block.</p>"
           }
         },
-        "Description": {
-          "target": "com.amazonaws.directoryservice#Description",
+        "AddedDateTime": {
+          "target": "com.amazonaws.directoryservice#AddedDateTime",
           "traits": {
-            "smithy.api#documentation": "<p>Description of the <a>IpRouteInfo</a>.</p>"
-          }
-        },
-        "DirectoryId": {
-          "target": "com.amazonaws.directoryservice#DirectoryId",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifier (ID) of the directory associated with the IP addresses.</p>"
+            "smithy.api#documentation": "<p>The date and time the address block was added to the directory.</p>"
           }
         },
         "IpRouteStatusReason": {
           "target": "com.amazonaws.directoryservice#IpRouteStatusReason",
           "traits": {
             "smithy.api#documentation": "<p>The reason for the IpRouteStatusMsg.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.directoryservice#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>Description of the <a>IpRouteInfo</a>.</p>"
           }
         }
       },
@@ -4368,10 +4560,10 @@
     "com.amazonaws.directoryservice#LDAPSSettingInfo": {
       "type": "structure",
       "members": {
-        "LastUpdatedDateTime": {
-          "target": "com.amazonaws.directoryservice#LastUpdatedDateTime",
+        "LDAPSStatus": {
+          "target": "com.amazonaws.directoryservice#LDAPSStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time when the LDAPS settings were last updated.</p>"
+            "smithy.api#documentation": "<p>The state of the LDAPS settings.</p>"
           }
         },
         "LDAPSStatusReason": {
@@ -4380,10 +4572,10 @@
             "smithy.api#documentation": "<p>Describes a state change for LDAPS.</p>"
           }
         },
-        "LDAPSStatus": {
-          "target": "com.amazonaws.directoryservice#LDAPSStatus",
+        "LastUpdatedDateTime": {
+          "target": "com.amazonaws.directoryservice#LastUpdatedDateTime",
           "traits": {
-            "smithy.api#documentation": "<p>The state of the LDAPS settings.</p>"
+            "smithy.api#documentation": "<p>The date and time when the LDAPS settings were last updated.</p>"
           }
         }
       },
@@ -4493,10 +4685,11 @@
     "com.amazonaws.directoryservice#ListCertificatesRequest": {
       "type": "structure",
       "members": {
-        "Limit": {
-          "target": "com.amazonaws.directoryservice#PageLimit",
+        "DirectoryId": {
+          "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
-            "smithy.api#documentation": "<p>The number of items that should show up on one page</p>"
+            "smithy.api#documentation": "<p>The identifier of the directory.</p>",
+            "smithy.api#required": {}
           }
         },
         "NextToken": {
@@ -4505,11 +4698,10 @@
             "smithy.api#documentation": "<p>A token for requesting another page of certificates if the <code>NextToken</code> response\n      element indicates that more certificates are available. Use the value of the returned\n        <code>NextToken</code> element in your request until the token comes back as\n        <code>null</code>. Pass <code>null</code> if this is the first call.</p>"
           }
         },
-        "DirectoryId": {
-          "target": "com.amazonaws.directoryservice#DirectoryId",
+        "Limit": {
+          "target": "com.amazonaws.directoryservice#PageLimit",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the directory.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The number of items that should show up on one page</p>"
           }
         }
       }
@@ -4563,6 +4755,13 @@
     "com.amazonaws.directoryservice#ListIpRoutesRequest": {
       "type": "structure",
       "members": {
+        "DirectoryId": {
+          "target": "com.amazonaws.directoryservice#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifier (ID) of the directory for which you want to retrieve the IP addresses.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "NextToken": {
           "target": "com.amazonaws.directoryservice#NextToken",
           "traits": {
@@ -4573,13 +4772,6 @@
           "target": "com.amazonaws.directoryservice#Limit",
           "traits": {
             "smithy.api#documentation": "<p>Maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation.</p>"
-          }
-        },
-        "DirectoryId": {
-          "target": "com.amazonaws.directoryservice#DirectoryId",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifier (ID) of the directory for which you want to retrieve the IP addresses.</p>",
-            "smithy.api#required": {}
           }
         }
       }
@@ -4630,16 +4822,16 @@
     "com.amazonaws.directoryservice#ListLogSubscriptionsRequest": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.directoryservice#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The token for the next set of items to return.</p>"
-          }
-        },
         "DirectoryId": {
           "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
             "smithy.api#documentation": "<p>If a <i>DirectoryID</i> is provided, lists only the log subscription\n      associated with that directory. If no <i>DirectoryId</i> is provided, lists all\n      log subscriptions associated with your AWS account. If there are no log subscriptions for the\n      AWS account or the directory, an empty list will be returned.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.directoryservice#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next set of items to return.</p>"
           }
         },
         "Limit": {
@@ -4696,12 +4888,6 @@
     "com.amazonaws.directoryservice#ListSchemaExtensionsRequest": {
       "type": "structure",
       "members": {
-        "Limit": {
-          "target": "com.amazonaws.directoryservice#Limit",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of items to return.</p>"
-          }
-        },
         "DirectoryId": {
           "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
@@ -4714,22 +4900,28 @@
           "traits": {
             "smithy.api#documentation": "<p>The <code>ListSchemaExtensions.NextToken</code> value from a previous call to <code>ListSchemaExtensions</code>. Pass null if this is the first call.</p>"
           }
+        },
+        "Limit": {
+          "target": "com.amazonaws.directoryservice#Limit",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of items to return.</p>"
+          }
         }
       }
     },
     "com.amazonaws.directoryservice#ListSchemaExtensionsResult": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.directoryservice#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If not null, more results are available. Pass this value for the <code>NextToken</code> parameter in a subsequent call to <code>ListSchemaExtensions</code> to retrieve the next set of items.</p>"
-          }
-        },
         "SchemaExtensionsInfo": {
           "target": "com.amazonaws.directoryservice#SchemaExtensionsInfo",
           "traits": {
             "smithy.api#documentation": "<p>Information about the schema extensions applied to the directory.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.directoryservice#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If not null, more results are available. Pass this value for the <code>NextToken</code> parameter in a subsequent call to <code>ListSchemaExtensions</code> to retrieve the next set of items.</p>"
           }
         }
       }
@@ -4766,6 +4958,13 @@
     "com.amazonaws.directoryservice#ListTagsForResourceRequest": {
       "type": "structure",
       "members": {
+        "ResourceId": {
+          "target": "com.amazonaws.directoryservice#ResourceId",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifier (ID) of the directory for which you want to retrieve tags.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "NextToken": {
           "target": "com.amazonaws.directoryservice#NextToken",
           "traits": {
@@ -4776,13 +4975,6 @@
           "target": "com.amazonaws.directoryservice#Limit",
           "traits": {
             "smithy.api#documentation": "<p>Reserved for future use.</p>"
-          }
-        },
-        "ResourceId": {
-          "target": "com.amazonaws.directoryservice#ResourceId",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifier (ID) of the directory for which you want to retrieve tags.</p>",
-            "smithy.api#required": {}
           }
         }
       }
@@ -4817,6 +5009,12 @@
     "com.amazonaws.directoryservice#LogSubscription": {
       "type": "structure",
       "members": {
+        "DirectoryId": {
+          "target": "com.amazonaws.directoryservice#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifier (ID) of the directory that you want to associate with the log\n      subscription.</p>"
+          }
+        },
         "LogGroupName": {
           "target": "com.amazonaws.directoryservice#LogGroupName",
           "traits": {
@@ -4827,12 +5025,6 @@
           "target": "com.amazonaws.directoryservice#SubscriptionCreatedDateTime",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the log subscription was created.</p>"
-          }
-        },
-        "DirectoryId": {
-          "target": "com.amazonaws.directoryservice#DirectoryId",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifier (ID) of the directory that you want to associate with the log\n      subscription.</p>"
           }
         }
       },
@@ -4877,6 +5069,16 @@
         "smithy.api#sensitive": {}
       }
     },
+    "com.amazonaws.directoryservice#OCSPUrl": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1024
+        },
+        "smithy.api#pattern": "^(https?|ftp|file|ldaps?)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;()]*[-a-zA-Z0-9+&@#/%=~_|()]"
+      }
+    },
     "com.amazonaws.directoryservice#OrganizationalUnitDN": {
       "type": "string",
       "traits": {
@@ -4904,24 +5106,6 @@
     "com.amazonaws.directoryservice#OwnerDirectoryDescription": {
       "type": "structure",
       "members": {
-        "RadiusSettings": {
-          "target": "com.amazonaws.directoryservice#RadiusSettings",
-          "traits": {
-            "smithy.api#documentation": "<p>A <a>RadiusSettings</a> object that contains information about the RADIUS\n      server.</p>"
-          }
-        },
-        "DnsIpAddrs": {
-          "target": "com.amazonaws.directoryservice#DnsIpAddrs",
-          "traits": {
-            "smithy.api#documentation": "<p>IP address of the directory’s domain controllers.</p>"
-          }
-        },
-        "RadiusStatus": {
-          "target": "com.amazonaws.directoryservice#RadiusStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the status of the RADIUS server.</p>"
-          }
-        },
         "DirectoryId": {
           "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
@@ -4934,10 +5118,28 @@
             "smithy.api#documentation": "<p>Identifier of the directory owner account.</p>"
           }
         },
+        "DnsIpAddrs": {
+          "target": "com.amazonaws.directoryservice#DnsIpAddrs",
+          "traits": {
+            "smithy.api#documentation": "<p>IP address of the directory’s domain controllers.</p>"
+          }
+        },
         "VpcSettings": {
           "target": "com.amazonaws.directoryservice#DirectoryVpcSettingsDescription",
           "traits": {
             "smithy.api#documentation": "<p>Information about the VPC settings for the directory.</p>"
+          }
+        },
+        "RadiusSettings": {
+          "target": "com.amazonaws.directoryservice#RadiusSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>A <a>RadiusSettings</a> object that contains information about the RADIUS\n      server.</p>"
+          }
+        },
+        "RadiusStatus": {
+          "target": "com.amazonaws.directoryservice#RadiusStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the status of the RADIUS server.</p>"
           }
         }
       },
@@ -5015,16 +5217,10 @@
     "com.amazonaws.directoryservice#RadiusSettings": {
       "type": "structure",
       "members": {
-        "DisplayLabel": {
-          "target": "com.amazonaws.directoryservice#RadiusDisplayLabel",
+        "RadiusServers": {
+          "target": "com.amazonaws.directoryservice#Servers",
           "traits": {
-            "smithy.api#documentation": "<p>Not currently used.</p>"
-          }
-        },
-        "SharedSecret": {
-          "target": "com.amazonaws.directoryservice#RadiusSharedSecret",
-          "traits": {
-            "smithy.api#documentation": "<p>Required for enabling RADIUS on the directory.</p>"
+            "smithy.api#documentation": "<p>An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.</p>"
           }
         },
         "RadiusPort": {
@@ -5033,10 +5229,22 @@
             "smithy.api#documentation": "<p>The port that your RADIUS server is using for communications. Your on-premises network must allow inbound traffic over this port from the AWS Directory Service servers.</p>"
           }
         },
+        "RadiusTimeout": {
+          "target": "com.amazonaws.directoryservice#RadiusTimeout",
+          "traits": {
+            "smithy.api#documentation": "<p>The amount of time, in seconds, to wait for the RADIUS server to respond.</p>"
+          }
+        },
         "RadiusRetries": {
           "target": "com.amazonaws.directoryservice#RadiusRetries",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of times that communication with the RADIUS server is attempted.</p>"
+          }
+        },
+        "SharedSecret": {
+          "target": "com.amazonaws.directoryservice#RadiusSharedSecret",
+          "traits": {
+            "smithy.api#documentation": "<p>Required for enabling RADIUS on the directory.</p>"
           }
         },
         "AuthenticationProtocol": {
@@ -5045,22 +5253,16 @@
             "smithy.api#documentation": "<p>The protocol specified for your RADIUS endpoints.</p>"
           }
         },
-        "UseSameUsername": {
-          "target": "com.amazonaws.directoryservice#UseSameUsername",
+        "DisplayLabel": {
+          "target": "com.amazonaws.directoryservice#RadiusDisplayLabel",
           "traits": {
             "smithy.api#documentation": "<p>Not currently used.</p>"
           }
         },
-        "RadiusTimeout": {
-          "target": "com.amazonaws.directoryservice#RadiusTimeout",
+        "UseSameUsername": {
+          "target": "com.amazonaws.directoryservice#UseSameUsername",
           "traits": {
-            "smithy.api#documentation": "<p>The amount of time, in seconds, to wait for the RADIUS server to respond.</p>"
-          }
-        },
-        "RadiusServers": {
-          "target": "com.amazonaws.directoryservice#Servers",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.</p>"
+            "smithy.api#documentation": "<p>Not currently used.</p>"
           }
         }
       },
@@ -5109,13 +5311,10 @@
     "com.amazonaws.directoryservice#RegionDescription": {
       "type": "structure",
       "members": {
-        "VpcSettings": {
-          "target": "com.amazonaws.directoryservice#DirectoryVpcSettings"
-        },
-        "StatusLastUpdatedDateTime": {
-          "target": "com.amazonaws.directoryservice#StateLastUpdatedDateTime",
+        "DirectoryId": {
+          "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time that the Region status was last updated.</p>"
+            "smithy.api#documentation": "<p>The identifier of the directory.</p>"
           }
         },
         "RegionName": {
@@ -5127,7 +5326,7 @@
         "RegionType": {
           "target": "com.amazonaws.directoryservice#RegionType",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies if the Region is the primary Region or an additional Region.</p>"
+            "smithy.api#documentation": "<p>Specifies whether the Region is the primary Region or an additional Region.</p>"
           }
         },
         "Status": {
@@ -5135,6 +5334,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The status of the replication process for the specified Region.</p>"
           }
+        },
+        "VpcSettings": {
+          "target": "com.amazonaws.directoryservice#DirectoryVpcSettings"
         },
         "DesiredNumberOfDomainControllers": {
           "target": "com.amazonaws.directoryservice#DesiredNumberOfDomainControllers",
@@ -5148,10 +5350,10 @@
             "smithy.api#documentation": "<p>Specifies when the Region replication began.</p>"
           }
         },
-        "DirectoryId": {
-          "target": "com.amazonaws.directoryservice#DirectoryId",
+        "StatusLastUpdatedDateTime": {
+          "target": "com.amazonaws.directoryservice#StateLastUpdatedDateTime",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the directory.</p>"
+            "smithy.api#documentation": "<p>The date and time that the Region status was last updated.</p>"
           }
         },
         "LastUpdatedDateTime": {
@@ -5162,7 +5364,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The replicated regional information for a directory.</p>"
+        "smithy.api#documentation": "<p>The replicated Region information for a directory.</p>"
       }
     },
     "com.amazonaws.directoryservice#RegionLimitExceededException": {
@@ -5176,7 +5378,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>You have reached the limit for maximum number of simultaneous region replications per directory.</p>",
+        "smithy.api#documentation": "<p>You have reached the limit for maximum number of simultaneous Region replications per directory.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -5216,7 +5418,7 @@
         "PrimaryRegion": {
           "target": "com.amazonaws.directoryservice#RegionName",
           "traits": {
-            "smithy.api#documentation": "<p>The Region from where the AWS Managed Microsoft AD directory was originally created.</p>"
+            "smithy.api#documentation": "<p>The Region where the AWS Managed Microsoft AD directory was originally created.</p>"
           }
         },
         "AdditionalRegions": {
@@ -5287,6 +5489,15 @@
             "smithy.api#documentation": "<p>The certificate PEM string that needs to be registered.</p>",
             "smithy.api#required": {}
           }
+        },
+        "Type": {
+          "target": "com.amazonaws.directoryservice#CertificateType",
+          "traits": {
+            "smithy.api#documentation": "<p>The certificate type to register for the request.</p>"
+          }
+        },
+        "ClientCertAuthSettings": {
+          "target": "com.amazonaws.directoryservice#ClientCertAuthSettings"
         }
       }
     },
@@ -5330,17 +5541,17 @@
     "com.amazonaws.directoryservice#RegisterEventTopicRequest": {
       "type": "structure",
       "members": {
-        "TopicName": {
-          "target": "com.amazonaws.directoryservice#TopicName",
-          "traits": {
-            "smithy.api#documentation": "<p>The SNS topic name to which the directory will publish status messages. This SNS topic must be in the same region as the specified Directory ID.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "DirectoryId": {
           "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
             "smithy.api#documentation": "<p>The Directory ID that will publish status messages to the SNS topic.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TopicName": {
+          "target": "com.amazonaws.directoryservice#TopicName",
+          "traits": {
+            "smithy.api#documentation": "<p>The SNS topic name to which the directory will publish status messages. This SNS topic must be in the same region as the specified Directory ID.</p>",
             "smithy.api#required": {}
           }
         }
@@ -5549,17 +5760,17 @@
     "com.amazonaws.directoryservice#RemoveTagsFromResourceRequest": {
       "type": "structure",
       "members": {
-        "TagKeys": {
-          "target": "com.amazonaws.directoryservice#TagKeys",
-          "traits": {
-            "smithy.api#documentation": "<p>The tag key (name) of the tag to be removed.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ResourceId": {
           "target": "com.amazonaws.directoryservice#ResourceId",
           "traits": {
             "smithy.api#documentation": "<p>Identifier (ID) of the directory from which to remove the tag.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TagKeys": {
+          "target": "com.amazonaws.directoryservice#TagKeys",
+          "traits": {
+            "smithy.api#documentation": "<p>The tag key (name) of the tag to be removed.</p>",
             "smithy.api#required": {}
           }
         }
@@ -5632,17 +5843,17 @@
             "smithy.api#required": {}
           }
         },
-        "NewPassword": {
-          "target": "com.amazonaws.directoryservice#UserPassword",
-          "traits": {
-            "smithy.api#documentation": "<p>The new password that will be reset.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "UserName": {
           "target": "com.amazonaws.directoryservice#CustomerUserName",
           "traits": {
             "smithy.api#documentation": "<p>The user name of the user whose password will be reset.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "NewPassword": {
+          "target": "com.amazonaws.directoryservice#UserPassword",
+          "traits": {
+            "smithy.api#documentation": "<p>The new password that will be reset.</p>",
             "smithy.api#required": {}
           }
         }
@@ -5725,10 +5936,10 @@
     "com.amazonaws.directoryservice#SchemaExtensionInfo": {
       "type": "structure",
       "members": {
-        "StartDateTime": {
-          "target": "com.amazonaws.directoryservice#StartDateTime",
+        "DirectoryId": {
+          "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time that the schema extension started being applied to the directory.</p>"
+            "smithy.api#documentation": "<p>The identifier of the directory to which the schema extension is applied.</p>"
           }
         },
         "SchemaExtensionId": {
@@ -5737,10 +5948,10 @@
             "smithy.api#documentation": "<p>The identifier of the schema extension.</p>"
           }
         },
-        "DirectoryId": {
-          "target": "com.amazonaws.directoryservice#DirectoryId",
+        "Description": {
+          "target": "com.amazonaws.directoryservice#Description",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the directory to which the schema extension is applied.</p>"
+            "smithy.api#documentation": "<p>A description of the schema extension.</p>"
           }
         },
         "SchemaExtensionStatus": {
@@ -5755,10 +5966,10 @@
             "smithy.api#documentation": "<p>The reason for the <code>SchemaExtensionStatus</code>.</p>"
           }
         },
-        "Description": {
-          "target": "com.amazonaws.directoryservice#Description",
+        "StartDateTime": {
+          "target": "com.amazonaws.directoryservice#StartDateTime",
           "traits": {
-            "smithy.api#documentation": "<p>A description of the schema extension.</p>"
+            "smithy.api#documentation": "<p>The date and time that the schema extension started being applied to the directory.</p>"
           }
         },
         "EndDateTime": {
@@ -5929,6 +6140,12 @@
             "smithy.api#required": {}
           }
         },
+        "ShareNotes": {
+          "target": "com.amazonaws.directoryservice#Notes",
+          "traits": {
+            "smithy.api#documentation": "<p>A directory share request that is sent by the directory owner to the directory consumer.\n      The request includes a typed message to help the directory consumer administrator determine\n      whether to approve or reject the share invitation.</p>"
+          }
+        },
         "ShareTarget": {
           "target": "com.amazonaws.directoryservice#ShareTarget",
           "traits": {
@@ -5941,12 +6158,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The method used when sharing a directory to determine whether the directory should be\n      shared within your AWS organization (<code>ORGANIZATIONS</code>) or with any AWS account by\n      sending a directory sharing request (<code>HANDSHAKE</code>).</p>",
             "smithy.api#required": {}
-          }
-        },
-        "ShareNotes": {
-          "target": "com.amazonaws.directoryservice#Notes",
-          "traits": {
-            "smithy.api#documentation": "<p>A directory share request that is sent by the directory owner to the directory consumer.\n      The request includes a typed message to help the directory consumer administrator determine\n      whether to approve or reject the share invitation.</p>"
           }
         }
       }
@@ -5965,11 +6176,11 @@
     "com.amazonaws.directoryservice#ShareLimitExceededException": {
       "type": "structure",
       "members": {
-        "RequestId": {
-          "target": "com.amazonaws.directoryservice#RequestId"
-        },
         "Message": {
           "target": "com.amazonaws.directoryservice#ExceptionMessage"
+        },
+        "RequestId": {
+          "target": "com.amazonaws.directoryservice#RequestId"
         }
       },
       "traits": {
@@ -6038,17 +6249,17 @@
     "com.amazonaws.directoryservice#ShareTarget": {
       "type": "structure",
       "members": {
-        "Type": {
-          "target": "com.amazonaws.directoryservice#TargetType",
-          "traits": {
-            "smithy.api#documentation": "<p>Type of identifier to be used in the <code>Id</code> field.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Id": {
           "target": "com.amazonaws.directoryservice#TargetId",
           "traits": {
             "smithy.api#documentation": "<p>Identifier of the directory consumer account.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.directoryservice#TargetType",
+          "traits": {
+            "smithy.api#documentation": "<p>Type of identifier to be used in the <code>Id</code> field.</p>",
             "smithy.api#required": {}
           }
         }
@@ -6066,10 +6277,10 @@
     "com.amazonaws.directoryservice#SharedDirectory": {
       "type": "structure",
       "members": {
-        "ShareStatus": {
-          "target": "com.amazonaws.directoryservice#ShareStatus",
+        "OwnerAccountId": {
+          "target": "com.amazonaws.directoryservice#CustomerId",
           "traits": {
-            "smithy.api#documentation": "<p>Current directory status of the shared AWS Managed Microsoft AD directory.</p>"
+            "smithy.api#documentation": "<p>Identifier of the directory owner account, which contains the directory that has been\n      shared to the consumer account.</p>"
           }
         },
         "OwnerDirectoryId": {
@@ -6078,28 +6289,34 @@
             "smithy.api#documentation": "<p>Identifier of the directory in the directory owner account. </p>"
           }
         },
+        "ShareMethod": {
+          "target": "com.amazonaws.directoryservice#ShareMethod",
+          "traits": {
+            "smithy.api#documentation": "<p>The method used when sharing a directory to determine whether the directory should be\n      shared within your AWS organization (<code>ORGANIZATIONS</code>) or with any AWS account by\n      sending a shared directory request (<code>HANDSHAKE</code>).</p>"
+          }
+        },
+        "SharedAccountId": {
+          "target": "com.amazonaws.directoryservice#CustomerId",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifier of the directory consumer account that has access to the shared directory\n        (<code>OwnerDirectoryId</code>) in the directory owner account.</p>"
+          }
+        },
         "SharedDirectoryId": {
           "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
             "smithy.api#documentation": "<p>Identifier of the shared directory in the directory consumer account. This identifier is\n      different for each directory owner account.</p>"
           }
         },
-        "OwnerAccountId": {
-          "target": "com.amazonaws.directoryservice#CustomerId",
+        "ShareStatus": {
+          "target": "com.amazonaws.directoryservice#ShareStatus",
           "traits": {
-            "smithy.api#documentation": "<p>Identifier of the directory owner account, which contains the directory that has been\n      shared to the consumer account.</p>"
+            "smithy.api#documentation": "<p>Current directory status of the shared AWS Managed Microsoft AD directory.</p>"
           }
         },
         "ShareNotes": {
           "target": "com.amazonaws.directoryservice#Notes",
           "traits": {
             "smithy.api#documentation": "<p>A directory share request that is sent by the directory owner to the directory consumer.\n      The request includes a typed message to help the directory consumer administrator determine\n      whether to approve or reject the share invitation.</p>"
-          }
-        },
-        "ShareMethod": {
-          "target": "com.amazonaws.directoryservice#ShareMethod",
-          "traits": {
-            "smithy.api#documentation": "<p>The method used when sharing a directory to determine whether the directory should be\n      shared within your AWS organization (<code>ORGANIZATIONS</code>) or with any AWS account by\n      sending a shared directory request (<code>HANDSHAKE</code>).</p>"
           }
         },
         "CreatedDateTime": {
@@ -6113,12 +6330,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the shared directory was last updated.</p>"
           }
-        },
-        "SharedAccountId": {
-          "target": "com.amazonaws.directoryservice#CustomerId",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifier of the directory consumer account that has access to the shared directory\n        (<code>OwnerDirectoryId</code>) in the directory owner account.</p>"
-          }
         }
       },
       "traits": {
@@ -6128,16 +6339,10 @@
     "com.amazonaws.directoryservice#Snapshot": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.directoryservice#SnapshotName",
+        "DirectoryId": {
+          "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
-            "smithy.api#documentation": "<p>The descriptive name of the snapshot.</p>"
-          }
-        },
-        "Type": {
-          "target": "com.amazonaws.directoryservice#SnapshotType",
-          "traits": {
-            "smithy.api#documentation": "<p>The snapshot type.</p>"
+            "smithy.api#documentation": "<p>The directory identifier.</p>"
           }
         },
         "SnapshotId": {
@@ -6146,10 +6351,16 @@
             "smithy.api#documentation": "<p>The snapshot identifier.</p>"
           }
         },
-        "DirectoryId": {
-          "target": "com.amazonaws.directoryservice#DirectoryId",
+        "Type": {
+          "target": "com.amazonaws.directoryservice#SnapshotType",
           "traits": {
-            "smithy.api#documentation": "<p>The directory identifier.</p>"
+            "smithy.api#documentation": "<p>The snapshot type.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.directoryservice#SnapshotName",
+          "traits": {
+            "smithy.api#documentation": "<p>The descriptive name of the snapshot.</p>"
           }
         },
         "Status": {
@@ -6187,11 +6398,11 @@
     "com.amazonaws.directoryservice#SnapshotLimitExceededException": {
       "type": "structure",
       "members": {
-        "RequestId": {
-          "target": "com.amazonaws.directoryservice#RequestId"
-        },
         "Message": {
           "target": "com.amazonaws.directoryservice#ExceptionMessage"
+        },
+        "RequestId": {
+          "target": "com.amazonaws.directoryservice#RequestId"
         }
       },
       "traits": {
@@ -6202,16 +6413,16 @@
     "com.amazonaws.directoryservice#SnapshotLimits": {
       "type": "structure",
       "members": {
-        "ManualSnapshotsCurrentCount": {
-          "target": "com.amazonaws.directoryservice#Limit",
-          "traits": {
-            "smithy.api#documentation": "<p>The current number of manual snapshots of the directory.</p>"
-          }
-        },
         "ManualSnapshotsLimit": {
           "target": "com.amazonaws.directoryservice#Limit",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of manual snapshots allowed.</p>"
+          }
+        },
+        "ManualSnapshotsCurrentCount": {
+          "target": "com.amazonaws.directoryservice#Limit",
+          "traits": {
+            "smithy.api#documentation": "<p>The current number of manual snapshots of the directory.</p>"
           }
         },
         "ManualSnapshotsLimitReached": {
@@ -6322,17 +6533,17 @@
     "com.amazonaws.directoryservice#StartSchemaExtensionRequest": {
       "type": "structure",
       "members": {
-        "Description": {
-          "target": "com.amazonaws.directoryservice#Description",
-          "traits": {
-            "smithy.api#documentation": "<p>A description of the schema extension.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "DirectoryId": {
           "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the directory for which the schema extension will be applied to.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "CreateSnapshotBeforeSchemaExtension": {
+          "target": "com.amazonaws.directoryservice#CreateSnapshotBeforeSchemaExtension",
+          "traits": {
+            "smithy.api#documentation": "<p>If true, creates a snapshot of the directory before applying the schema extension.</p>",
             "smithy.api#required": {}
           }
         },
@@ -6343,10 +6554,10 @@
             "smithy.api#required": {}
           }
         },
-        "CreateSnapshotBeforeSchemaExtension": {
-          "target": "com.amazonaws.directoryservice#CreateSnapshotBeforeSchemaExtension",
+        "Description": {
+          "target": "com.amazonaws.directoryservice#Description",
           "traits": {
-            "smithy.api#documentation": "<p>If true, creates a snapshot of the directory before applying the schema extension.</p>",
+            "smithy.api#documentation": "<p>A description of the schema extension.</p>",
             "smithy.api#required": {}
           }
         }
@@ -6387,17 +6598,17 @@
     "com.amazonaws.directoryservice#Tag": {
       "type": "structure",
       "members": {
-        "Value": {
-          "target": "com.amazonaws.directoryservice#TagValue",
-          "traits": {
-            "smithy.api#documentation": "<p>The optional value of the tag. The string value can be Unicode characters. The string can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:/=+\\\\-]*)$\").</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Key": {
           "target": "com.amazonaws.directoryservice#TagKey",
           "traits": {
             "smithy.api#documentation": "<p>Required name of the tag. The string value can be Unicode characters and cannot be prefixed with \"aws:\". The string can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:/=+\\\\-]*)$\").</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.directoryservice#TagValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The optional value of the tag. The string value can be Unicode characters. The string can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:/=+\\\\-]*)$\").</p>",
             "smithy.api#required": {}
           }
         }
@@ -6425,11 +6636,11 @@
     "com.amazonaws.directoryservice#TagLimitExceededException": {
       "type": "structure",
       "members": {
-        "RequestId": {
-          "target": "com.amazonaws.directoryservice#RequestId"
-        },
         "Message": {
           "target": "com.amazonaws.directoryservice#ExceptionMessage"
+        },
+        "RequestId": {
+          "target": "com.amazonaws.directoryservice#RequestId"
         }
       },
       "traits": {
@@ -6518,6 +6729,48 @@
     "com.amazonaws.directoryservice#Trust": {
       "type": "structure",
       "members": {
+        "DirectoryId": {
+          "target": "com.amazonaws.directoryservice#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>The Directory ID of the AWS directory involved in the trust relationship.</p>"
+          }
+        },
+        "TrustId": {
+          "target": "com.amazonaws.directoryservice#TrustId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique ID of the trust relationship.</p>"
+          }
+        },
+        "RemoteDomainName": {
+          "target": "com.amazonaws.directoryservice#RemoteDomainName",
+          "traits": {
+            "smithy.api#documentation": "<p>The Fully Qualified Domain Name (FQDN) of the external domain involved in the trust relationship.</p>"
+          }
+        },
+        "TrustType": {
+          "target": "com.amazonaws.directoryservice#TrustType",
+          "traits": {
+            "smithy.api#documentation": "<p>The trust relationship type. <code>Forest</code> is the default.</p>"
+          }
+        },
+        "TrustDirection": {
+          "target": "com.amazonaws.directoryservice#TrustDirection",
+          "traits": {
+            "smithy.api#documentation": "<p>The trust relationship direction.</p>"
+          }
+        },
+        "TrustState": {
+          "target": "com.amazonaws.directoryservice#TrustState",
+          "traits": {
+            "smithy.api#documentation": "<p>The trust relationship state.</p>"
+          }
+        },
+        "CreatedDateTime": {
+          "target": "com.amazonaws.directoryservice#CreatedDateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time that the trust relationship was created.</p>"
+          }
+        },
         "LastUpdatedDateTime": {
           "target": "com.amazonaws.directoryservice#LastUpdatedDateTime",
           "traits": {
@@ -6536,52 +6789,10 @@
             "smithy.api#documentation": "<p>The reason for the TrustState.</p>"
           }
         },
-        "TrustDirection": {
-          "target": "com.amazonaws.directoryservice#TrustDirection",
-          "traits": {
-            "smithy.api#documentation": "<p>The trust relationship direction.</p>"
-          }
-        },
-        "RemoteDomainName": {
-          "target": "com.amazonaws.directoryservice#RemoteDomainName",
-          "traits": {
-            "smithy.api#documentation": "<p>The Fully Qualified Domain Name (FQDN) of the external domain involved in the trust relationship.</p>"
-          }
-        },
-        "TrustId": {
-          "target": "com.amazonaws.directoryservice#TrustId",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique ID of the trust relationship.</p>"
-          }
-        },
-        "TrustType": {
-          "target": "com.amazonaws.directoryservice#TrustType",
-          "traits": {
-            "smithy.api#documentation": "<p>The trust relationship type. <code>Forest</code> is the default.</p>"
-          }
-        },
-        "DirectoryId": {
-          "target": "com.amazonaws.directoryservice#DirectoryId",
-          "traits": {
-            "smithy.api#documentation": "<p>The Directory ID of the AWS directory involved in the trust relationship.</p>"
-          }
-        },
-        "TrustState": {
-          "target": "com.amazonaws.directoryservice#TrustState",
-          "traits": {
-            "smithy.api#documentation": "<p>The trust relationship state.</p>"
-          }
-        },
         "SelectiveAuth": {
           "target": "com.amazonaws.directoryservice#SelectiveAuth",
           "traits": {
             "smithy.api#documentation": "<p>Current state of selective authentication for the trust.</p>"
-          }
-        },
-        "CreatedDateTime": {
-          "target": "com.amazonaws.directoryservice#CreatedDateTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time that the trust relationship was created.</p>"
           }
         }
       },
@@ -6738,17 +6949,17 @@
     "com.amazonaws.directoryservice#UnshareDirectoryRequest": {
       "type": "structure",
       "members": {
-        "UnshareTarget": {
-          "target": "com.amazonaws.directoryservice#UnshareTarget",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifier for the directory consumer account with whom the directory has to be\n      unshared.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "DirectoryId": {
           "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the AWS Managed Microsoft AD directory that you want to stop\n      sharing.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "UnshareTarget": {
+          "target": "com.amazonaws.directoryservice#UnshareTarget",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifier for the directory consumer account with whom the directory has to be\n      unshared.</p>",
             "smithy.api#required": {}
           }
         }
@@ -6790,11 +7001,11 @@
     "com.amazonaws.directoryservice#UnsupportedOperationException": {
       "type": "structure",
       "members": {
-        "RequestId": {
-          "target": "com.amazonaws.directoryservice#RequestId"
-        },
         "Message": {
           "target": "com.amazonaws.directoryservice#ExceptionMessage"
+        },
+        "RequestId": {
+          "target": "com.amazonaws.directoryservice#RequestId"
         }
       },
       "traits": {
@@ -6844,17 +7055,17 @@
             "smithy.api#required": {}
           }
         },
-        "DnsIpAddrs": {
-          "target": "com.amazonaws.directoryservice#DnsIpAddrs",
-          "traits": {
-            "smithy.api#documentation": "<p>The updated IP addresses of the remote DNS server associated with the conditional forwarder.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "RemoteDomainName": {
           "target": "com.amazonaws.directoryservice#RemoteDomainName",
           "traits": {
             "smithy.api#documentation": "<p>The fully qualified domain name (FQDN) of the remote domain with which you will set up a trust relationship.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DnsIpAddrs": {
+          "target": "com.amazonaws.directoryservice#DnsIpAddrs",
+          "traits": {
+            "smithy.api#documentation": "<p>The updated IP addresses of the remote DNS server associated with the conditional forwarder.</p>",
             "smithy.api#required": {}
           }
         }
@@ -6908,17 +7119,17 @@
     "com.amazonaws.directoryservice#UpdateNumberOfDomainControllersRequest": {
       "type": "structure",
       "members": {
-        "DesiredNumber": {
-          "target": "com.amazonaws.directoryservice#DesiredNumberOfDomainControllers",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of domain controllers desired in the directory.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "DirectoryId": {
           "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
             "smithy.api#documentation": "<p>Identifier of the directory to which the domain controllers will be added or removed.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DesiredNumber": {
+          "target": "com.amazonaws.directoryservice#DesiredNumberOfDomainControllers",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of domain controllers desired in the directory.</p>",
             "smithy.api#required": {}
           }
         }
@@ -7015,17 +7226,17 @@
     "com.amazonaws.directoryservice#UpdateTrustRequest": {
       "type": "structure",
       "members": {
-        "SelectiveAuth": {
-          "target": "com.amazonaws.directoryservice#SelectiveAuth",
-          "traits": {
-            "smithy.api#documentation": "<p>Updates selective authentication for the trust.</p>"
-          }
-        },
         "TrustId": {
           "target": "com.amazonaws.directoryservice#TrustId",
           "traits": {
             "smithy.api#documentation": "<p>Identifier of the trust relationship.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "SelectiveAuth": {
+          "target": "com.amazonaws.directoryservice#SelectiveAuth",
+          "traits": {
+            "smithy.api#documentation": "<p>Updates selective authentication for the trust.</p>"
           }
         }
       }
@@ -7033,14 +7244,14 @@
     "com.amazonaws.directoryservice#UpdateTrustResult": {
       "type": "structure",
       "members": {
+        "RequestId": {
+          "target": "com.amazonaws.directoryservice#RequestId"
+        },
         "TrustId": {
           "target": "com.amazonaws.directoryservice#TrustId",
           "traits": {
             "smithy.api#documentation": "<p>Identifier of the trust relationship.</p>"
           }
-        },
-        "RequestId": {
-          "target": "com.amazonaws.directoryservice#RequestId"
         }
       }
     },
@@ -7050,11 +7261,11 @@
     "com.amazonaws.directoryservice#UserDoesNotExistException": {
       "type": "structure",
       "members": {
-        "RequestId": {
-          "target": "com.amazonaws.directoryservice#RequestId"
-        },
         "Message": {
           "target": "com.amazonaws.directoryservice#ExceptionMessage"
+        },
+        "RequestId": {
+          "target": "com.amazonaws.directoryservice#RequestId"
         }
       },
       "traits": {
