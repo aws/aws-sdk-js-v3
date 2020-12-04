@@ -67,7 +67,7 @@ export type DescribeSnapshotsCommandOutput = DescribeSnapshotsResult & __Metadat
  *       passed to a subsequent <code>DescribeSnapshots</code> request to retrieve the remaining
  *       results.</p>
  *          <p>To get the state of fast snapshot restores for a snapshot, use <a>DescribeFastSnapshotRestores</a>.</p>
- *          <p>For more information about EBS snapshots, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html">Amazon EBS Snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          <p>For more information about EBS snapshots, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html">Amazon EBS snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 export class DescribeSnapshotsCommand extends $Command<
   DescribeSnapshotsCommandInput,

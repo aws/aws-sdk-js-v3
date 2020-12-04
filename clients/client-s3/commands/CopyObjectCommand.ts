@@ -136,19 +136,12 @@ export type CopyObjectCommandOutput = CopyObjectOutput & __MetadataBearer;
  *                <code>x-amz-copy-source</code>, must be signed.</p>
  *          </note>
  *          <p>
- *             <b>Encryption</b>
+ *             <b>Server-side encryption</b>
  *          </p>
- *          <p>The source object that you are copying can be encrypted or unencrypted. The source
- *          object can be encrypted with server-side encryption using AWS managed encryption keys
- *          (SSE-S3 or SSE-KMS) or by using a customer-provided encryption key. With server-side
- *          encryption, Amazon S3 encrypts your data as it writes it to disks in its data centers and
- *          decrypts the data when you access it. </p>
- *          <p>You can optionally use the appropriate encryption-related headers to request server-side
- *          encryption for the target object. You have the option to provide your own encryption key or
- *          use SSE-S3 or SSE-KMS, regardless of the form of server-side encryption that was used to
- *          encrypt the source object. You can even request encryption if the source object was not
- *          encrypted. For more information about server-side encryption, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Using
- *             Server-Side Encryption</a>.</p>
+ *          <p>When you perform a CopyObject operation, you can optionally use the appropriate encryption-related headers to encrypt the object using server-side encryption with AWS managed encryption keys (SSE-S3 or SSE-KMS) or a customer-provided encryption key. With server-side encryption, Amazon S3 encrypts your data as it writes it to disks in its data centers and decrypts the data when you access it. For more information about server-side encryption, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Using
+ *          Server-Side Encryption</a>.</p>
+ *          <p>If a target object uses SSE-KMS, you can enable an S3 Bucket Key for the object. For more
+ *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html">Amazon S3 Bucket Keys</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Access Control List (ACL)-Specific Request
  *          Headers</b>

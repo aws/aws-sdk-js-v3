@@ -1,6 +1,90 @@
-import { GlacierJobParameters, RequestCharged, RequestPayer, S3Location, ServerSideEncryption, Tier } from "./models_0";
+import {
+  Encryption,
+  GlacierJobParameters,
+  Grant,
+  ObjectCannedACL,
+  RequestCharged,
+  RequestPayer,
+  ServerSideEncryption,
+  StorageClass,
+  Tagging,
+  Tier,
+} from "./models_0";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { Readable } from "stream";
+
+/**
+ * <p>A metadata key-value pair to store with an object.</p>
+ */
+export interface MetadataEntry {
+  /**
+   * <p>Name of the Object.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Value of the Object.</p>
+   */
+  Value?: string;
+}
+
+export namespace MetadataEntry {
+  export const filterSensitiveLog = (obj: MetadataEntry): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an Amazon S3 location that will receive the results of the restore request.</p>
+ */
+export interface S3Location {
+  /**
+   * <p>The name of the bucket where the restore results will be placed.</p>
+   */
+  BucketName: string | undefined;
+
+  /**
+   * <p>The prefix that is prepended to the restore results for this request.</p>
+   */
+  Prefix: string | undefined;
+
+  /**
+   * <p>Contains the type of server-side encryption used.</p>
+   */
+  Encryption?: Encryption;
+
+  /**
+   * <p>The canned ACL to apply to the restore results.</p>
+   */
+  CannedACL?: ObjectCannedACL | string;
+
+  /**
+   * <p>A list of grants that control access to the staged results.</p>
+   */
+  AccessControlList?: Grant[];
+
+  /**
+   * <p>The tag-set that is applied to the restore results.</p>
+   */
+  Tagging?: Tagging;
+
+  /**
+   * <p>A list of metadata to store with the restore results in S3.</p>
+   */
+  UserMetadata?: MetadataEntry[];
+
+  /**
+   * <p>The class of storage used to store the restore results.</p>
+   */
+  StorageClass?: StorageClass | string;
+}
+
+export namespace S3Location {
+  export const filterSensitiveLog = (obj: S3Location): any => ({
+    ...obj,
+    ...(obj.Encryption && { Encryption: Encryption.filterSensitiveLog(obj.Encryption) }),
+  });
+}
 
 /**
  * <p>Describes the location where the restore job's output is stored.</p>
@@ -828,6 +912,11 @@ export interface UploadPartOutput {
   SSEKMSKeyId?: string;
 
   /**
+   * <p>Indicates whether the multipart upload uses an S3 Bucket Key for server-side encryption with AWS KMS (SSE-KMS).</p>
+   */
+  BucketKeyEnabled?: boolean;
+
+  /**
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
@@ -983,6 +1072,11 @@ export interface UploadPartCopyOutput {
    *          customer managed customer master key (CMK) that was used for the object.</p>
    */
   SSEKMSKeyId?: string;
+
+  /**
+   * <p>Indicates whether the multipart upload uses an S3 Bucket Key for server-side encryption with AWS KMS (SSE-KMS).</p>
+   */
+  BucketKeyEnabled?: boolean;
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the

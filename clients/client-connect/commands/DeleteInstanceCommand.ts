@@ -21,7 +21,8 @@ export type DeleteInstanceCommandInput = DeleteInstanceRequest;
 export type DeleteInstanceCommandOutput = __MetadataBearer;
 
 /**
- * <p>Deletes the Amazon Connect instance.</p>
+ * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ *          <p>Deletes the Amazon Connect instance.</p>
  */
 export class DeleteInstanceCommand extends $Command<
   DeleteInstanceCommandInput,

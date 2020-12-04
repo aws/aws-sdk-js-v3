@@ -753,12 +753,12 @@
         "UntrustedArtifactOnDeployment": {
           "target": "com.amazonaws.lambda#CodeSigningPolicy",
           "traits": {
-            "smithy.api#documentation": "<p>Code signing configuration policy for deployment validation failure. If you set the policy to\n      <code>Enforce</code>, Lambda blocks the deployment request if code-signing validation checks fail. If you set the\n      policy to <code>Warn</code>, Lambda allows the deployment and creates a CloudWatch log. </p>\n         <p>Default value: <code>Warn</code>\n         </p>"
+            "smithy.api#documentation": "<p>Code signing configuration policy for deployment validation failure. If you set the policy to\n      <code>Enforce</code>, Lambda blocks the deployment request if signature validation checks fail. If you set the\n      policy to <code>Warn</code>, Lambda allows the deployment and creates a CloudWatch log. </p>\n         <p>Default value: <code>Warn</code>\n         </p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Code signing configuration policies specifies the validation failure action for signature mismatch or\n      expiry.</p>"
+        "smithy.api#documentation": "<p>Code signing configuration policies specifies the validation failure action for signature mismatch or\n       expiry.</p>"
       }
     },
     "com.amazonaws.lambda#CodeSigningPolicy": {
@@ -1137,7 +1137,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a Lambda function. To create a function, you need a <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html\">deployment package</a> and an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role\">execution role</a>. The\n      deployment package contains your function code. The execution role grants the function permission to use AWS\n      services, such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for request tracing.</p>\n      \n         <p>When you create a function, Lambda provisions an instance of the function and its supporting resources. If\n      your function connects to a VPC, this process can take a minute or so. During this time, you can't invoke or\n      modify the function. The <code>State</code>, <code>StateReason</code>, and <code>StateReasonCode</code> fields in\n      the response from <a>GetFunctionConfiguration</a> indicate when the function is ready to invoke. For\n      more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html\">Function\n        States</a>.</p>\n      \n         <p>A function has an unpublished version, and can have published versions and aliases. The unpublished version\n      changes when you update your function's code and configuration. A published version is a snapshot of your function\n      code and configuration that can't be changed. An alias is a named resource that maps to a version, and can be\n      changed to map to a different version. Use the <code>Publish</code> parameter to create version <code>1</code> of\n      your function from its initial configuration.</p>\n      \n         <p>The other parameters let you configure version-specific and function-level settings. You can modify\n      version-specific settings later with <a>UpdateFunctionConfiguration</a>. Function-level settings apply\n      to both the unpublished and published versions of the function, and include tags (<a>TagResource</a>)\n      and per-function concurrency limits (<a>PutFunctionConcurrency</a>).</p>\n      \n         <p>To enable code signing for this function, specify the ARN of a code-signing configuration. When a user\n      attempts to deploy a code package with <a>UpdateFunctionCode</a>, Lambda checks that the code\n      package has a valid signature from a trusted publisher. The code-signing configuration \n      includes set set of signing profiles, which define the trusted publishers for this function.</p>\n      \n         <p>If another account or an AWS service invokes your function, use <a>AddPermission</a> to grant\n      permission by creating a resource-based IAM policy. You can grant permissions at the function level, on a version,\n      or on an alias.</p>\n      \n         <p>To invoke your function directly, use <a>Invoke</a>. To invoke your function in response to events\n      in other AWS services, create an event source mapping (<a>CreateEventSourceMapping</a>), or configure a\n      function trigger in the other service. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html\">Invoking Functions</a>.</p>",
+        "smithy.api#documentation": "<p>Creates a Lambda function. To create a function, you need a <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html\">deployment package</a> and an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role\">execution role</a>. The\n      deployment package is a ZIP archive or image container that contains your function code. The execution role grants the function permission to use AWS\n      services, such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for request tracing.</p>\n      \n         <p>When you create a function, Lambda provisions an instance of the function and its supporting resources. If\n      your function connects to a VPC, this process can take a minute or so. During this time, you can't invoke or\n      modify the function. The <code>State</code>, <code>StateReason</code>, and <code>StateReasonCode</code> fields in\n      the response from <a>GetFunctionConfiguration</a> indicate when the function is ready to invoke. For\n      more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html\">Function\n        States</a>.</p>\n      \n         <p>A function has an unpublished version, and can have published versions and aliases. The unpublished version\n      changes when you update your function's code and configuration. A published version is a snapshot of your function\n      code and configuration that can't be changed. An alias is a named resource that maps to a version, and can be\n      changed to map to a different version. Use the <code>Publish</code> parameter to create version <code>1</code> of\n      your function from its initial configuration.</p>\n      \n         <p>The other parameters let you configure version-specific and function-level settings. You can modify\n      version-specific settings later with <a>UpdateFunctionConfiguration</a>. Function-level settings apply\n      to both the unpublished and published versions of the function, and include tags (<a>TagResource</a>)\n      and per-function concurrency limits (<a>PutFunctionConcurrency</a>).</p>\n      \n         <p>You can use code signing if your deployment package is a ZIP archive. To enable code signing for this function, \n      specify the ARN of a code-signing configuration. When a user\n      attempts to deploy a code package with <a>UpdateFunctionCode</a>, Lambda checks that the code\n      package has a valid signature from a trusted publisher. The code-signing configuration\n      includes set set of signing profiles, which define the trusted publishers for this function.</p>\n      \n         <p>If another account or an AWS service invokes your function, use <a>AddPermission</a> to grant\n      permission by creating a resource-based IAM policy. You can grant permissions at the function level, on a version,\n      or on an alias.</p>\n      \n         <p>To invoke your function directly, use <a>Invoke</a>. To invoke your function in response to events\n      in other AWS services, create an event source mapping (<a>CreateEventSourceMapping</a>), or configure a\n      function trigger in the other service. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html\">Invoking Functions</a>.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/2015-03-31/functions",
@@ -1158,8 +1158,7 @@
         "Runtime": {
           "target": "com.amazonaws.lambda#Runtime",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the function's <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html\">runtime</a>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The identifier of the function's <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html\">runtime</a>.</p>"
           }
         },
         "Role": {
@@ -1172,8 +1171,7 @@
         "Handler": {
           "target": "com.amazonaws.lambda#Handler",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the method within your code that Lambda calls to execute your function. The format includes the\n      file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information,\n      see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html\">Programming Model</a>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The name of the method within your code that Lambda calls to execute your function. The format includes the\n      file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information,\n      see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html\">Programming Model</a>.</p>"
           }
         },
         "Code": {
@@ -1211,6 +1209,12 @@
           "target": "com.amazonaws.lambda#VpcConfig",
           "traits": {
             "smithy.api#documentation": "<p>For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.\n      When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more\n      information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html\">VPC Settings</a>.</p>"
+          }
+        },
+        "PackageType": {
+          "target": "com.amazonaws.lambda#PackageType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for ZIP archive.</p>"
           }
         },
         "DeadLetterConfig": {
@@ -1255,10 +1259,16 @@
             "smithy.api#documentation": "<p>Connection settings for an Amazon EFS file system.</p>"
           }
         },
+        "ImageConfig": {
+          "target": "com.amazonaws.lambda#ImageConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Configuration values that override the container image Dockerfile.</p>"
+          }
+        },
         "CodeSigningConfigArn": {
           "target": "com.amazonaws.lambda#CodeSigningConfigArn",
           "traits": {
-            "smithy.api#documentation": "<p>To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration\nincludes set set of signing profiles, which define the trusted publishers for this function.</p>"
+            "smithy.api#documentation": "<p>To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration\nincludes a set of signing profiles, which define the trusted publishers for this function.</p>"
           }
         }
       }
@@ -2203,10 +2213,16 @@
           "traits": {
             "smithy.api#documentation": "<p>For versioned objects, the version of the deployment package object to use.</p>"
           }
+        },
+        "ImageUri": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>URI of a container image in the Amazon ECR registry.</p>"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The code for the Lambda function. You can specify either an object in Amazon S3, or upload a deployment\n      package directly.</p>"
+        "smithy.api#documentation": "<p>The code for the Lambda function. You can specify either an object in Amazon S3, upload a ZIP archive deployment\n      package directly, or specify the URI of a container image.</p>"
       }
     },
     "com.amazonaws.lambda#FunctionCodeLocation": {
@@ -2222,6 +2238,18 @@
           "target": "com.amazonaws.lambda#String",
           "traits": {
             "smithy.api#documentation": "<p>A presigned URL that you can use to download the deployment package.</p>"
+          }
+        },
+        "ImageUri": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>URI of a container image in the Amazon ECR registry.</p>"
+          }
+        },
+        "ResolvedImageUri": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The resolved URI for the image.</p>"
           }
         }
       },
@@ -2392,6 +2420,18 @@
           "target": "com.amazonaws.lambda#FileSystemConfigList",
           "traits": {
             "smithy.api#documentation": "<p>Connection settings for an Amazon EFS file system.</p>"
+          }
+        },
+        "PackageType": {
+          "target": "com.amazonaws.lambda#PackageType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for ZIP archive.</p>"
+          }
+        },
+        "ImageConfigResponse": {
+          "target": "com.amazonaws.lambda#ImageConfigResponse",
+          "traits": {
+            "smithy.api#documentation": "<p>The function's image configuration values.</p>"
           }
         },
         "SigningProfileVersionArn": {
@@ -3369,6 +3409,72 @@
     "com.amazonaws.lambda#HttpStatus": {
       "type": "integer"
     },
+    "com.amazonaws.lambda#ImageConfig": {
+      "type": "structure",
+      "members": {
+        "EntryPoint": {
+          "target": "com.amazonaws.lambda#StringList",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the entry point to their application, which is typically the location of the runtime\n      executable.</p>"
+          }
+        },
+        "Command": {
+          "target": "com.amazonaws.lambda#StringList",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies parameters that you want to pass in with ENTRYPOINT. </p>"
+          }
+        },
+        "WorkingDirectory": {
+          "target": "com.amazonaws.lambda#WorkingDirectory",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the working directory.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Configuration values that override the container image Dockerfile. See   \n      <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-images-settings.html\">Override Container settings</a>. </p>"
+      }
+    },
+    "com.amazonaws.lambda#ImageConfigError": {
+      "type": "structure",
+      "members": {
+        "ErrorCode": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Error code.</p>"
+          }
+        },
+        "Message": {
+          "target": "com.amazonaws.lambda#SensitiveString",
+          "traits": {
+            "smithy.api#documentation": "<p>Error message.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Error response to GetFunctionConfiguration.</p>"
+      }
+    },
+    "com.amazonaws.lambda#ImageConfigResponse": {
+      "type": "structure",
+      "members": {
+        "ImageConfig": {
+          "target": "com.amazonaws.lambda#ImageConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Configuration values that override the container image Dockerfile.</p>"
+          }
+        },
+        "Error": {
+          "target": "com.amazonaws.lambda#ImageConfigError",
+          "traits": {
+            "smithy.api#documentation": "<p>Error response to GetFunctionConfiguration.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Response to GetFunctionConfiguration request.</p>"
+      }
+    },
     "com.amazonaws.lambda#Integer": {
       "type": "integer"
     },
@@ -3898,6 +4004,14 @@
           {
             "value": "InvalidSecurityGroup",
             "name": "InvalidSecurityGroup"
+          },
+          {
+            "value": "ImageDeleted",
+            "name": "ImageDeleted"
+          },
+          {
+            "value": "ImageAccessDenied",
+            "name": "ImageAccessDenied"
           }
         ]
       }
@@ -4257,7 +4371,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns a list of <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuring-codesigning.html\">code\n        signing configurations</a> for the specified function. A request returns up to 10,000 configurations per\n      call. You can use the <code>MaxItems</code> parameter to return fewer configurations per call. </p>",
+        "smithy.api#documentation": "<p>Returns a list of <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuring-codesigning.html\">code\n        signing configurations</a>. A request returns up to 10,000 configurations per\n      call. You can use the <code>MaxItems</code> parameter to return fewer configurations per call. </p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/2020-04-22/code-signing-configs",
@@ -5152,7 +5266,7 @@
         "smithy.api#box": {},
         "smithy.api#range": {
           "min": 128,
-          "max": 3008
+          "max": 10240
         }
       }
     },
@@ -5223,6 +5337,21 @@
       "type": "string",
       "traits": {
         "smithy.api#pattern": "o-[a-z0-9]{10,32}"
+      }
+    },
+    "com.amazonaws.lambda#PackageType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "Zip",
+            "name": "Zip"
+          },
+          {
+            "value": "Image",
+            "name": "Image"
+          }
+        ]
       }
     },
     "com.amazonaws.lambda#ParallelizationFactor": {
@@ -6449,6 +6578,14 @@
           {
             "value": "InvalidSecurityGroup",
             "name": "InvalidSecurityGroup"
+          },
+          {
+            "value": "ImageDeleted",
+            "name": "ImageDeleted"
+          },
+          {
+            "value": "ImageAccessDenied",
+            "name": "ImageAccessDenied"
           }
         ]
       }
@@ -6465,6 +6602,18 @@
     },
     "com.amazonaws.lambda#String": {
       "type": "string"
+    },
+    "com.amazonaws.lambda#StringList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.lambda#String"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 1500
+        }
+      }
     },
     "com.amazonaws.lambda#SubnetIPAddressLimitReachedException": {
       "type": "structure",
@@ -7123,6 +7272,12 @@
             "smithy.api#documentation": "<p>For versioned objects, the version of the deployment package object to use.</p>"
           }
         },
+        "ImageUri": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>URI of a container image in the Amazon ECR registry.</p>"
+          }
+        },
         "Publish": {
           "target": "com.amazonaws.lambda#Boolean",
           "traits": {
@@ -7283,6 +7438,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Connection settings for an Amazon EFS file system.</p>"
           }
+        },
+        "ImageConfig": {
+          "target": "com.amazonaws.lambda#ImageConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Configuration values that override the container image Dockerfile.</p>"
+          }
         }
       }
     },
@@ -7420,6 +7581,15 @@
         "smithy.api#range": {
           "min": 0.0,
           "max": 1.0
+        }
+      }
+    },
+    "com.amazonaws.lambda#WorkingDirectory": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 1000
         }
       }
     }

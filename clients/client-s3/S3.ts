@@ -748,19 +748,12 @@ export class S3 extends S3Client {
    *                <code>x-amz-copy-source</code>, must be signed.</p>
    *          </note>
    *          <p>
-   *             <b>Encryption</b>
+   *             <b>Server-side encryption</b>
    *          </p>
-   *          <p>The source object that you are copying can be encrypted or unencrypted. The source
-   *          object can be encrypted with server-side encryption using AWS managed encryption keys
-   *          (SSE-S3 or SSE-KMS) or by using a customer-provided encryption key. With server-side
-   *          encryption, Amazon S3 encrypts your data as it writes it to disks in its data centers and
-   *          decrypts the data when you access it. </p>
-   *          <p>You can optionally use the appropriate encryption-related headers to request server-side
-   *          encryption for the target object. You have the option to provide your own encryption key or
-   *          use SSE-S3 or SSE-KMS, regardless of the form of server-side encryption that was used to
-   *          encrypt the source object. You can even request encryption if the source object was not
-   *          encrypted. For more information about server-side encryption, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Using
-   *             Server-Side Encryption</a>.</p>
+   *          <p>When you perform a CopyObject operation, you can optionally use the appropriate encryption-related headers to encrypt the object using server-side encryption with AWS managed encryption keys (SSE-S3 or SSE-KMS) or a customer-provided encryption key. With server-side encryption, Amazon S3 encrypts your data as it writes it to disks in its data centers and decrypts the data when you access it. For more information about server-side encryption, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Using
+   *          Server-Side Encryption</a>.</p>
+   *          <p>If a target object uses SSE-KMS, you can enable an S3 Bucket Key for the object. For more
+   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html">Amazon S3 Bucket Keys</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    *          <p>
    *             <b>Access Control List (ACL)-Specific Request
    *          Headers</b>
@@ -5266,13 +5259,14 @@ export class S3 extends S3Client {
   }
 
   /**
-   * <p>This implementation of the <code>PUT</code> operation uses the <code>encryption</code>
-   *          subresource to set the default encryption state of an existing bucket.</p>
-   *          <p>This implementation of the <code>PUT</code> operation sets default encryption for a
-   *          bucket using server-side encryption with Amazon S3-managed keys SSE-S3 or AWS KMS customer
-   *          master keys (CMKs) (SSE-KMS). For information about the Amazon S3 default encryption feature,
-   *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 Default Bucket
-   *          Encryption</a>.</p>
+   * <p>This operation uses the <code>encryption</code> subresource to configure default
+   *          encryption and Amazon S3 Bucket Key for an existing bucket.</p>
+   *          <p>Default encryption for a bucket can use server-side encryption with Amazon S3-managed keys
+   *          (SSE-S3) or AWS KMS customer master keys (SSE-KMS). If you specify default encryption
+   *          using SSE-KMS, you can also configure Amazon S3 Bucket Key. For information about default
+   *          encryption, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 default bucket encryption</a>
+   *          in the <i>Amazon Simple Storage Service Developer Guide</i>. For more information about S3 Bucket Keys,
+   *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html">Amazon S3 Bucket Keys</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    *          <important>
    *             <p>This operation requires AWS Signature Version 4. For more information, see <a href="sig-v4-authenticating-requests.html"> Authenticating Requests (AWS Signature
    *                Version 4)</a>. </p>
@@ -6052,15 +6046,15 @@ export class S3 extends S3Client {
    *                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">iam:PassRole</a> permission.</p>
    *          </note>
    *          <p>Specify the replication configuration in the request body. In the replication
-   *          configuration, you provide the name of the destination bucket where you want Amazon S3 to
-   *          replicate objects, the IAM role that Amazon S3 can assume to replicate objects on your behalf,
-   *          and other relevant information.</p>
+   *          configuration, you provide the name of the destination bucket or buckets where you want
+   *          Amazon S3 to replicate objects, the IAM role that Amazon S3 can assume to replicate objects on your
+   *          behalf, and other relevant information.</p>
    *
    *
    *          <p>A replication configuration must include at least one rule, and can contain a maximum of
    *          1,000. Each rule identifies a subset of objects to replicate by filtering the objects in
    *          the source bucket. To choose additional subsets of objects to replicate, add a rule for
-   *          each subset. All rules must specify the same destination bucket.</p>
+   *          each subset.</p>
    *
    *          <p>To specify a subset of the objects in the source bucket to apply a replication rule to,
    *          add the Filter element as a child of the Rule element. You can filter objects based on an
@@ -6564,11 +6558,11 @@ export class S3 extends S3Client {
    *          <p>
    *             <b>Server-side Encryption</b>
    *          </p>
-   *          <p>You can optionally request server-side encryption. With server-side encryption, Amazon S3
-   *          encrypts your data as it writes it to disks in its data centers and decrypts the data when
-   *          you access it. You have the option to provide your own encryption key or use AWS managed
-   *          encryption keys. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Using Server-Side
-   *          Encryption</a>.</p>
+   *          <p>You can optionally request server-side encryption. With server-side encryption, Amazon S3 encrypts your data as it writes it to disks in its data centers and decrypts the data
+   *          when you access it. You have the option to provide your own encryption key or use AWS
+   *          managed encryption keys (SSE-S3 or SSE-KMS). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Using Server-Side
+   *             Encryption</a>.</p>
+   *          <p>If you request server-side encryption using AWS Key Management Service (SSE-KMS), you can enable an S3 Bucket Key at the object-level. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html">Amazon S3 Bucket Keys</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    *          <p>
    *             <b>Access Control List (ACL)-Specific Request
    *          Headers</b>

@@ -21,7 +21,8 @@ export type UpdateInstanceAttributeCommandInput = UpdateInstanceAttributeRequest
 export type UpdateInstanceAttributeCommandOutput = __MetadataBearer;
 
 /**
- * <p>Updates the value for the specified attribute type.</p>
+ * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ *          <p>Updates the value for the specified attribute type.</p>
  */
 export class UpdateInstanceAttributeCommand extends $Command<
   UpdateInstanceAttributeCommandInput,

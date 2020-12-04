@@ -21,7 +21,9 @@ export type ListInstanceStorageConfigsCommandInput = ListInstanceStorageConfigsR
 export type ListInstanceStorageConfigsCommandOutput = ListInstanceStorageConfigsResponse & __MetadataBearer;
 
 /**
- * <p>Returns a paginated list of storage configs for the identified instance and resource
+ * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ *
+ *          <p>Returns a paginated list of storage configs for the identified instance and resource
  *    type.</p>
  */
 export class ListInstanceStorageConfigsCommand extends $Command<

@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { ListTrialComponentsRequest, ListTrialComponentsResponse } from "../models/models_1";
+import { ListTrialComponentsRequest, ListTrialComponentsResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1ListTrialComponentsCommand,
   serializeAws_json1_1ListTrialComponentsCommand,

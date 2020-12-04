@@ -135,6 +135,11 @@ import {
   DescribeTrustsCommandOutput,
 } from "./commands/DescribeTrustsCommand";
 import {
+  DisableClientAuthenticationCommand,
+  DisableClientAuthenticationCommandInput,
+  DisableClientAuthenticationCommandOutput,
+} from "./commands/DisableClientAuthenticationCommand";
+import {
   DisableLDAPSCommand,
   DisableLDAPSCommandInput,
   DisableLDAPSCommandOutput,
@@ -145,6 +150,11 @@ import {
   DisableRadiusCommandOutput,
 } from "./commands/DisableRadiusCommand";
 import { DisableSsoCommand, DisableSsoCommandInput, DisableSsoCommandOutput } from "./commands/DisableSsoCommand";
+import {
+  EnableClientAuthenticationCommand,
+  EnableClientAuthenticationCommandInput,
+  EnableClientAuthenticationCommandOutput,
+} from "./commands/EnableClientAuthenticationCommand";
 import { EnableLDAPSCommand, EnableLDAPSCommandInput, EnableLDAPSCommandOutput } from "./commands/EnableLDAPSCommand";
 import {
   EnableRadiusCommand,
@@ -1279,6 +1289,38 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
+   * <p>Disable client authentication for smart cards.</p>
+   */
+  public disableClientAuthentication(
+    args: DisableClientAuthenticationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableClientAuthenticationCommandOutput>;
+  public disableClientAuthentication(
+    args: DisableClientAuthenticationCommandInput,
+    cb: (err: any, data?: DisableClientAuthenticationCommandOutput) => void
+  ): void;
+  public disableClientAuthentication(
+    args: DisableClientAuthenticationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableClientAuthenticationCommandOutput) => void
+  ): void;
+  public disableClientAuthentication(
+    args: DisableClientAuthenticationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableClientAuthenticationCommandOutput) => void),
+    cb?: (err: any, data?: DisableClientAuthenticationCommandOutput) => void
+  ): Promise<DisableClientAuthenticationCommandOutput> | void {
+    const command = new DisableClientAuthenticationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deactivates LDAP secure calls for the specified directory.</p>
    */
   public disableLDAPS(
@@ -1355,6 +1397,38 @@ export class DirectoryService extends DirectoryServiceClient {
     cb?: (err: any, data?: DisableSsoCommandOutput) => void
   ): Promise<DisableSsoCommandOutput> | void {
     const command = new DisableSsoCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Enable client authentication for smardtcards.</p>
+   */
+  public enableClientAuthentication(
+    args: EnableClientAuthenticationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableClientAuthenticationCommandOutput>;
+  public enableClientAuthentication(
+    args: EnableClientAuthenticationCommandInput,
+    cb: (err: any, data?: EnableClientAuthenticationCommandOutput) => void
+  ): void;
+  public enableClientAuthentication(
+    args: EnableClientAuthenticationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableClientAuthenticationCommandOutput) => void
+  ): void;
+  public enableClientAuthentication(
+    args: EnableClientAuthenticationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableClientAuthenticationCommandOutput) => void),
+    cb?: (err: any, data?: EnableClientAuthenticationCommandOutput) => void
+  ): Promise<EnableClientAuthenticationCommandOutput> | void {
+    const command = new EnableClientAuthenticationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -31,7 +31,8 @@ export type UpdateNodegroupVersionCommandOutput = UpdateNodegroupVersionResponse
  *             AMI version of a node group's current Kubernetes version by not specifying a Kubernetes
  *             version in the request. You can update to the latest AMI version of your cluster's
  *             current Kubernetes version by specifying your cluster's Kubernetes version in the
- *             request. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html">Amazon EKS-Optimized Linux AMI Versions</a> in the <i>Amazon EKS User Guide</i>.</p>
+ *             request. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html">Amazon EKS
+ *                 optimized Amazon Linux 2 AMI versions</a> in the <i>Amazon EKS User Guide</i>.</p>
  *         <p>You cannot roll back a node group to an earlier Kubernetes version or AMI
  *             version.</p>
  *         <p>When a node in a managed node group is terminated due to a scaling action or update,

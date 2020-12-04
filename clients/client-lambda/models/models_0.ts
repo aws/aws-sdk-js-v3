@@ -500,12 +500,12 @@ export enum CodeSigningPolicy {
 
 /**
  * <p>Code signing configuration policies specifies the validation failure action for signature mismatch or
- *       expiry.</p>
+ *        expiry.</p>
  */
 export interface CodeSigningPolicies {
   /**
    * <p>Code signing configuration policy for deployment validation failure. If you set the policy to
-   *       <code>Enforce</code>, Lambda blocks the deployment request if code-signing validation checks fail. If you set the
+   *       <code>Enforce</code>, Lambda blocks the deployment request if signature validation checks fail. If you set the
    *       policy to <code>Warn</code>, Lambda allows the deployment and creates a CloudWatch log. </p>
    *          <p>Default value: <code>Warn</code>
    *          </p>
@@ -1053,8 +1053,8 @@ export namespace CodeVerificationFailedException {
 }
 
 /**
- * <p>The code for the Lambda function. You can specify either an object in Amazon S3, or upload a deployment
- *       package directly.</p>
+ * <p>The code for the Lambda function. You can specify either an object in Amazon S3, upload a ZIP archive deployment
+ *       package directly, or specify the URI of a container image.</p>
  */
 export interface FunctionCode {
   /**
@@ -1077,6 +1077,11 @@ export interface FunctionCode {
    * <p>For versioned objects, the version of the deployment package object to use.</p>
    */
   S3ObjectVersion?: string;
+
+  /**
+   * <p>URI of a container image in the Amazon ECR registry.</p>
+   */
+  ImageUri?: string;
 }
 
 export namespace FunctionCode {
@@ -1139,6 +1144,39 @@ export namespace FileSystemConfig {
   export const filterSensitiveLog = (obj: FileSystemConfig): any => ({
     ...obj,
   });
+}
+
+/**
+ * <p>Configuration values that override the container image Dockerfile. See
+ *       <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-images-settings.html">Override Container settings</a>. </p>
+ */
+export interface ImageConfig {
+  /**
+   * <p>Specifies the entry point to their application, which is typically the location of the runtime
+   *       executable.</p>
+   */
+  EntryPoint?: string[];
+
+  /**
+   * <p>Specifies parameters that you want to pass in with ENTRYPOINT. </p>
+   */
+  Command?: string[];
+
+  /**
+   * <p>Specifies the working directory.</p>
+   */
+  WorkingDirectory?: string;
+}
+
+export namespace ImageConfig {
+  export const filterSensitiveLog = (obj: ImageConfig): any => ({
+    ...obj,
+  });
+}
+
+export enum PackageType {
+  Image = "Image",
+  Zip = "Zip",
 }
 
 export enum Runtime {
@@ -1238,7 +1276,7 @@ export interface CreateFunctionRequest {
   /**
    * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>.</p>
    */
-  Runtime: Runtime | string | undefined;
+  Runtime?: Runtime | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the function's execution role.</p>
@@ -1250,7 +1288,7 @@ export interface CreateFunctionRequest {
    *       file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information,
    *       see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming Model</a>.</p>
    */
-  Handler: string | undefined;
+  Handler?: string;
 
   /**
    * <p>The code for the function.</p>
@@ -1285,6 +1323,11 @@ export interface CreateFunctionRequest {
    *       information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
    */
   VpcConfig?: VpcConfig;
+
+  /**
+   * <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for ZIP archive.</p>
+   */
+  PackageType?: PackageType | string;
 
   /**
    * <p>A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events
@@ -1327,8 +1370,13 @@ export interface CreateFunctionRequest {
   FileSystemConfigs?: FileSystemConfig[];
 
   /**
+   * <p>Configuration values that override the container image Dockerfile.</p>
+   */
+  ImageConfig?: ImageConfig;
+
+  /**
    * <p>To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration
-   * includes set set of signing profiles, which define the trusted publishers for this function.</p>
+   * includes a set of signing profiles, which define the trusted publishers for this function.</p>
    */
   CodeSigningConfigArn?: string;
 }
@@ -1387,6 +1435,50 @@ export namespace EnvironmentResponse {
   });
 }
 
+/**
+ * <p>Error response to GetFunctionConfiguration.</p>
+ */
+export interface ImageConfigError {
+  /**
+   * <p>Error code.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>Error message.</p>
+   */
+  Message?: string;
+}
+
+export namespace ImageConfigError {
+  export const filterSensitiveLog = (obj: ImageConfigError): any => ({
+    ...obj,
+    ...(obj.Message && { Message: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>Response to GetFunctionConfiguration request.</p>
+ */
+export interface ImageConfigResponse {
+  /**
+   * <p>Configuration values that override the container image Dockerfile.</p>
+   */
+  ImageConfig?: ImageConfig;
+
+  /**
+   * <p>Error response to GetFunctionConfiguration.</p>
+   */
+  Error?: ImageConfigError;
+}
+
+export namespace ImageConfigResponse {
+  export const filterSensitiveLog = (obj: ImageConfigResponse): any => ({
+    ...obj,
+    ...(obj.Error && { Error: ImageConfigError.filterSensitiveLog(obj.Error) }),
+  });
+}
+
 export enum LastUpdateStatus {
   Failed = "Failed",
   InProgress = "InProgress",
@@ -1395,6 +1487,8 @@ export enum LastUpdateStatus {
 
 export enum LastUpdateStatusReasonCode {
   EniLimitExceeded = "EniLimitExceeded",
+  ImageAccessDenied = "ImageAccessDenied",
+  ImageDeleted = "ImageDeleted",
   InsufficientRolePermissions = "InsufficientRolePermissions",
   InternalError = "InternalError",
   InvalidConfiguration = "InvalidConfiguration",
@@ -1446,6 +1540,8 @@ export enum StateReasonCode {
   Creating = "Creating",
   EniLimitExceeded = "EniLimitExceeded",
   Idle = "Idle",
+  ImageAccessDenied = "ImageAccessDenied",
+  ImageDeleted = "ImageDeleted",
   InsufficientRolePermissions = "InsufficientRolePermissions",
   InternalError = "InternalError",
   InvalidConfiguration = "InvalidConfiguration",
@@ -1642,6 +1738,16 @@ export interface FunctionConfiguration {
   FileSystemConfigs?: FileSystemConfig[];
 
   /**
+   * <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for ZIP archive.</p>
+   */
+  PackageType?: PackageType | string;
+
+  /**
+   * <p>The function's image configuration values.</p>
+   */
+  ImageConfigResponse?: ImageConfigResponse;
+
+  /**
    * <p>The ARN of the signing profile version.</p>
    */
   SigningProfileVersionArn?: string;
@@ -1656,6 +1762,9 @@ export namespace FunctionConfiguration {
   export const filterSensitiveLog = (obj: FunctionConfiguration): any => ({
     ...obj,
     ...(obj.Environment && { Environment: EnvironmentResponse.filterSensitiveLog(obj.Environment) }),
+    ...(obj.ImageConfigResponse && {
+      ImageConfigResponse: ImageConfigResponse.filterSensitiveLog(obj.ImageConfigResponse),
+    }),
   });
 }
 
@@ -2109,6 +2218,16 @@ export interface FunctionCodeLocation {
    * <p>A presigned URL that you can use to download the deployment package.</p>
    */
   Location?: string;
+
+  /**
+   * <p>URI of a container image in the Amazon ECR registry.</p>
+   */
+  ImageUri?: string;
+
+  /**
+   * <p>The resolved URI for the image.</p>
+   */
+  ResolvedImageUri?: string;
 }
 
 export namespace FunctionCodeLocation {
@@ -4765,6 +4884,11 @@ export interface UpdateFunctionCodeRequest {
   S3ObjectVersion?: string;
 
   /**
+   * <p>URI of a container image in the Amazon ECR registry.</p>
+   */
+  ImageUri?: string;
+
+  /**
    * <p>Set to true to publish a new version of the function after updating the code. This has the same effect as
    *       calling <a>PublishVersion</a> separately.</p>
    */
@@ -4895,6 +5019,11 @@ export interface UpdateFunctionConfigurationRequest {
    * <p>Connection settings for an Amazon EFS file system.</p>
    */
   FileSystemConfigs?: FileSystemConfig[];
+
+  /**
+   * <p>Configuration values that override the container image Dockerfile.</p>
+   */
+  ImageConfig?: ImageConfig;
 }
 
 export namespace UpdateFunctionConfigurationRequest {

@@ -1,8 +1,36 @@
+import {
+  BatchCreateTableRowsCommandInput,
+  BatchCreateTableRowsCommandOutput,
+} from "./commands/BatchCreateTableRowsCommand";
+import {
+  BatchDeleteTableRowsCommandInput,
+  BatchDeleteTableRowsCommandOutput,
+} from "./commands/BatchDeleteTableRowsCommand";
+import {
+  BatchUpdateTableRowsCommandInput,
+  BatchUpdateTableRowsCommandOutput,
+} from "./commands/BatchUpdateTableRowsCommand";
+import {
+  BatchUpsertTableRowsCommandInput,
+  BatchUpsertTableRowsCommandOutput,
+} from "./commands/BatchUpsertTableRowsCommand";
+import {
+  DescribeTableDataImportJobCommandInput,
+  DescribeTableDataImportJobCommandOutput,
+} from "./commands/DescribeTableDataImportJobCommand";
 import { GetScreenDataCommandInput, GetScreenDataCommandOutput } from "./commands/GetScreenDataCommand";
 import {
   InvokeScreenAutomationCommandInput,
   InvokeScreenAutomationCommandOutput,
 } from "./commands/InvokeScreenAutomationCommand";
+import { ListTableColumnsCommandInput, ListTableColumnsCommandOutput } from "./commands/ListTableColumnsCommand";
+import { ListTableRowsCommandInput, ListTableRowsCommandOutput } from "./commands/ListTableRowsCommand";
+import { ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
+import { QueryTableRowsCommandInput, QueryTableRowsCommandOutput } from "./commands/QueryTableRowsCommand";
+import {
+  StartTableDataImportJobCommandInput,
+  StartTableDataImportJobCommandOutput,
+} from "./commands/StartTableDataImportJobCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -52,9 +80,33 @@ import {
   UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
-export type ServiceInputTypes = GetScreenDataCommandInput | InvokeScreenAutomationCommandInput;
+export type ServiceInputTypes =
+  | BatchCreateTableRowsCommandInput
+  | BatchDeleteTableRowsCommandInput
+  | BatchUpdateTableRowsCommandInput
+  | BatchUpsertTableRowsCommandInput
+  | DescribeTableDataImportJobCommandInput
+  | GetScreenDataCommandInput
+  | InvokeScreenAutomationCommandInput
+  | ListTableColumnsCommandInput
+  | ListTableRowsCommandInput
+  | ListTablesCommandInput
+  | QueryTableRowsCommandInput
+  | StartTableDataImportJobCommandInput;
 
-export type ServiceOutputTypes = GetScreenDataCommandOutput | InvokeScreenAutomationCommandOutput;
+export type ServiceOutputTypes =
+  | BatchCreateTableRowsCommandOutput
+  | BatchDeleteTableRowsCommandOutput
+  | BatchUpdateTableRowsCommandOutput
+  | BatchUpsertTableRowsCommandOutput
+  | DescribeTableDataImportJobCommandOutput
+  | GetScreenDataCommandOutput
+  | InvokeScreenAutomationCommandOutput
+  | ListTableColumnsCommandOutput
+  | ListTableRowsCommandOutput
+  | ListTablesCommandOutput
+  | QueryTableRowsCommandOutput
+  | StartTableDataImportJobCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

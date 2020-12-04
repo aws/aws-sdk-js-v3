@@ -27,7 +27,7 @@ export type ModifyEbsDefaultKmsKeyIdCommandOutput = ModifyEbsDefaultKmsKeyIdResu
  *       managed CMK. To reset the default CMK to the AWS managed CMK for EBS, use <a>ResetEbsDefaultKmsKeyId</a>. Amazon EBS does not support asymmetric CMKs.</p>
  *          <p>If you delete or disable the customer managed CMK that you specified for use with
  *       encryption by default, your instances will fail to launch.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a>
  *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 export class ModifyEbsDefaultKmsKeyIdCommand extends $Command<

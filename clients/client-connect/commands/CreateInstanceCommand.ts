@@ -21,7 +21,8 @@ export type CreateInstanceCommandInput = CreateInstanceRequest;
 export type CreateInstanceCommandOutput = CreateInstanceResponse & __MetadataBearer;
 
 /**
- * <p>Initiates an Amazon Connect instance with all the supported channels enabled. It does not attach any
+ * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ *          <p>Initiates an Amazon Connect instance with all the supported channels enabled. It does not attach any
  *    storage (such as Amazon S3, or Kinesis) or allow for any configurations on features such as
  *    Contact Lens for Amazon Connect. </p>
  */

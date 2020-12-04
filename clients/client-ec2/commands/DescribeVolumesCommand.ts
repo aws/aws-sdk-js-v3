@@ -25,7 +25,7 @@ export type DescribeVolumesCommandOutput = DescribeVolumesResult & __MetadataBea
  *       then that number of results is returned along with a <code>NextToken</code> value that can be
  *       passed to a subsequent <code>DescribeVolumes</code> request to retrieve the remaining
  *       results.</p>
- *          <p>For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html">Amazon EBS Volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          <p>For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html">Amazon EBS volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 export class DescribeVolumesCommand extends $Command<
   DescribeVolumesCommandInput,

@@ -21,7 +21,8 @@ export type UpdateRoutingProfileConcurrencyCommandInput = UpdateRoutingProfileCo
 export type UpdateRoutingProfileConcurrencyCommandOutput = __MetadataBearer;
 
 /**
- * <p>Updates the channels that agents can handle in the Contact Control Panel (CCP) for a routing profile.</p>
+ * <p>Updates the channels that agents can handle in the Contact Control Panel (CCP) for a routing
+ *    profile.</p>
  */
 export class UpdateRoutingProfileConcurrencyCommand extends $Command<
   UpdateRoutingProfileConcurrencyCommandInput,

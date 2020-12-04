@@ -1,4 +1,5 @@
 import { EKSClient } from "./EKSClient";
+import { CreateAddonCommand, CreateAddonCommandInput, CreateAddonCommandOutput } from "./commands/CreateAddonCommand";
 import {
   CreateClusterCommand,
   CreateClusterCommandInput,
@@ -14,6 +15,7 @@ import {
   CreateNodegroupCommandInput,
   CreateNodegroupCommandOutput,
 } from "./commands/CreateNodegroupCommand";
+import { DeleteAddonCommand, DeleteAddonCommandInput, DeleteAddonCommandOutput } from "./commands/DeleteAddonCommand";
 import {
   DeleteClusterCommand,
   DeleteClusterCommandInput,
@@ -29,6 +31,16 @@ import {
   DeleteNodegroupCommandInput,
   DeleteNodegroupCommandOutput,
 } from "./commands/DeleteNodegroupCommand";
+import {
+  DescribeAddonCommand,
+  DescribeAddonCommandInput,
+  DescribeAddonCommandOutput,
+} from "./commands/DescribeAddonCommand";
+import {
+  DescribeAddonVersionsCommand,
+  DescribeAddonVersionsCommandInput,
+  DescribeAddonVersionsCommandOutput,
+} from "./commands/DescribeAddonVersionsCommand";
 import {
   DescribeClusterCommand,
   DescribeClusterCommandInput,
@@ -49,6 +61,7 @@ import {
   DescribeUpdateCommandInput,
   DescribeUpdateCommandOutput,
 } from "./commands/DescribeUpdateCommand";
+import { ListAddonsCommand, ListAddonsCommandInput, ListAddonsCommandOutput } from "./commands/ListAddonsCommand";
 import {
   ListClustersCommand,
   ListClustersCommandInput,
@@ -76,6 +89,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import { UpdateAddonCommand, UpdateAddonCommandInput, UpdateAddonCommandOutput } from "./commands/UpdateAddonCommand";
 import {
   UpdateClusterConfigCommand,
   UpdateClusterConfigCommandInput,
@@ -111,6 +125,37 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             code modification required.</p>
  */
 export class EKS extends EKSClient {
+  /**
+   * <p>Creates an Amazon EKS add-on.</p>
+   *         <p>Amazon EKS add-ons help to automate the provisioning and lifecycle management of common
+   *             operational software for Amazon EKS clusters. Amazon EKS add-ons can only be used with Amazon EKS
+   *             clusters running version 1.18 with platform version <code>eks.3</code> or later because
+   *             add-ons rely on the Server-side Apply Kubernetes feature, which is only available in
+   *             Kubernetes 1.18 and later.</p>
+   */
+  public createAddon(args: CreateAddonCommandInput, options?: __HttpHandlerOptions): Promise<CreateAddonCommandOutput>;
+  public createAddon(args: CreateAddonCommandInput, cb: (err: any, data?: CreateAddonCommandOutput) => void): void;
+  public createAddon(
+    args: CreateAddonCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAddonCommandOutput) => void
+  ): void;
+  public createAddon(
+    args: CreateAddonCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAddonCommandOutput) => void),
+    cb?: (err: any, data?: CreateAddonCommandOutput) => void
+  ): Promise<CreateAddonCommandOutput> | void {
+    const command = new CreateAddonCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Creates an Amazon EKS control plane. </p>
    *         <p>The Amazon EKS control plane consists of control plane instances that run the Kubernetes
@@ -242,8 +287,8 @@ export class EKS extends EKSClient {
    *             template. For more information about using launch templates, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
    *                 template support</a>.</p>
    *         <p>An Amazon EKS managed node group is an Amazon EC2 Auto Scaling group and associated Amazon EC2 instances that
-   *             are managed by AWS for an Amazon EKS cluster. Each node group uses a version of the
-   *             Amazon EKS-optimized Amazon Linux 2 AMI. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html">Managed
+   *             are managed by AWS for an Amazon EKS cluster. Each node group uses a version of the Amazon EKS
+   *             optimized Amazon Linux 2 AMI. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html">Managed
    *                 Node Groups</a> in the <i>Amazon EKS User Guide</i>. </p>
    */
   public createNodegroup(
@@ -265,6 +310,34 @@ export class EKS extends EKSClient {
     cb?: (err: any, data?: CreateNodegroupCommandOutput) => void
   ): Promise<CreateNodegroupCommandOutput> | void {
     const command = new CreateNodegroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Delete an Amazon EKS add-on.</p>
+   *         <p>When you remove the add-on, it will also be deleted from the cluster. You can always
+   *             manually start an add-on on the cluster using the Kubernetes API.</p>
+   */
+  public deleteAddon(args: DeleteAddonCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAddonCommandOutput>;
+  public deleteAddon(args: DeleteAddonCommandInput, cb: (err: any, data?: DeleteAddonCommandOutput) => void): void;
+  public deleteAddon(
+    args: DeleteAddonCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAddonCommandOutput) => void
+  ): void;
+  public deleteAddon(
+    args: DeleteAddonCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAddonCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAddonCommandOutput) => void
+  ): Promise<DeleteAddonCommandOutput> | void {
+    const command = new DeleteAddonCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -375,6 +448,70 @@ export class EKS extends EKSClient {
     cb?: (err: any, data?: DeleteNodegroupCommandOutput) => void
   ): Promise<DeleteNodegroupCommandOutput> | void {
     const command = new DeleteNodegroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes an Amazon EKS add-on.</p>
+   */
+  public describeAddon(
+    args: DescribeAddonCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAddonCommandOutput>;
+  public describeAddon(
+    args: DescribeAddonCommandInput,
+    cb: (err: any, data?: DescribeAddonCommandOutput) => void
+  ): void;
+  public describeAddon(
+    args: DescribeAddonCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAddonCommandOutput) => void
+  ): void;
+  public describeAddon(
+    args: DescribeAddonCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAddonCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAddonCommandOutput) => void
+  ): Promise<DescribeAddonCommandOutput> | void {
+    const command = new DescribeAddonCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the Kubernetes versions that the add-on can be used with.</p>
+   */
+  public describeAddonVersions(
+    args: DescribeAddonVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAddonVersionsCommandOutput>;
+  public describeAddonVersions(
+    args: DescribeAddonVersionsCommandInput,
+    cb: (err: any, data?: DescribeAddonVersionsCommandOutput) => void
+  ): void;
+  public describeAddonVersions(
+    args: DescribeAddonVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAddonVersionsCommandOutput) => void
+  ): void;
+  public describeAddonVersions(
+    args: DescribeAddonVersionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAddonVersionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAddonVersionsCommandOutput) => void
+  ): Promise<DescribeAddonVersionsCommandOutput> | void {
+    const command = new DescribeAddonVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -515,6 +652,32 @@ export class EKS extends EKSClient {
     cb?: (err: any, data?: DescribeUpdateCommandOutput) => void
   ): Promise<DescribeUpdateCommandOutput> | void {
     const command = new DescribeUpdateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the available add-ons.</p>
+   */
+  public listAddons(args: ListAddonsCommandInput, options?: __HttpHandlerOptions): Promise<ListAddonsCommandOutput>;
+  public listAddons(args: ListAddonsCommandInput, cb: (err: any, data?: ListAddonsCommandOutput) => void): void;
+  public listAddons(
+    args: ListAddonsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAddonsCommandOutput) => void
+  ): void;
+  public listAddons(
+    args: ListAddonsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAddonsCommandOutput) => void),
+    cb?: (err: any, data?: ListAddonsCommandOutput) => void
+  ): Promise<ListAddonsCommandOutput> | void {
+    const command = new ListAddonsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -744,6 +907,32 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * <p>Updates an Amazon EKS add-on.</p>
+   */
+  public updateAddon(args: UpdateAddonCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAddonCommandOutput>;
+  public updateAddon(args: UpdateAddonCommandInput, cb: (err: any, data?: UpdateAddonCommandOutput) => void): void;
+  public updateAddon(
+    args: UpdateAddonCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAddonCommandOutput) => void
+  ): void;
+  public updateAddon(
+    args: UpdateAddonCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAddonCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAddonCommandOutput) => void
+  ): Promise<UpdateAddonCommandOutput> | void {
+    const command = new UpdateAddonCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates an Amazon EKS cluster configuration. Your cluster continues to function during the
    *             update. The response output includes an update ID that you can use to track the status
    *             of your cluster update with the <a>DescribeUpdate</a> API operation.</p>
@@ -891,7 +1080,8 @@ export class EKS extends EKSClient {
    *             AMI version of a node group's current Kubernetes version by not specifying a Kubernetes
    *             version in the request. You can update to the latest AMI version of your cluster's
    *             current Kubernetes version by specifying your cluster's Kubernetes version in the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html">Amazon EKS-Optimized Linux AMI Versions</a> in the <i>Amazon EKS User Guide</i>.</p>
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html">Amazon EKS
+   *                 optimized Amazon Linux 2 AMI versions</a> in the <i>Amazon EKS User Guide</i>.</p>
    *         <p>You cannot roll back a node group to an earlier Kubernetes version or AMI
    *             version.</p>
    *         <p>When a node in a managed node group is terminated due to a scaling action or update,

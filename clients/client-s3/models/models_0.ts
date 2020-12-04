@@ -321,6 +321,11 @@ export interface CompleteMultipartUploadOutput {
   SSEKMSKeyId?: string;
 
   /**
+   * <p>Indicates whether the multipart upload uses an S3 Bucket Key for server-side encryption with AWS KMS (SSE-KMS).</p>
+   */
+  BucketKeyEnabled?: boolean;
+
+  /**
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
@@ -488,6 +493,11 @@ export interface CopyObjectOutput {
    *          context key-value pairs.</p>
    */
   SSEKMSEncryptionContext?: string;
+
+  /**
+   * <p>Indicates whether the copied object uses an S3 Bucket Key for server-side encryption with AWS KMS (SSE-KMS).</p>
+   */
+  BucketKeyEnabled?: boolean;
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
@@ -734,6 +744,12 @@ export interface CopyObjectRequest {
    *          pairs.</p>
    */
   SSEKMSEncryptionContext?: string;
+
+  /**
+   * <p>Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with server-side encryption using AWS KMS (SSE-KMS). Setting this header to <code>true</code> causes Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS. </p>
+   *          <p>Specifying this header with a COPY operation doesn’t affect bucket-level settings for S3 Bucket Key.</p>
+   */
+  BucketKeyEnabled?: boolean;
 
   /**
    * <p>Specifies the algorithm to use when decrypting the source object (for example,
@@ -1038,6 +1054,11 @@ export interface CreateMultipartUploadOutput {
   SSEKMSEncryptionContext?: string;
 
   /**
+   * <p>Indicates whether the multipart upload uses an S3 Bucket Key for server-side encryption with AWS KMS (SSE-KMS).</p>
+   */
+  BucketKeyEnabled?: boolean;
+
+  /**
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
@@ -1193,6 +1214,12 @@ export interface CreateMultipartUploadRequest {
    *          pairs.</p>
    */
   SSEKMSEncryptionContext?: string;
+
+  /**
+   * <p>Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with server-side encryption using AWS KMS (SSE-KMS). Setting this header to <code>true</code> causes Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS.</p>
+   *          <p>Specifying this header with an object operation doesn’t affect bucket-level settings for S3 Bucket Key.</p>
+   */
+  BucketKeyEnabled?: boolean;
 
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
@@ -4158,6 +4185,12 @@ export interface ServerSideEncryptionRule {
    *          be applied.</p>
    */
   ApplyServerSideEncryptionByDefault?: ServerSideEncryptionByDefault;
+
+  /**
+   * <p>Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the <code>BucketKeyEnabled</code> element to <code>true</code> causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html">Amazon S3 Bucket Keys</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   */
+  BucketKeyEnabled?: boolean;
 }
 
 export namespace ServerSideEncryptionRule {
@@ -5650,9 +5683,9 @@ export type DeleteMarkerReplicationStatus = "Disabled" | "Enabled";
  *             <code>DeleteMarkerReplication</code> element. If your <code>Filter</code> includes a
  *             <code>Tag</code> element, the <code>DeleteMarkerReplication</code>
  *             <code>Status</code> must be set to Disabled, because Amazon S3 does not support replicating
- *          delete markers for tag-based rules. For an example configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config">Basic
- *             Rule Configuration</a>. </p>
- *          <p>For more information about delete marker replication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html">Basic Rule Configuration</a>. </p>
+ *          delete markers for tag-based rules. For an example configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config">Basic Rule Configuration</a>. </p>
+ *          <p>For more information about delete marker replication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html">Basic Rule
+ *             Configuration</a>. </p>
  *          <note>
  *             <p>If you are using an earlier version of the replication configuration, Amazon S3 handles
  *             replication of delete markers differently. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations">Backward Compatibility</a>.</p>
@@ -5968,6 +6001,32 @@ export namespace ReplicationRuleFilter {
   };
 }
 
+export type ReplicaModificationsStatus = "Disabled" | "Enabled";
+
+/**
+ * <p>A filter that you can specify for selection for modifications on replicas. Amazon S3 doesn't
+ *          replicate replica modifications by default. In the latest version of replication
+ *          configuration (when <code>Filter</code> is specified), you can specify this element and set
+ *          the status to <code>Enabled</code> to replicate modifications on replicas. </p>
+ *          <note>
+ *             <p> If you don't specify the <code>Filter</code> element, Amazon S3 assumes that the
+ *             replication configuration is the earlier version, V1. In the earlier version, this
+ *             element is not allowed.</p>
+ *          </note>
+ */
+export interface ReplicaModifications {
+  /**
+   * <p>Specifies whether Amazon S3 replicates modifications on replicas.</p>
+   */
+  Status: ReplicaModificationsStatus | string | undefined;
+}
+
+export namespace ReplicaModifications {
+  export const filterSensitiveLog = (obj: ReplicaModifications): any => ({
+    ...obj,
+  });
+}
+
 export type SseKmsEncryptedObjectsStatus = "Disabled" | "Enabled";
 
 /**
@@ -6002,6 +6061,19 @@ export interface SourceSelectionCriteria {
    *          this element is required. </p>
    */
   SseKmsEncryptedObjects?: SseKmsEncryptedObjects;
+
+  /**
+   * <p>A filter that you can specify for selections for modifications on replicas. Amazon S3 doesn't
+   *          replicate replica modifications by default. In the latest version of replication
+   *          configuration (when <code>Filter</code> is specified), you can specify this element and set
+   *          the status to <code>Enabled</code> to replicate modifications on replicas. </p>
+   *          <note>
+   *             <p> If you don't specify the <code>Filter</code> element, Amazon S3 assumes that the
+   *             replication configuration is the earlier version, V1. In the earlier version, this
+   *             element is not allowed</p>
+   *          </note>
+   */
+  ReplicaModifications?: ReplicaModifications;
 }
 
 export namespace SourceSelectionCriteria {
@@ -6022,19 +6094,11 @@ export interface ReplicationRule {
   ID?: string;
 
   /**
-   * <p>The priority associated with the rule. If you specify multiple rules in a replication
-   *          configuration, Amazon S3 prioritizes the rules to prevent conflicts when filtering. If two or
-   *          more rules identify the same object based on a specified filter, the rule with higher
-   *          priority takes precedence. For example:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Same object quality prefix-based filter criteria if prefixes you specified in
-   *                multiple rules overlap </p>
-   *             </li>
-   *             <li>
-   *                <p>Same object qualify tag-based filter criteria specified in multiple rules</p>
-   *             </li>
-   *          </ul>
+   * <p>The priority indicates which rule has precedence whenever two or more replication rules
+   *          conflict. Amazon S3 will attempt to replicate objects according to all replication rules.
+   *          However, if there are two or more rules with the same destination bucket, then objects will
+   *          be replicated according to the rule with the highest priority. The higher the number, the
+   *          higher the priority. </p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html">Replication</a> in the
    *             <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
@@ -6085,9 +6149,9 @@ export interface ReplicationRule {
    *             <code>DeleteMarkerReplication</code> element. If your <code>Filter</code> includes a
    *             <code>Tag</code> element, the <code>DeleteMarkerReplication</code>
    *             <code>Status</code> must be set to Disabled, because Amazon S3 does not support replicating
-   *          delete markers for tag-based rules. For an example configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config">Basic
-   *             Rule Configuration</a>. </p>
-   *          <p>For more information about delete marker replication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html">Basic Rule Configuration</a>. </p>
+   *          delete markers for tag-based rules. For an example configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config">Basic Rule Configuration</a>. </p>
+   *          <p>For more information about delete marker replication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html">Basic Rule
+   *             Configuration</a>. </p>
    *          <note>
    *             <p>If you are using an earlier version of the replication configuration, Amazon S3 handles
    *             replication of delete markers differently. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations">Backward Compatibility</a>.</p>
@@ -6621,6 +6685,11 @@ export interface GetObjectOutput {
    *          customer managed customer master key (CMK) that was used for the object.</p>
    */
   SSEKMSKeyId?: string;
+
+  /**
+   * <p>Indicates whether the object uses an S3 Bucket Key for server-side encryption with AWS KMS (SSE-KMS).</p>
+   */
+  BucketKeyEnabled?: boolean;
 
   /**
    * <p>Provides storage class information of the object. Amazon S3 returns this header for all
@@ -7507,6 +7576,11 @@ export interface HeadObjectOutput {
   SSEKMSKeyId?: string;
 
   /**
+   * <p>Indicates whether the object uses an S3 Bucket Key for server-side encryption with AWS KMS (SSE-KMS).</p>
+   */
+  BucketKeyEnabled?: boolean;
+
+  /**
    * <p>Provides storage class information of the object. Amazon S3 returns this header for all
    *          objects except for S3 Standard storage class objects.</p>
    *
@@ -7523,10 +7597,10 @@ export interface HeadObjectOutput {
 
   /**
    * <p>Amazon S3 can return this header if your request involves a bucket that is either a source or
-   *          destination in a replication rule.</p>
+   *          a destination in a replication rule.</p>
    *
    *          <p>In replication, you have a source bucket on which you configure replication and
-   *          destination bucket where Amazon S3 stores object replicas. When you request an object
+   *          destination bucket or buckets where Amazon S3 stores object replicas. When you request an object
    *             (<code>GetObject</code>) or object metadata (<code>HeadObject</code>) from these
    *          buckets, Amazon S3 will return the <code>x-amz-replication-status</code> header in the response
    *          as follows:</p>
@@ -7544,9 +7618,18 @@ export interface HeadObjectOutput {
    *                FAILED indicating object replication status.</p>
    *             </li>
    *             <li>
-   *                <p>If requesting an object from the destination bucket — Amazon S3 will return the
+   *                <p>If requesting an object from a destination bucket — Amazon S3 will return the
    *                   <code>x-amz-replication-status</code> header with value REPLICA if the object in
-   *                your request is a replica that Amazon S3 created.</p>
+   *                your request is a replica that Amazon S3 created and there is no replica modification
+   *                replication in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>When replicating objects to multiple destination buckets the
+   *                   <code>x-amz-replication-status</code> header acts differently. The header of the
+   *                source object will only return a value of COMPLETED when replication is successful to
+   *                all destinations. The header will remain at value PENDING until replication has
+   *                completed for all destinations. If one or more destinations fails replication the
+   *                header will return FAILED. </p>
    *             </li>
    *          </ul>
    *
@@ -7945,7 +8028,7 @@ export interface Bucket {
   Name?: string;
 
   /**
-   * <p>Date the bucket was created.</p>
+   * <p>Date the bucket was created. This date can change when making changes to your bucket, such as editing its bucket policy.</p>
    */
   CreationDate?: Date;
 }
@@ -9826,6 +9909,11 @@ export interface PutObjectOutput {
   SSEKMSEncryptionContext?: string;
 
   /**
+   * <p>Indicates whether the uploaded object uses an S3 Bucket Key for server-side encryption with AWS KMS (SSE-KMS).</p>
+   */
+  BucketKeyEnabled?: boolean;
+
+  /**
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
@@ -10027,6 +10115,12 @@ export interface PutObjectRequest {
    *          pairs.</p>
    */
   SSEKMSEncryptionContext?: string;
+
+  /**
+   * <p>Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with server-side encryption using AWS KMS (SSE-KMS). Setting this header to <code>true</code> causes Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS.</p>
+   *          <p>Specifying this header with a PUT operation doesn’t affect bucket-level settings for S3 Bucket Key.</p>
+   */
+  BucketKeyEnabled?: boolean;
 
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
@@ -10537,78 +10631,5 @@ export namespace Encryption {
   export const filterSensitiveLog = (obj: Encryption): any => ({
     ...obj,
     ...(obj.KMSKeyId && { KMSKeyId: SENSITIVE_STRING }),
-  });
-}
-
-/**
- * <p>A metadata key-value pair to store with an object.</p>
- */
-export interface MetadataEntry {
-  /**
-   * <p>Name of the Object.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>Value of the Object.</p>
-   */
-  Value?: string;
-}
-
-export namespace MetadataEntry {
-  export const filterSensitiveLog = (obj: MetadataEntry): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an Amazon S3 location that will receive the results of the restore request.</p>
- */
-export interface S3Location {
-  /**
-   * <p>The name of the bucket where the restore results will be placed.</p>
-   */
-  BucketName: string | undefined;
-
-  /**
-   * <p>The prefix that is prepended to the restore results for this request.</p>
-   */
-  Prefix: string | undefined;
-
-  /**
-   * <p>Contains the type of server-side encryption used.</p>
-   */
-  Encryption?: Encryption;
-
-  /**
-   * <p>The canned ACL to apply to the restore results.</p>
-   */
-  CannedACL?: ObjectCannedACL | string;
-
-  /**
-   * <p>A list of grants that control access to the staged results.</p>
-   */
-  AccessControlList?: Grant[];
-
-  /**
-   * <p>The tag-set that is applied to the restore results.</p>
-   */
-  Tagging?: Tagging;
-
-  /**
-   * <p>A list of metadata to store with the restore results in S3.</p>
-   */
-  UserMetadata?: MetadataEntry[];
-
-  /**
-   * <p>The class of storage used to store the restore results.</p>
-   */
-  StorageClass?: StorageClass | string;
-}
-
-export namespace S3Location {
-  export const filterSensitiveLog = (obj: S3Location): any => ({
-    ...obj,
-    ...(obj.Encryption && { Encryption: Encryption.filterSensitiveLog(obj.Encryption) }),
   });
 }

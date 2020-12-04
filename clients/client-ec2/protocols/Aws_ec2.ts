@@ -31638,6 +31638,9 @@ const serializeAws_ec2CreateVolumeRequest = (input: CreateVolumeRequest, context
   if (input.MultiAttachEnabled !== undefined) {
     entries["MultiAttachEnabled"] = input.MultiAttachEnabled;
   }
+  if (input.Throughput !== undefined) {
+    entries["Throughput"] = input.Throughput;
+  }
   return entries;
 };
 
@@ -36464,6 +36467,9 @@ const serializeAws_ec2EbsBlockDevice = (input: EbsBlockDevice, context: __SerdeC
   if (input.KmsKeyId !== undefined) {
     entries["KmsKeyId"] = input.KmsKeyId;
   }
+  if (input.Throughput !== undefined) {
+    entries["Throughput"] = input.Throughput;
+  }
   if (input.Encrypted !== undefined) {
     entries["Encrypted"] = input.Encrypted;
   }
@@ -38580,6 +38586,9 @@ const serializeAws_ec2LaunchTemplateEbsBlockDeviceRequest = (
   if (input.VolumeType !== undefined) {
     entries["VolumeType"] = input.VolumeType;
   }
+  if (input.Throughput !== undefined) {
+    entries["Throughput"] = input.Throughput;
+  }
   return entries;
 };
 
@@ -40191,6 +40200,9 @@ const serializeAws_ec2ModifyVolumeRequest = (input: ModifyVolumeRequest, context
   }
   if (input.Iops !== undefined) {
     entries["Iops"] = input.Iops;
+  }
+  if (input.Throughput !== undefined) {
+    entries["Throughput"] = input.Throughput;
   }
   return entries;
 };
@@ -51396,6 +51408,7 @@ const deserializeAws_ec2EbsBlockDevice = (output: any, context: __SerdeContext):
     VolumeSize: undefined,
     VolumeType: undefined,
     KmsKeyId: undefined,
+    Throughput: undefined,
     Encrypted: undefined,
   };
   if (output["deleteOnTermination"] !== undefined) {
@@ -51415,6 +51428,9 @@ const deserializeAws_ec2EbsBlockDevice = (output: any, context: __SerdeContext):
   }
   if (output["KmsKeyId"] !== undefined) {
     contents.KmsKeyId = output["KmsKeyId"];
+  }
+  if (output["throughput"] !== undefined) {
+    contents.Throughput = parseInt(output["throughput"]);
   }
   if (output["encrypted"] !== undefined) {
     contents.Encrypted = output["encrypted"] == "true";
@@ -56027,6 +56043,7 @@ const deserializeAws_ec2LaunchTemplateEbsBlockDevice = (
     SnapshotId: undefined,
     VolumeSize: undefined,
     VolumeType: undefined,
+    Throughput: undefined,
   };
   if (output["encrypted"] !== undefined) {
     contents.Encrypted = output["encrypted"] == "true";
@@ -56048,6 +56065,9 @@ const deserializeAws_ec2LaunchTemplateEbsBlockDevice = (
   }
   if (output["volumeType"] !== undefined) {
     contents.VolumeType = output["volumeType"];
+  }
+  if (output["throughput"] !== undefined) {
+    contents.Throughput = parseInt(output["throughput"]);
   }
   return contents;
 };
@@ -63748,6 +63768,7 @@ const deserializeAws_ec2Volume = (output: any, context: __SerdeContext): Volume 
     VolumeType: undefined,
     FastRestored: undefined,
     MultiAttachEnabled: undefined,
+    Throughput: undefined,
   };
   if (output.attachmentSet === "") {
     contents.Attachments = [];
@@ -63803,6 +63824,9 @@ const deserializeAws_ec2Volume = (output: any, context: __SerdeContext): Volume 
   if (output["multiAttachEnabled"] !== undefined) {
     contents.MultiAttachEnabled = output["multiAttachEnabled"] == "true";
   }
+  if (output["throughput"] !== undefined) {
+    contents.Throughput = parseInt(output["throughput"]);
+  }
   return contents;
 };
 
@@ -63852,9 +63876,11 @@ const deserializeAws_ec2VolumeModification = (output: any, context: __SerdeConte
     TargetSize: undefined,
     TargetIops: undefined,
     TargetVolumeType: undefined,
+    TargetThroughput: undefined,
     OriginalSize: undefined,
     OriginalIops: undefined,
     OriginalVolumeType: undefined,
+    OriginalThroughput: undefined,
     Progress: undefined,
     StartTime: undefined,
     EndTime: undefined,
@@ -63877,6 +63903,9 @@ const deserializeAws_ec2VolumeModification = (output: any, context: __SerdeConte
   if (output["targetVolumeType"] !== undefined) {
     contents.TargetVolumeType = output["targetVolumeType"];
   }
+  if (output["targetThroughput"] !== undefined) {
+    contents.TargetThroughput = parseInt(output["targetThroughput"]);
+  }
   if (output["originalSize"] !== undefined) {
     contents.OriginalSize = parseInt(output["originalSize"]);
   }
@@ -63885,6 +63914,9 @@ const deserializeAws_ec2VolumeModification = (output: any, context: __SerdeConte
   }
   if (output["originalVolumeType"] !== undefined) {
     contents.OriginalVolumeType = output["originalVolumeType"];
+  }
+  if (output["originalThroughput"] !== undefined) {
+    contents.OriginalThroughput = parseInt(output["originalThroughput"]);
   }
   if (output["progress"] !== undefined) {
     contents.Progress = parseInt(output["progress"]);

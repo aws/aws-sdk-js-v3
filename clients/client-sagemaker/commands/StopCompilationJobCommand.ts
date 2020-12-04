@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { StopCompilationJobRequest } from "../models/models_1";
+import { StopCompilationJobRequest } from "../models/models_2";
 import {
   deserializeAws_json1_1StopCompilationJobCommand,
   serializeAws_json1_1StopCompilationJobCommand,

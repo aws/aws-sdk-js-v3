@@ -28,8 +28,8 @@ export type CreateNodegroupCommandOutput = CreateNodegroupResponse & __MetadataB
  *             template. For more information about using launch templates, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
  *                 template support</a>.</p>
  *         <p>An Amazon EKS managed node group is an Amazon EC2 Auto Scaling group and associated Amazon EC2 instances that
- *             are managed by AWS for an Amazon EKS cluster. Each node group uses a version of the
- *             Amazon EKS-optimized Amazon Linux 2 AMI. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html">Managed
+ *             are managed by AWS for an Amazon EKS cluster. Each node group uses a version of the Amazon EKS
+ *             optimized Amazon Linux 2 AMI. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html">Managed
  *                 Node Groups</a> in the <i>Amazon EKS User Guide</i>. </p>
  */
 export class CreateNodegroupCommand extends $Command<

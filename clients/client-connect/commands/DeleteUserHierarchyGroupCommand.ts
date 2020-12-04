@@ -21,7 +21,8 @@ export type DeleteUserHierarchyGroupCommandInput = DeleteUserHierarchyGroupReque
 export type DeleteUserHierarchyGroupCommandOutput = __MetadataBearer;
 
 /**
- * <p>Deletes an existing user hierarchy group. It must not be associated with any agents or have any active child groups.</p>
+ * <p>Deletes an existing user hierarchy group. It must not be associated with any agents or have
+ *    any active child groups.</p>
  */
 export class DeleteUserHierarchyGroupCommand extends $Command<
   DeleteUserHierarchyGroupCommandInput,

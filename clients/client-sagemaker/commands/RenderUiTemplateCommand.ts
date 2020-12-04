@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { RenderUiTemplateRequest, RenderUiTemplateResponse } from "../models/models_1";
+import { RenderUiTemplateRequest, RenderUiTemplateResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1RenderUiTemplateCommand,
   serializeAws_json1_1RenderUiTemplateCommand,

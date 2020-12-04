@@ -1,15 +1,22 @@
+import { CreateAddonCommandInput, CreateAddonCommandOutput } from "./commands/CreateAddonCommand";
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
 import {
   CreateFargateProfileCommandInput,
   CreateFargateProfileCommandOutput,
 } from "./commands/CreateFargateProfileCommand";
 import { CreateNodegroupCommandInput, CreateNodegroupCommandOutput } from "./commands/CreateNodegroupCommand";
+import { DeleteAddonCommandInput, DeleteAddonCommandOutput } from "./commands/DeleteAddonCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
 import {
   DeleteFargateProfileCommandInput,
   DeleteFargateProfileCommandOutput,
 } from "./commands/DeleteFargateProfileCommand";
 import { DeleteNodegroupCommandInput, DeleteNodegroupCommandOutput } from "./commands/DeleteNodegroupCommand";
+import { DescribeAddonCommandInput, DescribeAddonCommandOutput } from "./commands/DescribeAddonCommand";
+import {
+  DescribeAddonVersionsCommandInput,
+  DescribeAddonVersionsCommandOutput,
+} from "./commands/DescribeAddonVersionsCommand";
 import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
 import {
   DescribeFargateProfileCommandInput,
@@ -17,6 +24,7 @@ import {
 } from "./commands/DescribeFargateProfileCommand";
 import { DescribeNodegroupCommandInput, DescribeNodegroupCommandOutput } from "./commands/DescribeNodegroupCommand";
 import { DescribeUpdateCommandInput, DescribeUpdateCommandOutput } from "./commands/DescribeUpdateCommand";
+import { ListAddonsCommandInput, ListAddonsCommandOutput } from "./commands/ListAddonsCommand";
 import { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
 import {
   ListFargateProfilesCommandInput,
@@ -30,6 +38,7 @@ import {
 import { ListUpdatesCommandInput, ListUpdatesCommandOutput } from "./commands/ListUpdatesCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateAddonCommandInput, UpdateAddonCommandOutput } from "./commands/UpdateAddonCommand";
 import {
   UpdateClusterConfigCommandInput,
   UpdateClusterConfigCommandOutput,
@@ -96,16 +105,21 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | CreateAddonCommandInput
   | CreateClusterCommandInput
   | CreateFargateProfileCommandInput
   | CreateNodegroupCommandInput
+  | DeleteAddonCommandInput
   | DeleteClusterCommandInput
   | DeleteFargateProfileCommandInput
   | DeleteNodegroupCommandInput
+  | DescribeAddonCommandInput
+  | DescribeAddonVersionsCommandInput
   | DescribeClusterCommandInput
   | DescribeFargateProfileCommandInput
   | DescribeNodegroupCommandInput
   | DescribeUpdateCommandInput
+  | ListAddonsCommandInput
   | ListClustersCommandInput
   | ListFargateProfilesCommandInput
   | ListNodegroupsCommandInput
@@ -113,22 +127,28 @@ export type ServiceInputTypes =
   | ListUpdatesCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateAddonCommandInput
   | UpdateClusterConfigCommandInput
   | UpdateClusterVersionCommandInput
   | UpdateNodegroupConfigCommandInput
   | UpdateNodegroupVersionCommandInput;
 
 export type ServiceOutputTypes =
+  | CreateAddonCommandOutput
   | CreateClusterCommandOutput
   | CreateFargateProfileCommandOutput
   | CreateNodegroupCommandOutput
+  | DeleteAddonCommandOutput
   | DeleteClusterCommandOutput
   | DeleteFargateProfileCommandOutput
   | DeleteNodegroupCommandOutput
+  | DescribeAddonCommandOutput
+  | DescribeAddonVersionsCommandOutput
   | DescribeClusterCommandOutput
   | DescribeFargateProfileCommandOutput
   | DescribeNodegroupCommandOutput
   | DescribeUpdateCommandOutput
+  | ListAddonsCommandOutput
   | ListClustersCommandOutput
   | ListFargateProfilesCommandOutput
   | ListNodegroupsCommandOutput
@@ -136,6 +156,7 @@ export type ServiceOutputTypes =
   | ListUpdatesCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAddonCommandOutput
   | UpdateClusterConfigCommandOutput
   | UpdateClusterVersionCommandOutput
   | UpdateNodegroupConfigCommandOutput

@@ -33,7 +33,7 @@ export type StartOutboundVoiceContactCommandOutput = StartOutboundVoiceContactRe
  *          <note>
  *             <p>UK numbers with a 447 prefix are not allowed by default. Before you can dial these UK
  *     mobile numbers, you must submit a service quota increase request. For more information, see
- *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+ *      <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
  *          </note>
  */
 export class StartOutboundVoiceContactCommand extends $Command<
