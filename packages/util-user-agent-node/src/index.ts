@@ -1,17 +1,24 @@
-import process from "process";
+import { UserAgent } from "@aws-sdk/types";
+import { platform, release } from "os";
+import { env, versions } from "process";
 
-export const defaultUserAgent = (packageName: string, packageVersion: string): string =>
-  [
+export const defaultUserAgent = (packageName: string, packageVersion: string): UserAgent => {
+  // TODO: remove this post GA and version changed to 3.x.x
+  const version = packageVersion.replace(/^1\./, "3.");
+  const sections: UserAgent = [
     // sdk-metadata
-    // TODO: remove this post GA and version changed to 3.x.x
-    `aws-sdk-nodejs/${packageVersion.replace(/^1\./, "3.")}`,
+    ["aws-sdk-js", version],
+    // api-metadata
+    // TODO: use api name instead of package name
+    [`api/${packageName}`, version],
     // os-metadata
-    process.platform,
-    `nodejs/${process.versions.node}`,
+    [`os/${platform()}`, release()],
     // language-metadata
-    `sdk-client/${packageName}`,
+    ["lang/nodejs", `${versions.node}`],
+  ];
+  if (env.AWS_EXECUTION_ENV) {
     // env-metadata
-    process.env.AWS_EXECUTION_ENV ? `exec-env/${process.env.AWS_EXECUTION_ENV}` : undefined,
-  ]
-    .filter((section) => section && section.length > 0)
-    .join(" ");
+    sections.push([`exec-env/${process.env.AWS_EXECUTION_ENV}`]);
+  }
+  return sections;
+};
