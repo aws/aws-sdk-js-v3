@@ -4,7 +4,7 @@
   "description": "Shared utilities for client waiters for the AWS SDK",
   "dependencies": {
     "tslib": "^1.8.0",
-    "@aws-sdk/abort-controller": "1.0.0-rc.7"
+    "@aws-sdk/abort-controller": "1.0.0-rc.8"
   },
   "devDependencies": {
     "@types/jest": "^26.0.4",

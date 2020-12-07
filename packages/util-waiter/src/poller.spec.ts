@@ -26,10 +26,12 @@ describe(runPolling.name, () => {
 
   beforeEach(() => {
     (sleep as jest.Mock).mockResolvedValueOnce("");
+    jest.spyOn(global.Math, "random").mockReturnValue(0.5);
   });
 
   afterEach(() => {
     jest.clearAllMocks();
+    jest.spyOn(global.Math, "random").mockRestore();
   });
 
   it("should returns state in case of failure", async () => {
@@ -80,12 +82,12 @@ describe(runPolling.name, () => {
 
     expect(sleep).toHaveBeenCalled();
     expect(sleep).toHaveBeenCalledTimes(7);
-    expect(sleep).toHaveBeenNthCalledWith(1, 2);
-    expect(sleep).toHaveBeenNthCalledWith(2, 4);
-    expect(sleep).toHaveBeenNthCalledWith(3, 8);
-    expect(sleep).toHaveBeenNthCalledWith(4, 16);
-    expect(sleep).toHaveBeenNthCalledWith(5, 30);
-    expect(sleep).toHaveBeenNthCalledWith(6, 30);
-    expect(sleep).toHaveBeenNthCalledWith(7, 30);
+    expect(sleep).toHaveBeenNthCalledWith(1, 2); // min delay
+    expect(sleep).toHaveBeenNthCalledWith(2, 3); // +random() * 2
+    expect(sleep).toHaveBeenNthCalledWith(3, 5); // +random() * 4
+    expect(sleep).toHaveBeenNthCalledWith(4, 9); // +random() * 8
+    expect(sleep).toHaveBeenNthCalledWith(5, 17); // +random() * 16
+    expect(sleep).toHaveBeenNthCalledWith(6, 30); // max delay
+    expect(sleep).toHaveBeenNthCalledWith(7, 30); // max delay
   });
 });
