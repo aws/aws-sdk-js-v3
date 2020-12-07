@@ -92,3 +92,15 @@ export interface RegionInfo {
 export interface RegionInfoProvider {
   (region: string, options?: any): Promise<RegionInfo | undefined>;
 }
+
+/**
+ * A tuple that represents an API name and optional version
+ * of a library built using the AWS SDK.
+ */
+export type UserAgentPair = [name: string, version?: string];
+
+/**
+ * User agent data that to be put into the request's user
+ * agent.
+ */
+export type UserAgent = UserAgentPair[];
