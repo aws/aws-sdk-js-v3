@@ -6,12 +6,12 @@ import { abortTimeout, sleep, waiterTimeout } from "./sleep";
 jest.useFakeTimers();
 
 describe("Sleep Module", () => {
-  describe(sleep.name, () => {
-    beforeEach(() => {
-      jest.clearAllMocks();
-      jest.clearAllTimers();
-    });
+  beforeEach(() => {
+    jest.clearAllMocks();
+    jest.clearAllTimers();
+  });
 
+  describe(sleep.name, () => {
     it("should call setTimeout with the proper number of milliseconds", () => {
       sleep(1);
 
@@ -32,25 +32,28 @@ describe("Sleep Module", () => {
       expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 3000);
     });
 
-    it("should call return state retry", async (done) => {
+    it("should call return state retry", async () => {
       const result = waiterTimeout(1);
       expect(setTimeout).toHaveBeenCalledTimes(1);
       expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 1000);
       jest.advanceTimersByTime(1000);
-      expect((await result).state).toBe(WaiterState.RETRY);
-      done();
+      await expect(result).resolves.toEqual({ state: WaiterState.RETRY });
     });
   });
 
   describe(abortTimeout.name, () => {
-    it("should listen to the abort control", async (done) => {
+    it("should listen to the abort control", async () => {
       const abortControl = new AbortController();
-      const race = Promise.race([waiterTimeout(10000000), abortTimeout(abortControl.signal)]);
+      const mockTimeout = 1000;
+      const race = Promise.race([
+        new Promise((resolve) => setTimeout(resolve, mockTimeout)),
+        abortTimeout(abortControl.signal),
+      ]);
       abortControl.abort();
+      // jest.advanceTimersByTime(mockTimeout);
       const result = await race;
 
-      expect(result.state).toBe(WaiterState.ABORTED);
-      done();
+      await expect(result).toEqual({ state: WaiterState.ABORTED });
     });
   });
 });
