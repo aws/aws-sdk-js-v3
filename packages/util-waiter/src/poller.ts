@@ -6,7 +6,7 @@ import { WaiterOptions, WaiterResult, WaiterState } from "./waiter";
  * The theoretical limit to the attempt is max delay cannot be > Number.MAX_VALUE, but it's unlikely because of
  * `maxWaitTime`
  */
-const exponentialBackoff = (floor: number, ciel: number, attempt: number) =>
+const exponentialBackoffWithJitter = (floor: number, ciel: number, attempt: number) =>
   Math.floor(Math.min(ciel, randomInRange(floor, floor * 2 ** (attempt - 1))));
 const randomInRange = (min: number, max: number) => min + Math.random() * (max - min);
 
@@ -26,7 +26,7 @@ export const runPolling = async <T, S>(
   let currentAttempt = 1;
 
   while (true) {
-    await sleep(exponentialBackoff(minDelay, maxDelay, currentAttempt));
+    await sleep(exponentialBackoffWithJitter(minDelay, maxDelay, currentAttempt));
     const { state } = await acceptorChecks(client, input);
     if (state === WaiterState.SUCCESS || state === WaiterState.FAILURE) {
       return { state };
