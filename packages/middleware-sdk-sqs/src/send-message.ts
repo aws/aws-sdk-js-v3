@@ -28,9 +28,7 @@ export function sendMessageMiddleware(options: PreviouslyResolved): InitializeMi
     if (output.MD5OfMessageBody !== toHex(await hash.digest())) {
       throw new Error("InvalidChecksumError");
     }
-    return next({
-      ...args,
-    });
+    return resp;
   };
 }
 
