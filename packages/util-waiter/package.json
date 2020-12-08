@@ -1,0 +1,39 @@
+{
+  "name": "@aws-sdk/util-waiter",
+  "version": "1.0.0-rc.8",
+  "description": "Shared utilities for client waiters for the AWS SDK",
+  "dependencies": {
+    "tslib": "^1.8.0",
+    "@aws-sdk/abort-controller": "1.0.0-rc.8"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.4",
+    "jest": "^26.1.0",
+    "typescript": "~4.1.2"
+  },
+  "scripts": {
+    "prepublishOnly": "yarn build:cjs && yarn build:es",
+    "pretest": "yarn build:cjs",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:es": "tsc -p tsconfig.es.json",
+    "build": "yarn build:es && yarn build:cjs",
+    "test": "jest"
+  },
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "license": "Apache-2.0",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/es/index.js",
+  "types": "./dist/cjs/index.d.ts",
+  "engines": {
+    "node": ">= 10.0.0"
+  },
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/util-waiter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "packages/util-waiter"
+  }
+}
