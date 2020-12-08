@@ -1,24 +1,52 @@
-import process from "process";
+jest.mock("os", () => ({
+  platform: () => "darwin",
+  release: () => "19.6.0",
+}));
+
+const mockEnv = {};
+jest.mock("process", () => ({
+  env: mockEnv,
+  versions: {
+    node: "14.13.1",
+  },
+}));
+
+const mockAppIdLoader = jest.fn().mockResolvedValue(undefined);
+jest.mock("@aws-sdk/node-config-provider", () => ({
+  loadConfig: () => mockAppIdLoader,
+}));
 
 import { defaultUserAgent } from ".";
 
 describe("defaultUserAgent", () => {
-  it("should response basic node default user agent", () => {
-    const originEnv = process.env.AWS_EXECUTION_ENV;
-    delete process.env.AWS_EXECUTION_ENV;
-    const userAgent = defaultUserAgent("client-s3", "0.1.0");
-    expect(userAgent).toEqual(expect.stringContaining("aws-sdk-nodejs/0.1.0"));
-    expect(userAgent).toEqual(expect.stringContaining(process.platform));
-    expect(userAgent).toEqual(expect.stringContaining(`nodejs/${process.versions.node}`));
-    expect(userAgent).toEqual(expect.stringContaining("sdk-client/client-s3"));
-    if (originEnv) process.env.AWS_EXECUTION_ENV = originEnv;
+  beforeEach(() => {
+    jest.resetAllMocks();
   });
 
-  it("should add AWS_EXECUTION_ENV", () => {
-    const originEnv = process.env.AWS_EXECUTION_ENV;
-    process.env.AWS_EXECUTION_ENV = "ecs";
-    const userAgent = defaultUserAgent("client-s3", "0.1.0");
-    expect(userAgent).toEqual(expect.stringContaining("exec-env/ecs"));
-    if (originEnv) process.env.AWS_EXECUTION_ENV = originEnv;
+  afterAll(() => {
+    jest.clearAllMocks();
+  });
+
+  it("should response basic node default user agent", async () => {
+    const userAgent = await defaultUserAgent("s3", "0.1.0")();
+    expect(userAgent).toContainEqual(["aws-sdk-js", "0.1.0"]);
+    expect(userAgent).toContainEqual(["api/s3", "0.1.0"]);
+    expect(userAgent).toContainEqual(["os/darwin", "19.6.0"]);
+    expect(userAgent).toContainEqual(["lang/nodejs", "14.13.1"]);
+  });
+
+  it("should add AWS_EXECUTION_ENV", async () => {
+    //@ts-ignore mock environmental variables
+    mockEnv.AWS_EXECUTION_ENV = "lambda";
+    const userAgent = await defaultUserAgent("s3", "0.1.0")();
+    expect(userAgent).toContainEqual(["exec-env/lambda"]);
+  });
+
+  it("should load app id if available", async () => {
+    mockAppIdLoader.mockClear();
+    const appId = "appId12345";
+    mockAppIdLoader.mockResolvedValue(appId);
+    const userAgent = await defaultUserAgent("s3", "0.1.0")();
+    expect(userAgent).toContainEqual([`app/${appId}`]);
   });
 });
