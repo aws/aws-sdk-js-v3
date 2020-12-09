@@ -1,4 +1,4 @@
-import { UserAgent } from "@aws-sdk/types";
+import { Provider, UserAgent } from "@aws-sdk/types";
 export interface UserAgentInputConfig {
   /**
    * The custom user agent header that would be appended to default one
@@ -6,11 +6,11 @@ export interface UserAgentInputConfig {
   customUserAgent?: string | UserAgent;
 }
 interface PreviouslyResolved {
-  defaultUserAgent: UserAgent;
+  defaultUserAgent: Provider<UserAgent>;
   runtime: string;
 }
 export interface UserAgentResolvedConfig {
-  defaultUserAgent: UserAgent;
+  defaultUserAgent: Provider<UserAgent>;
   customUserAgent?: UserAgent;
   runtime: string;
 }
