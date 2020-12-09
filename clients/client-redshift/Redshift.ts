@@ -3619,6 +3619,9 @@ export class Redshift extends RedshiftClient {
    *                         <p>ds2.8xlarge</p>
    *                     </li>
    *                   <li>
+   *                         <p>ra3.xlplus</p>
+   *                     </li>
+   *                   <li>
    *                         <p>ra3.4xlarge</p>
    *                     </li>
    *                   <li>

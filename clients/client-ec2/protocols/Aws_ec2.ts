@@ -30533,6 +30533,13 @@ const serializeAws_ec2CreateImageRequest = (input: CreateImageRequest, context: 
   if (input.NoReboot !== undefined) {
     entries["NoReboot"] = input.NoReboot;
   }
+  if (input.TagSpecifications !== undefined) {
+    const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 

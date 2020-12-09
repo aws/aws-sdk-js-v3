@@ -25,8 +25,7 @@ export type DescribeEndpointGroupCommandInput = DescribeEndpointGroupRequest;
 export type DescribeEndpointGroupCommandOutput = DescribeEndpointGroupResponse & __MetadataBearer;
 
 /**
- * <p>Describe an endpoint group. To see an AWS CLI example of describing
- * 			an endpoint group, scroll down to <b>Example</b>.</p>
+ * <p>Describe an endpoint group. </p>
  */
 export class DescribeEndpointGroupCommand extends $Command<
   DescribeEndpointGroupCommandInput,

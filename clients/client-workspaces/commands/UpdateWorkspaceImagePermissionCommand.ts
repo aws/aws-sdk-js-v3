@@ -21,9 +21,20 @@ export type UpdateWorkspaceImagePermissionCommandInput = UpdateWorkspaceImagePer
 export type UpdateWorkspaceImagePermissionCommandOutput = UpdateWorkspaceImagePermissionResult & __MetadataBearer;
 
 /**
- * <p>Shares or unshares an image with one account by specifying whether that account has permission to copy
- *          the image. If the copy image permission is granted, the image is shared with that account. If the copy image
- *          permission is revoked, the image is unshared with the account. For more information about sharing images, see
+ * <p>Shares or unshares an image with one account in the same AWS Region by specifying whether that account has
+ *          permission to copy the image. If the copy image permission is granted, the image is shared with that account.
+ *          If the copy image permission is revoked, the image is unshared with the account.</p>
+ *
+ *          <p>After an image has been shared, the recipient account can copy the image to other AWS Regions as needed.</p>
+ *
+ *          <note>
+ *             <p>In the China (Ningxia) Region, you can copy images only within the same Region.</p>
+ *
+ *             <p>In the AWS GovCloud (US-West) Region, to copy images to and from other AWS Regions,
+ *             contact AWS Support.</p>
+ *          </note>
+ *
+ *          <p>For more information about sharing images, see
  *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html">
  *             Share or Unshare a Custom WorkSpaces Image</a>.</p>
  *

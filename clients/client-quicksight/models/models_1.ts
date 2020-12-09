@@ -35,6 +35,29 @@ import {
 } from "./models_0";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
+export interface ListNamespacesRequest {
+  /**
+   * <p>The ID for the AWS account that contains the QuickSight namespaces that you want to list.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListNamespacesRequest {
+  export const filterSensitiveLog = (obj: ListNamespacesRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface ListNamespacesResponse {
   /**
    * <p>The information about the namespaces in this AWS account. The response includes

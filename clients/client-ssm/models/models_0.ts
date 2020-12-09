@@ -808,7 +808,8 @@ export interface CreateAssociationRequest {
   /**
    * <p>By default, when you create a new associations, the system runs it immediately after it is
    *    created and then according to the schedule you specified. Specify this option if you don't want
-   *    an association to run immediately after you create it.</p>
+   *    an association to run immediately after you create it. This parameter is not supported for rate
+   *    expressions.</p>
    */
   ApplyOnlyAtCronInterval?: boolean;
 }
@@ -1021,7 +1022,8 @@ export interface AssociationDescription {
   /**
    * <p>By default, when you create a new associations, the system runs it immediately after it is
    *    created and then according to the schedule you specified. Specify this option if you don't want
-   *    an association to run immediately after you create it.</p>
+   *    an association to run immediately after you create it. This parameter is not supported for rate
+   *    expressions.</p>
    */
   ApplyOnlyAtCronInterval?: boolean;
 }
@@ -1271,7 +1273,8 @@ export interface CreateAssociationBatchRequestEntry {
   /**
    * <p>By default, when you create a new associations, the system runs it immediately after it is
    *    created and then according to the schedule you specified. Specify this option if you don't want
-   *    an association to run immediately after you create it.</p>
+   *    an association to run immediately after you create it. This parameter is not supported for rate
+   *    expressions.</p>
    */
   ApplyOnlyAtCronInterval?: boolean;
 }
@@ -2253,6 +2256,115 @@ export namespace OpsItemLimitExceededException {
   });
 }
 
+/**
+ * <p>Metadata to assign to an AppManager application.</p>
+ */
+export interface MetadataValue {
+  /**
+   * <p>Metadata value to assign to an AppManager application.</p>
+   */
+  Value?: string;
+}
+
+export namespace MetadataValue {
+  export const filterSensitiveLog = (obj: MetadataValue): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateOpsMetadataRequest {
+  /**
+   * <p>A resource ID for a new AppManager application.</p>
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>Metadata for a new AppManager application. </p>
+   */
+  Metadata?: { [key: string]: MetadataValue };
+}
+
+export namespace CreateOpsMetadataRequest {
+  export const filterSensitiveLog = (obj: CreateOpsMetadataRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateOpsMetadataResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the OpsMetadata Object or blob created by the call.</p>
+   */
+  OpsMetadataArn?: string;
+}
+
+export namespace CreateOpsMetadataResult {
+  export const filterSensitiveLog = (obj: CreateOpsMetadataResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An OpsMetadata object already exists for the selected resource.</p>
+ */
+export interface OpsMetadataAlreadyExistsException extends __SmithyException, $MetadataBearer {
+  name: "OpsMetadataAlreadyExistsException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace OpsMetadataAlreadyExistsException {
+  export const filterSensitiveLog = (obj: OpsMetadataAlreadyExistsException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>One of the arguments passed is invalid. </p>
+ */
+export interface OpsMetadataInvalidArgumentException extends __SmithyException, $MetadataBearer {
+  name: "OpsMetadataInvalidArgumentException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace OpsMetadataInvalidArgumentException {
+  export const filterSensitiveLog = (obj: OpsMetadataInvalidArgumentException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Your account reached the maximum number of OpsMetadata objects allowed by AppManager. The
+ *    maximum is 200 OpsMetadata objects. Delete one or more OpsMetadata object and try again.</p>
+ */
+export interface OpsMetadataLimitExceededException extends __SmithyException, $MetadataBearer {
+  name: "OpsMetadataLimitExceededException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace OpsMetadataLimitExceededException {
+  export const filterSensitiveLog = (obj: OpsMetadataLimitExceededException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The system is processing too many concurrent updates. Wait a few moments and try
+ *    again.</p>
+ */
+export interface OpsMetadataTooManyUpdatesException extends __SmithyException, $MetadataBearer {
+  name: "OpsMetadataTooManyUpdatesException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace OpsMetadataTooManyUpdatesException {
+  export const filterSensitiveLog = (obj: OpsMetadataTooManyUpdatesException): any => ({
+    ...obj,
+  });
+}
+
 export enum PatchComplianceLevel {
   Critical = "CRITICAL",
   High = "HIGH",
@@ -2399,6 +2511,7 @@ export enum OperatingSystem {
   AmazonLinux2 = "AMAZON_LINUX_2",
   CentOS = "CENTOS",
   Debian = "DEBIAN",
+  MacOS = "MACOS",
   OracleLinux = "ORACLE_LINUX",
   RedhatEnterpriseLinux = "REDHAT_ENTERPRISE_LINUX",
   Suse = "SUSE",
@@ -3192,6 +3305,42 @@ export interface DeleteMaintenanceWindowResult {
 
 export namespace DeleteMaintenanceWindowResult {
   export const filterSensitiveLog = (obj: DeleteMaintenanceWindowResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteOpsMetadataRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of an OpsMetadata Object to delete.</p>
+   */
+  OpsMetadataArn: string | undefined;
+}
+
+export namespace DeleteOpsMetadataRequest {
+  export const filterSensitiveLog = (obj: DeleteOpsMetadataRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteOpsMetadataResult {}
+
+export namespace DeleteOpsMetadataResult {
+  export const filterSensitiveLog = (obj: DeleteOpsMetadataResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The OpsMetadata object does not exist. </p>
+ */
+export interface OpsMetadataNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "OpsMetadataNotFoundException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace OpsMetadataNotFoundException {
+  export const filterSensitiveLog = (obj: OpsMetadataNotFoundException): any => ({
     ...obj,
   });
 }
@@ -4691,7 +4840,7 @@ export interface Patch {
 
   /**
    * <p>The Common Vulnerabilities and Exposures (CVE) ID of the patch. For example,
-   *     <code>CVE-1999-0067</code>. Applies to Linux-based instances only.</p>
+   *     <code>CVE-2011-3192</code>. Applies to Linux-based instances only.</p>
    */
   CVEIds?: string[];
 
@@ -7664,265 +7813,6 @@ export interface DescribePatchGroupStateRequest {
 
 export namespace DescribePatchGroupStateRequest {
   export const filterSensitiveLog = (obj: DescribePatchGroupStateRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribePatchGroupStateResult {
-  /**
-   * <p>The number of instances in the patch group.</p>
-   */
-  Instances?: number;
-
-  /**
-   * <p>The number of instances with installed patches.</p>
-   */
-  InstancesWithInstalledPatches?: number;
-
-  /**
-   * <p>The number of instances with patches installed that aren't defined in the patch
-   *    baseline.</p>
-   */
-  InstancesWithInstalledOtherPatches?: number;
-
-  /**
-   * <p>The number of instances with patches installed by Patch Manager that have not been rebooted
-   *    after the patch installation. The status of these instances is NON_COMPLIANT.</p>
-   */
-  InstancesWithInstalledPendingRebootPatches?: number;
-
-  /**
-   * <p>The number of instances with patches installed that are specified in a RejectedPatches list.
-   *    Patches with a status of <i>INSTALLED_REJECTED</i> were typically installed before
-   *    they were added to a RejectedPatches list.</p>
-   *          <note>
-   *             <p>If ALLOW_AS_DEPENDENCY is the specified option for RejectedPatchesAction, the value of
-   *     InstancesWithInstalledRejectedPatches will always be 0 (zero).</p>
-   *          </note>
-   */
-  InstancesWithInstalledRejectedPatches?: number;
-
-  /**
-   * <p>The number of instances with missing patches from the patch baseline.</p>
-   */
-  InstancesWithMissingPatches?: number;
-
-  /**
-   * <p>The number of instances with patches from the patch baseline that failed to install.</p>
-   */
-  InstancesWithFailedPatches?: number;
-
-  /**
-   * <p>The number of instances with patches that aren't applicable.</p>
-   */
-  InstancesWithNotApplicablePatches?: number;
-
-  /**
-   * <p>The number of instances with <code>NotApplicable</code> patches beyond the supported limit,
-   *    which are not reported by name to Systems Manager Inventory.</p>
-   */
-  InstancesWithUnreportedNotApplicablePatches?: number;
-}
-
-export namespace DescribePatchGroupStateResult {
-  export const filterSensitiveLog = (obj: DescribePatchGroupStateResult): any => ({
-    ...obj,
-  });
-}
-
-export enum PatchSet {
-  Application = "APPLICATION",
-  Os = "OS",
-}
-
-export enum PatchProperty {
-  PatchClassification = "CLASSIFICATION",
-  PatchMsrcSeverity = "MSRC_SEVERITY",
-  PatchPriority = "PRIORITY",
-  PatchProductFamily = "PRODUCT_FAMILY",
-  PatchSeverity = "SEVERITY",
-  Product = "PRODUCT",
-}
-
-export interface DescribePatchPropertiesRequest {
-  /**
-   * <p>The operating system type for which to list patches.</p>
-   */
-  OperatingSystem: OperatingSystem | string | undefined;
-
-  /**
-   * <p>The patch property for which you want to view patch details. </p>
-   */
-  Property: PatchProperty | string | undefined;
-
-  /**
-   * <p>Indicates whether to list patches for the Windows operating system or for Microsoft
-   *    applications. Not applicable for Linux operating systems.</p>
-   */
-  PatchSet?: PatchSet | string;
-
-  /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a previous
-   *    call.)</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribePatchPropertiesRequest {
-  export const filterSensitiveLog = (obj: DescribePatchPropertiesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribePatchPropertiesResult {
-  /**
-   * <p>A list of the properties for patches matching the filter request parameters.</p>
-   */
-  Properties?: { [key: string]: string }[];
-
-  /**
-   * <p>The token for the next set of items to return. (You use this token in the next call.)</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribePatchPropertiesResult {
-  export const filterSensitiveLog = (obj: DescribePatchPropertiesResult): any => ({
-    ...obj,
-  });
-}
-
-export enum SessionFilterKey {
-  INVOKED_AFTER = "InvokedAfter",
-  INVOKED_BEFORE = "InvokedBefore",
-  OWNER = "Owner",
-  SESSION_ID = "SessionId",
-  STATUS = "Status",
-  TARGET_ID = "Target",
-}
-
-/**
- * <p>Describes a filter for Session Manager information.</p>
- */
-export interface SessionFilter {
-  /**
-   * <p>The name of the filter.</p>
-   */
-  key: SessionFilterKey | string | undefined;
-
-  /**
-   * <p>The filter value. Valid values for each filter key are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>InvokedAfter: Specify a timestamp to limit your results. For example, specify
-   *      2018-08-29T00:00:00Z to see sessions that started August 29, 2018, and later.</p>
-   *             </li>
-   *             <li>
-   *                <p>InvokedBefore: Specify a timestamp to limit your results. For example, specify
-   *      2018-08-29T00:00:00Z to see sessions that started before August 29, 2018.</p>
-   *             </li>
-   *             <li>
-   *                <p>Target: Specify an instance to which session connections have been made.</p>
-   *             </li>
-   *             <li>
-   *                <p>Owner: Specify an AWS user account to see a list of sessions started by that user.</p>
-   *             </li>
-   *             <li>
-   *                <p>Status: Specify a valid session status to see a list of all sessions with that status.
-   *      Status values you can specify include:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Connected</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Connecting</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Disconnected</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Terminated</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Terminating</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Failed</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>SessionId: Specify a session ID to return details about the session.</p>
-   *             </li>
-   *          </ul>
-   */
-  value: string | undefined;
-}
-
-export namespace SessionFilter {
-  export const filterSensitiveLog = (obj: SessionFilter): any => ({
-    ...obj,
-  });
-}
-
-export enum SessionState {
-  ACTIVE = "Active",
-  HISTORY = "History",
-}
-
-export interface DescribeSessionsRequest {
-  /**
-   * <p>The session status to retrieve a list of sessions for. For example, "Active".</p>
-   */
-  State: SessionState | string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a previous
-   *    call.)</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>One or more filters to limit the type of sessions returned by the request.</p>
-   */
-  Filters?: SessionFilter[];
-}
-
-export namespace DescribeSessionsRequest {
-  export const filterSensitiveLog = (obj: DescribeSessionsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Reserved for future use.</p>
- */
-export interface SessionManagerOutputUrl {
-  /**
-   * <p>Reserved for future use.</p>
-   */
-  S3OutputUrl?: string;
-
-  /**
-   * <p>Reserved for future use.</p>
-   */
-  CloudWatchOutputUrl?: string;
-}
-
-export namespace SessionManagerOutputUrl {
-  export const filterSensitiveLog = (obj: SessionManagerOutputUrl): any => ({
     ...obj,
   });
 }

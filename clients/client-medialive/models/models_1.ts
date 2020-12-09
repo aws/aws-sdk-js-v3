@@ -23,6 +23,7 @@ import {
   InputDeviceSettings,
   InputDeviceSummary,
   InputDeviceType,
+  InputDeviceUhdSettings,
   InputLocation,
   InputSecurityGroup,
   InputSecurityGroupState,
@@ -47,13 +48,58 @@ import {
   OfferingType,
   OutputDestination,
   OutputGroup,
-  PipelineDetail,
-  PipelinePauseStateSettings,
   ReservationResourceSpecification,
 } from "./models_0";
 import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
+
+/**
+ * Runtime details of a pipeline when a channel is running.
+ */
+export interface PipelineDetail {
+  /**
+   * The name of the active input attachment currently being ingested by this pipeline.
+   */
+  ActiveInputAttachmentName?: string;
+
+  /**
+   * The name of the input switch schedule action that occurred most recently and that resulted in the switch to the current input attachment for this pipeline.
+   */
+  ActiveInputSwitchActionName?: string;
+
+  /**
+   * Pipeline ID
+   */
+  PipelineId?: string;
+}
+
+export namespace PipelineDetail {
+  export const filterSensitiveLog = (obj: PipelineDetail): any => ({
+    ...obj,
+  });
+}
+
+export enum PipelineId {
+  PIPELINE_0 = "PIPELINE_0",
+  PIPELINE_1 = "PIPELINE_1",
+}
+
+/**
+ * Settings for pausing a pipeline.
+ */
+export interface PipelinePauseStateSettings {
+  /**
+   * Pipeline ID to pause ("PIPELINE_0" or "PIPELINE_1").
+   */
+  PipelineId: PipelineId | string | undefined;
+}
+
+export namespace PipelinePauseStateSettings {
+  export const filterSensitiveLog = (obj: PipelinePauseStateSettings): any => ({
+    ...obj,
+  });
+}
 
 export enum ReservationState {
   ACTIVE = "ACTIVE",
@@ -4402,6 +4448,11 @@ export interface DescribeInputDeviceResponse {
    * The type of the input device.
    */
   Type?: InputDeviceType | string;
+
+  /**
+   * Settings that describe an input device that is type UHD.
+   */
+  UhdDeviceSettings?: InputDeviceUhdSettings;
 }
 
 export namespace DescribeInputDeviceResponse {
@@ -6118,7 +6169,7 @@ export namespace UpdateInputResponse {
  */
 export interface UpdateInputDeviceRequest {
   /**
-   * The settings that you want to apply to the input device.
+   * The settings that you want to apply to the HD input device.
    */
   HdDeviceSettings?: InputDeviceConfigurableSettings;
 
@@ -6131,6 +6182,11 @@ export interface UpdateInputDeviceRequest {
    * The name that you assigned to this input device (not the unique ID).
    */
   Name?: string;
+
+  /**
+   * The settings that you want to apply to the UHD input device.
+   */
+  UhdDeviceSettings?: InputDeviceConfigurableSettings;
 }
 
 export namespace UpdateInputDeviceRequest {
@@ -6197,6 +6253,11 @@ export interface UpdateInputDeviceResponse {
    * The type of the input device.
    */
   Type?: InputDeviceType | string;
+
+  /**
+   * Settings that describe an input device that is type UHD.
+   */
+  UhdDeviceSettings?: InputDeviceUhdSettings;
 }
 
 export namespace UpdateInputDeviceResponse {

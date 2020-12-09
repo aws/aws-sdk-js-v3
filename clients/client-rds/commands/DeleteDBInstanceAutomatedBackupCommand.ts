@@ -21,8 +21,7 @@ export type DeleteDBInstanceAutomatedBackupCommandInput = DeleteDBInstanceAutoma
 export type DeleteDBInstanceAutomatedBackupCommandOutput = DeleteDBInstanceAutomatedBackupResult & __MetadataBearer;
 
 /**
- * <p>Deletes automated backups based on the source instance's <code>DbiResourceId</code>
- *             value or the restorable instance's resource ID.</p>
+ * <p>Deletes automated backups using the <code>DbiResourceId</code> value of the source DB instance or the Amazon Resource Name (ARN) of the automated backups.</p>
  */
 export class DeleteDBInstanceAutomatedBackupCommand extends $Command<
   DeleteDBInstanceAutomatedBackupCommandInput,

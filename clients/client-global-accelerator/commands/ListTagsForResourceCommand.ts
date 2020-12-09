@@ -25,8 +25,7 @@ export type ListTagsForResourceCommandInput = ListTagsForResourceRequest;
 export type ListTagsForResourceCommandOutput = ListTagsForResourceResponse & __MetadataBearer;
 
 /**
- * <p>List all tags for an accelerator. To see an AWS CLI example of listing tags for an accelerator,
- * 			scroll down to <b>Example</b>.</p>
+ * <p>List all tags for an accelerator. </p>
  * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
  * 			in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>. </p>
  */

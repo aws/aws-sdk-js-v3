@@ -25,8 +25,8 @@ export type DescribeAcceleratorAttributesCommandInput = DescribeAcceleratorAttri
 export type DescribeAcceleratorAttributesCommandOutput = DescribeAcceleratorAttributesResponse & __MetadataBearer;
 
 /**
- * <p>Describe the attributes of an accelerator. To see an AWS CLI example of describing the attributes of an accelerator,
- * 			scroll down to <b>Example</b>.</p>
+ * <p>Describe the attributes of an accelerator.
+ * 		</p>
  */
 export class DescribeAcceleratorAttributesCommand extends $Command<
   DescribeAcceleratorAttributesCommandInput,

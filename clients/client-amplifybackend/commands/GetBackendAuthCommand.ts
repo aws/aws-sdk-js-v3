@@ -21,7 +21,7 @@ export type GetBackendAuthCommandInput = GetBackendAuthRequest;
 export type GetBackendAuthCommandOutput = GetBackendAuthResponse & __MetadataBearer;
 
 /**
- * <p>Gets a backend auth details.</p>
+ * <p>Gets backend auth details.</p>
  */
 export class GetBackendAuthCommand extends $Command<
   GetBackendAuthCommandInput,

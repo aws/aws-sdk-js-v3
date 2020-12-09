@@ -25,8 +25,7 @@ export type TagResourceCommandInput = TagResourceRequest;
 export type TagResourceCommandOutput = TagResourceResponse & __MetadataBearer;
 
 /**
- * <p>Add tags to an accelerator resource. To see an AWS CLI example of adding tags to an accelerator, scroll down to
- * 			<b>Example</b>.</p>
+ * <p>Add tags to an accelerator resource. </p>
  * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
  * 			in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>. </p>
  */

@@ -45,6 +45,11 @@ import {
   CreateOpsItemCommandOutput,
 } from "./commands/CreateOpsItemCommand";
 import {
+  CreateOpsMetadataCommand,
+  CreateOpsMetadataCommandInput,
+  CreateOpsMetadataCommandOutput,
+} from "./commands/CreateOpsMetadataCommand";
+import {
   CreatePatchBaselineCommand,
   CreatePatchBaselineCommandInput,
   CreatePatchBaselineCommandOutput,
@@ -79,6 +84,11 @@ import {
   DeleteMaintenanceWindowCommandInput,
   DeleteMaintenanceWindowCommandOutput,
 } from "./commands/DeleteMaintenanceWindowCommand";
+import {
+  DeleteOpsMetadataCommand,
+  DeleteOpsMetadataCommandInput,
+  DeleteOpsMetadataCommandOutput,
+} from "./commands/DeleteOpsMetadataCommand";
 import {
   DeleteParameterCommand,
   DeleteParameterCommandInput,
@@ -347,6 +357,11 @@ import {
 } from "./commands/GetMaintenanceWindowTaskCommand";
 import { GetOpsItemCommand, GetOpsItemCommandInput, GetOpsItemCommandOutput } from "./commands/GetOpsItemCommand";
 import {
+  GetOpsMetadataCommand,
+  GetOpsMetadataCommandInput,
+  GetOpsMetadataCommandOutput,
+} from "./commands/GetOpsMetadataCommand";
+import {
   GetOpsSummaryCommand,
   GetOpsSummaryCommandInput,
   GetOpsSummaryCommandOutput,
@@ -436,6 +451,11 @@ import {
   ListInventoryEntriesCommandInput,
   ListInventoryEntriesCommandOutput,
 } from "./commands/ListInventoryEntriesCommand";
+import {
+  ListOpsMetadataCommand,
+  ListOpsMetadataCommandInput,
+  ListOpsMetadataCommandOutput,
+} from "./commands/ListOpsMetadataCommand";
 import {
   ListResourceComplianceSummariesCommand,
   ListResourceComplianceSummariesCommandInput,
@@ -582,6 +602,11 @@ import {
   UpdateOpsItemCommandInput,
   UpdateOpsItemCommandOutput,
 } from "./commands/UpdateOpsItemCommand";
+import {
+  UpdateOpsMetadataCommand,
+  UpdateOpsMetadataCommandInput,
+  UpdateOpsMetadataCommandOutput,
+} from "./commands/UpdateOpsMetadataCommand";
 import {
   UpdatePatchBaselineCommand,
   UpdatePatchBaselineCommandInput,
@@ -963,6 +988,39 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * <p>If you create a new application in AppManager, Systems Manager calls this API action to specify
+   *    information about the new application, including the application type.</p>
+   */
+  public createOpsMetadata(
+    args: CreateOpsMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateOpsMetadataCommandOutput>;
+  public createOpsMetadata(
+    args: CreateOpsMetadataCommandInput,
+    cb: (err: any, data?: CreateOpsMetadataCommandOutput) => void
+  ): void;
+  public createOpsMetadata(
+    args: CreateOpsMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateOpsMetadataCommandOutput) => void
+  ): void;
+  public createOpsMetadata(
+    args: CreateOpsMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateOpsMetadataCommandOutput) => void),
+    cb?: (err: any, data?: CreateOpsMetadataCommandOutput) => void
+  ): Promise<CreateOpsMetadataCommandOutput> | void {
+    const command = new CreateOpsMetadataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a patch baseline.</p>
    *          <note>
    *             <p>For information about valid key and value pairs in <code>PatchFilters</code> for each
@@ -1211,6 +1269,38 @@ export class SSM extends SSMClient {
     cb?: (err: any, data?: DeleteMaintenanceWindowCommandOutput) => void
   ): Promise<DeleteMaintenanceWindowCommandOutput> | void {
     const command = new DeleteMaintenanceWindowCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Delete OpsMetadata related to an application.</p>
+   */
+  public deleteOpsMetadata(
+    args: DeleteOpsMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteOpsMetadataCommandOutput>;
+  public deleteOpsMetadata(
+    args: DeleteOpsMetadataCommandInput,
+    cb: (err: any, data?: DeleteOpsMetadataCommandOutput) => void
+  ): void;
+  public deleteOpsMetadata(
+    args: DeleteOpsMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteOpsMetadataCommandOutput) => void
+  ): void;
+  public deleteOpsMetadata(
+    args: DeleteOpsMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteOpsMetadataCommandOutput) => void),
+    cb?: (err: any, data?: DeleteOpsMetadataCommandOutput) => void
+  ): Promise<DeleteOpsMetadataCommandOutput> | void {
+    const command = new DeleteOpsMetadataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2515,6 +2605,10 @@ export class SSM extends SSMClient {
    *             <dd>
    *                <p>Valid properties: PRODUCT, PRIORITY</p>
    *             </dd>
+   *             <dt>MACOS</dt>
+   *             <dd>
+   *                <p>Valid properties: PRODUCT, CLASSIFICATION</p>
+   *             </dd>
    *             <dt>ORACLE_LINUX</dt>
    *             <dd>
    *                <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>
@@ -3082,6 +3176,38 @@ export class SSM extends SSMClient {
     cb?: (err: any, data?: GetOpsItemCommandOutput) => void
   ): Promise<GetOpsItemCommandOutput> | void {
     const command = new GetOpsItemCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>View operational metadata related to an application in AppManager.</p>
+   */
+  public getOpsMetadata(
+    args: GetOpsMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOpsMetadataCommandOutput>;
+  public getOpsMetadata(
+    args: GetOpsMetadataCommandInput,
+    cb: (err: any, data?: GetOpsMetadataCommandOutput) => void
+  ): void;
+  public getOpsMetadata(
+    args: GetOpsMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetOpsMetadataCommandOutput) => void
+  ): void;
+  public getOpsMetadata(
+    args: GetOpsMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOpsMetadataCommandOutput) => void),
+    cb?: (err: any, data?: GetOpsMetadataCommandOutput) => void
+  ): Promise<GetOpsMetadataCommandOutput> | void {
+    const command = new GetOpsMetadataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3720,6 +3846,39 @@ export class SSM extends SSMClient {
     cb?: (err: any, data?: ListInventoryEntriesCommandOutput) => void
   ): Promise<ListInventoryEntriesCommandOutput> | void {
     const command = new ListInventoryEntriesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Systems Manager calls this API action when displaying all AppManager OpsMetadata objects or
+   *    blobs.</p>
+   */
+  public listOpsMetadata(
+    args: ListOpsMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOpsMetadataCommandOutput>;
+  public listOpsMetadata(
+    args: ListOpsMetadataCommandInput,
+    cb: (err: any, data?: ListOpsMetadataCommandOutput) => void
+  ): void;
+  public listOpsMetadata(
+    args: ListOpsMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOpsMetadataCommandOutput) => void
+  ): void;
+  public listOpsMetadata(
+    args: ListOpsMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOpsMetadataCommandOutput) => void),
+    cb?: (err: any, data?: ListOpsMetadataCommandOutput) => void
+  ): Promise<ListOpsMetadataCommandOutput> | void {
+    const command = new ListOpsMetadataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4858,6 +5017,38 @@ export class SSM extends SSMClient {
     cb?: (err: any, data?: UpdateOpsItemCommandOutput) => void
   ): Promise<UpdateOpsItemCommandOutput> | void {
     const command = new UpdateOpsItemCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Systems Manager calls this API action when you edit OpsMetadata in AppManager.</p>
+   */
+  public updateOpsMetadata(
+    args: UpdateOpsMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateOpsMetadataCommandOutput>;
+  public updateOpsMetadata(
+    args: UpdateOpsMetadataCommandInput,
+    cb: (err: any, data?: UpdateOpsMetadataCommandOutput) => void
+  ): void;
+  public updateOpsMetadata(
+    args: UpdateOpsMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateOpsMetadataCommandOutput) => void
+  ): void;
+  public updateOpsMetadata(
+    args: UpdateOpsMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateOpsMetadataCommandOutput) => void),
+    cb?: (err: any, data?: UpdateOpsMetadataCommandOutput) => void
+  ): Promise<UpdateOpsMetadataCommandOutput> | void {
+    const command = new UpdateOpsMetadataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

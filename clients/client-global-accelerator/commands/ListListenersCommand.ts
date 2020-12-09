@@ -25,8 +25,7 @@ export type ListListenersCommandInput = ListListenersRequest;
 export type ListListenersCommandOutput = ListListenersResponse & __MetadataBearer;
 
 /**
- * <p>List the listeners for an accelerator. To see an AWS CLI example of listing the listeners for an accelerator,
- * 			scroll down to <b>Example</b>.</p>
+ * <p>List the listeners for an accelerator. </p>
  */
 export class ListListenersCommand extends $Command<
   ListListenersCommandInput,

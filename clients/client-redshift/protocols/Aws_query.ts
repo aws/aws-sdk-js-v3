@@ -499,7 +499,6 @@ import {
   InvalidSnapshotCopyGrantStateFault,
   InvalidSubnet,
   InvalidSubscriptionStateFault,
-  InvalidTableRestoreArgumentFault,
   InvalidTagFault,
   InvalidUsageLimitFault,
   InvalidVPCNetworkStateFault,
@@ -561,6 +560,7 @@ import {
   SnapshotScheduleQuotaExceededFault,
   SnapshotSortingEntity,
   SourceNotFoundFault,
+  SpartaProxyVpcEndpoint,
   Subnet,
   SubscriptionAlreadyExistFault,
   SubscriptionCategoryNotFoundFault,
@@ -588,6 +588,7 @@ import {
   VpcSecurityGroupMembership,
 } from "../models/models_0";
 import {
+  InvalidTableRestoreArgumentFault,
   ModifyClusterDbRevisionMessage,
   ModifyClusterDbRevisionResult,
   ModifyClusterIamRolesMessage,
@@ -3788,6 +3789,14 @@ const deserializeAws_queryCreateSnapshotScheduleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidTagFault":
+    case "com.amazonaws.redshift#InvalidTagFault":
+      response = {
+        ...(await deserializeAws_queryInvalidTagFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ScheduleDefinitionTypeUnsupportedFault":
     case "com.amazonaws.redshift#ScheduleDefinitionTypeUnsupportedFault":
       response = {
@@ -3863,6 +3872,14 @@ const deserializeAws_queryCreateTagsCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InvalidClusterStateFault":
+    case "com.amazonaws.redshift#InvalidClusterStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidTagFault":
     case "com.amazonaws.redshift#InvalidTagFault":
       response = {
@@ -8907,6 +8924,14 @@ const deserializeAws_queryResumeClusterCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InsufficientClusterCapacityFault":
+    case "com.amazonaws.redshift#InsufficientClusterCapacityFault":
+      response = {
+        ...(await deserializeAws_queryInsufficientClusterCapacityFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidClusterStateFault":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       response = {
@@ -10993,6 +11018,9 @@ const serializeAws_queryCreateClusterMessage = (input: CreateClusterMessage, con
   if (input.SnapshotScheduleIdentifier !== undefined) {
     entries["SnapshotScheduleIdentifier"] = input.SnapshotScheduleIdentifier;
   }
+  if (input.AvailabilityZoneRelocation !== undefined) {
+    entries["AvailabilityZoneRelocation"] = input.AvailabilityZoneRelocation;
+  }
   return entries;
 };
 
@@ -12475,6 +12503,15 @@ const serializeAws_queryModifyClusterMessage = (input: ModifyClusterMessage, con
   if (input.KmsKeyId !== undefined) {
     entries["KmsKeyId"] = input.KmsKeyId;
   }
+  if (input.AvailabilityZoneRelocation !== undefined) {
+    entries["AvailabilityZoneRelocation"] = input.AvailabilityZoneRelocation;
+  }
+  if (input.AvailabilityZone !== undefined) {
+    entries["AvailabilityZone"] = input.AvailabilityZone;
+  }
+  if (input.Port !== undefined) {
+    entries["Port"] = input.Port;
+  }
   return entries;
 };
 
@@ -12920,6 +12957,9 @@ const serializeAws_queryRestoreFromClusterSnapshotMessage = (
   }
   if (input.NumberOfNodes !== undefined) {
     entries["NumberOfNodes"] = input.NumberOfNodes;
+  }
+  if (input.AvailabilityZoneRelocation !== undefined) {
+    entries["AvailabilityZoneRelocation"] = input.AvailabilityZoneRelocation;
   }
   return entries;
 };
@@ -13550,6 +13590,7 @@ const deserializeAws_queryCluster = (output: any, context: __SerdeContext): Clus
     ExpectedNextSnapshotScheduleTimeStatus: undefined,
     NextMaintenanceWindowStartTime: undefined,
     ResizeInfo: undefined,
+    AvailabilityZoneRelocationStatus: undefined,
     ClusterNamespaceArn: undefined,
   };
   if (output["ClusterIdentifier"] !== undefined) {
@@ -13749,6 +13790,9 @@ const deserializeAws_queryCluster = (output: any, context: __SerdeContext): Clus
   }
   if (output["ResizeInfo"] !== undefined) {
     contents.ResizeInfo = deserializeAws_queryResizeInfo(output["ResizeInfo"], context);
+  }
+  if (output["AvailabilityZoneRelocationStatus"] !== undefined) {
+    contents.AvailabilityZoneRelocationStatus = output["AvailabilityZoneRelocationStatus"];
   }
   if (output["ClusterNamespaceArn"] !== undefined) {
     contents.ClusterNamespaceArn = output["ClusterNamespaceArn"];
@@ -14907,12 +14951,22 @@ const deserializeAws_queryEndpoint = (output: any, context: __SerdeContext): End
   let contents: any = {
     Address: undefined,
     Port: undefined,
+    VpcEndpoints: undefined,
   };
   if (output["Address"] !== undefined) {
     contents.Address = output["Address"];
   }
   if (output["Port"] !== undefined) {
     contents.Port = parseInt(output["Port"]);
+  }
+  if (output.VpcEndpoints === "") {
+    contents.VpcEndpoints = [];
+  }
+  if (output["VpcEndpoints"] !== undefined && output["VpcEndpoints"]["SpartaProxyVpcEndpoint"] !== undefined) {
+    contents.VpcEndpoints = deserializeAws_querySpartaProxyVpcEndpointList(
+      __getArrayIfSingleItem(output["VpcEndpoints"]["SpartaProxyVpcEndpoint"]),
+      context
+    );
   }
   return contents;
 };
@@ -16964,6 +17018,7 @@ const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Sna
     ClusterCreateTime: undefined,
     MasterUsername: undefined,
     ClusterVersion: undefined,
+    EngineFullVersion: undefined,
     SnapshotType: undefined,
     NodeType: undefined,
     NumberOfNodes: undefined,
@@ -17015,6 +17070,9 @@ const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Sna
   }
   if (output["ClusterVersion"] !== undefined) {
     contents.ClusterVersion = output["ClusterVersion"];
+  }
+  if (output["EngineFullVersion"] !== undefined) {
+    contents.EngineFullVersion = output["EngineFullVersion"];
   }
   if (output["SnapshotType"] !== undefined) {
     contents.SnapshotType = output["SnapshotType"];
@@ -17447,6 +17505,23 @@ const deserializeAws_querySourceNotFoundFault = (output: any, context: __SerdeCo
     contents.message = output["message"];
   }
   return contents;
+};
+
+const deserializeAws_querySpartaProxyVpcEndpoint = (output: any, context: __SerdeContext): SpartaProxyVpcEndpoint => {
+  let contents: any = {
+    VpcEndpointId: undefined,
+  };
+  if (output["VpcEndpointId"] !== undefined) {
+    contents.VpcEndpointId = output["VpcEndpointId"];
+  }
+  return contents;
+};
+
+const deserializeAws_querySpartaProxyVpcEndpointList = (
+  output: any,
+  context: __SerdeContext
+): SpartaProxyVpcEndpoint[] => {
+  return (output || []).map((entry: any) => deserializeAws_querySpartaProxyVpcEndpoint(entry, context));
 };
 
 const deserializeAws_querySubnet = (output: any, context: __SerdeContext): Subnet => {

@@ -21,7 +21,7 @@ export type ListTagsForResourceCommandInput = ListTagsForResourceRequest;
 export type ListTagsForResourceCommandOutput = ListTagsForResourceResponse & __MetadataBearer;
 
 /**
- * <p>List the tags for an AWS Batch resource. AWS Batch resources that support tags are compute environments, jobs, job definitions, and job
+ * <p>Lists the tags for an AWS Batch resource. AWS Batch resources that support tags are compute environments, jobs, job definitions, and job
  *  queues. ARNs for child jobs of array and multi-node parallel (MNP) jobs are not supported.</p>
  */
 export class ListTagsForResourceCommand extends $Command<

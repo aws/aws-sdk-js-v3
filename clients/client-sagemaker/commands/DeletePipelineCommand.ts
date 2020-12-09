@@ -21,7 +21,7 @@ export type DeletePipelineCommandInput = DeletePipelineRequest;
 export type DeletePipelineCommandOutput = DeletePipelineResponse & __MetadataBearer;
 
 /**
- * <p>Deletes a pipeline.</p>
+ * <p>Deletes a pipeline if there are no in-progress executions.</p>
  */
 export class DeletePipelineCommand extends $Command<
   DeletePipelineCommandInput,

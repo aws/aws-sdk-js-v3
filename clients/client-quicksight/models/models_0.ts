@@ -1829,6 +1829,23 @@ export namespace TransformOperation {
   };
 }
 
+/**
+ * <p>Properties associated with the columns participating in a join.</p>
+ */
+export interface JoinKeyProperties {
+  /**
+   * <p>Indicates that a row in a table is uniquely identified by the columns in a
+   *             join key. This is used by QuickSight to optimize query performance.</p>
+   */
+  UniqueKey?: boolean;
+}
+
+export namespace JoinKeyProperties {
+  export const filterSensitiveLog = (obj: JoinKeyProperties): any => ({
+    ...obj,
+  });
+}
+
 export enum JoinType {
   INNER = "INNER",
   LEFT = "LEFT",
@@ -1837,26 +1854,36 @@ export enum JoinType {
 }
 
 /**
- * <p>Join instruction.</p>
+ * <p>The instructions associated with a join. </p>
  */
 export interface JoinInstruction {
   /**
-   * <p>Left operand.</p>
+   * <p>The operand on the left side of a join.</p>
    */
   LeftOperand: string | undefined;
 
   /**
-   * <p>Right operand.</p>
+   * <p>The operand on the right side of a join.</p>
    */
   RightOperand: string | undefined;
 
   /**
-   * <p>Type.</p>
+   * <p>Join key properties of the left operand.</p>
+   */
+  LeftJoinKeyProperties?: JoinKeyProperties;
+
+  /**
+   * <p>Join key properties of the right operand.</p>
+   */
+  RightJoinKeyProperties?: JoinKeyProperties;
+
+  /**
+   * <p>The type of join that it is.</p>
    */
   Type: JoinType | string | undefined;
 
   /**
-   * <p>On Clause.</p>
+   * <p>The join instructions provided in the <code>ON</code> clause of a join.</p>
    */
   OnClause: string | undefined;
 }
@@ -7892,7 +7919,7 @@ export interface GetDashboardEmbedUrlRequest {
   /**
    * <p>A list of one or more dashboard ids that you want to add to a session that
    *             includes anonymous authorizations. <code>IdentityType</code> must be set to ANONYMOUS
-   *             for this to work, because other other identity types authenticate as QuickSight users.
+   *             for this to work, because other identity types authenticate as QuickSight users.
    *             For example, if you set "<code>--dashboard-id dash_id1 --dashboard-id dash_id2
    *             dash_id3 identity-type ANONYMOUS</code>", the session can access all
    *             three dashboards.
@@ -8707,29 +8734,6 @@ export interface ListIngestionsResponse {
 
 export namespace ListIngestionsResponse {
   export const filterSensitiveLog = (obj: ListIngestionsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListNamespacesRequest {
-  /**
-   * <p>The ID for the AWS account that contains the QuickSight namespaces that you want to list.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace ListNamespacesRequest {
-  export const filterSensitiveLog = (obj: ListNamespacesRequest): any => ({
     ...obj,
   });
 }

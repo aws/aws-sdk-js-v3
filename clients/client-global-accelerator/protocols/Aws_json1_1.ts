@@ -1,5 +1,25 @@
+import {
+  AddCustomRoutingEndpointsCommandInput,
+  AddCustomRoutingEndpointsCommandOutput,
+} from "../commands/AddCustomRoutingEndpointsCommand";
 import { AdvertiseByoipCidrCommandInput, AdvertiseByoipCidrCommandOutput } from "../commands/AdvertiseByoipCidrCommand";
+import {
+  AllowCustomRoutingTrafficCommandInput,
+  AllowCustomRoutingTrafficCommandOutput,
+} from "../commands/AllowCustomRoutingTrafficCommand";
 import { CreateAcceleratorCommandInput, CreateAcceleratorCommandOutput } from "../commands/CreateAcceleratorCommand";
+import {
+  CreateCustomRoutingAcceleratorCommandInput,
+  CreateCustomRoutingAcceleratorCommandOutput,
+} from "../commands/CreateCustomRoutingAcceleratorCommand";
+import {
+  CreateCustomRoutingEndpointGroupCommandInput,
+  CreateCustomRoutingEndpointGroupCommandOutput,
+} from "../commands/CreateCustomRoutingEndpointGroupCommand";
+import {
+  CreateCustomRoutingListenerCommandInput,
+  CreateCustomRoutingListenerCommandOutput,
+} from "../commands/CreateCustomRoutingListenerCommand";
 import {
   CreateEndpointGroupCommandInput,
   CreateEndpointGroupCommandOutput,
@@ -7,10 +27,26 @@ import {
 import { CreateListenerCommandInput, CreateListenerCommandOutput } from "../commands/CreateListenerCommand";
 import { DeleteAcceleratorCommandInput, DeleteAcceleratorCommandOutput } from "../commands/DeleteAcceleratorCommand";
 import {
+  DeleteCustomRoutingAcceleratorCommandInput,
+  DeleteCustomRoutingAcceleratorCommandOutput,
+} from "../commands/DeleteCustomRoutingAcceleratorCommand";
+import {
+  DeleteCustomRoutingEndpointGroupCommandInput,
+  DeleteCustomRoutingEndpointGroupCommandOutput,
+} from "../commands/DeleteCustomRoutingEndpointGroupCommand";
+import {
+  DeleteCustomRoutingListenerCommandInput,
+  DeleteCustomRoutingListenerCommandOutput,
+} from "../commands/DeleteCustomRoutingListenerCommand";
+import {
   DeleteEndpointGroupCommandInput,
   DeleteEndpointGroupCommandOutput,
 } from "../commands/DeleteEndpointGroupCommand";
 import { DeleteListenerCommandInput, DeleteListenerCommandOutput } from "../commands/DeleteListenerCommand";
+import {
+  DenyCustomRoutingTrafficCommandInput,
+  DenyCustomRoutingTrafficCommandOutput,
+} from "../commands/DenyCustomRoutingTrafficCommand";
 import {
   DeprovisionByoipCidrCommandInput,
   DeprovisionByoipCidrCommandOutput,
@@ -24,12 +60,48 @@ import {
   DescribeAcceleratorCommandOutput,
 } from "../commands/DescribeAcceleratorCommand";
 import {
+  DescribeCustomRoutingAcceleratorAttributesCommandInput,
+  DescribeCustomRoutingAcceleratorAttributesCommandOutput,
+} from "../commands/DescribeCustomRoutingAcceleratorAttributesCommand";
+import {
+  DescribeCustomRoutingAcceleratorCommandInput,
+  DescribeCustomRoutingAcceleratorCommandOutput,
+} from "../commands/DescribeCustomRoutingAcceleratorCommand";
+import {
+  DescribeCustomRoutingEndpointGroupCommandInput,
+  DescribeCustomRoutingEndpointGroupCommandOutput,
+} from "../commands/DescribeCustomRoutingEndpointGroupCommand";
+import {
+  DescribeCustomRoutingListenerCommandInput,
+  DescribeCustomRoutingListenerCommandOutput,
+} from "../commands/DescribeCustomRoutingListenerCommand";
+import {
   DescribeEndpointGroupCommandInput,
   DescribeEndpointGroupCommandOutput,
 } from "../commands/DescribeEndpointGroupCommand";
 import { DescribeListenerCommandInput, DescribeListenerCommandOutput } from "../commands/DescribeListenerCommand";
 import { ListAcceleratorsCommandInput, ListAcceleratorsCommandOutput } from "../commands/ListAcceleratorsCommand";
 import { ListByoipCidrsCommandInput, ListByoipCidrsCommandOutput } from "../commands/ListByoipCidrsCommand";
+import {
+  ListCustomRoutingAcceleratorsCommandInput,
+  ListCustomRoutingAcceleratorsCommandOutput,
+} from "../commands/ListCustomRoutingAcceleratorsCommand";
+import {
+  ListCustomRoutingEndpointGroupsCommandInput,
+  ListCustomRoutingEndpointGroupsCommandOutput,
+} from "../commands/ListCustomRoutingEndpointGroupsCommand";
+import {
+  ListCustomRoutingListenersCommandInput,
+  ListCustomRoutingListenersCommandOutput,
+} from "../commands/ListCustomRoutingListenersCommand";
+import {
+  ListCustomRoutingPortMappingsByDestinationCommandInput,
+  ListCustomRoutingPortMappingsByDestinationCommandOutput,
+} from "../commands/ListCustomRoutingPortMappingsByDestinationCommand";
+import {
+  ListCustomRoutingPortMappingsCommandInput,
+  ListCustomRoutingPortMappingsCommandOutput,
+} from "../commands/ListCustomRoutingPortMappingsCommand";
 import { ListEndpointGroupsCommandInput, ListEndpointGroupsCommandOutput } from "../commands/ListEndpointGroupsCommand";
 import { ListListenersCommandInput, ListListenersCommandOutput } from "../commands/ListListenersCommand";
 import {
@@ -37,6 +109,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { ProvisionByoipCidrCommandInput, ProvisionByoipCidrCommandOutput } from "../commands/ProvisionByoipCidrCommand";
+import {
+  RemoveCustomRoutingEndpointsCommandInput,
+  RemoveCustomRoutingEndpointsCommandOutput,
+} from "../commands/RemoveCustomRoutingEndpointsCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -44,6 +120,18 @@ import {
   UpdateAcceleratorAttributesCommandOutput,
 } from "../commands/UpdateAcceleratorAttributesCommand";
 import { UpdateAcceleratorCommandInput, UpdateAcceleratorCommandOutput } from "../commands/UpdateAcceleratorCommand";
+import {
+  UpdateCustomRoutingAcceleratorAttributesCommandInput,
+  UpdateCustomRoutingAcceleratorAttributesCommandOutput,
+} from "../commands/UpdateCustomRoutingAcceleratorAttributesCommand";
+import {
+  UpdateCustomRoutingAcceleratorCommandInput,
+  UpdateCustomRoutingAcceleratorCommandOutput,
+} from "../commands/UpdateCustomRoutingAcceleratorCommand";
+import {
+  UpdateCustomRoutingListenerCommandInput,
+  UpdateCustomRoutingListenerCommandOutput,
+} from "../commands/UpdateCustomRoutingListenerCommand";
 import {
   UpdateEndpointGroupCommandInput,
   UpdateEndpointGroupCommandOutput,
@@ -56,38 +144,72 @@ import {
   AcceleratorNotDisabledException,
   AcceleratorNotFoundException,
   AccessDeniedException,
+  AddCustomRoutingEndpointsRequest,
+  AddCustomRoutingEndpointsResponse,
   AdvertiseByoipCidrRequest,
   AdvertiseByoipCidrResponse,
+  AllowCustomRoutingTrafficRequest,
   AssociatedEndpointGroupFoundException,
   AssociatedListenerFoundException,
   ByoipCidr,
   ByoipCidrEvent,
   ByoipCidrNotFoundException,
   CidrAuthorizationContext,
+  ConflictException,
   CreateAcceleratorRequest,
   CreateAcceleratorResponse,
+  CreateCustomRoutingAcceleratorRequest,
+  CreateCustomRoutingAcceleratorResponse,
+  CreateCustomRoutingEndpointGroupRequest,
+  CreateCustomRoutingEndpointGroupResponse,
+  CreateCustomRoutingListenerRequest,
+  CreateCustomRoutingListenerResponse,
   CreateEndpointGroupRequest,
   CreateEndpointGroupResponse,
   CreateListenerRequest,
   CreateListenerResponse,
+  CustomRoutingAccelerator,
+  CustomRoutingAcceleratorAttributes,
+  CustomRoutingDestinationConfiguration,
+  CustomRoutingDestinationDescription,
+  CustomRoutingEndpointConfiguration,
+  CustomRoutingEndpointDescription,
+  CustomRoutingEndpointGroup,
+  CustomRoutingListener,
+  CustomRoutingProtocol,
   DeleteAcceleratorRequest,
+  DeleteCustomRoutingAcceleratorRequest,
+  DeleteCustomRoutingEndpointGroupRequest,
+  DeleteCustomRoutingListenerRequest,
   DeleteEndpointGroupRequest,
   DeleteListenerRequest,
+  DenyCustomRoutingTrafficRequest,
   DeprovisionByoipCidrRequest,
   DeprovisionByoipCidrResponse,
   DescribeAcceleratorAttributesRequest,
   DescribeAcceleratorAttributesResponse,
   DescribeAcceleratorRequest,
   DescribeAcceleratorResponse,
+  DescribeCustomRoutingAcceleratorAttributesRequest,
+  DescribeCustomRoutingAcceleratorAttributesResponse,
+  DescribeCustomRoutingAcceleratorRequest,
+  DescribeCustomRoutingAcceleratorResponse,
+  DescribeCustomRoutingEndpointGroupRequest,
+  DescribeCustomRoutingEndpointGroupResponse,
+  DescribeCustomRoutingListenerRequest,
+  DescribeCustomRoutingListenerResponse,
   DescribeEndpointGroupRequest,
   DescribeEndpointGroupResponse,
   DescribeListenerRequest,
   DescribeListenerResponse,
+  DestinationPortMapping,
+  EndpointAlreadyExistsException,
   EndpointConfiguration,
   EndpointDescription,
   EndpointGroup,
   EndpointGroupAlreadyExistsException,
   EndpointGroupNotFoundException,
+  EndpointNotFoundException,
   IncorrectCidrStateException,
   InternalServiceErrorException,
   InvalidArgumentException,
@@ -99,6 +221,16 @@ import {
   ListAcceleratorsResponse,
   ListByoipCidrsRequest,
   ListByoipCidrsResponse,
+  ListCustomRoutingAcceleratorsRequest,
+  ListCustomRoutingAcceleratorsResponse,
+  ListCustomRoutingEndpointGroupsRequest,
+  ListCustomRoutingEndpointGroupsResponse,
+  ListCustomRoutingListenersRequest,
+  ListCustomRoutingListenersResponse,
+  ListCustomRoutingPortMappingsByDestinationRequest,
+  ListCustomRoutingPortMappingsByDestinationResponse,
+  ListCustomRoutingPortMappingsRequest,
+  ListCustomRoutingPortMappingsResponse,
   ListEndpointGroupsRequest,
   ListEndpointGroupsResponse,
   ListListenersRequest,
@@ -107,10 +239,14 @@ import {
   ListTagsForResourceResponse,
   Listener,
   ListenerNotFoundException,
+  PortMapping,
   PortOverride,
   PortRange,
+  Protocol,
   ProvisionByoipCidrRequest,
   ProvisionByoipCidrResponse,
+  RemoveCustomRoutingEndpointsRequest,
+  SocketAddress,
   Tag,
   TagResourceRequest,
   TagResourceResponse,
@@ -120,6 +256,12 @@ import {
   UpdateAcceleratorAttributesResponse,
   UpdateAcceleratorRequest,
   UpdateAcceleratorResponse,
+  UpdateCustomRoutingAcceleratorAttributesRequest,
+  UpdateCustomRoutingAcceleratorAttributesResponse,
+  UpdateCustomRoutingAcceleratorRequest,
+  UpdateCustomRoutingAcceleratorResponse,
+  UpdateCustomRoutingListenerRequest,
+  UpdateCustomRoutingListenerResponse,
   UpdateEndpointGroupRequest,
   UpdateEndpointGroupResponse,
   UpdateListenerRequest,
@@ -138,6 +280,19 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+export const serializeAws_json1_1AddCustomRoutingEndpointsCommand = async (
+  input: AddCustomRoutingEndpointsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.AddCustomRoutingEndpoints",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1AddCustomRoutingEndpointsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1AdvertiseByoipCidrCommand = async (
   input: AdvertiseByoipCidrCommandInput,
   context: __SerdeContext
@@ -151,6 +306,19 @@ export const serializeAws_json1_1AdvertiseByoipCidrCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1AllowCustomRoutingTrafficCommand = async (
+  input: AllowCustomRoutingTrafficCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.AllowCustomRoutingTraffic",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1AllowCustomRoutingTrafficRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1CreateAcceleratorCommand = async (
   input: CreateAcceleratorCommandInput,
   context: __SerdeContext
@@ -161,6 +329,45 @@ export const serializeAws_json1_1CreateAcceleratorCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateAcceleratorRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateCustomRoutingAcceleratorCommand = async (
+  input: CreateCustomRoutingAcceleratorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.CreateCustomRoutingAccelerator",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateCustomRoutingAcceleratorRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateCustomRoutingEndpointGroupCommand = async (
+  input: CreateCustomRoutingEndpointGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.CreateCustomRoutingEndpointGroup",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateCustomRoutingEndpointGroupRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateCustomRoutingListenerCommand = async (
+  input: CreateCustomRoutingListenerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.CreateCustomRoutingListener",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateCustomRoutingListenerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -203,6 +410,45 @@ export const serializeAws_json1_1DeleteAcceleratorCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteCustomRoutingAcceleratorCommand = async (
+  input: DeleteCustomRoutingAcceleratorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.DeleteCustomRoutingAccelerator",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteCustomRoutingAcceleratorRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteCustomRoutingEndpointGroupCommand = async (
+  input: DeleteCustomRoutingEndpointGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.DeleteCustomRoutingEndpointGroup",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteCustomRoutingEndpointGroupRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteCustomRoutingListenerCommand = async (
+  input: DeleteCustomRoutingListenerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.DeleteCustomRoutingListener",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteCustomRoutingListenerRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteEndpointGroupCommand = async (
   input: DeleteEndpointGroupCommandInput,
   context: __SerdeContext
@@ -226,6 +472,19 @@ export const serializeAws_json1_1DeleteListenerCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteListenerRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DenyCustomRoutingTrafficCommand = async (
+  input: DenyCustomRoutingTrafficCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.DenyCustomRoutingTraffic",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DenyCustomRoutingTrafficRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -265,6 +524,58 @@ export const serializeAws_json1_1DescribeAcceleratorAttributesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeAcceleratorAttributesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeCustomRoutingAcceleratorCommand = async (
+  input: DescribeCustomRoutingAcceleratorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.DescribeCustomRoutingAccelerator",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeCustomRoutingAcceleratorRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeCustomRoutingAcceleratorAttributesCommand = async (
+  input: DescribeCustomRoutingAcceleratorAttributesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.DescribeCustomRoutingAcceleratorAttributes",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeCustomRoutingAcceleratorAttributesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeCustomRoutingEndpointGroupCommand = async (
+  input: DescribeCustomRoutingEndpointGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.DescribeCustomRoutingEndpointGroup",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeCustomRoutingEndpointGroupRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeCustomRoutingListenerCommand = async (
+  input: DescribeCustomRoutingListenerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.DescribeCustomRoutingListener",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeCustomRoutingListenerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -320,6 +631,71 @@ export const serializeAws_json1_1ListByoipCidrsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListCustomRoutingAcceleratorsCommand = async (
+  input: ListCustomRoutingAcceleratorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.ListCustomRoutingAccelerators",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListCustomRoutingAcceleratorsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListCustomRoutingEndpointGroupsCommand = async (
+  input: ListCustomRoutingEndpointGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.ListCustomRoutingEndpointGroups",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListCustomRoutingEndpointGroupsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListCustomRoutingListenersCommand = async (
+  input: ListCustomRoutingListenersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.ListCustomRoutingListeners",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListCustomRoutingListenersRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListCustomRoutingPortMappingsCommand = async (
+  input: ListCustomRoutingPortMappingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.ListCustomRoutingPortMappings",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListCustomRoutingPortMappingsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListCustomRoutingPortMappingsByDestinationCommand = async (
+  input: ListCustomRoutingPortMappingsByDestinationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.ListCustomRoutingPortMappingsByDestination",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListCustomRoutingPortMappingsByDestinationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListEndpointGroupsCommand = async (
   input: ListEndpointGroupsCommandInput,
   context: __SerdeContext
@@ -369,6 +745,19 @@ export const serializeAws_json1_1ProvisionByoipCidrCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ProvisionByoipCidrRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1RemoveCustomRoutingEndpointsCommand = async (
+  input: RemoveCustomRoutingEndpointsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.RemoveCustomRoutingEndpoints",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1RemoveCustomRoutingEndpointsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -424,6 +813,45 @@ export const serializeAws_json1_1UpdateAcceleratorAttributesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1UpdateCustomRoutingAcceleratorCommand = async (
+  input: UpdateCustomRoutingAcceleratorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.UpdateCustomRoutingAccelerator",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateCustomRoutingAcceleratorRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateCustomRoutingAcceleratorAttributesCommand = async (
+  input: UpdateCustomRoutingAcceleratorAttributesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.UpdateCustomRoutingAcceleratorAttributes",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateCustomRoutingAcceleratorAttributesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateCustomRoutingListenerCommand = async (
+  input: UpdateCustomRoutingListenerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.UpdateCustomRoutingListener",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateCustomRoutingListenerRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1UpdateEndpointGroupCommand = async (
   input: UpdateEndpointGroupCommandInput,
   context: __SerdeContext
@@ -461,6 +889,109 @@ export const serializeAws_json1_1WithdrawByoipCidrCommand = async (
   let body: any;
   body = JSON.stringify(serializeAws_json1_1WithdrawByoipCidrRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const deserializeAws_json1_1AddCustomRoutingEndpointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddCustomRoutingEndpointsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1AddCustomRoutingEndpointsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1AddCustomRoutingEndpointsResponse(data, context);
+  const response: AddCustomRoutingEndpointsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1AddCustomRoutingEndpointsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddCustomRoutingEndpointsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.globalaccelerator#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.globalaccelerator#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EndpointAlreadyExistsException":
+    case "com.amazonaws.globalaccelerator#EndpointAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_json1_1EndpointAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EndpointGroupNotFoundException":
+    case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.globalaccelerator#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1AdvertiseByoipCidrCommand = async (
@@ -550,6 +1081,66 @@ const deserializeAws_json1_1AdvertiseByoipCidrCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1AllowCustomRoutingTrafficCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AllowCustomRoutingTrafficCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1AllowCustomRoutingTrafficCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: AllowCustomRoutingTrafficCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1AllowCustomRoutingTrafficCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AllowCustomRoutingTrafficCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1CreateAcceleratorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -592,6 +1183,283 @@ const deserializeAws_json1_1CreateAcceleratorCommandError = async (
     case "com.amazonaws.globalaccelerator#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.globalaccelerator#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateCustomRoutingAcceleratorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCustomRoutingAcceleratorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateCustomRoutingAcceleratorCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateCustomRoutingAcceleratorResponse(data, context);
+  const response: CreateCustomRoutingAcceleratorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateCustomRoutingAcceleratorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCustomRoutingAcceleratorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.globalaccelerator#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.globalaccelerator#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateCustomRoutingEndpointGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCustomRoutingEndpointGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateCustomRoutingEndpointGroupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateCustomRoutingEndpointGroupResponse(data, context);
+  const response: CreateCustomRoutingEndpointGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateCustomRoutingEndpointGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCustomRoutingEndpointGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AcceleratorNotFoundException":
+    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.globalaccelerator#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EndpointGroupAlreadyExistsException":
+    case "com.amazonaws.globalaccelerator#EndpointGroupAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_json1_1EndpointGroupAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidPortRangeException":
+    case "com.amazonaws.globalaccelerator#InvalidPortRangeException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidPortRangeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.globalaccelerator#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ListenerNotFoundException":
+    case "com.amazonaws.globalaccelerator#ListenerNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ListenerNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateCustomRoutingListenerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCustomRoutingListenerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateCustomRoutingListenerCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateCustomRoutingListenerResponse(data, context);
+  const response: CreateCustomRoutingListenerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateCustomRoutingListenerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCustomRoutingListenerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AcceleratorNotFoundException":
+    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidPortRangeException":
+    case "com.amazonaws.globalaccelerator#InvalidPortRangeException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidPortRangeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -895,6 +1763,234 @@ const deserializeAws_json1_1DeleteAcceleratorCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DeleteCustomRoutingAcceleratorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCustomRoutingAcceleratorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteCustomRoutingAcceleratorCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteCustomRoutingAcceleratorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteCustomRoutingAcceleratorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCustomRoutingAcceleratorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AcceleratorNotDisabledException":
+    case "com.amazonaws.globalaccelerator#AcceleratorNotDisabledException":
+      response = {
+        ...(await deserializeAws_json1_1AcceleratorNotDisabledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AcceleratorNotFoundException":
+    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AssociatedListenerFoundException":
+    case "com.amazonaws.globalaccelerator#AssociatedListenerFoundException":
+      response = {
+        ...(await deserializeAws_json1_1AssociatedListenerFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteCustomRoutingEndpointGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCustomRoutingEndpointGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteCustomRoutingEndpointGroupCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteCustomRoutingEndpointGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteCustomRoutingEndpointGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCustomRoutingEndpointGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "EndpointGroupNotFoundException":
+    case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteCustomRoutingListenerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCustomRoutingListenerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteCustomRoutingListenerCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteCustomRoutingListenerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteCustomRoutingListenerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCustomRoutingListenerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AssociatedEndpointGroupFoundException":
+    case "com.amazonaws.globalaccelerator#AssociatedEndpointGroupFoundException":
+      response = {
+        ...(await deserializeAws_json1_1AssociatedEndpointGroupFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ListenerNotFoundException":
+    case "com.amazonaws.globalaccelerator#ListenerNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ListenerNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DeleteEndpointGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1018,6 +2114,66 @@ const deserializeAws_json1_1DeleteListenerCommandError = async (
     case "com.amazonaws.globalaccelerator#ListenerNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ListenerNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DenyCustomRoutingTrafficCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DenyCustomRoutingTrafficCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DenyCustomRoutingTrafficCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DenyCustomRoutingTrafficCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DenyCustomRoutingTrafficCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DenyCustomRoutingTrafficCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1247,6 +2403,290 @@ const deserializeAws_json1_1DescribeAcceleratorAttributesCommandError = async (
     case "com.amazonaws.globalaccelerator#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeCustomRoutingAcceleratorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCustomRoutingAcceleratorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeCustomRoutingAcceleratorCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeCustomRoutingAcceleratorResponse(data, context);
+  const response: DescribeCustomRoutingAcceleratorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeCustomRoutingAcceleratorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCustomRoutingAcceleratorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AcceleratorNotFoundException":
+    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeCustomRoutingAcceleratorAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCustomRoutingAcceleratorAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeCustomRoutingAcceleratorAttributesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeCustomRoutingAcceleratorAttributesResponse(data, context);
+  const response: DescribeCustomRoutingAcceleratorAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeCustomRoutingAcceleratorAttributesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCustomRoutingAcceleratorAttributesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AcceleratorNotFoundException":
+    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeCustomRoutingEndpointGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCustomRoutingEndpointGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeCustomRoutingEndpointGroupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeCustomRoutingEndpointGroupResponse(data, context);
+  const response: DescribeCustomRoutingEndpointGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeCustomRoutingEndpointGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCustomRoutingEndpointGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "EndpointGroupNotFoundException":
+    case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeCustomRoutingListenerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCustomRoutingListenerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeCustomRoutingListenerCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeCustomRoutingListenerResponse(data, context);
+  const response: DescribeCustomRoutingListenerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeCustomRoutingListenerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCustomRoutingListenerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ListenerNotFoundException":
+    case "com.amazonaws.globalaccelerator#ListenerNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ListenerNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1515,6 +2955,401 @@ const deserializeAws_json1_1ListByoipCidrsCommandError = async (
     case "com.amazonaws.globalaccelerator#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.globalaccelerator#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListCustomRoutingAcceleratorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomRoutingAcceleratorsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListCustomRoutingAcceleratorsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListCustomRoutingAcceleratorsResponse(data, context);
+  const response: ListCustomRoutingAcceleratorsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListCustomRoutingAcceleratorsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomRoutingAcceleratorsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.globalaccelerator#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListCustomRoutingEndpointGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomRoutingEndpointGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListCustomRoutingEndpointGroupsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListCustomRoutingEndpointGroupsResponse(data, context);
+  const response: ListCustomRoutingEndpointGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListCustomRoutingEndpointGroupsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomRoutingEndpointGroupsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.globalaccelerator#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ListenerNotFoundException":
+    case "com.amazonaws.globalaccelerator#ListenerNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ListenerNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListCustomRoutingListenersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomRoutingListenersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListCustomRoutingListenersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListCustomRoutingListenersResponse(data, context);
+  const response: ListCustomRoutingListenersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListCustomRoutingListenersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomRoutingListenersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AcceleratorNotFoundException":
+    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.globalaccelerator#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListCustomRoutingPortMappingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomRoutingPortMappingsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListCustomRoutingPortMappingsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListCustomRoutingPortMappingsResponse(data, context);
+  const response: ListCustomRoutingPortMappingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListCustomRoutingPortMappingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomRoutingPortMappingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AcceleratorNotFoundException":
+    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EndpointGroupNotFoundException":
+    case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.globalaccelerator#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListCustomRoutingPortMappingsByDestinationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomRoutingPortMappingsByDestinationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListCustomRoutingPortMappingsByDestinationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListCustomRoutingPortMappingsByDestinationResponse(data, context);
+  const response: ListCustomRoutingPortMappingsByDestinationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListCustomRoutingPortMappingsByDestinationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomRoutingPortMappingsByDestinationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "EndpointNotFoundException":
+    case "com.amazonaws.globalaccelerator#EndpointNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EndpointNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1876,6 +3711,98 @@ const deserializeAws_json1_1ProvisionByoipCidrCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1RemoveCustomRoutingEndpointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveCustomRoutingEndpointsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1RemoveCustomRoutingEndpointsCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: RemoveCustomRoutingEndpointsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1RemoveCustomRoutingEndpointsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveCustomRoutingEndpointsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.globalaccelerator#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.globalaccelerator#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EndpointGroupNotFoundException":
+    case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EndpointNotFoundException":
+    case "com.amazonaws.globalaccelerator#EndpointNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EndpointNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2147,6 +4074,243 @@ const deserializeAws_json1_1UpdateAcceleratorAttributesCommandError = async (
     case "com.amazonaws.globalaccelerator#InvalidArgumentException":
       response = {
         ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UpdateCustomRoutingAcceleratorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCustomRoutingAcceleratorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateCustomRoutingAcceleratorCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateCustomRoutingAcceleratorResponse(data, context);
+  const response: UpdateCustomRoutingAcceleratorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateCustomRoutingAcceleratorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCustomRoutingAcceleratorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AcceleratorNotFoundException":
+    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UpdateCustomRoutingAcceleratorAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCustomRoutingAcceleratorAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateCustomRoutingAcceleratorAttributesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateCustomRoutingAcceleratorAttributesResponse(data, context);
+  const response: UpdateCustomRoutingAcceleratorAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateCustomRoutingAcceleratorAttributesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCustomRoutingAcceleratorAttributesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AcceleratorNotFoundException":
+    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.globalaccelerator#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UpdateCustomRoutingListenerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCustomRoutingListenerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateCustomRoutingListenerCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateCustomRoutingListenerResponse(data, context);
+  const response: UpdateCustomRoutingListenerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateCustomRoutingListenerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCustomRoutingListenerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidPortRangeException":
+    case "com.amazonaws.globalaccelerator#InvalidPortRangeException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidPortRangeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.globalaccelerator#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ListenerNotFoundException":
+    case "com.amazonaws.globalaccelerator#ListenerNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ListenerNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2519,6 +4683,36 @@ const deserializeAws_json1_1ByoipCidrNotFoundExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1ConflictExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConflictException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ConflictException(body, context);
+  const contents: ConflictException = {
+    name: "ConflictException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1EndpointAlreadyExistsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EndpointAlreadyExistsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1EndpointAlreadyExistsException(body, context);
+  const contents: EndpointAlreadyExistsException = {
+    name: "EndpointAlreadyExistsException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1EndpointGroupAlreadyExistsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2542,6 +4736,21 @@ const deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse = async (
   const deserialized: any = deserializeAws_json1_1EndpointGroupNotFoundException(body, context);
   const contents: EndpointGroupNotFoundException = {
     name: "EndpointGroupNotFoundException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1EndpointNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EndpointNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1EndpointNotFoundException(body, context);
+  const contents: EndpointNotFoundException = {
+    name: "EndpointNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2654,12 +4863,46 @@ const deserializeAws_json1_1ListenerNotFoundExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_json1_1AddCustomRoutingEndpointsRequest = (
+  input: AddCustomRoutingEndpointsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EndpointConfigurations !== undefined && {
+      EndpointConfigurations: serializeAws_json1_1CustomRoutingEndpointConfigurations(
+        input.EndpointConfigurations,
+        context
+      ),
+    }),
+    ...(input.EndpointGroupArn !== undefined && { EndpointGroupArn: input.EndpointGroupArn }),
+  };
+};
+
 const serializeAws_json1_1AdvertiseByoipCidrRequest = (
   input: AdvertiseByoipCidrRequest,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.Cidr !== undefined && { Cidr: input.Cidr }),
+  };
+};
+
+const serializeAws_json1_1AllowCustomRoutingTrafficRequest = (
+  input: AllowCustomRoutingTrafficRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AllowAllTrafficToEndpoint !== undefined && {
+      AllowAllTrafficToEndpoint: input.AllowAllTrafficToEndpoint,
+    }),
+    ...(input.DestinationAddresses !== undefined && {
+      DestinationAddresses: serializeAws_json1_1DestinationAddresses(input.DestinationAddresses, context),
+    }),
+    ...(input.DestinationPorts !== undefined && {
+      DestinationPorts: serializeAws_json1_1DestinationPorts(input.DestinationPorts, context),
+    }),
+    ...(input.EndpointGroupArn !== undefined && { EndpointGroupArn: input.EndpointGroupArn }),
+    ...(input.EndpointId !== undefined && { EndpointId: input.EndpointId }),
   };
 };
 
@@ -2686,6 +4929,47 @@ const serializeAws_json1_1CreateAcceleratorRequest = (
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1CreateCustomRoutingAcceleratorRequest = (
+  input: CreateCustomRoutingAcceleratorRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
+    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
+    ...(input.IpAddressType !== undefined && { IpAddressType: input.IpAddressType }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1CreateCustomRoutingEndpointGroupRequest = (
+  input: CreateCustomRoutingEndpointGroupRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DestinationConfigurations !== undefined && {
+      DestinationConfigurations: serializeAws_json1_1CustomRoutingDestinationConfigurations(
+        input.DestinationConfigurations,
+        context
+      ),
+    }),
+    ...(input.EndpointGroupRegion !== undefined && { EndpointGroupRegion: input.EndpointGroupRegion }),
+    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
+    ...(input.ListenerArn !== undefined && { ListenerArn: input.ListenerArn }),
+  };
+};
+
+const serializeAws_json1_1CreateCustomRoutingListenerRequest = (
+  input: CreateCustomRoutingListenerRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
+    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
+    ...(input.PortRanges !== undefined && { PortRanges: serializeAws_json1_1PortRanges(input.PortRanges, context) }),
   };
 };
 
@@ -2724,12 +5008,82 @@ const serializeAws_json1_1CreateListenerRequest = (input: CreateListenerRequest,
   };
 };
 
+const serializeAws_json1_1CustomRoutingDestinationConfiguration = (
+  input: CustomRoutingDestinationConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FromPort !== undefined && { FromPort: input.FromPort }),
+    ...(input.Protocols !== undefined && {
+      Protocols: serializeAws_json1_1CustomRoutingProtocols(input.Protocols, context),
+    }),
+    ...(input.ToPort !== undefined && { ToPort: input.ToPort }),
+  };
+};
+
+const serializeAws_json1_1CustomRoutingDestinationConfigurations = (
+  input: CustomRoutingDestinationConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_json1_1CustomRoutingDestinationConfiguration(entry, context));
+};
+
+const serializeAws_json1_1CustomRoutingEndpointConfiguration = (
+  input: CustomRoutingEndpointConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EndpointId !== undefined && { EndpointId: input.EndpointId }),
+  };
+};
+
+const serializeAws_json1_1CustomRoutingEndpointConfigurations = (
+  input: CustomRoutingEndpointConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_json1_1CustomRoutingEndpointConfiguration(entry, context));
+};
+
+const serializeAws_json1_1CustomRoutingProtocols = (
+  input: (CustomRoutingProtocol | string)[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_json1_1DeleteAcceleratorRequest = (
   input: DeleteAcceleratorRequest,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
+  };
+};
+
+const serializeAws_json1_1DeleteCustomRoutingAcceleratorRequest = (
+  input: DeleteCustomRoutingAcceleratorRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
+  };
+};
+
+const serializeAws_json1_1DeleteCustomRoutingEndpointGroupRequest = (
+  input: DeleteCustomRoutingEndpointGroupRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EndpointGroupArn !== undefined && { EndpointGroupArn: input.EndpointGroupArn }),
+  };
+};
+
+const serializeAws_json1_1DeleteCustomRoutingListenerRequest = (
+  input: DeleteCustomRoutingListenerRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ListenerArn !== undefined && { ListenerArn: input.ListenerArn }),
   };
 };
 
@@ -2745,6 +5099,23 @@ const serializeAws_json1_1DeleteEndpointGroupRequest = (
 const serializeAws_json1_1DeleteListenerRequest = (input: DeleteListenerRequest, context: __SerdeContext): any => {
   return {
     ...(input.ListenerArn !== undefined && { ListenerArn: input.ListenerArn }),
+  };
+};
+
+const serializeAws_json1_1DenyCustomRoutingTrafficRequest = (
+  input: DenyCustomRoutingTrafficRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DenyAllTrafficToEndpoint !== undefined && { DenyAllTrafficToEndpoint: input.DenyAllTrafficToEndpoint }),
+    ...(input.DestinationAddresses !== undefined && {
+      DestinationAddresses: serializeAws_json1_1DestinationAddresses(input.DestinationAddresses, context),
+    }),
+    ...(input.DestinationPorts !== undefined && {
+      DestinationPorts: serializeAws_json1_1DestinationPorts(input.DestinationPorts, context),
+    }),
+    ...(input.EndpointGroupArn !== undefined && { EndpointGroupArn: input.EndpointGroupArn }),
+    ...(input.EndpointId !== undefined && { EndpointId: input.EndpointId }),
   };
 };
 
@@ -2775,6 +5146,42 @@ const serializeAws_json1_1DescribeAcceleratorRequest = (
   };
 };
 
+const serializeAws_json1_1DescribeCustomRoutingAcceleratorAttributesRequest = (
+  input: DescribeCustomRoutingAcceleratorAttributesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
+  };
+};
+
+const serializeAws_json1_1DescribeCustomRoutingAcceleratorRequest = (
+  input: DescribeCustomRoutingAcceleratorRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
+  };
+};
+
+const serializeAws_json1_1DescribeCustomRoutingEndpointGroupRequest = (
+  input: DescribeCustomRoutingEndpointGroupRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EndpointGroupArn !== undefined && { EndpointGroupArn: input.EndpointGroupArn }),
+  };
+};
+
+const serializeAws_json1_1DescribeCustomRoutingListenerRequest = (
+  input: DescribeCustomRoutingListenerRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ListenerArn !== undefined && { ListenerArn: input.ListenerArn }),
+  };
+};
+
 const serializeAws_json1_1DescribeEndpointGroupRequest = (
   input: DescribeEndpointGroupRequest,
   context: __SerdeContext
@@ -2788,6 +5195,14 @@ const serializeAws_json1_1DescribeListenerRequest = (input: DescribeListenerRequ
   return {
     ...(input.ListenerArn !== undefined && { ListenerArn: input.ListenerArn }),
   };
+};
+
+const serializeAws_json1_1DestinationAddresses = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1DestinationPorts = (input: number[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
 const serializeAws_json1_1EndpointConfiguration = (input: EndpointConfiguration, context: __SerdeContext): any => {
@@ -2804,6 +5219,10 @@ const serializeAws_json1_1EndpointConfigurations = (input: EndpointConfiguration
   return input.map((entry) => serializeAws_json1_1EndpointConfiguration(entry, context));
 };
 
+const serializeAws_json1_1EndpointIds = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_json1_1IpAddresses = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
 };
@@ -2817,6 +5236,62 @@ const serializeAws_json1_1ListAcceleratorsRequest = (input: ListAcceleratorsRequ
 
 const serializeAws_json1_1ListByoipCidrsRequest = (input: ListByoipCidrsRequest, context: __SerdeContext): any => {
   return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1ListCustomRoutingAcceleratorsRequest = (
+  input: ListCustomRoutingAcceleratorsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1ListCustomRoutingEndpointGroupsRequest = (
+  input: ListCustomRoutingEndpointGroupsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ListenerArn !== undefined && { ListenerArn: input.ListenerArn }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1ListCustomRoutingListenersRequest = (
+  input: ListCustomRoutingListenersRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1ListCustomRoutingPortMappingsByDestinationRequest = (
+  input: ListCustomRoutingPortMappingsByDestinationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DestinationAddress !== undefined && { DestinationAddress: input.DestinationAddress }),
+    ...(input.EndpointId !== undefined && { EndpointId: input.EndpointId }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1ListCustomRoutingPortMappingsRequest = (
+  input: ListCustomRoutingPortMappingsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.EndpointGroupArn !== undefined && { EndpointGroupArn: input.EndpointGroupArn }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
@@ -2884,6 +5359,18 @@ const serializeAws_json1_1ProvisionByoipCidrRequest = (
   };
 };
 
+const serializeAws_json1_1RemoveCustomRoutingEndpointsRequest = (
+  input: RemoveCustomRoutingEndpointsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EndpointGroupArn !== undefined && { EndpointGroupArn: input.EndpointGroupArn }),
+    ...(input.EndpointIds !== undefined && {
+      EndpointIds: serializeAws_json1_1EndpointIds(input.EndpointIds, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
@@ -2934,6 +5421,40 @@ const serializeAws_json1_1UpdateAcceleratorRequest = (
     ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
     ...(input.IpAddressType !== undefined && { IpAddressType: input.IpAddressType }),
     ...(input.Name !== undefined && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1UpdateCustomRoutingAcceleratorAttributesRequest = (
+  input: UpdateCustomRoutingAcceleratorAttributesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.FlowLogsEnabled !== undefined && { FlowLogsEnabled: input.FlowLogsEnabled }),
+    ...(input.FlowLogsS3Bucket !== undefined && { FlowLogsS3Bucket: input.FlowLogsS3Bucket }),
+    ...(input.FlowLogsS3Prefix !== undefined && { FlowLogsS3Prefix: input.FlowLogsS3Prefix }),
+  };
+};
+
+const serializeAws_json1_1UpdateCustomRoutingAcceleratorRequest = (
+  input: UpdateCustomRoutingAcceleratorRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
+    ...(input.IpAddressType !== undefined && { IpAddressType: input.IpAddressType }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1UpdateCustomRoutingListenerRequest = (
+  input: UpdateCustomRoutingListenerRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ListenerArn !== undefined && { ListenerArn: input.ListenerArn }),
+    ...(input.PortRanges !== undefined && { PortRanges: serializeAws_json1_1PortRanges(input.PortRanges, context) }),
   };
 };
 
@@ -3042,6 +5563,20 @@ const deserializeAws_json1_1AccessDeniedException = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_1AddCustomRoutingEndpointsResponse = (
+  output: any,
+  context: __SerdeContext
+): AddCustomRoutingEndpointsResponse => {
+  return {
+    EndpointDescriptions:
+      output.EndpointDescriptions !== undefined && output.EndpointDescriptions !== null
+        ? deserializeAws_json1_1CustomRoutingEndpointDescriptions(output.EndpointDescriptions, context)
+        : undefined,
+    EndpointGroupArn:
+      output.EndpointGroupArn !== undefined && output.EndpointGroupArn !== null ? output.EndpointGroupArn : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1AdvertiseByoipCidrResponse = (
   output: any,
   context: __SerdeContext
@@ -3110,6 +5645,12 @@ const deserializeAws_json1_1ByoipCidrs = (output: any, context: __SerdeContext):
   return (output || []).map((entry: any) => deserializeAws_json1_1ByoipCidr(entry, context));
 };
 
+const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1CreateAcceleratorResponse = (
   output: any,
   context: __SerdeContext
@@ -3118,6 +5659,42 @@ const deserializeAws_json1_1CreateAcceleratorResponse = (
     Accelerator:
       output.Accelerator !== undefined && output.Accelerator !== null
         ? deserializeAws_json1_1Accelerator(output.Accelerator, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CreateCustomRoutingAcceleratorResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateCustomRoutingAcceleratorResponse => {
+  return {
+    Accelerator:
+      output.Accelerator !== undefined && output.Accelerator !== null
+        ? deserializeAws_json1_1CustomRoutingAccelerator(output.Accelerator, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CreateCustomRoutingEndpointGroupResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateCustomRoutingEndpointGroupResponse => {
+  return {
+    EndpointGroup:
+      output.EndpointGroup !== undefined && output.EndpointGroup !== null
+        ? deserializeAws_json1_1CustomRoutingEndpointGroup(output.EndpointGroup, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CreateCustomRoutingListenerResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateCustomRoutingListenerResponse => {
+  return {
+    Listener:
+      output.Listener !== undefined && output.Listener !== null
+        ? deserializeAws_json1_1CustomRoutingListener(output.Listener, context)
         : undefined,
   } as any;
 };
@@ -3141,6 +5718,145 @@ const deserializeAws_json1_1CreateListenerResponse = (output: any, context: __Se
         ? deserializeAws_json1_1Listener(output.Listener, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1CustomRoutingAccelerator = (
+  output: any,
+  context: __SerdeContext
+): CustomRoutingAccelerator => {
+  return {
+    AcceleratorArn:
+      output.AcceleratorArn !== undefined && output.AcceleratorArn !== null ? output.AcceleratorArn : undefined,
+    CreatedTime:
+      output.CreatedTime !== undefined && output.CreatedTime !== null
+        ? new Date(Math.round(output.CreatedTime * 1000))
+        : undefined,
+    DnsName: output.DnsName !== undefined && output.DnsName !== null ? output.DnsName : undefined,
+    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
+    IpAddressType:
+      output.IpAddressType !== undefined && output.IpAddressType !== null ? output.IpAddressType : undefined,
+    IpSets:
+      output.IpSets !== undefined && output.IpSets !== null
+        ? deserializeAws_json1_1IpSets(output.IpSets, context)
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CustomRoutingAcceleratorAttributes = (
+  output: any,
+  context: __SerdeContext
+): CustomRoutingAcceleratorAttributes => {
+  return {
+    FlowLogsEnabled:
+      output.FlowLogsEnabled !== undefined && output.FlowLogsEnabled !== null ? output.FlowLogsEnabled : undefined,
+    FlowLogsS3Bucket:
+      output.FlowLogsS3Bucket !== undefined && output.FlowLogsS3Bucket !== null ? output.FlowLogsS3Bucket : undefined,
+    FlowLogsS3Prefix:
+      output.FlowLogsS3Prefix !== undefined && output.FlowLogsS3Prefix !== null ? output.FlowLogsS3Prefix : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CustomRoutingAccelerators = (
+  output: any,
+  context: __SerdeContext
+): CustomRoutingAccelerator[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1CustomRoutingAccelerator(entry, context));
+};
+
+const deserializeAws_json1_1CustomRoutingDestinationDescription = (
+  output: any,
+  context: __SerdeContext
+): CustomRoutingDestinationDescription => {
+  return {
+    FromPort: output.FromPort !== undefined && output.FromPort !== null ? output.FromPort : undefined,
+    Protocols:
+      output.Protocols !== undefined && output.Protocols !== null
+        ? deserializeAws_json1_1Protocols(output.Protocols, context)
+        : undefined,
+    ToPort: output.ToPort !== undefined && output.ToPort !== null ? output.ToPort : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CustomRoutingDestinationDescriptions = (
+  output: any,
+  context: __SerdeContext
+): CustomRoutingDestinationDescription[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1CustomRoutingDestinationDescription(entry, context));
+};
+
+const deserializeAws_json1_1CustomRoutingEndpointDescription = (
+  output: any,
+  context: __SerdeContext
+): CustomRoutingEndpointDescription => {
+  return {
+    EndpointId: output.EndpointId !== undefined && output.EndpointId !== null ? output.EndpointId : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CustomRoutingEndpointDescriptions = (
+  output: any,
+  context: __SerdeContext
+): CustomRoutingEndpointDescription[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1CustomRoutingEndpointDescription(entry, context));
+};
+
+const deserializeAws_json1_1CustomRoutingEndpointGroup = (
+  output: any,
+  context: __SerdeContext
+): CustomRoutingEndpointGroup => {
+  return {
+    DestinationDescriptions:
+      output.DestinationDescriptions !== undefined && output.DestinationDescriptions !== null
+        ? deserializeAws_json1_1CustomRoutingDestinationDescriptions(output.DestinationDescriptions, context)
+        : undefined,
+    EndpointDescriptions:
+      output.EndpointDescriptions !== undefined && output.EndpointDescriptions !== null
+        ? deserializeAws_json1_1CustomRoutingEndpointDescriptions(output.EndpointDescriptions, context)
+        : undefined,
+    EndpointGroupArn:
+      output.EndpointGroupArn !== undefined && output.EndpointGroupArn !== null ? output.EndpointGroupArn : undefined,
+    EndpointGroupRegion:
+      output.EndpointGroupRegion !== undefined && output.EndpointGroupRegion !== null
+        ? output.EndpointGroupRegion
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CustomRoutingEndpointGroups = (
+  output: any,
+  context: __SerdeContext
+): CustomRoutingEndpointGroup[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1CustomRoutingEndpointGroup(entry, context));
+};
+
+const deserializeAws_json1_1CustomRoutingListener = (output: any, context: __SerdeContext): CustomRoutingListener => {
+  return {
+    ListenerArn: output.ListenerArn !== undefined && output.ListenerArn !== null ? output.ListenerArn : undefined,
+    PortRanges:
+      output.PortRanges !== undefined && output.PortRanges !== null
+        ? deserializeAws_json1_1PortRanges(output.PortRanges, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CustomRoutingListeners = (
+  output: any,
+  context: __SerdeContext
+): CustomRoutingListener[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1CustomRoutingListener(entry, context));
+};
+
+const deserializeAws_json1_1CustomRoutingProtocols = (
+  output: any,
+  context: __SerdeContext
+): (CustomRoutingProtocol | string)[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1DeprovisionByoipCidrResponse = (
@@ -3179,6 +5895,54 @@ const deserializeAws_json1_1DescribeAcceleratorResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1DescribeCustomRoutingAcceleratorAttributesResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeCustomRoutingAcceleratorAttributesResponse => {
+  return {
+    AcceleratorAttributes:
+      output.AcceleratorAttributes !== undefined && output.AcceleratorAttributes !== null
+        ? deserializeAws_json1_1CustomRoutingAcceleratorAttributes(output.AcceleratorAttributes, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeCustomRoutingAcceleratorResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeCustomRoutingAcceleratorResponse => {
+  return {
+    Accelerator:
+      output.Accelerator !== undefined && output.Accelerator !== null
+        ? deserializeAws_json1_1CustomRoutingAccelerator(output.Accelerator, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeCustomRoutingEndpointGroupResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeCustomRoutingEndpointGroupResponse => {
+  return {
+    EndpointGroup:
+      output.EndpointGroup !== undefined && output.EndpointGroup !== null
+        ? deserializeAws_json1_1CustomRoutingEndpointGroup(output.EndpointGroup, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeCustomRoutingListenerResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeCustomRoutingListenerResponse => {
+  return {
+    Listener:
+      output.Listener !== undefined && output.Listener !== null
+        ? deserializeAws_json1_1CustomRoutingListener(output.Listener, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeEndpointGroupResponse = (
   output: any,
   context: __SerdeContext
@@ -3200,6 +5964,50 @@ const deserializeAws_json1_1DescribeListenerResponse = (
       output.Listener !== undefined && output.Listener !== null
         ? deserializeAws_json1_1Listener(output.Listener, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DestinationPortMapping = (output: any, context: __SerdeContext): DestinationPortMapping => {
+  return {
+    AcceleratorArn:
+      output.AcceleratorArn !== undefined && output.AcceleratorArn !== null ? output.AcceleratorArn : undefined,
+    AcceleratorSocketAddresses:
+      output.AcceleratorSocketAddresses !== undefined && output.AcceleratorSocketAddresses !== null
+        ? deserializeAws_json1_1SocketAddresses(output.AcceleratorSocketAddresses, context)
+        : undefined,
+    DestinationSocketAddress:
+      output.DestinationSocketAddress !== undefined && output.DestinationSocketAddress !== null
+        ? deserializeAws_json1_1SocketAddress(output.DestinationSocketAddress, context)
+        : undefined,
+    DestinationTrafficState:
+      output.DestinationTrafficState !== undefined && output.DestinationTrafficState !== null
+        ? output.DestinationTrafficState
+        : undefined,
+    EndpointGroupArn:
+      output.EndpointGroupArn !== undefined && output.EndpointGroupArn !== null ? output.EndpointGroupArn : undefined,
+    EndpointGroupRegion:
+      output.EndpointGroupRegion !== undefined && output.EndpointGroupRegion !== null
+        ? output.EndpointGroupRegion
+        : undefined,
+    EndpointId: output.EndpointId !== undefined && output.EndpointId !== null ? output.EndpointId : undefined,
+    IpAddressType:
+      output.IpAddressType !== undefined && output.IpAddressType !== null ? output.IpAddressType : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DestinationPortMappings = (
+  output: any,
+  context: __SerdeContext
+): DestinationPortMapping[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1DestinationPortMapping(entry, context));
+};
+
+const deserializeAws_json1_1EndpointAlreadyExistsException = (
+  output: any,
+  context: __SerdeContext
+): EndpointAlreadyExistsException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
@@ -3277,6 +6085,15 @@ const deserializeAws_json1_1EndpointGroupNotFoundException = (
 
 const deserializeAws_json1_1EndpointGroups = (output: any, context: __SerdeContext): EndpointGroup[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1EndpointGroup(entry, context));
+};
+
+const deserializeAws_json1_1EndpointNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): EndpointNotFoundException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1IncorrectCidrStateException = (
@@ -3371,6 +6188,71 @@ const deserializeAws_json1_1ListByoipCidrsResponse = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_1ListCustomRoutingAcceleratorsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListCustomRoutingAcceleratorsResponse => {
+  return {
+    Accelerators:
+      output.Accelerators !== undefined && output.Accelerators !== null
+        ? deserializeAws_json1_1CustomRoutingAccelerators(output.Accelerators, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListCustomRoutingEndpointGroupsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListCustomRoutingEndpointGroupsResponse => {
+  return {
+    EndpointGroups:
+      output.EndpointGroups !== undefined && output.EndpointGroups !== null
+        ? deserializeAws_json1_1CustomRoutingEndpointGroups(output.EndpointGroups, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListCustomRoutingListenersResponse = (
+  output: any,
+  context: __SerdeContext
+): ListCustomRoutingListenersResponse => {
+  return {
+    Listeners:
+      output.Listeners !== undefined && output.Listeners !== null
+        ? deserializeAws_json1_1CustomRoutingListeners(output.Listeners, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListCustomRoutingPortMappingsByDestinationResponse = (
+  output: any,
+  context: __SerdeContext
+): ListCustomRoutingPortMappingsByDestinationResponse => {
+  return {
+    DestinationPortMappings:
+      output.DestinationPortMappings !== undefined && output.DestinationPortMappings !== null
+        ? deserializeAws_json1_1DestinationPortMappings(output.DestinationPortMappings, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListCustomRoutingPortMappingsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListCustomRoutingPortMappingsResponse => {
+  return {
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    PortMappings:
+      output.PortMappings !== undefined && output.PortMappings !== null
+        ? deserializeAws_json1_1PortMappings(output.PortMappings, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListEndpointGroupsResponse = (
   output: any,
   context: __SerdeContext
@@ -3430,6 +6312,32 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1PortMapping = (output: any, context: __SerdeContext): PortMapping => {
+  return {
+    AcceleratorPort:
+      output.AcceleratorPort !== undefined && output.AcceleratorPort !== null ? output.AcceleratorPort : undefined,
+    DestinationSocketAddress:
+      output.DestinationSocketAddress !== undefined && output.DestinationSocketAddress !== null
+        ? deserializeAws_json1_1SocketAddress(output.DestinationSocketAddress, context)
+        : undefined,
+    DestinationTrafficState:
+      output.DestinationTrafficState !== undefined && output.DestinationTrafficState !== null
+        ? output.DestinationTrafficState
+        : undefined,
+    EndpointGroupArn:
+      output.EndpointGroupArn !== undefined && output.EndpointGroupArn !== null ? output.EndpointGroupArn : undefined,
+    EndpointId: output.EndpointId !== undefined && output.EndpointId !== null ? output.EndpointId : undefined,
+    Protocols:
+      output.Protocols !== undefined && output.Protocols !== null
+        ? deserializeAws_json1_1CustomRoutingProtocols(output.Protocols, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1PortMappings = (output: any, context: __SerdeContext): PortMapping[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1PortMapping(entry, context));
+};
+
 const deserializeAws_json1_1PortOverride = (output: any, context: __SerdeContext): PortOverride => {
   return {
     EndpointPort: output.EndpointPort !== undefined && output.EndpointPort !== null ? output.EndpointPort : undefined,
@@ -3452,6 +6360,10 @@ const deserializeAws_json1_1PortRanges = (output: any, context: __SerdeContext):
   return (output || []).map((entry: any) => deserializeAws_json1_1PortRange(entry, context));
 };
 
+const deserializeAws_json1_1Protocols = (output: any, context: __SerdeContext): (Protocol | string)[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_json1_1ProvisionByoipCidrResponse = (
   output: any,
   context: __SerdeContext
@@ -3462,6 +6374,17 @@ const deserializeAws_json1_1ProvisionByoipCidrResponse = (
         ? deserializeAws_json1_1ByoipCidr(output.ByoipCidr, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1SocketAddress = (output: any, context: __SerdeContext): SocketAddress => {
+  return {
+    IpAddress: output.IpAddress !== undefined && output.IpAddress !== null ? output.IpAddress : undefined,
+    Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SocketAddresses = (output: any, context: __SerdeContext): SocketAddress[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1SocketAddress(entry, context));
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -3503,6 +6426,42 @@ const deserializeAws_json1_1UpdateAcceleratorResponse = (
     Accelerator:
       output.Accelerator !== undefined && output.Accelerator !== null
         ? deserializeAws_json1_1Accelerator(output.Accelerator, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateCustomRoutingAcceleratorAttributesResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateCustomRoutingAcceleratorAttributesResponse => {
+  return {
+    AcceleratorAttributes:
+      output.AcceleratorAttributes !== undefined && output.AcceleratorAttributes !== null
+        ? deserializeAws_json1_1CustomRoutingAcceleratorAttributes(output.AcceleratorAttributes, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateCustomRoutingAcceleratorResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateCustomRoutingAcceleratorResponse => {
+  return {
+    Accelerator:
+      output.Accelerator !== undefined && output.Accelerator !== null
+        ? deserializeAws_json1_1CustomRoutingAccelerator(output.Accelerator, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateCustomRoutingListenerResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateCustomRoutingListenerResponse => {
+  return {
+    Listener:
+      output.Listener !== undefined && output.Listener !== null
+        ? deserializeAws_json1_1CustomRoutingListener(output.Listener, context)
         : undefined,
   } as any;
 };

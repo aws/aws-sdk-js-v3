@@ -20,6 +20,7 @@ import {
   MaintenanceWindowResourceType,
   MaintenanceWindowTaskParameterValueExpression,
   MaintenanceWindowTaskType,
+  MetadataValue,
   OperatingSystem,
   OpsItemDataValue,
   OpsItemNotification,
@@ -40,7 +41,6 @@ import {
   ResourceDataSyncS3Destination,
   ResourceDataSyncSource,
   ResourceTypeForTagging,
-  SessionManagerOutputUrl,
   StepExecution,
   Tag,
   Target,
@@ -48,6 +48,265 @@ import {
 } from "./models_0";
 import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+export interface DescribePatchGroupStateResult {
+  /**
+   * <p>The number of instances in the patch group.</p>
+   */
+  Instances?: number;
+
+  /**
+   * <p>The number of instances with installed patches.</p>
+   */
+  InstancesWithInstalledPatches?: number;
+
+  /**
+   * <p>The number of instances with patches installed that aren't defined in the patch
+   *    baseline.</p>
+   */
+  InstancesWithInstalledOtherPatches?: number;
+
+  /**
+   * <p>The number of instances with patches installed by Patch Manager that have not been rebooted
+   *    after the patch installation. The status of these instances is NON_COMPLIANT.</p>
+   */
+  InstancesWithInstalledPendingRebootPatches?: number;
+
+  /**
+   * <p>The number of instances with patches installed that are specified in a RejectedPatches list.
+   *    Patches with a status of <i>INSTALLED_REJECTED</i> were typically installed before
+   *    they were added to a RejectedPatches list.</p>
+   *          <note>
+   *             <p>If ALLOW_AS_DEPENDENCY is the specified option for RejectedPatchesAction, the value of
+   *     InstancesWithInstalledRejectedPatches will always be 0 (zero).</p>
+   *          </note>
+   */
+  InstancesWithInstalledRejectedPatches?: number;
+
+  /**
+   * <p>The number of instances with missing patches from the patch baseline.</p>
+   */
+  InstancesWithMissingPatches?: number;
+
+  /**
+   * <p>The number of instances with patches from the patch baseline that failed to install.</p>
+   */
+  InstancesWithFailedPatches?: number;
+
+  /**
+   * <p>The number of instances with patches that aren't applicable.</p>
+   */
+  InstancesWithNotApplicablePatches?: number;
+
+  /**
+   * <p>The number of instances with <code>NotApplicable</code> patches beyond the supported limit,
+   *    which are not reported by name to Systems Manager Inventory.</p>
+   */
+  InstancesWithUnreportedNotApplicablePatches?: number;
+}
+
+export namespace DescribePatchGroupStateResult {
+  export const filterSensitiveLog = (obj: DescribePatchGroupStateResult): any => ({
+    ...obj,
+  });
+}
+
+export enum PatchSet {
+  Application = "APPLICATION",
+  Os = "OS",
+}
+
+export enum PatchProperty {
+  PatchClassification = "CLASSIFICATION",
+  PatchMsrcSeverity = "MSRC_SEVERITY",
+  PatchPriority = "PRIORITY",
+  PatchProductFamily = "PRODUCT_FAMILY",
+  PatchSeverity = "SEVERITY",
+  Product = "PRODUCT",
+}
+
+export interface DescribePatchPropertiesRequest {
+  /**
+   * <p>The operating system type for which to list patches.</p>
+   */
+  OperatingSystem: OperatingSystem | string | undefined;
+
+  /**
+   * <p>The patch property for which you want to view patch details. </p>
+   */
+  Property: PatchProperty | string | undefined;
+
+  /**
+   * <p>Indicates whether to list patches for the Windows operating system or for Microsoft
+   *    applications. Not applicable for the Linux or macOS operating systems.</p>
+   */
+  PatchSet?: PatchSet | string;
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *    call.)</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribePatchPropertiesRequest {
+  export const filterSensitiveLog = (obj: DescribePatchPropertiesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribePatchPropertiesResult {
+  /**
+   * <p>A list of the properties for patches matching the filter request parameters.</p>
+   */
+  Properties?: { [key: string]: string }[];
+
+  /**
+   * <p>The token for the next set of items to return. (You use this token in the next call.)</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribePatchPropertiesResult {
+  export const filterSensitiveLog = (obj: DescribePatchPropertiesResult): any => ({
+    ...obj,
+  });
+}
+
+export enum SessionFilterKey {
+  INVOKED_AFTER = "InvokedAfter",
+  INVOKED_BEFORE = "InvokedBefore",
+  OWNER = "Owner",
+  SESSION_ID = "SessionId",
+  STATUS = "Status",
+  TARGET_ID = "Target",
+}
+
+/**
+ * <p>Describes a filter for Session Manager information.</p>
+ */
+export interface SessionFilter {
+  /**
+   * <p>The name of the filter.</p>
+   */
+  key: SessionFilterKey | string | undefined;
+
+  /**
+   * <p>The filter value. Valid values for each filter key are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>InvokedAfter: Specify a timestamp to limit your results. For example, specify
+   *      2018-08-29T00:00:00Z to see sessions that started August 29, 2018, and later.</p>
+   *             </li>
+   *             <li>
+   *                <p>InvokedBefore: Specify a timestamp to limit your results. For example, specify
+   *      2018-08-29T00:00:00Z to see sessions that started before August 29, 2018.</p>
+   *             </li>
+   *             <li>
+   *                <p>Target: Specify an instance to which session connections have been made.</p>
+   *             </li>
+   *             <li>
+   *                <p>Owner: Specify an AWS user account to see a list of sessions started by that user.</p>
+   *             </li>
+   *             <li>
+   *                <p>Status: Specify a valid session status to see a list of all sessions with that status.
+   *      Status values you can specify include:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Connected</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Connecting</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Disconnected</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Terminated</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Terminating</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Failed</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>SessionId: Specify a session ID to return details about the session.</p>
+   *             </li>
+   *          </ul>
+   */
+  value: string | undefined;
+}
+
+export namespace SessionFilter {
+  export const filterSensitiveLog = (obj: SessionFilter): any => ({
+    ...obj,
+  });
+}
+
+export enum SessionState {
+  ACTIVE = "Active",
+  HISTORY = "History",
+}
+
+export interface DescribeSessionsRequest {
+  /**
+   * <p>The session status to retrieve a list of sessions for. For example, "Active".</p>
+   */
+  State: SessionState | string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *    call.)</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>One or more filters to limit the type of sessions returned by the request.</p>
+   */
+  Filters?: SessionFilter[];
+}
+
+export namespace DescribeSessionsRequest {
+  export const filterSensitiveLog = (obj: DescribeSessionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Reserved for future use.</p>
+ */
+export interface SessionManagerOutputUrl {
+  /**
+   * <p>Reserved for future use.</p>
+   */
+  S3OutputUrl?: string;
+
+  /**
+   * <p>Reserved for future use.</p>
+   */
+  CloudWatchOutputUrl?: string;
+}
+
+export namespace SessionManagerOutputUrl {
+  export const filterSensitiveLog = (obj: SessionManagerOutputUrl): any => ({
+    ...obj,
+  });
+}
 
 export enum SessionStatus {
   CONNECTED = "Connected",
@@ -2222,6 +2481,54 @@ export namespace OpsItemNotFoundException {
   });
 }
 
+export interface GetOpsMetadataRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of an OpsMetadata Object to view.</p>
+   */
+  OpsMetadataArn: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A token to start the list. Use this token to get the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetOpsMetadataRequest {
+  export const filterSensitiveLog = (obj: GetOpsMetadataRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetOpsMetadataResult {
+  /**
+   * <p>The resource ID of the AppManager application.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>OpsMetadata for an AppManager application.</p>
+   */
+  Metadata?: { [key: string]: MetadataValue };
+
+  /**
+   * <p>The token for the next set of items to return. Use this token to get the next set of
+   *    results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetOpsMetadataResult {
+  export const filterSensitiveLog = (obj: GetOpsMetadataResult): any => ({
+    ...obj,
+  });
+}
+
 export enum OpsFilterOperatorType {
   BEGIN_WITH = "BeginWith",
   EQUAL = "Equal",
@@ -3067,7 +3374,10 @@ export interface ListAssociationsRequest {
   /**
    * <p>One or more filters. Use a filter to return a more specific list of results.</p>
    *          <note>
-   *             <p>Filtering associations using the <code>InstanceID</code> attribute only returns legacy associations created using the <code>InstanceID</code> attribute. Associations targeting the instance that are part of the Target Attributes <code>ResourceGroup</code> or <code>Tags</code> are not returned.</p>
+   *             <p>Filtering associations using the <code>InstanceID</code> attribute only returns legacy
+   *     associations created using the <code>InstanceID</code> attribute. Associations targeting the
+   *     instance that are part of the Target Attributes <code>ResourceGroup</code> or <code>Tags</code>
+   *     are not returned.</p>
    *          </note>
    */
   AssociationFilterList?: AssociationFilter[];
@@ -3300,7 +3610,8 @@ export interface AssociationVersionInfo {
   /**
    * <p>By default, when you create a new associations, the system runs it immediately after it is
    *    created and then according to the schedule you specified. Specify this option if you don't want
-   *    an association to run immediately after you create it.</p>
+   *    an association to run immediately after you create it. This parameter is not supported for rate
+   *    expressions.</p>
    */
   ApplyOnlyAtCronInterval?: boolean;
 }
@@ -4860,6 +5171,107 @@ export interface ListInventoryEntriesResult {
 
 export namespace ListInventoryEntriesResult {
   export const filterSensitiveLog = (obj: ListInventoryEntriesResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A filter to limit the number of OpsMetadata objects displayed.</p>
+ */
+export interface OpsMetadataFilter {
+  /**
+   * <p>A filter key.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>A filter value.</p>
+   */
+  Values: string[] | undefined;
+}
+
+export namespace OpsMetadataFilter {
+  export const filterSensitiveLog = (obj: OpsMetadataFilter): any => ({
+    ...obj,
+  });
+}
+
+export interface ListOpsMetadataRequest {
+  /**
+   * <p>One or more filters to limit the number of OpsMetadata objects returned by the
+   *    call.</p>
+   */
+  Filters?: OpsMetadataFilter[];
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A token to start the list. Use this token to get the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListOpsMetadataRequest {
+  export const filterSensitiveLog = (obj: ListOpsMetadataRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Operational metadata for an application in AppManager.</p>
+ */
+export interface OpsMetadata {
+  /**
+   * <p>The ID of the AppManager application.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the OpsMetadata Object or blob.</p>
+   */
+  OpsMetadataArn?: string;
+
+  /**
+   * <p>The date the OpsMetadata object was last updated.</p>
+   */
+  LastModifiedDate?: Date;
+
+  /**
+   * <p>The user name who last updated the OpsMetadata object.</p>
+   */
+  LastModifiedUser?: string;
+
+  /**
+   * <p>The date the OpsMetadata objects was created.</p>
+   */
+  CreationDate?: Date;
+}
+
+export namespace OpsMetadata {
+  export const filterSensitiveLog = (obj: OpsMetadata): any => ({
+    ...obj,
+  });
+}
+
+export interface ListOpsMetadataResult {
+  /**
+   * <p>Returns a list of OpsMetadata objects.</p>
+   */
+  OpsMetadataList?: OpsMetadata[];
+
+  /**
+   * <p>The token for the next set of items to return. Use this token to get the next set of
+   *    results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListOpsMetadataResult {
+  export const filterSensitiveLog = (obj: ListOpsMetadataResult): any => ({
     ...obj,
   });
 }
@@ -7347,7 +7759,8 @@ export interface UpdateAssociationRequest {
   /**
    * <p>By default, when you update an association, the system runs it immediately after it is
    *    updated and then according to the schedule you specified. Specify this option if you don't want
-   *    an association to run immediately after you update it.</p>
+   *    an association to run immediately after you update it. This parameter is not supported for rate
+   *    expressions.</p>
    *          <p>Also, if you specified this option when you created the association, you can reset it. To do
    *    so, specify the <code>no-apply-only-at-cron-interval</code> parameter when you update the
    *    association from the command line. This parameter forces the association to run immediately after
@@ -8201,6 +8614,57 @@ export interface UpdateOpsItemResponse {}
 
 export namespace UpdateOpsItemResponse {
   export const filterSensitiveLog = (obj: UpdateOpsItemResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The OpsMetadata object exceeds the maximum number of OpsMetadata keys that you can assign to an application in AppManager.</p>
+ */
+export interface OpsMetadataKeyLimitExceededException extends __SmithyException, $MetadataBearer {
+  name: "OpsMetadataKeyLimitExceededException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace OpsMetadataKeyLimitExceededException {
+  export const filterSensitiveLog = (obj: OpsMetadataKeyLimitExceededException): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateOpsMetadataRequest {
+  /**
+   * <p>The Amazon Resoure Name (ARN) of the OpsMetadata Object to update.</p>
+   */
+  OpsMetadataArn: string | undefined;
+
+  /**
+   * <p>Metadata to add to an OpsMetadata object.</p>
+   */
+  MetadataToUpdate?: { [key: string]: MetadataValue };
+
+  /**
+   * <p>The metadata keys to delete from the OpsMetadata object. </p>
+   */
+  KeysToDelete?: string[];
+}
+
+export namespace UpdateOpsMetadataRequest {
+  export const filterSensitiveLog = (obj: UpdateOpsMetadataRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateOpsMetadataResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the OpsMetadata Object that was updated.</p>
+   */
+  OpsMetadataArn?: string;
+}
+
+export namespace UpdateOpsMetadataResult {
+  export const filterSensitiveLog = (obj: UpdateOpsMetadataResult): any => ({
     ...obj,
   });
 }

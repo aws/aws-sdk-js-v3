@@ -227,7 +227,7 @@ export namespace ServiceException {
 }
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * <p>Client authentication is not available in this region at this time.</p>
  */
 export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
@@ -465,7 +465,8 @@ export interface AddRegionRequest {
   DirectoryId: string | undefined;
 
   /**
-   * <p>The name of the Region where you want to add domain controllers for replication. For example, <code>us-east-1</code>.</p>
+   * <p>The name of the Region where you want to add domain controllers for replication. For
+   *       example, <code>us-east-1</code>.</p>
    */
   RegionName: string | undefined;
 
@@ -490,7 +491,8 @@ export namespace AddRegionResult {
 }
 
 /**
- * <p>The Region you specified is the same Region where the AWS Managed Microsoft AD directory was created. Specify a different Region and try again.</p>
+ * <p>The Region you specified is the same Region where the AWS Managed Microsoft AD directory
+ *       was created. Specify a different Region and try again.</p>
  */
 export interface DirectoryAlreadyInRegionException extends __SmithyException, $MetadataBearer {
   name: "DirectoryAlreadyInRegionException";
@@ -536,7 +538,8 @@ export namespace DirectoryDoesNotExistException {
 }
 
 /**
- * <p>You have reached the limit for maximum number of simultaneous Region replications per directory.</p>
+ * <p>You have reached the limit for maximum number of simultaneous Region replications per
+ *       directory.</p>
  */
 export interface RegionLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "RegionLimitExceededException";
@@ -722,11 +725,11 @@ export namespace CancelSchemaExtensionResult {
 }
 
 /**
- * <p>Contains information about the client certificate authentication settings, such as <code>ClientLDAPS</code> or <code>ClientCertAuth</code>.</p>
+ * <p>Contains information about the client certificate authentication settings for the <code>RegisterCertificate</code> and <code>DescribeCertificate</code> operations. </p>
  */
 export interface ClientCertAuthSettings {
   /**
-   * <p>Specifies the URL of the default OCSP server used to check for revocation status.</p>
+   * <p>Specifies the URL of the default OCSP server used to check for revocation status. A secondary value to any OCSP address found in the AIA extension of the user certificate.</p>
    */
   OCSPUrl?: string;
 }
@@ -786,12 +789,12 @@ export interface Certificate {
   ExpiryDateTime?: Date;
 
   /**
-   * <p>Select <code>ClientCertAuth</code> for smart card integration.</p>
+   * <p>The function that the registered certificate performs. Valid values include <code>ClientLDAPS</code> or <code>ClientCertAuth</code>. The default value is <code>ClientLDAPS</code>.</p>
    */
   Type?: CertificateType | string;
 
   /**
-   * <p>Provides information about the client certificate authentication settings. The default value is <code>ClientLDAPS</code>.</p>
+   * <p>A <code>ClientCertAuthSettings</code> object that contains client certificate authentication settings.</p>
    */
   ClientCertAuthSettings?: ClientCertAuthSettings;
 }
@@ -873,7 +876,7 @@ export interface CertificateInfo {
   ExpiryDateTime?: Date;
 
   /**
-   * <p>Displays the type of certificate.</p>
+   * <p>The function that the registered certificate performs. Valid values include <code>ClientLDAPS</code> or <code>ClientCertAuth</code>. The default value is <code>ClientLDAPS</code>.</p>
    */
   Type?: CertificateType | string;
 }
@@ -1300,13 +1303,16 @@ export interface CreateDirectoryRequest {
    *                <p>Numbers and upper case and lowercase (?=.*\d)(?=.*[A-Z])(?=.*[a-z])</p>
    *             </li>
    *             <li>
-   *                <p>Numbers and special characters and lower case (?=.*\d)(?=.*[^A-Za-z0-9\s])(?=.*[a-z])</p>
+   *                <p>Numbers and special characters and lower case
+   *           (?=.*\d)(?=.*[^A-Za-z0-9\s])(?=.*[a-z])</p>
    *             </li>
    *             <li>
-   *                <p>Special characters and upper case and lower case (?=.*[^A-Za-z0-9\s])(?=.*[A-Z])(?=.*[a-z])</p>
+   *                <p>Special characters and upper case and lower case
+   *           (?=.*[^A-Za-z0-9\s])(?=.*[A-Z])(?=.*[a-z])</p>
    *             </li>
    *             <li>
-   *                <p>Numbers and upper case and special characters (?=.*\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9\s])</p>
+   *                <p>Numbers and upper case and special characters
+   *           (?=.*\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9\s])</p>
    *             </li>
    *          </ul>
    *          <p>For additional information about how Active Directory passwords are enforced, see <a href="https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements">Password must meet complexity requirements</a> on the Microsoft website.</p>
@@ -2115,7 +2121,8 @@ export namespace OwnerDirectoryDescription {
 }
 
 /**
- * <p>Provides information about the Regions that are configured for multi-Region replication.</p>
+ * <p>Provides information about the Regions that are configured for multi-Region
+ *       replication.</p>
  */
 export interface RegionsInfo {
   /**
@@ -2124,7 +2131,8 @@ export interface RegionsInfo {
   PrimaryRegion?: string;
 
   /**
-   * <p>Lists the Regions where the directory has been replicated, excluding the primary Region.</p>
+   * <p>Lists the Regions where the directory has been replicated, excluding the primary
+   *       Region.</p>
    */
   AdditionalRegions?: string[];
 }
@@ -2662,8 +2670,7 @@ export interface DescribeRegionsRequest {
   RegionName?: string;
 
   /**
-   * <p>The <code>DescribeRegionsResult.NextToken</code> value from a previous call to
-   *       <a>DescribeRegions</a>. Pass null if this is the first call.</p>
+   * <p>The <code>DescribeRegionsResult.NextToken</code> value from a previous call to <a>DescribeRegions</a>. Pass null if this is the first call.</p>
    */
   NextToken?: string;
 }
@@ -2709,7 +2716,8 @@ export interface RegionDescription {
   VpcSettings?: DirectoryVpcSettings;
 
   /**
-   * <p>The desired number of domain controllers in the specified Region for the specified directory.</p>
+   * <p>The desired number of domain controllers in the specified Region for the specified
+   *       directory.</p>
    */
   DesiredNumberOfDomainControllers?: number;
 
@@ -2742,8 +2750,9 @@ export interface DescribeRegionsResult {
   RegionsDescription?: RegionDescription[];
 
   /**
-   * <p>If not null, more results are available. Pass this value for the <code>NextToken</code> parameter
-   *       in a subsequent call to <a>DescribeRegions</a> to retrieve the next set of items.</p>
+   * <p>If not null, more results are available. Pass this value for the <code>NextToken</code>
+   *       parameter in a subsequent call to <a>DescribeRegions</a> to retrieve the next set
+   *       of items.</p>
    */
   NextToken?: string;
 }
@@ -3137,12 +3146,12 @@ export namespace DirectoryNotSharedException {
 
 export interface DisableClientAuthenticationRequest {
   /**
-   * <p>Disable client authentication in a specified directory for smart cards. </p>
+   * <p>The identifier of the directory </p>
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p>Disable the type of client authentication request. </p>
+   * <p>The type of client authentication to disable. Currently, only the parameter, <code>SmartCard</code> is supported.</p>
    */
   Type: ClientAuthenticationType | string | undefined;
 }
@@ -3162,7 +3171,7 @@ export namespace DisableClientAuthenticationResult {
 }
 
 /**
- * <p>The client authorization was invalid.</p>
+ * <p>Client authentication is already enabled.</p>
  */
 export interface InvalidClientAuthStatusException extends __SmithyException, $MetadataBearer {
   name: "InvalidClientAuthStatusException";
@@ -3307,12 +3316,15 @@ export namespace DisableSsoResult {
 
 export interface EnableClientAuthenticationRequest {
   /**
-   * <p>Enable client authentication in a specified directory for smart cards. </p>
+   * <p>The identifier of the specified directory. </p>
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p>Enable the type of client authentication request. </p>
+   * <p>The type of client authentication to enable. Currently only the value <code>SmartCard</code> is
+   *       supported. Smart card authentication in AD Connector requires that you enable Kerberos
+   *       Constrained Delegation for the Service User to the LDAP service in the on-premises AD.
+   *     </p>
    */
   Type: ClientAuthenticationType | string | undefined;
 }
@@ -3332,8 +3344,8 @@ export namespace EnableClientAuthenticationResult {
 }
 
 /**
- * <p>The LDAP activities could not be performed because at least one valid certificate must be
- *       registered with the system.</p>
+ * <p>Client authentication setup could not be completed because at least one valid certificate must be
+ *       registered in the system.</p>
  */
 export interface NoAvailableCertificateException extends __SmithyException, $MetadataBearer {
   name: "NoAvailableCertificateException";
@@ -3932,12 +3944,12 @@ export interface RegisterCertificateRequest {
   CertificateData: string | undefined;
 
   /**
-   * <p>The certificate type to register for the request.</p>
+   * <p>The function that the registered certificate performs. Valid values include <code>ClientLDAPS</code> or <code>ClientCertAuth</code>. The default value is <code>ClientLDAPS</code>.</p>
    */
   Type?: CertificateType | string;
 
   /**
-   * <p>Contains information about the client certificate authentication settings, such as <code>ClientLDAPS</code> or <code>ClientCertAuth</code>.</p>
+   * <p>A <code>ClientCertAuthSettings</code> object that contains client certificate authentication settings.</p>
    */
   ClientCertAuthSettings?: ClientCertAuthSettings;
 }

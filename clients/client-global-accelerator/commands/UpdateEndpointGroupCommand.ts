@@ -26,7 +26,6 @@ export type UpdateEndpointGroupCommandOutput = UpdateEndpointGroupResponse & __M
 
 /**
  * <p>Update an endpoint group. A resource must be valid and active when you add it as an endpoint.</p>
- * 		       <p>To see an AWS CLI example of updating an endpoint group, scroll down to <b>Example</b>. </p>
  */
 export class UpdateEndpointGroupCommand extends $Command<
   UpdateEndpointGroupCommandInput,

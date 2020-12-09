@@ -22,8 +22,8 @@ export type GetEnrollmentStatusCommandOutput = GetEnrollmentStatusResponse & __M
 
 /**
  * <p>Returns the enrollment (opt in) status of an account to the AWS Compute Optimizer service.</p>
- *         <p>If the account is the master account of an organization, this action also confirms the
- *             enrollment status of member accounts within the organization.</p>
+ *         <p>If the account is the management account of an organization, this action also confirms
+ *             the enrollment status of member accounts within the organization.</p>
  */
 export class GetEnrollmentStatusCommand extends $Command<
   GetEnrollmentStatusCommandInput,

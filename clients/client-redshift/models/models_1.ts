@@ -14,6 +14,23 @@ import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
+ * <p>The value specified for the <code>sourceDatabaseName</code>,
+ *                 <code>sourceSchemaName</code>, or <code>sourceTableName</code> parameter, or a
+ *             combination of these, doesn't exist in the snapshot.</p>
+ */
+export interface InvalidTableRestoreArgumentFault extends __SmithyException, $MetadataBearer {
+  name: "InvalidTableRestoreArgumentFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidTableRestoreArgumentFault {
+  export const filterSensitiveLog = (obj: InvalidTableRestoreArgumentFault): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p></p>
  */
 export interface ModifyClusterMessage {
@@ -46,7 +63,7 @@ export interface ModifyClusterMessage {
    *         <p>Valid Values: <code>ds2.xlarge</code> | <code>ds2.8xlarge</code> |
    *             <code>dc1.large</code> | <code>dc1.8xlarge</code> |
    *             <code>dc2.large</code> | <code>dc2.8xlarge</code> |
-   *             <code>ra3.4xlarge</code> | <code>ra3.16xlarge</code>
+   *             <code>ra3.xlplus</code> |  <code>ra3.4xlarge</code> | <code>ra3.16xlarge</code>
    *          </p>
    */
   NodeType?: string;
@@ -276,6 +293,21 @@ export interface ModifyClusterMessage {
    *             to encrypt data in the cluster.</p>
    */
   KmsKeyId?: string;
+
+  /**
+   * <p>The option to enable relocation for an Amazon Redshift cluster between Availability Zones after the cluster modification is complete.</p>
+   */
+  AvailabilityZoneRelocation?: boolean;
+
+  /**
+   * <p>The option to initiate relocation for an Amazon Redshift cluster to the target Availability Zone.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The option to change the port of an Amazon Redshift cluster.</p>
+   */
+  Port?: number;
 }
 
 export namespace ModifyClusterMessage {
@@ -1238,6 +1270,11 @@ export interface RestoreFromClusterSnapshotMessage {
    * <p>The number of nodes specified when provisioning the restored cluster.</p>
    */
   NumberOfNodes?: number;
+
+  /**
+   * <p>The option to enable relocation for an Amazon Redshift cluster between Availability Zones after the cluster is restored.</p>
+   */
+  AvailabilityZoneRelocation?: boolean;
 }
 
 export namespace RestoreFromClusterSnapshotMessage {

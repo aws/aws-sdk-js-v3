@@ -884,8 +884,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   * <p>Deletes from the system the certificate that was registered for a secured LDAP
-   *       connection.</p>
+   * <p>Deletes from the system the certificate that was registered for secure LDAP or client certificate authentication.</p>
    */
   public deregisterCertificate(
     args: DeregisterCertificateCommandInput,
@@ -949,8 +948,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   * <p>Displays information about the certificate registered for a secured LDAP
-   *       connection.</p>
+   * <p>Displays information about the certificate registered for secure LDAP or client certificate authentication.</p>
    */
   public describeCertificate(
     args: DescribeCertificateCommandInput,
@@ -1154,7 +1152,8 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   * <p>Provides information about the Regions that are configured for multi-Region replication.</p>
+   * <p>Provides information about the Regions that are configured for multi-Region
+   *       replication.</p>
    */
   public describeRegions(
     args: DescribeRegionsCommandInput,
@@ -1289,7 +1288,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   * <p>Disable client authentication for smart cards.</p>
+   * <p>Disables alternative client authentication methods for the specified directory. </p>
    */
   public disableClientAuthentication(
     args: DisableClientAuthenticationCommandInput,
@@ -1408,7 +1407,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   * <p>Enable client authentication for smardtcards.</p>
+   * <p>Enables alternative client authentication methods for the specified directory.</p>
    */
   public enableClientAuthentication(
     args: EnableClientAuthenticationCommandInput,
@@ -1585,8 +1584,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   * <p>For the specified directory, lists all the certificates registered for a secured LDAP
-   *       connection.</p>
+   * <p>For the specified directory, lists all the certificates registered for a secure LDAP or client certificate authentication.</p>
    */
   public listCertificates(
     args: ListCertificatesCommandInput,
@@ -1743,7 +1741,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   * <p>Registers a certificate for secured LDAP connection.</p>
+   * <p>Registers a certificate for a secure LDAP or client certificate authentication.</p>
    */
   public registerCertificate(
     args: RegisterCertificateCommandInput,
@@ -1871,7 +1869,9 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   * <p>Stops all replication and removes the domain controllers from the specified Region. You cannot remove the primary Region with this operation. Instead, use the <code>DeleteDirectory</code> API.</p>
+   * <p>Stops all replication and removes the domain controllers from the specified Region. You
+   *       cannot remove the primary Region with this operation. Instead, use the
+   *         <code>DeleteDirectory</code> API.</p>
    */
   public removeRegion(
     args: RemoveRegionCommandInput,

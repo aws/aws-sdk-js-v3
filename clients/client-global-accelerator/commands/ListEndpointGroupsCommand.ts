@@ -25,8 +25,7 @@ export type ListEndpointGroupsCommandInput = ListEndpointGroupsRequest;
 export type ListEndpointGroupsCommandOutput = ListEndpointGroupsResponse & __MetadataBearer;
 
 /**
- * <p>List the endpoint groups that are associated with a listener. To see an AWS CLI example of listing
- * 			the endpoint groups for listener, scroll down to <b>Example</b>.</p>
+ * <p>List the endpoint groups that are associated with a listener. </p>
  */
 export class ListEndpointGroupsCommand extends $Command<
   ListEndpointGroupsCommandInput,

@@ -2,7 +2,7 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 import {
   GetSagemakerServicecatalogPortfolioStatusInput,
   GetSagemakerServicecatalogPortfolioStatusOutput,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_json1_1GetSagemakerServicecatalogPortfolioStatusCommand,
   serializeAws_json1_1GetSagemakerServicecatalogPortfolioStatusCommand,

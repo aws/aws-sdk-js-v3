@@ -27,7 +27,6 @@ export type CreateEndpointGroupCommandOutput = CreateEndpointGroupResponse & __M
 /**
  * <p>Create an endpoint group for the specified listener. An endpoint group is a collection of endpoints in one AWS
  * 			Region. A resource must be valid and active when you add it as an endpoint.</p>
- * 		       <p>To see an AWS CLI example of creating an endpoint group, scroll down to <b>Example</b>.</p>
  */
 export class CreateEndpointGroupCommand extends $Command<
   CreateEndpointGroupCommandInput,

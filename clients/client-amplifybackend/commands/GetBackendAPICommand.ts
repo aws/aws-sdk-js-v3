@@ -21,7 +21,7 @@ export type GetBackendAPICommandInput = GetBackendAPIRequest;
 export type GetBackendAPICommandOutput = GetBackendAPIResponse & __MetadataBearer;
 
 /**
- * <p>Gets the details for a backend api.</p>
+ * <p>Gets the details for a backend API.</p>
  */
 export class GetBackendAPICommand extends $Command<
   GetBackendAPICommandInput,

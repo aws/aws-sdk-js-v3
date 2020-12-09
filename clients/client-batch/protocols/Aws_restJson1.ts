@@ -60,6 +60,7 @@ import {
   DeviceCgroupPermission,
   Ec2Configuration,
   EvaluateOnExit,
+  FargatePlatformConfiguration,
   Host,
   JobDefinition,
   JobDependency,
@@ -72,6 +73,7 @@ import {
   LinuxParameters,
   LogConfiguration,
   MountPoint,
+  NetworkConfiguration,
   NetworkInterface,
   NodeDetails,
   NodeOverrides,
@@ -79,6 +81,7 @@ import {
   NodePropertiesSummary,
   NodePropertyOverride,
   NodeRangeProperty,
+  PlatformCapability,
   ResourceRequirement,
   RetryStrategy,
   Secret,
@@ -444,6 +447,10 @@ export const serializeAws_restJson1RegisterJobDefinitionCommand = async (
     ...(input.parameters !== undefined && {
       parameters: serializeAws_restJson1ParametersMap(input.parameters, context),
     }),
+    ...(input.platformCapabilities !== undefined && {
+      platformCapabilities: serializeAws_restJson1PlatformCapabilityList(input.platformCapabilities, context),
+    }),
+    ...(input.propagateTags !== undefined && { propagateTags: input.propagateTags }),
     ...(input.retryStrategy !== undefined && {
       retryStrategy: serializeAws_restJson1RetryStrategy(input.retryStrategy, context),
     }),
@@ -491,6 +498,7 @@ export const serializeAws_restJson1SubmitJobCommand = async (
     ...(input.parameters !== undefined && {
       parameters: serializeAws_restJson1ParametersMap(input.parameters, context),
     }),
+    ...(input.propagateTags !== undefined && { propagateTags: input.propagateTags }),
     ...(input.retryStrategy !== undefined && {
       retryStrategy: serializeAws_restJson1RetryStrategy(input.retryStrategy, context),
     }),
@@ -1971,6 +1979,10 @@ const serializeAws_restJson1ComputeResourceUpdate = (input: ComputeResourceUpdat
     ...(input.desiredvCpus !== undefined && { desiredvCpus: input.desiredvCpus }),
     ...(input.maxvCpus !== undefined && { maxvCpus: input.maxvCpus }),
     ...(input.minvCpus !== undefined && { minvCpus: input.minvCpus }),
+    ...(input.securityGroupIds !== undefined && {
+      securityGroupIds: serializeAws_restJson1StringList(input.securityGroupIds, context),
+    }),
+    ...(input.subnets !== undefined && { subnets: serializeAws_restJson1StringList(input.subnets, context) }),
   };
 };
 
@@ -1996,6 +2008,12 @@ const serializeAws_restJson1ContainerProperties = (input: ContainerProperties, c
       environment: serializeAws_restJson1EnvironmentVariables(input.environment, context),
     }),
     ...(input.executionRoleArn !== undefined && { executionRoleArn: input.executionRoleArn }),
+    ...(input.fargatePlatformConfiguration !== undefined && {
+      fargatePlatformConfiguration: serializeAws_restJson1FargatePlatformConfiguration(
+        input.fargatePlatformConfiguration,
+        context
+      ),
+    }),
     ...(input.image !== undefined && { image: input.image }),
     ...(input.instanceType !== undefined && { instanceType: input.instanceType }),
     ...(input.jobRoleArn !== undefined && { jobRoleArn: input.jobRoleArn }),
@@ -2008,6 +2026,9 @@ const serializeAws_restJson1ContainerProperties = (input: ContainerProperties, c
     ...(input.memory !== undefined && { memory: input.memory }),
     ...(input.mountPoints !== undefined && {
       mountPoints: serializeAws_restJson1MountPoints(input.mountPoints, context),
+    }),
+    ...(input.networkConfiguration !== undefined && {
+      networkConfiguration: serializeAws_restJson1NetworkConfiguration(input.networkConfiguration, context),
     }),
     ...(input.privileged !== undefined && { privileged: input.privileged }),
     ...(input.readonlyRootFilesystem !== undefined && { readonlyRootFilesystem: input.readonlyRootFilesystem }),
@@ -2069,6 +2090,15 @@ const serializeAws_restJson1EvaluateOnExit = (input: EvaluateOnExit, context: __
 
 const serializeAws_restJson1EvaluateOnExitList = (input: EvaluateOnExit[], context: __SerdeContext): any => {
   return input.map((entry) => serializeAws_restJson1EvaluateOnExit(entry, context));
+};
+
+const serializeAws_restJson1FargatePlatformConfiguration = (
+  input: FargatePlatformConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.platformVersion !== undefined && { platformVersion: input.platformVersion }),
+  };
 };
 
 const serializeAws_restJson1Host = (input: Host, context: __SerdeContext): any => {
@@ -2160,6 +2190,12 @@ const serializeAws_restJson1MountPoints = (input: MountPoint[], context: __Serde
   return input.map((entry) => serializeAws_restJson1MountPoint(entry, context));
 };
 
+const serializeAws_restJson1NetworkConfiguration = (input: NetworkConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.assignPublicIp !== undefined && { assignPublicIp: input.assignPublicIp }),
+  };
+};
+
 const serializeAws_restJson1NodeOverrides = (input: NodeOverrides, context: __SerdeContext): any => {
   return {
     ...(input.nodePropertyOverrides !== undefined && {
@@ -2213,6 +2249,13 @@ const serializeAws_restJson1ParametersMap = (input: { [key: string]: string }, c
     }),
     {}
   );
+};
+
+const serializeAws_restJson1PlatformCapabilityList = (
+  input: (PlatformCapability | string)[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => entry);
 };
 
 const serializeAws_restJson1ResourceRequirement = (input: ResourceRequirement, context: __SerdeContext): any => {
@@ -2499,6 +2542,10 @@ const deserializeAws_restJson1ContainerDetail = (output: any, context: __SerdeCo
     executionRoleArn:
       output.executionRoleArn !== undefined && output.executionRoleArn !== null ? output.executionRoleArn : undefined,
     exitCode: output.exitCode !== undefined && output.exitCode !== null ? output.exitCode : undefined,
+    fargatePlatformConfiguration:
+      output.fargatePlatformConfiguration !== undefined && output.fargatePlatformConfiguration !== null
+        ? deserializeAws_restJson1FargatePlatformConfiguration(output.fargatePlatformConfiguration, context)
+        : undefined,
     image: output.image !== undefined && output.image !== null ? output.image : undefined,
     instanceType: output.instanceType !== undefined && output.instanceType !== null ? output.instanceType : undefined,
     jobRoleArn: output.jobRoleArn !== undefined && output.jobRoleArn !== null ? output.jobRoleArn : undefined,
@@ -2516,6 +2563,10 @@ const deserializeAws_restJson1ContainerDetail = (output: any, context: __SerdeCo
     mountPoints:
       output.mountPoints !== undefined && output.mountPoints !== null
         ? deserializeAws_restJson1MountPoints(output.mountPoints, context)
+        : undefined,
+    networkConfiguration:
+      output.networkConfiguration !== undefined && output.networkConfiguration !== null
+        ? deserializeAws_restJson1NetworkConfiguration(output.networkConfiguration, context)
         : undefined,
     networkInterfaces:
       output.networkInterfaces !== undefined && output.networkInterfaces !== null
@@ -2561,6 +2612,10 @@ const deserializeAws_restJson1ContainerProperties = (output: any, context: __Ser
         : undefined,
     executionRoleArn:
       output.executionRoleArn !== undefined && output.executionRoleArn !== null ? output.executionRoleArn : undefined,
+    fargatePlatformConfiguration:
+      output.fargatePlatformConfiguration !== undefined && output.fargatePlatformConfiguration !== null
+        ? deserializeAws_restJson1FargatePlatformConfiguration(output.fargatePlatformConfiguration, context)
+        : undefined,
     image: output.image !== undefined && output.image !== null ? output.image : undefined,
     instanceType: output.instanceType !== undefined && output.instanceType !== null ? output.instanceType : undefined,
     jobRoleArn: output.jobRoleArn !== undefined && output.jobRoleArn !== null ? output.jobRoleArn : undefined,
@@ -2576,6 +2631,10 @@ const deserializeAws_restJson1ContainerProperties = (output: any, context: __Ser
     mountPoints:
       output.mountPoints !== undefined && output.mountPoints !== null
         ? deserializeAws_restJson1MountPoints(output.mountPoints, context)
+        : undefined,
+    networkConfiguration:
+      output.networkConfiguration !== undefined && output.networkConfiguration !== null
+        ? deserializeAws_restJson1NetworkConfiguration(output.networkConfiguration, context)
         : undefined,
     privileged: output.privileged !== undefined && output.privileged !== null ? output.privileged : undefined,
     readonlyRootFilesystem:
@@ -2663,6 +2722,16 @@ const deserializeAws_restJson1EvaluateOnExitList = (output: any, context: __Serd
   return (output || []).map((entry: any) => deserializeAws_restJson1EvaluateOnExit(entry, context));
 };
 
+const deserializeAws_restJson1FargatePlatformConfiguration = (
+  output: any,
+  context: __SerdeContext
+): FargatePlatformConfiguration => {
+  return {
+    platformVersion:
+      output.platformVersion !== undefined && output.platformVersion !== null ? output.platformVersion : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1Host = (output: any, context: __SerdeContext): Host => {
   return {
     sourcePath: output.sourcePath !== undefined && output.sourcePath !== null ? output.sourcePath : undefined,
@@ -2689,6 +2758,12 @@ const deserializeAws_restJson1JobDefinition = (output: any, context: __SerdeCont
       output.parameters !== undefined && output.parameters !== null
         ? deserializeAws_restJson1ParametersMap(output.parameters, context)
         : undefined,
+    platformCapabilities:
+      output.platformCapabilities !== undefined && output.platformCapabilities !== null
+        ? deserializeAws_restJson1PlatformCapabilityList(output.platformCapabilities, context)
+        : undefined,
+    propagateTags:
+      output.propagateTags !== undefined && output.propagateTags !== null ? output.propagateTags : undefined,
     retryStrategy:
       output.retryStrategy !== undefined && output.retryStrategy !== null
         ? deserializeAws_restJson1RetryStrategy(output.retryStrategy, context)
@@ -2759,6 +2834,12 @@ const deserializeAws_restJson1JobDetail = (output: any, context: __SerdeContext)
       output.parameters !== undefined && output.parameters !== null
         ? deserializeAws_restJson1ParametersMap(output.parameters, context)
         : undefined,
+    platformCapabilities:
+      output.platformCapabilities !== undefined && output.platformCapabilities !== null
+        ? deserializeAws_restJson1PlatformCapabilityList(output.platformCapabilities, context)
+        : undefined,
+    propagateTags:
+      output.propagateTags !== undefined && output.propagateTags !== null ? output.propagateTags : undefined,
     retryStrategy:
       output.retryStrategy !== undefined && output.retryStrategy !== null
         ? deserializeAws_restJson1RetryStrategy(output.retryStrategy, context)
@@ -2926,6 +3007,13 @@ const deserializeAws_restJson1MountPoints = (output: any, context: __SerdeContex
   return (output || []).map((entry: any) => deserializeAws_restJson1MountPoint(entry, context));
 };
 
+const deserializeAws_restJson1NetworkConfiguration = (output: any, context: __SerdeContext): NetworkConfiguration => {
+  return {
+    assignPublicIp:
+      output.assignPublicIp !== undefined && output.assignPublicIp !== null ? output.assignPublicIp : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1NetworkInterface = (output: any, context: __SerdeContext): NetworkInterface => {
   return {
     attachmentId: output.attachmentId !== undefined && output.attachmentId !== null ? output.attachmentId : undefined,
@@ -2989,6 +3077,13 @@ const deserializeAws_restJson1ParametersMap = (output: any, context: __SerdeCont
     }),
     {}
   );
+};
+
+const deserializeAws_restJson1PlatformCapabilityList = (
+  output: any,
+  context: __SerdeContext
+): (PlatformCapability | string)[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1ResourceRequirement = (output: any, context: __SerdeContext): ResourceRequirement => {

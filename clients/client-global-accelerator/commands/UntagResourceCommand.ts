@@ -25,8 +25,7 @@ export type UntagResourceCommandInput = UntagResourceRequest;
 export type UntagResourceCommandOutput = UntagResourceResponse & __MetadataBearer;
 
 /**
- * <p>Remove tags from a Global Accelerator resource. When you specify a tag key, the action removes both that key and its associated value. To
- * 			see an AWS CLI example of removing tags from an accelerator, scroll down to <b>Example</b>.
+ * <p>Remove tags from a Global Accelerator resource. When you specify a tag key, the action removes both that key and its associated value.
  * 			The operation succeeds even if you attempt to remove tags from an accelerator that was already removed.</p>
  * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
  * 			in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>

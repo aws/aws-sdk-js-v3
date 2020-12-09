@@ -25,7 +25,7 @@ export type DescribeListenerCommandInput = DescribeListenerRequest;
 export type DescribeListenerCommandOutput = DescribeListenerResponse & __MetadataBearer;
 
 /**
- * <p>Describe a listener. To see an AWS CLI example of describing a listener, scroll down to <b>Example</b>.</p>
+ * <p>Describe a listener. </p>
  */
 export class DescribeListenerCommand extends $Command<
   DescribeListenerCommandInput,

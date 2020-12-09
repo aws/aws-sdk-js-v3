@@ -400,6 +400,7 @@ export enum ClusterState {
   CREATING = "CREATING",
   DELETING = "DELETING",
   FAILED = "FAILED",
+  HEALING = "HEALING",
   MAINTENANCE = "MAINTENANCE",
   REBOOTING_BROKER = "REBOOTING_BROKER",
   UPDATING = "UPDATING",
@@ -482,7 +483,7 @@ export interface ClusterInfo {
   NumberOfBrokerNodes?: number;
 
   /**
-   * <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
+   * <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
    */
   State?: ClusterState | string;
 
@@ -1362,7 +1363,7 @@ export interface CreateClusterResponse {
   ClusterName?: string;
 
   /**
-   * <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
+   * <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
    */
   State?: ClusterState | string;
 }
@@ -1460,7 +1461,7 @@ export interface DeleteClusterResponse {
   ClusterArn?: string;
 
   /**
-   * <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
+   * <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
    */
   State?: ClusterState | string;
 }

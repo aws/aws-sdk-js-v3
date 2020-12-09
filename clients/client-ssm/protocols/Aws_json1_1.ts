@@ -16,6 +16,7 @@ import {
   CreateMaintenanceWindowCommandOutput,
 } from "../commands/CreateMaintenanceWindowCommand";
 import { CreateOpsItemCommandInput, CreateOpsItemCommandOutput } from "../commands/CreateOpsItemCommand";
+import { CreateOpsMetadataCommandInput, CreateOpsMetadataCommandOutput } from "../commands/CreateOpsMetadataCommand";
 import {
   CreatePatchBaselineCommandInput,
   CreatePatchBaselineCommandOutput,
@@ -32,6 +33,7 @@ import {
   DeleteMaintenanceWindowCommandInput,
   DeleteMaintenanceWindowCommandOutput,
 } from "../commands/DeleteMaintenanceWindowCommand";
+import { DeleteOpsMetadataCommandInput, DeleteOpsMetadataCommandOutput } from "../commands/DeleteOpsMetadataCommand";
 import { DeleteParameterCommandInput, DeleteParameterCommandOutput } from "../commands/DeleteParameterCommand";
 import { DeleteParametersCommandInput, DeleteParametersCommandOutput } from "../commands/DeleteParametersCommand";
 import {
@@ -219,6 +221,7 @@ import {
   GetMaintenanceWindowTaskCommandOutput,
 } from "../commands/GetMaintenanceWindowTaskCommand";
 import { GetOpsItemCommandInput, GetOpsItemCommandOutput } from "../commands/GetOpsItemCommand";
+import { GetOpsMetadataCommandInput, GetOpsMetadataCommandOutput } from "../commands/GetOpsMetadataCommand";
 import { GetOpsSummaryCommandInput, GetOpsSummaryCommandOutput } from "../commands/GetOpsSummaryCommand";
 import { GetParameterCommandInput, GetParameterCommandOutput } from "../commands/GetParameterCommand";
 import {
@@ -267,6 +270,7 @@ import {
   ListInventoryEntriesCommandInput,
   ListInventoryEntriesCommandOutput,
 } from "../commands/ListInventoryEntriesCommand";
+import { ListOpsMetadataCommandInput, ListOpsMetadataCommandOutput } from "../commands/ListOpsMetadataCommand";
 import {
   ListResourceComplianceSummariesCommandInput,
   ListResourceComplianceSummariesCommandOutput,
@@ -357,6 +361,7 @@ import {
   UpdateManagedInstanceRoleCommandOutput,
 } from "../commands/UpdateManagedInstanceRoleCommand";
 import { UpdateOpsItemCommandInput, UpdateOpsItemCommandOutput } from "../commands/UpdateOpsItemCommand";
+import { UpdateOpsMetadataCommandInput, UpdateOpsMetadataCommandOutput } from "../commands/UpdateOpsMetadataCommand";
 import {
   UpdatePatchBaselineCommandInput,
   UpdatePatchBaselineCommandOutput,
@@ -409,6 +414,8 @@ import {
   CreateMaintenanceWindowResult,
   CreateOpsItemRequest,
   CreateOpsItemResponse,
+  CreateOpsMetadataRequest,
+  CreateOpsMetadataResult,
   CreatePatchBaselineRequest,
   CreatePatchBaselineResult,
   CreateResourceDataSyncRequest,
@@ -423,6 +430,8 @@ import {
   DeleteInventoryResult,
   DeleteMaintenanceWindowRequest,
   DeleteMaintenanceWindowResult,
+  DeleteOpsMetadataRequest,
+  DeleteOpsMetadataResult,
   DeleteParameterRequest,
   DeleteParameterResult,
   DeleteParametersRequest,
@@ -497,12 +506,8 @@ import {
   DescribePatchBaselinesRequest,
   DescribePatchBaselinesResult,
   DescribePatchGroupStateRequest,
-  DescribePatchGroupStateResult,
   DescribePatchGroupsRequest,
   DescribePatchGroupsResult,
-  DescribePatchPropertiesRequest,
-  DescribePatchPropertiesResult,
-  DescribeSessionsRequest,
   DocumentAlreadyExists,
   DocumentDescription,
   DocumentLimitExceeded,
@@ -567,6 +572,7 @@ import {
   MaintenanceWindowTask,
   MaintenanceWindowTaskParameterValueExpression,
   MaxDocumentSizeExceeded,
+  MetadataValue,
   OpsItemAlreadyExistsException,
   OpsItemDataValue,
   OpsItemFilter,
@@ -574,6 +580,11 @@ import {
   OpsItemLimitExceededException,
   OpsItemNotification,
   OpsItemSummary,
+  OpsMetadataAlreadyExistsException,
+  OpsMetadataInvalidArgumentException,
+  OpsMetadataLimitExceededException,
+  OpsMetadataNotFoundException,
+  OpsMetadataTooManyUpdatesException,
   OutputSource,
   ParameterInlinePolicy,
   ParameterMetadata,
@@ -608,8 +619,6 @@ import {
   S3OutputLocation,
   S3OutputUrl,
   ScheduledWindowExecution,
-  SessionFilter,
-  SessionManagerOutputUrl,
   StepExecution,
   StepExecutionFilter,
   Tag,
@@ -645,6 +654,10 @@ import {
   ComplianceTypeCountLimitExceededException,
   CompliantSummary,
   CustomSchemaCountLimitExceededException,
+  DescribePatchGroupStateResult,
+  DescribePatchPropertiesRequest,
+  DescribePatchPropertiesResult,
+  DescribeSessionsRequest,
   DescribeSessionsResponse,
   DocumentDefaultVersionDescription,
   DocumentFilter,
@@ -686,6 +699,8 @@ import {
   GetMaintenanceWindowTaskResult,
   GetOpsItemRequest,
   GetOpsItemResponse,
+  GetOpsMetadataRequest,
+  GetOpsMetadataResult,
   GetOpsSummaryRequest,
   GetOpsSummaryResult,
   GetParameterHistoryRequest,
@@ -755,6 +770,8 @@ import {
   ListDocumentsResult,
   ListInventoryEntriesRequest,
   ListInventoryEntriesResult,
+  ListOpsMetadataRequest,
+  ListOpsMetadataResult,
   ListResourceComplianceSummariesRequest,
   ListResourceComplianceSummariesResult,
   ListResourceDataSyncRequest,
@@ -777,6 +794,9 @@ import {
   OpsFilter,
   OpsItem,
   OpsItemNotFoundException,
+  OpsMetadata,
+  OpsMetadataFilter,
+  OpsMetadataKeyLimitExceededException,
   OpsResultAttribute,
   Parameter,
   ParameterAlreadyExists,
@@ -820,6 +840,8 @@ import {
   ServiceSetting,
   ServiceSettingNotFound,
   Session,
+  SessionFilter,
+  SessionManagerOutputUrl,
   SeveritySummary,
   StartAssociationsOnceRequest,
   StartAssociationsOnceResult,
@@ -858,6 +880,8 @@ import {
   UpdateManagedInstanceRoleResult,
   UpdateOpsItemRequest,
   UpdateOpsItemResponse,
+  UpdateOpsMetadataRequest,
+  UpdateOpsMetadataResult,
   UpdatePatchBaselineRequest,
   UpdatePatchBaselineResult,
   UpdateResourceDataSyncRequest,
@@ -993,6 +1017,19 @@ export const serializeAws_json1_1CreateOpsItemCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1CreateOpsMetadataCommand = async (
+  input: CreateOpsMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.CreateOpsMetadata",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateOpsMetadataRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1CreatePatchBaselineCommand = async (
   input: CreatePatchBaselineCommandInput,
   context: __SerdeContext
@@ -1081,6 +1118,19 @@ export const serializeAws_json1_1DeleteMaintenanceWindowCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteMaintenanceWindowRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteOpsMetadataCommand = async (
+  input: DeleteOpsMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DeleteOpsMetadata",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteOpsMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1799,6 +1849,19 @@ export const serializeAws_json1_1GetOpsItemCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetOpsMetadataCommand = async (
+  input: GetOpsMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.GetOpsMetadata",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetOpsMetadataRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetOpsSummaryCommand = async (
   input: GetOpsSummaryCommandInput,
   context: __SerdeContext
@@ -2030,6 +2093,19 @@ export const serializeAws_json1_1ListInventoryEntriesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListInventoryEntriesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListOpsMetadataCommand = async (
+  input: ListOpsMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.ListOpsMetadata",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListOpsMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2420,6 +2496,19 @@ export const serializeAws_json1_1UpdateOpsItemCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateOpsItemRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateOpsMetadataCommand = async (
+  input: UpdateOpsMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.UpdateOpsMetadata",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateOpsMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3261,6 +3350,93 @@ const deserializeAws_json1_1CreateOpsItemCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1CreateOpsMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateOpsMetadataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateOpsMetadataCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateOpsMetadataResult(data, context);
+  const response: CreateOpsMetadataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateOpsMetadataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateOpsMetadataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OpsMetadataAlreadyExistsException":
+    case "com.amazonaws.ssm#OpsMetadataAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_json1_1OpsMetadataAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OpsMetadataInvalidArgumentException":
+    case "com.amazonaws.ssm#OpsMetadataInvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1OpsMetadataInvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OpsMetadataLimitExceededException":
+    case "com.amazonaws.ssm#OpsMetadataLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1OpsMetadataLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OpsMetadataTooManyUpdatesException":
+    case "com.amazonaws.ssm#OpsMetadataTooManyUpdatesException":
+      response = {
+        ...(await deserializeAws_json1_1OpsMetadataTooManyUpdatesExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1CreatePatchBaselineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3777,6 +3953,77 @@ const deserializeAws_json1_1DeleteMaintenanceWindowCommandError = async (
     case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteOpsMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteOpsMetadataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteOpsMetadataCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteOpsMetadataResult(data, context);
+  const response: DeleteOpsMetadataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteOpsMetadataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteOpsMetadataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OpsMetadataInvalidArgumentException":
+    case "com.amazonaws.ssm#OpsMetadataInvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1OpsMetadataInvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OpsMetadataNotFoundException":
+    case "com.amazonaws.ssm#OpsMetadataNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1OpsMetadataNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -7527,6 +7774,77 @@ const deserializeAws_json1_1GetOpsItemCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1GetOpsMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetOpsMetadataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetOpsMetadataCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetOpsMetadataResult(data, context);
+  const response: GetOpsMetadataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetOpsMetadataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetOpsMetadataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OpsMetadataInvalidArgumentException":
+    case "com.amazonaws.ssm#OpsMetadataInvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1OpsMetadataInvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OpsMetadataNotFoundException":
+    case "com.amazonaws.ssm#OpsMetadataNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1OpsMetadataNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1GetOpsSummaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -8888,6 +9206,69 @@ const deserializeAws_json1_1ListInventoryEntriesCommandError = async (
     case "com.amazonaws.ssm#InvalidTypeNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidTypeNameExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListOpsMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOpsMetadataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListOpsMetadataCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListOpsMetadataResult(data, context);
+  const response: ListOpsMetadataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListOpsMetadataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOpsMetadataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OpsMetadataInvalidArgumentException":
+    case "com.amazonaws.ssm#OpsMetadataInvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1OpsMetadataInvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -11527,6 +11908,93 @@ const deserializeAws_json1_1UpdateOpsItemCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateOpsMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateOpsMetadataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateOpsMetadataCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateOpsMetadataResult(data, context);
+  const response: UpdateOpsMetadataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateOpsMetadataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateOpsMetadataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OpsMetadataInvalidArgumentException":
+    case "com.amazonaws.ssm#OpsMetadataInvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1OpsMetadataInvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OpsMetadataKeyLimitExceededException":
+    case "com.amazonaws.ssm#OpsMetadataKeyLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1OpsMetadataKeyLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OpsMetadataNotFoundException":
+    case "com.amazonaws.ssm#OpsMetadataNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1OpsMetadataNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OpsMetadataTooManyUpdatesException":
+    case "com.amazonaws.ssm#OpsMetadataTooManyUpdatesException":
+      response = {
+        ...(await deserializeAws_json1_1OpsMetadataTooManyUpdatesExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdatePatchBaselineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -12985,6 +13453,96 @@ const deserializeAws_json1_1OpsItemNotFoundExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1OpsMetadataAlreadyExistsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<OpsMetadataAlreadyExistsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1OpsMetadataAlreadyExistsException(body, context);
+  const contents: OpsMetadataAlreadyExistsException = {
+    name: "OpsMetadataAlreadyExistsException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1OpsMetadataInvalidArgumentExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<OpsMetadataInvalidArgumentException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1OpsMetadataInvalidArgumentException(body, context);
+  const contents: OpsMetadataInvalidArgumentException = {
+    name: "OpsMetadataInvalidArgumentException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1OpsMetadataKeyLimitExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<OpsMetadataKeyLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1OpsMetadataKeyLimitExceededException(body, context);
+  const contents: OpsMetadataKeyLimitExceededException = {
+    name: "OpsMetadataKeyLimitExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1OpsMetadataLimitExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<OpsMetadataLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1OpsMetadataLimitExceededException(body, context);
+  const contents: OpsMetadataLimitExceededException = {
+    name: "OpsMetadataLimitExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1OpsMetadataNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<OpsMetadataNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1OpsMetadataNotFoundException(body, context);
+  const contents: OpsMetadataNotFoundException = {
+    name: "OpsMetadataNotFoundException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1OpsMetadataTooManyUpdatesExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<OpsMetadataTooManyUpdatesException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1OpsMetadataTooManyUpdatesException(body, context);
+  const contents: OpsMetadataTooManyUpdatesException = {
+    name: "OpsMetadataTooManyUpdatesException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1ParameterAlreadyExistsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -13813,6 +14371,16 @@ const serializeAws_json1_1CreateOpsItemRequest = (input: CreateOpsItemRequest, c
   };
 };
 
+const serializeAws_json1_1CreateOpsMetadataRequest = (
+  input: CreateOpsMetadataRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Metadata !== undefined && { Metadata: serializeAws_json1_1MetadataMap(input.Metadata, context) }),
+    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
+  };
+};
+
 const serializeAws_json1_1CreatePatchBaselineRequest = (
   input: CreatePatchBaselineRequest,
   context: __SerdeContext
@@ -13903,6 +14471,15 @@ const serializeAws_json1_1DeleteMaintenanceWindowRequest = (
 ): any => {
   return {
     ...(input.WindowId !== undefined && { WindowId: input.WindowId }),
+  };
+};
+
+const serializeAws_json1_1DeleteOpsMetadataRequest = (
+  input: DeleteOpsMetadataRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.OpsMetadataArn !== undefined && { OpsMetadataArn: input.OpsMetadataArn }),
   };
 };
 
@@ -14596,6 +15173,14 @@ const serializeAws_json1_1GetOpsItemRequest = (input: GetOpsItemRequest, context
   };
 };
 
+const serializeAws_json1_1GetOpsMetadataRequest = (input: GetOpsMetadataRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.OpsMetadataArn !== undefined && { OpsMetadataArn: input.OpsMetadataArn }),
+  };
+};
+
 const serializeAws_json1_1GetOpsSummaryRequest = (input: GetOpsSummaryRequest, context: __SerdeContext): any => {
   return {
     ...(input.Aggregators !== undefined && {
@@ -14976,6 +15561,14 @@ const serializeAws_json1_1ListInventoryEntriesRequest = (
   };
 };
 
+const serializeAws_json1_1ListOpsMetadataRequest = (input: ListOpsMetadataRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1OpsMetadataFilterList(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  };
+};
+
 const serializeAws_json1_1ListResourceComplianceSummariesRequest = (
   input: ListResourceComplianceSummariesRequest,
   context: __SerdeContext
@@ -15142,6 +15735,26 @@ const serializeAws_json1_1MaintenanceWindowTaskParameterValueList = (input: stri
   return input.map((entry) => entry);
 };
 
+const serializeAws_json1_1MetadataKeysToDeleteList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1MetadataMap = (input: { [key: string]: MetadataValue }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: MetadataValue }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: serializeAws_json1_1MetadataValue(value, context),
+    }),
+    {}
+  );
+};
+
+const serializeAws_json1_1MetadataValue = (input: MetadataValue, context: __SerdeContext): any => {
+  return {
+    ...(input.Value !== undefined && { Value: input.Value }),
+  };
+};
+
 const serializeAws_json1_1ModifyDocumentPermissionRequest = (
   input: ModifyDocumentPermissionRequest,
   context: __SerdeContext
@@ -15266,6 +15879,23 @@ const serializeAws_json1_1OpsItemOperationalData = (
 };
 
 const serializeAws_json1_1OpsItemOpsDataKeysList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1OpsMetadataFilter = (input: OpsMetadataFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Values !== undefined && {
+      Values: serializeAws_json1_1OpsMetadataFilterValueList(input.Values, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1OpsMetadataFilterList = (input: OpsMetadataFilter[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1OpsMetadataFilter(entry, context));
+};
+
+const serializeAws_json1_1OpsMetadataFilterValueList = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
 };
 
@@ -16039,6 +16669,21 @@ const serializeAws_json1_1UpdateOpsItemRequest = (input: UpdateOpsItemRequest, c
     ...(input.Severity !== undefined && { Severity: input.Severity }),
     ...(input.Status !== undefined && { Status: input.Status }),
     ...(input.Title !== undefined && { Title: input.Title }),
+  };
+};
+
+const serializeAws_json1_1UpdateOpsMetadataRequest = (
+  input: UpdateOpsMetadataRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.KeysToDelete !== undefined && {
+      KeysToDelete: serializeAws_json1_1MetadataKeysToDeleteList(input.KeysToDelete, context),
+    }),
+    ...(input.MetadataToUpdate !== undefined && {
+      MetadataToUpdate: serializeAws_json1_1MetadataMap(input.MetadataToUpdate, context),
+    }),
+    ...(input.OpsMetadataArn !== undefined && { OpsMetadataArn: input.OpsMetadataArn }),
   };
 };
 
@@ -17113,6 +17758,16 @@ const deserializeAws_json1_1CreateOpsItemResponse = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_1CreateOpsMetadataResult = (
+  output: any,
+  context: __SerdeContext
+): CreateOpsMetadataResult => {
+  return {
+    OpsMetadataArn:
+      output.OpsMetadataArn !== undefined && output.OpsMetadataArn !== null ? output.OpsMetadataArn : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1CreatePatchBaselineResult = (
   output: any,
   context: __SerdeContext
@@ -17171,6 +17826,13 @@ const deserializeAws_json1_1DeleteMaintenanceWindowResult = (
   return {
     WindowId: output.WindowId !== undefined && output.WindowId !== null ? output.WindowId : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1DeleteOpsMetadataResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteOpsMetadataResult => {
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteParameterResult = (output: any, context: __SerdeContext): DeleteParameterResult => {
@@ -18294,6 +18956,17 @@ const deserializeAws_json1_1GetOpsItemResponse = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_json1_1GetOpsMetadataResult = (output: any, context: __SerdeContext): GetOpsMetadataResult => {
+  return {
+    Metadata:
+      output.Metadata !== undefined && output.Metadata !== null
+        ? deserializeAws_json1_1MetadataMap(output.Metadata, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1GetOpsSummaryResult = (output: any, context: __SerdeContext): GetOpsSummaryResult => {
   return {
     Entities:
@@ -19341,6 +20014,16 @@ const deserializeAws_json1_1ListInventoryEntriesResult = (
   } as any;
 };
 
+const deserializeAws_json1_1ListOpsMetadataResult = (output: any, context: __SerdeContext): ListOpsMetadataResult => {
+  return {
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    OpsMetadataList:
+      output.OpsMetadataList !== undefined && output.OpsMetadataList !== null
+        ? deserializeAws_json1_1OpsMetadataList(output.OpsMetadataList, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListResourceComplianceSummariesResult = (
   output: any,
   context: __SerdeContext
@@ -19753,6 +20436,22 @@ const deserializeAws_json1_1MaxDocumentSizeExceeded = (
   } as any;
 };
 
+const deserializeAws_json1_1MetadataMap = (output: any, context: __SerdeContext): { [key: string]: MetadataValue } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: MetadataValue }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_json1_1MetadataValue(value, context),
+    }),
+    {}
+  );
+};
+
+const deserializeAws_json1_1MetadataValue = (output: any, context: __SerdeContext): MetadataValue => {
+  return {
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ModifyDocumentPermissionResponse = (
   output: any,
   context: __SerdeContext
@@ -20003,6 +20702,82 @@ const deserializeAws_json1_1OpsItemSummary = (output: any, context: __SerdeConte
     Source: output.Source !== undefined && output.Source !== null ? output.Source : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     Title: output.Title !== undefined && output.Title !== null ? output.Title : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1OpsMetadata = (output: any, context: __SerdeContext): OpsMetadata => {
+  return {
+    CreationDate:
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? new Date(Math.round(output.CreationDate * 1000))
+        : undefined,
+    LastModifiedDate:
+      output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
+        ? new Date(Math.round(output.LastModifiedDate * 1000))
+        : undefined,
+    LastModifiedUser:
+      output.LastModifiedUser !== undefined && output.LastModifiedUser !== null ? output.LastModifiedUser : undefined,
+    OpsMetadataArn:
+      output.OpsMetadataArn !== undefined && output.OpsMetadataArn !== null ? output.OpsMetadataArn : undefined,
+    ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1OpsMetadataAlreadyExistsException = (
+  output: any,
+  context: __SerdeContext
+): OpsMetadataAlreadyExistsException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1OpsMetadataInvalidArgumentException = (
+  output: any,
+  context: __SerdeContext
+): OpsMetadataInvalidArgumentException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1OpsMetadataKeyLimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): OpsMetadataKeyLimitExceededException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1OpsMetadataLimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): OpsMetadataLimitExceededException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1OpsMetadataList = (output: any, context: __SerdeContext): OpsMetadata[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1OpsMetadata(entry, context));
+};
+
+const deserializeAws_json1_1OpsMetadataNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): OpsMetadataNotFoundException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1OpsMetadataTooManyUpdatesException = (
+  output: any,
+  context: __SerdeContext
+): OpsMetadataTooManyUpdatesException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
@@ -21341,6 +22116,16 @@ const deserializeAws_json1_1UpdateManagedInstanceRoleResult = (
 
 const deserializeAws_json1_1UpdateOpsItemResponse = (output: any, context: __SerdeContext): UpdateOpsItemResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1UpdateOpsMetadataResult = (
+  output: any,
+  context: __SerdeContext
+): UpdateOpsMetadataResult => {
+  return {
+    OpsMetadataArn:
+      output.OpsMetadataArn !== undefined && output.OpsMetadataArn !== null ? output.OpsMetadataArn : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1UpdatePatchBaselineResult = (

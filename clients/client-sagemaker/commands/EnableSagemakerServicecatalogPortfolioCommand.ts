@@ -2,7 +2,7 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 import {
   EnableSagemakerServicecatalogPortfolioInput,
   EnableSagemakerServicecatalogPortfolioOutput,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_json1_1EnableSagemakerServicecatalogPortfolioCommand,
   serializeAws_json1_1EnableSagemakerServicecatalogPortfolioCommand,

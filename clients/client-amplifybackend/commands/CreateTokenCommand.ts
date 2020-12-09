@@ -21,7 +21,7 @@ export type CreateTokenCommandInput = CreateTokenRequest;
 export type CreateTokenCommandOutput = CreateTokenResponse & __MetadataBearer;
 
 /**
- * <p>Generates a one time challenge code to authenticate a user into your Amplify Admin UI.</p>
+ * <p>Generates a one-time challenge code to authenticate a user into your Amplify Admin UI.</p>
  */
 export class CreateTokenCommand extends $Command<
   CreateTokenCommandInput,

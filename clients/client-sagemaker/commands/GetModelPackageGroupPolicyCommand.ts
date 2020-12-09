@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { GetModelPackageGroupPolicyInput, GetModelPackageGroupPolicyOutput } from "../models/models_1";
+import { GetModelPackageGroupPolicyInput, GetModelPackageGroupPolicyOutput } from "../models/models_2";
 import {
   deserializeAws_json1_1GetModelPackageGroupPolicyCommand,
   serializeAws_json1_1GetModelPackageGroupPolicyCommand,

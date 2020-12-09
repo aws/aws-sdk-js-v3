@@ -243,6 +243,27 @@ export namespace AddTagsOutput {
 }
 
 /**
+ * <p>Edge Manager agent version.</p>
+ */
+export interface AgentVersion {
+  /**
+   * <p>Version of the agent.</p>
+   */
+  Version: string | undefined;
+
+  /**
+   * <p>The number of Edge Manager agents.</p>
+   */
+  AgentCount: number | undefined;
+}
+
+export namespace AgentVersion {
+  export const filterSensitiveLog = (obj: AgentVersion): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>This API is not supported.</p>
  */
 export interface Alarm {
@@ -4161,7 +4182,7 @@ export namespace CognitoMemberDefinition {
 }
 
 /**
- * <p>Configuration information for tensor collections.</p>
+ * <p>Configuration information for the Debugger output tensor collections.</p>
  */
 export interface CollectionConfiguration {
   /**
@@ -6275,6 +6296,551 @@ export namespace CreateContextResponse {
 }
 
 /**
+ * <p>Information about the container that a data quality monitoring job runs.</p>
+ */
+export interface DataQualityAppSpecification {
+  /**
+   * <p>The container image that the data quality monitoring job runs.</p>
+   */
+  ImageUri: string | undefined;
+
+  /**
+   * <p>The entrypoint for a container used to run a monitoring job.</p>
+   */
+  ContainerEntrypoint?: string[];
+
+  /**
+   * <p>The arguments to send to the container that the monitoring job runs.</p>
+   */
+  ContainerArguments?: string[];
+
+  /**
+   * <p>An Amazon S3 URI to a script that is called per row prior to running analysis. It can
+   *          base64 decode the payload and convert it into a flatted json so that the built-in container
+   *          can use the converted data. Applicable only for the built-in (first party)
+   *          containers.</p>
+   */
+  RecordPreprocessorSourceUri?: string;
+
+  /**
+   * <p>An Amazon S3 URI to a script that is called after analysis has been performed.
+   *          Applicable only for the built-in (first party) containers.</p>
+   */
+  PostAnalyticsProcessorSourceUri?: string;
+
+  /**
+   * <p>Sets the environment variables in the container that the monitoring job runs.</p>
+   */
+  Environment?: { [key: string]: string };
+}
+
+export namespace DataQualityAppSpecification {
+  export const filterSensitiveLog = (obj: DataQualityAppSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The constraints resource for a monitoring job.</p>
+ */
+export interface MonitoringConstraintsResource {
+  /**
+   * <p>The Amazon S3 URI for the constraints resource.</p>
+   */
+  S3Uri?: string;
+}
+
+export namespace MonitoringConstraintsResource {
+  export const filterSensitiveLog = (obj: MonitoringConstraintsResource): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The statistics resource for a monitoring job.</p>
+ */
+export interface MonitoringStatisticsResource {
+  /**
+   * <p>The Amazon S3 URI for the statistics resource.</p>
+   */
+  S3Uri?: string;
+}
+
+export namespace MonitoringStatisticsResource {
+  export const filterSensitiveLog = (obj: MonitoringStatisticsResource): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration for monitoring constraints and monitoring statistics. These baseline
+ *          resources are compared against the results of the current job from the series of jobs
+ *          scheduled to collect data periodically.</p>
+ */
+export interface DataQualityBaselineConfig {
+  /**
+   * <p>The name of the job that performs baselining for the data quality monitoring job.</p>
+   */
+  BaseliningJobName?: string;
+
+  /**
+   * <p>The constraints resource for a monitoring job.</p>
+   */
+  ConstraintsResource?: MonitoringConstraintsResource;
+
+  /**
+   * <p>The statistics resource for a monitoring job.</p>
+   */
+  StatisticsResource?: MonitoringStatisticsResource;
+}
+
+export namespace DataQualityBaselineConfig {
+  export const filterSensitiveLog = (obj: DataQualityBaselineConfig): any => ({
+    ...obj,
+  });
+}
+
+export enum ProcessingS3DataDistributionType {
+  FULLYREPLICATED = "FullyReplicated",
+  SHARDEDBYS3KEY = "ShardedByS3Key",
+}
+
+export enum ProcessingS3InputMode {
+  FILE = "File",
+  PIPE = "Pipe",
+}
+
+/**
+ * <p>Input object for the endpoint</p>
+ */
+export interface EndpointInput {
+  /**
+   * <p>An endpoint in customer's account which has enabled <code>DataCaptureConfig</code>
+   *          enabled.</p>
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>Path to the filesystem where the endpoint data is available to the container.</p>
+   */
+  LocalPath: string | undefined;
+
+  /**
+   * <p>Whether the <code>Pipe</code> or <code>File</code> is used as the input mode for
+   *          transfering data for the monitoring job. <code>Pipe</code> mode is recommended for large
+   *          datasets. <code>File</code> mode is useful for small files that fit in memory. Defaults to
+   *             <code>File</code>.</p>
+   */
+  S3InputMode?: ProcessingS3InputMode | string;
+
+  /**
+   * <p>Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key.
+   *          Defauts to <code>FullyReplicated</code>
+   *          </p>
+   */
+  S3DataDistributionType?: ProcessingS3DataDistributionType | string;
+
+  /**
+   * <p>The attributes of the input data that are the input features.</p>
+   */
+  FeaturesAttribute?: string;
+
+  /**
+   * <p>The attribute of the input data that represents the ground truth label.</p>
+   */
+  InferenceAttribute?: string;
+
+  /**
+   * <p>In a classification problem, the attribute that represents the class probability.</p>
+   */
+  ProbabilityAttribute?: string;
+
+  /**
+   * <p>The threshold for the class probability to be evaluated as a positive result.</p>
+   */
+  ProbabilityThresholdAttribute?: number;
+
+  /**
+   * <p>If specified, monitoring jobs substract this time from the start time. For information
+   *          about using offsets for scheduling monitoring jobs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html">Schedule Model
+   *             Quality Monitoring Jobs</a>.</p>
+   */
+  StartTimeOffset?: string;
+
+  /**
+   * <p>If specified, monitoring jobs substract this time from the end time. For information
+   *          about using offsets for scheduling monitoring jobs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html">Schedule Model
+   *             Quality Monitoring Jobs</a>.</p>
+   */
+  EndTimeOffset?: string;
+}
+
+export namespace EndpointInput {
+  export const filterSensitiveLog = (obj: EndpointInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The input for the data quality monitoring job. Currently endpoints are supported for
+ *          input.</p>
+ */
+export interface DataQualityJobInput {
+  /**
+   * <p>Input object for the endpoint</p>
+   */
+  EndpointInput: EndpointInput | undefined;
+}
+
+export namespace DataQualityJobInput {
+  export const filterSensitiveLog = (obj: DataQualityJobInput): any => ({
+    ...obj,
+  });
+}
+
+export enum ProcessingS3UploadMode {
+  CONTINUOUS = "Continuous",
+  END_OF_JOB = "EndOfJob",
+}
+
+/**
+ * <p>Information about where and how you want to store the results of a monitoring
+ *          job.</p>
+ */
+export interface MonitoringS3Output {
+  /**
+   * <p>A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a
+   *          monitoring job.</p>
+   */
+  S3Uri: string | undefined;
+
+  /**
+   * <p>The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a
+   *          monitoring job. LocalPath is an absolute path for the output data.</p>
+   */
+  LocalPath: string | undefined;
+
+  /**
+   * <p>Whether to upload the results of the monitoring job continuously or after the job
+   *          completes.</p>
+   */
+  S3UploadMode?: ProcessingS3UploadMode | string;
+}
+
+export namespace MonitoringS3Output {
+  export const filterSensitiveLog = (obj: MonitoringS3Output): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The output object for a monitoring job.</p>
+ */
+export interface MonitoringOutput {
+  /**
+   * <p>The Amazon S3 storage location where the results of a monitoring job are saved.</p>
+   */
+  S3Output: MonitoringS3Output | undefined;
+}
+
+export namespace MonitoringOutput {
+  export const filterSensitiveLog = (obj: MonitoringOutput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The output configuration for monitoring jobs.</p>
+ */
+export interface MonitoringOutputConfig {
+  /**
+   * <p>Monitoring outputs for monitoring jobs. This is where the output of the periodic
+   *          monitoring jobs is uploaded.</p>
+   */
+  MonitoringOutputs: MonitoringOutput[] | undefined;
+
+  /**
+   * <p>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model
+   *          artifacts at rest using Amazon S3 server-side encryption.</p>
+   */
+  KmsKeyId?: string;
+}
+
+export namespace MonitoringOutputConfig {
+  export const filterSensitiveLog = (obj: MonitoringOutputConfig): any => ({
+    ...obj,
+  });
+}
+
+export enum ProcessingInstanceType {
+  ML_C4_2XLARGE = "ml.c4.2xlarge",
+  ML_C4_4XLARGE = "ml.c4.4xlarge",
+  ML_C4_8XLARGE = "ml.c4.8xlarge",
+  ML_C4_XLARGE = "ml.c4.xlarge",
+  ML_C5_18XLARGE = "ml.c5.18xlarge",
+  ML_C5_2XLARGE = "ml.c5.2xlarge",
+  ML_C5_4XLARGE = "ml.c5.4xlarge",
+  ML_C5_9XLARGE = "ml.c5.9xlarge",
+  ML_C5_XLARGE = "ml.c5.xlarge",
+  ML_M4_10XLARGE = "ml.m4.10xlarge",
+  ML_M4_16XLARGE = "ml.m4.16xlarge",
+  ML_M4_2XLARGE = "ml.m4.2xlarge",
+  ML_M4_4XLARGE = "ml.m4.4xlarge",
+  ML_M4_XLARGE = "ml.m4.xlarge",
+  ML_M5_12XLARGE = "ml.m5.12xlarge",
+  ML_M5_24XLARGE = "ml.m5.24xlarge",
+  ML_M5_2XLARGE = "ml.m5.2xlarge",
+  ML_M5_4XLARGE = "ml.m5.4xlarge",
+  ML_M5_LARGE = "ml.m5.large",
+  ML_M5_XLARGE = "ml.m5.xlarge",
+  ML_P2_16XLARGE = "ml.p2.16xlarge",
+  ML_P2_8XLARGE = "ml.p2.8xlarge",
+  ML_P2_XLARGE = "ml.p2.xlarge",
+  ML_P3_16XLARGE = "ml.p3.16xlarge",
+  ML_P3_2XLARGE = "ml.p3.2xlarge",
+  ML_P3_8XLARGE = "ml.p3.8xlarge",
+  ML_R5_12XLARGE = "ml.r5.12xlarge",
+  ML_R5_16XLARGE = "ml.r5.16xlarge",
+  ML_R5_24XLARGE = "ml.r5.24xlarge",
+  ML_R5_2XLARGE = "ml.r5.2xlarge",
+  ML_R5_4XLARGE = "ml.r5.4xlarge",
+  ML_R5_8XLARGE = "ml.r5.8xlarge",
+  ML_R5_LARGE = "ml.r5.large",
+  ML_R5_XLARGE = "ml.r5.xlarge",
+  ML_T3_2XLARGE = "ml.t3.2xlarge",
+  ML_T3_LARGE = "ml.t3.large",
+  ML_T3_MEDIUM = "ml.t3.medium",
+  ML_T3_XLARGE = "ml.t3.xlarge",
+}
+
+/**
+ * <p>Configuration for the cluster used to run model monitoring jobs.</p>
+ */
+export interface MonitoringClusterConfig {
+  /**
+   * <p>The number of ML compute instances to use in the model monitoring job. For distributed
+   *          processing jobs, specify a value greater than 1. The default value is 1.</p>
+   */
+  InstanceCount: number | undefined;
+
+  /**
+   * <p>The ML compute instance type for the processing job.</p>
+   */
+  InstanceType: ProcessingInstanceType | string | undefined;
+
+  /**
+   * <p>The size of the ML storage volume, in gigabytes, that you want to provision. You must
+   *          specify sufficient ML storage for your scenario.</p>
+   */
+  VolumeSizeInGB: number | undefined;
+
+  /**
+   * <p>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data
+   *          on the storage volume attached to the ML compute instance(s) that run the model monitoring
+   *          job.</p>
+   */
+  VolumeKmsKeyId?: string;
+}
+
+export namespace MonitoringClusterConfig {
+  export const filterSensitiveLog = (obj: MonitoringClusterConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Identifies the resources to deploy for a monitoring job.</p>
+ */
+export interface MonitoringResources {
+  /**
+   * <p>The configuration for the cluster resources used to run the processing job.</p>
+   */
+  ClusterConfig: MonitoringClusterConfig | undefined;
+}
+
+export namespace MonitoringResources {
+  export const filterSensitiveLog = (obj: MonitoringResources): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The networking configuration for the monitoring job.</p>
+ */
+export interface MonitoringNetworkConfig {
+  /**
+   * <p>Whether to encrypt all communications between the instances used for the monitoring
+   *          jobs. Choose <code>True</code> to encrypt communications. Encryption provides greater
+   *          security for distributed jobs, but the processing might take longer.</p>
+   */
+  EnableInterContainerTrafficEncryption?: boolean;
+
+  /**
+   * <p>Whether to allow inbound and outbound network calls to and from the containers used for
+   *          the monitoring job.</p>
+   */
+  EnableNetworkIsolation?: boolean;
+
+  /**
+   * <p>Specifies a VPC that your training jobs and hosted models have access to. Control
+   *             access to and from your training and model containers by configuring the VPC. For more
+   *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect Endpoints by Using an Amazon Virtual Private Cloud</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs
+   *                 by Using an Amazon Virtual Private Cloud</a>. </p>
+   */
+  VpcConfig?: VpcConfig;
+}
+
+export namespace MonitoringNetworkConfig {
+  export const filterSensitiveLog = (obj: MonitoringNetworkConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
+ */
+export interface MonitoringStoppingCondition {
+  /**
+   * <p>The maximum runtime allowed in seconds.</p>
+   */
+  MaxRuntimeInSeconds: number | undefined;
+}
+
+export namespace MonitoringStoppingCondition {
+  export const filterSensitiveLog = (obj: MonitoringStoppingCondition): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateDataQualityJobDefinitionRequest {
+  /**
+   * <p>The name for the monitoring job definition.</p>
+   */
+  JobDefinitionName: string | undefined;
+
+  /**
+   * <p>Configures the constraints and baselines for the monitoring job.</p>
+   */
+  DataQualityBaselineConfig?: DataQualityBaselineConfig;
+
+  /**
+   * <p>Specifies the container that runs the monitoring job.</p>
+   */
+  DataQualityAppSpecification: DataQualityAppSpecification | undefined;
+
+  /**
+   * <p>A list of inputs for the monitoring job. Currently endpoints are supported as monitoring
+   *          inputs.</p>
+   */
+  DataQualityJobInput: DataQualityJobInput | undefined;
+
+  /**
+   * <p>The output configuration for monitoring jobs.</p>
+   */
+  DataQualityJobOutputConfig: MonitoringOutputConfig | undefined;
+
+  /**
+   * <p>Identifies the resources to deploy for a monitoring job.</p>
+   */
+  JobResources: MonitoringResources | undefined;
+
+  /**
+   * <p>Specifies networking configuration for the monitoring job.</p>
+   */
+  NetworkConfig?: MonitoringNetworkConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
+   *          perform tasks on your behalf.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
+   */
+  StoppingCondition?: MonitoringStoppingCondition;
+
+  /**
+   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management
+   *             User Guide</i>.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateDataQualityJobDefinitionRequest {
+  export const filterSensitiveLog = (obj: CreateDataQualityJobDefinitionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateDataQualityJobDefinitionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the job definition.</p>
+   */
+  JobDefinitionArn: string | undefined;
+}
+
+export namespace CreateDataQualityJobDefinitionResponse {
+  export const filterSensitiveLog = (obj: CreateDataQualityJobDefinitionResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The output configuration.</p>
+ */
+export interface EdgeOutputConfig {
+  /**
+   * <p>The Amazon Simple Storage (S3) bucker URI.</p>
+   */
+  S3OutputLocation: string | undefined;
+
+  /**
+   * <p>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.</p>
+   */
+  KmsKeyId?: string;
+}
+
+export namespace EdgeOutputConfig {
+  export const filterSensitiveLog = (obj: EdgeOutputConfig): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateDeviceFleetRequest {
+  /**
+   * <p>The name of the fleet that the device belongs to.</p>
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>A description of the fleet.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The output configuration for storing sample data collected by the fleet.</p>
+   */
+  OutputConfig: EdgeOutputConfig | undefined;
+
+  /**
+   * <p>Creates tags for the specified fleet.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateDeviceFleetRequest {
+  export const filterSensitiveLog = (obj: CreateDeviceFleetRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The JupyterServer app settings.</p>
  */
 export interface JupyterServerAppSettings {
@@ -6516,6 +7082,54 @@ export interface CreateDomainResponse {
 
 export namespace CreateDomainResponse {
   export const filterSensitiveLog = (obj: CreateDomainResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateEdgePackagingJobRequest {
+  /**
+   * <p>The name of the edge packaging job.</p>
+   */
+  EdgePackagingJobName: string | undefined;
+
+  /**
+   * <p>The name of the SageMaker Neo compilation job that will be used to locate model artifacts for packaging.</p>
+   */
+  CompilationJobName: string | undefined;
+
+  /**
+   * <p>The name of the model.</p>
+   */
+  ModelName: string | undefined;
+
+  /**
+   * <p>The version of the model.</p>
+   */
+  ModelVersion: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to download and upload the model, and to contact SageMaker Neo.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>Provides information about the output location for the packaged model.</p>
+   */
+  OutputConfig: EdgeOutputConfig | undefined;
+
+  /**
+   * <p>The CMK to use when encrypting the EBS volume the edge packaging job runs on.</p>
+   */
+  ResourceKey?: string;
+
+  /**
+   * <p>Creates tags for the packaging job.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateEdgePackagingJobRequest {
+  export const filterSensitiveLog = (obj: CreateEdgePackagingJobRequest): any => ({
     ...obj,
   });
 }
@@ -10917,6 +11531,306 @@ export namespace CreateModelOutput {
   });
 }
 
+/**
+ * <p>Docker container image configuration object for the model bias job.</p>
+ */
+export interface ModelBiasAppSpecification {
+  /**
+   * <p>The container image to be run by the model bias job.</p>
+   */
+  ImageUri: string | undefined;
+
+  /**
+   * <p>JSON formatted S3 file that defines bias parameters. For more information on this JSON
+   *          configuration file, see <a href="https://docs.aws.amazon.com/sagemaker/latest/json-bias-parameter-config.html">Configure bias
+   *          parameters</a>.</p>
+   */
+  ConfigUri: string | undefined;
+
+  /**
+   * <p>Sets the environment variables in the Docker container.</p>
+   */
+  Environment?: { [key: string]: string };
+}
+
+export namespace ModelBiasAppSpecification {
+  export const filterSensitiveLog = (obj: ModelBiasAppSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The configuration for a baseline model bias job.</p>
+ */
+export interface ModelBiasBaselineConfig {
+  /**
+   * <p>The name of the baseline model bias job.</p>
+   */
+  BaseliningJobName?: string;
+
+  /**
+   * <p>The constraints resource for a monitoring job.</p>
+   */
+  ConstraintsResource?: MonitoringConstraintsResource;
+}
+
+export namespace ModelBiasBaselineConfig {
+  export const filterSensitiveLog = (obj: ModelBiasBaselineConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The ground truth labels for the dataset used for the monitoring job.</p>
+ */
+export interface MonitoringGroundTruthS3Input {
+  /**
+   * <p>The address of the Amazon S3 location of the ground truth labels.</p>
+   */
+  S3Uri?: string;
+}
+
+export namespace MonitoringGroundTruthS3Input {
+  export const filterSensitiveLog = (obj: MonitoringGroundTruthS3Input): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Inputs for the model bias job.</p>
+ */
+export interface ModelBiasJobInput {
+  /**
+   * <p>Input object for the endpoint</p>
+   */
+  EndpointInput: EndpointInput | undefined;
+
+  /**
+   * <p>Location of ground truth labels to use in model bias job.</p>
+   */
+  GroundTruthS3Input: MonitoringGroundTruthS3Input | undefined;
+}
+
+export namespace ModelBiasJobInput {
+  export const filterSensitiveLog = (obj: ModelBiasJobInput): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateModelBiasJobDefinitionRequest {
+  /**
+   * <p>The name of the bias job definition. The name must be unique within an AWS Region in the
+   *          AWS account.</p>
+   */
+  JobDefinitionName: string | undefined;
+
+  /**
+   * <p>The baseline configuration for a model bias job.</p>
+   */
+  ModelBiasBaselineConfig?: ModelBiasBaselineConfig;
+
+  /**
+   * <p>Configures the model bias job to run a specified Docker container image.</p>
+   */
+  ModelBiasAppSpecification: ModelBiasAppSpecification | undefined;
+
+  /**
+   * <p>Inputs for the model bias job.</p>
+   */
+  ModelBiasJobInput: ModelBiasJobInput | undefined;
+
+  /**
+   * <p>The output configuration for monitoring jobs.</p>
+   */
+  ModelBiasJobOutputConfig: MonitoringOutputConfig | undefined;
+
+  /**
+   * <p>Identifies the resources to deploy for a monitoring job.</p>
+   */
+  JobResources: MonitoringResources | undefined;
+
+  /**
+   * <p>Networking options for a model bias job.</p>
+   */
+  NetworkConfig?: MonitoringNetworkConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
+   *          perform tasks on your behalf.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
+   */
+  StoppingCondition?: MonitoringStoppingCondition;
+
+  /**
+   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management
+   *             User Guide</i>.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateModelBiasJobDefinitionRequest {
+  export const filterSensitiveLog = (obj: CreateModelBiasJobDefinitionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateModelBiasJobDefinitionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model bias job.</p>
+   */
+  JobDefinitionArn: string | undefined;
+}
+
+export namespace CreateModelBiasJobDefinitionResponse {
+  export const filterSensitiveLog = (obj: CreateModelBiasJobDefinitionResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Docker container image configuration object for the model explainability job.</p>
+ */
+export interface ModelExplainabilityAppSpecification {
+  /**
+   * <p>The container image to be run by the model explainability job.</p>
+   */
+  ImageUri: string | undefined;
+
+  /**
+   * <p>JSON formatted S3 file that defines explainability parameters. For more information on
+   *          this JSON configuration file, see <a href="https://docs.aws.amazon.com/sagemaker/latest/json-model-explainability-parameter-config.html">Configure model
+   *             explainability parameters</a>.</p>
+   */
+  ConfigUri: string | undefined;
+
+  /**
+   * <p>Sets the environment variables in the Docker container.</p>
+   */
+  Environment?: { [key: string]: string };
+}
+
+export namespace ModelExplainabilityAppSpecification {
+  export const filterSensitiveLog = (obj: ModelExplainabilityAppSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The configuration for a baseline model explainability job.</p>
+ */
+export interface ModelExplainabilityBaselineConfig {
+  /**
+   * <p>The name of the baseline model explainability job.</p>
+   */
+  BaseliningJobName?: string;
+
+  /**
+   * <p>The constraints resource for a monitoring job.</p>
+   */
+  ConstraintsResource?: MonitoringConstraintsResource;
+}
+
+export namespace ModelExplainabilityBaselineConfig {
+  export const filterSensitiveLog = (obj: ModelExplainabilityBaselineConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Inputs for the model explainability job.</p>
+ */
+export interface ModelExplainabilityJobInput {
+  /**
+   * <p>Input object for the endpoint</p>
+   */
+  EndpointInput: EndpointInput | undefined;
+}
+
+export namespace ModelExplainabilityJobInput {
+  export const filterSensitiveLog = (obj: ModelExplainabilityJobInput): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateModelExplainabilityJobDefinitionRequest {
+  /**
+   * <p> The name of the model explainability job definition. The name must be unique within an
+   *          AWS Region in the AWS account.</p>
+   */
+  JobDefinitionName: string | undefined;
+
+  /**
+   * <p>The baseline configuration for a model explainability job.</p>
+   */
+  ModelExplainabilityBaselineConfig?: ModelExplainabilityBaselineConfig;
+
+  /**
+   * <p>Configures the model explainability job to run a specified Docker container
+   *          image.</p>
+   */
+  ModelExplainabilityAppSpecification: ModelExplainabilityAppSpecification | undefined;
+
+  /**
+   * <p>Inputs for the model explainability job.</p>
+   */
+  ModelExplainabilityJobInput: ModelExplainabilityJobInput | undefined;
+
+  /**
+   * <p>The output configuration for monitoring jobs.</p>
+   */
+  ModelExplainabilityJobOutputConfig: MonitoringOutputConfig | undefined;
+
+  /**
+   * <p>Identifies the resources to deploy for a monitoring job.</p>
+   */
+  JobResources: MonitoringResources | undefined;
+
+  /**
+   * <p>Networking options for a model explainability job.</p>
+   */
+  NetworkConfig?: MonitoringNetworkConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
+   *          perform tasks on your behalf.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
+   */
+  StoppingCondition?: MonitoringStoppingCondition;
+
+  /**
+   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management
+   *             User Guide</i>.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateModelExplainabilityJobDefinitionRequest {
+  export const filterSensitiveLog = (obj: CreateModelExplainabilityJobDefinitionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateModelExplainabilityJobDefinitionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model explainability job.</p>
+   */
+  JobDefinitionArn: string | undefined;
+}
+
+export namespace CreateModelExplainabilityJobDefinitionResponse {
+  export const filterSensitiveLog = (obj: CreateModelExplainabilityJobDefinitionResponse): any => ({
+    ...obj,
+  });
+}
+
 export enum ModelApprovalStatus {
   APPROVED = "Approved",
   PENDING_MANUAL_APPROVAL = "PendingManualApproval",
@@ -11249,917 +12163,6 @@ export interface CreateModelPackageGroupOutput {
 
 export namespace CreateModelPackageGroupOutput {
   export const filterSensitiveLog = (obj: CreateModelPackageGroupOutput): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The constraints resource for a monitoring job.</p>
- */
-export interface MonitoringConstraintsResource {
-  /**
-   * <p>The Amazon S3 URI for the constraints resource.</p>
-   */
-  S3Uri?: string;
-}
-
-export namespace MonitoringConstraintsResource {
-  export const filterSensitiveLog = (obj: MonitoringConstraintsResource): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The statistics resource for a monitoring job.</p>
- */
-export interface MonitoringStatisticsResource {
-  /**
-   * <p>The Amazon S3 URI for the statistics resource.</p>
-   */
-  S3Uri?: string;
-}
-
-export namespace MonitoringStatisticsResource {
-  export const filterSensitiveLog = (obj: MonitoringStatisticsResource): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Configuration for monitoring constraints and monitoring statistics. These baseline
- *          resources are compared against the results of the current job from the series of jobs
- *          scheduled to collect data periodically.</p>
- */
-export interface MonitoringBaselineConfig {
-  /**
-   * <p>The baseline constraint file in Amazon S3 that the current monitoring job should
-   *          validated against.</p>
-   */
-  ConstraintsResource?: MonitoringConstraintsResource;
-
-  /**
-   * <p>The baseline statistics file in Amazon S3 that the current monitoring job should be
-   *          validated against.</p>
-   */
-  StatisticsResource?: MonitoringStatisticsResource;
-}
-
-export namespace MonitoringBaselineConfig {
-  export const filterSensitiveLog = (obj: MonitoringBaselineConfig): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Container image configuration object for the monitoring job.</p>
- */
-export interface MonitoringAppSpecification {
-  /**
-   * <p>The container image to be run by the monitoring job.</p>
-   */
-  ImageUri: string | undefined;
-
-  /**
-   * <p>Specifies the entrypoint for a container used to run the monitoring job.</p>
-   */
-  ContainerEntrypoint?: string[];
-
-  /**
-   * <p>An array of arguments for the container used to run the monitoring job.</p>
-   */
-  ContainerArguments?: string[];
-
-  /**
-   * <p>An Amazon S3 URI to a script that is called per row prior to running analysis. It can
-   *          base64 decode the payload and convert it into a flatted json so that the built-in container
-   *          can use the converted data. Applicable only for the built-in (first party)
-   *          containers.</p>
-   */
-  RecordPreprocessorSourceUri?: string;
-
-  /**
-   * <p>An Amazon S3 URI to a script that is called after analysis has been performed.
-   *          Applicable only for the built-in (first party) containers.</p>
-   */
-  PostAnalyticsProcessorSourceUri?: string;
-}
-
-export namespace MonitoringAppSpecification {
-  export const filterSensitiveLog = (obj: MonitoringAppSpecification): any => ({
-    ...obj,
-  });
-}
-
-export enum ProcessingS3DataDistributionType {
-  FULLYREPLICATED = "FullyReplicated",
-  SHARDEDBYS3KEY = "ShardedByS3Key",
-}
-
-export enum ProcessingS3InputMode {
-  FILE = "File",
-  PIPE = "Pipe",
-}
-
-/**
- * <p>Input object for the endpoint</p>
- */
-export interface EndpointInput {
-  /**
-   * <p>An endpoint in customer's account which has enabled <code>DataCaptureConfig</code>
-   *          enabled.</p>
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * <p>Path to the filesystem where the endpoint data is available to the container.</p>
-   */
-  LocalPath: string | undefined;
-
-  /**
-   * <p>Whether the <code>Pipe</code> or <code>File</code> is used as the input mode for
-   *          transfering data for the monitoring job. <code>Pipe</code> mode is recommended for large
-   *          datasets. <code>File</code> mode is useful for small files that fit in memory. Defaults to
-   *             <code>File</code>.</p>
-   */
-  S3InputMode?: ProcessingS3InputMode | string;
-
-  /**
-   * <p>Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key.
-   *          Defauts to <code>FullyReplicated</code>
-   *          </p>
-   */
-  S3DataDistributionType?: ProcessingS3DataDistributionType | string;
-}
-
-export namespace EndpointInput {
-  export const filterSensitiveLog = (obj: EndpointInput): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The inputs for a monitoring job.</p>
- */
-export interface MonitoringInput {
-  /**
-   * <p>The endpoint for a monitoring job.</p>
-   */
-  EndpointInput: EndpointInput | undefined;
-}
-
-export namespace MonitoringInput {
-  export const filterSensitiveLog = (obj: MonitoringInput): any => ({
-    ...obj,
-  });
-}
-
-export enum ProcessingS3UploadMode {
-  CONTINUOUS = "Continuous",
-  END_OF_JOB = "EndOfJob",
-}
-
-/**
- * <p>Information about where and how you want to store the results of a monitoring
- *          job.</p>
- */
-export interface MonitoringS3Output {
-  /**
-   * <p>A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a
-   *          monitoring job.</p>
-   */
-  S3Uri: string | undefined;
-
-  /**
-   * <p>The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a
-   *          monitoring job. LocalPath is an absolute path for the output data.</p>
-   */
-  LocalPath: string | undefined;
-
-  /**
-   * <p>Whether to upload the results of the monitoring job continuously or after the job
-   *          completes.</p>
-   */
-  S3UploadMode?: ProcessingS3UploadMode | string;
-}
-
-export namespace MonitoringS3Output {
-  export const filterSensitiveLog = (obj: MonitoringS3Output): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The output object for a monitoring job.</p>
- */
-export interface MonitoringOutput {
-  /**
-   * <p>The Amazon S3 storage location where the results of a monitoring job are saved.</p>
-   */
-  S3Output: MonitoringS3Output | undefined;
-}
-
-export namespace MonitoringOutput {
-  export const filterSensitiveLog = (obj: MonitoringOutput): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The output configuration for monitoring jobs.</p>
- */
-export interface MonitoringOutputConfig {
-  /**
-   * <p>Monitoring outputs for monitoring jobs. This is where the output of the periodic
-   *          monitoring jobs is uploaded.</p>
-   */
-  MonitoringOutputs: MonitoringOutput[] | undefined;
-
-  /**
-   * <p>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model
-   *          artifacts at rest using Amazon S3 server-side encryption.</p>
-   */
-  KmsKeyId?: string;
-}
-
-export namespace MonitoringOutputConfig {
-  export const filterSensitiveLog = (obj: MonitoringOutputConfig): any => ({
-    ...obj,
-  });
-}
-
-export enum ProcessingInstanceType {
-  ML_C4_2XLARGE = "ml.c4.2xlarge",
-  ML_C4_4XLARGE = "ml.c4.4xlarge",
-  ML_C4_8XLARGE = "ml.c4.8xlarge",
-  ML_C4_XLARGE = "ml.c4.xlarge",
-  ML_C5_18XLARGE = "ml.c5.18xlarge",
-  ML_C5_2XLARGE = "ml.c5.2xlarge",
-  ML_C5_4XLARGE = "ml.c5.4xlarge",
-  ML_C5_9XLARGE = "ml.c5.9xlarge",
-  ML_C5_XLARGE = "ml.c5.xlarge",
-  ML_M4_10XLARGE = "ml.m4.10xlarge",
-  ML_M4_16XLARGE = "ml.m4.16xlarge",
-  ML_M4_2XLARGE = "ml.m4.2xlarge",
-  ML_M4_4XLARGE = "ml.m4.4xlarge",
-  ML_M4_XLARGE = "ml.m4.xlarge",
-  ML_M5_12XLARGE = "ml.m5.12xlarge",
-  ML_M5_24XLARGE = "ml.m5.24xlarge",
-  ML_M5_2XLARGE = "ml.m5.2xlarge",
-  ML_M5_4XLARGE = "ml.m5.4xlarge",
-  ML_M5_LARGE = "ml.m5.large",
-  ML_M5_XLARGE = "ml.m5.xlarge",
-  ML_P2_16XLARGE = "ml.p2.16xlarge",
-  ML_P2_8XLARGE = "ml.p2.8xlarge",
-  ML_P2_XLARGE = "ml.p2.xlarge",
-  ML_P3_16XLARGE = "ml.p3.16xlarge",
-  ML_P3_2XLARGE = "ml.p3.2xlarge",
-  ML_P3_8XLARGE = "ml.p3.8xlarge",
-  ML_R5_12XLARGE = "ml.r5.12xlarge",
-  ML_R5_16XLARGE = "ml.r5.16xlarge",
-  ML_R5_24XLARGE = "ml.r5.24xlarge",
-  ML_R5_2XLARGE = "ml.r5.2xlarge",
-  ML_R5_4XLARGE = "ml.r5.4xlarge",
-  ML_R5_8XLARGE = "ml.r5.8xlarge",
-  ML_R5_LARGE = "ml.r5.large",
-  ML_R5_XLARGE = "ml.r5.xlarge",
-  ML_T3_2XLARGE = "ml.t3.2xlarge",
-  ML_T3_LARGE = "ml.t3.large",
-  ML_T3_MEDIUM = "ml.t3.medium",
-  ML_T3_XLARGE = "ml.t3.xlarge",
-}
-
-/**
- * <p>Configuration for the cluster used to run model monitoring jobs.</p>
- */
-export interface MonitoringClusterConfig {
-  /**
-   * <p>The number of ML compute instances to use in the model monitoring job. For distributed
-   *          processing jobs, specify a value greater than 1. The default value is 1.</p>
-   */
-  InstanceCount: number | undefined;
-
-  /**
-   * <p>The ML compute instance type for the processing job.</p>
-   */
-  InstanceType: ProcessingInstanceType | string | undefined;
-
-  /**
-   * <p>The size of the ML storage volume, in gigabytes, that you want to provision. You must
-   *          specify sufficient ML storage for your scenario.</p>
-   */
-  VolumeSizeInGB: number | undefined;
-
-  /**
-   * <p>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data
-   *          on the storage volume attached to the ML compute instance(s) that run the model monitoring
-   *          job.</p>
-   */
-  VolumeKmsKeyId?: string;
-}
-
-export namespace MonitoringClusterConfig {
-  export const filterSensitiveLog = (obj: MonitoringClusterConfig): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Identifies the resources to deploy for a monitoring job.</p>
- */
-export interface MonitoringResources {
-  /**
-   * <p>The configuration for the cluster resources used to run the processing job.</p>
-   */
-  ClusterConfig: MonitoringClusterConfig | undefined;
-}
-
-export namespace MonitoringResources {
-  export const filterSensitiveLog = (obj: MonitoringResources): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Networking options for a job, such as network traffic encryption between containers,
- *          whether to allow inbound and outbound network calls to and from containers, and the VPC
- *          subnets and security groups to use for VPC-enabled jobs.</p>
- */
-export interface NetworkConfig {
-  /**
-   * <p>Whether to encrypt all communications between distributed processing jobs. Choose
-   *             <code>True</code> to encrypt communications. Encryption provides greater security for distributed
-   *             processing jobs, but the processing might take longer.</p>
-   */
-  EnableInterContainerTrafficEncryption?: boolean;
-
-  /**
-   * <p>Whether to allow inbound and outbound network calls to and from the containers used for
-   *          the processing job.</p>
-   */
-  EnableNetworkIsolation?: boolean;
-
-  /**
-   * <p>Specifies a VPC that your training jobs and hosted models have access to. Control
-   *             access to and from your training and model containers by configuring the VPC. For more
-   *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect Endpoints by Using an Amazon Virtual Private Cloud</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs
-   *                 by Using an Amazon Virtual Private Cloud</a>. </p>
-   */
-  VpcConfig?: VpcConfig;
-}
-
-export namespace NetworkConfig {
-  export const filterSensitiveLog = (obj: NetworkConfig): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
- */
-export interface MonitoringStoppingCondition {
-  /**
-   * <p>The maximum runtime allowed in seconds.</p>
-   */
-  MaxRuntimeInSeconds: number | undefined;
-}
-
-export namespace MonitoringStoppingCondition {
-  export const filterSensitiveLog = (obj: MonitoringStoppingCondition): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Defines the monitoring job.</p>
- */
-export interface MonitoringJobDefinition {
-  /**
-   * <p>Baseline configuration used to validate that the data conforms to the specified
-   *          constraints and statistics</p>
-   */
-  BaselineConfig?: MonitoringBaselineConfig;
-
-  /**
-   * <p>The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker
-   *          Endpoint.</p>
-   */
-  MonitoringInputs: MonitoringInput[] | undefined;
-
-  /**
-   * <p>The array of outputs from the monitoring job to be uploaded to Amazon Simple Storage
-   *          Service (Amazon S3).</p>
-   */
-  MonitoringOutputConfig: MonitoringOutputConfig | undefined;
-
-  /**
-   * <p>Identifies the resources, ML compute instances, and ML storage volumes to deploy for a
-   *          monitoring job. In distributed processing, you specify more than one instance.</p>
-   */
-  MonitoringResources: MonitoringResources | undefined;
-
-  /**
-   * <p>Configures the monitoring job to run a specified Docker container image.</p>
-   */
-  MonitoringAppSpecification: MonitoringAppSpecification | undefined;
-
-  /**
-   * <p>Specifies a time limit for how long the monitoring job is allowed to run.</p>
-   */
-  StoppingCondition?: MonitoringStoppingCondition;
-
-  /**
-   * <p>Sets the environment variables in the Docker container.</p>
-   */
-  Environment?: { [key: string]: string };
-
-  /**
-   * <p>Specifies networking options for an monitoring job.</p>
-   */
-  NetworkConfig?: NetworkConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on
-   *          your behalf.</p>
-   */
-  RoleArn: string | undefined;
-}
-
-export namespace MonitoringJobDefinition {
-  export const filterSensitiveLog = (obj: MonitoringJobDefinition): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Configuration details about the monitoring schedule.</p>
- */
-export interface ScheduleConfig {
-  /**
-   * <p>A cron expression that describes details about the monitoring schedule.</p>
-   *
-   *          <p>Currently the only supported cron expressions are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If you want to set the job to start every hour, please use the following:</p>
-   *                <p>
-   *                   <code>Hourly: cron(0 * ? * * *)</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>If you want to start the job daily:</p>
-   *                <p>
-   *                   <code>cron(0 [00-23] ? * * *)</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>For example, the following are valid cron expressions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Daily at noon UTC: <code>cron(0 12 ? * * *)</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Daily at midnight UTC: <code>cron(0 0 ? * * *)</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *
-   *          <p>To support running every 6, 12 hours, the following are also supported:</p>
-   *          <p>
-   *             <code>cron(0 [00-23]/[01-24] ? * * *)</code>
-   *          </p>
-   *          <p>For example, the following are valid cron expressions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Every 12 hours, starting at 5pm UTC: <code>cron(0 17/12 ? * * *)</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Every two hours starting at midnight: <code>cron(0 0/2 ? * * *)</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *
-   *          <note>
-   *             <ul>
-   *                <li>
-   *                   <p>Even though the cron expression is set to start at 5PM UTC, note that there
-   *                   could be a delay of 0-20 minutes from the actual requested time to run the
-   *                   execution. </p>
-   *                </li>
-   *                <li>
-   *                   <p>We recommend that if you would like a daily schedule, you do not provide this
-   *                   parameter. Amazon SageMaker will pick a time for running every day.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
-   */
-  ScheduleExpression: string | undefined;
-}
-
-export namespace ScheduleConfig {
-  export const filterSensitiveLog = (obj: ScheduleConfig): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Configures the monitoring schedule and defines the monitoring job.</p>
- */
-export interface MonitoringScheduleConfig {
-  /**
-   * <p>Configures the monitoring schedule.</p>
-   */
-  ScheduleConfig?: ScheduleConfig;
-
-  /**
-   * <p>Defines the monitoring job.</p>
-   */
-  MonitoringJobDefinition?: MonitoringJobDefinition;
-}
-
-export namespace MonitoringScheduleConfig {
-  export const filterSensitiveLog = (obj: MonitoringScheduleConfig): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateMonitoringScheduleRequest {
-  /**
-   * <p>The name of the monitoring schedule. The name must be unique within an AWS Region within
-   *          an AWS account.</p>
-   */
-  MonitoringScheduleName: string | undefined;
-
-  /**
-   * <p>The configuration object that specifies the monitoring schedule and defines the
-   *          monitoring job.</p>
-   */
-  MonitoringScheduleConfig: MonitoringScheduleConfig | undefined;
-
-  /**
-   * <p>(Optional) An array of key-value pairs. For more information, see <a href=" https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management
-   *             User Guide</i>.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace CreateMonitoringScheduleRequest {
-  export const filterSensitiveLog = (obj: CreateMonitoringScheduleRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateMonitoringScheduleResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
-   */
-  MonitoringScheduleArn: string | undefined;
-}
-
-export namespace CreateMonitoringScheduleResponse {
-  export const filterSensitiveLog = (obj: CreateMonitoringScheduleResponse): any => ({
-    ...obj,
-  });
-}
-
-export enum NotebookInstanceAcceleratorType {
-  ML_EIA1_LARGE = "ml.eia1.large",
-  ML_EIA1_MEDIUM = "ml.eia1.medium",
-  ML_EIA1_XLARGE = "ml.eia1.xlarge",
-  ML_EIA2_LARGE = "ml.eia2.large",
-  ML_EIA2_MEDIUM = "ml.eia2.medium",
-  ML_EIA2_XLARGE = "ml.eia2.xlarge",
-}
-
-export enum DirectInternetAccess {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled",
-}
-
-export enum _InstanceType {
-  ML_C4_2XLARGE = "ml.c4.2xlarge",
-  ML_C4_4XLARGE = "ml.c4.4xlarge",
-  ML_C4_8XLARGE = "ml.c4.8xlarge",
-  ML_C4_XLARGE = "ml.c4.xlarge",
-  ML_C5D_18XLARGE = "ml.c5d.18xlarge",
-  ML_C5D_2XLARGE = "ml.c5d.2xlarge",
-  ML_C5D_4XLARGE = "ml.c5d.4xlarge",
-  ML_C5D_9XLARGE = "ml.c5d.9xlarge",
-  ML_C5D_XLARGE = "ml.c5d.xlarge",
-  ML_C5_18XLARGE = "ml.c5.18xlarge",
-  ML_C5_2XLARGE = "ml.c5.2xlarge",
-  ML_C5_4XLARGE = "ml.c5.4xlarge",
-  ML_C5_9XLARGE = "ml.c5.9xlarge",
-  ML_C5_XLARGE = "ml.c5.xlarge",
-  ML_M4_10XLARGE = "ml.m4.10xlarge",
-  ML_M4_16XLARGE = "ml.m4.16xlarge",
-  ML_M4_2XLARGE = "ml.m4.2xlarge",
-  ML_M4_4XLARGE = "ml.m4.4xlarge",
-  ML_M4_XLARGE = "ml.m4.xlarge",
-  ML_M5_12XLARGE = "ml.m5.12xlarge",
-  ML_M5_24XLARGE = "ml.m5.24xlarge",
-  ML_M5_2XLARGE = "ml.m5.2xlarge",
-  ML_M5_4XLARGE = "ml.m5.4xlarge",
-  ML_M5_XLARGE = "ml.m5.xlarge",
-  ML_P2_16XLARGE = "ml.p2.16xlarge",
-  ML_P2_8XLARGE = "ml.p2.8xlarge",
-  ML_P2_XLARGE = "ml.p2.xlarge",
-  ML_P3_16XLARGE = "ml.p3.16xlarge",
-  ML_P3_2XLARGE = "ml.p3.2xlarge",
-  ML_P3_8XLARGE = "ml.p3.8xlarge",
-  ML_T2_2XLARGE = "ml.t2.2xlarge",
-  ML_T2_LARGE = "ml.t2.large",
-  ML_T2_MEDIUM = "ml.t2.medium",
-  ML_T2_XLARGE = "ml.t2.xlarge",
-  ML_T3_2XLARGE = "ml.t3.2xlarge",
-  ML_T3_LARGE = "ml.t3.large",
-  ML_T3_MEDIUM = "ml.t3.medium",
-  ML_T3_XLARGE = "ml.t3.xlarge",
-}
-
-export enum RootAccess {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled",
-}
-
-export interface CreateNotebookInstanceInput {
-  /**
-   * <p>The name of the new notebook instance.</p>
-   */
-  NotebookInstanceName: string | undefined;
-
-  /**
-   * <p>The type of ML compute instance to launch for the notebook instance.</p>
-   */
-  InstanceType: _InstanceType | string | undefined;
-
-  /**
-   * <p>The ID of the subnet in a VPC to which you would like to have a connectivity from
-   *             your ML compute instance. </p>
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>The VPC security group IDs, in the form sg-xxxxxxxx. The security groups must be
-   *             for the same VPC as specified in the subnet. </p>
-   */
-  SecurityGroupIds?: string[];
-
-  /**
-   * <p> When you send any requests to AWS resources from the notebook instance, Amazon SageMaker
-   *             assumes this role to perform tasks on your behalf. You must grant this role necessary
-   *             permissions so Amazon SageMaker can perform these tasks. The policy must allow the Amazon SageMaker service
-   *             principal (sagemaker.amazonaws.com) permissions to assume this role. For more
-   *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon SageMaker Roles</a>. </p>
-   *         <note>
-   *             <p>To be able to pass this role to Amazon SageMaker, the caller of this API must have the
-   *                     <code>iam:PassRole</code> permission.</p>
-   *         </note>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on
-   *             the storage volume attached to your notebook instance. The KMS key you provide must be
-   *             enabled. For information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html">Enabling and Disabling
-   *                 Keys</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>An array of key-value pairs. You can use tags to categorize your AWS resources in
-   *            different ways, for example, by purpose, owner, or environment. For more information,
-   *            see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *                Resources</a>.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The name of a lifecycle configuration to associate with the notebook instance. For
-   *             information about lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step 2.1: (Optional)
-   *                 Customize a Notebook Instance</a>.</p>
-   */
-  LifecycleConfigName?: string;
-
-  /**
-   * <p>Sets whether Amazon SageMaker provides internet access to the notebook instance. If you set this
-   *             to <code>Disabled</code> this notebook instance will be able to access resources only in
-   *             your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless
-   *             your configure a NAT Gateway in your VPC.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access">Notebook Instances Are Internet-Enabled by Default</a>. You can set the value
-   *             of this parameter to <code>Disabled</code> only if you set a value for the
-   *                 <code>SubnetId</code> parameter.</p>
-   */
-  DirectInternetAccess?: DirectInternetAccess | string;
-
-  /**
-   * <p>The size, in GB, of the ML storage volume to attach to the notebook instance. The
-   *             default value is 5 GB.</p>
-   */
-  VolumeSizeInGB?: number;
-
-  /**
-   * <p>A list of Elastic Inference (EI) instance types to associate with this notebook
-   *             instance. Currently, only one instance type can be associated with a notebook instance.
-   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon SageMaker</a>.</p>
-   */
-  AcceleratorTypes?: (NotebookInstanceAcceleratorType | string)[];
-
-  /**
-   * <p>A Git repository to associate with the notebook instance as its default code
-   *             repository. This can be either the name of a Git repository stored as a resource in your
-   *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any
-   *             other Git repository. When you open a notebook instance, it opens in the directory that
-   *             contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git Repositories with Amazon SageMaker
-   *                 Notebook Instances</a>.</p>
-   */
-  DefaultCodeRepository?: string;
-
-  /**
-   * <p>An array of up to three Git repositories to associate with the notebook instance.
-   *             These can be either the names of Git repositories stored as resources in your account,
-   *             or the URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any
-   *             other Git repository. These repositories are cloned at the same level as the default
-   *             repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
-   *                 Repositories with Amazon SageMaker Notebook Instances</a>.</p>
-   */
-  AdditionalCodeRepositories?: string[];
-
-  /**
-   * <p>Whether root access is enabled or disabled for users of the notebook instance. The
-   *             default value is <code>Enabled</code>.</p>
-   *         <note>
-   *             <p>Lifecycle configurations need root access to be able to set up a notebook
-   *                 instance. Because of this, lifecycle configurations associated with a notebook
-   *                 instance always run with root access even if you disable root access for
-   *                 users.</p>
-   *         </note>
-   */
-  RootAccess?: RootAccess | string;
-}
-
-export namespace CreateNotebookInstanceInput {
-  export const filterSensitiveLog = (obj: CreateNotebookInstanceInput): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateNotebookInstanceOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the notebook instance. </p>
-   */
-  NotebookInstanceArn?: string;
-}
-
-export namespace CreateNotebookInstanceOutput {
-  export const filterSensitiveLog = (obj: CreateNotebookInstanceOutput): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the notebook instance lifecycle configuration script.</p>
- *         <p>Each lifecycle configuration script has a limit of 16384 characters.</p>
- *         <p>The value of the <code>$PATH</code> environment variable that is available to both
- *             scripts is <code>/sbin:bin:/usr/sbin:/usr/bin</code>.</p>
- *         <p>View CloudWatch Logs for notebook instance lifecycle configurations in log group
- *                 <code>/aws/sagemaker/NotebookInstances</code> in log stream
- *                 <code>[notebook-instance-name]/[LifecycleConfigHook]</code>.</p>
- *         <p>Lifecycle configuration scripts cannot run for longer than 5 minutes. If a script runs
- *             for longer than 5 minutes, it fails and the notebook instance is not created or
- *             started.</p>
- *         <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
- *                 2.1: (Optional) Customize a Notebook Instance</a>.</p>
- */
-export interface NotebookInstanceLifecycleHook {
-  /**
-   * <p>A base64-encoded string that contains a shell script for a notebook instance lifecycle
-   *             configuration.</p>
-   */
-  Content?: string;
-}
-
-export namespace NotebookInstanceLifecycleHook {
-  export const filterSensitiveLog = (obj: NotebookInstanceLifecycleHook): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateNotebookInstanceLifecycleConfigInput {
-  /**
-   * <p>The name of the lifecycle configuration.</p>
-   */
-  NotebookInstanceLifecycleConfigName: string | undefined;
-
-  /**
-   * <p>A shell script that runs only once, when you create a notebook instance. The shell
-   *             script must be a base64-encoded string.</p>
-   */
-  OnCreate?: NotebookInstanceLifecycleHook[];
-
-  /**
-   * <p>A shell script that runs every time you start a notebook instance, including when you
-   *             create the notebook instance. The shell script must be a base64-encoded string.</p>
-   */
-  OnStart?: NotebookInstanceLifecycleHook[];
-}
-
-export namespace CreateNotebookInstanceLifecycleConfigInput {
-  export const filterSensitiveLog = (obj: CreateNotebookInstanceLifecycleConfigInput): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateNotebookInstanceLifecycleConfigOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the lifecycle configuration.</p>
-   */
-  NotebookInstanceLifecycleConfigArn?: string;
-}
-
-export namespace CreateNotebookInstanceLifecycleConfigOutput {
-  export const filterSensitiveLog = (obj: CreateNotebookInstanceLifecycleConfigOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface CreatePipelineRequest {
-  /**
-   * <p>The name of the pipeline.</p>
-   */
-  PipelineName: string | undefined;
-
-  /**
-   * <p>The display name of the pipeline.</p>
-   */
-  PipelineDisplayName?: string;
-
-  /**
-   * <p>The JSON pipeline definition of the pipeline.</p>
-   */
-  PipelineDefinition: string | undefined;
-
-  /**
-   * <p>A description of the pipeline.</p>
-   */
-  PipelineDescription?: string;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *          operation. An idempotent operation completes no more than one time.</p>
-   */
-  ClientRequestToken?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the role used by the pipeline to access and create resources.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>A list of tags to apply to the created pipeline.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace CreatePipelineRequest {
-  export const filterSensitiveLog = (obj: CreatePipelineRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreatePipelineResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the created pipeline.</p>
-   */
-  PipelineArn?: string;
-}
-
-export namespace CreatePipelineResponse {
-  export const filterSensitiveLog = (obj: CreatePipelineResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface CreatePresignedDomainUrlRequest {
-  /**
-   * <p>The domain ID.</p>
-   */
-  DomainId: string | undefined;
-
-  /**
-   * <p>The name of the UserProfile to sign-in as.</p>
-   */
-  UserProfileName: string | undefined;
-
-  /**
-   * <p>The session expiration duration in seconds.</p>
-   */
-  SessionExpirationDurationInSeconds?: number;
-}
-
-export namespace CreatePresignedDomainUrlRequest {
-  export const filterSensitiveLog = (obj: CreatePresignedDomainUrlRequest): any => ({
     ...obj,
   });
 }

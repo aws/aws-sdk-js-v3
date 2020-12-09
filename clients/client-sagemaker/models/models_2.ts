@@ -1,7 +1,17 @@
 import {
   ActionStatus,
+  ActionSummary,
+  AgentVersion,
+  AlgorithmSortBy,
   AlgorithmSpecification,
+  AlgorithmSummary,
+  AppDetails,
+  AppImageConfigDetails,
+  AppImageConfigSortKey,
+  AppSortKey,
   AppSpecification,
+  ArtifactSummary,
+  AssociationEdgeType,
   AssociationSummary,
   AutoMLCandidate,
   AutoMLJobStatus,
@@ -9,7 +19,6 @@ import {
   AutoMLSortBy,
   AutoMLSortOrder,
   BatchStrategy,
-  BooleanOperator,
   CacheHitResult,
   CandidateSortBy,
   CandidateStatus,
@@ -22,19 +31,21 @@ import {
   CompilationJobSummary,
   ConditionStepMetadata,
   ContextSummary,
+  EdgeOutputConfig,
+  FeatureDefinition,
+  HyperParameterTuningJobStrategyType,
   InferenceSpecification,
   KernelGatewayImageConfig,
+  LabelingJobInputConfig,
   MetadataProperties,
   ModelApprovalStatus,
   ModelMetrics,
   ModelPackageValidationSpecification,
-  MonitoringScheduleConfig,
-  NetworkConfig,
-  NotebookInstanceAcceleratorType,
-  NotebookInstanceLifecycleHook,
+  OfflineStoreConfig,
+  OnlineStoreConfig,
   OutputDataConfig,
   ResourceConfig,
-  RootAccess,
+  ResourceLimits,
   SourceAlgorithmSpecification,
   StoppingCondition,
   Tag,
@@ -45,48 +56,34 @@ import {
   UserContext,
   UserSettings,
   VpcConfig,
-  _InstanceType,
 } from "./models_0";
 import {
+  DataCaptureConfigSummary,
   DataProcessing,
   DebugHookConfig,
   DebugRuleConfiguration,
   DebugRuleEvaluationStatus,
   DeploymentConfig,
   DesiredWeightAndCapacity,
-  DomainDetails,
-  Endpoint,
-  EndpointConfigSortKey,
-  EndpointConfigSummary,
-  EndpointSortKey,
+  Device,
+  DeviceFleetSummary,
+  DeviceStats,
+  DeviceSummary,
+  DomainStatus,
+  EdgePackagingJobStatus,
   EndpointStatus,
-  EndpointSummary,
   ExecutionStatus,
-  Experiment,
   ExperimentConfig,
-  ExperimentSummary,
-  FeatureGroup,
-  FeatureGroupSortBy,
-  FeatureGroupSortOrder,
+  ExperimentSource,
   FeatureGroupStatus,
-  FeatureGroupSummary,
-  Filter,
-  FlowDefinitionSummary,
-  GitConfigForUpdate,
-  HumanTaskUiSummary,
+  FlowDefinitionStatus,
   HyperParameterTrainingJobSummary,
-  HyperParameterTuningJobSortByOptions,
   HyperParameterTuningJobStatus,
-  HyperParameterTuningJobSummary,
-  Image,
-  ImageSortBy,
-  ImageSortOrder,
-  ImageVersion,
-  ImageVersionSortBy,
-  ImageVersionSortOrder,
-  LabelingJobForWorkteamSummary,
+  ImageStatus,
+  ImageVersionStatus,
+  LabelCounters,
+  LabelingJobOutput,
   LabelingJobStatus,
-  LabelingJobSummary,
   MemberDefinition,
   MetricData,
   ModelArtifacts,
@@ -95,8 +92,15 @@ import {
   ModelPackageStatus,
   ModelPackageStatusDetails,
   MonitoringExecutionSummary,
+  MonitoringScheduleConfig,
+  MonitoringType,
+  NetworkConfig,
+  NotebookInstanceAcceleratorType,
+  NotebookInstanceLifecycleHook,
   NotebookInstanceStatus,
   NotificationConfiguration,
+  ObjectiveStatusCounters,
+  OfflineStoreStatus,
   OfflineStoreStatusValue,
   OidcConfig,
   PipelineExecutionStatus,
@@ -106,16 +110,18 @@ import {
   ProcessingOutputConfig,
   ProcessingResources,
   ProcessingStoppingCondition,
+  ProductionVariantSummary,
+  ProfilerRuleConfiguration,
   ProjectStatus,
-  ResourceType,
+  RootAccess,
   ScheduleStatus,
   SecondaryStatus,
   SecondaryStatusTransition,
-  SortOrder,
   SourceIpConfig,
   SubscribedWorkteam,
   TensorBoardOutputConfig,
   TrainingJobStatus,
+  TrainingJobStatusCounters,
   TransformJobStatus,
   TrialComponentArtifact,
   TrialComponentMetricSummary,
@@ -126,8 +132,2032 @@ import {
   UserProfileStatus,
   Workforce,
   Workteam,
+  _InstanceType,
 } from "./models_1";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
+export interface DisassociateTrialComponentRequest {
+  /**
+   * <p>The name of the component to disassociate from the trial.</p>
+   */
+  TrialComponentName: string | undefined;
+
+  /**
+   * <p>The name of the trial to disassociate from.</p>
+   */
+  TrialName: string | undefined;
+}
+
+export namespace DisassociateTrialComponentRequest {
+  export const filterSensitiveLog = (obj: DisassociateTrialComponentRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateTrialComponentResponse {
+  /**
+   * <p>The ARN of the trial component.</p>
+   */
+  TrialComponentArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the trial.</p>
+   */
+  TrialArn?: string;
+}
+
+export namespace DisassociateTrialComponentResponse {
+  export const filterSensitiveLog = (obj: DisassociateTrialComponentResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The domain's details.</p>
+ */
+export interface DomainDetails {
+  /**
+   * <p>The domain's Amazon Resource Name (ARN).</p>
+   */
+  DomainArn?: string;
+
+  /**
+   * <p>The domain ID.</p>
+   */
+  DomainId?: string;
+
+  /**
+   * <p>The domain name.</p>
+   */
+  DomainName?: string;
+
+  /**
+   * <p>The status.</p>
+   */
+  Status?: DomainStatus | string;
+
+  /**
+   * <p>The creation time.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The last modified time.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The domain's URL.</p>
+   */
+  Url?: string;
+}
+
+export namespace DomainDetails {
+  export const filterSensitiveLog = (obj: DomainDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Status of edge devices with this model.</p>
+ */
+export interface EdgeModelStat {
+  /**
+   * <p>The name of the model.</p>
+   */
+  ModelName: string | undefined;
+
+  /**
+   * <p>The model version.</p>
+   */
+  ModelVersion: string | undefined;
+
+  /**
+   * <p>The number of devices that have this model version and do not have a heart beat.</p>
+   */
+  OfflineDeviceCount: number | undefined;
+
+  /**
+   * <p>The number of devices that have this model version and have a heart beat. </p>
+   */
+  ConnectedDeviceCount: number | undefined;
+
+  /**
+   * <p>The number of devices that have this model version, a heart beat, and are currently running.</p>
+   */
+  ActiveDeviceCount: number | undefined;
+
+  /**
+   * <p>The number of devices with this model version and are producing sample data.</p>
+   */
+  SamplingDeviceCount: number | undefined;
+}
+
+export namespace EdgeModelStat {
+  export const filterSensitiveLog = (obj: EdgeModelStat): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Summary of edge packaging job.</p>
+ */
+export interface EdgePackagingJobSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the edge packaging job.</p>
+   */
+  EdgePackagingJobArn: string | undefined;
+
+  /**
+   * <p>The name of the edge packaging job.</p>
+   */
+  EdgePackagingJobName: string | undefined;
+
+  /**
+   * <p>The status of the edge packaging job.</p>
+   */
+  EdgePackagingJobStatus: EdgePackagingJobStatus | string | undefined;
+
+  /**
+   * <p>The name of the SageMaker Neo compilation job.</p>
+   */
+  CompilationJobName?: string;
+
+  /**
+   * <p>The name of the model.</p>
+   */
+  ModelName?: string;
+
+  /**
+   * <p>The version of the model.</p>
+   */
+  ModelVersion?: string;
+
+  /**
+   * <p>The timestamp of when the job was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The timestamp of when the edge packaging job was last updated.</p>
+   */
+  LastModifiedTime?: Date;
+}
+
+export namespace EdgePackagingJobSummary {
+  export const filterSensitiveLog = (obj: EdgePackagingJobSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface EnableSagemakerServicecatalogPortfolioInput {}
+
+export namespace EnableSagemakerServicecatalogPortfolioInput {
+  export const filterSensitiveLog = (obj: EnableSagemakerServicecatalogPortfolioInput): any => ({
+    ...obj,
+  });
+}
+
+export interface EnableSagemakerServicecatalogPortfolioOutput {}
+
+export namespace EnableSagemakerServicecatalogPortfolioOutput {
+  export const filterSensitiveLog = (obj: EnableSagemakerServicecatalogPortfolioOutput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A schedule for a model monitoring job. For information about model monitor, see
+ *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html">Amazon SageMaker Model
+ *                 Monitor</a>.</p>
+ */
+export interface MonitoringSchedule {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
+   */
+  MonitoringScheduleArn?: string;
+
+  /**
+   * <p>The name of the monitoring schedule.</p>
+   */
+  MonitoringScheduleName?: string;
+
+  /**
+   * <p>The status of the monitoring schedule. This can be one of the following values.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>PENDING</code> - The schedule is pending being created.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>FAILED</code> - The schedule failed.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>SCHEDULED</code> - The schedule was successfully created.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>STOPPED</code> - The schedule was stopped.</p>
+   *             </li>
+   *          </ul>
+   */
+  MonitoringScheduleStatus?: ScheduleStatus | string;
+
+  /**
+   * <p>The type of the monitoring job definition to schedule.</p>
+   */
+  MonitoringType?: MonitoringType | string;
+
+  /**
+   * <p>If the monitoring schedule failed, the reason it failed.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The time that the monitoring schedule was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The last time the monitoring schedule was changed.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>Configures the monitoring schedule and defines the monitoring job.</p>
+   */
+  MonitoringScheduleConfig?: MonitoringScheduleConfig;
+
+  /**
+   * <p>The endpoint that hosts the model being monitored.</p>
+   */
+  EndpointName?: string;
+
+  /**
+   * <p>Summary of information about the last monitoring job to run.</p>
+   */
+  LastMonitoringExecutionSummary?: MonitoringExecutionSummary;
+
+  /**
+   * <p>A list of the tags associated with the monitoring schedlue. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *             resources</a> in the <i>AWS General Reference Guide</i>.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace MonitoringSchedule {
+  export const filterSensitiveLog = (obj: MonitoringSchedule): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A hosted endpoint for real-time inference.</p>
+ */
+export interface Endpoint {
+  /**
+   * <p>The name of the endpoint.</p>
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
+   */
+  EndpointArn: string | undefined;
+
+  /**
+   * <p>The endpoint configuration associated with the endpoint.</p>
+   */
+  EndpointConfigName: string | undefined;
+
+  /**
+   * <p>A list of the production variants hosted on the endpoint. Each production variant is a
+   *             model.</p>
+   */
+  ProductionVariants?: ProductionVariantSummary[];
+
+  /**
+   * <p></p>
+   */
+  DataCaptureConfig?: DataCaptureConfigSummary;
+
+  /**
+   * <p>The status of the endpoint.</p>
+   */
+  EndpointStatus: EndpointStatus | string | undefined;
+
+  /**
+   * <p>If the endpoint failed, the reason it failed.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The time that the endpoint was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The last time the endpoint was modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>A list of monitoring schedules for the endpoint. For information about model
+   *             monitoring, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html">Amazon SageMaker Model Monitor</a>.</p>
+   */
+  MonitoringSchedules?: MonitoringSchedule[];
+
+  /**
+   * <p>A list of the tags associated with the endpoint. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *                 resources</a> in the <i>AWS General Reference Guide</i>.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace Endpoint {
+  export const filterSensitiveLog = (obj: Endpoint): any => ({
+    ...obj,
+  });
+}
+
+export enum EndpointConfigSortKey {
+  CreationTime = "CreationTime",
+  Name = "Name",
+}
+
+/**
+ * <p>Provides summary information for an endpoint configuration.</p>
+ */
+export interface EndpointConfigSummary {
+  /**
+   * <p>The name of the endpoint configuration.</p>
+   */
+  EndpointConfigName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint configuration.</p>
+   */
+  EndpointConfigArn: string | undefined;
+
+  /**
+   * <p>A timestamp that shows when the endpoint configuration was created.</p>
+   */
+  CreationTime: Date | undefined;
+}
+
+export namespace EndpointConfigSummary {
+  export const filterSensitiveLog = (obj: EndpointConfigSummary): any => ({
+    ...obj,
+  });
+}
+
+export enum EndpointSortKey {
+  CreationTime = "CreationTime",
+  Name = "Name",
+  Status = "Status",
+}
+
+/**
+ * <p>Provides summary information for an endpoint.</p>
+ */
+export interface EndpointSummary {
+  /**
+   * <p>The name of the endpoint.</p>
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
+   */
+  EndpointArn: string | undefined;
+
+  /**
+   * <p>A timestamp that shows when the endpoint was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>A timestamp that shows when the endpoint was last modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The status of the endpoint.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>OutOfService</code>: Endpoint is not available to take incoming
+   *                     requests.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Creating</code>: <a>CreateEndpoint</a> is executing.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Updating</code>: <a>UpdateEndpoint</a> or <a>UpdateEndpointWeightsAndCapacities</a> is executing.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>SystemUpdating</code>: Endpoint is undergoing maintenance and cannot be
+   *                     updated or deleted or re-scaled until it has completed. This maintenance
+   *                     operation does not change any customer-specified values such as VPC config, KMS
+   *                     encryption, model, instance type, or instance count.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>RollingBack</code>: Endpoint fails to scale up or down or change its
+   *                     variant weight and is in the process of rolling back to its previous
+   *                     configuration. Once the rollback completes, endpoint returns to an
+   *                         <code>InService</code> status. This transitional status only applies to an
+   *                     endpoint that has autoscaling enabled and is undergoing variant weight or
+   *                     capacity changes as part of an <a>UpdateEndpointWeightsAndCapacities</a> call or when the <a>UpdateEndpointWeightsAndCapacities</a> operation is called
+   *                     explicitly.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>InService</code>: Endpoint is available to process incoming
+   *                     requests.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Deleting</code>: <a>DeleteEndpoint</a> is executing.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Failed</code>: Endpoint could not be created, updated, or re-scaled. Use
+   *                         <a>DescribeEndpointOutput$FailureReason</a> for information about
+   *                     the failure. <a>DeleteEndpoint</a> is the only operation that can be
+   *                     performed on a failed endpoint.</p>
+   *             </li>
+   *          </ul>
+   *         <p>To get a list of endpoints with a specified status, use the <a>ListEndpointsInput$StatusEquals</a> filter.</p>
+   */
+  EndpointStatus: EndpointStatus | string | undefined;
+}
+
+export namespace EndpointSummary {
+  export const filterSensitiveLog = (obj: EndpointSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The properties of an experiment as returned by the <a>Search</a> API.</p>
+ */
+export interface Experiment {
+  /**
+   * <p>The name of the experiment.</p>
+   */
+  ExperimentName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
+   */
+  ExperimentArn?: string;
+
+  /**
+   * <p>The name of the experiment as displayed. If <code>DisplayName</code> isn't specified,
+   *         <code>ExperimentName</code> is displayed.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The source of the experiment.</p>
+   */
+  Source?: ExperimentSource;
+
+  /**
+   * <p>The description of the experiment.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>When the experiment was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, or trial
+   *       component.</p>
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * <p>When the experiment was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, or trial
+   *       component.</p>
+   */
+  LastModifiedBy?: UserContext;
+
+  /**
+   * <p>The list of tags that are associated with the experiment. You can use <a>Search</a> API to search on the tags.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace Experiment {
+  export const filterSensitiveLog = (obj: Experiment): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A summary of the properties of an experiment. To get the complete set of properties, call
+ *       the <a>DescribeExperiment</a> API and provide the
+ *       <code>ExperimentName</code>.</p>
+ */
+export interface ExperimentSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
+   */
+  ExperimentArn?: string;
+
+  /**
+   * <p>The name of the experiment.</p>
+   */
+  ExperimentName?: string;
+
+  /**
+   * <p>The name of the experiment as displayed. If <code>DisplayName</code> isn't specified,
+   *         <code>ExperimentName</code> is displayed.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The source of the experiment.</p>
+   */
+  ExperimentSource?: ExperimentSource;
+
+  /**
+   * <p>When the experiment was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>When the experiment was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+}
+
+export namespace ExperimentSummary {
+  export const filterSensitiveLog = (obj: ExperimentSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Amazon SageMaker Feature Store stores features in a collection called Feature Group.
+ *          A Feature Group can be visualized as a table which has rows,
+ *          with a unique identifier for each row where each column in the table is a feature.
+ *          In principle, a Feature Group is composed of features and values per features.</p>
+ */
+export interface FeatureGroup {
+  /**
+   * <p>The Amazon Resource Name (ARN) of a <code>FeatureGroup</code>.</p>
+   */
+  FeatureGroupArn?: string;
+
+  /**
+   * <p>The name of the <code>FeatureGroup</code>.</p>
+   */
+  FeatureGroupName?: string;
+
+  /**
+   * <p>The name of the <code>Feature</code> whose value uniquely identifies a
+   *       <code>Record</code> defined in the <code>FeatureGroup</code>
+   *             <code>FeatureDefinitions</code>.</p>
+   */
+  RecordIdentifierFeatureName?: string;
+
+  /**
+   * <p>The name of the feature that stores the <code>EventTime</code> of a Record in a
+   *          <code>FeatureGroup</code>.</p>
+   *          <p>A <code>EventTime</code> is point in time when a new event
+   *          occurs that corresponds to the creation or update of a <code>Record</code> in
+   *          <code>FeatureGroup</code>. All <code>Records</code> in the <code>FeatureGroup</code>
+   *          must have a corresponding <code>EventTime</code>.</p>
+   */
+  EventTimeFeatureName?: string;
+
+  /**
+   * <p>A list of <code>Feature</code>s. Each <code>Feature</code> must include a
+   *             <code>FeatureName</code> and a <code>FeatureType</code>. </p>
+   *          <p>Valid <code>FeatureType</code>s are <code>Integral</code>, <code>Fractional</code> and
+   *             <code>String</code>. </p>
+   *          <p>
+   *             <code>FeatureName</code>s cannot be any of the following: <code>is_deleted</code>,
+   *             <code>write_time</code>, <code>api_invocation_time</code>.</p>
+   *          <p>You can create up to 2,500 <code>FeatureDefinition</code>s per
+   *          <code>FeatureGroup</code>.</p>
+   */
+  FeatureDefinitions?: FeatureDefinition[];
+
+  /**
+   * <p>The time a <code>FeatureGroup</code> was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>Use this to specify the AWS Key Management Service (KMS) Key ID, or
+   *             <code>KMSKeyId</code>, for at rest data encryption. You can turn
+   *             <code>OnlineStore</code> on or off by specifying the <code>EnableOnlineStore</code> flag
+   *          at General Assembly; the default value is <code>False</code>.</p>
+   */
+  OnlineStoreConfig?: OnlineStoreConfig;
+
+  /**
+   * <p>The configuration of an <code>OfflineStore</code>.</p>
+   *          <p>Provide an <code>OfflineStoreConfig</code> in a request to
+   *             <code>CreateFeatureGroup</code> to create an <code>OfflineStore</code>.</p>
+   *          <p>To encrypt an <code>OfflineStore</code> using at rest data encryption, specify AWS Key
+   *          Management Service (KMS) key ID, or <code>KMSKeyId</code>, in
+   *          <code>S3StorageConfig</code>.</p>
+   */
+  OfflineStoreConfig?: OfflineStoreConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM execution role used to create the feature
+   *          group.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>A <code>FeatureGroup</code> status.</p>
+   */
+  FeatureGroupStatus?: FeatureGroupStatus | string;
+
+  /**
+   * <p>The status of <code>OfflineStore</code>.</p>
+   */
+  OfflineStoreStatus?: OfflineStoreStatus;
+
+  /**
+   * <p>The reason that the <code>FeatureGroup</code> failed to
+   *          be replicated in the <code>OfflineStore</code>. This is
+   *          failure may be due to a failure to create a <code>FeatureGroup</code> in
+   *          or delete a <code>FeatureGroup</code> from the <code>OfflineStore</code>.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>A free form description of a <code>FeatureGroup</code>.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Tags used to define a <code>FeatureGroup</code>.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace FeatureGroup {
+  export const filterSensitiveLog = (obj: FeatureGroup): any => ({
+    ...obj,
+  });
+}
+
+export enum FeatureGroupSortBy {
+  CREATION_TIME = "CreationTime",
+  FEATURE_GROUP_STATUS = "FeatureGroupStatus",
+  NAME = "Name",
+  OFFLINE_STORE_STATUS = "OfflineStoreStatus",
+}
+
+export enum FeatureGroupSortOrder {
+  ASCENDING = "Ascending",
+  DESCENDING = "Descending",
+}
+
+/**
+ * <p>The name, Arn, <code>CreationTime</code>, <code>FeatureGroup</code> values,
+ *             <code>LastUpdatedTime</code> and <code>EnableOnlineStorage</code> status of a
+ *             <code>FeatureGroup</code>.</p>
+ */
+export interface FeatureGroupSummary {
+  /**
+   * <p>The name of <code>FeatureGroup</code>.</p>
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>Unique identifier for the <code>FeatureGroup</code>.</p>
+   */
+  FeatureGroupArn: string | undefined;
+
+  /**
+   * <p>A timestamp indicating the time of creation time of the <code>FeatureGroup</code>.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The status of a FeatureGroup. The status can be any of the following:
+   *             <code>Creating</code>, <code>Created</code>, <code>CreateFail</code>,
+   *             <code>Deleting</code> or <code>DetailFail</code>. </p>
+   */
+  FeatureGroupStatus?: FeatureGroupStatus | string;
+
+  /**
+   * <p>Notifies you if replicating data into the <code>OfflineStore</code> has failed. Returns
+   *          either: <code>Active</code> or <code>Blocked</code>.</p>
+   */
+  OfflineStoreStatus?: OfflineStoreStatus;
+}
+
+export namespace FeatureGroupSummary {
+  export const filterSensitiveLog = (obj: FeatureGroupSummary): any => ({
+    ...obj,
+  });
+}
+
+export enum Operator {
+  CONTAINS = "Contains",
+  EQUALS = "Equals",
+  EXISTS = "Exists",
+  GREATER_THAN = "GreaterThan",
+  GREATER_THAN_OR_EQUAL_TO = "GreaterThanOrEqualTo",
+  IN = "In",
+  LESS_THAN = "LessThan",
+  LESS_THAN_OR_EQUAL_TO = "LessThanOrEqualTo",
+  NOT_EQUALS = "NotEquals",
+  NOT_EXISTS = "NotExists",
+}
+
+/**
+ * <p>A conditional statement for a search expression that includes a resource property, a
+ *       Boolean operator, and a value. Resources that match the statement are returned in the
+ *       results from the <a>Search</a> API.</p>
+ *
+ *          <p>If you specify a <code>Value</code>, but not an <code>Operator</code>, Amazon SageMaker uses the
+ *       equals operator.</p>
+ *          <p>In search, there are several property types:</p>
+ *          <dl>
+ *             <dt>Metrics</dt>
+ *             <dd>
+ *                <p>To define a metric filter, enter a value using the form
+ *             <code>"Metrics.<name>"</code>, where <code><name></code> is
+ *             a metric name. For example, the following filter searches for training jobs
+ *             with an <code>"accuracy"</code> metric greater than
+ *             <code>"0.9"</code>:</p>
+ *                <p>
+ *                   <code>{</code>
+ *                </p>
+ *                <p>
+ *                   <code>"Name": "Metrics.accuracy",</code>
+ *                </p>
+ *                <p>
+ *                   <code>"Operator": "GreaterThan",</code>
+ *                </p>
+ *                <p>
+ *                   <code>"Value": "0.9"</code>
+ *                </p>
+ *                <p>
+ *                   <code>}</code>
+ *                </p>
+ *             </dd>
+ *             <dt>HyperParameters</dt>
+ *             <dd>
+ *                <p>To define a hyperparameter filter, enter a value with the form
+ *             <code>"HyperParameters.<name>"</code>. Decimal hyperparameter
+ *             values are treated as a decimal in a comparison if the specified
+ *             <code>Value</code> is also a decimal value. If the specified
+ *             <code>Value</code> is an integer, the decimal hyperparameter values are
+ *             treated as integers. For example, the following filter is satisfied by
+ *             training jobs with a <code>"learning_rate"</code> hyperparameter that is
+ *             less than <code>"0.5"</code>:</p>
+ *                <p>
+ *                   <code> {</code>
+ *                </p>
+ *                <p>
+ *                   <code> "Name": "HyperParameters.learning_rate",</code>
+ *                </p>
+ *                <p>
+ *                   <code> "Operator": "LessThan",</code>
+ *                </p>
+ *                <p>
+ *                   <code> "Value": "0.5"</code>
+ *                </p>
+ *                <p>
+ *                   <code> }</code>
+ *                </p>
+ *             </dd>
+ *             <dt>Tags</dt>
+ *             <dd>
+ *                <p>To define a tag filter, enter a value with the form
+ *             <code>Tags.<key></code>.</p>
+ *             </dd>
+ *          </dl>
+ */
+export interface Filter {
+  /**
+   * <p>A resource property name. For example, <code>TrainingJobName</code>. For
+   *       valid property names, see <a>SearchRecord</a>.
+   *       You must specify a valid property for the resource.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A Boolean binary operator that is used to evaluate the filter. The operator field
+   *       contains one of the following values:</p>
+   *          <dl>
+   *             <dt>Equals</dt>
+   *             <dd>
+   *                <p>The value of <code>Name</code> equals <code>Value</code>.</p>
+   *             </dd>
+   *             <dt>NotEquals</dt>
+   *             <dd>
+   *                <p>The value of <code>Name</code> doesn't equal <code>Value</code>.</p>
+   *             </dd>
+   *             <dt>Exists</dt>
+   *             <dd>
+   *                <p>The <code>Name</code> property exists.</p>
+   *             </dd>
+   *             <dt>NotExists</dt>
+   *             <dd>
+   *                <p>The <code>Name</code> property does not exist.</p>
+   *             </dd>
+   *             <dt>GreaterThan</dt>
+   *             <dd>
+   *                <p>The value of <code>Name</code> is greater than <code>Value</code>.
+   *             Not supported for text properties.</p>
+   *             </dd>
+   *             <dt>GreaterThanOrEqualTo</dt>
+   *             <dd>
+   *                <p>The value of <code>Name</code> is greater than or equal to <code>Value</code>.
+   *             Not supported for text properties.</p>
+   *             </dd>
+   *             <dt>LessThan</dt>
+   *             <dd>
+   *                <p>The value of <code>Name</code> is less than <code>Value</code>.
+   *             Not supported for text properties.</p>
+   *             </dd>
+   *             <dt>LessThanOrEqualTo</dt>
+   *             <dd>
+   *                <p>The value of <code>Name</code> is less than or equal to <code>Value</code>.
+   *             Not supported for text properties.</p>
+   *             </dd>
+   *             <dt>In</dt>
+   *             <dd>
+   *                <p>The value of <code>Name</code> is one of the comma delimited strings in
+   *             <code>Value</code>. Only supported for text properties.</p>
+   *             </dd>
+   *             <dt>Contains</dt>
+   *             <dd>
+   *                <p>The value of <code>Name</code> contains the string <code>Value</code>.
+   *             Only supported for text properties.</p>
+   *                <p>A <code>SearchExpression</code> can include the <code>Contains</code> operator
+   *             multiple times when the value of <code>Name</code> is one of the following:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>Experiment.DisplayName</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Experiment.ExperimentName</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Experiment.Tags</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Trial.DisplayName</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Trial.TrialName</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Trial.Tags</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>TrialComponent.DisplayName</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>TrialComponent.TrialComponentName</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>TrialComponent.Tags</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>TrialComponent.InputArtifacts</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>TrialComponent.OutputArtifacts</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>A <code>SearchExpression</code> can include only one <code>Contains</code> operator
+   *             for all other values of <code>Name</code>. In these cases, if you include multiple
+   *             <code>Contains</code> operators in the <code>SearchExpression</code>, the result is
+   *             the following error message: "<code>'CONTAINS' operator usage limit of 1
+   *             exceeded.</code>"</p>
+   *             </dd>
+   *          </dl>
+   */
+  Operator?: Operator | string;
+
+  /**
+   * <p>A value used with <code>Name</code> and <code>Operator</code> to determine which
+   *         resources satisfy the filter's condition. For numerical properties, <code>Value</code>
+   *         must be an integer or floating-point decimal. For timestamp properties,
+   *         <code>Value</code> must be an ISO 8601 date-time string of the following format:
+   *         <code>YYYY-mm-dd'T'HH:MM:SS</code>.</p>
+   */
+  Value?: string;
+}
+
+export namespace Filter {
+  export const filterSensitiveLog = (obj: Filter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains summary information about the flow definition.</p>
+ */
+export interface FlowDefinitionSummary {
+  /**
+   * <p>The name of the flow definition.</p>
+   */
+  FlowDefinitionName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow definition.</p>
+   */
+  FlowDefinitionArn: string | undefined;
+
+  /**
+   * <p>The status of the flow definition. Valid values:</p>
+   */
+  FlowDefinitionStatus: FlowDefinitionStatus | string | undefined;
+
+  /**
+   * <p>The timestamp when SageMaker created the flow definition.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The reason why the flow definition creation failed. A failure reason is returned only when the flow definition status is <code>Failed</code>.</p>
+   */
+  FailureReason?: string;
+}
+
+export namespace FlowDefinitionSummary {
+  export const filterSensitiveLog = (obj: FlowDefinitionSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface GetDeviceFleetReportRequest {
+  /**
+   * <p>The name of the fleet.</p>
+   */
+  DeviceFleetName: string | undefined;
+}
+
+export namespace GetDeviceFleetReportRequest {
+  export const filterSensitiveLog = (obj: GetDeviceFleetReportRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetDeviceFleetReportResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the device.</p>
+   */
+  DeviceFleetArn: string | undefined;
+
+  /**
+   * <p>The name of the fleet.</p>
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>The output configuration for storing sample data collected by the fleet.</p>
+   */
+  OutputConfig?: EdgeOutputConfig;
+
+  /**
+   * <p>Description of the fleet.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Timestamp of when the report was generated.</p>
+   */
+  ReportGenerated?: Date;
+
+  /**
+   * <p>Status of devices.</p>
+   */
+  DeviceStats?: DeviceStats;
+
+  /**
+   * <p>The versions of Edge Manager agent deployed on the fleet.</p>
+   */
+  AgentVersions?: AgentVersion[];
+
+  /**
+   * <p>Status of model on device.</p>
+   */
+  ModelStats?: EdgeModelStat[];
+}
+
+export namespace GetDeviceFleetReportResponse {
+  export const filterSensitiveLog = (obj: GetDeviceFleetReportResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetModelPackageGroupPolicyInput {
+  /**
+   * <p>The name of the model group for which to get the resource policy.</p>
+   */
+  ModelPackageGroupName: string | undefined;
+}
+
+export namespace GetModelPackageGroupPolicyInput {
+  export const filterSensitiveLog = (obj: GetModelPackageGroupPolicyInput): any => ({
+    ...obj,
+  });
+}
+
+export interface GetModelPackageGroupPolicyOutput {
+  /**
+   * <p>The resource policy for the model group.</p>
+   */
+  ResourcePolicy: string | undefined;
+}
+
+export namespace GetModelPackageGroupPolicyOutput {
+  export const filterSensitiveLog = (obj: GetModelPackageGroupPolicyOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface GetSagemakerServicecatalogPortfolioStatusInput {}
+
+export namespace GetSagemakerServicecatalogPortfolioStatusInput {
+  export const filterSensitiveLog = (obj: GetSagemakerServicecatalogPortfolioStatusInput): any => ({
+    ...obj,
+  });
+}
+
+export enum SagemakerServicecatalogStatus {
+  DISABLED = "Disabled",
+  ENABLED = "Enabled",
+}
+
+export interface GetSagemakerServicecatalogPortfolioStatusOutput {
+  /**
+   * <p>Whether Service Catalog is enabled or disabled in SageMaker.</p>
+   */
+  Status?: SagemakerServicecatalogStatus | string;
+}
+
+export namespace GetSagemakerServicecatalogPortfolioStatusOutput {
+  export const filterSensitiveLog = (obj: GetSagemakerServicecatalogPortfolioStatusOutput): any => ({
+    ...obj,
+  });
+}
+
+export enum ResourceType {
+  ENDPOINT = "Endpoint",
+  EXPERIMENT = "Experiment",
+  EXPERIMENT_TRIAL = "ExperimentTrial",
+  EXPERIMENT_TRIAL_COMPONENT = "ExperimentTrialComponent",
+  FEATURE_GROUP = "FeatureGroup",
+  MODEL_PACKAGE = "ModelPackage",
+  MODEL_PACKAGE_GROUP = "ModelPackageGroup",
+  PIPELINE = "Pipeline",
+  PIPELINE_EXECUTION = "PipelineExecution",
+  TRAINING_JOB = "TrainingJob",
+}
+
+/**
+ * <p>Part of the <code>SuggestionQuery</code> type. Specifies a hint for retrieving property
+ *       names that begin with the specified text.</p>
+ */
+export interface PropertyNameQuery {
+  /**
+   * <p>Text that begins a property's name.</p>
+   */
+  PropertyNameHint: string | undefined;
+}
+
+export namespace PropertyNameQuery {
+  export const filterSensitiveLog = (obj: PropertyNameQuery): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specified in the <a>GetSearchSuggestions</a> request.
+ *       Limits the property names that are included in the response.</p>
+ */
+export interface SuggestionQuery {
+  /**
+   * <p>Defines a property name hint. Only property
+   *       names that begin with the specified hint are included in the response.</p>
+   */
+  PropertyNameQuery?: PropertyNameQuery;
+}
+
+export namespace SuggestionQuery {
+  export const filterSensitiveLog = (obj: SuggestionQuery): any => ({
+    ...obj,
+  });
+}
+
+export interface GetSearchSuggestionsRequest {
+  /**
+   * <p>The name of the Amazon SageMaker resource to search for.</p>
+   */
+  Resource: ResourceType | string | undefined;
+
+  /**
+   * <p>Limits the property names that are included in the response.</p>
+   */
+  SuggestionQuery?: SuggestionQuery;
+}
+
+export namespace GetSearchSuggestionsRequest {
+  export const filterSensitiveLog = (obj: GetSearchSuggestionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A property name returned from a <code>GetSearchSuggestions</code> call that specifies
+ *       a value in the <code>PropertyNameQuery</code> field.</p>
+ */
+export interface PropertyNameSuggestion {
+  /**
+   * <p>A suggested property name based on what you entered in the search textbox in the Amazon SageMaker
+   *       console.</p>
+   */
+  PropertyName?: string;
+}
+
+export namespace PropertyNameSuggestion {
+  export const filterSensitiveLog = (obj: PropertyNameSuggestion): any => ({
+    ...obj,
+  });
+}
+
+export interface GetSearchSuggestionsResponse {
+  /**
+   * <p>A list of property names for a <code>Resource</code> that match a
+   *       <code>SuggestionQuery</code>.</p>
+   */
+  PropertyNameSuggestions?: PropertyNameSuggestion[];
+}
+
+export namespace GetSearchSuggestionsResponse {
+  export const filterSensitiveLog = (obj: GetSearchSuggestionsResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies configuration details for a Git repository when the repository is
+ *             updated.</p>
+ */
+export interface GitConfigForUpdate {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the
+   *             credentials used to access the git repository. The secret must have a staging label of
+   *                 <code>AWSCURRENT</code> and must be in the following format:</p>
+   *         <p>
+   *             <code>{"username": <i>UserName</i>, "password":
+   *                     <i>Password</i>}</code>
+   *         </p>
+   */
+  SecretArn?: string;
+}
+
+export namespace GitConfigForUpdate {
+  export const filterSensitiveLog = (obj: GitConfigForUpdate): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Container for human task user interface information.</p>
+ */
+export interface HumanTaskUiSummary {
+  /**
+   * <p>The name of the human task user interface.</p>
+   */
+  HumanTaskUiName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the human task user interface.</p>
+   */
+  HumanTaskUiArn: string | undefined;
+
+  /**
+   * <p>A timestamp when SageMaker created the human task user interface.</p>
+   */
+  CreationTime: Date | undefined;
+}
+
+export namespace HumanTaskUiSummary {
+  export const filterSensitiveLog = (obj: HumanTaskUiSummary): any => ({
+    ...obj,
+  });
+}
+
+export enum HyperParameterTuningJobSortByOptions {
+  CreationTime = "CreationTime",
+  Name = "Name",
+  Status = "Status",
+}
+
+/**
+ * <p>Provides summary information about a hyperparameter tuning job.</p>
+ */
+export interface HyperParameterTuningJobSummary {
+  /**
+   * <p>The name of the tuning job.</p>
+   */
+  HyperParameterTuningJobName: string | undefined;
+
+  /**
+   * <p>The
+   *             Amazon
+   *             Resource Name (ARN) of the tuning job.</p>
+   */
+  HyperParameterTuningJobArn: string | undefined;
+
+  /**
+   * <p>The status of the
+   *             tuning
+   *             job.</p>
+   */
+  HyperParameterTuningJobStatus: HyperParameterTuningJobStatus | string | undefined;
+
+  /**
+   * <p>Specifies the search strategy hyperparameter tuning uses to choose which
+   *             hyperparameters to
+   *             use
+   *             for each iteration. Currently, the only valid value is
+   *             Bayesian.</p>
+   */
+  Strategy: HyperParameterTuningJobStrategyType | string | undefined;
+
+  /**
+   * <p>The date and time that the tuning job was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the tuning job ended.</p>
+   */
+  HyperParameterTuningEndTime?: Date;
+
+  /**
+   * <p>The date and time that the tuning job was
+   *             modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The <a>TrainingJobStatusCounters</a> object that specifies the numbers of
+   *             training jobs, categorized by status, that this tuning job launched.</p>
+   */
+  TrainingJobStatusCounters: TrainingJobStatusCounters | undefined;
+
+  /**
+   * <p>The <a>ObjectiveStatusCounters</a> object that specifies the numbers of
+   *             training jobs, categorized by objective metric status, that this tuning job
+   *             launched.</p>
+   */
+  ObjectiveStatusCounters: ObjectiveStatusCounters | undefined;
+
+  /**
+   * <p>The <a>ResourceLimits</a> object that specifies the maximum number of
+   *             training jobs and parallel training jobs allowed for this tuning job.</p>
+   */
+  ResourceLimits?: ResourceLimits;
+}
+
+export namespace HyperParameterTuningJobSummary {
+  export const filterSensitiveLog = (obj: HyperParameterTuningJobSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A SageMaker image. A SageMaker image represents a set of container images that are derived from
+ *         a common base container image. Each of these container images is represented by a SageMaker
+ *         <code>ImageVersion</code>.</p>
+ */
+export interface Image {
+  /**
+   * <p>When the image was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The description of the image.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The name of the image as displayed.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>When a create, update, or delete operation fails, the reason for the failure.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the image.</p>
+   */
+  ImageArn: string | undefined;
+
+  /**
+   * <p>The name of the image.</p>
+   */
+  ImageName: string | undefined;
+
+  /**
+   * <p>The status of the image.</p>
+   */
+  ImageStatus: ImageStatus | string | undefined;
+
+  /**
+   * <p>When the image was last modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
+}
+
+export namespace Image {
+  export const filterSensitiveLog = (obj: Image): any => ({
+    ...obj,
+  });
+}
+
+export enum ImageSortBy {
+  CREATION_TIME = "CREATION_TIME",
+  IMAGE_NAME = "IMAGE_NAME",
+  LAST_MODIFIED_TIME = "LAST_MODIFIED_TIME",
+}
+
+export enum ImageSortOrder {
+  ASCENDING = "ASCENDING",
+  DESCENDING = "DESCENDING",
+}
+
+/**
+ * <p>A version of a SageMaker <code>Image</code>. A version represents an existing container
+ *         image.</p>
+ */
+export interface ImageVersion {
+  /**
+   * <p>When the version was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>When a create or delete operation fails, the reason for the failure.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the image the version is based on.</p>
+   */
+  ImageArn: string | undefined;
+
+  /**
+   * <p>The ARN of the version.</p>
+   */
+  ImageVersionArn: string | undefined;
+
+  /**
+   * <p>The status of the version.</p>
+   */
+  ImageVersionStatus: ImageVersionStatus | string | undefined;
+
+  /**
+   * <p>When the version was last modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The version number.</p>
+   */
+  Version: number | undefined;
+}
+
+export namespace ImageVersion {
+  export const filterSensitiveLog = (obj: ImageVersion): any => ({
+    ...obj,
+  });
+}
+
+export enum ImageVersionSortBy {
+  CREATION_TIME = "CREATION_TIME",
+  LAST_MODIFIED_TIME = "LAST_MODIFIED_TIME",
+  VERSION = "VERSION",
+}
+
+export enum ImageVersionSortOrder {
+  ASCENDING = "ASCENDING",
+  DESCENDING = "DESCENDING",
+}
+
+/**
+ * <p>Provides counts for human-labeled tasks in the labeling job.</p>
+ */
+export interface LabelCountersForWorkteam {
+  /**
+   * <p>The total number of data objects labeled by a human worker.</p>
+   */
+  HumanLabeled?: number;
+
+  /**
+   * <p>The total number of data objects that need to be labeled by a human worker.</p>
+   */
+  PendingHuman?: number;
+
+  /**
+   * <p>The total number of tasks in the labeling job.</p>
+   */
+  Total?: number;
+}
+
+export namespace LabelCountersForWorkteam {
+  export const filterSensitiveLog = (obj: LabelCountersForWorkteam): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides summary information for a work team.</p>
+ */
+export interface LabelingJobForWorkteamSummary {
+  /**
+   * <p>The name of the labeling job that the work team is assigned to.</p>
+   */
+  LabelingJobName?: string;
+
+  /**
+   * <p>A unique identifier for a labeling job. You can use this to refer to a specific
+   *             labeling job.</p>
+   */
+  JobReferenceCode: string | undefined;
+
+  /**
+   * <p></p>
+   */
+  WorkRequesterAccountId: string | undefined;
+
+  /**
+   * <p>The date and time that the labeling job was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Provides information about the progress of a labeling job.</p>
+   */
+  LabelCounters?: LabelCountersForWorkteam;
+
+  /**
+   * <p>The configured number of workers per data object.</p>
+   */
+  NumberOfHumanWorkersPerDataObject?: number;
+}
+
+export namespace LabelingJobForWorkteamSummary {
+  export const filterSensitiveLog = (obj: LabelingJobForWorkteamSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides summary information about a labeling job.</p>
+ */
+export interface LabelingJobSummary {
+  /**
+   * <p>The name of the labeling job.</p>
+   */
+  LabelingJobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) assigned to the labeling job when it was
+   *             created.</p>
+   */
+  LabelingJobArn: string | undefined;
+
+  /**
+   * <p>The date and time that the job was created (timestamp).</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the job was last modified (timestamp).</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The current status of the labeling job. </p>
+   */
+  LabelingJobStatus: LabelingJobStatus | string | undefined;
+
+  /**
+   * <p>Counts showing the progress of the labeling job.</p>
+   */
+  LabelCounters: LabelCounters | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the work team assigned to the job.</p>
+   */
+  WorkteamArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a Lambda function. The function is run before each
+   *             data object is sent to a worker.</p>
+   */
+  PreHumanTaskLambdaArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda function used to consolidate the
+   *             annotations from individual workers into a label for a data object. For more
+   *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html">Annotation
+   *                 Consolidation</a>.</p>
+   */
+  AnnotationConsolidationLambdaArn?: string;
+
+  /**
+   * <p>If the <code>LabelingJobStatus</code> field is <code>Failed</code>, this field
+   *             contains a description of the error.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The location of the output produced by the labeling job.</p>
+   */
+  LabelingJobOutput?: LabelingJobOutput;
+
+  /**
+   * <p>Input configuration for the labeling job.</p>
+   */
+  InputConfig?: LabelingJobInputConfig;
+}
+
+export namespace LabelingJobSummary {
+  export const filterSensitiveLog = (obj: LabelingJobSummary): any => ({
+    ...obj,
+  });
+}
+
+export enum SortActionsBy {
+  CREATION_TIME = "CreationTime",
+  NAME = "Name",
+}
+
+export enum SortOrder {
+  ASCENDING = "Ascending",
+  DESCENDING = "Descending",
+}
+
+export interface ListActionsRequest {
+  /**
+   * <p>A filter that returns only actions with the specified source URI.</p>
+   */
+  SourceUri?: string;
+
+  /**
+   * <p>A filter that returns only actions of the specified type.</p>
+   */
+  ActionType?: string;
+
+  /**
+   * <p>A filter that returns only actions created on or after the specified time.</p>
+   */
+  CreatedAfter?: Date;
+
+  /**
+   * <p>A filter that returns only actions created on or before the specified time.</p>
+   */
+  CreatedBefore?: Date;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
+   */
+  SortBy?: SortActionsBy | string;
+
+  /**
+   * <p>The sort order. The default value is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>If the previous call to <code>ListActions</code> didn't return the full set of actions,
+   *         the call returns a token for getting the next set of actions.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of actions to return in the response. The default value is 10.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListActionsRequest {
+  export const filterSensitiveLog = (obj: ListActionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListActionsResponse {
+  /**
+   * <p>A list of actions and their properties.</p>
+   */
+  ActionSummaries?: ActionSummary[];
+
+  /**
+   * <p>A token for getting the next set of actions, if there are any.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListActionsResponse {
+  export const filterSensitiveLog = (obj: ListActionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAlgorithmsInput {
+  /**
+   * <p>A filter that returns only algorithms created after the specified time
+   *             (timestamp).</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only algorithms created before the specified time
+   *             (timestamp).</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>The maximum number of algorithms to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A string in the algorithm name. This filter returns only algorithms whose name
+   *             contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>If the response to a previous <code>ListAlgorithms</code> request was truncated, the
+   *             response includes a <code>NextToken</code>. To retrieve the next set of algorithms, use
+   *             the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The parameter by which to sort the results. The default is
+   *             <code>CreationTime</code>.</p>
+   */
+  SortBy?: AlgorithmSortBy | string;
+
+  /**
+   * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+}
+
+export namespace ListAlgorithmsInput {
+  export const filterSensitiveLog = (obj: ListAlgorithmsInput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAlgorithmsOutput {
+  /**
+   * <p>>An array of <code>AlgorithmSummary</code> objects, each of which lists an
+   *             algorithm.</p>
+   */
+  AlgorithmSummaryList: AlgorithmSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
+   *             algorithms, use it in the subsequent request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListAlgorithmsOutput {
+  export const filterSensitiveLog = (obj: ListAlgorithmsOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAppImageConfigsRequest {
+  /**
+   * <p>The maximum number of AppImageConfigs to return in the response. The default value is
+   *         10. </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the previous call to <code>ListImages</code> didn't return the full set of
+   *         AppImageConfigs, the call returns a token for getting the next set of AppImageConfigs.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A filter that returns only AppImageConfigs whose name contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that returns only AppImageConfigs created on or before the specified time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only AppImageConfigs created on or after the specified time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only AppImageConfigs modified on or before the specified time.</p>
+   */
+  ModifiedTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only AppImageConfigs modified on or after the specified time.</p>
+   */
+  ModifiedTimeAfter?: Date;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
+   */
+  SortBy?: AppImageConfigSortKey | string;
+
+  /**
+   * <p>The sort order. The default value is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+}
+
+export namespace ListAppImageConfigsRequest {
+  export const filterSensitiveLog = (obj: ListAppImageConfigsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAppImageConfigsResponse {
+  /**
+   * <p>A token for getting the next set of AppImageConfigs, if there are any.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of AppImageConfigs and their properties.</p>
+   */
+  AppImageConfigs?: AppImageConfigDetails[];
+}
+
+export namespace ListAppImageConfigsResponse {
+  export const filterSensitiveLog = (obj: ListAppImageConfigsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAppsRequest {
+  /**
+   * <p>If the previous response was truncated, you will receive this token.
+   *         Use it in your next request to receive the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Returns a list up to a specified limit.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The sort order for the results. The default is Ascending.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>The parameter by which to sort the results. The default is CreationTime.</p>
+   */
+  SortBy?: AppSortKey | string;
+
+  /**
+   * <p>A parameter to search for the domain ID.</p>
+   */
+  DomainIdEquals?: string;
+
+  /**
+   * <p>A parameter to search by user profile name.</p>
+   */
+  UserProfileNameEquals?: string;
+}
+
+export namespace ListAppsRequest {
+  export const filterSensitiveLog = (obj: ListAppsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAppsResponse {
+  /**
+   * <p>The list of apps.</p>
+   */
+  Apps?: AppDetails[];
+
+  /**
+   * <p>If the previous response was truncated, you will receive this token.
+   *         Use it in your next request to receive the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListAppsResponse {
+  export const filterSensitiveLog = (obj: ListAppsResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum SortArtifactsBy {
+  CREATION_TIME = "CreationTime",
+}
+
+export interface ListArtifactsRequest {
+  /**
+   * <p>A filter that returns only artifacts with the specified source URI.</p>
+   */
+  SourceUri?: string;
+
+  /**
+   * <p>A filter that returns only artifacts of the specified type.</p>
+   */
+  ArtifactType?: string;
+
+  /**
+   * <p>A filter that returns only artifacts created on or after the specified time.</p>
+   */
+  CreatedAfter?: Date;
+
+  /**
+   * <p>A filter that returns only artifacts created on or before the specified time.</p>
+   */
+  CreatedBefore?: Date;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
+   */
+  SortBy?: SortArtifactsBy | string;
+
+  /**
+   * <p>The sort order. The default value is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>If the previous call to <code>ListArtifacts</code> didn't return the full set of artifacts,
+   *         the call returns a token for getting the next set of artifacts.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of artifacts to return in the response. The default value is 10.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListArtifactsRequest {
+  export const filterSensitiveLog = (obj: ListArtifactsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListArtifactsResponse {
+  /**
+   * <p>A list of artifacts and their properties.</p>
+   */
+  ArtifactSummaries?: ArtifactSummary[];
+
+  /**
+   * <p>A token for getting the next set of artifacts, if there are any.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListArtifactsResponse {
+  export const filterSensitiveLog = (obj: ListArtifactsResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum SortAssociationsBy {
+  CREATION_TIME = "CreationTime",
+  DESTINATION_ARN = "DestinationArn",
+  DESTINATION_TYPE = "DestinationType",
+  SOURCE_ARN = "SourceArn",
+  SOURCE_TYPE = "SourceType",
+}
+
+export interface ListAssociationsRequest {
+  /**
+   * <p>A filter that returns only associations with the specified source ARN.</p>
+   */
+  SourceArn?: string;
+
+  /**
+   * <p>A filter that returns only associations with the specified destination Amazon Resource Name (ARN).</p>
+   */
+  DestinationArn?: string;
+
+  /**
+   * <p>A filter that returns only associations with the specified source type.</p>
+   */
+  SourceType?: string;
+
+  /**
+   * <p>A filter that returns only associations with the specified destination type.</p>
+   */
+  DestinationType?: string;
+
+  /**
+   * <p>A filter that returns only associations of the specified type.</p>
+   */
+  AssociationType?: AssociationEdgeType | string;
+
+  /**
+   * <p>A filter that returns only associations created on or after the specified time.</p>
+   */
+  CreatedAfter?: Date;
+
+  /**
+   * <p>A filter that returns only associations created on or before the specified time.</p>
+   */
+  CreatedBefore?: Date;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
+   */
+  SortBy?: SortAssociationsBy | string;
+
+  /**
+   * <p>The sort order. The default value is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>If the previous call to <code>ListAssociations</code> didn't return the full set of associations,
+   *         the call returns a token for getting the next set of associations.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of associations to return in the response. The default value is 10.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListAssociationsRequest {
+  export const filterSensitiveLog = (obj: ListAssociationsRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface ListAssociationsResponse {
   /**
@@ -551,6 +2581,245 @@ export namespace ListContextsResponse {
   });
 }
 
+export enum MonitoringJobDefinitionSortKey {
+  CREATION_TIME = "CreationTime",
+  NAME = "Name",
+}
+
+export interface ListDataQualityJobDefinitionsRequest {
+  /**
+   * <p>A filter that lists the data quality job definitions associated with the specified
+   *          endpoint.</p>
+   */
+  EndpointName?: string;
+
+  /**
+   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: MonitoringJobDefinitionSortKey | string;
+
+  /**
+   * <p>The sort order for results. The default is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>If the result of the previous <code>ListDataQualityJobDefinitions</code> request was
+   *          truncated, the response includes a <code>NextToken</code>. To retrieve the next set of
+   *          transform jobs, use the token in the next request.></p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of data quality monitoring job definitions to return in the
+   *          response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A string in the data quality monitoring job definition name. This filter returns only
+   *          data quality monitoring job definitions whose name contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that returns only data quality monitoring job definitions created before the
+   *          specified time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only data quality monitoring job definitions created after the
+   *          specified time.</p>
+   */
+  CreationTimeAfter?: Date;
+}
+
+export namespace ListDataQualityJobDefinitionsRequest {
+  export const filterSensitiveLog = (obj: ListDataQualityJobDefinitionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Summary information about a monitoring job.</p>
+ */
+export interface MonitoringJobDefinitionSummary {
+  /**
+   * <p>The name of the monitoring job.</p>
+   */
+  MonitoringJobDefinitionName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the monitoring job.</p>
+   */
+  MonitoringJobDefinitionArn: string | undefined;
+
+  /**
+   * <p>The time that the monitoring job was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The name of the endpoint that the job monitors.</p>
+   */
+  EndpointName: string | undefined;
+}
+
+export namespace MonitoringJobDefinitionSummary {
+  export const filterSensitiveLog = (obj: MonitoringJobDefinitionSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDataQualityJobDefinitionsResponse {
+  /**
+   * <p>A list of data quality monitoring job definitions.</p>
+   */
+  JobDefinitionSummaries: MonitoringJobDefinitionSummary[] | undefined;
+
+  /**
+   * <p>If the result of the previous <code>ListDataQualityJobDefinitions</code> request was
+   *          truncated, the response includes a <code>NextToken</code>. To retrieve the next set of data
+   *          quality monitoring job definitions, use the token in the next request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListDataQualityJobDefinitionsResponse {
+  export const filterSensitiveLog = (obj: ListDataQualityJobDefinitionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum ListDeviceFleetsSortBy {
+  CreationTime = "CREATION_TIME",
+  LastModifiedTime = "LAST_MODIFIED_TIME",
+  Name = "NAME",
+}
+
+export interface ListDeviceFleetsRequest {
+  /**
+   * <p>The response from the last list when returning a list large enough to need tokening.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to select.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Filter fleets where packaging job was created after specified time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>Filter fleets where the edge packaging job was created before specified time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>Select fleets where the job was updated after X</p>
+   */
+  LastModifiedTimeAfter?: Date;
+
+  /**
+   * <p>Select fleets where the job was updated before X</p>
+   */
+  LastModifiedTimeBefore?: Date;
+
+  /**
+   * <p>Filter for fleets containing this name in their fleet device name.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>The column to sort by.</p>
+   */
+  SortBy?: ListDeviceFleetsSortBy | string;
+
+  /**
+   * <p>What direction to sort in.</p>
+   */
+  SortOrder?: SortOrder | string;
+}
+
+export namespace ListDeviceFleetsRequest {
+  export const filterSensitiveLog = (obj: ListDeviceFleetsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDeviceFleetsResponse {
+  /**
+   * <p>Summary of the device fleet.</p>
+   */
+  DeviceFleetSummaries: DeviceFleetSummary[] | undefined;
+
+  /**
+   * <p>The response from the last list when returning a list large enough to need tokening.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListDeviceFleetsResponse {
+  export const filterSensitiveLog = (obj: ListDeviceFleetsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDevicesRequest {
+  /**
+   * <p>The response from the last list when returning a list large enough to need tokening.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Maximum number of results to select.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Select fleets where the job was updated after X</p>
+   */
+  LatestHeartbeatAfter?: Date;
+
+  /**
+   * <p>A filter that searches devices that contains this name in any of their models.</p>
+   */
+  ModelName?: string;
+
+  /**
+   * <p>Filter for fleets containing this name in their device fleet name.</p>
+   */
+  DeviceFleetName?: string;
+}
+
+export namespace ListDevicesRequest {
+  export const filterSensitiveLog = (obj: ListDevicesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDevicesResponse {
+  /**
+   * <p>Summary of devices.</p>
+   */
+  DeviceSummaries: DeviceSummary[] | undefined;
+
+  /**
+   * <p>The response from the last list when returning a list large enough to need tokening.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListDevicesResponse {
+  export const filterSensitiveLog = (obj: ListDevicesResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListDomainsRequest {
   /**
    * <p>If the previous response was truncated, you will receive this token.
@@ -585,6 +2854,95 @@ export interface ListDomainsResponse {
 
 export namespace ListDomainsResponse {
   export const filterSensitiveLog = (obj: ListDomainsResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum ListEdgePackagingJobsSortBy {
+  CreationTime = "CREATION_TIME",
+  EdgePackagingJobStatus = "STATUS",
+  LastModifiedTime = "LAST_MODIFIED_TIME",
+  ModelName = "MODEL_NAME",
+  Name = "NAME",
+}
+
+export interface ListEdgePackagingJobsRequest {
+  /**
+   * <p>The response from the last list when returning a list large enough to need tokening.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Maximum number of results to select.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Select jobs where the job was created after specified time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>Select jobs where the job was created before specified time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>Select jobs where the job was updated after specified time.</p>
+   */
+  LastModifiedTimeAfter?: Date;
+
+  /**
+   * <p>Select jobs where the job was updated before specified time.</p>
+   */
+  LastModifiedTimeBefore?: Date;
+
+  /**
+   * <p>Filter for jobs containing this name in their packaging job name.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>Filter for jobs where the model name contains this string.</p>
+   */
+  ModelNameContains?: string;
+
+  /**
+   * <p>The job status to filter for.</p>
+   */
+  StatusEquals?: EdgePackagingJobStatus | string;
+
+  /**
+   * <p>Use to specify what column to sort by.</p>
+   */
+  SortBy?: ListEdgePackagingJobsSortBy | string;
+
+  /**
+   * <p>What direction to sort by.</p>
+   */
+  SortOrder?: SortOrder | string;
+}
+
+export namespace ListEdgePackagingJobsRequest {
+  export const filterSensitiveLog = (obj: ListEdgePackagingJobsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListEdgePackagingJobsResponse {
+  /**
+   * <p>Summaries of edge packaging jobs.</p>
+   */
+  EdgePackagingJobSummaries: EdgePackagingJobSummary[] | undefined;
+
+  /**
+   * <p>Token to use when calling the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListEdgePackagingJobsResponse {
+  export const filterSensitiveLog = (obj: ListEdgePackagingJobsResponse): any => ({
     ...obj,
   });
 }
@@ -1395,6 +3753,149 @@ export namespace ListLabelingJobsForWorkteamResponse {
   });
 }
 
+export interface ListModelBiasJobDefinitionsRequest {
+  /**
+   * <p>Name of the endpoint to monitor for model bias.</p>
+   */
+  EndpointName?: string;
+
+  /**
+   * <p>Whether to sort results by the <code>Name</code> or <code>CreationTime</code> field. The
+   *          default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: MonitoringJobDefinitionSortKey | string;
+
+  /**
+   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
+   *          The default is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>The token returned if the response is truncated. To retrieve the next set of job
+   *          executions, use it in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of model bias jobs to return in the response. The default value is
+   *          10.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Filter for model bias jobs whose name contains a specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that returns only model bias jobs created before a specified time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only model bias jobs created after a specified time.</p>
+   */
+  CreationTimeAfter?: Date;
+}
+
+export namespace ListModelBiasJobDefinitionsRequest {
+  export const filterSensitiveLog = (obj: ListModelBiasJobDefinitionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListModelBiasJobDefinitionsResponse {
+  /**
+   * <p>A JSON array in which each element is a summary for a model bias jobs.</p>
+   */
+  JobDefinitionSummaries: MonitoringJobDefinitionSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of jobs,
+   *          use it in the subsequent request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListModelBiasJobDefinitionsResponse {
+  export const filterSensitiveLog = (obj: ListModelBiasJobDefinitionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListModelExplainabilityJobDefinitionsRequest {
+  /**
+   * <p>Name of the endpoint to monitor for model explainability.</p>
+   */
+  EndpointName?: string;
+
+  /**
+   * <p>Whether to sort results by the <code>Name</code> or <code>CreationTime</code> field. The
+   *          default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: MonitoringJobDefinitionSortKey | string;
+
+  /**
+   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
+   *          The default is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>The token returned if the response is truncated. To retrieve the next set of job
+   *          executions, use it in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of jobs to return in the response. The default value is 10.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Filter for model explainability jobs whose name contains a specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that returns only model explainability jobs created before a specified
+   *          time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only model explainability jobs created after a specified
+   *          time.</p>
+   */
+  CreationTimeAfter?: Date;
+}
+
+export namespace ListModelExplainabilityJobDefinitionsRequest {
+  export const filterSensitiveLog = (obj: ListModelExplainabilityJobDefinitionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListModelExplainabilityJobDefinitionsResponse {
+  /**
+   * <p>A JSON array in which each element is a summary for a explainability bias jobs.</p>
+   */
+  JobDefinitionSummaries: MonitoringJobDefinitionSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of jobs,
+   *          use it in the subsequent request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListModelExplainabilityJobDefinitionsResponse {
+  export const filterSensitiveLog = (obj: ListModelExplainabilityJobDefinitionsResponse): any => ({
+    ...obj,
+  });
+}
+
 export enum ModelPackageGroupSortBy {
   CREATION_TIME = "CreationTime",
   NAME = "Name",
@@ -1679,6 +4180,80 @@ export namespace ListModelPackagesOutput {
   });
 }
 
+export interface ListModelQualityJobDefinitionsRequest {
+  /**
+   * <p>A filter that returns only model quality monitoring job definitions that are associated
+   *          with the specified endpoint.</p>
+   */
+  EndpointName?: string;
+
+  /**
+   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: MonitoringJobDefinitionSortKey | string;
+
+  /**
+   * <p>The sort order for results. The default is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>If the result of the previous <code>ListModelQualityJobDefinitions</code> request was
+   *          truncated, the response includes a <code>NextToken</code>. To retrieve the next set of
+   *          model quality monitoring job definitions, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in a call to
+   *             <code>ListModelQualityJobDefinitions</code>.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A string in the transform job name. This filter returns only model quality monitoring
+   *          job definitions whose name contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that returns only model quality monitoring job definitions created before the
+   *          specified time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only model quality monitoring job definitions created after the
+   *          specified time.</p>
+   */
+  CreationTimeAfter?: Date;
+}
+
+export namespace ListModelQualityJobDefinitionsRequest {
+  export const filterSensitiveLog = (obj: ListModelQualityJobDefinitionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListModelQualityJobDefinitionsResponse {
+  /**
+   * <p>A list of summaries of model quality monitoring job definitions.</p>
+   */
+  JobDefinitionSummaries: MonitoringJobDefinitionSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of model
+   *          quality monitoring job definitions, use it in the next request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListModelQualityJobDefinitionsResponse {
+  export const filterSensitiveLog = (obj: ListModelQualityJobDefinitionsResponse): any => ({
+    ...obj,
+  });
+}
+
 export enum ModelSortKey {
   CreationTime = "CreationTime",
   Name = "Name",
@@ -1852,6 +4427,18 @@ export interface ListMonitoringExecutionsRequest {
    * <p>A filter that retrieves only jobs with a specific status.</p>
    */
   StatusEquals?: ExecutionStatus | string;
+
+  /**
+   * <p>Gets a list of the monitoring job runs of the specified monitoring job
+   *          definitions.</p>
+   */
+  MonitoringJobDefinitionName?: string;
+
+  /**
+   * <p>A filter that returns only the monitoring job runs of the specified monitoring
+   *          type.</p>
+   */
+  MonitoringTypeEquals?: MonitoringType | string;
 }
 
 export namespace ListMonitoringExecutionsRequest {
@@ -1943,6 +4530,18 @@ export interface ListMonitoringSchedulesRequest {
    * <p>A filter that returns only monitoring schedules modified before a specified time.</p>
    */
   StatusEquals?: ScheduleStatus | string;
+
+  /**
+   * <p>Gets a list of the monitoring schedules for the specified monitoring job
+   *          definition.</p>
+   */
+  MonitoringJobDefinitionName?: string;
+
+  /**
+   * <p>A filter that returns only the monitoring schedules for the specified monitoring
+   *          type.</p>
+   */
+  MonitoringTypeEquals?: MonitoringType | string;
 }
 
 export namespace ListMonitoringSchedulesRequest {
@@ -1984,6 +4583,16 @@ export interface MonitoringScheduleSummary {
    * <p>The name of the endpoint using the monitoring schedule.</p>
    */
   EndpointName?: string;
+
+  /**
+   * <p>The name of the monitoring job definition that the schedule is for.</p>
+   */
+  MonitoringJobDefinitionName?: string;
+
+  /**
+   * <p>The type of the monitoring job definition that the schedule is for.</p>
+   */
+  MonitoringType?: MonitoringType | string;
 }
 
 export namespace MonitoringScheduleSummary {
@@ -2000,7 +4609,7 @@ export interface ListMonitoringSchedulesResponse {
 
   /**
    * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of jobs,
-   *          use it in the subsequent reques</p>
+   *          use it in the subsequent request.</p>
    */
   NextToken?: string;
 }
@@ -3453,10 +6062,7 @@ export interface ListTransformJobsRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of
-   *             transform
-   *             jobs to return in the response. The default value is
-   *             <code>10</code>.</p>
+   * <p>The maximum number of transform jobs to return in the response. The default value is <code>10</code>.</p>
    */
   MaxResults?: number;
 }
@@ -4618,6 +7224,44 @@ export namespace ProcessingJob {
   });
 }
 
+/**
+ * <p>Configuration information for updating the Debugger profile parameters, system and framework metrics configurations, and
+ *             storage paths.</p>
+ */
+export interface ProfilerConfigForUpdate {
+  /**
+   * <p>Path to Amazon S3 storage location for system and framework metrics.</p>
+   */
+  S3OutputPath?: string;
+
+  /**
+   * <p>A time interval for capturing system metrics in milliseconds. Available values are
+   *             100, 200, 500, 1000 (1 second), 5000 (5 seconds), and 60000 (1 minute) milliseconds. The default value is 500 milliseconds.</p>
+   */
+  ProfilingIntervalInMilliseconds?: number;
+
+  /**
+   * <p>Configuration information for capturing framework metrics. Available key strings for different profiling options are
+   *             <code>DetailedProfilingConfig</code>, <code>PythonProfilingConfig</code>, and <code>DataLoaderProfilingConfig</code>.
+   *             The following codes are configuration structures for the <code>ProfilingParameters</code> parameter. To learn more about
+   *             how to configure the <code>ProfilingParameters</code> parameter,
+   *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>.
+   *         </p>
+   */
+  ProfilingParameters?: { [key: string]: string };
+
+  /**
+   * <p>To disable Debugger monitoring and profiling, set to <code>True</code>.</p>
+   */
+  DisableProfiler?: boolean;
+}
+
+export namespace ProfilerConfigForUpdate {
+  export const filterSensitiveLog = (obj: ProfilerConfigForUpdate): any => ({
+    ...obj,
+  });
+}
+
 export interface PutModelPackageGroupPolicyInput {
   /**
    * <p>The name of the model group to add a resource policy to.</p>
@@ -4645,6 +7289,29 @@ export interface PutModelPackageGroupPolicyOutput {
 
 export namespace PutModelPackageGroupPolicyOutput {
   export const filterSensitiveLog = (obj: PutModelPackageGroupPolicyOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface RegisterDevicesRequest {
+  /**
+   * <p>The name of the fleet.</p>
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>A list of devices to register with SageMaker Edge Manager.</p>
+   */
+  Devices: Device[] | undefined;
+
+  /**
+   * <p>The tags associated with devices.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace RegisterDevicesRequest {
+  export const filterSensitiveLog = (obj: RegisterDevicesRequest): any => ({
     ...obj,
   });
 }
@@ -5048,8 +7715,10 @@ export interface TrainingJob {
   BillableTimeInSeconds?: number;
 
   /**
-   * <p>Configuration information for the debug hook parameters, collection configuration, and
-   *             storage paths.</p>
+   * <p>Configuration information for the Debugger hook parameters, metric and tensor collections, and
+   *             storage paths. To learn more about
+   *             how to configure the <code>DebugHookConfig</code> parameter,
+   *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>.</p>
    */
   DebugHookConfig?: DebugHookConfig;
 
@@ -5082,7 +7751,7 @@ export interface TrainingJob {
   DebugRuleConfigurations?: DebugRuleConfiguration[];
 
   /**
-   * <p>Configuration of storage locations for TensorBoard output.</p>
+   * <p>Configuration of storage locations for the Debugger TensorBoard output data.</p>
    */
   TensorBoardOutputConfig?: TensorBoardOutputConfig;
 
@@ -5741,6 +8410,19 @@ export namespace StopCompilationJobRequest {
   });
 }
 
+export interface StopEdgePackagingJobRequest {
+  /**
+   * <p>The name of the edge packaging job.</p>
+   */
+  EdgePackagingJobName: string | undefined;
+}
+
+export namespace StopEdgePackagingJobRequest {
+  export const filterSensitiveLog = (obj: StopEdgePackagingJobRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface StopHyperParameterTuningJobRequest {
   /**
    * <p>The name of the tuning job to stop.</p>
@@ -6057,6 +8739,52 @@ export interface UpdateContextResponse {
 
 export namespace UpdateContextResponse {
   export const filterSensitiveLog = (obj: UpdateContextResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDeviceFleetRequest {
+  /**
+   * <p>The name of the fleet.</p>
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the device.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>Description of the fleet.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Output configuration  for storing sample data collected by the fleet.</p>
+   */
+  OutputConfig: EdgeOutputConfig | undefined;
+}
+
+export namespace UpdateDeviceFleetRequest {
+  export const filterSensitiveLog = (obj: UpdateDeviceFleetRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDevicesRequest {
+  /**
+   * <p>The name of the fleet the devices belong to.</p>
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>List of devices to register with Edge Manager agent.</p>
+   */
+  Devices: Device[] | undefined;
+}
+
+export namespace UpdateDevicesRequest {
+  export const filterSensitiveLog = (obj: UpdateDevicesRequest): any => ({
     ...obj,
   });
 }
@@ -6614,6 +9342,44 @@ export namespace UpdatePipelineExecutionResponse {
   });
 }
 
+export interface UpdateTrainingJobRequest {
+  /**
+   * <p>The name of a training job to update the Debugger profiling configuration.</p>
+   */
+  TrainingJobName: string | undefined;
+
+  /**
+   * <p>Configuration information for Debugger system monitoring, framework profiling, and
+   *             storage paths.</p>
+   */
+  ProfilerConfig?: ProfilerConfigForUpdate;
+
+  /**
+   * <p>Configuration information for Debugger rules for profiling system and framework
+   *             metrics.</p>
+   */
+  ProfilerRuleConfigurations?: ProfilerRuleConfiguration[];
+}
+
+export namespace UpdateTrainingJobRequest {
+  export const filterSensitiveLog = (obj: UpdateTrainingJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateTrainingJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the training job.</p>
+   */
+  TrainingJobArn: string | undefined;
+}
+
+export namespace UpdateTrainingJobResponse {
+  export const filterSensitiveLog = (obj: UpdateTrainingJobResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateTrialRequest {
   /**
    * <p>The name of the trial to update.</p>
@@ -6868,112 +9634,6 @@ export interface UpdateWorkteamResponse {
 
 export namespace UpdateWorkteamResponse {
   export const filterSensitiveLog = (obj: UpdateWorkteamResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A multi-expression that searches for the specified resource or resources in a search. All resource
- *       objects that satisfy the expression's condition are included in the search results. You must specify at
- *       least one subexpression, filter, or nested filter. A <code>SearchExpression</code> can contain up to
- *       twenty elements.</p>
- *          <p>A <code>SearchExpression</code> contains the following components:</p>
- *          <ul>
- *             <li>
- *                <p>A list of <code>Filter</code> objects. Each filter defines a simple Boolean
- *           expression comprised of a resource property name, Boolean operator, and
- *           value.</p>
- *             </li>
- *             <li>
- *                <p>A list of <code>NestedFilter</code> objects. Each nested filter defines a list
- *           of Boolean expressions using a list of resource properties. A nested filter is
- *           satisfied if a single object in the list satisfies all Boolean
- *           expressions.</p>
- *             </li>
- *             <li>
- *                <p>A list of <code>SearchExpression</code> objects. A search expression object
- *           can be nested in a list of search expression objects.</p>
- *             </li>
- *             <li>
- *                <p>A Boolean operator: <code>And</code> or <code>Or</code>.</p>
- *             </li>
- *          </ul>
- */
-export interface SearchExpression {
-  /**
-   * <p>A list of filter objects.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>A list of nested filter objects.</p>
-   */
-  NestedFilters?: NestedFilters[];
-
-  /**
-   * <p>A list of search expression objects.</p>
-   */
-  SubExpressions?: SearchExpression[];
-
-  /**
-   * <p>A Boolean operator used to evaluate the search expression. If you want every
-   *       conditional statement in all lists to be satisfied for the entire search expression to
-   *       be true, specify <code>And</code>. If only a single conditional statement needs to be
-   *       true for the entire search expression to be true, specify <code>Or</code>. The default
-   *       value is <code>And</code>.</p>
-   */
-  Operator?: BooleanOperator | string;
-}
-
-export namespace SearchExpression {
-  export const filterSensitiveLog = (obj: SearchExpression): any => ({
-    ...obj,
-  });
-}
-
-export interface SearchRequest {
-  /**
-   * <p>The name of the Amazon SageMaker resource to search for.</p>
-   */
-  Resource: ResourceType | string | undefined;
-
-  /**
-   * <p>A Boolean conditional statement. Resources must satisfy this condition to be
-   *       included in search results. You must provide at least one subexpression, filter, or
-   *       nested filter. The maximum number of recursive <code>SubExpressions</code>,
-   *       <code>NestedFilters</code>, and <code>Filters</code> that can be included in a
-   *       <code>SearchExpression</code> object is 50.</p>
-   */
-  SearchExpression?: SearchExpression;
-
-  /**
-   * <p>The name of the resource property used to sort the <code>SearchResults</code>. The
-   *       default is <code>LastModifiedTime</code>.</p>
-   */
-  SortBy?: string;
-
-  /**
-   * <p>How <code>SearchResults</code> are ordered. Valid values are <code>Ascending</code> or
-   *       <code>Descending</code>. The default is <code>Descending</code>.</p>
-   */
-  SortOrder?: SearchSortOrder | string;
-
-  /**
-   * <p>If more than <code>MaxResults</code> resources match the specified
-   *       <code>SearchExpression</code>, the response includes a
-   *       <code>NextToken</code>. The <code>NextToken</code> can be passed to the next
-   *       <code>SearchRequest</code> to continue retrieving results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace SearchRequest {
-  export const filterSensitiveLog = (obj: SearchRequest): any => ({
     ...obj,
   });
 }

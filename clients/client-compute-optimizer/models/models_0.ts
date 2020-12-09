@@ -21,16 +21,6 @@ export namespace AccessDeniedException {
  */
 export interface AutoScalingGroupConfiguration {
   /**
-   * <p>The instance type for the Auto Scaling group.</p>
-   */
-  instanceType?: string;
-
-  /**
-   * <p>The maximum size, or maximum number of instances, for the Auto Scaling group.</p>
-   */
-  maxSize?: number;
-
-  /**
    * <p>The desired capacity, or number of instances, for the Auto Scaling group.</p>
    */
   desiredCapacity?: number;
@@ -39,6 +29,16 @@ export interface AutoScalingGroupConfiguration {
    * <p>The minimum size, or minimum number of instances, for the Auto Scaling group.</p>
    */
   minSize?: number;
+
+  /**
+   * <p>The maximum size, or maximum number of instances, for the Auto Scaling group.</p>
+   */
+  maxSize?: number;
+
+  /**
+   * <p>The instance type for the Auto Scaling group.</p>
+   */
+  instanceType?: string;
 }
 
 export namespace AutoScalingGroupConfiguration {
@@ -70,26 +70,90 @@ export enum MetricStatistic {
 
 /**
  * <p>Describes a utilization metric of a resource, such as an Amazon EC2 instance.</p>
+ *
+ *         <p>Compare the utilization metric data of your resource against its projected utilization
+ *             metric data to determine the performance difference between your current resource and
+ *             the recommended option.</p>
  */
 export interface UtilizationMetric {
   /**
    * <p>The name of the utilization metric.</p>
-   *         <note>
-   *             <p>The <code>Memory</code> metric is returned only for resources that have the
-   *                 unified CloudWatch agent installed on them. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent">Enabling Memory Utilization with the CloudWatch Agent</a>.</p>
-   *         </note>
+   *         <p>The following utilization metrics are available:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>Cpu</code> - The percentage of allocated EC2 compute units that are
+   *                     currently in use on the instance. This metric identifies the processing power
+   *                     required to run an application on the instance.</p>
+   *                 <p>Depending on the instance type, tools in your operating system can show a
+   *                     lower percentage than CloudWatch when the instance is not allocated a full
+   *                     processor core.</p>
+   *                 <p>Units: Percent</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Memory</code> - The percentage of memory that is currently in use on the
+   *                     instance. This metric identifies the amount of memory required to run an
+   *                     application on the instance.</p>
+   *                 <p>Units: Percent</p>
+   *                 <note>
+   *                     <p>The <code>Memory</code> metric is returned only for resources that have
+   *                         the unified CloudWatch agent installed on them. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent">Enabling Memory
+   *                             Utilization with the CloudWatch Agent</a>.</p>
+   *                 </note>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>EBS_READ_OPS_PER_SECOND</code> - The completed read operations from all
+   *                     EBS volumes attached to the instance in a specified period of time.</p>
+   *                 <p>Unit: Count</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>EBS_WRITE_OPS_PER_SECOND</code> - The completed write operations to all
+   *                     EBS volumes attached to the instance in a specified period of time.</p>
+   *                 <p>Unit: Count</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>EBS_READ_BYTES_PER_SECOND</code> - The bytes read from all EBS volumes
+   *                     attached to the instance in a specified period of time.</p>
+   *                 <p>Unit: Bytes</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>EBS_WRITE_BYTES_PER_SECOND</code> - The bytes written to all EBS volumes
+   *                     attached to the instance in a specified period of time.</p>
+   *                 <p>Unit: Bytes</p>
+   *             </li>
+   *          </ul>
    */
   name?: MetricName | string;
+
+  /**
+   * <p>The statistic of the utilization metric.</p>
+   *         <p>The following statistics are available:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>Average</code> - This is the value of Sum / SampleCount during the
+   *                     specified period, or the average value observed during the specified
+   *                     period.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Maximum</code> - The highest value observed during the specified period.
+   *                     Use this value to determine high volumes of activity for your
+   *                     application.</p>
+   *             </li>
+   *          </ul>
+   */
+  statistic?: MetricStatistic | string;
 
   /**
    * <p>The value of the utilization metric.</p>
    */
   value?: number;
-
-  /**
-   * <p>The statistic of the utilization metric.</p>
-   */
-  statistic?: MetricStatistic | string;
 }
 
 export namespace UtilizationMetric {
@@ -103,6 +167,11 @@ export namespace UtilizationMetric {
  */
 export interface AutoScalingGroupRecommendationOption {
   /**
+   * <p>An array of objects that describe an Auto Scaling group configuration.</p>
+   */
+  configuration?: AutoScalingGroupConfiguration;
+
+  /**
    * <p>An array of objects that describe the projected utilization metrics of the Auto Scaling group
    *             recommendation option.</p>
    *
@@ -115,11 +184,6 @@ export interface AutoScalingGroupRecommendationOption {
    *         </note>
    */
   projectedUtilizationMetrics?: UtilizationMetric[];
-
-  /**
-   * <p>An array of objects that describe an Auto Scaling group configuration.</p>
-   */
-  configuration?: AutoScalingGroupConfiguration;
 
   /**
    * <p>The performance risk of the Auto Scaling group configuration recommendation.</p>
@@ -148,6 +212,21 @@ export namespace AutoScalingGroupRecommendationOption {
  */
 export interface AutoScalingGroupRecommendation {
   /**
+   * <p>The AWS account ID of the Auto Scaling group.</p>
+   */
+  accountId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Auto Scaling group.</p>
+   */
+  autoScalingGroupArn?: string;
+
+  /**
+   * <p>The name of the Auto Scaling group.</p>
+   */
+  autoScalingGroupName?: string;
+
+  /**
    * <p>The finding classification for the Auto Scaling group.</p>
    *         <p>Findings for Auto Scaling groups include:</p>
    *         <ul>
@@ -169,38 +248,13 @@ export interface AutoScalingGroupRecommendation {
    *                     optimized resources, Compute Optimizer might recommend a new generation instance type.</p>
    *             </li>
    *          </ul>
-   *         <note>
-   *             <p>The values that are returned might be <code>NOT_OPTIMIZED</code> or
-   *                     <code>OPTIMIZED</code>.</p>
-   *         </note>
    */
   finding?: Finding | string;
 
   /**
-   * <p>The name of the Auto Scaling group.</p>
+   * <p>An array of objects that describe the utilization metrics of the Auto Scaling group.</p>
    */
-  autoScalingGroupName?: string;
-
-  /**
-   * <p>An array of objects that describe the recommendation options for the Auto Scaling
-   *             group.</p>
-   */
-  recommendationOptions?: AutoScalingGroupRecommendationOption[];
-
-  /**
-   * <p>An array of objects that describe the current configuration of the Auto Scaling group.</p>
-   */
-  currentConfiguration?: AutoScalingGroupConfiguration;
-
-  /**
-   * <p>The AWS account ID of the Auto Scaling group.</p>
-   */
-  accountId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Auto Scaling group.</p>
-   */
-  autoScalingGroupArn?: string;
+  utilizationMetrics?: UtilizationMetric[];
 
   /**
    * <p>The number of days for which utilization metrics were analyzed for the Auto Scaling
@@ -209,9 +263,15 @@ export interface AutoScalingGroupRecommendation {
   lookBackPeriodInDays?: number;
 
   /**
-   * <p>An array of objects that describe the utilization metrics of the Auto Scaling group.</p>
+   * <p>An array of objects that describe the current configuration of the Auto Scaling group.</p>
    */
-  utilizationMetrics?: UtilizationMetric[];
+  currentConfiguration?: AutoScalingGroupConfiguration;
+
+  /**
+   * <p>An array of objects that describe the recommendation options for the Auto Scaling
+   *             group.</p>
+   */
+  recommendationOptions?: AutoScalingGroupRecommendationOption[];
 
   /**
    * <p>The time stamp of when the Auto Scaling group recommendation was last refreshed.</p>
@@ -233,14 +293,17 @@ export enum JobFilterName {
 /**
  * <p>Describes a filter that returns a more specific list of recommendation export
  *             jobs.</p>
+ *
  *         <p>This filter is used with the <code>DescribeRecommendationExportJobs</code>
  *             action.</p>
  */
 export interface JobFilter {
   /**
    * <p>The name of the filter.</p>
+   *
    *         <p>Specify <code>ResourceType</code> to return export jobs of a specific resource type
    *             (e.g., <code>Ec2Instance</code>).</p>
+   *
    *         <p>Specify <code>JobStatus</code> to return export jobs with a specific status (e.g,
    *                 <code>Complete</code>).</p>
    */
@@ -248,11 +311,23 @@ export interface JobFilter {
 
   /**
    * <p>The value of the filter.</p>
-   *         <p>If you specify the <code>name</code> parameter as <code>ResourceType</code>, the valid
-   *             values are <code>Ec2Instance</code> or <code>AutoScalingGroup</code>.</p>
-   *         <p>If you specify the <code>name</code> parameter as <code>JobStatus</code>, the valid
-   *             values are <code>Queued</code>, <code>InProgress</code>, <code>Complete</code>, or
-   *                 <code>Failed</code>.</p>
+   *
+   *         <p>The valid values for this parameter are as follows, depending on what you specify for
+   *             the <code>name</code> parameter:</p>
+   *
+   *         <ul>
+   *             <li>
+   *                 <p>Specify <code>Ec2Instance</code> or <code>AutoScalingGroup</code> if you
+   *                     specified the <code>name</code> parameter as <code>ResourceType</code>. There is
+   *                     no filter for EBS volumes because volume recommendations cannot be exported at
+   *                     this time.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Specify <code>Queued</code>, <code>InProgress</code>, <code>Complete</code>,
+   *                     or <code>Failed</code> if you specified the <code>name</code> parameter as
+   *                         <code>JobStatus</code>.</p>
+   *             </li>
+   *          </ul>
    */
   values?: string[];
 }
@@ -264,19 +339,6 @@ export namespace JobFilter {
 }
 
 export interface DescribeRecommendationExportJobsRequest {
-  /**
-   * <p>An array of objects that describe a filter to return a more specific list of export
-   *             jobs.</p>
-   */
-  filters?: JobFilter[];
-
-  /**
-   * <p>The maximum number of export jobs to return with a single request.</p>
-   *         <p>To retrieve the remaining results, make another request with the returned
-   *                 <code>NextToken</code> value.</p>
-   */
-  maxResults?: number;
-
   /**
    * <p>The identification numbers of the export jobs to return.</p>
    *
@@ -290,9 +352,22 @@ export interface DescribeRecommendationExportJobsRequest {
   jobIds?: string[];
 
   /**
+   * <p>An array of objects that describe a filter to return a more specific list of export
+   *             jobs.</p>
+   */
+  filters?: JobFilter[];
+
+  /**
    * <p>The token to advance to the next page of export jobs.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum number of export jobs to return with a single request.</p>
+   *         <p>To retrieve the remaining results, make another request with the returned
+   *                 <code>NextToken</code> value.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace DescribeRecommendationExportJobsRequest {
@@ -307,10 +382,9 @@ export namespace DescribeRecommendationExportJobsRequest {
  */
 export interface S3Destination {
   /**
-   * <p>The Amazon S3 bucket key of a metadata file.</p>
-   *         <p>The key uniquely identifies the object, or metadata file, in the S3 bucket.</p>
+   * <p>The name of the Amazon S3 bucket used as the destination of an export file.</p>
    */
-  metadataKey?: string;
+  bucket?: string;
 
   /**
    * <p>The Amazon S3 bucket key of an export file.</p>
@@ -319,9 +393,10 @@ export interface S3Destination {
   key?: string;
 
   /**
-   * <p>The name of the Amazon S3 bucket used as the destination of an export file.</p>
+   * <p>The Amazon S3 bucket key of a metadata file.</p>
+   *         <p>The key uniquely identifies the object, or metadata file, in the S3 bucket.</p>
    */
-  bucket?: string;
+  metadataKey?: string;
 }
 
 export namespace S3Destination {
@@ -373,19 +448,14 @@ export enum JobStatus {
  */
 export interface RecommendationExportJob {
   /**
+   * <p>The identification number of the export job.</p>
+   */
+  jobId?: string;
+
+  /**
    * <p>An object that describes the destination of the export file.</p>
    */
   destination?: ExportDestination;
-
-  /**
-   * <p>The timestamp of when the export job was created.</p>
-   */
-  creationTimestamp?: Date;
-
-  /**
-   * <p>The status of the export job.</p>
-   */
-  status?: JobStatus | string;
 
   /**
    * <p>The resource type of the exported recommendations.</p>
@@ -393,14 +463,19 @@ export interface RecommendationExportJob {
   resourceType?: ResourceType | string;
 
   /**
+   * <p>The status of the export job.</p>
+   */
+  status?: JobStatus | string;
+
+  /**
+   * <p>The timestamp of when the export job was created.</p>
+   */
+  creationTimestamp?: Date;
+
+  /**
    * <p>The timestamp of when the export job was last updated.</p>
    */
   lastUpdatedTimestamp?: Date;
-
-  /**
-   * <p>The identification number of the export job.</p>
-   */
-  jobId?: string;
 
   /**
    * <p>The reason for an export job failure.</p>
@@ -416,15 +491,15 @@ export namespace RecommendationExportJob {
 
 export interface DescribeRecommendationExportJobsResponse {
   /**
+   * <p>An array of objects that describe recommendation export jobs.</p>
+   */
+  recommendationExportJobs?: RecommendationExportJob[];
+
+  /**
    * <p>The token to use to advance to the next page of export jobs.</p>
    *         <p>This value is null when there are no more pages of export jobs to return.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>An array of objects that describe recommendation export jobs.</p>
-   */
-  recommendationExportJobs?: RecommendationExportJob[];
 }
 
 export namespace DescribeRecommendationExportJobsResponse {
@@ -590,31 +665,49 @@ export enum FilterName {
 
 /**
  * <p>Describes a filter that returns a more specific list of recommendations.</p>
+ *
+ *         <p>This filter is used with the <code>GetAutoScalingGroupRecommendations</code> and
+ *                 <code>GetEC2InstanceRecommendations</code> actions.</p>
  */
 export interface Filter {
   /**
-   * <p>The value of the filter.</p>
-   *         <p>If you specify the <code>name</code> parameter as <code>Finding</code>, and you
-   *             request recommendations for an <i>instance</i>, then the valid values are
-   *                 <code>Underprovisioned</code>, <code>Overprovisioned</code>,
-   *                 <code>NotOptimized</code>, or <code>Optimized</code>.</p>
-   *         <p>If you specify the <code>name</code> parameter as <code>Finding</code>, and you
-   *             request recommendations for an <i>Auto Scaling group</i>, then the valid values
-   *             are <code>Optimized</code>, or <code>NotOptimized</code>.</p>
-   *         <p>If you specify the <code>name</code> parameter as
-   *                 <code>RecommendationSourceType</code>, then the valid values are
-   *                 <code>Ec2Instance</code>, or <code>AutoScalingGroup</code>.</p>
-   */
-  values?: string[];
-
-  /**
    * <p>The name of the filter.</p>
-   *         <p>Specify <code>Finding</code> to return recommendations with a specific findings
+   *
+   *         <p>Specify <code>Finding</code> to return recommendations with a specific finding
    *             classification (e.g., <code>Overprovisioned</code>).</p>
+   *
    *         <p>Specify <code>RecommendationSourceType</code> to return recommendations of a specific
    *             resource type (e.g., <code>AutoScalingGroup</code>).</p>
    */
   name?: FilterName | string;
+
+  /**
+   * <p>The value of the filter.</p>
+   *
+   *         <p>The valid values for this parameter are as follows, depending on what you specify for
+   *             the <code>name</code> parameter and the resource type that you wish to filter results
+   *             for:</p>
+   *
+   *         <ul>
+   *             <li>
+   *                 <p>Specify <code>Optimized</code> or <code>NotOptimized</code> if you specified
+   *                     the <code>name</code> parameter as <code>Finding</code> and you want to filter
+   *                     results for Auto Scaling groups.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Specify <code>Underprovisioned</code>, <code>Overprovisioned</code>, or
+   *                         <code>Optimized</code> if you specified the <code>name</code> parameter as
+   *                         <code>Finding</code> and you want to filter results for EC2
+   *                     instances.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Specify <code>Ec2Instance</code> or <code>AutoScalingGroup</code> if you
+   *                     specified the <code>name</code> parameter as
+   *                         <code>RecommendationSourceType</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  values?: string[];
 }
 
 export namespace Filter {
@@ -636,14 +729,14 @@ export namespace Filter {
  */
 export interface S3DestinationConfig {
   /**
-   * <p>The Amazon S3 bucket prefix for an export job.</p>
-   */
-  keyPrefix?: string;
-
-  /**
    * <p>The name of the Amazon S3 bucket to use as the destination for an export job.</p>
    */
   bucket?: string;
+
+  /**
+   * <p>The Amazon S3 bucket prefix for an export job.</p>
+   */
+  keyPrefix?: string;
 }
 
 export namespace S3DestinationConfig {
@@ -654,36 +747,16 @@ export namespace S3DestinationConfig {
 
 export interface ExportAutoScalingGroupRecommendationsRequest {
   /**
-   * <p>An object to specify the destination Amazon Simple Storage Service (Amazon S3) bucket name and key prefix for
-   *             the export job.</p>
-   *         <p>You must create the destination Amazon S3 bucket for your recommendations export before you
-   *             create the export job. Compute Optimizer does not create the S3 bucket for you. After you create the
-   *             S3 bucket, ensure that it has the required permission policy to allow Compute Optimizer to write the
-   *             export file to it. If you plan to specify an object prefix when you create the export
-   *             job, you must include the object prefix in the policy that you add to the S3 bucket. For
-   *             more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/create-s3-bucket-policy-for-compute-optimizer.html">Amazon S3 Bucket Policy for Compute Optimizer</a> in the <i>Compute Optimizer user
-   *             guide</i>.</p>
-   */
-  s3DestinationConfig: S3DestinationConfig | undefined;
-
-  /**
-   * <p>Indicates whether to include recommendations for resources in all member accounts of
-   *             the organization if your account is the master account of an organization.</p>
-   *         <p>The member accounts must also be opted in to Compute Optimizer.</p>
-   *         <p>Recommendations for member accounts of the organization are not included in the export
-   *             file if this parameter is omitted.</p>
-   *         <p>This parameter cannot be specified together with the account IDs parameter. The
-   *             parameters are mutually exclusive.</p>
+   * <p>The IDs of the AWS accounts for which to export Auto Scaling group recommendations.</p>
+   *         <p>If your account is the management account of an organization, use this parameter to
+   *             specify the member accounts for which you want to export recommendations.</p>
+   *         <p>This parameter cannot be specified together with the include member accounts
+   *             parameter. The parameters are mutually exclusive.</p>
    *         <p>Recommendations for member accounts are not included in the export if this parameter,
-   *             or the account IDs parameter, is omitted.</p>
+   *             or the include member accounts parameter, is omitted.</p>
+   *         <p>You can specify multiple account IDs per request.</p>
    */
-  includeMemberAccounts?: boolean;
-
-  /**
-   * <p>The format of the export file.</p>
-   *         <p>The only export file format currently supported is <code>Csv</code>.</p>
-   */
-  fileFormat?: FileFormat | string;
+  accountIds?: string[];
 
   /**
    * <p>An array of objects that describe a filter to export a more specific set of Auto Scaling group
@@ -698,16 +771,36 @@ export interface ExportAutoScalingGroupRecommendationsRequest {
   fieldsToExport?: (ExportableAutoScalingGroupField | string)[];
 
   /**
-   * <p>The IDs of the AWS accounts for which to export Auto Scaling group recommendations.</p>
-   *         <p>If your account is the master account of an organization, use this parameter to
-   *             specify the member accounts for which you want to export recommendations.</p>
-   *         <p>This parameter cannot be specified together with the include member accounts
-   *             parameter. The parameters are mutually exclusive.</p>
-   *         <p>Recommendations for member accounts are not included in the export if this parameter,
-   *             or the include member accounts parameter, is omitted.</p>
-   *         <p>You can specify multiple account IDs per request.</p>
+   * <p>An object to specify the destination Amazon Simple Storage Service (Amazon S3) bucket name and key prefix for
+   *             the export job.</p>
+   *         <p>You must create the destination Amazon S3 bucket for your recommendations export before you
+   *             create the export job. Compute Optimizer does not create the S3 bucket for you. After you create the
+   *             S3 bucket, ensure that it has the required permission policy to allow Compute Optimizer to write the
+   *             export file to it. If you plan to specify an object prefix when you create the export
+   *             job, you must include the object prefix in the policy that you add to the S3 bucket. For
+   *             more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/create-s3-bucket-policy-for-compute-optimizer.html">Amazon S3 Bucket Policy for Compute Optimizer</a> in the <i>Compute Optimizer user
+   *             guide</i>.</p>
    */
-  accountIds?: string[];
+  s3DestinationConfig: S3DestinationConfig | undefined;
+
+  /**
+   * <p>The format of the export file.</p>
+   *         <p>The only export file format currently supported is <code>Csv</code>.</p>
+   */
+  fileFormat?: FileFormat | string;
+
+  /**
+   * <p>Indicates whether to include recommendations for resources in all member accounts of
+   *             the organization if your account is the management account of an organization.</p>
+   *         <p>The member accounts must also be opted in to Compute Optimizer.</p>
+   *         <p>Recommendations for member accounts of the organization are not included in the export
+   *             file if this parameter is omitted.</p>
+   *         <p>This parameter cannot be specified together with the account IDs parameter. The
+   *             parameters are mutually exclusive.</p>
+   *         <p>Recommendations for member accounts are not included in the export if this parameter,
+   *             or the account IDs parameter, is omitted.</p>
+   */
+  includeMemberAccounts?: boolean;
 }
 
 export namespace ExportAutoScalingGroupRecommendationsRequest {
@@ -718,17 +811,17 @@ export namespace ExportAutoScalingGroupRecommendationsRequest {
 
 export interface ExportAutoScalingGroupRecommendationsResponse {
   /**
-   * <p>An object that describes the destination Amazon S3 bucket of a recommendations export
-   *             file.</p>
-   */
-  s3Destination?: S3Destination;
-
-  /**
    * <p>The identification number of the export job.</p>
    *         <p>Use the <code>DescribeRecommendationExportJobs</code> action, and specify the job ID
    *             to view the status of an export job.</p>
    */
   jobId?: string;
+
+  /**
+   * <p>An object that describes the destination Amazon S3 bucket of a recommendations export
+   *             file.</p>
+   */
+  s3Destination?: S3Destination;
 }
 
 export namespace ExportAutoScalingGroupRecommendationsResponse {
@@ -790,44 +883,8 @@ export enum ExportableInstanceField {
 
 export interface ExportEC2InstanceRecommendationsRequest {
   /**
-   * <p>An object to specify the destination Amazon Simple Storage Service (Amazon S3) bucket name and key prefix for
-   *             the export job.</p>
-   *         <p>You must create the destination Amazon S3 bucket for your recommendations export before you
-   *             create the export job. Compute Optimizer does not create the S3 bucket for you. After you create the
-   *             S3 bucket, ensure that it has the required permission policy to allow Compute Optimizer to write the
-   *             export file to it. If you plan to specify an object prefix when you create the export
-   *             job, you must include the object prefix in the policy that you add to the S3 bucket. For
-   *             more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/create-s3-bucket-policy-for-compute-optimizer.html">Amazon S3 Bucket Policy for Compute Optimizer</a> in the <i>Compute Optimizer user
-   *             guide</i>.</p>
-   */
-  s3DestinationConfig: S3DestinationConfig | undefined;
-
-  /**
-   * <p>Indicates whether to include recommendations for resources in all member accounts of
-   *             the organization if your account is the master account of an organization.</p>
-   *         <p>The member accounts must also be opted in to Compute Optimizer.</p>
-   *         <p>Recommendations for member accounts of the organization are not included in the export
-   *             file if this parameter is omitted.</p>
-   *         <p>Recommendations for member accounts are not included in the export if this parameter,
-   *             or the account IDs parameter, is omitted.</p>
-   */
-  includeMemberAccounts?: boolean;
-
-  /**
-   * <p>The format of the export file.</p>
-   *         <p>The only export file format currently supported is <code>Csv</code>.</p>
-   */
-  fileFormat?: FileFormat | string;
-
-  /**
-   * <p>The recommendations data to include in the export file. For more information about the
-   *             fields that can be exported, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files">Exported files</a> in the <i>Compute Optimizer User Guide</i>.</p>
-   */
-  fieldsToExport?: (ExportableInstanceField | string)[];
-
-  /**
    * <p>The IDs of the AWS accounts for which to export instance recommendations.</p>
-   *         <p>If your account is the master account of an organization, use this parameter to
+   *         <p>If your account is the management account of an organization, use this parameter to
    *             specify the member accounts for which you want to export recommendations.</p>
    *         <p>This parameter cannot be specified together with the include member accounts
    *             parameter. The parameters are mutually exclusive.</p>
@@ -842,6 +899,42 @@ export interface ExportEC2InstanceRecommendationsRequest {
    *             recommendations.</p>
    */
   filters?: Filter[];
+
+  /**
+   * <p>The recommendations data to include in the export file. For more information about the
+   *             fields that can be exported, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files">Exported files</a> in the <i>Compute Optimizer User Guide</i>.</p>
+   */
+  fieldsToExport?: (ExportableInstanceField | string)[];
+
+  /**
+   * <p>An object to specify the destination Amazon Simple Storage Service (Amazon S3) bucket name and key prefix for
+   *             the export job.</p>
+   *         <p>You must create the destination Amazon S3 bucket for your recommendations export before you
+   *             create the export job. Compute Optimizer does not create the S3 bucket for you. After you create the
+   *             S3 bucket, ensure that it has the required permission policy to allow Compute Optimizer to write the
+   *             export file to it. If you plan to specify an object prefix when you create the export
+   *             job, you must include the object prefix in the policy that you add to the S3 bucket. For
+   *             more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/create-s3-bucket-policy-for-compute-optimizer.html">Amazon S3 Bucket Policy for Compute Optimizer</a> in the <i>Compute Optimizer user
+   *             guide</i>.</p>
+   */
+  s3DestinationConfig: S3DestinationConfig | undefined;
+
+  /**
+   * <p>The format of the export file.</p>
+   *         <p>The only export file format currently supported is <code>Csv</code>.</p>
+   */
+  fileFormat?: FileFormat | string;
+
+  /**
+   * <p>Indicates whether to include recommendations for resources in all member accounts of
+   *             the organization if your account is the management account of an organization.</p>
+   *         <p>The member accounts must also be opted in to Compute Optimizer.</p>
+   *         <p>Recommendations for member accounts of the organization are not included in the export
+   *             file if this parameter is omitted.</p>
+   *         <p>Recommendations for member accounts are not included in the export if this parameter,
+   *             or the account IDs parameter, is omitted.</p>
+   */
+  includeMemberAccounts?: boolean;
 }
 
 export namespace ExportEC2InstanceRecommendationsRequest {
@@ -852,17 +945,17 @@ export namespace ExportEC2InstanceRecommendationsRequest {
 
 export interface ExportEC2InstanceRecommendationsResponse {
   /**
-   * <p>An object that describes the destination Amazon S3 bucket of a recommendations export
-   *             file.</p>
-   */
-  s3Destination?: S3Destination;
-
-  /**
    * <p>The identification number of the export job.</p>
    *         <p>Use the <code>DescribeRecommendationExportJobs</code> action, and specify the job ID
    *             to view the status of an export job.</p>
    */
   jobId?: string;
+
+  /**
+   * <p>An object that describes the destination Amazon S3 bucket of a recommendations export
+   *             file.</p>
+   */
+  s3Destination?: S3Destination;
 }
 
 export namespace ExportEC2InstanceRecommendationsResponse {
@@ -874,7 +967,7 @@ export namespace ExportEC2InstanceRecommendationsResponse {
 export interface GetAutoScalingGroupRecommendationsRequest {
   /**
    * <p>The IDs of the AWS accounts for which to return Auto Scaling group recommendations.</p>
-   *         <p>If your account is the master account of an organization, use this parameter to
+   *         <p>If your account is the management account of an organization, use this parameter to
    *             specify the member accounts for which you want to return Auto Scaling group
    *             recommendations.</p>
    *         <p>Only one account ID can be specified per request.</p>
@@ -882,10 +975,15 @@ export interface GetAutoScalingGroupRecommendationsRequest {
   accountIds?: string[];
 
   /**
-   * <p>An array of objects that describe a filter that returns a more specific list of Auto Scaling
-   *             group recommendations.</p>
+   * <p>The Amazon Resource Name (ARN) of the Auto Scaling groups for which to return
+   *             recommendations.</p>
    */
-  filters?: Filter[];
+  autoScalingGroupArns?: string[];
+
+  /**
+   * <p>The token to advance to the next page of Auto Scaling group recommendations.</p>
+   */
+  nextToken?: string;
 
   /**
    * <p>The maximum number of Auto Scaling group recommendations to return with a single
@@ -896,15 +994,10 @@ export interface GetAutoScalingGroupRecommendationsRequest {
   maxResults?: number;
 
   /**
-   * <p>The token to advance to the next page of Auto Scaling group recommendations.</p>
+   * <p>An array of objects that describe a filter that returns a more specific list of Auto Scaling
+   *             group recommendations.</p>
    */
-  nextToken?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Auto Scaling groups for which to return
-   *             recommendations.</p>
-   */
-  autoScalingGroupArns?: string[];
+  filters?: Filter[];
 }
 
 export namespace GetAutoScalingGroupRecommendationsRequest {
@@ -921,6 +1014,11 @@ export namespace GetAutoScalingGroupRecommendationsRequest {
  */
 export interface GetRecommendationError {
   /**
+   * <p>The ID of the error.</p>
+   */
+  identifier?: string;
+
+  /**
    * <p>The error code.</p>
    */
   code?: string;
@@ -929,11 +1027,6 @@ export interface GetRecommendationError {
    * <p>The message, or reason, for the error.</p>
    */
   message?: string;
-
-  /**
-   * <p>The ID of the error.</p>
-   */
-  identifier?: string;
 }
 
 export namespace GetRecommendationError {
@@ -943,13 +1036,6 @@ export namespace GetRecommendationError {
 }
 
 export interface GetAutoScalingGroupRecommendationsResponse {
-  /**
-   * <p>An array of objects that describe errors of the request.</p>
-   *         <p>For example, an error is returned if you request recommendations for an unsupported
-   *             Auto Scaling group.</p>
-   */
-  errors?: GetRecommendationError[];
-
   /**
    * <p>The token to use to advance to the next page of Auto Scaling group recommendations.</p>
    *         <p>This value is null when there are no more pages of Auto Scaling group recommendations to
@@ -961,6 +1047,13 @@ export interface GetAutoScalingGroupRecommendationsResponse {
    * <p>An array of objects that describe Auto Scaling group recommendations.</p>
    */
   autoScalingGroupRecommendations?: AutoScalingGroupRecommendation[];
+
+  /**
+   * <p>An array of objects that describe errors of the request.</p>
+   *         <p>For example, an error is returned if you request recommendations for an unsupported
+   *             Auto Scaling group.</p>
+   */
+  errors?: GetRecommendationError[];
 }
 
 export namespace GetAutoScalingGroupRecommendationsResponse {
@@ -969,20 +1062,350 @@ export namespace GetAutoScalingGroupRecommendationsResponse {
   });
 }
 
-export interface GetEC2InstanceRecommendationsRequest {
+export enum EBSFilterName {
+  FINDING = "Finding",
+}
+
+/**
+ * <p>Describes a filter that returns a more specific list of Amazon Elastic Block Store (Amazon EBS) volume
+ *             recommendations.</p>
+ *
+ *         <p>This filter is used with the <code>GetEBSVolumeRecommendations</code> action.</p>
+ */
+export interface EBSFilter {
   /**
-   * <p>The token to advance to the next page of instance recommendations.</p>
+   * <p>The name of the filter.</p>
+   *
+   *         <p>Specify <code>Finding</code> to return recommendations with a specific finding
+   *             classification (e.g., <code>Optimized</code>).</p>
+   */
+  name?: EBSFilterName | string;
+
+  /**
+   * <p>The value of the filter.</p>
+   *
+   *         <p>The valid values are <code>Optimized</code>, or <code>NotOptimized</code>.</p>
+   */
+  values?: string[];
+}
+
+export namespace EBSFilter {
+  export const filterSensitiveLog = (obj: EBSFilter): any => ({
+    ...obj,
+  });
+}
+
+export interface GetEBSVolumeRecommendationsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the volumes for which to return
+   *             recommendations.</p>
+   */
+  volumeArns?: string[];
+
+  /**
+   * <p>The token to advance to the next page of volume recommendations.</p>
    */
   nextToken?: string;
 
   /**
-   * <p>The IDs of the AWS accounts for which to return instance recommendations.</p>
-   *         <p>If your account is the master account of an organization, use this parameter to
-   *             specify the member accounts for which you want to return instance
+   * <p>The maximum number of volume recommendations to return with a single request.</p>
+   *         <p>To retrieve the remaining results, make another request with the returned
+   *                 <code>NextToken</code> value.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>An array of objects that describe a filter that returns a more specific list of volume
    *             recommendations.</p>
+   */
+  filters?: EBSFilter[];
+
+  /**
+   * <p>The IDs of the AWS accounts for which to return volume recommendations.</p>
+   *         <p>If your account is the management account of an organization, use this parameter to
+   *             specify the member accounts for which you want to return volume recommendations.</p>
    *         <p>Only one account ID can be specified per request.</p>
    */
   accountIds?: string[];
+}
+
+export namespace GetEBSVolumeRecommendationsRequest {
+  export const filterSensitiveLog = (obj: GetEBSVolumeRecommendationsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the configuration of an Amazon Elastic Block Store (Amazon EBS) volume.</p>
+ */
+export interface VolumeConfiguration {
+  /**
+   * <p>The volume type.</p>
+   *         <p>This can be <code>gp2</code> for General Purpose SSD, <code>io1</code> or
+   *                 <code>io2</code> for Provisioned IOPS SSD, <code>st1</code> for Throughput Optimized
+   *             HDD, <code>sc1</code> for Cold HDD, or <code>standard</code> for Magnetic
+   *             volumes.</p>
+   */
+  volumeType?: string;
+
+  /**
+   * <p>The size of the volume, in GiB.</p>
+   */
+  volumeSize?: number;
+
+  /**
+   * <p>The baseline IOPS of the volume.</p>
+   */
+  volumeBaselineIOPS?: number;
+
+  /**
+   * <p>The burst IOPS of the volume.</p>
+   */
+  volumeBurstIOPS?: number;
+
+  /**
+   * <p>The baseline throughput of the volume.</p>
+   */
+  volumeBaselineThroughput?: number;
+
+  /**
+   * <p>The burst throughput of the volume.</p>
+   */
+  volumeBurstThroughput?: number;
+}
+
+export namespace VolumeConfiguration {
+  export const filterSensitiveLog = (obj: VolumeConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export enum EBSFinding {
+  NOT_OPTIMIZED = "NotOptimized",
+  OPTIMIZED = "Optimized",
+}
+
+export enum EBSMetricName {
+  VOLUME_READ_BYTES_PER_SECOND = "VolumeReadBytesPerSecond",
+  VOLUME_READ_OPS_PER_SECOND = "VolumeReadOpsPerSecond",
+  VOLUME_WRITE_BYTES_PER_SECOND = "VolumeWriteBytesPerSecond",
+  VOLUME_WRITE_OPS_PER_SECOND = "VolumeWriteOpsPerSecond",
+}
+
+/**
+ * <p>Describes a utilization metric of an Amazon Elastic Block Store (Amazon EBS) volume.</p>
+ *
+ *         <p>Compare the utilization metric data of your resource against its projected utilization
+ *             metric data to determine the performance difference between your current resource and
+ *             the recommended option.</p>
+ */
+export interface EBSUtilizationMetric {
+  /**
+   * <p>The name of the utilization metric.</p>
+   *         <p>The following utilization metrics are available:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>VolumeReadOpsPerSecond</code> - The completed read operations per second
+   *                     from the volume in a specified period of time.</p>
+   *                 <p>Unit: Count</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>VolumeWriteOpsPerSecond</code> - The completed write operations per
+   *                     second to the volume in a specified period of time.</p>
+   *                 <p>Unit: Count</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>VolumeReadBytesPerSecond</code> - The bytes read per second from the
+   *                     volume in a specified period of time.</p>
+   *                 <p>Unit: Bytes</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>VolumeWriteBytesPerSecond</code> - The bytes written to the volume in a
+   *                     specified period of time.</p>
+   *                 <p>Unit: Bytes</p>
+   *             </li>
+   *          </ul>
+   */
+  name?: EBSMetricName | string;
+
+  /**
+   * <p>The statistic of the utilization metric.</p>
+   *         <p>The following statistics are available:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>Average</code> - This is the value of Sum / SampleCount during the
+   *                     specified period, or the average value observed during the specified
+   *                     period.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Maximum</code> - The highest value observed during the specified period.
+   *                     Use this value to determine high volumes of activity for your
+   *                     application.</p>
+   *             </li>
+   *          </ul>
+   */
+  statistic?: MetricStatistic | string;
+
+  /**
+   * <p>The value of the utilization metric.</p>
+   */
+  value?: number;
+}
+
+export namespace EBSUtilizationMetric {
+  export const filterSensitiveLog = (obj: EBSUtilizationMetric): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a recommendation option for an Amazon Elastic Block Store (Amazon EBS) instance.</p>
+ */
+export interface VolumeRecommendationOption {
+  /**
+   * <p>An array of objects that describe a volume configuration.</p>
+   */
+  configuration?: VolumeConfiguration;
+
+  /**
+   * <p>The performance risk of the volume recommendation option.</p>
+   *         <p>Performance risk is the likelihood of the recommended volume type not meeting the
+   *             performance requirement of your workload.</p>
+   *         <p>The lowest performance risk is categorized as <code>0</code>, and the highest as
+   *                 <code>5</code>.</p>
+   */
+  performanceRisk?: number;
+
+  /**
+   * <p>The rank of the volume recommendation option.</p>
+   *         <p>The top recommendation option is ranked as <code>1</code>.</p>
+   */
+  rank?: number;
+}
+
+export namespace VolumeRecommendationOption {
+  export const filterSensitiveLog = (obj: VolumeRecommendationOption): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an Amazon Elastic Block Store (Amazon EBS) volume recommendation.</p>
+ */
+export interface VolumeRecommendation {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the current volume.</p>
+   */
+  volumeArn?: string;
+
+  /**
+   * <p>The AWS account ID of the volume.</p>
+   */
+  accountId?: string;
+
+  /**
+   * <p>An array of objects that describe the current configuration of the volume.</p>
+   */
+  currentConfiguration?: VolumeConfiguration;
+
+  /**
+   * <p>The finding classification for the volume.</p>
+   *         <p>Findings for volumes include:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <b>
+   *                      <code>NotOptimized</code>
+   *                   </b>—A volume is
+   *                     considered not optimized when AWS Compute Optimizer identifies a recommendation that can
+   *                     provide better performance for your workload.</p>
+   *
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <b>
+   *                      <code>Optimized</code>
+   *                   </b>—An volume is
+   *                     considered optimized when Compute Optimizer determines that the volume is correctly
+   *                     provisioned to run your workload based on the chosen volume type. For optimized
+   *                     resources, Compute Optimizer might recommend a new generation volume type.</p>
+   *
+   *             </li>
+   *          </ul>
+   */
+  finding?: EBSFinding | string;
+
+  /**
+   * <p>An array of objects that describe the utilization metrics of the volume.</p>
+   */
+  utilizationMetrics?: EBSUtilizationMetric[];
+
+  /**
+   * <p>The number of days for which utilization metrics were analyzed for the volume.</p>
+   */
+  lookBackPeriodInDays?: number;
+
+  /**
+   * <p>An array of objects that describe the recommendation options for the volume.</p>
+   */
+  volumeRecommendationOptions?: VolumeRecommendationOption[];
+
+  /**
+   * <p>The time stamp of when the volume recommendation was last refreshed.</p>
+   */
+  lastRefreshTimestamp?: Date;
+}
+
+export namespace VolumeRecommendation {
+  export const filterSensitiveLog = (obj: VolumeRecommendation): any => ({
+    ...obj,
+  });
+}
+
+export interface GetEBSVolumeRecommendationsResponse {
+  /**
+   * <p>The token to use to advance to the next page of volume recommendations.</p>
+   *         <p>This value is null when there are no more pages of volume recommendations to
+   *             return.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>An array of objects that describe volume recommendations.</p>
+   */
+  volumeRecommendations?: VolumeRecommendation[];
+
+  /**
+   * <p>An array of objects that describe errors of the request.</p>
+   *         <p>For example, an error is returned if you request recommendations for an unsupported
+   *             volume.</p>
+   */
+  errors?: GetRecommendationError[];
+}
+
+export namespace GetEBSVolumeRecommendationsResponse {
+  export const filterSensitiveLog = (obj: GetEBSVolumeRecommendationsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetEC2InstanceRecommendationsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the instances for which to return
+   *             recommendations.</p>
+   */
+  instanceArns?: string[];
+
+  /**
+   * <p>The token to advance to the next page of instance recommendations.</p>
+   */
+  nextToken?: string;
 
   /**
    * <p>The maximum number of instance recommendations to return with a single request.</p>
@@ -998,10 +1421,13 @@ export interface GetEC2InstanceRecommendationsRequest {
   filters?: Filter[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the instances for which to return
+   * <p>The IDs of the AWS accounts for which to return instance recommendations.</p>
+   *         <p>If your account is the management account of an organization, use this parameter to
+   *             specify the member accounts for which you want to return instance
    *             recommendations.</p>
+   *         <p>Only one account ID can be specified per request.</p>
    */
-  instanceArns?: string[];
+  accountIds?: string[];
 }
 
 export namespace GetEC2InstanceRecommendationsRequest {
@@ -1014,6 +1440,11 @@ export namespace GetEC2InstanceRecommendationsRequest {
  * <p>Describes a recommendation option for an Amazon EC2 instance.</p>
  */
 export interface InstanceRecommendationOption {
+  /**
+   * <p>The instance type of the instance recommendation.</p>
+   */
+  instanceType?: string;
+
   /**
    * <p>An array of objects that describe the projected utilization metrics of the instance
    *             recommendation option.</p>
@@ -1029,17 +1460,6 @@ export interface InstanceRecommendationOption {
   projectedUtilizationMetrics?: UtilizationMetric[];
 
   /**
-   * <p>The instance type of the instance recommendation.</p>
-   */
-  instanceType?: string;
-
-  /**
-   * <p>The rank of the instance recommendation option.</p>
-   *         <p>The top recommendation option is ranked as <code>1</code>.</p>
-   */
-  rank?: number;
-
-  /**
    * <p>The performance risk of the instance recommendation option.</p>
    *         <p>Performance risk is the likelihood of the recommended instance type not meeting the
    *             performance requirement of your workload.</p>
@@ -1047,6 +1467,12 @@ export interface InstanceRecommendationOption {
    *                 <code>5</code>.</p>
    */
   performanceRisk?: number;
+
+  /**
+   * <p>The rank of the instance recommendation option.</p>
+   *         <p>The top recommendation option is ranked as <code>1</code>.</p>
+   */
+  rank?: number;
 }
 
 export namespace InstanceRecommendationOption {
@@ -1057,6 +1483,7 @@ export namespace InstanceRecommendationOption {
 
 export enum RecommendationSourceType {
   AUTO_SCALING_GROUP = "AutoScalingGroup",
+  EBS_VOLUME = "EbsVolume",
   EC2_INSTANCE = "Ec2Instance",
 }
 
@@ -1066,14 +1493,14 @@ export enum RecommendationSourceType {
  */
 export interface RecommendationSource {
   /**
-   * <p>The resource type of the recommendation source.</p>
-   */
-  recommendationSourceType?: RecommendationSourceType | string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the recommendation source.</p>
    */
   recommendationSourceArn?: string;
+
+  /**
+   * <p>The resource type of the recommendation source.</p>
+   */
+  recommendationSourceType?: RecommendationSourceType | string;
 }
 
 export namespace RecommendationSource {
@@ -1087,6 +1514,16 @@ export namespace RecommendationSource {
  */
 export interface InstanceRecommendation {
   /**
+   * <p>The Amazon Resource Name (ARN) of the current instance.</p>
+   */
+  instanceArn?: string;
+
+  /**
+   * <p>The AWS account ID of the instance.</p>
+   */
+  accountId?: string;
+
+  /**
    * <p>The name of the current instance.</p>
    */
   instanceName?: string;
@@ -1095,21 +1532,6 @@ export interface InstanceRecommendation {
    * <p>The instance type of the current instance.</p>
    */
   currentInstanceType?: string;
-
-  /**
-   * <p>An array of objects that describe the utilization metrics of the instance.</p>
-   */
-  utilizationMetrics?: UtilizationMetric[];
-
-  /**
-   * <p>The AWS account ID of the instance.</p>
-   */
-  accountId?: string;
-
-  /**
-   * <p>An array of objects that describe the recommendation options for the instance.</p>
-   */
-  recommendationOptions?: InstanceRecommendationOption[];
 
   /**
    * <p>The finding classification for the instance.</p>
@@ -1148,22 +1570,13 @@ export interface InstanceRecommendation {
    *                     recommend a new generation instance type.</p>
    *             </li>
    *          </ul>
-   *         <note>
-   *             <p>The values that are returned might be <code>UNDER_PROVISIONED</code>,
-   *                     <code>OVER_PROVISIONED</code>, or <code>OPTIMIZED</code>.</p>
-   *         </note>
    */
   finding?: Finding | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the current instance.</p>
+   * <p>An array of objects that describe the utilization metrics of the instance.</p>
    */
-  instanceArn?: string;
-
-  /**
-   * <p>The time stamp of when the instance recommendation was last refreshed.</p>
-   */
-  lastRefreshTimestamp?: Date;
+  utilizationMetrics?: UtilizationMetric[];
 
   /**
    * <p>The number of days for which utilization metrics were analyzed for the
@@ -1172,9 +1585,19 @@ export interface InstanceRecommendation {
   lookBackPeriodInDays?: number;
 
   /**
+   * <p>An array of objects that describe the recommendation options for the instance.</p>
+   */
+  recommendationOptions?: InstanceRecommendationOption[];
+
+  /**
    * <p>An array of objects that describe the source resource of the recommendation.</p>
    */
   recommendationSources?: RecommendationSource[];
+
+  /**
+   * <p>The time stamp of when the instance recommendation was last refreshed.</p>
+   */
+  lastRefreshTimestamp?: Date;
 }
 
 export namespace InstanceRecommendation {
@@ -1185,16 +1608,16 @@ export namespace InstanceRecommendation {
 
 export interface GetEC2InstanceRecommendationsResponse {
   /**
-   * <p>An array of objects that describe instance recommendations.</p>
-   */
-  instanceRecommendations?: InstanceRecommendation[];
-
-  /**
    * <p>The token to use to advance to the next page of instance recommendations.</p>
    *         <p>This value is null when there are no more pages of instance recommendations to
    *             return.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>An array of objects that describe instance recommendations.</p>
+   */
+  instanceRecommendations?: InstanceRecommendation[];
 
   /**
    * <p>An array of objects that describe errors of the request.</p>
@@ -1212,6 +1635,17 @@ export namespace GetEC2InstanceRecommendationsResponse {
 
 export interface GetEC2RecommendationProjectedMetricsRequest {
   /**
+   * <p>The Amazon Resource Name (ARN) of the instances for which to return recommendation
+   *             projected metrics.</p>
+   */
+  instanceArn: string | undefined;
+
+  /**
+   * <p>The statistic of the projected metrics.</p>
+   */
+  stat: MetricStatistic | string | undefined;
+
+  /**
    * <p>The granularity, in seconds, of the projected metrics data points.</p>
    */
   period: number | undefined;
@@ -1222,20 +1656,9 @@ export interface GetEC2RecommendationProjectedMetricsRequest {
   startTime: Date | undefined;
 
   /**
-   * <p>The statistic of the projected metrics.</p>
-   */
-  stat: MetricStatistic | string | undefined;
-
-  /**
    * <p>The time stamp of the last projected metrics data point to return.</p>
    */
   endTime: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the instances for which to return recommendation
-   *             projected metrics.</p>
-   */
-  instanceArn: string | undefined;
 }
 
 export namespace GetEC2RecommendationProjectedMetricsRequest {
@@ -1246,7 +1669,12 @@ export namespace GetEC2RecommendationProjectedMetricsRequest {
 
 /**
  * <p>Describes a projected utilization metric of a recommendation option, such as an Amazon EC2
- *             instance.</p>
+ *             instance. This represents the projected utilization of a recommendation option had you
+ *             used that resource during the analyzed period.</p>
+ *
+ *         <p>Compare the utilization metric data of your resource against its projected utilization
+ *             metric data to determine the performance difference between your current resource and
+ *             the recommended option.</p>
  *
  *         <note>
  *             <p>The <code>Cpu</code> and <code>Memory</code> metrics are the only projected
@@ -1260,18 +1688,45 @@ export namespace GetEC2RecommendationProjectedMetricsRequest {
 export interface ProjectedMetric {
   /**
    * <p>The name of the projected utilization metric.</p>
+   *         <p>The following projected utilization metrics are returned:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>Cpu</code> - The projected percentage of allocated EC2 compute units
+   *                     that would be in use on the recommendation option had you used that resource
+   *                     during the analyzed period. This metric identifies the processing power required
+   *                     to run an application on the recommendation option.</p>
+   *                 <p>Depending on the instance type, tools in your operating system can show a
+   *                     lower percentage than CloudWatch when the instance is not allocated a full
+   *                     processor core.</p>
+   *                 <p>Units: Percent</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Memory</code> - The percentage of memory that would be in use on the
+   *                     recommendation option had you used that resource during the analyzed period.
+   *                     This metric identifies the amount of memory required to run an application on
+   *                     the recommendation option.</p>
+   *                 <p>Units: Percent</p>
+   *                 <note>
+   *                     <p>The <code>Memory</code> metric is returned only for resources that have
+   *                         the unified CloudWatch agent installed on them. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent">Enabling Memory
+   *                             Utilization with the CloudWatch Agent</a>.</p>
+   *                 </note>
+   *             </li>
+   *          </ul>
    */
   name?: MetricName | string;
-
-  /**
-   * <p>The values of the projected utilization metrics.</p>
-   */
-  values?: number[];
 
   /**
    * <p>The time stamps of the projected utilization metric.</p>
    */
   timestamps?: Date[];
+
+  /**
+   * <p>The values of the projected utilization metrics.</p>
+   */
+  values?: number[];
 }
 
 export namespace ProjectedMetric {
@@ -1349,10 +1804,9 @@ export enum Status {
 
 export interface GetEnrollmentStatusResponse {
   /**
-   * <p>Confirms the enrollment status of member accounts within the organization, if the
-   *             account is a master account of an organization.</p>
+   * <p>The enrollment status of the account.</p>
    */
-  memberAccountsEnrolled?: boolean;
+  status?: Status | string;
 
   /**
    * <p>The reason for the enrollment status of the account.</p>
@@ -1362,9 +1816,10 @@ export interface GetEnrollmentStatusResponse {
   statusReason?: string;
 
   /**
-   * <p>The enrollment status of the account.</p>
+   * <p>Confirms the enrollment status of member accounts within the organization, if the
+   *             account is a management account of an organization.</p>
    */
-  status?: Status | string;
+  memberAccountsEnrolled?: boolean;
 }
 
 export namespace GetEnrollmentStatusResponse {
@@ -1374,6 +1829,15 @@ export namespace GetEnrollmentStatusResponse {
 }
 
 export interface GetRecommendationSummariesRequest {
+  /**
+   * <p>The IDs of the AWS accounts for which to return recommendation summaries.</p>
+   *         <p>If your account is the management account of an organization, use this parameter to
+   *             specify the member accounts for which you want to return recommendation
+   *             summaries.</p>
+   *         <p>Only one account ID can be specified per request.</p>
+   */
+  accountIds?: string[];
+
   /**
    * <p>The token to advance to the next page of recommendation summaries.</p>
    */
@@ -1385,15 +1849,6 @@ export interface GetRecommendationSummariesRequest {
    *                 <code>NextToken</code> value.</p>
    */
   maxResults?: number;
-
-  /**
-   * <p>The IDs of the AWS accounts for which to return recommendation summaries.</p>
-   *         <p>If your account is the master account of an organization, use this parameter to
-   *             specify the member accounts for which you want to return recommendation
-   *             summaries.</p>
-   *         <p>Only one account ID can be specified per request.</p>
-   */
-  accountIds?: string[];
 }
 
 export namespace GetRecommendationSummariesRequest {
@@ -1428,14 +1883,14 @@ export namespace Summary {
  */
 export interface RecommendationSummary {
   /**
-   * <p>The resource type of the recommendation.</p>
-   */
-  recommendationResourceType?: RecommendationSourceType | string;
-
-  /**
    * <p>An array of objects that describe a recommendation summary.</p>
    */
   summaries?: Summary[];
+
+  /**
+   * <p>The resource type of the recommendation.</p>
+   */
+  recommendationResourceType?: RecommendationSourceType | string;
 
   /**
    * <p>The AWS account ID of the recommendation summary.</p>
@@ -1471,17 +1926,17 @@ export namespace GetRecommendationSummariesResponse {
 
 export interface UpdateEnrollmentStatusRequest {
   /**
-   * <p>Indicates whether to enroll member accounts of the organization if the your account is
-   *             the master account of an organization.</p>
-   */
-  includeMemberAccounts?: boolean;
-
-  /**
    * <p>The new enrollment status of the account.</p>
    *         <p>Accepted options are <code>Active</code> or <code>Inactive</code>. You will get an
    *             error if <code>Pending</code> or <code>Failed</code> are specified.</p>
    */
   status: Status | string | undefined;
+
+  /**
+   * <p>Indicates whether to enroll member accounts of the organization if the your account is
+   *             the management account of an organization.</p>
+   */
+  includeMemberAccounts?: boolean;
 }
 
 export namespace UpdateEnrollmentStatusRequest {

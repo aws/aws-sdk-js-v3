@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { DescribePatchPropertiesRequest, DescribePatchPropertiesResult } from "../models/models_0";
+import { DescribePatchPropertiesRequest, DescribePatchPropertiesResult } from "../models/models_1";
 import {
   deserializeAws_json1_1DescribePatchPropertiesCommand,
   serializeAws_json1_1DescribePatchPropertiesCommand,
@@ -42,6 +42,10 @@ export type DescribePatchPropertiesCommandOutput = DescribePatchPropertiesResult
  *             <dt>DEBIAN</dt>
  *             <dd>
  *                <p>Valid properties: PRODUCT, PRIORITY</p>
+ *             </dd>
+ *             <dt>MACOS</dt>
+ *             <dd>
+ *                <p>Valid properties: PRODUCT, CLASSIFICATION</p>
  *             </dd>
  *             <dt>ORACLE_LINUX</dt>
  *             <dd>

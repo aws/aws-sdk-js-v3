@@ -23,6 +23,12 @@ export type SubmitJobCommandOutput = SubmitJobResponse & __MetadataBearer;
 /**
  * <p>Submits an AWS Batch job from a job definition. Parameters specified during <a>SubmitJob</a> override
  *    parameters defined in the job definition.</p>
+ *          <important>
+ *             <p>Jobs run on Fargate resources
+ *     don't
+ *     run for more than 14 days. After 14 days, the Fargate resources might no longer be available and the job is
+ *     terminated.</p>
+ *          </important>
  */
 export class SubmitJobCommand extends $Command<
   SubmitJobCommandInput,
