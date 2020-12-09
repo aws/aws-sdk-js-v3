@@ -14,6 +14,31 @@ describe("sendMessageBatchMiddleware", () => {
     mockHashDigest.mockClear();
   });
 
+  it("should call next exactly once", async () => {
+    const next = jest.fn().mockReturnValue({
+      output: {
+        Successful: [
+          { Id: "foo", MD5OfMessageBody: "00" },
+          { Id: "bar", MD5OfMessageBody: "00" },
+        ],
+      },
+    });
+    const handler = sendMessageBatchMiddleware({
+      md5: MockHash,
+    })(next, {} as any);
+
+    await handler({
+      input: {
+        Entries: [
+          { Id: "foo", MessageBody: "0" },
+          { Id: "bar", MessageBody: "0" },
+        ],
+      },
+    });
+
+    expect(next).toBeCalledTimes(1);
+  });
+
   it("should do nothing if the checksums match", async () => {
     const next = jest.fn().mockReturnValue({
       output: {
