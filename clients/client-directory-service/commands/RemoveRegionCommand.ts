@@ -21,7 +21,9 @@ export type RemoveRegionCommandInput = RemoveRegionRequest;
 export type RemoveRegionCommandOutput = RemoveRegionResult & __MetadataBearer;
 
 /**
- * <p>Stops all replication and removes the domain controllers from the specified Region. You cannot remove the primary Region with this operation. Instead, use the <code>DeleteDirectory</code> API.</p>
+ * <p>Stops all replication and removes the domain controllers from the specified Region. You
+ *       cannot remove the primary Region with this operation. Instead, use the
+ *         <code>DeleteDirectory</code> API.</p>
  */
 export class RemoveRegionCommand extends $Command<
   RemoveRegionCommandInput,

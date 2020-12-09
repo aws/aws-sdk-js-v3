@@ -22,7 +22,16 @@ import {
   CreateCompilationJobCommandOutput,
 } from "./commands/CreateCompilationJobCommand";
 import { CreateContextCommandInput, CreateContextCommandOutput } from "./commands/CreateContextCommand";
+import {
+  CreateDataQualityJobDefinitionCommandInput,
+  CreateDataQualityJobDefinitionCommandOutput,
+} from "./commands/CreateDataQualityJobDefinitionCommand";
+import { CreateDeviceFleetCommandInput, CreateDeviceFleetCommandOutput } from "./commands/CreateDeviceFleetCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
+import {
+  CreateEdgePackagingJobCommandInput,
+  CreateEdgePackagingJobCommandOutput,
+} from "./commands/CreateEdgePackagingJobCommand";
 import { CreateEndpointCommandInput, CreateEndpointCommandOutput } from "./commands/CreateEndpointCommand";
 import {
   CreateEndpointConfigCommandInput,
@@ -42,12 +51,24 @@ import {
 import { CreateImageCommandInput, CreateImageCommandOutput } from "./commands/CreateImageCommand";
 import { CreateImageVersionCommandInput, CreateImageVersionCommandOutput } from "./commands/CreateImageVersionCommand";
 import { CreateLabelingJobCommandInput, CreateLabelingJobCommandOutput } from "./commands/CreateLabelingJobCommand";
+import {
+  CreateModelBiasJobDefinitionCommandInput,
+  CreateModelBiasJobDefinitionCommandOutput,
+} from "./commands/CreateModelBiasJobDefinitionCommand";
 import { CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
+import {
+  CreateModelExplainabilityJobDefinitionCommandInput,
+  CreateModelExplainabilityJobDefinitionCommandOutput,
+} from "./commands/CreateModelExplainabilityJobDefinitionCommand";
 import { CreateModelPackageCommandInput, CreateModelPackageCommandOutput } from "./commands/CreateModelPackageCommand";
 import {
   CreateModelPackageGroupCommandInput,
   CreateModelPackageGroupCommandOutput,
 } from "./commands/CreateModelPackageGroupCommand";
+import {
+  CreateModelQualityJobDefinitionCommandInput,
+  CreateModelQualityJobDefinitionCommandOutput,
+} from "./commands/CreateModelQualityJobDefinitionCommand";
 import {
   CreateMonitoringScheduleCommandInput,
   CreateMonitoringScheduleCommandOutput,
@@ -98,6 +119,11 @@ import {
   DeleteCodeRepositoryCommandOutput,
 } from "./commands/DeleteCodeRepositoryCommand";
 import { DeleteContextCommandInput, DeleteContextCommandOutput } from "./commands/DeleteContextCommand";
+import {
+  DeleteDataQualityJobDefinitionCommandInput,
+  DeleteDataQualityJobDefinitionCommandOutput,
+} from "./commands/DeleteDataQualityJobDefinitionCommand";
+import { DeleteDeviceFleetCommandInput, DeleteDeviceFleetCommandOutput } from "./commands/DeleteDeviceFleetCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
 import { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "./commands/DeleteEndpointCommand";
 import {
@@ -113,7 +139,15 @@ import {
 import { DeleteHumanTaskUiCommandInput, DeleteHumanTaskUiCommandOutput } from "./commands/DeleteHumanTaskUiCommand";
 import { DeleteImageCommandInput, DeleteImageCommandOutput } from "./commands/DeleteImageCommand";
 import { DeleteImageVersionCommandInput, DeleteImageVersionCommandOutput } from "./commands/DeleteImageVersionCommand";
+import {
+  DeleteModelBiasJobDefinitionCommandInput,
+  DeleteModelBiasJobDefinitionCommandOutput,
+} from "./commands/DeleteModelBiasJobDefinitionCommand";
 import { DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
+import {
+  DeleteModelExplainabilityJobDefinitionCommandInput,
+  DeleteModelExplainabilityJobDefinitionCommandOutput,
+} from "./commands/DeleteModelExplainabilityJobDefinitionCommand";
 import { DeleteModelPackageCommandInput, DeleteModelPackageCommandOutput } from "./commands/DeleteModelPackageCommand";
 import {
   DeleteModelPackageGroupCommandInput,
@@ -123,6 +157,10 @@ import {
   DeleteModelPackageGroupPolicyCommandInput,
   DeleteModelPackageGroupPolicyCommandOutput,
 } from "./commands/DeleteModelPackageGroupPolicyCommand";
+import {
+  DeleteModelQualityJobDefinitionCommandInput,
+  DeleteModelQualityJobDefinitionCommandOutput,
+} from "./commands/DeleteModelQualityJobDefinitionCommand";
 import {
   DeleteMonitoringScheduleCommandInput,
   DeleteMonitoringScheduleCommandOutput,
@@ -146,6 +184,7 @@ import {
 import { DeleteUserProfileCommandInput, DeleteUserProfileCommandOutput } from "./commands/DeleteUserProfileCommand";
 import { DeleteWorkforceCommandInput, DeleteWorkforceCommandOutput } from "./commands/DeleteWorkforceCommand";
 import { DeleteWorkteamCommandInput, DeleteWorkteamCommandOutput } from "./commands/DeleteWorkteamCommand";
+import { DeregisterDevicesCommandInput, DeregisterDevicesCommandOutput } from "./commands/DeregisterDevicesCommand";
 import { DescribeActionCommandInput, DescribeActionCommandOutput } from "./commands/DescribeActionCommand";
 import { DescribeAlgorithmCommandInput, DescribeAlgorithmCommandOutput } from "./commands/DescribeAlgorithmCommand";
 import { DescribeAppCommandInput, DescribeAppCommandOutput } from "./commands/DescribeAppCommand";
@@ -164,7 +203,20 @@ import {
   DescribeCompilationJobCommandOutput,
 } from "./commands/DescribeCompilationJobCommand";
 import { DescribeContextCommandInput, DescribeContextCommandOutput } from "./commands/DescribeContextCommand";
+import {
+  DescribeDataQualityJobDefinitionCommandInput,
+  DescribeDataQualityJobDefinitionCommandOutput,
+} from "./commands/DescribeDataQualityJobDefinitionCommand";
+import { DescribeDeviceCommandInput, DescribeDeviceCommandOutput } from "./commands/DescribeDeviceCommand";
+import {
+  DescribeDeviceFleetCommandInput,
+  DescribeDeviceFleetCommandOutput,
+} from "./commands/DescribeDeviceFleetCommand";
 import { DescribeDomainCommandInput, DescribeDomainCommandOutput } from "./commands/DescribeDomainCommand";
+import {
+  DescribeEdgePackagingJobCommandInput,
+  DescribeEdgePackagingJobCommandOutput,
+} from "./commands/DescribeEdgePackagingJobCommand";
 import { DescribeEndpointCommandInput, DescribeEndpointCommandOutput } from "./commands/DescribeEndpointCommand";
 import {
   DescribeEndpointConfigCommandInput,
@@ -196,7 +248,15 @@ import {
   DescribeLabelingJobCommandInput,
   DescribeLabelingJobCommandOutput,
 } from "./commands/DescribeLabelingJobCommand";
+import {
+  DescribeModelBiasJobDefinitionCommandInput,
+  DescribeModelBiasJobDefinitionCommandOutput,
+} from "./commands/DescribeModelBiasJobDefinitionCommand";
 import { DescribeModelCommandInput, DescribeModelCommandOutput } from "./commands/DescribeModelCommand";
+import {
+  DescribeModelExplainabilityJobDefinitionCommandInput,
+  DescribeModelExplainabilityJobDefinitionCommandOutput,
+} from "./commands/DescribeModelExplainabilityJobDefinitionCommand";
 import {
   DescribeModelPackageCommandInput,
   DescribeModelPackageCommandOutput,
@@ -205,6 +265,10 @@ import {
   DescribeModelPackageGroupCommandInput,
   DescribeModelPackageGroupCommandOutput,
 } from "./commands/DescribeModelPackageGroupCommand";
+import {
+  DescribeModelQualityJobDefinitionCommandInput,
+  DescribeModelQualityJobDefinitionCommandOutput,
+} from "./commands/DescribeModelQualityJobDefinitionCommand";
 import {
   DescribeMonitoringScheduleCommandInput,
   DescribeMonitoringScheduleCommandOutput,
@@ -267,6 +331,10 @@ import {
   EnableSagemakerServicecatalogPortfolioCommandOutput,
 } from "./commands/EnableSagemakerServicecatalogPortfolioCommand";
 import {
+  GetDeviceFleetReportCommandInput,
+  GetDeviceFleetReportCommandOutput,
+} from "./commands/GetDeviceFleetReportCommand";
+import {
   GetModelPackageGroupPolicyCommandInput,
   GetModelPackageGroupPolicyCommandOutput,
 } from "./commands/GetModelPackageGroupPolicyCommand";
@@ -301,7 +369,17 @@ import {
   ListCompilationJobsCommandOutput,
 } from "./commands/ListCompilationJobsCommand";
 import { ListContextsCommandInput, ListContextsCommandOutput } from "./commands/ListContextsCommand";
+import {
+  ListDataQualityJobDefinitionsCommandInput,
+  ListDataQualityJobDefinitionsCommandOutput,
+} from "./commands/ListDataQualityJobDefinitionsCommand";
+import { ListDeviceFleetsCommandInput, ListDeviceFleetsCommandOutput } from "./commands/ListDeviceFleetsCommand";
+import { ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand";
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
+import {
+  ListEdgePackagingJobsCommandInput,
+  ListEdgePackagingJobsCommandOutput,
+} from "./commands/ListEdgePackagingJobsCommand";
 import {
   ListEndpointConfigsCommandInput,
   ListEndpointConfigsCommandOutput,
@@ -326,10 +404,22 @@ import {
   ListLabelingJobsForWorkteamCommandOutput,
 } from "./commands/ListLabelingJobsForWorkteamCommand";
 import {
+  ListModelBiasJobDefinitionsCommandInput,
+  ListModelBiasJobDefinitionsCommandOutput,
+} from "./commands/ListModelBiasJobDefinitionsCommand";
+import {
+  ListModelExplainabilityJobDefinitionsCommandInput,
+  ListModelExplainabilityJobDefinitionsCommandOutput,
+} from "./commands/ListModelExplainabilityJobDefinitionsCommand";
+import {
   ListModelPackageGroupsCommandInput,
   ListModelPackageGroupsCommandOutput,
 } from "./commands/ListModelPackageGroupsCommand";
 import { ListModelPackagesCommandInput, ListModelPackagesCommandOutput } from "./commands/ListModelPackagesCommand";
+import {
+  ListModelQualityJobDefinitionsCommandInput,
+  ListModelQualityJobDefinitionsCommandOutput,
+} from "./commands/ListModelQualityJobDefinitionsCommand";
 import { ListModelsCommandInput, ListModelsCommandOutput } from "./commands/ListModelsCommand";
 import {
   ListMonitoringExecutionsCommandInput,
@@ -385,6 +475,7 @@ import {
   PutModelPackageGroupPolicyCommandInput,
   PutModelPackageGroupPolicyCommandOutput,
 } from "./commands/PutModelPackageGroupPolicyCommand";
+import { RegisterDevicesCommandInput, RegisterDevicesCommandOutput } from "./commands/RegisterDevicesCommand";
 import { RenderUiTemplateCommandInput, RenderUiTemplateCommandOutput } from "./commands/RenderUiTemplateCommand";
 import { SearchCommandInput, SearchCommandOutput } from "./commands/SearchCommand";
 import {
@@ -401,6 +492,10 @@ import {
 } from "./commands/StartPipelineExecutionCommand";
 import { StopAutoMLJobCommandInput, StopAutoMLJobCommandOutput } from "./commands/StopAutoMLJobCommand";
 import { StopCompilationJobCommandInput, StopCompilationJobCommandOutput } from "./commands/StopCompilationJobCommand";
+import {
+  StopEdgePackagingJobCommandInput,
+  StopEdgePackagingJobCommandOutput,
+} from "./commands/StopEdgePackagingJobCommand";
 import {
   StopHyperParameterTuningJobCommandInput,
   StopHyperParameterTuningJobCommandOutput,
@@ -432,6 +527,8 @@ import {
   UpdateCodeRepositoryCommandOutput,
 } from "./commands/UpdateCodeRepositoryCommand";
 import { UpdateContextCommandInput, UpdateContextCommandOutput } from "./commands/UpdateContextCommand";
+import { UpdateDeviceFleetCommandInput, UpdateDeviceFleetCommandOutput } from "./commands/UpdateDeviceFleetCommand";
+import { UpdateDevicesCommandInput, UpdateDevicesCommandOutput } from "./commands/UpdateDevicesCommand";
 import { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "./commands/UpdateDomainCommand";
 import { UpdateEndpointCommandInput, UpdateEndpointCommandOutput } from "./commands/UpdateEndpointCommand";
 import {
@@ -458,6 +555,7 @@ import {
   UpdatePipelineExecutionCommandInput,
   UpdatePipelineExecutionCommandOutput,
 } from "./commands/UpdatePipelineExecutionCommand";
+import { UpdateTrainingJobCommandInput, UpdateTrainingJobCommandOutput } from "./commands/UpdateTrainingJobCommand";
 import { UpdateTrialCommandInput, UpdateTrialCommandOutput } from "./commands/UpdateTrialCommand";
 import {
   UpdateTrialComponentCommandInput,
@@ -528,7 +626,10 @@ export type ServiceInputTypes =
   | CreateCodeRepositoryCommandInput
   | CreateCompilationJobCommandInput
   | CreateContextCommandInput
+  | CreateDataQualityJobDefinitionCommandInput
+  | CreateDeviceFleetCommandInput
   | CreateDomainCommandInput
+  | CreateEdgePackagingJobCommandInput
   | CreateEndpointCommandInput
   | CreateEndpointConfigCommandInput
   | CreateExperimentCommandInput
@@ -539,9 +640,12 @@ export type ServiceInputTypes =
   | CreateImageCommandInput
   | CreateImageVersionCommandInput
   | CreateLabelingJobCommandInput
+  | CreateModelBiasJobDefinitionCommandInput
   | CreateModelCommandInput
+  | CreateModelExplainabilityJobDefinitionCommandInput
   | CreateModelPackageCommandInput
   | CreateModelPackageGroupCommandInput
+  | CreateModelQualityJobDefinitionCommandInput
   | CreateMonitoringScheduleCommandInput
   | CreateNotebookInstanceCommandInput
   | CreateNotebookInstanceLifecycleConfigCommandInput
@@ -565,6 +669,8 @@ export type ServiceInputTypes =
   | DeleteAssociationCommandInput
   | DeleteCodeRepositoryCommandInput
   | DeleteContextCommandInput
+  | DeleteDataQualityJobDefinitionCommandInput
+  | DeleteDeviceFleetCommandInput
   | DeleteDomainCommandInput
   | DeleteEndpointCommandInput
   | DeleteEndpointConfigCommandInput
@@ -574,10 +680,13 @@ export type ServiceInputTypes =
   | DeleteHumanTaskUiCommandInput
   | DeleteImageCommandInput
   | DeleteImageVersionCommandInput
+  | DeleteModelBiasJobDefinitionCommandInput
   | DeleteModelCommandInput
+  | DeleteModelExplainabilityJobDefinitionCommandInput
   | DeleteModelPackageCommandInput
   | DeleteModelPackageGroupCommandInput
   | DeleteModelPackageGroupPolicyCommandInput
+  | DeleteModelQualityJobDefinitionCommandInput
   | DeleteMonitoringScheduleCommandInput
   | DeleteNotebookInstanceCommandInput
   | DeleteNotebookInstanceLifecycleConfigCommandInput
@@ -589,6 +698,7 @@ export type ServiceInputTypes =
   | DeleteUserProfileCommandInput
   | DeleteWorkforceCommandInput
   | DeleteWorkteamCommandInput
+  | DeregisterDevicesCommandInput
   | DescribeActionCommandInput
   | DescribeAlgorithmCommandInput
   | DescribeAppCommandInput
@@ -598,7 +708,11 @@ export type ServiceInputTypes =
   | DescribeCodeRepositoryCommandInput
   | DescribeCompilationJobCommandInput
   | DescribeContextCommandInput
+  | DescribeDataQualityJobDefinitionCommandInput
+  | DescribeDeviceCommandInput
+  | DescribeDeviceFleetCommandInput
   | DescribeDomainCommandInput
+  | DescribeEdgePackagingJobCommandInput
   | DescribeEndpointCommandInput
   | DescribeEndpointConfigCommandInput
   | DescribeExperimentCommandInput
@@ -609,9 +723,12 @@ export type ServiceInputTypes =
   | DescribeImageCommandInput
   | DescribeImageVersionCommandInput
   | DescribeLabelingJobCommandInput
+  | DescribeModelBiasJobDefinitionCommandInput
   | DescribeModelCommandInput
+  | DescribeModelExplainabilityJobDefinitionCommandInput
   | DescribeModelPackageCommandInput
   | DescribeModelPackageGroupCommandInput
+  | DescribeModelQualityJobDefinitionCommandInput
   | DescribeMonitoringScheduleCommandInput
   | DescribeNotebookInstanceCommandInput
   | DescribeNotebookInstanceLifecycleConfigCommandInput
@@ -631,6 +748,7 @@ export type ServiceInputTypes =
   | DisableSagemakerServicecatalogPortfolioCommandInput
   | DisassociateTrialComponentCommandInput
   | EnableSagemakerServicecatalogPortfolioCommandInput
+  | GetDeviceFleetReportCommandInput
   | GetModelPackageGroupPolicyCommandInput
   | GetSagemakerServicecatalogPortfolioStatusCommandInput
   | GetSearchSuggestionsCommandInput
@@ -645,7 +763,11 @@ export type ServiceInputTypes =
   | ListCodeRepositoriesCommandInput
   | ListCompilationJobsCommandInput
   | ListContextsCommandInput
+  | ListDataQualityJobDefinitionsCommandInput
+  | ListDeviceFleetsCommandInput
+  | ListDevicesCommandInput
   | ListDomainsCommandInput
+  | ListEdgePackagingJobsCommandInput
   | ListEndpointConfigsCommandInput
   | ListEndpointsCommandInput
   | ListExperimentsCommandInput
@@ -657,8 +779,11 @@ export type ServiceInputTypes =
   | ListImagesCommandInput
   | ListLabelingJobsCommandInput
   | ListLabelingJobsForWorkteamCommandInput
+  | ListModelBiasJobDefinitionsCommandInput
+  | ListModelExplainabilityJobDefinitionsCommandInput
   | ListModelPackageGroupsCommandInput
   | ListModelPackagesCommandInput
+  | ListModelQualityJobDefinitionsCommandInput
   | ListModelsCommandInput
   | ListMonitoringExecutionsCommandInput
   | ListMonitoringSchedulesCommandInput
@@ -681,6 +806,7 @@ export type ServiceInputTypes =
   | ListWorkforcesCommandInput
   | ListWorkteamsCommandInput
   | PutModelPackageGroupPolicyCommandInput
+  | RegisterDevicesCommandInput
   | RenderUiTemplateCommandInput
   | SearchCommandInput
   | StartMonitoringScheduleCommandInput
@@ -688,6 +814,7 @@ export type ServiceInputTypes =
   | StartPipelineExecutionCommandInput
   | StopAutoMLJobCommandInput
   | StopCompilationJobCommandInput
+  | StopEdgePackagingJobCommandInput
   | StopHyperParameterTuningJobCommandInput
   | StopLabelingJobCommandInput
   | StopMonitoringScheduleCommandInput
@@ -701,6 +828,8 @@ export type ServiceInputTypes =
   | UpdateArtifactCommandInput
   | UpdateCodeRepositoryCommandInput
   | UpdateContextCommandInput
+  | UpdateDeviceFleetCommandInput
+  | UpdateDevicesCommandInput
   | UpdateDomainCommandInput
   | UpdateEndpointCommandInput
   | UpdateEndpointWeightsAndCapacitiesCommandInput
@@ -712,6 +841,7 @@ export type ServiceInputTypes =
   | UpdateNotebookInstanceLifecycleConfigCommandInput
   | UpdatePipelineCommandInput
   | UpdatePipelineExecutionCommandInput
+  | UpdateTrainingJobCommandInput
   | UpdateTrialCommandInput
   | UpdateTrialComponentCommandInput
   | UpdateUserProfileCommandInput
@@ -731,7 +861,10 @@ export type ServiceOutputTypes =
   | CreateCodeRepositoryCommandOutput
   | CreateCompilationJobCommandOutput
   | CreateContextCommandOutput
+  | CreateDataQualityJobDefinitionCommandOutput
+  | CreateDeviceFleetCommandOutput
   | CreateDomainCommandOutput
+  | CreateEdgePackagingJobCommandOutput
   | CreateEndpointCommandOutput
   | CreateEndpointConfigCommandOutput
   | CreateExperimentCommandOutput
@@ -742,9 +875,12 @@ export type ServiceOutputTypes =
   | CreateImageCommandOutput
   | CreateImageVersionCommandOutput
   | CreateLabelingJobCommandOutput
+  | CreateModelBiasJobDefinitionCommandOutput
   | CreateModelCommandOutput
+  | CreateModelExplainabilityJobDefinitionCommandOutput
   | CreateModelPackageCommandOutput
   | CreateModelPackageGroupCommandOutput
+  | CreateModelQualityJobDefinitionCommandOutput
   | CreateMonitoringScheduleCommandOutput
   | CreateNotebookInstanceCommandOutput
   | CreateNotebookInstanceLifecycleConfigCommandOutput
@@ -768,6 +904,8 @@ export type ServiceOutputTypes =
   | DeleteAssociationCommandOutput
   | DeleteCodeRepositoryCommandOutput
   | DeleteContextCommandOutput
+  | DeleteDataQualityJobDefinitionCommandOutput
+  | DeleteDeviceFleetCommandOutput
   | DeleteDomainCommandOutput
   | DeleteEndpointCommandOutput
   | DeleteEndpointConfigCommandOutput
@@ -777,10 +915,13 @@ export type ServiceOutputTypes =
   | DeleteHumanTaskUiCommandOutput
   | DeleteImageCommandOutput
   | DeleteImageVersionCommandOutput
+  | DeleteModelBiasJobDefinitionCommandOutput
   | DeleteModelCommandOutput
+  | DeleteModelExplainabilityJobDefinitionCommandOutput
   | DeleteModelPackageCommandOutput
   | DeleteModelPackageGroupCommandOutput
   | DeleteModelPackageGroupPolicyCommandOutput
+  | DeleteModelQualityJobDefinitionCommandOutput
   | DeleteMonitoringScheduleCommandOutput
   | DeleteNotebookInstanceCommandOutput
   | DeleteNotebookInstanceLifecycleConfigCommandOutput
@@ -792,6 +933,7 @@ export type ServiceOutputTypes =
   | DeleteUserProfileCommandOutput
   | DeleteWorkforceCommandOutput
   | DeleteWorkteamCommandOutput
+  | DeregisterDevicesCommandOutput
   | DescribeActionCommandOutput
   | DescribeAlgorithmCommandOutput
   | DescribeAppCommandOutput
@@ -801,7 +943,11 @@ export type ServiceOutputTypes =
   | DescribeCodeRepositoryCommandOutput
   | DescribeCompilationJobCommandOutput
   | DescribeContextCommandOutput
+  | DescribeDataQualityJobDefinitionCommandOutput
+  | DescribeDeviceCommandOutput
+  | DescribeDeviceFleetCommandOutput
   | DescribeDomainCommandOutput
+  | DescribeEdgePackagingJobCommandOutput
   | DescribeEndpointCommandOutput
   | DescribeEndpointConfigCommandOutput
   | DescribeExperimentCommandOutput
@@ -812,9 +958,12 @@ export type ServiceOutputTypes =
   | DescribeImageCommandOutput
   | DescribeImageVersionCommandOutput
   | DescribeLabelingJobCommandOutput
+  | DescribeModelBiasJobDefinitionCommandOutput
   | DescribeModelCommandOutput
+  | DescribeModelExplainabilityJobDefinitionCommandOutput
   | DescribeModelPackageCommandOutput
   | DescribeModelPackageGroupCommandOutput
+  | DescribeModelQualityJobDefinitionCommandOutput
   | DescribeMonitoringScheduleCommandOutput
   | DescribeNotebookInstanceCommandOutput
   | DescribeNotebookInstanceLifecycleConfigCommandOutput
@@ -834,6 +983,7 @@ export type ServiceOutputTypes =
   | DisableSagemakerServicecatalogPortfolioCommandOutput
   | DisassociateTrialComponentCommandOutput
   | EnableSagemakerServicecatalogPortfolioCommandOutput
+  | GetDeviceFleetReportCommandOutput
   | GetModelPackageGroupPolicyCommandOutput
   | GetSagemakerServicecatalogPortfolioStatusCommandOutput
   | GetSearchSuggestionsCommandOutput
@@ -848,7 +998,11 @@ export type ServiceOutputTypes =
   | ListCodeRepositoriesCommandOutput
   | ListCompilationJobsCommandOutput
   | ListContextsCommandOutput
+  | ListDataQualityJobDefinitionsCommandOutput
+  | ListDeviceFleetsCommandOutput
+  | ListDevicesCommandOutput
   | ListDomainsCommandOutput
+  | ListEdgePackagingJobsCommandOutput
   | ListEndpointConfigsCommandOutput
   | ListEndpointsCommandOutput
   | ListExperimentsCommandOutput
@@ -860,8 +1014,11 @@ export type ServiceOutputTypes =
   | ListImagesCommandOutput
   | ListLabelingJobsCommandOutput
   | ListLabelingJobsForWorkteamCommandOutput
+  | ListModelBiasJobDefinitionsCommandOutput
+  | ListModelExplainabilityJobDefinitionsCommandOutput
   | ListModelPackageGroupsCommandOutput
   | ListModelPackagesCommandOutput
+  | ListModelQualityJobDefinitionsCommandOutput
   | ListModelsCommandOutput
   | ListMonitoringExecutionsCommandOutput
   | ListMonitoringSchedulesCommandOutput
@@ -884,6 +1041,7 @@ export type ServiceOutputTypes =
   | ListWorkforcesCommandOutput
   | ListWorkteamsCommandOutput
   | PutModelPackageGroupPolicyCommandOutput
+  | RegisterDevicesCommandOutput
   | RenderUiTemplateCommandOutput
   | SearchCommandOutput
   | StartMonitoringScheduleCommandOutput
@@ -891,6 +1049,7 @@ export type ServiceOutputTypes =
   | StartPipelineExecutionCommandOutput
   | StopAutoMLJobCommandOutput
   | StopCompilationJobCommandOutput
+  | StopEdgePackagingJobCommandOutput
   | StopHyperParameterTuningJobCommandOutput
   | StopLabelingJobCommandOutput
   | StopMonitoringScheduleCommandOutput
@@ -904,6 +1063,8 @@ export type ServiceOutputTypes =
   | UpdateArtifactCommandOutput
   | UpdateCodeRepositoryCommandOutput
   | UpdateContextCommandOutput
+  | UpdateDeviceFleetCommandOutput
+  | UpdateDevicesCommandOutput
   | UpdateDomainCommandOutput
   | UpdateEndpointCommandOutput
   | UpdateEndpointWeightsAndCapacitiesCommandOutput
@@ -915,6 +1076,7 @@ export type ServiceOutputTypes =
   | UpdateNotebookInstanceLifecycleConfigCommandOutput
   | UpdatePipelineCommandOutput
   | UpdatePipelineExecutionCommandOutput
+  | UpdateTrainingJobCommandOutput
   | UpdateTrialCommandOutput
   | UpdateTrialComponentCommandOutput
   | UpdateUserProfileCommandOutput

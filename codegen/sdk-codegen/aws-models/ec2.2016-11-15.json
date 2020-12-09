@@ -8684,8 +8684,15 @@
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
             "aws.protocols#ec2QueryName": "NoReboot",
-            "smithy.api#documentation": "<p>By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image. If the 'No Reboot' option is set, Amazon EC2 doesn't shut down the instance before creating the image. When this option is used, file system integrity on the created image can't be guaranteed.</p>",
+            "smithy.api#documentation": "<p>By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image. If the <code>No Reboot</code> option is set, Amazon EC2 doesn't shut down the instance before creating the image. When this option is used, file system integrity on the created image can't be guaranteed.</p>",
             "smithy.api#xmlName": "noReboot"
+          }
+        },
+        "TagSpecifications": {
+          "target": "com.amazonaws.ec2#TagSpecificationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to apply to the AMI and snapshots on creation. You can tag the AMI, the\n      snapshots, or both.</p>\n         <ul>\n            <li>\n               <p>To tag the AMI, the value for <code>ResourceType</code> must be\n          <code>image</code>.</p>\n            </li>\n            <li>\n               <p>To tag the snapshots that are created of the root volume and of other EBS volumes that\n          are attached to the instance, the value for <code>ResourceType</code> must be\n            <code>snapshot</code>. The same tag is applied to all of the snapshots that are\n          created.</p>\n            </li>\n         </ul>\n         <p>If you specify other values for <code>ResourceType</code>, the request fails.</p>\n         <p>To tag an AMI or snapshot after it has been created, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html\">CreateTags</a>. </p>",
+            "smithy.api#xmlName": "TagSpecification"
           }
         }
       }
@@ -35365,6 +35372,15 @@
             "value": "g3s.xlarge"
           },
           {
+            "value": "g4ad.4xlarge"
+          },
+          {
+            "value": "g4ad.8xlarge"
+          },
+          {
+            "value": "g4ad.16xlarge"
+          },
+          {
             "value": "g4dn.xlarge"
           },
           {
@@ -54802,7 +54818,7 @@
           "target": "com.amazonaws.ec2#ResourceType",
           "traits": {
             "aws.protocols#ec2QueryName": "ResourceType",
-            "smithy.api#documentation": "<p>The type of resource to tag. Currently, the resource types that support tagging on\n         creation are: <code>capacity-reservation</code> | <code>carrier-gateway</code> |\n            <code>client-vpn-endpoint</code> |  <code>customer-gateway</code> |\n            <code>dedicated-host</code> | <code>dhcp-options</code> | <code>export-image-task</code>\n         | <code>export-instance-task</code> | <code>fleet</code> | <code>fpga-image</code> |\n            <code>host-reservation</code> | <code>import-image-task</code> |\n            <code>import-snapshot-task</code> | <code>instance</code> |\n            <code>internet-gateway</code> | <code>ipv4pool-ec2</code> | <code>ipv6pool-ec2</code> |\n            <code>key-pair</code> | <code>launch-template</code> | <code>placement-group</code> |\n            <code>prefix-list</code> | <code>natgateway</code> | <code>network-acl</code> |\n            <code>route-table</code> | <code>security-group</code> | <code>spot-fleet-request</code>\n         | <code>spot-instances-request</code> | <code>snapshot</code> | <code>subnet</code> |\n            <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> |\n            <code>traffic-mirror-target</code> | <code>transit-gateway</code> |\n            <code>transit-gateway-attachment</code> | <code>transit-gateway-route-table</code> |\n            <code>volume</code> |<code>vpc</code> | <code> vpc-peering-connection</code> |\n            <code>vpc-endpoint</code> (for interface and gateway endpoints) |\n            <code>vpc-endpoint-service</code> (for AWS PrivateLink) | <code>vpc-flow-log</code> |\n            <code>vpn-connection</code> | <code>vpn-gateway</code>.</p>\n         <p>To tag a resource after it has been created, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html\">CreateTags</a>.</p>",
+            "smithy.api#documentation": "<p>The type of resource to tag. Currently, the resource types that support tagging on\n         creation are: <code>capacity-reservation</code> | <code>carrier-gateway</code> |\n            <code>client-vpn-endpoint</code> |  <code>customer-gateway</code> |\n            <code>dedicated-host</code> | <code>dhcp-options</code> | <code>export-image-task</code>\n         | <code>export-instance-task</code> | <code>fleet</code> | <code>fpga-image</code> |\n    \t   <code>host-reservation</code> | <code>image</code>| <code>import-image-task</code> |\n            <code>import-snapshot-task</code> | <code>instance</code> |\n            <code>internet-gateway</code> | <code>ipv4pool-ec2</code> | <code>ipv6pool-ec2</code> |\n            <code>key-pair</code> | <code>launch-template</code> | <code>placement-group</code> |\n            <code>prefix-list</code> | <code>natgateway</code> | <code>network-acl</code> |\n    \t   <code>route-table</code> | <code>security-group</code>| <code>snapshot</code> | <code>spot-fleet-request</code>\n         | <code>spot-instances-request</code> | <code>snapshot</code> | <code>subnet</code> |\n            <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> |\n            <code>traffic-mirror-target</code> | <code>transit-gateway</code> |\n            <code>transit-gateway-attachment</code> | <code>transit-gateway-route-table</code> |\n            <code>volume</code> |<code>vpc</code> | <code> vpc-peering-connection</code> |\n            <code>vpc-endpoint</code> (for interface and gateway endpoints) |\n            <code>vpc-endpoint-service</code> (for AWS PrivateLink) | <code>vpc-flow-log</code> |\n            <code>vpn-connection</code> | <code>vpn-gateway</code>.</p>\n         <p>To tag a resource after it has been created, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html\">CreateTags</a>.</p>",
             "smithy.api#xmlName": "resourceType"
           }
         },

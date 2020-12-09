@@ -408,10 +408,18 @@ import {
   StartActivityStreamCommandOutput,
 } from "../commands/StartActivityStreamCommand";
 import { StartDBClusterCommandInput, StartDBClusterCommandOutput } from "../commands/StartDBClusterCommand";
+import {
+  StartDBInstanceAutomatedBackupsReplicationCommandInput,
+  StartDBInstanceAutomatedBackupsReplicationCommandOutput,
+} from "../commands/StartDBInstanceAutomatedBackupsReplicationCommand";
 import { StartDBInstanceCommandInput, StartDBInstanceCommandOutput } from "../commands/StartDBInstanceCommand";
 import { StartExportTaskCommandInput, StartExportTaskCommandOutput } from "../commands/StartExportTaskCommand";
 import { StopActivityStreamCommandInput, StopActivityStreamCommandOutput } from "../commands/StopActivityStreamCommand";
 import { StopDBClusterCommandInput, StopDBClusterCommandOutput } from "../commands/StopDBClusterCommand";
+import {
+  StopDBInstanceAutomatedBackupsReplicationCommandInput,
+  StopDBInstanceAutomatedBackupsReplicationCommandOutput,
+} from "../commands/StopDBInstanceAutomatedBackupsReplicationCommand";
 import { StopDBInstanceCommandInput, StopDBInstanceCommandOutput } from "../commands/StopDBInstanceCommand";
 import {
   AccountAttributesMessage,
@@ -517,6 +525,7 @@ import {
   DBInstanceAutomatedBackupMessage,
   DBInstanceAutomatedBackupNotFoundFault,
   DBInstanceAutomatedBackupQuotaExceededFault,
+  DBInstanceAutomatedBackupsReplication,
   DBInstanceMessage,
   DBInstanceNotFoundFault,
   DBInstanceRole,
@@ -627,7 +636,6 @@ import {
   Endpoint,
   EngineDefaults,
   EventCategoriesMap,
-  EventCategoriesMessage,
   EventSubscription,
   EventSubscriptionQuotaExceededFault,
   ExportTask,
@@ -733,6 +741,7 @@ import {
   DownloadDBLogFilePortionDetails,
   DownloadDBLogFilePortionMessage,
   Event,
+  EventCategoriesMessage,
   EventSubscriptionsMessage,
   EventsMessage,
   ExportTaskAlreadyExistsFault,
@@ -842,6 +851,8 @@ import {
   StartActivityStreamResponse,
   StartDBClusterMessage,
   StartDBClusterResult,
+  StartDBInstanceAutomatedBackupsReplicationMessage,
+  StartDBInstanceAutomatedBackupsReplicationResult,
   StartDBInstanceMessage,
   StartDBInstanceResult,
   StartExportTaskMessage,
@@ -849,6 +860,8 @@ import {
   StopActivityStreamResponse,
   StopDBClusterMessage,
   StopDBClusterResult,
+  StopDBInstanceAutomatedBackupsReplicationMessage,
+  StopDBInstanceAutomatedBackupsReplicationResult,
   StopDBInstanceMessage,
   StopDBInstanceResult,
   SubnetAlreadyInUse,
@@ -2888,6 +2901,22 @@ export const serializeAws_queryStartDBInstanceCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryStartDBInstanceAutomatedBackupsReplicationCommand = async (
+  input: StartDBInstanceAutomatedBackupsReplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryStartDBInstanceAutomatedBackupsReplicationMessage(input, context),
+    Action: "StartDBInstanceAutomatedBackupsReplication",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryStartExportTaskCommand = async (
   input: StartExportTaskCommandInput,
   context: __SerdeContext
@@ -2947,6 +2976,22 @@ export const serializeAws_queryStopDBInstanceCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryStopDBInstanceMessage(input, context),
     Action: "StopDBInstance",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryStopDBInstanceAutomatedBackupsReplicationCommand = async (
+  input: StopDBInstanceAutomatedBackupsReplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryStopDBInstanceAutomatedBackupsReplicationMessage(input, context),
+    Action: "StopDBInstanceAutomatedBackupsReplication",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -12627,6 +12672,95 @@ const deserializeAws_queryStartDBInstanceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryStartDBInstanceAutomatedBackupsReplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartDBInstanceAutomatedBackupsReplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryStartDBInstanceAutomatedBackupsReplicationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryStartDBInstanceAutomatedBackupsReplicationResult(
+    data.StartDBInstanceAutomatedBackupsReplicationResult,
+    context
+  );
+  const response: StartDBInstanceAutomatedBackupsReplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryStartDBInstanceAutomatedBackupsReplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartDBInstanceAutomatedBackupsReplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBInstanceAutomatedBackupQuotaExceededFault":
+    case "com.amazonaws.rds#DBInstanceAutomatedBackupQuotaExceededFault":
+      response = {
+        ...(await deserializeAws_queryDBInstanceAutomatedBackupQuotaExceededFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DBInstanceNotFoundFault":
+    case "com.amazonaws.rds#DBInstanceNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidDBInstanceStateFault":
+    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KMSKeyNotAccessibleFault":
+    case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
+      response = {
+        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "StorageTypeNotSupportedFault":
+    case "com.amazonaws.rds#StorageTypeNotSupportedFault":
+      response = {
+        ...(await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryStartExportTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -12966,6 +13100,71 @@ const deserializeAws_queryStopDBInstanceCommandError = async (
     case "com.amazonaws.rds#SnapshotQuotaExceededFault":
       response = {
         ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryStopDBInstanceAutomatedBackupsReplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopDBInstanceAutomatedBackupsReplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryStopDBInstanceAutomatedBackupsReplicationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryStopDBInstanceAutomatedBackupsReplicationResult(
+    data.StopDBInstanceAutomatedBackupsReplicationResult,
+    context
+  );
+  const response: StopDBInstanceAutomatedBackupsReplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryStopDBInstanceAutomatedBackupsReplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopDBInstanceAutomatedBackupsReplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBInstanceNotFoundFault":
+    case "com.amazonaws.rds#DBInstanceNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidDBInstanceStateFault":
+    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -15839,6 +16038,9 @@ const serializeAws_queryDeleteDBInstanceAutomatedBackupMessage = (
   if (input.DbiResourceId !== undefined) {
     entries["DbiResourceId"] = input.DbiResourceId;
   }
+  if (input.DBInstanceAutomatedBackupsArn !== undefined) {
+    entries["DBInstanceAutomatedBackupsArn"] = input.DBInstanceAutomatedBackupsArn;
+  }
   return entries;
 };
 
@@ -16277,6 +16479,9 @@ const serializeAws_queryDescribeDBInstanceAutomatedBackupsMessage = (
   }
   if (input.Marker !== undefined) {
     entries["Marker"] = input.Marker;
+  }
+  if (input.DBInstanceAutomatedBackupsArn !== undefined) {
+    entries["DBInstanceAutomatedBackupsArn"] = input.DBInstanceAutomatedBackupsArn;
   }
   return entries;
 };
@@ -18788,6 +18993,9 @@ const serializeAws_queryRestoreDBInstanceToPointInTimeMessage = (
   if (input.MaxAllocatedStorage !== undefined) {
     entries["MaxAllocatedStorage"] = input.MaxAllocatedStorage;
   }
+  if (input.SourceDBInstanceAutomatedBackupsArn !== undefined) {
+    entries["SourceDBInstanceAutomatedBackupsArn"] = input.SourceDBInstanceAutomatedBackupsArn;
+  }
   return entries;
 };
 
@@ -18872,6 +19080,26 @@ const serializeAws_queryStartDBClusterMessage = (input: StartDBClusterMessage, c
   return entries;
 };
 
+const serializeAws_queryStartDBInstanceAutomatedBackupsReplicationMessage = (
+  input: StartDBInstanceAutomatedBackupsReplicationMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.SourceDBInstanceArn !== undefined) {
+    entries["SourceDBInstanceArn"] = input.SourceDBInstanceArn;
+  }
+  if (input.BackupRetentionPeriod !== undefined) {
+    entries["BackupRetentionPeriod"] = input.BackupRetentionPeriod;
+  }
+  if (input.KmsKeyId !== undefined) {
+    entries["KmsKeyId"] = input.KmsKeyId;
+  }
+  if (input.PreSignedUrl !== undefined) {
+    entries["PreSignedUrl"] = input.PreSignedUrl;
+  }
+  return entries;
+};
+
 const serializeAws_queryStartDBInstanceMessage = (input: StartDBInstanceMessage, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DBInstanceIdentifier !== undefined) {
@@ -18928,6 +19156,17 @@ const serializeAws_queryStopDBClusterMessage = (input: StopDBClusterMessage, con
   const entries: any = {};
   if (input.DBClusterIdentifier !== undefined) {
     entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  }
+  return entries;
+};
+
+const serializeAws_queryStopDBInstanceAutomatedBackupsReplicationMessage = (
+  input: StopDBInstanceAutomatedBackupsReplicationMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.SourceDBInstanceArn !== undefined) {
+    entries["SourceDBInstanceArn"] = input.SourceDBInstanceArn;
   }
   return entries;
 };
@@ -20888,6 +21127,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     ListenerEndpoint: undefined,
     MaxAllocatedStorage: undefined,
     TagList: undefined,
+    DBInstanceAutomatedBackupsReplications: undefined,
   };
   if (output["DBInstanceIdentifier"] !== undefined) {
     contents.DBInstanceIdentifier = output["DBInstanceIdentifier"];
@@ -21159,6 +21399,18 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
   if (output["TagList"] !== undefined && output["TagList"]["Tag"] !== undefined) {
     contents.TagList = deserializeAws_queryTagList(__getArrayIfSingleItem(output["TagList"]["Tag"]), context);
   }
+  if (output.DBInstanceAutomatedBackupsReplications === "") {
+    contents.DBInstanceAutomatedBackupsReplications = [];
+  }
+  if (
+    output["DBInstanceAutomatedBackupsReplications"] !== undefined &&
+    output["DBInstanceAutomatedBackupsReplications"]["DBInstanceAutomatedBackupsReplication"] !== undefined
+  ) {
+    contents.DBInstanceAutomatedBackupsReplications = deserializeAws_queryDBInstanceAutomatedBackupsReplicationList(
+      __getArrayIfSingleItem(output["DBInstanceAutomatedBackupsReplications"]["DBInstanceAutomatedBackupsReplication"]),
+      context
+    );
+  }
   return contents;
 };
 
@@ -21203,6 +21455,9 @@ const deserializeAws_queryDBInstanceAutomatedBackup = (
     KmsKeyId: undefined,
     Timezone: undefined,
     IAMDatabaseAuthenticationEnabled: undefined,
+    BackupRetentionPeriod: undefined,
+    DBInstanceAutomatedBackupsArn: undefined,
+    DBInstanceAutomatedBackupsReplications: undefined,
   };
   if (output["DBInstanceArn"] !== undefined) {
     contents.DBInstanceArn = output["DBInstanceArn"];
@@ -21273,6 +21528,24 @@ const deserializeAws_queryDBInstanceAutomatedBackup = (
   if (output["IAMDatabaseAuthenticationEnabled"] !== undefined) {
     contents.IAMDatabaseAuthenticationEnabled = output["IAMDatabaseAuthenticationEnabled"] == "true";
   }
+  if (output["BackupRetentionPeriod"] !== undefined) {
+    contents.BackupRetentionPeriod = parseInt(output["BackupRetentionPeriod"]);
+  }
+  if (output["DBInstanceAutomatedBackupsArn"] !== undefined) {
+    contents.DBInstanceAutomatedBackupsArn = output["DBInstanceAutomatedBackupsArn"];
+  }
+  if (output.DBInstanceAutomatedBackupsReplications === "") {
+    contents.DBInstanceAutomatedBackupsReplications = [];
+  }
+  if (
+    output["DBInstanceAutomatedBackupsReplications"] !== undefined &&
+    output["DBInstanceAutomatedBackupsReplications"]["DBInstanceAutomatedBackupsReplication"] !== undefined
+  ) {
+    contents.DBInstanceAutomatedBackupsReplications = deserializeAws_queryDBInstanceAutomatedBackupsReplicationList(
+      __getArrayIfSingleItem(output["DBInstanceAutomatedBackupsReplications"]["DBInstanceAutomatedBackupsReplication"]),
+      context
+    );
+  }
   return contents;
 };
 
@@ -21333,6 +21606,26 @@ const deserializeAws_queryDBInstanceAutomatedBackupQuotaExceededFault = (
     contents.message = output["message"];
   }
   return contents;
+};
+
+const deserializeAws_queryDBInstanceAutomatedBackupsReplication = (
+  output: any,
+  context: __SerdeContext
+): DBInstanceAutomatedBackupsReplication => {
+  let contents: any = {
+    DBInstanceAutomatedBackupsArn: undefined,
+  };
+  if (output["DBInstanceAutomatedBackupsArn"] !== undefined) {
+    contents.DBInstanceAutomatedBackupsArn = output["DBInstanceAutomatedBackupsArn"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryDBInstanceAutomatedBackupsReplicationList = (
+  output: any,
+  context: __SerdeContext
+): DBInstanceAutomatedBackupsReplication[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryDBInstanceAutomatedBackupsReplication(entry, context));
 };
 
 const deserializeAws_queryDBInstanceList = (output: any, context: __SerdeContext): DBInstance[] => {
@@ -25551,6 +25844,7 @@ const deserializeAws_querySourceRegion = (output: any, context: __SerdeContext):
     RegionName: undefined,
     Endpoint: undefined,
     Status: undefined,
+    SupportsDBInstanceAutomatedBackupsReplication: undefined,
   };
   if (output["RegionName"] !== undefined) {
     contents.RegionName = output["RegionName"];
@@ -25560,6 +25854,10 @@ const deserializeAws_querySourceRegion = (output: any, context: __SerdeContext):
   }
   if (output["Status"] !== undefined) {
     contents.Status = output["Status"];
+  }
+  if (output["SupportsDBInstanceAutomatedBackupsReplication"] !== undefined) {
+    contents.SupportsDBInstanceAutomatedBackupsReplication =
+      output["SupportsDBInstanceAutomatedBackupsReplication"] == "true";
   }
   return contents;
 };
@@ -25627,6 +25925,22 @@ const deserializeAws_queryStartDBClusterResult = (output: any, context: __SerdeC
   return contents;
 };
 
+const deserializeAws_queryStartDBInstanceAutomatedBackupsReplicationResult = (
+  output: any,
+  context: __SerdeContext
+): StartDBInstanceAutomatedBackupsReplicationResult => {
+  let contents: any = {
+    DBInstanceAutomatedBackup: undefined,
+  };
+  if (output["DBInstanceAutomatedBackup"] !== undefined) {
+    contents.DBInstanceAutomatedBackup = deserializeAws_queryDBInstanceAutomatedBackup(
+      output["DBInstanceAutomatedBackup"],
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_queryStartDBInstanceResult = (output: any, context: __SerdeContext): StartDBInstanceResult => {
   let contents: any = {
     DBInstance: undefined,
@@ -25664,6 +25978,22 @@ const deserializeAws_queryStopDBClusterResult = (output: any, context: __SerdeCo
   };
   if (output["DBCluster"] !== undefined) {
     contents.DBCluster = deserializeAws_queryDBCluster(output["DBCluster"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryStopDBInstanceAutomatedBackupsReplicationResult = (
+  output: any,
+  context: __SerdeContext
+): StopDBInstanceAutomatedBackupsReplicationResult => {
+  let contents: any = {
+    DBInstanceAutomatedBackup: undefined,
+  };
+  if (output["DBInstanceAutomatedBackup"] !== undefined) {
+    contents.DBInstanceAutomatedBackup = deserializeAws_queryDBInstanceAutomatedBackup(
+      output["DBInstanceAutomatedBackup"],
+      context
+    );
   }
   return contents;
 };

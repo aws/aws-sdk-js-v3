@@ -21,7 +21,7 @@ export type GetBackendCommandInput = GetBackendRequest;
 export type GetBackendCommandOutput = GetBackendResponse & __MetadataBearer;
 
 /**
- * <p>Provides project level details for your Amplify UI project.</p>
+ * <p>Provides project-level details for your Amplify UI project.</p>
  */
 export class GetBackendCommand extends $Command<
   GetBackendCommandInput,

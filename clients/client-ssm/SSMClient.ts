@@ -16,6 +16,7 @@ import {
   CreateMaintenanceWindowCommandOutput,
 } from "./commands/CreateMaintenanceWindowCommand";
 import { CreateOpsItemCommandInput, CreateOpsItemCommandOutput } from "./commands/CreateOpsItemCommand";
+import { CreateOpsMetadataCommandInput, CreateOpsMetadataCommandOutput } from "./commands/CreateOpsMetadataCommand";
 import {
   CreatePatchBaselineCommandInput,
   CreatePatchBaselineCommandOutput,
@@ -32,6 +33,7 @@ import {
   DeleteMaintenanceWindowCommandInput,
   DeleteMaintenanceWindowCommandOutput,
 } from "./commands/DeleteMaintenanceWindowCommand";
+import { DeleteOpsMetadataCommandInput, DeleteOpsMetadataCommandOutput } from "./commands/DeleteOpsMetadataCommand";
 import { DeleteParameterCommandInput, DeleteParameterCommandOutput } from "./commands/DeleteParameterCommand";
 import { DeleteParametersCommandInput, DeleteParametersCommandOutput } from "./commands/DeleteParametersCommand";
 import {
@@ -219,6 +221,7 @@ import {
   GetMaintenanceWindowTaskCommandOutput,
 } from "./commands/GetMaintenanceWindowTaskCommand";
 import { GetOpsItemCommandInput, GetOpsItemCommandOutput } from "./commands/GetOpsItemCommand";
+import { GetOpsMetadataCommandInput, GetOpsMetadataCommandOutput } from "./commands/GetOpsMetadataCommand";
 import { GetOpsSummaryCommandInput, GetOpsSummaryCommandOutput } from "./commands/GetOpsSummaryCommand";
 import { GetParameterCommandInput, GetParameterCommandOutput } from "./commands/GetParameterCommand";
 import {
@@ -267,6 +270,7 @@ import {
   ListInventoryEntriesCommandInput,
   ListInventoryEntriesCommandOutput,
 } from "./commands/ListInventoryEntriesCommand";
+import { ListOpsMetadataCommandInput, ListOpsMetadataCommandOutput } from "./commands/ListOpsMetadataCommand";
 import {
   ListResourceComplianceSummariesCommandInput,
   ListResourceComplianceSummariesCommandOutput,
@@ -357,6 +361,7 @@ import {
   UpdateManagedInstanceRoleCommandOutput,
 } from "./commands/UpdateManagedInstanceRoleCommand";
 import { UpdateOpsItemCommandInput, UpdateOpsItemCommandOutput } from "./commands/UpdateOpsItemCommand";
+import { UpdateOpsMetadataCommandInput, UpdateOpsMetadataCommandOutput } from "./commands/UpdateOpsMetadataCommand";
 import {
   UpdatePatchBaselineCommandInput,
   UpdatePatchBaselineCommandOutput,
@@ -428,6 +433,7 @@ export type ServiceInputTypes =
   | CreateDocumentCommandInput
   | CreateMaintenanceWindowCommandInput
   | CreateOpsItemCommandInput
+  | CreateOpsMetadataCommandInput
   | CreatePatchBaselineCommandInput
   | CreateResourceDataSyncCommandInput
   | DeleteActivationCommandInput
@@ -435,6 +441,7 @@ export type ServiceInputTypes =
   | DeleteDocumentCommandInput
   | DeleteInventoryCommandInput
   | DeleteMaintenanceWindowCommandInput
+  | DeleteOpsMetadataCommandInput
   | DeleteParameterCommandInput
   | DeleteParametersCommandInput
   | DeletePatchBaselineCommandInput
@@ -490,6 +497,7 @@ export type ServiceInputTypes =
   | GetMaintenanceWindowExecutionTaskInvocationCommandInput
   | GetMaintenanceWindowTaskCommandInput
   | GetOpsItemCommandInput
+  | GetOpsMetadataCommandInput
   | GetOpsSummaryCommandInput
   | GetParameterCommandInput
   | GetParameterHistoryCommandInput
@@ -508,6 +516,7 @@ export type ServiceInputTypes =
   | ListDocumentVersionsCommandInput
   | ListDocumentsCommandInput
   | ListInventoryEntriesCommandInput
+  | ListOpsMetadataCommandInput
   | ListResourceComplianceSummariesCommandInput
   | ListResourceDataSyncCommandInput
   | ListTagsForResourceCommandInput
@@ -538,6 +547,7 @@ export type ServiceInputTypes =
   | UpdateMaintenanceWindowTaskCommandInput
   | UpdateManagedInstanceRoleCommandInput
   | UpdateOpsItemCommandInput
+  | UpdateOpsMetadataCommandInput
   | UpdatePatchBaselineCommandInput
   | UpdateResourceDataSyncCommandInput
   | UpdateServiceSettingCommandInput;
@@ -552,6 +562,7 @@ export type ServiceOutputTypes =
   | CreateDocumentCommandOutput
   | CreateMaintenanceWindowCommandOutput
   | CreateOpsItemCommandOutput
+  | CreateOpsMetadataCommandOutput
   | CreatePatchBaselineCommandOutput
   | CreateResourceDataSyncCommandOutput
   | DeleteActivationCommandOutput
@@ -559,6 +570,7 @@ export type ServiceOutputTypes =
   | DeleteDocumentCommandOutput
   | DeleteInventoryCommandOutput
   | DeleteMaintenanceWindowCommandOutput
+  | DeleteOpsMetadataCommandOutput
   | DeleteParameterCommandOutput
   | DeleteParametersCommandOutput
   | DeletePatchBaselineCommandOutput
@@ -614,6 +626,7 @@ export type ServiceOutputTypes =
   | GetMaintenanceWindowExecutionTaskInvocationCommandOutput
   | GetMaintenanceWindowTaskCommandOutput
   | GetOpsItemCommandOutput
+  | GetOpsMetadataCommandOutput
   | GetOpsSummaryCommandOutput
   | GetParameterCommandOutput
   | GetParameterHistoryCommandOutput
@@ -632,6 +645,7 @@ export type ServiceOutputTypes =
   | ListDocumentVersionsCommandOutput
   | ListDocumentsCommandOutput
   | ListInventoryEntriesCommandOutput
+  | ListOpsMetadataCommandOutput
   | ListResourceComplianceSummariesCommandOutput
   | ListResourceDataSyncCommandOutput
   | ListTagsForResourceCommandOutput
@@ -662,6 +676,7 @@ export type ServiceOutputTypes =
   | UpdateMaintenanceWindowTaskCommandOutput
   | UpdateManagedInstanceRoleCommandOutput
   | UpdateOpsItemCommandOutput
+  | UpdateOpsMetadataCommandOutput
   | UpdatePatchBaselineCommandOutput
   | UpdateResourceDataSyncCommandOutput
   | UpdateServiceSettingCommandOutput;

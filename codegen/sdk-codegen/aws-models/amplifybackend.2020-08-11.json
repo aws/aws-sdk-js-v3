@@ -165,21 +165,21 @@
         "CognitoUserPoolId": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Cognito user pool id, if Amazon Cognito was used as an authentication setting to access your data models.</p>",
+            "smithy.api#documentation": "<p>The Amazon Cognito user pool ID, if Amazon Cognito is used as an authentication setting to access your data models.</p>",
             "smithy.api#jsonName": "cognitoUserPoolId"
           }
         },
         "Description": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The api key description for API_KEY, if it was used as an authentication mechanism to access your data models.</p>",
+            "smithy.api#documentation": "<p>The API key description for API_KEY, if it is used as an authentication mechanism to access your data models.</p>",
             "smithy.api#jsonName": "description"
           }
         },
         "ExpirationTime": {
           "target": "com.amazonaws.amplifybackend#__double",
           "traits": {
-            "smithy.api#documentation": "<p>The api key expiration time for API_KEY, if it was used as an authentication mechanism to access your data models.</p>",
+            "smithy.api#documentation": "<p>The API key expiration time for API_KEY, if it is used as an authentication mechanism to access your data models.</p>",
             "smithy.api#jsonName": "expirationTime"
           }
         },
@@ -193,7 +193,7 @@
         "OpenIDClientId": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The clientID for openID, if openID was used as an authentication setting to access your data models.</p>",
+            "smithy.api#documentation": "<p>The clientID for openID, if openID is used as an authentication setting to access your data models.</p>",
             "smithy.api#jsonName": "openIDClientId"
           }
         },
@@ -207,14 +207,14 @@
         "OpenIDIssueURL": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The openID issuer URL, if openID was used as an authentication setting to access your data models.</p>",
+            "smithy.api#documentation": "<p>The openID issuer URL, if openID is used as an authentication setting to access your data models.</p>",
             "smithy.api#jsonName": "openIDIssueURL"
           }
         },
         "OpenIDProviderName": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The open id provider name, if openID was used as an authentication mechanism to access your data models.</p>",
+            "smithy.api#documentation": "<p>The openID provider name, if openID is used as an authentication mechanism to access your data models.</p>",
             "smithy.api#jsonName": "openIDProviderName"
           }
         }
@@ -257,7 +257,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the conflict resolution configuration for your data model configured in your Amplify project.</p>"
+        "smithy.api#documentation": "<p>Describes the conflict resolution configuration for the data model configured in your Amplify project.</p>"
       }
     },
     "com.amazonaws.amplifybackend#BackendAPIResourceConfig": {
@@ -266,28 +266,28 @@
         "AdditionalAuthTypes": {
           "target": "com.amazonaws.amplifybackend#ListOfBackendAPIAuthType",
           "traits": {
-            "smithy.api#documentation": "<p>Addition authentication methods used to interact with your data models.</p>",
+            "smithy.api#documentation": "<p>Additional authentication methods used to interact with your data models.</p>",
             "smithy.api#jsonName": "additionalAuthTypes"
           }
         },
         "ApiName": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The API name used to interact with the data model, configured as a part of the amplify project.</p>",
+            "smithy.api#documentation": "<p>The API name used to interact with the data model, configured as a part of the Amplify project.</p>",
             "smithy.api#jsonName": "apiName"
           }
         },
         "ConflictResolution": {
           "target": "com.amazonaws.amplifybackend#BackendAPIConflictResolution",
           "traits": {
-            "smithy.api#documentation": "<p>The conflict resoultion strategy for your data stored in the data models.</p>",
+            "smithy.api#documentation": "<p>The conflict resolution strategy for your data stored in the data models.</p>",
             "smithy.api#jsonName": "conflictResolution"
           }
         },
         "DefaultAuthType": {
           "target": "com.amazonaws.amplifybackend#BackendAPIAuthType",
           "traits": {
-            "smithy.api#documentation": "<p>The default authentication type for interacting with the configured data models in your amplify project.</p>",
+            "smithy.api#documentation": "<p>The default authentication type for interacting with the configured data models in your Amplify project.</p>",
             "smithy.api#jsonName": "defaultAuthType"
           }
         },
@@ -301,13 +301,13 @@
         "TransformSchema": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The definition of the data model in the annotated transform of the graphql schema.</p>",
+            "smithy.api#documentation": "<p>The definition of the data model in the annotated transform of the GraphQL schema.</p>",
             "smithy.api#jsonName": "transformSchema"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The resource config for the data model,configured as a part of the Amplify project.</p>"
+        "smithy.api#documentation": "<p>The resource configuration for the data model, configured as a part of the Amplify project.</p>"
       }
     },
     "com.amazonaws.amplifybackend#BackendAuthSocialProviderConfig": {
@@ -316,20 +316,20 @@
         "ClientId": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>Describes the client_id which can be obtained from the third party social federation provider.</p>",
+            "smithy.api#documentation": "<p>Describes the client_id that can be obtained from the third-party social federation provider.</p>",
             "smithy.api#jsonName": "client_id"
           }
         },
         "ClientSecret": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>Describes the client_secret which can be obtained from third party social federation providers.</p>",
+            "smithy.api#documentation": "<p>Describes the client_secret that can be obtained from third-party social federation providers.</p>",
             "smithy.api#jsonName": "client_secret"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes third party social federation configurations for allowing your app users to sign in using OAuth.</p>"
+        "smithy.api#documentation": "<p>Describes third-party social federation configurations for allowing your app users to sign in using OAuth.</p>"
       }
     },
     "com.amazonaws.amplifybackend#BackendJobRespObj": {
@@ -404,7 +404,7 @@
         "Message": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>An error message to inform that the request has failed.</p>",
+            "smithy.api#documentation": "<p>An error message to inform that the request failed.</p>",
             "smithy.api#jsonName": "message"
           }
         }
@@ -711,7 +711,7 @@
         "DeliveryMethod": {
           "target": "com.amazonaws.amplifybackend#DeliveryMethod",
           "traits": {
-            "smithy.api#documentation": "<p>Describes which mode to use (either SMS or email) to deliver messages to app users that want to recover their password.</p>",
+            "smithy.api#documentation": "<p>Describes which method to use (either SMS or email) to deliver messages to app users that want to recover their password.</p>",
             "smithy.api#jsonName": "deliveryMethod",
             "smithy.api#required": {}
           }
@@ -732,7 +732,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the forgot password policy for authenticating into the Amlify app.</p>"
+        "smithy.api#documentation": "<p>Describes the forgot password policy for authenticating into the Amplify app.</p>"
       }
     },
     "com.amazonaws.amplifybackend#CreateBackendAuthIdentityPoolConfig": {
@@ -756,7 +756,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes authorization configurations for the auth resources, configures as a part of your Amplify project.</p>"
+        "smithy.api#documentation": "<p>Describes authorization configurations for the auth resources, configured as a part of your Amplify project.</p>"
       }
     },
     "com.amazonaws.amplifybackend#CreateBackendAuthMFAConfig": {
@@ -765,7 +765,7 @@
         "MFAMode": {
           "target": "com.amazonaws.amplifybackend#MFAMode",
           "traits": {
-            "smithy.api#documentation": "<p>Describes whether MFA should be [ON, OFF, OPTIONAL] for authentication in your Amplify project.</p>",
+            "smithy.api#documentation": "<p>Describes whether MFA should be [ON, OFF, or OPTIONAL] for authentication in your Amplify project.</p>",
             "smithy.api#required": {}
           }
         },
@@ -778,7 +778,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes whether multi-factor authentication policies should be applied for your Amazon Cognito user pool configured as a part of your Amplify project.</p>"
+        "smithy.api#documentation": "<p>Describes whether to apply multi-factor authentication (MFA) policies for your Amazon Cognito user pool that's configured as a part of your Amplify project.</p>"
       }
     },
     "com.amazonaws.amplifybackend#CreateBackendAuthOAuthConfig": {
@@ -794,7 +794,7 @@
         "OAuthGrantType": {
           "target": "com.amazonaws.amplifybackend#OAuthGrantType",
           "traits": {
-            "smithy.api#documentation": "<p>The OAuth grant type which you use to allow app users to authenticate from your Amplify app.</p>",
+            "smithy.api#documentation": "<p>The OAuth grant type that you use to allow app users to authenticate from your Amplify app.</p>",
             "smithy.api#jsonName": "oAuthGrantType",
             "smithy.api#required": {}
           }
@@ -802,7 +802,7 @@
         "OAuthScopes": {
           "target": "com.amazonaws.amplifybackend#ListOfOAuthScopesElement",
           "traits": {
-            "smithy.api#documentation": "<p>List of OAuth related flows which use to allow your app users to authenticate from your Amplify app.</p>",
+            "smithy.api#documentation": "<p>List of OAuth-related flows that allow your app users to authenticate from your Amplify app.</p>",
             "smithy.api#jsonName": "oAuthScopes",
             "smithy.api#required": {}
           }
@@ -810,7 +810,7 @@
         "RedirectSignInURIs": {
           "target": "com.amazonaws.amplifybackend#ListOf__string",
           "traits": {
-            "smithy.api#documentation": "<p>The redirected URI for sigining into your Amplify app.</p>",
+            "smithy.api#documentation": "<p>The redirected URI for signing in to your Amplify app.</p>",
             "smithy.api#jsonName": "redirectSignInURIs",
             "smithy.api#required": {}
           }
@@ -818,7 +818,7 @@
         "RedirectSignOutURIs": {
           "target": "com.amazonaws.amplifybackend#ListOf__string",
           "traits": {
-            "smithy.api#documentation": "<p>Redirect URLs used by OAuth when a user signs out of an Amplify app.</p>",
+            "smithy.api#documentation": "<p>Redirect URLs that OAuth uses when a user signs out of an Amplify app.</p>",
             "smithy.api#jsonName": "redirectSignOutURIs",
             "smithy.api#required": {}
           }
@@ -826,7 +826,7 @@
         "SocialProviderSettings": {
           "target": "com.amazonaws.amplifybackend#SocialProviderSettings",
           "traits": {
-            "smithy.api#documentation": "<p>The settings for using the social providers for access to your Amplify app.</p>",
+            "smithy.api#documentation": "<p>The settings for using social identity providers for access to your Amplify app.</p>",
             "smithy.api#jsonName": "socialProviderSettings"
           }
         }
@@ -841,21 +841,21 @@
         "AdditionalConstraints": {
           "target": "com.amazonaws.amplifybackend#ListOfAdditionalConstraintsElement",
           "traits": {
-            "smithy.api#documentation": "<p>Additional constraints for the pasword used to access the backend of your Amplify project.</p>",
+            "smithy.api#documentation": "<p>Additional constraints for the password used to access the backend of your Amplify project.</p>",
             "smithy.api#jsonName": "additionalConstraints"
           }
         },
         "MinimumLength": {
           "target": "com.amazonaws.amplifybackend#__double",
           "traits": {
-            "smithy.api#documentation": "<p>The minimum length of password used to access the backend of your Amplify project.</p>",
+            "smithy.api#documentation": "<p>The minimum length of the password used to access the backend of your Amplify project.</p>",
             "smithy.api#jsonName": "minimumLength",
             "smithy.api#required": {}
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The password policy configuration for the backend to your Amplify project.</p>"
+        "smithy.api#documentation": "<p>The password policy configuration for the backend of your Amplify project.</p>"
       }
     },
     "com.amazonaws.amplifybackend#CreateBackendAuthRequest": {
@@ -912,7 +912,7 @@
         "IdentityPoolConfigs": {
           "target": "com.amazonaws.amplifybackend#CreateBackendAuthIdentityPoolConfig",
           "traits": {
-            "smithy.api#documentation": "<p>Describes the authorization configuration for the Amazon Cognito identity pool, provisioned as a part of your auth resource in the Amplify project.</p>",
+            "smithy.api#documentation": "<p>Describes the authorization configuration for the Amazon Cognito identity pool, provisioned as a part of the auth resource in your Amplify project.</p>",
             "smithy.api#jsonName": "identityPoolConfigs"
           }
         },
@@ -927,7 +927,7 @@
         "UserPoolConfigs": {
           "target": "com.amazonaws.amplifybackend#CreateBackendAuthUserPoolConfig",
           "traits": {
-            "smithy.api#documentation": "<p>Describes authentication configuration for the Amazon Cognito user pool, provisioned as a part of your auth resource in the Amplify project.</p>",
+            "smithy.api#documentation": "<p>Describes the authentication configuration for the Amazon Cognito user pool, provisioned as a part of the auth resource in your Amplify project.</p>",
             "smithy.api#jsonName": "userPoolConfigs",
             "smithy.api#required": {}
           }
@@ -997,7 +997,7 @@
         "Mfa": {
           "target": "com.amazonaws.amplifybackend#CreateBackendAuthMFAConfig",
           "traits": {
-            "smithy.api#documentation": "<p>Describes whether multi-factor authentication policies should be applied for your Amazon Cognito user pool configured as a part of your Amplify project.</p>",
+            "smithy.api#documentation": "<p>Describes whether to apply multi-factor authentication (MFA) policies for your Amazon Cognito user pool that's configured as a part of your Amplify project.</p>",
             "smithy.api#jsonName": "mfa"
           }
         },
@@ -1018,7 +1018,7 @@
         "RequiredSignUpAttributes": {
           "target": "com.amazonaws.amplifybackend#ListOfRequiredSignUpAttributesElement",
           "traits": {
-            "smithy.api#documentation": "<p>The required attributes to sign up new users in the user pool.</p>",
+            "smithy.api#documentation": "<p>The required attributes to sign up new users in the Amazon Cognito user pool.</p>",
             "smithy.api#jsonName": "requiredSignUpAttributes",
             "smithy.api#required": {}
           }
@@ -1026,7 +1026,7 @@
         "SignInMethod": {
           "target": "com.amazonaws.amplifybackend#SignInMethod",
           "traits": {
-            "smithy.api#documentation": "<p>Describes the sign-in methods that your Amplify app users to login using the Amazon Cognito user pool, configured as a part of your Amplify project.</p>",
+            "smithy.api#documentation": "<p>Describes the sign-in methods that your Amplify app users to log in using the Amazon Cognito user pool that's configured as a part of your Amplify project.</p>",
             "smithy.api#jsonName": "signInMethod",
             "smithy.api#required": {}
           }
@@ -1161,7 +1161,7 @@
         "ResourceConfig": {
           "target": "com.amazonaws.amplifybackend#ResourceConfig",
           "traits": {
-            "smithy.api#documentation": "<p>The resource configuration for the create backend request.</p>",
+            "smithy.api#documentation": "<p>The resource configuration for the backend creation request.</p>",
             "smithy.api#jsonName": "resourceConfig"
           }
         },
@@ -1247,7 +1247,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Generates a one time challenge code to authenticate a user into your Amplify Admin UI.</p>",
+        "smithy.api#documentation": "<p>Generates a one-time challenge code to authenticate a user into your Amplify Admin UI.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/backend/{AppId}/challenge",
@@ -1281,21 +1281,21 @@
         "ChallengeCode": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>One time challenge code for authenticating into Amplify Admin UI.</p>",
+            "smithy.api#documentation": "<p>One-time challenge code for authenticating into the Amplify Admin UI.</p>",
             "smithy.api#jsonName": "challengeCode"
           }
         },
         "SessionId": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>A unique identifier provided when creating a new challenge token.</p>",
+            "smithy.api#documentation": "<p>A unique ID provided when creating a new challenge token.</p>",
             "smithy.api#jsonName": "sessionId"
           }
         },
         "Ttl": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The expiry time for the one time generated token code.</p>",
+            "smithy.api#documentation": "<p>The expiry time for the one-time generated token code.</p>",
             "smithy.api#jsonName": "ttl"
           }
         }
@@ -1324,7 +1324,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Removes an existing environment from your Ampify project.</p>",
+        "smithy.api#documentation": "<p>Removes an existing environment from your Amplify project.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/backend/{AppId}/environments/{BackendEnvironmentName}/remove",
@@ -1672,7 +1672,7 @@
         "SessionId": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The session Id.</p>",
+            "smithy.api#documentation": "<p>The session ID.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -1734,7 +1734,7 @@
         "Message": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>An error message to inform that the request has failed.</p>",
+            "smithy.api#documentation": "<p>An error message to inform that the request failed.</p>",
             "smithy.api#jsonName": "message"
           }
         }
@@ -1878,7 +1878,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Provides project level details for your Amplify UI project.</p>",
+        "smithy.api#documentation": "<p>Provides project-level details for your Amplify UI project.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/backend/{AppId}/details",
@@ -1909,7 +1909,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Gets the details for a backend api.</p>",
+        "smithy.api#documentation": "<p>Gets the details for a backend API.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/backend/{AppId}/api/{BackendEnvironmentName}/details",
@@ -1986,7 +1986,7 @@
         "Models": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>Stringified JSON of the datastore model.</p>",
+            "smithy.api#documentation": "<p>Stringified JSON of the DataStore model.</p>",
             "smithy.api#jsonName": "models"
           }
         },
@@ -2101,7 +2101,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Gets a backend auth details.</p>",
+        "smithy.api#documentation": "<p>Gets backend auth details.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/backend/{AppId}/auth/{BackendEnvironmentName}/details",
@@ -2331,7 +2331,7 @@
         "AmplifyMetaConfig": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>A stringified version of the current configs for your Amplify project.</p>",
+            "smithy.api#documentation": "<p>A stringified version of the current configurations for your Amplify project.</p>",
             "smithy.api#jsonName": "amplifyMetaConfig"
           }
         },
@@ -2417,7 +2417,7 @@
         "SessionId": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The session Id.</p>",
+            "smithy.api#documentation": "<p>The session ID.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -2437,21 +2437,21 @@
         "ChallengeCode": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The one time challenge code for authenticating into Amplify Admin UI.</p>",
+            "smithy.api#documentation": "<p>The one-time challenge code for authenticating into the Amplify Admin UI.</p>",
             "smithy.api#jsonName": "challengeCode"
           }
         },
         "SessionId": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>A unique identifier provided when creating a new challenge token.</p>",
+            "smithy.api#documentation": "<p>A unique ID provided when creating a new challenge token.</p>",
             "smithy.api#jsonName": "sessionId"
           }
         },
         "Ttl": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The expiry time for the one time generated token code.</p>",
+            "smithy.api#documentation": "<p>The expiry time for the one-time generated token code.</p>",
             "smithy.api#jsonName": "ttl"
           }
         }
@@ -2517,7 +2517,7 @@
         "MaxResults": {
           "target": "com.amazonaws.amplifybackend#__integerMin1Max25",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results you want in the response.</p>",
+            "smithy.api#documentation": "<p>The maximum number of results that you want in the response.</p>",
             "smithy.api#jsonName": "maxResults"
           }
         },
@@ -2531,14 +2531,14 @@
         "Operation": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>Filters the list of response objects to only include those with the specified operation name.</p>",
+            "smithy.api#documentation": "<p>Filters the list of response objects to include only those with the specified operation name.</p>",
             "smithy.api#jsonName": "operation"
           }
         },
         "Status": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>Filters the list of response objects to only include those with the specified status.</p>",
+            "smithy.api#documentation": "<p>Filters the list of response objects to include only those with the specified status.</p>",
             "smithy.api#jsonName": "status"
           }
         }
@@ -2614,28 +2614,28 @@
         "AwsCognitoIdentityPoolId": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Cognito identitypool id used for the Amplify Admin UI login authorization.</p>",
+            "smithy.api#documentation": "<p>The Amazon Cognito identity pool ID used for Amplify Admin UI login authorization.</p>",
             "smithy.api#jsonName": "aws_cognito_identity_pool_id"
           }
         },
         "AwsCognitoRegion": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS Region for the the Amplify Admin login.</p>",
+            "smithy.api#documentation": "<p>The AWS Region for the Amplify Admin UI login.</p>",
             "smithy.api#jsonName": "aws_cognito_region"
           }
         },
         "AwsUserPoolsId": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Cognito userpool id used for Amplify Admin UI login authentication.</p>",
+            "smithy.api#documentation": "<p>The Amazon Cognito user pool ID used for Amplify Admin UI login authentication.</p>",
             "smithy.api#jsonName": "aws_user_pools_id"
           }
         },
         "AwsUserPoolsWebClientId": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The web client ID for the Amazon Cognito userpools.</p>",
+            "smithy.api#documentation": "<p>The web client ID for the Amazon Cognito user pools.</p>",
             "smithy.api#jsonName": "aws_user_pools_web_client_id"
           }
         }
@@ -2707,7 +2707,7 @@
         "Message": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>An error message to inform that the request has failed.</p>",
+            "smithy.api#documentation": "<p>An error message to inform that the request failed.</p>",
             "smithy.api#jsonName": "message"
           }
         },
@@ -2884,7 +2884,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Removes the AWS resources required to access the Amplify Admin UI.</p>",
+        "smithy.api#documentation": "<p>Removes the AWS resources that are required to access the Amplify Admin UI.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/backend/{AppId}/config/remove",
@@ -3039,7 +3039,7 @@
         "MfaTypes": {
           "target": "com.amazonaws.amplifybackend#ListOfMfaTypesElement",
           "traits": {
-            "smithy.api#documentation": "<p>The supported MFA types</p>",
+            "smithy.api#documentation": "<p>The supported MFA types.</p>",
             "smithy.api#jsonName": "mfaTypes"
           }
         },
@@ -3107,7 +3107,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The settings for using the social providers for access to your Amplify app.</p>"
+        "smithy.api#documentation": "<p>The settings for using the social identity providers for access to your Amplify app.</p>"
       }
     },
     "com.amazonaws.amplifybackend#Status": {
@@ -3138,13 +3138,13 @@
         "Message": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>An error message to inform that the request has failed.</p>",
+            "smithy.api#documentation": "<p>An error message to inform that the request failed.</p>",
             "smithy.api#jsonName": "message"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>An error that is returned when a limit of a specific type has been exceeded.</p>",
+        "smithy.api#documentation": "<p>An error that is returned when a limit of a specific type is exceeded.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 429
       }
@@ -3303,7 +3303,7 @@
         "DeliveryMethod": {
           "target": "com.amazonaws.amplifybackend#DeliveryMethod",
           "traits": {
-            "smithy.api#documentation": "<p>Describes which mode to use (either SMS or email) to deliver messages to app users that want to recover their password.</p>",
+            "smithy.api#documentation": "<p>Describes which method to use (either SMS or email) to deliver messages to app users that want to recover their password.</p>",
             "smithy.api#jsonName": "deliveryMethod"
           }
         },
@@ -3323,7 +3323,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the forgot password policy for authenticating into the Amlify app.</p>"
+        "smithy.api#documentation": "<p>Describes the forgot password policy for authenticating into the Amplify app.</p>"
       }
     },
     "com.amazonaws.amplifybackend#UpdateBackendAuthIdentityPoolConfig": {
@@ -3332,7 +3332,7 @@
         "UnauthenticatedLogin": {
           "target": "com.amazonaws.amplifybackend#__boolean",
           "traits": {
-            "smithy.api#documentation": "<p>A boolean value which can be set to allow or disallow guest level authorization into your Amplify app.</p>",
+            "smithy.api#documentation": "<p>A Boolean value that you can set to allow or disallow guest-level authorization into your Amplify app.</p>",
             "smithy.api#jsonName": "unauthenticatedLogin"
           }
         }
@@ -3382,28 +3382,28 @@
         "OAuthScopes": {
           "target": "com.amazonaws.amplifybackend#ListOfOAuthScopesElement",
           "traits": {
-            "smithy.api#documentation": "<p>The list of OAuth related flows which can allow users to authenticate from your Amplify app.</p>",
+            "smithy.api#documentation": "<p>The list of OAuth-related flows that can allow users to authenticate from your Amplify app.</p>",
             "smithy.api#jsonName": "oAuthScopes"
           }
         },
         "RedirectSignInURIs": {
           "target": "com.amazonaws.amplifybackend#ListOf__string",
           "traits": {
-            "smithy.api#documentation": "<p>Redirect URLs used by OAuth when a user signs in to an Amplify app.</p>",
+            "smithy.api#documentation": "<p>Redirect URLs that OAuth uses when a user signs in to an Amplify app.</p>",
             "smithy.api#jsonName": "redirectSignInURIs"
           }
         },
         "RedirectSignOutURIs": {
           "target": "com.amazonaws.amplifybackend#ListOf__string",
           "traits": {
-            "smithy.api#documentation": "<p>Redirect URLs used by OAuth when a user signs out of an Amplify app.</p>",
+            "smithy.api#documentation": "<p>Redirect URLs that OAuth uses when a user signs out of an Amplify app.</p>",
             "smithy.api#jsonName": "redirectSignOutURIs"
           }
         },
         "SocialProviderSettings": {
           "target": "com.amazonaws.amplifybackend#SocialProviderSettings",
           "traits": {
-            "smithy.api#documentation": "<p>Describes third party social federation configurations for allowing your users to sign in with OAuth.</p>",
+            "smithy.api#documentation": "<p>Describes third-party social federation configurations for allowing your users to sign in with OAuth.</p>",
             "smithy.api#jsonName": "socialProviderSettings"
           }
         }
@@ -3418,20 +3418,20 @@
         "AdditionalConstraints": {
           "target": "com.amazonaws.amplifybackend#ListOfAdditionalConstraintsElement",
           "traits": {
-            "smithy.api#documentation": "<p>Describes additional constrains on password requirements to sign in into the auth resource, configured as a part of your Ampify project.</p>",
+            "smithy.api#documentation": "<p>Describes additional constrains on the password requirements to sign in to the auth resource, configured as a part of your Amplify project.</p>",
             "smithy.api#jsonName": "additionalConstraints"
           }
         },
         "MinimumLength": {
           "target": "com.amazonaws.amplifybackend#__double",
           "traits": {
-            "smithy.api#documentation": "<p>Describes the minimum length of password required to sign in into the auth resource, configured as a part of your Ampify project.</p>",
+            "smithy.api#documentation": "<p>Describes the minimum length of the password required to sign in to the auth resource, configured as a part of your Amplify project.</p>",
             "smithy.api#jsonName": "minimumLength"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the password policy for your Amazon Cognito user pool configured as a part of your Amplify project.</p>"
+        "smithy.api#documentation": "<p>Describes the password policy for your Amazon Cognito user pool that's configured as a part of your Amplify project.</p>"
       }
     },
     "com.amazonaws.amplifybackend#UpdateBackendAuthRequest": {
@@ -3488,7 +3488,7 @@
         "IdentityPoolConfigs": {
           "target": "com.amazonaws.amplifybackend#UpdateBackendAuthIdentityPoolConfig",
           "traits": {
-            "smithy.api#documentation": "<p>Describes the authorization configuration for the Amazon Cognito identity pool, provisioned as a part of your auth resource in the Amplify project.</p>",
+            "smithy.api#documentation": "<p>Describes the authorization configuration for the Amazon Cognito identity pool, provisioned as a part of the auth resource in your Amplify project.</p>",
             "smithy.api#jsonName": "identityPoolConfigs"
           }
         },
@@ -3503,7 +3503,7 @@
         "UserPoolConfigs": {
           "target": "com.amazonaws.amplifybackend#UpdateBackendAuthUserPoolConfig",
           "traits": {
-            "smithy.api#documentation": "<p>Describes the authentication configuration for the Amazon Cognito userpool, provisioned as a part of your auth resource in the Amplify project.</p>",
+            "smithy.api#documentation": "<p>Describes the authentication configuration for the Amazon Cognito user pool, provisioned as a part of the auth resource in your Amplify project.</p>",
             "smithy.api#jsonName": "userPoolConfigs",
             "smithy.api#required": {}
           }
@@ -3573,7 +3573,7 @@
         "Mfa": {
           "target": "com.amazonaws.amplifybackend#UpdateBackendAuthMFAConfig",
           "traits": {
-            "smithy.api#documentation": "<p>Describes whether multi-factor authentication policies should be applied for your Amazon Cognito user pool configured as a part of your Amplify project.</p>",
+            "smithy.api#documentation": "<p>Describes whether to apply multi-factor authentication (MFA) policies for your Amazon Cognito user pool that's configured as a part of your Amplify project.</p>",
             "smithy.api#jsonName": "mfa"
           }
         },
@@ -3593,7 +3593,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the Amazon Cognito user pool configuration for the authorization resource to be configured for your Amplify project on an update.</p>"
+        "smithy.api#documentation": "<p>Describes the Amazon Cognito user pool configuration to configure the authorization resource for your Amplify project on an update.</p>"
       }
     },
     "com.amazonaws.amplifybackend#UpdateBackendConfig": {
@@ -3619,7 +3619,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates the AWS resources required to access the Amplify Admin UI.</p>",
+        "smithy.api#documentation": "<p>Updates the AWS resources that are required to access the Amplify Admin UI.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/backend/{AppId}/config/update",
@@ -3677,7 +3677,7 @@
         "LoginAuthConfig": {
           "target": "com.amazonaws.amplifybackend#LoginAuthConfigReqObj",
           "traits": {
-            "smithy.api#documentation": "<p>Describes the Amazon Cognito configurations for the Admin UI auth resource to login with.</p>",
+            "smithy.api#documentation": "<p>Describes the Amazon Cognito configurations for the Admin UI auth resource to log in with.</p>",
             "smithy.api#jsonName": "loginAuthConfig"
           }
         }
@@ -3744,14 +3744,14 @@
         "Operation": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>Filters the list of response objects to only include those with the specified operation name.</p>",
+            "smithy.api#documentation": "<p>Filters the list of response objects to include only those with the specified operation name.</p>",
             "smithy.api#jsonName": "operation"
           }
         },
         "Status": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>Filters the list of response objects to only include those with the specified status.</p>",
+            "smithy.api#documentation": "<p>Filters the list of response objects to include only those with the specified status.</p>",
             "smithy.api#jsonName": "status"
           }
         }

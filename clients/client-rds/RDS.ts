@@ -625,6 +625,11 @@ import {
   StartDBClusterCommandOutput,
 } from "./commands/StartDBClusterCommand";
 import {
+  StartDBInstanceAutomatedBackupsReplicationCommand,
+  StartDBInstanceAutomatedBackupsReplicationCommandInput,
+  StartDBInstanceAutomatedBackupsReplicationCommandOutput,
+} from "./commands/StartDBInstanceAutomatedBackupsReplicationCommand";
+import {
   StartDBInstanceCommand,
   StartDBInstanceCommandInput,
   StartDBInstanceCommandOutput,
@@ -644,6 +649,11 @@ import {
   StopDBClusterCommandInput,
   StopDBClusterCommandOutput,
 } from "./commands/StopDBClusterCommand";
+import {
+  StopDBInstanceAutomatedBackupsReplicationCommand,
+  StopDBInstanceAutomatedBackupsReplicationCommandInput,
+  StopDBInstanceAutomatedBackupsReplicationCommandOutput,
+} from "./commands/StopDBInstanceAutomatedBackupsReplicationCommand";
 import {
   StopDBInstanceCommand,
   StopDBInstanceCommandInput,
@@ -1058,7 +1068,7 @@ export class RDS extends RDSClient {
    *               <ul>
    *                   <li>
    *                      <p>
-   *                         <code>KmsKeyId</code> - The KMS key identifier for the key to use to encrypt the copy of the DB
+   *                         <code>KmsKeyId</code> - The AWS KMS key identifier for the customer master key (CMK) to use to encrypt the copy of the DB
    *                       cluster snapshot in the destination AWS Region. This is the same identifier for both the <code>CopyDBClusterSnapshot</code>
    *                       action that is called in the destination AWS Region, and the action contained in the pre-signed URL.</p>
    *                   </li>
@@ -1662,7 +1672,7 @@ export class RDS extends RDSClient {
 
   /**
    * <p>Creates a snapshot of a DB instance. The source DB instance must be in the <code>available</code> or
-   *                 <code>storage-optimization</code>state.</p>
+   *                 <code>storage-optimization</code> state.</p>
    */
   public createDBSnapshot(
     args: CreateDBSnapshotCommandInput,
@@ -2114,8 +2124,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Deletes automated backups based on the source instance's <code>DbiResourceId</code>
-   *             value or the restorable instance's resource ID.</p>
+   * <p>Deletes automated backups using the <code>DbiResourceId</code> value of the source DB instance or the Amazon Resource Name (ARN) of the automated backups.</p>
    */
   public deleteDBInstanceAutomatedBackup(
     args: DeleteDBInstanceAutomatedBackupCommandInput,
@@ -5281,8 +5290,15 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Creates a new DB instance from a DB snapshot. The target database is created from the source database restore point with the most of original configuration with the default security group and the default DB parameter group. By default, the new DB instance is created as a single-AZ deployment except when the instance is a SQL Server instance that has an option group that is associated with mirroring; in this case, the instance becomes a mirrored AZ deployment and not a single-AZ deployment.</p>
-   *          <p>If your intent is to replace your original DB instance with the new, restored DB instance, then rename your original DB instance before you call the RestoreDBInstanceFromDBSnapshot action. RDS doesn't allow two DB instances with the same name. Once you have renamed your original DB instance with a different identifier, then you can pass the original name of the DB instance as the DBInstanceIdentifier in the call to the RestoreDBInstanceFromDBSnapshot action. The result is that you will replace the original DB instance with the DB instance created from the snapshot.</p>
+   * <p>Creates a new DB instance from a DB snapshot. The target database is created from the source database restore point with most
+   *             of the source's original configuration, including the default security group and DB parameter group. By default, the new DB
+   *             instance is created as a Single-AZ deployment, except when the instance is a SQL Server instance that has an option group
+   *             associated with mirroring. In this case, the instance becomes a Multi-AZ deployment, not a Single-AZ deployment.</p>
+   *          <p>If you want to replace your original DB instance with the new, restored DB instance, then rename your original DB instance
+   *             before you call the RestoreDBInstanceFromDBSnapshot action. RDS doesn't allow two DB instances with the same name. After you
+   *             have renamed your original DB instance with a different identifier, then you can pass the original name of the DB instance as
+   *             the DBInstanceIdentifier in the call to the RestoreDBInstanceFromDBSnapshot action. The result is that you replace the original
+   *             DB instance with the DB instance created from the snapshot.</p>
    *          <p>If you are restoring from a shared manual DB snapshot, the <code>DBSnapshotIdentifier</code>
    *       must be the ARN of the shared DB snapshot.</p>
    *          <note>
@@ -5553,6 +5569,43 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * <p>Enables replication of automated backups to a different AWS Region.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html">
+   *             Replicating Automated Backups to Another AWS Region</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  public startDBInstanceAutomatedBackupsReplication(
+    args: StartDBInstanceAutomatedBackupsReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartDBInstanceAutomatedBackupsReplicationCommandOutput>;
+  public startDBInstanceAutomatedBackupsReplication(
+    args: StartDBInstanceAutomatedBackupsReplicationCommandInput,
+    cb: (err: any, data?: StartDBInstanceAutomatedBackupsReplicationCommandOutput) => void
+  ): void;
+  public startDBInstanceAutomatedBackupsReplication(
+    args: StartDBInstanceAutomatedBackupsReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartDBInstanceAutomatedBackupsReplicationCommandOutput) => void
+  ): void;
+  public startDBInstanceAutomatedBackupsReplication(
+    args: StartDBInstanceAutomatedBackupsReplicationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartDBInstanceAutomatedBackupsReplicationCommandOutput) => void),
+    cb?: (err: any, data?: StartDBInstanceAutomatedBackupsReplicationCommandOutput) => void
+  ): Promise<StartDBInstanceAutomatedBackupsReplicationCommandOutput> | void {
+    const command = new StartDBInstanceAutomatedBackupsReplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Starts an export of a snapshot to Amazon S3.
    *             The provided IAM role must have access to the S3 bucket.
    *         </p>
@@ -5705,6 +5758,43 @@ export class RDS extends RDSClient {
     cb?: (err: any, data?: StopDBInstanceCommandOutput) => void
   ): Promise<StopDBInstanceCommandOutput> | void {
     const command = new StopDBInstanceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Stops automated backup replication for a DB instance.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html">
+   *             Replicating Automated Backups to Another AWS Region</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  public stopDBInstanceAutomatedBackupsReplication(
+    args: StopDBInstanceAutomatedBackupsReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopDBInstanceAutomatedBackupsReplicationCommandOutput>;
+  public stopDBInstanceAutomatedBackupsReplication(
+    args: StopDBInstanceAutomatedBackupsReplicationCommandInput,
+    cb: (err: any, data?: StopDBInstanceAutomatedBackupsReplicationCommandOutput) => void
+  ): void;
+  public stopDBInstanceAutomatedBackupsReplication(
+    args: StopDBInstanceAutomatedBackupsReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopDBInstanceAutomatedBackupsReplicationCommandOutput) => void
+  ): void;
+  public stopDBInstanceAutomatedBackupsReplication(
+    args: StopDBInstanceAutomatedBackupsReplicationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StopDBInstanceAutomatedBackupsReplicationCommandOutput) => void),
+    cb?: (err: any, data?: StopDBInstanceAutomatedBackupsReplicationCommandOutput) => void
+  ): Promise<StopDBInstanceAutomatedBackupsReplicationCommandOutput> | void {
+    const command = new StopDBInstanceAutomatedBackupsReplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

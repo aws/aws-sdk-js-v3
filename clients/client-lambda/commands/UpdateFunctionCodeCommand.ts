@@ -26,6 +26,10 @@ export type UpdateFunctionCodeCommandOutput = FunctionConfiguration & __Metadata
  *
  *          <p>The function's code is locked when you publish a version. You can't modify the code of a published version,
  *       only the unpublished version.</p>
+ *          <note>
+ *             <p>For a function defined as a container image, Lambda resolves the image tag to an image digest. In Amazon ECR, if
+ *         you update the image tag to a new image, Lambda does not automatically update the function.</p>
+ *          </note>
  */
 export class UpdateFunctionCodeCommand extends $Command<
   UpdateFunctionCodeCommandInput,

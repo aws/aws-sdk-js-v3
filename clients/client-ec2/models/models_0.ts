@@ -1079,12 +1079,12 @@ export interface TagSpecification {
    *             <code>client-vpn-endpoint</code> |  <code>customer-gateway</code> |
    *             <code>dedicated-host</code> | <code>dhcp-options</code> | <code>export-image-task</code>
    *          | <code>export-instance-task</code> | <code>fleet</code> | <code>fpga-image</code> |
-   *             <code>host-reservation</code> | <code>import-image-task</code> |
+   *     	   <code>host-reservation</code> | <code>image</code>| <code>import-image-task</code> |
    *             <code>import-snapshot-task</code> | <code>instance</code> |
    *             <code>internet-gateway</code> | <code>ipv4pool-ec2</code> | <code>ipv6pool-ec2</code> |
    *             <code>key-pair</code> | <code>launch-template</code> | <code>placement-group</code> |
    *             <code>prefix-list</code> | <code>natgateway</code> | <code>network-acl</code> |
-   *             <code>route-table</code> | <code>security-group</code> | <code>spot-fleet-request</code>
+   *     	   <code>route-table</code> | <code>security-group</code>| <code>snapshot</code> | <code>spot-fleet-request</code>
    *          | <code>spot-instances-request</code> | <code>snapshot</code> | <code>subnet</code> |
    *             <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> |
    *             <code>traffic-mirror-target</code> | <code>transit-gateway</code> |
@@ -5462,6 +5462,9 @@ export type _InstanceType =
   | "g3.4xlarge"
   | "g3.8xlarge"
   | "g3s.xlarge"
+  | "g4ad.16xlarge"
+  | "g4ad.4xlarge"
+  | "g4ad.8xlarge"
   | "g4dn.12xlarge"
   | "g4dn.16xlarge"
   | "g4dn.2xlarge"
@@ -6888,9 +6891,29 @@ export interface CreateImageRequest {
   Name: string | undefined;
 
   /**
-   * <p>By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image. If the 'No Reboot' option is set, Amazon EC2 doesn't shut down the instance before creating the image. When this option is used, file system integrity on the created image can't be guaranteed.</p>
+   * <p>By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image. If the <code>No Reboot</code> option is set, Amazon EC2 doesn't shut down the instance before creating the image. When this option is used, file system integrity on the created image can't be guaranteed.</p>
    */
   NoReboot?: boolean;
+
+  /**
+   * <p>The tags to apply to the AMI and snapshots on creation. You can tag the AMI, the
+   *       snapshots, or both.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To tag the AMI, the value for <code>ResourceType</code> must be
+   *           <code>image</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To tag the snapshots that are created of the root volume and of other EBS volumes that
+   *           are attached to the instance, the value for <code>ResourceType</code> must be
+   *             <code>snapshot</code>. The same tag is applied to all of the snapshots that are
+   *           created.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you specify other values for <code>ResourceType</code>, the request fails.</p>
+   *          <p>To tag an AMI or snapshot after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>. </p>
+   */
+  TagSpecifications?: TagSpecification[];
 }
 
 export namespace CreateImageRequest {

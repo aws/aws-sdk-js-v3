@@ -1,20 +1,50 @@
+import { AcceptGrantCommandInput, AcceptGrantCommandOutput } from "./commands/AcceptGrantCommand";
+import { CheckInLicenseCommandInput, CheckInLicenseCommandOutput } from "./commands/CheckInLicenseCommand";
+import {
+  CheckoutBorrowLicenseCommandInput,
+  CheckoutBorrowLicenseCommandOutput,
+} from "./commands/CheckoutBorrowLicenseCommand";
+import { CheckoutLicenseCommandInput, CheckoutLicenseCommandOutput } from "./commands/CheckoutLicenseCommand";
+import { CreateGrantCommandInput, CreateGrantCommandOutput } from "./commands/CreateGrantCommand";
+import { CreateGrantVersionCommandInput, CreateGrantVersionCommandOutput } from "./commands/CreateGrantVersionCommand";
+import { CreateLicenseCommandInput, CreateLicenseCommandOutput } from "./commands/CreateLicenseCommand";
 import {
   CreateLicenseConfigurationCommandInput,
   CreateLicenseConfigurationCommandOutput,
 } from "./commands/CreateLicenseConfigurationCommand";
 import {
+  CreateLicenseVersionCommandInput,
+  CreateLicenseVersionCommandOutput,
+} from "./commands/CreateLicenseVersionCommand";
+import { CreateTokenCommandInput, CreateTokenCommandOutput } from "./commands/CreateTokenCommand";
+import { DeleteGrantCommandInput, DeleteGrantCommandOutput } from "./commands/DeleteGrantCommand";
+import { DeleteLicenseCommandInput, DeleteLicenseCommandOutput } from "./commands/DeleteLicenseCommand";
+import {
   DeleteLicenseConfigurationCommandInput,
   DeleteLicenseConfigurationCommandOutput,
 } from "./commands/DeleteLicenseConfigurationCommand";
+import { DeleteTokenCommandInput, DeleteTokenCommandOutput } from "./commands/DeleteTokenCommand";
+import {
+  ExtendLicenseConsumptionCommandInput,
+  ExtendLicenseConsumptionCommandOutput,
+} from "./commands/ExtendLicenseConsumptionCommand";
+import { GetAccessTokenCommandInput, GetAccessTokenCommandOutput } from "./commands/GetAccessTokenCommand";
+import { GetGrantCommandInput, GetGrantCommandOutput } from "./commands/GetGrantCommand";
+import { GetLicenseCommandInput, GetLicenseCommandOutput } from "./commands/GetLicenseCommand";
 import {
   GetLicenseConfigurationCommandInput,
   GetLicenseConfigurationCommandOutput,
 } from "./commands/GetLicenseConfigurationCommand";
+import { GetLicenseUsageCommandInput, GetLicenseUsageCommandOutput } from "./commands/GetLicenseUsageCommand";
 import { GetServiceSettingsCommandInput, GetServiceSettingsCommandOutput } from "./commands/GetServiceSettingsCommand";
 import {
   ListAssociationsForLicenseConfigurationCommandInput,
   ListAssociationsForLicenseConfigurationCommandOutput,
 } from "./commands/ListAssociationsForLicenseConfigurationCommand";
+import {
+  ListDistributedGrantsCommandInput,
+  ListDistributedGrantsCommandOutput,
+} from "./commands/ListDistributedGrantsCommand";
 import {
   ListFailuresForLicenseConfigurationOperationsCommandInput,
   ListFailuresForLicenseConfigurationOperationsCommandOutput,
@@ -28,6 +58,16 @@ import {
   ListLicenseSpecificationsForResourceCommandOutput,
 } from "./commands/ListLicenseSpecificationsForResourceCommand";
 import {
+  ListLicenseVersionsCommandInput,
+  ListLicenseVersionsCommandOutput,
+} from "./commands/ListLicenseVersionsCommand";
+import { ListLicensesCommandInput, ListLicensesCommandOutput } from "./commands/ListLicensesCommand";
+import { ListReceivedGrantsCommandInput, ListReceivedGrantsCommandOutput } from "./commands/ListReceivedGrantsCommand";
+import {
+  ListReceivedLicensesCommandInput,
+  ListReceivedLicensesCommandOutput,
+} from "./commands/ListReceivedLicensesCommand";
+import {
   ListResourceInventoryCommandInput,
   ListResourceInventoryCommandOutput,
 } from "./commands/ListResourceInventoryCommand";
@@ -35,10 +75,12 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListTokensCommandInput, ListTokensCommandOutput } from "./commands/ListTokensCommand";
 import {
   ListUsageForLicenseConfigurationCommandInput,
   ListUsageForLicenseConfigurationCommandOutput,
 } from "./commands/ListUsageForLicenseConfigurationCommand";
+import { RejectGrantCommandInput, RejectGrantCommandOutput } from "./commands/RejectGrantCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -103,17 +145,41 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | AcceptGrantCommandInput
+  | CheckInLicenseCommandInput
+  | CheckoutBorrowLicenseCommandInput
+  | CheckoutLicenseCommandInput
+  | CreateGrantCommandInput
+  | CreateGrantVersionCommandInput
+  | CreateLicenseCommandInput
   | CreateLicenseConfigurationCommandInput
+  | CreateLicenseVersionCommandInput
+  | CreateTokenCommandInput
+  | DeleteGrantCommandInput
+  | DeleteLicenseCommandInput
   | DeleteLicenseConfigurationCommandInput
+  | DeleteTokenCommandInput
+  | ExtendLicenseConsumptionCommandInput
+  | GetAccessTokenCommandInput
+  | GetGrantCommandInput
+  | GetLicenseCommandInput
   | GetLicenseConfigurationCommandInput
+  | GetLicenseUsageCommandInput
   | GetServiceSettingsCommandInput
   | ListAssociationsForLicenseConfigurationCommandInput
+  | ListDistributedGrantsCommandInput
   | ListFailuresForLicenseConfigurationOperationsCommandInput
   | ListLicenseConfigurationsCommandInput
   | ListLicenseSpecificationsForResourceCommandInput
+  | ListLicenseVersionsCommandInput
+  | ListLicensesCommandInput
+  | ListReceivedGrantsCommandInput
+  | ListReceivedLicensesCommandInput
   | ListResourceInventoryCommandInput
   | ListTagsForResourceCommandInput
+  | ListTokensCommandInput
   | ListUsageForLicenseConfigurationCommandInput
+  | RejectGrantCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateLicenseConfigurationCommandInput
@@ -121,17 +187,41 @@ export type ServiceInputTypes =
   | UpdateServiceSettingsCommandInput;
 
 export type ServiceOutputTypes =
+  | AcceptGrantCommandOutput
+  | CheckInLicenseCommandOutput
+  | CheckoutBorrowLicenseCommandOutput
+  | CheckoutLicenseCommandOutput
+  | CreateGrantCommandOutput
+  | CreateGrantVersionCommandOutput
+  | CreateLicenseCommandOutput
   | CreateLicenseConfigurationCommandOutput
+  | CreateLicenseVersionCommandOutput
+  | CreateTokenCommandOutput
+  | DeleteGrantCommandOutput
+  | DeleteLicenseCommandOutput
   | DeleteLicenseConfigurationCommandOutput
+  | DeleteTokenCommandOutput
+  | ExtendLicenseConsumptionCommandOutput
+  | GetAccessTokenCommandOutput
+  | GetGrantCommandOutput
+  | GetLicenseCommandOutput
   | GetLicenseConfigurationCommandOutput
+  | GetLicenseUsageCommandOutput
   | GetServiceSettingsCommandOutput
   | ListAssociationsForLicenseConfigurationCommandOutput
+  | ListDistributedGrantsCommandOutput
   | ListFailuresForLicenseConfigurationOperationsCommandOutput
   | ListLicenseConfigurationsCommandOutput
   | ListLicenseSpecificationsForResourceCommandOutput
+  | ListLicenseVersionsCommandOutput
+  | ListLicensesCommandOutput
+  | ListReceivedGrantsCommandOutput
+  | ListReceivedLicensesCommandOutput
   | ListResourceInventoryCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTokensCommandOutput
   | ListUsageForLicenseConfigurationCommandOutput
+  | RejectGrantCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateLicenseConfigurationCommandOutput

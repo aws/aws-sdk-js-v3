@@ -723,6 +723,11 @@ export interface Snapshot {
   ClusterVersion?: string;
 
   /**
+   * <p>The cluster version of the cluster used to create the snapshot. For example, 1.0.15503. </p>
+   */
+  EngineFullVersion?: string;
+
+  /**
    * <p>The snapshot type. Snapshots created using <a>CreateClusterSnapshot</a>
    *             and <a>CopyClusterSnapshot</a> are of type "manual". </p>
    */
@@ -1631,6 +1636,22 @@ export namespace ElasticIpStatus {
 }
 
 /**
+ * <p>The connection endpoint for connecting an Amazon Redshift cluster through the proxy.</p>
+ */
+export interface SpartaProxyVpcEndpoint {
+  /**
+   * <p>The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.</p>
+   */
+  VpcEndpointId?: string;
+}
+
+export namespace SpartaProxyVpcEndpoint {
+  export const filterSensitiveLog = (obj: SpartaProxyVpcEndpoint): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Describes a connection endpoint.</p>
  */
 export interface Endpoint {
@@ -1643,6 +1664,11 @@ export interface Endpoint {
    * <p>The port that the database engine is listening on.</p>
    */
   Port?: number;
+
+  /**
+   * <p>Describes a connection endpoint.</p>
+   */
+  VpcEndpoints?: SpartaProxyVpcEndpoint[];
 }
 
 export namespace Endpoint {
@@ -2295,6 +2321,11 @@ export interface Cluster {
    *          </ul>
    */
   ResizeInfo?: ResizeInfo;
+
+  /**
+   * <p>Describes the status of the Availability Zone relocation operation.</p>
+   */
+  AvailabilityZoneRelocationStatus?: string;
 
   /**
    * <p>The namespace Amazon Resource Name (ARN) of the cluster.</p>
@@ -3209,7 +3240,7 @@ export interface CreateClusterMessage {
    *         <p>Valid Values: <code>ds2.xlarge</code> | <code>ds2.8xlarge</code> |
    *                 <code>dc1.large</code> | <code>dc1.8xlarge</code> |
    *                 <code>dc2.large</code> | <code>dc2.8xlarge</code> |
-   *                 <code>ra3.4xlarge</code> | <code>ra3.16xlarge</code>
+   *                 <code>ra3.xlplus</code> |  <code>ra3.4xlarge</code> | <code>ra3.16xlarge</code>
    *          </p>
    */
   NodeType: string | undefined;
@@ -3472,6 +3503,11 @@ export interface CreateClusterMessage {
    * <p>A unique identifier for the snapshot schedule.</p>
    */
   SnapshotScheduleIdentifier?: string;
+
+  /**
+   * <p>The option to enable relocation for an Amazon Redshift cluster between Availability Zones after the cluster is created.</p>
+   */
+  AvailabilityZoneRelocation?: boolean;
 }
 
 export namespace CreateClusterMessage {
@@ -8818,23 +8854,6 @@ export interface InvalidRestoreFault extends __SmithyException, $MetadataBearer 
 
 export namespace InvalidRestoreFault {
   export const filterSensitiveLog = (obj: InvalidRestoreFault): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The value specified for the <code>sourceDatabaseName</code>,
- *                 <code>sourceSchemaName</code>, or <code>sourceTableName</code> parameter, or a
- *             combination of these, doesn't exist in the snapshot.</p>
- */
-export interface InvalidTableRestoreArgumentFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidTableRestoreArgumentFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidTableRestoreArgumentFault {
-  export const filterSensitiveLog = (obj: InvalidTableRestoreArgumentFault): any => ({
     ...obj,
   });
 }

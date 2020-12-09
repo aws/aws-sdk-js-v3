@@ -21,7 +21,7 @@ export type EnableClientAuthenticationCommandInput = EnableClientAuthenticationR
 export type EnableClientAuthenticationCommandOutput = EnableClientAuthenticationResult & __MetadataBearer;
 
 /**
- * <p>Enable client authentication for smardtcards.</p>
+ * <p>Enables alternative client authentication methods for the specified directory.</p>
  */
 export class EnableClientAuthenticationCommand extends $Command<
   EnableClientAuthenticationCommandInput,

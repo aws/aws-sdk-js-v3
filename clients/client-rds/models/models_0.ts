@@ -165,7 +165,7 @@ export interface AddRoleToDBClusterMessage {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to associate with the Aurora DB
-   *             cluster, for example <code>arn:aws:iam::123456789012:role/AuroraAccessRole</code>.</p>
+   *             cluster, for example, <code>arn:aws:iam::123456789012:role/AuroraAccessRole</code>.</p>
    */
   RoleArn: string | undefined;
 
@@ -1204,10 +1204,9 @@ export interface ExportTask {
   IamRoleArn?: string;
 
   /**
-   * <p>The ID of the AWS KMS key that is used to encrypt the snapshot when it's exported to
-   *             Amazon S3. The KMS key ID is the Amazon Resource Name (ARN), the KMS key identifier, or
-   *             the KMS key alias for the KMS encryption key. The IAM role used for the snapshot export
-   *             must have encryption and decryption permissions to use this KMS key. </p>
+   * <p>The key identifier of the AWS KMS customer master key (CMK) that is used to encrypt the snapshot when it's exported to
+   *             Amazon S3. The AWS KMS CMK identifier is its key ARN, key ID, alias ARN, or alias name. The IAM role used for the snapshot export
+   *             must have encryption and decryption permissions to use this AWS KMS CMK. </p>
    */
   KmsKeyId?: string;
 
@@ -1488,17 +1487,17 @@ export interface CopyDBClusterSnapshotMessage {
   TargetDBClusterSnapshotIdentifier: string | undefined;
 
   /**
-   * <p>The AWS KMS key ID for an encrypted DB cluster snapshot.
-   *             The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key. </p>
+   * <p>The AWS KMS key identifier for an encrypted DB cluster snapshot.
+   *             The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>
    *
-   *         <p>If you copy an encrypted DB cluster snapshot from your AWS account, you can specify a value for <code>KmsKeyId</code> to encrypt the copy with a new KMS encryption key.
-   *             If you don't specify a value for <code>KmsKeyId</code>, then the copy of the DB cluster snapshot is encrypted with the same KMS key as the source DB cluster snapshot.
+   *         <p>If you copy an encrypted DB cluster snapshot from your AWS account, you can specify a value for <code>KmsKeyId</code> to encrypt the copy with a new AWS KMS CMK.
+   *             If you don't specify a value for <code>KmsKeyId</code>, then the copy of the DB cluster snapshot is encrypted with the same AWS KMS key as the source DB cluster snapshot.
    *         </p>
    *
    *         <p>If you copy an encrypted DB cluster snapshot that is shared from another AWS account, then you must specify a value for <code>KmsKeyId</code>. </p>
    *
-   *         <p>To copy an encrypted DB cluster snapshot to another AWS Region, you must set <code>KmsKeyId</code> to the KMS key ID you want to use to encrypt the copy of the DB cluster snapshot
-   *             in the destination AWS Region. KMS encryption keys are specific to the AWS Region that they are created in, and you can't use encryption keys from one AWS Region
+   *         <p>To copy an encrypted DB cluster snapshot to another AWS Region, you must set <code>KmsKeyId</code> to the AWS KMS key identifier you want to use to encrypt the copy of the DB cluster snapshot
+   *             in the destination AWS Region. AWS KMS CMKs are specific to the AWS Region that they are created in, and you can't use CMKs from one AWS Region
    *             in another AWS Region.</p>
    *
    *         <p>If you copy an unencrypted DB cluster snapshot and specify a value for the <code>KmsKeyId</code> parameter,
@@ -1517,7 +1516,7 @@ export interface CopyDBClusterSnapshotMessage {
    *         <ul>
    *             <li>
    *                <p>
-   *                   <code>KmsKeyId</code> - The AWS KMS key identifier for the key to use to encrypt the copy of the DB
+   *                   <code>KmsKeyId</code> - The AWS KMS key identifier for the customer master key (CMK) to use to encrypt the copy of the DB
    *                 cluster snapshot in the destination AWS Region. This is the same identifier for both the <code>CopyDBClusterSnapshot</code>
    *                 action that is called in the destination AWS Region, and the action contained in the pre-signed URL.</p>
    *             </li>
@@ -1659,6 +1658,7 @@ export interface DBClusterSnapshot {
 
   /**
    * <p>If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.</p>
+   *          <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>
    */
   KmsKeyId?: string;
 
@@ -1969,28 +1969,27 @@ export interface CopyDBSnapshotMessage {
   TargetDBSnapshotIdentifier: string | undefined;
 
   /**
-   * <p>The AWS KMS key ID for an encrypted DB snapshot.
-   *             The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
+   * <p>The AWS KMS key identifier for an encrypted DB snapshot.
+   *             The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).
    *         </p>
    *
    *         <p>If you copy an encrypted DB snapshot from your AWS account,
-   *             you can specify a value for this parameter to encrypt the copy with a new KMS encryption key.
+   *             you can specify a value for this parameter to encrypt the copy with a new AWS KMS CMK.
    *             If you don't specify a value for this parameter,
-   *             then the copy of the DB snapshot is encrypted with the same KMS key as the source DB snapshot.
+   *             then the copy of the DB snapshot is encrypted with the same AWS KMS key as the source DB snapshot.
    *         </p>
    *
    *         <p>If you copy an encrypted DB snapshot that is shared from another AWS account,
    *             then you must specify a value for this parameter.
    *         </p>
    *
-   *         <p>If you specify this parameter
-   *             when you copy an unencrypted snapshot,
+   *         <p>If you specify this parameter when you copy an unencrypted snapshot,
    *             the copy is encrypted.
    *         </p>
    *
    *         <p>If you copy an encrypted snapshot to a different AWS Region, then you must specify
-   *             a KMS key for the destination AWS Region. KMS encryption keys are specific to the AWS Region
-   *             that they are created in, and you can't use encryption keys from one AWS Region in another
+   *             a AWS KMS key identifier for the destination AWS Region. AWS KMS CMKs are specific to the AWS Region
+   *             that they are created in, and you can't use CMKs from one AWS Region in another
    *             AWS Region.
    *         </p>
    */
@@ -2038,7 +2037,7 @@ export interface CopyDBSnapshotMessage {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>KmsKeyId</code> - The AWS KMS key identifier for the key to use to encrypt the copy of the DB snapshot in the destination AWS Region.
+   *                   <code>KmsKeyId</code> - The AWS KMS key identifier for the customer master key (CMK) to use to encrypt the copy of the DB snapshot in the destination AWS Region.
    *                     This is the same identifier for both the <code>CopyDBSnapshot</code> action that is called in the destination AWS Region,
    *                     and the action contained in the presigned URL.
    *                 </p>
@@ -2307,6 +2306,7 @@ export interface DBSnapshot {
    *             If <code>Encrypted</code> is true, the AWS KMS key identifier
    *             for the encrypted DB snapshot.
    *         </p>
+   *          <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>
    */
   KmsKeyId?: string;
 
@@ -3221,28 +3221,26 @@ export interface CreateDBClusterMessage {
 
   /**
    * <p>The AWS KMS key identifier for an encrypted DB cluster.</p>
-   *         <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption
-   *             key. If you are creating a DB cluster with the same AWS account that owns the KMS
-   *             encryption key used to encrypt the new DB cluster, then you can use the KMS key alias
-   *             instead of the ARN for the KMS encryption key.</p>
-   *         <p>If an encryption key isn't specified in <code>KmsKeyId</code>:</p>
+   *         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).
+   *                  To use a CMK in a different AWS account, specify the key ARN or alias ARN.</p>
+   *         <p>When a CMK isn't specified in <code>KmsKeyId</code>:</p>
    *         <ul>
    *             <li>
    *                 <p>If <code>ReplicationSourceIdentifier</code> identifies an encrypted
-   *                     source, then Amazon RDS will use the encryption key used to encrypt the
-   *                     source. Otherwise, Amazon RDS will use your default encryption key. </p>
+   *                     source, then Amazon RDS will use the CMK used to encrypt the
+   *                     source. Otherwise, Amazon RDS will use your default CMK. </p>
    *             </li>
    *             <li>
    *                 <p>If the <code>StorageEncrypted</code> parameter is enabled and
    *                         <code>ReplicationSourceIdentifier</code> isn't specified, then Amazon RDS
-   *                     will use your default encryption key.</p>
+   *                     will use your default CMK.</p>
    *             </li>
    *          </ul>
-   *         <p>AWS KMS creates the default encryption key for your AWS account. Your AWS account
-   *             has a different default encryption key for each AWS Region.</p>
+   *         <p>There is a default CMK for your AWS account. Your AWS account
+   *             has a different default CMK for each AWS Region.</p>
    *         <p>If you create a read replica of an encrypted DB cluster in another AWS Region, you
-   *             must set <code>KmsKeyId</code> to a KMS key ID that is valid in the destination AWS
-   *             Region. This key is used to encrypt the read replica in that AWS Region.</p>
+   *             must set <code>KmsKeyId</code> to a AWS KMS key identifier that is valid in the destination AWS
+   *             Region. This CMK is used to encrypt the read replica in that AWS Region.</p>
    */
   KmsKeyId?: string;
 
@@ -3258,7 +3256,7 @@ export interface CreateDBClusterMessage {
    *             <li>
    *                <p>
    *                   <code>KmsKeyId</code> - The AWS KMS key identifier for the key to use to encrypt the copy of
-   *                 the DB cluster in the destination AWS Region. This should refer to the same KMS key for both the <code>CreateDBCluster</code>
+   *                 the DB cluster in the destination AWS Region. This should refer to the same AWS KMS CMK for both the <code>CreateDBCluster</code>
    *                 action that is called in the destination AWS Region, and the action contained in the pre-signed URL.</p>
    *             </li>
    *             <li>
@@ -3796,11 +3794,13 @@ export interface DBCluster {
 
   /**
    * <p>If <code>StorageEncrypted</code> is enabled, the AWS KMS key identifier for the encrypted DB cluster.</p>
+   *          <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>
    */
   KmsKeyId?: string;
 
   /**
-   * <p>The AWS Region-unique, immutable identifier for the DB cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.</p>
+   * <p>The AWS Region-unique, immutable identifier for the DB cluster. This identifier is found in AWS CloudTrail log entries whenever
+   *           the AWS KMS CMK for the DB cluster is accessed.</p>
    */
   DbClusterResourceId?: string;
 
@@ -3910,6 +3910,7 @@ export interface DBCluster {
 
   /**
    * <p>The AWS KMS key identifier used for encrypting messages in the database activity stream.</p>
+   *         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>
    */
   ActivityStreamKmsKeyId?: string;
 
@@ -5357,18 +5358,18 @@ export interface CreateDBInstanceMessage {
 
   /**
    * <p>The AWS KMS key identifier for an encrypted DB instance.</p>
-   *          <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a DB instance with the same AWS account that owns the KMS encryption key used to encrypt the new DB instance, then you can use the KMS key alias instead of the ARN for the KM encryption key.</p>
+   *          <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).
+   *           To use a CMK in a different AWS account, specify the key ARN or alias ARN.</p>
    *          <p>
    *             <b>Amazon Aurora</b>
    *          </p>
-   *          <p>Not applicable. The KMS key identifier is managed by
+   *          <p>Not applicable. The AWS KMS key identifier is managed by
    *           the DB cluster. For more information, see <code>CreateDBCluster</code>.</p>
-   *
    *          <p>If <code>StorageEncrypted</code> is enabled, and you do
    *         not specify a value for the <code>KmsKeyId</code> parameter, then
-   *         Amazon RDS will use your default encryption key. AWS KMS creates the
-   *         default encryption key for your AWS account. Your AWS account has a different
-   *         default encryption key for each AWS Region.</p>
+   *         Amazon RDS uses your default CMK. There is a
+   *         default CMK for your AWS account. Your AWS account has a different
+   *         default CMK for each AWS Region.</p>
    */
   KmsKeyId?: string;
 
@@ -5457,12 +5458,11 @@ export interface CreateDBInstanceMessage {
   EnablePerformanceInsights?: boolean;
 
   /**
-   * <p>The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID
-   *             is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS
-   *             encryption key.</p>
+   * <p>The AWS KMS key identifier for encryption of Performance Insights data.</p>
+   *         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>
    *         <p>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS
-   *             uses your default encryption key. AWS KMS creates the default encryption key for your AWS account.
-   *             Your AWS account has a different default encryption key for each AWS Region.</p>
+   *             uses your default CMK. There is a default CMK for your AWS account.
+   *             Your AWS account has a different default CMK for each AWS Region.</p>
    */
   PerformanceInsightsKMSKeyId?: string;
 
@@ -5585,6 +5585,22 @@ export interface DBInstanceRole {
 
 export namespace DBInstanceRole {
   export const filterSensitiveLog = (obj: DBInstanceRole): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Automated backups of a DB instance replicated to another AWS Region. They consist of system backups, transaction logs, and database instance properties.</p>
+ */
+export interface DBInstanceAutomatedBackupsReplication {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the replicated automated backups.</p>
+   */
+  DBInstanceAutomatedBackupsArn?: string;
+}
+
+export namespace DBInstanceAutomatedBackupsReplication {
+  export const filterSensitiveLog = (obj: DBInstanceAutomatedBackupsReplication): any => ({
     ...obj,
   });
 }
@@ -6250,11 +6266,13 @@ export interface DBInstance {
    *             If <code>StorageEncrypted</code> is true, the AWS KMS key identifier
    *             for the encrypted DB instance.
    *         </p>
+   *          <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>
    */
   KmsKeyId?: string;
 
   /**
-   * <p>The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.</p>
+   * <p>The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log
+   *           entries whenever the AWS KMS customer master key (CMK) for the DB instance is accessed.</p>
    */
   DbiResourceId?: string;
 
@@ -6342,9 +6360,8 @@ export interface DBInstance {
   PerformanceInsightsEnabled?: boolean;
 
   /**
-   * <p>The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID
-   *             is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS
-   *             encryption key.</p>
+   * <p>The AWS KMS key identifier for encryption of Performance Insights data.</p>
+   *         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>
    */
   PerformanceInsightsKMSKeyId?: string;
 
@@ -6399,6 +6416,11 @@ export interface DBInstance {
    *          </p>
    */
   TagList?: Tag[];
+
+  /**
+   * <p>The list of replicated automated backups associated with the DB instance.</p>
+   */
+  DBInstanceAutomatedBackupsReplications?: DBInstanceAutomatedBackupsReplication[];
 }
 
 export namespace DBInstance {
@@ -6734,18 +6756,15 @@ export interface CreateDBInstanceReadReplicaMessage {
   MonitoringRoleArn?: string;
 
   /**
-   * <p>The AWS KMS key ID for an encrypted read replica. The KMS key ID is the Amazon
-   *             Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.</p>
-   *
+   * <p>The AWS KMS key identifier for an encrypted read replica.</p>
+   *         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS CMK.</p>
    *         <p>If you create an encrypted read replica in the same AWS Region as the source DB
    *             instance, then you do not have to specify a value for this parameter. The read replica
-   *             is encrypted with the same KMS key as the source DB instance.</p>
-   *
+   *             is encrypted with the same AWS KMS CMK as the source DB instance.</p>
    *         <p>If you create an encrypted read replica in a different AWS Region, then you must
-   *             specify a KMS key for the destination AWS Region. KMS encryption keys are specific to
-   *             the AWS Region that they are created in, and you can't use encryption keys from one
+   *             specify a AWS KMS key identifier for the destination AWS Region. AWS KMS CMKs are specific to
+   *             the AWS Region that they are created in, and you can't use CMKs from one
    *             AWS Region in another AWS Region.</p>
-   *
    *         <p>You can't create an encrypted read replica from an unencrypted DB instance.</p>
    */
   KmsKeyId?: string;
@@ -6839,11 +6858,11 @@ export interface CreateDBInstanceReadReplicaMessage {
   EnablePerformanceInsights?: boolean;
 
   /**
-   * <p>The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID
-   *             is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.</p>
+   * <p>The AWS KMS key identifier for encryption of Performance Insights data.</p>
+   *         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>
    *         <p>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS
-   *             uses your default encryption key. AWS KMS creates the default encryption key for your AWS account.
-   *             Your AWS account has a different default encryption key for each AWS Region.</p>
+   *             uses your default CMK. There is a default CMK for your AWS account.
+   *             Your AWS account has a different default CMK for each AWS Region.</p>
    */
   PerformanceInsightsKMSKeyId?: string;
 
@@ -7921,7 +7940,7 @@ export interface GlobalCluster {
   /**
    * <p>
    *         The AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in
-   *         AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
+   *         AWS CloudTrail log entries whenever the AWS KMS customer master key (CMK) for the DB cluster is accessed.
    *       </p>
    */
   GlobalClusterResourceId?: string;
@@ -8437,13 +8456,19 @@ export namespace DBInstanceAutomatedBackupNotFoundFault {
 }
 
 /**
- * <p>Parameter input for the <code>DeleteDBInstanceAutomatedBackup</code> operation. </p>
+ * <p>Parameter input for the <code>DeleteDBInstanceAutomatedBackup</code> operation.</p>
  */
 export interface DeleteDBInstanceAutomatedBackupMessage {
   /**
    * <p>The identifier for the source DB instance, which can't be changed and which is unique to an AWS Region.</p>
    */
-  DbiResourceId: string | undefined;
+  DbiResourceId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the automated backups to delete, for example,
+   *             <code>arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE</code>.</p>
+   */
+  DBInstanceAutomatedBackupsArn?: string;
 }
 
 export namespace DeleteDBInstanceAutomatedBackupMessage {
@@ -8474,13 +8499,12 @@ export namespace RestoreWindow {
 }
 
 /**
- * <p>An automated backup of a DB instance. It it consists of
- *             system backups, transaction logs, and the database instance properties that
- *             existed at the time you deleted the source instance. </p>
+ * <p>An automated backup of a DB instance. It consists of system backups, transaction logs, and the database instance properties that
+ *             existed at the time you deleted the source instance.</p>
  */
 export interface DBInstanceAutomatedBackup {
   /**
-   * <p>The Amazon Resource Name (ARN) for the automated backup.</p>
+   * <p>The Amazon Resource Name (ARN) for the automated backups.</p>
    */
   DBInstanceArn?: string;
 
@@ -8583,8 +8607,7 @@ export interface DBInstanceAutomatedBackup {
   Iops?: number;
 
   /**
-   * <p>The option group the automated backup is associated with.
-   *             If omitted, the default option group for the engine specified is used.</p>
+   * <p>The option group the automated backup is associated with. If omitted, the default option group for the engine specified is used.</p>
    */
   OptionGroupName?: string;
 
@@ -8604,8 +8627,8 @@ export interface DBInstanceAutomatedBackup {
   StorageType?: string;
 
   /**
-   * <p>The AWS KMS key ID for an automated backup.
-   *             The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key. </p>
+   * <p>The AWS KMS key ID for an automated backup.</p>
+   *         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>
    */
   KmsKeyId?: string;
 
@@ -8621,6 +8644,21 @@ export interface DBInstanceAutomatedBackup {
    *             and otherwise false.</p>
    */
   IAMDatabaseAuthenticationEnabled?: boolean;
+
+  /**
+   * <p>The retention period for the automated backups.</p>
+   */
+  BackupRetentionPeriod?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the replicated automated backups.</p>
+   */
+  DBInstanceAutomatedBackupsArn?: string;
+
+  /**
+   * <p>The list of replications to different AWS Regions associated with the automated backup.</p>
+   */
+  DBInstanceAutomatedBackupsReplications?: DBInstanceAutomatedBackupsReplication[];
 }
 
 export namespace DBInstanceAutomatedBackup {
@@ -8631,9 +8669,8 @@ export namespace DBInstanceAutomatedBackup {
 
 export interface DeleteDBInstanceAutomatedBackupResult {
   /**
-   * <p>An automated backup of a DB instance. It it consists of
-   *             system backups, transaction logs, and the database instance properties that
-   *             existed at the time you deleted the source instance. </p>
+   * <p>An automated backup of a DB instance. It consists of system backups, transaction logs, and the database instance properties that
+   *             existed at the time you deleted the source instance.</p>
    */
   DBInstanceAutomatedBackup?: DBInstanceAutomatedBackup;
 }
@@ -10582,6 +10619,12 @@ export interface DescribeDBInstanceAutomatedBackupsMessage {
    * 			includes only records beyond the marker, up to <code>MaxRecords</code>.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the replicated automated backups, for example,
+   *             <code>arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE</code>.</p>
+   */
+  DBInstanceAutomatedBackupsArn?: string;
 }
 
 export namespace DescribeDBInstanceAutomatedBackupsMessage {
@@ -11981,22 +12024,6 @@ export interface EventCategoriesMap {
 
 export namespace EventCategoriesMap {
   export const filterSensitiveLog = (obj: EventCategoriesMap): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Data returned from the <code>DescribeEventCategories</code> operation.</p>
- */
-export interface EventCategoriesMessage {
-  /**
-   * <p>A list of EventCategoriesMap data types.</p>
-   */
-  EventCategoriesMapList?: EventCategoriesMap[];
-}
-
-export namespace EventCategoriesMessage {
-  export const filterSensitiveLog = (obj: EventCategoriesMessage): any => ({
     ...obj,
   });
 }

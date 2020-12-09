@@ -21,7 +21,7 @@ export type DisableClientAuthenticationCommandInput = DisableClientAuthenticatio
 export type DisableClientAuthenticationCommandOutput = DisableClientAuthenticationResult & __MetadataBearer;
 
 /**
- * <p>Disable client authentication for smart cards.</p>
+ * <p>Disables alternative client authentication methods for the specified directory. </p>
  */
 export class DisableClientAuthenticationCommand extends $Command<
   DisableClientAuthenticationCommandInput,

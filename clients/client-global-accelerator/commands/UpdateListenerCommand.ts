@@ -25,7 +25,7 @@ export type UpdateListenerCommandInput = UpdateListenerRequest;
 export type UpdateListenerCommandOutput = UpdateListenerResponse & __MetadataBearer;
 
 /**
- * <p>Update a listener. To see an AWS CLI example of updating listener, scroll down to <b>Example</b>.</p>
+ * <p>Update a listener. </p>
  */
 export class UpdateListenerCommand extends $Command<
   UpdateListenerCommandInput,

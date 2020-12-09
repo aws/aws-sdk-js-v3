@@ -26,9 +26,7 @@ export type DeprovisionByoipCidrCommandOutput = DeprovisionByoipCidrResponse & _
 
 /**
  * <p>Releases the specified address range that you provisioned to use with your AWS resources
- * 			through bring your own IP addresses (BYOIP) and deletes the corresponding address pool. To
- * 			see an AWS CLI example of deprovisioning an address range, scroll down to
- * 			<b>Example</b>.</p>
+ * 			through bring your own IP addresses (BYOIP) and deletes the corresponding address pool. </p>
  * 		       <p>Before you can release an address range, you must stop advertising it by using <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/WithdrawByoipCidr.html">WithdrawByoipCidr</a> and you must not have
  * 			any accelerators that are using static IP addresses allocated from its address range.
  * 		</p>

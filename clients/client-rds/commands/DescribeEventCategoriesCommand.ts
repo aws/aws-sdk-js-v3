@@ -1,5 +1,6 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DescribeEventCategoriesMessage, EventCategoriesMessage } from "../models/models_0";
+import { DescribeEventCategoriesMessage } from "../models/models_0";
+import { EventCategoriesMessage } from "../models/models_1";
 import {
   deserializeAws_queryDescribeEventCategoriesCommand,
   serializeAws_queryDescribeEventCategoriesCommand,

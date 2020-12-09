@@ -97,6 +97,7 @@ import {
   FacetResult,
   FaqStatistics,
   FaqSummary,
+  GoogleDriveConfiguration,
   Highlight,
   IndexConfigurationSummary,
   IndexStatistics,
@@ -3239,6 +3240,9 @@ const serializeAws_json1_1DataSourceConfiguration = (input: DataSourceConfigurat
     ...(input.DatabaseConfiguration !== undefined && {
       DatabaseConfiguration: serializeAws_json1_1DatabaseConfiguration(input.DatabaseConfiguration, context),
     }),
+    ...(input.GoogleDriveConfiguration !== undefined && {
+      GoogleDriveConfiguration: serializeAws_json1_1GoogleDriveConfiguration(input.GoogleDriveConfiguration, context),
+    }),
     ...(input.OneDriveConfiguration !== undefined && {
       OneDriveConfiguration: serializeAws_json1_1OneDriveConfiguration(input.OneDriveConfiguration, context),
     }),
@@ -3380,14 +3384,15 @@ const serializeAws_json1_1DocumentAttributeStringListValue = (input: string[], c
 };
 
 const serializeAws_json1_1DocumentAttributeValue = (input: DocumentAttributeValue, context: __SerdeContext): any => {
-  return {
-    ...(input.DateValue !== undefined && { DateValue: Math.round(input.DateValue.getTime() / 1000) }),
-    ...(input.LongValue !== undefined && { LongValue: input.LongValue }),
-    ...(input.StringListValue !== undefined && {
-      StringListValue: serializeAws_json1_1DocumentAttributeStringListValue(input.StringListValue, context),
+  return DocumentAttributeValue.visit(input, {
+    DateValue: (value) => ({ DateValue: Math.round(value.getTime() / 1000) }),
+    LongValue: (value) => ({ LongValue: value }),
+    StringListValue: (value) => ({
+      StringListValue: serializeAws_json1_1DocumentAttributeStringListValue(value, context),
     }),
-    ...(input.StringValue !== undefined && { StringValue: input.StringValue }),
-  };
+    StringValue: (value) => ({ StringValue: value }),
+    _: (name, value) => ({ name: value } as any),
+  });
 };
 
 const serializeAws_json1_1DocumentIdList = (input: string[], context: __SerdeContext): any => {
@@ -3426,6 +3431,18 @@ const serializeAws_json1_1DocumentsMetadataConfiguration = (
   };
 };
 
+const serializeAws_json1_1ExcludeMimeTypesList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1ExcludeSharedDrivesList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1ExcludeUserAccountsList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_json1_1Facet = (input: Facet, context: __SerdeContext): any => {
   return {
     ...(input.DocumentAttributeKey !== undefined && { DocumentAttributeKey: input.DocumentAttributeKey }),
@@ -3434,6 +3451,33 @@ const serializeAws_json1_1Facet = (input: Facet, context: __SerdeContext): any =
 
 const serializeAws_json1_1FacetList = (input: Facet[], context: __SerdeContext): any => {
   return input.map((entry) => serializeAws_json1_1Facet(entry, context));
+};
+
+const serializeAws_json1_1GoogleDriveConfiguration = (
+  input: GoogleDriveConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ExcludeMimeTypes !== undefined && {
+      ExcludeMimeTypes: serializeAws_json1_1ExcludeMimeTypesList(input.ExcludeMimeTypes, context),
+    }),
+    ...(input.ExcludeSharedDrives !== undefined && {
+      ExcludeSharedDrives: serializeAws_json1_1ExcludeSharedDrivesList(input.ExcludeSharedDrives, context),
+    }),
+    ...(input.ExcludeUserAccounts !== undefined && {
+      ExcludeUserAccounts: serializeAws_json1_1ExcludeUserAccountsList(input.ExcludeUserAccounts, context),
+    }),
+    ...(input.ExclusionPatterns !== undefined && {
+      ExclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.ExclusionPatterns, context),
+    }),
+    ...(input.FieldMappings !== undefined && {
+      FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
+    }),
+    ...(input.InclusionPatterns !== undefined && {
+      InclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.InclusionPatterns, context),
+    }),
+    ...(input.SecretArn !== undefined && { SecretArn: input.SecretArn }),
+  };
 };
 
 const serializeAws_json1_1JsonTokenTypeConfiguration = (
@@ -3579,6 +3623,7 @@ const serializeAws_json1_1QueryRequest = (input: QueryRequest, context: __SerdeC
     ...(input.UserContext !== undefined && {
       UserContext: serializeAws_json1_1UserContext(input.UserContext, context),
     }),
+    ...(input.VisitorId !== undefined && { VisitorId: input.VisitorId }),
   };
 };
 
@@ -4546,6 +4591,10 @@ const deserializeAws_json1_1DataSourceConfiguration = (
       output.DatabaseConfiguration !== undefined && output.DatabaseConfiguration !== null
         ? deserializeAws_json1_1DatabaseConfiguration(output.DatabaseConfiguration, context)
         : undefined,
+    GoogleDriveConfiguration:
+      output.GoogleDriveConfiguration !== undefined && output.GoogleDriveConfiguration !== null
+        ? deserializeAws_json1_1GoogleDriveConfiguration(output.GoogleDriveConfiguration, context)
+        : undefined,
     OneDriveConfiguration:
       output.OneDriveConfiguration !== undefined && output.OneDriveConfiguration !== null
         ? deserializeAws_json1_1OneDriveConfiguration(output.OneDriveConfiguration, context)
@@ -4803,18 +4852,27 @@ const deserializeAws_json1_1DocumentAttributeStringListValue = (output: any, con
 };
 
 const deserializeAws_json1_1DocumentAttributeValue = (output: any, context: __SerdeContext): DocumentAttributeValue => {
-  return {
-    DateValue:
-      output.DateValue !== undefined && output.DateValue !== null
-        ? new Date(Math.round(output.DateValue * 1000))
-        : undefined,
-    LongValue: output.LongValue !== undefined && output.LongValue !== null ? output.LongValue : undefined,
-    StringListValue:
-      output.StringListValue !== undefined && output.StringListValue !== null
-        ? deserializeAws_json1_1DocumentAttributeStringListValue(output.StringListValue, context)
-        : undefined,
-    StringValue: output.StringValue !== undefined && output.StringValue !== null ? output.StringValue : undefined,
-  } as any;
+  if (output.DateValue !== undefined && output.DateValue !== null) {
+    return {
+      DateValue: new Date(Math.round(output.DateValue * 1000)),
+    };
+  }
+  if (output.LongValue !== undefined && output.LongValue !== null) {
+    return {
+      LongValue: output.LongValue,
+    };
+  }
+  if (output.StringListValue !== undefined && output.StringListValue !== null) {
+    return {
+      StringListValue: deserializeAws_json1_1DocumentAttributeStringListValue(output.StringListValue, context),
+    };
+  }
+  if (output.StringValue !== undefined && output.StringValue !== null) {
+    return {
+      StringValue: output.StringValue,
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_json1_1DocumentAttributeValueCountPair = (
@@ -4871,6 +4929,18 @@ const deserializeAws_json1_1DocumentsMetadataConfiguration = (
   } as any;
 };
 
+const deserializeAws_json1_1ExcludeMimeTypesList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1ExcludeSharedDrivesList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1ExcludeUserAccountsList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_json1_1FacetResult = (output: any, context: __SerdeContext): FacetResult => {
   return {
     DocumentAttributeKey:
@@ -4920,6 +4990,39 @@ const deserializeAws_json1_1FaqSummary = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1FaqSummaryItems = (output: any, context: __SerdeContext): FaqSummary[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1FaqSummary(entry, context));
+};
+
+const deserializeAws_json1_1GoogleDriveConfiguration = (
+  output: any,
+  context: __SerdeContext
+): GoogleDriveConfiguration => {
+  return {
+    ExcludeMimeTypes:
+      output.ExcludeMimeTypes !== undefined && output.ExcludeMimeTypes !== null
+        ? deserializeAws_json1_1ExcludeMimeTypesList(output.ExcludeMimeTypes, context)
+        : undefined,
+    ExcludeSharedDrives:
+      output.ExcludeSharedDrives !== undefined && output.ExcludeSharedDrives !== null
+        ? deserializeAws_json1_1ExcludeSharedDrivesList(output.ExcludeSharedDrives, context)
+        : undefined,
+    ExcludeUserAccounts:
+      output.ExcludeUserAccounts !== undefined && output.ExcludeUserAccounts !== null
+        ? deserializeAws_json1_1ExcludeUserAccountsList(output.ExcludeUserAccounts, context)
+        : undefined,
+    ExclusionPatterns:
+      output.ExclusionPatterns !== undefined && output.ExclusionPatterns !== null
+        ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.ExclusionPatterns, context)
+        : undefined,
+    FieldMappings:
+      output.FieldMappings !== undefined && output.FieldMappings !== null
+        ? deserializeAws_json1_1DataSourceToIndexFieldMappingList(output.FieldMappings, context)
+        : undefined,
+    InclusionPatterns:
+      output.InclusionPatterns !== undefined && output.InclusionPatterns !== null
+        ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.InclusionPatterns, context)
+        : undefined,
+    SecretArn: output.SecretArn !== undefined && output.SecretArn !== null ? output.SecretArn : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1Highlight = (output: any, context: __SerdeContext): Highlight => {
@@ -5161,6 +5264,8 @@ const deserializeAws_json1_1QueryResultItem = (output: any, context: __SerdeCont
         ? deserializeAws_json1_1TextWithHighlights(output.DocumentTitle, context)
         : undefined,
     DocumentURI: output.DocumentURI !== undefined && output.DocumentURI !== null ? output.DocumentURI : undefined,
+    FeedbackToken:
+      output.FeedbackToken !== undefined && output.FeedbackToken !== null ? output.FeedbackToken : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     ScoreAttributes:
       output.ScoreAttributes !== undefined && output.ScoreAttributes !== null

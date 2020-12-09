@@ -21,7 +21,7 @@ export type RemoveBackendConfigCommandInput = RemoveBackendConfigRequest;
 export type RemoveBackendConfigCommandOutput = RemoveBackendConfigResponse & __MetadataBearer;
 
 /**
- * <p>Removes the AWS resources required to access the Amplify Admin UI.</p>
+ * <p>Removes the AWS resources that are required to access the Amplify Admin UI.</p>
  */
 export class RemoveBackendConfigCommand extends $Command<
   RemoveBackendConfigCommandInput,

@@ -36,6 +36,12 @@ import {
   ListAttributeGroupsCommandInput,
   ListAttributeGroupsCommandOutput,
 } from "./commands/ListAttributeGroupsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
 import {
   UpdateAttributeGroupCommandInput,
@@ -105,6 +111,9 @@ export type ServiceInputTypes =
   | ListAssociatedAttributeGroupsCommandInput
   | ListAssociatedResourcesCommandInput
   | ListAttributeGroupsCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateApplicationCommandInput
   | UpdateAttributeGroupCommandInput;
 
@@ -123,6 +132,9 @@ export type ServiceOutputTypes =
   | ListAssociatedAttributeGroupsCommandOutput
   | ListAssociatedResourcesCommandOutput
   | ListAttributeGroupsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateApplicationCommandOutput
   | UpdateAttributeGroupCommandOutput;
 

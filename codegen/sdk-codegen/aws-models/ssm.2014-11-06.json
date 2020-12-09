@@ -319,6 +319,9 @@
           "target": "com.amazonaws.ssm#CreateOpsItem"
         },
         {
+          "target": "com.amazonaws.ssm#CreateOpsMetadata"
+        },
+        {
           "target": "com.amazonaws.ssm#CreatePatchBaseline"
         },
         {
@@ -338,6 +341,9 @@
         },
         {
           "target": "com.amazonaws.ssm#DeleteMaintenanceWindow"
+        },
+        {
+          "target": "com.amazonaws.ssm#DeleteOpsMetadata"
         },
         {
           "target": "com.amazonaws.ssm#DeleteParameter"
@@ -505,6 +511,9 @@
           "target": "com.amazonaws.ssm#GetOpsItem"
         },
         {
+          "target": "com.amazonaws.ssm#GetOpsMetadata"
+        },
+        {
           "target": "com.amazonaws.ssm#GetOpsSummary"
         },
         {
@@ -557,6 +566,9 @@
         },
         {
           "target": "com.amazonaws.ssm#ListInventoryEntries"
+        },
+        {
+          "target": "com.amazonaws.ssm#ListOpsMetadata"
         },
         {
           "target": "com.amazonaws.ssm#ListResourceComplianceSummaries"
@@ -647,6 +659,9 @@
         },
         {
           "target": "com.amazonaws.ssm#UpdateOpsItem"
+        },
+        {
+          "target": "com.amazonaws.ssm#UpdateOpsMetadata"
         },
         {
           "target": "com.amazonaws.ssm#UpdatePatchBaseline"
@@ -931,7 +946,7 @@
         "ApplyOnlyAtCronInterval": {
           "target": "com.amazonaws.ssm#ApplyOnlyAtCronInterval",
           "traits": {
-            "smithy.api#documentation": "<p>By default, when you create a new associations, the system runs it immediately after it is\n   created and then according to the schedule you specified. Specify this option if you don't want\n   an association to run immediately after you create it.</p>"
+            "smithy.api#documentation": "<p>By default, when you create a new associations, the system runs it immediately after it is\n   created and then according to the schedule you specified. Specify this option if you don't want\n   an association to run immediately after you create it. This parameter is not supported for rate\n   expressions.</p>"
           }
         }
       },
@@ -1608,7 +1623,7 @@
         "ApplyOnlyAtCronInterval": {
           "target": "com.amazonaws.ssm#ApplyOnlyAtCronInterval",
           "traits": {
-            "smithy.api#documentation": "<p>By default, when you create a new associations, the system runs it immediately after it is\n   created and then according to the schedule you specified. Specify this option if you don't want\n   an association to run immediately after you create it.</p>"
+            "smithy.api#documentation": "<p>By default, when you create a new associations, the system runs it immediately after it is\n   created and then according to the schedule you specified. Specify this option if you don't want\n   an association to run immediately after you create it. This parameter is not supported for rate\n   expressions.</p>"
           }
         }
       },
@@ -3976,7 +3991,7 @@
         "ApplyOnlyAtCronInterval": {
           "target": "com.amazonaws.ssm#ApplyOnlyAtCronInterval",
           "traits": {
-            "smithy.api#documentation": "<p>By default, when you create a new associations, the system runs it immediately after it is\n   created and then according to the schedule you specified. Specify this option if you don't want\n   an association to run immediately after you create it.</p>"
+            "smithy.api#documentation": "<p>By default, when you create a new associations, the system runs it immediately after it is\n   created and then according to the schedule you specified. Specify this option if you don't want\n   an association to run immediately after you create it. This parameter is not supported for rate\n   expressions.</p>"
           }
         }
       },
@@ -4086,7 +4101,7 @@
         "ApplyOnlyAtCronInterval": {
           "target": "com.amazonaws.ssm#ApplyOnlyAtCronInterval",
           "traits": {
-            "smithy.api#documentation": "<p>By default, when you create a new associations, the system runs it immediately after it is\n   created and then according to the schedule you specified. Specify this option if you don't want\n   an association to run immediately after you create it.</p>"
+            "smithy.api#documentation": "<p>By default, when you create a new associations, the system runs it immediately after it is\n   created and then according to the schedule you specified. Specify this option if you don't want\n   an association to run immediately after you create it. This parameter is not supported for rate\n   expressions.</p>"
           }
         }
       }
@@ -4425,6 +4440,64 @@
           "target": "com.amazonaws.ssm#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the OpsItem.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ssm#CreateOpsMetadata": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ssm#CreateOpsMetadataRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ssm#CreateOpsMetadataResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.ssm#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.ssm#OpsMetadataAlreadyExistsException"
+        },
+        {
+          "target": "com.amazonaws.ssm#OpsMetadataInvalidArgumentException"
+        },
+        {
+          "target": "com.amazonaws.ssm#OpsMetadataLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.ssm#OpsMetadataTooManyUpdatesException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>If you create a new application in AppManager, Systems Manager calls this API action to specify\n   information about the new application, including the application type.</p>"
+      }
+    },
+    "com.amazonaws.ssm#CreateOpsMetadataRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceId": {
+          "target": "com.amazonaws.ssm#OpsMetadataResourceId",
+          "traits": {
+            "smithy.api#documentation": "<p>A resource ID for a new AppManager application.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Metadata": {
+          "target": "com.amazonaws.ssm#MetadataMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Metadata for a new AppManager application. </p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ssm#CreateOpsMetadataResult": {
+      "type": "structure",
+      "members": {
+        "OpsMetadataArn": {
+          "target": "com.amazonaws.ssm#OpsMetadataArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the OpsMetadata Object or blob created by the call.</p>"
           }
         }
       }
@@ -4920,6 +4993,45 @@
           }
         }
       }
+    },
+    "com.amazonaws.ssm#DeleteOpsMetadata": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ssm#DeleteOpsMetadataRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ssm#DeleteOpsMetadataResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.ssm#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.ssm#OpsMetadataInvalidArgumentException"
+        },
+        {
+          "target": "com.amazonaws.ssm#OpsMetadataNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Delete OpsMetadata related to an application.</p>"
+      }
+    },
+    "com.amazonaws.ssm#DeleteOpsMetadataRequest": {
+      "type": "structure",
+      "members": {
+        "OpsMetadataArn": {
+          "target": "com.amazonaws.ssm#OpsMetadataArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an OpsMetadata Object to delete.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.ssm#DeleteOpsMetadataResult": {
+      "type": "structure",
+      "members": {}
     },
     "com.amazonaws.ssm#DeleteParameter": {
       "type": "operation",
@@ -7568,7 +7680,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists the properties of available patches organized by product, product family,\n   classification, severity, and other properties of available patches. You can use the reported\n   properties in the filters you specify in requests for actions such as <a>CreatePatchBaseline</a>, <a>UpdatePatchBaseline</a>, <a>DescribeAvailablePatches</a>, and <a>DescribePatchBaselines</a>.</p>\n         <p>The following section lists the properties that can be used in filters for each major\n   operating system type:</p>\n         <dl>\n            <dt>AMAZON_LINUX</dt>\n            <dd>\n               <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>\n            </dd>\n            <dt>AMAZON_LINUX_2</dt>\n            <dd>\n               <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>\n            </dd>\n            <dt>CENTOS</dt>\n            <dd>\n               <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>\n            </dd>\n            <dt>DEBIAN</dt>\n            <dd>\n               <p>Valid properties: PRODUCT, PRIORITY</p>\n            </dd>\n            <dt>ORACLE_LINUX</dt>\n            <dd>\n               <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>\n            </dd>\n            <dt>REDHAT_ENTERPRISE_LINUX</dt>\n            <dd>\n               <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>\n            </dd>\n            <dt>SUSE</dt>\n            <dd>\n               <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>\n            </dd>\n            <dt>UBUNTU</dt>\n            <dd>\n               <p>Valid properties: PRODUCT, PRIORITY</p>\n            </dd>\n            <dt>WINDOWS</dt>\n            <dd>\n               <p>Valid properties: PRODUCT, PRODUCT_FAMILY, CLASSIFICATION, MSRC_SEVERITY</p>\n            </dd>\n         </dl>",
+        "smithy.api#documentation": "<p>Lists the properties of available patches organized by product, product family,\n   classification, severity, and other properties of available patches. You can use the reported\n   properties in the filters you specify in requests for actions such as <a>CreatePatchBaseline</a>, <a>UpdatePatchBaseline</a>, <a>DescribeAvailablePatches</a>, and <a>DescribePatchBaselines</a>.</p>\n         <p>The following section lists the properties that can be used in filters for each major\n   operating system type:</p>\n         <dl>\n            <dt>AMAZON_LINUX</dt>\n            <dd>\n               <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>\n            </dd>\n            <dt>AMAZON_LINUX_2</dt>\n            <dd>\n               <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>\n            </dd>\n            <dt>CENTOS</dt>\n            <dd>\n               <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>\n            </dd>\n            <dt>DEBIAN</dt>\n            <dd>\n               <p>Valid properties: PRODUCT, PRIORITY</p>\n            </dd>\n            <dt>MACOS</dt>\n            <dd>\n               <p>Valid properties: PRODUCT, CLASSIFICATION</p>\n            </dd>\n            <dt>ORACLE_LINUX</dt>\n            <dd>\n               <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>\n            </dd>\n            <dt>REDHAT_ENTERPRISE_LINUX</dt>\n            <dd>\n               <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>\n            </dd>\n            <dt>SUSE</dt>\n            <dd>\n               <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>\n            </dd>\n            <dt>UBUNTU</dt>\n            <dd>\n               <p>Valid properties: PRODUCT, PRIORITY</p>\n            </dd>\n            <dt>WINDOWS</dt>\n            <dd>\n               <p>Valid properties: PRODUCT, PRODUCT_FAMILY, CLASSIFICATION, MSRC_SEVERITY</p>\n            </dd>\n         </dl>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -7597,7 +7709,7 @@
         "PatchSet": {
           "target": "com.amazonaws.ssm#PatchSet",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether to list patches for the Windows operating system or for Microsoft\n   applications. Not applicable for Linux operating systems.</p>"
+            "smithy.api#documentation": "<p>Indicates whether to list patches for the Windows operating system or for Microsoft\n   applications. Not applicable for the Linux or macOS operating systems.</p>"
           }
         },
         "MaxResults": {
@@ -10023,6 +10135,86 @@
           "target": "com.amazonaws.ssm#OpsItem",
           "traits": {
             "smithy.api#documentation": "<p>The OpsItem.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ssm#GetOpsMetadata": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ssm#GetOpsMetadataRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ssm#GetOpsMetadataResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.ssm#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.ssm#OpsMetadataInvalidArgumentException"
+        },
+        {
+          "target": "com.amazonaws.ssm#OpsMetadataNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>View operational metadata related to an application in AppManager.</p>"
+      }
+    },
+    "com.amazonaws.ssm#GetOpsMetadataMaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    },
+    "com.amazonaws.ssm#GetOpsMetadataRequest": {
+      "type": "structure",
+      "members": {
+        "OpsMetadataArn": {
+          "target": "com.amazonaws.ssm#OpsMetadataArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an OpsMetadata Object to view.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.ssm#GetOpsMetadataMaxResults",
+          "traits": {
+            "smithy.api#box": {},
+            "smithy.api#documentation": "<p>The maximum number of items to return for this call. The call also returns a token that you\n   can specify in a subsequent call to get the next set of results.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ssm#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A token to start the list. Use this token to get the next set of results.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ssm#GetOpsMetadataResult": {
+      "type": "structure",
+      "members": {
+        "ResourceId": {
+          "target": "com.amazonaws.ssm#OpsMetadataResourceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource ID of the AppManager application.</p>"
+          }
+        },
+        "Metadata": {
+          "target": "com.amazonaws.ssm#MetadataMap",
+          "traits": {
+            "smithy.api#documentation": "<p>OpsMetadata for an AppManager application.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ssm#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next set of items to return. Use this token to get the next set of\n   results.</p>"
           }
         }
       }
@@ -12992,7 +13184,7 @@
         "AssociationFilterList": {
           "target": "com.amazonaws.ssm#AssociationFilterList",
           "traits": {
-            "smithy.api#documentation": "<p>One or more filters. Use a filter to return a more specific list of results.</p>\n         <note>\n            <p>Filtering associations using the <code>InstanceID</code> attribute only returns legacy associations created using the <code>InstanceID</code> attribute. Associations targeting the instance that are part of the Target Attributes <code>ResourceGroup</code> or <code>Tags</code> are not returned.</p>\n         </note>"
+            "smithy.api#documentation": "<p>One or more filters. Use a filter to return a more specific list of results.</p>\n         <note>\n            <p>Filtering associations using the <code>InstanceID</code> attribute only returns legacy\n    associations created using the <code>InstanceID</code> attribute. Associations targeting the\n    instance that are part of the Target Attributes <code>ResourceGroup</code> or <code>Tags</code>\n    are not returned.</p>\n         </note>"
           }
         },
         "MaxResults": {
@@ -13618,6 +13810,76 @@
           "target": "com.amazonaws.ssm#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token to use when requesting the next set of items. If there are no additional items to\n   return, the string is empty.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ssm#ListOpsMetadata": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ssm#ListOpsMetadataRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ssm#ListOpsMetadataResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.ssm#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.ssm#OpsMetadataInvalidArgumentException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Systems Manager calls this API action when displaying all AppManager OpsMetadata objects or\n   blobs.</p>"
+      }
+    },
+    "com.amazonaws.ssm#ListOpsMetadataMaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1,
+          "max": 50
+        }
+      }
+    },
+    "com.amazonaws.ssm#ListOpsMetadataRequest": {
+      "type": "structure",
+      "members": {
+        "Filters": {
+          "target": "com.amazonaws.ssm#OpsMetadataFilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>One or more filters to limit the number of OpsMetadata objects returned by the\n   call.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.ssm#ListOpsMetadataMaxResults",
+          "traits": {
+            "smithy.api#box": {},
+            "smithy.api#documentation": "<p>The maximum number of items to return for this call. The call also returns a token that you\n   can specify in a subsequent call to get the next set of results.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ssm#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A token to start the list. Use this token to get the next set of results.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ssm#ListOpsMetadataResult": {
+      "type": "structure",
+      "members": {
+        "OpsMetadataList": {
+          "target": "com.amazonaws.ssm#OpsMetadataList",
+          "traits": {
+            "smithy.api#documentation": "<p>Returns a list of OpsMetadata objects.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ssm#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next set of items to return. Use this token to get the next set of\n   results.</p>"
           }
         }
       }
@@ -14970,6 +15232,66 @@
         }
       }
     },
+    "com.amazonaws.ssm#MetadataKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        },
+        "smithy.api#pattern": "^(?!\\s*$).+"
+      }
+    },
+    "com.amazonaws.ssm#MetadataKeysToDeleteList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ssm#MetadataKey"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    },
+    "com.amazonaws.ssm#MetadataMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.ssm#MetadataKey"
+      },
+      "value": {
+        "target": "com.amazonaws.ssm#MetadataValue"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 5
+        }
+      }
+    },
+    "com.amazonaws.ssm#MetadataValue": {
+      "type": "structure",
+      "members": {
+        "Value": {
+          "target": "com.amazonaws.ssm#MetadataValueString",
+          "traits": {
+            "smithy.api#documentation": "<p>Metadata value to assign to an AppManager application.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Metadata to assign to an AppManager application.</p>"
+      }
+    },
+    "com.amazonaws.ssm#MetadataValueString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 4096
+        }
+      }
+    },
     "com.amazonaws.ssm#ModifyDocumentPermission": {
       "type": "operation",
       "input": {
@@ -15192,6 +15514,10 @@
           {
             "value": "DEBIAN",
             "name": "Debian"
+          },
+          {
+            "value": "MACOS",
+            "name": "MacOS"
           }
         ]
       }
@@ -16086,6 +16412,213 @@
         }
       }
     },
+    "com.amazonaws.ssm#OpsMetadata": {
+      "type": "structure",
+      "members": {
+        "ResourceId": {
+          "target": "com.amazonaws.ssm#OpsMetadataResourceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the AppManager application.</p>"
+          }
+        },
+        "OpsMetadataArn": {
+          "target": "com.amazonaws.ssm#OpsMetadataArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the OpsMetadata Object or blob.</p>"
+          }
+        },
+        "LastModifiedDate": {
+          "target": "com.amazonaws.ssm#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date the OpsMetadata object was last updated.</p>"
+          }
+        },
+        "LastModifiedUser": {
+          "target": "com.amazonaws.ssm#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The user name who last updated the OpsMetadata object.</p>"
+          }
+        },
+        "CreationDate": {
+          "target": "com.amazonaws.ssm#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date the OpsMetadata objects was created.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Operational metadata for an application in AppManager.</p>"
+      }
+    },
+    "com.amazonaws.ssm#OpsMetadataAlreadyExistsException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.ssm#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An OpsMetadata object already exists for the selected resource.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.ssm#OpsMetadataArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1011
+        },
+        "smithy.api#pattern": "arn:(aws[a-zA-Z-]*)?:ssm:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:opsmetadata\\/([a-zA-Z0-9-_\\.\\/]*)"
+      }
+    },
+    "com.amazonaws.ssm#OpsMetadataFilter": {
+      "type": "structure",
+      "members": {
+        "Key": {
+          "target": "com.amazonaws.ssm#OpsMetadataFilterKey",
+          "traits": {
+            "smithy.api#documentation": "<p>A filter key.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Values": {
+          "target": "com.amazonaws.ssm#OpsMetadataFilterValueList",
+          "traits": {
+            "smithy.api#documentation": "<p>A filter value.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A filter to limit the number of OpsMetadata objects displayed.</p>"
+      }
+    },
+    "com.amazonaws.ssm#OpsMetadataFilterKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        },
+        "smithy.api#pattern": "^(?!\\s*$).+"
+      }
+    },
+    "com.amazonaws.ssm#OpsMetadataFilterList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ssm#OpsMetadataFilter"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    },
+    "com.amazonaws.ssm#OpsMetadataFilterValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1024
+        }
+      }
+    },
+    "com.amazonaws.ssm#OpsMetadataFilterValueList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ssm#OpsMetadataFilterValue"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    },
+    "com.amazonaws.ssm#OpsMetadataInvalidArgumentException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.ssm#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>One of the arguments passed is invalid. </p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.ssm#OpsMetadataKeyLimitExceededException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.ssm#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The OpsMetadata object exceeds the maximum number of OpsMetadata keys that you can assign to an application in AppManager.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.ssm#OpsMetadataLimitExceededException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.ssm#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Your account reached the maximum number of OpsMetadata objects allowed by AppManager. The\n   maximum is 200 OpsMetadata objects. Delete one or more OpsMetadata object and try again.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.ssm#OpsMetadataList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ssm#OpsMetadata"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 50
+        }
+      }
+    },
+    "com.amazonaws.ssm#OpsMetadataNotFoundException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.ssm#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The OpsMetadata object does not exist. </p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.ssm#OpsMetadataResourceId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1024
+        },
+        "smithy.api#pattern": "^(?!\\s*$).+"
+      }
+    },
+    "com.amazonaws.ssm#OpsMetadataTooManyUpdatesException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.ssm#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The system is processing too many concurrent updates. Wait a few moments and try\n   again.</p>",
+        "smithy.api#error": "client"
+      }
+    },
     "com.amazonaws.ssm#OpsResultAttribute": {
       "type": "structure",
       "members": {
@@ -16906,7 +17439,7 @@
         "CVEIds": {
           "target": "com.amazonaws.ssm#PatchCVEIdList",
           "traits": {
-            "smithy.api#documentation": "<p>The Common Vulnerabilities and Exposures (CVE) ID of the patch. For example,\n    <code>CVE-1999-0067</code>. Applies to Linux-based instances only.</p>"
+            "smithy.api#documentation": "<p>The Common Vulnerabilities and Exposures (CVE) ID of the patch. For example,\n    <code>CVE-2011-3192</code>. Applies to Linux-based instances only.</p>"
           }
         },
         "Name": {
@@ -21484,7 +22017,7 @@
         "ApplyOnlyAtCronInterval": {
           "target": "com.amazonaws.ssm#ApplyOnlyAtCronInterval",
           "traits": {
-            "smithy.api#documentation": "<p>By default, when you update an association, the system runs it immediately after it is\n   updated and then according to the schedule you specified. Specify this option if you don't want\n   an association to run immediately after you update it.</p>\n         <p>Also, if you specified this option when you created the association, you can reset it. To do\n   so, specify the <code>no-apply-only-at-cron-interval</code> parameter when you update the\n   association from the command line. This parameter forces the association to run immediately after\n   updating it and according to the interval specified.</p>"
+            "smithy.api#documentation": "<p>By default, when you update an association, the system runs it immediately after it is\n   updated and then according to the schedule you specified. Specify this option if you don't want\n   an association to run immediately after you update it. This parameter is not supported for rate\n   expressions.</p>\n         <p>Also, if you specified this option when you created the association, you can reset it. To do\n   so, specify the <code>no-apply-only-at-cron-interval</code> parameter when you update the\n   association from the command line. This parameter forces the association to run immediately after\n   updating it and according to the interval specified.</p>"
           }
         }
       }
@@ -22371,6 +22904,70 @@
     "com.amazonaws.ssm#UpdateOpsItemResponse": {
       "type": "structure",
       "members": {}
+    },
+    "com.amazonaws.ssm#UpdateOpsMetadata": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ssm#UpdateOpsMetadataRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ssm#UpdateOpsMetadataResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.ssm#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.ssm#OpsMetadataInvalidArgumentException"
+        },
+        {
+          "target": "com.amazonaws.ssm#OpsMetadataKeyLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.ssm#OpsMetadataNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.ssm#OpsMetadataTooManyUpdatesException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Systems Manager calls this API action when you edit OpsMetadata in AppManager.</p>"
+      }
+    },
+    "com.amazonaws.ssm#UpdateOpsMetadataRequest": {
+      "type": "structure",
+      "members": {
+        "OpsMetadataArn": {
+          "target": "com.amazonaws.ssm#OpsMetadataArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resoure Name (ARN) of the OpsMetadata Object to update.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MetadataToUpdate": {
+          "target": "com.amazonaws.ssm#MetadataMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Metadata to add to an OpsMetadata object.</p>"
+          }
+        },
+        "KeysToDelete": {
+          "target": "com.amazonaws.ssm#MetadataKeysToDeleteList",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata keys to delete from the OpsMetadata object. </p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ssm#UpdateOpsMetadataResult": {
+      "type": "structure",
+      "members": {
+        "OpsMetadataArn": {
+          "target": "com.amazonaws.ssm#OpsMetadataArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the OpsMetadata Object that was updated.</p>"
+          }
+        }
+      }
     },
     "com.amazonaws.ssm#UpdatePatchBaseline": {
       "type": "operation",

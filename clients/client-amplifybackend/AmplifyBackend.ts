@@ -267,7 +267,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
-   * <p>Generates a one time challenge code to authenticate a user into your Amplify Admin UI.</p>
+   * <p>Generates a one-time challenge code to authenticate a user into your Amplify Admin UI.</p>
    */
   public createToken(args: CreateTokenCommandInput, options?: __HttpHandlerOptions): Promise<CreateTokenCommandOutput>;
   public createToken(args: CreateTokenCommandInput, cb: (err: any, data?: CreateTokenCommandOutput) => void): void;
@@ -293,7 +293,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
-   * <p>Removes an existing environment from your Ampify project.</p>
+   * <p>Removes an existing environment from your Amplify project.</p>
    */
   public deleteBackend(
     args: DeleteBackendCommandInput,
@@ -447,7 +447,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
-   * <p>Provides project level details for your Amplify UI project.</p>
+   * <p>Provides project-level details for your Amplify UI project.</p>
    */
   public getBackend(args: GetBackendCommandInput, options?: __HttpHandlerOptions): Promise<GetBackendCommandOutput>;
   public getBackend(args: GetBackendCommandInput, cb: (err: any, data?: GetBackendCommandOutput) => void): void;
@@ -473,7 +473,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
-   * <p>Gets the details for a backend api.</p>
+   * <p>Gets the details for a backend API.</p>
    */
   public getBackendAPI(
     args: GetBackendAPICommandInput,
@@ -537,7 +537,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
-   * <p>Gets a backend auth details.</p>
+   * <p>Gets backend auth details.</p>
    */
   public getBackendAuth(
     args: GetBackendAuthCommandInput,
@@ -691,7 +691,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
-   * <p>Removes the AWS resources required to access the Amplify Admin UI.</p>
+   * <p>Removes the AWS resources that are required to access the Amplify Admin UI.</p>
    */
   public removeBackendConfig(
     args: RemoveBackendConfigCommandInput,
@@ -787,7 +787,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
-   * <p>Updates the AWS resources required to access the Amplify Admin UI.</p>
+   * <p>Updates the AWS resources that are required to access the Amplify Admin UI.</p>
    */
   public updateBackendConfig(
     args: UpdateBackendConfigCommandInput,

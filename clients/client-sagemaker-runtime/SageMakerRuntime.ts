@@ -19,11 +19,12 @@ export class SageMakerRuntime extends SageMakerRuntimeClient {
    *             additional headers. You should not rely on the behavior of headers outside those
    *             enumerated in the request syntax. </p>
    *         <p>Calls to <code>InvokeEndpoint</code> are authenticated by using AWS Signature Version
-   *             4. For information, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating Requests (AWS Signature Version 4)</a> in the <i>Amazon S3 API
+   *             4. For information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating
+   *                 Requests (AWS Signature Version 4)</a> in the <i>Amazon S3 API
    *                 Reference</i>.</p>
    *         <p>A customer's model containers must respond to requests within 60 seconds. The model
-   *             itself can have a maximum processing time of 60 seconds before responding to the
-   *             /invocations. If your model is going to take 50-60 seconds of processing time, the SDK
+   *             itself can have a maximum processing time of 60 seconds before responding to
+   *             invocations. If your model is going to take 50-60 seconds of processing time, the SDK
    *             socket timeout should be set to be 70 seconds.</p>
    *         <note>
    *             <p>Endpoints are scoped to an individual account, and are not public. The URL does

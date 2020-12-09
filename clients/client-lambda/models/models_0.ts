@@ -1053,7 +1053,7 @@ export namespace CodeVerificationFailedException {
 }
 
 /**
- * <p>The code for the Lambda function. You can specify either an object in Amazon S3, upload a ZIP archive deployment
+ * <p>The code for the Lambda function. You can specify either an object in Amazon S3, upload a .zip file archive deployment
  *       package directly, or specify the URI of a container image.</p>
  */
 export interface FunctionCode {
@@ -1307,8 +1307,8 @@ export interface CreateFunctionRequest {
   Timeout?: number;
 
   /**
-   * <p>The amount of memory that your function has access to. Increasing the function's memory also increases its CPU
-   *       allocation. The default value is 128 MB. The value must be a multiple of 64 MB.</p>
+   * <p>The amount of memory available to the function at runtime. Increasing the function's memory also increases its CPU
+   *       allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
    */
   MemorySize?: number;
 
@@ -1492,6 +1492,7 @@ export enum LastUpdateStatusReasonCode {
   InsufficientRolePermissions = "InsufficientRolePermissions",
   InternalError = "InternalError",
   InvalidConfiguration = "InvalidConfiguration",
+  InvalidImage = "InvalidImage",
   InvalidSecurityGroup = "InvalidSecurityGroup",
   InvalidSubnet = "InvalidSubnet",
   SubnetOutOfIPAddresses = "SubnetOutOfIPAddresses",
@@ -1545,6 +1546,7 @@ export enum StateReasonCode {
   InsufficientRolePermissions = "InsufficientRolePermissions",
   InternalError = "InternalError",
   InvalidConfiguration = "InvalidConfiguration",
+  InvalidImage = "InvalidImage",
   InvalidSecurityGroup = "InvalidSecurityGroup",
   InvalidSubnet = "InvalidSubnet",
   Restoring = "Restoring",
@@ -1638,7 +1640,7 @@ export interface FunctionConfiguration {
   Timeout?: number;
 
   /**
-   * <p>The memory that's allocated to the function.</p>
+   * <p>The amount of memory available to the function at runtime. </p>
    */
   MemorySize?: number;
 
@@ -1738,7 +1740,7 @@ export interface FunctionConfiguration {
   FileSystemConfigs?: FileSystemConfig[];
 
   /**
-   * <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for ZIP archive.</p>
+   * <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for .zip file archive.</p>
    */
   PackageType?: PackageType | string;
 
@@ -4963,8 +4965,8 @@ export interface UpdateFunctionConfigurationRequest {
   Timeout?: number;
 
   /**
-   * <p>The amount of memory that your function has access to. Increasing the function's memory also increases its CPU
-   *       allocation. The default value is 128 MB. The value must be a multiple of 64 MB.</p>
+   * <p>The amount of memory available to the function at runtime. Increasing the function's memory also increases its CPU
+   *       allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
    */
   MemorySize?: number;
 

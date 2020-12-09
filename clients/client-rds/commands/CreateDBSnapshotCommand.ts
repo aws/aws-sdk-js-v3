@@ -22,7 +22,7 @@ export type CreateDBSnapshotCommandOutput = CreateDBSnapshotResult & __MetadataB
 
 /**
  * <p>Creates a snapshot of a DB instance. The source DB instance must be in the <code>available</code> or
- *                 <code>storage-optimization</code>state.</p>
+ *                 <code>storage-optimization</code> state.</p>
  */
 export class CreateDBSnapshotCommand extends $Command<
   CreateDBSnapshotCommandInput,

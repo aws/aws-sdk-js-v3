@@ -131,6 +131,7 @@ import {
   AudioPidSelection,
   AudioSelector,
   AudioSelectorSettings,
+  AudioSilenceFailoverSettings,
   AudioTrack,
   AudioTrackSelection,
   AutomaticInputFailoverSettings,
@@ -182,6 +183,7 @@ import {
   InputDeviceRequest,
   InputDeviceSettings,
   InputDeviceSummary,
+  InputDeviceUhdSettings,
   InputLocation,
   InputLossFailoverSettings,
   InputSecurityGroup,
@@ -221,8 +223,6 @@ import {
   OutputLocationRef,
   OutputSettings,
   PassThroughSettings,
-  PipelineDetail,
-  PipelinePauseStateSettings,
   RawSettings,
   RemixSettings,
   ReservationResourceSpecification,
@@ -243,6 +243,7 @@ import {
   UdpContainerSettings,
   UdpGroupSettings,
   UdpOutputSettings,
+  VideoBlackFailoverSettings,
   VideoSelector,
   VideoSelectorPid,
   VideoSelectorProgramId,
@@ -302,6 +303,8 @@ import {
   NielsenConfiguration,
   NotFoundException,
   PauseStateScheduleActionSettings,
+  PipelineDetail,
+  PipelinePauseStateSettings,
   Rec601Settings,
   Rec709Settings,
   Reservation,
@@ -1989,6 +1992,9 @@ export const serializeAws_restJson1UpdateInputDeviceCommand = async (
       hdDeviceSettings: serializeAws_restJson1InputDeviceConfigurableSettings(input.HdDeviceSettings, context),
     }),
     ...(input.Name !== undefined && { name: input.Name }),
+    ...(input.UhdDeviceSettings !== undefined && {
+      uhdDeviceSettings: serializeAws_restJson1InputDeviceConfigurableSettings(input.UhdDeviceSettings, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -4797,6 +4803,7 @@ export const deserializeAws_restJson1DescribeInputDeviceCommand = async (
     NetworkSettings: undefined,
     SerialNumber: undefined,
     Type: undefined,
+    UhdDeviceSettings: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
@@ -4831,6 +4838,9 @@ export const deserializeAws_restJson1DescribeInputDeviceCommand = async (
   }
   if (data.type !== undefined && data.type !== null) {
     contents.Type = data.type;
+  }
+  if (data.uhdDeviceSettings !== undefined && data.uhdDeviceSettings !== null) {
+    contents.UhdDeviceSettings = deserializeAws_restJson1InputDeviceUhdSettings(data.uhdDeviceSettings, context);
   }
   return Promise.resolve(contents);
 };
@@ -8171,6 +8181,7 @@ export const deserializeAws_restJson1UpdateInputDeviceCommand = async (
     NetworkSettings: undefined,
     SerialNumber: undefined,
     Type: undefined,
+    UhdDeviceSettings: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
@@ -8205,6 +8216,9 @@ export const deserializeAws_restJson1UpdateInputDeviceCommand = async (
   }
   if (data.type !== undefined && data.type !== null) {
     contents.Type = data.type;
+  }
+  if (data.uhdDeviceSettings !== undefined && data.uhdDeviceSettings !== null) {
+    contents.UhdDeviceSettings = deserializeAws_restJson1InputDeviceUhdSettings(data.uhdDeviceSettings, context);
   }
   return Promise.resolve(contents);
 };
@@ -9241,6 +9255,18 @@ const serializeAws_restJson1AudioSelectorSettings = (input: AudioSelectorSetting
   };
 };
 
+const serializeAws_restJson1AudioSilenceFailoverSettings = (
+  input: AudioSilenceFailoverSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AudioSelectorName !== undefined && { audioSelectorName: input.AudioSelectorName }),
+    ...(input.AudioSilenceThresholdMsec !== undefined && {
+      audioSilenceThresholdMsec: input.AudioSilenceThresholdMsec,
+    }),
+  };
+};
+
 const serializeAws_restJson1AudioTrack = (input: AudioTrack, context: __SerdeContext): any => {
   return {
     ...(input.Track !== undefined && { track: input.Track }),
@@ -9675,8 +9701,14 @@ const serializeAws_restJson1FailoverConditionSettings = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AudioSilenceSettings !== undefined && {
+      audioSilenceSettings: serializeAws_restJson1AudioSilenceFailoverSettings(input.AudioSilenceSettings, context),
+    }),
     ...(input.InputLossSettings !== undefined && {
       inputLossSettings: serializeAws_restJson1InputLossFailoverSettings(input.InputLossSettings, context),
+    }),
+    ...(input.VideoBlackSettings !== undefined && {
+      videoBlackSettings: serializeAws_restJson1VideoBlackFailoverSettings(input.VideoBlackSettings, context),
     }),
   };
 };
@@ -11162,6 +11194,16 @@ const serializeAws_restJson1UdpOutputSettings = (input: UdpOutputSettings, conte
   };
 };
 
+const serializeAws_restJson1VideoBlackFailoverSettings = (
+  input: VideoBlackFailoverSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BlackDetectThreshold !== undefined && { blackDetectThreshold: input.BlackDetectThreshold }),
+    ...(input.VideoBlackThresholdMsec !== undefined && { videoBlackThresholdMsec: input.VideoBlackThresholdMsec }),
+  };
+};
+
 const serializeAws_restJson1VideoCodecSettings = (input: VideoCodecSettings, context: __SerdeContext): any => {
   return {
     ...(input.FrameCaptureSettings !== undefined && {
@@ -11713,6 +11755,22 @@ const deserializeAws_restJson1AudioSelectorSettings = (output: any, context: __S
     AudioTrackSelection:
       output.audioTrackSelection !== undefined && output.audioTrackSelection !== null
         ? deserializeAws_restJson1AudioTrackSelection(output.audioTrackSelection, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AudioSilenceFailoverSettings = (
+  output: any,
+  context: __SerdeContext
+): AudioSilenceFailoverSettings => {
+  return {
+    AudioSelectorName:
+      output.audioSelectorName !== undefined && output.audioSelectorName !== null
+        ? output.audioSelectorName
+        : undefined,
+    AudioSilenceThresholdMsec:
+      output.audioSilenceThresholdMsec !== undefined && output.audioSilenceThresholdMsec !== null
+        ? output.audioSilenceThresholdMsec
         : undefined,
   } as any;
 };
@@ -12371,9 +12429,17 @@ const deserializeAws_restJson1FailoverConditionSettings = (
   context: __SerdeContext
 ): FailoverConditionSettings => {
   return {
+    AudioSilenceSettings:
+      output.audioSilenceSettings !== undefined && output.audioSilenceSettings !== null
+        ? deserializeAws_restJson1AudioSilenceFailoverSettings(output.audioSilenceSettings, context)
+        : undefined,
     InputLossSettings:
       output.inputLossSettings !== undefined && output.inputLossSettings !== null
         ? deserializeAws_restJson1InputLossFailoverSettings(output.inputLossSettings, context)
+        : undefined,
+    VideoBlackSettings:
+      output.videoBlackSettings !== undefined && output.videoBlackSettings !== null
+        ? deserializeAws_restJson1VideoBlackFailoverSettings(output.videoBlackSettings, context)
         : undefined,
   } as any;
 };
@@ -13162,6 +13228,27 @@ const deserializeAws_restJson1InputDeviceSummary = (output: any, context: __Serd
         : undefined,
     SerialNumber: output.serialNumber !== undefined && output.serialNumber !== null ? output.serialNumber : undefined,
     Type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    UhdDeviceSettings:
+      output.uhdDeviceSettings !== undefined && output.uhdDeviceSettings !== null
+        ? deserializeAws_restJson1InputDeviceUhdSettings(output.uhdDeviceSettings, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1InputDeviceUhdSettings = (
+  output: any,
+  context: __SerdeContext
+): InputDeviceUhdSettings => {
+  return {
+    ActiveInput: output.activeInput !== undefined && output.activeInput !== null ? output.activeInput : undefined,
+    ConfiguredInput:
+      output.configuredInput !== undefined && output.configuredInput !== null ? output.configuredInput : undefined,
+    DeviceState: output.deviceState !== undefined && output.deviceState !== null ? output.deviceState : undefined,
+    Framerate: output.framerate !== undefined && output.framerate !== null ? output.framerate : undefined,
+    Height: output.height !== undefined && output.height !== null ? output.height : undefined,
+    MaxBitrate: output.maxBitrate !== undefined && output.maxBitrate !== null ? output.maxBitrate : undefined,
+    ScanType: output.scanType !== undefined && output.scanType !== null ? output.scanType : undefined,
+    Width: output.width !== undefined && output.width !== null ? output.width : undefined,
   } as any;
 };
 
@@ -14744,6 +14831,22 @@ const deserializeAws_restJson1ValidationError = (output: any, context: __SerdeCo
   return {
     ElementPath: output.elementPath !== undefined && output.elementPath !== null ? output.elementPath : undefined,
     ErrorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VideoBlackFailoverSettings = (
+  output: any,
+  context: __SerdeContext
+): VideoBlackFailoverSettings => {
+  return {
+    BlackDetectThreshold:
+      output.blackDetectThreshold !== undefined && output.blackDetectThreshold !== null
+        ? output.blackDetectThreshold
+        : undefined,
+    VideoBlackThresholdMsec:
+      output.videoBlackThresholdMsec !== undefined && output.videoBlackThresholdMsec !== null
+        ? output.videoBlackThresholdMsec
+        : undefined,
   } as any;
 };
 

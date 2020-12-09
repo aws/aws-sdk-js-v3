@@ -30,6 +30,11 @@ import {
   DeleteLifecyclePolicyCommandOutput,
 } from "./commands/DeleteLifecyclePolicyCommand";
 import {
+  DeleteRegistryPolicyCommand,
+  DeleteRegistryPolicyCommandInput,
+  DeleteRegistryPolicyCommandOutput,
+} from "./commands/DeleteRegistryPolicyCommand";
+import {
   DeleteRepositoryCommand,
   DeleteRepositoryCommandInput,
   DeleteRepositoryCommandOutput,
@@ -49,6 +54,11 @@ import {
   DescribeImagesCommandInput,
   DescribeImagesCommandOutput,
 } from "./commands/DescribeImagesCommand";
+import {
+  DescribeRegistryCommand,
+  DescribeRegistryCommandInput,
+  DescribeRegistryCommandOutput,
+} from "./commands/DescribeRegistryCommand";
 import {
   DescribeRepositoriesCommand,
   DescribeRepositoriesCommandInput,
@@ -74,6 +84,11 @@ import {
   GetLifecyclePolicyPreviewCommandInput,
   GetLifecyclePolicyPreviewCommandOutput,
 } from "./commands/GetLifecyclePolicyPreviewCommand";
+import {
+  GetRegistryPolicyCommand,
+  GetRegistryPolicyCommandInput,
+  GetRegistryPolicyCommandOutput,
+} from "./commands/GetRegistryPolicyCommand";
 import {
   GetRepositoryPolicyCommand,
   GetRepositoryPolicyCommandInput,
@@ -106,6 +121,16 @@ import {
   PutLifecyclePolicyCommandInput,
   PutLifecyclePolicyCommandOutput,
 } from "./commands/PutLifecyclePolicyCommand";
+import {
+  PutRegistryPolicyCommand,
+  PutRegistryPolicyCommandInput,
+  PutRegistryPolicyCommandOutput,
+} from "./commands/PutRegistryPolicyCommand";
+import {
+  PutReplicationConfigurationCommand,
+  PutReplicationConfigurationCommandInput,
+  PutReplicationConfigurationCommandOutput,
+} from "./commands/PutReplicationConfigurationCommand";
 import {
   SetRepositoryPolicyCommand,
   SetRepositoryPolicyCommandInput,
@@ -361,6 +386,38 @@ export class ECR extends ECRClient {
   }
 
   /**
+   * <p>Deletes the registry permissions policy.</p>
+   */
+  public deleteRegistryPolicy(
+    args: DeleteRegistryPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRegistryPolicyCommandOutput>;
+  public deleteRegistryPolicy(
+    args: DeleteRegistryPolicyCommandInput,
+    cb: (err: any, data?: DeleteRegistryPolicyCommandOutput) => void
+  ): void;
+  public deleteRegistryPolicy(
+    args: DeleteRegistryPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRegistryPolicyCommandOutput) => void
+  ): void;
+  public deleteRegistryPolicy(
+    args: DeleteRegistryPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRegistryPolicyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteRegistryPolicyCommandOutput) => void
+  ): Promise<DeleteRegistryPolicyCommandOutput> | void {
+    const command = new DeleteRegistryPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a repository. If the repository contains images, you must either delete all
    *             images in the repository or use the <code>force</code> option to delete the
    *             repository.</p>
@@ -486,6 +543,40 @@ export class ECR extends ECRClient {
     cb?: (err: any, data?: DescribeImageScanFindingsCommandOutput) => void
   ): Promise<DescribeImageScanFindingsCommandOutput> | void {
     const command = new DescribeImageScanFindingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the settings for a registry. The replication configuration for a repository
+   *             can be created or updated with the <a>PutReplicationConfiguration</a> API
+   *             action.</p>
+   */
+  public describeRegistry(
+    args: DescribeRegistryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRegistryCommandOutput>;
+  public describeRegistry(
+    args: DescribeRegistryCommandInput,
+    cb: (err: any, data?: DescribeRegistryCommandOutput) => void
+  ): void;
+  public describeRegistry(
+    args: DescribeRegistryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRegistryCommandOutput) => void
+  ): void;
+  public describeRegistry(
+    args: DescribeRegistryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRegistryCommandOutput) => void),
+    cb?: (err: any, data?: DescribeRegistryCommandOutput) => void
+  ): Promise<DescribeRegistryCommandOutput> | void {
+    const command = new DescribeRegistryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -661,6 +752,38 @@ export class ECR extends ECRClient {
     cb?: (err: any, data?: GetLifecyclePolicyPreviewCommandOutput) => void
   ): Promise<GetLifecyclePolicyPreviewCommandOutput> | void {
     const command = new GetLifecyclePolicyPreviewCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the permissions policy for a registry.</p>
+   */
+  public getRegistryPolicy(
+    args: GetRegistryPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRegistryPolicyCommandOutput>;
+  public getRegistryPolicy(
+    args: GetRegistryPolicyCommandInput,
+    cb: (err: any, data?: GetRegistryPolicyCommandOutput) => void
+  ): void;
+  public getRegistryPolicy(
+    args: GetRegistryPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRegistryPolicyCommandOutput) => void
+  ): void;
+  public getRegistryPolicy(
+    args: GetRegistryPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRegistryPolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetRegistryPolicyCommandOutput) => void
+  ): Promise<GetRegistryPolicyCommandOutput> | void {
+    const command = new GetRegistryPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -930,6 +1053,82 @@ export class ECR extends ECRClient {
     cb?: (err: any, data?: PutLifecyclePolicyCommandOutput) => void
   ): Promise<PutLifecyclePolicyCommandOutput> | void {
     const command = new PutLifecyclePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates or updates the permissions policy for your registry.</p>
+   *         <p>A registry policy is used to specify permissions for another AWS account and is used
+   *             when configuring cross-account replication. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html">Registry permissions</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
+   */
+  public putRegistryPolicy(
+    args: PutRegistryPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutRegistryPolicyCommandOutput>;
+  public putRegistryPolicy(
+    args: PutRegistryPolicyCommandInput,
+    cb: (err: any, data?: PutRegistryPolicyCommandOutput) => void
+  ): void;
+  public putRegistryPolicy(
+    args: PutRegistryPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutRegistryPolicyCommandOutput) => void
+  ): void;
+  public putRegistryPolicy(
+    args: PutRegistryPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRegistryPolicyCommandOutput) => void),
+    cb?: (err: any, data?: PutRegistryPolicyCommandOutput) => void
+  ): Promise<PutRegistryPolicyCommandOutput> | void {
+    const command = new PutRegistryPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates or updates the replication configuration for a registry. The existing
+   *             replication configuration for a repository can be retrieved with the <a>DescribeRegistry</a> API action. The first time the
+   *             PutReplicationConfiguration API is called, a service-linked IAM role is created in
+   *             your account for the replication process. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html">Using
+   *                 Service-Linked Roles for Amazon ECR</a> in the
+   *             <i>Amazon Elastic Container Registry User Guide</i>.</p>
+   *         <note>
+   *             <p>When configuring cross-account replication, the destination account must grant the
+   *                 source account permission to replicate. This permission is controlled using a
+   *                 registry permissions policy. For more information, see <a>PutRegistryPolicy</a>.</p>
+   *         </note>
+   */
+  public putReplicationConfiguration(
+    args: PutReplicationConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutReplicationConfigurationCommandOutput>;
+  public putReplicationConfiguration(
+    args: PutReplicationConfigurationCommandInput,
+    cb: (err: any, data?: PutReplicationConfigurationCommandOutput) => void
+  ): void;
+  public putReplicationConfiguration(
+    args: PutReplicationConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutReplicationConfigurationCommandOutput) => void
+  ): void;
+  public putReplicationConfiguration(
+    args: PutReplicationConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutReplicationConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: PutReplicationConfigurationCommandOutput) => void
+  ): Promise<PutReplicationConfigurationCommandOutput> | void {
+    const command = new PutReplicationConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

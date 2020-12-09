@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { ListArtifactsRequest, ListArtifactsResponse } from "../models/models_1";
+import { ListArtifactsRequest, ListArtifactsResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1ListArtifactsCommand,
   serializeAws_json1_1ListArtifactsCommand,

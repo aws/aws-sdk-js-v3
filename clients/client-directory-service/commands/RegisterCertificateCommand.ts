@@ -21,7 +21,7 @@ export type RegisterCertificateCommandInput = RegisterCertificateRequest;
 export type RegisterCertificateCommandOutput = RegisterCertificateResult & __MetadataBearer;
 
 /**
- * <p>Registers a certificate for secured LDAP connection.</p>
+ * <p>Registers a certificate for a secure LDAP or client certificate authentication.</p>
  */
 export class RegisterCertificateCommand extends $Command<
   RegisterCertificateCommandInput,

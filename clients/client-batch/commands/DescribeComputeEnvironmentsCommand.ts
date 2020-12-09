@@ -22,7 +22,7 @@ export type DescribeComputeEnvironmentsCommandOutput = DescribeComputeEnvironmen
 
 /**
  * <p>Describes one or more of your compute environments.</p>
- *          <p>If you are using an unmanaged compute environment, you can use the <code>DescribeComputeEnvironment</code>
+ *          <p>If you're using an unmanaged compute environment, you can use the <code>DescribeComputeEnvironment</code>
  *    operation to determine the <code>ecsClusterArn</code> that you should launch your Amazon ECS container instances
  *    into.</p>
  */

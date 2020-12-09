@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { GetSearchSuggestionsRequest, GetSearchSuggestionsResponse } from "../models/models_1";
+import { GetSearchSuggestionsRequest, GetSearchSuggestionsResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1GetSearchSuggestionsCommand,
   serializeAws_json1_1GetSearchSuggestionsCommand,

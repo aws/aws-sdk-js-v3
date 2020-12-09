@@ -929,6 +929,12 @@
             "smithy.api#documentation": "<p>Returns the following:</p>\n        <ul>\n            <li>\n                <p>AllowCancelResize: a boolean value indicating if the resize operation can be\n                    cancelled.</p>\n            </li>\n            <li>\n                <p>ResizeType: Returns ClassicResize</p>\n            </li>\n         </ul>"
           }
         },
+        "AvailabilityZoneRelocationStatus": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the status of the Availability Zone relocation operation.</p>"
+          }
+        },
         "ClusterNamespaceArn": {
           "target": "com.amazonaws.redshift#String",
           "traits": {
@@ -1968,7 +1974,7 @@
         "NodeType": {
           "target": "com.amazonaws.redshift#String",
           "traits": {
-            "smithy.api#documentation": "<p>The node type to be provisioned for the cluster. For information about node types,\n            go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes\"> Working with\n                Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>\n        <p>Valid Values: <code>ds2.xlarge</code> | <code>ds2.8xlarge</code> |\n                <code>dc1.large</code> | <code>dc1.8xlarge</code> | \n                <code>dc2.large</code> | <code>dc2.8xlarge</code> | \n                <code>ra3.4xlarge</code> | <code>ra3.16xlarge</code>\n         </p>",
+            "smithy.api#documentation": "<p>The node type to be provisioned for the cluster. For information about node types,\n            go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes\"> Working with\n                Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>\n        <p>Valid Values: <code>ds2.xlarge</code> | <code>ds2.8xlarge</code> |\n                <code>dc1.large</code> | <code>dc1.8xlarge</code> | \n                <code>dc2.large</code> | <code>dc2.8xlarge</code> | \n                <code>ra3.xlplus</code> |  <code>ra3.4xlarge</code> | <code>ra3.16xlarge</code>\n         </p>",
             "smithy.api#required": {}
           }
         },
@@ -2128,6 +2134,12 @@
           "target": "com.amazonaws.redshift#String",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier for the snapshot schedule.</p>"
+          }
+        },
+        "AvailabilityZoneRelocation": {
+          "target": "com.amazonaws.redshift#BooleanOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>The option to enable relocation for an Amazon Redshift cluster between Availability Zones after the cluster is created.</p>"
           }
         }
       },
@@ -2859,6 +2871,9 @@
           "target": "com.amazonaws.redshift#InvalidScheduleFault"
         },
         {
+          "target": "com.amazonaws.redshift#InvalidTagFault"
+        },
+        {
           "target": "com.amazonaws.redshift#ScheduleDefinitionTypeUnsupportedFault"
         },
         {
@@ -2922,6 +2937,9 @@
         "target": "com.amazonaws.redshift#CreateTagsMessage"
       },
       "errors": [
+        {
+          "target": "com.amazonaws.redshift#InvalidClusterStateFault"
+        },
         {
           "target": "com.amazonaws.redshift#InvalidTagFault"
         },
@@ -5676,6 +5694,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The port that the database engine is listening on.</p>"
           }
+        },
+        "VpcEndpoints": {
+          "target": "com.amazonaws.redshift#SpartaProxyVpcEndpointList",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes a connection endpoint.</p>"
+          }
         }
       },
       "traits": {
@@ -7167,7 +7191,7 @@
         "NodeType": {
           "target": "com.amazonaws.redshift#String",
           "traits": {
-            "smithy.api#documentation": "<p>The new node type of the cluster. If you specify a new node type, you must also\n            specify the number of nodes parameter.</p>\n        <p>\nFor more information about resizing clusters, go to \n<a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/rs-resize-tutorial.html\">Resizing Clusters in Amazon Redshift</a> \nin the <i>Amazon Redshift Cluster Management Guide</i>.</p>\n        \n        <p>Valid Values: <code>ds2.xlarge</code> | <code>ds2.8xlarge</code> |\n            <code>dc1.large</code> | <code>dc1.8xlarge</code> | \n            <code>dc2.large</code> | <code>dc2.8xlarge</code> | \n            <code>ra3.4xlarge</code> | <code>ra3.16xlarge</code> \n         </p>"
+            "smithy.api#documentation": "<p>The new node type of the cluster. If you specify a new node type, you must also\n            specify the number of nodes parameter.</p>\n        <p>\nFor more information about resizing clusters, go to \n<a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/rs-resize-tutorial.html\">Resizing Clusters in Amazon Redshift</a> \nin the <i>Amazon Redshift Cluster Management Guide</i>.</p>\n        \n        <p>Valid Values: <code>ds2.xlarge</code> | <code>ds2.8xlarge</code> |\n            <code>dc1.large</code> | <code>dc1.8xlarge</code> | \n            <code>dc2.large</code> | <code>dc2.8xlarge</code> | \n            <code>ra3.xlplus</code> |  <code>ra3.4xlarge</code> | <code>ra3.16xlarge</code>\n         </p>"
           }
         },
         "NumberOfNodes": {
@@ -7282,6 +7306,24 @@
           "target": "com.amazonaws.redshift#String",
           "traits": {
             "smithy.api#documentation": "<p>The AWS Key Management Service (KMS) key ID of the encryption key that you want to use\n            to encrypt data in the cluster.</p>"
+          }
+        },
+        "AvailabilityZoneRelocation": {
+          "target": "com.amazonaws.redshift#BooleanOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>The option to enable relocation for an Amazon Redshift cluster between Availability Zones after the cluster modification is complete.</p>"
+          }
+        },
+        "AvailabilityZone": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The option to initiate relocation for an Amazon Redshift cluster to the target Availability Zone.</p>"
+          }
+        },
+        "Port": {
+          "target": "com.amazonaws.redshift#IntegerOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>The option to change the port of an Amazon Redshift cluster.</p>"
           }
         }
       },
@@ -9093,7 +9135,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Changes the size of the cluster. You can change the cluster's type, or change the\n            number or type of nodes. The default behavior is to use the elastic resize method. With\n            an elastic resize, your cluster is available for read and write operations more quickly\n            than with the classic resize method. </p>\n        <p>Elastic resize operations have the following restrictions:</p>\n        <ul>\n            <li>\n                <p>You can only resize clusters of the following types:</p>\n                <ul>\n                  <li>\n                        <p>dc1.large (if your cluster is in a VPC)</p>\n                    </li>\n                  <li>\n                        <p>dc1.8xlarge (if your cluster is in a VPC)</p>\n                    </li>\n                  <li>\n                        <p>dc2.large</p>\n                    </li>\n                  <li>\n                        <p>dc2.8xlarge</p>\n                    </li>\n                  <li>\n                        <p>ds2.xlarge</p>\n                    </li>\n                  <li>\n                        <p>ds2.8xlarge</p>\n                    </li>\n                  <li>\n                        <p>ra3.4xlarge</p>\n                    </li>\n                  <li>\n                        <p>ra3.16xlarge</p>\n                    </li>\n               </ul>\n            </li>\n            <li>\n                <p>The type of nodes that you add must match the node type for the\n                    cluster.</p>\n            </li>\n         </ul>"
+        "smithy.api#documentation": "<p>Changes the size of the cluster. You can change the cluster's type, or change the\n            number or type of nodes. The default behavior is to use the elastic resize method. With\n            an elastic resize, your cluster is available for read and write operations more quickly\n            than with the classic resize method. </p>\n        <p>Elastic resize operations have the following restrictions:</p>\n        <ul>\n            <li>\n                <p>You can only resize clusters of the following types:</p>\n                <ul>\n                  <li>\n                        <p>dc1.large (if your cluster is in a VPC)</p>\n                    </li>\n                  <li>\n                        <p>dc1.8xlarge (if your cluster is in a VPC)</p>\n                    </li>\n                  <li>\n                        <p>dc2.large</p>\n                    </li>\n                  <li>\n                        <p>dc2.8xlarge</p>\n                    </li>\n                  <li>\n                        <p>ds2.xlarge</p>\n                    </li>\n                  <li>\n                        <p>ds2.8xlarge</p>\n                    </li>\n                  <li>\n                        <p>ra3.xlplus</p>\n                    </li>\n                  <li>\n                        <p>ra3.4xlarge</p>\n                    </li>\n                  <li>\n                        <p>ra3.16xlarge</p>\n                    </li>\n               </ul>\n            </li>\n            <li>\n                <p>The type of nodes that you add must match the node type for the\n                    cluster.</p>\n            </li>\n         </ul>"
       }
     },
     "com.amazonaws.redshift#ResizeClusterMessage": {
@@ -9119,7 +9161,7 @@
           }
         },
         "NumberOfNodes": {
-          "target": "com.amazonaws.redshift#Integer",
+          "target": "com.amazonaws.redshift#IntegerOptional",
           "traits": {
             "smithy.api#documentation": "<p>The new number of nodes for the cluster. If not specified, the cluster's current number of nodes is used.</p>"
           }
@@ -9551,6 +9593,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The number of nodes specified when provisioning the restored cluster.</p>"
           }
+        },
+        "AvailabilityZoneRelocation": {
+          "target": "com.amazonaws.redshift#BooleanOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>The option to enable relocation for an Amazon Redshift cluster between Availability Zones after the cluster is restored.</p>"
+          }
         }
       },
       "traits": {
@@ -9724,6 +9772,9 @@
       "errors": [
         {
           "target": "com.amazonaws.redshift#ClusterNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#InsufficientClusterCapacityFault"
         },
         {
           "target": "com.amazonaws.redshift#InvalidClusterStateFault"
@@ -10364,6 +10415,12 @@
             "smithy.api#documentation": "<p>The version ID of the Amazon Redshift engine that is running on the cluster.</p>"
           }
         },
+        "EngineFullVersion": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The cluster version of the cluster used to create the snapshot. For example, 1.0.15503. </p>"
+          }
+        },
         "SnapshotType": {
           "target": "com.amazonaws.redshift#String",
           "traits": {
@@ -10935,8 +10992,37 @@
         ]
       }
     },
+    "com.amazonaws.redshift#SpartaProxyVpcEndpoint": {
+      "type": "structure",
+      "members": {
+        "VpcEndpointId": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The connection endpoint for connecting an Amazon Redshift cluster through the proxy.</p>"
+      }
+    },
+    "com.amazonaws.redshift#SpartaProxyVpcEndpointList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.redshift#SpartaProxyVpcEndpoint",
+        "traits": {
+          "smithy.api#xmlName": "SpartaProxyVpcEndpoint"
+        }
+      }
+    },
     "com.amazonaws.redshift#String": {
-      "type": "string"
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 2147483647
+        }
+      }
     },
     "com.amazonaws.redshift#Subnet": {
       "type": "structure",

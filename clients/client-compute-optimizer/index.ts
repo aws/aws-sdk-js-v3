@@ -4,6 +4,7 @@ export * from "./commands/DescribeRecommendationExportJobsCommand";
 export * from "./commands/ExportAutoScalingGroupRecommendationsCommand";
 export * from "./commands/ExportEC2InstanceRecommendationsCommand";
 export * from "./commands/GetAutoScalingGroupRecommendationsCommand";
+export * from "./commands/GetEBSVolumeRecommendationsCommand";
 export * from "./commands/GetEC2InstanceRecommendationsCommand";
 export * from "./commands/GetEC2RecommendationProjectedMetricsCommand";
 export * from "./commands/GetEnrollmentStatusCommand";

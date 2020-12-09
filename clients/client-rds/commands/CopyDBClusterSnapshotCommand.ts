@@ -46,7 +46,7 @@ export type CopyDBClusterSnapshotCommandOutput = CopyDBClusterSnapshotResult & _
  *               <ul>
  *                   <li>
  *                      <p>
- *                         <code>KmsKeyId</code> - The KMS key identifier for the key to use to encrypt the copy of the DB
+ *                         <code>KmsKeyId</code> - The AWS KMS key identifier for the customer master key (CMK) to use to encrypt the copy of the DB
  *                       cluster snapshot in the destination AWS Region. This is the same identifier for both the <code>CopyDBClusterSnapshot</code>
  *                       action that is called in the destination AWS Region, and the action contained in the pre-signed URL.</p>
  *                   </li>

@@ -6178,8 +6178,10 @@ const serializeAws_json1_1S3Settings = (input: S3Settings, context: __SerdeConte
     ...(input.BucketName !== undefined && { BucketName: input.BucketName }),
     ...(input.CdcInsertsAndUpdates !== undefined && { CdcInsertsAndUpdates: input.CdcInsertsAndUpdates }),
     ...(input.CdcInsertsOnly !== undefined && { CdcInsertsOnly: input.CdcInsertsOnly }),
+    ...(input.CdcPath !== undefined && { CdcPath: input.CdcPath }),
     ...(input.CompressionType !== undefined && { CompressionType: input.CompressionType }),
     ...(input.CsvDelimiter !== undefined && { CsvDelimiter: input.CsvDelimiter }),
+    ...(input.CsvNoSupValue !== undefined && { CsvNoSupValue: input.CsvNoSupValue }),
     ...(input.CsvRowDelimiter !== undefined && { CsvRowDelimiter: input.CsvRowDelimiter }),
     ...(input.DataFormat !== undefined && { DataFormat: input.DataFormat }),
     ...(input.DataPageSize !== undefined && { DataPageSize: input.DataPageSize }),
@@ -6196,12 +6198,14 @@ const serializeAws_json1_1S3Settings = (input: S3Settings, context: __SerdeConte
       ParquetTimestampInMillisecond: input.ParquetTimestampInMillisecond,
     }),
     ...(input.ParquetVersion !== undefined && { ParquetVersion: input.ParquetVersion }),
+    ...(input.PreserveTransactions !== undefined && { PreserveTransactions: input.PreserveTransactions }),
     ...(input.RowGroupLength !== undefined && { RowGroupLength: input.RowGroupLength }),
     ...(input.ServerSideEncryptionKmsKeyId !== undefined && {
       ServerSideEncryptionKmsKeyId: input.ServerSideEncryptionKmsKeyId,
     }),
     ...(input.ServiceAccessRoleArn !== undefined && { ServiceAccessRoleArn: input.ServiceAccessRoleArn }),
     ...(input.TimestampColumnName !== undefined && { TimestampColumnName: input.TimestampColumnName }),
+    ...(input.UseCsvNoSupValue !== undefined && { UseCsvNoSupValue: input.UseCsvNoSupValue }),
   };
 };
 
@@ -8263,9 +8267,12 @@ const deserializeAws_json1_1S3Settings = (output: any, context: __SerdeContext):
         : undefined,
     CdcInsertsOnly:
       output.CdcInsertsOnly !== undefined && output.CdcInsertsOnly !== null ? output.CdcInsertsOnly : undefined,
+    CdcPath: output.CdcPath !== undefined && output.CdcPath !== null ? output.CdcPath : undefined,
     CompressionType:
       output.CompressionType !== undefined && output.CompressionType !== null ? output.CompressionType : undefined,
     CsvDelimiter: output.CsvDelimiter !== undefined && output.CsvDelimiter !== null ? output.CsvDelimiter : undefined,
+    CsvNoSupValue:
+      output.CsvNoSupValue !== undefined && output.CsvNoSupValue !== null ? output.CsvNoSupValue : undefined,
     CsvRowDelimiter:
       output.CsvRowDelimiter !== undefined && output.CsvRowDelimiter !== null ? output.CsvRowDelimiter : undefined,
     DataFormat: output.DataFormat !== undefined && output.DataFormat !== null ? output.DataFormat : undefined,
@@ -8305,6 +8312,10 @@ const deserializeAws_json1_1S3Settings = (output: any, context: __SerdeContext):
         : undefined,
     ParquetVersion:
       output.ParquetVersion !== undefined && output.ParquetVersion !== null ? output.ParquetVersion : undefined,
+    PreserveTransactions:
+      output.PreserveTransactions !== undefined && output.PreserveTransactions !== null
+        ? output.PreserveTransactions
+        : undefined,
     RowGroupLength:
       output.RowGroupLength !== undefined && output.RowGroupLength !== null ? output.RowGroupLength : undefined,
     ServerSideEncryptionKmsKeyId:
@@ -8319,6 +8330,8 @@ const deserializeAws_json1_1S3Settings = (output: any, context: __SerdeContext):
       output.TimestampColumnName !== undefined && output.TimestampColumnName !== null
         ? output.TimestampColumnName
         : undefined,
+    UseCsvNoSupValue:
+      output.UseCsvNoSupValue !== undefined && output.UseCsvNoSupValue !== null ? output.UseCsvNoSupValue : undefined,
   } as any;
 };
 

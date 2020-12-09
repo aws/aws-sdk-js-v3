@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { ListAppImageConfigsRequest, ListAppImageConfigsResponse } from "../models/models_1";
+import { ListAppImageConfigsRequest, ListAppImageConfigsResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1ListAppImageConfigsCommand,
   serializeAws_json1_1ListAppImageConfigsCommand,

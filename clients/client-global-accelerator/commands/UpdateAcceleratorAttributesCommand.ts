@@ -25,8 +25,7 @@ export type UpdateAcceleratorAttributesCommandInput = UpdateAcceleratorAttribute
 export type UpdateAcceleratorAttributesCommandOutput = UpdateAcceleratorAttributesResponse & __MetadataBearer;
 
 /**
- * <p>Update the attributes for an accelerator. To see an AWS CLI example of updating an accelerator to enable flow logs,
- * 			scroll down to <b>Example</b>.</p>
+ * <p>Update the attributes for an accelerator. </p>
  */
 export class UpdateAcceleratorAttributesCommand extends $Command<
   UpdateAcceleratorAttributesCommandInput,

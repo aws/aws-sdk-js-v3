@@ -22,8 +22,8 @@ export type UpdateEnrollmentStatusCommandOutput = UpdateEnrollmentStatusResponse
 
 /**
  * <p>Updates the enrollment (opt in) status of an account to the AWS Compute Optimizer service.</p>
- *         <p>If the account is a master account of an organization, this action can also be used to
- *             enroll member accounts within the organization.</p>
+ *         <p>If the account is a management account of an organization, this action can also be used
+ *             to enroll member accounts within the organization.</p>
  */
 export class UpdateEnrollmentStatusCommand extends $Command<
   UpdateEnrollmentStatusCommandInput,

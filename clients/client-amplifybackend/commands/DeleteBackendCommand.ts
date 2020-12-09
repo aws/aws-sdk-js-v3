@@ -21,7 +21,7 @@ export type DeleteBackendCommandInput = DeleteBackendRequest;
 export type DeleteBackendCommandOutput = DeleteBackendResponse & __MetadataBearer;
 
 /**
- * <p>Removes an existing environment from your Ampify project.</p>
+ * <p>Removes an existing environment from your Amplify project.</p>
  */
 export class DeleteBackendCommand extends $Command<
   DeleteBackendCommandInput,

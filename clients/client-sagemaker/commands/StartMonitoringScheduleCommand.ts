@@ -23,7 +23,8 @@ export type StartMonitoringScheduleCommandOutput = __MetadataBearer;
 /**
  * <p>Starts a previously stopped monitoring schedule.</p>
  *          <note>
- *             <p>New monitoring schedules are immediately started after creation.</p>
+ *             <p>By default, when you successfully create a new schedule, the status of a monitoring
+ *             schedule is <code>scheduled</code>.</p>
  *          </note>
  */
 export class StartMonitoringScheduleCommand extends $Command<

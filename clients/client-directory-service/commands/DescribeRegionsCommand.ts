@@ -21,7 +21,8 @@ export type DescribeRegionsCommandInput = DescribeRegionsRequest;
 export type DescribeRegionsCommandOutput = DescribeRegionsResult & __MetadataBearer;
 
 /**
- * <p>Provides information about the Regions that are configured for multi-Region replication.</p>
+ * <p>Provides information about the Regions that are configured for multi-Region
+ *       replication.</p>
  */
 export class DescribeRegionsCommand extends $Command<
   DescribeRegionsCommandInput,

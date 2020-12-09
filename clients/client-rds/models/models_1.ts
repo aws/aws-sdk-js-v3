@@ -6,6 +6,7 @@ import {
   DBCluster,
   DBClusterSnapshotAttributesResult,
   DBInstance,
+  DBInstanceAutomatedBackup,
   DBProxy,
   DBProxyTarget,
   DBProxyTargetGroup,
@@ -13,6 +14,7 @@ import {
   DBSnapshot,
   DBSnapshotAttributesResult,
   DBSubnetGroup,
+  EventCategoriesMap,
   EventSubscription,
   ExportTask,
   Filter,
@@ -30,6 +32,22 @@ import {
 } from "./models_0";
 import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+/**
+ * <p>Data returned from the <code>DescribeEventCategories</code> operation.</p>
+ */
+export interface EventCategoriesMessage {
+  /**
+   * <p>A list of EventCategoriesMap data types.</p>
+   */
+  EventCategoriesMapList?: EventCategoriesMap[];
+}
+
+export namespace EventCategoriesMessage {
+  export const filterSensitiveLog = (obj: EventCategoriesMessage): any => ({
+    ...obj,
+  });
+}
 
 export type SourceType =
   | "db-cluster"
@@ -1724,6 +1742,11 @@ export interface SourceRegion {
    * <p>The status of the source AWS Region.</p>
    */
   Status?: string;
+
+  /**
+   * <p>Whether the source AWS Region supports replicating automated backups to the current AWS Region.</p>
+   */
+  SupportsDBInstanceAutomatedBackupsReplication?: boolean;
 }
 
 export namespace SourceRegion {
@@ -3421,12 +3444,11 @@ export interface ModifyDBInstanceMessage {
   EnablePerformanceInsights?: boolean;
 
   /**
-   * <p>The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID
-   *             is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS
-   *             encryption key.</p>
+   * <p>The AWS KMS key identifier for encryption of Performance Insights data.</p>
+   *         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>
    *         <p>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS
-   *             uses your default encryption key. AWS KMS creates the default encryption key for your AWS account.
-   *             Your AWS account has a different default encryption key for each AWS Region.</p>
+   *             uses your default CMK. There is a default CMK for your AWS account.
+   *             Your AWS account has a different default CMK for each AWS Region.</p>
    */
   PerformanceInsightsKMSKeyId?: string;
 
@@ -4610,7 +4632,7 @@ export interface RemoveRoleFromDBInstanceMessage {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to disassociate from the DB instance,
-   *             for example <code>arn:aws:iam::123456789012:role/AccessRole</code>.</p>
+   *             for example, <code>arn:aws:iam::123456789012:role/AccessRole</code>.</p>
    */
   RoleArn: string | undefined;
 
@@ -4999,12 +5021,13 @@ export interface RestoreDBClusterFromS3Message {
 
   /**
    * <p>The AWS KMS key identifier for an encrypted DB cluster.</p>
-   *         <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KM encryption key.</p>
+   *         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).
+   *             To use a CMK in a different AWS account, specify the key ARN or alias ARN.</p>
    *         <p>If the StorageEncrypted parameter is enabled, and you do
    *             not specify a value for the <code>KmsKeyId</code> parameter, then
-   *             Amazon RDS will use your default encryption key. AWS KMS creates the
-   *             default encryption key for your AWS account. Your AWS account has a different
-   *             default encryption key for each AWS Region.</p>
+   *             Amazon RDS will use your default CMK. There is a
+   *             default CMK for your AWS account. Your AWS account has a different
+   *             default CMK for each AWS Region.</p>
    */
   KmsKeyId?: string;
 
@@ -5281,17 +5304,15 @@ export interface RestoreDBClusterFromSnapshotMessage {
   /**
    * <p>The AWS KMS key identifier to use when restoring an encrypted DB cluster from a DB
    *             snapshot or DB cluster snapshot.</p>
-   *         <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption
-   *             key. If you are restoring a DB cluster with the same AWS account that owns the KMS
-   *             encryption key used to encrypt the new DB cluster, then you can use the KMS key alias
-   *             instead of the ARN for the KMS encryption key.</p>
-   *         <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then the
+   *          <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).
+   *           To use a CMK in a different AWS account, specify the key ARN or alias ARN.</p>
+   *         <p>When you don't specify a value for the <code>KmsKeyId</code> parameter, then the
    *             following occurs:</p>
    *         <ul>
    *             <li>
    *                 <p>If the DB snapshot or DB cluster snapshot in
    *                         <code>SnapshotIdentifier</code> is encrypted, then the restored DB cluster
-   *                     is encrypted using the KMS key that was used to encrypt the DB snapshot or DB
+   *                     is encrypted using the AWS KMS CMK that was used to encrypt the DB snapshot or DB
    *                     cluster snapshot.</p>
    *             </li>
    *             <li>
@@ -5545,14 +5566,15 @@ export interface RestoreDBClusterToPointInTimeMessage {
 
   /**
    * <p>The AWS KMS key identifier to use when restoring an encrypted DB cluster from an encrypted DB cluster.</p>
-   *          <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key.</p>
-   *          <p>You can restore to a new DB cluster and encrypt the new DB cluster with a KMS key that is different than the
-   *       KMS key used to encrypt the source DB cluster. The new DB cluster is encrypted with the KMS key
+   *          <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).
+   *           To use a CMK in a different AWS account, specify the key ARN or alias ARN.</p>
+   *          <p>You can restore to a new DB cluster and encrypt the new DB cluster with a AWS KMS CMK that is different than the
+   *       AWS KMS key used to encrypt the source DB cluster. The new DB cluster is encrypted with the AWS KMS CMK
    *       identified by the <code>KmsKeyId</code> parameter.</p>
    *          <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then the following occurs:</p>
    *          <ul>
    *             <li>
-   *                <p>If the DB cluster is encrypted, then the restored DB cluster is encrypted using the KMS key that was used to encrypt the source DB cluster.</p>
+   *                <p>If the DB cluster is encrypted, then the restored DB cluster is encrypted using the AWS KMS CMK that was used to encrypt the source DB cluster.</p>
    *             </li>
    *             <li>
    *                <p>If the DB cluster isn't encrypted, then the restored DB cluster isn't encrypted.</p>
@@ -6314,15 +6336,13 @@ export interface RestoreDBInstanceFromS3Message {
   /**
    * <p>The AWS KMS key identifier for an encrypted DB instance.
    *         </p>
-   *         <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
-   *             If you are creating a DB instance with the same AWS account that owns the KMS encryption key used to encrypt the new DB instance,
-   *             then you can use the KMS key alias instead of the ARN for the KM encryption key.
-   *         </p>
+   *         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).
+   *             To use a CMK in a different AWS account, specify the key ARN or alias ARN.</p>
    *         <p>If the <code>StorageEncrypted</code> parameter is enabled,
    *             and you do not specify a value for the <code>KmsKeyId</code> parameter,
-   *             then Amazon RDS will use your default encryption key.
-   *             AWS KMS creates the default encryption key for your AWS account.
-   *             Your AWS account has a different default encryption key for each AWS Region.
+   *             then Amazon RDS will use your default CMK.
+   *             There is a default CMK for your AWS account.
+   *             Your AWS account has a different default CMK for each AWS Region.
    *         </p>
    */
   KmsKeyId?: string;
@@ -6422,13 +6442,11 @@ export interface RestoreDBInstanceFromS3Message {
   EnablePerformanceInsights?: boolean;
 
   /**
-   * <p>The AWS KMS key identifier for encryption of Performance Insights data.
-   *             The KMS key ID is the Amazon Resource Name (ARN), the KMS key identifier,
-   *             or the KMS key alias for the KMS encryption key.
-   *         </p>
+   * <p>The AWS KMS key identifier for encryption of Performance Insights data.</p>
+   *         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>
    *         <p>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS
-   *             uses your default encryption key. AWS KMS creates the default encryption key for your AWS account.
-   *             Your AWS account has a different default encryption key for each AWS Region.</p>
+   *             uses your default CMK. There is a default CMK for your AWS account.
+   *             Your AWS account has a different default CMK for each AWS Region.</p>
    */
   PerformanceInsightsKMSKeyId?: string;
 
@@ -6859,6 +6877,12 @@ export interface RestoreDBInstanceToPointInTimeMessage {
    * <p>The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.</p>
    */
   MaxAllocatedStorage?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the replicated automated backups from which to restore, for example,
+   *             <code>arn:aws:rds:useast-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE</code>.</p>
+   */
+  SourceDBInstanceAutomatedBackupsArn?: string;
 }
 
 export namespace RestoreDBInstanceToPointInTimeMessage {
@@ -6958,7 +6982,7 @@ export namespace RevokeDBSecurityGroupIngressResult {
 export interface StartActivityStreamRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the DB cluster,
-   *             for example <code>arn:aws:rds:us-east-1:12345667890:cluster:das-cluster</code>.</p>
+   *             for example, <code>arn:aws:rds:us-east-1:12345667890:cluster:das-cluster</code>.</p>
    */
   ResourceArn: string | undefined;
 
@@ -6972,7 +6996,7 @@ export interface StartActivityStreamRequest {
 
   /**
    * <p>The AWS KMS key identifier for encrypting messages in the database activity stream.
-   *             The key identifier can be either a key ID, a key ARN, or a key alias.</p>
+   *             The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>
    */
   KmsKeyId: string | undefined;
 
@@ -7085,6 +7109,54 @@ export namespace StartDBInstanceResult {
   });
 }
 
+export interface StartDBInstanceAutomatedBackupsReplicationMessage {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example,
+   *             <code>arn:aws:rds:us-west-2:123456789012:db:mydatabase</code>.</p>
+   */
+  SourceDBInstanceArn: string | undefined;
+
+  /**
+   * <p>The retention period for the replicated automated backups.</p>
+   */
+  BackupRetentionPeriod?: number;
+
+  /**
+   * <p>The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the
+   *             Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example,
+   *             <code>arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE</code>.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>A URL that contains a Signature Version 4 signed request for the StartDBInstanceAutomatedBackupsReplication action to be
+   *             called in the AWS Region of the source DB instance. The presigned URL must be a valid request for the
+   *             StartDBInstanceAutomatedBackupsReplication API action that can be executed in the AWS Region that contains
+   *             the source DB instance.</p>
+   */
+  PreSignedUrl?: string;
+}
+
+export namespace StartDBInstanceAutomatedBackupsReplicationMessage {
+  export const filterSensitiveLog = (obj: StartDBInstanceAutomatedBackupsReplicationMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface StartDBInstanceAutomatedBackupsReplicationResult {
+  /**
+   * <p>An automated backup of a DB instance. It consists of system backups, transaction logs, and the database instance properties that
+   *             existed at the time you deleted the source instance.</p>
+   */
+  DBInstanceAutomatedBackup?: DBInstanceAutomatedBackup;
+}
+
+export namespace StartDBInstanceAutomatedBackupsReplicationResult {
+  export const filterSensitiveLog = (obj: StartDBInstanceAutomatedBackupsReplicationResult): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>You can't start an export task that's already running.</p>
  */
@@ -7184,10 +7256,10 @@ export interface StartExportTaskMessage {
   IamRoleArn: string | undefined;
 
   /**
-   * <p>The ID of the AWS KMS key to use to encrypt the snapshot exported to Amazon S3. The
-   *             KMS key ID is the Amazon Resource Name (ARN), the KMS key identifier, or the KMS key
-   *             alias for the KMS encryption key. The caller of this operation must be authorized to
-   *             execute the following operations. These can be set in the KMS key policy: </p>
+   * <p>The ID of the AWS KMS customer master key (CMK) to use to encrypt the snapshot exported to Amazon S3. The AWS KMS
+   *             key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).
+   *             The caller of this operation must be authorized to
+   *             execute the following operations. These can be set in the AWS KMS key policy: </p>
    *         <ul>
    *             <li>
    *                <p>GrantOperation.Encrypt</p>
@@ -7287,6 +7359,7 @@ export namespace StopActivityStreamRequest {
 export interface StopActivityStreamResponse {
   /**
    * <p>The AWS KMS key identifier used for encrypting messages in the database activity stream.</p>
+   *         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>
    */
   KmsKeyId?: string;
 
@@ -7372,6 +7445,34 @@ export interface StopDBInstanceResult {
 
 export namespace StopDBInstanceResult {
   export const filterSensitiveLog = (obj: StopDBInstanceResult): any => ({
+    ...obj,
+  });
+}
+
+export interface StopDBInstanceAutomatedBackupsReplicationMessage {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source DB instance for which to stop replicating automated backups, for example,
+   *             <code>arn:aws:rds:us-west-2:123456789012:db:mydatabase</code>.</p>
+   */
+  SourceDBInstanceArn: string | undefined;
+}
+
+export namespace StopDBInstanceAutomatedBackupsReplicationMessage {
+  export const filterSensitiveLog = (obj: StopDBInstanceAutomatedBackupsReplicationMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface StopDBInstanceAutomatedBackupsReplicationResult {
+  /**
+   * <p>An automated backup of a DB instance. It consists of system backups, transaction logs, and the database instance properties that
+   *             existed at the time you deleted the source instance.</p>
+   */
+  DBInstanceAutomatedBackup?: DBInstanceAutomatedBackup;
+}
+
+export namespace StopDBInstanceAutomatedBackupsReplicationResult {
+  export const filterSensitiveLog = (obj: StopDBInstanceAutomatedBackupsReplicationResult): any => ({
     ...obj,
   });
 }

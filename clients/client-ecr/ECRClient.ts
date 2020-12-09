@@ -13,6 +13,10 @@ import {
   DeleteLifecyclePolicyCommandInput,
   DeleteLifecyclePolicyCommandOutput,
 } from "./commands/DeleteLifecyclePolicyCommand";
+import {
+  DeleteRegistryPolicyCommandInput,
+  DeleteRegistryPolicyCommandOutput,
+} from "./commands/DeleteRegistryPolicyCommand";
 import { DeleteRepositoryCommandInput, DeleteRepositoryCommandOutput } from "./commands/DeleteRepositoryCommand";
 import {
   DeleteRepositoryPolicyCommandInput,
@@ -23,6 +27,7 @@ import {
   DescribeImageScanFindingsCommandOutput,
 } from "./commands/DescribeImageScanFindingsCommand";
 import { DescribeImagesCommandInput, DescribeImagesCommandOutput } from "./commands/DescribeImagesCommand";
+import { DescribeRegistryCommandInput, DescribeRegistryCommandOutput } from "./commands/DescribeRegistryCommand";
 import {
   DescribeRepositoriesCommandInput,
   DescribeRepositoriesCommandOutput,
@@ -40,6 +45,7 @@ import {
   GetLifecyclePolicyPreviewCommandInput,
   GetLifecyclePolicyPreviewCommandOutput,
 } from "./commands/GetLifecyclePolicyPreviewCommand";
+import { GetRegistryPolicyCommandInput, GetRegistryPolicyCommandOutput } from "./commands/GetRegistryPolicyCommand";
 import {
   GetRepositoryPolicyCommandInput,
   GetRepositoryPolicyCommandOutput,
@@ -63,6 +69,11 @@ import {
   PutImageTagMutabilityCommandOutput,
 } from "./commands/PutImageTagMutabilityCommand";
 import { PutLifecyclePolicyCommandInput, PutLifecyclePolicyCommandOutput } from "./commands/PutLifecyclePolicyCommand";
+import { PutRegistryPolicyCommandInput, PutRegistryPolicyCommandOutput } from "./commands/PutRegistryPolicyCommand";
+import {
+  PutReplicationConfigurationCommandInput,
+  PutReplicationConfigurationCommandOutput,
+} from "./commands/PutReplicationConfigurationCommand";
 import {
   SetRepositoryPolicyCommandInput,
   SetRepositoryPolicyCommandOutput,
@@ -131,15 +142,18 @@ export type ServiceInputTypes =
   | CompleteLayerUploadCommandInput
   | CreateRepositoryCommandInput
   | DeleteLifecyclePolicyCommandInput
+  | DeleteRegistryPolicyCommandInput
   | DeleteRepositoryCommandInput
   | DeleteRepositoryPolicyCommandInput
   | DescribeImageScanFindingsCommandInput
   | DescribeImagesCommandInput
+  | DescribeRegistryCommandInput
   | DescribeRepositoriesCommandInput
   | GetAuthorizationTokenCommandInput
   | GetDownloadUrlForLayerCommandInput
   | GetLifecyclePolicyCommandInput
   | GetLifecyclePolicyPreviewCommandInput
+  | GetRegistryPolicyCommandInput
   | GetRepositoryPolicyCommandInput
   | InitiateLayerUploadCommandInput
   | ListImagesCommandInput
@@ -148,6 +162,8 @@ export type ServiceInputTypes =
   | PutImageScanningConfigurationCommandInput
   | PutImageTagMutabilityCommandInput
   | PutLifecyclePolicyCommandInput
+  | PutRegistryPolicyCommandInput
+  | PutReplicationConfigurationCommandInput
   | SetRepositoryPolicyCommandInput
   | StartImageScanCommandInput
   | StartLifecyclePolicyPreviewCommandInput
@@ -162,15 +178,18 @@ export type ServiceOutputTypes =
   | CompleteLayerUploadCommandOutput
   | CreateRepositoryCommandOutput
   | DeleteLifecyclePolicyCommandOutput
+  | DeleteRegistryPolicyCommandOutput
   | DeleteRepositoryCommandOutput
   | DeleteRepositoryPolicyCommandOutput
   | DescribeImageScanFindingsCommandOutput
   | DescribeImagesCommandOutput
+  | DescribeRegistryCommandOutput
   | DescribeRepositoriesCommandOutput
   | GetAuthorizationTokenCommandOutput
   | GetDownloadUrlForLayerCommandOutput
   | GetLifecyclePolicyCommandOutput
   | GetLifecyclePolicyPreviewCommandOutput
+  | GetRegistryPolicyCommandOutput
   | GetRepositoryPolicyCommandOutput
   | InitiateLayerUploadCommandOutput
   | ListImagesCommandOutput
@@ -179,6 +198,8 @@ export type ServiceOutputTypes =
   | PutImageScanningConfigurationCommandOutput
   | PutImageTagMutabilityCommandOutput
   | PutLifecyclePolicyCommandOutput
+  | PutRegistryPolicyCommandOutput
+  | PutReplicationConfigurationCommandOutput
   | SetRepositoryPolicyCommandOutput
   | StartImageScanCommandOutput
   | StartLifecyclePolicyPreviewCommandOutput

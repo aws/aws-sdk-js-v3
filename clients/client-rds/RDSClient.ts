@@ -408,10 +408,18 @@ import {
   StartActivityStreamCommandOutput,
 } from "./commands/StartActivityStreamCommand";
 import { StartDBClusterCommandInput, StartDBClusterCommandOutput } from "./commands/StartDBClusterCommand";
+import {
+  StartDBInstanceAutomatedBackupsReplicationCommandInput,
+  StartDBInstanceAutomatedBackupsReplicationCommandOutput,
+} from "./commands/StartDBInstanceAutomatedBackupsReplicationCommand";
 import { StartDBInstanceCommandInput, StartDBInstanceCommandOutput } from "./commands/StartDBInstanceCommand";
 import { StartExportTaskCommandInput, StartExportTaskCommandOutput } from "./commands/StartExportTaskCommand";
 import { StopActivityStreamCommandInput, StopActivityStreamCommandOutput } from "./commands/StopActivityStreamCommand";
 import { StopDBClusterCommandInput, StopDBClusterCommandOutput } from "./commands/StopDBClusterCommand";
+import {
+  StopDBInstanceAutomatedBackupsReplicationCommandInput,
+  StopDBInstanceAutomatedBackupsReplicationCommandOutput,
+} from "./commands/StopDBInstanceAutomatedBackupsReplicationCommand";
 import { StopDBInstanceCommandInput, StopDBInstanceCommandOutput } from "./commands/StopDBInstanceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -588,10 +596,12 @@ export type ServiceInputTypes =
   | RevokeDBSecurityGroupIngressCommandInput
   | StartActivityStreamCommandInput
   | StartDBClusterCommandInput
+  | StartDBInstanceAutomatedBackupsReplicationCommandInput
   | StartDBInstanceCommandInput
   | StartExportTaskCommandInput
   | StopActivityStreamCommandInput
   | StopDBClusterCommandInput
+  | StopDBInstanceAutomatedBackupsReplicationCommandInput
   | StopDBInstanceCommandInput;
 
 export type ServiceOutputTypes =
@@ -720,10 +730,12 @@ export type ServiceOutputTypes =
   | RevokeDBSecurityGroupIngressCommandOutput
   | StartActivityStreamCommandOutput
   | StartDBClusterCommandOutput
+  | StartDBInstanceAutomatedBackupsReplicationCommandOutput
   | StartDBInstanceCommandOutput
   | StartExportTaskCommandOutput
   | StopActivityStreamCommandOutput
   | StopDBClusterCommandOutput
+  | StopDBInstanceAutomatedBackupsReplicationCommandOutput
   | StopDBInstanceCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

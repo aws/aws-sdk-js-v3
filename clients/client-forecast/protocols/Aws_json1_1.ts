@@ -3038,8 +3038,13 @@ const serializeAws_json1_1CreateDatasetImportJobRequest = (
     ...(input.DataSource !== undefined && { DataSource: serializeAws_json1_1DataSource(input.DataSource, context) }),
     ...(input.DatasetArn !== undefined && { DatasetArn: input.DatasetArn }),
     ...(input.DatasetImportJobName !== undefined && { DatasetImportJobName: input.DatasetImportJobName }),
+    ...(input.GeolocationFormat !== undefined && { GeolocationFormat: input.GeolocationFormat }),
     ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.TimeZone !== undefined && { TimeZone: input.TimeZone }),
     ...(input.TimestampFormat !== undefined && { TimestampFormat: input.TimestampFormat }),
+    ...(input.UseGeolocationForTimeZone !== undefined && {
+      UseGeolocationForTimeZone: input.UseGeolocationForTimeZone,
+    }),
   };
 };
 
@@ -3830,14 +3835,23 @@ const deserializeAws_json1_1DescribeDatasetImportJobResponse = (
       output.FieldStatistics !== undefined && output.FieldStatistics !== null
         ? deserializeAws_json1_1FieldStatistics(output.FieldStatistics, context)
         : undefined,
+    GeolocationFormat:
+      output.GeolocationFormat !== undefined && output.GeolocationFormat !== null
+        ? output.GeolocationFormat
+        : undefined,
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
         ? new Date(Math.round(output.LastModificationTime * 1000))
         : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    TimeZone: output.TimeZone !== undefined && output.TimeZone !== null ? output.TimeZone : undefined,
     TimestampFormat:
       output.TimestampFormat !== undefined && output.TimestampFormat !== null ? output.TimestampFormat : undefined,
+    UseGeolocationForTimeZone:
+      output.UseGeolocationForTimeZone !== undefined && output.UseGeolocationForTimeZone !== null
+        ? output.UseGeolocationForTimeZone
+        : undefined,
   } as any;
 };
 

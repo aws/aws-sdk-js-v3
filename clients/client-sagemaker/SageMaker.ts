@@ -52,10 +52,25 @@ import {
   CreateContextCommandOutput,
 } from "./commands/CreateContextCommand";
 import {
+  CreateDataQualityJobDefinitionCommand,
+  CreateDataQualityJobDefinitionCommandInput,
+  CreateDataQualityJobDefinitionCommandOutput,
+} from "./commands/CreateDataQualityJobDefinitionCommand";
+import {
+  CreateDeviceFleetCommand,
+  CreateDeviceFleetCommandInput,
+  CreateDeviceFleetCommandOutput,
+} from "./commands/CreateDeviceFleetCommand";
+import {
   CreateDomainCommand,
   CreateDomainCommandInput,
   CreateDomainCommandOutput,
 } from "./commands/CreateDomainCommand";
+import {
+  CreateEdgePackagingJobCommand,
+  CreateEdgePackagingJobCommandInput,
+  CreateEdgePackagingJobCommandOutput,
+} from "./commands/CreateEdgePackagingJobCommand";
 import {
   CreateEndpointCommand,
   CreateEndpointCommandInput,
@@ -102,7 +117,17 @@ import {
   CreateLabelingJobCommandInput,
   CreateLabelingJobCommandOutput,
 } from "./commands/CreateLabelingJobCommand";
+import {
+  CreateModelBiasJobDefinitionCommand,
+  CreateModelBiasJobDefinitionCommandInput,
+  CreateModelBiasJobDefinitionCommandOutput,
+} from "./commands/CreateModelBiasJobDefinitionCommand";
 import { CreateModelCommand, CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
+import {
+  CreateModelExplainabilityJobDefinitionCommand,
+  CreateModelExplainabilityJobDefinitionCommandInput,
+  CreateModelExplainabilityJobDefinitionCommandOutput,
+} from "./commands/CreateModelExplainabilityJobDefinitionCommand";
 import {
   CreateModelPackageCommand,
   CreateModelPackageCommandInput,
@@ -113,6 +138,11 @@ import {
   CreateModelPackageGroupCommandInput,
   CreateModelPackageGroupCommandOutput,
 } from "./commands/CreateModelPackageGroupCommand";
+import {
+  CreateModelQualityJobDefinitionCommand,
+  CreateModelQualityJobDefinitionCommandInput,
+  CreateModelQualityJobDefinitionCommandOutput,
+} from "./commands/CreateModelQualityJobDefinitionCommand";
 import {
   CreateMonitoringScheduleCommand,
   CreateMonitoringScheduleCommandInput,
@@ -221,6 +251,16 @@ import {
   DeleteContextCommandOutput,
 } from "./commands/DeleteContextCommand";
 import {
+  DeleteDataQualityJobDefinitionCommand,
+  DeleteDataQualityJobDefinitionCommandInput,
+  DeleteDataQualityJobDefinitionCommandOutput,
+} from "./commands/DeleteDataQualityJobDefinitionCommand";
+import {
+  DeleteDeviceFleetCommand,
+  DeleteDeviceFleetCommandInput,
+  DeleteDeviceFleetCommandOutput,
+} from "./commands/DeleteDeviceFleetCommand";
+import {
   DeleteDomainCommand,
   DeleteDomainCommandInput,
   DeleteDomainCommandOutput,
@@ -261,7 +301,17 @@ import {
   DeleteImageVersionCommandInput,
   DeleteImageVersionCommandOutput,
 } from "./commands/DeleteImageVersionCommand";
+import {
+  DeleteModelBiasJobDefinitionCommand,
+  DeleteModelBiasJobDefinitionCommandInput,
+  DeleteModelBiasJobDefinitionCommandOutput,
+} from "./commands/DeleteModelBiasJobDefinitionCommand";
 import { DeleteModelCommand, DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
+import {
+  DeleteModelExplainabilityJobDefinitionCommand,
+  DeleteModelExplainabilityJobDefinitionCommandInput,
+  DeleteModelExplainabilityJobDefinitionCommandOutput,
+} from "./commands/DeleteModelExplainabilityJobDefinitionCommand";
 import {
   DeleteModelPackageCommand,
   DeleteModelPackageCommandInput,
@@ -277,6 +327,11 @@ import {
   DeleteModelPackageGroupPolicyCommandInput,
   DeleteModelPackageGroupPolicyCommandOutput,
 } from "./commands/DeleteModelPackageGroupPolicyCommand";
+import {
+  DeleteModelQualityJobDefinitionCommand,
+  DeleteModelQualityJobDefinitionCommandInput,
+  DeleteModelQualityJobDefinitionCommandOutput,
+} from "./commands/DeleteModelQualityJobDefinitionCommand";
 import {
   DeleteMonitoringScheduleCommand,
   DeleteMonitoringScheduleCommandInput,
@@ -325,6 +380,11 @@ import {
   DeleteWorkteamCommandOutput,
 } from "./commands/DeleteWorkteamCommand";
 import {
+  DeregisterDevicesCommand,
+  DeregisterDevicesCommandInput,
+  DeregisterDevicesCommandOutput,
+} from "./commands/DeregisterDevicesCommand";
+import {
   DescribeActionCommand,
   DescribeActionCommandInput,
   DescribeActionCommandOutput,
@@ -366,10 +426,30 @@ import {
   DescribeContextCommandOutput,
 } from "./commands/DescribeContextCommand";
 import {
+  DescribeDataQualityJobDefinitionCommand,
+  DescribeDataQualityJobDefinitionCommandInput,
+  DescribeDataQualityJobDefinitionCommandOutput,
+} from "./commands/DescribeDataQualityJobDefinitionCommand";
+import {
+  DescribeDeviceCommand,
+  DescribeDeviceCommandInput,
+  DescribeDeviceCommandOutput,
+} from "./commands/DescribeDeviceCommand";
+import {
+  DescribeDeviceFleetCommand,
+  DescribeDeviceFleetCommandInput,
+  DescribeDeviceFleetCommandOutput,
+} from "./commands/DescribeDeviceFleetCommand";
+import {
   DescribeDomainCommand,
   DescribeDomainCommandInput,
   DescribeDomainCommandOutput,
 } from "./commands/DescribeDomainCommand";
+import {
+  DescribeEdgePackagingJobCommand,
+  DescribeEdgePackagingJobCommandInput,
+  DescribeEdgePackagingJobCommandOutput,
+} from "./commands/DescribeEdgePackagingJobCommand";
 import {
   DescribeEndpointCommand,
   DescribeEndpointCommandInput,
@@ -421,10 +501,20 @@ import {
   DescribeLabelingJobCommandOutput,
 } from "./commands/DescribeLabelingJobCommand";
 import {
+  DescribeModelBiasJobDefinitionCommand,
+  DescribeModelBiasJobDefinitionCommandInput,
+  DescribeModelBiasJobDefinitionCommandOutput,
+} from "./commands/DescribeModelBiasJobDefinitionCommand";
+import {
   DescribeModelCommand,
   DescribeModelCommandInput,
   DescribeModelCommandOutput,
 } from "./commands/DescribeModelCommand";
+import {
+  DescribeModelExplainabilityJobDefinitionCommand,
+  DescribeModelExplainabilityJobDefinitionCommandInput,
+  DescribeModelExplainabilityJobDefinitionCommandOutput,
+} from "./commands/DescribeModelExplainabilityJobDefinitionCommand";
 import {
   DescribeModelPackageCommand,
   DescribeModelPackageCommandInput,
@@ -435,6 +525,11 @@ import {
   DescribeModelPackageGroupCommandInput,
   DescribeModelPackageGroupCommandOutput,
 } from "./commands/DescribeModelPackageGroupCommand";
+import {
+  DescribeModelQualityJobDefinitionCommand,
+  DescribeModelQualityJobDefinitionCommandInput,
+  DescribeModelQualityJobDefinitionCommandOutput,
+} from "./commands/DescribeModelQualityJobDefinitionCommand";
 import {
   DescribeMonitoringScheduleCommand,
   DescribeMonitoringScheduleCommandInput,
@@ -531,6 +626,11 @@ import {
   EnableSagemakerServicecatalogPortfolioCommandOutput,
 } from "./commands/EnableSagemakerServicecatalogPortfolioCommand";
 import {
+  GetDeviceFleetReportCommand,
+  GetDeviceFleetReportCommandInput,
+  GetDeviceFleetReportCommandOutput,
+} from "./commands/GetDeviceFleetReportCommand";
+import {
   GetModelPackageGroupPolicyCommand,
   GetModelPackageGroupPolicyCommandInput,
   GetModelPackageGroupPolicyCommandOutput,
@@ -592,7 +692,23 @@ import {
   ListContextsCommandInput,
   ListContextsCommandOutput,
 } from "./commands/ListContextsCommand";
+import {
+  ListDataQualityJobDefinitionsCommand,
+  ListDataQualityJobDefinitionsCommandInput,
+  ListDataQualityJobDefinitionsCommandOutput,
+} from "./commands/ListDataQualityJobDefinitionsCommand";
+import {
+  ListDeviceFleetsCommand,
+  ListDeviceFleetsCommandInput,
+  ListDeviceFleetsCommandOutput,
+} from "./commands/ListDeviceFleetsCommand";
+import { ListDevicesCommand, ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand";
 import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
+import {
+  ListEdgePackagingJobsCommand,
+  ListEdgePackagingJobsCommandInput,
+  ListEdgePackagingJobsCommandOutput,
+} from "./commands/ListEdgePackagingJobsCommand";
 import {
   ListEndpointConfigsCommand,
   ListEndpointConfigsCommandInput,
@@ -645,6 +761,16 @@ import {
   ListLabelingJobsForWorkteamCommandOutput,
 } from "./commands/ListLabelingJobsForWorkteamCommand";
 import {
+  ListModelBiasJobDefinitionsCommand,
+  ListModelBiasJobDefinitionsCommandInput,
+  ListModelBiasJobDefinitionsCommandOutput,
+} from "./commands/ListModelBiasJobDefinitionsCommand";
+import {
+  ListModelExplainabilityJobDefinitionsCommand,
+  ListModelExplainabilityJobDefinitionsCommandInput,
+  ListModelExplainabilityJobDefinitionsCommandOutput,
+} from "./commands/ListModelExplainabilityJobDefinitionsCommand";
+import {
   ListModelPackageGroupsCommand,
   ListModelPackageGroupsCommandInput,
   ListModelPackageGroupsCommandOutput,
@@ -654,6 +780,11 @@ import {
   ListModelPackagesCommandInput,
   ListModelPackagesCommandOutput,
 } from "./commands/ListModelPackagesCommand";
+import {
+  ListModelQualityJobDefinitionsCommand,
+  ListModelQualityJobDefinitionsCommandInput,
+  ListModelQualityJobDefinitionsCommandOutput,
+} from "./commands/ListModelQualityJobDefinitionsCommand";
 import { ListModelsCommand, ListModelsCommandInput, ListModelsCommandOutput } from "./commands/ListModelsCommand";
 import {
   ListMonitoringExecutionsCommand,
@@ -753,6 +884,11 @@ import {
   PutModelPackageGroupPolicyCommandOutput,
 } from "./commands/PutModelPackageGroupPolicyCommand";
 import {
+  RegisterDevicesCommand,
+  RegisterDevicesCommandInput,
+  RegisterDevicesCommandOutput,
+} from "./commands/RegisterDevicesCommand";
+import {
   RenderUiTemplateCommand,
   RenderUiTemplateCommandInput,
   RenderUiTemplateCommandOutput,
@@ -783,6 +919,11 @@ import {
   StopCompilationJobCommandInput,
   StopCompilationJobCommandOutput,
 } from "./commands/StopCompilationJobCommand";
+import {
+  StopEdgePackagingJobCommand,
+  StopEdgePackagingJobCommandInput,
+  StopEdgePackagingJobCommandOutput,
+} from "./commands/StopEdgePackagingJobCommand";
 import {
   StopHyperParameterTuningJobCommand,
   StopHyperParameterTuningJobCommandInput,
@@ -849,6 +990,16 @@ import {
   UpdateContextCommandOutput,
 } from "./commands/UpdateContextCommand";
 import {
+  UpdateDeviceFleetCommand,
+  UpdateDeviceFleetCommandInput,
+  UpdateDeviceFleetCommandOutput,
+} from "./commands/UpdateDeviceFleetCommand";
+import {
+  UpdateDevicesCommand,
+  UpdateDevicesCommandInput,
+  UpdateDevicesCommandOutput,
+} from "./commands/UpdateDevicesCommand";
+import {
   UpdateDomainCommand,
   UpdateDomainCommandInput,
   UpdateDomainCommandOutput,
@@ -899,6 +1050,11 @@ import {
   UpdatePipelineExecutionCommandInput,
   UpdatePipelineExecutionCommandOutput,
 } from "./commands/UpdatePipelineExecutionCommand";
+import {
+  UpdateTrainingJobCommand,
+  UpdateTrainingJobCommandInput,
+  UpdateTrainingJobCommandOutput,
+} from "./commands/UpdateTrainingJobCommand";
 import { UpdateTrialCommand, UpdateTrialCommandInput, UpdateTrialCommandOutput } from "./commands/UpdateTrialCommand";
 import {
   UpdateTrialComponentCommand,
@@ -1394,6 +1550,71 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Creates a definition for a job that monitors data quality and drift. For information
+   *          about model monitor, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html">Amazon SageMaker Model Monitor</a>.</p>
+   */
+  public createDataQualityJobDefinition(
+    args: CreateDataQualityJobDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDataQualityJobDefinitionCommandOutput>;
+  public createDataQualityJobDefinition(
+    args: CreateDataQualityJobDefinitionCommandInput,
+    cb: (err: any, data?: CreateDataQualityJobDefinitionCommandOutput) => void
+  ): void;
+  public createDataQualityJobDefinition(
+    args: CreateDataQualityJobDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDataQualityJobDefinitionCommandOutput) => void
+  ): void;
+  public createDataQualityJobDefinition(
+    args: CreateDataQualityJobDefinitionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDataQualityJobDefinitionCommandOutput) => void),
+    cb?: (err: any, data?: CreateDataQualityJobDefinitionCommandOutput) => void
+  ): Promise<CreateDataQualityJobDefinitionCommandOutput> | void {
+    const command = new CreateDataQualityJobDefinitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a device fleet.</p>
+   */
+  public createDeviceFleet(
+    args: CreateDeviceFleetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDeviceFleetCommandOutput>;
+  public createDeviceFleet(
+    args: CreateDeviceFleetCommandInput,
+    cb: (err: any, data?: CreateDeviceFleetCommandOutput) => void
+  ): void;
+  public createDeviceFleet(
+    args: CreateDeviceFleetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDeviceFleetCommandOutput) => void
+  ): void;
+  public createDeviceFleet(
+    args: CreateDeviceFleetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDeviceFleetCommandOutput) => void),
+    cb?: (err: any, data?: CreateDeviceFleetCommandOutput) => void
+  ): Promise<CreateDeviceFleetCommandOutput> | void {
+    const command = new CreateDeviceFleetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a <code>Domain</code> used by Amazon SageMaker Studio. A domain consists of an associated
    *     Amazon Elastic File System (EFS) volume, a list of authorized users, and a variety of security, application,
    *     policy, and Amazon Virtual Private Cloud (VPC) configurations. An AWS account is limited to one domain per region.
@@ -1454,6 +1675,38 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: CreateDomainCommandOutput) => void
   ): Promise<CreateDomainCommandOutput> | void {
     const command = new CreateDomainCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts a SageMaker Edge Manager model packaging job. Edge Manager will use the model artifacts from the Amazon Simple Storage Service bucket that you specify. After the model has been packaged, Amazon SageMaker saves the resulting artifacts to an S3 bucket that you specify.</p>
+   */
+  public createEdgePackagingJob(
+    args: CreateEdgePackagingJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEdgePackagingJobCommandOutput>;
+  public createEdgePackagingJob(
+    args: CreateEdgePackagingJobCommandInput,
+    cb: (err: any, data?: CreateEdgePackagingJobCommandOutput) => void
+  ): void;
+  public createEdgePackagingJob(
+    args: CreateEdgePackagingJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEdgePackagingJobCommandOutput) => void
+  ): void;
+  public createEdgePackagingJob(
+    args: CreateEdgePackagingJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEdgePackagingJobCommandOutput) => void),
+    cb?: (err: any, data?: CreateEdgePackagingJobCommandOutput) => void
+  ): Promise<CreateEdgePackagingJobCommandOutput> | void {
+    const command = new CreateEdgePackagingJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2002,6 +2255,72 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Creates the definition for a model bias job.</p>
+   */
+  public createModelBiasJobDefinition(
+    args: CreateModelBiasJobDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateModelBiasJobDefinitionCommandOutput>;
+  public createModelBiasJobDefinition(
+    args: CreateModelBiasJobDefinitionCommandInput,
+    cb: (err: any, data?: CreateModelBiasJobDefinitionCommandOutput) => void
+  ): void;
+  public createModelBiasJobDefinition(
+    args: CreateModelBiasJobDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateModelBiasJobDefinitionCommandOutput) => void
+  ): void;
+  public createModelBiasJobDefinition(
+    args: CreateModelBiasJobDefinitionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateModelBiasJobDefinitionCommandOutput) => void),
+    cb?: (err: any, data?: CreateModelBiasJobDefinitionCommandOutput) => void
+  ): Promise<CreateModelBiasJobDefinitionCommandOutput> | void {
+    const command = new CreateModelBiasJobDefinitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates the definition for a model explainability job.</p>
+   */
+  public createModelExplainabilityJobDefinition(
+    args: CreateModelExplainabilityJobDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateModelExplainabilityJobDefinitionCommandOutput>;
+  public createModelExplainabilityJobDefinition(
+    args: CreateModelExplainabilityJobDefinitionCommandInput,
+    cb: (err: any, data?: CreateModelExplainabilityJobDefinitionCommandOutput) => void
+  ): void;
+  public createModelExplainabilityJobDefinition(
+    args: CreateModelExplainabilityJobDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateModelExplainabilityJobDefinitionCommandOutput) => void
+  ): void;
+  public createModelExplainabilityJobDefinition(
+    args: CreateModelExplainabilityJobDefinitionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateModelExplainabilityJobDefinitionCommandOutput) => void),
+    cb?: (err: any, data?: CreateModelExplainabilityJobDefinitionCommandOutput) => void
+  ): Promise<CreateModelExplainabilityJobDefinitionCommandOutput> | void {
+    const command = new CreateModelExplainabilityJobDefinitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a model package that you can use to create Amazon SageMaker models or list on AWS
    *             Marketplace, or a versioned model that is part of a model group. Buyers can subscribe to model packages listed on AWS Marketplace to create
    *             models in Amazon SageMaker.</p>
@@ -2073,6 +2392,39 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: CreateModelPackageGroupCommandOutput) => void
   ): Promise<CreateModelPackageGroupCommandOutput> | void {
     const command = new CreateModelPackageGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a definition for a job that monitors model quality and drift. For information
+   *          about model monitor, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html">Amazon SageMaker Model Monitor</a>.</p>
+   */
+  public createModelQualityJobDefinition(
+    args: CreateModelQualityJobDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateModelQualityJobDefinitionCommandOutput>;
+  public createModelQualityJobDefinition(
+    args: CreateModelQualityJobDefinitionCommandInput,
+    cb: (err: any, data?: CreateModelQualityJobDefinitionCommandOutput) => void
+  ): void;
+  public createModelQualityJobDefinition(
+    args: CreateModelQualityJobDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateModelQualityJobDefinitionCommandOutput) => void
+  ): void;
+  public createModelQualityJobDefinition(
+    args: CreateModelQualityJobDefinitionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateModelQualityJobDefinitionCommandOutput) => void),
+    cb?: (err: any, data?: CreateModelQualityJobDefinitionCommandOutput) => void
+  ): Promise<CreateModelQualityJobDefinitionCommandOutput> | void {
+    const command = new CreateModelQualityJobDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3038,6 +3390,70 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Deletes a data quality monitoring job definition.</p>
+   */
+  public deleteDataQualityJobDefinition(
+    args: DeleteDataQualityJobDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDataQualityJobDefinitionCommandOutput>;
+  public deleteDataQualityJobDefinition(
+    args: DeleteDataQualityJobDefinitionCommandInput,
+    cb: (err: any, data?: DeleteDataQualityJobDefinitionCommandOutput) => void
+  ): void;
+  public deleteDataQualityJobDefinition(
+    args: DeleteDataQualityJobDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDataQualityJobDefinitionCommandOutput) => void
+  ): void;
+  public deleteDataQualityJobDefinition(
+    args: DeleteDataQualityJobDefinitionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDataQualityJobDefinitionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDataQualityJobDefinitionCommandOutput) => void
+  ): Promise<DeleteDataQualityJobDefinitionCommandOutput> | void {
+    const command = new DeleteDataQualityJobDefinitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a fleet.</p>
+   */
+  public deleteDeviceFleet(
+    args: DeleteDeviceFleetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDeviceFleetCommandOutput>;
+  public deleteDeviceFleet(
+    args: DeleteDeviceFleetCommandInput,
+    cb: (err: any, data?: DeleteDeviceFleetCommandOutput) => void
+  ): void;
+  public deleteDeviceFleet(
+    args: DeleteDeviceFleetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDeviceFleetCommandOutput) => void
+  ): void;
+  public deleteDeviceFleet(
+    args: DeleteDeviceFleetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDeviceFleetCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDeviceFleetCommandOutput) => void
+  ): Promise<DeleteDeviceFleetCommandOutput> | void {
+    const command = new DeleteDeviceFleetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Used to delete a domain.
    *      If you onboarded with IAM mode, you will need to delete your domain to onboard again using SSO.
    *      Use with caution. All of the members of the domain will lose access to their EFS volume,
@@ -3374,6 +3790,72 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Deletes an Amazon SageMaker model bias job definition.</p>
+   */
+  public deleteModelBiasJobDefinition(
+    args: DeleteModelBiasJobDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteModelBiasJobDefinitionCommandOutput>;
+  public deleteModelBiasJobDefinition(
+    args: DeleteModelBiasJobDefinitionCommandInput,
+    cb: (err: any, data?: DeleteModelBiasJobDefinitionCommandOutput) => void
+  ): void;
+  public deleteModelBiasJobDefinition(
+    args: DeleteModelBiasJobDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteModelBiasJobDefinitionCommandOutput) => void
+  ): void;
+  public deleteModelBiasJobDefinition(
+    args: DeleteModelBiasJobDefinitionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteModelBiasJobDefinitionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteModelBiasJobDefinitionCommandOutput) => void
+  ): Promise<DeleteModelBiasJobDefinitionCommandOutput> | void {
+    const command = new DeleteModelBiasJobDefinitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an Amazon SageMaker model explainability job definition.</p>
+   */
+  public deleteModelExplainabilityJobDefinition(
+    args: DeleteModelExplainabilityJobDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteModelExplainabilityJobDefinitionCommandOutput>;
+  public deleteModelExplainabilityJobDefinition(
+    args: DeleteModelExplainabilityJobDefinitionCommandInput,
+    cb: (err: any, data?: DeleteModelExplainabilityJobDefinitionCommandOutput) => void
+  ): void;
+  public deleteModelExplainabilityJobDefinition(
+    args: DeleteModelExplainabilityJobDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteModelExplainabilityJobDefinitionCommandOutput) => void
+  ): void;
+  public deleteModelExplainabilityJobDefinition(
+    args: DeleteModelExplainabilityJobDefinitionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteModelExplainabilityJobDefinitionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteModelExplainabilityJobDefinitionCommandOutput) => void
+  ): Promise<DeleteModelExplainabilityJobDefinitionCommandOutput> | void {
+    const command = new DeleteModelExplainabilityJobDefinitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a model package.</p>
    *         <p>A model package is used to create Amazon SageMaker models or list on AWS Marketplace. Buyers can
    *             subscribe to model packages listed on AWS Marketplace to create models in Amazon SageMaker.</p>
@@ -3461,6 +3943,38 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: DeleteModelPackageGroupPolicyCommandOutput) => void
   ): Promise<DeleteModelPackageGroupPolicyCommandOutput> | void {
     const command = new DeleteModelPackageGroupPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the secified model quality monitoring job definition.</p>
+   */
+  public deleteModelQualityJobDefinition(
+    args: DeleteModelQualityJobDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteModelQualityJobDefinitionCommandOutput>;
+  public deleteModelQualityJobDefinition(
+    args: DeleteModelQualityJobDefinitionCommandInput,
+    cb: (err: any, data?: DeleteModelQualityJobDefinitionCommandOutput) => void
+  ): void;
+  public deleteModelQualityJobDefinition(
+    args: DeleteModelQualityJobDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteModelQualityJobDefinitionCommandOutput) => void
+  ): void;
+  public deleteModelQualityJobDefinition(
+    args: DeleteModelQualityJobDefinitionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteModelQualityJobDefinitionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteModelQualityJobDefinitionCommandOutput) => void
+  ): Promise<DeleteModelQualityJobDefinitionCommandOutput> | void {
+    const command = new DeleteModelQualityJobDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3577,7 +4091,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Deletes a pipeline.</p>
+   * <p>Deletes a pipeline if there are no in-progress executions.</p>
    */
   public deletePipeline(
     args: DeletePipelineCommandInput,
@@ -3833,6 +4347,38 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: DeleteWorkteamCommandOutput) => void
   ): Promise<DeleteWorkteamCommandOutput> | void {
     const command = new DeleteWorkteamCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deregisters the specified devices. After you deregister a device, you will need to re-register the devices.</p>
+   */
+  public deregisterDevices(
+    args: DeregisterDevicesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeregisterDevicesCommandOutput>;
+  public deregisterDevices(
+    args: DeregisterDevicesCommandInput,
+    cb: (err: any, data?: DeregisterDevicesCommandOutput) => void
+  ): void;
+  public deregisterDevices(
+    args: DeregisterDevicesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeregisterDevicesCommandOutput) => void
+  ): void;
+  public deregisterDevices(
+    args: DeregisterDevicesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterDevicesCommandOutput) => void),
+    cb?: (err: any, data?: DeregisterDevicesCommandOutput) => void
+  ): Promise<DeregisterDevicesCommandOutput> | void {
+    const command = new DeregisterDevicesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4128,6 +4674,102 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Gets the details of a data quality monitoring job definition.</p>
+   */
+  public describeDataQualityJobDefinition(
+    args: DescribeDataQualityJobDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDataQualityJobDefinitionCommandOutput>;
+  public describeDataQualityJobDefinition(
+    args: DescribeDataQualityJobDefinitionCommandInput,
+    cb: (err: any, data?: DescribeDataQualityJobDefinitionCommandOutput) => void
+  ): void;
+  public describeDataQualityJobDefinition(
+    args: DescribeDataQualityJobDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDataQualityJobDefinitionCommandOutput) => void
+  ): void;
+  public describeDataQualityJobDefinition(
+    args: DescribeDataQualityJobDefinitionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDataQualityJobDefinitionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDataQualityJobDefinitionCommandOutput) => void
+  ): Promise<DescribeDataQualityJobDefinitionCommandOutput> | void {
+    const command = new DescribeDataQualityJobDefinitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the device.</p>
+   */
+  public describeDevice(
+    args: DescribeDeviceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDeviceCommandOutput>;
+  public describeDevice(
+    args: DescribeDeviceCommandInput,
+    cb: (err: any, data?: DescribeDeviceCommandOutput) => void
+  ): void;
+  public describeDevice(
+    args: DescribeDeviceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDeviceCommandOutput) => void
+  ): void;
+  public describeDevice(
+    args: DescribeDeviceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDeviceCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDeviceCommandOutput) => void
+  ): Promise<DescribeDeviceCommandOutput> | void {
+    const command = new DescribeDeviceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>A description of the fleet the device belongs to.</p>
+   */
+  public describeDeviceFleet(
+    args: DescribeDeviceFleetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDeviceFleetCommandOutput>;
+  public describeDeviceFleet(
+    args: DescribeDeviceFleetCommandInput,
+    cb: (err: any, data?: DescribeDeviceFleetCommandOutput) => void
+  ): void;
+  public describeDeviceFleet(
+    args: DescribeDeviceFleetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDeviceFleetCommandOutput) => void
+  ): void;
+  public describeDeviceFleet(
+    args: DescribeDeviceFleetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDeviceFleetCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDeviceFleetCommandOutput) => void
+  ): Promise<DescribeDeviceFleetCommandOutput> | void {
+    const command = new DescribeDeviceFleetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>The description of the domain.</p>
    */
   public describeDomain(
@@ -4149,6 +4791,38 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: DescribeDomainCommandOutput) => void
   ): Promise<DescribeDomainCommandOutput> | void {
     const command = new DescribeDomainCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>A description of edge packaging jobs.</p>
+   */
+  public describeEdgePackagingJob(
+    args: DescribeEdgePackagingJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEdgePackagingJobCommandOutput>;
+  public describeEdgePackagingJob(
+    args: DescribeEdgePackagingJobCommandInput,
+    cb: (err: any, data?: DescribeEdgePackagingJobCommandOutput) => void
+  ): void;
+  public describeEdgePackagingJob(
+    args: DescribeEdgePackagingJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEdgePackagingJobCommandOutput) => void
+  ): void;
+  public describeEdgePackagingJob(
+    args: DescribeEdgePackagingJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEdgePackagingJobCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEdgePackagingJobCommandOutput) => void
+  ): Promise<DescribeEdgePackagingJobCommandOutput> | void {
+    const command = new DescribeEdgePackagingJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4517,6 +5191,72 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Returns a description of a model bias job definition.</p>
+   */
+  public describeModelBiasJobDefinition(
+    args: DescribeModelBiasJobDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeModelBiasJobDefinitionCommandOutput>;
+  public describeModelBiasJobDefinition(
+    args: DescribeModelBiasJobDefinitionCommandInput,
+    cb: (err: any, data?: DescribeModelBiasJobDefinitionCommandOutput) => void
+  ): void;
+  public describeModelBiasJobDefinition(
+    args: DescribeModelBiasJobDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeModelBiasJobDefinitionCommandOutput) => void
+  ): void;
+  public describeModelBiasJobDefinition(
+    args: DescribeModelBiasJobDefinitionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeModelBiasJobDefinitionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeModelBiasJobDefinitionCommandOutput) => void
+  ): Promise<DescribeModelBiasJobDefinitionCommandOutput> | void {
+    const command = new DescribeModelBiasJobDefinitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a description of a model explainability job definition.</p>
+   */
+  public describeModelExplainabilityJobDefinition(
+    args: DescribeModelExplainabilityJobDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeModelExplainabilityJobDefinitionCommandOutput>;
+  public describeModelExplainabilityJobDefinition(
+    args: DescribeModelExplainabilityJobDefinitionCommandInput,
+    cb: (err: any, data?: DescribeModelExplainabilityJobDefinitionCommandOutput) => void
+  ): void;
+  public describeModelExplainabilityJobDefinition(
+    args: DescribeModelExplainabilityJobDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeModelExplainabilityJobDefinitionCommandOutput) => void
+  ): void;
+  public describeModelExplainabilityJobDefinition(
+    args: DescribeModelExplainabilityJobDefinitionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeModelExplainabilityJobDefinitionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeModelExplainabilityJobDefinitionCommandOutput) => void
+  ): Promise<DescribeModelExplainabilityJobDefinitionCommandOutput> | void {
+    const command = new DescribeModelExplainabilityJobDefinitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a description of the specified model package, which is used to create Amazon SageMaker
    *             models or list them on AWS Marketplace.</p>
    *         <p>To create models in Amazon SageMaker, buyers can subscribe to model packages listed on AWS
@@ -4573,6 +5313,38 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: DescribeModelPackageGroupCommandOutput) => void
   ): Promise<DescribeModelPackageGroupCommandOutput> | void {
     const command = new DescribeModelPackageGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a description of a model quality job definition.</p>
+   */
+  public describeModelQualityJobDefinition(
+    args: DescribeModelQualityJobDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeModelQualityJobDefinitionCommandOutput>;
+  public describeModelQualityJobDefinition(
+    args: DescribeModelQualityJobDefinitionCommandInput,
+    cb: (err: any, data?: DescribeModelQualityJobDefinitionCommandOutput) => void
+  ): void;
+  public describeModelQualityJobDefinition(
+    args: DescribeModelQualityJobDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeModelQualityJobDefinitionCommandOutput) => void
+  ): void;
+  public describeModelQualityJobDefinition(
+    args: DescribeModelQualityJobDefinitionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeModelQualityJobDefinitionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeModelQualityJobDefinitionCommandOutput) => void
+  ): Promise<DescribeModelQualityJobDefinitionCommandOutput> | void {
+    const command = new DescribeModelQualityJobDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -5217,6 +5989,38 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Describes a fleet.</p>
+   */
+  public getDeviceFleetReport(
+    args: GetDeviceFleetReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDeviceFleetReportCommandOutput>;
+  public getDeviceFleetReport(
+    args: GetDeviceFleetReportCommandInput,
+    cb: (err: any, data?: GetDeviceFleetReportCommandOutput) => void
+  ): void;
+  public getDeviceFleetReport(
+    args: GetDeviceFleetReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDeviceFleetReportCommandOutput) => void
+  ): void;
+  public getDeviceFleetReport(
+    args: GetDeviceFleetReportCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeviceFleetReportCommandOutput) => void),
+    cb?: (err: any, data?: GetDeviceFleetReportCommandOutput) => void
+  ): Promise<GetDeviceFleetReportCommandOutput> | void {
+    const command = new GetDeviceFleetReportCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets a resource policy that manages access for a model group. For information about
    *             resource policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html">Identity-based
    *                 policies and resource-based policies</a> in the <i>AWS Identity and
@@ -5663,6 +6467,96 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Lists the data quality job definitions in your account.</p>
+   */
+  public listDataQualityJobDefinitions(
+    args: ListDataQualityJobDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataQualityJobDefinitionsCommandOutput>;
+  public listDataQualityJobDefinitions(
+    args: ListDataQualityJobDefinitionsCommandInput,
+    cb: (err: any, data?: ListDataQualityJobDefinitionsCommandOutput) => void
+  ): void;
+  public listDataQualityJobDefinitions(
+    args: ListDataQualityJobDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataQualityJobDefinitionsCommandOutput) => void
+  ): void;
+  public listDataQualityJobDefinitions(
+    args: ListDataQualityJobDefinitionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDataQualityJobDefinitionsCommandOutput) => void),
+    cb?: (err: any, data?: ListDataQualityJobDefinitionsCommandOutput) => void
+  ): Promise<ListDataQualityJobDefinitionsCommandOutput> | void {
+    const command = new ListDataQualityJobDefinitionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of devices in the fleet.</p>
+   */
+  public listDeviceFleets(
+    args: ListDeviceFleetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDeviceFleetsCommandOutput>;
+  public listDeviceFleets(
+    args: ListDeviceFleetsCommandInput,
+    cb: (err: any, data?: ListDeviceFleetsCommandOutput) => void
+  ): void;
+  public listDeviceFleets(
+    args: ListDeviceFleetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDeviceFleetsCommandOutput) => void
+  ): void;
+  public listDeviceFleets(
+    args: ListDeviceFleetsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeviceFleetsCommandOutput) => void),
+    cb?: (err: any, data?: ListDeviceFleetsCommandOutput) => void
+  ): Promise<ListDeviceFleetsCommandOutput> | void {
+    const command = new ListDeviceFleetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>A list of devices.</p>
+   */
+  public listDevices(args: ListDevicesCommandInput, options?: __HttpHandlerOptions): Promise<ListDevicesCommandOutput>;
+  public listDevices(args: ListDevicesCommandInput, cb: (err: any, data?: ListDevicesCommandOutput) => void): void;
+  public listDevices(
+    args: ListDevicesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDevicesCommandOutput) => void
+  ): void;
+  public listDevices(
+    args: ListDevicesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDevicesCommandOutput) => void),
+    cb?: (err: any, data?: ListDevicesCommandOutput) => void
+  ): Promise<ListDevicesCommandOutput> | void {
+    const command = new ListDevicesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the domains.</p>
    */
   public listDomains(args: ListDomainsCommandInput, options?: __HttpHandlerOptions): Promise<ListDomainsCommandOutput>;
@@ -5678,6 +6572,38 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: ListDomainsCommandOutput) => void
   ): Promise<ListDomainsCommandOutput> | void {
     const command = new ListDomainsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of edge packaging jobs.</p>
+   */
+  public listEdgePackagingJobs(
+    args: ListEdgePackagingJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEdgePackagingJobsCommandOutput>;
+  public listEdgePackagingJobs(
+    args: ListEdgePackagingJobsCommandInput,
+    cb: (err: any, data?: ListEdgePackagingJobsCommandOutput) => void
+  ): void;
+  public listEdgePackagingJobs(
+    args: ListEdgePackagingJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEdgePackagingJobsCommandOutput) => void
+  ): void;
+  public listEdgePackagingJobs(
+    args: ListEdgePackagingJobsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEdgePackagingJobsCommandOutput) => void),
+    cb?: (err: any, data?: ListEdgePackagingJobsCommandOutput) => void
+  ): Promise<ListEdgePackagingJobsCommandOutput> | void {
+    const command = new ListEdgePackagingJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -6041,6 +6967,72 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Lists model bias jobs definitions that satisfy various filters.</p>
+   */
+  public listModelBiasJobDefinitions(
+    args: ListModelBiasJobDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListModelBiasJobDefinitionsCommandOutput>;
+  public listModelBiasJobDefinitions(
+    args: ListModelBiasJobDefinitionsCommandInput,
+    cb: (err: any, data?: ListModelBiasJobDefinitionsCommandOutput) => void
+  ): void;
+  public listModelBiasJobDefinitions(
+    args: ListModelBiasJobDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListModelBiasJobDefinitionsCommandOutput) => void
+  ): void;
+  public listModelBiasJobDefinitions(
+    args: ListModelBiasJobDefinitionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListModelBiasJobDefinitionsCommandOutput) => void),
+    cb?: (err: any, data?: ListModelBiasJobDefinitionsCommandOutput) => void
+  ): Promise<ListModelBiasJobDefinitionsCommandOutput> | void {
+    const command = new ListModelBiasJobDefinitionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists model explainability job definitions that satisfy various filters.</p>
+   */
+  public listModelExplainabilityJobDefinitions(
+    args: ListModelExplainabilityJobDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListModelExplainabilityJobDefinitionsCommandOutput>;
+  public listModelExplainabilityJobDefinitions(
+    args: ListModelExplainabilityJobDefinitionsCommandInput,
+    cb: (err: any, data?: ListModelExplainabilityJobDefinitionsCommandOutput) => void
+  ): void;
+  public listModelExplainabilityJobDefinitions(
+    args: ListModelExplainabilityJobDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListModelExplainabilityJobDefinitionsCommandOutput) => void
+  ): void;
+  public listModelExplainabilityJobDefinitions(
+    args: ListModelExplainabilityJobDefinitionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListModelExplainabilityJobDefinitionsCommandOutput) => void),
+    cb?: (err: any, data?: ListModelExplainabilityJobDefinitionsCommandOutput) => void
+  ): Promise<ListModelExplainabilityJobDefinitionsCommandOutput> | void {
+    const command = new ListModelExplainabilityJobDefinitionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets a list of the model groups in your AWS account.</p>
    */
   public listModelPackageGroups(
@@ -6094,6 +7086,38 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: ListModelPackagesCommandOutput) => void
   ): Promise<ListModelPackagesCommandOutput> | void {
     const command = new ListModelPackagesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a list of model quality monitoring job definitions in your account.</p>
+   */
+  public listModelQualityJobDefinitions(
+    args: ListModelQualityJobDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListModelQualityJobDefinitionsCommandOutput>;
+  public listModelQualityJobDefinitions(
+    args: ListModelQualityJobDefinitionsCommandInput,
+    cb: (err: any, data?: ListModelQualityJobDefinitionsCommandOutput) => void
+  ): void;
+  public listModelQualityJobDefinitions(
+    args: ListModelQualityJobDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListModelQualityJobDefinitionsCommandOutput) => void
+  ): void;
+  public listModelQualityJobDefinitions(
+    args: ListModelQualityJobDefinitionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListModelQualityJobDefinitionsCommandOutput) => void),
+    cb?: (err: any, data?: ListModelQualityJobDefinitionsCommandOutput) => void
+  ): Promise<ListModelQualityJobDefinitionsCommandOutput> | void {
+    const command = new ListModelQualityJobDefinitionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -6822,6 +7846,38 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Register devices.</p>
+   */
+  public registerDevices(
+    args: RegisterDevicesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterDevicesCommandOutput>;
+  public registerDevices(
+    args: RegisterDevicesCommandInput,
+    cb: (err: any, data?: RegisterDevicesCommandOutput) => void
+  ): void;
+  public registerDevices(
+    args: RegisterDevicesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterDevicesCommandOutput) => void
+  ): void;
+  public registerDevices(
+    args: RegisterDevicesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterDevicesCommandOutput) => void),
+    cb?: (err: any, data?: RegisterDevicesCommandOutput) => void
+  ): Promise<RegisterDevicesCommandOutput> | void {
+    const command = new RegisterDevicesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Renders the UI template so that you can preview the worker's experience. </p>
    */
   public renderUiTemplate(
@@ -6886,7 +7942,8 @@ export class SageMaker extends SageMakerClient {
   /**
    * <p>Starts a previously stopped monitoring schedule.</p>
    *          <note>
-   *             <p>New monitoring schedules are immediately started after creation.</p>
+   *             <p>By default, when you successfully create a new schedule, the status of a monitoring
+   *             schedule is <code>scheduled</code>.</p>
    *          </note>
    */
   public startMonitoringSchedule(
@@ -7044,6 +8101,38 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: StopCompilationJobCommandOutput) => void
   ): Promise<StopCompilationJobCommandOutput> | void {
     const command = new StopCompilationJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Request to stop an edge packaging job.</p>
+   */
+  public stopEdgePackagingJob(
+    args: StopEdgePackagingJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopEdgePackagingJobCommandOutput>;
+  public stopEdgePackagingJob(
+    args: StopEdgePackagingJobCommandInput,
+    cb: (err: any, data?: StopEdgePackagingJobCommandOutput) => void
+  ): void;
+  public stopEdgePackagingJob(
+    args: StopEdgePackagingJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopEdgePackagingJobCommandOutput) => void
+  ): void;
+  public stopEdgePackagingJob(
+    args: StopEdgePackagingJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopEdgePackagingJobCommandOutput) => void),
+    cb?: (err: any, data?: StopEdgePackagingJobCommandOutput) => void
+  ): Promise<StopEdgePackagingJobCommandOutput> | void {
+    const command = new StopEdgePackagingJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -7494,6 +8583,70 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Updates a fleet of devices.</p>
+   */
+  public updateDeviceFleet(
+    args: UpdateDeviceFleetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDeviceFleetCommandOutput>;
+  public updateDeviceFleet(
+    args: UpdateDeviceFleetCommandInput,
+    cb: (err: any, data?: UpdateDeviceFleetCommandOutput) => void
+  ): void;
+  public updateDeviceFleet(
+    args: UpdateDeviceFleetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDeviceFleetCommandOutput) => void
+  ): void;
+  public updateDeviceFleet(
+    args: UpdateDeviceFleetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDeviceFleetCommandOutput) => void),
+    cb?: (err: any, data?: UpdateDeviceFleetCommandOutput) => void
+  ): Promise<UpdateDeviceFleetCommandOutput> | void {
+    const command = new UpdateDeviceFleetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates one or more devices in a fleet.</p>
+   */
+  public updateDevices(
+    args: UpdateDevicesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDevicesCommandOutput>;
+  public updateDevices(
+    args: UpdateDevicesCommandInput,
+    cb: (err: any, data?: UpdateDevicesCommandOutput) => void
+  ): void;
+  public updateDevices(
+    args: UpdateDevicesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDevicesCommandOutput) => void
+  ): void;
+  public updateDevices(
+    args: UpdateDevicesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDevicesCommandOutput) => void),
+    cb?: (err: any, data?: UpdateDevicesCommandOutput) => void
+  ): Promise<UpdateDevicesCommandOutput> | void {
+    const command = new UpdateDevicesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates the default settings for new user profiles in the domain.</p>
    */
   public updateDomain(
@@ -7852,6 +9005,38 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: UpdatePipelineExecutionCommandOutput) => void
   ): Promise<UpdatePipelineExecutionCommandOutput> | void {
     const command = new UpdatePipelineExecutionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Update a model training job to request a new Debugger profiling configuration.</p>
+   */
+  public updateTrainingJob(
+    args: UpdateTrainingJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTrainingJobCommandOutput>;
+  public updateTrainingJob(
+    args: UpdateTrainingJobCommandInput,
+    cb: (err: any, data?: UpdateTrainingJobCommandOutput) => void
+  ): void;
+  public updateTrainingJob(
+    args: UpdateTrainingJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTrainingJobCommandOutput) => void
+  ): void;
+  public updateTrainingJob(
+    args: UpdateTrainingJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTrainingJobCommandOutput) => void),
+    cb?: (err: any, data?: UpdateTrainingJobCommandOutput) => void
+  ): Promise<UpdateTrainingJobCommandOutput> | void {
+    const command = new UpdateTrainingJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -22,7 +22,7 @@ export type DeleteJobQueueCommandOutput = DeleteJobQueueResponse & __MetadataBea
 
 /**
  * <p>Deletes the specified job queue. You must first disable submissions for a queue with the <a>UpdateJobQueue</a> operation. All jobs in the queue are terminated when you delete a job queue.</p>
- *          <p>It is not necessary to disassociate compute environments from a queue before submitting a
+ *          <p>It's not necessary to disassociate compute environments from a queue before submitting a
  *     <code>DeleteJobQueue</code> request.</p>
  */
 export class DeleteJobQueueCommand extends $Command<

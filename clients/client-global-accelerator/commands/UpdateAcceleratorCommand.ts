@@ -25,8 +25,7 @@ export type UpdateAcceleratorCommandInput = UpdateAcceleratorRequest;
 export type UpdateAcceleratorCommandOutput = UpdateAcceleratorResponse & __MetadataBearer;
 
 /**
- * <p>Update an accelerator. To see an AWS CLI example of updating an accelerator,
- * 			scroll down to <b>Example</b>.</p>
+ * <p>Update an accelerator. </p>
  *
  * 		       <important>
  * 			         <p>Global Accelerator is a global service that supports endpoints in multiple AWS Regions but you must specify the

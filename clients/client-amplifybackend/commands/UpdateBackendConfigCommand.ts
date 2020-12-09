@@ -21,7 +21,7 @@ export type UpdateBackendConfigCommandInput = UpdateBackendConfigRequest;
 export type UpdateBackendConfigCommandOutput = UpdateBackendConfigResponse & __MetadataBearer;
 
 /**
- * <p>Updates the AWS resources required to access the Amplify Admin UI.</p>
+ * <p>Updates the AWS resources that are required to access the Amplify Admin UI.</p>
  */
 export class UpdateBackendConfigCommand extends $Command<
   UpdateBackendConfigCommandInput,

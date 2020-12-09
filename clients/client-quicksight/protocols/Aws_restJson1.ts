@@ -283,6 +283,7 @@ import {
   InvalidParameterValueException,
   JiraParameters,
   JoinInstruction,
+  JoinKeyProperties,
   LimitExceededException,
   LogicalTable,
   LogicalTableSource,
@@ -16386,10 +16387,22 @@ const serializeAws_restJson1JiraParameters = (input: JiraParameters, context: __
 
 const serializeAws_restJson1JoinInstruction = (input: JoinInstruction, context: __SerdeContext): any => {
   return {
+    ...(input.LeftJoinKeyProperties !== undefined && {
+      LeftJoinKeyProperties: serializeAws_restJson1JoinKeyProperties(input.LeftJoinKeyProperties, context),
+    }),
     ...(input.LeftOperand !== undefined && { LeftOperand: input.LeftOperand }),
     ...(input.OnClause !== undefined && { OnClause: input.OnClause }),
+    ...(input.RightJoinKeyProperties !== undefined && {
+      RightJoinKeyProperties: serializeAws_restJson1JoinKeyProperties(input.RightJoinKeyProperties, context),
+    }),
     ...(input.RightOperand !== undefined && { RightOperand: input.RightOperand }),
     ...(input.Type !== undefined && { Type: input.Type }),
+  };
+};
+
+const serializeAws_restJson1JoinKeyProperties = (input: JoinKeyProperties, context: __SerdeContext): any => {
+  return {
+    ...(input.UniqueKey !== undefined && { UniqueKey: input.UniqueKey }),
   };
 };
 
@@ -17725,10 +17738,24 @@ const deserializeAws_restJson1JiraParameters = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1JoinInstruction = (output: any, context: __SerdeContext): JoinInstruction => {
   return {
+    LeftJoinKeyProperties:
+      output.LeftJoinKeyProperties !== undefined && output.LeftJoinKeyProperties !== null
+        ? deserializeAws_restJson1JoinKeyProperties(output.LeftJoinKeyProperties, context)
+        : undefined,
     LeftOperand: output.LeftOperand !== undefined && output.LeftOperand !== null ? output.LeftOperand : undefined,
     OnClause: output.OnClause !== undefined && output.OnClause !== null ? output.OnClause : undefined,
+    RightJoinKeyProperties:
+      output.RightJoinKeyProperties !== undefined && output.RightJoinKeyProperties !== null
+        ? deserializeAws_restJson1JoinKeyProperties(output.RightJoinKeyProperties, context)
+        : undefined,
     RightOperand: output.RightOperand !== undefined && output.RightOperand !== null ? output.RightOperand : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1JoinKeyProperties = (output: any, context: __SerdeContext): JoinKeyProperties => {
+  return {
+    UniqueKey: output.UniqueKey !== undefined && output.UniqueKey !== null ? output.UniqueKey : undefined,
   } as any;
 };
 

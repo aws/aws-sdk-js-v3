@@ -21,8 +21,7 @@ export type DeregisterJobDefinitionCommandInput = DeregisterJobDefinitionRequest
 export type DeregisterJobDefinitionCommandOutput = DeregisterJobDefinitionResponse & __MetadataBearer;
 
 /**
- * <p>Deregisters an AWS Batch job definition.
- *    Job definitions will be permanently deleted after 180 days.</p>
+ * <p>Deregisters an AWS Batch job definition. Job definitions are permanently deleted after 180 days.</p>
  */
 export class DeregisterJobDefinitionCommand extends $Command<
   DeregisterJobDefinitionCommandInput,

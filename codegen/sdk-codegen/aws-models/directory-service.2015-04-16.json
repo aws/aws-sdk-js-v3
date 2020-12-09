@@ -92,7 +92,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>You do not have sufficient access to perform this action.</p>",
+        "smithy.api#documentation": "<p>Client authentication is not available in this region at this time.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -226,7 +226,7 @@
         "RegionName": {
           "target": "com.amazonaws.directoryservice#RegionName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the Region where you want to add domain controllers for replication. For example, <code>us-east-1</code>.</p>",
+            "smithy.api#documentation": "<p>The name of the Region where you want to add domain controllers for replication. For\n      example, <code>us-east-1</code>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -468,13 +468,13 @@
         "Type": {
           "target": "com.amazonaws.directoryservice#CertificateType",
           "traits": {
-            "smithy.api#documentation": "<p>Select <code>ClientCertAuth</code> for smart card integration.</p>"
+            "smithy.api#documentation": "<p>The function that the registered certificate performs. Valid values include <code>ClientLDAPS</code> or <code>ClientCertAuth</code>. The default value is <code>ClientLDAPS</code>.</p>"
           }
         },
         "ClientCertAuthSettings": {
           "target": "com.amazonaws.directoryservice#ClientCertAuthSettings",
           "traits": {
-            "smithy.api#documentation": "<p>Provides information about the client certificate authentication settings. The default value is <code>ClientLDAPS</code>.</p>"
+            "smithy.api#documentation": "<p>A <code>ClientCertAuthSettings</code> object that contains client certificate authentication settings.</p>"
           }
         }
       },
@@ -578,7 +578,7 @@
         "Type": {
           "target": "com.amazonaws.directoryservice#CertificateType",
           "traits": {
-            "smithy.api#documentation": "<p>Displays the type of certificate.</p>"
+            "smithy.api#documentation": "<p>The function that the registered certificate performs. Valid values include <code>ClientLDAPS</code> or <code>ClientCertAuth</code>. The default value is <code>ClientLDAPS</code>.</p>"
           }
         }
       },
@@ -688,12 +688,12 @@
         "OCSPUrl": {
           "target": "com.amazonaws.directoryservice#OCSPUrl",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the URL of the default OCSP server used to check for revocation status.</p>"
+            "smithy.api#documentation": "<p>Specifies the URL of the default OCSP server used to check for revocation status. A secondary value to any OCSP address found in the AIA extension of the user certificate.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains information about the client certificate authentication settings, such as <code>ClientLDAPS</code> or <code>ClientCertAuth</code>.</p>"
+        "smithy.api#documentation": "<p>Contains information about the client certificate authentication settings for the <code>RegisterCertificate</code> and <code>DescribeCertificate</code> operations. </p>"
       }
     },
     "com.amazonaws.directoryservice#ClientException": {
@@ -1179,7 +1179,7 @@
         "Password": {
           "target": "com.amazonaws.directoryservice#Password",
           "traits": {
-            "smithy.api#documentation": "<p>The password for the directory administrator. The directory creation process creates a\n      directory administrator account with the user name <code>Administrator</code> and this\n      password.</p>\n         <p>If you need to change the password for the administrator account, you can use the <a>ResetUserPassword</a> API call.</p>\n         <p>The regex pattern for this string is made up of the following conditions:</p>\n         <ul>\n            <li>\n               <p>Length (?=^.{8,64}$) – Must be between 8 and 64 characters</p>\n            </li>\n         </ul>\n         <p>AND any 3 of the following password complexity rules required by Active Directory:</p>\n         <ul>\n            <li>\n               <p>Numbers and upper case and lowercase (?=.*\\d)(?=.*[A-Z])(?=.*[a-z])</p>\n            </li>\n            <li>\n               <p>Numbers and special characters and lower case (?=.*\\d)(?=.*[^A-Za-z0-9\\s])(?=.*[a-z])</p>\n            </li>\n            <li>\n               <p>Special characters and upper case and lower case (?=.*[^A-Za-z0-9\\s])(?=.*[A-Z])(?=.*[a-z])</p>\n            </li>\n            <li>\n               <p>Numbers and upper case and special characters (?=.*\\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9\\s])</p>\n            </li>\n         </ul>\n         <p>For additional information about how Active Directory passwords are enforced, see <a href=\"https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements\">Password must meet complexity requirements</a> on the Microsoft website.</p>",
+            "smithy.api#documentation": "<p>The password for the directory administrator. The directory creation process creates a\n      directory administrator account with the user name <code>Administrator</code> and this\n      password.</p>\n         <p>If you need to change the password for the administrator account, you can use the <a>ResetUserPassword</a> API call.</p>\n         <p>The regex pattern for this string is made up of the following conditions:</p>\n         <ul>\n            <li>\n               <p>Length (?=^.{8,64}$) – Must be between 8 and 64 characters</p>\n            </li>\n         </ul>\n         <p>AND any 3 of the following password complexity rules required by Active Directory:</p>\n         <ul>\n            <li>\n               <p>Numbers and upper case and lowercase (?=.*\\d)(?=.*[A-Z])(?=.*[a-z])</p>\n            </li>\n            <li>\n               <p>Numbers and special characters and lower case\n          (?=.*\\d)(?=.*[^A-Za-z0-9\\s])(?=.*[a-z])</p>\n            </li>\n            <li>\n               <p>Special characters and upper case and lower case\n          (?=.*[^A-Za-z0-9\\s])(?=.*[A-Z])(?=.*[a-z])</p>\n            </li>\n            <li>\n               <p>Numbers and upper case and special characters\n          (?=.*\\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9\\s])</p>\n            </li>\n         </ul>\n         <p>For additional information about how Active Directory passwords are enforced, see <a href=\"https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements\">Password must meet complexity requirements</a> on the Microsoft website.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1876,7 +1876,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes from the system the certificate that was registered for a secured LDAP\n      connection.</p>"
+        "smithy.api#documentation": "<p>Deletes from the system the certificate that was registered for secure LDAP or client certificate authentication.</p>"
       }
     },
     "com.amazonaws.directoryservice#DeregisterCertificateRequest": {
@@ -1986,7 +1986,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Displays information about the certificate registered for a secured LDAP\n      connection.</p>"
+        "smithy.api#documentation": "<p>Displays information about the certificate registered for secure LDAP or client certificate authentication.</p>"
       }
     },
     "com.amazonaws.directoryservice#DescribeCertificateRequest": {
@@ -2416,7 +2416,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Provides information about the Regions that are configured for multi-Region replication.</p>"
+        "smithy.api#documentation": "<p>Provides information about the Regions that are configured for multi-Region\n      replication.</p>"
       }
     },
     "com.amazonaws.directoryservice#DescribeRegionsRequest": {
@@ -2438,7 +2438,7 @@
         "NextToken": {
           "target": "com.amazonaws.directoryservice#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>DescribeRegionsResult.NextToken</code> value from a previous call to\n      <a>DescribeRegions</a>. Pass null if this is the first call.</p>"
+            "smithy.api#documentation": "<p>The <code>DescribeRegionsResult.NextToken</code> value from a previous call to <a>DescribeRegions</a>. Pass null if this is the first call.</p>"
           }
         }
       }
@@ -2455,7 +2455,7 @@
         "NextToken": {
           "target": "com.amazonaws.directoryservice#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>If not null, more results are available. Pass this value for the <code>NextToken</code> parameter\n      in a subsequent call to <a>DescribeRegions</a> to retrieve the next set of items.</p>"
+            "smithy.api#documentation": "<p>If not null, more results are available. Pass this value for the <code>NextToken</code>\n      parameter in a subsequent call to <a>DescribeRegions</a> to retrieve the next set\n      of items.</p>"
           }
         }
       }
@@ -2733,7 +2733,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The Region you specified is the same Region where the AWS Managed Microsoft AD directory was created. Specify a different Region and try again.</p>",
+        "smithy.api#documentation": "<p>The Region you specified is the same Region where the AWS Managed Microsoft AD directory\n      was created. Specify a different Region and try again.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -3544,7 +3544,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Disable client authentication for smart cards.</p>"
+        "smithy.api#documentation": "<p>Disables alternative client authentication methods for the specified directory. </p>"
       }
     },
     "com.amazonaws.directoryservice#DisableClientAuthenticationRequest": {
@@ -3553,14 +3553,14 @@
         "DirectoryId": {
           "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
-            "smithy.api#documentation": "<p>Disable client authentication in a specified directory for smart cards. </p>",
+            "smithy.api#documentation": "<p>The identifier of the directory </p>",
             "smithy.api#required": {}
           }
         },
         "Type": {
           "target": "com.amazonaws.directoryservice#ClientAuthenticationType",
           "traits": {
-            "smithy.api#documentation": "<p>Disable the type of client authentication request. </p>",
+            "smithy.api#documentation": "<p>The type of client authentication to disable. Currently, only the parameter, <code>SmartCard</code> is supported.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3913,7 +3913,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Enable client authentication for smardtcards.</p>"
+        "smithy.api#documentation": "<p>Enables alternative client authentication methods for the specified directory.</p>"
       }
     },
     "com.amazonaws.directoryservice#EnableClientAuthenticationRequest": {
@@ -3922,14 +3922,14 @@
         "DirectoryId": {
           "target": "com.amazonaws.directoryservice#DirectoryId",
           "traits": {
-            "smithy.api#documentation": "<p>Enable client authentication in a specified directory for smart cards. </p>",
+            "smithy.api#documentation": "<p>The identifier of the specified directory. </p>",
             "smithy.api#required": {}
           }
         },
         "Type": {
           "target": "com.amazonaws.directoryservice#ClientAuthenticationType",
           "traits": {
-            "smithy.api#documentation": "<p>Enable the type of client authentication request. </p>",
+            "smithy.api#documentation": "<p>The type of client authentication to enable. Currently only the value <code>SmartCard</code> is\n      supported. Smart card authentication in AD Connector requires that you enable Kerberos\n      Constrained Delegation for the Service User to the LDAP service in the on-premises AD.\n    </p>",
             "smithy.api#required": {}
           }
         }
@@ -4341,7 +4341,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The client authorization was invalid.</p>",
+        "smithy.api#documentation": "<p>Client authentication is already enabled.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -4679,7 +4679,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>For the specified directory, lists all the certificates registered for a secured LDAP\n      connection.</p>"
+        "smithy.api#documentation": "<p>For the specified directory, lists all the certificates registered for a secure LDAP or client certificate authentication.</p>"
       }
     },
     "com.amazonaws.directoryservice#ListCertificatesRequest": {
@@ -5055,7 +5055,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The LDAP activities could not be performed because at least one valid certificate must be\n      registered with the system.</p>",
+        "smithy.api#documentation": "<p>Client authentication setup could not be completed because at least one valid certificate must be\n      registered in the system.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -5341,7 +5341,7 @@
         "DesiredNumberOfDomainControllers": {
           "target": "com.amazonaws.directoryservice#DesiredNumberOfDomainControllers",
           "traits": {
-            "smithy.api#documentation": "<p>The desired number of domain controllers in the specified Region for the specified directory.</p>"
+            "smithy.api#documentation": "<p>The desired number of domain controllers in the specified Region for the specified\n      directory.</p>"
           }
         },
         "LaunchTime": {
@@ -5378,7 +5378,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>You have reached the limit for maximum number of simultaneous Region replications per directory.</p>",
+        "smithy.api#documentation": "<p>You have reached the limit for maximum number of simultaneous Region replications per\n      directory.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -5424,12 +5424,12 @@
         "AdditionalRegions": {
           "target": "com.amazonaws.directoryservice#AdditionalRegions",
           "traits": {
-            "smithy.api#documentation": "<p>Lists the Regions where the directory has been replicated, excluding the primary Region.</p>"
+            "smithy.api#documentation": "<p>Lists the Regions where the directory has been replicated, excluding the primary\n      Region.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Provides information about the Regions that are configured for multi-Region replication.</p>"
+        "smithy.api#documentation": "<p>Provides information about the Regions that are configured for multi-Region\n      replication.</p>"
       }
     },
     "com.amazonaws.directoryservice#RegisterCertificate": {
@@ -5470,7 +5470,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Registers a certificate for secured LDAP connection.</p>"
+        "smithy.api#documentation": "<p>Registers a certificate for a secure LDAP or client certificate authentication.</p>"
       }
     },
     "com.amazonaws.directoryservice#RegisterCertificateRequest": {
@@ -5493,11 +5493,14 @@
         "Type": {
           "target": "com.amazonaws.directoryservice#CertificateType",
           "traits": {
-            "smithy.api#documentation": "<p>The certificate type to register for the request.</p>"
+            "smithy.api#documentation": "<p>The function that the registered certificate performs. Valid values include <code>ClientLDAPS</code> or <code>ClientCertAuth</code>. The default value is <code>ClientLDAPS</code>.</p>"
           }
         },
         "ClientCertAuthSettings": {
-          "target": "com.amazonaws.directoryservice#ClientCertAuthSettings"
+          "target": "com.amazonaws.directoryservice#ClientCertAuthSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>A <code>ClientCertAuthSettings</code> object that contains client certificate authentication settings.</p>"
+          }
         }
       }
     },
@@ -5712,7 +5715,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Stops all replication and removes the domain controllers from the specified Region. You cannot remove the primary Region with this operation. Instead, use the <code>DeleteDirectory</code> API.</p>"
+        "smithy.api#documentation": "<p>Stops all replication and removes the domain controllers from the specified Region. You\n      cannot remove the primary Region with this operation. Instead, use the\n        <code>DeleteDirectory</code> API.</p>"
       }
     },
     "com.amazonaws.directoryservice#RemoveRegionRequest": {

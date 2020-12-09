@@ -1822,6 +1822,27 @@ export namespace OutputDestination {
 }
 
 /**
+ * Placeholder documentation for AudioSilenceFailoverSettings
+ */
+export interface AudioSilenceFailoverSettings {
+  /**
+   * The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn't create an audio selector in this input, leave blank.
+   */
+  AudioSelectorName: string | undefined;
+
+  /**
+   * The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
+   */
+  AudioSilenceThresholdMsec?: number;
+}
+
+export namespace AudioSilenceFailoverSettings {
+  export const filterSensitiveLog = (obj: AudioSilenceFailoverSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
  * MediaLive will perform a failover if content is not detected in this input for the specified period.
  */
 export interface InputLossFailoverSettings {
@@ -1838,13 +1859,44 @@ export namespace InputLossFailoverSettings {
 }
 
 /**
+ * Placeholder documentation for VideoBlackFailoverSettings
+ */
+export interface VideoBlackFailoverSettings {
+  /**
+   * A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10% white (or 90% black). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (1023*0.1=102.3), which means a pixel value of 102 or less is 'black'. If you set this field to .1 in an 8-bit color depth: (255*0.1=25.5), which means a pixel value of 25 or less is 'black'. The range is 0.0 to 1.0, with any number of decimal places.
+   */
+  BlackDetectThreshold?: number;
+
+  /**
+   * The amount of time (in milliseconds) that the active input must be black before automatic input failover occurs.
+   */
+  VideoBlackThresholdMsec?: number;
+}
+
+export namespace VideoBlackFailoverSettings {
+  export const filterSensitiveLog = (obj: VideoBlackFailoverSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
  * Settings for one failover condition.
  */
 export interface FailoverConditionSettings {
   /**
+   * MediaLive will perform a failover if the specified audio selector is silent for the specified period.
+   */
+  AudioSilenceSettings?: AudioSilenceFailoverSettings;
+
+  /**
    * MediaLive will perform a failover if content is not detected in this input for the specified period.
    */
   InputLossSettings?: InputLossFailoverSettings;
+
+  /**
+   * MediaLive will perform a failover if content is considered black for the specified period.
+   */
+  VideoBlackSettings?: VideoBlackFailoverSettings;
 }
 
 export namespace FailoverConditionSettings {
@@ -2727,6 +2779,57 @@ export enum InputDeviceType {
 }
 
 /**
+ * Settings that describe the active source from the input device, and the video characteristics of that source.
+ */
+export interface InputDeviceUhdSettings {
+  /**
+   * If you specified Auto as the configured input, specifies which of the sources is currently active (SDI or HDMI).
+   */
+  ActiveInput?: InputDeviceActiveInput | string;
+
+  /**
+   * The source at the input device that is currently active. You can specify this source.
+   */
+  ConfiguredInput?: InputDeviceConfiguredInput | string;
+
+  /**
+   * The state of the input device.
+   */
+  DeviceState?: InputDeviceState | string;
+
+  /**
+   * The frame rate of the video source.
+   */
+  Framerate?: number;
+
+  /**
+   * The height of the video source, in pixels.
+   */
+  Height?: number;
+
+  /**
+   * The current maximum bitrate for ingesting this source, in bits per second. You can specify this maximum.
+   */
+  MaxBitrate?: number;
+
+  /**
+   * The scan type of the video source.
+   */
+  ScanType?: InputDeviceScanType | string;
+
+  /**
+   * The width of the video source, in pixels.
+   */
+  Width?: number;
+}
+
+export namespace InputDeviceUhdSettings {
+  export const filterSensitiveLog = (obj: InputDeviceUhdSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
  * Details of the input device.
  */
 export interface InputDeviceSummary {
@@ -2784,6 +2887,11 @@ export interface InputDeviceSummary {
    * The type of the input device.
    */
   Type?: InputDeviceType | string;
+
+  /**
+   * Settings that describe an input device that is type UHD.
+   */
+  UhdDeviceSettings?: InputDeviceUhdSettings;
 }
 
 export namespace InputDeviceSummary {
@@ -5319,53 +5427,6 @@ export interface OutputGroup {
 
 export namespace OutputGroup {
   export const filterSensitiveLog = (obj: OutputGroup): any => ({
-    ...obj,
-  });
-}
-
-/**
- * Runtime details of a pipeline when a channel is running.
- */
-export interface PipelineDetail {
-  /**
-   * The name of the active input attachment currently being ingested by this pipeline.
-   */
-  ActiveInputAttachmentName?: string;
-
-  /**
-   * The name of the input switch schedule action that occurred most recently and that resulted in the switch to the current input attachment for this pipeline.
-   */
-  ActiveInputSwitchActionName?: string;
-
-  /**
-   * Pipeline ID
-   */
-  PipelineId?: string;
-}
-
-export namespace PipelineDetail {
-  export const filterSensitiveLog = (obj: PipelineDetail): any => ({
-    ...obj,
-  });
-}
-
-export enum PipelineId {
-  PIPELINE_0 = "PIPELINE_0",
-  PIPELINE_1 = "PIPELINE_1",
-}
-
-/**
- * Settings for pausing a pipeline.
- */
-export interface PipelinePauseStateSettings {
-  /**
-   * Pipeline ID to pause ("PIPELINE_0" or "PIPELINE_1").
-   */
-  PipelineId: PipelineId | string | undefined;
-}
-
-export namespace PipelinePauseStateSettings {
-  export const filterSensitiveLog = (obj: PipelinePauseStateSettings): any => ({
     ...obj,
   });
 }

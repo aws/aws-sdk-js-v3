@@ -26,8 +26,7 @@ export type CreateAcceleratorCommandOutput = CreateAcceleratorResponse & __Metad
 
 /**
  * <p>Create an accelerator. An accelerator includes one or more listeners that process inbound connections and direct traffic
- * 			to one or more endpoint groups, each of which includes endpoints, such as Network Load Balancers. To see an AWS CLI
- * 			example of creating an accelerator, scroll down to <b>Example</b>.</p>
+ * 			to one or more endpoint groups, each of which includes endpoints, such as Network Load Balancers. </p>
  * 		       <important>
  * 			         <p>Global Accelerator is a global service that supports endpoints in multiple AWS Regions but you must specify the
  * 				US West (Oregon) Region to create or update accelerators.</p>

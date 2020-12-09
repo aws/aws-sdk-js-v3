@@ -7963,7 +7963,7 @@
         "AdditionalDashboardIds": {
           "target": "com.amazonaws.quicksight#AdditionalDashboardIdList",
           "traits": {
-            "smithy.api#documentation": "<p>A list of one or more dashboard ids that you want to add to a session that \n            includes anonymous authorizations. <code>IdentityType</code> must be set to ANONYMOUS \n            for this to work, because other other identity types authenticate as QuickSight users. \n            For example, if you set \"<code>--dashboard-id dash_id1 --dashboard-id dash_id2 \n            dash_id3 identity-type ANONYMOUS</code>\", the session can access all \n            three dashboards.\n        </p>",
+            "smithy.api#documentation": "<p>A list of one or more dashboard ids that you want to add to a session that \n            includes anonymous authorizations. <code>IdentityType</code> must be set to ANONYMOUS \n            for this to work, because other identity types authenticate as QuickSight users. \n            For example, if you set \"<code>--dashboard-id dash_id1 --dashboard-id dash_id2 \n            dash_id3 identity-type ANONYMOUS</code>\", the session can access all \n            three dashboards.\n        </p>",
             "smithy.api#httpQuery": "additional-dashboard-ids"
           }
         }
@@ -8897,34 +8897,61 @@
         "LeftOperand": {
           "target": "com.amazonaws.quicksight#LogicalTableId",
           "traits": {
-            "smithy.api#documentation": "<p>Left operand.</p>",
+            "smithy.api#documentation": "<p>The operand on the left side of a join.</p>",
             "smithy.api#required": {}
           }
         },
         "RightOperand": {
           "target": "com.amazonaws.quicksight#LogicalTableId",
           "traits": {
-            "smithy.api#documentation": "<p>Right operand.</p>",
+            "smithy.api#documentation": "<p>The operand on the right side of a join.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "LeftJoinKeyProperties": {
+          "target": "com.amazonaws.quicksight#JoinKeyProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>Join key properties of the left operand.</p>"
+          }
+        },
+        "RightJoinKeyProperties": {
+          "target": "com.amazonaws.quicksight#JoinKeyProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>Join key properties of the right operand.</p>"
           }
         },
         "Type": {
           "target": "com.amazonaws.quicksight#JoinType",
           "traits": {
-            "smithy.api#documentation": "<p>Type.</p>",
+            "smithy.api#documentation": "<p>The type of join that it is.</p>",
             "smithy.api#required": {}
           }
         },
         "OnClause": {
           "target": "com.amazonaws.quicksight#OnClause",
           "traits": {
-            "smithy.api#documentation": "<p>On Clause.</p>",
+            "smithy.api#documentation": "<p>The join instructions provided in the <code>ON</code> clause of a join.</p>",
             "smithy.api#required": {}
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Join instruction.</p>"
+        "smithy.api#documentation": "<p>The instructions associated with a join. </p>"
+      }
+    },
+    "com.amazonaws.quicksight#JoinKeyProperties": {
+      "type": "structure",
+      "members": {
+        "UniqueKey": {
+          "target": "com.amazonaws.quicksight#Boolean",
+          "traits": {
+            "smithy.api#box": {},
+            "smithy.api#documentation": "<p>Indicates that a row in a table is uniquely identified by the columns in a \n            join key. This is used by QuickSight to optimize query performance.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Properties associated with the columns participating in a join.</p>"
       }
     },
     "com.amazonaws.quicksight#JoinType": {
@@ -11113,7 +11140,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 1,
-          "max": 32
+          "max": 64
         }
       }
     },
@@ -11545,7 +11572,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 1,
-          "max": 16
+          "max": 32
         }
       }
     },
