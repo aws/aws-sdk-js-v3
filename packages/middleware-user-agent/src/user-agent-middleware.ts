@@ -11,12 +11,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UserAgentResolvedConfig } from "./configurations";
-
-const USER_AGENT = "user-agent";
-const X_AMZ_USER_AGENT = "x-amz-user-agent";
-const SPACE = " ";
-
-const UA_ESCAPE_REGEX = /[^\!\#\$\%\&\'\*\+\-\.\^\_\`\|\~\d\w]/g;
+import { SPACE, UA_ESCAPE_REGEX, USER_AGENT, X_AMZ_USER_AGENT } from "./constants";
 
 /**
  * Build user agent header sections from:
@@ -59,13 +54,18 @@ export const userAgentMiddleware = (options: UserAgentResolvedConfig) => <Output
 
 /**
  * Escape the each pair according to https://tools.ietf.org/html/rfc5234 and join the pair with pattern `name/version`.
+ * User agent name may include prefix like `md/`, `api/`, `os/` etc., we should not escape the `/` after the prefix.
  * @private
  */
-export const escapeUserAgent = (pair: UserAgentPair): string =>
-  pair
-    .filter((item) => item !== undefined)
-    .map((item) => item.replace(UA_ESCAPE_REGEX, "_"))
+export const escapeUserAgent = ([name, version]: UserAgentPair): string => {
+  const prefixSeparatorIndex = name.indexOf("/");
+  const prefix = name.substring(0, prefixSeparatorIndex); // If no prefix, prefix is just ""
+  const uaName = name.substring(prefixSeparatorIndex + 1);
+  return [prefix, uaName, version]
+    .filter((item) => item && item.length > 0)
+    .map((item) => item?.replace(UA_ESCAPE_REGEX, "_"))
     .join("/");
+};
 
 export const getUserAgentMiddlewareOptions: BuildHandlerOptions = {
   name: "getUserAgentMiddleware",
