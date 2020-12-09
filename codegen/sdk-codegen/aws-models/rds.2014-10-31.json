@@ -146,7 +146,7 @@
         "RoleArn": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role to associate with the Aurora DB\n            cluster, for example <code>arn:aws:iam::123456789012:role/AuroraAccessRole</code>.</p>",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role to associate with the Aurora DB\n            cluster, for example, <code>arn:aws:iam::123456789012:role/AuroraAccessRole</code>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -688,6 +688,9 @@
           "target": "com.amazonaws.rds#StartDBInstance"
         },
         {
+          "target": "com.amazonaws.rds#StartDBInstanceAutomatedBackupsReplication"
+        },
+        {
           "target": "com.amazonaws.rds#StartExportTask"
         },
         {
@@ -698,6 +701,9 @@
         },
         {
           "target": "com.amazonaws.rds#StopDBInstance"
+        },
+        {
+          "target": "com.amazonaws.rds#StopDBInstanceAutomatedBackupsReplication"
         }
       ],
       "traits": {
@@ -1403,7 +1409,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Copies a snapshot of a DB cluster.</p>\n         <p>To copy a DB cluster snapshot from a shared manual DB cluster snapshot, <code>SourceDBClusterSnapshotIdentifier</code>\n          must be the Amazon Resource Name (ARN) of the shared DB cluster snapshot.</p>\n\n         <p>You can copy an encrypted DB cluster snapshot from another AWS Region. In that case, the AWS Region where you call the <code>CopyDBClusterSnapshot</code> action \n          is the destination AWS Region for the encrypted DB cluster snapshot to be copied to. To copy an encrypted DB cluster snapshot from another AWS Region, \n          you must provide the following values:</p>     \n      \n         <ul>\n            <li>\n               <p>\n                  <code>KmsKeyId</code> - The AWS Key Management System (AWS KMS) key identifier for the key to use to \n              encrypt the copy of the DB cluster snapshot in the destination AWS Region.</p>\n            </li>\n            <li>\n               <p>\n                  <code>PreSignedUrl</code> -  A URL that contains a Signature Version 4 signed request for the \n              <code>CopyDBClusterSnapshot</code> action to be called in the source AWS Region where the DB cluster snapshot is copied from. \n              The pre-signed URL must be a valid request for the <code>CopyDBClusterSnapshot</code> API action that can be executed in the \n              source AWS Region that contains the encrypted DB cluster snapshot to be copied.</p>\n              <p>The pre-signed URL request must contain the following parameter values:</p>\n              <ul>\n                  <li>\n                     <p>\n                        <code>KmsKeyId</code> - The KMS key identifier for the key to use to encrypt the copy of the DB \n                      cluster snapshot in the destination AWS Region. This is the same identifier for both the <code>CopyDBClusterSnapshot</code> \n                      action that is called in the destination AWS Region, and the action contained in the pre-signed URL.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>DestinationRegion</code> - The name of the AWS Region that the DB cluster snapshot is to be created in.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>SourceDBClusterSnapshotIdentifier</code> - The DB cluster snapshot identifier for the encrypted DB cluster \n                      snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, \n                      if you are copying an encrypted DB cluster snapshot from the us-west-2 AWS Region, then your <code>SourceDBClusterSnapshotIdentifier</code>\n                      looks like the following example: <code>arn:aws:rds:us-west-2:123456789012:cluster-snapshot:aurora-cluster1-snapshot-20161115</code>.</p>\n                  </li>\n               </ul>\n              <p>To learn how to generate a Signature Version 4 signed request, see \n\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html\">\n                      Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a> and\n                  <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">\n                      Signature Version 4 Signing Process</a>.</p>\n              <note>\n                  <p>If you are using an AWS SDK tool or the AWS CLI, you can specify <code>SourceRegion</code> (or <code>--source-region</code> for the AWS CLI) \n                      instead of specifying <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code> autogenerates a pre-signed URL that is a valid \n                      request for the operation that can be executed in the source AWS Region.</p>\n              </note>\n            </li>\n            <li>\n               <p>\n                  <code>TargetDBClusterSnapshotIdentifier</code> - The identifier for the new copy of the DB cluster snapshot in the destination AWS Region.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SourceDBClusterSnapshotIdentifier</code> - The DB cluster snapshot identifier for the encrypted DB cluster snapshot to be copied. \n              This identifier must be in the ARN format for the source AWS Region and is the same value as the <code>SourceDBClusterSnapshotIdentifier</code> in the pre-signed URL. </p>\n            </li>\n         </ul>\n         <p>To cancel the copy operation once it is in progress, delete the target DB cluster snapshot identified\n          by <code>TargetDBClusterSnapshotIdentifier</code> while that DB cluster snapshot is in \"copying\" status.</p>\n         <p>For more information on copying encrypted DB cluster snapshots from one AWS Region to another, see \n          <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html\">\n              Copying a Snapshot</a> in the <i>Amazon Aurora User Guide.</i>\n         </p>\n         <p>For more information on Amazon Aurora, see \n          <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html\">\n              What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>\n         </p>\n         <note>\n            <p>This action only applies to Aurora DB clusters.</p>\n         </note>"
+        "smithy.api#documentation": "<p>Copies a snapshot of a DB cluster.</p>\n         <p>To copy a DB cluster snapshot from a shared manual DB cluster snapshot, <code>SourceDBClusterSnapshotIdentifier</code>\n          must be the Amazon Resource Name (ARN) of the shared DB cluster snapshot.</p>\n\n         <p>You can copy an encrypted DB cluster snapshot from another AWS Region. In that case, the AWS Region where you call the <code>CopyDBClusterSnapshot</code> action \n          is the destination AWS Region for the encrypted DB cluster snapshot to be copied to. To copy an encrypted DB cluster snapshot from another AWS Region, \n          you must provide the following values:</p>     \n      \n         <ul>\n            <li>\n               <p>\n                  <code>KmsKeyId</code> - The AWS Key Management System (AWS KMS) key identifier for the key to use to \n              encrypt the copy of the DB cluster snapshot in the destination AWS Region.</p>\n            </li>\n            <li>\n               <p>\n                  <code>PreSignedUrl</code> -  A URL that contains a Signature Version 4 signed request for the \n              <code>CopyDBClusterSnapshot</code> action to be called in the source AWS Region where the DB cluster snapshot is copied from. \n              The pre-signed URL must be a valid request for the <code>CopyDBClusterSnapshot</code> API action that can be executed in the \n              source AWS Region that contains the encrypted DB cluster snapshot to be copied.</p>\n              <p>The pre-signed URL request must contain the following parameter values:</p>\n              <ul>\n                  <li>\n                     <p>\n                        <code>KmsKeyId</code> - The AWS KMS key identifier for the customer master key (CMK) to use to encrypt the copy of the DB \n                      cluster snapshot in the destination AWS Region. This is the same identifier for both the <code>CopyDBClusterSnapshot</code> \n                      action that is called in the destination AWS Region, and the action contained in the pre-signed URL.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>DestinationRegion</code> - The name of the AWS Region that the DB cluster snapshot is to be created in.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>SourceDBClusterSnapshotIdentifier</code> - The DB cluster snapshot identifier for the encrypted DB cluster \n                      snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, \n                      if you are copying an encrypted DB cluster snapshot from the us-west-2 AWS Region, then your <code>SourceDBClusterSnapshotIdentifier</code>\n                      looks like the following example: <code>arn:aws:rds:us-west-2:123456789012:cluster-snapshot:aurora-cluster1-snapshot-20161115</code>.</p>\n                  </li>\n               </ul>\n              <p>To learn how to generate a Signature Version 4 signed request, see \n\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html\">\n                      Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a> and\n                  <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">\n                      Signature Version 4 Signing Process</a>.</p>\n              <note>\n                  <p>If you are using an AWS SDK tool or the AWS CLI, you can specify <code>SourceRegion</code> (or <code>--source-region</code> for the AWS CLI) \n                      instead of specifying <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code> autogenerates a pre-signed URL that is a valid \n                      request for the operation that can be executed in the source AWS Region.</p>\n              </note>\n            </li>\n            <li>\n               <p>\n                  <code>TargetDBClusterSnapshotIdentifier</code> - The identifier for the new copy of the DB cluster snapshot in the destination AWS Region.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SourceDBClusterSnapshotIdentifier</code> - The DB cluster snapshot identifier for the encrypted DB cluster snapshot to be copied. \n              This identifier must be in the ARN format for the source AWS Region and is the same value as the <code>SourceDBClusterSnapshotIdentifier</code> in the pre-signed URL. </p>\n            </li>\n         </ul>\n         <p>To cancel the copy operation once it is in progress, delete the target DB cluster snapshot identified\n          by <code>TargetDBClusterSnapshotIdentifier</code> while that DB cluster snapshot is in \"copying\" status.</p>\n         <p>For more information on copying encrypted DB cluster snapshots from one AWS Region to another, see \n          <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html\">\n              Copying a Snapshot</a> in the <i>Amazon Aurora User Guide.</i>\n         </p>\n         <p>For more information on Amazon Aurora, see \n          <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html\">\n              What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>\n         </p>\n         <note>\n            <p>This action only applies to Aurora DB clusters.</p>\n         </note>"
       }
     },
     "com.amazonaws.rds#CopyDBClusterSnapshotMessage": {
@@ -1426,13 +1432,13 @@
         "KmsKeyId": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS KMS key ID for an encrypted DB cluster snapshot. \n            The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key. </p>             \n        \n        <p>If you copy an encrypted DB cluster snapshot from your AWS account, you can specify a value for <code>KmsKeyId</code> to encrypt the copy with a new KMS encryption key. \n            If you don't specify a value for <code>KmsKeyId</code>, then the copy of the DB cluster snapshot is encrypted with the same KMS key as the source DB cluster snapshot. \n        </p>\n         \n        <p>If you copy an encrypted DB cluster snapshot that is shared from another AWS account, then you must specify a value for <code>KmsKeyId</code>. </p>\n        \n        <p>To copy an encrypted DB cluster snapshot to another AWS Region, you must set <code>KmsKeyId</code> to the KMS key ID you want to use to encrypt the copy of the DB cluster snapshot \n            in the destination AWS Region. KMS encryption keys are specific to the AWS Region that they are created in, and you can't use encryption keys from one AWS Region \n            in another AWS Region.</p>\n        \n        <p>If you copy an unencrypted DB cluster snapshot and specify a value for the <code>KmsKeyId</code> parameter, \n            an error is returned.</p>"
+            "smithy.api#documentation": "<p>The AWS KMS key identifier for an encrypted DB cluster snapshot. \n            The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>             \n        \n        <p>If you copy an encrypted DB cluster snapshot from your AWS account, you can specify a value for <code>KmsKeyId</code> to encrypt the copy with a new AWS KMS CMK. \n            If you don't specify a value for <code>KmsKeyId</code>, then the copy of the DB cluster snapshot is encrypted with the same AWS KMS key as the source DB cluster snapshot. \n        </p>\n         \n        <p>If you copy an encrypted DB cluster snapshot that is shared from another AWS account, then you must specify a value for <code>KmsKeyId</code>. </p>\n        \n        <p>To copy an encrypted DB cluster snapshot to another AWS Region, you must set <code>KmsKeyId</code> to the AWS KMS key identifier you want to use to encrypt the copy of the DB cluster snapshot \n            in the destination AWS Region. AWS KMS CMKs are specific to the AWS Region that they are created in, and you can't use CMKs from one AWS Region \n            in another AWS Region.</p>\n        \n        <p>If you copy an unencrypted DB cluster snapshot and specify a value for the <code>KmsKeyId</code> parameter, \n            an error is returned.</p>"
           }
         },
         "PreSignedUrl": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The URL that contains a Signature Version 4 signed request for the <code>CopyDBClusterSnapshot</code> API action in the AWS Region that contains the \n            source DB cluster snapshot to copy. The <code>PreSignedUrl</code> parameter must be used when copying an encrypted DB cluster snapshot from another AWS Region. \n            Don't specify <code>PreSignedUrl</code> when you are copying an encrypted DB cluster snapshot in the same AWS Region.</p>\n        <p>The pre-signed URL must be a valid request for the <code>CopyDBClusterSnapshot</code> API action that can be\n            executed in the source AWS Region that contains the encrypted DB cluster snapshot to be copied. \n            The pre-signed URL request must contain the following parameter values:</p>\n        \n        <ul>\n            <li>\n               <p>\n                  <code>KmsKeyId</code> - The AWS KMS key identifier for the key to use to encrypt the copy of the DB \n                cluster snapshot in the destination AWS Region. This is the same identifier for both the <code>CopyDBClusterSnapshot</code> \n                action that is called in the destination AWS Region, and the action contained in the pre-signed URL.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DestinationRegion</code> - The name of the AWS Region that the DB cluster snapshot is to be created in.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SourceDBClusterSnapshotIdentifier</code> - The DB cluster snapshot identifier for the encrypted DB cluster \n                snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, \n                if you are copying an encrypted DB cluster snapshot from the us-west-2 AWS Region, then your <code>SourceDBClusterSnapshotIdentifier</code>\n                looks like the following example: <code>arn:aws:rds:us-west-2:123456789012:cluster-snapshot:aurora-cluster1-snapshot-20161115</code>.</p>\n            </li>\n         </ul>\n        \n        <p>To learn how to generate a Signature Version 4 signed request, see \n\n            <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html\">\n                Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a> and\n            <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">\n                Signature Version 4 Signing Process</a>.</p>\n        \n        <note>\n            <p>If you are using an AWS SDK tool or the AWS CLI, you can specify <code>SourceRegion</code> (or <code>--source-region</code> for the AWS CLI) \n                instead of specifying <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code> autogenerates a pre-signed URL that is a valid \n                request for the operation that can be executed in the source AWS Region.</p>\n        </note>"
+            "smithy.api#documentation": "<p>The URL that contains a Signature Version 4 signed request for the <code>CopyDBClusterSnapshot</code> API action in the AWS Region that contains the \n            source DB cluster snapshot to copy. The <code>PreSignedUrl</code> parameter must be used when copying an encrypted DB cluster snapshot from another AWS Region. \n            Don't specify <code>PreSignedUrl</code> when you are copying an encrypted DB cluster snapshot in the same AWS Region.</p>\n        <p>The pre-signed URL must be a valid request for the <code>CopyDBClusterSnapshot</code> API action that can be\n            executed in the source AWS Region that contains the encrypted DB cluster snapshot to be copied. \n            The pre-signed URL request must contain the following parameter values:</p>\n        \n        <ul>\n            <li>\n               <p>\n                  <code>KmsKeyId</code> - The AWS KMS key identifier for the customer master key (CMK) to use to encrypt the copy of the DB \n                cluster snapshot in the destination AWS Region. This is the same identifier for both the <code>CopyDBClusterSnapshot</code> \n                action that is called in the destination AWS Region, and the action contained in the pre-signed URL.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DestinationRegion</code> - The name of the AWS Region that the DB cluster snapshot is to be created in.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SourceDBClusterSnapshotIdentifier</code> - The DB cluster snapshot identifier for the encrypted DB cluster \n                snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, \n                if you are copying an encrypted DB cluster snapshot from the us-west-2 AWS Region, then your <code>SourceDBClusterSnapshotIdentifier</code>\n                looks like the following example: <code>arn:aws:rds:us-west-2:123456789012:cluster-snapshot:aurora-cluster1-snapshot-20161115</code>.</p>\n            </li>\n         </ul>\n        \n        <p>To learn how to generate a Signature Version 4 signed request, see \n\n            <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html\">\n                Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a> and\n            <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">\n                Signature Version 4 Signing Process</a>.</p>\n        \n        <note>\n            <p>If you are using an AWS SDK tool or the AWS CLI, you can specify <code>SourceRegion</code> (or <code>--source-region</code> for the AWS CLI) \n                instead of specifying <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code> autogenerates a pre-signed URL that is a valid \n                request for the operation that can be executed in the source AWS Region.</p>\n        </note>"
           }
         },
         "CopyTags": {
@@ -1572,7 +1578,7 @@
         "KmsKeyId": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS KMS key ID for an encrypted DB snapshot. \n            The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key. \n        </p>\n        \n        <p>If you copy an encrypted DB snapshot from your AWS account, \n            you can specify a value for this parameter to encrypt the copy with a new KMS encryption key. \n            If you don't specify a value for this parameter, \n            then the copy of the DB snapshot is encrypted with the same KMS key as the source DB snapshot. \n        </p>\n\n        <p>If you copy an encrypted DB snapshot that is shared from another AWS account, \n            then you must specify a value for this parameter.\n        </p>\n        \n        <p>If you specify this parameter \n            when you copy an unencrypted snapshot, \n            the copy is encrypted.\n        </p>\n        \n        <p>If you copy an encrypted snapshot to a different AWS Region, then you must specify\n            a KMS key for the destination AWS Region. KMS encryption keys are specific to the AWS Region\n            that they are created in, and you can't use encryption keys from one AWS Region in another\n            AWS Region.\n        </p>"
+            "smithy.api#documentation": "<p>The AWS KMS key identifier for an encrypted DB snapshot. \n            The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK). \n        </p>\n        \n        <p>If you copy an encrypted DB snapshot from your AWS account, \n            you can specify a value for this parameter to encrypt the copy with a new AWS KMS CMK. \n            If you don't specify a value for this parameter, \n            then the copy of the DB snapshot is encrypted with the same AWS KMS key as the source DB snapshot. \n        </p>\n\n        <p>If you copy an encrypted DB snapshot that is shared from another AWS account, \n            then you must specify a value for this parameter.\n        </p>\n        \n        <p>If you specify this parameter when you copy an unencrypted snapshot, \n            the copy is encrypted.\n        </p>\n        \n        <p>If you copy an encrypted snapshot to a different AWS Region, then you must specify\n            a AWS KMS key identifier for the destination AWS Region. AWS KMS CMKs are specific to the AWS Region\n            that they are created in, and you can't use CMKs from one AWS Region in another\n            AWS Region.\n        </p>"
           }
         },
         "Tags": {
@@ -1587,7 +1593,7 @@
         "PreSignedUrl": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The URL that contains a Signature Version 4 signed request for the\n                <code>CopyDBSnapshot</code> API action in the source AWS Region that contains the\n            source DB snapshot to copy. </p>\n        \n        <p>You must specify this parameter when you copy an encrypted DB snapshot from another\n            AWS Region by using the Amazon RDS API. Don't specify <code>PreSignedUrl</code> when you are \n            copying an encrypted DB snapshot in the same AWS Region.</p>\n        \n        <p>The presigned URL must be a valid request for the <code>CopyDBSnapshot</code> API action \n            that can be executed in the source AWS Region that contains the encrypted DB snapshot to be copied. \n            The presigned URL request must contain the following parameter values:\n        </p>\n                \n        <ul>\n            <li>\n                <p>\n                  <code>DestinationRegion</code> - The AWS Region that the encrypted DB snapshot is copied to. \n                    This AWS Region is the same one where the <code>CopyDBSnapshot</code> action is called that contains this presigned URL.\n                </p>\n\n                <p>For example, if you copy an encrypted DB snapshot from the us-west-2 AWS Region\n                    to the us-east-1 AWS Region, then you call the <code>CopyDBSnapshot</code> action in\n                    the us-east-1 AWS Region and provide a presigned URL that contains a call to the\n                        <code>CopyDBSnapshot</code> action in the us-west-2 AWS Region. For this\n                    example, the <code>DestinationRegion</code> in the presigned URL must be set to\n                    the us-east-1 AWS Region. </p>\n            </li>\n            <li>\n                <p>\n                  <code>KmsKeyId</code> - The AWS KMS key identifier for the key to use to encrypt the copy of the DB snapshot in the destination AWS Region. \n                    This is the same identifier for both the <code>CopyDBSnapshot</code> action that is called in the destination AWS Region, \n                    and the action contained in the presigned URL.\n                </p>\n            </li>\n            <li>\n                <p>\n                  <code>SourceDBSnapshotIdentifier</code> - The DB snapshot identifier for the encrypted snapshot to be copied. \n                    This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. \n                    For example, if you are copying an encrypted DB snapshot from the us-west-2 AWS Region, then your <code>SourceDBSnapshotIdentifier</code> looks like\n                    the following example: <code>arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20161115</code>.\n                </p>\n            </li>\n         </ul>\n\n\t        <p>To learn how to generate a Signature Version 4 signed request, see \n\t\t<a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html\">Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a> and\n\t\t<a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature Version 4 Signing Process</a>.\n\t   </p>\n        \n         <note>\n           <p>If you are using an AWS SDK tool or the AWS CLI, you can specify <code>SourceRegion</code> (or <code>--source-region</code> for the AWS CLI) \n               instead of specifying <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code> autogenerates a pre-signed URL that is a valid \n               request for the operation that can be executed in the source AWS Region.</p>\n         </note>"
+            "smithy.api#documentation": "<p>The URL that contains a Signature Version 4 signed request for the\n                <code>CopyDBSnapshot</code> API action in the source AWS Region that contains the\n            source DB snapshot to copy. </p>\n        \n        <p>You must specify this parameter when you copy an encrypted DB snapshot from another\n            AWS Region by using the Amazon RDS API. Don't specify <code>PreSignedUrl</code> when you are \n            copying an encrypted DB snapshot in the same AWS Region.</p>\n        \n        <p>The presigned URL must be a valid request for the <code>CopyDBSnapshot</code> API action \n            that can be executed in the source AWS Region that contains the encrypted DB snapshot to be copied. \n            The presigned URL request must contain the following parameter values:\n        </p>\n                \n        <ul>\n            <li>\n                <p>\n                  <code>DestinationRegion</code> - The AWS Region that the encrypted DB snapshot is copied to. \n                    This AWS Region is the same one where the <code>CopyDBSnapshot</code> action is called that contains this presigned URL.\n                </p>\n\n                <p>For example, if you copy an encrypted DB snapshot from the us-west-2 AWS Region\n                    to the us-east-1 AWS Region, then you call the <code>CopyDBSnapshot</code> action in\n                    the us-east-1 AWS Region and provide a presigned URL that contains a call to the\n                        <code>CopyDBSnapshot</code> action in the us-west-2 AWS Region. For this\n                    example, the <code>DestinationRegion</code> in the presigned URL must be set to\n                    the us-east-1 AWS Region. </p>\n            </li>\n            <li>\n                <p>\n                  <code>KmsKeyId</code> - The AWS KMS key identifier for the customer master key (CMK) to use to encrypt the copy of the DB snapshot in the destination AWS Region. \n                    This is the same identifier for both the <code>CopyDBSnapshot</code> action that is called in the destination AWS Region, \n                    and the action contained in the presigned URL.\n                </p>\n            </li>\n            <li>\n                <p>\n                  <code>SourceDBSnapshotIdentifier</code> - The DB snapshot identifier for the encrypted snapshot to be copied. \n                    This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. \n                    For example, if you are copying an encrypted DB snapshot from the us-west-2 AWS Region, then your <code>SourceDBSnapshotIdentifier</code> looks like\n                    the following example: <code>arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20161115</code>.\n                </p>\n            </li>\n         </ul>\n\n\t        <p>To learn how to generate a Signature Version 4 signed request, see \n\t\t<a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html\">Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a> and\n\t\t<a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature Version 4 Signing Process</a>.\n\t   </p>\n        \n         <note>\n           <p>If you are using an AWS SDK tool or the AWS CLI, you can specify <code>SourceRegion</code> (or <code>--source-region</code> for the AWS CLI) \n               instead of specifying <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code> autogenerates a pre-signed URL that is a valid \n               request for the operation that can be executed in the source AWS Region.</p>\n         </note>"
           }
         },
         "OptionGroupName": {
@@ -2008,13 +2014,13 @@
         "KmsKeyId": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS KMS key identifier for an encrypted DB cluster.</p>\n        <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption\n            key. If you are creating a DB cluster with the same AWS account that owns the KMS\n            encryption key used to encrypt the new DB cluster, then you can use the KMS key alias\n            instead of the ARN for the KMS encryption key.</p>\n        <p>If an encryption key isn't specified in <code>KmsKeyId</code>:</p>\n        <ul>\n            <li>\n                <p>If <code>ReplicationSourceIdentifier</code> identifies an encrypted\n                    source, then Amazon RDS will use the encryption key used to encrypt the\n                    source. Otherwise, Amazon RDS will use your default encryption key. </p>\n            </li>\n            <li>\n                <p>If the <code>StorageEncrypted</code> parameter is enabled and\n                        <code>ReplicationSourceIdentifier</code> isn't specified, then Amazon RDS\n                    will use your default encryption key.</p>\n            </li>\n         </ul>\n        <p>AWS KMS creates the default encryption key for your AWS account. Your AWS account\n            has a different default encryption key for each AWS Region.</p>\n        <p>If you create a read replica of an encrypted DB cluster in another AWS Region, you\n            must set <code>KmsKeyId</code> to a KMS key ID that is valid in the destination AWS\n            Region. This key is used to encrypt the read replica in that AWS Region.</p>"
+            "smithy.api#documentation": "<p>The AWS KMS key identifier for an encrypted DB cluster.</p>\n        <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).\n                 To use a CMK in a different AWS account, specify the key ARN or alias ARN.</p>\n        <p>When a CMK isn't specified in <code>KmsKeyId</code>:</p>\n        <ul>\n            <li>\n                <p>If <code>ReplicationSourceIdentifier</code> identifies an encrypted\n                    source, then Amazon RDS will use the CMK used to encrypt the\n                    source. Otherwise, Amazon RDS will use your default CMK. </p>\n            </li>\n            <li>\n                <p>If the <code>StorageEncrypted</code> parameter is enabled and\n                        <code>ReplicationSourceIdentifier</code> isn't specified, then Amazon RDS\n                    will use your default CMK.</p>\n            </li>\n         </ul>\n        <p>There is a default CMK for your AWS account. Your AWS account\n            has a different default CMK for each AWS Region.</p>\n        <p>If you create a read replica of an encrypted DB cluster in another AWS Region, you\n            must set <code>KmsKeyId</code> to a AWS KMS key identifier that is valid in the destination AWS\n            Region. This CMK is used to encrypt the read replica in that AWS Region.</p>"
           }
         },
         "PreSignedUrl": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>A URL that contains a Signature Version 4 signed request for \n            the <code>CreateDBCluster</code> action to be called in the source AWS Region where the DB cluster is replicated from. \n            You only need to specify <code>PreSignedUrl</code> when you are performing cross-region replication from an encrypted DB cluster.</p>\n       \n        <p>The pre-signed URL must be a valid request for the <code>CreateDBCluster</code> API action \n            that can be executed in the source AWS Region that contains the encrypted DB cluster to be copied.</p>\n        <p>The pre-signed URL request must contain the following parameter values:</p>\n        <ul>\n            <li>\n               <p>\n                  <code>KmsKeyId</code> - The AWS KMS key identifier for the key to use to encrypt the copy of \n                the DB cluster in the destination AWS Region. This should refer to the same KMS key for both the <code>CreateDBCluster</code> \n                action that is called in the destination AWS Region, and the action contained in the pre-signed URL.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DestinationRegion</code> - The name of the AWS Region that Aurora read replica will\n                    be created in.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ReplicationSourceIdentifier</code> - The DB cluster identifier for the encrypted DB cluster to be copied. \n                This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, if you are copying an \n                encrypted DB cluster from the us-west-2 AWS Region, then your <code>ReplicationSourceIdentifier</code> would look like\n                Example: <code>arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster1</code>.</p>\n            </li>\n         </ul>\n        \n        <p>To learn how to generate a Signature Version 4 signed request, see \n            <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html\">\n                Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a> and\n            <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">\n                Signature Version 4 Signing Process</a>.</p>\n        <note>\n            <p>If you are using an AWS SDK tool or the AWS CLI, you can specify <code>SourceRegion</code> (or <code>--source-region</code> for the AWS CLI) \n                instead of specifying <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code> autogenerates a pre-signed URL that is a valid \n                request for the operation that can be executed in the source AWS Region.</p>\n        </note>"
+            "smithy.api#documentation": "<p>A URL that contains a Signature Version 4 signed request for \n            the <code>CreateDBCluster</code> action to be called in the source AWS Region where the DB cluster is replicated from. \n            You only need to specify <code>PreSignedUrl</code> when you are performing cross-region replication from an encrypted DB cluster.</p>\n       \n        <p>The pre-signed URL must be a valid request for the <code>CreateDBCluster</code> API action \n            that can be executed in the source AWS Region that contains the encrypted DB cluster to be copied.</p>\n        <p>The pre-signed URL request must contain the following parameter values:</p>\n        <ul>\n            <li>\n               <p>\n                  <code>KmsKeyId</code> - The AWS KMS key identifier for the key to use to encrypt the copy of \n                the DB cluster in the destination AWS Region. This should refer to the same AWS KMS CMK for both the <code>CreateDBCluster</code> \n                action that is called in the destination AWS Region, and the action contained in the pre-signed URL.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DestinationRegion</code> - The name of the AWS Region that Aurora read replica will\n                    be created in.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ReplicationSourceIdentifier</code> - The DB cluster identifier for the encrypted DB cluster to be copied. \n                This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, if you are copying an \n                encrypted DB cluster from the us-west-2 AWS Region, then your <code>ReplicationSourceIdentifier</code> would look like\n                Example: <code>arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster1</code>.</p>\n            </li>\n         </ul>\n        \n        <p>To learn how to generate a Signature Version 4 signed request, see \n            <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html\">\n                Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a> and\n            <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">\n                Signature Version 4 Signing Process</a>.</p>\n        <note>\n            <p>If you are using an AWS SDK tool or the AWS CLI, you can specify <code>SourceRegion</code> (or <code>--source-region</code> for the AWS CLI) \n                instead of specifying <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code> autogenerates a pre-signed URL that is a valid \n                request for the operation that can be executed in the source AWS Region.</p>\n        </note>"
           }
         },
         "EnableIAMDatabaseAuthentication": {
@@ -2496,7 +2502,7 @@
         "KmsKeyId": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS KMS key identifier for an encrypted DB instance.</p>\n         <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a DB instance with the same AWS account that owns the KMS encryption key used to encrypt the new DB instance, then you can use the KMS key alias instead of the ARN for the KM encryption key.</p>\n         <p>\n            <b>Amazon Aurora</b>\n         </p>\n         <p>Not applicable. The KMS key identifier is managed by\n          the DB cluster. For more information, see <code>CreateDBCluster</code>.</p>\n      \n         <p>If <code>StorageEncrypted</code> is enabled, and you do\n        not specify a value for the <code>KmsKeyId</code> parameter, then\n        Amazon RDS will use your default encryption key. AWS KMS creates the \n        default encryption key for your AWS account. Your AWS account has a different\n        default encryption key for each AWS Region.</p>"
+            "smithy.api#documentation": "<p>The AWS KMS key identifier for an encrypted DB instance.</p>\n         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).\n          To use a CMK in a different AWS account, specify the key ARN or alias ARN.</p>\n         <p>\n            <b>Amazon Aurora</b>\n         </p>\n         <p>Not applicable. The AWS KMS key identifier is managed by\n          the DB cluster. For more information, see <code>CreateDBCluster</code>.</p>     \n         <p>If <code>StorageEncrypted</code> is enabled, and you do\n        not specify a value for the <code>KmsKeyId</code> parameter, then\n        Amazon RDS uses your default CMK. There is a  \n        default CMK for your AWS account. Your AWS account has a different\n        default CMK for each AWS Region.</p>"
           }
         },
         "Domain": {
@@ -2556,7 +2562,7 @@
         "PerformanceInsightsKMSKeyId": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID\n            is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS\n            encryption key.</p> \n        <p>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS \n            uses your default encryption key. AWS KMS creates the default encryption key for your AWS account. \n            Your AWS account has a different default encryption key for each AWS Region.</p>"
+            "smithy.api#documentation": "<p>The AWS KMS key identifier for encryption of Performance Insights data.</p>\n        <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p> \n        <p>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS \n            uses your default CMK. There is a default CMK for your AWS account. \n            Your AWS account has a different default CMK for each AWS Region.</p>"
           }
         },
         "PerformanceInsightsRetentionPeriod": {
@@ -2778,7 +2784,7 @@
         "KmsKeyId": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS KMS key ID for an encrypted read replica. The KMS key ID is the Amazon\n            Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.</p>\n        \n        <p>If you create an encrypted read replica in the same AWS Region as the source DB\n            instance, then you do not have to specify a value for this parameter. The read replica\n            is encrypted with the same KMS key as the source DB instance.</p>\n        \n        <p>If you create an encrypted read replica in a different AWS Region, then you must\n            specify a KMS key for the destination AWS Region. KMS encryption keys are specific to\n            the AWS Region that they are created in, and you can't use encryption keys from one\n            AWS Region in another AWS Region.</p>\n        \n        <p>You can't create an encrypted read replica from an unencrypted DB instance.</p>"
+            "smithy.api#documentation": "<p>The AWS KMS key identifier for an encrypted read replica.</p>\n        <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS CMK.</p>\n        <p>If you create an encrypted read replica in the same AWS Region as the source DB\n            instance, then you do not have to specify a value for this parameter. The read replica\n            is encrypted with the same AWS KMS CMK as the source DB instance.</p>       \n        <p>If you create an encrypted read replica in a different AWS Region, then you must\n            specify a AWS KMS key identifier for the destination AWS Region. AWS KMS CMKs are specific to\n            the AWS Region that they are created in, and you can't use CMKs from one\n            AWS Region in another AWS Region.</p>       \n        <p>You can't create an encrypted read replica from an unencrypted DB instance.</p>"
           }
         },
         "PreSignedUrl": {
@@ -2802,7 +2808,7 @@
         "PerformanceInsightsKMSKeyId": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID\n            is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.</p>\n        <p>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS \n            uses your default encryption key. AWS KMS creates the default encryption key for your AWS account. \n            Your AWS account has a different default encryption key for each AWS Region.</p>"
+            "smithy.api#documentation": "<p>The AWS KMS key identifier for encryption of Performance Insights data.</p>\n        <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>\n        <p>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS \n            uses your default CMK. There is a default CMK for your AWS account. \n            Your AWS account has a different default CMK for each AWS Region.</p>"
           }
         },
         "PerformanceInsightsRetentionPeriod": {
@@ -3126,7 +3132,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a snapshot of a DB instance. The source DB instance must be in the <code>available</code> or\n                <code>storage-optimization</code>state.</p>"
+        "smithy.api#documentation": "<p>Creates a snapshot of a DB instance. The source DB instance must be in the <code>available</code> or\n                <code>storage-optimization</code> state.</p>"
       }
     },
     "com.amazonaws.rds#CreateDBSnapshotMessage": {
@@ -3754,13 +3760,13 @@
         "KmsKeyId": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>If <code>StorageEncrypted</code> is enabled, the AWS KMS key identifier for the encrypted DB cluster.</p>"
+            "smithy.api#documentation": "<p>If <code>StorageEncrypted</code> is enabled, the AWS KMS key identifier for the encrypted DB cluster.</p>\n         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>"
           }
         },
         "DbClusterResourceId": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS Region-unique, immutable identifier for the DB cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.</p>"
+            "smithy.api#documentation": "<p>The AWS Region-unique, immutable identifier for the DB cluster. This identifier is found in AWS CloudTrail log entries whenever \n          the AWS KMS CMK for the DB cluster is accessed.</p>"
           }
         },
         "DBClusterArn": {
@@ -3859,7 +3865,7 @@
         "ActivityStreamKmsKeyId": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS KMS key identifier used for encrypting messages in the database activity stream.</p>"
+            "smithy.api#documentation": "<p>The AWS KMS key identifier used for encrypting messages in the database activity stream.</p>\n        <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>"
           }
         },
         "ActivityStreamKinesisStreamName": {
@@ -4582,7 +4588,7 @@
         "KmsKeyId": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.</p>"
+            "smithy.api#documentation": "<p>If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.</p>\n         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>"
           }
         },
         "DBClusterSnapshotArn": {
@@ -5100,13 +5106,13 @@
         "KmsKeyId": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>\n            If <code>StorageEncrypted</code> is true, the AWS KMS key identifier \n            for the encrypted DB instance.\n        </p>"
+            "smithy.api#documentation": "<p>\n            If <code>StorageEncrypted</code> is true, the AWS KMS key identifier \n            for the encrypted DB instance.\n        </p>\n         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>"
           }
         },
         "DbiResourceId": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.</p>"
+            "smithy.api#documentation": "<p>The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log \n          entries whenever the AWS KMS customer master key (CMK) for the DB instance is accessed.</p>"
           }
         },
         "CACertificateIdentifier": {
@@ -5178,7 +5184,7 @@
         "PerformanceInsightsKMSKeyId": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID\n            is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS\n            encryption key.</p>"
+            "smithy.api#documentation": "<p>The AWS KMS key identifier for encryption of Performance Insights data.</p>\n        <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>"
           }
         },
         "PerformanceInsightsRetentionPeriod": {
@@ -5225,6 +5231,12 @@
         },
         "TagList": {
           "target": "com.amazonaws.rds#TagList"
+        },
+        "DBInstanceAutomatedBackupsReplications": {
+          "target": "com.amazonaws.rds#DBInstanceAutomatedBackupsReplicationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of replicated automated backups associated with the DB instance.</p>"
+          }
         }
       },
       "traits": {
@@ -5250,7 +5262,7 @@
         "DBInstanceArn": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the automated backup.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the automated backups.</p>"
           }
         },
         "DbiResourceId": {
@@ -5346,7 +5358,7 @@
         "OptionGroupName": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The option group the automated backup is associated with. \n            If omitted, the default option group for the engine specified is used.</p>"
+            "smithy.api#documentation": "<p>The option group the automated backup is associated with. If omitted, the default option group for the engine specified is used.</p>"
           }
         },
         "TdeCredentialArn": {
@@ -5370,7 +5382,7 @@
         "KmsKeyId": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS KMS key ID for an automated backup. \n            The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key. </p>"
+            "smithy.api#documentation": "<p>The AWS KMS key ID for an automated backup.</p> \n        <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>"
           }
         },
         "Timezone": {
@@ -5384,10 +5396,28 @@
           "traits": {
             "smithy.api#documentation": "<p>True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, \n            and otherwise false.</p>"
           }
+        },
+        "BackupRetentionPeriod": {
+          "target": "com.amazonaws.rds#IntegerOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>The retention period for the automated backups.</p>"
+          }
+        },
+        "DBInstanceAutomatedBackupsArn": {
+          "target": "com.amazonaws.rds#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the replicated automated backups.</p>"
+          }
+        },
+        "DBInstanceAutomatedBackupsReplications": {
+          "target": "com.amazonaws.rds#DBInstanceAutomatedBackupsReplicationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of replications to different AWS Regions associated with the automated backup.</p>"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>An automated backup of a DB instance. It it consists of\n            system backups, transaction logs, and the database instance properties that\n            existed at the time you deleted the source instance. </p>"
+        "smithy.api#documentation": "<p>An automated backup of a DB instance. It consists of system backups, transaction logs, and the database instance properties that\n            existed at the time you deleted the source instance.</p>"
       }
     },
     "com.amazonaws.rds#DBInstanceAutomatedBackupList": {
@@ -5443,6 +5473,29 @@
         "smithy.api#documentation": "<p>The quota for retained automated backups was exceeded. This prevents you\n            from retaining any additional automated backups. The retained automated backups \n            quota is the same as your DB Instance quota.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.rds#DBInstanceAutomatedBackupsReplication": {
+      "type": "structure",
+      "members": {
+        "DBInstanceAutomatedBackupsArn": {
+          "target": "com.amazonaws.rds#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the replicated automated backups.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Automated backups of a DB instance replicated to another AWS Region. They consist of system backups, transaction logs, and database instance properties.</p>"
+      }
+    },
+    "com.amazonaws.rds#DBInstanceAutomatedBackupsReplicationList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.rds#DBInstanceAutomatedBackupsReplication",
+        "traits": {
+          "smithy.api#xmlName": "DBInstanceAutomatedBackupsReplication"
+        }
       }
     },
     "com.amazonaws.rds#DBInstanceList": {
@@ -6410,7 +6463,7 @@
         "KmsKeyId": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>\n            If <code>Encrypted</code> is true, the AWS KMS key identifier \n            for the encrypted DB snapshot.\n        </p>"
+            "smithy.api#documentation": "<p>\n            If <code>Encrypted</code> is true, the AWS KMS key identifier \n            for the encrypted DB snapshot.\n        </p>\n         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>"
           }
         },
         "DBSnapshotArn": {
@@ -6982,7 +7035,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes automated backups based on the source instance's <code>DbiResourceId</code>\n            value or the restorable instance's resource ID.</p>"
+        "smithy.api#documentation": "<p>Deletes automated backups using the <code>DbiResourceId</code> value of the source DB instance or the Amazon Resource Name (ARN) of the automated backups.</p>"
       }
     },
     "com.amazonaws.rds#DeleteDBInstanceAutomatedBackupMessage": {
@@ -6991,13 +7044,18 @@
         "DbiResourceId": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier for the source DB instance, which can't be changed and which is unique to an AWS Region.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The identifier for the source DB instance, which can't be changed and which is unique to an AWS Region.</p>"
+          }
+        },
+        "DBInstanceAutomatedBackupsArn": {
+          "target": "com.amazonaws.rds#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the automated backups to delete, for example,\n            <code>arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE</code>.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Parameter input for the <code>DeleteDBInstanceAutomatedBackup</code> operation. </p>"
+        "smithy.api#documentation": "<p>Parameter input for the <code>DeleteDBInstanceAutomatedBackup</code> operation.</p>"
       }
     },
     "com.amazonaws.rds#DeleteDBInstanceAutomatedBackupResult": {
@@ -8121,6 +8179,12 @@
           "target": "com.amazonaws.rds#String",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token provided in the previous request. If this parameter is specified the response \n\t\t\tincludes only records beyond the marker, up to <code>MaxRecords</code>.</p>"
+          }
+        },
+        "DBInstanceAutomatedBackupsArn": {
+          "target": "com.amazonaws.rds#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the replicated automated backups, for example,\n            <code>arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE</code>.</p>"
           }
         }
       },
@@ -10465,7 +10529,7 @@
         "KmsKeyId": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the AWS KMS key that is used to encrypt the snapshot when it's exported to\n            Amazon S3. The KMS key ID is the Amazon Resource Name (ARN), the KMS key identifier, or\n            the KMS key alias for the KMS encryption key. The IAM role used for the snapshot export\n            must have encryption and decryption permissions to use this KMS key. </p>"
+            "smithy.api#documentation": "<p>The key identifier of the AWS KMS customer master key (CMK) that is used to encrypt the snapshot when it's exported to\n            Amazon S3. The AWS KMS CMK identifier is its key ARN, key ID, alias ARN, or alias name. The IAM role used for the snapshot export\n            must have encryption and decryption permissions to use this AWS KMS CMK. </p>"
           }
         },
         "Status": {
@@ -10665,7 +10729,7 @@
         "GlobalClusterResourceId": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>\n        The AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in\n        AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.\n      </p>"
+            "smithy.api#documentation": "<p>\n        The AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in\n        AWS CloudTrail log entries whenever the AWS KMS customer master key (CMK) for the DB cluster is accessed.\n      </p>"
           }
         },
         "GlobalClusterArn": {
@@ -12329,7 +12393,7 @@
         "PerformanceInsightsKMSKeyId": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID\n            is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS\n            encryption key.</p>\n        <p>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS \n            uses your default encryption key. AWS KMS creates the default encryption key for your AWS account. \n            Your AWS account has a different default encryption key for each AWS Region.</p>"
+            "smithy.api#documentation": "<p>The AWS KMS key identifier for encryption of Performance Insights data.</p>\n        <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>\n        <p>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS \n            uses your default CMK. There is a default CMK for your AWS account. \n            Your AWS account has a different default CMK for each AWS Region.</p>"
           }
         },
         "PerformanceInsightsRetentionPeriod": {
@@ -14628,7 +14692,7 @@
         "RoleArn": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role to disassociate from the DB instance,\n            for example <code>arn:aws:iam::123456789012:role/AccessRole</code>.</p>",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role to disassociate from the DB instance,\n            for example, <code>arn:aws:iam::123456789012:role/AccessRole</code>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -15334,7 +15398,7 @@
         "KmsKeyId": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS KMS key identifier for an encrypted DB cluster.</p>\n        <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KM encryption key.</p>\n        <p>If the StorageEncrypted parameter is enabled, and you do\n            not specify a value for the <code>KmsKeyId</code> parameter, then\n            Amazon RDS will use your default encryption key. AWS KMS creates the \n            default encryption key for your AWS account. Your AWS account has a different\n            default encryption key for each AWS Region.</p>"
+            "smithy.api#documentation": "<p>The AWS KMS key identifier for an encrypted DB cluster.</p>\n        <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).\n            To use a CMK in a different AWS account, specify the key ARN or alias ARN.</p>\n        <p>If the StorageEncrypted parameter is enabled, and you do\n            not specify a value for the <code>KmsKeyId</code> parameter, then\n            Amazon RDS will use your default CMK. There is a  \n            default CMK for your AWS account. Your AWS account has a different\n            default CMK for each AWS Region.</p>"
           }
         },
         "EnableIAMDatabaseAuthentication": {
@@ -15563,7 +15627,7 @@
         "KmsKeyId": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS KMS key identifier to use when restoring an encrypted DB cluster from a DB\n            snapshot or DB cluster snapshot.</p>\n        <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption\n            key. If you are restoring a DB cluster with the same AWS account that owns the KMS\n            encryption key used to encrypt the new DB cluster, then you can use the KMS key alias\n            instead of the ARN for the KMS encryption key.</p>\n        <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then the\n            following occurs:</p>\n        <ul>\n            <li>\n                <p>If the DB snapshot or DB cluster snapshot in\n                        <code>SnapshotIdentifier</code> is encrypted, then the restored DB cluster\n                    is encrypted using the KMS key that was used to encrypt the DB snapshot or DB\n                    cluster snapshot.</p>\n            </li>\n            <li>\n                <p>If the DB snapshot or DB cluster snapshot in \n                    <code>SnapshotIdentifier</code> isn't encrypted, then the restored DB cluster\n                    isn't encrypted.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The AWS KMS key identifier to use when restoring an encrypted DB cluster from a DB\n            snapshot or DB cluster snapshot.</p>\n         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).\n          To use a CMK in a different AWS account, specify the key ARN or alias ARN.</p>    \n        <p>When you don't specify a value for the <code>KmsKeyId</code> parameter, then the\n            following occurs:</p>\n        <ul>\n            <li>\n                <p>If the DB snapshot or DB cluster snapshot in\n                        <code>SnapshotIdentifier</code> is encrypted, then the restored DB cluster\n                    is encrypted using the AWS KMS CMK that was used to encrypt the DB snapshot or DB\n                    cluster snapshot.</p>\n            </li>\n            <li>\n                <p>If the DB snapshot or DB cluster snapshot in \n                    <code>SnapshotIdentifier</code> isn't encrypted, then the restored DB cluster\n                    isn't encrypted.</p>\n            </li>\n         </ul>"
           }
         },
         "EnableIAMDatabaseAuthentication": {
@@ -15772,7 +15836,7 @@
         "KmsKeyId": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS KMS key identifier to use when restoring an encrypted DB cluster from an encrypted DB cluster.</p>\n         <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key.</p>\n         <p>You can restore to a new DB cluster and encrypt the new DB cluster with a KMS key that is different than the\n      KMS key used to encrypt the source DB cluster. The new DB cluster is encrypted with the KMS key\n      identified by the <code>KmsKeyId</code> parameter.</p>\n         <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then the following occurs:</p>\n         <ul>\n            <li>\n               <p>If the DB cluster is encrypted, then the restored DB cluster is encrypted using the KMS key that was used to encrypt the source DB cluster.</p>\n            </li>\n            <li>\n               <p>If the DB cluster isn't encrypted, then the restored DB cluster isn't encrypted.</p>\n            </li>\n         </ul>\n\n         <p>If <code>DBClusterIdentifier</code> refers to a DB cluster that isn't encrypted, then the restore request\n      is rejected.</p>"
+            "smithy.api#documentation": "<p>The AWS KMS key identifier to use when restoring an encrypted DB cluster from an encrypted DB cluster.</p>\n         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).\n          To use a CMK in a different AWS account, specify the key ARN or alias ARN.</p>\n         <p>You can restore to a new DB cluster and encrypt the new DB cluster with a AWS KMS CMK that is different than the\n      AWS KMS key used to encrypt the source DB cluster. The new DB cluster is encrypted with the AWS KMS CMK\n      identified by the <code>KmsKeyId</code> parameter.</p>\n         <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then the following occurs:</p>\n         <ul>\n            <li>\n               <p>If the DB cluster is encrypted, then the restored DB cluster is encrypted using the AWS KMS CMK that was used to encrypt the source DB cluster.</p>\n            </li>\n            <li>\n               <p>If the DB cluster isn't encrypted, then the restored DB cluster isn't encrypted.</p>\n            </li>\n         </ul>\n\n         <p>If <code>DBClusterIdentifier</code> refers to a DB cluster that isn't encrypted, then the restore request\n      is rejected.</p>"
           }
         },
         "EnableIAMDatabaseAuthentication": {
@@ -15907,7 +15971,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a new DB instance from a DB snapshot. The target database is created from the source database restore point with the most of original configuration with the default security group and the default DB parameter group. By default, the new DB instance is created as a single-AZ deployment except when the instance is a SQL Server instance that has an option group that is associated with mirroring; in this case, the instance becomes a mirrored AZ deployment and not a single-AZ deployment.</p>\n         <p>If your intent is to replace your original DB instance with the new, restored DB instance, then rename your original DB instance before you call the RestoreDBInstanceFromDBSnapshot action. RDS doesn't allow two DB instances with the same name. Once you have renamed your original DB instance with a different identifier, then you can pass the original name of the DB instance as the DBInstanceIdentifier in the call to the RestoreDBInstanceFromDBSnapshot action. The result is that you will replace the original DB instance with the DB instance created from the snapshot.</p>\n         <p>If you are restoring from a shared manual DB snapshot, the <code>DBSnapshotIdentifier</code>\n      must be the ARN of the shared DB snapshot.</p>\n         <note>\n            <p>This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use <code>RestoreDBClusterFromSnapshot</code>.</p>\n         </note>"
+        "smithy.api#documentation": "<p>Creates a new DB instance from a DB snapshot. The target database is created from the source database restore point with most\n            of the source's original configuration, including the default security group and DB parameter group. By default, the new DB\n            instance is created as a Single-AZ deployment, except when the instance is a SQL Server instance that has an option group\n            associated with mirroring. In this case, the instance becomes a Multi-AZ deployment, not a Single-AZ deployment.</p>\n         <p>If you want to replace your original DB instance with the new, restored DB instance, then rename your original DB instance\n            before you call the RestoreDBInstanceFromDBSnapshot action. RDS doesn't allow two DB instances with the same name. After you\n            have renamed your original DB instance with a different identifier, then you can pass the original name of the DB instance as\n            the DBInstanceIdentifier in the call to the RestoreDBInstanceFromDBSnapshot action. The result is that you replace the original\n            DB instance with the DB instance created from the snapshot.</p>\n         <p>If you are restoring from a shared manual DB snapshot, the <code>DBSnapshotIdentifier</code>\n      must be the ARN of the shared DB snapshot.</p>\n         <note>\n            <p>This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use <code>RestoreDBClusterFromSnapshot</code>.</p>\n         </note>"
       }
     },
     "com.amazonaws.rds#RestoreDBInstanceFromDBSnapshotMessage": {
@@ -16323,7 +16387,7 @@
         "KmsKeyId": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS KMS key identifier for an encrypted DB instance.\n        </p>\n        <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. \n            If you are creating a DB instance with the same AWS account that owns the KMS encryption key used to encrypt the new DB instance, \n            then you can use the KMS key alias instead of the ARN for the KM encryption key.\n        </p>\n        <p>If the <code>StorageEncrypted</code> parameter is enabled, \n            and you do not specify a value for the <code>KmsKeyId</code> parameter, \n            then Amazon RDS will use your default encryption key. \n            AWS KMS creates the default encryption key for your AWS account. \n            Your AWS account has a different default encryption key for each AWS Region.\n        </p>"
+            "smithy.api#documentation": "<p>The AWS KMS key identifier for an encrypted DB instance.\n        </p>\n        <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).\n            To use a CMK in a different AWS account, specify the key ARN or alias ARN.</p>\n        <p>If the <code>StorageEncrypted</code> parameter is enabled, \n            and you do not specify a value for the <code>KmsKeyId</code> parameter, \n            then Amazon RDS will use your default CMK. \n            There is a default CMK for your AWS account. \n            Your AWS account has a different default CMK for each AWS Region.\n        </p>"
           }
         },
         "CopyTagsToSnapshot": {
@@ -16393,7 +16457,7 @@
         "PerformanceInsightsKMSKeyId": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS KMS key identifier for encryption of Performance Insights data.\n            The KMS key ID is the Amazon Resource Name (ARN), the KMS key identifier, \n            or the KMS key alias for the KMS encryption key.\n        </p>\n        <p>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS \n            uses your default encryption key. AWS KMS creates the default encryption key for your AWS account. \n            Your AWS account has a different default encryption key for each AWS Region.</p>"
+            "smithy.api#documentation": "<p>The AWS KMS key identifier for encryption of Performance Insights data.</p>\n        <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>\n        <p>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS \n            uses your default CMK. There is a default CMK for your AWS account. \n            Your AWS account has a different default CMK for each AWS Region.</p>"
           }
         },
         "PerformanceInsightsRetentionPeriod": {
@@ -16714,6 +16778,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.</p>"
           }
+        },
+        "SourceDBInstanceAutomatedBackupsArn": {
+          "target": "com.amazonaws.rds#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the replicated automated backups from which to restore, for example, \n            <code>arn:aws:rds:useast-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE</code>.</p>"
+          }
         }
       },
       "traits": {
@@ -17001,6 +17071,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The status of the source AWS Region.</p>"
           }
+        },
+        "SupportsDBInstanceAutomatedBackupsReplication": {
+          "target": "com.amazonaws.rds#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether the source AWS Region supports replicating automated backups to the current AWS Region.</p>"
+          }
         }
       },
       "traits": {
@@ -17099,7 +17175,7 @@
         "ResourceArn": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the DB cluster,\n            for example <code>arn:aws:rds:us-east-1:12345667890:cluster:das-cluster</code>.</p>",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the DB cluster,\n            for example, <code>arn:aws:rds:us-east-1:12345667890:cluster:das-cluster</code>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -17113,7 +17189,7 @@
         "KmsKeyId": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS KMS key identifier for encrypting messages in the database activity stream.\n            The key identifier can be either a key ID, a key ARN, or a key alias.</p>",
+            "smithy.api#documentation": "<p>The AWS KMS key identifier for encrypting messages in the database activity stream.\n            The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>",
             "smithy.api#required": {}
           }
         },
@@ -17250,6 +17326,73 @@
         "smithy.api#documentation": "<p>\n            Starts an Amazon RDS DB instance that was stopped using the AWS console, the stop-db-instance AWS CLI command, or the StopDBInstance action.\n        </p>\n        \n        <p>For more information, see  \n            <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StartInstance.html\">\n                Starting an Amazon RDS DB instance That Was Previously Stopped</a> in the \n            <i>Amazon RDS User Guide.</i>\n         </p>\n        \n        <note>\n            <p>\n            This command doesn't apply to Aurora MySQL and Aurora PostgreSQL.\n            For Aurora DB clusters, use <code>StartDBCluster</code> instead.\n          </p>\n        </note>"
       }
     },
+    "com.amazonaws.rds#StartDBInstanceAutomatedBackupsReplication": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.rds#StartDBInstanceAutomatedBackupsReplicationMessage"
+      },
+      "output": {
+        "target": "com.amazonaws.rds#StartDBInstanceAutomatedBackupsReplicationResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.rds#DBInstanceAutomatedBackupQuotaExceededFault"
+        },
+        {
+          "target": "com.amazonaws.rds#DBInstanceNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.rds#InvalidDBInstanceStateFault"
+        },
+        {
+          "target": "com.amazonaws.rds#KMSKeyNotAccessibleFault"
+        },
+        {
+          "target": "com.amazonaws.rds#StorageTypeNotSupportedFault"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Enables replication of automated backups to a different AWS Region.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html\">\n            Replicating Automated Backups to Another AWS Region</a> in the <i>Amazon RDS User Guide.</i>\n         </p>"
+      }
+    },
+    "com.amazonaws.rds#StartDBInstanceAutomatedBackupsReplicationMessage": {
+      "type": "structure",
+      "members": {
+        "SourceDBInstanceArn": {
+          "target": "com.amazonaws.rds#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, \n            <code>arn:aws:rds:us-west-2:123456789012:db:mydatabase</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "BackupRetentionPeriod": {
+          "target": "com.amazonaws.rds#IntegerOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>The retention period for the replicated automated backups.</p>"
+          }
+        },
+        "KmsKeyId": {
+          "target": "com.amazonaws.rds#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the\n            Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, \n            <code>arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE</code>.</p>"
+          }
+        },
+        "PreSignedUrl": {
+          "target": "com.amazonaws.rds#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A URL that contains a Signature Version 4 signed request for the StartDBInstanceAutomatedBackupsReplication action to be \n            called in the AWS Region of the source DB instance. The presigned URL must be a valid request for the\n            StartDBInstanceAutomatedBackupsReplication API action that can be executed in the AWS Region that contains\n            the source DB instance.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.rds#StartDBInstanceAutomatedBackupsReplicationResult": {
+      "type": "structure",
+      "members": {
+        "DBInstanceAutomatedBackup": {
+          "target": "com.amazonaws.rds#DBInstanceAutomatedBackup"
+        }
+      }
+    },
     "com.amazonaws.rds#StartDBInstanceMessage": {
       "type": "structure",
       "members": {
@@ -17345,7 +17488,7 @@
         "KmsKeyId": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the AWS KMS key to use to encrypt the snapshot exported to Amazon S3. The\n            KMS key ID is the Amazon Resource Name (ARN), the KMS key identifier, or the KMS key\n            alias for the KMS encryption key. The caller of this operation must be authorized to \n            execute the following operations. These can be set in the KMS key policy: </p>\n        <ul>\n            <li>\n               <p>GrantOperation.Encrypt</p>\n            </li>\n            <li>\n               <p>GrantOperation.Decrypt</p>\n            </li>\n            <li>\n               <p>GrantOperation.GenerateDataKey</p>\n            </li>\n            <li>\n               <p>GrantOperation.GenerateDataKeyWithoutPlaintext</p>\n            </li>\n            <li>\n               <p>GrantOperation.ReEncryptFrom</p>\n            </li>\n            <li>\n               <p>GrantOperation.ReEncryptTo</p>\n            </li>\n            <li>\n               <p>GrantOperation.CreateGrant</p>\n            </li>\n            <li>\n               <p>GrantOperation.DescribeKey</p>\n            </li>\n            <li>\n               <p>GrantOperation.RetireGrant</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The ID of the AWS KMS customer master key (CMK) to use to encrypt the snapshot exported to Amazon S3. The AWS KMS \n            key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK). \n            The caller of this operation must be authorized to \n            execute the following operations. These can be set in the AWS KMS key policy: </p>\n        <ul>\n            <li>\n               <p>GrantOperation.Encrypt</p>\n            </li>\n            <li>\n               <p>GrantOperation.Decrypt</p>\n            </li>\n            <li>\n               <p>GrantOperation.GenerateDataKey</p>\n            </li>\n            <li>\n               <p>GrantOperation.GenerateDataKeyWithoutPlaintext</p>\n            </li>\n            <li>\n               <p>GrantOperation.ReEncryptFrom</p>\n            </li>\n            <li>\n               <p>GrantOperation.ReEncryptTo</p>\n            </li>\n            <li>\n               <p>GrantOperation.CreateGrant</p>\n            </li>\n            <li>\n               <p>GrantOperation.DescribeKey</p>\n            </li>\n            <li>\n               <p>GrantOperation.RetireGrant</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         },
@@ -17416,7 +17559,7 @@
         "KmsKeyId": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS KMS key identifier used for encrypting messages in the database activity stream.</p>"
+            "smithy.api#documentation": "<p>The AWS KMS key identifier used for encrypting messages in the database activity stream.</p>\n        <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>"
           }
         },
         "KinesisStreamName": {
@@ -17503,6 +17646,46 @@
       ],
       "traits": {
         "smithy.api#documentation": "<p>\n            Stops an Amazon RDS DB instance. When you stop a DB instance, Amazon RDS retains the DB instance's metadata, including its endpoint, \n            DB parameter group, and option group membership. Amazon RDS also retains the transaction logs so you can do a point-in-time restore if \n            necessary.\n        </p>\n        \n        <p>For more information, see  \n            <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StopInstance.html\">\n                Stopping an Amazon RDS DB Instance Temporarily</a> in the \n            <i>Amazon RDS User Guide.</i>\n         </p>\n        \n        <note>\n            <p>\n            This command doesn't apply to Aurora MySQL and Aurora PostgreSQL.\n            For Aurora clusters, use <code>StopDBCluster</code> instead.\n          </p>\n        </note>"
+      }
+    },
+    "com.amazonaws.rds#StopDBInstanceAutomatedBackupsReplication": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.rds#StopDBInstanceAutomatedBackupsReplicationMessage"
+      },
+      "output": {
+        "target": "com.amazonaws.rds#StopDBInstanceAutomatedBackupsReplicationResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.rds#DBInstanceNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.rds#InvalidDBInstanceStateFault"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Stops automated backup replication for a DB instance.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html\">\n            Replicating Automated Backups to Another AWS Region</a> in the <i>Amazon RDS User Guide.</i>\n         </p>"
+      }
+    },
+    "com.amazonaws.rds#StopDBInstanceAutomatedBackupsReplicationMessage": {
+      "type": "structure",
+      "members": {
+        "SourceDBInstanceArn": {
+          "target": "com.amazonaws.rds#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the source DB instance for which to stop replicating automated backups, for example, \n            <code>arn:aws:rds:us-west-2:123456789012:db:mydatabase</code>.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.rds#StopDBInstanceAutomatedBackupsReplicationResult": {
+      "type": "structure",
+      "members": {
+        "DBInstanceAutomatedBackup": {
+          "target": "com.amazonaws.rds#DBInstanceAutomatedBackup"
+        }
       }
     },
     "com.amazonaws.rds#StopDBInstanceMessage": {

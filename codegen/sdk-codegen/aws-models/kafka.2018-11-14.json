@@ -558,7 +558,7 @@
         "State": {
           "target": "com.amazonaws.kafka#ClusterState",
           "traits": {
-            "smithy.api#documentation": "<p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>",
+            "smithy.api#documentation": "<p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>",
             "smithy.api#jsonName": "state"
           }
         },
@@ -736,6 +736,10 @@
           {
             "value": "FAILED",
             "name": "FAILED"
+          },
+          {
+            "value": "HEALING",
+            "name": "HEALING"
           },
           {
             "value": "MAINTENANCE",
@@ -1082,7 +1086,7 @@
         "State": {
           "target": "com.amazonaws.kafka#ClusterState",
           "traits": {
-            "smithy.api#documentation": "<p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>",
+            "smithy.api#documentation": "<p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>",
             "smithy.api#jsonName": "state"
           }
         }
@@ -1267,7 +1271,7 @@
         "State": {
           "target": "com.amazonaws.kafka#ClusterState",
           "traits": {
-            "smithy.api#documentation": "<p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>",
+            "smithy.api#documentation": "<p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>",
             "smithy.api#jsonName": "state"
           }
         }

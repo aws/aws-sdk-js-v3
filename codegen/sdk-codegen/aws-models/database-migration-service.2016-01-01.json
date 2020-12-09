@@ -7221,6 +7221,30 @@
           "traits": {
             "smithy.api#documentation": "<p>Specifies a date separating delimiter to use during folder partitioning. The default value is \n         <code>SLASH</code>. Use this parameter when <code>DatePartitionedEnabled</code> is set to <code>true</code>.</p>"
           }
+        },
+        "UseCsvNoSupValue": {
+          "target": "com.amazonaws.databasemigrationservice#BooleanOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>This setting applies if the S3 output files during a change data capture (CDC) load are\n         written in .csv format. If set to <code>true</code> for columns not included in the\n         supplemental log, AWS DMS uses the value specified by <a href=\"dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-CsvNoSupValue\">\n               <code>CsvNoSupValue</code>\n            </a>. If not set or set to <code>false</code>, AWS DMS\n         uses the null value for these columns.</p>\n         <note>\n            <p>This setting is supported in AWS DMS versions 3.4.1 and later.</p>\n         </note>"
+          }
+        },
+        "CsvNoSupValue": {
+          "target": "com.amazonaws.databasemigrationservice#String",
+          "traits": {
+            "smithy.api#documentation": "<p>This setting only applies if your Amazon S3 output files during a change data capture\n         (CDC) load are written in .csv format. If <a href=\"dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-UseCsvNoSupValue\">\n               <code>UseCsvNoSupValue</code>\n            </a> is set to true, specify a string value that\n         you want AWS DMS to use for all columns not included in the supplemental log. If you do not\n         specify a string value, AWS DMS uses the null value for these columns regardless of the\n            <code>UseCsvNoSupValue</code> setting.</p>\n         <note>\n            <p>This setting is supported in AWS DMS versions 3.4.1 and later.</p>\n         </note>"
+          }
+        },
+        "PreserveTransactions": {
+          "target": "com.amazonaws.databasemigrationservice#BooleanOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>If set to <code>true</code>, AWS DMS saves the transaction order for a change data\n         capture (CDC) load on the Amazon S3 target specified by <a href=\"dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-CdcPath\">\n               <code>CdcPath</code>\n            </a>.</p>\n         <note>\n            <p>This setting is supported in AWS DMS versions 3.4.2 and later.</p>\n         </note>"
+          }
+        },
+        "CdcPath": {
+          "target": "com.amazonaws.databasemigrationservice#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the folder path of CDC files. For an S3 source, this setting is required if a\n         task captures change data; otherwise, it's optional. If <code>CdcPath</code> is set, AWS\n         DMS reads CDC files from this path and replicates the data changes to the target endpoint.\n         For an S3 target, if <code>CdcPath</code>is set, it is the folder path where data changes\n         are replicated. If you set <a href=\"dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-PreserveTransactions\">\n               <code>PreserveTransactions</code>\n            </a> to <code>true</code>, AWS DMS verifies\n         that you have set this parameter to a folder path on your S3 target where AWS DMS can save\n         the transaction order for the CDC load. AWS DMS creates this CDC folder path in either your\n         S3 target working directory or the S3 target location specified by <a href=\"dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-BucketFolder\">\n               <code>BucketFolder</code>\n            </a> and <a href=\"dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-BucketName\">\n               <code>BucketName</code>\n            </a>.</p>\n         <p>For example, if you specify <code>CdcPath</code> as <code>MyChangedData</code>, and you\n         specify <code>BucketName</code> as <code>MyTargetBucket</code> but do not specify\n            <code>BucketFolder</code>, AWS DMS creates the CDC folder path following:\n            <code>MyTargetBucket/MyChangedData</code>.</p>\n         <p>If you specify the same <code>CdcPath</code>, and you specify <code>BucketName</code> as\n            <code>MyTargetBucket</code> and <code>BucketFolder</code> as <code>MyTargetData</code>,\n         AWS DMS creates the CDC folder path following:\n            <code>MyTargetBucket/MyTargetData/MyChangedData</code>.</p>\n         <note>\n            <p>This setting is supported in AWS DMS versions 3.4.2 and later.</p>\n         </note>"
+          }
         }
       },
       "traits": {

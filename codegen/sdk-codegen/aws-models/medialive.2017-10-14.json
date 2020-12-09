@@ -1025,6 +1025,29 @@
         "smithy.api#documentation": "Audio Selector Settings"
       }
     },
+    "com.amazonaws.medialive#AudioSilenceFailoverSettings": {
+      "type": "structure",
+      "members": {
+        "AudioSelectorName": {
+          "target": "com.amazonaws.medialive#__string",
+          "traits": {
+            "smithy.api#documentation": "The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn't create an audio selector in this input, leave blank.",
+            "smithy.api#jsonName": "audioSelectorName",
+            "smithy.api#required": {}
+          }
+        },
+        "AudioSilenceThresholdMsec": {
+          "target": "com.amazonaws.medialive#__integerMin1000",
+          "traits": {
+            "smithy.api#documentation": "The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.",
+            "smithy.api#jsonName": "audioSilenceThresholdMsec"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Placeholder documentation for AudioSilenceFailoverSettings"
+      }
+    },
     "com.amazonaws.medialive#AudioTrack": {
       "type": "structure",
       "members": {
@@ -4592,6 +4615,13 @@
             "smithy.api#documentation": "The type of the input device.",
             "smithy.api#jsonName": "type"
           }
+        },
+        "UhdDeviceSettings": {
+          "target": "com.amazonaws.medialive#InputDeviceUhdSettings",
+          "traits": {
+            "smithy.api#documentation": "Settings that describe an input device that is type UHD.",
+            "smithy.api#jsonName": "uhdDeviceSettings"
+          }
         }
       },
       "traits": {
@@ -6710,11 +6740,25 @@
     "com.amazonaws.medialive#FailoverConditionSettings": {
       "type": "structure",
       "members": {
+        "AudioSilenceSettings": {
+          "target": "com.amazonaws.medialive#AudioSilenceFailoverSettings",
+          "traits": {
+            "smithy.api#documentation": "MediaLive will perform a failover if the specified audio selector is silent for the specified period.",
+            "smithy.api#jsonName": "audioSilenceSettings"
+          }
+        },
         "InputLossSettings": {
           "target": "com.amazonaws.medialive#InputLossFailoverSettings",
           "traits": {
             "smithy.api#documentation": "MediaLive will perform a failover if content is not detected in this input for the specified period.",
             "smithy.api#jsonName": "inputLossSettings"
+          }
+        },
+        "VideoBlackSettings": {
+          "target": "com.amazonaws.medialive#VideoBlackFailoverSettings",
+          "traits": {
+            "smithy.api#documentation": "MediaLive will perform a failover if content is considered black for the specified period.",
+            "smithy.api#jsonName": "videoBlackSettings"
           }
         }
       },
@@ -10278,6 +10322,13 @@
             "smithy.api#documentation": "The type of the input device.",
             "smithy.api#jsonName": "type"
           }
+        },
+        "UhdDeviceSettings": {
+          "target": "com.amazonaws.medialive#InputDeviceUhdSettings",
+          "traits": {
+            "smithy.api#documentation": "Settings that describe an input device that is type UHD.",
+            "smithy.api#jsonName": "uhdDeviceSettings"
+          }
         }
       },
       "traits": {
@@ -10317,6 +10368,70 @@
             "name": "HD"
           }
         ]
+      }
+    },
+    "com.amazonaws.medialive#InputDeviceUhdSettings": {
+      "type": "structure",
+      "members": {
+        "ActiveInput": {
+          "target": "com.amazonaws.medialive#InputDeviceActiveInput",
+          "traits": {
+            "smithy.api#documentation": "If you specified Auto as the configured input, specifies which of the sources is currently active (SDI or HDMI).",
+            "smithy.api#jsonName": "activeInput"
+          }
+        },
+        "ConfiguredInput": {
+          "target": "com.amazonaws.medialive#InputDeviceConfiguredInput",
+          "traits": {
+            "smithy.api#documentation": "The source at the input device that is currently active. You can specify this source.",
+            "smithy.api#jsonName": "configuredInput"
+          }
+        },
+        "DeviceState": {
+          "target": "com.amazonaws.medialive#InputDeviceState",
+          "traits": {
+            "smithy.api#documentation": "The state of the input device.",
+            "smithy.api#jsonName": "deviceState"
+          }
+        },
+        "Framerate": {
+          "target": "com.amazonaws.medialive#__double",
+          "traits": {
+            "smithy.api#documentation": "The frame rate of the video source.",
+            "smithy.api#jsonName": "framerate"
+          }
+        },
+        "Height": {
+          "target": "com.amazonaws.medialive#__integer",
+          "traits": {
+            "smithy.api#documentation": "The height of the video source, in pixels.",
+            "smithy.api#jsonName": "height"
+          }
+        },
+        "MaxBitrate": {
+          "target": "com.amazonaws.medialive#__integer",
+          "traits": {
+            "smithy.api#documentation": "The current maximum bitrate for ingesting this source, in bits per second. You can specify this maximum.",
+            "smithy.api#jsonName": "maxBitrate"
+          }
+        },
+        "ScanType": {
+          "target": "com.amazonaws.medialive#InputDeviceScanType",
+          "traits": {
+            "smithy.api#documentation": "The scan type of the video source.",
+            "smithy.api#jsonName": "scanType"
+          }
+        },
+        "Width": {
+          "target": "com.amazonaws.medialive#__integer",
+          "traits": {
+            "smithy.api#documentation": "The width of the video source, in pixels.",
+            "smithy.api#jsonName": "width"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Settings that describe the active source from the input device, and the video characteristics of that source."
       }
     },
     "com.amazonaws.medialive#InputFilter": {
@@ -18031,7 +18146,7 @@
         "HdDeviceSettings": {
           "target": "com.amazonaws.medialive#InputDeviceConfigurableSettings",
           "traits": {
-            "smithy.api#documentation": "The settings that you want to apply to the input device.",
+            "smithy.api#documentation": "The settings that you want to apply to the HD input device.",
             "smithy.api#jsonName": "hdDeviceSettings"
           }
         },
@@ -18048,6 +18163,13 @@
           "traits": {
             "smithy.api#documentation": "The name that you assigned to this input device (not the unique ID).",
             "smithy.api#jsonName": "name"
+          }
+        },
+        "UhdDeviceSettings": {
+          "target": "com.amazonaws.medialive#InputDeviceConfigurableSettings",
+          "traits": {
+            "smithy.api#documentation": "The settings that you want to apply to the UHD input device.",
+            "smithy.api#jsonName": "uhdDeviceSettings"
           }
         }
       },
@@ -18133,6 +18255,13 @@
           "traits": {
             "smithy.api#documentation": "The type of the input device.",
             "smithy.api#jsonName": "type"
+          }
+        },
+        "UhdDeviceSettings": {
+          "target": "com.amazonaws.medialive#InputDeviceUhdSettings",
+          "traits": {
+            "smithy.api#documentation": "Settings that describe an input device that is type UHD.",
+            "smithy.api#jsonName": "uhdDeviceSettings"
           }
         }
       },
@@ -18582,6 +18711,28 @@
         "smithy.api#documentation": "Placeholder documentation for ValidationError"
       }
     },
+    "com.amazonaws.medialive#VideoBlackFailoverSettings": {
+      "type": "structure",
+      "members": {
+        "BlackDetectThreshold": {
+          "target": "com.amazonaws.medialive#__doubleMin0Max1",
+          "traits": {
+            "smithy.api#documentation": "A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10% white (or 90% black). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (1023*0.1=102.3), which means a pixel value of 102 or less is 'black'. If you set this field to .1 in an 8-bit color depth: (255*0.1=25.5), which means a pixel value of 25 or less is 'black'. The range is 0.0 to 1.0, with any number of decimal places.",
+            "smithy.api#jsonName": "blackDetectThreshold"
+          }
+        },
+        "VideoBlackThresholdMsec": {
+          "target": "com.amazonaws.medialive#__integerMin1000",
+          "traits": {
+            "smithy.api#documentation": "The amount of time (in milliseconds) that the active input must be black before automatic input failover occurs.",
+            "smithy.api#jsonName": "videoBlackThresholdMsec"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Placeholder documentation for VideoBlackFailoverSettings"
+      }
+    },
     "com.amazonaws.medialive#VideoCodecSettings": {
       "type": "structure",
       "members": {
@@ -18893,6 +19044,12 @@
       "type": "double",
       "traits": {
         "smithy.api#documentation": "Placeholder documentation for __doubleMin0"
+      }
+    },
+    "com.amazonaws.medialive#__doubleMin0Max1": {
+      "type": "double",
+      "traits": {
+        "smithy.api#documentation": "Placeholder documentation for __doubleMin0Max1"
       }
     },
     "com.amazonaws.medialive#__doubleMin1": {
