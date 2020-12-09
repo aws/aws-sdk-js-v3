@@ -17,6 +17,9 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
+  "react-native": {
+    "./index": "./index.native"
+  },
   "dependencies": {
     "@aws-sdk/types": "3.0.0",
     "bowser": "^2.11.0",
