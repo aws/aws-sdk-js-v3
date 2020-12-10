@@ -16,11 +16,11 @@ const abortTimeout = async (abortSignal: AbortSignal): Promise<WaiterResult> => 
 };
 
 /**
- * Create a waiter promise only resolves when:
+ * Create a waiter promise that only resolves when:
  * 1. Abort controller is signaled
  * 2. Max wait time is reached
  * 3. `acceptorChecks` succeeds, or fails
- * Otherwise, it invokes `acceptorChecks` with exponential backoff delay.
+ * Otherwise, it invokes `acceptorChecks` with exponential-backoff delay.
  *
  * @internal
  */

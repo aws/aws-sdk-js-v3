@@ -20,7 +20,7 @@ const randomInRange = (min: number, max: number) => min + Math.random() * (max -
  * @param stateChecker function that checks the acceptor states on each poll.
  */
 export const runPolling = async <T, S>(
-  { minDelay, maxDelay, maxWaitTime }: ResolvedWaiterOptions,
+  { minDelay, maxDelay, maxWaitTime, abortController }: ResolvedWaiterOptions,
   client: T,
   input: S,
   acceptorChecks: (client: T, input: S) => Promise<WaiterResult>
@@ -31,6 +31,14 @@ export const runPolling = async <T, S>(
   // Pre-compute this number to avoid Number type overflow.
   const attemptCeiling = Math.log(maxDelay / minDelay) / Math.log(2) + 1;
   while (true) {
+    // Resolve the promise explicitly at timeout or aborted. Otherwise this while loop will keep making API call until
+    // `acceptorCheck` returns non-retry status, even with the Promise.race() outside.
+    if (totalDelay > maxWaitTime) {
+      return { state: WaiterState.TIMEOUT };
+    }
+    if (abortController?.signal?.aborted) {
+      return { state: WaiterState.ABORTED };
+    }
     const delay = exponentialBackoffWithJitter(minDelay, maxDelay, attemptCeiling, currentAttempt);
     await sleep(delay);
     const { state } = await acceptorChecks(client, input);
@@ -39,12 +47,6 @@ export const runPolling = async <T, S>(
     }
 
     totalDelay += delay;
-    if (totalDelay > maxWaitTime) {
-      // Resolve the promise explicitly at timeout. Otherwise this while loop will keep making API call until
-      // `acceptorCheck` returns non-retry status, even with the Promise.race() outside.
-      return { state: WaiterState.TIMEOUT };
-    }
-
     currentAttempt += 1;
   }
 };
