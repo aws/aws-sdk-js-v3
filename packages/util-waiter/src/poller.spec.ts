@@ -2,7 +2,7 @@ import { AbortController } from "@aws-sdk/abort-controller";
 
 import { runPolling } from "./poller";
 import { sleep } from "./utils/sleep";
-import { WaiterState } from "./waiter";
+import { ResolvedWaiterOptions, WaiterState } from "./waiter";
 
 jest.mock("./utils/sleep");
 
@@ -11,8 +11,8 @@ describe(runPolling.name, () => {
     minDelay: 2,
     maxDelay: 30,
     maxWaitTime: 99999,
-  };
-  const client = "mockClient";
+    client: "mockClient",
+  } as ResolvedWaiterOptions<any>;
   const input = "mockInput";
   const abortedState = {
     state: WaiterState.ABORTED,
@@ -44,13 +44,11 @@ describe(runPolling.name, () => {
 
   it("should returns state in case of failure", async () => {
     mockAcceptorChecks = jest.fn().mockResolvedValueOnce(failureState);
-    await expect(runPolling<string, string>(config, client, input, mockAcceptorChecks)).resolves.toStrictEqual(
-      failureState
-    );
+    await expect(runPolling(config, input, mockAcceptorChecks)).resolves.toStrictEqual(failureState);
 
     expect(mockAcceptorChecks).toHaveBeenCalled();
     expect(mockAcceptorChecks).toHaveBeenCalledTimes(1);
-    expect(mockAcceptorChecks).toHaveBeenCalledWith(client, input);
+    expect(mockAcceptorChecks).toHaveBeenCalledWith(config.client, input);
 
     expect(sleep).toHaveBeenCalled();
     expect(sleep).toHaveBeenCalledTimes(1);
@@ -59,9 +57,7 @@ describe(runPolling.name, () => {
 
   it("returns state in case of success", async () => {
     mockAcceptorChecks = jest.fn().mockResolvedValueOnce(successState);
-    await expect(runPolling<string, string>(config, client, input, mockAcceptorChecks)).resolves.toStrictEqual(
-      successState
-    );
+    await expect(runPolling(config, input, mockAcceptorChecks)).resolves.toStrictEqual(successState);
     expect(sleep).toHaveBeenCalled();
     expect(sleep).toHaveBeenCalledTimes(1);
     expect(sleep).toHaveBeenCalledWith(config.minDelay);
@@ -78,9 +74,7 @@ describe(runPolling.name, () => {
       .mockResolvedValueOnce(retryState)
       .mockResolvedValueOnce(successState);
 
-    await expect(runPolling<string, string>(config, client, input, mockAcceptorChecks)).resolves.toStrictEqual(
-      successState
-    );
+    await expect(runPolling(config, input, mockAcceptorChecks)).resolves.toStrictEqual(successState);
 
     expect(sleep).toHaveBeenCalled();
     expect(sleep).toHaveBeenCalledTimes(7);
@@ -94,16 +88,15 @@ describe(runPolling.name, () => {
   });
 
   it("resolves when maxWaitTime is reached", async () => {
-    const config = {
+    const localConfig = {
+      ...config,
       minDelay: 2,
       maxDelay: 2,
       maxWaitTime: 5,
     };
 
     mockAcceptorChecks = jest.fn().mockResolvedValue(retryState);
-    await expect(runPolling<string, string>(config, client, input, mockAcceptorChecks)).resolves.toStrictEqual(
-      timeoutState
-    );
+    await expect(runPolling(localConfig, input, mockAcceptorChecks)).resolves.toStrictEqual(timeoutState);
     expect(sleep).toHaveBeenCalled();
     expect(sleep).toHaveBeenCalledTimes(3);
   });
@@ -117,9 +110,7 @@ describe(runPolling.name, () => {
 
     mockAcceptorChecks = jest.fn().mockResolvedValue(retryState);
     abortController.abort();
-    await expect(runPolling<string, string>(localConfig, client, input, mockAcceptorChecks)).resolves.toStrictEqual(
-      abortedState
-    );
+    await expect(runPolling(localConfig, input, mockAcceptorChecks)).resolves.toStrictEqual(abortedState);
     expect(sleep).not.toHaveBeenCalled();
   });
 });
