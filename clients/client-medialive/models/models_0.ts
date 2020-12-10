@@ -1,5 +1,3 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-
 /**
  * Input Channel Level
  */

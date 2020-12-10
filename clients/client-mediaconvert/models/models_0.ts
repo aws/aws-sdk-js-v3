@@ -1,5 +1,3 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-
 export enum AudioChannelTag {
   C = "C",
   CS = "CS",
