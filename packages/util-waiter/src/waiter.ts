@@ -1,9 +1,8 @@
-import { AbortController } from "@aws-sdk/abort-controller";
+import { AbortController } from "@aws-sdk/types";
 
 export interface WaiterConfiguration {
   /**
-   * The amount of time in seconds a user is willing to wait for a waiter to complete. This
-   * defaults to 300 (5 minutes).
+   * The amount of time in seconds a user is willing to wait for a waiter to complete.
    */
   maxWaitTime: number;
 
@@ -19,21 +18,35 @@ export interface WaiterOptions extends WaiterConfiguration {
    * to 2 if not specified. If specified, this value MUST be greater than or equal to 1
    * and less than or equal to maxDelay.
    */
-  minDelay: number;
+  minDelay?: number;
 
   /**
    * The maximum amount of time to delay between retries in seconds. The maximum amount
    * of time in seconds to delay between each retry. This value defaults to 120 if not
    * specified (2 minutes). If specified, this value MUST be greater than or equal to 1.
    */
-  maxDelay: number;
+  maxDelay?: number;
 }
+
+/**
+ * @private
+ */
+export const waiterServiceDefaults = {
+  minDelay: 2,
+  maxDelay: 120,
+};
+
+/**
+ * @private
+ */
+export type ResolvedWaiterOptions = WaiterOptions & Required<Pick<WaiterOptions, "minDelay" | "maxDelay">>;
 
 export enum WaiterState {
   ABORTED = "ABORTED",
   FAILURE = "FAILURE",
   SUCCESS = "SUCCESS",
   RETRY = "RETRY",
+  TIMEOUT = "TIMEOUT",
 }
 
 export type WaiterResult = {

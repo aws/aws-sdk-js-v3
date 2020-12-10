@@ -1,13 +1,15 @@
 import { sleep } from "./utils/sleep";
-import { WaiterOptions, WaiterResult, WaiterState } from "./waiter";
+import { ResolvedWaiterOptions, WaiterResult, WaiterState } from "./waiter";
 
 /**
- * Reference: https://github.com/awslabs/smithy/pull/656
- * The theoretical limit to the attempt is max delay cannot be > Number.MAX_VALUE, but it's unlikely because of
- * `maxWaitTime`
+ * Reference: https://awslabs.github.io/smithy/1.0/spec/waiters.html#waiter-retries
  */
-const exponentialBackoffWithJitter = (floor: number, ciel: number, attempt: number) =>
-  Math.floor(Math.min(ciel, randomInRange(floor, floor * 2 ** (attempt - 1))));
+const exponentialBackoffWithJitter = (minDelay: number, maxDelay: number, attemptCeiling: number, attempt: number) => {
+  if (attempt > attemptCeiling) return maxDelay;
+  const delay = minDelay * 2 ** (attempt - 1);
+  return randomInRange(minDelay, delay);
+};
+
 const randomInRange = (min: number, max: number) => min + Math.random() * (max - min);
 
 /**
@@ -18,19 +20,31 @@ const randomInRange = (min: number, max: number) => min + Math.random() * (max -
  * @param stateChecker function that checks the acceptor states on each poll.
  */
 export const runPolling = async <T, S>(
-  { minDelay, maxDelay }: WaiterOptions,
+  { minDelay, maxDelay, maxWaitTime }: ResolvedWaiterOptions,
   client: T,
   input: S,
   acceptorChecks: (client: T, input: S) => Promise<WaiterResult>
 ): Promise<WaiterResult> => {
   let currentAttempt = 1;
-
+  let totalDelay = 0;
+  // The max attempt number that the derived delay time tend to increase.
+  // Pre-compute this number to avoid Number type overflow.
+  const attemptCeiling = Math.log(maxDelay / minDelay) / Math.log(2) + 1;
   while (true) {
-    await sleep(exponentialBackoffWithJitter(minDelay, maxDelay, currentAttempt));
+    const delay = exponentialBackoffWithJitter(minDelay, maxDelay, attemptCeiling, currentAttempt);
+    await sleep(delay);
     const { state } = await acceptorChecks(client, input);
-    if (state === WaiterState.SUCCESS || state === WaiterState.FAILURE) {
+    if (state !== WaiterState.RETRY) {
       return { state };
     }
+
+    totalDelay += delay;
+    if (totalDelay > maxWaitTime) {
+      // Resolve the promise explicitly at timeout. Otherwise this while loop will keep making API call until
+      // `acceptorCheck` returns non-retry status, even with the Promise.race() outside.
+      return { state: WaiterState.TIMEOUT };
+    }
+
     currentAttempt += 1;
   }
 };

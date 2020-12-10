@@ -21,6 +21,9 @@ describe(runPolling.name, () => {
   const retryState = {
     state: WaiterState.RETRY,
   };
+  const timeoutState = {
+    state: WaiterState.TIMEOUT,
+  };
 
   let mockAcceptorChecks;
 
@@ -82,12 +85,27 @@ describe(runPolling.name, () => {
 
     expect(sleep).toHaveBeenCalled();
     expect(sleep).toHaveBeenCalledTimes(7);
-    expect(sleep).toHaveBeenNthCalledWith(1, 2); // min delay
-    expect(sleep).toHaveBeenNthCalledWith(2, 3); // +random() * 2
-    expect(sleep).toHaveBeenNthCalledWith(3, 5); // +random() * 4
-    expect(sleep).toHaveBeenNthCalledWith(4, 9); // +random() * 8
-    expect(sleep).toHaveBeenNthCalledWith(5, 17); // +random() * 16
+    expect(sleep).toHaveBeenNthCalledWith(1, 2); // min delay. random(2, 2)
+    expect(sleep).toHaveBeenNthCalledWith(2, 3); // random(2, 4)
+    expect(sleep).toHaveBeenNthCalledWith(3, 5); // +random(2, 8)
+    expect(sleep).toHaveBeenNthCalledWith(4, 9); // +random(2, 16)
+    expect(sleep).toHaveBeenNthCalledWith(5, 30); // max delay
     expect(sleep).toHaveBeenNthCalledWith(6, 30); // max delay
     expect(sleep).toHaveBeenNthCalledWith(7, 30); // max delay
+  });
+
+  it("resolves when maxWaitTime is reached", async () => {
+    const config = {
+      minDelay: 2,
+      maxDelay: 2,
+      maxWaitTime: 5,
+    };
+
+    mockAcceptorChecks = jest.fn().mockResolvedValue(retryState);
+    await expect(runPolling<string, string>(config, client, input, mockAcceptorChecks)).resolves.toStrictEqual(
+      timeoutState
+    );
+    expect(sleep).toHaveBeenCalled();
+    expect(sleep).toHaveBeenCalledTimes(3);
   });
 });

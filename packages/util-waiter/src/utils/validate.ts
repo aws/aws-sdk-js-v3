@@ -1,10 +1,10 @@
-import { WaiterOptions } from "../waiter";
+import { ResolvedWaiterOptions } from "../waiter";
 
 /**
  * Validates that waiter options are passed correctly
  * @param options a waiter configuration object
  */
-export const validateWaiterOptions = (options: WaiterOptions): void => {
+export const validateWaiterOptions = (options: ResolvedWaiterOptions): void => {
   if (options.maxWaitTime < 1) {
     throw `WaiterOptions.maxWaitTime must be greater than 0`;
   } else if (options.maxWaitTime <= options.minDelay) {
