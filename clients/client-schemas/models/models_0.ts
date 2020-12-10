@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  LazyJsonString as __LazyJsonString,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/smithy-client";
+import { LazyJsonString as __LazyJsonString, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum DiscovererState {

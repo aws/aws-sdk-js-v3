@@ -49,7 +49,7 @@ import {
   Workflow,
   WorkflowRun,
 } from "./models_0";
-import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface GetJobBookmarkResponse {

@@ -46,7 +46,6 @@ import {
   VpcPeeringConnection,
   _InstanceType,
 } from "./models_0";
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 /**
  * <p>Describes the monitoring for the instance.</p>

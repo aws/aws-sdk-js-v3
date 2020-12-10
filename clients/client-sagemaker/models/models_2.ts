@@ -134,7 +134,6 @@ import {
   Workteam,
   _InstanceType,
 } from "./models_1";
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 export interface DisassociateTrialComponentRequest {
   /**

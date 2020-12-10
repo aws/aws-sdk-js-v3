@@ -7,7 +7,6 @@ import {
   RecordState,
   Result,
 } from "./models_0";
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 export interface GetFindingsResponse {
   /**

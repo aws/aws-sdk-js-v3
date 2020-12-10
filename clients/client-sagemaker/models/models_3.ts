@@ -1,6 +1,5 @@
 import { BooleanOperator } from "./models_0";
 import { Filter, NestedFilters, ResourceType, SearchSortOrder } from "./models_2";
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 /**
  * <p>A multi-expression that searches for the specified resource or resources in a search. All resource
