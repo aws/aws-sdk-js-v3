@@ -88,10 +88,20 @@ describe(runPolling.name, () => {
   });
 
   it("resolves when maxWaitTime is reached", async () => {
+    let now = Date.now();
+    const delay = 2;
+    const nowMock = jest
+      .spyOn(Date, "now")
+      .mockReturnValueOnce(now) // 1st invoke for getting the time stamp to wait until
+      .mockImplementation(() => {
+        const rtn = now;
+        now += delay * 1000;
+        return rtn;
+      });
     const localConfig = {
       ...config,
-      minDelay: 2,
-      maxDelay: 2,
+      minDelay: delay,
+      maxDelay: delay,
       maxWaitTime: 5,
     };
 
@@ -99,6 +109,7 @@ describe(runPolling.name, () => {
     await expect(runPolling(localConfig, input, mockAcceptorChecks)).resolves.toStrictEqual(timeoutState);
     expect(sleep).toHaveBeenCalled();
     expect(sleep).toHaveBeenCalledTimes(3);
+    nowMock.mockReset();
   });
 
   it("resolves when abortController is signalled", async () => {

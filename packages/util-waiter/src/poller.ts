@@ -25,14 +25,14 @@ export const runPolling = async <T extends SmithyClient, S>(
   acceptorChecks: (client: T, input: S) => Promise<WaiterResult>
 ): Promise<WaiterResult> => {
   let currentAttempt = 1;
-  let totalDelay = 0;
+  const waitUntil = Date.now() + maxWaitTime * 1000;
   // The max attempt number that the derived delay time tend to increase.
   // Pre-compute this number to avoid Number type overflow.
   const attemptCeiling = Math.log(maxDelay / minDelay) / Math.log(2) + 1;
   while (true) {
     // Resolve the promise explicitly at timeout or aborted. Otherwise this while loop will keep making API call until
     // `acceptorCheck` returns non-retry status, even with the Promise.race() outside.
-    if (totalDelay > maxWaitTime) {
+    if (Date.now() > waitUntil) {
       return { state: WaiterState.TIMEOUT };
     }
     if (abortController?.signal?.aborted) {
@@ -45,7 +45,6 @@ export const runPolling = async <T extends SmithyClient, S>(
       return { state };
     }
 
-    totalDelay += delay;
     currentAttempt += 1;
   }
 };
