@@ -16,11 +16,11 @@
 import software.amazon.smithy.gradle.tasks.SmithyBuild
 
 plugins {
-    id("software.amazon.smithy") version "0.5.1"
+    id("software.amazon.smithy") version "0.5.2"
 }
 
 dependencies {
-    implementation("software.amazon.smithy:smithy-aws-protocol-tests:1.0.5")
+    implementation("software.amazon.smithy:smithy-aws-protocol-tests:[1.5.0, 2.0[")
     compile(project(":smithy-aws-typescript-codegen"))
 }
 
