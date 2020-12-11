@@ -49,6 +49,9 @@
           "target": "com.amazonaws.kendra#CreateIndex"
         },
         {
+          "target": "com.amazonaws.kendra#CreateThesaurus"
+        },
+        {
           "target": "com.amazonaws.kendra#DeleteDataSource"
         },
         {
@@ -58,6 +61,9 @@
           "target": "com.amazonaws.kendra#DeleteIndex"
         },
         {
+          "target": "com.amazonaws.kendra#DeleteThesaurus"
+        },
+        {
           "target": "com.amazonaws.kendra#DescribeDataSource"
         },
         {
@@ -65,6 +71,9 @@
         },
         {
           "target": "com.amazonaws.kendra#DescribeIndex"
+        },
+        {
+          "target": "com.amazonaws.kendra#DescribeThesaurus"
         },
         {
           "target": "com.amazonaws.kendra#ListDataSources"
@@ -80,6 +89,9 @@
         },
         {
           "target": "com.amazonaws.kendra#ListTagsForResource"
+        },
+        {
+          "target": "com.amazonaws.kendra#ListThesauri"
         },
         {
           "target": "com.amazonaws.kendra#Query"
@@ -104,6 +116,9 @@
         },
         {
           "target": "com.amazonaws.kendra#UpdateIndex"
+        },
+        {
+          "target": "com.amazonaws.kendra#UpdateThesaurus"
         }
       ],
       "traits": {
@@ -1569,6 +1584,104 @@
         }
       }
     },
+    "com.amazonaws.kendra#CreateThesaurus": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.kendra#CreateThesaurusRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.kendra#CreateThesaurusResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.kendra#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.kendra#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.kendra#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.kendra#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.kendra#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.kendra#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.kendra#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a thesaurus for an index. The thesaurus\n      contains a list of synonyms in Solr format.</p>"
+      }
+    },
+    "com.amazonaws.kendra#CreateThesaurusRequest": {
+      "type": "structure",
+      "members": {
+        "IndexId": {
+          "target": "com.amazonaws.kendra#IndexId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the index for the new thesaurus.\n      </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.kendra#ThesaurusName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name for the new thesaurus.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.kendra#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The description for the new thesaurus.</p>"
+          }
+        },
+        "RoleArn": {
+          "target": "com.amazonaws.kendra#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions \n         to access thesaurus file specified in <code>SourceS3Path</code>.\n      </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.kendra#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of key-value pairs that identify the thesaurus. You can use \n         the tags to identify and organize your resources and to control \n         access to resources.\n      </p>"
+          }
+        },
+        "SourceS3Path": {
+          "target": "com.amazonaws.kendra#S3Path",
+          "traits": {
+            "smithy.api#documentation": "<p>The thesaurus file Amazon S3 source path.\n      </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ClientToken": {
+          "target": "com.amazonaws.kendra#ClientTokenName",
+          "traits": {
+            "smithy.api#documentation": "<p>A token that you provide to identify the request to create a \n         thesaurus. Multiple calls to the <code>CreateThesaurus</code> operation \n         with the same client token will create only one index.\n      </p>",
+            "smithy.api#idempotencyToken": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.kendra#CreateThesaurusResponse": {
+      "type": "structure",
+      "members": {
+        "Id": {
+          "target": "com.amazonaws.kendra#ThesaurusId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the thesaurus. \n      </p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.kendra#DataSourceConfiguration": {
       "type": "structure",
       "members": {
@@ -2268,6 +2381,54 @@
         }
       }
     },
+    "com.amazonaws.kendra#DeleteThesaurus": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.kendra#DeleteThesaurusRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.kendra#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.kendra#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.kendra#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.kendra#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.kendra#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.kendra#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes an existing Amazon Kendra thesaurus. \n      </p>"
+      }
+    },
+    "com.amazonaws.kendra#DeleteThesaurusRequest": {
+      "type": "structure",
+      "members": {
+        "Id": {
+          "target": "com.amazonaws.kendra#ThesaurusId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the thesaurus to delete.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "IndexId": {
+          "target": "com.amazonaws.kendra#IndexId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the index associated with the thesaurus to delete.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
     "com.amazonaws.kendra#DescribeDataSource": {
       "type": "operation",
       "input": {
@@ -2562,7 +2723,7 @@
         "Id": {
           "target": "com.amazonaws.kendra#IndexId",
           "traits": {
-            "smithy.api#documentation": "<p>the name of the index.</p>"
+            "smithy.api#documentation": "<p>The name of the index.</p>"
           }
         },
         "Edition": {
@@ -2641,6 +2802,134 @@
           "target": "com.amazonaws.kendra#UserContextPolicy",
           "traits": {
             "smithy.api#documentation": "<p>The user context policy for the Amazon Kendra index.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.kendra#DescribeThesaurus": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.kendra#DescribeThesaurusRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.kendra#DescribeThesaurusResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.kendra#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.kendra#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.kendra#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.kendra#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.kendra#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Describes an existing Amazon Kendra thesaurus.</p>"
+      }
+    },
+    "com.amazonaws.kendra#DescribeThesaurusRequest": {
+      "type": "structure",
+      "members": {
+        "Id": {
+          "target": "com.amazonaws.kendra#ThesaurusId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the thesaurus to describe.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "IndexId": {
+          "target": "com.amazonaws.kendra#IndexId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the index associated with the thesaurus to describe.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.kendra#DescribeThesaurusResponse": {
+      "type": "structure",
+      "members": {
+        "Id": {
+          "target": "com.amazonaws.kendra#ThesaurusId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the thesaurus.</p>"
+          }
+        },
+        "IndexId": {
+          "target": "com.amazonaws.kendra#IndexId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the index associated with the thesaurus to describe.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.kendra#ThesaurusName",
+          "traits": {
+            "smithy.api#documentation": "<p>The thesaurus name.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.kendra#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The thesaurus description.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.kendra#ThesaurusStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the thesaurus. When the value is <code>ACTIVE</code>, \n         queries are able to use the thesaurus. If the <code>Status</code> field value \n         is <code>FAILED</code>, the <code>ErrorMessage</code> field provides\n         more information.\n      </p>\n         <p>If the status is <code>ACTIVE_BUT_UPDATE_FAILED</code>, it means\n      that Amazon Kendra could not ingest the new thesaurus file. The old\n      thesaurus file is still active.\n      </p>"
+          }
+        },
+        "ErrorMessage": {
+          "target": "com.amazonaws.kendra#ErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>When the <code>Status</code> field value is <code>FAILED</code>, the\n         <code>ErrorMessage</code> field provides more information.\n      </p>"
+          }
+        },
+        "CreatedAt": {
+          "target": "com.amazonaws.kendra#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The Unix datetime that the thesaurus was created.</p>"
+          }
+        },
+        "UpdatedAt": {
+          "target": "com.amazonaws.kendra#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The Unix datetime that the thesaurus was last updated.</p>"
+          }
+        },
+        "RoleArn": {
+          "target": "com.amazonaws.kendra#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions \n         to access thesaurus file specified in <code>SourceS3Path</code>.\n      </p>"
+          }
+        },
+        "SourceS3Path": {
+          "target": "com.amazonaws.kendra#S3Path"
+        },
+        "FileSizeBytes": {
+          "target": "com.amazonaws.kendra#Long",
+          "traits": {
+            "smithy.api#documentation": "<p>The size of the thesaurus file in bytes.</p>"
+          }
+        },
+        "TermCount": {
+          "target": "com.amazonaws.kendra#Long",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of unique terms in the thesaurus file. For example, the\n        synonyms <code>a,b,c</code> and <code>a=>d</code>, the term\n        count would be 4.\n      </p>"
+          }
+        },
+        "SynonymRuleCount": {
+          "target": "com.amazonaws.kendra#Long",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of synonym rules in the thesaurus file.</p>"
           }
         }
       }
@@ -3304,6 +3593,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether the response is the best response. True if this\n            is the best response; otherwise, false.</p>"
           }
+        },
+        "Type": {
+          "target": "com.amazonaws.kendra#HighlightType",
+          "traits": {
+            "smithy.api#documentation": "<p>The highlight type. </p>"
+          }
         }
       },
       "traits": {
@@ -3314,6 +3609,21 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.kendra#Highlight"
+      }
+    },
+    "com.amazonaws.kendra#HighlightType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "STANDARD",
+            "name": "STANDARD"
+          },
+          {
+            "value": "THESAURUS_SYNONYM",
+            "name": "THESAURUS_SYNONYM"
+          }
+        ]
       }
     },
     "com.amazonaws.kendra#Importance": {
@@ -3987,6 +4297,76 @@
         }
       }
     },
+    "com.amazonaws.kendra#ListThesauri": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.kendra#ListThesauriRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.kendra#ListThesauriResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.kendra#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.kendra#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.kendra#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.kendra#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.kendra#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists the Amazon Kendra thesauri associated with an index.</p>"
+      }
+    },
+    "com.amazonaws.kendra#ListThesauriRequest": {
+      "type": "structure",
+      "members": {
+        "IndexId": {
+          "target": "com.amazonaws.kendra#IndexId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the index associated with the thesaurus to list.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.kendra#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If the previous response was incomplete (because there is more data to retrieve),\n         Amazon Kendra returns a pagination token in the response. You can use this pagination token to\n         retrieve the next set of thesauri (<code>ThesaurusSummaryItems</code>). \n      </p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.kendra#MaxResultsIntegerForListThesauriRequest",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of thesauri to return.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.kendra#ListThesauriResponse": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.kendra#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If the response is truncated, Amazon Kendra returns this \n         token that you can use in the subsequent request to \n         retrieve the next set of thesauri.\n      </p>"
+          }
+        },
+        "ThesaurusSummaryItems": {
+          "target": "com.amazonaws.kendra#ThesaurusSummaryItems",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of summary information for one or more thesauruses.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.kendra#Long": {
       "type": "long",
       "traits": {
@@ -4024,6 +4404,16 @@
       }
     },
     "com.amazonaws.kendra#MaxResultsIntegerForListIndicesRequest": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": {},
+        "smithy.api#range": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.kendra#MaxResultsIntegerForListThesauriRequest": {
       "type": "integer",
       "traits": {
         "smithy.api#box": {},
@@ -4278,7 +4668,8 @@
         "smithy.api#length": {
           "min": 1,
           "max": 36
-        }
+        },
+        "smithy.api#pattern": "[a-zA-Z0-9][a-zA-Z0-9-]*"
       }
     },
     "com.amazonaws.kendra#QueryIdentifiersEnclosingOption": {
@@ -5981,6 +6372,101 @@
         "smithy.api#documentation": "<p>Provides text and information about where to highlight the\n            text.</p>"
       }
     },
+    "com.amazonaws.kendra#ThesaurusId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 100
+        },
+        "smithy.api#pattern": "[a-zA-Z0-9][a-zA-Z0-9_-]*"
+      }
+    },
+    "com.amazonaws.kendra#ThesaurusName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 100
+        },
+        "smithy.api#pattern": "[a-zA-Z0-9][a-zA-Z0-9_-]*"
+      }
+    },
+    "com.amazonaws.kendra#ThesaurusStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "CREATING",
+            "name": "CREATING"
+          },
+          {
+            "value": "ACTIVE",
+            "name": "ACTIVE"
+          },
+          {
+            "value": "DELETING",
+            "name": "DELETING"
+          },
+          {
+            "value": "UPDATING",
+            "name": "UPDATING"
+          },
+          {
+            "value": "ACTIVE_BUT_UPDATE_FAILED",
+            "name": "ACTIVE_BUT_UPDATE_FAILED"
+          },
+          {
+            "value": "FAILED",
+            "name": "FAILED"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.kendra#ThesaurusSummary": {
+      "type": "structure",
+      "members": {
+        "Id": {
+          "target": "com.amazonaws.kendra#ThesaurusId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the thesaurus.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.kendra#ThesaurusName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the thesaurus.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.kendra#ThesaurusStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the thesaurus.</p>"
+          }
+        },
+        "CreatedAt": {
+          "target": "com.amazonaws.kendra#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The Unix datetime that the thesaurus was created.</p>"
+          }
+        },
+        "UpdatedAt": {
+          "target": "com.amazonaws.kendra#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The Unix datetime that the thesaurus was last updated.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An array of summary information for one or more thesauruses.</p>"
+      }
+    },
+    "com.amazonaws.kendra#ThesaurusSummaryItems": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.kendra#ThesaurusSummary"
+      }
+    },
     "com.amazonaws.kendra#ThrottlingException": {
       "type": "structure",
       "members": {
@@ -6240,6 +6726,75 @@
           "traits": {
             "smithy.api#documentation": "<p>The user user token context policy.</p>"
           }
+        }
+      }
+    },
+    "com.amazonaws.kendra#UpdateThesaurus": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.kendra#UpdateThesaurusRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.kendra#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.kendra#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.kendra#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.kendra#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.kendra#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.kendra#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates a thesaurus file associated with an index.</p>"
+      }
+    },
+    "com.amazonaws.kendra#UpdateThesaurusRequest": {
+      "type": "structure",
+      "members": {
+        "Id": {
+          "target": "com.amazonaws.kendra#ThesaurusId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the thesaurus to update.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.kendra#ThesaurusName",
+          "traits": {
+            "smithy.api#documentation": "<p>The updated name of the thesaurus.</p>"
+          }
+        },
+        "IndexId": {
+          "target": "com.amazonaws.kendra#IndexId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the index associated with the thesaurus to update.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.kendra#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The updated description of the thesaurus.</p>"
+          }
+        },
+        "RoleArn": {
+          "target": "com.amazonaws.kendra#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The updated role ARN of the thesaurus.</p>"
+          }
+        },
+        "SourceS3Path": {
+          "target": "com.amazonaws.kendra#S3Path"
         }
       }
     },

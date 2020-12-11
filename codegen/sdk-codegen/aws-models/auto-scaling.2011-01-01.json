@@ -261,7 +261,7 @@
           }
         },
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>",
             "smithy.api#required": {}
@@ -297,7 +297,7 @@
       "type": "structure",
       "members": {
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>",
             "smithy.api#required": {}
@@ -340,7 +340,7 @@
       "type": "structure",
       "members": {
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>",
             "smithy.api#required": {}
@@ -554,7 +554,7 @@
     "com.amazonaws.autoscaling#AutoScalingGroupNames": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.autoscaling#ResourceName"
+        "target": "com.amazonaws.autoscaling#XmlStringMaxLen255"
       }
     },
     "com.amazonaws.autoscaling#AutoScalingGroupNamesType": {
@@ -905,11 +905,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.autoscaling#XmlStringMaxLen255"
-      },
-      "traits": {
-        "smithy.api#length": {
-          "min": 1
-        }
       }
     },
     "com.amazonaws.autoscaling#BatchDeleteScheduledAction": {
@@ -944,7 +939,7 @@
       "type": "structure",
       "members": {
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>",
             "smithy.api#required": {}
@@ -997,7 +992,7 @@
       "type": "structure",
       "members": {
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>",
             "smithy.api#required": {}
@@ -1249,7 +1244,7 @@
           }
         },
         "LaunchConfigurationName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the launch configuration to use to launch instances. </p>\n        <p>Conditional: You must specify either a launch template (<code>LaunchTemplate</code> or\n                <code>MixedInstancesPolicy</code>) or a launch configuration\n                (<code>LaunchConfigurationName</code> or <code>InstanceId</code>).</p>"
           }
@@ -1624,7 +1619,7 @@
       "type": "structure",
       "members": {
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>",
             "smithy.api#required": {}
@@ -1687,7 +1682,7 @@
           }
         },
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>",
             "smithy.api#required": {}
@@ -1713,14 +1708,14 @@
       "type": "structure",
       "members": {
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>",
             "smithy.api#required": {}
           }
         },
         "TopicARN": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS)\n            topic.</p>",
             "smithy.api#required": {}
@@ -1749,7 +1744,7 @@
       "type": "structure",
       "members": {
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>"
           }
@@ -1781,14 +1776,14 @@
       "type": "structure",
       "members": {
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>",
             "smithy.api#required": {}
           }
         },
         "ScheduledActionName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the action to delete.</p>",
             "smithy.api#required": {}
@@ -2143,7 +2138,7 @@
       "type": "structure",
       "members": {
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>",
             "smithy.api#required": {}
@@ -2178,7 +2173,7 @@
       "type": "structure",
       "members": {
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>",
             "smithy.api#required": {}
@@ -2236,7 +2231,7 @@
       "type": "structure",
       "members": {
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>",
             "smithy.api#required": {}
@@ -2404,7 +2399,7 @@
       "type": "structure",
       "members": {
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>"
           }
@@ -2471,7 +2466,7 @@
           }
         },
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>"
           }
@@ -2534,7 +2529,7 @@
       "type": "structure",
       "members": {
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>"
           }
@@ -2683,7 +2678,7 @@
           }
         },
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>",
             "smithy.api#required": {}
@@ -2723,7 +2718,7 @@
       "type": "structure",
       "members": {
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>",
             "smithy.api#required": {}
@@ -2763,7 +2758,7 @@
       "type": "structure",
       "members": {
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>",
             "smithy.api#required": {}
@@ -2796,7 +2791,7 @@
       "type": "structure",
       "members": {
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>",
             "smithy.api#required": {}
@@ -2884,7 +2879,7 @@
       "type": "structure",
       "members": {
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>",
             "smithy.api#required": {}
@@ -2969,7 +2964,7 @@
           }
         },
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>",
             "smithy.api#required": {}
@@ -3011,7 +3006,7 @@
       "type": "structure",
       "members": {
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>"
           }
@@ -3081,7 +3076,7 @@
           }
         },
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>",
             "smithy.api#required": {}
@@ -3670,7 +3665,7 @@
       "type": "structure",
       "members": {
         "LaunchConfigurationName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the launch configuration.</p>",
             "smithy.api#required": {}
@@ -3681,7 +3676,7 @@
     "com.amazonaws.autoscaling#LaunchConfigurationNames": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.autoscaling#ResourceName"
+        "target": "com.amazonaws.autoscaling#XmlStringMaxLen255"
       }
     },
     "com.amazonaws.autoscaling#LaunchConfigurationNamesType": {
@@ -3835,7 +3830,7 @@
           }
         },
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group for the lifecycle hook.</p>"
           }
@@ -3847,13 +3842,13 @@
           }
         },
         "NotificationTargetARN": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#NotificationTargetResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the target that Amazon EC2 Auto Scaling sends notifications to when an instance is in the\n            transition state for the lifecycle hook. The notification target can be either an SQS\n            queue or an SNS topic.</p>"
           }
         },
         "RoleARN": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the IAM role that allows the Auto Scaling group to publish to the specified\n            notification target.</p>"
           }
@@ -3941,7 +3936,7 @@
           }
         },
         "RoleARN": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the IAM role that allows the Auto Scaling group to publish to the specified\n            notification target, for example, an Amazon SNS topic or an Amazon SQS queue.</p>"
           }
@@ -4326,13 +4321,13 @@
       "type": "structure",
       "members": {
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>"
           }
         },
         "TopicARN": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS)\n            topic.</p>"
           }
@@ -4359,7 +4354,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 0,
-          "max": 1600
+          "max": 255
         },
         "smithy.api#pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
       }
@@ -4558,7 +4553,7 @@
           }
         },
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>",
             "smithy.api#required": {}
@@ -4571,7 +4566,7 @@
           }
         },
         "RoleARN": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the IAM role that allows the Auto Scaling group to publish to the specified\n            notification target, for example, an Amazon SNS topic or an Amazon SQS queue.</p>\n        <p>Required for new lifecycle hooks, but optional when updating existing hooks.</p>"
           }
@@ -4626,14 +4621,14 @@
       "type": "structure",
       "members": {
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>",
             "smithy.api#required": {}
           }
         },
         "TopicARN": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS)\n            topic.</p>",
             "smithy.api#required": {}
@@ -4675,7 +4670,7 @@
       "type": "structure",
       "members": {
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>",
             "smithy.api#required": {}
@@ -4780,7 +4775,7 @@
       "type": "structure",
       "members": {
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>",
             "smithy.api#required": {}
@@ -5173,7 +5168,7 @@
       "type": "structure",
       "members": {
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>",
             "smithy.api#required": {}
@@ -5190,7 +5185,7 @@
     "com.amazonaws.autoscaling#ScheduledActionNames": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.autoscaling#ResourceName"
+        "target": "com.amazonaws.autoscaling#XmlStringMaxLen255"
       }
     },
     "com.amazonaws.autoscaling#ScheduledActionsType": {
@@ -5381,7 +5376,7 @@
       "type": "structure",
       "members": {
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>",
             "smithy.api#required": {}
@@ -5476,7 +5471,7 @@
           }
         },
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>",
             "smithy.api#required": {}
@@ -5889,14 +5884,14 @@
       "type": "structure",
       "members": {
         "AutoScalingGroupName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group.</p>",
             "smithy.api#required": {}
           }
         },
         "LaunchConfigurationName": {
-          "target": "com.amazonaws.autoscaling#ResourceName",
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
             "smithy.api#documentation": "<p>The name of the launch configuration. If you specify\n                <code>LaunchConfigurationName</code> in your update request, you can't specify\n                <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.</p>"
           }

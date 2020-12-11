@@ -86,6 +86,59 @@
         "smithy.api#documentation": "<p>The result of the exchange and whether it was <code>successful</code>.</p>"
       }
     },
+    "com.amazonaws.ec2#AcceptTransitGatewayMulticastDomainAssociations": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#AcceptTransitGatewayMulticastDomainAssociationsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#AcceptTransitGatewayMulticastDomainAssociationsResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Accepts a request to associate subnets with a transit gateway multicast domain.</p>"
+      }
+    },
+    "com.amazonaws.ec2#AcceptTransitGatewayMulticastDomainAssociationsRequest": {
+      "type": "structure",
+      "members": {
+        "TransitGatewayMulticastDomainId": {
+          "target": "com.amazonaws.ec2#TransitGatewayMulticastDomainId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the transit gateway multicast domain.</p>"
+          }
+        },
+        "TransitGatewayAttachmentId": {
+          "target": "com.amazonaws.ec2#TransitGatewayAttachmentId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the transit gateway attachment.</p>"
+          }
+        },
+        "SubnetIds": {
+          "target": "com.amazonaws.ec2#ValueStringList",
+          "traits": {
+            "smithy.api#documentation": "<p>The IDs of the subnets to associate with the transit gateway multicast domain.</p>"
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#AcceptTransitGatewayMulticastDomainAssociationsResult": {
+      "type": "structure",
+      "members": {
+        "Associations": {
+          "target": "com.amazonaws.ec2#TransitGatewayMulticastDomainAssociations",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Associations",
+            "smithy.api#xmlName": "associations"
+          }
+        }
+      }
+    },
     "com.amazonaws.ec2#AcceptTransitGatewayPeeringAttachment": {
       "type": "operation",
       "input": {
@@ -959,12 +1012,48 @@
         ]
       }
     },
+    "com.amazonaws.ec2#AlternatePathHint": {
+      "type": "structure",
+      "members": {
+        "ComponentId": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ComponentId",
+            "smithy.api#documentation": "<p>The ID of the component.</p>",
+            "smithy.api#xmlName": "componentId"
+          }
+        },
+        "ComponentArn": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ComponentArn",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the component.</p>",
+            "smithy.api#xmlName": "componentArn"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes an potential intermediate component of a feasible path.</p>"
+      }
+    },
+    "com.amazonaws.ec2#AlternatePathHintList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#AlternatePathHint",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
+    },
     "com.amazonaws.ec2#AmazonEC2": {
       "type": "service",
       "version": "2016-11-15",
       "operations": [
         {
           "target": "com.amazonaws.ec2#AcceptReservedInstancesExchangeQuote"
+        },
+        {
+          "target": "com.amazonaws.ec2#AcceptTransitGatewayMulticastDomainAssociations"
         },
         {
           "target": "com.amazonaws.ec2#AcceptTransitGatewayPeeringAttachment"
@@ -1162,6 +1251,9 @@
           "target": "com.amazonaws.ec2#CreateNetworkAclEntry"
         },
         {
+          "target": "com.amazonaws.ec2#CreateNetworkInsightsPath"
+        },
+        {
           "target": "com.amazonaws.ec2#CreateNetworkInterface"
         },
         {
@@ -1211,6 +1303,12 @@
         },
         {
           "target": "com.amazonaws.ec2#CreateTransitGateway"
+        },
+        {
+          "target": "com.amazonaws.ec2#CreateTransitGatewayConnect"
+        },
+        {
+          "target": "com.amazonaws.ec2#CreateTransitGatewayConnectPeer"
         },
         {
           "target": "com.amazonaws.ec2#CreateTransitGatewayMulticastDomain"
@@ -1315,6 +1413,12 @@
           "target": "com.amazonaws.ec2#DeleteNetworkAclEntry"
         },
         {
+          "target": "com.amazonaws.ec2#DeleteNetworkInsightsAnalysis"
+        },
+        {
+          "target": "com.amazonaws.ec2#DeleteNetworkInsightsPath"
+        },
+        {
           "target": "com.amazonaws.ec2#DeleteNetworkInterface"
         },
         {
@@ -1361,6 +1465,12 @@
         },
         {
           "target": "com.amazonaws.ec2#DeleteTransitGateway"
+        },
+        {
+          "target": "com.amazonaws.ec2#DeleteTransitGatewayConnect"
+        },
+        {
+          "target": "com.amazonaws.ec2#DeleteTransitGatewayConnectPeer"
         },
         {
           "target": "com.amazonaws.ec2#DeleteTransitGatewayMulticastDomain"
@@ -1606,6 +1716,12 @@
           "target": "com.amazonaws.ec2#DescribeNetworkAcls"
         },
         {
+          "target": "com.amazonaws.ec2#DescribeNetworkInsightsAnalyses"
+        },
+        {
+          "target": "com.amazonaws.ec2#DescribeNetworkInsightsPaths"
+        },
+        {
           "target": "com.amazonaws.ec2#DescribeNetworkInterfaceAttribute"
         },
         {
@@ -1700,6 +1816,12 @@
         },
         {
           "target": "com.amazonaws.ec2#DescribeTransitGatewayAttachments"
+        },
+        {
+          "target": "com.amazonaws.ec2#DescribeTransitGatewayConnectPeers"
+        },
+        {
+          "target": "com.amazonaws.ec2#DescribeTransitGatewayConnects"
         },
         {
           "target": "com.amazonaws.ec2#DescribeTransitGatewayMulticastDomains"
@@ -2104,6 +2226,9 @@
           "target": "com.amazonaws.ec2#RegisterTransitGatewayMulticastGroupSources"
         },
         {
+          "target": "com.amazonaws.ec2#RejectTransitGatewayMulticastDomainAssociations"
+        },
+        {
           "target": "com.amazonaws.ec2#RejectTransitGatewayPeeringAttachment"
         },
         {
@@ -2203,6 +2328,9 @@
           "target": "com.amazonaws.ec2#StartInstances"
         },
         {
+          "target": "com.amazonaws.ec2#StartNetworkInsightsAnalysis"
+        },
+        {
           "target": "com.amazonaws.ec2#StartVpcEndpointServicePrivateDnsVerification"
         },
         {
@@ -2249,6 +2377,367 @@
         "smithy.api#xmlNamespace": {
           "uri": "http://ec2.amazonaws.com/doc/2016-11-15"
         }
+      }
+    },
+    "com.amazonaws.ec2#AnalysisAclRule": {
+      "type": "structure",
+      "members": {
+        "Cidr": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Cidr",
+            "smithy.api#documentation": "<p>The IPv4 address range, in CIDR notation.</p>",
+            "smithy.api#xmlName": "cidr"
+          }
+        },
+        "Egress": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Egress",
+            "smithy.api#documentation": "<p>Indicates whether the rule is an outbound rule.</p>",
+            "smithy.api#xmlName": "egress"
+          }
+        },
+        "PortRange": {
+          "target": "com.amazonaws.ec2#PortRange",
+          "traits": {
+            "aws.protocols#ec2QueryName": "PortRange",
+            "smithy.api#documentation": "<p>The range of ports.</p>",
+            "smithy.api#xmlName": "portRange"
+          }
+        },
+        "Protocol": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Protocol",
+            "smithy.api#documentation": "<p>The protocol.</p>",
+            "smithy.api#xmlName": "protocol"
+          }
+        },
+        "RuleAction": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "RuleAction",
+            "smithy.api#documentation": "<p>Indicates whether to allow or deny traffic that matches the rule.</p>",
+            "smithy.api#xmlName": "ruleAction"
+          }
+        },
+        "RuleNumber": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "aws.protocols#ec2QueryName": "RuleNumber",
+            "smithy.api#documentation": "<p>The rule number.</p>",
+            "smithy.api#xmlName": "ruleNumber"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a network access control (ACL) rule.</p>"
+      }
+    },
+    "com.amazonaws.ec2#AnalysisComponent": {
+      "type": "structure",
+      "members": {
+        "Id": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Id",
+            "smithy.api#documentation": "<p>The ID of the component.</p>",
+            "smithy.api#xmlName": "id"
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Arn",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the component.</p>",
+            "smithy.api#xmlName": "arn"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a path component.</p>"
+      }
+    },
+    "com.amazonaws.ec2#AnalysisComponentList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#AnalysisComponent",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
+    },
+    "com.amazonaws.ec2#AnalysisLoadBalancerListener": {
+      "type": "structure",
+      "members": {
+        "LoadBalancerPort": {
+          "target": "com.amazonaws.ec2#Port",
+          "traits": {
+            "aws.protocols#ec2QueryName": "LoadBalancerPort",
+            "smithy.api#documentation": "<p>The port on which the load balancer is listening.</p>",
+            "smithy.api#xmlName": "loadBalancerPort"
+          }
+        },
+        "InstancePort": {
+          "target": "com.amazonaws.ec2#Port",
+          "traits": {
+            "aws.protocols#ec2QueryName": "InstancePort",
+            "smithy.api#documentation": "<p>[Classic Load Balancers] The back-end port for the listener.</p>",
+            "smithy.api#xmlName": "instancePort"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a load balancer listener.</p>"
+      }
+    },
+    "com.amazonaws.ec2#AnalysisLoadBalancerTarget": {
+      "type": "structure",
+      "members": {
+        "Address": {
+          "target": "com.amazonaws.ec2#IpAddress",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Address",
+            "smithy.api#documentation": "<p>The IP address.</p>",
+            "smithy.api#xmlName": "address"
+          }
+        },
+        "AvailabilityZone": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "AvailabilityZone",
+            "smithy.api#documentation": "<p>The Availability Zone.</p>",
+            "smithy.api#xmlName": "availabilityZone"
+          }
+        },
+        "Instance": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Instance",
+            "smithy.api#documentation": "<p>Information about the instance.</p>",
+            "smithy.api#xmlName": "instance"
+          }
+        },
+        "Port": {
+          "target": "com.amazonaws.ec2#Port",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Port",
+            "smithy.api#documentation": "<p>The port on which the target is listening.</p>",
+            "smithy.api#xmlName": "port"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a load balancer target.</p>"
+      }
+    },
+    "com.amazonaws.ec2#AnalysisPacketHeader": {
+      "type": "structure",
+      "members": {
+        "DestinationAddresses": {
+          "target": "com.amazonaws.ec2#IpAddressList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "DestinationAddressSet",
+            "smithy.api#documentation": "<p>The destination addresses.</p>",
+            "smithy.api#xmlName": "destinationAddressSet"
+          }
+        },
+        "DestinationPortRanges": {
+          "target": "com.amazonaws.ec2#PortRangeList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "DestinationPortRangeSet",
+            "smithy.api#documentation": "<p>The destination port ranges.</p>",
+            "smithy.api#xmlName": "destinationPortRangeSet"
+          }
+        },
+        "Protocol": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Protocol",
+            "smithy.api#documentation": "<p>The protocol.</p>",
+            "smithy.api#xmlName": "protocol"
+          }
+        },
+        "SourceAddresses": {
+          "target": "com.amazonaws.ec2#IpAddressList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "SourceAddressSet",
+            "smithy.api#documentation": "<p>The source addresses.</p>",
+            "smithy.api#xmlName": "sourceAddressSet"
+          }
+        },
+        "SourcePortRanges": {
+          "target": "com.amazonaws.ec2#PortRangeList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "SourcePortRangeSet",
+            "smithy.api#documentation": "<p>The source port ranges.</p>",
+            "smithy.api#xmlName": "sourcePortRangeSet"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a header. Reflects any changes made by a component as traffic passes through.\n         The fields of an inbound header are null except for the first component of a path.</p>"
+      }
+    },
+    "com.amazonaws.ec2#AnalysisRouteTableRoute": {
+      "type": "structure",
+      "members": {
+        "DestinationCidr": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "DestinationCidr",
+            "smithy.api#documentation": "<p>The destination IPv4 address, in CIDR notation.</p>",
+            "smithy.api#xmlName": "destinationCidr"
+          }
+        },
+        "DestinationPrefixListId": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "DestinationPrefixListId",
+            "smithy.api#documentation": "<p>The prefix of the AWS service.</p>",
+            "smithy.api#xmlName": "destinationPrefixListId"
+          }
+        },
+        "EgressOnlyInternetGatewayId": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "EgressOnlyInternetGatewayId",
+            "smithy.api#documentation": "<p>The ID of an egress-only internet gateway.</p>",
+            "smithy.api#xmlName": "egressOnlyInternetGatewayId"
+          }
+        },
+        "GatewayId": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "GatewayId",
+            "smithy.api#documentation": "<p>The ID of the gateway, such as an internet gateway or virtual private gateway.</p>",
+            "smithy.api#xmlName": "gatewayId"
+          }
+        },
+        "InstanceId": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "InstanceId",
+            "smithy.api#documentation": "<p>The ID of the instance, such as a NAT instance.</p>",
+            "smithy.api#xmlName": "instanceId"
+          }
+        },
+        "NatGatewayId": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "NatGatewayId",
+            "smithy.api#documentation": "<p>The ID of a NAT gateway.</p>",
+            "smithy.api#xmlName": "natGatewayId"
+          }
+        },
+        "NetworkInterfaceId": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "NetworkInterfaceId",
+            "smithy.api#documentation": "<p>The ID of a network interface.</p>",
+            "smithy.api#xmlName": "networkInterfaceId"
+          }
+        },
+        "Origin": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Origin",
+            "smithy.api#documentation": "<p>Describes how the route was created. The following are possible values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>CreateRouteTable</code> - The route was automatically created when the route table was created.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CreateRoute</code> - The route was manually added to the route table.</p>\n            </li>\n            <li>\n               <p>\n                  <code>EnableVgwRoutePropagation</code> - The route was propagated by route propagation.</p>\n            </li>\n         </ul>",
+            "smithy.api#xmlName": "origin"
+          }
+        },
+        "TransitGatewayId": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TransitGatewayId",
+            "smithy.api#documentation": "<p>The ID of a transit gateway.</p>",
+            "smithy.api#xmlName": "transitGatewayId"
+          }
+        },
+        "VpcPeeringConnectionId": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "VpcPeeringConnectionId",
+            "smithy.api#documentation": "<p>The ID of a VPC peering connection.</p>",
+            "smithy.api#xmlName": "vpcPeeringConnectionId"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a route table route.</p>"
+      }
+    },
+    "com.amazonaws.ec2#AnalysisSecurityGroupRule": {
+      "type": "structure",
+      "members": {
+        "Cidr": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Cidr",
+            "smithy.api#documentation": "<p>The IPv4 address range, in CIDR notation.</p>",
+            "smithy.api#xmlName": "cidr"
+          }
+        },
+        "Direction": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Direction",
+            "smithy.api#documentation": "<p>The direction. The following are possible values:</p>\n         <ul>\n            <li>\n               <p>egress</p>\n            </li>\n            <li>\n               <p>ingress</p>\n            </li>\n         </ul>",
+            "smithy.api#xmlName": "direction"
+          }
+        },
+        "SecurityGroupId": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "SecurityGroupId",
+            "smithy.api#documentation": "<p>The security group ID.</p>",
+            "smithy.api#xmlName": "securityGroupId"
+          }
+        },
+        "PortRange": {
+          "target": "com.amazonaws.ec2#PortRange",
+          "traits": {
+            "aws.protocols#ec2QueryName": "PortRange",
+            "smithy.api#documentation": "<p>The port range.</p>",
+            "smithy.api#xmlName": "portRange"
+          }
+        },
+        "PrefixListId": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "PrefixListId",
+            "smithy.api#documentation": "<p>The prefix list ID.</p>",
+            "smithy.api#xmlName": "prefixListId"
+          }
+        },
+        "Protocol": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Protocol",
+            "smithy.api#documentation": "<p>The protocol name.</p>",
+            "smithy.api#xmlName": "protocol"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a security group rule.</p>"
+      }
+    },
+    "com.amazonaws.ec2#AnalysisStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "running"
+          },
+          {
+            "value": "succeeded"
+          },
+          {
+            "value": "failed"
+          }
+        ]
       }
     },
     "com.amazonaws.ec2#ApplianceModeSupportValue": {
@@ -2361,6 +2850,15 @@
             "value": "arm64"
           }
         ]
+      }
+    },
+    "com.amazonaws.ec2#ArnList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#ResourceArn",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.ec2#AssignIpv6Addresses": {
@@ -2967,7 +3465,7 @@
           }
         },
         "SubnetIds": {
-          "target": "com.amazonaws.ec2#ValueStringList",
+          "target": "com.amazonaws.ec2#TransitGatewaySubnetIdList",
           "traits": {
             "smithy.api#documentation": "<p>The IDs of the subnets to associate with the transit gateway multicast domain.</p>"
           }
@@ -3924,6 +4422,19 @@
         }
       }
     },
+    "com.amazonaws.ec2#AutoAcceptSharedAssociationsValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "enable"
+          },
+          {
+            "value": "disable"
+          }
+        ]
+      }
+    },
     "com.amazonaws.ec2#AutoAcceptSharedAttachmentsValue": {
       "type": "string",
       "traits": {
@@ -4218,6 +4729,19 @@
           {
             "value": "modifying",
             "name": "MODIFYING"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.ec2#BgpStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "up"
+          },
+          {
+            "value": "down"
           }
         ]
       }
@@ -9440,6 +9964,96 @@
         }
       }
     },
+    "com.amazonaws.ec2#CreateNetworkInsightsPath": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#CreateNetworkInsightsPathRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#CreateNetworkInsightsPathResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a path to analyze for reachability.</p>\n         <p>Reachability Analyzer enables you to analyze and debug network reachability between\n          two resources in your virtual private cloud (VPC). For more information, see \n          <a href=\"https://docs.aws.amazon.com/vpc/latest/reachability/\">What is Reachability Analyzer</a>.</p>"
+      }
+    },
+    "com.amazonaws.ec2#CreateNetworkInsightsPathRequest": {
+      "type": "structure",
+      "members": {
+        "SourceIp": {
+          "target": "com.amazonaws.ec2#IpAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP address of the AWS resource that is the source of the path.</p>"
+          }
+        },
+        "DestinationIp": {
+          "target": "com.amazonaws.ec2#IpAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP address of the AWS resource that is the destination of the path.</p>"
+          }
+        },
+        "Source": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS resource that is the source of the path.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Destination": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS resource that is the destination of the path.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Protocol": {
+          "target": "com.amazonaws.ec2#Protocol",
+          "traits": {
+            "smithy.api#documentation": "<p>The protocol.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DestinationPort": {
+          "target": "com.amazonaws.ec2#Port",
+          "traits": {
+            "smithy.api#documentation": "<p>The destination port.</p>"
+          }
+        },
+        "TagSpecifications": {
+          "target": "com.amazonaws.ec2#TagSpecificationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to add to the path.</p>",
+            "smithy.api#xmlName": "TagSpecification"
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        },
+        "ClientToken": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, \n   see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">How to Ensure Idempotency</a>.</p>",
+            "smithy.api#idempotencyToken": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#CreateNetworkInsightsPathResult": {
+      "type": "structure",
+      "members": {
+        "NetworkInsightsPath": {
+          "target": "com.amazonaws.ec2#NetworkInsightsPath",
+          "traits": {
+            "aws.protocols#ec2QueryName": "NetworkInsightsPath",
+            "smithy.api#documentation": "<p>Information about the path.</p>",
+            "smithy.api#xmlName": "networkInsightsPath"
+          }
+        }
+      }
+    },
     "com.amazonaws.ec2#CreateNetworkInterface": {
       "type": "operation",
       "input": {
@@ -10698,6 +11312,154 @@
         "smithy.api#documentation": "<p>Creates a transit gateway.</p>\n         <p>You can use a transit gateway to interconnect your virtual private clouds (VPC) and on-premises networks.\n          After the transit gateway enters the <code>available</code> state, you can attach your VPCs and VPN\n          connections to the transit gateway.</p> \n         <p>To attach your VPCs, use <a>CreateTransitGatewayVpcAttachment</a>.</p> \n         <p>To attach a VPN connection, use <a>CreateCustomerGateway</a> to create a customer \n         gateway and specify the ID of the customer gateway and the ID of the transit gateway in a call to\n         <a>CreateVpnConnection</a>.</p>\n         <p>When you create a transit gateway, we create a default transit gateway route table and use it as the default association route table\n         and the default propagation route table. You can use <a>CreateTransitGatewayRouteTable</a> to create\n         additional transit gateway route tables. If you disable automatic route propagation, we do not create a default transit gateway route table. \n         You can use <a>EnableTransitGatewayRouteTablePropagation</a> to propagate routes from a resource \n         attachment to a transit gateway route table. If you disable automatic associations, you can use <a>AssociateTransitGatewayRouteTable</a> to associate a resource attachment with a transit gateway route table.</p>"
       }
     },
+    "com.amazonaws.ec2#CreateTransitGatewayConnect": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#CreateTransitGatewayConnectRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#CreateTransitGatewayConnectResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a Connect attachment from a specified transit gateway attachment. A Connect attachment is a GRE-based tunnel attachment that you can use to establish a connection between a transit gateway and an appliance.</p>\n        <p>A Connect attachment uses an existing VPC or AWS Direct Connect attachment as the underlying transport mechanism. </p>"
+      }
+    },
+    "com.amazonaws.ec2#CreateTransitGatewayConnectPeer": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#CreateTransitGatewayConnectPeerRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#CreateTransitGatewayConnectPeerResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a Connect peer for a specified transit gateway Connect attachment between a\n            transit gateway and an appliance.</p>\n        <p>The peer address and transit gateway address must be the same IP address family (IPv4 or IPv6).</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html#tgw-connect-peer\">Connect peers</a> in the <i>Transit Gateways Guide</i>.</p>"
+      }
+    },
+    "com.amazonaws.ec2#CreateTransitGatewayConnectPeerRequest": {
+      "type": "structure",
+      "members": {
+        "TransitGatewayAttachmentId": {
+          "target": "com.amazonaws.ec2#TransitGatewayAttachmentId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the Connect attachment.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TransitGatewayAddress": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The peer IP address (GRE outer IP address) on the transit gateway side of the Connect peer, which must be\n            specified from a transit gateway CIDR block. If not specified, Amazon automatically assigns\n            the first available IP address from the transit gateway CIDR block.</p>"
+          }
+        },
+        "PeerAddress": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The peer IP address (GRE outer IP address) on the appliance side of the Connect peer.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "BgpOptions": {
+          "target": "com.amazonaws.ec2#TransitGatewayConnectRequestBgpOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>The BGP options for the Connect peer.</p>"
+          }
+        },
+        "InsideCidrBlocks": {
+          "target": "com.amazonaws.ec2#InsideCidrBlocksStringList",
+          "traits": {
+            "smithy.api#documentation": "<p>The range of inside IP addresses that are used for BGP peering. You must specify a\n            size /29 IPv4 CIDR block from the <code>169.254.0.0/16</code> range. The first address\n            from the range must be configured on the appliance as the BGP IP address. You can also\n            optionally specify a size /125 IPv6 CIDR block from the <code>fd00::/8</code>\n            range.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TagSpecifications": {
+          "target": "com.amazonaws.ec2#TagSpecificationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to apply to the Connect peer.</p>",
+            "smithy.api#xmlName": "TagSpecification"
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#CreateTransitGatewayConnectPeerResult": {
+      "type": "structure",
+      "members": {
+        "TransitGatewayConnectPeer": {
+          "target": "com.amazonaws.ec2#TransitGatewayConnectPeer",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TransitGatewayConnectPeer",
+            "smithy.api#documentation": "<p>Information about the Connect peer.</p>",
+            "smithy.api#xmlName": "transitGatewayConnectPeer"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#CreateTransitGatewayConnectRequest": {
+      "type": "structure",
+      "members": {
+        "TransportTransitGatewayAttachmentId": {
+          "target": "com.amazonaws.ec2#TransitGatewayAttachmentId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the transit gateway attachment. You can specify a VPC attachment or a AWS Direct Connect attachment.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Options": {
+          "target": "com.amazonaws.ec2#CreateTransitGatewayConnectRequestOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>The Connect attachment options.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TagSpecifications": {
+          "target": "com.amazonaws.ec2#TagSpecificationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to apply to the Connect attachment.</p>",
+            "smithy.api#xmlName": "TagSpecification"
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#CreateTransitGatewayConnectRequestOptions": {
+      "type": "structure",
+      "members": {
+        "Protocol": {
+          "target": "com.amazonaws.ec2#ProtocolValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The tunnel protocol.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The options for a Connect attachment.</p>"
+      }
+    },
+    "com.amazonaws.ec2#CreateTransitGatewayConnectResult": {
+      "type": "structure",
+      "members": {
+        "TransitGatewayConnect": {
+          "target": "com.amazonaws.ec2#TransitGatewayConnect",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TransitGatewayConnect",
+            "smithy.api#documentation": "<p>Information about the Connect attachment.</p>",
+            "smithy.api#xmlName": "transitGatewayConnect"
+          }
+        }
+      }
+    },
     "com.amazonaws.ec2#CreateTransitGatewayMulticastDomain": {
       "type": "operation",
       "input": {
@@ -10720,6 +11482,12 @@
             "smithy.api#required": {}
           }
         },
+        "Options": {
+          "target": "com.amazonaws.ec2#CreateTransitGatewayMulticastDomainRequestOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>The options for the transit gateway multicast domain.</p>"
+          }
+        },
         "TagSpecifications": {
           "target": "com.amazonaws.ec2#TagSpecificationList",
           "traits": {
@@ -10733,6 +11501,32 @@
             "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
           }
         }
+      }
+    },
+    "com.amazonaws.ec2#CreateTransitGatewayMulticastDomainRequestOptions": {
+      "type": "structure",
+      "members": {
+        "Igmpv2Support": {
+          "target": "com.amazonaws.ec2#Igmpv2SupportValue",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify whether to enable Internet Group Management Protocol (IGMP) version 2 for the transit gateway multicast domain.</p>"
+          }
+        },
+        "StaticSourcesSupport": {
+          "target": "com.amazonaws.ec2#StaticSourcesSupportValue",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify whether to enable support for statically configuring multicast group sources for a domain.</p>"
+          }
+        },
+        "AutoAcceptSharedAssociations": {
+          "target": "com.amazonaws.ec2#AutoAcceptSharedAssociationsValue",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether to automatically accept cross-account subnet associations that are associated with the transit gateway multicast domain.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The options for the transit gateway multicast domain.</p>"
       }
     },
     "com.amazonaws.ec2#CreateTransitGatewayMulticastDomainResult": {
@@ -11103,7 +11897,7 @@
         "Ipv6Support": {
           "target": "com.amazonaws.ec2#Ipv6SupportValue",
           "traits": {
-            "smithy.api#documentation": "<p>Enable or disable IPv6 support.</p>"
+            "smithy.api#documentation": "<p>Enable or disable IPv6 support.  The default is <code>disable</code>.</p>"
           }
         },
         "ApplianceModeSupport": {
@@ -13175,6 +13969,92 @@
         }
       }
     },
+    "com.amazonaws.ec2#DeleteNetworkInsightsAnalysis": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#DeleteNetworkInsightsAnalysisRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#DeleteNetworkInsightsAnalysisResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes the specified network insights analysis.</p>"
+      }
+    },
+    "com.amazonaws.ec2#DeleteNetworkInsightsAnalysisRequest": {
+      "type": "structure",
+      "members": {
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        },
+        "NetworkInsightsAnalysisId": {
+          "target": "com.amazonaws.ec2#NetworkInsightsAnalysisId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the network insights analysis.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DeleteNetworkInsightsAnalysisResult": {
+      "type": "structure",
+      "members": {
+        "NetworkInsightsAnalysisId": {
+          "target": "com.amazonaws.ec2#NetworkInsightsAnalysisId",
+          "traits": {
+            "aws.protocols#ec2QueryName": "NetworkInsightsAnalysisId",
+            "smithy.api#documentation": "<p>The ID of the network insights analysis.</p>",
+            "smithy.api#xmlName": "networkInsightsAnalysisId"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DeleteNetworkInsightsPath": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#DeleteNetworkInsightsPathRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#DeleteNetworkInsightsPathResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes the specified path.</p>"
+      }
+    },
+    "com.amazonaws.ec2#DeleteNetworkInsightsPathRequest": {
+      "type": "structure",
+      "members": {
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        },
+        "NetworkInsightsPathId": {
+          "target": "com.amazonaws.ec2#NetworkInsightsPathId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the path.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DeleteNetworkInsightsPathResult": {
+      "type": "structure",
+      "members": {
+        "NetworkInsightsPathId": {
+          "target": "com.amazonaws.ec2#NetworkInsightsPathId",
+          "traits": {
+            "aws.protocols#ec2QueryName": "NetworkInsightsPathId",
+            "smithy.api#documentation": "<p>The ID of the path.</p>",
+            "smithy.api#xmlName": "networkInsightsPathId"
+          }
+        }
+      }
+    },
     "com.amazonaws.ec2#DeleteNetworkInterface": {
       "type": "operation",
       "input": {
@@ -13827,6 +14707,92 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Deletes the specified transit gateway.</p>"
+      }
+    },
+    "com.amazonaws.ec2#DeleteTransitGatewayConnect": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#DeleteTransitGatewayConnectRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#DeleteTransitGatewayConnectResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes the specified Connect attachment. You must first delete any Connect peers for\n            the attachment.</p>"
+      }
+    },
+    "com.amazonaws.ec2#DeleteTransitGatewayConnectPeer": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#DeleteTransitGatewayConnectPeerRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#DeleteTransitGatewayConnectPeerResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes the specified Connect peer.</p>"
+      }
+    },
+    "com.amazonaws.ec2#DeleteTransitGatewayConnectPeerRequest": {
+      "type": "structure",
+      "members": {
+        "TransitGatewayConnectPeerId": {
+          "target": "com.amazonaws.ec2#TransitGatewayConnectPeerId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the Connect peer.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DeleteTransitGatewayConnectPeerResult": {
+      "type": "structure",
+      "members": {
+        "TransitGatewayConnectPeer": {
+          "target": "com.amazonaws.ec2#TransitGatewayConnectPeer",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TransitGatewayConnectPeer",
+            "smithy.api#documentation": "<p>Information about the deleted Connect peer.</p>",
+            "smithy.api#xmlName": "transitGatewayConnectPeer"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DeleteTransitGatewayConnectRequest": {
+      "type": "structure",
+      "members": {
+        "TransitGatewayAttachmentId": {
+          "target": "com.amazonaws.ec2#TransitGatewayAttachmentId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the Connect attachment.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DeleteTransitGatewayConnectResult": {
+      "type": "structure",
+      "members": {
+        "TransitGatewayConnect": {
+          "target": "com.amazonaws.ec2#TransitGatewayConnect",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TransitGatewayConnect",
+            "smithy.api#documentation": "<p>Information about the deleted Connect attachment.</p>",
+            "smithy.api#xmlName": "transitGatewayConnect"
+          }
+        }
       }
     },
     "com.amazonaws.ec2#DeleteTransitGatewayMulticastDomain": {
@@ -19425,6 +20391,176 @@
         }
       }
     },
+    "com.amazonaws.ec2#DescribeNetworkInsightsAnalyses": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#DescribeNetworkInsightsAnalysesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#DescribeNetworkInsightsAnalysesResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes one or more of your network insights analyses.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "NetworkInsightsAnalyses",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.ec2#DescribeNetworkInsightsAnalysesRequest": {
+      "type": "structure",
+      "members": {
+        "NetworkInsightsAnalysisIds": {
+          "target": "com.amazonaws.ec2#NetworkInsightsAnalysisIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the network insights analyses. You must specify either analysis IDs or a path ID.</p>",
+            "smithy.api#xmlName": "NetworkInsightsAnalysisId"
+          }
+        },
+        "NetworkInsightsPathId": {
+          "target": "com.amazonaws.ec2#NetworkInsightsPathId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the path. You must specify either a path ID or analysis IDs.</p>"
+          }
+        },
+        "AnalysisStartTime": {
+          "target": "com.amazonaws.ec2#MillisecondDateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when the network insights analyses started.</p>"
+          }
+        },
+        "AnalysisEndTime": {
+          "target": "com.amazonaws.ec2#MillisecondDateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when the network insights analyses ended.</p>"
+          }
+        },
+        "Filters": {
+          "target": "com.amazonaws.ec2#FilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>The filters. The following are possible values:</p>\n         <ul>\n            <li>\n               <p>PathFound - A Boolean value that indicates whether a feasible path is found.</p>\n            </li>\n            <li>\n               <p>Status - The status of the analysis (running | succeeded | failed).</p>\n            </li>\n         </ul>",
+            "smithy.api#xmlName": "Filter"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.ec2#NetworkInsightsMaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ec2#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next page of results.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DescribeNetworkInsightsAnalysesResult": {
+      "type": "structure",
+      "members": {
+        "NetworkInsightsAnalyses": {
+          "target": "com.amazonaws.ec2#NetworkInsightsAnalysisList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "NetworkInsightsAnalysisSet",
+            "smithy.api#documentation": "<p>Information about the network insights analyses.</p>",
+            "smithy.api#xmlName": "networkInsightsAnalysisSet"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "NextToken",
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>",
+            "smithy.api#xmlName": "nextToken"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DescribeNetworkInsightsPaths": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#DescribeNetworkInsightsPathsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#DescribeNetworkInsightsPathsResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes one or more of your paths.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "NetworkInsightsPaths",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.ec2#DescribeNetworkInsightsPathsRequest": {
+      "type": "structure",
+      "members": {
+        "NetworkInsightsPathIds": {
+          "target": "com.amazonaws.ec2#NetworkInsightsPathIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>The IDs of the paths.</p>",
+            "smithy.api#xmlName": "NetworkInsightsPathId"
+          }
+        },
+        "Filters": {
+          "target": "com.amazonaws.ec2#FilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>The filters. The following are possible values:</p>\n         <ul>\n            <li>\n               <p>Destination - The ID of the resource.</p>\n            </li>\n            <li>\n               <p>DestinationPort - The destination port.</p>\n            </li>\n            <li>\n               <p>Name - The path name.</p>\n            </li>\n            <li>\n               <p>Protocol - The protocol.</p>\n            </li>\n            <li>\n               <p>Source - The ID of the resource.</p>\n            </li>\n         </ul>",
+            "smithy.api#xmlName": "Filter"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.ec2#NetworkInsightsMaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ec2#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next page of results.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DescribeNetworkInsightsPathsResult": {
+      "type": "structure",
+      "members": {
+        "NetworkInsightsPaths": {
+          "target": "com.amazonaws.ec2#NetworkInsightsPathList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "NetworkInsightsPathSet",
+            "smithy.api#documentation": "<p>Information about the paths.</p>",
+            "smithy.api#xmlName": "networkInsightsPathSet"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "NextToken",
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>",
+            "smithy.api#xmlName": "nextToken"
+          }
+        }
+      }
+    },
     "com.amazonaws.ec2#DescribeNetworkInterfaceAttribute": {
       "type": "operation",
       "input": {
@@ -22035,7 +23171,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>One or more filters. The possible values are:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>association.state</code> - The state of the association (<code>associating</code> | <code>associated</code> |\n               <code>disassociating</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>association.transit-gateway-route-table-id</code> - The ID of the route table for the transit gateway.</p>\n            </li>\n            <li>\n               <p>\n                  <code>resource-id</code> - The ID of the resource.</p>\n            </li>\n            <li>\n               <p>\n                  <code>resource-owner-id</code> - The ID of the AWS account that owns the resource.</p>\n            </li>\n            <li>\n               <p>\n                  <code>resource-type</code> - The resource type. Valid values are <code>vpc</code> |\n                        <code>vpn</code> | <code>direct-connect-gateway</code> |\n                        <code>peering</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>state</code> - The state of the attachment. Valid values are <code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> |  <code>failing</code> | <code>initiatingRequest</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>transit-gateway-id</code> - The ID of the transit gateway.</p>\n            </li>\n            <li>\n               <p>\n                  <code>transit-gateway-owner-id</code> - The ID of the AWS account that owns the transit gateway.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>One or more filters. The possible values are:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>association.state</code> - The state of the association (<code>associating</code> | <code>associated</code> |\n               <code>disassociating</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>association.transit-gateway-route-table-id</code> - The ID of the route table for the transit gateway.</p>\n            </li>\n            <li>\n               <p>\n                  <code>resource-id</code> - The ID of the resource.</p>\n            </li>\n            <li>\n               <p>\n                  <code>resource-owner-id</code> - The ID of the AWS account that owns the resource.</p>\n            </li>\n            <li>\n               <p>\n                  <code>resource-type</code> - The resource type. Valid values are <code>vpc</code>\n                    | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code>\n                    | <code>connect</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>state</code> - The state of the attachment. Valid values are <code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> |  <code>failing</code> | <code>initiatingRequest</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>transit-gateway-id</code> - The ID of the transit gateway.</p>\n            </li>\n            <li>\n               <p>\n                  <code>transit-gateway-owner-id</code> - The ID of the AWS account that owns the transit gateway.</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "Filter"
           }
         },
@@ -22068,6 +23204,156 @@
             "aws.protocols#ec2QueryName": "TransitGatewayAttachments",
             "smithy.api#documentation": "<p>Information about the attachments.</p>",
             "smithy.api#xmlName": "transitGatewayAttachments"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "NextToken",
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>",
+            "smithy.api#xmlName": "nextToken"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DescribeTransitGatewayConnectPeers": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#DescribeTransitGatewayConnectPeersRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#DescribeTransitGatewayConnectPeersResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes one or more Connect peers.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "TransitGatewayConnectPeers",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.ec2#DescribeTransitGatewayConnectPeersRequest": {
+      "type": "structure",
+      "members": {
+        "TransitGatewayConnectPeerIds": {
+          "target": "com.amazonaws.ec2#TransitGatewayConnectPeerIdStringList",
+          "traits": {
+            "smithy.api#documentation": "<p>The IDs of the Connect peers.</p>"
+          }
+        },
+        "Filters": {
+          "target": "com.amazonaws.ec2#FilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>One or more filters. The possible values are:</p>\n        <ul>\n            <li>\n               <p>\n                  <code>state</code> - The state of the Connect peer (<code>pending</code> |\n                        <code>available</code> | <code>deleting</code> |\n                    <code>deleted</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>transit-gateway-connect-peer-id</code> - The ID of the Connect peer.</p>\n            </li>\n         </ul>",
+            "smithy.api#xmlName": "Filter"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.ec2#TransitGatewayMaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n\tTo retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next page of results.</p>"
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DescribeTransitGatewayConnectPeersResult": {
+      "type": "structure",
+      "members": {
+        "TransitGatewayConnectPeers": {
+          "target": "com.amazonaws.ec2#TransitGatewayConnectPeerList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TransitGatewayConnectPeerSet",
+            "smithy.api#documentation": "<p>Information about the Connect peers.</p>",
+            "smithy.api#xmlName": "transitGatewayConnectPeerSet"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "NextToken",
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>",
+            "smithy.api#xmlName": "nextToken"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DescribeTransitGatewayConnects": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#DescribeTransitGatewayConnectsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#DescribeTransitGatewayConnectsResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes one or more Connect attachments.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "TransitGatewayConnects",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.ec2#DescribeTransitGatewayConnectsRequest": {
+      "type": "structure",
+      "members": {
+        "TransitGatewayAttachmentIds": {
+          "target": "com.amazonaws.ec2#TransitGatewayAttachmentIdStringList",
+          "traits": {
+            "smithy.api#documentation": "<p>The IDs of the attachments.</p>"
+          }
+        },
+        "Filters": {
+          "target": "com.amazonaws.ec2#FilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>One or more filters. The possible values are:</p>\n        <ul>\n            <li>\n               <p>\n                  <code>options.protocol</code> - The tunnel protocol (<code>gre</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>state</code> - The state of the attachment (<code>initiating</code> |\n                        <code>initiatingRequest</code> | <code>pendingAcceptance</code> |\n                        <code>rollingBack</code> | <code>pending</code> | <code>available</code> |\n                        <code>modifying</code> | <code>deleting</code> | <code>deleted</code> |\n                        <code>failed</code> | <code>rejected</code> | <code>rejecting</code> |\n                        <code>failing</code>).</p>\n            </li>\n            <li>\n                <p>\n                  <code>transit-gateway-attachment-id</code> - The ID of the\n                    Connect attachment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>transit-gateway-id</code> - The ID of the transit gateway.</p>\n            </li>\n            <li>\n               <p>\n                  <code>transport-transit-gateway-attachment-id</code> - The ID of the transit gateway attachment from which the Connect attachment was created.</p>\n            </li>\n         </ul>",
+            "smithy.api#xmlName": "Filter"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.ec2#TransitGatewayMaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n\tTo retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next page of results.</p>"
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DescribeTransitGatewayConnectsResult": {
+      "type": "structure",
+      "members": {
+        "TransitGatewayConnects": {
+          "target": "com.amazonaws.ec2#TransitGatewayConnectList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TransitGatewayConnectSet",
+            "smithy.api#documentation": "<p>Information about the Connect attachments.</p>",
+            "smithy.api#xmlName": "transitGatewayConnectSet"
           }
         },
         "NextToken": {
@@ -24834,7 +26120,7 @@
           }
         },
         "SubnetIds": {
-          "target": "com.amazonaws.ec2#ValueStringList",
+          "target": "com.amazonaws.ec2#TransitGatewaySubnetIdList",
           "traits": {
             "smithy.api#documentation": "<p>The IDs of the subnets;</p>"
           }
@@ -26628,6 +27914,383 @@
         "target": "com.amazonaws.ec2#String",
         "traits": {
           "smithy.api#xmlName": "ExecutableBy"
+        }
+      }
+    },
+    "com.amazonaws.ec2#Explanation": {
+      "type": "structure",
+      "members": {
+        "Acl": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Acl",
+            "smithy.api#documentation": "<p>The network ACL.</p>",
+            "smithy.api#xmlName": "acl"
+          }
+        },
+        "AclRule": {
+          "target": "com.amazonaws.ec2#AnalysisAclRule",
+          "traits": {
+            "aws.protocols#ec2QueryName": "AclRule",
+            "smithy.api#documentation": "<p>The network ACL rule.</p>",
+            "smithy.api#xmlName": "aclRule"
+          }
+        },
+        "Address": {
+          "target": "com.amazonaws.ec2#IpAddress",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Address",
+            "smithy.api#documentation": "<p>The IPv4 address, in CIDR notation.</p>",
+            "smithy.api#xmlName": "address"
+          }
+        },
+        "Addresses": {
+          "target": "com.amazonaws.ec2#IpAddressList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "AddressSet",
+            "smithy.api#documentation": "<p>The IPv4 addresses, in CIDR notation.</p>",
+            "smithy.api#xmlName": "addressSet"
+          }
+        },
+        "AttachedTo": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "AttachedTo",
+            "smithy.api#documentation": "<p>The resource to which the component is attached.</p>",
+            "smithy.api#xmlName": "attachedTo"
+          }
+        },
+        "AvailabilityZones": {
+          "target": "com.amazonaws.ec2#ValueStringList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "AvailabilityZoneSet",
+            "smithy.api#documentation": "<p>The Availability Zones.</p>",
+            "smithy.api#xmlName": "availabilityZoneSet"
+          }
+        },
+        "Cidrs": {
+          "target": "com.amazonaws.ec2#ValueStringList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "CidrSet",
+            "smithy.api#documentation": "<p>The CIDR ranges.</p>",
+            "smithy.api#xmlName": "cidrSet"
+          }
+        },
+        "Component": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Component",
+            "smithy.api#documentation": "<p>The component.</p>",
+            "smithy.api#xmlName": "component"
+          }
+        },
+        "CustomerGateway": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "CustomerGateway",
+            "smithy.api#documentation": "<p>The customer gateway.</p>",
+            "smithy.api#xmlName": "customerGateway"
+          }
+        },
+        "Destination": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Destination",
+            "smithy.api#documentation": "<p>The destination.</p>",
+            "smithy.api#xmlName": "destination"
+          }
+        },
+        "DestinationVpc": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "DestinationVpc",
+            "smithy.api#documentation": "<p>The destination VPC.</p>",
+            "smithy.api#xmlName": "destinationVpc"
+          }
+        },
+        "Direction": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Direction",
+            "smithy.api#documentation": "<p>The direction. The following are possible values:</p>\n         <ul>\n            <li>\n               <p>egress</p>\n            </li>\n            <li>\n               <p>ingress</p>\n            </li>\n         </ul>",
+            "smithy.api#xmlName": "direction"
+          }
+        },
+        "ExplanationCode": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ExplanationCode",
+            "smithy.api#documentation": "<p>The explanation code.</p>",
+            "smithy.api#xmlName": "explanationCode"
+          }
+        },
+        "IngressRouteTable": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "IngressRouteTable",
+            "smithy.api#documentation": "<p>The route table.</p>",
+            "smithy.api#xmlName": "ingressRouteTable"
+          }
+        },
+        "InternetGateway": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "InternetGateway",
+            "smithy.api#documentation": "<p>The internet gateway.</p>",
+            "smithy.api#xmlName": "internetGateway"
+          }
+        },
+        "LoadBalancerArn": {
+          "target": "com.amazonaws.ec2#ResourceArn",
+          "traits": {
+            "aws.protocols#ec2QueryName": "LoadBalancerArn",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the load balancer.</p>",
+            "smithy.api#xmlName": "loadBalancerArn"
+          }
+        },
+        "ClassicLoadBalancerListener": {
+          "target": "com.amazonaws.ec2#AnalysisLoadBalancerListener",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ClassicLoadBalancerListener",
+            "smithy.api#documentation": "<p>The listener for a Classic Load Balancer.</p>",
+            "smithy.api#xmlName": "classicLoadBalancerListener"
+          }
+        },
+        "LoadBalancerListenerPort": {
+          "target": "com.amazonaws.ec2#Port",
+          "traits": {
+            "aws.protocols#ec2QueryName": "LoadBalancerListenerPort",
+            "smithy.api#documentation": "<p>The listener port of the load balancer.</p>",
+            "smithy.api#xmlName": "loadBalancerListenerPort"
+          }
+        },
+        "LoadBalancerTarget": {
+          "target": "com.amazonaws.ec2#AnalysisLoadBalancerTarget",
+          "traits": {
+            "aws.protocols#ec2QueryName": "LoadBalancerTarget",
+            "smithy.api#documentation": "<p>The target.</p>",
+            "smithy.api#xmlName": "loadBalancerTarget"
+          }
+        },
+        "LoadBalancerTargetGroup": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "LoadBalancerTargetGroup",
+            "smithy.api#documentation": "<p>The target group.</p>",
+            "smithy.api#xmlName": "loadBalancerTargetGroup"
+          }
+        },
+        "LoadBalancerTargetGroups": {
+          "target": "com.amazonaws.ec2#AnalysisComponentList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "LoadBalancerTargetGroupSet",
+            "smithy.api#documentation": "<p>The target groups.</p>",
+            "smithy.api#xmlName": "loadBalancerTargetGroupSet"
+          }
+        },
+        "LoadBalancerTargetPort": {
+          "target": "com.amazonaws.ec2#Port",
+          "traits": {
+            "aws.protocols#ec2QueryName": "LoadBalancerTargetPort",
+            "smithy.api#documentation": "<p>The target port.</p>",
+            "smithy.api#xmlName": "loadBalancerTargetPort"
+          }
+        },
+        "ElasticLoadBalancerListener": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ElasticLoadBalancerListener",
+            "smithy.api#documentation": "<p>The load balancer listener.</p>",
+            "smithy.api#xmlName": "elasticLoadBalancerListener"
+          }
+        },
+        "MissingComponent": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "MissingComponent",
+            "smithy.api#documentation": "<p>The missing component.</p>",
+            "smithy.api#xmlName": "missingComponent"
+          }
+        },
+        "NatGateway": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "NatGateway",
+            "smithy.api#documentation": "<p>The NAT gateway.</p>",
+            "smithy.api#xmlName": "natGateway"
+          }
+        },
+        "NetworkInterface": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "NetworkInterface",
+            "smithy.api#documentation": "<p>The network interface.</p>",
+            "smithy.api#xmlName": "networkInterface"
+          }
+        },
+        "PacketField": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "PacketField",
+            "smithy.api#documentation": "<p>The packet field.</p>",
+            "smithy.api#xmlName": "packetField"
+          }
+        },
+        "VpcPeeringConnection": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "VpcPeeringConnection",
+            "smithy.api#documentation": "<p>The VPC peering connection.</p>",
+            "smithy.api#xmlName": "vpcPeeringConnection"
+          }
+        },
+        "Port": {
+          "target": "com.amazonaws.ec2#Port",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Port",
+            "smithy.api#documentation": "<p>The port.</p>",
+            "smithy.api#xmlName": "port"
+          }
+        },
+        "PortRanges": {
+          "target": "com.amazonaws.ec2#PortRangeList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "PortRangeSet",
+            "smithy.api#documentation": "<p>The port ranges.</p>",
+            "smithy.api#xmlName": "portRangeSet"
+          }
+        },
+        "PrefixList": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "PrefixList",
+            "smithy.api#documentation": "<p>The prefix list.</p>",
+            "smithy.api#xmlName": "prefixList"
+          }
+        },
+        "Protocols": {
+          "target": "com.amazonaws.ec2#StringList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ProtocolSet",
+            "smithy.api#documentation": "<p>The protocols.</p>",
+            "smithy.api#xmlName": "protocolSet"
+          }
+        },
+        "RouteTableRoute": {
+          "target": "com.amazonaws.ec2#AnalysisRouteTableRoute",
+          "traits": {
+            "aws.protocols#ec2QueryName": "RouteTableRoute",
+            "smithy.api#documentation": "<p>The route table route.</p>",
+            "smithy.api#xmlName": "routeTableRoute"
+          }
+        },
+        "RouteTable": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "RouteTable",
+            "smithy.api#documentation": "<p>The route table.</p>",
+            "smithy.api#xmlName": "routeTable"
+          }
+        },
+        "SecurityGroup": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "SecurityGroup",
+            "smithy.api#documentation": "<p>The security group.</p>",
+            "smithy.api#xmlName": "securityGroup"
+          }
+        },
+        "SecurityGroupRule": {
+          "target": "com.amazonaws.ec2#AnalysisSecurityGroupRule",
+          "traits": {
+            "aws.protocols#ec2QueryName": "SecurityGroupRule",
+            "smithy.api#documentation": "<p>The security group rule.</p>",
+            "smithy.api#xmlName": "securityGroupRule"
+          }
+        },
+        "SecurityGroups": {
+          "target": "com.amazonaws.ec2#AnalysisComponentList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "SecurityGroupSet",
+            "smithy.api#documentation": "<p>The security groups.</p>",
+            "smithy.api#xmlName": "securityGroupSet"
+          }
+        },
+        "SourceVpc": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "SourceVpc",
+            "smithy.api#documentation": "<p>The source VPC.</p>",
+            "smithy.api#xmlName": "sourceVpc"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "State",
+            "smithy.api#documentation": "<p>The state.</p>",
+            "smithy.api#xmlName": "state"
+          }
+        },
+        "Subnet": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Subnet",
+            "smithy.api#documentation": "<p>The subnet.</p>",
+            "smithy.api#xmlName": "subnet"
+          }
+        },
+        "SubnetRouteTable": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "SubnetRouteTable",
+            "smithy.api#documentation": "<p>The route table for the subnet.</p>",
+            "smithy.api#xmlName": "subnetRouteTable"
+          }
+        },
+        "Vpc": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Vpc",
+            "smithy.api#documentation": "<p>The component VPC.</p>",
+            "smithy.api#xmlName": "vpc"
+          }
+        },
+        "VpcEndpoint": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "VpcEndpoint",
+            "smithy.api#documentation": "<p>The VPC endpoint.</p>",
+            "smithy.api#xmlName": "vpcEndpoint"
+          }
+        },
+        "VpnConnection": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "VpnConnection",
+            "smithy.api#documentation": "<p>The VPN connection.</p>",
+            "smithy.api#xmlName": "vpnConnection"
+          }
+        },
+        "VpnGateway": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "VpnGateway",
+            "smithy.api#documentation": "<p>The VPN gateway.</p>",
+            "smithy.api#xmlName": "vpnGateway"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes an explanation code for an unreachable path. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html\">Reachability Analyzer explanation codes</a>.</p>"
+      }
+    },
+    "com.amazonaws.ec2#ExplanationList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#Explanation",
+        "traits": {
+          "smithy.api#xmlName": "item"
         }
       }
     },
@@ -29938,7 +31601,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>One or more filters. The possible values are:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>resource-id</code> - The ID of the resource.</p>\n            </li>\n            <li>\n               <p>\n                  <code>resource-type</code> - The resource type. Valid values are <code>vpc</code> |\n                        <code>vpn</code> | <code>direct-connect-gateway</code> |\n                <code>peering</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>One or more filters. The possible values are:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>resource-id</code> - The ID of the resource.</p>\n            </li>\n            <li>\n               <p>\n                  <code>resource-type</code> - The resource type. Valid values are <code>vpc</code>\n                    | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code>\n                    | <code>connect</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "Filter"
           }
         },
@@ -30014,7 +31677,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>One or more filters. The possible values are:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>resource-id</code> - The ID of the resource.</p>\n            </li>\n            <li>\n               <p>\n                  <code>resource-type</code> - The resource type. Valid values are <code>vpc</code> |\n                        <code>vpn</code> | <code>direct-connect-gateway</code> |\n                <code>peering</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>One or more filters. The possible values are:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>resource-id</code> - The ID of the resource.</p>\n            </li>\n            <li>\n               <p>\n                  <code>resource-type</code> - The resource type. Valid values are <code>vpc</code>\n                    | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code>\n                    | <code>connect</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "Filter"
           }
         },
@@ -31105,6 +32768,19 @@
         "traits": {
           "smithy.api#xmlName": "item"
         }
+      }
+    },
+    "com.amazonaws.ec2#Igmpv2SupportValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "enable"
+          },
+          {
+            "value": "disable"
+          }
+        ]
       }
     },
     "com.amazonaws.ec2#Image": {
@@ -32740,6 +34416,15 @@
     },
     "com.amazonaws.ec2#InferenceDeviceName": {
       "type": "string"
+    },
+    "com.amazonaws.ec2#InsideCidrBlocksStringList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#String",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
     },
     "com.amazonaws.ec2#Instance": {
       "type": "structure",
@@ -36237,6 +37922,25 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.ec2#InternetGateway",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
+    },
+    "com.amazonaws.ec2#IpAddress": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 15
+        },
+        "smithy.api#pattern": "^([0-9]{1,3}.){3}[0-9]{1,3}$"
+      }
+    },
+    "com.amazonaws.ec2#IpAddressList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#IpAddress",
         "traits": {
           "smithy.api#xmlName": "item"
         }
@@ -41390,6 +43094,18 @@
     "com.amazonaws.ec2#ModifyTransitGatewayOptions": {
       "type": "structure",
       "members": {
+        "AddTransitGatewayCidrBlocks": {
+          "target": "com.amazonaws.ec2#TransitGatewayCidrBlockStringList",
+          "traits": {
+            "smithy.api#documentation": "<p>Adds IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.</p>"
+          }
+        },
+        "RemoveTransitGatewayCidrBlocks": {
+          "target": "com.amazonaws.ec2#TransitGatewayCidrBlockStringList",
+          "traits": {
+            "smithy.api#documentation": "<p>Removes CIDR blocks for the transit gateway.</p>"
+          }
+        },
         "VpnEcmpSupport": {
           "target": "com.amazonaws.ec2#VpnEcmpSupportValue",
           "traits": {
@@ -43270,6 +44986,257 @@
         "smithy.api#documentation": "<p>Describes the networking features of the instance type.</p>"
       }
     },
+    "com.amazonaws.ec2#NetworkInsightsAnalysis": {
+      "type": "structure",
+      "members": {
+        "NetworkInsightsAnalysisId": {
+          "target": "com.amazonaws.ec2#NetworkInsightsAnalysisId",
+          "traits": {
+            "aws.protocols#ec2QueryName": "NetworkInsightsAnalysisId",
+            "smithy.api#documentation": "<p>The ID of the network insights analysis.</p>",
+            "smithy.api#xmlName": "networkInsightsAnalysisId"
+          }
+        },
+        "NetworkInsightsAnalysisArn": {
+          "target": "com.amazonaws.ec2#ResourceArn",
+          "traits": {
+            "aws.protocols#ec2QueryName": "NetworkInsightsAnalysisArn",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the network insights analysis.</p>",
+            "smithy.api#xmlName": "networkInsightsAnalysisArn"
+          }
+        },
+        "NetworkInsightsPathId": {
+          "target": "com.amazonaws.ec2#NetworkInsightsPathId",
+          "traits": {
+            "aws.protocols#ec2QueryName": "NetworkInsightsPathId",
+            "smithy.api#documentation": "<p>The ID of the path.</p>",
+            "smithy.api#xmlName": "networkInsightsPathId"
+          }
+        },
+        "FilterInArns": {
+          "target": "com.amazonaws.ec2#ArnList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "FilterInArnSet",
+            "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the AWS resources that the path must traverse.</p>",
+            "smithy.api#xmlName": "filterInArnSet"
+          }
+        },
+        "StartDate": {
+          "target": "com.amazonaws.ec2#MillisecondDateTime",
+          "traits": {
+            "aws.protocols#ec2QueryName": "StartDate",
+            "smithy.api#documentation": "<p>The time the analysis started.</p>",
+            "smithy.api#xmlName": "startDate"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.ec2#AnalysisStatus",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Status",
+            "smithy.api#documentation": "<p>The status of the network insights analysis.</p>",
+            "smithy.api#xmlName": "status"
+          }
+        },
+        "StatusMessage": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "StatusMessage",
+            "smithy.api#documentation": "<p>The status message, if the status is <code>failed</code>.</p>",
+            "smithy.api#xmlName": "statusMessage"
+          }
+        },
+        "NetworkPathFound": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "aws.protocols#ec2QueryName": "NetworkPathFound",
+            "smithy.api#documentation": "<p>Indicates whether the destination is reachable from the source.</p>",
+            "smithy.api#xmlName": "networkPathFound"
+          }
+        },
+        "ForwardPathComponents": {
+          "target": "com.amazonaws.ec2#PathComponentList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ForwardPathComponentSet",
+            "smithy.api#documentation": "<p>The components in the path from source to destination.</p>",
+            "smithy.api#xmlName": "forwardPathComponentSet"
+          }
+        },
+        "ReturnPathComponents": {
+          "target": "com.amazonaws.ec2#PathComponentList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ReturnPathComponentSet",
+            "smithy.api#documentation": "<p>The components in the path from destination to source.</p>",
+            "smithy.api#xmlName": "returnPathComponentSet"
+          }
+        },
+        "Explanations": {
+          "target": "com.amazonaws.ec2#ExplanationList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ExplanationSet",
+            "smithy.api#documentation": "<p>The explanations. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html\">Reachability Analyzer explanation codes</a>.</p>",
+            "smithy.api#xmlName": "explanationSet"
+          }
+        },
+        "AlternatePathHints": {
+          "target": "com.amazonaws.ec2#AlternatePathHintList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "AlternatePathHintSet",
+            "smithy.api#documentation": "<p>Potential intermediate components.</p>",
+            "smithy.api#xmlName": "alternatePathHintSet"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.ec2#TagList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TagSet",
+            "smithy.api#documentation": "<p>The tags.</p>",
+            "smithy.api#xmlName": "tagSet"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a network insights analysis.</p>"
+      }
+    },
+    "com.amazonaws.ec2#NetworkInsightsAnalysisId": {
+      "type": "string"
+    },
+    "com.amazonaws.ec2#NetworkInsightsAnalysisIdList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#NetworkInsightsAnalysisId",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
+    },
+    "com.amazonaws.ec2#NetworkInsightsAnalysisList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#NetworkInsightsAnalysis",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
+    },
+    "com.amazonaws.ec2#NetworkInsightsMaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.ec2#NetworkInsightsPath": {
+      "type": "structure",
+      "members": {
+        "NetworkInsightsPathId": {
+          "target": "com.amazonaws.ec2#NetworkInsightsPathId",
+          "traits": {
+            "aws.protocols#ec2QueryName": "NetworkInsightsPathId",
+            "smithy.api#documentation": "<p>The ID of the path.</p>",
+            "smithy.api#xmlName": "networkInsightsPathId"
+          }
+        },
+        "NetworkInsightsPathArn": {
+          "target": "com.amazonaws.ec2#ResourceArn",
+          "traits": {
+            "aws.protocols#ec2QueryName": "NetworkInsightsPathArn",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the path.</p>",
+            "smithy.api#xmlName": "networkInsightsPathArn"
+          }
+        },
+        "CreatedDate": {
+          "target": "com.amazonaws.ec2#MillisecondDateTime",
+          "traits": {
+            "aws.protocols#ec2QueryName": "CreatedDate",
+            "smithy.api#documentation": "<p>The time stamp when the path was created.</p>",
+            "smithy.api#xmlName": "createdDate"
+          }
+        },
+        "Source": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Source",
+            "smithy.api#documentation": "<p>The AWS resource that is the source of the path.</p>",
+            "smithy.api#xmlName": "source"
+          }
+        },
+        "Destination": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Destination",
+            "smithy.api#documentation": "<p>The AWS resource that is the destination of the path.</p>",
+            "smithy.api#xmlName": "destination"
+          }
+        },
+        "SourceIp": {
+          "target": "com.amazonaws.ec2#IpAddress",
+          "traits": {
+            "aws.protocols#ec2QueryName": "SourceIp",
+            "smithy.api#documentation": "<p>The IP address of the AWS resource that is the source of the path.</p>",
+            "smithy.api#xmlName": "sourceIp"
+          }
+        },
+        "DestinationIp": {
+          "target": "com.amazonaws.ec2#IpAddress",
+          "traits": {
+            "aws.protocols#ec2QueryName": "DestinationIp",
+            "smithy.api#documentation": "<p>The IP address of the AWS resource that is the destination of the path.</p>",
+            "smithy.api#xmlName": "destinationIp"
+          }
+        },
+        "Protocol": {
+          "target": "com.amazonaws.ec2#Protocol",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Protocol",
+            "smithy.api#documentation": "<p>The protocol.</p>",
+            "smithy.api#xmlName": "protocol"
+          }
+        },
+        "DestinationPort": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "aws.protocols#ec2QueryName": "DestinationPort",
+            "smithy.api#documentation": "<p>The destination port.</p>",
+            "smithy.api#xmlName": "destinationPort"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.ec2#TagList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TagSet",
+            "smithy.api#documentation": "<p>The tags associated with the path.</p>",
+            "smithy.api#xmlName": "tagSet"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a path.</p>"
+      }
+    },
+    "com.amazonaws.ec2#NetworkInsightsPathId": {
+      "type": "string"
+    },
+    "com.amazonaws.ec2#NetworkInsightsPathIdList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#NetworkInsightsPathId",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
+    },
+    "com.amazonaws.ec2#NetworkInsightsPathList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#NetworkInsightsPath",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
+    },
     "com.amazonaws.ec2#NetworkInterface": {
       "type": "structure",
       "members": {
@@ -44124,6 +46091,111 @@
         }
       }
     },
+    "com.amazonaws.ec2#PathComponent": {
+      "type": "structure",
+      "members": {
+        "SequenceNumber": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "aws.protocols#ec2QueryName": "SequenceNumber",
+            "smithy.api#documentation": "<p>The sequence number.</p>",
+            "smithy.api#xmlName": "sequenceNumber"
+          }
+        },
+        "AclRule": {
+          "target": "com.amazonaws.ec2#AnalysisAclRule",
+          "traits": {
+            "aws.protocols#ec2QueryName": "AclRule",
+            "smithy.api#documentation": "<p>The network ACL rule.</p>",
+            "smithy.api#xmlName": "aclRule"
+          }
+        },
+        "Component": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Component",
+            "smithy.api#documentation": "<p>The component.</p>",
+            "smithy.api#xmlName": "component"
+          }
+        },
+        "DestinationVpc": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "DestinationVpc",
+            "smithy.api#documentation": "<p>The destination VPC.</p>",
+            "smithy.api#xmlName": "destinationVpc"
+          }
+        },
+        "OutboundHeader": {
+          "target": "com.amazonaws.ec2#AnalysisPacketHeader",
+          "traits": {
+            "aws.protocols#ec2QueryName": "OutboundHeader",
+            "smithy.api#documentation": "<p>The outbound header.</p>",
+            "smithy.api#xmlName": "outboundHeader"
+          }
+        },
+        "InboundHeader": {
+          "target": "com.amazonaws.ec2#AnalysisPacketHeader",
+          "traits": {
+            "aws.protocols#ec2QueryName": "InboundHeader",
+            "smithy.api#documentation": "<p>The inbound header.</p>",
+            "smithy.api#xmlName": "inboundHeader"
+          }
+        },
+        "RouteTableRoute": {
+          "target": "com.amazonaws.ec2#AnalysisRouteTableRoute",
+          "traits": {
+            "aws.protocols#ec2QueryName": "RouteTableRoute",
+            "smithy.api#documentation": "<p>The route table route.</p>",
+            "smithy.api#xmlName": "routeTableRoute"
+          }
+        },
+        "SecurityGroupRule": {
+          "target": "com.amazonaws.ec2#AnalysisSecurityGroupRule",
+          "traits": {
+            "aws.protocols#ec2QueryName": "SecurityGroupRule",
+            "smithy.api#documentation": "<p>The security group rule.</p>",
+            "smithy.api#xmlName": "securityGroupRule"
+          }
+        },
+        "SourceVpc": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "SourceVpc",
+            "smithy.api#documentation": "<p>The source VPC.</p>",
+            "smithy.api#xmlName": "sourceVpc"
+          }
+        },
+        "Subnet": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Subnet",
+            "smithy.api#documentation": "<p>The subnet.</p>",
+            "smithy.api#xmlName": "subnet"
+          }
+        },
+        "Vpc": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Vpc",
+            "smithy.api#documentation": "<p>The component VPC.</p>",
+            "smithy.api#xmlName": "vpc"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a path component.</p>"
+      }
+    },
+    "com.amazonaws.ec2#PathComponentList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#PathComponent",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
+    },
     "com.amazonaws.ec2#PaymentOption": {
       "type": "string",
       "traits": {
@@ -44881,6 +46953,15 @@
         }
       }
     },
+    "com.amazonaws.ec2#Port": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1,
+          "max": 65535
+        }
+      }
+    },
     "com.amazonaws.ec2#PortRange": {
       "type": "structure",
       "members": {
@@ -44903,6 +46984,15 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Describes a range of ports.</p>"
+      }
+    },
+    "com.amazonaws.ec2#PortRangeList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#PortRange",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.ec2#PrefixList": {
@@ -45535,6 +47625,29 @@
         "traits": {
           "smithy.api#xmlName": "item"
         }
+      }
+    },
+    "com.amazonaws.ec2#Protocol": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "tcp"
+          },
+          {
+            "value": "udp"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.ec2#ProtocolValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "gre"
+          }
+        ]
       }
     },
     "com.amazonaws.ec2#ProvisionByoipCidr": {
@@ -46610,6 +48723,59 @@
             "aws.protocols#ec2QueryName": "RegisteredMulticastGroupSources",
             "smithy.api#documentation": "<p>Information about the  transit gateway multicast group sources.</p>",
             "smithy.api#xmlName": "registeredMulticastGroupSources"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#RejectTransitGatewayMulticastDomainAssociations": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#RejectTransitGatewayMulticastDomainAssociationsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#RejectTransitGatewayMulticastDomainAssociationsResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Rejects a request to associate cross-account subnets with a transit gateway multicast domain.</p>"
+      }
+    },
+    "com.amazonaws.ec2#RejectTransitGatewayMulticastDomainAssociationsRequest": {
+      "type": "structure",
+      "members": {
+        "TransitGatewayMulticastDomainId": {
+          "target": "com.amazonaws.ec2#TransitGatewayMulticastDomainId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the transit gateway multicast domain.</p>"
+          }
+        },
+        "TransitGatewayAttachmentId": {
+          "target": "com.amazonaws.ec2#TransitGatewayAttachmentId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the transit gateway attachment.</p>"
+          }
+        },
+        "SubnetIds": {
+          "target": "com.amazonaws.ec2#ValueStringList",
+          "traits": {
+            "smithy.api#documentation": "<p>The IDs of the subnets to associate with the transit gateway multicast domain.</p>"
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#RejectTransitGatewayMulticastDomainAssociationsResult": {
+      "type": "structure",
+      "members": {
+        "Associations": {
+          "target": "com.amazonaws.ec2#TransitGatewayMulticastDomainAssociations",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Associations",
+            "smithy.api#xmlName": "associations"
           }
         }
       }
@@ -49243,6 +51409,12 @@
             "value": "network-interface"
           },
           {
+            "value": "network-insights-analysis"
+          },
+          {
+            "value": "network-insights-path"
+          },
+          {
             "value": "placement-group"
           },
           {
@@ -49280,6 +51452,9 @@
           },
           {
             "value": "transit-gateway-attachment"
+          },
+          {
+            "value": "transit-gateway-connect-peer"
           },
           {
             "value": "transit-gateway-multicast-domain"
@@ -51680,7 +53855,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>One or more filters. The possible values are:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>attachment.transit-gateway-attachment-id</code>- The id of the transit gateway attachment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>attachment.resource-id</code> - The resource id of the transit gateway attachment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>attachment.resource-type</code> - The attachment resource type. Valid values are <code>vpc</code> | <code>vpn</code> | <code>direct-connect-gateway</code> |\n                <code>peering</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>prefix-list-id</code> - The ID of the prefix list.</p>\n            </li>\n            <li>\n               <p>\n                  <code>route-search.exact-match</code> - The exact match of the specified filter.</p>\n            </li>\n            <li>\n               <p>\n                  <code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p>\n            </li>\n            <li>\n               <p>\n                  <code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p>\n            </li>\n            <li>\n               <p>\n                  <code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p>\n            </li>\n            <li>\n               <p>\n                  <code>state</code> - The state of the route (<code>active</code> | <code>blackhole</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>type</code> - The type of route (<code>propagated</code> |\n                  <code>static</code>).</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>One or more filters. The possible values are:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>attachment.transit-gateway-attachment-id</code>- The id of the transit gateway attachment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>attachment.resource-id</code> - The resource id of the transit gateway attachment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>attachment.resource-type</code> - The attachment resource type. Valid values\n                    are <code>vpc</code> | <code>vpn</code> | <code>direct-connect-gateway</code> |\n                        <code>peering</code> | <code>connect</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>prefix-list-id</code> - The ID of the prefix list.</p>\n            </li>\n            <li>\n               <p>\n                  <code>route-search.exact-match</code> - The exact match of the specified filter.</p>\n            </li>\n            <li>\n               <p>\n                  <code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p>\n            </li>\n            <li>\n               <p>\n                  <code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p>\n            </li>\n            <li>\n               <p>\n                  <code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p>\n            </li>\n            <li>\n               <p>\n                  <code>state</code> - The state of the route (<code>active</code> | <code>blackhole</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>type</code> - The type of route (<code>propagated</code> |\n                  <code>static</code>).</p>\n            </li>\n         </ul>",
             "smithy.api#required": {},
             "smithy.api#xmlName": "Filter"
           }
@@ -54101,6 +56276,71 @@
         }
       }
     },
+    "com.amazonaws.ec2#StartNetworkInsightsAnalysis": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#StartNetworkInsightsAnalysisRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#StartNetworkInsightsAnalysisResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Starts analyzing the specified path. If the path is reachable, the\n         operation returns the shortest feasible path.</p>"
+      }
+    },
+    "com.amazonaws.ec2#StartNetworkInsightsAnalysisRequest": {
+      "type": "structure",
+      "members": {
+        "NetworkInsightsPathId": {
+          "target": "com.amazonaws.ec2#NetworkInsightsPathId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the path.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "FilterInArns": {
+          "target": "com.amazonaws.ec2#ArnList",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the resources that the path must traverse.</p>",
+            "smithy.api#xmlName": "FilterInArn"
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        },
+        "TagSpecifications": {
+          "target": "com.amazonaws.ec2#TagSpecificationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to apply.</p>",
+            "smithy.api#xmlName": "TagSpecification"
+          }
+        },
+        "ClientToken": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, \n   see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">How to Ensure Idempotency</a>.</p>",
+            "smithy.api#idempotencyToken": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#StartNetworkInsightsAnalysisResult": {
+      "type": "structure",
+      "members": {
+        "NetworkInsightsAnalysis": {
+          "target": "com.amazonaws.ec2#NetworkInsightsAnalysis",
+          "traits": {
+            "aws.protocols#ec2QueryName": "NetworkInsightsAnalysis",
+            "smithy.api#documentation": "<p>Information about the network insights analysis.</p>",
+            "smithy.api#xmlName": "networkInsightsAnalysis"
+          }
+        }
+      }
+    },
     "com.amazonaws.ec2#StartVpcEndpointServicePrivateDnsVerification": {
       "type": "operation",
       "input": {
@@ -54205,6 +56445,19 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Describes a state change.</p>"
+      }
+    },
+    "com.amazonaws.ec2#StaticSourcesSupportValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "enable"
+          },
+          {
+            "value": "disable"
+          }
+        ]
       }
     },
     "com.amazonaws.ec2#Status": {
@@ -54352,6 +56605,15 @@
     },
     "com.amazonaws.ec2#String": {
       "type": "string"
+    },
+    "com.amazonaws.ec2#StringList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#String",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
     },
     "com.amazonaws.ec2#Subnet": {
       "type": "structure",
@@ -54818,7 +57080,7 @@
           "target": "com.amazonaws.ec2#ResourceType",
           "traits": {
             "aws.protocols#ec2QueryName": "ResourceType",
-            "smithy.api#documentation": "<p>The type of resource to tag. Currently, the resource types that support tagging on\n         creation are: <code>capacity-reservation</code> | <code>carrier-gateway</code> |\n            <code>client-vpn-endpoint</code> |  <code>customer-gateway</code> |\n            <code>dedicated-host</code> | <code>dhcp-options</code> | <code>export-image-task</code>\n         | <code>export-instance-task</code> | <code>fleet</code> | <code>fpga-image</code> |\n    \t   <code>host-reservation</code> | <code>image</code>| <code>import-image-task</code> |\n            <code>import-snapshot-task</code> | <code>instance</code> |\n            <code>internet-gateway</code> | <code>ipv4pool-ec2</code> | <code>ipv6pool-ec2</code> |\n            <code>key-pair</code> | <code>launch-template</code> | <code>placement-group</code> |\n            <code>prefix-list</code> | <code>natgateway</code> | <code>network-acl</code> |\n    \t   <code>route-table</code> | <code>security-group</code>| <code>snapshot</code> | <code>spot-fleet-request</code>\n         | <code>spot-instances-request</code> | <code>snapshot</code> | <code>subnet</code> |\n            <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> |\n            <code>traffic-mirror-target</code> | <code>transit-gateway</code> |\n            <code>transit-gateway-attachment</code> | <code>transit-gateway-route-table</code> |\n            <code>volume</code> |<code>vpc</code> | <code> vpc-peering-connection</code> |\n            <code>vpc-endpoint</code> (for interface and gateway endpoints) |\n            <code>vpc-endpoint-service</code> (for AWS PrivateLink) | <code>vpc-flow-log</code> |\n            <code>vpn-connection</code> | <code>vpn-gateway</code>.</p>\n         <p>To tag a resource after it has been created, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html\">CreateTags</a>.</p>",
+            "smithy.api#documentation": "<p>The type of resource to tag. Currently, the resource types that support tagging on\n         creation are: <code>capacity-reservation</code> | <code>carrier-gateway</code> |\n            <code>client-vpn-endpoint</code> |  <code>customer-gateway</code> |\n            <code>dedicated-host</code> | <code>dhcp-options</code> | <code>export-image-task</code>\n         | <code>export-instance-task</code> | <code>fleet</code> | <code>fpga-image</code> |\n            <code>host-reservation</code> | <code>import-image-task</code> |\n            <code>import-snapshot-task</code> | <code>instance</code> |\n            <code>internet-gateway</code> | <code>ipv4pool-ec2</code> | <code>ipv6pool-ec2</code> |\n            <code>key-pair</code> | <code>launch-template</code> | <code>placement-group</code> |\n            <code>prefix-list</code> | <code>natgateway</code> | <code>network-acl</code> |\n            <code>route-table</code> | <code>security-group</code> | <code>spot-fleet-request</code>\n         | <code>spot-instances-request</code> | <code>snapshot</code> | <code>subnet</code> |\n            <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> |\n            <code>traffic-mirror-target</code> | <code>transit-gateway</code> |\n    \t    <code>transit-gateway-attachment</code> | <code>transit-gateway-connect-peer</code> | <code>transit-gateway-multicast-domain</code> | <code>transit-gateway-route-table</code> |\n            <code>volume</code> |<code>vpc</code> | <code> vpc-peering-connection</code> |\n            <code>vpc-endpoint</code> (for interface and gateway endpoints) |\n            <code>vpc-endpoint-service</code> (for AWS PrivateLink) | <code>vpc-flow-log</code> |\n            <code>vpn-connection</code> | <code>vpn-gateway</code>.</p>\n         <p>To tag a resource after it has been created, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html\">CreateTags</a>.</p>",
             "smithy.api#xmlName": "resourceType"
           }
         },
@@ -56127,6 +58389,63 @@
         "smithy.api#documentation": "<p>Describes an association.</p>"
       }
     },
+    "com.amazonaws.ec2#TransitGatewayAttachmentBgpConfiguration": {
+      "type": "structure",
+      "members": {
+        "TransitGatewayAsn": {
+          "target": "com.amazonaws.ec2#Long",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TransitGatewayAsn",
+            "smithy.api#documentation": "<p>The transit gateway Autonomous System Number (ASN).</p>",
+            "smithy.api#xmlName": "transitGatewayAsn"
+          }
+        },
+        "PeerAsn": {
+          "target": "com.amazonaws.ec2#Long",
+          "traits": {
+            "aws.protocols#ec2QueryName": "PeerAsn",
+            "smithy.api#documentation": "<p>The peer Autonomous System Number (ASN).</p>",
+            "smithy.api#xmlName": "peerAsn"
+          }
+        },
+        "TransitGatewayAddress": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TransitGatewayAddress",
+            "smithy.api#documentation": "<p>The interior BGP peer IP address for the transit gateway.</p>",
+            "smithy.api#xmlName": "transitGatewayAddress"
+          }
+        },
+        "PeerAddress": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "PeerAddress",
+            "smithy.api#documentation": "<p>The interior BGP peer IP address for the appliance.</p>",
+            "smithy.api#xmlName": "peerAddress"
+          }
+        },
+        "BgpStatus": {
+          "target": "com.amazonaws.ec2#BgpStatus",
+          "traits": {
+            "aws.protocols#ec2QueryName": "BgpStatus",
+            "smithy.api#documentation": "<p>The BGP status.</p>",
+            "smithy.api#xmlName": "bgpStatus"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The BGP configuration information.</p>"
+      }
+    },
+    "com.amazonaws.ec2#TransitGatewayAttachmentBgpConfigurationList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#TransitGatewayAttachmentBgpConfiguration",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
+    },
     "com.amazonaws.ec2#TransitGatewayAttachmentId": {
       "type": "string"
     },
@@ -56192,6 +58511,9 @@
             "value": "direct-connect-gateway"
           },
           {
+            "value": "connect"
+          },
+          {
             "value": "peering"
           },
           {
@@ -56246,6 +58568,262 @@
         ]
       }
     },
+    "com.amazonaws.ec2#TransitGatewayCidrBlockStringList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#String",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
+    },
+    "com.amazonaws.ec2#TransitGatewayConnect": {
+      "type": "structure",
+      "members": {
+        "TransitGatewayAttachmentId": {
+          "target": "com.amazonaws.ec2#TransitGatewayAttachmentId",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TransitGatewayAttachmentId",
+            "smithy.api#documentation": "<p>The ID of the Connect attachment.</p>",
+            "smithy.api#xmlName": "transitGatewayAttachmentId"
+          }
+        },
+        "TransportTransitGatewayAttachmentId": {
+          "target": "com.amazonaws.ec2#TransitGatewayAttachmentId",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TransportTransitGatewayAttachmentId",
+            "smithy.api#documentation": "<p>The ID of the attachment from which the Connect attachment was created.</p>",
+            "smithy.api#xmlName": "transportTransitGatewayAttachmentId"
+          }
+        },
+        "TransitGatewayId": {
+          "target": "com.amazonaws.ec2#TransitGatewayId",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TransitGatewayId",
+            "smithy.api#documentation": "<p>The ID of the transit gateway.</p>",
+            "smithy.api#xmlName": "transitGatewayId"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.ec2#TransitGatewayAttachmentState",
+          "traits": {
+            "aws.protocols#ec2QueryName": "State",
+            "smithy.api#documentation": "<p>The state of the attachment.</p>",
+            "smithy.api#xmlName": "state"
+          }
+        },
+        "CreationTime": {
+          "target": "com.amazonaws.ec2#DateTime",
+          "traits": {
+            "aws.protocols#ec2QueryName": "CreationTime",
+            "smithy.api#documentation": "<p>The creation time.</p>",
+            "smithy.api#xmlName": "creationTime"
+          }
+        },
+        "Options": {
+          "target": "com.amazonaws.ec2#TransitGatewayConnectOptions",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Options",
+            "smithy.api#documentation": "<p>The Connect attachment options.</p>",
+            "smithy.api#xmlName": "options"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.ec2#TagList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TagSet",
+            "smithy.api#documentation": "<p>The tags for the attachment.</p>",
+            "smithy.api#xmlName": "tagSet"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a transit gateway Connect attachment.</p>"
+      }
+    },
+    "com.amazonaws.ec2#TransitGatewayConnectList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#TransitGatewayConnect",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
+    },
+    "com.amazonaws.ec2#TransitGatewayConnectOptions": {
+      "type": "structure",
+      "members": {
+        "Protocol": {
+          "target": "com.amazonaws.ec2#ProtocolValue",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Protocol",
+            "smithy.api#documentation": "<p>The tunnel protocol.</p>",
+            "smithy.api#xmlName": "protocol"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the Connect attachment options.</p>"
+      }
+    },
+    "com.amazonaws.ec2#TransitGatewayConnectPeer": {
+      "type": "structure",
+      "members": {
+        "TransitGatewayAttachmentId": {
+          "target": "com.amazonaws.ec2#TransitGatewayAttachmentId",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TransitGatewayAttachmentId",
+            "smithy.api#documentation": "<p>The ID of the Connect attachment.</p>",
+            "smithy.api#xmlName": "transitGatewayAttachmentId"
+          }
+        },
+        "TransitGatewayConnectPeerId": {
+          "target": "com.amazonaws.ec2#TransitGatewayConnectPeerId",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TransitGatewayConnectPeerId",
+            "smithy.api#documentation": "<p>The ID of the Connect peer.</p>",
+            "smithy.api#xmlName": "transitGatewayConnectPeerId"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.ec2#TransitGatewayConnectPeerState",
+          "traits": {
+            "aws.protocols#ec2QueryName": "State",
+            "smithy.api#documentation": "<p>The state of the Connect peer.</p>",
+            "smithy.api#xmlName": "state"
+          }
+        },
+        "CreationTime": {
+          "target": "com.amazonaws.ec2#DateTime",
+          "traits": {
+            "aws.protocols#ec2QueryName": "CreationTime",
+            "smithy.api#documentation": "<p>The creation time.</p>",
+            "smithy.api#xmlName": "creationTime"
+          }
+        },
+        "ConnectPeerConfiguration": {
+          "target": "com.amazonaws.ec2#TransitGatewayConnectPeerConfiguration",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ConnectPeerConfiguration",
+            "smithy.api#documentation": "<p>The Connect peer details.</p>",
+            "smithy.api#xmlName": "connectPeerConfiguration"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.ec2#TagList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TagSet",
+            "smithy.api#documentation": "<p>The tags for the Connect peer.</p>",
+            "smithy.api#xmlName": "tagSet"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a transit gateway Connect peer.</p>"
+      }
+    },
+    "com.amazonaws.ec2#TransitGatewayConnectPeerConfiguration": {
+      "type": "structure",
+      "members": {
+        "TransitGatewayAddress": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TransitGatewayAddress",
+            "smithy.api#documentation": "<p>The Connect peer IP address on the transit gateway side of the tunnel.</p>",
+            "smithy.api#xmlName": "transitGatewayAddress"
+          }
+        },
+        "PeerAddress": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "PeerAddress",
+            "smithy.api#documentation": "<p>The Connect peer IP address on the appliance side of the tunnel.</p>",
+            "smithy.api#xmlName": "peerAddress"
+          }
+        },
+        "InsideCidrBlocks": {
+          "target": "com.amazonaws.ec2#InsideCidrBlocksStringList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "InsideCidrBlocks",
+            "smithy.api#documentation": "<p>The range of interior BGP peer IP addresses.</p>",
+            "smithy.api#xmlName": "insideCidrBlocks"
+          }
+        },
+        "Protocol": {
+          "target": "com.amazonaws.ec2#ProtocolValue",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Protocol",
+            "smithy.api#documentation": "<p>The tunnel protocol.</p>",
+            "smithy.api#xmlName": "protocol"
+          }
+        },
+        "BgpConfigurations": {
+          "target": "com.amazonaws.ec2#TransitGatewayAttachmentBgpConfigurationList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "BgpConfigurations",
+            "smithy.api#documentation": "<p>The BGP configuration details.</p>",
+            "smithy.api#xmlName": "bgpConfigurations"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the Connect peer details.</p>"
+      }
+    },
+    "com.amazonaws.ec2#TransitGatewayConnectPeerId": {
+      "type": "string"
+    },
+    "com.amazonaws.ec2#TransitGatewayConnectPeerIdStringList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#TransitGatewayConnectPeerId",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
+    },
+    "com.amazonaws.ec2#TransitGatewayConnectPeerList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#TransitGatewayConnectPeer",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
+    },
+    "com.amazonaws.ec2#TransitGatewayConnectPeerState": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "pending"
+          },
+          {
+            "value": "available"
+          },
+          {
+            "value": "deleting"
+          },
+          {
+            "value": "deleted"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.ec2#TransitGatewayConnectRequestBgpOptions": {
+      "type": "structure",
+      "members": {
+        "PeerAsn": {
+          "target": "com.amazonaws.ec2#Long",
+          "traits": {
+            "smithy.api#documentation": "<p>The peer Autonomous System Number (ASN).</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The BGP options for the Connect attachment.</p>"
+      }
+    },
     "com.amazonaws.ec2#TransitGatewayId": {
       "type": "string"
     },
@@ -56281,6 +58859,9 @@
       "traits": {
         "smithy.api#enum": [
           {
+            "value": "pendingAcceptance"
+          },
+          {
             "value": "associating"
           },
           {
@@ -56291,6 +58872,12 @@
           },
           {
             "value": "disassociated"
+          },
+          {
+            "value": "rejected"
+          },
+          {
+            "value": "failed"
           }
         ]
       }
@@ -56378,6 +58965,30 @@
             "smithy.api#xmlName": "transitGatewayId"
           }
         },
+        "TransitGatewayMulticastDomainArn": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TransitGatewayMulticastDomainArn",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the transit gateway multicast domain.</p>",
+            "smithy.api#xmlName": "transitGatewayMulticastDomainArn"
+          }
+        },
+        "OwnerId": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "OwnerId",
+            "smithy.api#documentation": "<p> The ID of the AWS account that owns the transit gateway multiicast domain.</p>",
+            "smithy.api#xmlName": "ownerId"
+          }
+        },
+        "Options": {
+          "target": "com.amazonaws.ec2#TransitGatewayMulticastDomainOptions",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Options",
+            "smithy.api#documentation": "<p>The options for the transit gateway multicast domain.</p>",
+            "smithy.api#xmlName": "options"
+          }
+        },
         "State": {
           "target": "com.amazonaws.ec2#TransitGatewayMulticastDomainState",
           "traits": {
@@ -56432,6 +59043,14 @@
             "aws.protocols#ec2QueryName": "ResourceType",
             "smithy.api#documentation": "<p>The type of resource, for example a VPC attachment.</p>",
             "smithy.api#xmlName": "resourceType"
+          }
+        },
+        "ResourceOwnerId": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ResourceOwnerId",
+            "smithy.api#documentation": "<p> The ID of the AWS account that owns the transit gateway multicast domain association resource.</p>",
+            "smithy.api#xmlName": "resourceOwnerId"
           }
         },
         "Subnet": {
@@ -56491,6 +59110,14 @@
             "smithy.api#xmlName": "resourceType"
           }
         },
+        "ResourceOwnerId": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ResourceOwnerId",
+            "smithy.api#documentation": "<p> The ID of the AWS account that owns the resource.</p>",
+            "smithy.api#xmlName": "resourceOwnerId"
+          }
+        },
         "Subnets": {
           "target": "com.amazonaws.ec2#SubnetAssociationList",
           "traits": {
@@ -56523,6 +59150,38 @@
         "traits": {
           "smithy.api#xmlName": "item"
         }
+      }
+    },
+    "com.amazonaws.ec2#TransitGatewayMulticastDomainOptions": {
+      "type": "structure",
+      "members": {
+        "Igmpv2Support": {
+          "target": "com.amazonaws.ec2#Igmpv2SupportValue",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Igmpv2Support",
+            "smithy.api#documentation": "<p>Indicates whether Internet Group Management Protocol (IGMP) version 2 is turned on for the transit gateway multicast domain.</p>",
+            "smithy.api#xmlName": "igmpv2Support"
+          }
+        },
+        "StaticSourcesSupport": {
+          "target": "com.amazonaws.ec2#StaticSourcesSupportValue",
+          "traits": {
+            "aws.protocols#ec2QueryName": "StaticSourcesSupport",
+            "smithy.api#documentation": "<p>Indicates whether support for statically configuring transit gateway multicast group sources is turned on.</p>",
+            "smithy.api#xmlName": "staticSourcesSupport"
+          }
+        },
+        "AutoAcceptSharedAssociations": {
+          "target": "com.amazonaws.ec2#AutoAcceptSharedAssociationsValue",
+          "traits": {
+            "aws.protocols#ec2QueryName": "AutoAcceptSharedAssociations",
+            "smithy.api#documentation": "<p>Indicates whether to automatically cross-account subnet associations that are associated with the transit gateway multicast domain.</p>",
+            "smithy.api#xmlName": "autoAcceptSharedAssociations"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the options for a transit gateway multicast domain.</p>"
       }
     },
     "com.amazonaws.ec2#TransitGatewayMulticastDomainState": {
@@ -56585,6 +59244,14 @@
             "aws.protocols#ec2QueryName": "ResourceType",
             "smithy.api#documentation": "<p>The type of resource, for example a VPC attachment.</p>",
             "smithy.api#xmlName": "resourceType"
+          }
+        },
+        "ResourceOwnerId": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ResourceOwnerId",
+            "smithy.api#documentation": "<p> The ID of the AWS account that owns the transit gateway multicast domain group resource.</p>",
+            "smithy.api#xmlName": "resourceOwnerId"
           }
         },
         "NetworkInterfaceId": {
@@ -56723,6 +59390,14 @@
             "aws.protocols#ec2QueryName": "AmazonSideAsn",
             "smithy.api#documentation": "<p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session. \n         The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs.</p>",
             "smithy.api#xmlName": "amazonSideAsn"
+          }
+        },
+        "TransitGatewayCidrBlocks": {
+          "target": "com.amazonaws.ec2#ValueStringList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TransitGatewayCidrBlocks",
+            "smithy.api#documentation": "<p>The transit gateway CIDR blocks.</p>",
+            "smithy.api#xmlName": "transitGatewayCidrBlocks"
           }
         },
         "AutoAcceptSharedAttachments": {
@@ -57093,6 +59768,12 @@
           "target": "com.amazonaws.ec2#MulticastSupportValue",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether multicast is enabled on the transit gateway</p>"
+          }
+        },
+        "TransitGatewayCidrBlocks": {
+          "target": "com.amazonaws.ec2#TransitGatewayCidrBlockStringList",
+          "traits": {
+            "smithy.api#documentation": "<p>One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.</p>"
           }
         }
       },
