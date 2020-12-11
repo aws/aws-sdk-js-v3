@@ -32,7 +32,8 @@ interface PreviouslyResolved {
   credentialDefaultProvider: (input: any) => Provider<Credentials>;
   region: string | Provider<string>;
   regionInfoProvider: RegionInfoProvider;
-  signingName: string;
+  signingName?: string;
+  serviceId: string;
   sha256: HashConstructor;
 }
 export interface AwsAuthResolvedConfig {
@@ -55,11 +56,11 @@ export function resolveAwsAuthConfig<T>(input: T & AwsAuthInputConfig & Previous
       normalizeProvider(input.region)()
         .then(async (region) => [(await input.regionInfoProvider(region)) || {}, region] as [RegionInfo, string])
         .then(([regionInfo, region]) => {
-          const { signingRegion = input.signingRegion, signingService = input.signingName } = regionInfo;
+          const { signingRegion, signingService } = regionInfo;
           //update client's singing region and signing service config if they are resolved.
           //signing region resolving order: user supplied signingRegion -> endpoints.json inferred region -> client region
           input.signingRegion = input.signingRegion || signingRegion || region;
-          input.signingName = input.signingName || signingService;
+          input.signingName = input.signingName || signingService || input.serviceId;
 
           return new SignatureV4({
             credentials: normalizedCreds,
