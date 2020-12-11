@@ -373,9 +373,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * The service name with which to sign requests.
+   * Unique service identifier.
+   * @internal
    */
-  signingName?: string;
+  serviceId?: string;
 
   /**
    * Default credentials provider; Not available in browser runtime

@@ -32,14 +32,14 @@ import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegrati
 import software.amazon.smithy.utils.MapUtils;
 
 /**
- * AWS clients need to know the service name used to sign requests,
+ * AWS clients need to know the service name for collecting metrics,
  * credentials for signing requests, and the region name used to resolve
  * endpoints.
  *
  * <p>This plugin adds the following config interface fields:
  *
  * <ul>
- *     <li>signingName: Defines the service name that signs AWS requests.</li>
+ *     <li>serviceId: Unique name to identify the service.</li>
  *     <li>credentialDefaultProvider: Provides credentials if no credentials
  *     are explicitly provided.</li>
  *     <li>region: The AWS region to which this client will send requests</li>
@@ -51,7 +51,7 @@ import software.amazon.smithy.utils.MapUtils;
  * <p>This plugin adds the following Node runtime specific values:
  *
  * <ul>
- *     <li>signingName: Sets this to the signing name derived from the model.</li>
+ *     <li>serviceId: Unique name to identify the service.</li>
  *     <li>credentialDefaultProvider: Uses the default credential provider that
  *     checks things like environment variables and the AWS config file.</li>
  *     <li>region: Uses the default region provider that checks things like
@@ -64,7 +64,7 @@ import software.amazon.smithy.utils.MapUtils;
  * <p>This plugin adds the following Browser runtime specific values:
  *
  * <ul>
- *     <li>signingName: Sets this to the signing name derived from the model.</li>
+ *     <li>serviceId: Unique name to identify the service.</li>
  *     <li>credentialDefaultProvider: Throws an exception since credentials must
  *     be explicitly provided in the browser (environment variables and
  *     the shared config can't be resolved from the browser).</li>
@@ -90,8 +90,8 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
         writer.addImport("Credentials", "__Credentials", TypeScriptDependency.AWS_SDK_TYPES.packageName);
         writer.addImport("Logger", "__Logger", TypeScriptDependency.AWS_SDK_TYPES.packageName);
 
-        writer.writeDocs("The service name with which to sign requests.")
-                .write("signingName?: string;\n");
+        writer.writeDocs("Unique service identifier.\n@internal")
+                .write("serviceId?: string;\n");
         writer.writeDocs("Default credentials provider; Not available in browser runtime")
                 .write("credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;\n");
         writer.writeDocs("The AWS region to which this client will send requests")
@@ -112,15 +112,15 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
         ServiceShape service = settings.getService(model);
         Map<String, Consumer<TypeScriptWriter>> runtimeConfigs = new HashMap();
         if (target.equals(LanguageTarget.SHARED)) {
-            String signingName = service.getTrait(ServiceTrait.class)
+            String serviceId = service.getTrait(ServiceTrait.class)
                     .map(ServiceTrait::getArnNamespace)
                     .orElse(null);
-            if (signingName != null) {
-                runtimeConfigs.put("signingName", writer -> {
-                    writer.write("signingName: $S,", signingName);
+            if (serviceId != null) {
+                runtimeConfigs.put("serviceId", writer -> {
+                    writer.write("serviceId: $S,", serviceId);
                 });
             } else {
-                LOGGER.info("Cannot generate a signing name for the client because no aws.api#Service "
+                LOGGER.info("Cannot generate a serivce ID for the client because no aws.api#Service "
                         + "trait was found on " + service.getId());
             }
         }
