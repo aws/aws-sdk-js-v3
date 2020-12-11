@@ -289,6 +289,20 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
         },
       });
     });
+
+    it("should ignore profile name in block list", async () => {
+      __addMatcher(
+        DEFAULT_PATH,
+        `
+[__proto__]
+foo = not_exist`.trim()
+      );
+
+      expect(await loadSharedConfigFiles()).toEqual({
+        configFile: {},
+        credentialsFile: {},
+      });
+    });
   });
 
   describe("shared config file", () => {
@@ -525,6 +539,20 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
       expect(await loadSharedConfigFiles()).toEqual({
         credentialsFile: {},
         configFile: { default: parsed.default },
+      });
+    });
+
+    it("should ignore profile name in block list", async () => {
+      __addMatcher(
+        DEFAULT_PATH,
+        `
+[profile __proto__]
+foo = not_exist`.trim()
+      );
+
+      expect(await loadSharedConfigFiles()).toEqual({
+        configFile: {},
+        credentialsFile: {},
       });
     });
   });
