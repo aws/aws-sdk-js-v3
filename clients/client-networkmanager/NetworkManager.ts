@@ -10,6 +10,16 @@ import {
   AssociateLinkCommandOutput,
 } from "./commands/AssociateLinkCommand";
 import {
+  AssociateTransitGatewayConnectPeerCommand,
+  AssociateTransitGatewayConnectPeerCommandInput,
+  AssociateTransitGatewayConnectPeerCommandOutput,
+} from "./commands/AssociateTransitGatewayConnectPeerCommand";
+import {
+  CreateConnectionCommand,
+  CreateConnectionCommandInput,
+  CreateConnectionCommandOutput,
+} from "./commands/CreateConnectionCommand";
+import {
   CreateDeviceCommand,
   CreateDeviceCommandInput,
   CreateDeviceCommandOutput,
@@ -21,6 +31,11 @@ import {
 } from "./commands/CreateGlobalNetworkCommand";
 import { CreateLinkCommand, CreateLinkCommandInput, CreateLinkCommandOutput } from "./commands/CreateLinkCommand";
 import { CreateSiteCommand, CreateSiteCommandInput, CreateSiteCommandOutput } from "./commands/CreateSiteCommand";
+import {
+  DeleteConnectionCommand,
+  DeleteConnectionCommandInput,
+  DeleteConnectionCommandOutput,
+} from "./commands/DeleteConnectionCommand";
 import {
   DeleteDeviceCommand,
   DeleteDeviceCommandInput,
@@ -54,6 +69,16 @@ import {
   DisassociateLinkCommandOutput,
 } from "./commands/DisassociateLinkCommand";
 import {
+  DisassociateTransitGatewayConnectPeerCommand,
+  DisassociateTransitGatewayConnectPeerCommandInput,
+  DisassociateTransitGatewayConnectPeerCommandOutput,
+} from "./commands/DisassociateTransitGatewayConnectPeerCommand";
+import {
+  GetConnectionsCommand,
+  GetConnectionsCommandInput,
+  GetConnectionsCommandOutput,
+} from "./commands/GetConnectionsCommand";
+import {
   GetCustomerGatewayAssociationsCommand,
   GetCustomerGatewayAssociationsCommandInput,
   GetCustomerGatewayAssociationsCommandOutput,
@@ -66,6 +91,11 @@ import {
 } from "./commands/GetLinkAssociationsCommand";
 import { GetLinksCommand, GetLinksCommandInput, GetLinksCommandOutput } from "./commands/GetLinksCommand";
 import { GetSitesCommand, GetSitesCommandInput, GetSitesCommandOutput } from "./commands/GetSitesCommand";
+import {
+  GetTransitGatewayConnectPeerAssociationsCommand,
+  GetTransitGatewayConnectPeerAssociationsCommandInput,
+  GetTransitGatewayConnectPeerAssociationsCommandOutput,
+} from "./commands/GetTransitGatewayConnectPeerAssociationsCommand";
 import {
   GetTransitGatewayRegistrationsCommand,
   GetTransitGatewayRegistrationsCommandInput,
@@ -88,6 +118,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateConnectionCommand,
+  UpdateConnectionCommandInput,
+  UpdateConnectionCommandOutput,
+} from "./commands/UpdateConnectionCommand";
+import {
   UpdateDeviceCommand,
   UpdateDeviceCommandInput,
   UpdateDeviceCommandOutput,
@@ -104,6 +139,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 /**
  * <p>Transit Gateway Network Manager (Network Manager) enables you to create a global network, in which you can monitor your
  *             AWS and on-premises networks that are built around transit gateways.</p>
+ *         <p>The Network Manager APIs are supported in the US West (Oregon) Region only. You must specify the <code>us-west-2</code> Region in all requests made to Network Manager.</p>
  */
 export class NetworkManager extends NetworkManagerClient {
   /**
@@ -168,6 +204,74 @@ export class NetworkManager extends NetworkManagerClient {
     cb?: (err: any, data?: AssociateLinkCommandOutput) => void
   ): Promise<AssociateLinkCommandOutput> | void {
     const command = new AssociateLinkCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associates a transit gateway Connect peer with a device, and optionally, with a link. If you
+   *             specify a link, it must be associated with the specified device. </p>
+   *         <p>You can only associate transit gateway Connect peers that have been created on a
+   *             transit gateway that's registered in your global network.</p>
+   *         <p>You cannot associate a transit gateway Connect peer with more than one device and link. </p>
+   */
+  public associateTransitGatewayConnectPeer(
+    args: AssociateTransitGatewayConnectPeerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateTransitGatewayConnectPeerCommandOutput>;
+  public associateTransitGatewayConnectPeer(
+    args: AssociateTransitGatewayConnectPeerCommandInput,
+    cb: (err: any, data?: AssociateTransitGatewayConnectPeerCommandOutput) => void
+  ): void;
+  public associateTransitGatewayConnectPeer(
+    args: AssociateTransitGatewayConnectPeerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateTransitGatewayConnectPeerCommandOutput) => void
+  ): void;
+  public associateTransitGatewayConnectPeer(
+    args: AssociateTransitGatewayConnectPeerCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateTransitGatewayConnectPeerCommandOutput) => void),
+    cb?: (err: any, data?: AssociateTransitGatewayConnectPeerCommandOutput) => void
+  ): Promise<AssociateTransitGatewayConnectPeerCommandOutput> | void {
+    const command = new AssociateTransitGatewayConnectPeerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a connection between two devices. The devices can be a physical or virtual appliance that connects to a third-party appliance in a VPC, or a physical appliance that connects to another physical appliance in an on-premises network.</p>
+   */
+  public createConnection(
+    args: CreateConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateConnectionCommandOutput>;
+  public createConnection(
+    args: CreateConnectionCommandInput,
+    cb: (err: any, data?: CreateConnectionCommandOutput) => void
+  ): void;
+  public createConnection(
+    args: CreateConnectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateConnectionCommandOutput) => void
+  ): void;
+  public createConnection(
+    args: CreateConnectionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateConnectionCommandOutput) => void),
+    cb?: (err: any, data?: CreateConnectionCommandOutput) => void
+  ): Promise<CreateConnectionCommandOutput> | void {
+    const command = new CreateConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -282,6 +386,38 @@ export class NetworkManager extends NetworkManagerClient {
     cb?: (err: any, data?: CreateSiteCommandOutput) => void
   ): Promise<CreateSiteCommandOutput> | void {
     const command = new CreateSiteCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the specified connection in your global network.</p>
+   */
+  public deleteConnection(
+    args: DeleteConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteConnectionCommandOutput>;
+  public deleteConnection(
+    args: DeleteConnectionCommandInput,
+    cb: (err: any, data?: DeleteConnectionCommandOutput) => void
+  ): void;
+  public deleteConnection(
+    args: DeleteConnectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteConnectionCommandOutput) => void
+  ): void;
+  public deleteConnection(
+    args: DeleteConnectionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConnectionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteConnectionCommandOutput) => void
+  ): Promise<DeleteConnectionCommandOutput> | void {
+    const command = new DeleteConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -542,6 +678,72 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * <p>Disassociates a transit gateway Connect peer from a device and link.</p>
+   */
+  public disassociateTransitGatewayConnectPeer(
+    args: DisassociateTransitGatewayConnectPeerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateTransitGatewayConnectPeerCommandOutput>;
+  public disassociateTransitGatewayConnectPeer(
+    args: DisassociateTransitGatewayConnectPeerCommandInput,
+    cb: (err: any, data?: DisassociateTransitGatewayConnectPeerCommandOutput) => void
+  ): void;
+  public disassociateTransitGatewayConnectPeer(
+    args: DisassociateTransitGatewayConnectPeerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateTransitGatewayConnectPeerCommandOutput) => void
+  ): void;
+  public disassociateTransitGatewayConnectPeer(
+    args: DisassociateTransitGatewayConnectPeerCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisassociateTransitGatewayConnectPeerCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateTransitGatewayConnectPeerCommandOutput) => void
+  ): Promise<DisassociateTransitGatewayConnectPeerCommandOutput> | void {
+    const command = new DisassociateTransitGatewayConnectPeerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets information about one or more of your connections in a global network.</p>
+   */
+  public getConnections(
+    args: GetConnectionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConnectionsCommandOutput>;
+  public getConnections(
+    args: GetConnectionsCommandInput,
+    cb: (err: any, data?: GetConnectionsCommandOutput) => void
+  ): void;
+  public getConnections(
+    args: GetConnectionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConnectionsCommandOutput) => void
+  ): void;
+  public getConnections(
+    args: GetConnectionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConnectionsCommandOutput) => void),
+    cb?: (err: any, data?: GetConnectionsCommandOutput) => void
+  ): Promise<GetConnectionsCommandOutput> | void {
+    const command = new GetConnectionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets the association information for customer gateways that are associated with
    *             devices and links in your global network.</p>
    */
@@ -676,6 +878,40 @@ export class NetworkManager extends NetworkManagerClient {
     cb?: (err: any, data?: GetSitesCommandOutput) => void
   ): Promise<GetSitesCommandOutput> | void {
     const command = new GetSitesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets information about one or more of your transit gateway Connect peer associations in a global network.</p>
+   */
+  public getTransitGatewayConnectPeerAssociations(
+    args: GetTransitGatewayConnectPeerAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTransitGatewayConnectPeerAssociationsCommandOutput>;
+  public getTransitGatewayConnectPeerAssociations(
+    args: GetTransitGatewayConnectPeerAssociationsCommandInput,
+    cb: (err: any, data?: GetTransitGatewayConnectPeerAssociationsCommandOutput) => void
+  ): void;
+  public getTransitGatewayConnectPeerAssociations(
+    args: GetTransitGatewayConnectPeerAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTransitGatewayConnectPeerAssociationsCommandOutput) => void
+  ): void;
+  public getTransitGatewayConnectPeerAssociations(
+    args: GetTransitGatewayConnectPeerAssociationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetTransitGatewayConnectPeerAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: GetTransitGatewayConnectPeerAssociationsCommandOutput) => void
+  ): Promise<GetTransitGatewayConnectPeerAssociationsCommandOutput> | void {
+    const command = new GetTransitGatewayConnectPeerAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -833,6 +1069,39 @@ export class NetworkManager extends NetworkManagerClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the information for an existing connection. To remove information for any of the parameters,
+   *             specify an empty string.</p>
+   */
+  public updateConnection(
+    args: UpdateConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConnectionCommandOutput>;
+  public updateConnection(
+    args: UpdateConnectionCommandInput,
+    cb: (err: any, data?: UpdateConnectionCommandOutput) => void
+  ): void;
+  public updateConnection(
+    args: UpdateConnectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConnectionCommandOutput) => void
+  ): void;
+  public updateConnection(
+    args: UpdateConnectionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateConnectionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateConnectionCommandOutput) => void
+  ): Promise<UpdateConnectionCommandOutput> | void {
+    const command = new UpdateConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

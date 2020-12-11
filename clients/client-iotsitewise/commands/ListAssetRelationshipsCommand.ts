@@ -1,8 +1,8 @@
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { CreatePresignedPortalUrlRequest, CreatePresignedPortalUrlResponse } from "../models/models_0";
+import { ListAssetRelationshipsRequest, ListAssetRelationshipsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreatePresignedPortalUrlCommand,
-  serializeAws_restJson1CreatePresignedPortalUrlCommand,
+  deserializeAws_restJson1ListAssetRelationshipsCommand,
+  serializeAws_restJson1ListAssetRelationshipsCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -17,24 +17,23 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePresignedPortalUrlCommandInput = CreatePresignedPortalUrlRequest;
-export type CreatePresignedPortalUrlCommandOutput = CreatePresignedPortalUrlResponse & __MetadataBearer;
+export type ListAssetRelationshipsCommandInput = ListAssetRelationshipsRequest;
+export type ListAssetRelationshipsCommandOutput = ListAssetRelationshipsResponse & __MetadataBearer;
 
 /**
- * <p>Creates a pre-signed URL to a portal. Use this operation to create URLs to portals that
- *       use AWS Identity and Access Management (IAM) to authenticate users. An IAM user with access to a portal can call this API
- *       to get a URL to that portal. The URL contains an authentication token that lets the IAM user
- *       access the portal.</p>
+ * <p>Retrieves a paginated list of asset relationships for an asset. You can use this operation
+ *       to identify an asset's root asset and all associated assets between that asset and its
+ *       root.</p>
  */
-export class CreatePresignedPortalUrlCommand extends $Command<
-  CreatePresignedPortalUrlCommandInput,
-  CreatePresignedPortalUrlCommandOutput,
+export class ListAssetRelationshipsCommand extends $Command<
+  ListAssetRelationshipsCommandInput,
+  ListAssetRelationshipsCommandOutput,
   IoTSiteWiseClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: CreatePresignedPortalUrlCommandInput) {
+  constructor(readonly input: ListAssetRelationshipsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -47,20 +46,20 @@ export class CreatePresignedPortalUrlCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreatePresignedPortalUrlCommandInput, CreatePresignedPortalUrlCommandOutput> {
+  ): Handler<ListAssetRelationshipsCommandInput, ListAssetRelationshipsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "IoTSiteWiseClient";
-    const commandName = "CreatePresignedPortalUrlCommand";
+    const commandName = "ListAssetRelationshipsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePresignedPortalUrlRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreatePresignedPortalUrlResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAssetRelationshipsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListAssetRelationshipsResponse.filterSensitiveLog,
     };
 
     if (typeof logger.info === "function") {
@@ -78,12 +77,12 @@ export class CreatePresignedPortalUrlCommand extends $Command<
     );
   }
 
-  private serialize(input: CreatePresignedPortalUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePresignedPortalUrlCommand(input, context);
+  private serialize(input: ListAssetRelationshipsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListAssetRelationshipsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePresignedPortalUrlCommandOutput> {
-    return deserializeAws_restJson1CreatePresignedPortalUrlCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssetRelationshipsCommandOutput> {
+    return deserializeAws_restJson1ListAssetRelationshipsCommand(output, context);
   }
 
   // Start section: command_body_extra

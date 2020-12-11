@@ -21,7 +21,7 @@ export type GetMasterAccountCommandInput = GetMasterAccountRequest;
 export type GetMasterAccountCommandOutput = GetMasterAccountResponse & __MetadataBearer;
 
 /**
- * <p>Provides the details for the GuardDuty master account associated with the current
+ * <p>Provides the details for the GuardDuty administrator account associated with the current
  *       GuardDuty member account.</p>
  */
 export class GetMasterAccountCommand extends $Command<

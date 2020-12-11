@@ -23,7 +23,7 @@ export type InviteMembersCommandOutput = InviteMembersResponse & __MetadataBeare
 /**
  * <p>Invites other AWS accounts (created as members of the current AWS account by
  *       CreateMembers) to enable GuardDuty, and allow the current AWS account to view and manage these
- *       accounts' GuardDuty findings on their behalf as the master account.</p>
+ *       accounts' findings on their behalf as the GuardDuty administrator account.</p>
  */
 export class InviteMembersCommand extends $Command<
   InviteMembersCommandInput,

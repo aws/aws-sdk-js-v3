@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteTrafficMirrorTargetRequest, DeleteTrafficMirrorTargetResult } from "../models/models_1";
+import { DeleteTrafficMirrorTargetRequest, DeleteTrafficMirrorTargetResult } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteTrafficMirrorTargetCommand,
   serializeAws_ec2DeleteTrafficMirrorTargetCommand,

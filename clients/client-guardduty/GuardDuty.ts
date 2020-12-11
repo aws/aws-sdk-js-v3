@@ -264,7 +264,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class GuardDuty extends GuardDutyClient {
   /**
-   * <p>Accepts the invitation to be monitored by a master GuardDuty account.</p>
+   * <p>Accepts the invitation to be monitored by a GuardDuty administrator account.</p>
    */
   public acceptInvitation(
     args: AcceptInvitationCommandInput,
@@ -298,7 +298,7 @@ export class GuardDuty extends GuardDutyClient {
   /**
    * <p>Archives GuardDuty findings that are specified by the list of finding IDs.</p>
    *          <note>
-   *             <p>Only the master account can archive findings. Member accounts don't have permission to
+   *             <p>Only the administrator account can archive findings. Member accounts don't have permission to
    *         archive findings from their accounts.</p>
    *          </note>
    */
@@ -399,7 +399,7 @@ export class GuardDuty extends GuardDutyClient {
    * <p>Creates a new IPSet, which is called a trusted IP list in the console user interface. An
    *       IPSet is a list of IP addresses that are trusted for secure communication with AWS
    *       infrastructure and applications. GuardDuty doesn't generate findings for IP addresses that are
-   *       included in IPSets. Only users from the master account can use this operation.</p>
+   *       included in IPSets. Only users from the administrator account can use this operation.</p>
    */
   public createIPSet(args: CreateIPSetCommandInput, options?: __HttpHandlerOptions): Promise<CreateIPSetCommandOutput>;
   public createIPSet(args: CreateIPSetCommandInput, cb: (err: any, data?: CreateIPSetCommandOutput) => void): void;
@@ -430,7 +430,7 @@ export class GuardDuty extends GuardDutyClient {
    *       invitation or through an organization.</p>
    *          <p>When using <code>Create Members</code> as an organizations delegated administrator this
    *       action will enable GuardDuty in the added member accounts, with the exception of the
-   *       organization master account, which must enable GuardDuty prior to being added as a
+   *       organization delegated administrator account, which must enable GuardDuty prior to being added as a
    *       member.</p>
    *          <p>If you are adding accounts by invitation use this action after GuardDuty has been enabled
    *       in potential member accounts and before using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">
@@ -536,7 +536,7 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * <p>Creates a new ThreatIntelSet. ThreatIntelSets consist of known malicious IP addresses.
-   *       GuardDuty generates findings based on ThreatIntelSets. Only users of the master account can
+   *       GuardDuty generates findings based on ThreatIntelSets. Only users of the administrator account can
    *       use this operation.</p>
    */
   public createThreatIntelSet(
@@ -723,7 +723,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Deletes GuardDuty member accounts (to the current GuardDuty master account) specified by
+   * <p>Deletes GuardDuty member accounts (to the current GuardDuty administrator account) specified by
    *       the account IDs.</p>
    */
   public deleteMembers(
@@ -919,7 +919,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Disassociates the current GuardDuty member account from its master account.</p>
+   * <p>Disassociates the current GuardDuty member account from its administrator account.</p>
    */
   public disassociateFromMasterAccount(
     args: DisassociateFromMasterAccountCommandInput,
@@ -951,7 +951,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Disassociates GuardDuty member accounts (to the current GuardDuty master account)
+   * <p>Disassociates GuardDuty member accounts (to the current GuardDuty administrator account)
    *       specified by the account IDs.</p>
    */
   public disassociateMembers(
@@ -1186,7 +1186,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Provides the details for the GuardDuty master account associated with the current
+   * <p>Provides the details for the GuardDuty administrator account associated with the current
    *       GuardDuty member account.</p>
    */
   public getMasterAccount(
@@ -1251,7 +1251,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Retrieves GuardDuty member accounts (to the current GuardDuty master account) specified by
+   * <p>Retrieves GuardDuty member accounts (of the current GuardDuty administrator account) specified by
    *       the account IDs.</p>
    */
   public getMembers(args: GetMembersCommandInput, options?: __HttpHandlerOptions): Promise<GetMembersCommandOutput>;
@@ -1347,7 +1347,7 @@ export class GuardDuty extends GuardDutyClient {
   /**
    * <p>Invites other AWS accounts (created as members of the current AWS account by
    *       CreateMembers) to enable GuardDuty, and allow the current AWS account to view and manage these
-   *       accounts' GuardDuty findings on their behalf as the master account.</p>
+   *       accounts' findings on their behalf as the GuardDuty administrator account.</p>
    */
   public inviteMembers(
     args: InviteMembersCommandInput,
@@ -1500,7 +1500,7 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * <p>Lists the IPSets of the GuardDuty service specified by the detector ID. If you use this
-   *       operation from a member account, the IPSets returned are the IPSets from the associated master
+   *       operation from a member account, the IPSets returned are the IPSets from the associated administrator
    *       account.</p>
    */
   public listIPSets(args: ListIPSetsCommandInput, options?: __HttpHandlerOptions): Promise<ListIPSetsCommandOutput>;
@@ -1527,7 +1527,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Lists details about all member accounts for the current GuardDuty master account.</p>
+   * <p>Lists details about all member accounts for the current GuardDuty administrator account.</p>
    */
   public listMembers(args: ListMembersCommandInput, options?: __HttpHandlerOptions): Promise<ListMembersCommandOutput>;
   public listMembers(args: ListMembersCommandInput, cb: (err: any, data?: ListMembersCommandOutput) => void): void;
@@ -1653,7 +1653,7 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * <p>Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID. If you
-   *       use this operation from a member account, the ThreatIntelSets associated with the master
+   *       use this operation from a member account, the ThreatIntelSets associated with the administrator
    *       account are returned.</p>
    */
   public listThreatIntelSets(

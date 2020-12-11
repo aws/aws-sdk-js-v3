@@ -17,10 +17,6 @@ import { CreateAssetModelCommandInput, CreateAssetModelCommandOutput } from "../
 import { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "../commands/CreateDashboardCommand";
 import { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "../commands/CreateGatewayCommand";
 import { CreatePortalCommandInput, CreatePortalCommandOutput } from "../commands/CreatePortalCommand";
-import {
-  CreatePresignedPortalUrlCommandInput,
-  CreatePresignedPortalUrlCommandOutput,
-} from "../commands/CreatePresignedPortalUrlCommand";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "../commands/CreateProjectCommand";
 import { DeleteAccessPolicyCommandInput, DeleteAccessPolicyCommandOutput } from "../commands/DeleteAccessPolicyCommand";
 import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "../commands/DeleteAssetCommand";
@@ -70,6 +66,10 @@ import {
 } from "../commands/GetAssetPropertyValueHistoryCommand";
 import { ListAccessPoliciesCommandInput, ListAccessPoliciesCommandOutput } from "../commands/ListAccessPoliciesCommand";
 import { ListAssetModelsCommandInput, ListAssetModelsCommandOutput } from "../commands/ListAssetModelsCommand";
+import {
+  ListAssetRelationshipsCommandInput,
+  ListAssetRelationshipsCommandOutput,
+} from "../commands/ListAssetRelationshipsCommand";
 import { ListAssetsCommandInput, ListAssetsCommandOutput } from "../commands/ListAssetsCommand";
 import {
   ListAssociatedAssetsCommandInput,
@@ -110,8 +110,12 @@ import {
   AccessPolicySummary,
   AggregatedValue,
   Aggregates,
+  AssetCompositeModel,
   AssetErrorDetails,
   AssetHierarchy,
+  AssetHierarchyInfo,
+  AssetModelCompositeModel,
+  AssetModelCompositeModelDefinition,
   AssetModelHierarchy,
   AssetModelHierarchyDefinition,
   AssetModelProperty,
@@ -120,12 +124,14 @@ import {
   AssetModelSummary,
   AssetProperty,
   AssetPropertyValue,
+  AssetRelationshipSummary,
   AssetStatus,
   AssetSummary,
   AssociatedAssetsSummary,
   Attribute,
   BatchPutAssetPropertyError,
   BatchPutAssetPropertyErrorEntry,
+  CompositeModelProperty,
   ConfigurationErrorDetails,
   ConfigurationStatus,
   ConflictingOperationException,
@@ -168,6 +174,7 @@ import {
   TooManyTagsException,
   Transform,
   TumblingWindow,
+  UnauthorizedException,
   UserIdentity,
   VariableValue,
   Variant,
@@ -429,6 +436,12 @@ export const serializeAws_restJson1CreateAssetModelCommand = async (
   let resolvedPath = "/asset-models";
   let body: any;
   body = JSON.stringify({
+    ...(input.assetModelCompositeModels !== undefined && {
+      assetModelCompositeModels: serializeAws_restJson1AssetModelCompositeModelDefinitions(
+        input.assetModelCompositeModels,
+        context
+      ),
+    }),
     ...(input.assetModelDescription !== undefined && { assetModelDescription: input.assetModelDescription }),
     ...(input.assetModelHierarchies !== undefined && {
       assetModelHierarchies: serializeAws_restJson1AssetModelHierarchyDefinitions(input.assetModelHierarchies, context),
@@ -566,49 +579,6 @@ export const serializeAws_restJson1CreatePortalCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body,
-  });
-};
-
-export const serializeAws_restJson1CreatePresignedPortalUrlCommand = async (
-  input: CreatePresignedPortalUrlCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
-  let resolvedPath = "/portals/{portalId}/presigned-url";
-  if (input.portalId !== undefined) {
-    const labelValue: string = input.portalId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: portalId.");
-    }
-    resolvedPath = resolvedPath.replace("{portalId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: portalId.");
-  }
-  const query: any = {
-    ...(input.sessionDurationSeconds !== undefined && {
-      sessionDurationSeconds: input.sessionDurationSeconds.toString(),
-    }),
-  };
-  let body: any;
-  let { hostname: resolvedHostname } = await context.endpoint();
-  if (context.disableHostPrefix !== true) {
-    resolvedHostname = "monitor." + resolvedHostname;
-    if (!__isValidHostname(resolvedHostname)) {
-      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
-    }
-  }
-  const { hostname, protocol = "https", port } = await context.endpoint();
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
     body,
   });
 };
@@ -1562,6 +1532,49 @@ export const serializeAws_restJson1ListAssetModelsCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListAssetRelationshipsCommand = async (
+  input: ListAssetRelationshipsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/assets/{assetId}/assetRelationships";
+  if (input.assetId !== undefined) {
+    const labelValue: string = input.assetId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: assetId.");
+    }
+    resolvedPath = resolvedPath.replace("{assetId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: assetId.");
+  }
+  const query: any = {
+    ...(input.traversalType !== undefined && { traversalType: input.traversalType }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+  };
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "model." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListAssetsCommand = async (
   input: ListAssetsCommandInput,
   context: __SerdeContext
@@ -2061,6 +2074,12 @@ export const serializeAws_restJson1UpdateAssetModelCommand = async (
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.assetModelCompositeModels !== undefined && {
+      assetModelCompositeModels: serializeAws_restJson1AssetModelCompositeModels(
+        input.assetModelCompositeModels,
+        context
+      ),
+    }),
     ...(input.assetModelDescription !== undefined && { assetModelDescription: input.assetModelDescription }),
     ...(input.assetModelHierarchies !== undefined && {
       assetModelHierarchies: serializeAws_restJson1AssetModelHierarchies(input.assetModelHierarchies, context),
@@ -3314,77 +3333,6 @@ const deserializeAws_restJson1CreatePortalCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1CreatePresignedPortalUrlCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePresignedPortalUrlCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreatePresignedPortalUrlCommandError(output, context);
-  }
-  const contents: CreatePresignedPortalUrlCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    presignedPortalUrl: undefined,
-  };
-  const data: any = await parseBody(output.body, context);
-  if (data.presignedPortalUrl !== undefined && data.presignedPortalUrl !== null) {
-    contents.presignedPortalUrl = data.presignedPortalUrl;
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1CreatePresignedPortalUrlCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePresignedPortalUrlCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
 export const deserializeAws_restJson1CreateProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4150,6 +4098,7 @@ export const deserializeAws_restJson1DescribeAssetCommand = async (
   const contents: DescribeAssetCommandOutput = {
     $metadata: deserializeMetadata(output),
     assetArn: undefined,
+    assetCompositeModels: undefined,
     assetCreationDate: undefined,
     assetHierarchies: undefined,
     assetId: undefined,
@@ -4162,6 +4111,9 @@ export const deserializeAws_restJson1DescribeAssetCommand = async (
   const data: any = await parseBody(output.body, context);
   if (data.assetArn !== undefined && data.assetArn !== null) {
     contents.assetArn = data.assetArn;
+  }
+  if (data.assetCompositeModels !== undefined && data.assetCompositeModels !== null) {
+    contents.assetCompositeModels = deserializeAws_restJson1AssetCompositeModels(data.assetCompositeModels, context);
   }
   if (data.assetCreationDate !== undefined && data.assetCreationDate !== null) {
     contents.assetCreationDate = new Date(Math.round(data.assetCreationDate * 1000));
@@ -4261,6 +4213,7 @@ export const deserializeAws_restJson1DescribeAssetModelCommand = async (
   const contents: DescribeAssetModelCommandOutput = {
     $metadata: deserializeMetadata(output),
     assetModelArn: undefined,
+    assetModelCompositeModels: undefined,
     assetModelCreationDate: undefined,
     assetModelDescription: undefined,
     assetModelHierarchies: undefined,
@@ -4273,6 +4226,12 @@ export const deserializeAws_restJson1DescribeAssetModelCommand = async (
   const data: any = await parseBody(output.body, context);
   if (data.assetModelArn !== undefined && data.assetModelArn !== null) {
     contents.assetModelArn = data.assetModelArn;
+  }
+  if (data.assetModelCompositeModels !== undefined && data.assetModelCompositeModels !== null) {
+    contents.assetModelCompositeModels = deserializeAws_restJson1AssetModelCompositeModels(
+      data.assetModelCompositeModels,
+      context
+    );
   }
   if (data.assetModelCreationDate !== undefined && data.assetModelCreationDate !== null) {
     contents.assetModelCreationDate = new Date(Math.round(data.assetModelCreationDate * 1000));
@@ -4375,6 +4334,7 @@ export const deserializeAws_restJson1DescribeAssetPropertyCommand = async (
     assetModelId: undefined,
     assetName: undefined,
     assetProperty: undefined,
+    compositeModel: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.assetId !== undefined && data.assetId !== null) {
@@ -4388,6 +4348,9 @@ export const deserializeAws_restJson1DescribeAssetPropertyCommand = async (
   }
   if (data.assetProperty !== undefined && data.assetProperty !== null) {
     contents.assetProperty = deserializeAws_restJson1Property(data.assetProperty, context);
+  }
+  if (data.compositeModel !== undefined && data.compositeModel !== null) {
+    contents.compositeModel = deserializeAws_restJson1CompositeModelProperty(data.compositeModel, context);
   }
   return Promise.resolve(contents);
 };
@@ -5650,6 +5613,92 @@ const deserializeAws_restJson1ListAssetModelsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListAssetRelationshipsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssetRelationshipsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListAssetRelationshipsCommandError(output, context);
+  }
+  const contents: ListAssetRelationshipsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    assetRelationshipSummaries: undefined,
+    nextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.assetRelationshipSummaries !== undefined && data.assetRelationshipSummaries !== null) {
+    contents.assetRelationshipSummaries = deserializeAws_restJson1AssetRelationshipSummaries(
+      data.assetRelationshipSummaries,
+      context
+    );
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = data.nextToken;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListAssetRelationshipsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssetRelationshipsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListAssetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6221,6 +6270,14 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictingOperationException":
+    case "com.amazonaws.iotsitewise#ConflictingOperationException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalFailureException":
     case "com.amazonaws.iotsitewise#InternalFailureException":
       response = {
@@ -6237,6 +6294,14 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "LimitExceededException":
+    case "com.amazonaws.iotsitewise#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iotsitewise#ResourceNotFoundException":
       response = {
@@ -6249,6 +6314,14 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
     case "com.amazonaws.iotsitewise#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.iotsitewise#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6474,6 +6547,14 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictingOperationException":
+    case "com.amazonaws.iotsitewise#ConflictingOperationException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalFailureException":
     case "com.amazonaws.iotsitewise#InternalFailureException":
       response = {
@@ -6486,6 +6567,14 @@ const deserializeAws_restJson1TagResourceCommandError = async (
     case "com.amazonaws.iotsitewise#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.iotsitewise#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6510,6 +6599,14 @@ const deserializeAws_restJson1TagResourceCommandError = async (
     case "com.amazonaws.iotsitewise#TooManyTagsException":
       response = {
         ...(await deserializeAws_restJson1TooManyTagsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.iotsitewise#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6557,6 +6654,14 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictingOperationException":
+    case "com.amazonaws.iotsitewise#ConflictingOperationException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalFailureException":
     case "com.amazonaws.iotsitewise#InternalFailureException":
       response = {
@@ -6573,6 +6678,14 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "LimitExceededException":
+    case "com.amazonaws.iotsitewise#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iotsitewise#ResourceNotFoundException":
       response = {
@@ -6585,6 +6698,14 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
     case "com.amazonaws.iotsitewise#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.iotsitewise#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -7554,6 +7675,65 @@ const deserializeAws_restJson1TooManyTagsExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnauthorizedException> => {
+  const contents: UnauthorizedException = {
+    name: "UnauthorizedException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = data.message;
+  }
+  return contents;
+};
+
+const serializeAws_restJson1AssetModelCompositeModel = (
+  input: AssetModelCompositeModel,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.properties !== undefined && {
+      properties: serializeAws_restJson1AssetModelProperties(input.properties, context),
+    }),
+    ...(input.type !== undefined && { type: input.type }),
+  };
+};
+
+const serializeAws_restJson1AssetModelCompositeModelDefinition = (
+  input: AssetModelCompositeModelDefinition,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.properties !== undefined && {
+      properties: serializeAws_restJson1AssetModelPropertyDefinitions(input.properties, context),
+    }),
+    ...(input.type !== undefined && { type: input.type }),
+  };
+};
+
+const serializeAws_restJson1AssetModelCompositeModelDefinitions = (
+  input: AssetModelCompositeModelDefinition[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AssetModelCompositeModelDefinition(entry, context));
+};
+
+const serializeAws_restJson1AssetModelCompositeModels = (
+  input: AssetModelCompositeModel[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AssetModelCompositeModel(entry, context));
+};
+
 const serializeAws_restJson1AssetModelHierarchies = (input: AssetModelHierarchy[], context: __SerdeContext): any => {
   return input.map((entry) => serializeAws_restJson1AssetModelHierarchy(entry, context));
 };
@@ -7590,6 +7770,7 @@ const serializeAws_restJson1AssetModelProperties = (input: AssetModelProperty[],
 const serializeAws_restJson1AssetModelProperty = (input: AssetModelProperty, context: __SerdeContext): any => {
   return {
     ...(input.dataType !== undefined && { dataType: input.dataType }),
+    ...(input.dataTypeSpec !== undefined && { dataTypeSpec: input.dataTypeSpec }),
     ...(input.id !== undefined && { id: input.id }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.type !== undefined && { type: serializeAws_restJson1PropertyType(input.type, context) }),
@@ -7603,6 +7784,7 @@ const serializeAws_restJson1AssetModelPropertyDefinition = (
 ): any => {
   return {
     ...(input.dataType !== undefined && { dataType: input.dataType }),
+    ...(input.dataTypeSpec !== undefined && { dataTypeSpec: input.dataTypeSpec }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.type !== undefined && { type: serializeAws_restJson1PropertyType(input.type, context) }),
     ...(input.unit !== undefined && { unit: input.unit }),
@@ -7886,6 +8068,22 @@ const deserializeAws_restJson1Aggregates = (output: any, context: __SerdeContext
   } as any;
 };
 
+const deserializeAws_restJson1AssetCompositeModel = (output: any, context: __SerdeContext): AssetCompositeModel => {
+  return {
+    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    properties:
+      output.properties !== undefined && output.properties !== null
+        ? deserializeAws_restJson1AssetProperties(output.properties, context)
+        : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AssetCompositeModels = (output: any, context: __SerdeContext): AssetCompositeModel[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AssetCompositeModel(entry, context));
+};
+
 const deserializeAws_restJson1AssetErrorDetails = (output: any, context: __SerdeContext): AssetErrorDetails => {
   return {
     assetId: output.assetId !== undefined && output.assetId !== null ? output.assetId : undefined,
@@ -7905,8 +8103,38 @@ const deserializeAws_restJson1AssetHierarchy = (output: any, context: __SerdeCon
   } as any;
 };
 
+const deserializeAws_restJson1AssetHierarchyInfo = (output: any, context: __SerdeContext): AssetHierarchyInfo => {
+  return {
+    childAssetId: output.childAssetId !== undefined && output.childAssetId !== null ? output.childAssetId : undefined,
+    parentAssetId:
+      output.parentAssetId !== undefined && output.parentAssetId !== null ? output.parentAssetId : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1AssetIDs = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_restJson1AssetModelCompositeModel = (
+  output: any,
+  context: __SerdeContext
+): AssetModelCompositeModel => {
+  return {
+    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    properties:
+      output.properties !== undefined && output.properties !== null
+        ? deserializeAws_restJson1AssetModelProperties(output.properties, context)
+        : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AssetModelCompositeModels = (
+  output: any,
+  context: __SerdeContext
+): AssetModelCompositeModel[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AssetModelCompositeModel(entry, context));
 };
 
 const deserializeAws_restJson1AssetModelHierarchies = (output: any, context: __SerdeContext): AssetModelHierarchy[] => {
@@ -7931,6 +8159,7 @@ const deserializeAws_restJson1AssetModelProperties = (output: any, context: __Se
 const deserializeAws_restJson1AssetModelProperty = (output: any, context: __SerdeContext): AssetModelProperty => {
   return {
     dataType: output.dataType !== undefined && output.dataType !== null ? output.dataType : undefined,
+    dataTypeSpec: output.dataTypeSpec !== undefined && output.dataTypeSpec !== null ? output.dataTypeSpec : undefined,
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     type:
@@ -7984,6 +8213,7 @@ const deserializeAws_restJson1AssetProperty = (output: any, context: __SerdeCont
   return {
     alias: output.alias !== undefined && output.alias !== null ? output.alias : undefined,
     dataType: output.dataType !== undefined && output.dataType !== null ? output.dataType : undefined,
+    dataTypeSpec: output.dataTypeSpec !== undefined && output.dataTypeSpec !== null ? output.dataTypeSpec : undefined,
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     notification:
@@ -8013,6 +8243,27 @@ const deserializeAws_restJson1AssetPropertyValueHistory = (
   context: __SerdeContext
 ): AssetPropertyValue[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1AssetPropertyValue(entry, context));
+};
+
+const deserializeAws_restJson1AssetRelationshipSummaries = (
+  output: any,
+  context: __SerdeContext
+): AssetRelationshipSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AssetRelationshipSummary(entry, context));
+};
+
+const deserializeAws_restJson1AssetRelationshipSummary = (
+  output: any,
+  context: __SerdeContext
+): AssetRelationshipSummary => {
+  return {
+    hierarchyInfo:
+      output.hierarchyInfo !== undefined && output.hierarchyInfo !== null
+        ? deserializeAws_restJson1AssetHierarchyInfo(output.hierarchyInfo, context)
+        : undefined,
+    relationshipType:
+      output.relationshipType !== undefined && output.relationshipType !== null ? output.relationshipType : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1AssetStatus = (output: any, context: __SerdeContext): AssetStatus => {
@@ -8148,6 +8399,20 @@ const deserializeAws_restJson1BatchPutAssetPropertyErrors = (
   context: __SerdeContext
 ): BatchPutAssetPropertyError[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1BatchPutAssetPropertyError(entry, context));
+};
+
+const deserializeAws_restJson1CompositeModelProperty = (
+  output: any,
+  context: __SerdeContext
+): CompositeModelProperty => {
+  return {
+    assetProperty:
+      output.assetProperty !== undefined && output.assetProperty !== null
+        ? deserializeAws_restJson1Property(output.assetProperty, context)
+        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1ConfigurationErrorDetails = (

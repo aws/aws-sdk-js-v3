@@ -1,5 +1,6 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeInstanceTypesRequest, DescribeInstanceTypesResult } from "../models/models_2";
+import { DescribeInstanceTypesRequest } from "../models/models_2";
+import { DescribeInstanceTypesResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeInstanceTypesCommand,
   serializeAws_ec2DescribeInstanceTypesCommand,

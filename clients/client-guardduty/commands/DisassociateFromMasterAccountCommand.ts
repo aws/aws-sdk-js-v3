@@ -21,7 +21,7 @@ export type DisassociateFromMasterAccountCommandInput = DisassociateFromMasterAc
 export type DisassociateFromMasterAccountCommandOutput = DisassociateFromMasterAccountResponse & __MetadataBearer;
 
 /**
- * <p>Disassociates the current GuardDuty member account from its master account.</p>
+ * <p>Disassociates the current GuardDuty member account from its administrator account.</p>
  */
 export class DisassociateFromMasterAccountCommand extends $Command<
   DisassociateFromMasterAccountCommandInput,

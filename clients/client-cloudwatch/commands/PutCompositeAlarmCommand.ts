@@ -54,6 +54,9 @@ export type PutCompositeAlarmCommandOutput = __MetadataBearer;
  * 			alarm can be in <code>INSUFFICIENT_DATA</code> state.</p>
  * 		       <p>When you update an existing alarm, its state is left unchanged, but the update
  * 			completely overwrites the previous configuration of the alarm.</p>
+ *
+ * 		       <p>If you are an IAM user, you must have <code>iam:CreateServiceLinkedRole</code> to create
+ * 			a composite alarm that has Systems Manager OpsItem actions.</p>
  */
 export class PutCompositeAlarmCommand extends $Command<
   PutCompositeAlarmCommandInput,

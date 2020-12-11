@@ -21,7 +21,7 @@ export type DisassociateMembersCommandInput = DisassociateMembersRequest;
 export type DisassociateMembersCommandOutput = DisassociateMembersResponse & __MetadataBearer;
 
 /**
- * <p>Disassociates GuardDuty member accounts (to the current GuardDuty master account)
+ * <p>Disassociates GuardDuty member accounts (to the current GuardDuty administrator account)
  *       specified by the account IDs.</p>
  */
 export class DisassociateMembersCommand extends $Command<

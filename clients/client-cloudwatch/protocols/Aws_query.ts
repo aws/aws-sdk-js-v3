@@ -2805,18 +2805,18 @@ const serializeAws_queryDeleteAnomalyDetectorInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.Namespace !== undefined) {
+    entries["Namespace"] = input.Namespace;
+  }
+  if (input.MetricName !== undefined) {
+    entries["MetricName"] = input.MetricName;
+  }
   if (input.Dimensions !== undefined) {
     const memberEntries = serializeAws_queryDimensions(input.Dimensions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Dimensions.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.MetricName !== undefined) {
-    entries["MetricName"] = input.MetricName;
-  }
-  if (input.Namespace !== undefined) {
-    entries["Namespace"] = input.Namespace;
   }
   if (input.Stat !== undefined) {
     entries["Stat"] = input.Stat;
@@ -2853,23 +2853,8 @@ const serializeAws_queryDescribeAlarmHistoryInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.HistoryItemType !== undefined) {
-    entries["HistoryItemType"] = input.HistoryItemType;
-  }
   if (input.AlarmName !== undefined) {
     entries["AlarmName"] = input.AlarmName;
-  }
-  if (input.ScanBy !== undefined) {
-    entries["ScanBy"] = input.ScanBy;
-  }
-  if (input.StartDate !== undefined) {
-    entries["StartDate"] = input.StartDate.toISOString().split(".")[0] + "Z";
-  }
-  if (input.NextToken !== undefined) {
-    entries["NextToken"] = input.NextToken;
-  }
-  if (input.MaxRecords !== undefined) {
-    entries["MaxRecords"] = input.MaxRecords;
   }
   if (input.AlarmTypes !== undefined) {
     const memberEntries = serializeAws_queryAlarmTypes(input.AlarmTypes, context);
@@ -2878,8 +2863,23 @@ const serializeAws_queryDescribeAlarmHistoryInput = (
       entries[loc] = value;
     });
   }
+  if (input.HistoryItemType !== undefined) {
+    entries["HistoryItemType"] = input.HistoryItemType;
+  }
+  if (input.StartDate !== undefined) {
+    entries["StartDate"] = input.StartDate.toISOString().split(".")[0] + "Z";
+  }
   if (input.EndDate !== undefined) {
     entries["EndDate"] = input.EndDate.toISOString().split(".")[0] + "Z";
+  }
+  if (input.MaxRecords !== undefined) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.NextToken !== undefined) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.ScanBy !== undefined) {
+    entries["ScanBy"] = input.ScanBy;
   }
   return entries;
 };
@@ -2889,20 +2889,14 @@ const serializeAws_queryDescribeAlarmsForMetricInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Namespace !== undefined) {
-    entries["Namespace"] = input.Namespace;
-  }
   if (input.MetricName !== undefined) {
     entries["MetricName"] = input.MetricName;
   }
-  if (input.Period !== undefined) {
-    entries["Period"] = input.Period;
+  if (input.Namespace !== undefined) {
+    entries["Namespace"] = input.Namespace;
   }
   if (input.Statistic !== undefined) {
     entries["Statistic"] = input.Statistic;
-  }
-  if (input.Unit !== undefined) {
-    entries["Unit"] = input.Unit;
   }
   if (input.ExtendedStatistic !== undefined) {
     entries["ExtendedStatistic"] = input.ExtendedStatistic;
@@ -2914,20 +2908,26 @@ const serializeAws_queryDescribeAlarmsForMetricInput = (
       entries[loc] = value;
     });
   }
+  if (input.Period !== undefined) {
+    entries["Period"] = input.Period;
+  }
+  if (input.Unit !== undefined) {
+    entries["Unit"] = input.Unit;
+  }
   return entries;
 };
 
 const serializeAws_queryDescribeAlarmsInput = (input: DescribeAlarmsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MaxRecords !== undefined) {
-    entries["MaxRecords"] = input.MaxRecords;
-  }
   if (input.AlarmNames !== undefined) {
     const memberEntries = serializeAws_queryAlarmNames(input.AlarmNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AlarmNames.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.AlarmNamePrefix !== undefined) {
+    entries["AlarmNamePrefix"] = input.AlarmNamePrefix;
   }
   if (input.AlarmTypes !== undefined) {
     const memberEntries = serializeAws_queryAlarmTypes(input.AlarmTypes, context);
@@ -2936,23 +2936,23 @@ const serializeAws_queryDescribeAlarmsInput = (input: DescribeAlarmsInput, conte
       entries[loc] = value;
     });
   }
+  if (input.ChildrenOfAlarmName !== undefined) {
+    entries["ChildrenOfAlarmName"] = input.ChildrenOfAlarmName;
+  }
   if (input.ParentsOfAlarmName !== undefined) {
     entries["ParentsOfAlarmName"] = input.ParentsOfAlarmName;
-  }
-  if (input.AlarmNamePrefix !== undefined) {
-    entries["AlarmNamePrefix"] = input.AlarmNamePrefix;
   }
   if (input.StateValue !== undefined) {
     entries["StateValue"] = input.StateValue;
   }
-  if (input.NextToken !== undefined) {
-    entries["NextToken"] = input.NextToken;
-  }
   if (input.ActionPrefix !== undefined) {
     entries["ActionPrefix"] = input.ActionPrefix;
   }
-  if (input.ChildrenOfAlarmName !== undefined) {
-    entries["ChildrenOfAlarmName"] = input.ChildrenOfAlarmName;
+  if (input.MaxRecords !== undefined) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.NextToken !== undefined) {
+    entries["NextToken"] = input.NextToken;
   }
   return entries;
 };
@@ -2962,12 +2962,8 @@ const serializeAws_queryDescribeAnomalyDetectorsInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Dimensions !== undefined) {
-    const memberEntries = serializeAws_queryDimensions(input.Dimensions, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Dimensions.${key}`;
-      entries[loc] = value;
-    });
+  if (input.NextToken !== undefined) {
+    entries["NextToken"] = input.NextToken;
   }
   if (input.MaxResults !== undefined) {
     entries["MaxResults"] = input.MaxResults;
@@ -2978,8 +2974,12 @@ const serializeAws_queryDescribeAnomalyDetectorsInput = (
   if (input.MetricName !== undefined) {
     entries["MetricName"] = input.MetricName;
   }
-  if (input.NextToken !== undefined) {
-    entries["NextToken"] = input.NextToken;
+  if (input.Dimensions !== undefined) {
+    const memberEntries = serializeAws_queryDimensions(input.Dimensions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Dimensions.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -3000,22 +3000,22 @@ const serializeAws_queryDescribeInsightRulesInput = (
 
 const serializeAws_queryDimension = (input: Dimension, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Value !== undefined) {
-    entries["Value"] = input.Value;
-  }
   if (input.Name !== undefined) {
     entries["Name"] = input.Name;
+  }
+  if (input.Value !== undefined) {
+    entries["Value"] = input.Value;
   }
   return entries;
 };
 
 const serializeAws_queryDimensionFilter = (input: DimensionFilter, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Value !== undefined) {
-    entries["Value"] = input.Value;
-  }
   if (input.Name !== undefined) {
     entries["Name"] = input.Name;
+  }
+  if (input.Value !== undefined) {
+    entries["Value"] = input.Value;
   }
   return entries;
 };
@@ -3117,8 +3117,20 @@ const serializeAws_queryGetInsightRuleReportInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.RuleName !== undefined) {
+    entries["RuleName"] = input.RuleName;
+  }
   if (input.StartTime !== undefined) {
     entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
+  }
+  if (input.EndTime !== undefined) {
+    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
+  }
+  if (input.Period !== undefined) {
+    entries["Period"] = input.Period;
+  }
+  if (input.MaxContributorCount !== undefined) {
+    entries["MaxContributorCount"] = input.MaxContributorCount;
   }
   if (input.Metrics !== undefined) {
     const memberEntries = serializeAws_queryInsightRuleMetricList(input.Metrics, context);
@@ -3126,18 +3138,6 @@ const serializeAws_queryGetInsightRuleReportInput = (
       const loc = `Metrics.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.MaxContributorCount !== undefined) {
-    entries["MaxContributorCount"] = input.MaxContributorCount;
-  }
-  if (input.RuleName !== undefined) {
-    entries["RuleName"] = input.RuleName;
-  }
-  if (input.EndTime !== undefined) {
-    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
-  }
-  if (input.Period !== undefined) {
-    entries["Period"] = input.Period;
   }
   if (input.OrderBy !== undefined) {
     entries["OrderBy"] = input.OrderBy;
@@ -3147,12 +3147,6 @@ const serializeAws_queryGetInsightRuleReportInput = (
 
 const serializeAws_queryGetMetricDataInput = (input: GetMetricDataInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StartTime !== undefined) {
-    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
-  }
-  if (input.NextToken !== undefined) {
-    entries["NextToken"] = input.NextToken;
-  }
   if (input.MetricDataQueries !== undefined) {
     const memberEntries = serializeAws_queryMetricDataQueries(input.MetricDataQueries, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3160,20 +3154,55 @@ const serializeAws_queryGetMetricDataInput = (input: GetMetricDataInput, context
       entries[loc] = value;
     });
   }
-  if (input.MaxDatapoints !== undefined) {
-    entries["MaxDatapoints"] = input.MaxDatapoints;
+  if (input.StartTime !== undefined) {
+    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
+  }
+  if (input.EndTime !== undefined) {
+    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
+  }
+  if (input.NextToken !== undefined) {
+    entries["NextToken"] = input.NextToken;
   }
   if (input.ScanBy !== undefined) {
     entries["ScanBy"] = input.ScanBy;
   }
-  if (input.EndTime !== undefined) {
-    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
+  if (input.MaxDatapoints !== undefined) {
+    entries["MaxDatapoints"] = input.MaxDatapoints;
   }
   return entries;
 };
 
 const serializeAws_queryGetMetricStatisticsInput = (input: GetMetricStatisticsInput, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.Namespace !== undefined) {
+    entries["Namespace"] = input.Namespace;
+  }
+  if (input.MetricName !== undefined) {
+    entries["MetricName"] = input.MetricName;
+  }
+  if (input.Dimensions !== undefined) {
+    const memberEntries = serializeAws_queryDimensions(input.Dimensions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Dimensions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.StartTime !== undefined) {
+    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
+  }
+  if (input.EndTime !== undefined) {
+    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
+  }
+  if (input.Period !== undefined) {
+    entries["Period"] = input.Period;
+  }
+  if (input.Statistics !== undefined) {
+    const memberEntries = serializeAws_queryStatistics(input.Statistics, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Statistics.${key}`;
+      entries[loc] = value;
+    });
+  }
   if (input.ExtendedStatistics !== undefined) {
     const memberEntries = serializeAws_queryExtendedStatistics(input.ExtendedStatistics, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3183,35 +3212,6 @@ const serializeAws_queryGetMetricStatisticsInput = (input: GetMetricStatisticsIn
   }
   if (input.Unit !== undefined) {
     entries["Unit"] = input.Unit;
-  }
-  if (input.EndTime !== undefined) {
-    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
-  }
-  if (input.Period !== undefined) {
-    entries["Period"] = input.Period;
-  }
-  if (input.MetricName !== undefined) {
-    entries["MetricName"] = input.MetricName;
-  }
-  if (input.StartTime !== undefined) {
-    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
-  }
-  if (input.Statistics !== undefined) {
-    const memberEntries = serializeAws_queryStatistics(input.Statistics, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Statistics.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.Dimensions !== undefined) {
-    const memberEntries = serializeAws_queryDimensions(input.Dimensions, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Dimensions.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.Namespace !== undefined) {
-    entries["Namespace"] = input.Namespace;
   }
   return entries;
 };
@@ -3263,8 +3263,11 @@ const serializeAws_queryListDashboardsInput = (input: ListDashboardsInput, conte
 
 const serializeAws_queryListMetricsInput = (input: ListMetricsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RecentlyActive !== undefined) {
-    entries["RecentlyActive"] = input.RecentlyActive;
+  if (input.Namespace !== undefined) {
+    entries["Namespace"] = input.Namespace;
+  }
+  if (input.MetricName !== undefined) {
+    entries["MetricName"] = input.MetricName;
   }
   if (input.Dimensions !== undefined) {
     const memberEntries = serializeAws_queryDimensionFilters(input.Dimensions, context);
@@ -3273,14 +3276,11 @@ const serializeAws_queryListMetricsInput = (input: ListMetricsInput, context: __
       entries[loc] = value;
     });
   }
-  if (input.Namespace !== undefined) {
-    entries["Namespace"] = input.Namespace;
-  }
-  if (input.MetricName !== undefined) {
-    entries["MetricName"] = input.MetricName;
-  }
   if (input.NextToken !== undefined) {
     entries["NextToken"] = input.NextToken;
+  }
+  if (input.RecentlyActive !== undefined) {
+    entries["RecentlyActive"] = input.RecentlyActive;
   }
   return entries;
 };
@@ -3295,18 +3295,18 @@ const serializeAws_queryListTagsForResourceInput = (input: ListTagsForResourceIn
 
 const serializeAws_queryMetric = (input: Metric, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.Namespace !== undefined) {
+    entries["Namespace"] = input.Namespace;
+  }
+  if (input.MetricName !== undefined) {
+    entries["MetricName"] = input.MetricName;
+  }
   if (input.Dimensions !== undefined) {
     const memberEntries = serializeAws_queryDimensions(input.Dimensions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Dimensions.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.Namespace !== undefined) {
-    entries["Namespace"] = input.Namespace;
-  }
-  if (input.MetricName !== undefined) {
-    entries["MetricName"] = input.MetricName;
   }
   return entries;
 };
@@ -3339,15 +3339,6 @@ const serializeAws_queryMetricDataQueries = (input: MetricDataQuery[], context: 
 
 const serializeAws_queryMetricDataQuery = (input: MetricDataQuery, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Period !== undefined) {
-    entries["Period"] = input.Period;
-  }
-  if (input.ReturnData !== undefined) {
-    entries["ReturnData"] = input.ReturnData;
-  }
-  if (input.Expression !== undefined) {
-    entries["Expression"] = input.Expression;
-  }
   if (input.Id !== undefined) {
     entries["Id"] = input.Id;
   }
@@ -3358,26 +3349,25 @@ const serializeAws_queryMetricDataQuery = (input: MetricDataQuery, context: __Se
       entries[loc] = value;
     });
   }
+  if (input.Expression !== undefined) {
+    entries["Expression"] = input.Expression;
+  }
   if (input.Label !== undefined) {
     entries["Label"] = input.Label;
+  }
+  if (input.ReturnData !== undefined) {
+    entries["ReturnData"] = input.ReturnData;
+  }
+  if (input.Period !== undefined) {
+    entries["Period"] = input.Period;
   }
   return entries;
 };
 
 const serializeAws_queryMetricDatum = (input: MetricDatum, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Values !== undefined) {
-    const memberEntries = serializeAws_queryValues(input.Values, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Values.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.StorageResolution !== undefined) {
-    entries["StorageResolution"] = input.StorageResolution;
-  }
-  if (input.Timestamp !== undefined) {
-    entries["Timestamp"] = input.Timestamp.toISOString().split(".")[0] + "Z";
+  if (input.MetricName !== undefined) {
+    entries["MetricName"] = input.MetricName;
   }
   if (input.Dimensions !== undefined) {
     const memberEntries = serializeAws_queryDimensions(input.Dimensions, context);
@@ -3386,6 +3376,12 @@ const serializeAws_queryMetricDatum = (input: MetricDatum, context: __SerdeConte
       entries[loc] = value;
     });
   }
+  if (input.Timestamp !== undefined) {
+    entries["Timestamp"] = input.Timestamp.toISOString().split(".")[0] + "Z";
+  }
+  if (input.Value !== undefined) {
+    entries["Value"] = input.Value;
+  }
   if (input.StatisticValues !== undefined) {
     const memberEntries = serializeAws_queryStatisticSet(input.StatisticValues, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3393,11 +3389,12 @@ const serializeAws_queryMetricDatum = (input: MetricDatum, context: __SerdeConte
       entries[loc] = value;
     });
   }
-  if (input.MetricName !== undefined) {
-    entries["MetricName"] = input.MetricName;
-  }
-  if (input.Unit !== undefined) {
-    entries["Unit"] = input.Unit;
+  if (input.Values !== undefined) {
+    const memberEntries = serializeAws_queryValues(input.Values, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Values.${key}`;
+      entries[loc] = value;
+    });
   }
   if (input.Counts !== undefined) {
     const memberEntries = serializeAws_queryCounts(input.Counts, context);
@@ -3406,23 +3403,26 @@ const serializeAws_queryMetricDatum = (input: MetricDatum, context: __SerdeConte
       entries[loc] = value;
     });
   }
-  if (input.Value !== undefined) {
-    entries["Value"] = input.Value;
+  if (input.Unit !== undefined) {
+    entries["Unit"] = input.Unit;
+  }
+  if (input.StorageResolution !== undefined) {
+    entries["StorageResolution"] = input.StorageResolution;
   }
   return entries;
 };
 
 const serializeAws_queryMetricStat = (input: MetricStat, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Period !== undefined) {
-    entries["Period"] = input.Period;
-  }
   if (input.Metric !== undefined) {
     const memberEntries = serializeAws_queryMetric(input.Metric, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Metric.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.Period !== undefined) {
+    entries["Period"] = input.Period;
   }
   if (input.Stat !== undefined) {
     entries["Stat"] = input.Stat;
@@ -3435,18 +3435,11 @@ const serializeAws_queryMetricStat = (input: MetricStat, context: __SerdeContext
 
 const serializeAws_queryPutAnomalyDetectorInput = (input: PutAnomalyDetectorInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Stat !== undefined) {
-    entries["Stat"] = input.Stat;
+  if (input.Namespace !== undefined) {
+    entries["Namespace"] = input.Namespace;
   }
   if (input.MetricName !== undefined) {
     entries["MetricName"] = input.MetricName;
-  }
-  if (input.Configuration !== undefined) {
-    const memberEntries = serializeAws_queryAnomalyDetectorConfiguration(input.Configuration, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Configuration.${key}`;
-      entries[loc] = value;
-    });
   }
   if (input.Dimensions !== undefined) {
     const memberEntries = serializeAws_queryDimensions(input.Dimensions, context);
@@ -3455,28 +3448,28 @@ const serializeAws_queryPutAnomalyDetectorInput = (input: PutAnomalyDetectorInpu
       entries[loc] = value;
     });
   }
-  if (input.Namespace !== undefined) {
-    entries["Namespace"] = input.Namespace;
+  if (input.Stat !== undefined) {
+    entries["Stat"] = input.Stat;
+  }
+  if (input.Configuration !== undefined) {
+    const memberEntries = serializeAws_queryAnomalyDetectorConfiguration(input.Configuration, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Configuration.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
 
 const serializeAws_queryPutCompositeAlarmInput = (input: PutCompositeAlarmInput, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.ActionsEnabled !== undefined) {
+    entries["ActionsEnabled"] = input.ActionsEnabled;
+  }
   if (input.AlarmActions !== undefined) {
     const memberEntries = serializeAws_queryResourceList(input.AlarmActions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AlarmActions.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.ActionsEnabled !== undefined) {
-    entries["ActionsEnabled"] = input.ActionsEnabled;
-  }
-  if (input.InsufficientDataActions !== undefined) {
-    const memberEntries = serializeAws_queryResourceList(input.InsufficientDataActions, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `InsufficientDataActions.${key}`;
       entries[loc] = value;
     });
   }
@@ -3488,6 +3481,13 @@ const serializeAws_queryPutCompositeAlarmInput = (input: PutCompositeAlarmInput,
   }
   if (input.AlarmRule !== undefined) {
     entries["AlarmRule"] = input.AlarmRule;
+  }
+  if (input.InsufficientDataActions !== undefined) {
+    const memberEntries = serializeAws_queryResourceList(input.InsufficientDataActions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `InsufficientDataActions.${key}`;
+      entries[loc] = value;
+    });
   }
   if (input.OKActions !== undefined) {
     const memberEntries = serializeAws_queryResourceList(input.OKActions, context);
@@ -3522,6 +3522,12 @@ const serializeAws_queryPutInsightRuleInput = (input: PutInsightRuleInput, conte
   if (input.RuleName !== undefined) {
     entries["RuleName"] = input.RuleName;
   }
+  if (input.RuleState !== undefined) {
+    entries["RuleState"] = input.RuleState;
+  }
+  if (input.RuleDefinition !== undefined) {
+    entries["RuleDefinition"] = input.RuleDefinition;
+  }
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3529,23 +3535,13 @@ const serializeAws_queryPutInsightRuleInput = (input: PutInsightRuleInput, conte
       entries[loc] = value;
     });
   }
-  if (input.RuleState !== undefined) {
-    entries["RuleState"] = input.RuleState;
-  }
-  if (input.RuleDefinition !== undefined) {
-    entries["RuleDefinition"] = input.RuleDefinition;
-  }
   return entries;
 };
 
 const serializeAws_queryPutMetricAlarmInput = (input: PutMetricAlarmInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Dimensions !== undefined) {
-    const memberEntries = serializeAws_queryDimensions(input.Dimensions, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Dimensions.${key}`;
-      entries[loc] = value;
-    });
+  if (input.AlarmName !== undefined) {
+    entries["AlarmName"] = input.AlarmName;
   }
   if (input.AlarmDescription !== undefined) {
     entries["AlarmDescription"] = input.AlarmDescription;
@@ -3553,32 +3549,10 @@ const serializeAws_queryPutMetricAlarmInput = (input: PutMetricAlarmInput, conte
   if (input.ActionsEnabled !== undefined) {
     entries["ActionsEnabled"] = input.ActionsEnabled;
   }
-  if (input.InsufficientDataActions !== undefined) {
-    const memberEntries = serializeAws_queryResourceList(input.InsufficientDataActions, context);
+  if (input.OKActions !== undefined) {
+    const memberEntries = serializeAws_queryResourceList(input.OKActions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `InsufficientDataActions.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.Namespace !== undefined) {
-    entries["Namespace"] = input.Namespace;
-  }
-  if (input.EvaluateLowSampleCountPercentile !== undefined) {
-    entries["EvaluateLowSampleCountPercentile"] = input.EvaluateLowSampleCountPercentile;
-  }
-  if (input.ExtendedStatistic !== undefined) {
-    entries["ExtendedStatistic"] = input.ExtendedStatistic;
-  }
-  if (input.MetricName !== undefined) {
-    entries["MetricName"] = input.MetricName;
-  }
-  if (input.ThresholdMetricId !== undefined) {
-    entries["ThresholdMetricId"] = input.ThresholdMetricId;
-  }
-  if (input.Tags !== undefined) {
-    const memberEntries = serializeAws_queryTagList(input.Tags, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Tags.${key}`;
+      const loc = `OKActions.${key}`;
       entries[loc] = value;
     });
   }
@@ -3589,14 +3563,37 @@ const serializeAws_queryPutMetricAlarmInput = (input: PutMetricAlarmInput, conte
       entries[loc] = value;
     });
   }
-  if (input.TreatMissingData !== undefined) {
-    entries["TreatMissingData"] = input.TreatMissingData;
+  if (input.InsufficientDataActions !== undefined) {
+    const memberEntries = serializeAws_queryResourceList(input.InsufficientDataActions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `InsufficientDataActions.${key}`;
+      entries[loc] = value;
+    });
   }
-  if (input.AlarmName !== undefined) {
-    entries["AlarmName"] = input.AlarmName;
+  if (input.MetricName !== undefined) {
+    entries["MetricName"] = input.MetricName;
+  }
+  if (input.Namespace !== undefined) {
+    entries["Namespace"] = input.Namespace;
+  }
+  if (input.Statistic !== undefined) {
+    entries["Statistic"] = input.Statistic;
+  }
+  if (input.ExtendedStatistic !== undefined) {
+    entries["ExtendedStatistic"] = input.ExtendedStatistic;
+  }
+  if (input.Dimensions !== undefined) {
+    const memberEntries = serializeAws_queryDimensions(input.Dimensions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Dimensions.${key}`;
+      entries[loc] = value;
+    });
   }
   if (input.Period !== undefined) {
     entries["Period"] = input.Period;
+  }
+  if (input.Unit !== undefined) {
+    entries["Unit"] = input.Unit;
   }
   if (input.EvaluationPeriods !== undefined) {
     entries["EvaluationPeriods"] = input.EvaluationPeriods;
@@ -3604,14 +3601,17 @@ const serializeAws_queryPutMetricAlarmInput = (input: PutMetricAlarmInput, conte
   if (input.DatapointsToAlarm !== undefined) {
     entries["DatapointsToAlarm"] = input.DatapointsToAlarm;
   }
-  if (input.Unit !== undefined) {
-    entries["Unit"] = input.Unit;
+  if (input.Threshold !== undefined) {
+    entries["Threshold"] = input.Threshold;
   }
   if (input.ComparisonOperator !== undefined) {
     entries["ComparisonOperator"] = input.ComparisonOperator;
   }
-  if (input.Threshold !== undefined) {
-    entries["Threshold"] = input.Threshold;
+  if (input.TreatMissingData !== undefined) {
+    entries["TreatMissingData"] = input.TreatMissingData;
+  }
+  if (input.EvaluateLowSampleCountPercentile !== undefined) {
+    entries["EvaluateLowSampleCountPercentile"] = input.EvaluateLowSampleCountPercentile;
   }
   if (input.Metrics !== undefined) {
     const memberEntries = serializeAws_queryMetricDataQueries(input.Metrics, context);
@@ -3620,21 +3620,24 @@ const serializeAws_queryPutMetricAlarmInput = (input: PutMetricAlarmInput, conte
       entries[loc] = value;
     });
   }
-  if (input.OKActions !== undefined) {
-    const memberEntries = serializeAws_queryResourceList(input.OKActions, context);
+  if (input.Tags !== undefined) {
+    const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `OKActions.${key}`;
+      const loc = `Tags.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Statistic !== undefined) {
-    entries["Statistic"] = input.Statistic;
+  if (input.ThresholdMetricId !== undefined) {
+    entries["ThresholdMetricId"] = input.ThresholdMetricId;
   }
   return entries;
 };
 
 const serializeAws_queryPutMetricDataInput = (input: PutMetricDataInput, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.Namespace !== undefined) {
+    entries["Namespace"] = input.Namespace;
+  }
   if (input.MetricData !== undefined) {
     const memberEntries = serializeAws_queryMetricData(input.MetricData, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3642,19 +3645,16 @@ const serializeAws_queryPutMetricDataInput = (input: PutMetricDataInput, context
       entries[loc] = value;
     });
   }
-  if (input.Namespace !== undefined) {
-    entries["Namespace"] = input.Namespace;
-  }
   return entries;
 };
 
 const serializeAws_queryRange = (input: Range, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.EndTime !== undefined) {
-    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
-  }
   if (input.StartTime !== undefined) {
     entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
+  }
+  if (input.EndTime !== undefined) {
+    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
   }
   return entries;
 };
@@ -3671,17 +3671,17 @@ const serializeAws_queryResourceList = (input: string[], context: __SerdeContext
 
 const serializeAws_querySetAlarmStateInput = (input: SetAlarmStateInput, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.AlarmName !== undefined) {
+    entries["AlarmName"] = input.AlarmName;
+  }
   if (input.StateValue !== undefined) {
     entries["StateValue"] = input.StateValue;
-  }
-  if (input.StateReasonData !== undefined) {
-    entries["StateReasonData"] = input.StateReasonData;
   }
   if (input.StateReason !== undefined) {
     entries["StateReason"] = input.StateReason;
   }
-  if (input.AlarmName !== undefined) {
-    entries["AlarmName"] = input.AlarmName;
+  if (input.StateReasonData !== undefined) {
+    entries["StateReasonData"] = input.StateReasonData;
   }
   return entries;
 };
@@ -3698,9 +3698,6 @@ const serializeAws_queryStatistics = (input: (Statistic | string)[], context: __
 
 const serializeAws_queryStatisticSet = (input: StatisticSet, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Maximum !== undefined) {
-    entries["Maximum"] = input.Maximum;
-  }
   if (input.SampleCount !== undefined) {
     entries["SampleCount"] = input.SampleCount;
   }
@@ -3709,6 +3706,9 @@ const serializeAws_queryStatisticSet = (input: StatisticSet, context: __SerdeCon
   }
   if (input.Minimum !== undefined) {
     entries["Minimum"] = input.Minimum;
+  }
+  if (input.Maximum !== undefined) {
+    entries["Maximum"] = input.Maximum;
   }
   return entries;
 };
@@ -3764,15 +3764,15 @@ const serializeAws_queryTagResourceInput = (input: TagResourceInput, context: __
 
 const serializeAws_queryUntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.ResourceARN !== undefined) {
+    entries["ResourceARN"] = input.ResourceARN;
+  }
   if (input.TagKeys !== undefined) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.ResourceARN !== undefined) {
-    entries["ResourceARN"] = input.ResourceARN;
   }
   return entries;
 };
@@ -3789,30 +3789,30 @@ const serializeAws_queryValues = (input: number[], context: __SerdeContext): any
 
 const deserializeAws_queryAlarmHistoryItem = (output: any, context: __SerdeContext): AlarmHistoryItem => {
   let contents: any = {
-    Timestamp: undefined,
-    HistorySummary: undefined,
     AlarmName: undefined,
-    HistoryData: undefined,
     AlarmType: undefined,
+    Timestamp: undefined,
     HistoryItemType: undefined,
+    HistorySummary: undefined,
+    HistoryData: undefined,
   };
-  if (output["Timestamp"] !== undefined) {
-    contents.Timestamp = new Date(output["Timestamp"]);
-  }
-  if (output["HistorySummary"] !== undefined) {
-    contents.HistorySummary = output["HistorySummary"];
-  }
   if (output["AlarmName"] !== undefined) {
     contents.AlarmName = output["AlarmName"];
-  }
-  if (output["HistoryData"] !== undefined) {
-    contents.HistoryData = output["HistoryData"];
   }
   if (output["AlarmType"] !== undefined) {
     contents.AlarmType = output["AlarmType"];
   }
+  if (output["Timestamp"] !== undefined) {
+    contents.Timestamp = new Date(output["Timestamp"]);
+  }
   if (output["HistoryItemType"] !== undefined) {
     contents.HistoryItemType = output["HistoryItemType"];
+  }
+  if (output["HistorySummary"] !== undefined) {
+    contents.HistorySummary = output["HistorySummary"];
+  }
+  if (output["HistoryData"] !== undefined) {
+    contents.HistoryData = output["HistoryData"];
   }
   return contents;
 };
@@ -3823,13 +3823,19 @@ const deserializeAws_queryAlarmHistoryItems = (output: any, context: __SerdeCont
 
 const deserializeAws_queryAnomalyDetector = (output: any, context: __SerdeContext): AnomalyDetector => {
   let contents: any = {
-    Dimensions: undefined,
     Namespace: undefined,
-    Stat: undefined,
     MetricName: undefined,
-    StateValue: undefined,
+    Dimensions: undefined,
+    Stat: undefined,
     Configuration: undefined,
+    StateValue: undefined,
   };
+  if (output["Namespace"] !== undefined) {
+    contents.Namespace = output["Namespace"];
+  }
+  if (output["MetricName"] !== undefined) {
+    contents.MetricName = output["MetricName"];
+  }
   if (output.Dimensions === "") {
     contents.Dimensions = [];
   }
@@ -3839,20 +3845,14 @@ const deserializeAws_queryAnomalyDetector = (output: any, context: __SerdeContex
       context
     );
   }
-  if (output["Namespace"] !== undefined) {
-    contents.Namespace = output["Namespace"];
-  }
   if (output["Stat"] !== undefined) {
     contents.Stat = output["Stat"];
   }
-  if (output["MetricName"] !== undefined) {
-    contents.MetricName = output["MetricName"];
+  if (output["Configuration"] !== undefined) {
+    contents.Configuration = deserializeAws_queryAnomalyDetectorConfiguration(output["Configuration"], context);
   }
   if (output["StateValue"] !== undefined) {
     contents.StateValue = output["StateValue"];
-  }
-  if (output["Configuration"] !== undefined) {
-    contents.Configuration = deserializeAws_queryAnomalyDetectorConfiguration(output["Configuration"], context);
   }
   return contents;
 };
@@ -3894,26 +3894,53 @@ const deserializeAws_queryBatchFailures = (output: any, context: __SerdeContext)
 
 const deserializeAws_queryCompositeAlarm = (output: any, context: __SerdeContext): CompositeAlarm => {
   let contents: any = {
+    ActionsEnabled: undefined,
     AlarmActions: undefined,
+    AlarmArn: undefined,
+    AlarmConfigurationUpdatedTimestamp: undefined,
+    AlarmDescription: undefined,
+    AlarmName: undefined,
+    AlarmRule: undefined,
+    InsufficientDataActions: undefined,
     OKActions: undefined,
     StateReason: undefined,
-    AlarmConfigurationUpdatedTimestamp: undefined,
-    AlarmName: undefined,
+    StateReasonData: undefined,
     StateUpdatedTimestamp: undefined,
     StateValue: undefined,
-    ActionsEnabled: undefined,
-    InsufficientDataActions: undefined,
-    AlarmArn: undefined,
-    StateReasonData: undefined,
-    AlarmRule: undefined,
-    AlarmDescription: undefined,
   };
+  if (output["ActionsEnabled"] !== undefined) {
+    contents.ActionsEnabled = output["ActionsEnabled"] == "true";
+  }
   if (output.AlarmActions === "") {
     contents.AlarmActions = [];
   }
   if (output["AlarmActions"] !== undefined && output["AlarmActions"]["member"] !== undefined) {
     contents.AlarmActions = deserializeAws_queryResourceList(
       __getArrayIfSingleItem(output["AlarmActions"]["member"]),
+      context
+    );
+  }
+  if (output["AlarmArn"] !== undefined) {
+    contents.AlarmArn = output["AlarmArn"];
+  }
+  if (output["AlarmConfigurationUpdatedTimestamp"] !== undefined) {
+    contents.AlarmConfigurationUpdatedTimestamp = new Date(output["AlarmConfigurationUpdatedTimestamp"]);
+  }
+  if (output["AlarmDescription"] !== undefined) {
+    contents.AlarmDescription = output["AlarmDescription"];
+  }
+  if (output["AlarmName"] !== undefined) {
+    contents.AlarmName = output["AlarmName"];
+  }
+  if (output["AlarmRule"] !== undefined) {
+    contents.AlarmRule = output["AlarmRule"];
+  }
+  if (output.InsufficientDataActions === "") {
+    contents.InsufficientDataActions = [];
+  }
+  if (output["InsufficientDataActions"] !== undefined && output["InsufficientDataActions"]["member"] !== undefined) {
+    contents.InsufficientDataActions = deserializeAws_queryResourceList(
+      __getArrayIfSingleItem(output["InsufficientDataActions"]["member"]),
       context
     );
   }
@@ -3929,41 +3956,14 @@ const deserializeAws_queryCompositeAlarm = (output: any, context: __SerdeContext
   if (output["StateReason"] !== undefined) {
     contents.StateReason = output["StateReason"];
   }
-  if (output["AlarmConfigurationUpdatedTimestamp"] !== undefined) {
-    contents.AlarmConfigurationUpdatedTimestamp = new Date(output["AlarmConfigurationUpdatedTimestamp"]);
-  }
-  if (output["AlarmName"] !== undefined) {
-    contents.AlarmName = output["AlarmName"];
+  if (output["StateReasonData"] !== undefined) {
+    contents.StateReasonData = output["StateReasonData"];
   }
   if (output["StateUpdatedTimestamp"] !== undefined) {
     contents.StateUpdatedTimestamp = new Date(output["StateUpdatedTimestamp"]);
   }
   if (output["StateValue"] !== undefined) {
     contents.StateValue = output["StateValue"];
-  }
-  if (output["ActionsEnabled"] !== undefined) {
-    contents.ActionsEnabled = output["ActionsEnabled"] == "true";
-  }
-  if (output.InsufficientDataActions === "") {
-    contents.InsufficientDataActions = [];
-  }
-  if (output["InsufficientDataActions"] !== undefined && output["InsufficientDataActions"]["member"] !== undefined) {
-    contents.InsufficientDataActions = deserializeAws_queryResourceList(
-      __getArrayIfSingleItem(output["InsufficientDataActions"]["member"]),
-      context
-    );
-  }
-  if (output["AlarmArn"] !== undefined) {
-    contents.AlarmArn = output["AlarmArn"];
-  }
-  if (output["StateReasonData"] !== undefined) {
-    contents.StateReasonData = output["StateReasonData"];
-  }
-  if (output["AlarmRule"] !== undefined) {
-    contents.AlarmRule = output["AlarmRule"];
-  }
-  if (output["AlarmDescription"] !== undefined) {
-    contents.AlarmDescription = output["AlarmDescription"];
   }
   return contents;
 };
@@ -3991,22 +3991,22 @@ const deserializeAws_queryDashboardEntries = (output: any, context: __SerdeConte
 
 const deserializeAws_queryDashboardEntry = (output: any, context: __SerdeContext): DashboardEntry => {
   let contents: any = {
-    Size: undefined,
     DashboardName: undefined,
-    LastModified: undefined,
     DashboardArn: undefined,
+    LastModified: undefined,
+    Size: undefined,
   };
-  if (output["Size"] !== undefined) {
-    contents.Size = parseInt(output["Size"]);
-  }
   if (output["DashboardName"] !== undefined) {
     contents.DashboardName = output["DashboardName"];
+  }
+  if (output["DashboardArn"] !== undefined) {
+    contents.DashboardArn = output["DashboardArn"];
   }
   if (output["LastModified"] !== undefined) {
     contents.LastModified = new Date(output["LastModified"]);
   }
-  if (output["DashboardArn"] !== undefined) {
-    contents.DashboardArn = output["DashboardArn"];
+  if (output["Size"] !== undefined) {
+    contents.Size = parseInt(output["Size"]);
   }
   return contents;
 };
@@ -4073,17 +4073,35 @@ const deserializeAws_queryDashboardValidationMessages = (
 
 const deserializeAws_queryDatapoint = (output: any, context: __SerdeContext): Datapoint => {
   let contents: any = {
-    Maximum: undefined,
-    ExtendedStatistics: undefined,
-    Minimum: undefined,
-    Sum: undefined,
-    Unit: undefined,
-    Average: undefined,
     Timestamp: undefined,
     SampleCount: undefined,
+    Average: undefined,
+    Sum: undefined,
+    Minimum: undefined,
+    Maximum: undefined,
+    Unit: undefined,
+    ExtendedStatistics: undefined,
   };
+  if (output["Timestamp"] !== undefined) {
+    contents.Timestamp = new Date(output["Timestamp"]);
+  }
+  if (output["SampleCount"] !== undefined) {
+    contents.SampleCount = parseFloat(output["SampleCount"]);
+  }
+  if (output["Average"] !== undefined) {
+    contents.Average = parseFloat(output["Average"]);
+  }
+  if (output["Sum"] !== undefined) {
+    contents.Sum = parseFloat(output["Sum"]);
+  }
+  if (output["Minimum"] !== undefined) {
+    contents.Minimum = parseFloat(output["Minimum"]);
+  }
   if (output["Maximum"] !== undefined) {
     contents.Maximum = parseFloat(output["Maximum"]);
+  }
+  if (output["Unit"] !== undefined) {
+    contents.Unit = output["Unit"];
   }
   if (output.ExtendedStatistics === "") {
     contents.ExtendedStatistics = {};
@@ -4093,24 +4111,6 @@ const deserializeAws_queryDatapoint = (output: any, context: __SerdeContext): Da
       __getArrayIfSingleItem(output["ExtendedStatistics"]["entry"]),
       context
     );
-  }
-  if (output["Minimum"] !== undefined) {
-    contents.Minimum = parseFloat(output["Minimum"]);
-  }
-  if (output["Sum"] !== undefined) {
-    contents.Sum = parseFloat(output["Sum"]);
-  }
-  if (output["Unit"] !== undefined) {
-    contents.Unit = output["Unit"];
-  }
-  if (output["Average"] !== undefined) {
-    contents.Average = parseFloat(output["Average"]);
-  }
-  if (output["Timestamp"] !== undefined) {
-    contents.Timestamp = new Date(output["Timestamp"]);
-  }
-  if (output["SampleCount"] !== undefined) {
-    contents.SampleCount = parseFloat(output["SampleCount"]);
   }
   return contents;
 };
@@ -4170,12 +4170,9 @@ const deserializeAws_queryDescribeAlarmHistoryOutput = (
   context: __SerdeContext
 ): DescribeAlarmHistoryOutput => {
   let contents: any = {
-    NextToken: undefined,
     AlarmHistoryItems: undefined,
+    NextToken: undefined,
   };
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
-  }
   if (output.AlarmHistoryItems === "") {
     contents.AlarmHistoryItems = [];
   }
@@ -4184,6 +4181,9 @@ const deserializeAws_queryDescribeAlarmHistoryOutput = (
       __getArrayIfSingleItem(output["AlarmHistoryItems"]["member"]),
       context
     );
+  }
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -4242,12 +4242,9 @@ const deserializeAws_queryDescribeAnomalyDetectorsOutput = (
   context: __SerdeContext
 ): DescribeAnomalyDetectorsOutput => {
   let contents: any = {
-    NextToken: undefined,
     AnomalyDetectors: undefined,
+    NextToken: undefined,
   };
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
-  }
   if (output.AnomalyDetectors === "") {
     contents.AnomalyDetectors = [];
   }
@@ -4256,6 +4253,9 @@ const deserializeAws_queryDescribeAnomalyDetectorsOutput = (
       __getArrayIfSingleItem(output["AnomalyDetectors"]["member"]),
       context
     );
+  }
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -4285,14 +4285,14 @@ const deserializeAws_queryDescribeInsightRulesOutput = (
 
 const deserializeAws_queryDimension = (output: any, context: __SerdeContext): Dimension => {
   let contents: any = {
-    Value: undefined,
     Name: undefined,
+    Value: undefined,
   };
-  if (output["Value"] !== undefined) {
-    contents.Value = output["Value"];
-  }
   if (output["Name"] !== undefined) {
     contents.Name = output["Name"];
+  }
+  if (output["Value"] !== undefined) {
+    contents.Value = output["Value"];
   }
   return contents;
 };
@@ -4341,18 +4341,18 @@ const deserializeAws_queryEnableInsightRulesOutput = (
 
 const deserializeAws_queryGetDashboardOutput = (output: any, context: __SerdeContext): GetDashboardOutput => {
   let contents: any = {
-    DashboardName: undefined,
     DashboardArn: undefined,
     DashboardBody: undefined,
+    DashboardName: undefined,
   };
-  if (output["DashboardName"] !== undefined) {
-    contents.DashboardName = output["DashboardName"];
-  }
   if (output["DashboardArn"] !== undefined) {
     contents.DashboardArn = output["DashboardArn"];
   }
   if (output["DashboardBody"] !== undefined) {
     contents.DashboardBody = output["DashboardBody"];
+  }
+  if (output["DashboardName"] !== undefined) {
+    contents.DashboardName = output["DashboardName"];
   }
   return contents;
 };
@@ -4362,25 +4362,13 @@ const deserializeAws_queryGetInsightRuleReportOutput = (
   context: __SerdeContext
 ): GetInsightRuleReportOutput => {
   let contents: any = {
-    AggregateValue: undefined,
-    MetricDatapoints: undefined,
     KeyLabels: undefined,
-    Contributors: undefined,
-    ApproximateUniqueCount: undefined,
     AggregationStatistic: undefined,
+    AggregateValue: undefined,
+    ApproximateUniqueCount: undefined,
+    Contributors: undefined,
+    MetricDatapoints: undefined,
   };
-  if (output["AggregateValue"] !== undefined) {
-    contents.AggregateValue = parseFloat(output["AggregateValue"]);
-  }
-  if (output.MetricDatapoints === "") {
-    contents.MetricDatapoints = [];
-  }
-  if (output["MetricDatapoints"] !== undefined && output["MetricDatapoints"]["member"] !== undefined) {
-    contents.MetricDatapoints = deserializeAws_queryInsightRuleMetricDatapoints(
-      __getArrayIfSingleItem(output["MetricDatapoints"]["member"]),
-      context
-    );
-  }
   if (output.KeyLabels === "") {
     contents.KeyLabels = [];
   }
@@ -4389,6 +4377,15 @@ const deserializeAws_queryGetInsightRuleReportOutput = (
       __getArrayIfSingleItem(output["KeyLabels"]["member"]),
       context
     );
+  }
+  if (output["AggregationStatistic"] !== undefined) {
+    contents.AggregationStatistic = output["AggregationStatistic"];
+  }
+  if (output["AggregateValue"] !== undefined) {
+    contents.AggregateValue = parseFloat(output["AggregateValue"]);
+  }
+  if (output["ApproximateUniqueCount"] !== undefined) {
+    contents.ApproximateUniqueCount = parseInt(output["ApproximateUniqueCount"]);
   }
   if (output.Contributors === "") {
     contents.Contributors = [];
@@ -4399,11 +4396,14 @@ const deserializeAws_queryGetInsightRuleReportOutput = (
       context
     );
   }
-  if (output["ApproximateUniqueCount"] !== undefined) {
-    contents.ApproximateUniqueCount = parseInt(output["ApproximateUniqueCount"]);
+  if (output.MetricDatapoints === "") {
+    contents.MetricDatapoints = [];
   }
-  if (output["AggregationStatistic"] !== undefined) {
-    contents.AggregationStatistic = output["AggregationStatistic"];
+  if (output["MetricDatapoints"] !== undefined && output["MetricDatapoints"]["member"] !== undefined) {
+    contents.MetricDatapoints = deserializeAws_queryInsightRuleMetricDatapoints(
+      __getArrayIfSingleItem(output["MetricDatapoints"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -4411,8 +4411,8 @@ const deserializeAws_queryGetInsightRuleReportOutput = (
 const deserializeAws_queryGetMetricDataOutput = (output: any, context: __SerdeContext): GetMetricDataOutput => {
   let contents: any = {
     MetricDataResults: undefined,
-    Messages: undefined,
     NextToken: undefined,
+    Messages: undefined,
   };
   if (output.MetricDataResults === "") {
     contents.MetricDataResults = [];
@@ -4423,6 +4423,9 @@ const deserializeAws_queryGetMetricDataOutput = (output: any, context: __SerdeCo
       context
     );
   }
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
+  }
   if (output.Messages === "") {
     contents.Messages = [];
   }
@@ -4431,9 +4434,6 @@ const deserializeAws_queryGetMetricDataOutput = (output: any, context: __SerdeCo
       __getArrayIfSingleItem(output["Messages"]["member"]),
       context
     );
-  }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -4477,40 +4477,31 @@ const deserializeAws_queryGetMetricWidgetImageOutput = (
 const deserializeAws_queryInsightRule = (output: any, context: __SerdeContext): InsightRule => {
   let contents: any = {
     Name: undefined,
-    Definition: undefined,
-    Schema: undefined,
     State: undefined,
+    Schema: undefined,
+    Definition: undefined,
   };
   if (output["Name"] !== undefined) {
     contents.Name = output["Name"];
   }
-  if (output["Definition"] !== undefined) {
-    contents.Definition = output["Definition"];
+  if (output["State"] !== undefined) {
+    contents.State = output["State"];
   }
   if (output["Schema"] !== undefined) {
     contents.Schema = output["Schema"];
   }
-  if (output["State"] !== undefined) {
-    contents.State = output["State"];
+  if (output["Definition"] !== undefined) {
+    contents.Definition = output["Definition"];
   }
   return contents;
 };
 
 const deserializeAws_queryInsightRuleContributor = (output: any, context: __SerdeContext): InsightRuleContributor => {
   let contents: any = {
-    Datapoints: undefined,
     Keys: undefined,
     ApproximateAggregateValue: undefined,
+    Datapoints: undefined,
   };
-  if (output.Datapoints === "") {
-    contents.Datapoints = [];
-  }
-  if (output["Datapoints"] !== undefined && output["Datapoints"]["member"] !== undefined) {
-    contents.Datapoints = deserializeAws_queryInsightRuleContributorDatapoints(
-      __getArrayIfSingleItem(output["Datapoints"]["member"]),
-      context
-    );
-  }
   if (output.Keys === "") {
     contents.Keys = [];
   }
@@ -4522,6 +4513,15 @@ const deserializeAws_queryInsightRuleContributor = (output: any, context: __Serd
   }
   if (output["ApproximateAggregateValue"] !== undefined) {
     contents.ApproximateAggregateValue = parseFloat(output["ApproximateAggregateValue"]);
+  }
+  if (output.Datapoints === "") {
+    contents.Datapoints = [];
+  }
+  if (output["Datapoints"] !== undefined && output["Datapoints"]["member"] !== undefined) {
+    contents.Datapoints = deserializeAws_queryInsightRuleContributorDatapoints(
+      __getArrayIfSingleItem(output["Datapoints"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -4570,17 +4570,17 @@ const deserializeAws_queryInsightRuleMetricDatapoint = (
   context: __SerdeContext
 ): InsightRuleMetricDatapoint => {
   let contents: any = {
-    Maximum: undefined,
+    Timestamp: undefined,
     UniqueContributors: undefined,
     MaxContributorValue: undefined,
-    Timestamp: undefined,
     SampleCount: undefined,
     Average: undefined,
-    Minimum: undefined,
     Sum: undefined,
+    Minimum: undefined,
+    Maximum: undefined,
   };
-  if (output["Maximum"] !== undefined) {
-    contents.Maximum = parseFloat(output["Maximum"]);
+  if (output["Timestamp"] !== undefined) {
+    contents.Timestamp = new Date(output["Timestamp"]);
   }
   if (output["UniqueContributors"] !== undefined) {
     contents.UniqueContributors = parseFloat(output["UniqueContributors"]);
@@ -4588,20 +4588,20 @@ const deserializeAws_queryInsightRuleMetricDatapoint = (
   if (output["MaxContributorValue"] !== undefined) {
     contents.MaxContributorValue = parseFloat(output["MaxContributorValue"]);
   }
-  if (output["Timestamp"] !== undefined) {
-    contents.Timestamp = new Date(output["Timestamp"]);
-  }
   if (output["SampleCount"] !== undefined) {
     contents.SampleCount = parseFloat(output["SampleCount"]);
   }
   if (output["Average"] !== undefined) {
     contents.Average = parseFloat(output["Average"]);
   }
+  if (output["Sum"] !== undefined) {
+    contents.Sum = parseFloat(output["Sum"]);
+  }
   if (output["Minimum"] !== undefined) {
     contents.Minimum = parseFloat(output["Minimum"]);
   }
-  if (output["Sum"] !== undefined) {
-    contents.Sum = parseFloat(output["Sum"]);
+  if (output["Maximum"] !== undefined) {
+    contents.Maximum = parseFloat(output["Maximum"]);
   }
   return contents;
 };
@@ -4715,17 +4715,17 @@ const deserializeAws_queryListDashboardsOutput = (output: any, context: __SerdeC
 
 const deserializeAws_queryListMetricsOutput = (output: any, context: __SerdeContext): ListMetricsOutput => {
   let contents: any = {
-    NextToken: undefined,
     Metrics: undefined,
+    NextToken: undefined,
   };
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
-  }
   if (output.Metrics === "") {
     contents.Metrics = [];
   }
   if (output["Metrics"] !== undefined && output["Metrics"]["member"] !== undefined) {
     contents.Metrics = deserializeAws_queryMetrics(__getArrayIfSingleItem(output["Metrics"]["member"]), context);
+  }
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -4762,10 +4762,16 @@ const deserializeAws_queryMessageData = (output: any, context: __SerdeContext): 
 
 const deserializeAws_queryMetric = (output: any, context: __SerdeContext): Metric => {
   let contents: any = {
-    Dimensions: undefined,
     Namespace: undefined,
     MetricName: undefined,
+    Dimensions: undefined,
   };
+  if (output["Namespace"] !== undefined) {
+    contents.Namespace = output["Namespace"];
+  }
+  if (output["MetricName"] !== undefined) {
+    contents.MetricName = output["MetricName"];
+  }
   if (output.Dimensions === "") {
     contents.Dimensions = [];
   }
@@ -4775,53 +4781,53 @@ const deserializeAws_queryMetric = (output: any, context: __SerdeContext): Metri
       context
     );
   }
-  if (output["Namespace"] !== undefined) {
-    contents.Namespace = output["Namespace"];
-  }
-  if (output["MetricName"] !== undefined) {
-    contents.MetricName = output["MetricName"];
-  }
   return contents;
 };
 
 const deserializeAws_queryMetricAlarm = (output: any, context: __SerdeContext): MetricAlarm => {
   let contents: any = {
-    StateUpdatedTimestamp: undefined,
-    DatapointsToAlarm: undefined,
-    EvaluationPeriods: undefined,
-    OKActions: undefined,
-    Threshold: undefined,
-    ThresholdMetricId: undefined,
-    Unit: undefined,
-    Namespace: undefined,
-    InsufficientDataActions: undefined,
-    ExtendedStatistic: undefined,
-    ComparisonOperator: undefined,
-    Statistic: undefined,
-    ActionsEnabled: undefined,
-    Metrics: undefined,
-    AlarmConfigurationUpdatedTimestamp: undefined,
-    AlarmDescription: undefined,
-    TreatMissingData: undefined,
     AlarmName: undefined,
-    Period: undefined,
-    MetricName: undefined,
-    AlarmActions: undefined,
-    StateValue: undefined,
-    EvaluateLowSampleCountPercentile: undefined,
-    Dimensions: undefined,
-    StateReasonData: undefined,
-    StateReason: undefined,
     AlarmArn: undefined,
+    AlarmDescription: undefined,
+    AlarmConfigurationUpdatedTimestamp: undefined,
+    ActionsEnabled: undefined,
+    OKActions: undefined,
+    AlarmActions: undefined,
+    InsufficientDataActions: undefined,
+    StateValue: undefined,
+    StateReason: undefined,
+    StateReasonData: undefined,
+    StateUpdatedTimestamp: undefined,
+    MetricName: undefined,
+    Namespace: undefined,
+    Statistic: undefined,
+    ExtendedStatistic: undefined,
+    Dimensions: undefined,
+    Period: undefined,
+    Unit: undefined,
+    EvaluationPeriods: undefined,
+    DatapointsToAlarm: undefined,
+    Threshold: undefined,
+    ComparisonOperator: undefined,
+    TreatMissingData: undefined,
+    EvaluateLowSampleCountPercentile: undefined,
+    Metrics: undefined,
+    ThresholdMetricId: undefined,
   };
-  if (output["StateUpdatedTimestamp"] !== undefined) {
-    contents.StateUpdatedTimestamp = new Date(output["StateUpdatedTimestamp"]);
+  if (output["AlarmName"] !== undefined) {
+    contents.AlarmName = output["AlarmName"];
   }
-  if (output["DatapointsToAlarm"] !== undefined) {
-    contents.DatapointsToAlarm = parseInt(output["DatapointsToAlarm"]);
+  if (output["AlarmArn"] !== undefined) {
+    contents.AlarmArn = output["AlarmArn"];
   }
-  if (output["EvaluationPeriods"] !== undefined) {
-    contents.EvaluationPeriods = parseInt(output["EvaluationPeriods"]);
+  if (output["AlarmDescription"] !== undefined) {
+    contents.AlarmDescription = output["AlarmDescription"];
+  }
+  if (output["AlarmConfigurationUpdatedTimestamp"] !== undefined) {
+    contents.AlarmConfigurationUpdatedTimestamp = new Date(output["AlarmConfigurationUpdatedTimestamp"]);
+  }
+  if (output["ActionsEnabled"] !== undefined) {
+    contents.ActionsEnabled = output["ActionsEnabled"] == "true";
   }
   if (output.OKActions === "") {
     contents.OKActions = [];
@@ -4832,17 +4838,14 @@ const deserializeAws_queryMetricAlarm = (output: any, context: __SerdeContext): 
       context
     );
   }
-  if (output["Threshold"] !== undefined) {
-    contents.Threshold = parseFloat(output["Threshold"]);
+  if (output.AlarmActions === "") {
+    contents.AlarmActions = [];
   }
-  if (output["ThresholdMetricId"] !== undefined) {
-    contents.ThresholdMetricId = output["ThresholdMetricId"];
-  }
-  if (output["Unit"] !== undefined) {
-    contents.Unit = output["Unit"];
-  }
-  if (output["Namespace"] !== undefined) {
-    contents.Namespace = output["Namespace"];
+  if (output["AlarmActions"] !== undefined && output["AlarmActions"]["member"] !== undefined) {
+    contents.AlarmActions = deserializeAws_queryResourceList(
+      __getArrayIfSingleItem(output["AlarmActions"]["member"]),
+      context
+    );
   }
   if (output.InsufficientDataActions === "") {
     contents.InsufficientDataActions = [];
@@ -4853,59 +4856,29 @@ const deserializeAws_queryMetricAlarm = (output: any, context: __SerdeContext): 
       context
     );
   }
-  if (output["ExtendedStatistic"] !== undefined) {
-    contents.ExtendedStatistic = output["ExtendedStatistic"];
+  if (output["StateValue"] !== undefined) {
+    contents.StateValue = output["StateValue"];
   }
-  if (output["ComparisonOperator"] !== undefined) {
-    contents.ComparisonOperator = output["ComparisonOperator"];
+  if (output["StateReason"] !== undefined) {
+    contents.StateReason = output["StateReason"];
   }
-  if (output["Statistic"] !== undefined) {
-    contents.Statistic = output["Statistic"];
+  if (output["StateReasonData"] !== undefined) {
+    contents.StateReasonData = output["StateReasonData"];
   }
-  if (output["ActionsEnabled"] !== undefined) {
-    contents.ActionsEnabled = output["ActionsEnabled"] == "true";
-  }
-  if (output.Metrics === "") {
-    contents.Metrics = [];
-  }
-  if (output["Metrics"] !== undefined && output["Metrics"]["member"] !== undefined) {
-    contents.Metrics = deserializeAws_queryMetricDataQueries(
-      __getArrayIfSingleItem(output["Metrics"]["member"]),
-      context
-    );
-  }
-  if (output["AlarmConfigurationUpdatedTimestamp"] !== undefined) {
-    contents.AlarmConfigurationUpdatedTimestamp = new Date(output["AlarmConfigurationUpdatedTimestamp"]);
-  }
-  if (output["AlarmDescription"] !== undefined) {
-    contents.AlarmDescription = output["AlarmDescription"];
-  }
-  if (output["TreatMissingData"] !== undefined) {
-    contents.TreatMissingData = output["TreatMissingData"];
-  }
-  if (output["AlarmName"] !== undefined) {
-    contents.AlarmName = output["AlarmName"];
-  }
-  if (output["Period"] !== undefined) {
-    contents.Period = parseInt(output["Period"]);
+  if (output["StateUpdatedTimestamp"] !== undefined) {
+    contents.StateUpdatedTimestamp = new Date(output["StateUpdatedTimestamp"]);
   }
   if (output["MetricName"] !== undefined) {
     contents.MetricName = output["MetricName"];
   }
-  if (output.AlarmActions === "") {
-    contents.AlarmActions = [];
+  if (output["Namespace"] !== undefined) {
+    contents.Namespace = output["Namespace"];
   }
-  if (output["AlarmActions"] !== undefined && output["AlarmActions"]["member"] !== undefined) {
-    contents.AlarmActions = deserializeAws_queryResourceList(
-      __getArrayIfSingleItem(output["AlarmActions"]["member"]),
-      context
-    );
+  if (output["Statistic"] !== undefined) {
+    contents.Statistic = output["Statistic"];
   }
-  if (output["StateValue"] !== undefined) {
-    contents.StateValue = output["StateValue"];
-  }
-  if (output["EvaluateLowSampleCountPercentile"] !== undefined) {
-    contents.EvaluateLowSampleCountPercentile = output["EvaluateLowSampleCountPercentile"];
+  if (output["ExtendedStatistic"] !== undefined) {
+    contents.ExtendedStatistic = output["ExtendedStatistic"];
   }
   if (output.Dimensions === "") {
     contents.Dimensions = [];
@@ -4916,14 +4889,41 @@ const deserializeAws_queryMetricAlarm = (output: any, context: __SerdeContext): 
       context
     );
   }
-  if (output["StateReasonData"] !== undefined) {
-    contents.StateReasonData = output["StateReasonData"];
+  if (output["Period"] !== undefined) {
+    contents.Period = parseInt(output["Period"]);
   }
-  if (output["StateReason"] !== undefined) {
-    contents.StateReason = output["StateReason"];
+  if (output["Unit"] !== undefined) {
+    contents.Unit = output["Unit"];
   }
-  if (output["AlarmArn"] !== undefined) {
-    contents.AlarmArn = output["AlarmArn"];
+  if (output["EvaluationPeriods"] !== undefined) {
+    contents.EvaluationPeriods = parseInt(output["EvaluationPeriods"]);
+  }
+  if (output["DatapointsToAlarm"] !== undefined) {
+    contents.DatapointsToAlarm = parseInt(output["DatapointsToAlarm"]);
+  }
+  if (output["Threshold"] !== undefined) {
+    contents.Threshold = parseFloat(output["Threshold"]);
+  }
+  if (output["ComparisonOperator"] !== undefined) {
+    contents.ComparisonOperator = output["ComparisonOperator"];
+  }
+  if (output["TreatMissingData"] !== undefined) {
+    contents.TreatMissingData = output["TreatMissingData"];
+  }
+  if (output["EvaluateLowSampleCountPercentile"] !== undefined) {
+    contents.EvaluateLowSampleCountPercentile = output["EvaluateLowSampleCountPercentile"];
+  }
+  if (output.Metrics === "") {
+    contents.Metrics = [];
+  }
+  if (output["Metrics"] !== undefined && output["Metrics"]["member"] !== undefined) {
+    contents.Metrics = deserializeAws_queryMetricDataQueries(
+      __getArrayIfSingleItem(output["Metrics"]["member"]),
+      context
+    );
+  }
+  if (output["ThresholdMetricId"] !== undefined) {
+    contents.ThresholdMetricId = output["ThresholdMetricId"];
   }
   return contents;
 };
@@ -4938,43 +4938,49 @@ const deserializeAws_queryMetricDataQueries = (output: any, context: __SerdeCont
 
 const deserializeAws_queryMetricDataQuery = (output: any, context: __SerdeContext): MetricDataQuery => {
   let contents: any = {
-    Period: undefined,
-    ReturnData: undefined,
-    Expression: undefined,
     Id: undefined,
     MetricStat: undefined,
+    Expression: undefined,
     Label: undefined,
+    ReturnData: undefined,
+    Period: undefined,
   };
-  if (output["Period"] !== undefined) {
-    contents.Period = parseInt(output["Period"]);
-  }
-  if (output["ReturnData"] !== undefined) {
-    contents.ReturnData = output["ReturnData"] == "true";
-  }
-  if (output["Expression"] !== undefined) {
-    contents.Expression = output["Expression"];
-  }
   if (output["Id"] !== undefined) {
     contents.Id = output["Id"];
   }
   if (output["MetricStat"] !== undefined) {
     contents.MetricStat = deserializeAws_queryMetricStat(output["MetricStat"], context);
   }
+  if (output["Expression"] !== undefined) {
+    contents.Expression = output["Expression"];
+  }
   if (output["Label"] !== undefined) {
     contents.Label = output["Label"];
+  }
+  if (output["ReturnData"] !== undefined) {
+    contents.ReturnData = output["ReturnData"] == "true";
+  }
+  if (output["Period"] !== undefined) {
+    contents.Period = parseInt(output["Period"]);
   }
   return contents;
 };
 
 const deserializeAws_queryMetricDataResult = (output: any, context: __SerdeContext): MetricDataResult => {
   let contents: any = {
-    Timestamps: undefined,
-    Messages: undefined,
     Id: undefined,
+    Label: undefined,
+    Timestamps: undefined,
     Values: undefined,
     StatusCode: undefined,
-    Label: undefined,
+    Messages: undefined,
   };
+  if (output["Id"] !== undefined) {
+    contents.Id = output["Id"];
+  }
+  if (output["Label"] !== undefined) {
+    contents.Label = output["Label"];
+  }
   if (output.Timestamps === "") {
     contents.Timestamps = [];
   }
@@ -4983,18 +4989,6 @@ const deserializeAws_queryMetricDataResult = (output: any, context: __SerdeConte
       __getArrayIfSingleItem(output["Timestamps"]["member"]),
       context
     );
-  }
-  if (output.Messages === "") {
-    contents.Messages = [];
-  }
-  if (output["Messages"] !== undefined && output["Messages"]["member"] !== undefined) {
-    contents.Messages = deserializeAws_queryMetricDataResultMessages(
-      __getArrayIfSingleItem(output["Messages"]["member"]),
-      context
-    );
-  }
-  if (output["Id"] !== undefined) {
-    contents.Id = output["Id"];
   }
   if (output.Values === "") {
     contents.Values = [];
@@ -5005,8 +4999,14 @@ const deserializeAws_queryMetricDataResult = (output: any, context: __SerdeConte
   if (output["StatusCode"] !== undefined) {
     contents.StatusCode = output["StatusCode"];
   }
-  if (output["Label"] !== undefined) {
-    contents.Label = output["Label"];
+  if (output.Messages === "") {
+    contents.Messages = [];
+  }
+  if (output["Messages"] !== undefined && output["Messages"]["member"] !== undefined) {
+    contents.Messages = deserializeAws_queryMetricDataResultMessages(
+      __getArrayIfSingleItem(output["Messages"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -5025,16 +5025,16 @@ const deserializeAws_queryMetrics = (output: any, context: __SerdeContext): Metr
 
 const deserializeAws_queryMetricStat = (output: any, context: __SerdeContext): MetricStat => {
   let contents: any = {
-    Period: undefined,
     Metric: undefined,
+    Period: undefined,
     Stat: undefined,
     Unit: undefined,
   };
-  if (output["Period"] !== undefined) {
-    contents.Period = parseInt(output["Period"]);
-  }
   if (output["Metric"] !== undefined) {
     contents.Metric = deserializeAws_queryMetric(output["Metric"], context);
+  }
+  if (output["Period"] !== undefined) {
+    contents.Period = parseInt(output["Period"]);
   }
   if (output["Stat"] !== undefined) {
     contents.Stat = output["Stat"];
@@ -5061,21 +5061,21 @@ const deserializeAws_queryMissingRequiredParameterException = (
 const deserializeAws_queryPartialFailure = (output: any, context: __SerdeContext): PartialFailure => {
   let contents: any = {
     FailureResource: undefined,
-    FailureDescription: undefined,
     ExceptionType: undefined,
     FailureCode: undefined,
+    FailureDescription: undefined,
   };
   if (output["FailureResource"] !== undefined) {
     contents.FailureResource = output["FailureResource"];
-  }
-  if (output["FailureDescription"] !== undefined) {
-    contents.FailureDescription = output["FailureDescription"];
   }
   if (output["ExceptionType"] !== undefined) {
     contents.ExceptionType = output["ExceptionType"];
   }
   if (output["FailureCode"] !== undefined) {
     contents.FailureCode = output["FailureCode"];
+  }
+  if (output["FailureDescription"] !== undefined) {
+    contents.FailureDescription = output["FailureDescription"];
   }
   return contents;
 };
@@ -5114,14 +5114,14 @@ const deserializeAws_queryPutInsightRuleOutput = (output: any, context: __SerdeC
 
 const deserializeAws_queryRange = (output: any, context: __SerdeContext): Range => {
   let contents: any = {
-    EndTime: undefined,
     StartTime: undefined,
+    EndTime: undefined,
   };
-  if (output["EndTime"] !== undefined) {
-    contents.EndTime = new Date(output["EndTime"]);
-  }
   if (output["StartTime"] !== undefined) {
     contents.StartTime = new Date(output["StartTime"]);
+  }
+  if (output["EndTime"] !== undefined) {
+    contents.EndTime = new Date(output["EndTime"]);
   }
   return contents;
 };
@@ -5145,15 +5145,15 @@ const deserializeAws_queryResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   let contents: any = {
-    ResourceId: undefined,
     ResourceType: undefined,
+    ResourceId: undefined,
     Message: undefined,
   };
-  if (output["ResourceId"] !== undefined) {
-    contents.ResourceId = output["ResourceId"];
-  }
   if (output["ResourceType"] !== undefined) {
     contents.ResourceType = output["ResourceType"];
+  }
+  if (output["ResourceId"] !== undefined) {
+    contents.ResourceId = output["ResourceId"];
   }
   if (output["Message"] !== undefined) {
     contents.Message = output["Message"];

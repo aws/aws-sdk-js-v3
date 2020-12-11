@@ -46,11 +46,6 @@ import {
   CreatePortalCommandOutput,
 } from "./commands/CreatePortalCommand";
 import {
-  CreatePresignedPortalUrlCommand,
-  CreatePresignedPortalUrlCommandInput,
-  CreatePresignedPortalUrlCommandOutput,
-} from "./commands/CreatePresignedPortalUrlCommand";
-import {
   CreateProjectCommand,
   CreateProjectCommandInput,
   CreateProjectCommandOutput,
@@ -171,6 +166,11 @@ import {
   ListAssetModelsCommandInput,
   ListAssetModelsCommandOutput,
 } from "./commands/ListAssetModelsCommand";
+import {
+  ListAssetRelationshipsCommand,
+  ListAssetRelationshipsCommandInput,
+  ListAssetRelationshipsCommandOutput,
+} from "./commands/ListAssetRelationshipsCommand";
 import { ListAssetsCommand, ListAssetsCommandInput, ListAssetsCommandOutput } from "./commands/ListAssetsCommand";
 import {
   ListAssociatedAssetsCommand,
@@ -381,8 +381,8 @@ export class IoTSiteWise extends IoTSiteWiseClient {
    *          </ul>
    *          <important>
    *             <p>With respect to Unix epoch time, AWS IoT SiteWise accepts only TQVs that have a timestamp of no more
-   *         than 15 minutes in the past and no more than 5 minutes in the future. AWS IoT SiteWise rejects
-   *         timestamps outside of the inclusive range of [-15, +5] minutes and returns a
+   *         than 7 days in the past and no more than 5 minutes in the future. AWS IoT SiteWise rejects timestamps
+   *         outside of the inclusive range of [-7 days, +5 minutes] and returns a
    *           <code>TimestampOutOfRangeException</code> error.</p>
    *             <p>For each asset property, AWS IoT SiteWise overwrites TQVs with duplicate timestamps unless the newer
    *         TQV has a different quality. For example, if you store a TQV <code>{T1, GOOD, V1}</code>,
@@ -608,41 +608,6 @@ export class IoTSiteWise extends IoTSiteWiseClient {
     cb?: (err: any, data?: CreatePortalCommandOutput) => void
   ): Promise<CreatePortalCommandOutput> | void {
     const command = new CreatePortalCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates a pre-signed URL to a portal. Use this operation to create URLs to portals that
-   *       use AWS Identity and Access Management (IAM) to authenticate users. An IAM user with access to a portal can call this API
-   *       to get a URL to that portal. The URL contains an authentication token that lets the IAM user
-   *       access the portal.</p>
-   */
-  public createPresignedPortalUrl(
-    args: CreatePresignedPortalUrlCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreatePresignedPortalUrlCommandOutput>;
-  public createPresignedPortalUrl(
-    args: CreatePresignedPortalUrlCommandInput,
-    cb: (err: any, data?: CreatePresignedPortalUrlCommandOutput) => void
-  ): void;
-  public createPresignedPortalUrl(
-    args: CreatePresignedPortalUrlCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreatePresignedPortalUrlCommandOutput) => void
-  ): void;
-  public createPresignedPortalUrl(
-    args: CreatePresignedPortalUrlCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePresignedPortalUrlCommandOutput) => void),
-    cb?: (err: any, data?: CreatePresignedPortalUrlCommandOutput) => void
-  ): Promise<CreatePresignedPortalUrlCommandOutput> | void {
-    const command = new CreatePresignedPortalUrlCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1500,6 +1465,40 @@ export class IoTSiteWise extends IoTSiteWiseClient {
     cb?: (err: any, data?: ListAssetModelsCommandOutput) => void
   ): Promise<ListAssetModelsCommandOutput> | void {
     const command = new ListAssetModelsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a paginated list of asset relationships for an asset. You can use this operation
+   *       to identify an asset's root asset and all associated assets between that asset and its
+   *       root.</p>
+   */
+  public listAssetRelationships(
+    args: ListAssetRelationshipsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssetRelationshipsCommandOutput>;
+  public listAssetRelationships(
+    args: ListAssetRelationshipsCommandInput,
+    cb: (err: any, data?: ListAssetRelationshipsCommandOutput) => void
+  ): void;
+  public listAssetRelationships(
+    args: ListAssetRelationshipsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssetRelationshipsCommandOutput) => void
+  ): void;
+  public listAssetRelationships(
+    args: ListAssetRelationshipsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssetRelationshipsCommandOutput) => void),
+    cb?: (err: any, data?: ListAssetRelationshipsCommandOutput) => void
+  ): Promise<ListAssetRelationshipsCommandOutput> | void {
+    const command = new ListAssetRelationshipsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

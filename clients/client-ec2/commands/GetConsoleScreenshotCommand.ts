@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetConsoleScreenshotRequest, GetConsoleScreenshotResult } from "../models/models_3";
+import { GetConsoleScreenshotRequest, GetConsoleScreenshotResult } from "../models/models_4";
 import {
   deserializeAws_ec2GetConsoleScreenshotCommand,
   serializeAws_ec2GetConsoleScreenshotCommand,

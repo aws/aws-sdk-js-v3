@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetEbsDefaultKmsKeyIdRequest, GetEbsDefaultKmsKeyIdResult } from "../models/models_3";
+import { GetEbsDefaultKmsKeyIdRequest, GetEbsDefaultKmsKeyIdResult } from "../models/models_4";
 import {
   deserializeAws_ec2GetEbsDefaultKmsKeyIdCommand,
   serializeAws_ec2GetEbsDefaultKmsKeyIdCommand,

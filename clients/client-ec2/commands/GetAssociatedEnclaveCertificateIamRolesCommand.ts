@@ -2,7 +2,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   GetAssociatedEnclaveCertificateIamRolesRequest,
   GetAssociatedEnclaveCertificateIamRolesResult,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_ec2GetAssociatedEnclaveCertificateIamRolesCommand,
   serializeAws_ec2GetAssociatedEnclaveCertificateIamRolesCommand,

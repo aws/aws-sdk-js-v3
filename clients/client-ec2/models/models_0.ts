@@ -68,6 +68,128 @@ export namespace AcceptReservedInstancesExchangeQuoteResult {
   });
 }
 
+export interface AcceptTransitGatewayMulticastDomainAssociationsRequest {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   */
+  TransitGatewayMulticastDomainId?: string;
+
+  /**
+   * <p>The ID of the transit gateway attachment.</p>
+   */
+  TransitGatewayAttachmentId?: string;
+
+  /**
+   * <p>The IDs of the subnets to associate with the transit gateway multicast domain.</p>
+   */
+  SubnetIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace AcceptTransitGatewayMulticastDomainAssociationsRequest {
+  export const filterSensitiveLog = (obj: AcceptTransitGatewayMulticastDomainAssociationsRequest): any => ({
+    ...obj,
+  });
+}
+
+export type TransitGatewayAttachmentResourceType =
+  | "connect"
+  | "direct-connect-gateway"
+  | "peering"
+  | "tgw-peering"
+  | "vpc"
+  | "vpn";
+
+export type TransitGatewayMulitcastDomainAssociationState =
+  | "associated"
+  | "associating"
+  | "disassociated"
+  | "disassociating"
+  | "failed"
+  | "pendingAcceptance"
+  | "rejected";
+
+/**
+ * <p>Describes the subnet association with the transit gateway multicast domain.</p>
+ */
+export interface SubnetAssociation {
+  /**
+   * <p>The ID of the subnet.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The state of the subnet association.</p>
+   */
+  State?: TransitGatewayMulitcastDomainAssociationState | string;
+}
+
+export namespace SubnetAssociation {
+  export const filterSensitiveLog = (obj: SubnetAssociation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the multicast domain associations.</p>
+ */
+export interface TransitGatewayMulticastDomainAssociations {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   */
+  TransitGatewayMulticastDomainId?: string;
+
+  /**
+   * <p>The ID of the transit gateway attachment.</p>
+   */
+  TransitGatewayAttachmentId?: string;
+
+  /**
+   * <p>The ID of the resource.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>The type of resource, for example a VPC attachment.</p>
+   */
+  ResourceType?: TransitGatewayAttachmentResourceType | string;
+
+  /**
+   * <p> The ID of the AWS account that owns the resource.</p>
+   */
+  ResourceOwnerId?: string;
+
+  /**
+   * <p>The subnets associated with the multicast domain.</p>
+   */
+  Subnets?: SubnetAssociation[];
+}
+
+export namespace TransitGatewayMulticastDomainAssociations {
+  export const filterSensitiveLog = (obj: TransitGatewayMulticastDomainAssociations): any => ({
+    ...obj,
+  });
+}
+
+export interface AcceptTransitGatewayMulticastDomainAssociationsResult {
+  /**
+   * <p>Describes the multicast domain associations.</p>
+   */
+  Associations?: TransitGatewayMulticastDomainAssociations;
+}
+
+export namespace AcceptTransitGatewayMulticastDomainAssociationsResult {
+  export const filterSensitiveLog = (obj: AcceptTransitGatewayMulticastDomainAssociationsResult): any => ({
+    ...obj,
+  });
+}
+
 export interface AcceptTransitGatewayPeeringAttachmentRequest {
   /**
    * <p>The ID of the transit gateway attachment.</p>
@@ -1046,6 +1168,8 @@ export type ResourceType =
   | "local-gateway-route-table-vpc-association"
   | "natgateway"
   | "network-acl"
+  | "network-insights-analysis"
+  | "network-insights-path"
   | "network-interface"
   | "placement-group"
   | "reserved-instances"
@@ -1060,6 +1184,7 @@ export type ResourceType =
   | "traffic-mirror-target"
   | "transit-gateway"
   | "transit-gateway-attachment"
+  | "transit-gateway-connect-peer"
   | "transit-gateway-multicast-domain"
   | "transit-gateway-route-table"
   | "volume"
@@ -1079,16 +1204,16 @@ export interface TagSpecification {
    *             <code>client-vpn-endpoint</code> |  <code>customer-gateway</code> |
    *             <code>dedicated-host</code> | <code>dhcp-options</code> | <code>export-image-task</code>
    *          | <code>export-instance-task</code> | <code>fleet</code> | <code>fpga-image</code> |
-   *     	   <code>host-reservation</code> | <code>image</code>| <code>import-image-task</code> |
+   *             <code>host-reservation</code> | <code>import-image-task</code> |
    *             <code>import-snapshot-task</code> | <code>instance</code> |
    *             <code>internet-gateway</code> | <code>ipv4pool-ec2</code> | <code>ipv6pool-ec2</code> |
    *             <code>key-pair</code> | <code>launch-template</code> | <code>placement-group</code> |
    *             <code>prefix-list</code> | <code>natgateway</code> | <code>network-acl</code> |
-   *     	   <code>route-table</code> | <code>security-group</code>| <code>snapshot</code> | <code>spot-fleet-request</code>
+   *             <code>route-table</code> | <code>security-group</code> | <code>spot-fleet-request</code>
    *          | <code>spot-instances-request</code> | <code>snapshot</code> | <code>subnet</code> |
    *             <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> |
    *             <code>traffic-mirror-target</code> | <code>transit-gateway</code> |
-   *             <code>transit-gateway-attachment</code> | <code>transit-gateway-route-table</code> |
+   *     	    <code>transit-gateway-attachment</code> | <code>transit-gateway-connect-peer</code> | <code>transit-gateway-multicast-domain</code> | <code>transit-gateway-route-table</code> |
    *             <code>volume</code> |<code>vpc</code> | <code> vpc-peering-connection</code> |
    *             <code>vpc-endpoint</code> (for interface and gateway endpoints) |
    *             <code>vpc-endpoint-service</code> (for AWS PrivateLink) | <code>vpc-flow-log</code> |
@@ -1246,6 +1371,27 @@ export namespace AllowedPrincipal {
 }
 
 export type AllowsMultipleInstanceTypes = "off" | "on";
+
+/**
+ * <p>Describes an potential intermediate component of a feasible path.</p>
+ */
+export interface AlternatePathHint {
+  /**
+   * <p>The ID of the component.</p>
+   */
+  ComponentId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the component.</p>
+   */
+  ComponentArn?: string;
+}
+
+export namespace AlternatePathHint {
+  export const filterSensitiveLog = (obj: AlternatePathHint): any => ({
+    ...obj,
+  });
+}
 
 export interface ApplySecurityGroupsToClientVpnTargetNetworkRequest {
   /**
@@ -1916,71 +2062,6 @@ export interface AssociateTransitGatewayMulticastDomainRequest {
 
 export namespace AssociateTransitGatewayMulticastDomainRequest {
   export const filterSensitiveLog = (obj: AssociateTransitGatewayMulticastDomainRequest): any => ({
-    ...obj,
-  });
-}
-
-export type TransitGatewayAttachmentResourceType = "direct-connect-gateway" | "peering" | "tgw-peering" | "vpc" | "vpn";
-
-export type TransitGatewayMulitcastDomainAssociationState =
-  | "associated"
-  | "associating"
-  | "disassociated"
-  | "disassociating";
-
-/**
- * <p>Describes the subnet association with the transit gateway multicast domain.</p>
- */
-export interface SubnetAssociation {
-  /**
-   * <p>The ID of the subnet.</p>
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>The state of the subnet association.</p>
-   */
-  State?: TransitGatewayMulitcastDomainAssociationState | string;
-}
-
-export namespace SubnetAssociation {
-  export const filterSensitiveLog = (obj: SubnetAssociation): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the multicast domain associations.</p>
- */
-export interface TransitGatewayMulticastDomainAssociations {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   */
-  TransitGatewayMulticastDomainId?: string;
-
-  /**
-   * <p>The ID of the transit gateway attachment.</p>
-   */
-  TransitGatewayAttachmentId?: string;
-
-  /**
-   * <p>The ID of the resource.</p>
-   */
-  ResourceId?: string;
-
-  /**
-   * <p>The type of resource, for example a VPC attachment.</p>
-   */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
-
-  /**
-   * <p>The subnets associated with the multicast domain.</p>
-   */
-  Subnets?: SubnetAssociation[];
-}
-
-export namespace TransitGatewayMulticastDomainAssociations {
-  export const filterSensitiveLog = (obj: TransitGatewayMulticastDomainAssociations): any => ({
     ...obj,
   });
 }
@@ -7668,48 +7749,6 @@ export interface LaunchTemplateLicenseConfigurationRequest {
 
 export namespace LaunchTemplateLicenseConfigurationRequest {
   export const filterSensitiveLog = (obj: LaunchTemplateLicenseConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
-export type LaunchTemplateInstanceMetadataEndpointState = "disabled" | "enabled";
-
-export enum LaunchTemplateHttpTokensState {
-  optional = "optional",
-  required = "required",
-}
-
-/**
- * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the
- *             <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- */
-export interface LaunchTemplateInstanceMetadataOptionsRequest {
-  /**
-   * <p>The state of token usage for your instance metadata requests. If the parameter is not specified in the request, the default state is <code>optional</code>.</p>
-   *         <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid signed token, the version 2.0 role credentials are returned.</p>
-   *             <p>If the state is <code>required</code>, you must send a signed token header with any instance metadata retrieval requests. In this state, retrieving the IAM role credentials always returns the version 2.0 credentials; the version 1.0 credentials are not available.</p>
-   */
-  HttpTokens?: LaunchTemplateHttpTokensState | string;
-
-  /**
-   * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.</p>
-   *         <p>Default: 1</p>
-   *         <p>Possible values: Integers from 1 to 64</p>
-   */
-  HttpPutResponseHopLimit?: number;
-
-  /**
-   * <p>This parameter enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is <code>enabled</code>.</p>
-   *          <note>
-   *             <p>If you specify a value of <code>disabled</code>, you will not be able to access your instance metadata.
-   * </p>
-   *          </note>
-   */
-  HttpEndpoint?: LaunchTemplateInstanceMetadataEndpointState | string;
-}
-
-export namespace LaunchTemplateInstanceMetadataOptionsRequest {
-  export const filterSensitiveLog = (obj: LaunchTemplateInstanceMetadataOptionsRequest): any => ({
     ...obj,
   });
 }

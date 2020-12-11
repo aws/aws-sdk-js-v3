@@ -19,11 +19,8 @@ import {
   LaunchTemplateElasticInferenceAccelerator,
   LaunchTemplateEnclaveOptionsRequest,
   LaunchTemplateHibernationOptionsRequest,
-  LaunchTemplateHttpTokensState,
   LaunchTemplateIamInstanceProfileSpecificationRequest,
   LaunchTemplateInstanceMarketOptionsRequest,
-  LaunchTemplateInstanceMetadataEndpointState,
-  LaunchTemplateInstanceMetadataOptionsRequest,
   LaunchTemplateLicenseConfigurationRequest,
   MarketType,
   ReservedInstancesListing,
@@ -36,6 +33,7 @@ import {
   TagSpecification,
   Tenancy,
   TransitGatewayAttachmentResourceType,
+  TransitGatewayAttachmentState,
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
   UnsuccessfulItem,
@@ -46,6 +44,48 @@ import {
   VpcPeeringConnection,
   _InstanceType,
 } from "./models_0";
+
+export type LaunchTemplateInstanceMetadataEndpointState = "disabled" | "enabled";
+
+export enum LaunchTemplateHttpTokensState {
+  optional = "optional",
+  required = "required",
+}
+
+/**
+ * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the
+ *             <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+export interface LaunchTemplateInstanceMetadataOptionsRequest {
+  /**
+   * <p>The state of token usage for your instance metadata requests. If the parameter is not specified in the request, the default state is <code>optional</code>.</p>
+   *         <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid signed token, the version 2.0 role credentials are returned.</p>
+   *             <p>If the state is <code>required</code>, you must send a signed token header with any instance metadata retrieval requests. In this state, retrieving the IAM role credentials always returns the version 2.0 credentials; the version 1.0 credentials are not available.</p>
+   */
+  HttpTokens?: LaunchTemplateHttpTokensState | string;
+
+  /**
+   * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.</p>
+   *         <p>Default: 1</p>
+   *         <p>Possible values: Integers from 1 to 64</p>
+   */
+  HttpPutResponseHopLimit?: number;
+
+  /**
+   * <p>This parameter enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is <code>enabled</code>.</p>
+   *          <note>
+   *             <p>If you specify a value of <code>disabled</code>, you will not be able to access your instance metadata.
+   * </p>
+   *          </note>
+   */
+  HttpEndpoint?: LaunchTemplateInstanceMetadataEndpointState | string;
+}
+
+export namespace LaunchTemplateInstanceMetadataOptionsRequest {
+  export const filterSensitiveLog = (obj: LaunchTemplateInstanceMetadataOptionsRequest): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Describes the monitoring for the instance.</p>
@@ -2333,6 +2373,138 @@ export namespace CreateNetworkAclEntryRequest {
   });
 }
 
+export type Protocol = "tcp" | "udp";
+
+export interface CreateNetworkInsightsPathRequest {
+  /**
+   * <p>The IP address of the AWS resource that is the source of the path.</p>
+   */
+  SourceIp?: string;
+
+  /**
+   * <p>The IP address of the AWS resource that is the destination of the path.</p>
+   */
+  DestinationIp?: string;
+
+  /**
+   * <p>The AWS resource that is the source of the path.</p>
+   */
+  Source: string | undefined;
+
+  /**
+   * <p>The AWS resource that is the destination of the path.</p>
+   */
+  Destination: string | undefined;
+
+  /**
+   * <p>The protocol.</p>
+   */
+  Protocol: Protocol | string | undefined;
+
+  /**
+   * <p>The destination port.</p>
+   */
+  DestinationPort?: number;
+
+  /**
+   * <p>The tags to add to the path.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information,
+   *    see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace CreateNetworkInsightsPathRequest {
+  export const filterSensitiveLog = (obj: CreateNetworkInsightsPathRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a path.</p>
+ */
+export interface NetworkInsightsPath {
+  /**
+   * <p>The ID of the path.</p>
+   */
+  NetworkInsightsPathId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the path.</p>
+   */
+  NetworkInsightsPathArn?: string;
+
+  /**
+   * <p>The time stamp when the path was created.</p>
+   */
+  CreatedDate?: Date;
+
+  /**
+   * <p>The AWS resource that is the source of the path.</p>
+   */
+  Source?: string;
+
+  /**
+   * <p>The AWS resource that is the destination of the path.</p>
+   */
+  Destination?: string;
+
+  /**
+   * <p>The IP address of the AWS resource that is the source of the path.</p>
+   */
+  SourceIp?: string;
+
+  /**
+   * <p>The IP address of the AWS resource that is the destination of the path.</p>
+   */
+  DestinationIp?: string;
+
+  /**
+   * <p>The protocol.</p>
+   */
+  Protocol?: Protocol | string;
+
+  /**
+   * <p>The destination port.</p>
+   */
+  DestinationPort?: number;
+
+  /**
+   * <p>The tags associated with the path.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace NetworkInsightsPath {
+  export const filterSensitiveLog = (obj: NetworkInsightsPath): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateNetworkInsightsPathResult {
+  /**
+   * <p>Information about the path.</p>
+   */
+  NetworkInsightsPath?: NetworkInsightsPath;
+}
+
+export namespace CreateNetworkInsightsPathResult {
+  export const filterSensitiveLog = (obj: CreateNetworkInsightsPathResult): any => ({
+    ...obj,
+  });
+}
+
 export type NetworkInterfaceCreationType = "efa";
 
 /**
@@ -4482,6 +4654,11 @@ export interface TransitGatewayRequestOptions {
    * <p>Indicates whether multicast is enabled on the transit gateway</p>
    */
   MulticastSupport?: MulticastSupportValue | string;
+
+  /**
+   * <p>One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.</p>
+   */
+  TransitGatewayCidrBlocks?: string[];
 }
 
 export namespace TransitGatewayRequestOptions {
@@ -4529,6 +4706,11 @@ export interface TransitGatewayOptions {
    *          The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs.</p>
    */
   AmazonSideAsn?: number;
+
+  /**
+   * <p>The transit gateway CIDR blocks.</p>
+   */
+  TransitGatewayCidrBlocks?: string[];
 
   /**
    * <p>Indicates whether attachment requests are automatically accepted.</p>
@@ -4643,11 +4825,368 @@ export namespace CreateTransitGatewayResult {
   });
 }
 
+export type ProtocolValue = "gre";
+
+/**
+ * <p>The options for a Connect attachment.</p>
+ */
+export interface CreateTransitGatewayConnectRequestOptions {
+  /**
+   * <p>The tunnel protocol.</p>
+   */
+  Protocol: ProtocolValue | string | undefined;
+}
+
+export namespace CreateTransitGatewayConnectRequestOptions {
+  export const filterSensitiveLog = (obj: CreateTransitGatewayConnectRequestOptions): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateTransitGatewayConnectRequest {
+  /**
+   * <p>The ID of the transit gateway attachment. You can specify a VPC attachment or a AWS Direct Connect attachment.</p>
+   */
+  TransportTransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>The Connect attachment options.</p>
+   */
+  Options: CreateTransitGatewayConnectRequestOptions | undefined;
+
+  /**
+   * <p>The tags to apply to the Connect attachment.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace CreateTransitGatewayConnectRequest {
+  export const filterSensitiveLog = (obj: CreateTransitGatewayConnectRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the Connect attachment options.</p>
+ */
+export interface TransitGatewayConnectOptions {
+  /**
+   * <p>The tunnel protocol.</p>
+   */
+  Protocol?: ProtocolValue | string;
+}
+
+export namespace TransitGatewayConnectOptions {
+  export const filterSensitiveLog = (obj: TransitGatewayConnectOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a transit gateway Connect attachment.</p>
+ */
+export interface TransitGatewayConnect {
+  /**
+   * <p>The ID of the Connect attachment.</p>
+   */
+  TransitGatewayAttachmentId?: string;
+
+  /**
+   * <p>The ID of the attachment from which the Connect attachment was created.</p>
+   */
+  TransportTransitGatewayAttachmentId?: string;
+
+  /**
+   * <p>The ID of the transit gateway.</p>
+   */
+  TransitGatewayId?: string;
+
+  /**
+   * <p>The state of the attachment.</p>
+   */
+  State?: TransitGatewayAttachmentState | string;
+
+  /**
+   * <p>The creation time.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The Connect attachment options.</p>
+   */
+  Options?: TransitGatewayConnectOptions;
+
+  /**
+   * <p>The tags for the attachment.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace TransitGatewayConnect {
+  export const filterSensitiveLog = (obj: TransitGatewayConnect): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateTransitGatewayConnectResult {
+  /**
+   * <p>Information about the Connect attachment.</p>
+   */
+  TransitGatewayConnect?: TransitGatewayConnect;
+}
+
+export namespace CreateTransitGatewayConnectResult {
+  export const filterSensitiveLog = (obj: CreateTransitGatewayConnectResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The BGP options for the Connect attachment.</p>
+ */
+export interface TransitGatewayConnectRequestBgpOptions {
+  /**
+   * <p>The peer Autonomous System Number (ASN).</p>
+   */
+  PeerAsn?: number;
+}
+
+export namespace TransitGatewayConnectRequestBgpOptions {
+  export const filterSensitiveLog = (obj: TransitGatewayConnectRequestBgpOptions): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateTransitGatewayConnectPeerRequest {
+  /**
+   * <p>The ID of the Connect attachment.</p>
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>The peer IP address (GRE outer IP address) on the transit gateway side of the Connect peer, which must be
+   *             specified from a transit gateway CIDR block. If not specified, Amazon automatically assigns
+   *             the first available IP address from the transit gateway CIDR block.</p>
+   */
+  TransitGatewayAddress?: string;
+
+  /**
+   * <p>The peer IP address (GRE outer IP address) on the appliance side of the Connect peer.</p>
+   */
+  PeerAddress: string | undefined;
+
+  /**
+   * <p>The BGP options for the Connect peer.</p>
+   */
+  BgpOptions?: TransitGatewayConnectRequestBgpOptions;
+
+  /**
+   * <p>The range of inside IP addresses that are used for BGP peering. You must specify a
+   *             size /29 IPv4 CIDR block from the <code>169.254.0.0/16</code> range. The first address
+   *             from the range must be configured on the appliance as the BGP IP address. You can also
+   *             optionally specify a size /125 IPv6 CIDR block from the <code>fd00::/8</code>
+   *             range.</p>
+   */
+  InsideCidrBlocks: string[] | undefined;
+
+  /**
+   * <p>The tags to apply to the Connect peer.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace CreateTransitGatewayConnectPeerRequest {
+  export const filterSensitiveLog = (obj: CreateTransitGatewayConnectPeerRequest): any => ({
+    ...obj,
+  });
+}
+
+export type BgpStatus = "down" | "up";
+
+/**
+ * <p>The BGP configuration information.</p>
+ */
+export interface TransitGatewayAttachmentBgpConfiguration {
+  /**
+   * <p>The transit gateway Autonomous System Number (ASN).</p>
+   */
+  TransitGatewayAsn?: number;
+
+  /**
+   * <p>The peer Autonomous System Number (ASN).</p>
+   */
+  PeerAsn?: number;
+
+  /**
+   * <p>The interior BGP peer IP address for the transit gateway.</p>
+   */
+  TransitGatewayAddress?: string;
+
+  /**
+   * <p>The interior BGP peer IP address for the appliance.</p>
+   */
+  PeerAddress?: string;
+
+  /**
+   * <p>The BGP status.</p>
+   */
+  BgpStatus?: BgpStatus | string;
+}
+
+export namespace TransitGatewayAttachmentBgpConfiguration {
+  export const filterSensitiveLog = (obj: TransitGatewayAttachmentBgpConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the Connect peer details.</p>
+ */
+export interface TransitGatewayConnectPeerConfiguration {
+  /**
+   * <p>The Connect peer IP address on the transit gateway side of the tunnel.</p>
+   */
+  TransitGatewayAddress?: string;
+
+  /**
+   * <p>The Connect peer IP address on the appliance side of the tunnel.</p>
+   */
+  PeerAddress?: string;
+
+  /**
+   * <p>The range of interior BGP peer IP addresses.</p>
+   */
+  InsideCidrBlocks?: string[];
+
+  /**
+   * <p>The tunnel protocol.</p>
+   */
+  Protocol?: ProtocolValue | string;
+
+  /**
+   * <p>The BGP configuration details.</p>
+   */
+  BgpConfigurations?: TransitGatewayAttachmentBgpConfiguration[];
+}
+
+export namespace TransitGatewayConnectPeerConfiguration {
+  export const filterSensitiveLog = (obj: TransitGatewayConnectPeerConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export type TransitGatewayConnectPeerState = "available" | "deleted" | "deleting" | "pending";
+
+/**
+ * <p>Describes a transit gateway Connect peer.</p>
+ */
+export interface TransitGatewayConnectPeer {
+  /**
+   * <p>The ID of the Connect attachment.</p>
+   */
+  TransitGatewayAttachmentId?: string;
+
+  /**
+   * <p>The ID of the Connect peer.</p>
+   */
+  TransitGatewayConnectPeerId?: string;
+
+  /**
+   * <p>The state of the Connect peer.</p>
+   */
+  State?: TransitGatewayConnectPeerState | string;
+
+  /**
+   * <p>The creation time.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The Connect peer details.</p>
+   */
+  ConnectPeerConfiguration?: TransitGatewayConnectPeerConfiguration;
+
+  /**
+   * <p>The tags for the Connect peer.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace TransitGatewayConnectPeer {
+  export const filterSensitiveLog = (obj: TransitGatewayConnectPeer): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateTransitGatewayConnectPeerResult {
+  /**
+   * <p>Information about the Connect peer.</p>
+   */
+  TransitGatewayConnectPeer?: TransitGatewayConnectPeer;
+}
+
+export namespace CreateTransitGatewayConnectPeerResult {
+  export const filterSensitiveLog = (obj: CreateTransitGatewayConnectPeerResult): any => ({
+    ...obj,
+  });
+}
+
+export type AutoAcceptSharedAssociationsValue = "disable" | "enable";
+
+export type Igmpv2SupportValue = "disable" | "enable";
+
+export type StaticSourcesSupportValue = "disable" | "enable";
+
+/**
+ * <p>The options for the transit gateway multicast domain.</p>
+ */
+export interface CreateTransitGatewayMulticastDomainRequestOptions {
+  /**
+   * <p>Specify whether to enable Internet Group Management Protocol (IGMP) version 2 for the transit gateway multicast domain.</p>
+   */
+  Igmpv2Support?: Igmpv2SupportValue | string;
+
+  /**
+   * <p>Specify whether to enable support for statically configuring multicast group sources for a domain.</p>
+   */
+  StaticSourcesSupport?: StaticSourcesSupportValue | string;
+
+  /**
+   * <p>Indicates whether to automatically accept cross-account subnet associations that are associated with the transit gateway multicast domain.</p>
+   */
+  AutoAcceptSharedAssociations?: AutoAcceptSharedAssociationsValue | string;
+}
+
+export namespace CreateTransitGatewayMulticastDomainRequestOptions {
+  export const filterSensitiveLog = (obj: CreateTransitGatewayMulticastDomainRequestOptions): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateTransitGatewayMulticastDomainRequest {
   /**
    * <p>The ID of the transit gateway.</p>
    */
   TransitGatewayId: string | undefined;
+
+  /**
+   * <p>The options for the transit gateway multicast domain.</p>
+   */
+  Options?: CreateTransitGatewayMulticastDomainRequestOptions;
 
   /**
    * <p>The tags for the transit gateway multicast domain.</p>
@@ -4668,6 +5207,32 @@ export namespace CreateTransitGatewayMulticastDomainRequest {
   });
 }
 
+/**
+ * <p>Describes the options for a transit gateway multicast domain.</p>
+ */
+export interface TransitGatewayMulticastDomainOptions {
+  /**
+   * <p>Indicates whether Internet Group Management Protocol (IGMP) version 2 is turned on for the transit gateway multicast domain.</p>
+   */
+  Igmpv2Support?: Igmpv2SupportValue | string;
+
+  /**
+   * <p>Indicates whether support for statically configuring transit gateway multicast group sources is turned on.</p>
+   */
+  StaticSourcesSupport?: StaticSourcesSupportValue | string;
+
+  /**
+   * <p>Indicates whether to automatically cross-account subnet associations that are associated with the transit gateway multicast domain.</p>
+   */
+  AutoAcceptSharedAssociations?: AutoAcceptSharedAssociationsValue | string;
+}
+
+export namespace TransitGatewayMulticastDomainOptions {
+  export const filterSensitiveLog = (obj: TransitGatewayMulticastDomainOptions): any => ({
+    ...obj,
+  });
+}
+
 export type TransitGatewayMulticastDomainState = "available" | "deleted" | "deleting" | "pending";
 
 /**
@@ -4683,6 +5248,21 @@ export interface TransitGatewayMulticastDomain {
    * <p>The ID of the transit gateway.</p>
    */
   TransitGatewayId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the transit gateway multicast domain.</p>
+   */
+  TransitGatewayMulticastDomainArn?: string;
+
+  /**
+   * <p> The ID of the AWS account that owns the transit gateway multiicast domain.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The options for the transit gateway multicast domain.</p>
+   */
+  Options?: TransitGatewayMulticastDomainOptions;
 
   /**
    * <p>The state of the transit gateway multicast domain.</p>
@@ -5100,7 +5680,7 @@ export interface CreateTransitGatewayVpcAttachmentRequestOptions {
   DnsSupport?: DnsSupportValue | string;
 
   /**
-   * <p>Enable or disable IPv6 support.</p>
+   * <p>Enable or disable IPv6 support.  The default is <code>disable</code>.</p>
    */
   Ipv6Support?: Ipv6SupportValue | string;
 
@@ -7963,75 +8543,7 @@ export namespace DeleteNetworkAclEntryRequest {
   });
 }
 
-/**
- * <p>Contains the parameters for DeleteNetworkInterface.</p>
- */
-export interface DeleteNetworkInterfaceRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the network interface.</p>
-   */
-  NetworkInterfaceId: string | undefined;
-}
-
-export namespace DeleteNetworkInterfaceRequest {
-  export const filterSensitiveLog = (obj: DeleteNetworkInterfaceRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the parameters for DeleteNetworkInterfacePermission.</p>
- */
-export interface DeleteNetworkInterfacePermissionRequest {
-  /**
-   * <p>The ID of the network interface permission.</p>
-   */
-  NetworkInterfacePermissionId: string | undefined;
-
-  /**
-   * <p>Specify <code>true</code> to remove the permission even if the network interface is
-   * 			attached to an instance.</p>
-   */
-  Force?: boolean;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   * 			Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DeleteNetworkInterfacePermissionRequest {
-  export const filterSensitiveLog = (obj: DeleteNetworkInterfacePermissionRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the output for DeleteNetworkInterfacePermission.</p>
- */
-export interface DeleteNetworkInterfacePermissionResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds, otherwise returns an error.</p>
-   */
-  Return?: boolean;
-}
-
-export namespace DeleteNetworkInterfacePermissionResult {
-  export const filterSensitiveLog = (obj: DeleteNetworkInterfacePermissionResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DeletePlacementGroupRequest {
+export interface DeleteNetworkInsightsAnalysisRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -8040,135 +8552,31 @@ export interface DeletePlacementGroupRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The name of the placement group.</p>
+   * <p>The ID of the network insights analysis.</p>
    */
-  GroupName: string | undefined;
+  NetworkInsightsAnalysisId: string | undefined;
 }
 
-export namespace DeletePlacementGroupRequest {
-  export const filterSensitiveLog = (obj: DeletePlacementGroupRequest): any => ({
+export namespace DeleteNetworkInsightsAnalysisRequest {
+  export const filterSensitiveLog = (obj: DeleteNetworkInsightsAnalysisRequest): any => ({
     ...obj,
   });
 }
 
-export interface DeleteQueuedReservedInstancesRequest {
+export interface DeleteNetworkInsightsAnalysisResult {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *       Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>The ID of the network insights analysis.</p>
    */
-  DryRun?: boolean;
-
-  /**
-   * <p>The IDs of the Reserved Instances.</p>
-   */
-  ReservedInstancesIds: string[] | undefined;
+  NetworkInsightsAnalysisId?: string;
 }
 
-export namespace DeleteQueuedReservedInstancesRequest {
-  export const filterSensitiveLog = (obj: DeleteQueuedReservedInstancesRequest): any => ({
+export namespace DeleteNetworkInsightsAnalysisResult {
+  export const filterSensitiveLog = (obj: DeleteNetworkInsightsAnalysisResult): any => ({
     ...obj,
   });
 }
 
-export enum DeleteQueuedReservedInstancesErrorCode {
-  RESERVED_INSTANCES_ID_INVALID = "reserved-instances-id-invalid",
-  RESERVED_INSTANCES_NOT_IN_QUEUED_STATE = "reserved-instances-not-in-queued-state",
-  UNEXPECTED_ERROR = "unexpected-error",
-}
-
-/**
- * <p>Describes the error for a Reserved Instance whose queued purchase could not be deleted.</p>
- */
-export interface DeleteQueuedReservedInstancesError {
-  /**
-   * <p>The error code.</p>
-   */
-  Code?: DeleteQueuedReservedInstancesErrorCode | string;
-
-  /**
-   * <p>The error message.</p>
-   */
-  Message?: string;
-}
-
-export namespace DeleteQueuedReservedInstancesError {
-  export const filterSensitiveLog = (obj: DeleteQueuedReservedInstancesError): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a Reserved Instance whose queued purchase was not deleted.</p>
- */
-export interface FailedQueuedPurchaseDeletion {
-  /**
-   * <p>The error.</p>
-   */
-  Error?: DeleteQueuedReservedInstancesError;
-
-  /**
-   * <p>The ID of the Reserved Instance.</p>
-   */
-  ReservedInstancesId?: string;
-}
-
-export namespace FailedQueuedPurchaseDeletion {
-  export const filterSensitiveLog = (obj: FailedQueuedPurchaseDeletion): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a Reserved Instance whose queued purchase was successfully deleted.</p>
- */
-export interface SuccessfulQueuedPurchaseDeletion {
-  /**
-   * <p>The ID of the Reserved Instance.</p>
-   */
-  ReservedInstancesId?: string;
-}
-
-export namespace SuccessfulQueuedPurchaseDeletion {
-  export const filterSensitiveLog = (obj: SuccessfulQueuedPurchaseDeletion): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteQueuedReservedInstancesResult {
-  /**
-   * <p>Information about the queued purchases that were successfully deleted.</p>
-   */
-  SuccessfulQueuedPurchaseDeletions?: SuccessfulQueuedPurchaseDeletion[];
-
-  /**
-   * <p>Information about the queued purchases that could not be deleted.</p>
-   */
-  FailedQueuedPurchaseDeletions?: FailedQueuedPurchaseDeletion[];
-}
-
-export namespace DeleteQueuedReservedInstancesResult {
-  export const filterSensitiveLog = (obj: DeleteQueuedReservedInstancesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteRouteRequest {
-  /**
-   * <p>The IPv4 CIDR range for the route. The value you specify must match the CIDR for the route exactly.</p>
-   */
-  DestinationCidrBlock?: string;
-
-  /**
-   * <p>The IPv6 CIDR range for the route. The value you specify must match the CIDR for the route exactly.</p>
-   */
-  DestinationIpv6CidrBlock?: string;
-
-  /**
-   * <p>The ID of the prefix list for the route.</p>
-   */
-  DestinationPrefixListId?: string;
-
+export interface DeleteNetworkInsightsPathRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -8177,366 +8585,26 @@ export interface DeleteRouteRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The ID of the route table.</p>
+   * <p>The ID of the path.</p>
    */
-  RouteTableId: string | undefined;
+  NetworkInsightsPathId: string | undefined;
 }
 
-export namespace DeleteRouteRequest {
-  export const filterSensitiveLog = (obj: DeleteRouteRequest): any => ({
+export namespace DeleteNetworkInsightsPathRequest {
+  export const filterSensitiveLog = (obj: DeleteNetworkInsightsPathRequest): any => ({
     ...obj,
   });
 }
 
-export interface DeleteRouteTableRequest {
+export interface DeleteNetworkInsightsPathResult {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>The ID of the path.</p>
    */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the route table.</p>
-   */
-  RouteTableId: string | undefined;
+  NetworkInsightsPathId?: string;
 }
 
-export namespace DeleteRouteTableRequest {
-  export const filterSensitiveLog = (obj: DeleteRouteTableRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteSecurityGroupRequest {
-  /**
-   * <p>The ID of the security group. Required for a nondefault VPC.</p>
-   */
-  GroupId?: string;
-
-  /**
-   * <p>[EC2-Classic, default VPC] The name of the security group. You can specify either the security group name or the security group ID.</p>
-   */
-  GroupName?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DeleteSecurityGroupRequest {
-  export const filterSensitiveLog = (obj: DeleteSecurityGroupRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteSnapshotRequest {
-  /**
-   * <p>The ID of the EBS snapshot.</p>
-   */
-  SnapshotId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DeleteSnapshotRequest {
-  export const filterSensitiveLog = (obj: DeleteSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the parameters for DeleteSpotDatafeedSubscription.</p>
- */
-export interface DeleteSpotDatafeedSubscriptionRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DeleteSpotDatafeedSubscriptionRequest {
-  export const filterSensitiveLog = (obj: DeleteSpotDatafeedSubscriptionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteSubnetRequest {
-  /**
-   * <p>The ID of the subnet.</p>
-   */
-  SubnetId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DeleteSubnetRequest {
-  export const filterSensitiveLog = (obj: DeleteSubnetRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteTagsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The IDs of the resources, separated by spaces.</p>
-   *    	     <p>Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.</p>
-   */
-  Resources: string[] | undefined;
-
-  /**
-   * <p>The tags to delete. Specify a tag key and an optional tag value to delete
-   *             specific tags. If you specify a tag key without a tag value, we delete any tag with this
-   *             key regardless of its value. If you specify a tag key with an empty string as the tag
-   *             value, we delete the tag only if its value is an empty string.</p>
-   *         <p>If you omit this parameter, we delete all user-defined tags for the specified
-   *             resources. We do not delete AWS-generated tags (tags that have the <code>aws:</code>
-   *             prefix).</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace DeleteTagsRequest {
-  export const filterSensitiveLog = (obj: DeleteTagsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteTrafficMirrorFilterRequest {
-  /**
-   * <p>The ID of the Traffic Mirror filter.</p>
-   */
-  TrafficMirrorFilterId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DeleteTrafficMirrorFilterRequest {
-  export const filterSensitiveLog = (obj: DeleteTrafficMirrorFilterRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteTrafficMirrorFilterResult {
-  /**
-   * <p>The ID of the Traffic Mirror filter.</p>
-   */
-  TrafficMirrorFilterId?: string;
-}
-
-export namespace DeleteTrafficMirrorFilterResult {
-  export const filterSensitiveLog = (obj: DeleteTrafficMirrorFilterResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteTrafficMirrorFilterRuleRequest {
-  /**
-   * <p>The ID of the Traffic Mirror rule.</p>
-   */
-  TrafficMirrorFilterRuleId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DeleteTrafficMirrorFilterRuleRequest {
-  export const filterSensitiveLog = (obj: DeleteTrafficMirrorFilterRuleRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteTrafficMirrorFilterRuleResult {
-  /**
-   * <p>The ID of the deleted Traffic Mirror rule.</p>
-   */
-  TrafficMirrorFilterRuleId?: string;
-}
-
-export namespace DeleteTrafficMirrorFilterRuleResult {
-  export const filterSensitiveLog = (obj: DeleteTrafficMirrorFilterRuleResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteTrafficMirrorSessionRequest {
-  /**
-   * <p>The ID of the Traffic Mirror session.</p>
-   */
-  TrafficMirrorSessionId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DeleteTrafficMirrorSessionRequest {
-  export const filterSensitiveLog = (obj: DeleteTrafficMirrorSessionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteTrafficMirrorSessionResult {
-  /**
-   * <p>The ID of the deleted Traffic Mirror session.</p>
-   */
-  TrafficMirrorSessionId?: string;
-}
-
-export namespace DeleteTrafficMirrorSessionResult {
-  export const filterSensitiveLog = (obj: DeleteTrafficMirrorSessionResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteTrafficMirrorTargetRequest {
-  /**
-   * <p>The ID of the Traffic Mirror target.</p>
-   */
-  TrafficMirrorTargetId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DeleteTrafficMirrorTargetRequest {
-  export const filterSensitiveLog = (obj: DeleteTrafficMirrorTargetRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteTrafficMirrorTargetResult {
-  /**
-   * <p>The ID of the deleted Traffic Mirror target.</p>
-   */
-  TrafficMirrorTargetId?: string;
-}
-
-export namespace DeleteTrafficMirrorTargetResult {
-  export const filterSensitiveLog = (obj: DeleteTrafficMirrorTargetResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteTransitGatewayRequest {
-  /**
-   * <p>The ID of the transit gateway.</p>
-   */
-  TransitGatewayId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DeleteTransitGatewayRequest {
-  export const filterSensitiveLog = (obj: DeleteTransitGatewayRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteTransitGatewayResult {
-  /**
-   * <p>Information about the deleted transit gateway.</p>
-   */
-  TransitGateway?: TransitGateway;
-}
-
-export namespace DeleteTransitGatewayResult {
-  export const filterSensitiveLog = (obj: DeleteTransitGatewayResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteTransitGatewayMulticastDomainRequest {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   */
-  TransitGatewayMulticastDomainId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DeleteTransitGatewayMulticastDomainRequest {
-  export const filterSensitiveLog = (obj: DeleteTransitGatewayMulticastDomainRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteTransitGatewayMulticastDomainResult {
-  /**
-   * <p>Information about the deleted transit gateway multicast domain.</p>
-   */
-  TransitGatewayMulticastDomain?: TransitGatewayMulticastDomain;
-}
-
-export namespace DeleteTransitGatewayMulticastDomainResult {
-  export const filterSensitiveLog = (obj: DeleteTransitGatewayMulticastDomainResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteTransitGatewayPeeringAttachmentRequest {
-  /**
-   * <p>The ID of the transit gateway peering attachment.</p>
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DeleteTransitGatewayPeeringAttachmentRequest {
-  export const filterSensitiveLog = (obj: DeleteTransitGatewayPeeringAttachmentRequest): any => ({
+export namespace DeleteNetworkInsightsPathResult {
+  export const filterSensitiveLog = (obj: DeleteNetworkInsightsPathResult): any => ({
     ...obj,
   });
 }

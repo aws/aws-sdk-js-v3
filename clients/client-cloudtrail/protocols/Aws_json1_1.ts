@@ -29,6 +29,7 @@ import {
   AdvancedFieldSelector,
   CloudTrailARNInvalidException,
   CloudTrailAccessNotEnabledException,
+  CloudTrailInvalidClientTokenIdException,
   CloudWatchLogsDeliveryUnavailableException,
   CreateTrailRequest,
   CreateTrailResponse,
@@ -512,6 +513,14 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
     case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
       response = {
         ...(await deserializeAws_json1_1CloudTrailAccessNotEnabledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "CloudTrailInvalidClientTokenIdException":
+    case "com.amazonaws.cloudtrail#CloudTrailInvalidClientTokenIdException":
+      response = {
+        ...(await deserializeAws_json1_1CloudTrailInvalidClientTokenIdExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2187,6 +2196,14 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "CloudTrailInvalidClientTokenIdException":
+    case "com.amazonaws.cloudtrail#CloudTrailInvalidClientTokenIdException":
+      response = {
+        ...(await deserializeAws_json1_1CloudTrailInvalidClientTokenIdExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "CloudWatchLogsDeliveryUnavailableException":
     case "com.amazonaws.cloudtrail#CloudWatchLogsDeliveryUnavailableException":
       response = {
@@ -2438,6 +2455,21 @@ const deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse = async (
   const deserialized: any = deserializeAws_json1_1CloudTrailARNInvalidException(body, context);
   const contents: CloudTrailARNInvalidException = {
     name: "CloudTrailARNInvalidException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1CloudTrailInvalidClientTokenIdExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CloudTrailInvalidClientTokenIdException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1CloudTrailInvalidClientTokenIdException(body, context);
+  const contents: CloudTrailInvalidClientTokenIdException = {
+    name: "CloudTrailInvalidClientTokenIdException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3405,6 +3437,15 @@ const deserializeAws_json1_1CloudTrailARNInvalidException = (
   output: any,
   context: __SerdeContext
 ): CloudTrailARNInvalidException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CloudTrailInvalidClientTokenIdException = (
+  output: any,
+  context: __SerdeContext
+): CloudTrailInvalidClientTokenIdException => {
   return {
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;

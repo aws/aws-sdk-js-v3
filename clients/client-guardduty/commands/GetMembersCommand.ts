@@ -21,7 +21,7 @@ export type GetMembersCommandInput = GetMembersRequest;
 export type GetMembersCommandOutput = GetMembersResponse & __MetadataBearer;
 
 /**
- * <p>Retrieves GuardDuty member accounts (to the current GuardDuty master account) specified by
+ * <p>Retrieves GuardDuty member accounts (of the current GuardDuty administrator account) specified by
  *       the account IDs.</p>
  */
 export class GetMembersCommand extends $Command<

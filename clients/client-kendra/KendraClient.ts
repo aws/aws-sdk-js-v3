@@ -6,12 +6,15 @@ import { BatchPutDocumentCommandInput, BatchPutDocumentCommandOutput } from "./c
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
 import { CreateFaqCommandInput, CreateFaqCommandOutput } from "./commands/CreateFaqCommand";
 import { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
+import { CreateThesaurusCommandInput, CreateThesaurusCommandOutput } from "./commands/CreateThesaurusCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
 import { DeleteFaqCommandInput, DeleteFaqCommandOutput } from "./commands/DeleteFaqCommand";
 import { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
+import { DeleteThesaurusCommandInput, DeleteThesaurusCommandOutput } from "./commands/DeleteThesaurusCommand";
 import { DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput } from "./commands/DescribeDataSourceCommand";
 import { DescribeFaqCommandInput, DescribeFaqCommandOutput } from "./commands/DescribeFaqCommand";
 import { DescribeIndexCommandInput, DescribeIndexCommandOutput } from "./commands/DescribeIndexCommand";
+import { DescribeThesaurusCommandInput, DescribeThesaurusCommandOutput } from "./commands/DescribeThesaurusCommand";
 import {
   ListDataSourceSyncJobsCommandInput,
   ListDataSourceSyncJobsCommandOutput,
@@ -23,6 +26,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListThesauriCommandInput, ListThesauriCommandOutput } from "./commands/ListThesauriCommand";
 import { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
 import {
   StartDataSourceSyncJobCommandInput,
@@ -37,6 +41,7 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/Ta
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
 import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
+import { UpdateThesaurusCommandInput, UpdateThesaurusCommandOutput } from "./commands/UpdateThesaurusCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -92,17 +97,21 @@ export type ServiceInputTypes =
   | CreateDataSourceCommandInput
   | CreateFaqCommandInput
   | CreateIndexCommandInput
+  | CreateThesaurusCommandInput
   | DeleteDataSourceCommandInput
   | DeleteFaqCommandInput
   | DeleteIndexCommandInput
+  | DeleteThesaurusCommandInput
   | DescribeDataSourceCommandInput
   | DescribeFaqCommandInput
   | DescribeIndexCommandInput
+  | DescribeThesaurusCommandInput
   | ListDataSourceSyncJobsCommandInput
   | ListDataSourcesCommandInput
   | ListFaqsCommandInput
   | ListIndicesCommandInput
   | ListTagsForResourceCommandInput
+  | ListThesauriCommandInput
   | QueryCommandInput
   | StartDataSourceSyncJobCommandInput
   | StopDataSourceSyncJobCommandInput
@@ -110,7 +119,8 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateDataSourceCommandInput
-  | UpdateIndexCommandInput;
+  | UpdateIndexCommandInput
+  | UpdateThesaurusCommandInput;
 
 export type ServiceOutputTypes =
   | BatchDeleteDocumentCommandOutput
@@ -118,17 +128,21 @@ export type ServiceOutputTypes =
   | CreateDataSourceCommandOutput
   | CreateFaqCommandOutput
   | CreateIndexCommandOutput
+  | CreateThesaurusCommandOutput
   | DeleteDataSourceCommandOutput
   | DeleteFaqCommandOutput
   | DeleteIndexCommandOutput
+  | DeleteThesaurusCommandOutput
   | DescribeDataSourceCommandOutput
   | DescribeFaqCommandOutput
   | DescribeIndexCommandOutput
+  | DescribeThesaurusCommandOutput
   | ListDataSourceSyncJobsCommandOutput
   | ListDataSourcesCommandOutput
   | ListFaqsCommandOutput
   | ListIndicesCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListThesauriCommandOutput
   | QueryCommandOutput
   | StartDataSourceSyncJobCommandOutput
   | StopDataSourceSyncJobCommandOutput
@@ -136,7 +150,8 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateDataSourceCommandOutput
-  | UpdateIndexCommandOutput;
+  | UpdateIndexCommandOutput
+  | UpdateThesaurusCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
