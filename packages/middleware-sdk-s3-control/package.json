@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-s3-control",
-  "version": "1.0.0-rc.8",
+  "version": "1.0.0-rc.9",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -18,7 +18,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/middleware-bucket-endpoint": "1.0.0-rc.8",
+    "@aws-sdk/middleware-bucket-endpoint": "1.0.0-rc.9",
     "@aws-sdk/protocol-http": "1.0.0-rc.8",
     "@aws-sdk/util-arn-parser": "1.0.0-rc.8",
     "tslib": "^1.8.0"

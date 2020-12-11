@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-retry",
-  "version": "1.0.0-rc.8",
+  "version": "1.0.0-rc.9",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -25,7 +25,7 @@
     "uuid": "^3.0.0"
   },
   "devDependencies": {
-    "@aws-sdk/node-config-provider": "1.0.0-rc.8",
+    "@aws-sdk/node-config-provider": "1.0.0-rc.9",
     "@aws-sdk/smithy-client": "1.0.0-rc.8",
     "@aws-sdk/types": "1.0.0-rc.8",
     "@types/jest": "^26.0.4",

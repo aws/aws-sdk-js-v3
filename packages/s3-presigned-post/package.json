@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/s3-presigned-post",
-  "version": "1.0.0-rc.8",
+  "version": "1.0.0-rc.9",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -24,7 +24,7 @@
     "tslib": "^1.8.0"
   },
   "devDependencies": {
-    "@aws-sdk/client-s3": "1.0.0-rc.8",
+    "@aws-sdk/client-s3": "1.0.0-rc.9",
     "@aws-sdk/hash-node": "1.0.0-rc.8",
     "@aws-sdk/protocol-http": "1.0.0-rc.8",
     "@aws-sdk/types": "1.0.0-rc.8",

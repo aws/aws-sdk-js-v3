@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-node",
-  "version": "1.0.0-rc.8",
+  "version": "1.0.0-rc.9",
   "description": "AWS credential provider that sources credentials from a Node.JS environment. ",
   "engines": {
     "node": ">=10.0.0"
@@ -27,13 +27,13 @@
   "dependencies": {
     "@aws-sdk/credential-provider-env": "1.0.0-rc.8",
     "@aws-sdk/credential-provider-imds": "1.0.0-rc.8",
-    "@aws-sdk/credential-provider-ini": "1.0.0-rc.8",
-    "@aws-sdk/credential-provider-process": "1.0.0-rc.8",
+    "@aws-sdk/credential-provider-ini": "1.0.0-rc.9",
+    "@aws-sdk/credential-provider-process": "1.0.0-rc.9",
     "@aws-sdk/property-provider": "1.0.0-rc.8",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
-    "@aws-sdk/shared-ini-file-loader": "1.0.0-rc.8",
+    "@aws-sdk/shared-ini-file-loader": "1.0.0-rc.9",
     "@aws-sdk/types": "1.0.0-rc.8",
     "@types/jest": "^26.0.4",
     "@types/node": "^10.0.0",
