@@ -1,6 +1,7 @@
 import { ProviderError } from "@aws-sdk/property-provider";
 import { CredentialProvider } from "@aws-sdk/types";
 import { RequestOptions } from "http";
+import { parse } from "url";
 
 import { httpRequest } from "./remoteProvider/httpRequest";
 import { fromImdsCredentials, isImdsCredentials } from "./remoteProvider/ImdsCredentials";
@@ -63,7 +64,7 @@ function getCmdsUri(): Promise<RequestOptions> {
   }
 
   if (process.env[ENV_CMDS_FULL_URI]) {
-    const parsed = new URL(process.env[ENV_CMDS_FULL_URI]!);
+    const parsed = parse(process.env[ENV_CMDS_FULL_URI]!);
     if (!parsed.hostname || !(parsed.hostname in GREENGRASS_HOSTS)) {
       return Promise.reject(
         new ProviderError(`${parsed.hostname} is not a valid container metadata service hostname`, false)
