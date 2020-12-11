@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Set;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.knowledge.HttpBinding;
+import software.amazon.smithy.model.shapes.DocumentShape;
 import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.Shape;
@@ -80,7 +81,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
         TypeScriptWriter writer = context.getWriter();
         writer.addUseImports(getApplicationProtocol().getResponseType());
-        writer.write(IoUtils.readUtf8Resource(getClass(), "load-rest-json-error-code-stub.ts"));
+        writer.write(IoUtils.readUtf8Resource(getClass(), "load-json-error-code-stub.ts"));
     }
 
     @Override
@@ -98,7 +99,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
         // Short circuit when we have no bindings.
         TypeScriptWriter writer = context.getWriter();
         if (documentBindings.isEmpty()) {
-            writer.write("body = \"{}\";");
+            writer.write("body = \"\";");
             return;
         }
 
@@ -125,7 +126,8 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
                 if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
                     writer.write("'$L': $L ?? generateIdempotencyToken(),", locationName, valueProvider);
                 } else {
-                    writer.write("...($L !== undefined && { '$L': $L }),", inputLocation, locationName, valueProvider);
+                    writer.write("...($1L !== undefined && $1L !== null &&{ $2S: $3L }),",
+                            inputLocation, locationName, valueProvider);
                 }
             }
         });
@@ -151,6 +153,9 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
                 || (target instanceof UnionShape && !target.hasTrait(StreamingTrait.class))
         ) {
             writer.openBlock("if (body === undefined) {", "}", () -> writer.write("body = {};"));
+            writer.write("body = JSON.stringify(body);");
+        } else if (target instanceof DocumentShape) {
+            // Contents of documents need to be JSON encoded as well.
             writer.write("body = JSON.stringify(body);");
         }
     }
@@ -190,6 +195,22 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
                         target.accept(getMemberDeserVisitor(context, "data." + locationName)));
             });
         }
+    }
+
+    protected HttpBinding readResponsePayload(
+            GenerationContext context,
+            HttpBinding payloadBinding
+    ) {
+        HttpBinding returnedBinding = super.readResponsePayload(context, payloadBinding);
+        TypeScriptWriter writer = context.getWriter();
+        Shape target = context.getModel().expectShape(payloadBinding.getMember().getTarget());
+
+        // Decode the body from a JSON string.
+        if (target instanceof DocumentShape) {
+            writer.write("contents.$L = JSON.parse(data);", payloadBinding.getMemberName());
+        }
+
+        return returnedBinding;
     }
 
     private DocumentMemberDeserVisitor getMemberDeserVisitor(GenerationContext context, String dataSource) {

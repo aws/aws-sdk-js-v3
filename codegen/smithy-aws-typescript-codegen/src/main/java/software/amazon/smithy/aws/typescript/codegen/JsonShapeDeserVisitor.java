@@ -27,6 +27,7 @@ import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
 import software.amazon.smithy.model.traits.JsonNameTrait;
+import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
@@ -57,9 +58,18 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
         TypeScriptWriter writer = context.getWriter();
         Shape target = context.getModel().expectShape(shape.getMember().getTarget());
 
-        // Dispatch to the output value provider for any additional handling.
-        writer.openBlock("return (output || []).map((entry: any) =>", ");", () -> {
-            writer.write(target.accept(getMemberVisitor("entry")));
+        // Filter out null entries if we don't have the sparse trait.
+        String potentialFilter = "";
+        if (!shape.hasTrait(SparseTrait.ID)) {
+            potentialFilter = ".filter((e: any) => e != null)";
+        }
+
+        writer.openBlock("return (output || [])$L.map((entry: any) => {", "});", potentialFilter, () -> {
+            // Short circuit null values from serialization.
+            writer.write("if (entry === null) { return null as any; }");
+
+            // Dispatch to the output value provider for any additional handling.
+            writer.write("return $L;", target.accept(getMemberVisitor("entry")));
         });
     }
 
@@ -78,14 +88,27 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
 
         // Get the right serialization for each entry in the map. Undefined
         // outputs won't have this deserializer invoked.
-        writer.openBlock("return Object.entries(output).reduce((acc: $T, [key, value]: [$T, any]) => ({",
-            "}), {});",
+        writer.openBlock("return Object.entries(output).reduce((acc: $T, [key, value]: [$T, any]) => {",
+            "}, {});",
             symbolProvider.toSymbol(shape),
             symbolProvider.toSymbol(shape.getKey()),
             () -> {
-                writer.write("...acc,");
-                // Dispatch to the output value provider for any additional handling.
-                writer.write("[key]: $L", target.accept(getMemberVisitor("value")));
+                writer.openBlock("if (value === null) {", "}", () -> {
+                    // Handle the sparse trait by short circuiting null values
+                    // from deserialization, and not including them if encountered
+                    // when not sparse.
+                    if (shape.hasTrait(SparseTrait.ID)) {
+                        writer.write("return { ...acc, [key]: null as any }");
+                    } else {
+                        writer.write("return acc;");
+                    }
+                });
+
+                writer.openBlock("return {", "};", () -> {
+                    writer.write("...acc,");
+                    // Dispatch to the output value provider for any additional handling.
+                    writer.write("[key]: $L", target.accept(getMemberVisitor("value")));
+                });
             }
         );
     }
