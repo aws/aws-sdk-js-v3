@@ -37,7 +37,6 @@ import {
   IamInstanceProfile,
   IamInstanceProfileAssociation,
   InstanceLifecycle,
-  InternetGateway,
   LaunchTemplateAndOverridesResponse,
   LogDestinationType,
   Placement,
@@ -57,13 +56,659 @@ import {
   FleetStateCode,
   GroupIdentifier,
   InstanceIpv6Address,
-  LaunchTemplate,
-  LaunchTemplateVersion,
   NetworkInterfaceStatus,
+  TransitGateway,
+  TransitGatewayConnect,
+  TransitGatewayConnectPeer,
+  TransitGatewayMulticastDomain,
   TransitGatewayPrefixListReference,
   TransitGatewayRoute,
   TransitGatewayRouteTable,
 } from "./models_1";
+
+/**
+ * <p>Contains the parameters for DeleteNetworkInterface.</p>
+ */
+export interface DeleteNetworkInterfaceRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   */
+  NetworkInterfaceId: string | undefined;
+}
+
+export namespace DeleteNetworkInterfaceRequest {
+  export const filterSensitiveLog = (obj: DeleteNetworkInterfaceRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the parameters for DeleteNetworkInterfacePermission.</p>
+ */
+export interface DeleteNetworkInterfacePermissionRequest {
+  /**
+   * <p>The ID of the network interface permission.</p>
+   */
+  NetworkInterfacePermissionId: string | undefined;
+
+  /**
+   * <p>Specify <code>true</code> to remove the permission even if the network interface is
+   * 			attached to an instance.</p>
+   */
+  Force?: boolean;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   * 			Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DeleteNetworkInterfacePermissionRequest {
+  export const filterSensitiveLog = (obj: DeleteNetworkInterfacePermissionRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the output for DeleteNetworkInterfacePermission.</p>
+ */
+export interface DeleteNetworkInterfacePermissionResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds, otherwise returns an error.</p>
+   */
+  Return?: boolean;
+}
+
+export namespace DeleteNetworkInterfacePermissionResult {
+  export const filterSensitiveLog = (obj: DeleteNetworkInterfacePermissionResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DeletePlacementGroupRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The name of the placement group.</p>
+   */
+  GroupName: string | undefined;
+}
+
+export namespace DeletePlacementGroupRequest {
+  export const filterSensitiveLog = (obj: DeletePlacementGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteQueuedReservedInstancesRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *       Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The IDs of the Reserved Instances.</p>
+   */
+  ReservedInstancesIds: string[] | undefined;
+}
+
+export namespace DeleteQueuedReservedInstancesRequest {
+  export const filterSensitiveLog = (obj: DeleteQueuedReservedInstancesRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum DeleteQueuedReservedInstancesErrorCode {
+  RESERVED_INSTANCES_ID_INVALID = "reserved-instances-id-invalid",
+  RESERVED_INSTANCES_NOT_IN_QUEUED_STATE = "reserved-instances-not-in-queued-state",
+  UNEXPECTED_ERROR = "unexpected-error",
+}
+
+/**
+ * <p>Describes the error for a Reserved Instance whose queued purchase could not be deleted.</p>
+ */
+export interface DeleteQueuedReservedInstancesError {
+  /**
+   * <p>The error code.</p>
+   */
+  Code?: DeleteQueuedReservedInstancesErrorCode | string;
+
+  /**
+   * <p>The error message.</p>
+   */
+  Message?: string;
+}
+
+export namespace DeleteQueuedReservedInstancesError {
+  export const filterSensitiveLog = (obj: DeleteQueuedReservedInstancesError): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a Reserved Instance whose queued purchase was not deleted.</p>
+ */
+export interface FailedQueuedPurchaseDeletion {
+  /**
+   * <p>The error.</p>
+   */
+  Error?: DeleteQueuedReservedInstancesError;
+
+  /**
+   * <p>The ID of the Reserved Instance.</p>
+   */
+  ReservedInstancesId?: string;
+}
+
+export namespace FailedQueuedPurchaseDeletion {
+  export const filterSensitiveLog = (obj: FailedQueuedPurchaseDeletion): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a Reserved Instance whose queued purchase was successfully deleted.</p>
+ */
+export interface SuccessfulQueuedPurchaseDeletion {
+  /**
+   * <p>The ID of the Reserved Instance.</p>
+   */
+  ReservedInstancesId?: string;
+}
+
+export namespace SuccessfulQueuedPurchaseDeletion {
+  export const filterSensitiveLog = (obj: SuccessfulQueuedPurchaseDeletion): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteQueuedReservedInstancesResult {
+  /**
+   * <p>Information about the queued purchases that were successfully deleted.</p>
+   */
+  SuccessfulQueuedPurchaseDeletions?: SuccessfulQueuedPurchaseDeletion[];
+
+  /**
+   * <p>Information about the queued purchases that could not be deleted.</p>
+   */
+  FailedQueuedPurchaseDeletions?: FailedQueuedPurchaseDeletion[];
+}
+
+export namespace DeleteQueuedReservedInstancesResult {
+  export const filterSensitiveLog = (obj: DeleteQueuedReservedInstancesResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteRouteRequest {
+  /**
+   * <p>The IPv4 CIDR range for the route. The value you specify must match the CIDR for the route exactly.</p>
+   */
+  DestinationCidrBlock?: string;
+
+  /**
+   * <p>The IPv6 CIDR range for the route. The value you specify must match the CIDR for the route exactly.</p>
+   */
+  DestinationIpv6CidrBlock?: string;
+
+  /**
+   * <p>The ID of the prefix list for the route.</p>
+   */
+  DestinationPrefixListId?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the route table.</p>
+   */
+  RouteTableId: string | undefined;
+}
+
+export namespace DeleteRouteRequest {
+  export const filterSensitiveLog = (obj: DeleteRouteRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteRouteTableRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the route table.</p>
+   */
+  RouteTableId: string | undefined;
+}
+
+export namespace DeleteRouteTableRequest {
+  export const filterSensitiveLog = (obj: DeleteRouteTableRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteSecurityGroupRequest {
+  /**
+   * <p>The ID of the security group. Required for a nondefault VPC.</p>
+   */
+  GroupId?: string;
+
+  /**
+   * <p>[EC2-Classic, default VPC] The name of the security group. You can specify either the security group name or the security group ID.</p>
+   */
+  GroupName?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DeleteSecurityGroupRequest {
+  export const filterSensitiveLog = (obj: DeleteSecurityGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteSnapshotRequest {
+  /**
+   * <p>The ID of the EBS snapshot.</p>
+   */
+  SnapshotId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DeleteSnapshotRequest {
+  export const filterSensitiveLog = (obj: DeleteSnapshotRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the parameters for DeleteSpotDatafeedSubscription.</p>
+ */
+export interface DeleteSpotDatafeedSubscriptionRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DeleteSpotDatafeedSubscriptionRequest {
+  export const filterSensitiveLog = (obj: DeleteSpotDatafeedSubscriptionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteSubnetRequest {
+  /**
+   * <p>The ID of the subnet.</p>
+   */
+  SubnetId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DeleteSubnetRequest {
+  export const filterSensitiveLog = (obj: DeleteSubnetRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTagsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The IDs of the resources, separated by spaces.</p>
+   *    	     <p>Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.</p>
+   */
+  Resources: string[] | undefined;
+
+  /**
+   * <p>The tags to delete. Specify a tag key and an optional tag value to delete
+   *             specific tags. If you specify a tag key without a tag value, we delete any tag with this
+   *             key regardless of its value. If you specify a tag key with an empty string as the tag
+   *             value, we delete the tag only if its value is an empty string.</p>
+   *         <p>If you omit this parameter, we delete all user-defined tags for the specified
+   *             resources. We do not delete AWS-generated tags (tags that have the <code>aws:</code>
+   *             prefix).</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace DeleteTagsRequest {
+  export const filterSensitiveLog = (obj: DeleteTagsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTrafficMirrorFilterRequest {
+  /**
+   * <p>The ID of the Traffic Mirror filter.</p>
+   */
+  TrafficMirrorFilterId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DeleteTrafficMirrorFilterRequest {
+  export const filterSensitiveLog = (obj: DeleteTrafficMirrorFilterRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTrafficMirrorFilterResult {
+  /**
+   * <p>The ID of the Traffic Mirror filter.</p>
+   */
+  TrafficMirrorFilterId?: string;
+}
+
+export namespace DeleteTrafficMirrorFilterResult {
+  export const filterSensitiveLog = (obj: DeleteTrafficMirrorFilterResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTrafficMirrorFilterRuleRequest {
+  /**
+   * <p>The ID of the Traffic Mirror rule.</p>
+   */
+  TrafficMirrorFilterRuleId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DeleteTrafficMirrorFilterRuleRequest {
+  export const filterSensitiveLog = (obj: DeleteTrafficMirrorFilterRuleRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTrafficMirrorFilterRuleResult {
+  /**
+   * <p>The ID of the deleted Traffic Mirror rule.</p>
+   */
+  TrafficMirrorFilterRuleId?: string;
+}
+
+export namespace DeleteTrafficMirrorFilterRuleResult {
+  export const filterSensitiveLog = (obj: DeleteTrafficMirrorFilterRuleResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTrafficMirrorSessionRequest {
+  /**
+   * <p>The ID of the Traffic Mirror session.</p>
+   */
+  TrafficMirrorSessionId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DeleteTrafficMirrorSessionRequest {
+  export const filterSensitiveLog = (obj: DeleteTrafficMirrorSessionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTrafficMirrorSessionResult {
+  /**
+   * <p>The ID of the deleted Traffic Mirror session.</p>
+   */
+  TrafficMirrorSessionId?: string;
+}
+
+export namespace DeleteTrafficMirrorSessionResult {
+  export const filterSensitiveLog = (obj: DeleteTrafficMirrorSessionResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTrafficMirrorTargetRequest {
+  /**
+   * <p>The ID of the Traffic Mirror target.</p>
+   */
+  TrafficMirrorTargetId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DeleteTrafficMirrorTargetRequest {
+  export const filterSensitiveLog = (obj: DeleteTrafficMirrorTargetRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTrafficMirrorTargetResult {
+  /**
+   * <p>The ID of the deleted Traffic Mirror target.</p>
+   */
+  TrafficMirrorTargetId?: string;
+}
+
+export namespace DeleteTrafficMirrorTargetResult {
+  export const filterSensitiveLog = (obj: DeleteTrafficMirrorTargetResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTransitGatewayRequest {
+  /**
+   * <p>The ID of the transit gateway.</p>
+   */
+  TransitGatewayId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DeleteTransitGatewayRequest {
+  export const filterSensitiveLog = (obj: DeleteTransitGatewayRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTransitGatewayResult {
+  /**
+   * <p>Information about the deleted transit gateway.</p>
+   */
+  TransitGateway?: TransitGateway;
+}
+
+export namespace DeleteTransitGatewayResult {
+  export const filterSensitiveLog = (obj: DeleteTransitGatewayResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTransitGatewayConnectRequest {
+  /**
+   * <p>The ID of the Connect attachment.</p>
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DeleteTransitGatewayConnectRequest {
+  export const filterSensitiveLog = (obj: DeleteTransitGatewayConnectRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTransitGatewayConnectResult {
+  /**
+   * <p>Information about the deleted Connect attachment.</p>
+   */
+  TransitGatewayConnect?: TransitGatewayConnect;
+}
+
+export namespace DeleteTransitGatewayConnectResult {
+  export const filterSensitiveLog = (obj: DeleteTransitGatewayConnectResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTransitGatewayConnectPeerRequest {
+  /**
+   * <p>The ID of the Connect peer.</p>
+   */
+  TransitGatewayConnectPeerId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DeleteTransitGatewayConnectPeerRequest {
+  export const filterSensitiveLog = (obj: DeleteTransitGatewayConnectPeerRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTransitGatewayConnectPeerResult {
+  /**
+   * <p>Information about the deleted Connect peer.</p>
+   */
+  TransitGatewayConnectPeer?: TransitGatewayConnectPeer;
+}
+
+export namespace DeleteTransitGatewayConnectPeerResult {
+  export const filterSensitiveLog = (obj: DeleteTransitGatewayConnectPeerResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTransitGatewayMulticastDomainRequest {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   */
+  TransitGatewayMulticastDomainId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DeleteTransitGatewayMulticastDomainRequest {
+  export const filterSensitiveLog = (obj: DeleteTransitGatewayMulticastDomainRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTransitGatewayMulticastDomainResult {
+  /**
+   * <p>Information about the deleted transit gateway multicast domain.</p>
+   */
+  TransitGatewayMulticastDomain?: TransitGatewayMulticastDomain;
+}
+
+export namespace DeleteTransitGatewayMulticastDomainResult {
+  export const filterSensitiveLog = (obj: DeleteTransitGatewayMulticastDomainResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTransitGatewayPeeringAttachmentRequest {
+  /**
+   * <p>The ID of the transit gateway peering attachment.</p>
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DeleteTransitGatewayPeeringAttachmentRequest {
+  export const filterSensitiveLog = (obj: DeleteTransitGatewayPeeringAttachmentRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface DeleteTransitGatewayPeeringAttachmentResult {
   /**
@@ -9284,1040 +9929,4 @@ export namespace GpuInfo {
 export enum InstanceTypeHypervisor {
   NITRO = "nitro",
   XEN = "xen",
-}
-
-/**
- * <p>Describes the Inference accelerators for the instance type.</p>
- */
-export interface InferenceDeviceInfo {
-  /**
-   * <p>The number of Inference accelerators for the instance type.</p>
-   */
-  Count?: number;
-
-  /**
-   * <p>The name of the Inference accelerator.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The manufacturer of the Inference accelerator.</p>
-   */
-  Manufacturer?: string;
-}
-
-export namespace InferenceDeviceInfo {
-  export const filterSensitiveLog = (obj: InferenceDeviceInfo): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the Inference accelerators for the instance type.</p>
- */
-export interface InferenceAcceleratorInfo {
-  /**
-   * <p>Describes the Inference accelerators for the instance type.</p>
-   */
-  Accelerators?: InferenceDeviceInfo[];
-}
-
-export namespace InferenceAcceleratorInfo {
-  export const filterSensitiveLog = (obj: InferenceAcceleratorInfo): any => ({
-    ...obj,
-  });
-}
-
-export type DiskType = "hdd" | "ssd";
-
-/**
- * <p>Describes the disk.</p>
- */
-export interface DiskInfo {
-  /**
-   * <p>The size of the disk in GB.</p>
-   */
-  SizeInGB?: number;
-
-  /**
-   * <p>The number of disks with this configuration.</p>
-   */
-  Count?: number;
-
-  /**
-   * <p>The type of disk.</p>
-   */
-  Type?: DiskType | string;
-}
-
-export namespace DiskInfo {
-  export const filterSensitiveLog = (obj: DiskInfo): any => ({
-    ...obj,
-  });
-}
-
-export enum EphemeralNvmeSupport {
-  REQUIRED = "required",
-  SUPPORTED = "supported",
-  UNSUPPORTED = "unsupported",
-}
-
-/**
- * <p>Describes the disks that are available for the instance type.</p>
- */
-export interface InstanceStorageInfo {
-  /**
-   * <p>The total size of the disks, in GB.</p>
-   */
-  TotalSizeInGB?: number;
-
-  /**
-   * <p>Describes the disks that are available for the instance type.</p>
-   */
-  Disks?: DiskInfo[];
-
-  /**
-   * <p>Indicates whether non-volatile memory express (NVMe) is supported for instance store.</p>
-   */
-  NvmeSupport?: EphemeralNvmeSupport | string;
-}
-
-export namespace InstanceStorageInfo {
-  export const filterSensitiveLog = (obj: InstanceStorageInfo): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the memory for the instance type.</p>
- */
-export interface MemoryInfo {
-  /**
-   * <p>The size of the memory, in MiB.</p>
-   */
-  SizeInMiB?: number;
-}
-
-export namespace MemoryInfo {
-  export const filterSensitiveLog = (obj: MemoryInfo): any => ({
-    ...obj,
-  });
-}
-
-export type EnaSupport = "required" | "supported" | "unsupported";
-
-/**
- * <p>Describes the network card support of the instance type.</p>
- */
-export interface NetworkCardInfo {
-  /**
-   * <p>The index of the network card.</p>
-   */
-  NetworkCardIndex?: number;
-
-  /**
-   * <p>The network performance of the network card.</p>
-   */
-  NetworkPerformance?: string;
-
-  /**
-   * <p>The maximum number of network interfaces for the network card.</p>
-   */
-  MaximumNetworkInterfaces?: number;
-}
-
-export namespace NetworkCardInfo {
-  export const filterSensitiveLog = (obj: NetworkCardInfo): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the networking features of the instance type.</p>
- */
-export interface NetworkInfo {
-  /**
-   * <p>The network performance.</p>
-   */
-  NetworkPerformance?: string;
-
-  /**
-   * <p>The maximum number of network interfaces for the instance type.</p>
-   */
-  MaximumNetworkInterfaces?: number;
-
-  /**
-   * <p>The maximum number of physical network cards that can be allocated to the instance.</p>
-   */
-  MaximumNetworkCards?: number;
-
-  /**
-   * <p>The index of the default network card, starting at 0.</p>
-   */
-  DefaultNetworkCardIndex?: number;
-
-  /**
-   * <p>Describes the network cards for the instance type.</p>
-   */
-  NetworkCards?: NetworkCardInfo[];
-
-  /**
-   * <p>The maximum number of IPv4 addresses per network interface.</p>
-   */
-  Ipv4AddressesPerInterface?: number;
-
-  /**
-   * <p>The maximum number of IPv6 addresses per network interface.</p>
-   */
-  Ipv6AddressesPerInterface?: number;
-
-  /**
-   * <p>Indicates whether IPv6 is supported.</p>
-   */
-  Ipv6Supported?: boolean;
-
-  /**
-   * <p>Indicates whether Elastic Network Adapter (ENA) is supported.</p>
-   */
-  EnaSupport?: EnaSupport | string;
-
-  /**
-   * <p>Indicates whether Elastic Fabric Adapter (EFA) is supported.</p>
-   */
-  EfaSupported?: boolean;
-}
-
-export namespace NetworkInfo {
-  export const filterSensitiveLog = (obj: NetworkInfo): any => ({
-    ...obj,
-  });
-}
-
-export type PlacementGroupStrategy = "cluster" | "partition" | "spread";
-
-/**
- * <p>Describes the placement group support of the instance type.</p>
- */
-export interface PlacementGroupInfo {
-  /**
-   * <p>The supported placement group types.</p>
-   */
-  SupportedStrategies?: (PlacementGroupStrategy | string)[];
-}
-
-export namespace PlacementGroupInfo {
-  export const filterSensitiveLog = (obj: PlacementGroupInfo): any => ({
-    ...obj,
-  });
-}
-
-export type ArchitectureType = "arm64" | "i386" | "x86_64";
-
-/**
- * <p>Describes the processor used by the instance type.</p>
- */
-export interface ProcessorInfo {
-  /**
-   * <p>The architectures supported by the instance type.</p>
-   */
-  SupportedArchitectures?: (ArchitectureType | string)[];
-
-  /**
-   * <p>The speed of the processor, in GHz.</p>
-   */
-  SustainedClockSpeedInGhz?: number;
-}
-
-export namespace ProcessorInfo {
-  export const filterSensitiveLog = (obj: ProcessorInfo): any => ({
-    ...obj,
-  });
-}
-
-export type RootDeviceType = "ebs" | "instance-store";
-
-export type UsageClassType = "on-demand" | "spot";
-
-/**
- * <p>Describes the vCPU configurations for the instance type.</p>
- */
-export interface VCpuInfo {
-  /**
-   * <p>The default number of vCPUs for the instance type.</p>
-   */
-  DefaultVCpus?: number;
-
-  /**
-   * <p>The default number of cores for the instance type.</p>
-   */
-  DefaultCores?: number;
-
-  /**
-   * <p>The default number of threads per core for the instance type.</p>
-   */
-  DefaultThreadsPerCore?: number;
-
-  /**
-   * <p>The valid number of cores that can be configured for the instance type.</p>
-   */
-  ValidCores?: number[];
-
-  /**
-   * <p>The valid number of threads per core that can be configured for the instance type. </p>
-   */
-  ValidThreadsPerCore?: number[];
-}
-
-export namespace VCpuInfo {
-  export const filterSensitiveLog = (obj: VCpuInfo): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the instance type.</p>
- */
-export interface InstanceTypeInfo {
-  /**
-   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute
-   *     Cloud User Guide</i>.</p>
-   */
-  InstanceType?: _InstanceType | string;
-
-  /**
-   * <p>Indicates whether the instance type is current generation.</p>
-   */
-  CurrentGeneration?: boolean;
-
-  /**
-   * <p>Indicates whether the instance type is eligible for the free tier.</p>
-   */
-  FreeTierEligible?: boolean;
-
-  /**
-   * <p>Indicates whether the instance type is offered for spot or On-Demand.</p>
-   */
-  SupportedUsageClasses?: (UsageClassType | string)[];
-
-  /**
-   * <p>The supported root device types.</p>
-   */
-  SupportedRootDeviceTypes?: (RootDeviceType | string)[];
-
-  /**
-   * <p>The supported virtualization types.</p>
-   */
-  SupportedVirtualizationTypes?: (VirtualizationType | string)[];
-
-  /**
-   * <p>Indicates whether the instance is a bare metal instance type.</p>
-   */
-  BareMetal?: boolean;
-
-  /**
-   * <p>The hypervisor for the instance type.</p>
-   */
-  Hypervisor?: InstanceTypeHypervisor | string;
-
-  /**
-   * <p>Describes the processor.</p>
-   */
-  ProcessorInfo?: ProcessorInfo;
-
-  /**
-   * <p>Describes the vCPU configurations for the instance type.</p>
-   */
-  VCpuInfo?: VCpuInfo;
-
-  /**
-   * <p>Describes the memory for the instance type.</p>
-   */
-  MemoryInfo?: MemoryInfo;
-
-  /**
-   * <p>Indicates whether instance storage is supported.</p>
-   */
-  InstanceStorageSupported?: boolean;
-
-  /**
-   * <p>Describes the instance storage for the instance type.</p>
-   */
-  InstanceStorageInfo?: InstanceStorageInfo;
-
-  /**
-   * <p>Describes the Amazon EBS settings for the instance type.</p>
-   */
-  EbsInfo?: EbsInfo;
-
-  /**
-   * <p>Describes the network settings for the instance type.</p>
-   */
-  NetworkInfo?: NetworkInfo;
-
-  /**
-   * <p>Describes the GPU accelerator settings for the instance type.</p>
-   */
-  GpuInfo?: GpuInfo;
-
-  /**
-   * <p>Describes the FPGA accelerator settings for the instance type.</p>
-   */
-  FpgaInfo?: FpgaInfo;
-
-  /**
-   * <p>Describes the placement group settings for the instance type.</p>
-   */
-  PlacementGroupInfo?: PlacementGroupInfo;
-
-  /**
-   * <p>Describes the Inference accelerator settings for the instance type.</p>
-   */
-  InferenceAcceleratorInfo?: InferenceAcceleratorInfo;
-
-  /**
-   * <p>Indicates whether On-Demand hibernation is supported.</p>
-   */
-  HibernationSupported?: boolean;
-
-  /**
-   * <p>Indicates whether the instance type is a burstable performance instance type.</p>
-   */
-  BurstablePerformanceSupported?: boolean;
-
-  /**
-   * <p>Indicates whether Dedicated Hosts are supported on the instance type.</p>
-   */
-  DedicatedHostsSupported?: boolean;
-
-  /**
-   * <p>Indicates whether auto recovery is supported.</p>
-   */
-  AutoRecoverySupported?: boolean;
-}
-
-export namespace InstanceTypeInfo {
-  export const filterSensitiveLog = (obj: InstanceTypeInfo): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeInstanceTypesResult {
-  /**
-   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute
-   *     Cloud User Guide</i>.</p>
-   */
-  InstanceTypes?: InstanceTypeInfo[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there
-   *          are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeInstanceTypesResult {
-  export const filterSensitiveLog = (obj: DescribeInstanceTypesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeInternetGatewaysRequest {
-  /**
-   * <p>One or more filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>attachment.state</code> - The current state of the attachment between the gateway
-   *                     and the VPC (<code>available</code>). Present only if a VPC is attached.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>attachment.vpc-id</code> - The ID of an attached VPC.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>internet-gateway-id</code> - The ID of the Internet gateway.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>owner-id</code> - The ID of the AWS account that owns the internet gateway.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more internet gateway IDs.</p>
-   *         <p>Default: Describes all your internet gateways.</p>
-   */
-  InternetGatewayIds?: string[];
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace DescribeInternetGatewaysRequest {
-  export const filterSensitiveLog = (obj: DescribeInternetGatewaysRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeInternetGatewaysResult {
-  /**
-   * <p>Information about one or more internet gateways.</p>
-   */
-  InternetGateways?: InternetGateway[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeInternetGatewaysResult {
-  export const filterSensitiveLog = (obj: DescribeInternetGatewaysResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeIpv6PoolsRequest {
-  /**
-   * <p>The IDs of the IPv6 address pools.</p>
-   */
-  PoolIds?: string[];
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-}
-
-export namespace DescribeIpv6PoolsRequest {
-  export const filterSensitiveLog = (obj: DescribeIpv6PoolsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a CIDR block for an address pool.</p>
- */
-export interface PoolCidrBlock {
-  /**
-   * <p>The CIDR block.</p>
-   */
-  Cidr?: string;
-}
-
-export namespace PoolCidrBlock {
-  export const filterSensitiveLog = (obj: PoolCidrBlock): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an IPv6 address pool.</p>
- */
-export interface Ipv6Pool {
-  /**
-   * <p>The ID of the address pool.</p>
-   */
-  PoolId?: string;
-
-  /**
-   * <p>The description for the address pool.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The CIDR blocks for the address pool.</p>
-   */
-  PoolCidrBlocks?: PoolCidrBlock[];
-
-  /**
-   * <p>Any tags for the address pool.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace Ipv6Pool {
-  export const filterSensitiveLog = (obj: Ipv6Pool): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeIpv6PoolsResult {
-  /**
-   * <p>Information about the IPv6 address pools.</p>
-   */
-  Ipv6Pools?: Ipv6Pool[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeIpv6PoolsResult {
-  export const filterSensitiveLog = (obj: DescribeIpv6PoolsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeKeyPairsRequest {
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *      		        <p>
-   *      			          <code>key-pair-id</code> - The ID of the key pair.</p>
-   *      	      </li>
-   *             <li>
-   *                <p>
-   *                   <code>fingerprint</code> - The fingerprint of the key pair.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>key-name</code> - The name of the key pair.</p>
-   *             </li>
-   *             <li>
-   *      		        <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *      	      </li>
-   *             <li>
-   *      		        <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *      	      </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The key pair names.</p>
-   *          <p>Default: Describes all your key pairs.</p>
-   */
-  KeyNames?: string[];
-
-  /**
-   * <p>The IDs of the key pairs.</p>
-   */
-  KeyPairIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeKeyPairsRequest {
-  export const filterSensitiveLog = (obj: DescribeKeyPairsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a key pair.</p>
- */
-export interface KeyPairInfo {
-  /**
-   * <p>The ID of the key pair.</p>
-   */
-  KeyPairId?: string;
-
-  /**
-   * <p>If you used <a>CreateKeyPair</a> to create the key pair, this is the SHA-1 digest of the DER encoded private key.
-   *         If you used <a>ImportKeyPair</a> to provide AWS the public key, this is the MD5 public key fingerprint as specified in section 4 of RFC4716.</p>
-   */
-  KeyFingerprint?: string;
-
-  /**
-   * <p>The name of the key pair.</p>
-   */
-  KeyName?: string;
-
-  /**
-   * <p>Any tags applied to the key pair.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace KeyPairInfo {
-  export const filterSensitiveLog = (obj: KeyPairInfo): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeKeyPairsResult {
-  /**
-   * <p>Information about the key pairs.</p>
-   */
-  KeyPairs?: KeyPairInfo[];
-}
-
-export namespace DescribeKeyPairsResult {
-  export const filterSensitiveLog = (obj: DescribeKeyPairsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLaunchTemplatesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more launch template IDs.</p>
-   */
-  LaunchTemplateIds?: string[];
-
-  /**
-   * <p>One or more launch template names.</p>
-   */
-  LaunchTemplateNames?: string[];
-
-  /**
-   * <p>One or more filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>create-time</code> - The time the launch template was created.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>launch-template-name</code> - The name of the launch template.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The token to request the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value. This value
-   *             can be between 1 and 200.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace DescribeLaunchTemplatesRequest {
-  export const filterSensitiveLog = (obj: DescribeLaunchTemplatesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLaunchTemplatesResult {
-  /**
-   * <p>Information about the launch templates.</p>
-   */
-  LaunchTemplates?: LaunchTemplate[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is
-   *                 <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeLaunchTemplatesResult {
-  export const filterSensitiveLog = (obj: DescribeLaunchTemplatesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLaunchTemplateVersionsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the launch template. To describe one or more versions of a specified launch
-   *             template, you must specify either the launch template ID or the launch template name in
-   *             the request. To describe all the latest or default launch template versions in your
-   *             account, you must omit this parameter.</p>
-   */
-  LaunchTemplateId?: string;
-
-  /**
-   * <p>The name of the launch template. To describe one or more versions of a specified
-   *             launch template, you must specify either the launch template ID or the launch template
-   *             name in the request. To describe all the latest or default launch template versions in
-   *             your account, you must omit this parameter.</p>
-   */
-  LaunchTemplateName?: string;
-
-  /**
-   * <p>One or more versions of the launch template. Valid values depend on whether you are describing a specified launch template (by ID or name) or all launch templates in your account.</p>
-   *             <p>To describe one or more versions of a specified launch template, valid values are <code>$Latest</code>, <code>$Default</code>, and numbers.</p>
-   *             <p>To describe all launch templates in your account that are defined as the latest
-   *             version, the valid value is <code>$Latest</code>. To describe all launch templates in
-   *             your account that are defined as the default version, the valid value is
-   *                 <code>$Default</code>. You can specify <code>$Latest</code> and
-   *                 <code>$Default</code> in the same call. You cannot specify numbers.</p>
-   */
-  Versions?: string[];
-
-  /**
-   * <p>The version number after which to describe launch template versions.</p>
-   */
-  MinVersion?: string;
-
-  /**
-   * <p>The version number up to which to describe launch template versions.</p>
-   */
-  MaxVersion?: string;
-
-  /**
-   * <p>The token to request the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value. This value
-   *             can be between 1 and 200.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>One or more filters.</p>
-   *         <ul>
-   *             <li>
-   *                <p>
-   *                   <code>create-time</code> - The time the launch template version was created.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ebs-optimized</code> - A boolean that indicates whether the instance
-   *                     is optimized for Amazon EBS I/O.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>iam-instance-profile</code> - The ARN of the IAM instance
-   *                     profile.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>image-id</code> - The ID of the AMI.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>instance-type</code> - The instance type.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>is-default-version</code> - A boolean that indicates whether the
-   *                     launch template version is the default version.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>kernel-id</code> - The kernel ID.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ram-disk-id</code> - The RAM disk ID.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-}
-
-export namespace DescribeLaunchTemplateVersionsRequest {
-  export const filterSensitiveLog = (obj: DescribeLaunchTemplateVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLaunchTemplateVersionsResult {
-  /**
-   * <p>Information about the launch template versions.</p>
-   */
-  LaunchTemplateVersions?: LaunchTemplateVersion[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is
-   *                 <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeLaunchTemplateVersionsResult {
-  export const filterSensitiveLog = (obj: DescribeLaunchTemplateVersionsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLocalGatewayRouteTablesRequest {
-  /**
-   * <p>The IDs of the local gateway route tables.</p>
-   */
-  LocalGatewayRouteTableIds?: string[];
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-id</code> - The ID of a local gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-id</code> - The ID of a local gateway route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the local gateway route table.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeLocalGatewayRouteTablesRequest {
-  export const filterSensitiveLog = (obj: DescribeLocalGatewayRouteTablesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a local gateway route table.</p>
- */
-export interface LocalGatewayRouteTable {
-  /**
-   * <p>The ID of the local gateway route table.</p>
-   */
-  LocalGatewayRouteTableId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the local gateway route table.</p>
-   */
-  LocalGatewayRouteTableArn?: string;
-
-  /**
-   * <p>The ID of the local gateway.</p>
-   */
-  LocalGatewayId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
-   */
-  OutpostArn?: string;
-
-  /**
-   * <p>The AWS account ID that owns the local gateway route table.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The state of the local gateway route table.</p>
-   */
-  State?: string;
-
-  /**
-   * <p>The tags assigned to the local gateway route table.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace LocalGatewayRouteTable {
-  export const filterSensitiveLog = (obj: LocalGatewayRouteTable): any => ({
-    ...obj,
-  });
 }

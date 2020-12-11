@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteSpotDatafeedSubscriptionRequest } from "../models/models_1";
+import { DeleteSpotDatafeedSubscriptionRequest } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteSpotDatafeedSubscriptionCommand,
   serializeAws_ec2DeleteSpotDatafeedSubscriptionCommand,

@@ -10,24 +10,9 @@ export type HistoryItemType = "Action" | "ConfigurationUpdate" | "StateUpdate";
  */
 export interface AlarmHistoryItem {
   /**
-   * <p>The time stamp for the alarm history item.</p>
-   */
-  Timestamp?: Date;
-
-  /**
-   * <p>A summary of the alarm history, in text format.</p>
-   */
-  HistorySummary?: string;
-
-  /**
    * <p>The descriptive name for the alarm.</p>
    */
   AlarmName?: string;
-
-  /**
-   * <p>Data about the alarm, in JSON format.</p>
-   */
-  HistoryData?: string;
 
   /**
    * <p>The type of alarm, either metric alarm or composite alarm.</p>
@@ -35,9 +20,24 @@ export interface AlarmHistoryItem {
   AlarmType?: AlarmType | string;
 
   /**
+   * <p>The time stamp for the alarm history item.</p>
+   */
+  Timestamp?: Date;
+
+  /**
    * <p>The type of alarm history item.</p>
    */
   HistoryItemType?: HistoryItemType | string;
+
+  /**
+   * <p>A summary of the alarm history, in text format.</p>
+   */
+  HistorySummary?: string;
+
+  /**
+   * <p>Data about the alarm, in JSON format.</p>
+   */
+  HistoryData?: string;
 }
 
 export namespace AlarmHistoryItem {
@@ -52,16 +52,16 @@ export namespace AlarmHistoryItem {
  */
 export interface Range {
   /**
-   * <p>The end time of the range to exclude. The format is <code>yyyy-MM-dd'T'HH:mm:ss</code>. For example,
-   * 			<code>2019-07-01T23:59:59</code>.</p>
-   */
-  EndTime: Date | undefined;
-
-  /**
    * <p>The start time of the range to exclude. The format is <code>yyyy-MM-dd'T'HH:mm:ss</code>. For example,
    * 			<code>2019-07-01T23:59:59</code>.</p>
    */
   StartTime: Date | undefined;
+
+  /**
+   * <p>The end time of the range to exclude. The format is <code>yyyy-MM-dd'T'HH:mm:ss</code>. For example,
+   * 			<code>2019-07-01T23:59:59</code>.</p>
+   */
+  EndTime: Date | undefined;
 }
 
 export namespace Range {
@@ -107,16 +107,16 @@ export namespace AnomalyDetectorConfiguration {
  */
 export interface Dimension {
   /**
-   * <p>The value of the dimension. Dimension values cannot contain blank spaces
-   * 			or non-ASCII characters.</p>
-   */
-  Value: string | undefined;
-
-  /**
    * <p>The name of the dimension. Dimension names cannot contain blank spaces or non-ASCII
    * 		characters.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The value of the dimension. Dimension values cannot contain blank spaces
+   * 			or non-ASCII characters.</p>
+   */
+  Value: string | undefined;
 }
 
 export namespace Dimension {
@@ -134,19 +134,9 @@ export type AnomalyDetectorStateValue = "PENDING_TRAINING" | "TRAINED" | "TRAINE
  */
 export interface AnomalyDetector {
   /**
-   * <p>The metric dimensions associated with the anomaly detection model.</p>
-   */
-  Dimensions?: Dimension[];
-
-  /**
    * <p>The namespace of the metric associated with the anomaly detection model.</p>
    */
   Namespace?: string;
-
-  /**
-   * <p>The statistic associated with the anomaly detection model.</p>
-   */
-  Stat?: string;
 
   /**
    * <p>The name of the metric associated with the anomaly detection model.</p>
@@ -154,10 +144,14 @@ export interface AnomalyDetector {
   MetricName?: string;
 
   /**
-   * <p>The current status of the anomaly detector's training. The possible values are <code>TRAINED | PENDING_TRAINING | TRAINED_INSUFFICIENT_DATA</code>
-   *          </p>
+   * <p>The metric dimensions associated with the anomaly detection model.</p>
    */
-  StateValue?: AnomalyDetectorStateValue | string;
+  Dimensions?: Dimension[];
+
+  /**
+   * <p>The statistic associated with the anomaly detection model.</p>
+   */
+  Stat?: string;
 
   /**
    * <p>The configuration specifies details about how the
@@ -166,6 +160,12 @@ export interface AnomalyDetector {
    * 		the metric.</p>
    */
   Configuration?: AnomalyDetectorConfiguration;
+
+  /**
+   * <p>The current status of the anomaly detector's training. The possible values are <code>TRAINED | PENDING_TRAINING | TRAINED_INSUFFICIENT_DATA</code>
+   *          </p>
+   */
+  StateValue?: AnomalyDetectorStateValue | string;
 }
 
 export namespace AnomalyDetector {
@@ -185,11 +185,6 @@ export interface PartialFailure {
   FailureResource?: string;
 
   /**
-   * <p>A description of the error.</p>
-   */
-  FailureDescription?: string;
-
-  /**
    * <p>The type of error.</p>
    */
   ExceptionType?: string;
@@ -198,6 +193,11 @@ export interface PartialFailure {
    * <p>The code of the error.</p>
    */
   FailureCode?: string;
+
+  /**
+   * <p>A description of the error.</p>
+   */
+  FailureDescription?: string;
 }
 
 export namespace PartialFailure {
@@ -222,9 +222,44 @@ export type StateValue = "ALARM" | "INSUFFICIENT_DATA" | "OK";
  */
 export interface CompositeAlarm {
   /**
+   * <p>Indicates whether actions should be executed during any changes to the alarm state.</p>
+   */
+  ActionsEnabled?: boolean;
+
+  /**
    * <p>The actions to execute when this alarm transitions to the ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).</p>
    */
   AlarmActions?: string[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the alarm.</p>
+   */
+  AlarmArn?: string;
+
+  /**
+   * <p>The time stamp of the last update to the alarm configuration.</p>
+   */
+  AlarmConfigurationUpdatedTimestamp?: Date;
+
+  /**
+   * <p>The description of the alarm.</p>
+   */
+  AlarmDescription?: string;
+
+  /**
+   * <p>The name of the alarm.</p>
+   */
+  AlarmName?: string;
+
+  /**
+   * <p>The rule that this alarm uses to evaluate its alarm state.</p>
+   */
+  AlarmRule?: string;
+
+  /**
+   * <p>The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).</p>
+   */
+  InsufficientDataActions?: string[];
 
   /**
    * <p>The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).</p>
@@ -237,14 +272,9 @@ export interface CompositeAlarm {
   StateReason?: string;
 
   /**
-   * <p>The time stamp of the last update to the alarm configuration.</p>
+   * <p>An explanation for the alarm state, in JSON format.</p>
    */
-  AlarmConfigurationUpdatedTimestamp?: Date;
-
-  /**
-   * <p>The name of the alarm.</p>
-   */
-  AlarmName?: string;
+  StateReasonData?: string;
 
   /**
    * <p>The time stamp of the last update to the alarm state.</p>
@@ -255,36 +285,6 @@ export interface CompositeAlarm {
    * <p>The state value for the alarm.</p>
    */
   StateValue?: StateValue | string;
-
-  /**
-   * <p>Indicates whether actions should be executed during any changes to the alarm state.</p>
-   */
-  ActionsEnabled?: boolean;
-
-  /**
-   * <p>The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).</p>
-   */
-  InsufficientDataActions?: string[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the alarm.</p>
-   */
-  AlarmArn?: string;
-
-  /**
-   * <p>An explanation for the alarm state, in JSON format.</p>
-   */
-  StateReasonData?: string;
-
-  /**
-   * <p>The rule that this alarm uses to evaluate its alarm state.</p>
-   */
-  AlarmRule?: string;
-
-  /**
-   * <p>The description of the alarm.</p>
-   */
-  AlarmDescription?: string;
 }
 
 export namespace CompositeAlarm {
@@ -313,14 +313,14 @@ export namespace ConcurrentModificationException {
  */
 export interface DashboardEntry {
   /**
-   * <p>The size of the dashboard, in bytes.</p>
-   */
-  Size?: number;
-
-  /**
    * <p>The name of the dashboard.</p>
    */
   DashboardName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
+   */
+  DashboardArn?: string;
 
   /**
    * <p>The time stamp of when the dashboard was last modified, either by an API call or
@@ -329,9 +329,9 @@ export interface DashboardEntry {
   LastModified?: Date;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
+   * <p>The size of the dashboard, in bytes.</p>
    */
-  DashboardArn?: string;
+  Size?: number;
 }
 
 export namespace DashboardEntry {
@@ -426,36 +426,6 @@ export type StandardUnit =
  */
 export interface Datapoint {
   /**
-   * <p>The maximum metric value for the data point.</p>
-   */
-  Maximum?: number;
-
-  /**
-   * <p>The percentile statistic for the data point.</p>
-   */
-  ExtendedStatistics?: { [key: string]: number };
-
-  /**
-   * <p>The minimum metric value for the data point.</p>
-   */
-  Minimum?: number;
-
-  /**
-   * <p>The sum of the metric values for the data point.</p>
-   */
-  Sum?: number;
-
-  /**
-   * <p>The standard unit for the data point.</p>
-   */
-  Unit?: StandardUnit | string;
-
-  /**
-   * <p>The average of the metric values that correspond to the data point.</p>
-   */
-  Average?: number;
-
-  /**
    * <p>The time stamp used for the data point.</p>
    */
   Timestamp?: Date;
@@ -465,6 +435,36 @@ export interface Datapoint {
    * 			data point.</p>
    */
   SampleCount?: number;
+
+  /**
+   * <p>The average of the metric values that correspond to the data point.</p>
+   */
+  Average?: number;
+
+  /**
+   * <p>The sum of the metric values for the data point.</p>
+   */
+  Sum?: number;
+
+  /**
+   * <p>The minimum metric value for the data point.</p>
+   */
+  Minimum?: number;
+
+  /**
+   * <p>The maximum metric value for the data point.</p>
+   */
+  Maximum?: number;
+
+  /**
+   * <p>The standard unit for the data point.</p>
+   */
+  Unit?: StandardUnit | string;
+
+  /**
+   * <p>The percentile statistic for the data point.</p>
+   */
+  ExtendedStatistics?: { [key: string]: number };
 }
 
 export namespace Datapoint {
@@ -506,9 +506,9 @@ export namespace ResourceNotFound {
 
 export interface DeleteAnomalyDetectorInput {
   /**
-   * <p>The metric dimensions associated with the anomaly detection model to delete.</p>
+   * <p>The namespace associated with the anomaly detection model to delete.</p>
    */
-  Dimensions?: Dimension[];
+  Namespace: string | undefined;
 
   /**
    * <p>The metric name associated with the anomaly detection model to delete.</p>
@@ -516,9 +516,9 @@ export interface DeleteAnomalyDetectorInput {
   MetricName: string | undefined;
 
   /**
-   * <p>The namespace associated with the anomaly detection model to delete.</p>
+   * <p>The metric dimensions associated with the anomaly detection model to delete.</p>
    */
-  Namespace: string | undefined;
+  Dimensions?: Dimension[];
 
   /**
    * <p>The statistic associated with the anomaly detection model to delete.</p>
@@ -600,8 +600,8 @@ export namespace MissingRequiredParameterException {
 export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
-  ResourceId?: string;
   ResourceType?: string;
+  ResourceId?: string;
   Message?: string;
 }
 
@@ -665,36 +665,9 @@ export enum ScanBy {
 
 export interface DescribeAlarmHistoryInput {
   /**
-   * <p>The type of alarm histories to retrieve.</p>
-   */
-  HistoryItemType?: HistoryItemType | string;
-
-  /**
    * <p>The name of the alarm.</p>
    */
   AlarmName?: string;
-
-  /**
-   * <p>Specified whether to return the newest or oldest alarm history first. Specify <code>TimestampDescending</code> to have the newest
-   * 		event history returned first, and specify <code>TimestampAscending</code> to have the oldest history returned first.</p>
-   */
-  ScanBy?: ScanBy | string;
-
-  /**
-   * <p>The starting date to retrieve alarm history.</p>
-   */
-  StartDate?: Date;
-
-  /**
-   * <p>The token returned by a previous call to indicate that there is more data
-   * 			available.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of alarm history records to retrieve.</p>
-   */
-  MaxRecords?: number;
 
   /**
    * <p>Use this parameter to specify whether you want the operation to return metric alarms or composite alarms. If you omit this parameter,
@@ -703,9 +676,36 @@ export interface DescribeAlarmHistoryInput {
   AlarmTypes?: (AlarmType | string)[];
 
   /**
+   * <p>The type of alarm histories to retrieve.</p>
+   */
+  HistoryItemType?: HistoryItemType | string;
+
+  /**
+   * <p>The starting date to retrieve alarm history.</p>
+   */
+  StartDate?: Date;
+
+  /**
    * <p>The ending date to retrieve alarm history.</p>
    */
   EndDate?: Date;
+
+  /**
+   * <p>The maximum number of alarm history records to retrieve.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>The token returned by a previous call to indicate that there is more data
+   * 			available.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Specified whether to return the newest or oldest alarm history first. Specify <code>TimestampDescending</code> to have the newest
+   * 		event history returned first, and specify <code>TimestampAscending</code> to have the oldest history returned first.</p>
+   */
+  ScanBy?: ScanBy | string;
 }
 
 export namespace DescribeAlarmHistoryInput {
@@ -716,14 +716,14 @@ export namespace DescribeAlarmHistoryInput {
 
 export interface DescribeAlarmHistoryOutput {
   /**
-   * <p>The token that marks the start of the next batch of returned results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The alarm histories, in JSON format.</p>
    */
   AlarmHistoryItems?: AlarmHistoryItem[];
+
+  /**
+   * <p>The token that marks the start of the next batch of returned results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeAlarmHistoryOutput {
@@ -752,38 +752,9 @@ export namespace InvalidNextToken {
 
 export interface DescribeAlarmsInput {
   /**
-   * <p>The maximum number of alarm descriptions to retrieve.</p>
-   */
-  MaxRecords?: number;
-
-  /**
    * <p>The names of the alarms to retrieve information about.</p>
    */
   AlarmNames?: string[];
-
-  /**
-   * <p>Use this parameter to specify whether you want the operation to return metric alarms or composite alarms. If you omit this parameter,
-   * 		only metric alarms are returned.</p>
-   */
-  AlarmTypes?: (AlarmType | string)[];
-
-  /**
-   * <p>If you use this parameter and specify the name of a metric or composite alarm, the operation returns
-   * 			information about the "parent" alarms
-   * 			of the alarm you specify. These are the composite alarms that have <code>AlarmRule</code>
-   * 			parameters that reference
-   * 			the alarm named in <code>ParentsOfAlarmName</code>. Information about the alarm that you specify in
-   * 			<code>ParentsOfAlarmName</code> is not returned.</p>
-   * 		       <p>If you specify <code>ParentsOfAlarmName</code>, you cannot specify any other parameters in the request except
-   * 			for <code>MaxRecords</code> and <code>NextToken</code>. If you do so, you receive a validation
-   * 			error.</p>
-   * 		       <note>
-   *             <p>Only the Alarm Name and ARN are returned by this operation when you use this parameter. To get complete information about
-   * 			these alarms, perform another <code>DescribeAlarms</code> operation and specify
-   * 			the parent alarm names in the <code>AlarmNames</code> parameter.</p>
-   *          </note>
-   */
-  ParentsOfAlarmName?: string;
 
   /**
    * <p>An alarm name prefix. If you specify this parameter, you receive information about all alarms that have names
@@ -794,22 +765,10 @@ export interface DescribeAlarmsInput {
   AlarmNamePrefix?: string;
 
   /**
-   * <p>Specify this parameter to receive information only about alarms that are currently in the state that you specify.</p>
+   * <p>Use this parameter to specify whether you want the operation to return metric alarms or composite alarms. If you omit this parameter,
+   * 		only metric alarms are returned.</p>
    */
-  StateValue?: StateValue | string;
-
-  /**
-   * <p>The token returned by a previous call to indicate that there is more data
-   * 			available.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Use this parameter to filter the results of the operation to only those alarms that
-   * 		use a certain alarm action. For example, you could specify the ARN of an SNS topic to find all
-   * 		alarms that send notifications to that topic.</p>
-   */
-  ActionPrefix?: string;
+  AlarmTypes?: (AlarmType | string)[];
 
   /**
    * <p>If you use this parameter and specify the name of a composite alarm, the operation returns
@@ -831,6 +790,47 @@ export interface DescribeAlarmsInput {
    *          </note>
    */
   ChildrenOfAlarmName?: string;
+
+  /**
+   * <p>If you use this parameter and specify the name of a metric or composite alarm, the operation returns
+   * 			information about the "parent" alarms
+   * 			of the alarm you specify. These are the composite alarms that have <code>AlarmRule</code>
+   * 			parameters that reference
+   * 			the alarm named in <code>ParentsOfAlarmName</code>. Information about the alarm that you specify in
+   * 			<code>ParentsOfAlarmName</code> is not returned.</p>
+   * 		       <p>If you specify <code>ParentsOfAlarmName</code>, you cannot specify any other parameters in the request except
+   * 			for <code>MaxRecords</code> and <code>NextToken</code>. If you do so, you receive a validation
+   * 			error.</p>
+   * 		       <note>
+   *             <p>Only the Alarm Name and ARN are returned by this operation when you use this parameter. To get complete information about
+   * 			these alarms, perform another <code>DescribeAlarms</code> operation and specify
+   * 			the parent alarm names in the <code>AlarmNames</code> parameter.</p>
+   *          </note>
+   */
+  ParentsOfAlarmName?: string;
+
+  /**
+   * <p>Specify this parameter to receive information only about alarms that are currently in the state that you specify.</p>
+   */
+  StateValue?: StateValue | string;
+
+  /**
+   * <p>Use this parameter to filter the results of the operation to only those alarms that
+   * 		use a certain alarm action. For example, you could specify the ARN of an SNS topic to find all
+   * 		alarms that send notifications to that topic.</p>
+   */
+  ActionPrefix?: string;
+
+  /**
+   * <p>The maximum number of alarm descriptions to retrieve.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>The token returned by a previous call to indicate that there is more data
+   * 			available.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeAlarmsInput {
@@ -844,11 +844,6 @@ export namespace DescribeAlarmsInput {
  */
 export interface Metric {
   /**
-   * <p>The dimensions for the metric.</p>
-   */
-  Dimensions?: Dimension[];
-
-  /**
    * <p>The namespace of the metric.</p>
    */
   Namespace?: string;
@@ -857,6 +852,11 @@ export interface Metric {
    * <p>The name of the metric. This is a required field.</p>
    */
   MetricName?: string;
+
+  /**
+   * <p>The dimensions for the metric.</p>
+   */
+  Dimensions?: Dimension[];
 }
 
 export namespace Metric {
@@ -869,6 +869,11 @@ export namespace Metric {
  * <p>This structure defines the metric to be returned, along with the statistics, period, and units.</p>
  */
 export interface MetricStat {
+  /**
+   * <p>The metric to return, including the metric name, namespace, and dimensions.</p>
+   */
+  Metric: Metric | undefined;
+
   /**
    * <p>The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can
    * 			be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected
@@ -889,11 +894,6 @@ export interface MetricStat {
    *          </ul>
    */
   Period: number | undefined;
-
-  /**
-   * <p>The metric to return, including the metric name, namespace, and dimensions.</p>
-   */
-  Metric: Metric | undefined;
 
   /**
    * <p>The statistic to return. It can include any CloudWatch statistic or extended statistic.</p>
@@ -941,37 +941,6 @@ export namespace MetricStat {
  */
 export interface MetricDataQuery {
   /**
-   * <p>The granularity, in seconds, of the returned data points. For metrics with regular resolution, a
-   * 			period can be as short as one minute (60 seconds) and must be a multiple of 60.
-   * 			For high-resolution metrics that are collected at intervals of less than one minute,
-   * 			the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics
-   * 			stored by a <code>PutMetricData</code> operation that includes a <code>StorageResolution of 1 second</code>.</p>
-   */
-  Period?: number;
-
-  /**
-   * <p>When used in <code>GetMetricData</code>, this option indicates whether to return the
-   * 			timestamps and raw data values of this metric. If you are performing this call just to
-   * 			do math expressions and do not also need the raw data returned, you can specify
-   * 				<code>False</code>. If you omit this, the default of <code>True</code> is
-   * 			used.</p>
-   * 		       <p>When used in <code>PutMetricAlarm</code>, specify <code>True</code> for the one expression result to use as the alarm. For all
-   * 		other metrics and expressions in the same <code>PutMetricAlarm</code> operation, specify <code>ReturnData</code> as False.</p>
-   */
-  ReturnData?: boolean;
-
-  /**
-   * <p>The math expression to be performed on the returned data, if this object is performing a math expression. This expression
-   * 			can use the <code>Id</code> of the other metrics to refer to those metrics, and can also use the <code>Id</code> of other
-   * 			expressions to use the result of those expressions. For more information about metric math expressions, see
-   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax">Metric Math Syntax and Functions</a> in the
-   * 			<i>Amazon CloudWatch User Guide</i>.</p>
-   * 		       <p>Within each MetricDataQuery object, you must specify either
-   * 			<code>Expression</code> or <code>MetricStat</code> but not both.</p>
-   */
-  Expression?: string;
-
-  /**
    * <p>A short name used to tie this object to the results in the response. This name must be
    * 			unique within a single call to <code>GetMetricData</code>. If you are performing math
    * 			expressions on this set of data, this name represents that data and can serve as a
@@ -989,11 +958,42 @@ export interface MetricDataQuery {
   MetricStat?: MetricStat;
 
   /**
+   * <p>The math expression to be performed on the returned data, if this object is performing a math expression. This expression
+   * 			can use the <code>Id</code> of the other metrics to refer to those metrics, and can also use the <code>Id</code> of other
+   * 			expressions to use the result of those expressions. For more information about metric math expressions, see
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax">Metric Math Syntax and Functions</a> in the
+   * 			<i>Amazon CloudWatch User Guide</i>.</p>
+   * 		       <p>Within each MetricDataQuery object, you must specify either
+   * 			<code>Expression</code> or <code>MetricStat</code> but not both.</p>
+   */
+  Expression?: string;
+
+  /**
    * <p>A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know
    * 			what the value represents. If the metric or expression is shown in a CloudWatch dashboard widget, the label is shown. If Label is omitted, CloudWatch
    * 			generates a default.</p>
    */
   Label?: string;
+
+  /**
+   * <p>When used in <code>GetMetricData</code>, this option indicates whether to return the
+   * 			timestamps and raw data values of this metric. If you are performing this call just to
+   * 			do math expressions and do not also need the raw data returned, you can specify
+   * 				<code>False</code>. If you omit this, the default of <code>True</code> is
+   * 			used.</p>
+   * 		       <p>When used in <code>PutMetricAlarm</code>, specify <code>True</code> for the one expression result to use as the alarm. For all
+   * 		other metrics and expressions in the same <code>PutMetricAlarm</code> operation, specify <code>ReturnData</code> as False.</p>
+   */
+  ReturnData?: boolean;
+
+  /**
+   * <p>The granularity, in seconds, of the returned data points. For metrics with regular resolution, a
+   * 			period can be as short as one minute (60 seconds) and must be a multiple of 60.
+   * 			For high-resolution metrics that are collected at intervals of less than one minute,
+   * 			the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics
+   * 			stored by a <code>PutMetricData</code> operation that includes a <code>StorageResolution of 1 second</code>.</p>
+   */
+  Period?: number;
 }
 
 export namespace MetricDataQuery {
@@ -1009,19 +1009,29 @@ export type Statistic = "Average" | "Maximum" | "Minimum" | "SampleCount" | "Sum
  */
 export interface MetricAlarm {
   /**
-   * <p>The time stamp of the last update to the alarm state.</p>
+   * <p>The name of the alarm.</p>
    */
-  StateUpdatedTimestamp?: Date;
+  AlarmName?: string;
 
   /**
-   * <p>The number of data points that must be breaching to trigger the alarm.</p>
+   * <p>The Amazon Resource Name (ARN) of the alarm.</p>
    */
-  DatapointsToAlarm?: number;
+  AlarmArn?: string;
 
   /**
-   * <p>The number of periods over which data is compared to the specified threshold.</p>
+   * <p>The description of the alarm.</p>
    */
-  EvaluationPeriods?: number;
+  AlarmDescription?: string;
+
+  /**
+   * <p>The time stamp of the last update to the alarm configuration.</p>
+   */
+  AlarmConfigurationUpdatedTimestamp?: Date;
+
+  /**
+   * <p>Indicates whether actions should be executed during any changes to the alarm state.</p>
+   */
+  ActionsEnabled?: boolean;
 
   /**
    * <p>The actions to execute when this alarm transitions to the <code>OK</code> state
@@ -1030,26 +1040,10 @@ export interface MetricAlarm {
   OKActions?: string[];
 
   /**
-   * <p>The value to compare with the specified statistic.</p>
+   * <p>The actions to execute when this alarm transitions to the <code>ALARM</code> state
+   * 			from any other state. Each action is specified as an Amazon Resource Name (ARN).</p>
    */
-  Threshold?: number;
-
-  /**
-   * <p>In an alarm based on an anomaly detection model, this is the ID of the
-   * 			<code>ANOMALY_DETECTION_BAND</code> function
-   * 			used as the threshold for the alarm.</p>
-   */
-  ThresholdMetricId?: string;
-
-  /**
-   * <p>The unit of the metric associated with the alarm.</p>
-   */
-  Unit?: StandardUnit | string;
-
-  /**
-   * <p>The namespace of the metric associated with the alarm.</p>
-   */
-  Namespace?: string;
+  AlarmActions?: string[];
 
   /**
    * <p>The actions to execute when this alarm transitions to the <code>INSUFFICIENT_DATA</code> state
@@ -1058,16 +1052,35 @@ export interface MetricAlarm {
   InsufficientDataActions?: string[];
 
   /**
-   * <p>The percentile statistic for the metric associated with the alarm. Specify a value between
-   * 			p0.0 and p100.</p>
+   * <p>The state value for the alarm.</p>
    */
-  ExtendedStatistic?: string;
+  StateValue?: StateValue | string;
 
   /**
-   * <p>The arithmetic operation to use when comparing the specified
-   * 			statistic and threshold. The specified statistic value is used as the first operand.</p>
+   * <p>An explanation for the alarm state, in text format.</p>
    */
-  ComparisonOperator?: ComparisonOperator | string;
+  StateReason?: string;
+
+  /**
+   * <p>An explanation for the alarm state, in JSON format.</p>
+   */
+  StateReasonData?: string;
+
+  /**
+   * <p>The time stamp of the last update to the alarm state.</p>
+   */
+  StateUpdatedTimestamp?: Date;
+
+  /**
+   * <p>The name of the metric associated with the alarm, if this is an alarm
+   * 		based on a single metric.</p>
+   */
+  MetricName?: string;
+
+  /**
+   * <p>The namespace of the metric associated with the alarm.</p>
+   */
+  Namespace?: string;
 
   /**
    * <p>The statistic for the metric associated with the alarm, other than percentile.
@@ -1076,9 +1089,59 @@ export interface MetricAlarm {
   Statistic?: Statistic | string;
 
   /**
-   * <p>Indicates whether actions should be executed during any changes to the alarm state.</p>
+   * <p>The percentile statistic for the metric associated with the alarm. Specify a value between
+   * 			p0.0 and p100.</p>
    */
-  ActionsEnabled?: boolean;
+  ExtendedStatistic?: string;
+
+  /**
+   * <p>The dimensions for the metric associated with the alarm.</p>
+   */
+  Dimensions?: Dimension[];
+
+  /**
+   * <p>The period, in seconds, over which the statistic is applied.</p>
+   */
+  Period?: number;
+
+  /**
+   * <p>The unit of the metric associated with the alarm.</p>
+   */
+  Unit?: StandardUnit | string;
+
+  /**
+   * <p>The number of periods over which data is compared to the specified threshold.</p>
+   */
+  EvaluationPeriods?: number;
+
+  /**
+   * <p>The number of data points that must be breaching to trigger the alarm.</p>
+   */
+  DatapointsToAlarm?: number;
+
+  /**
+   * <p>The value to compare with the specified statistic.</p>
+   */
+  Threshold?: number;
+
+  /**
+   * <p>The arithmetic operation to use when comparing the specified
+   * 			statistic and threshold. The specified statistic value is used as the first operand.</p>
+   */
+  ComparisonOperator?: ComparisonOperator | string;
+
+  /**
+   * <p>Sets how this alarm is to handle missing data points. If this parameter is omitted, the default behavior of <code>missing</code> is used.</p>
+   */
+  TreatMissingData?: string;
+
+  /**
+   * <p>Used only for alarms based on percentiles. If <code>ignore</code>, the alarm state does not change
+   * 			during periods with too few data points to be statistically significant. If <code>evaluate</code> or this
+   * 			parameter is not used, the alarm is always evaluated and possibly changes state no matter
+   * 			how many data points are available.</p>
+   */
+  EvaluateLowSampleCountPercentile?: string;
 
   /**
    * <p>An array of MetricDataQuery structures, used in an alarm based on a
@@ -1092,74 +1155,11 @@ export interface MetricAlarm {
   Metrics?: MetricDataQuery[];
 
   /**
-   * <p>The time stamp of the last update to the alarm configuration.</p>
+   * <p>In an alarm based on an anomaly detection model, this is the ID of the
+   * 			<code>ANOMALY_DETECTION_BAND</code> function
+   * 			used as the threshold for the alarm.</p>
    */
-  AlarmConfigurationUpdatedTimestamp?: Date;
-
-  /**
-   * <p>The description of the alarm.</p>
-   */
-  AlarmDescription?: string;
-
-  /**
-   * <p>Sets how this alarm is to handle missing data points. If this parameter is omitted, the default behavior of <code>missing</code> is used.</p>
-   */
-  TreatMissingData?: string;
-
-  /**
-   * <p>The name of the alarm.</p>
-   */
-  AlarmName?: string;
-
-  /**
-   * <p>The period, in seconds, over which the statistic is applied.</p>
-   */
-  Period?: number;
-
-  /**
-   * <p>The name of the metric associated with the alarm, if this is an alarm
-   * 		based on a single metric.</p>
-   */
-  MetricName?: string;
-
-  /**
-   * <p>The actions to execute when this alarm transitions to the <code>ALARM</code> state
-   * 			from any other state. Each action is specified as an Amazon Resource Name (ARN).</p>
-   */
-  AlarmActions?: string[];
-
-  /**
-   * <p>The state value for the alarm.</p>
-   */
-  StateValue?: StateValue | string;
-
-  /**
-   * <p>Used only for alarms based on percentiles. If <code>ignore</code>, the alarm state does not change
-   * 			during periods with too few data points to be statistically significant. If <code>evaluate</code> or this
-   * 			parameter is not used, the alarm is always evaluated and possibly changes state no matter
-   * 			how many data points are available.</p>
-   */
-  EvaluateLowSampleCountPercentile?: string;
-
-  /**
-   * <p>The dimensions for the metric associated with the alarm.</p>
-   */
-  Dimensions?: Dimension[];
-
-  /**
-   * <p>An explanation for the alarm state, in JSON format.</p>
-   */
-  StateReasonData?: string;
-
-  /**
-   * <p>An explanation for the alarm state, in text format.</p>
-   */
-  StateReason?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the alarm.</p>
-   */
-  AlarmArn?: string;
+  ThresholdMetricId?: string;
 }
 
 export namespace MetricAlarm {
@@ -1193,30 +1193,20 @@ export namespace DescribeAlarmsOutput {
 
 export interface DescribeAlarmsForMetricInput {
   /**
-   * <p>The namespace of the metric.</p>
-   */
-  Namespace: string | undefined;
-
-  /**
    * <p>The name of the metric.</p>
    */
   MetricName: string | undefined;
 
   /**
-   * <p>The period, in seconds, over which the statistic is applied.</p>
+   * <p>The namespace of the metric.</p>
    */
-  Period?: number;
+  Namespace: string | undefined;
 
   /**
    * <p>The statistic for the metric, other than percentiles.
    * 		    For percentile statistics, use <code>ExtendedStatistics</code>.</p>
    */
   Statistic?: Statistic | string;
-
-  /**
-   * <p>The unit for the metric.</p>
-   */
-  Unit?: StandardUnit | string;
 
   /**
    * <p>The percentile statistic for the metric. Specify a value between
@@ -1229,6 +1219,16 @@ export interface DescribeAlarmsForMetricInput {
    * 			dimensions, you must specify them in order for the call to succeed.</p>
    */
   Dimensions?: Dimension[];
+
+  /**
+   * <p>The period, in seconds, over which the statistic is applied.</p>
+   */
+  Period?: number;
+
+  /**
+   * <p>The unit for the metric.</p>
+   */
+  Unit?: StandardUnit | string;
 }
 
 export namespace DescribeAlarmsForMetricInput {
@@ -1252,11 +1252,9 @@ export namespace DescribeAlarmsForMetricOutput {
 
 export interface DescribeAnomalyDetectorsInput {
   /**
-   * <p>Limits the results to only the anomaly detection models that are associated with the
-   * 			specified metric dimensions. If there are multiple metrics that have these dimensions
-   * 			and have anomaly detection models associated, they're all returned.</p>
+   * <p>Use the token returned by the previous operation to request the next page of results.</p>
    */
-  Dimensions?: Dimension[];
+  NextToken?: string;
 
   /**
    * <p>The maximum number of results to return in one operation. The maximum
@@ -1280,9 +1278,11 @@ export interface DescribeAnomalyDetectorsInput {
   MetricName?: string;
 
   /**
-   * <p>Use the token returned by the previous operation to request the next page of results.</p>
+   * <p>Limits the results to only the anomaly detection models that are associated with the
+   * 			specified metric dimensions. If there are multiple metrics that have these dimensions
+   * 			and have anomaly detection models associated, they're all returned.</p>
    */
-  NextToken?: string;
+  Dimensions?: Dimension[];
 }
 
 export namespace DescribeAnomalyDetectorsInput {
@@ -1293,15 +1293,15 @@ export namespace DescribeAnomalyDetectorsInput {
 
 export interface DescribeAnomalyDetectorsOutput {
   /**
+   * <p>The list of anomaly detection models returned by the operation.</p>
+   */
+  AnomalyDetectors?: AnomalyDetector[];
+
+  /**
    * <p>A token that you can use in a subsequent operation to
    * 		retrieve the next set of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The list of anomaly detection models returned by the operation.</p>
-   */
-  AnomalyDetectors?: AnomalyDetector[];
 }
 
 export namespace DescribeAnomalyDetectorsOutput {
@@ -1339,12 +1339,9 @@ export interface InsightRule {
   Name: string | undefined;
 
   /**
-   * <p>The definition of the rule, as a JSON object. The definition contains the keywords used to define contributors,
-   * 			the value to aggregate on if this rule returns a sum instead of a count, and the filters. For details on the valid syntax, see
-   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html">Contributor Insights
-   * 				Rule Syntax</a>.</p>
+   * <p>Indicates whether the rule is enabled or disabled.</p>
    */
-  Definition: string | undefined;
+  State: string | undefined;
 
   /**
    * <p>For rules that you create, this is always <code>{"Name": "CloudWatchLogRule", "Version": 1}</code>. For built-in rules,
@@ -1354,9 +1351,12 @@ export interface InsightRule {
   Schema: string | undefined;
 
   /**
-   * <p>Indicates whether the rule is enabled or disabled.</p>
+   * <p>The definition of the rule, as a JSON object. The definition contains the keywords used to define contributors,
+   * 			the value to aggregate on if this rule returns a sum instead of a count, and the filters. For details on the valid syntax, see
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html">Contributor Insights
+   * 				Rule Syntax</a>.</p>
    */
-  State: string | undefined;
+  Definition: string | undefined;
 }
 
 export namespace InsightRule {
@@ -1388,14 +1388,14 @@ export namespace DescribeInsightRulesOutput {
  */
 export interface DimensionFilter {
   /**
-   * <p>The value of the dimension to be matched.</p>
-   */
-  Value?: string;
-
-  /**
    * <p>The dimension name to be matched.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The value of the dimension to be matched.</p>
+   */
+  Value?: string;
 }
 
 export namespace DimensionFilter {
@@ -1512,11 +1512,6 @@ export namespace GetDashboardInput {
 
 export interface GetDashboardOutput {
   /**
-   * <p>The name of the dashboard.</p>
-   */
-  DashboardName?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
    */
   DashboardArn?: string;
@@ -1527,6 +1522,11 @@ export interface GetDashboardOutput {
    * 			see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html">Dashboard Body Structure and Syntax</a>. </p>
    */
   DashboardBody?: string;
+
+  /**
+   * <p>The name of the dashboard.</p>
+   */
+  DashboardName?: string;
 }
 
 export namespace GetDashboardOutput {
@@ -1537,11 +1537,33 @@ export namespace GetDashboardOutput {
 
 export interface GetInsightRuleReportInput {
   /**
+   * <p>The name of the rule that you want to see data from.</p>
+   */
+  RuleName: string | undefined;
+
+  /**
    * <p>The start time of the data to use in the report. When used in a raw HTTP Query API, it is formatted as
    * 			<code>yyyy-MM-dd'T'HH:mm:ss</code>. For example,
    * 			<code>2019-07-01T23:59:59</code>.</p>
    */
   StartTime: Date | undefined;
+
+  /**
+   * <p>The end time of the data to use in the report. When used in a raw HTTP Query API, it is formatted as
+   * 			<code>yyyy-MM-dd'T'HH:mm:ss</code>. For example,
+   * 			<code>2019-07-01T23:59:59</code>.</p>
+   */
+  EndTime: Date | undefined;
+
+  /**
+   * <p>The period, in seconds, to use for the statistics in the <code>InsightRuleMetricDatapoint</code> results.</p>
+   */
+  Period: number | undefined;
+
+  /**
+   * <p>The maximum number of contributors to include in the report. The range is 1 to 100. If you omit this, the default of 10 is used.</p>
+   */
+  MaxContributorCount?: number;
 
   /**
    * <p>Specifies which metrics to use for aggregation of contributor values for the report. You can specify one or more
@@ -1582,28 +1604,6 @@ export interface GetInsightRuleReportInput {
    *          </ul>
    */
   Metrics?: string[];
-
-  /**
-   * <p>The maximum number of contributors to include in the report. The range is 1 to 100. If you omit this, the default of 10 is used.</p>
-   */
-  MaxContributorCount?: number;
-
-  /**
-   * <p>The name of the rule that you want to see data from.</p>
-   */
-  RuleName: string | undefined;
-
-  /**
-   * <p>The end time of the data to use in the report. When used in a raw HTTP Query API, it is formatted as
-   * 			<code>yyyy-MM-dd'T'HH:mm:ss</code>. For example,
-   * 			<code>2019-07-01T23:59:59</code>.</p>
-   */
-  EndTime: Date | undefined;
-
-  /**
-   * <p>The period, in seconds, to use for the statistics in the <code>InsightRuleMetricDatapoint</code> results.</p>
-   */
-  Period: number | undefined;
 
   /**
    * <p>Determines what statistic to use to rank the contributors. Valid values are SUM and MAXIMUM.</p>
@@ -1648,11 +1648,6 @@ export namespace InsightRuleContributorDatapoint {
  */
 export interface InsightRuleContributor {
   /**
-   * <p>An array of the data points where this contributor is present. Only the data points when this contributor appeared are included in the array.</p>
-   */
-  Datapoints: InsightRuleContributorDatapoint[] | undefined;
-
-  /**
    * <p>One of the log entry field keywords that is used to define contributors for this rule.</p>
    */
   Keys: string[] | undefined;
@@ -1661,6 +1656,11 @@ export interface InsightRuleContributor {
    * <p>An approximation of the aggregate value that comes from this contributor.</p>
    */
   ApproximateAggregateValue: number | undefined;
+
+  /**
+   * <p>An array of the data points where this contributor is present. Only the data points when this contributor appeared are included in the array.</p>
+   */
+  Datapoints: InsightRuleContributorDatapoint[] | undefined;
 }
 
 export namespace InsightRuleContributor {
@@ -1675,10 +1675,9 @@ export namespace InsightRuleContributor {
  */
 export interface InsightRuleMetricDatapoint {
   /**
-   * <p>The maximum value from a single occurence from a single contributor during the time period represented by that data point.</p>
-   * 		       <p>This statistic is returned only if you included it in the <code>Metrics</code> array in your request.</p>
+   * <p>The timestamp of the data point.</p>
    */
-  Maximum?: number;
+  Timestamp: Date | undefined;
 
   /**
    * <p>The number of unique contributors who published data during this timestamp.</p>
@@ -1695,11 +1694,6 @@ export interface InsightRuleMetricDatapoint {
   MaxContributorValue?: number;
 
   /**
-   * <p>The timestamp of the data point.</p>
-   */
-  Timestamp: Date | undefined;
-
-  /**
    * <p>The number of occurrences that matched the rule during this data point.</p>
    * 		       <p>This statistic is returned only if you included it in the <code>Metrics</code> array in your request.</p>
    */
@@ -1712,16 +1706,22 @@ export interface InsightRuleMetricDatapoint {
   Average?: number;
 
   /**
+   * <p>The sum of the values from all contributors during the time period represented by that data point.</p>
+   * 		       <p>This statistic is returned only if you included it in the <code>Metrics</code> array in your request.</p>
+   */
+  Sum?: number;
+
+  /**
    * <p>The minimum value from a single contributor during the time period represented by that data point.</p>
    * 		       <p>This statistic is returned only if you included it in the <code>Metrics</code> array in your request.</p>
    */
   Minimum?: number;
 
   /**
-   * <p>The sum of the values from all contributors during the time period represented by that data point.</p>
+   * <p>The maximum value from a single occurence from a single contributor during the time period represented by that data point.</p>
    * 		       <p>This statistic is returned only if you included it in the <code>Metrics</code> array in your request.</p>
    */
-  Sum?: number;
+  Maximum?: number;
 }
 
 export namespace InsightRuleMetricDatapoint {
@@ -1732,20 +1732,25 @@ export namespace InsightRuleMetricDatapoint {
 
 export interface GetInsightRuleReportOutput {
   /**
+   * <p>An array of the strings used as the keys for this rule. The keys are the dimensions used to classify contributors.
+   * 			If the rule contains more than one key, then each unique combination of values for the keys is counted as a unique contributor.</p>
+   */
+  KeyLabels?: string[];
+
+  /**
+   * <p>Specifies whether this rule aggregates contributor data by COUNT or SUM.</p>
+   */
+  AggregationStatistic?: string;
+
+  /**
    * <p>The sum of the values from all individual contributors that match the rule.</p>
    */
   AggregateValue?: number;
 
   /**
-   * <p>A time series of metric data points that matches the time period in the rule request.</p>
+   * <p>An approximate count of the unique contributors found by this rule in this time period.</p>
    */
-  MetricDatapoints?: InsightRuleMetricDatapoint[];
-
-  /**
-   * <p>An array of the strings used as the keys for this rule. The keys are the dimensions used to classify contributors.
-   * 			If the rule contains more than one key, then each unique combination of values for the keys is counted as a unique contributor.</p>
-   */
-  KeyLabels?: string[];
+  ApproximateUniqueCount?: number;
 
   /**
    * <p>An array of the unique contributors found by this rule in this time period. If the rule contains multiple keys, each combination of values
@@ -1754,14 +1759,9 @@ export interface GetInsightRuleReportOutput {
   Contributors?: InsightRuleContributor[];
 
   /**
-   * <p>An approximate count of the unique contributors found by this rule in this time period.</p>
+   * <p>A time series of metric data points that matches the time period in the rule request.</p>
    */
-  ApproximateUniqueCount?: number;
-
-  /**
-   * <p>Specifies whether this rule aggregates contributor data by COUNT or SUM.</p>
-   */
-  AggregationStatistic?: string;
+  MetricDatapoints?: InsightRuleMetricDatapoint[];
 }
 
 export namespace GetInsightRuleReportOutput {
@@ -1771,6 +1771,12 @@ export namespace GetInsightRuleReportOutput {
 }
 
 export interface GetMetricDataInput {
+  /**
+   * <p>The metric queries to be returned. A single <code>GetMetricData</code> call can include as many as 500 <code>MetricDataQuery</code>
+   * 		structures. Each of these structures can specify either a metric to retrieve, or a math expression to perform on retrieved data. </p>
+   */
+  MetricDataQueries: MetricDataQuery[] | undefined;
+
   /**
    * <p>The time stamp indicating the earliest data to be returned.</p>
    * 		       <p>The value specified is inclusive; results include data points with the specified time stamp. </p>
@@ -1806,31 +1812,6 @@ export interface GetMetricDataInput {
   StartTime: Date | undefined;
 
   /**
-   * <p>Include this value, if it was returned by the previous <code>GetMetricData</code> operation,
-   * 			to get the next set of data points.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The metric queries to be returned. A single <code>GetMetricData</code> call can include as many as 500 <code>MetricDataQuery</code>
-   * 		structures. Each of these structures can specify either a metric to retrieve, or a math expression to perform on retrieved data. </p>
-   */
-  MetricDataQueries: MetricDataQuery[] | undefined;
-
-  /**
-   * <p>The maximum number of data points the request should return before paginating. If you omit
-   * 			this, the default of 100,800 is used.</p>
-   */
-  MaxDatapoints?: number;
-
-  /**
-   * <p>The order in which data points should be returned. <code>TimestampDescending</code> returns the newest data first and paginates
-   * 			when the <code>MaxDatapoints</code> limit is reached. <code>TimestampAscending</code> returns the oldest data first and paginates
-   * 			when the <code>MaxDatapoints</code> limit is reached.</p>
-   */
-  ScanBy?: ScanBy | string;
-
-  /**
    * <p>The time stamp indicating the latest data to be returned.</p>
    * 		       <p>The value specified is exclusive; results include data points up to the specified time stamp.</p>
    * 		       <p>For better performance, specify <code>StartTime</code> and <code>EndTime</code>
@@ -1840,6 +1821,25 @@ export interface GetMetricDataInput {
    * 			from CloudWatch than setting 12:07 or 12:29 as the <code>EndTime</code>.</p>
    */
   EndTime: Date | undefined;
+
+  /**
+   * <p>Include this value, if it was returned by the previous <code>GetMetricData</code> operation,
+   * 			to get the next set of data points.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The order in which data points should be returned. <code>TimestampDescending</code> returns the newest data first and paginates
+   * 			when the <code>MaxDatapoints</code> limit is reached. <code>TimestampAscending</code> returns the oldest data first and paginates
+   * 			when the <code>MaxDatapoints</code> limit is reached.</p>
+   */
+  ScanBy?: ScanBy | string;
+
+  /**
+   * <p>The maximum number of data points the request should return before paginating. If you omit
+   * 			this, the default of 100,800 is used.</p>
+   */
+  MaxDatapoints?: number;
 }
 
 export namespace GetMetricDataInput {
@@ -1882,21 +1882,21 @@ export enum StatusCode {
  */
 export interface MetricDataResult {
   /**
+   * <p>The short name you specified to represent this metric.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The human-readable label associated with the data.</p>
+   */
+  Label?: string;
+
+  /**
    * <p>The timestamps for the data points, formatted in Unix timestamp format. The number of
    * 			timestamps always matches the number of values and the value for Timestamps[x] is
    * 			Values[x].</p>
    */
   Timestamps?: Date[];
-
-  /**
-   * <p>A list of messages with additional information about the data returned.</p>
-   */
-  Messages?: MessageData[];
-
-  /**
-   * <p>The short name you specified to represent this metric.</p>
-   */
-  Id?: string;
 
   /**
    * <p>The data points for the metric corresponding to <code>Timestamps</code>. The number of
@@ -1915,9 +1915,9 @@ export interface MetricDataResult {
   StatusCode?: StatusCode | string;
 
   /**
-   * <p>The human-readable label associated with the data.</p>
+   * <p>A list of messages with additional information about the data returned.</p>
    */
-  Label?: string;
+  Messages?: MessageData[];
 }
 
 export namespace MetricDataResult {
@@ -1933,6 +1933,11 @@ export interface GetMetricDataOutput {
   MetricDataResults?: MetricDataResult[];
 
   /**
+   * <p>A token that marks the next batch of returned results.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>Contains a message about this <code>GetMetricData</code> operation, if the operation results in such a message.
    * 			An example of a message that
    * 			might be returned is <code>Maximum number of allowed metrics exceeded</code>. If there is a message, as much of the
@@ -1941,11 +1946,6 @@ export interface GetMetricDataOutput {
    * 			about a specific metric returned by the operation appears in the <code>MetricDataResult</code> object returned for that metric.</p>
    */
   Messages?: MessageData[];
-
-  /**
-   * <p>A token that marks the next batch of returned results.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace GetMetricDataOutput {
@@ -1956,52 +1956,23 @@ export namespace GetMetricDataOutput {
 
 export interface GetMetricStatisticsInput {
   /**
-   * <p>The percentile statistics. Specify values between p0.0 and p100. When calling <code>GetMetricStatistics</code>, you must
-   * 			specify either <code>Statistics</code> or <code>ExtendedStatistics</code>, but not both. Percentile statistics are not
-   * 			available for metrics when any of the metric values are negative numbers.</p>
+   * <p>The namespace of the metric, with or without spaces.</p>
    */
-  ExtendedStatistics?: string[];
-
-  /**
-   * <p>The unit for a given metric.
-   * 			If you omit <code>Unit</code>, all data that was collected with any unit is returned, along with the corresponding units that were specified
-   * 			when the data was reported to CloudWatch. If you specify a unit, the operation returns only data that was collected with that unit specified.
-   * 			If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.</p>
-   */
-  Unit?: StandardUnit | string;
-
-  /**
-   * <p>The time stamp that determines the last data point to return.</p>
-   * 		       <p>The value specified is exclusive; results include data points up to the specified time stamp.
-   * 			In a raw HTTP query, the time stamp must be in ISO 8601 UTC format (for example, 2016-10-10T23:00:00Z).</p>
-   */
-  EndTime: Date | undefined;
-
-  /**
-   * <p>The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can
-   * 			be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected
-   * 			at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics
-   * 		are those metrics stored by a <code>PutMetricData</code> call that includes a <code>StorageResolution</code> of 1 second.</p>
-   * 		       <p>If the <code>StartTime</code> parameter specifies a time stamp that is greater than
-   * 		    3 hours ago, you must specify the period as follows or no data points in that time range is returned:</p>
-   * 		       <ul>
-   *             <li>
-   *                <p>Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).</p>
-   *             </li>
-   *             <li>
-   *                <p>Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).</p>
-   *             </li>
-   *             <li>
-   *                <p>Start time greater than 63 days ago - Use a multiple of 3600 seconds (1 hour).</p>
-   *             </li>
-   *          </ul>
-   */
-  Period: number | undefined;
+  Namespace: string | undefined;
 
   /**
    * <p>The name of the metric, with or without spaces.</p>
    */
   MetricName: string | undefined;
+
+  /**
+   * <p>The dimensions. If the metric contains multiple dimensions, you must include a value for each dimension. CloudWatch treats each unique combination of dimensions as a separate metric.
+   * 		    If a specific combination of dimensions was not published, you can't retrieve statistics for it.
+   * 		    You must specify the same dimensions that were used when the metrics were created. For an example,
+   * 		    see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#dimension-combinations">Dimension Combinations</a> in the <i>Amazon CloudWatch User Guide</i>. For more information about specifying dimensions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">Publishing Metrics</a> in the
+   * 			<i>Amazon CloudWatch User Guide</i>.</p>
+   */
+  Dimensions?: Dimension[];
 
   /**
    * <p>The time stamp that determines the first data point to return. Start times are
@@ -2035,6 +2006,34 @@ export interface GetMetricStatisticsInput {
   StartTime: Date | undefined;
 
   /**
+   * <p>The time stamp that determines the last data point to return.</p>
+   * 		       <p>The value specified is exclusive; results include data points up to the specified time stamp.
+   * 			In a raw HTTP query, the time stamp must be in ISO 8601 UTC format (for example, 2016-10-10T23:00:00Z).</p>
+   */
+  EndTime: Date | undefined;
+
+  /**
+   * <p>The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can
+   * 			be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected
+   * 			at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics
+   * 		are those metrics stored by a <code>PutMetricData</code> call that includes a <code>StorageResolution</code> of 1 second.</p>
+   * 		       <p>If the <code>StartTime</code> parameter specifies a time stamp that is greater than
+   * 		    3 hours ago, you must specify the period as follows or no data points in that time range is returned:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).</p>
+   *             </li>
+   *             <li>
+   *                <p>Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).</p>
+   *             </li>
+   *             <li>
+   *                <p>Start time greater than 63 days ago - Use a multiple of 3600 seconds (1 hour).</p>
+   *             </li>
+   *          </ul>
+   */
+  Period: number | undefined;
+
+  /**
    * <p>The metric statistics, other than percentile. For percentile statistics,
    * 		    use <code>ExtendedStatistics</code>. When calling <code>GetMetricStatistics</code>, you must
    * 		specify either <code>Statistics</code> or <code>ExtendedStatistics</code>, but not both.</p>
@@ -2042,18 +2041,19 @@ export interface GetMetricStatisticsInput {
   Statistics?: (Statistic | string)[];
 
   /**
-   * <p>The dimensions. If the metric contains multiple dimensions, you must include a value for each dimension. CloudWatch treats each unique combination of dimensions as a separate metric.
-   * 		    If a specific combination of dimensions was not published, you can't retrieve statistics for it.
-   * 		    You must specify the same dimensions that were used when the metrics were created. For an example,
-   * 		    see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#dimension-combinations">Dimension Combinations</a> in the <i>Amazon CloudWatch User Guide</i>. For more information about specifying dimensions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">Publishing Metrics</a> in the
-   * 			<i>Amazon CloudWatch User Guide</i>.</p>
+   * <p>The percentile statistics. Specify values between p0.0 and p100. When calling <code>GetMetricStatistics</code>, you must
+   * 			specify either <code>Statistics</code> or <code>ExtendedStatistics</code>, but not both. Percentile statistics are not
+   * 			available for metrics when any of the metric values are negative numbers.</p>
    */
-  Dimensions?: Dimension[];
+  ExtendedStatistics?: string[];
 
   /**
-   * <p>The namespace of the metric, with or without spaces.</p>
+   * <p>The unit for a given metric.
+   * 			If you omit <code>Unit</code>, all data that was collected with any unit is returned, along with the corresponding units that were specified
+   * 			when the data was reported to CloudWatch. If you specify a unit, the operation returns only data that was collected with that unit specified.
+   * 			If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.</p>
    */
-  Namespace: string | undefined;
+  Unit?: StandardUnit | string;
 }
 
 export namespace GetMetricStatisticsInput {
@@ -2223,23 +2223,6 @@ export enum RecentlyActive {
 
 export interface ListMetricsInput {
   /**
-   * <p>To filter the results to show only metrics that have had data points published
-   * 			in the past three hours, specify this parameter
-   * 			with a value of <code>PT3H</code>. This is the only valid value
-   * 			for this parameter.</p>
-   * 		       <p>The results that are returned are an approximation of the value you specify. There
-   * 		is a low probability that the returned results include metrics with last published
-   * 		data as much as 40 minutes more than the specified time interval.</p>
-   */
-  RecentlyActive?: RecentlyActive | string;
-
-  /**
-   * <p>The dimensions to filter against.  Only the dimensions that match exactly
-   * 			will be returned.</p>
-   */
-  Dimensions?: DimensionFilter[];
-
-  /**
    * <p>The metric namespace to filter against. Only the namespace that matches exactly
    * 		will be returned.</p>
    */
@@ -2252,10 +2235,27 @@ export interface ListMetricsInput {
   MetricName?: string;
 
   /**
+   * <p>The dimensions to filter against.  Only the dimensions that match exactly
+   * 			will be returned.</p>
+   */
+  Dimensions?: DimensionFilter[];
+
+  /**
    * <p>The token returned by a previous call to indicate that there is more data
    * 			available.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>To filter the results to show only metrics that have had data points published
+   * 			in the past three hours, specify this parameter
+   * 			with a value of <code>PT3H</code>. This is the only valid value
+   * 			for this parameter.</p>
+   * 		       <p>The results that are returned are an approximation of the value you specify. There
+   * 		is a low probability that the returned results include metrics with last published
+   * 		data as much as 40 minutes more than the specified time interval.</p>
+   */
+  RecentlyActive?: RecentlyActive | string;
 }
 
 export namespace ListMetricsInput {
@@ -2266,14 +2266,14 @@ export namespace ListMetricsInput {
 
 export interface ListMetricsOutput {
   /**
-   * <p>The token that marks the start of the next batch of returned results. </p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The metrics that match your request. </p>
    */
   Metrics?: Metric[];
+
+  /**
+   * <p>The token that marks the start of the next batch of returned results. </p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListMetricsOutput {
@@ -2343,14 +2343,24 @@ export namespace ListTagsForResourceOutput {
 
 export interface PutAnomalyDetectorInput {
   /**
-   * <p>The statistic to use for the metric and the anomaly detection model.</p>
+   * <p>The namespace of the metric to create the anomaly detection model for.</p>
    */
-  Stat: string | undefined;
+  Namespace: string | undefined;
 
   /**
    * <p>The name of the metric to create the anomaly detection model for.</p>
    */
   MetricName: string | undefined;
+
+  /**
+   * <p>The metric dimensions to create the anomaly detection model for.</p>
+   */
+  Dimensions?: Dimension[];
+
+  /**
+   * <p>The statistic to use for the metric and the anomaly detection model.</p>
+   */
+  Stat: string | undefined;
 
   /**
    * <p>The configuration specifies details about how the
@@ -2361,16 +2371,6 @@ export interface PutAnomalyDetectorInput {
    * 			the metric.</p>
    */
   Configuration?: AnomalyDetectorConfiguration;
-
-  /**
-   * <p>The metric dimensions to create the anomaly detection model for.</p>
-   */
-  Dimensions?: Dimension[];
-
-  /**
-   * <p>The namespace of the metric to create the anomaly detection model for.</p>
-   */
-  Namespace: string | undefined;
 }
 
 export namespace PutAnomalyDetectorInput {
@@ -2407,30 +2407,22 @@ export namespace LimitExceededFault {
 
 export interface PutCompositeAlarmInput {
   /**
-   * <p>The actions to execute when this alarm transitions to the <code>ALARM</code> state from any other state.
-   * 			Each action is specified as an Amazon Resource Name (ARN).</p>
-   *
-   * 		       <p>Valid Values: <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>
-   *             </code>
-   *          </p>
-   */
-  AlarmActions?: string[];
-
-  /**
    * <p>Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. The default is
    * 			<code>TRUE</code>.</p>
    */
   ActionsEnabled?: boolean;
 
   /**
-   * <p>The actions to execute when this alarm transitions to the <code>INSUFFICIENT_DATA</code> state from any other state.
+   * <p>The actions to execute when this alarm transitions to the <code>ALARM</code> state from any other state.
    * 			Each action is specified as an Amazon Resource Name (ARN).</p>
    *
    * 		       <p>Valid Values: <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>
    *             </code>
+   * 			| <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i>
+   *             </code>
    *          </p>
    */
-  InsufficientDataActions?: string[];
+  AlarmActions?: string[];
 
   /**
    * <p>The description for the composite alarm.</p>
@@ -2510,6 +2502,16 @@ export interface PutCompositeAlarmInput {
   AlarmRule: string | undefined;
 
   /**
+   * <p>The actions to execute when this alarm transitions to the <code>INSUFFICIENT_DATA</code> state from any other state.
+   * 			Each action is specified as an Amazon Resource Name (ARN).</p>
+   *
+   * 		       <p>Valid Values: <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>
+   *             </code>
+   *          </p>
+   */
+  InsufficientDataActions?: string[];
+
+  /**
    * <p>The actions to execute when this alarm transitions to an <code>OK</code> state
    * 			from any other state. Each action is specified as an Amazon Resource Name (ARN).</p>
    *
@@ -2582,6 +2584,18 @@ export interface PutInsightRuleInput {
   RuleName: string | undefined;
 
   /**
+   * <p>The state of the rule. Valid values are ENABLED and DISABLED.</p>
+   */
+  RuleState?: string;
+
+  /**
+   * <p>The definition of the rule, as a JSON object. For details on the valid syntax, see
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html">Contributor Insights
+   * 			Rule Syntax</a>.</p>
+   */
+  RuleDefinition: string | undefined;
+
+  /**
    * <p>A list of key-value pairs to associate with the Contributor Insights rule.
    * 			You can associate as many as 50 tags with a rule.</p>
    * 		       <p>Tags can help you organize and categorize your
@@ -2595,18 +2609,6 @@ export interface PutInsightRuleInput {
    * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html">TagResource</a>.</p>
    */
   Tags?: Tag[];
-
-  /**
-   * <p>The state of the rule. Valid values are ENABLED and DISABLED.</p>
-   */
-  RuleState?: string;
-
-  /**
-   * <p>The definition of the rule, as a JSON object. For details on the valid syntax, see
-   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html">Contributor Insights
-   * 			Rule Syntax</a>.</p>
-   */
-  RuleDefinition: string | undefined;
 }
 
 export namespace PutInsightRuleInput {
@@ -2625,9 +2627,9 @@ export namespace PutInsightRuleOutput {
 
 export interface PutMetricAlarmInput {
   /**
-   * <p>The dimensions for the metric specified in <code>MetricName</code>.</p>
+   * <p>The name for the alarm. This name must be unique within the Region.</p>
    */
-  Dimensions?: Dimension[];
+  AlarmName: string | undefined;
 
   /**
    * <p>The description for the alarm.</p>
@@ -2639,201 +2641,6 @@ export interface PutMetricAlarmInput {
    * 			<code>TRUE</code>.</p>
    */
   ActionsEnabled?: boolean;
-
-  /**
-   * <p>The actions to execute when this alarm transitions to the <code>INSUFFICIENT_DATA</code> state from any other state.
-   * 			Each action is specified as an Amazon Resource Name (ARN).</p>
-   *
-   * 		       <p>Valid Values: <code>arn:aws:automate:<i>region</i>:ec2:stop</code> |
-   * 			<code>arn:aws:automate:<i>region</i>:ec2:terminate</code> |
-   * 			<code>arn:aws:automate:<i>region</i>:ec2:recover</code> |
-   * 			<code>arn:aws:automate:<i>region</i>:ec2:reboot</code> |
-   * 			<code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>
-   *             </code> |
-   * 			<code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i>
-   *             </code>
-   *          </p>
-   *
-   * 		       <p>Valid Values (for use with IAM roles):
-   * 			<code>>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code> |
-   * 				<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code> |
-   * 				<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code>
-   *          </p>
-   */
-  InsufficientDataActions?: string[];
-
-  /**
-   * <p>The namespace for the metric associated specified in <code>MetricName</code>.</p>
-   */
-  Namespace?: string;
-
-  /**
-   * <p> Used only for alarms based on percentiles. If you specify <code>ignore</code>, the alarm state does not change during periods with too few data points to be
-   * 			statistically significant. If you specify <code>evaluate</code> or omit this parameter, the alarm is always evaluated and possibly changes state
-   * 			no matter how many data points are available. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples">Percentile-Based CloudWatch Alarms and Low Data Samples</a>.</p>
-   * 		       <p>Valid Values: <code>evaluate | ignore</code>
-   *          </p>
-   */
-  EvaluateLowSampleCountPercentile?: string;
-
-  /**
-   * <p>The percentile statistic for the metric specified in <code>MetricName</code>. Specify a value
-   * 			between p0.0 and p100. When you call <code>PutMetricAlarm</code> and specify
-   * 			a <code>MetricName</code>, you must
-   * 			specify either <code>Statistic</code> or <code>ExtendedStatistic,</code> but not both.</p>
-   */
-  ExtendedStatistic?: string;
-
-  /**
-   * <p>The name for the metric associated with the alarm. For each <code>PutMetricAlarm</code>
-   * 		operation, you must specify either <code>MetricName</code> or a <code>Metrics</code> array.</p>
-   * 		       <p>If you are creating an alarm based on a math expression, you cannot specify this parameter, or any of the
-   * 			<code>Dimensions</code>, <code>Period</code>,
-   * 			<code>Namespace</code>, <code>Statistic</code>, or <code>ExtendedStatistic</code> parameters. Instead, you specify
-   * 		all this information in the <code>Metrics</code> array.</p>
-   */
-  MetricName?: string;
-
-  /**
-   * <p>If this is an alarm based on an anomaly detection model, make this value match
-   * 			the ID of
-   * 			the <code>ANOMALY_DETECTION_BAND</code> function.</p>
-   * 		       <p>For an example of how to use this parameter, see the
-   * 			<b>Anomaly Detection
-   * 		Model Alarm</b> example on this page.</p>
-   * 		       <p>If your alarm uses this parameter, it cannot have Auto Scaling actions.</p>
-   */
-  ThresholdMetricId?: string;
-
-  /**
-   * <p>A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm.</p>
-   * 		       <p>Tags can help you organize and categorize your resources. You can also use them to scope user
-   * 			permissions by granting a user
-   * 			permission to access or change only resources with certain tag values.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The actions to execute when this alarm transitions to the <code>ALARM</code> state from any other state.
-   * 			Each action is specified as an Amazon Resource Name (ARN).</p>
-   *
-   * 		       <p>Valid Values: <code>arn:aws:automate:<i>region</i>:ec2:stop</code> |
-   * 			<code>arn:aws:automate:<i>region</i>:ec2:terminate</code> |
-   * 			<code>arn:aws:automate:<i>region</i>:ec2:recover</code> |
-   * 			<code>arn:aws:automate:<i>region</i>:ec2:reboot</code> |
-   * 			<code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>
-   *             </code> |
-   * 			<code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i>
-   *             </code>
-   *          </p>
-   *
-   * 		       <p>Valid Values (for use with IAM roles):
-   * 			<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code> |
-   * 				<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code> |
-   * 				<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code>
-   *          </p>
-   */
-  AlarmActions?: string[];
-
-  /**
-   * <p> Sets how this alarm is to handle missing data points. If <code>TreatMissingData</code> is omitted, the default behavior of <code>missing</code> is used.
-   * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data">Configuring How CloudWatch
-   * 				Alarms Treats Missing Data</a>.</p>
-   * 		       <p>Valid Values: <code>breaching | notBreaching | ignore | missing</code>
-   *          </p>
-   */
-  TreatMissingData?: string;
-
-  /**
-   * <p>The name for the alarm. This name must be unique within the Region.</p>
-   */
-  AlarmName: string | undefined;
-
-  /**
-   * <p>The length, in seconds, used each time the metric specified in <code>MetricName</code> is
-   * 			evaluated. Valid values are 10, 30, and any multiple of 60.</p>
-   * 		       <p>
-   *             <code>Period</code> is required for alarms based on static thresholds. If
-   * 		you are creating an alarm based on a metric math expression, you specify the
-   * 		period for each metric within the objects in the <code>Metrics</code> array.</p>
-   * 		       <p>Be sure to specify 10 or 30 only for metrics that are stored by a <code>PutMetricData</code> call with a
-   * 				<code>StorageResolution</code> of 1. If you specify a period of 10 or 30 for a metric that does not have
-   * 			sub-minute resolution, the alarm still attempts to gather data at the period rate that you specify. In this case,
-   * 			it does not receive data for the attempts that do not correspond to a one-minute data resolution, and the alarm
-   * 			might often lapse into INSUFFICENT_DATA status. Specifying 10 or 30 also sets this alarm as a high-resolution alarm,
-   * 			which has a higher charge than other alarms. For more information about pricing, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>.</p>
-   * 		       <p>An alarm's total current evaluation period can
-   * 		be no longer than one day, so <code>Period</code> multiplied by <code>EvaluationPeriods</code> cannot be more than 86,400 seconds.</p>
-   */
-  Period?: number;
-
-  /**
-   * <p>The number of periods over which data is compared to the specified threshold. If you are
-   * 			setting an alarm that requires that a number of consecutive data points be breaching to
-   * 			trigger the alarm, this value specifies that number. If you are setting an "M out of N"
-   * 			alarm, this value is the N.</p>
-   * 		       <p>An alarm's total current evaluation period can
-   * 			be no longer than one day, so this number multiplied by <code>Period</code> cannot be more than 86,400 seconds.</p>
-   */
-  EvaluationPeriods: number | undefined;
-
-  /**
-   * <p>The number of data points that must be breaching to trigger the alarm. This is used only if you are setting
-   * 			an "M out of N" alarm. In that case, this value is the M. For more information, see
-   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation">Evaluating an Alarm</a> in the
-   * 			<i>Amazon CloudWatch User Guide</i>.</p>
-   */
-  DatapointsToAlarm?: number;
-
-  /**
-   * <p>The unit of measure for the statistic. For example, the units for the Amazon EC2
-   * 			NetworkIn metric are Bytes because NetworkIn tracks the number of bytes that an instance
-   * 			receives on all network interfaces. You can also specify a unit when you create a custom
-   * 			metric. Units help provide conceptual meaning to your data. Metric data points that
-   * 			specify a unit of measure, such as Percent, are aggregated separately.</p>
-   * 		       <p>If you don't specify <code>Unit</code>, CloudWatch retrieves all unit types that have been published for the
-   * 			metric and attempts to evaluate the alarm.
-   * 			Usually, metrics are
-   * 			published with only one unit, so the alarm
-   * 			works as intended.</p>
-   * 			      <p>However, if the metric is published with multiple types of units and you don't specify a unit, the alarm's
-   * 			behavior is not defined and
-   * 			it behaves predictably.</p>
-   * 		       <p>We recommend omitting <code>Unit</code> so that you don't inadvertently
-   * 			specify an incorrect unit that is not published for this metric. Doing so
-   * 			causes the alarm to be stuck in the <code>INSUFFICIENT DATA</code> state.</p>
-   */
-  Unit?: StandardUnit | string;
-
-  /**
-   * <p> The arithmetic operation to use when comparing the specified statistic and
-   * 			threshold. The specified statistic value is used as the first operand.</p>
-   * 		       <p>The values <code>LessThanLowerOrGreaterThanUpperThreshold</code>,
-   * 			<code>LessThanLowerThreshold</code>, and <code>GreaterThanUpperThreshold</code>
-   * 		are used only for alarms based on anomaly detection models.</p>
-   */
-  ComparisonOperator: ComparisonOperator | string | undefined;
-
-  /**
-   * <p>The value against which the specified statistic is compared.</p>
-   * 		       <p>This parameter is required for alarms based on static thresholds, but should
-   * 		not be used for alarms based on anomaly detection models.</p>
-   */
-  Threshold?: number;
-
-  /**
-   * <p>An array of <code>MetricDataQuery</code> structures that enable you to create an alarm based on the result of a
-   * 			metric math expression. For each <code>PutMetricAlarm</code>
-   * 			operation, you must specify either <code>MetricName</code> or a <code>Metrics</code> array.</p>
-   * 		       <p>Each item in the <code>Metrics</code> array either retrieves a metric or performs a math expression.</p>
-   * 		       <p>One item in the <code>Metrics</code> array is the expression that the alarm watches. You designate this expression
-   * 			by setting <code>ReturnData</code> to true for this object in the array. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDataQuery.html">MetricDataQuery</a>.</p>
-   * 		       <p>If you use the <code>Metrics</code> parameter, you cannot include the <code>MetricName</code>, <code>Dimensions</code>, <code>Period</code>,
-   * 			<code>Namespace</code>, <code>Statistic</code>, or <code>ExtendedStatistic</code> parameters of <code>PutMetricAlarm</code> in the same operation.
-   * 			Instead, you retrieve
-   * 		the metrics you are using in your math expression as part of the <code>Metrics</code> array.</p>
-   */
-  Metrics?: MetricDataQuery[];
 
   /**
    * <p>The actions to execute when this alarm transitions to an <code>OK</code> state
@@ -2858,12 +2665,213 @@ export interface PutMetricAlarmInput {
   OKActions?: string[];
 
   /**
+   * <p>The actions to execute when this alarm transitions to the <code>ALARM</code> state from any other state.
+   * 			Each action is specified as an Amazon Resource Name (ARN).</p>
+   *
+   * 		       <p>Valid Values: <code>arn:aws:automate:<i>region</i>:ec2:stop</code> |
+   * 			<code>arn:aws:automate:<i>region</i>:ec2:terminate</code> |
+   * 			<code>arn:aws:automate:<i>region</i>:ec2:recover</code> |
+   * 			<code>arn:aws:automate:<i>region</i>:ec2:reboot</code> |
+   * 			<code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>
+   *             </code> |
+   * 			<code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i>
+   *             </code>
+   * 			| <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i>
+   *             </code>
+   *          </p>
+   *
+   * 		       <p>Valid Values (for use with IAM roles):
+   * 			<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code> |
+   * 				<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code> |
+   * 				<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code>
+   *          </p>
+   */
+  AlarmActions?: string[];
+
+  /**
+   * <p>The actions to execute when this alarm transitions to the <code>INSUFFICIENT_DATA</code> state from any other state.
+   * 			Each action is specified as an Amazon Resource Name (ARN).</p>
+   *
+   * 		       <p>Valid Values: <code>arn:aws:automate:<i>region</i>:ec2:stop</code> |
+   * 			<code>arn:aws:automate:<i>region</i>:ec2:terminate</code> |
+   * 			<code>arn:aws:automate:<i>region</i>:ec2:recover</code> |
+   * 			<code>arn:aws:automate:<i>region</i>:ec2:reboot</code> |
+   * 			<code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>
+   *             </code> |
+   * 			<code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i>
+   *             </code>
+   *          </p>
+   *
+   * 		       <p>Valid Values (for use with IAM roles):
+   * 			<code>>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code> |
+   * 				<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code> |
+   * 				<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code>
+   *          </p>
+   */
+  InsufficientDataActions?: string[];
+
+  /**
+   * <p>The name for the metric associated with the alarm. For each <code>PutMetricAlarm</code>
+   * 		operation, you must specify either <code>MetricName</code> or a <code>Metrics</code> array.</p>
+   * 		       <p>If you are creating an alarm based on a math expression, you cannot specify this parameter, or any of the
+   * 			<code>Dimensions</code>, <code>Period</code>,
+   * 			<code>Namespace</code>, <code>Statistic</code>, or <code>ExtendedStatistic</code> parameters. Instead, you specify
+   * 		all this information in the <code>Metrics</code> array.</p>
+   */
+  MetricName?: string;
+
+  /**
+   * <p>The namespace for the metric associated specified in <code>MetricName</code>.</p>
+   */
+  Namespace?: string;
+
+  /**
    * <p>The statistic for the metric specified in <code>MetricName</code>, other than percentile.
    * 		    For percentile statistics, use <code>ExtendedStatistic</code>. When you call <code>PutMetricAlarm</code> and specify
    * 			a <code>MetricName</code>, you must
    * 		specify either <code>Statistic</code> or <code>ExtendedStatistic,</code> but not both.</p>
    */
   Statistic?: Statistic | string;
+
+  /**
+   * <p>The percentile statistic for the metric specified in <code>MetricName</code>. Specify a value
+   * 			between p0.0 and p100. When you call <code>PutMetricAlarm</code> and specify
+   * 			a <code>MetricName</code>, you must
+   * 			specify either <code>Statistic</code> or <code>ExtendedStatistic,</code> but not both.</p>
+   */
+  ExtendedStatistic?: string;
+
+  /**
+   * <p>The dimensions for the metric specified in <code>MetricName</code>.</p>
+   */
+  Dimensions?: Dimension[];
+
+  /**
+   * <p>The length, in seconds, used each time the metric specified in <code>MetricName</code> is
+   * 			evaluated. Valid values are 10, 30, and any multiple of 60.</p>
+   * 		       <p>
+   *             <code>Period</code> is required for alarms based on static thresholds. If
+   * 		you are creating an alarm based on a metric math expression, you specify the
+   * 		period for each metric within the objects in the <code>Metrics</code> array.</p>
+   * 		       <p>Be sure to specify 10 or 30 only for metrics that are stored by a <code>PutMetricData</code> call with a
+   * 				<code>StorageResolution</code> of 1. If you specify a period of 10 or 30 for a metric that does not have
+   * 			sub-minute resolution, the alarm still attempts to gather data at the period rate that you specify. In this case,
+   * 			it does not receive data for the attempts that do not correspond to a one-minute data resolution, and the alarm
+   * 			might often lapse into INSUFFICENT_DATA status. Specifying 10 or 30 also sets this alarm as a high-resolution alarm,
+   * 			which has a higher charge than other alarms. For more information about pricing, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>.</p>
+   * 		       <p>An alarm's total current evaluation period can
+   * 		be no longer than one day, so <code>Period</code> multiplied by <code>EvaluationPeriods</code> cannot be more than 86,400 seconds.</p>
+   */
+  Period?: number;
+
+  /**
+   * <p>The unit of measure for the statistic. For example, the units for the Amazon EC2
+   * 			NetworkIn metric are Bytes because NetworkIn tracks the number of bytes that an instance
+   * 			receives on all network interfaces. You can also specify a unit when you create a custom
+   * 			metric. Units help provide conceptual meaning to your data. Metric data points that
+   * 			specify a unit of measure, such as Percent, are aggregated separately.</p>
+   * 		       <p>If you don't specify <code>Unit</code>, CloudWatch retrieves all unit types that have been published for the
+   * 			metric and attempts to evaluate the alarm.
+   * 			Usually, metrics are
+   * 			published with only one unit, so the alarm
+   * 			works as intended.</p>
+   * 			      <p>However, if the metric is published with multiple types of units and you don't specify a unit, the alarm's
+   * 			behavior is not defined and
+   * 			it behaves predictably.</p>
+   * 		       <p>We recommend omitting <code>Unit</code> so that you don't inadvertently
+   * 			specify an incorrect unit that is not published for this metric. Doing so
+   * 			causes the alarm to be stuck in the <code>INSUFFICIENT DATA</code> state.</p>
+   */
+  Unit?: StandardUnit | string;
+
+  /**
+   * <p>The number of periods over which data is compared to the specified threshold. If you are
+   * 			setting an alarm that requires that a number of consecutive data points be breaching to
+   * 			trigger the alarm, this value specifies that number. If you are setting an "M out of N"
+   * 			alarm, this value is the N.</p>
+   * 		       <p>An alarm's total current evaluation period can
+   * 			be no longer than one day, so this number multiplied by <code>Period</code> cannot be more than 86,400 seconds.</p>
+   */
+  EvaluationPeriods: number | undefined;
+
+  /**
+   * <p>The number of data points that must be breaching to trigger the alarm. This is used only if you are setting
+   * 			an "M out of N" alarm. In that case, this value is the M. For more information, see
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation">Evaluating an Alarm</a> in the
+   * 			<i>Amazon CloudWatch User Guide</i>.</p>
+   */
+  DatapointsToAlarm?: number;
+
+  /**
+   * <p>The value against which the specified statistic is compared.</p>
+   * 		       <p>This parameter is required for alarms based on static thresholds, but should
+   * 		not be used for alarms based on anomaly detection models.</p>
+   */
+  Threshold?: number;
+
+  /**
+   * <p> The arithmetic operation to use when comparing the specified statistic and
+   * 			threshold. The specified statistic value is used as the first operand.</p>
+   * 		       <p>The values <code>LessThanLowerOrGreaterThanUpperThreshold</code>,
+   * 			<code>LessThanLowerThreshold</code>, and <code>GreaterThanUpperThreshold</code>
+   * 		are used only for alarms based on anomaly detection models.</p>
+   */
+  ComparisonOperator: ComparisonOperator | string | undefined;
+
+  /**
+   * <p> Sets how this alarm is to handle missing data points. If <code>TreatMissingData</code> is omitted, the default behavior of <code>missing</code> is used.
+   * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data">Configuring How CloudWatch
+   * 				Alarms Treats Missing Data</a>.</p>
+   * 		       <p>Valid Values: <code>breaching | notBreaching | ignore | missing</code>
+   *          </p>
+   */
+  TreatMissingData?: string;
+
+  /**
+   * <p> Used only for alarms based on percentiles. If you specify <code>ignore</code>, the alarm state does not change during periods with too few data points to be
+   * 			statistically significant. If you specify <code>evaluate</code> or omit this parameter, the alarm is always evaluated and possibly changes state
+   * 			no matter how many data points are available. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples">Percentile-Based CloudWatch Alarms and Low Data Samples</a>.</p>
+   * 		       <p>Valid Values: <code>evaluate | ignore</code>
+   *          </p>
+   */
+  EvaluateLowSampleCountPercentile?: string;
+
+  /**
+   * <p>An array of <code>MetricDataQuery</code> structures that enable you to create an alarm based on the result of a
+   * 			metric math expression. For each <code>PutMetricAlarm</code>
+   * 			operation, you must specify either <code>MetricName</code> or a <code>Metrics</code> array.</p>
+   * 		       <p>Each item in the <code>Metrics</code> array either retrieves a metric or performs a math expression.</p>
+   * 		       <p>One item in the <code>Metrics</code> array is the expression that the alarm watches. You designate this expression
+   * 			by setting <code>ReturnData</code> to true for this object in the array. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDataQuery.html">MetricDataQuery</a>.</p>
+   * 		       <p>If you use the <code>Metrics</code> parameter, you cannot include the <code>MetricName</code>, <code>Dimensions</code>, <code>Period</code>,
+   * 			<code>Namespace</code>, <code>Statistic</code>, or <code>ExtendedStatistic</code> parameters of <code>PutMetricAlarm</code> in the same operation.
+   * 			Instead, you retrieve
+   * 		the metrics you are using in your math expression as part of the <code>Metrics</code> array.</p>
+   */
+  Metrics?: MetricDataQuery[];
+
+  /**
+   * <p>A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm.</p>
+   * 		       <p>Tags can help you organize and categorize your resources. You can also use them to scope user
+   * 			permissions by granting a user
+   * 			permission to access or change only resources with certain tag values.</p>
+   * 		       <p>If you are using this operation to update an existing alarm, any tags
+   * 			you specify in this parameter are ignored. To change the tags of an existing alarm, use
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html">TagResource</a>
+   * 			or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html">UntagResource</a>.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>If this is an alarm based on an anomaly detection model, make this value match
+   * 			the ID of
+   * 			the <code>ANOMALY_DETECTION_BAND</code> function.</p>
+   * 		       <p>For an example of how to use this parameter, see the
+   * 			<b>Anomaly Detection
+   * 		Model Alarm</b> example on this page.</p>
+   * 		       <p>If your alarm uses this parameter, it cannot have Auto Scaling actions.</p>
+   */
+  ThresholdMetricId?: string;
 }
 
 export namespace PutMetricAlarmInput {
@@ -2876,11 +2884,6 @@ export namespace PutMetricAlarmInput {
  * <p>Represents a set of statistics that describes a specific metric. </p>
  */
 export interface StatisticSet {
-  /**
-   * <p>The maximum value of the sample set.</p>
-   */
-  Maximum: number | undefined;
-
   /**
    * <p>The number of samples used for the statistic set.</p>
    */
@@ -2895,6 +2898,11 @@ export interface StatisticSet {
    * <p>The minimum value of the sample set.</p>
    */
   Minimum: number | undefined;
+
+  /**
+   * <p>The maximum value of the sample set.</p>
+   */
+  Maximum: number | undefined;
 }
 
 export namespace StatisticSet {
@@ -2909,6 +2917,34 @@ export namespace StatisticSet {
  */
 export interface MetricDatum {
   /**
+   * <p>The name of the metric.</p>
+   */
+  MetricName: string | undefined;
+
+  /**
+   * <p>The dimensions associated with the metric.</p>
+   */
+  Dimensions?: Dimension[];
+
+  /**
+   * <p>The time the metric data was received, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.</p>
+   */
+  Timestamp?: Date;
+
+  /**
+   * <p>The value for the metric.</p>
+   * 		       <p>Although the parameter accepts numbers of type Double, CloudWatch rejects values that are either too small or
+   * 			too large. Values must be in the range of -2^360 to 2^360. In addition, special values (for example, NaN, +Infinity, -Infinity)
+   * 			are not supported.</p>
+   */
+  Value?: number;
+
+  /**
+   * <p>The statistical values for the metric.</p>
+   */
+  StatisticValues?: StatisticSet;
+
+  /**
    * <p>Array of numbers representing the values for the metric during the period. Each unique value is listed just once
    * 		in this array, and the corresponding number in the <code>Counts</code> array specifies the number of times that value occurred during the period.
    * 		You can include up to 150 unique values in each <code>PutMetricData</code> action that specifies a <code>Values</code> array.</p>
@@ -2918,6 +2954,21 @@ export interface MetricDatum {
    * 			-Infinity) are not supported.</p>
    */
   Values?: number[];
+
+  /**
+   * <p>Array of numbers that is used along with the <code>Values</code> array. Each number in the <code>Count</code> array
+   * 			is the number of times the corresponding value in the <code>Values</code> array occurred during the period. </p>
+   * 		       <p>If you omit the <code>Counts</code> array, the default of 1 is used as the value for each count. If you
+   * 		include a <code>Counts</code> array, it must include the same amount of values as the <code>Values</code> array.</p>
+   */
+  Counts?: number[];
+
+  /**
+   * <p>When you are using a <code>Put</code> operation, this defines what unit you want to use when storing the metric.</p>
+   * 		       <p>In
+   * 		a <code>Get</code> operation, this displays the unit that is used for the metric.</p>
+   */
+  Unit?: StandardUnit | string;
 
   /**
    * <p>Valid values are 1 and 60. Setting this to 1 specifies this metric as a high-resolution metric, so that CloudWatch stores the metric with
@@ -2930,49 +2981,6 @@ export interface MetricDatum {
    * 	        <p>This field is optional, if you do not specify it the default of 60 is used.</p>
    */
   StorageResolution?: number;
-
-  /**
-   * <p>The time the metric data was received, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.</p>
-   */
-  Timestamp?: Date;
-
-  /**
-   * <p>The dimensions associated with the metric.</p>
-   */
-  Dimensions?: Dimension[];
-
-  /**
-   * <p>The statistical values for the metric.</p>
-   */
-  StatisticValues?: StatisticSet;
-
-  /**
-   * <p>The name of the metric.</p>
-   */
-  MetricName: string | undefined;
-
-  /**
-   * <p>When you are using a <code>Put</code> operation, this defines what unit you want to use when storing the metric.</p>
-   * 		       <p>In
-   * 		a <code>Get</code> operation, this displays the unit that is used for the metric.</p>
-   */
-  Unit?: StandardUnit | string;
-
-  /**
-   * <p>Array of numbers that is used along with the <code>Values</code> array. Each number in the <code>Count</code> array
-   * 			is the number of times the corresponding value in the <code>Values</code> array occurred during the period. </p>
-   * 		       <p>If you omit the <code>Counts</code> array, the default of 1 is used as the value for each count. If you
-   * 		include a <code>Counts</code> array, it must include the same amount of values as the <code>Values</code> array.</p>
-   */
-  Counts?: number[];
-
-  /**
-   * <p>The value for the metric.</p>
-   * 		       <p>Although the parameter accepts numbers of type Double, CloudWatch rejects values that are either too small or
-   * 			too large. Values must be in the range of -2^360 to 2^360. In addition, special values (for example, NaN, +Infinity, -Infinity)
-   * 			are not supported.</p>
-   */
-  Value?: number;
 }
 
 export namespace MetricDatum {
@@ -2983,17 +2991,17 @@ export namespace MetricDatum {
 
 export interface PutMetricDataInput {
   /**
-   * <p>The data for the metric. The array can include no more than 20 metrics per call.</p>
-   */
-  MetricData: MetricDatum[] | undefined;
-
-  /**
    * <p>The namespace for the metric data.</p>
    * 		       <p>To avoid conflicts
    * 			with AWS service namespaces, you should not specify a namespace that begins with <code>AWS/</code>
    *          </p>
    */
   Namespace: string | undefined;
+
+  /**
+   * <p>The data for the metric. The array can include no more than 20 metrics per call.</p>
+   */
+  MetricData: MetricDatum[] | undefined;
 }
 
 export namespace PutMetricDataInput {
@@ -3022,16 +3030,14 @@ export namespace InvalidFormatFault {
 
 export interface SetAlarmStateInput {
   /**
+   * <p>The name of the alarm.</p>
+   */
+  AlarmName: string | undefined;
+
+  /**
    * <p>The value of the state.</p>
    */
   StateValue: StateValue | string | undefined;
-
-  /**
-   * <p>The reason that this alarm is set to this specific state, in JSON format.</p>
-   * 		       <p>For SNS or EC2 alarm actions, this is just informational. But for EC2 Auto Scaling or application Auto Scaling
-   * 		alarm actions, the Auto Scaling policy uses the information in this field to take the correct action.</p>
-   */
-  StateReasonData?: string;
 
   /**
    * <p>The reason that this alarm is set to this specific state, in text format.</p>
@@ -3039,9 +3045,11 @@ export interface SetAlarmStateInput {
   StateReason: string | undefined;
 
   /**
-   * <p>The name of the alarm.</p>
+   * <p>The reason that this alarm is set to this specific state, in JSON format.</p>
+   * 		       <p>For SNS or EC2 alarm actions, this is just informational. But for EC2 Auto Scaling or application Auto Scaling
+   * 		alarm actions, the Auto Scaling policy uses the information in this field to take the correct action.</p>
    */
-  AlarmName: string | undefined;
+  StateReasonData?: string;
 }
 
 export namespace SetAlarmStateInput {
@@ -3089,11 +3097,6 @@ export namespace TagResourceOutput {
 
 export interface UntagResourceInput {
   /**
-   * <p>The list of tag keys to remove from the resource.</p>
-   */
-  TagKeys: string[] | undefined;
-
-  /**
    * <p>The ARN of the CloudWatch resource that you're removing tags from.</p>
    * 		       <p>The ARN format of an alarm is
    * 			<code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:alarm:<i>alarm-name</i>
@@ -3108,6 +3111,11 @@ export interface UntagResourceInput {
    * 			Reference</i>.</p>
    */
   ResourceARN: string | undefined;
+
+  /**
+   * <p>The list of tag keys to remove from the resource.</p>
+   */
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceInput {

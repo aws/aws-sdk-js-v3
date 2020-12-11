@@ -22,9 +22,8 @@ export namespace GroupIdentity {
  */
 export interface IAMUserIdentity {
   /**
-   * <p>The ARN of the IAM user. IAM users must have the
-   *         <code>iotsitewise:CreatePresignedPortalUrl</code> permission to sign in to the portal. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM
-   *         ARNs</a> in the <i>IAM User Guide</i>.</p>
+   * <p>The ARN of the IAM user. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM ARNs</a> in the
+   *         <i>IAM User Guide</i>.</p>
    *          <note>
    *             <p>If you delete the IAM user, access policies that contain this identity include an
    *         empty <code>arn</code>. You can delete the access policy for the IAM user that no longer
@@ -270,6 +269,124 @@ export enum AggregateType {
   SUM = "SUM",
 }
 
+export enum PropertyDataType {
+  BOOLEAN = "BOOLEAN",
+  DOUBLE = "DOUBLE",
+  INTEGER = "INTEGER",
+  STRING = "STRING",
+  STRUCT = "STRUCT",
+}
+
+export enum PropertyNotificationState {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+/**
+ * <p>Contains asset property value notification information. When the notification state is enabled, AWS IoT SiteWise publishes property value
+ *       updates to a unique MQTT topic. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/interact-with-other-services.html">Interacting with other services</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+ */
+export interface PropertyNotification {
+  /**
+   * <p>The MQTT topic to which AWS IoT SiteWise publishes property value update notifications.</p>
+   */
+  topic: string | undefined;
+
+  /**
+   * <p>The current notification state.</p>
+   */
+  state: PropertyNotificationState | string | undefined;
+}
+
+export namespace PropertyNotification {
+  export const filterSensitiveLog = (obj: PropertyNotification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains asset property information.</p>
+ */
+export interface AssetProperty {
+  /**
+   * <p>The ID of the asset property.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the property.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The property alias that identifies the property, such as an OPC-UA server data stream path
+   *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
+   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
+   *         <i>AWS IoT SiteWise User Guide</i>.</p>
+   */
+  alias?: string;
+
+  /**
+   * <p>The asset property's notification topic and state. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p>
+   */
+  notification?: PropertyNotification;
+
+  /**
+   * <p>The data type of the asset property.</p>
+   */
+  dataType: PropertyDataType | string | undefined;
+
+  /**
+   * <p>The data type of the structure for this property. This parameter exists on properties that
+   *       have the <code>STRUCT</code> data type.</p>
+   */
+  dataTypeSpec?: string;
+
+  /**
+   * <p>The unit (such as <code>Newtons</code> or <code>RPM</code>) of the asset property.</p>
+   */
+  unit?: string;
+}
+
+export namespace AssetProperty {
+  export const filterSensitiveLog = (obj: AssetProperty): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about a composite model in an asset. This object contains the asset's
+ *       properties that you define in the composite model.</p>
+ */
+export interface AssetCompositeModel {
+  /**
+   * <p>The name of the composite model.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the composite model.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The type of the composite model. For alarm composite models, this type is
+   *         <code>AWS/ALARM</code>.</p>
+   */
+  type: string | undefined;
+
+  /**
+   * <p>The asset properties that this composite model defines.</p>
+   */
+  properties: AssetProperty[] | undefined;
+}
+
+export namespace AssetCompositeModel {
+  export const filterSensitiveLog = (obj: AssetCompositeModel): any => ({
+    ...obj,
+  });
+}
+
 export enum AssetErrorCode {
   INTERNAL_FAILURE = "INTERNAL_FAILURE",
 }
@@ -323,62 +440,25 @@ export namespace AssetHierarchy {
 }
 
 /**
- * <p>Describes an asset hierarchy that contains a hierarchy's name, ID, and child asset model
- *       ID that specifies the type of asset that can be in this hierarchy.</p>
+ * <p>Contains information about a parent asset and a child asset that are related through an
+ *       asset hierarchy.</p>
  */
-export interface AssetModelHierarchy {
+export interface AssetHierarchyInfo {
   /**
-   * <p>The ID of the asset model hierarchy. This ID is a <code>hierarchyId</code>.</p>
+   * <p>The ID of the parent asset in this asset relationship.</p>
    */
-  id?: string;
+  parentAssetId?: string;
 
   /**
-   * <p>The name of the asset model hierarchy that you specify by using the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModel.html">CreateAssetModel</a> or
-   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetModel.html">UpdateAssetModel</a> API operation.</p>
+   * <p>The ID of the child asset in this asset relationship.</p>
    */
-  name: string | undefined;
-
-  /**
-   * <p>The ID of the asset model. All assets in this hierarchy must be instances of the
-   *         <code>childAssetModelId</code> asset model.</p>
-   */
-  childAssetModelId: string | undefined;
+  childAssetId?: string;
 }
 
-export namespace AssetModelHierarchy {
-  export const filterSensitiveLog = (obj: AssetModelHierarchy): any => ({
+export namespace AssetHierarchyInfo {
+  export const filterSensitiveLog = (obj: AssetHierarchyInfo): any => ({
     ...obj,
   });
-}
-
-/**
- * <p>Contains an asset model hierarchy used in asset model creation. An asset model hierarchy
- *       determines the kind (or type) of asset that can belong to a hierarchy.</p>
- */
-export interface AssetModelHierarchyDefinition {
-  /**
-   * <p>The name of the asset model hierarchy definition (as specified in the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModel.html">CreateAssetModel</a> or
-   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetModel.html">UpdateAssetModel</a> API operation).</p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The ID of an asset model for this hierarchy.</p>
-   */
-  childAssetModelId: string | undefined;
-}
-
-export namespace AssetModelHierarchyDefinition {
-  export const filterSensitiveLog = (obj: AssetModelHierarchyDefinition): any => ({
-    ...obj,
-  });
-}
-
-export enum PropertyDataType {
-  BOOLEAN = "BOOLEAN",
-  DOUBLE = "DOUBLE",
-  INTEGER = "INTEGER",
-  STRING = "STRING",
 }
 
 /**
@@ -627,6 +707,12 @@ export interface AssetModelProperty {
   dataType: PropertyDataType | string | undefined;
 
   /**
+   * <p>The data type of the structure for this property. This parameter exists on properties that
+   *       have the <code>STRUCT</code> data type.</p>
+   */
+  dataTypeSpec?: string;
+
+  /**
    * <p>The unit of the asset model property, such as <code>Newtons</code> or
    *       <code>RPM</code>.</p>
    */
@@ -645,6 +731,39 @@ export namespace AssetModelProperty {
 }
 
 /**
+ * <p>Contains information about a composite model in an asset model. This object contains the
+ *       asset property definitions that you define in the composite model.</p>
+ */
+export interface AssetModelCompositeModel {
+  /**
+   * <p>The name of the composite model.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the composite model.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The type of the composite model. For alarm composite models, this type is
+   *       <code>AWS/ALARM</code>.</p>
+   */
+  type: string | undefined;
+
+  /**
+   * <p>The asset property definitions for this composite model.</p>
+   */
+  properties?: AssetModelProperty[];
+}
+
+export namespace AssetModelCompositeModel {
+  export const filterSensitiveLog = (obj: AssetModelCompositeModel): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Contains an asset model property definition. This property definition is applied to all
  *       assets created from the asset model.</p>
  */
@@ -656,8 +775,19 @@ export interface AssetModelPropertyDefinition {
 
   /**
    * <p>The data type of the property definition.</p>
+   *          <p>If you specify <code>STRUCT</code>, you must also specify <code>dataTypeSpec</code> to
+   *       identify the type of the structure for this property.</p>
    */
   dataType: PropertyDataType | string | undefined;
+
+  /**
+   * <p>The data type of the structure for this property. This parameter is required on properties
+   *       that have the <code>STRUCT</code> data type.</p>
+   *          <p>The options for this parameter depend on the type of the composite model in which you
+   *       define this property. Use <code>AWS/ALARM_STATE</code> for alarm state in alarm composite
+   *       models.</p>
+   */
+  dataTypeSpec?: string;
 
   /**
    * <p>The unit of the property definition, such as <code>Newtons</code> or
@@ -674,6 +804,91 @@ export interface AssetModelPropertyDefinition {
 
 export namespace AssetModelPropertyDefinition {
   export const filterSensitiveLog = (obj: AssetModelPropertyDefinition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains a composite model definition in an asset model. This composite model definition
+ *       is applied to all assets created from the asset model.</p>
+ */
+export interface AssetModelCompositeModelDefinition {
+  /**
+   * <p>The name of the composite model.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the composite model.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The type of the composite model. For alarm composite models, this type is
+   *       <code>AWS/ALARM</code>.</p>
+   */
+  type: string | undefined;
+
+  /**
+   * <p>The asset property definitions for this composite model.</p>
+   */
+  properties?: AssetModelPropertyDefinition[];
+}
+
+export namespace AssetModelCompositeModelDefinition {
+  export const filterSensitiveLog = (obj: AssetModelCompositeModelDefinition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an asset hierarchy that contains a hierarchy's name, ID, and child asset model
+ *       ID that specifies the type of asset that can be in this hierarchy.</p>
+ */
+export interface AssetModelHierarchy {
+  /**
+   * <p>The ID of the asset model hierarchy. This ID is a <code>hierarchyId</code>.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The name of the asset model hierarchy that you specify by using the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModel.html">CreateAssetModel</a> or
+   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetModel.html">UpdateAssetModel</a> API operation.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The ID of the asset model. All assets in this hierarchy must be instances of the
+   *         <code>childAssetModelId</code> asset model.</p>
+   */
+  childAssetModelId: string | undefined;
+}
+
+export namespace AssetModelHierarchy {
+  export const filterSensitiveLog = (obj: AssetModelHierarchy): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains an asset model hierarchy used in asset model creation. An asset model hierarchy
+ *       determines the kind (or type) of asset that can belong to a hierarchy.</p>
+ */
+export interface AssetModelHierarchyDefinition {
+  /**
+   * <p>The name of the asset model hierarchy definition (as specified in the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModel.html">CreateAssetModel</a> or
+   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetModel.html">UpdateAssetModel</a> API operation).</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The ID of an asset model for this hierarchy.</p>
+   */
+  childAssetModelId: string | undefined;
+}
+
+export namespace AssetModelHierarchyDefinition {
+  export const filterSensitiveLog = (obj: AssetModelHierarchyDefinition): any => ({
     ...obj,
   });
 }
@@ -784,77 +999,6 @@ export namespace AssetModelSummary {
   });
 }
 
-export enum PropertyNotificationState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-/**
- * <p>Contains asset property value notification information. When the notification state is enabled, AWS IoT SiteWise publishes property value
- *       updates to a unique MQTT topic. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/interact-with-other-services.html">Interacting with other services</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
- */
-export interface PropertyNotification {
-  /**
-   * <p>The MQTT topic to which AWS IoT SiteWise publishes property value update notifications.</p>
-   */
-  topic: string | undefined;
-
-  /**
-   * <p>The current notification state.</p>
-   */
-  state: PropertyNotificationState | string | undefined;
-}
-
-export namespace PropertyNotification {
-  export const filterSensitiveLog = (obj: PropertyNotification): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains asset property information.</p>
- */
-export interface AssetProperty {
-  /**
-   * <p>The ID of the asset property.</p>
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The name of the property.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The property alias that identifies the property, such as an OPC-UA server data stream path
-   *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
-   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
-   *         <i>AWS IoT SiteWise User Guide</i>.</p>
-   */
-  alias?: string;
-
-  /**
-   * <p>The asset property's notification topic and state. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p>
-   */
-  notification?: PropertyNotification;
-
-  /**
-   * <p>The data type of the asset property.</p>
-   */
-  dataType: PropertyDataType | string | undefined;
-
-  /**
-   * <p>The unit (such as <code>Newtons</code> or <code>RPM</code>) of the asset property.</p>
-   */
-  unit?: string;
-}
-
-export namespace AssetProperty {
-  export const filterSensitiveLog = (obj: AssetProperty): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains a timestamp with optional nanosecond granularity.</p>
  */
@@ -930,6 +1074,42 @@ export interface AssetPropertyValue {
 
 export namespace AssetPropertyValue {
   export const filterSensitiveLog = (obj: AssetPropertyValue): any => ({
+    ...obj,
+  });
+}
+
+export enum AssetRelationshipType {
+  HIERARCHY = "HIERARCHY",
+}
+
+/**
+ * <p>Contains information about assets that are related to one another.</p>
+ */
+export interface AssetRelationshipSummary {
+  /**
+   * <p>The assets that are related through an asset hierarchy.</p>
+   *          <p>This object is present if the <code>relationshipType</code> is
+   *       <code>HIERARCHY</code>.</p>
+   */
+  hierarchyInfo?: AssetHierarchyInfo;
+
+  /**
+   * <p>The relationship type of the assets in this relationship. This value is one of the
+   *       following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>HIERARCHY</code> – The assets are related through an asset hierarchy. If
+   *           you specify this relationship type, this asset relationship includes the
+   *             <code>hierarchyInfo</code> object.</p>
+   *             </li>
+   *          </ul>
+   */
+  relationshipType: AssetRelationshipType | string | undefined;
+}
+
+export namespace AssetRelationshipSummary {
+  export const filterSensitiveLog = (obj: AssetRelationshipSummary): any => ({
     ...obj,
   });
 }
@@ -1600,6 +1780,14 @@ export interface CreateAssetModelRequest {
   assetModelHierarchies?: AssetModelHierarchyDefinition[];
 
   /**
+   * <p>The composite asset models that are part of this asset model.
+   *       Composite asset models are asset models that contain specific properties. Each composite model
+   *       has a type that defines the properties that the composite model supports. Use composite asset
+   *       models to define alarms on this asset model.</p>
+   */
+  assetModelCompositeModels?: AssetModelCompositeModelDefinition[];
+
+  /**
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    */
   clientToken?: string;
@@ -1872,9 +2060,7 @@ export interface CreatePortalRequest {
    *             <li>
    *                <p>
    *                   <code>IAM</code> – The portal uses AWS Identity and Access Management (IAM) to authenticate users and manage
-   *           user permissions. IAM users must have the
-   *         <code>iotsitewise:CreatePresignedPortalUrl</code> permission to sign in to the portal. This option is only available in the
-   *           China Regions.</p>
+   *           user permissions. This option is only available in the China Regions.</p>
    *             </li>
    *          </ul>
    *          <p>You can't change this value after you create a portal.</p>
@@ -1963,7 +2149,7 @@ export interface CreatePortalResponse {
   /**
    * <p>The URL for the AWS IoT SiteWise Monitor portal. You can use this URL to access portals that
    *       use AWS SSO for authentication. For portals that use IAM for authentication, you must use the
-   *         <a href="https://docs.aws.amazon.com/AWS IoT SiteWise API ReferenceAPI_CreatePresignedPortalUrl.html">CreatePresignedPortalUrl</a> operation to create a URL that you can use to access the portal.</p>
+   *       AWS IoT SiteWise console to get a URL that you can use to access the portal.</p>
    */
   portalStartUrl: string | undefined;
 
@@ -1981,42 +2167,6 @@ export interface CreatePortalResponse {
 
 export namespace CreatePortalResponse {
   export const filterSensitiveLog = (obj: CreatePortalResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface CreatePresignedPortalUrlRequest {
-  /**
-   * <p>The ID of the portal to access.</p>
-   */
-  portalId: string | undefined;
-
-  /**
-   * <p>The duration (in seconds) for which the session at the URL is valid.</p>
-   *          <p>Default: 43,200 seconds (12 hours)</p>
-   */
-  sessionDurationSeconds?: number;
-}
-
-export namespace CreatePresignedPortalUrlRequest {
-  export const filterSensitiveLog = (obj: CreatePresignedPortalUrlRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreatePresignedPortalUrlResponse {
-  /**
-   * <p>The pre-signed URL to the portal. The URL contains the portal ID and an authentication
-   *       token that lets you access the portal. The URL has the following format.</p>
-   *          <p>
-   *             <code>https://<portal-id>.app.iotsitewise.aws/iam?token=<encrypted-token></code>
-   *          </p>
-   */
-  presignedPortalUrl: string | undefined;
-}
-
-export namespace CreatePresignedPortalUrlResponse {
-  export const filterSensitiveLog = (obj: CreatePresignedPortalUrlResponse): any => ({
     ...obj,
   });
 }
@@ -2365,6 +2515,8 @@ export interface DescribeAssetResponse {
 
   /**
    * <p>The list of asset properties for the asset.</p>
+   *          <p>This object doesn't include properties that you define in composite models. You can find
+   *       composite model properties in the <code>assetCompositeModels</code> object.</p>
    */
   assetProperties: AssetProperty[] | undefined;
 
@@ -2372,6 +2524,11 @@ export interface DescribeAssetResponse {
    * <p>A list of asset hierarchies that each contain a <code>hierarchyId</code>. A hierarchy specifies allowed parent/child asset relationships.</p>
    */
   assetHierarchies: AssetHierarchy[] | undefined;
+
+  /**
+   * <p>The composite models for the asset.</p>
+   */
+  assetCompositeModels?: AssetCompositeModel[];
 
   /**
    * <p>The date the asset was created, in Unix epoch time.</p>
@@ -2434,6 +2591,8 @@ export interface DescribeAssetModelResponse {
 
   /**
    * <p>The list of asset properties for the asset model.</p>
+   *          <p>This object doesn't include properties that you define in composite models. You can find
+   *       composite model properties in the <code>assetModelCompositeModels</code> object.</p>
    */
   assetModelProperties: AssetModelProperty[] | undefined;
 
@@ -2443,6 +2602,11 @@ export interface DescribeAssetModelResponse {
    *       asset relationships for an asset model.</p>
    */
   assetModelHierarchies: AssetModelHierarchy[] | undefined;
+
+  /**
+   * <p>The list of composite asset models for the asset model.</p>
+   */
+  assetModelCompositeModels?: AssetModelCompositeModel[];
 
   /**
    * <p>The date the asset model was created, in Unix epoch time.</p>
@@ -2534,6 +2698,32 @@ export namespace Property {
   });
 }
 
+/**
+ * <p>Contains information about a composite model property on an asset.</p>
+ */
+export interface CompositeModelProperty {
+  /**
+   * <p>The name of the property.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of the composite model that defines this property.</p>
+   */
+  type: string | undefined;
+
+  /**
+   * <p>Contains asset property information.</p>
+   */
+  assetProperty: Property | undefined;
+}
+
+export namespace CompositeModelProperty {
+  export const filterSensitiveLog = (obj: CompositeModelProperty): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeAssetPropertyResponse {
   /**
    * <p>The ID of the asset.</p>
@@ -2552,8 +2742,17 @@ export interface DescribeAssetPropertyResponse {
 
   /**
    * <p>The asset property's definition, alias, and notification state.</p>
+   *          <p>This response includes this object for normal asset properties. If you describe an asset
+   *       property in a composite model, this response includes the asset property information in
+   *         <code>compositeModel</code>.</p>
    */
-  assetProperty: Property | undefined;
+  assetProperty?: Property;
+
+  /**
+   * <p>The composite asset model that declares this asset property, if this asset property exists
+   *       in a composite model.</p>
+   */
+  compositeModel?: CompositeModelProperty;
 }
 
 export namespace DescribeAssetPropertyResponse {
@@ -2636,16 +2835,16 @@ export namespace DescribeDefaultEncryptionConfigurationRequest {
 }
 
 /**
- * <p></p>
+ * <p>Contains the details of an AWS IoT SiteWise configuration error.</p>
  */
 export interface ConfigurationErrorDetails {
   /**
-   * <p></p>
+   * <p>The error code.</p>
    */
   code: ErrorCode | string | undefined;
 
   /**
-   * <p></p>
+   * <p>The error message.</p>
    */
   message: string | undefined;
 }
@@ -2663,16 +2862,16 @@ export enum ConfigurationState {
 }
 
 /**
- * <p></p>
+ * <p>Contains current status information for the configuration.</p>
  */
 export interface ConfigurationStatus {
   /**
-   * <p></p>
+   * <p>The current state of the configuration.</p>
    */
   state: ConfigurationState | string | undefined;
 
   /**
-   * <p></p>
+   * <p>Contains associated error information, if any.</p>
    */
   error?: ConfigurationErrorDetails;
 }
@@ -2996,7 +3195,7 @@ export interface DescribePortalResponse {
   /**
    * <p>The URL for the AWS IoT SiteWise Monitor portal. You can use this URL to access portals that
    *       use AWS SSO for authentication. For portals that use IAM for authentication, you must use the
-   *         <a href="https://docs.aws.amazon.com/AWS IoT SiteWise API ReferenceAPI_CreatePresignedPortalUrl.html">CreatePresignedPortalUrl</a> operation to create a URL that you can use to access the portal.</p>
+   *       AWS IoT SiteWise console to get a URL that you can use to access the portal.</p>
    */
   portalStartUrl: string | undefined;
 
@@ -3458,6 +3657,65 @@ export namespace ListAssetModelsResponse {
   });
 }
 
+export enum TraversalType {
+  PATH_TO_ROOT = "PATH_TO_ROOT",
+}
+
+export interface ListAssetRelationshipsRequest {
+  /**
+   * <p>The ID of the asset.</p>
+   */
+  assetId: string | undefined;
+
+  /**
+   * <p>The type of traversal to use to identify asset relationships. Choose the following
+   *       option:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PATH_TO_ROOT</code> – Identify the asset's parent assets up to the root
+   *           asset. The asset that you specify in <code>assetId</code> is the first result in the list
+   *           of <code>assetRelationshipSummaries</code>, and the root asset is the last result.</p>
+   *             </li>
+   *          </ul>
+   */
+  traversalType: TraversalType | string | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per paginated request.</p>
+   */
+  maxResults?: number;
+}
+
+export namespace ListAssetRelationshipsRequest {
+  export const filterSensitiveLog = (obj: ListAssetRelationshipsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAssetRelationshipsResponse {
+  /**
+   * <p>A list that summarizes each asset relationship.</p>
+   */
+  assetRelationshipSummaries: AssetRelationshipSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListAssetRelationshipsResponse {
+  export const filterSensitiveLog = (obj: ListAssetRelationshipsResponse): any => ({
+    ...obj,
+  });
+}
+
 export enum ListAssetsFilter {
   ALL = "ALL",
   TOP_LEVEL = "TOP_LEVEL",
@@ -3795,7 +4053,7 @@ export interface PortalSummary {
   /**
    * <p>The URL for the AWS IoT SiteWise Monitor portal. You can use this URL to access portals that
    *       use AWS SSO for authentication. For portals that use IAM for authentication, you must use the
-   *         <a href="https://docs.aws.amazon.com/AWS IoT SiteWise API ReferenceAPI_CreatePresignedPortalUrl.html">CreatePresignedPortalUrl</a> operation to create a URL that you can use to access the portal.</p>
+   *       AWS IoT SiteWise console to get a URL that you can use to access the portal.</p>
    */
   startUrl: string | undefined;
 
@@ -3990,6 +4248,21 @@ export interface ListTagsForResourceResponse {
 
 export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>You are not authorized.</p>
+ */
+export interface UnauthorizedException extends __SmithyException, $MetadataBearer {
+  name: "UnauthorizedException";
+  $fault: "client";
+  message: string | undefined;
+}
+
+export namespace UnauthorizedException {
+  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
     ...obj,
   });
 }
@@ -4245,6 +4518,14 @@ export interface UpdateAssetModelRequest {
    *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
    */
   assetModelHierarchies?: AssetModelHierarchy[];
+
+  /**
+   * <p>The composite asset models that are part of this asset model.
+   *       Composite asset models are asset models that contain specific properties. Each composite model
+   *       has a type that defines the properties that the composite model supports. Use composite asset
+   *       models to define alarms on this asset model.</p>
+   */
+  assetModelCompositeModels?: AssetModelCompositeModel[];
 
   /**
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>

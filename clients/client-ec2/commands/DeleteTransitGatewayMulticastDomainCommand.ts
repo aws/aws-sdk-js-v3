@@ -2,7 +2,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DeleteTransitGatewayMulticastDomainRequest,
   DeleteTransitGatewayMulticastDomainResult,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_ec2DeleteTransitGatewayMulticastDomainCommand,
   serializeAws_ec2DeleteTransitGatewayMulticastDomainCommand,

@@ -23,6 +23,10 @@ export type DescribeDimensionKeysCommandOutput = DescribeDimensionKeysResponse &
 /**
  * <p>For a specific time period, retrieve the top <code>N</code> dimension keys for a
  *       metric.</p>
+ *          <note>
+ *             <p>Each response element returns a maximum of 500 bytes. For larger elements, such as SQL statements,
+ *         only the first 500 bytes are returned.</p>
+ *          </note>
  */
 export class DescribeDimensionKeysCommand extends $Command<
   DescribeDimensionKeysCommandInput,

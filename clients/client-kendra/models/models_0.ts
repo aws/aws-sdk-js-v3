@@ -55,6 +55,11 @@ export namespace AclConfiguration {
   });
 }
 
+export enum HighlightType {
+  STANDARD = "STANDARD",
+  THESAURUS_SYNONYM = "THESAURUS_SYNONYM",
+}
+
 /**
  * <p>Provides information that you can use to highlight a search result
  *             so that your users can quickly identify terms in the
@@ -78,6 +83,11 @@ export interface Highlight {
    *             is the best response; otherwise, false.</p>
    */
   TopAnswer?: boolean;
+
+  /**
+   * <p>The highlight type. </p>
+   */
+  Type?: HighlightType | string;
 }
 
 export namespace Highlight {
@@ -2630,6 +2640,73 @@ export namespace CreateIndexResponse {
   });
 }
 
+export interface CreateThesaurusRequest {
+  /**
+   * <p>The unique identifier of the index for the new thesaurus.
+   *       </p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The name for the new thesaurus.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description for the new thesaurus.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions
+   *          to access thesaurus file specified in <code>SourceS3Path</code>.
+   *       </p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>A list of key-value pairs that identify the thesaurus. You can use
+   *          the tags to identify and organize your resources and to control
+   *          access to resources.
+   *       </p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The thesaurus file Amazon S3 source path.
+   *       </p>
+   */
+  SourceS3Path: S3Path | undefined;
+
+  /**
+   * <p>A token that you provide to identify the request to create a
+   *          thesaurus. Multiple calls to the <code>CreateThesaurus</code> operation
+   *          with the same client token will create only one index.
+   *       </p>
+   */
+  ClientToken?: string;
+}
+
+export namespace CreateThesaurusRequest {
+  export const filterSensitiveLog = (obj: CreateThesaurusRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateThesaurusResponse {
+  /**
+   * <p>The unique identifier of the thesaurus.
+   *       </p>
+   */
+  Id?: string;
+}
+
+export namespace CreateThesaurusResponse {
+  export const filterSensitiveLog = (obj: CreateThesaurusResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteDataSourceRequest {
   /**
    * <p>The unique identifier of the data source to delete.</p>
@@ -2675,6 +2752,24 @@ export interface DeleteIndexRequest {
 
 export namespace DeleteIndexRequest {
   export const filterSensitiveLog = (obj: DeleteIndexRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteThesaurusRequest {
+  /**
+   * <p>The identifier of the thesaurus to delete.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The identifier of the index associated with the thesaurus to delete.</p>
+   */
+  IndexId: string | undefined;
+}
+
+export namespace DeleteThesaurusRequest {
+  export const filterSensitiveLog = (obj: DeleteThesaurusRequest): any => ({
     ...obj,
   });
 }
@@ -3150,7 +3245,7 @@ export interface DescribeIndexResponse {
   Name?: string;
 
   /**
-   * <p>the name of the index.</p>
+   * <p>The name of the index.</p>
    */
   Id?: string;
 
@@ -3238,6 +3333,122 @@ export namespace DescribeIndexResponse {
         obj.ServerSideEncryptionConfiguration
       ),
     }),
+  });
+}
+
+export interface DescribeThesaurusRequest {
+  /**
+   * <p>The identifier of the thesaurus to describe.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The identifier of the index associated with the thesaurus to describe.</p>
+   */
+  IndexId: string | undefined;
+}
+
+export namespace DescribeThesaurusRequest {
+  export const filterSensitiveLog = (obj: DescribeThesaurusRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum ThesaurusStatus {
+  ACTIVE = "ACTIVE",
+  ACTIVE_BUT_UPDATE_FAILED = "ACTIVE_BUT_UPDATE_FAILED",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  UPDATING = "UPDATING",
+}
+
+export interface DescribeThesaurusResponse {
+  /**
+   * <p>The identifier of the thesaurus.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The identifier of the index associated with the thesaurus to describe.</p>
+   */
+  IndexId?: string;
+
+  /**
+   * <p>The thesaurus name.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The thesaurus description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The current status of the thesaurus. When the value is <code>ACTIVE</code>,
+   *          queries are able to use the thesaurus. If the <code>Status</code> field value
+   *          is <code>FAILED</code>, the <code>ErrorMessage</code> field provides
+   *          more information.
+   *       </p>
+   *          <p>If the status is <code>ACTIVE_BUT_UPDATE_FAILED</code>, it means
+   *       that Amazon Kendra could not ingest the new thesaurus file. The old
+   *       thesaurus file is still active.
+   *       </p>
+   */
+  Status?: ThesaurusStatus | string;
+
+  /**
+   * <p>When the <code>Status</code> field value is <code>FAILED</code>, the
+   *          <code>ErrorMessage</code> field provides more information.
+   *       </p>
+   */
+  ErrorMessage?: string;
+
+  /**
+   * <p>The Unix datetime that the thesaurus was created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The Unix datetime that the thesaurus was last updated.</p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * <p>An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions
+   *          to access thesaurus file specified in <code>SourceS3Path</code>.
+   *       </p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>Information required to find a specific file in an Amazon S3
+   *             bucket.</p>
+   */
+  SourceS3Path?: S3Path;
+
+  /**
+   * <p>The size of the thesaurus file in bytes.</p>
+   */
+  FileSizeBytes?: number;
+
+  /**
+   * <p>The number of unique terms in the thesaurus file. For example, the
+   *         synonyms <code>a,b,c</code> and <code>a=>d</code>, the term
+   *         count would be 4.
+   *       </p>
+   */
+  TermCount?: number;
+
+  /**
+   * <p>The number of synonym rules in the thesaurus file.</p>
+   */
+  SynonymRuleCount?: number;
+}
+
+export namespace DescribeThesaurusResponse {
+  export const filterSensitiveLog = (obj: DescribeThesaurusResponse): any => ({
+    ...obj,
   });
 }
 
@@ -3746,6 +3957,89 @@ export interface ResourceUnavailableException extends __SmithyException, $Metada
 
 export namespace ResourceUnavailableException {
   export const filterSensitiveLog = (obj: ResourceUnavailableException): any => ({
+    ...obj,
+  });
+}
+
+export interface ListThesauriRequest {
+  /**
+   * <p>The identifier of the index associated with the thesaurus to list.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>If the previous response was incomplete (because there is more data to retrieve),
+   *          Amazon Kendra returns a pagination token in the response. You can use this pagination token to
+   *          retrieve the next set of thesauri (<code>ThesaurusSummaryItems</code>).
+   *       </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of thesauri to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListThesauriRequest {
+  export const filterSensitiveLog = (obj: ListThesauriRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An array of summary information for one or more thesauruses.</p>
+ */
+export interface ThesaurusSummary {
+  /**
+   * <p>The identifier of the thesaurus.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The name of the thesaurus.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The status of the thesaurus.</p>
+   */
+  Status?: ThesaurusStatus | string;
+
+  /**
+   * <p>The Unix datetime that the thesaurus was created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The Unix datetime that the thesaurus was last updated.</p>
+   */
+  UpdatedAt?: Date;
+}
+
+export namespace ThesaurusSummary {
+  export const filterSensitiveLog = (obj: ThesaurusSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListThesauriResponse {
+  /**
+   * <p>If the response is truncated, Amazon Kendra returns this
+   *          token that you can use in the subsequent request to
+   *          retrieve the next set of thesauri.
+   *       </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>An array of summary information for one or more thesauruses.</p>
+   */
+  ThesaurusSummaryItems?: ThesaurusSummary[];
+}
+
+export namespace ListThesauriResponse {
+  export const filterSensitiveLog = (obj: ListThesauriResponse): any => ({
     ...obj,
   });
 }
@@ -4358,6 +4652,45 @@ export interface UpdateIndexRequest {
 
 export namespace UpdateIndexRequest {
   export const filterSensitiveLog = (obj: UpdateIndexRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateThesaurusRequest {
+  /**
+   * <p>The identifier of the thesaurus to update.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The updated name of the thesaurus.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The identifier of the index associated with the thesaurus to update.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The updated description of the thesaurus.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The updated role ARN of the thesaurus.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>Information required to find a specific file in an Amazon S3
+   *             bucket.</p>
+   */
+  SourceS3Path?: S3Path;
+}
+
+export namespace UpdateThesaurusRequest {
+  export const filterSensitiveLog = (obj: UpdateThesaurusRequest): any => ({
     ...obj,
   });
 }

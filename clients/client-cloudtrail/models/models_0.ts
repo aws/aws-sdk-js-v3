@@ -27,17 +27,17 @@ export namespace Tag {
  */
 export interface AddTagsRequest {
   /**
-   * <p>Contains a list of CloudTrail tags, up to a limit of 50</p>
-   */
-  TagsList?: Tag[];
-
-  /**
    * <p>Specifies the ARN of the trail to which one or more tags will be added. The format of a trail ARN is:</p>
    *          <p>
    *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
    *          </p>
    */
   ResourceId: string | undefined;
+
+  /**
+   * <p>Contains a list of CloudTrail tags, up to a limit of 50</p>
+   */
+  TagsList?: Tag[];
 }
 
 export namespace AddTagsRequest {
@@ -243,14 +243,132 @@ export namespace UnsupportedOperationException {
   });
 }
 
+/**
+ * <p>A single selector statement in an advanced event selector.</p>
+ */
 export interface AdvancedFieldSelector {
+  /**
+   * <p>
+   *          A field in an event record on which to filter events to be logged. Supported fields include <code>readOnly</code>, <code>eventCategory</code>,
+   *          <code>eventSource</code> (for management events), <code>eventName</code>, <code>resources.type</code>, and <code>resources.ARN</code>.
+   *       </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>readOnly</code>
+   *                   </b> - Optional. Can be set to <code>Equals</code> a value of <code>true</code>
+   *             or <code>false</code>. A value of <code>false</code> logs both <code>read</code> and
+   *             <code>write</code> events.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>eventSource</code>
+   *                   </b> - For filtering management events only.
+   *             This can be set only to <code>NotEquals</code>
+   *                   <code>kms.amazonaws.com</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>eventName</code>
+   *                   </b> - Can use any operator. You can use it to ﬁlter in
+   *             or ﬁlter out any data event logged to CloudTrail, such as <code>PutBucket</code>. You can have multiple values
+   *             for this ﬁeld, separated by commas.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>eventCategory</code>
+   *                   </b> - This is required. It must be set to <code>Equals</code>, and
+   *             the value must be <code>Management</code> or <code>Data</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>resources.type</code>
+   *                   </b> - This ﬁeld is required. <code>resources.type</code>
+   *             can only use the <code>Equals</code> operator, and the value can be one of the following: <code>AWS::S3::Object</code>
+   *             or <code>AWS::Lambda::Function</code>. You can have only one <code>resources.type</code> ﬁeld per selector. To log
+   *             data events on more than one resource type, add another selector.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>resources.ARN</code>
+   *                   </b> - You can use any operator with resources.ARN, but
+   *             if you use <code>Equals</code> or <code>NotEquals</code>, the value must exactly match the ARN of a valid resource
+   *             of the type you've speciﬁed in the template as the value of resources.type. For example, if resources.type equals
+   *             <code>AWS::S3::Object</code>, the ARN must be in one of the following formats. The trailing slash is intentional; do not exclude it.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:partition:s3:::bucket_name/</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:partition:s3:::bucket_name/object_or_file_name/</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When resources.type equals <code>AWS::Lambda::Function</code>, and the operator is set
+   *             to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:partition:lambda:region:account_ID:function:function_name</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   */
   Field: string | undefined;
-  StartsWith?: string[];
-  NotStartsWith?: string[];
-  EndsWith?: string[];
+
+  /**
+   * <p>
+   *          An operator that includes events that match the exact value of the event record field specified as the value of <code>Field</code>. This is the only valid operator
+   *          that you can use with the <code>readOnly</code>, <code>eventCategory</code>, and <code>resources.type</code> fields.
+   *       </p>
+   */
   Equals?: string[];
-  NotEndsWith?: string[];
+
+  /**
+   * <p>
+   *          An operator that includes events that match the first few characters of the event record field specified as the value of <code>Field</code>.
+   *       </p>
+   */
+  StartsWith?: string[];
+
+  /**
+   * <p>
+   *          An operator that includes events that match the last few characters of the event record field specified as the value of <code>Field</code>.
+   *       </p>
+   */
+  EndsWith?: string[];
+
+  /**
+   * <p>
+   *          An operator that excludes events that match the exact value of the event record field specified as the value of <code>Field</code>.
+   *       </p>
+   */
   NotEquals?: string[];
+
+  /**
+   * <p>
+   *          An operator that excludes events that match the first few characters of the event record field specified as the value of <code>Field</code>.
+   *       </p>
+   */
+  NotStartsWith?: string[];
+
+  /**
+   * <p>
+   *          An operator that excludes events that match the last few characters of the event record field specified as the value of <code>Field</code>.
+   *       </p>
+   */
+  NotEndsWith?: string[];
 }
 
 export namespace AdvancedFieldSelector {
@@ -259,9 +377,56 @@ export namespace AdvancedFieldSelector {
   });
 }
 
+/**
+ * <p>Advanced event selectors let you create fine-grained selectors for the following AWS
+ *          CloudTrail event record ﬁelds. They help you control costs by logging only those events
+ *          that are important to you. For more information about advanced event selectors, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events for trails</a> in the <i>AWS
+ *             CloudTrail User Guide</i>.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>readOnly</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>eventSource</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>eventName</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>eventCategory</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>resources.type</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>resources.ARN</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>You cannot apply both event selectors and advanced event selectors to a trail.</p>
+ */
 export interface AdvancedEventSelector {
+  /**
+   * <p>An optional, descriptive name for an advanced event selector, such as "Log data events
+   *          for only two S3 buckets".</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Contains all selector statements in an advanced event selector.</p>
+   */
   FieldSelectors: AdvancedFieldSelector[] | undefined;
-  Name: string | undefined;
 }
 
 export namespace AdvancedEventSelector {
@@ -291,6 +456,25 @@ export namespace CloudTrailAccessNotEnabledException {
 }
 
 /**
+ * <p>This exception is thrown when a call results in the <code>InvalidClientTokenId</code> error code. This can occur when you are creating or updating a trail to send notifications to an Amazon SNS topic that
+ *       is in a suspended AWS account.</p>
+ */
+export interface CloudTrailInvalidClientTokenIdException extends __SmithyException, $MetadataBearer {
+  name: "CloudTrailInvalidClientTokenIdException";
+  $fault: "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+}
+
+export namespace CloudTrailInvalidClientTokenIdException {
+  export const filterSensitiveLog = (obj: CloudTrailInvalidClientTokenIdException): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Cannot set a CloudWatch Logs delivery for this region.</p>
  */
 export interface CloudWatchLogsDeliveryUnavailableException extends __SmithyException, $MetadataBearer {
@@ -312,54 +496,6 @@ export namespace CloudWatchLogsDeliveryUnavailableException {
  * <p>Specifies the settings for each trail.</p>
  */
 export interface CreateTrailRequest {
-  /**
-   * <p>Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The
-   *          value can be an alias name prefixed by "alias/", a fully specified ARN to an alias, a fully
-   *          specified ARN to a key, or a globally unique identifier.</p>
-   *          <p>Examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>alias/MyAliasName</p>
-   *             </li>
-   *             <li>
-   *                <p>arn:aws:kms:us-east-2:123456789012:alias/MyAliasName</p>
-   *             </li>
-   *             <li>
-   *                <p>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</p>
-   *             </li>
-   *             <li>
-   *                <p>12345678-1234-1234-1234-123456789012</p>
-   *             </li>
-   *          </ul>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>Specifies whether the trail is created in the current region or in all regions. The default is false, which creates a trail only in the region where you are signed in. As a best practice, consider
-   *       creating trails that log events in all regions.</p>
-   */
-  IsMultiRegionTrail?: boolean;
-
-  /**
-   * <p>Specifies whether log file integrity validation is enabled. The default is false.</p>
-   *          <note>
-   *             <p>When you disable log file integrity validation, the chain of digest files is broken after one hour. CloudTrail will not create digest files for log files that were delivered during a period in which log file integrity validation was disabled. For example, if you enable log file integrity validation at noon on January 1, disable it at noon on January 2, and re-enable it at noon on January 10, digest files will not be created for the log files delivered from noon on January 2 to noon on January 10. The same applies whenever you stop CloudTrail logging or delete a trail.</p>
-   *          </note>
-   */
-  EnableLogFileValidation?: boolean;
-
-  /**
-   * <p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated
-   *          for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html">Finding Your CloudTrail Log Files</a>. The maximum length is 200 characters.</p>
-   */
-  S3KeyPrefix?: string;
-
-  /**
-   * <p>Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group
-   *          to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.</p>
-   */
-  CloudWatchLogsLogGroupArn?: string;
-
   /**
    * <p>Specifies the name of the trail. The name must meet the following requirements:</p>
    *          <ul>
@@ -389,14 +525,67 @@ export interface CreateTrailRequest {
   S3BucketName: string | undefined;
 
   /**
+   * <p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated
+   *          for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html">Finding Your CloudTrail Log Files</a>. The maximum length is 200 characters.</p>
+   */
+  S3KeyPrefix?: string;
+
+  /**
    * <p>Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.</p>
    */
   SnsTopicName?: string;
 
   /**
-   * <p>A list of tags.</p>
+   * <p>Specifies whether the trail is publishing events from global services such as IAM to the log files.</p>
    */
-  TagsList?: Tag[];
+  IncludeGlobalServiceEvents?: boolean;
+
+  /**
+   * <p>Specifies whether the trail is created in the current region or in all regions. The default is false, which creates a trail only in the region where you are signed in. As a best practice, consider
+   *       creating trails that log events in all regions.</p>
+   */
+  IsMultiRegionTrail?: boolean;
+
+  /**
+   * <p>Specifies whether log file integrity validation is enabled. The default is false.</p>
+   *          <note>
+   *             <p>When you disable log file integrity validation, the chain of digest files is broken after one hour. CloudTrail will not create digest files for log files that were delivered during a period in which log file integrity validation was disabled. For example, if you enable log file integrity validation at noon on January 1, disable it at noon on January 2, and re-enable it at noon on January 10, digest files will not be created for the log files delivered from noon on January 2 to noon on January 10. The same applies whenever you stop CloudTrail logging or delete a trail.</p>
+   *          </note>
+   */
+  EnableLogFileValidation?: boolean;
+
+  /**
+   * <p>Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group
+   *          to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.</p>
+   */
+  CloudWatchLogsLogGroupArn?: string;
+
+  /**
+   * <p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.</p>
+   */
+  CloudWatchLogsRoleArn?: string;
+
+  /**
+   * <p>Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The
+   *          value can be an alias name prefixed by "alias/", a fully specified ARN to an alias, a fully
+   *          specified ARN to a key, or a globally unique identifier.</p>
+   *          <p>Examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>alias/MyAliasName</p>
+   *             </li>
+   *             <li>
+   *                <p>arn:aws:kms:us-east-2:123456789012:alias/MyAliasName</p>
+   *             </li>
+   *             <li>
+   *                <p>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</p>
+   *             </li>
+   *             <li>
+   *                <p>12345678-1234-1234-1234-123456789012</p>
+   *             </li>
+   *          </ul>
+   */
+  KmsKeyId?: string;
 
   /**
    * <p>Specifies whether the trail is created for all accounts in an organization in AWS Organizations, or only for the current AWS account.
@@ -406,14 +595,9 @@ export interface CreateTrailRequest {
   IsOrganizationTrail?: boolean;
 
   /**
-   * <p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.</p>
+   * <p>A list of tags.</p>
    */
-  CloudWatchLogsRoleArn?: string;
-
-  /**
-   * <p>Specifies whether the trail is publishing events from global services such as IAM to the log files.</p>
-   */
-  IncludeGlobalServiceEvents?: boolean;
+  TagsList?: Tag[];
 }
 
 export namespace CreateTrailRequest {
@@ -427,37 +611,43 @@ export namespace CreateTrailRequest {
  */
 export interface CreateTrailResponse {
   /**
+   * <p>Specifies the name of the trail.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Specifies the name of the Amazon S3 bucket designated for publishing log files.</p>
+   */
+  S3BucketName?: string;
+
+  /**
+   * <p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated
+   *          for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html">Finding Your CloudTrail Log Files</a>.</p>
+   */
+  S3KeyPrefix?: string;
+
+  /**
+   * <p>This field is no longer in use. Use SnsTopicARN.</p>
+   */
+  SnsTopicName?: string;
+
+  /**
+   * <p>Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is:</p>
+   *          <p>
+   *             <code>arn:aws:sns:us-east-2:123456789012:MyTopic</code>
+   *          </p>
+   */
+  SnsTopicARN?: string;
+
+  /**
    * <p>Specifies whether the trail is publishing events from global services such as IAM to the log files.</p>
    */
   IncludeGlobalServiceEvents?: boolean;
 
   /**
-   * <p>Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format:</p>
-   *          <p>
-   *             <code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code>
-   *          </p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>Specifies whether the trail is an organization trail.</p>
-   */
-  IsOrganizationTrail?: boolean;
-
-  /**
-   * <p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.</p>
-   */
-  CloudWatchLogsRoleArn?: string;
-
-  /**
    * <p>Specifies whether the trail exists in one region or in all regions.</p>
    */
   IsMultiRegionTrail?: boolean;
-
-  /**
-   * <p>Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail logs will be delivered.</p>
-   */
-  CloudWatchLogsLogGroupArn?: string;
 
   /**
    * <p>Specifies the ARN of the trail that was created. The format of a trail ARN
@@ -474,33 +664,27 @@ export interface CreateTrailResponse {
   LogFileValidationEnabled?: boolean;
 
   /**
-   * <p>This field is no longer in use. Use SnsTopicARN.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail logs will be delivered.</p>
    */
-  SnsTopicName?: string;
+  CloudWatchLogsLogGroupArn?: string;
 
   /**
-   * <p>Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is:</p>
+   * <p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.</p>
+   */
+  CloudWatchLogsRoleArn?: string;
+
+  /**
+   * <p>Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format:</p>
    *          <p>
-   *             <code>arn:aws:sns:us-east-2:123456789012:MyTopic</code>
+   *             <code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code>
    *          </p>
    */
-  SnsTopicARN?: string;
+  KmsKeyId?: string;
 
   /**
-   * <p>Specifies the name of the Amazon S3 bucket designated for publishing log files.</p>
+   * <p>Specifies whether the trail is an organization trail.</p>
    */
-  S3BucketName?: string;
-
-  /**
-   * <p>Specifies the name of the trail.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated
-   *          for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html">Finding Your CloudTrail Log Files</a>.</p>
-   */
-  S3KeyPrefix?: string;
+  IsOrganizationTrail?: boolean;
 }
 
 export namespace CreateTrailResponse {
@@ -998,9 +1182,15 @@ export interface Trail {
   S3BucketName?: string;
 
   /**
-   * <p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.</p>
+   * <p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated
+   *          for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html">Finding Your CloudTrail Log Files</a>.The maximum length is 200 characters.</p>
    */
-  CloudWatchLogsRoleArn?: string;
+  S3KeyPrefix?: string;
+
+  /**
+   * <p>This field is no longer in use. Use SnsTopicARN.</p>
+   */
+  SnsTopicName?: string;
 
   /**
    * <p>Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications
@@ -1018,9 +1208,14 @@ export interface Trail {
   IncludeGlobalServiceEvents?: boolean;
 
   /**
-   * <p>Specifies whether log file validation is enabled.</p>
+   * <p>Specifies whether the trail exists only in one region or exists in all regions.</p>
    */
-  LogFileValidationEnabled?: boolean;
+  IsMultiRegionTrail?: boolean;
+
+  /**
+   * <p>The region in which the trail was created.</p>
+   */
+  HomeRegion?: string;
 
   /**
    * <p>Specifies the ARN of the trail. The format of a trail ARN is:</p>
@@ -1031,30 +1226,19 @@ export interface Trail {
   TrailARN?: string;
 
   /**
+   * <p>Specifies whether log file validation is enabled.</p>
+   */
+  LogFileValidationEnabled?: boolean;
+
+  /**
    * <p>Specifies an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered.</p>
    */
   CloudWatchLogsLogGroupArn?: string;
 
   /**
-   * <p>Specifies if the trail has custom event selectors.</p>
+   * <p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.</p>
    */
-  HasCustomEventSelectors?: boolean;
-
-  /**
-   * <p>Specifies whether the trail exists only in one region or exists in all regions.</p>
-   */
-  IsMultiRegionTrail?: boolean;
-
-  /**
-   * <p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated
-   *          for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html">Finding Your CloudTrail Log Files</a>.The maximum length is 200 characters.</p>
-   */
-  S3KeyPrefix?: string;
-
-  /**
-   * <p>This field is no longer in use. Use SnsTopicARN.</p>
-   */
-  SnsTopicName?: string;
+  CloudWatchLogsRoleArn?: string;
 
   /**
    * <p>Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format:</p>
@@ -1065,9 +1249,9 @@ export interface Trail {
   KmsKeyId?: string;
 
   /**
-   * <p>The region in which the trail was created.</p>
+   * <p>Specifies if the trail has custom event selectors.</p>
    */
-  HomeRegion?: string;
+  HasCustomEventSelectors?: boolean;
 
   /**
    * <p>Specifies whether a trail has insight types specified in an <code>InsightSelector</code> list.</p>
@@ -1147,6 +1331,8 @@ export namespace GetEventSelectorsRequest {
  *          <note>
  *             <p>The total number of allowed data resources is 250. This number can be distributed between 1 and 5 event selectors,
  *       but the total cannot exceed 250 across all selectors.</p>
+ *             <p>If you are using advanced event selectors, the maximum total number of values for
+ *             all conditions, across all advanced event selectors for the trail, is 500.</p>
  *          </note>
  *          <p>The following example demonstrates how logging works when you configure logging of all data events
  *       for an S3 bucket named <code>bucket-1</code>. In this example, the CloudTrail user specified an empty prefix,
@@ -1260,6 +1446,7 @@ export enum ReadWriteType {
  *          processes and logs the event. If the event doesn't match any event selector, the trail
  *          doesn't log the event.</p>
  *          <p>You can configure up to five event selectors for a trail.</p>
+ *          <p>You cannot apply both event selectors and advanced event selectors to a trail.</p>
  */
 export interface EventSelector {
   /**
@@ -1269,12 +1456,6 @@ export interface EventSelector {
    *          <p> By default, the value is <code>All</code>.</p>
    */
   ReadWriteType?: ReadWriteType | string;
-
-  /**
-   * <p>An optional list of service event sources from which you do not want management events to be logged on your trail. In this release, the list can be empty (disables the filter), or it can filter out AWS Key Management Service events by
-   *          containing <code>"kms.amazonaws.com"</code>. By default, <code>ExcludeManagementEventSources</code> is empty, and AWS KMS events are included in events that are logged to your trail. </p>
-   */
-  ExcludeManagementEventSources?: string[];
 
   /**
    * <p>Specify if you want your event selector to include management events for your trail.</p>
@@ -1296,6 +1477,12 @@ export interface EventSelector {
    *          in the <i>AWS CloudTrail User Guide</i>.</p>
    */
   DataResources?: DataResource[];
+
+  /**
+   * <p>An optional list of service event sources from which you do not want management events to be logged on your trail. In this release, the list can be empty (disables the filter), or it can filter out AWS Key Management Service events by
+   *          containing <code>"kms.amazonaws.com"</code>. By default, <code>ExcludeManagementEventSources</code> is empty, and AWS KMS events are included in events that are logged to your trail. </p>
+   */
+  ExcludeManagementEventSources?: string[];
 }
 
 export namespace EventSelector {
@@ -1305,16 +1492,22 @@ export namespace EventSelector {
 }
 
 export interface GetEventSelectorsResponse {
-  AdvancedEventSelectors?: AdvancedEventSelector[];
+  /**
+   * <p>The specified trail ARN that has the event selectors.</p>
+   */
+  TrailARN?: string;
+
   /**
    * <p>The event selectors that are configured for the trail.</p>
    */
   EventSelectors?: EventSelector[];
 
   /**
-   * <p>The specified trail ARN that has the event selectors.</p>
+   * <p>
+   *          The advanced event selectors that are configured for the trail.
+   *       </p>
    */
-  TrailARN?: string;
+  AdvancedEventSelectors?: AdvancedEventSelector[];
 }
 
 export namespace GetEventSelectorsResponse {
@@ -1465,49 +1658,9 @@ export namespace GetTrailStatusRequest {
  */
 export interface GetTrailStatusResponse {
   /**
-   * <p>Specifies the most recent date and time when CloudTrail stopped recording API calls for an AWS account.</p>
-   */
-  StopLoggingTime?: Date;
-
-  /**
-   * <p>This field is no longer in use.</p>
-   */
-  LatestDeliveryAttemptSucceeded?: string;
-
-  /**
-   * <p>Displays the most recent date and time when CloudTrail delivered logs to CloudWatch Logs.</p>
-   */
-  LatestCloudWatchLogsDeliveryTime?: Date;
-
-  /**
-   * <p>Displays any CloudWatch Logs error that CloudTrail encountered when attempting to deliver logs to CloudWatch Logs.</p>
-   */
-  LatestCloudWatchLogsDeliveryError?: string;
-
-  /**
-   * <p>This field is no longer in use.</p>
-   */
-  LatestDeliveryAttemptTime?: string;
-
-  /**
-   * <p>Specifies the date and time that CloudTrail last delivered a digest file to an account's Amazon S3 bucket.</p>
-   */
-  LatestDigestDeliveryTime?: Date;
-
-  /**
-   * <p>This field is no longer in use.</p>
-   */
-  TimeLoggingStopped?: string;
-
-  /**
    * <p>Whether the CloudTrail is currently logging AWS API calls.</p>
    */
   IsLogging?: boolean;
-
-  /**
-   * <p>This field is no longer in use.</p>
-   */
-  LatestNotificationAttemptTime?: string;
 
   /**
    * <p>Displays any Amazon S3 error that CloudTrail encountered when attempting to deliver log files
@@ -1523,9 +1676,16 @@ export interface GetTrailStatusResponse {
   LatestDeliveryError?: string;
 
   /**
-   * <p>This field is no longer in use.</p>
+   * <p>Displays any Amazon SNS error that CloudTrail encountered when attempting to send a
+   *          notification. For more information about Amazon SNS errors, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/welcome.html">Amazon SNS Developer Guide</a>.
+   *       </p>
    */
-  LatestNotificationAttemptSucceeded?: string;
+  LatestNotificationError?: string;
+
+  /**
+   * <p>Specifies the date and time that CloudTrail last delivered log files to an account's Amazon S3 bucket.</p>
+   */
+  LatestDeliveryTime?: Date;
 
   /**
    * <p>Specifies the date and time of the most recent Amazon SNS notification that CloudTrail has written a new log file to an account's Amazon S3 bucket.</p>
@@ -1538,11 +1698,24 @@ export interface GetTrailStatusResponse {
   StartLoggingTime?: Date;
 
   /**
-   * <p>Displays any Amazon SNS error that CloudTrail encountered when attempting to send a
-   *          notification. For more information about Amazon SNS errors, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/welcome.html">Amazon SNS Developer Guide</a>.
-   *       </p>
+   * <p>Specifies the most recent date and time when CloudTrail stopped recording API calls for an AWS account.</p>
    */
-  LatestNotificationError?: string;
+  StopLoggingTime?: Date;
+
+  /**
+   * <p>Displays any CloudWatch Logs error that CloudTrail encountered when attempting to deliver logs to CloudWatch Logs.</p>
+   */
+  LatestCloudWatchLogsDeliveryError?: string;
+
+  /**
+   * <p>Displays the most recent date and time when CloudTrail delivered logs to CloudWatch Logs.</p>
+   */
+  LatestCloudWatchLogsDeliveryTime?: Date;
+
+  /**
+   * <p>Specifies the date and time that CloudTrail last delivered a digest file to an account's Amazon S3 bucket.</p>
+   */
+  LatestDigestDeliveryTime?: Date;
 
   /**
    * <p>Displays any Amazon S3 error that CloudTrail encountered when attempting to deliver a digest
@@ -1560,12 +1733,32 @@ export interface GetTrailStatusResponse {
   /**
    * <p>This field is no longer in use.</p>
    */
+  LatestDeliveryAttemptTime?: string;
+
+  /**
+   * <p>This field is no longer in use.</p>
+   */
+  LatestNotificationAttemptTime?: string;
+
+  /**
+   * <p>This field is no longer in use.</p>
+   */
+  LatestNotificationAttemptSucceeded?: string;
+
+  /**
+   * <p>This field is no longer in use.</p>
+   */
+  LatestDeliveryAttemptSucceeded?: string;
+
+  /**
+   * <p>This field is no longer in use.</p>
+   */
   TimeLoggingStarted?: string;
 
   /**
-   * <p>Specifies the date and time that CloudTrail last delivered log files to an account's Amazon S3 bucket.</p>
+   * <p>This field is no longer in use.</p>
    */
-  LatestDeliveryTime?: Date;
+  TimeLoggingStopped?: string;
 }
 
 export namespace GetTrailStatusResponse {
@@ -1641,9 +1834,9 @@ export namespace ListPublicKeysRequest {
  */
 export interface PublicKey {
   /**
-   * <p>The ending time of validity of the public key.</p>
+   * <p>The DER encoded public key value in PKCS#1 format.</p>
    */
-  ValidityEndTime?: Date;
+  Value?: Uint8Array;
 
   /**
    * <p>The starting time of validity of the public key.</p>
@@ -1651,9 +1844,9 @@ export interface PublicKey {
   ValidityStartTime?: Date;
 
   /**
-   * <p>The DER encoded public key value in PKCS#1 format.</p>
+   * <p>The ending time of validity of the public key.</p>
    */
-  Value?: Uint8Array;
+  ValidityEndTime?: Date;
 
   /**
    * <p>The fingerprint of the public key.</p>
@@ -1696,17 +1889,17 @@ export namespace ListPublicKeysResponse {
  */
 export interface ListTagsRequest {
   /**
-   * <p>Reserved for future use.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Specifies a list of trail ARNs whose tags will be listed. The list has a limit of 20 ARNs. The format of a trail ARN is:</p>
    *             <p>
    *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
    *          </p>
    */
   ResourceIdList: string[] | undefined;
+
+  /**
+   * <p>Reserved for future use.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListTagsRequest {
@@ -1720,14 +1913,14 @@ export namespace ListTagsRequest {
  */
 export interface ResourceTag {
   /**
-   * <p>A list of tags.</p>
-   */
-  TagsList?: Tag[];
-
-  /**
    * <p>Specifies the ARN of the resource.</p>
    */
   ResourceId?: string;
+
+  /**
+   * <p>A list of tags.</p>
+   */
+  TagsList?: Tag[];
 }
 
 export namespace ResourceTag {
@@ -1778,6 +1971,11 @@ export namespace ListTrailsRequest {
  */
 export interface TrailInfo {
   /**
+   * <p>The ARN of a trail.</p>
+   */
+  TrailARN?: string;
+
+  /**
    * <p>The name of a trail.</p>
    */
   Name?: string;
@@ -1786,11 +1984,6 @@ export interface TrailInfo {
    * <p>The AWS region in which a trail was created.</p>
    */
   HomeRegion?: string;
-
-  /**
-   * <p>The ARN of a trail.</p>
-   */
-  TrailARN?: string;
 }
 
 export namespace TrailInfo {
@@ -1912,14 +2105,14 @@ export enum LookupAttributeKey {
  */
 export interface LookupAttribute {
   /**
-   * <p>Specifies a value for the specified AttributeKey.</p>
-   */
-  AttributeValue: string | undefined;
-
-  /**
    * <p>Specifies an attribute on which to filter the events returned.</p>
    */
   AttributeKey: LookupAttributeKey | string | undefined;
+
+  /**
+   * <p>Specifies a value for the specified AttributeKey.</p>
+   */
+  AttributeValue: string | undefined;
 }
 
 export namespace LookupAttribute {
@@ -1932,6 +2125,16 @@ export namespace LookupAttribute {
  * <p>Contains a request for LookupEvents.</p>
  */
 export interface LookupEventsRequest {
+  /**
+   * <p>Contains a list of lookup attributes. Currently the list can contain only one item.</p>
+   */
+  LookupAttributes?: LookupAttribute[];
+
+  /**
+   * <p>Specifies that only events that occur after or at the specified time are returned. If the specified start time is after the specified end time, an error is returned.</p>
+   */
+  StartTime?: Date;
+
   /**
    * <p>Specifies that only events that occur before or at the specified time are returned. If the specified end time is before the specified start time, an error is returned.</p>
    */
@@ -1949,20 +2152,10 @@ export interface LookupEventsRequest {
   MaxResults?: number;
 
   /**
-   * <p>Contains a list of lookup attributes. Currently the list can contain only one item.</p>
-   */
-  LookupAttributes?: LookupAttribute[];
-
-  /**
    * <p>The token to use to get the next page of results after a previous API call. This token must be passed in with the same parameters that were specified in the the original call.
    *          For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Specifies that only events that occur after or at the specified time are returned. If the specified start time is after the specified end time, an error is returned.</p>
-   */
-  StartTime?: Date;
 }
 
 export namespace LookupEventsRequest {
@@ -2000,40 +2193,9 @@ export namespace Resource {
  */
 export interface Event {
   /**
-   * <p>The AWS access key ID that was used to sign the request. If the request was made
-   *          with temporary security credentials, this is the access key ID of the temporary credentials.</p>
+   * <p>The CloudTrail ID of the event returned.</p>
    */
-  AccessKeyId?: string;
-
-  /**
-   * <p>The AWS service that the request was made to.</p>
-   */
-  EventSource?: string;
-
-  /**
-   * <p>The date and time of the event returned.</p>
-   */
-  EventTime?: Date;
-
-  /**
-   * <p>A user name or role name of the requester that called the API in the event returned.</p>
-   */
-  Username?: string;
-
-  /**
-   * <p>Information about whether the event is a write event or a read event. </p>
-   */
-  ReadOnly?: string;
-
-  /**
-   * <p>A JSON string that contains a representation of the event returned.</p>
-   */
-  CloudTrailEvent?: string;
-
-  /**
-   * <p>A list of resources referenced by the event returned.</p>
-   */
-  Resources?: Resource[];
+  EventId?: string;
 
   /**
    * <p>The name of the event returned.</p>
@@ -2041,9 +2203,40 @@ export interface Event {
   EventName?: string;
 
   /**
-   * <p>The CloudTrail ID of the event returned.</p>
+   * <p>Information about whether the event is a write event or a read event. </p>
    */
-  EventId?: string;
+  ReadOnly?: string;
+
+  /**
+   * <p>The AWS access key ID that was used to sign the request. If the request was made
+   *          with temporary security credentials, this is the access key ID of the temporary credentials.</p>
+   */
+  AccessKeyId?: string;
+
+  /**
+   * <p>The date and time of the event returned.</p>
+   */
+  EventTime?: Date;
+
+  /**
+   * <p>The AWS service that the request was made to.</p>
+   */
+  EventSource?: string;
+
+  /**
+   * <p>A user name or role name of the requester that called the API in the event returned.</p>
+   */
+  Username?: string;
+
+  /**
+   * <p>A list of resources referenced by the event returned.</p>
+   */
+  Resources?: Resource[];
+
+  /**
+   * <p>A JSON string that contains a representation of the event returned.</p>
+   */
+  CloudTrailEvent?: string;
 }
 
 export namespace Event {
@@ -2057,17 +2250,17 @@ export namespace Event {
  */
 export interface LookupEventsResponse {
   /**
+   * <p>A list of events returned based on the lookup attributes specified and the CloudTrail event. The events list is sorted by time. The most recent event is listed first.</p>
+   */
+  Events?: Event[];
+
+  /**
    * <p>The token to use to get the next page of results after a previous API call. If the token does not appear,
    *          there are no more results to return. The token must be passed in with the same parameters as the previous call.
    *          For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with
    *          NextToken should include those same parameters.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A list of events returned based on the lookup attributes specified and the CloudTrail event. The events list is sorted by time. The most recent event is listed first.</p>
-   */
-  Events?: Event[];
 }
 
 export namespace LookupEventsResponse {
@@ -2077,9 +2270,10 @@ export namespace LookupEventsResponse {
 }
 
 /**
- * <p>This exception is thrown when the <code>PutEventSelectors</code> operation is called with a number of event selectors or data resources
- *          that is not valid. The combination of event selectors and data resources is not valid. A trail can have up to 5 event selectors. A trail
- *          is limited to 250 data resources. These data resources can be distributed across event selectors, but the overall total cannot exceed 250.</p>
+ * <p>This exception is thrown when the <code>PutEventSelectors</code> operation is called with a number of event
+ *          selectors, advanced event selectors, or data resources that is not valid. The combination of event selectors or advanced event selectors and
+ *          data resources is not valid. A trail can have up to 5 event selectors. If a trail uses advanced event selectors, a maximum
+ *          of 500 total values for all conditions in all advanced event selectors is allowed. A trail is limited to 250 data resources. These data resources can be distributed across event selectors, but the overall total cannot exceed 250.</p>
  *          <p>You can:</p>
  *          <ul>
  *             <li>
@@ -2090,6 +2284,9 @@ export namespace LookupEventsResponse {
  *                The limit of number of resources on an individual event selector is configurable up to 250.
  *                However, this upper limit is allowed only if the total number of data resources does not
  *                exceed 250 across all event selectors for a trail.</p>
+ *             </li>
+ *             <li>
+ *                <p>Specify up to 500 values for all conditions in all advanced event selectors for a trail.</p>
  *             </li>
  *             <li>
  *                <p>Specify a valid value for a parameter. For example, specifying the <code>ReadWriteType</code>
@@ -2113,12 +2310,6 @@ export namespace InvalidEventSelectorsException {
 }
 
 export interface PutEventSelectorsRequest {
-  AdvancedEventSelectors?: AdvancedEventSelector[];
-  /**
-   * <p>Specifies the settings for your event selectors. You can configure up to five event selectors for a trail.</p>
-   */
-  EventSelectors?: EventSelector[];
-
   /**
    * <p>Specifies the name of the trail or trail ARN. If you specify a trail name, the
    *          string must meet the following requirements:</p>
@@ -2146,6 +2337,26 @@ export interface PutEventSelectorsRequest {
    *          </p>
    */
   TrailName: string | undefined;
+
+  /**
+   * <p>Specifies the settings for your event selectors. You can configure up to five event selectors for a trail.
+   *          You can use either <code>EventSelectors</code> or <code>AdvancedEventSelectors</code> in a <code>PutEventSelectors</code> request, but not both.
+   *          If you apply <code>EventSelectors</code> to a trail, any existing <code>AdvancedEventSelectors</code> are overwritten.</p>
+   */
+  EventSelectors?: EventSelector[];
+
+  /**
+   * <p>
+   *          Specifies the settings for advanced event selectors. You can add advanced event selectors, and conditions for your advanced
+   *          event selectors, up to a maximum of 500 values for all conditions and selectors on a trail.
+   *          You can use either <code>AdvancedEventSelectors</code> or <code>EventSelectors</code>, but not both. If you apply <code>AdvancedEventSelectors</code>
+   *          to a trail, any existing <code>EventSelectors</code> are overwritten. For more information about
+   *          advanced event selectors, see
+   *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging
+   *             data events for trails</a> in the <i>AWS CloudTrail User Guide</i>.
+   *       </p>
+   */
+  AdvancedEventSelectors?: AdvancedEventSelector[];
 }
 
 export namespace PutEventSelectorsRequest {
@@ -2156,11 +2367,6 @@ export namespace PutEventSelectorsRequest {
 
 export interface PutEventSelectorsResponse {
   /**
-   * <p>Specifies the event selectors configured for your trail.</p>
-   */
-  EventSelectors?: EventSelector[];
-
-  /**
    * <p>Specifies the ARN of the trail that was updated with event selectors. The format of a trail ARN
    *          is:</p>
    *          <p>
@@ -2169,6 +2375,14 @@ export interface PutEventSelectorsResponse {
    */
   TrailARN?: string;
 
+  /**
+   * <p>Specifies the event selectors configured for your trail.</p>
+   */
+  EventSelectors?: EventSelector[];
+
+  /**
+   * <p>Specifies the advanced event selectors configured for your trail.</p>
+   */
   AdvancedEventSelectors?: AdvancedEventSelector[];
 }
 
@@ -2199,14 +2413,14 @@ export namespace InvalidInsightSelectorsException {
 
 export interface PutInsightSelectorsRequest {
   /**
-   * <p>A JSON string that contains the insight types you want to log on a trail. In this release, only <code>ApiCallRateInsight</code> is supported as an insight type.</p>
-   */
-  InsightSelectors: InsightSelector[] | undefined;
-
-  /**
    * <p>The name of the CloudTrail trail for which you want to change or add Insights selectors.</p>
    */
   TrailName: string | undefined;
+
+  /**
+   * <p>A JSON string that contains the insight types you want to log on a trail. In this release, only <code>ApiCallRateInsight</code> is supported as an insight type.</p>
+   */
+  InsightSelectors: InsightSelector[] | undefined;
 }
 
 export namespace PutInsightSelectorsRequest {
@@ -2217,14 +2431,14 @@ export namespace PutInsightSelectorsRequest {
 
 export interface PutInsightSelectorsResponse {
   /**
-   * <p>A JSON string that contains the insight types you want to log on a trail. In this release, only <code>ApiCallRateInsight</code> is supported as an insight type.</p>
-   */
-  InsightSelectors?: InsightSelector[];
-
-  /**
    * <p>The Amazon Resource Name (ARN) of a trail for which you want to change or add Insights selectors.</p>
    */
   TrailARN?: string;
+
+  /**
+   * <p>A JSON string that contains the insight types you want to log on a trail. In this release, only <code>ApiCallRateInsight</code> is supported as an insight type.</p>
+   */
+  InsightSelectors?: InsightSelector[];
 }
 
 export namespace PutInsightSelectorsResponse {
@@ -2333,61 +2547,6 @@ export namespace StopLoggingResponse {
  */
 export interface UpdateTrailRequest {
   /**
-   * <p>Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.</p>
-   */
-  CloudWatchLogsLogGroupArn?: string;
-
-  /**
-   * <p>Specifies whether the trail is publishing events from global services such as IAM to the log files.</p>
-   */
-  IncludeGlobalServiceEvents?: boolean;
-
-  /**
-   * <p>Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The
-   *          value can be an alias name prefixed by "alias/", a fully specified ARN to an alias, a fully
-   *          specified ARN to a key, or a globally unique identifier.</p>
-   *          <p>Examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>alias/MyAliasName</p>
-   *             </li>
-   *             <li>
-   *                <p>arn:aws:kms:us-east-2:123456789012:alias/MyAliasName</p>
-   *             </li>
-   *             <li>
-   *                <p>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</p>
-   *             </li>
-   *             <li>
-   *                <p>12345678-1234-1234-1234-123456789012</p>
-   *             </li>
-   *          </ul>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>Specifies whether log file validation is enabled. The default is false.</p>
-   *          <note>
-   *             <p>When you disable log file integrity validation, the chain of digest files is broken after one hour. CloudTrail will not create digest files for log files that were delivered during a period in which log file integrity validation was disabled. For example, if you enable log file integrity validation at noon on January 1, disable it at noon on January 2, and re-enable it at noon on January 10, digest files will not be created for the log files delivered from noon on January 2 to noon on January 10. The same applies whenever you stop CloudTrail logging or delete a trail.</p>
-   *          </note>
-   */
-  EnableLogFileValidation?: boolean;
-
-  /**
-   * <p>Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.</p>
-   */
-  SnsTopicName?: string;
-
-  /**
-   * <p>Specifies the name of the Amazon S3 bucket designated for publishing log files. See <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html">Amazon S3 Bucket Naming Requirements</a>.</p>
-   */
-  S3BucketName?: string;
-
-  /**
-   * <p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.</p>
-   */
-  CloudWatchLogsRoleArn?: string;
-
-  /**
    * <p>Specifies the name of the trail or trail ARN. If <code>Name</code> is a trail name, the
    *          string must meet the following requirements:</p>
    *          <ul>
@@ -2416,10 +2575,73 @@ export interface UpdateTrailRequest {
   Name: string | undefined;
 
   /**
+   * <p>Specifies the name of the Amazon S3 bucket designated for publishing log files. See <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html">Amazon S3 Bucket Naming Requirements</a>.</p>
+   */
+  S3BucketName?: string;
+
+  /**
    * <p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated
    *          for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html">Finding Your CloudTrail Log Files</a>. The maximum length is 200 characters.</p>
    */
   S3KeyPrefix?: string;
+
+  /**
+   * <p>Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.</p>
+   */
+  SnsTopicName?: string;
+
+  /**
+   * <p>Specifies whether the trail is publishing events from global services such as IAM to the log files.</p>
+   */
+  IncludeGlobalServiceEvents?: boolean;
+
+  /**
+   * <p>Specifies whether the trail applies only to the current region or to all regions. The default is false. If the trail exists only in the current region and this value is set to true,
+   *          shadow trails (replications of the trail) will be created in the other regions. If the trail exists in all regions and this value is set to false, the trail will remain in the region
+   *          where it was created, and its shadow trails in other regions will be deleted. As a best practice, consider
+   *          using trails that log events in all regions.</p>
+   */
+  IsMultiRegionTrail?: boolean;
+
+  /**
+   * <p>Specifies whether log file validation is enabled. The default is false.</p>
+   *          <note>
+   *             <p>When you disable log file integrity validation, the chain of digest files is broken after one hour. CloudTrail will not create digest files for log files that were delivered during a period in which log file integrity validation was disabled. For example, if you enable log file integrity validation at noon on January 1, disable it at noon on January 2, and re-enable it at noon on January 10, digest files will not be created for the log files delivered from noon on January 2 to noon on January 10. The same applies whenever you stop CloudTrail logging or delete a trail.</p>
+   *          </note>
+   */
+  EnableLogFileValidation?: boolean;
+
+  /**
+   * <p>Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.</p>
+   */
+  CloudWatchLogsLogGroupArn?: string;
+
+  /**
+   * <p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.</p>
+   */
+  CloudWatchLogsRoleArn?: string;
+
+  /**
+   * <p>Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The
+   *          value can be an alias name prefixed by "alias/", a fully specified ARN to an alias, a fully
+   *          specified ARN to a key, or a globally unique identifier.</p>
+   *          <p>Examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>alias/MyAliasName</p>
+   *             </li>
+   *             <li>
+   *                <p>arn:aws:kms:us-east-2:123456789012:alias/MyAliasName</p>
+   *             </li>
+   *             <li>
+   *                <p>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</p>
+   *             </li>
+   *             <li>
+   *                <p>12345678-1234-1234-1234-123456789012</p>
+   *             </li>
+   *          </ul>
+   */
+  KmsKeyId?: string;
 
   /**
    * <p>Specifies whether the trail is applied to all accounts in an organization in AWS Organizations, or only for the current AWS account.
@@ -2429,14 +2651,6 @@ export interface UpdateTrailRequest {
    *          deleted from all member accounts in the organization.</p>
    */
   IsOrganizationTrail?: boolean;
-
-  /**
-   * <p>Specifies whether the trail applies only to the current region or to all regions. The default is false. If the trail exists only in the current region and this value is set to true,
-   *          shadow trails (replications of the trail) will be created in the other regions. If the trail exists in all regions and this value is set to false, the trail will remain in the region
-   *          where it was created, and its shadow trails in other regions will be deleted. As a best practice, consider
-   *          using trails that log events in all regions.</p>
-   */
-  IsMultiRegionTrail?: boolean;
 }
 
 export namespace UpdateTrailRequest {
@@ -2450,62 +2664,25 @@ export namespace UpdateTrailRequest {
  */
 export interface UpdateTrailResponse {
   /**
-   * <p>Specifies whether the trail is an organization trail.</p>
-   */
-  IsOrganizationTrail?: boolean;
-
-  /**
-   * <p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.</p>
-   */
-  CloudWatchLogsRoleArn?: string;
-
-  /**
    * <p>Specifies the name of the trail.</p>
    */
   Name?: string;
 
   /**
-   * <p>This field is no longer in use. Use SnsTopicARN.</p>
-   */
-  SnsTopicName?: string;
-
-  /**
-   * <p>Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format:</p>
-   *
-   *          <p>
-   *             <code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code>
-   *          </p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>Specifies whether log file integrity validation is enabled.</p>
-   */
-  LogFileValidationEnabled?: boolean;
-
-  /**
-   * <p>Specifies the ARN of the trail that was updated. The format of a trail ARN
-   *          is:</p>
-   *          <p>
-   *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
-   *          </p>
-   */
-  TrailARN?: string;
-
-  /**
-   * <p>Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail logs will be delivered.</p>
-   */
-  CloudWatchLogsLogGroupArn?: string;
-
-  /**
-   * <p>Specifies whether the trail exists in one region or in all regions.</p>
-   */
-  IsMultiRegionTrail?: boolean;
-
-  /**
    * <p>Specifies the name of the Amazon S3 bucket designated for publishing log files.</p>
    */
   S3BucketName?: string;
+
+  /**
+   * <p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated
+   *          for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html">Finding Your CloudTrail Log Files</a>.</p>
+   */
+  S3KeyPrefix?: string;
+
+  /**
+   * <p>This field is no longer in use. Use SnsTopicARN.</p>
+   */
+  SnsTopicName?: string;
 
   /**
    * <p>Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications
@@ -2517,15 +2694,52 @@ export interface UpdateTrailResponse {
   SnsTopicARN?: string;
 
   /**
-   * <p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated
-   *          for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html">Finding Your CloudTrail Log Files</a>.</p>
-   */
-  S3KeyPrefix?: string;
-
-  /**
    * <p>Specifies whether the trail is publishing events from global services such as IAM to the log files.</p>
    */
   IncludeGlobalServiceEvents?: boolean;
+
+  /**
+   * <p>Specifies whether the trail exists in one region or in all regions.</p>
+   */
+  IsMultiRegionTrail?: boolean;
+
+  /**
+   * <p>Specifies the ARN of the trail that was updated. The format of a trail ARN
+   *          is:</p>
+   *          <p>
+   *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
+   *          </p>
+   */
+  TrailARN?: string;
+
+  /**
+   * <p>Specifies whether log file integrity validation is enabled.</p>
+   */
+  LogFileValidationEnabled?: boolean;
+
+  /**
+   * <p>Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail logs will be delivered.</p>
+   */
+  CloudWatchLogsLogGroupArn?: string;
+
+  /**
+   * <p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.</p>
+   */
+  CloudWatchLogsRoleArn?: string;
+
+  /**
+   * <p>Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format:</p>
+   *
+   *          <p>
+   *             <code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code>
+   *          </p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>Specifies whether the trail is an organization trail.</p>
+   */
+  IsOrganizationTrail?: boolean;
 }
 
 export namespace UpdateTrailResponse {

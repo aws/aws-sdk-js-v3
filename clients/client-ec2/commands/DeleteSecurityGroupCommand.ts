@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteSecurityGroupRequest } from "../models/models_1";
+import { DeleteSecurityGroupRequest } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteSecurityGroupCommand,
   serializeAws_ec2DeleteSecurityGroupCommand,

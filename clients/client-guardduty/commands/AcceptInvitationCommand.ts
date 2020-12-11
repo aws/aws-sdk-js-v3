@@ -21,7 +21,7 @@ export type AcceptInvitationCommandInput = AcceptInvitationRequest;
 export type AcceptInvitationCommandOutput = AcceptInvitationResponse & __MetadataBearer;
 
 /**
- * <p>Accepts the invitation to be monitored by a master GuardDuty account.</p>
+ * <p>Accepts the invitation to be monitored by a GuardDuty administrator account.</p>
  */
 export class AcceptInvitationCommand extends $Command<
   AcceptInvitationCommandInput,

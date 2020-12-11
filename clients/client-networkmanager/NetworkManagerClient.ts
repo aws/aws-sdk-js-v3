@@ -3,6 +3,11 @@ import {
   AssociateCustomerGatewayCommandOutput,
 } from "./commands/AssociateCustomerGatewayCommand";
 import { AssociateLinkCommandInput, AssociateLinkCommandOutput } from "./commands/AssociateLinkCommand";
+import {
+  AssociateTransitGatewayConnectPeerCommandInput,
+  AssociateTransitGatewayConnectPeerCommandOutput,
+} from "./commands/AssociateTransitGatewayConnectPeerCommand";
+import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand";
 import { CreateDeviceCommandInput, CreateDeviceCommandOutput } from "./commands/CreateDeviceCommand";
 import {
   CreateGlobalNetworkCommandInput,
@@ -10,6 +15,7 @@ import {
 } from "./commands/CreateGlobalNetworkCommand";
 import { CreateLinkCommandInput, CreateLinkCommandOutput } from "./commands/CreateLinkCommand";
 import { CreateSiteCommandInput, CreateSiteCommandOutput } from "./commands/CreateSiteCommand";
+import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
 import { DeleteDeviceCommandInput, DeleteDeviceCommandOutput } from "./commands/DeleteDeviceCommand";
 import {
   DeleteGlobalNetworkCommandInput,
@@ -31,6 +37,11 @@ import {
 } from "./commands/DisassociateCustomerGatewayCommand";
 import { DisassociateLinkCommandInput, DisassociateLinkCommandOutput } from "./commands/DisassociateLinkCommand";
 import {
+  DisassociateTransitGatewayConnectPeerCommandInput,
+  DisassociateTransitGatewayConnectPeerCommandOutput,
+} from "./commands/DisassociateTransitGatewayConnectPeerCommand";
+import { GetConnectionsCommandInput, GetConnectionsCommandOutput } from "./commands/GetConnectionsCommand";
+import {
   GetCustomerGatewayAssociationsCommandInput,
   GetCustomerGatewayAssociationsCommandOutput,
 } from "./commands/GetCustomerGatewayAssociationsCommand";
@@ -41,6 +52,10 @@ import {
 } from "./commands/GetLinkAssociationsCommand";
 import { GetLinksCommandInput, GetLinksCommandOutput } from "./commands/GetLinksCommand";
 import { GetSitesCommandInput, GetSitesCommandOutput } from "./commands/GetSitesCommand";
+import {
+  GetTransitGatewayConnectPeerAssociationsCommandInput,
+  GetTransitGatewayConnectPeerAssociationsCommandOutput,
+} from "./commands/GetTransitGatewayConnectPeerAssociationsCommand";
 import {
   GetTransitGatewayRegistrationsCommandInput,
   GetTransitGatewayRegistrationsCommandOutput,
@@ -55,6 +70,7 @@ import {
 } from "./commands/RegisterTransitGatewayCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "./commands/UpdateConnectionCommand";
 import { UpdateDeviceCommandInput, UpdateDeviceCommandOutput } from "./commands/UpdateDeviceCommand";
 import {
   UpdateGlobalNetworkCommandInput,
@@ -114,10 +130,13 @@ import {
 export type ServiceInputTypes =
   | AssociateCustomerGatewayCommandInput
   | AssociateLinkCommandInput
+  | AssociateTransitGatewayConnectPeerCommandInput
+  | CreateConnectionCommandInput
   | CreateDeviceCommandInput
   | CreateGlobalNetworkCommandInput
   | CreateLinkCommandInput
   | CreateSiteCommandInput
+  | DeleteConnectionCommandInput
   | DeleteDeviceCommandInput
   | DeleteGlobalNetworkCommandInput
   | DeleteLinkCommandInput
@@ -126,16 +145,20 @@ export type ServiceInputTypes =
   | DescribeGlobalNetworksCommandInput
   | DisassociateCustomerGatewayCommandInput
   | DisassociateLinkCommandInput
+  | DisassociateTransitGatewayConnectPeerCommandInput
+  | GetConnectionsCommandInput
   | GetCustomerGatewayAssociationsCommandInput
   | GetDevicesCommandInput
   | GetLinkAssociationsCommandInput
   | GetLinksCommandInput
   | GetSitesCommandInput
+  | GetTransitGatewayConnectPeerAssociationsCommandInput
   | GetTransitGatewayRegistrationsCommandInput
   | ListTagsForResourceCommandInput
   | RegisterTransitGatewayCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateConnectionCommandInput
   | UpdateDeviceCommandInput
   | UpdateGlobalNetworkCommandInput
   | UpdateLinkCommandInput
@@ -144,10 +167,13 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AssociateCustomerGatewayCommandOutput
   | AssociateLinkCommandOutput
+  | AssociateTransitGatewayConnectPeerCommandOutput
+  | CreateConnectionCommandOutput
   | CreateDeviceCommandOutput
   | CreateGlobalNetworkCommandOutput
   | CreateLinkCommandOutput
   | CreateSiteCommandOutput
+  | DeleteConnectionCommandOutput
   | DeleteDeviceCommandOutput
   | DeleteGlobalNetworkCommandOutput
   | DeleteLinkCommandOutput
@@ -156,16 +182,20 @@ export type ServiceOutputTypes =
   | DescribeGlobalNetworksCommandOutput
   | DisassociateCustomerGatewayCommandOutput
   | DisassociateLinkCommandOutput
+  | DisassociateTransitGatewayConnectPeerCommandOutput
+  | GetConnectionsCommandOutput
   | GetCustomerGatewayAssociationsCommandOutput
   | GetDevicesCommandOutput
   | GetLinkAssociationsCommandOutput
   | GetLinksCommandOutput
   | GetSitesCommandOutput
+  | GetTransitGatewayConnectPeerAssociationsCommandOutput
   | GetTransitGatewayRegistrationsCommandOutput
   | ListTagsForResourceCommandOutput
   | RegisterTransitGatewayCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateConnectionCommandOutput
   | UpdateDeviceCommandOutput
   | UpdateGlobalNetworkCommandOutput
   | UpdateLinkCommandOutput
@@ -287,6 +317,7 @@ export type NetworkManagerClientResolvedConfig = __SmithyResolvedConfiguration<_
 /**
  * <p>Transit Gateway Network Manager (Network Manager) enables you to create a global network, in which you can monitor your
  *             AWS and on-premises networks that are built around transit gateways.</p>
+ *         <p>The Network Manager APIs are supported in the US West (Oregon) Region only. You must specify the <code>us-west-2</code> Region in all requests made to Network Manager.</p>
  */
 export class NetworkManagerClient extends __Client<
   __HttpHandlerOptions,

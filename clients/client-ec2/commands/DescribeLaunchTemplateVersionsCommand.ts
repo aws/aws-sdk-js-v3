@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeLaunchTemplateVersionsRequest, DescribeLaunchTemplateVersionsResult } from "../models/models_2";
+import { DescribeLaunchTemplateVersionsRequest, DescribeLaunchTemplateVersionsResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeLaunchTemplateVersionsCommand,
   serializeAws_ec2DescribeLaunchTemplateVersionsCommand,

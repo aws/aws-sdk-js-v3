@@ -21,7 +21,7 @@ export type ListMembersCommandInput = ListMembersRequest;
 export type ListMembersCommandOutput = ListMembersResponse & __MetadataBearer;
 
 /**
- * <p>Lists details about all member accounts for the current GuardDuty master account.</p>
+ * <p>Lists details about all member accounts for the current GuardDuty administrator account.</p>
  */
 export class ListMembersCommand extends $Command<
   ListMembersCommandInput,

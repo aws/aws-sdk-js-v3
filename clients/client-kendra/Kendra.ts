@@ -17,12 +17,22 @@ import {
 import { CreateFaqCommand, CreateFaqCommandInput, CreateFaqCommandOutput } from "./commands/CreateFaqCommand";
 import { CreateIndexCommand, CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
 import {
+  CreateThesaurusCommand,
+  CreateThesaurusCommandInput,
+  CreateThesaurusCommandOutput,
+} from "./commands/CreateThesaurusCommand";
+import {
   DeleteDataSourceCommand,
   DeleteDataSourceCommandInput,
   DeleteDataSourceCommandOutput,
 } from "./commands/DeleteDataSourceCommand";
 import { DeleteFaqCommand, DeleteFaqCommandInput, DeleteFaqCommandOutput } from "./commands/DeleteFaqCommand";
 import { DeleteIndexCommand, DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
+import {
+  DeleteThesaurusCommand,
+  DeleteThesaurusCommandInput,
+  DeleteThesaurusCommandOutput,
+} from "./commands/DeleteThesaurusCommand";
 import {
   DescribeDataSourceCommand,
   DescribeDataSourceCommandInput,
@@ -34,6 +44,11 @@ import {
   DescribeIndexCommandInput,
   DescribeIndexCommandOutput,
 } from "./commands/DescribeIndexCommand";
+import {
+  DescribeThesaurusCommand,
+  DescribeThesaurusCommandInput,
+  DescribeThesaurusCommandOutput,
+} from "./commands/DescribeThesaurusCommand";
 import {
   ListDataSourceSyncJobsCommand,
   ListDataSourceSyncJobsCommandInput,
@@ -51,6 +66,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListThesauriCommand,
+  ListThesauriCommandInput,
+  ListThesauriCommandOutput,
+} from "./commands/ListThesauriCommand";
 import { QueryCommand, QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
 import {
   StartDataSourceSyncJobCommand,
@@ -79,6 +99,11 @@ import {
   UpdateDataSourceCommandOutput,
 } from "./commands/UpdateDataSourceCommand";
 import { UpdateIndexCommand, UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
+import {
+  UpdateThesaurusCommand,
+  UpdateThesaurusCommandInput,
+  UpdateThesaurusCommandOutput,
+} from "./commands/UpdateThesaurusCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -256,6 +281,39 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * <p>Creates a thesaurus for an index. The thesaurus
+   *       contains a list of synonyms in Solr format.</p>
+   */
+  public createThesaurus(
+    args: CreateThesaurusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateThesaurusCommandOutput>;
+  public createThesaurus(
+    args: CreateThesaurusCommandInput,
+    cb: (err: any, data?: CreateThesaurusCommandOutput) => void
+  ): void;
+  public createThesaurus(
+    args: CreateThesaurusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateThesaurusCommandOutput) => void
+  ): void;
+  public createThesaurus(
+    args: CreateThesaurusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateThesaurusCommandOutput) => void),
+    cb?: (err: any, data?: CreateThesaurusCommandOutput) => void
+  ): Promise<CreateThesaurusCommandOutput> | void {
+    const command = new CreateThesaurusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes an Amazon Kendra data source. An exception is not thrown if the data source is
    *       already being deleted. While the data source is being deleted, the <code>Status</code> field
    *       returned by a call to the  operation is set to
@@ -334,6 +392,39 @@ export class Kendra extends KendraClient {
     cb?: (err: any, data?: DeleteIndexCommandOutput) => void
   ): Promise<DeleteIndexCommandOutput> | void {
     const command = new DeleteIndexCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an existing Amazon Kendra thesaurus.
+   *       </p>
+   */
+  public deleteThesaurus(
+    args: DeleteThesaurusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteThesaurusCommandOutput>;
+  public deleteThesaurus(
+    args: DeleteThesaurusCommandInput,
+    cb: (err: any, data?: DeleteThesaurusCommandOutput) => void
+  ): void;
+  public deleteThesaurus(
+    args: DeleteThesaurusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteThesaurusCommandOutput) => void
+  ): void;
+  public deleteThesaurus(
+    args: DeleteThesaurusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteThesaurusCommandOutput) => void),
+    cb?: (err: any, data?: DeleteThesaurusCommandOutput) => void
+  ): Promise<DeleteThesaurusCommandOutput> | void {
+    const command = new DeleteThesaurusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -424,6 +515,38 @@ export class Kendra extends KendraClient {
     cb?: (err: any, data?: DescribeIndexCommandOutput) => void
   ): Promise<DescribeIndexCommandOutput> | void {
     const command = new DescribeIndexCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes an existing Amazon Kendra thesaurus.</p>
+   */
+  public describeThesaurus(
+    args: DescribeThesaurusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeThesaurusCommandOutput>;
+  public describeThesaurus(
+    args: DescribeThesaurusCommandInput,
+    cb: (err: any, data?: DescribeThesaurusCommandOutput) => void
+  ): void;
+  public describeThesaurus(
+    args: DescribeThesaurusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeThesaurusCommandOutput) => void
+  ): void;
+  public describeThesaurus(
+    args: DescribeThesaurusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeThesaurusCommandOutput) => void),
+    cb?: (err: any, data?: DescribeThesaurusCommandOutput) => void
+  ): Promise<DescribeThesaurusCommandOutput> | void {
+    const command = new DescribeThesaurusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -573,6 +696,35 @@ export class Kendra extends KendraClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the Amazon Kendra thesauri associated with an index.</p>
+   */
+  public listThesauri(
+    args: ListThesauriCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListThesauriCommandOutput>;
+  public listThesauri(args: ListThesauriCommandInput, cb: (err: any, data?: ListThesauriCommandOutput) => void): void;
+  public listThesauri(
+    args: ListThesauriCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListThesauriCommandOutput) => void
+  ): void;
+  public listThesauri(
+    args: ListThesauriCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListThesauriCommandOutput) => void),
+    cb?: (err: any, data?: ListThesauriCommandOutput) => void
+  ): Promise<ListThesauriCommandOutput> | void {
+    const command = new ListThesauriCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -835,6 +987,38 @@ export class Kendra extends KendraClient {
     cb?: (err: any, data?: UpdateIndexCommandOutput) => void
   ): Promise<UpdateIndexCommandOutput> | void {
     const command = new UpdateIndexCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a thesaurus file associated with an index.</p>
+   */
+  public updateThesaurus(
+    args: UpdateThesaurusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateThesaurusCommandOutput>;
+  public updateThesaurus(
+    args: UpdateThesaurusCommandInput,
+    cb: (err: any, data?: UpdateThesaurusCommandOutput) => void
+  ): void;
+  public updateThesaurus(
+    args: UpdateThesaurusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateThesaurusCommandOutput) => void
+  ): void;
+  public updateThesaurus(
+    args: UpdateThesaurusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateThesaurusCommandOutput) => void),
+    cb?: (err: any, data?: UpdateThesaurusCommandOutput) => void
+  ): Promise<UpdateThesaurusCommandOutput> | void {
+    const command = new UpdateThesaurusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -21,7 +21,7 @@ export type DescribeAlarmsCommandInput = DescribeAlarmsInput;
 export type DescribeAlarmsCommandOutput = DescribeAlarmsOutput & __MetadataBearer;
 
 /**
- * <p>Retrieves the specified alarms. You can filter the results by specifying a a prefix for the alarm
+ * <p>Retrieves the specified alarms. You can filter the results by specifying a prefix for the alarm
  * 			name, the alarm state, or a prefix for any action.</p>
  */
 export class DescribeAlarmsCommand extends $Command<

@@ -2,7 +2,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   ExportClientVpnClientConfigurationRequest,
   ExportClientVpnClientConfigurationResult,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_ec2ExportClientVpnClientConfigurationCommand,
   serializeAws_ec2ExportClientVpnClientConfigurationCommand,

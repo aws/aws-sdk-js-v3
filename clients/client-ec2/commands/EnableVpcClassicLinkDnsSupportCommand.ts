@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { EnableVpcClassicLinkDnsSupportRequest, EnableVpcClassicLinkDnsSupportResult } from "../models/models_3";
+import { EnableVpcClassicLinkDnsSupportRequest, EnableVpcClassicLinkDnsSupportResult } from "../models/models_4";
 import {
   deserializeAws_ec2EnableVpcClassicLinkDnsSupportCommand,
   serializeAws_ec2EnableVpcClassicLinkDnsSupportCommand,

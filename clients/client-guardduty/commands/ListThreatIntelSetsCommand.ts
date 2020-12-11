@@ -22,7 +22,7 @@ export type ListThreatIntelSetsCommandOutput = ListThreatIntelSetsResponse & __M
 
 /**
  * <p>Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID. If you
- *       use this operation from a member account, the ThreatIntelSets associated with the master
+ *       use this operation from a member account, the ThreatIntelSets associated with the administrator
  *       account are returned.</p>
  */
 export class ListThreatIntelSetsCommand extends $Command<

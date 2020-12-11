@@ -5,6 +5,11 @@ import {
   AcceptReservedInstancesExchangeQuoteCommandOutput,
 } from "./commands/AcceptReservedInstancesExchangeQuoteCommand";
 import {
+  AcceptTransitGatewayMulticastDomainAssociationsCommand,
+  AcceptTransitGatewayMulticastDomainAssociationsCommandInput,
+  AcceptTransitGatewayMulticastDomainAssociationsCommandOutput,
+} from "./commands/AcceptTransitGatewayMulticastDomainAssociationsCommand";
+import {
   AcceptTransitGatewayPeeringAttachmentCommand,
   AcceptTransitGatewayPeeringAttachmentCommandInput,
   AcceptTransitGatewayPeeringAttachmentCommandOutput,
@@ -318,6 +323,11 @@ import {
   CreateNetworkAclEntryCommandOutput,
 } from "./commands/CreateNetworkAclEntryCommand";
 import {
+  CreateNetworkInsightsPathCommand,
+  CreateNetworkInsightsPathCommandInput,
+  CreateNetworkInsightsPathCommandOutput,
+} from "./commands/CreateNetworkInsightsPathCommand";
+import {
   CreateNetworkInterfaceCommand,
   CreateNetworkInterfaceCommandInput,
   CreateNetworkInterfaceCommandOutput,
@@ -394,6 +404,16 @@ import {
   CreateTransitGatewayCommandInput,
   CreateTransitGatewayCommandOutput,
 } from "./commands/CreateTransitGatewayCommand";
+import {
+  CreateTransitGatewayConnectCommand,
+  CreateTransitGatewayConnectCommandInput,
+  CreateTransitGatewayConnectCommandOutput,
+} from "./commands/CreateTransitGatewayConnectCommand";
+import {
+  CreateTransitGatewayConnectPeerCommand,
+  CreateTransitGatewayConnectPeerCommandInput,
+  CreateTransitGatewayConnectPeerCommandOutput,
+} from "./commands/CreateTransitGatewayConnectPeerCommand";
 import {
   CreateTransitGatewayMulticastDomainCommand,
   CreateTransitGatewayMulticastDomainCommandInput,
@@ -561,6 +581,16 @@ import {
   DeleteNetworkAclEntryCommandOutput,
 } from "./commands/DeleteNetworkAclEntryCommand";
 import {
+  DeleteNetworkInsightsAnalysisCommand,
+  DeleteNetworkInsightsAnalysisCommandInput,
+  DeleteNetworkInsightsAnalysisCommandOutput,
+} from "./commands/DeleteNetworkInsightsAnalysisCommand";
+import {
+  DeleteNetworkInsightsPathCommand,
+  DeleteNetworkInsightsPathCommandInput,
+  DeleteNetworkInsightsPathCommandOutput,
+} from "./commands/DeleteNetworkInsightsPathCommand";
+import {
   DeleteNetworkInterfaceCommand,
   DeleteNetworkInterfaceCommandInput,
   DeleteNetworkInterfaceCommandOutput,
@@ -632,6 +662,16 @@ import {
   DeleteTransitGatewayCommandInput,
   DeleteTransitGatewayCommandOutput,
 } from "./commands/DeleteTransitGatewayCommand";
+import {
+  DeleteTransitGatewayConnectCommand,
+  DeleteTransitGatewayConnectCommandInput,
+  DeleteTransitGatewayConnectCommandOutput,
+} from "./commands/DeleteTransitGatewayConnectCommand";
+import {
+  DeleteTransitGatewayConnectPeerCommand,
+  DeleteTransitGatewayConnectPeerCommandInput,
+  DeleteTransitGatewayConnectPeerCommandOutput,
+} from "./commands/DeleteTransitGatewayConnectPeerCommand";
 import {
   DeleteTransitGatewayMulticastDomainCommand,
   DeleteTransitGatewayMulticastDomainCommandInput,
@@ -1034,6 +1074,16 @@ import {
   DescribeNetworkAclsCommandOutput,
 } from "./commands/DescribeNetworkAclsCommand";
 import {
+  DescribeNetworkInsightsAnalysesCommand,
+  DescribeNetworkInsightsAnalysesCommandInput,
+  DescribeNetworkInsightsAnalysesCommandOutput,
+} from "./commands/DescribeNetworkInsightsAnalysesCommand";
+import {
+  DescribeNetworkInsightsPathsCommand,
+  DescribeNetworkInsightsPathsCommandInput,
+  DescribeNetworkInsightsPathsCommandOutput,
+} from "./commands/DescribeNetworkInsightsPathsCommand";
+import {
   DescribeNetworkInterfaceAttributeCommand,
   DescribeNetworkInterfaceAttributeCommandInput,
   DescribeNetworkInterfaceAttributeCommandOutput,
@@ -1193,6 +1243,16 @@ import {
   DescribeTransitGatewayAttachmentsCommandInput,
   DescribeTransitGatewayAttachmentsCommandOutput,
 } from "./commands/DescribeTransitGatewayAttachmentsCommand";
+import {
+  DescribeTransitGatewayConnectPeersCommand,
+  DescribeTransitGatewayConnectPeersCommandInput,
+  DescribeTransitGatewayConnectPeersCommandOutput,
+} from "./commands/DescribeTransitGatewayConnectPeersCommand";
+import {
+  DescribeTransitGatewayConnectsCommand,
+  DescribeTransitGatewayConnectsCommandInput,
+  DescribeTransitGatewayConnectsCommandOutput,
+} from "./commands/DescribeTransitGatewayConnectsCommand";
 import {
   DescribeTransitGatewayMulticastDomainsCommand,
   DescribeTransitGatewayMulticastDomainsCommandInput,
@@ -1848,6 +1908,11 @@ import {
   RegisterTransitGatewayMulticastGroupSourcesCommandOutput,
 } from "./commands/RegisterTransitGatewayMulticastGroupSourcesCommand";
 import {
+  RejectTransitGatewayMulticastDomainAssociationsCommand,
+  RejectTransitGatewayMulticastDomainAssociationsCommandInput,
+  RejectTransitGatewayMulticastDomainAssociationsCommandOutput,
+} from "./commands/RejectTransitGatewayMulticastDomainAssociationsCommand";
+import {
   RejectTransitGatewayPeeringAttachmentCommand,
   RejectTransitGatewayPeeringAttachmentCommandInput,
   RejectTransitGatewayPeeringAttachmentCommandOutput,
@@ -2013,6 +2078,11 @@ import {
   StartInstancesCommandOutput,
 } from "./commands/StartInstancesCommand";
 import {
+  StartNetworkInsightsAnalysisCommand,
+  StartNetworkInsightsAnalysisCommandInput,
+  StartNetworkInsightsAnalysisCommandOutput,
+} from "./commands/StartNetworkInsightsAnalysisCommand";
+import {
   StartVpcEndpointServicePrivateDnsVerificationCommand,
   StartVpcEndpointServicePrivateDnsVerificationCommandInput,
   StartVpcEndpointServicePrivateDnsVerificationCommandOutput,
@@ -2112,6 +2182,40 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: AcceptReservedInstancesExchangeQuoteCommandOutput) => void
   ): Promise<AcceptReservedInstancesExchangeQuoteCommandOutput> | void {
     const command = new AcceptReservedInstancesExchangeQuoteCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Accepts a request to associate subnets with a transit gateway multicast domain.</p>
+   */
+  public acceptTransitGatewayMulticastDomainAssociations(
+    args: AcceptTransitGatewayMulticastDomainAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AcceptTransitGatewayMulticastDomainAssociationsCommandOutput>;
+  public acceptTransitGatewayMulticastDomainAssociations(
+    args: AcceptTransitGatewayMulticastDomainAssociationsCommandInput,
+    cb: (err: any, data?: AcceptTransitGatewayMulticastDomainAssociationsCommandOutput) => void
+  ): void;
+  public acceptTransitGatewayMulticastDomainAssociations(
+    args: AcceptTransitGatewayMulticastDomainAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AcceptTransitGatewayMulticastDomainAssociationsCommandOutput) => void
+  ): void;
+  public acceptTransitGatewayMulticastDomainAssociations(
+    args: AcceptTransitGatewayMulticastDomainAssociationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AcceptTransitGatewayMulticastDomainAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: AcceptTransitGatewayMulticastDomainAssociationsCommandOutput) => void
+  ): Promise<AcceptTransitGatewayMulticastDomainAssociationsCommandOutput> | void {
+    const command = new AcceptTransitGatewayMulticastDomainAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4582,6 +4686,41 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Creates a path to analyze for reachability.</p>
+   *          <p>Reachability Analyzer enables you to analyze and debug network reachability between
+   *           two resources in your virtual private cloud (VPC). For more information, see
+   *           <a href="https://docs.aws.amazon.com/vpc/latest/reachability/">What is Reachability Analyzer</a>.</p>
+   */
+  public createNetworkInsightsPath(
+    args: CreateNetworkInsightsPathCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateNetworkInsightsPathCommandOutput>;
+  public createNetworkInsightsPath(
+    args: CreateNetworkInsightsPathCommandInput,
+    cb: (err: any, data?: CreateNetworkInsightsPathCommandOutput) => void
+  ): void;
+  public createNetworkInsightsPath(
+    args: CreateNetworkInsightsPathCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateNetworkInsightsPathCommandOutput) => void
+  ): void;
+  public createNetworkInsightsPath(
+    args: CreateNetworkInsightsPathCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNetworkInsightsPathCommandOutput) => void),
+    cb?: (err: any, data?: CreateNetworkInsightsPathCommandOutput) => void
+  ): Promise<CreateNetworkInsightsPathCommandOutput> | void {
+    const command = new CreateNetworkInsightsPathCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a network interface in the specified subnet.</p>
    *         <p>For more information about network interfaces, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html">Elastic Network Interfaces</a>
    *             in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
@@ -5244,6 +5383,74 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: CreateTransitGatewayCommandOutput) => void
   ): Promise<CreateTransitGatewayCommandOutput> | void {
     const command = new CreateTransitGatewayCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a Connect attachment from a specified transit gateway attachment. A Connect attachment is a GRE-based tunnel attachment that you can use to establish a connection between a transit gateway and an appliance.</p>
+   *         <p>A Connect attachment uses an existing VPC or AWS Direct Connect attachment as the underlying transport mechanism. </p>
+   */
+  public createTransitGatewayConnect(
+    args: CreateTransitGatewayConnectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTransitGatewayConnectCommandOutput>;
+  public createTransitGatewayConnect(
+    args: CreateTransitGatewayConnectCommandInput,
+    cb: (err: any, data?: CreateTransitGatewayConnectCommandOutput) => void
+  ): void;
+  public createTransitGatewayConnect(
+    args: CreateTransitGatewayConnectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTransitGatewayConnectCommandOutput) => void
+  ): void;
+  public createTransitGatewayConnect(
+    args: CreateTransitGatewayConnectCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTransitGatewayConnectCommandOutput) => void),
+    cb?: (err: any, data?: CreateTransitGatewayConnectCommandOutput) => void
+  ): Promise<CreateTransitGatewayConnectCommandOutput> | void {
+    const command = new CreateTransitGatewayConnectCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a Connect peer for a specified transit gateway Connect attachment between a
+   *             transit gateway and an appliance.</p>
+   *         <p>The peer address and transit gateway address must be the same IP address family (IPv4 or IPv6).</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html#tgw-connect-peer">Connect peers</a> in the <i>Transit Gateways Guide</i>.</p>
+   */
+  public createTransitGatewayConnectPeer(
+    args: CreateTransitGatewayConnectPeerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTransitGatewayConnectPeerCommandOutput>;
+  public createTransitGatewayConnectPeer(
+    args: CreateTransitGatewayConnectPeerCommandInput,
+    cb: (err: any, data?: CreateTransitGatewayConnectPeerCommandOutput) => void
+  ): void;
+  public createTransitGatewayConnectPeer(
+    args: CreateTransitGatewayConnectPeerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTransitGatewayConnectPeerCommandOutput) => void
+  ): void;
+  public createTransitGatewayConnectPeer(
+    args: CreateTransitGatewayConnectPeerCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTransitGatewayConnectPeerCommandOutput) => void),
+    cb?: (err: any, data?: CreateTransitGatewayConnectPeerCommandOutput) => void
+  ): Promise<CreateTransitGatewayConnectPeerCommandOutput> | void {
+    const command = new CreateTransitGatewayConnectPeerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -6474,6 +6681,70 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Deletes the specified network insights analysis.</p>
+   */
+  public deleteNetworkInsightsAnalysis(
+    args: DeleteNetworkInsightsAnalysisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteNetworkInsightsAnalysisCommandOutput>;
+  public deleteNetworkInsightsAnalysis(
+    args: DeleteNetworkInsightsAnalysisCommandInput,
+    cb: (err: any, data?: DeleteNetworkInsightsAnalysisCommandOutput) => void
+  ): void;
+  public deleteNetworkInsightsAnalysis(
+    args: DeleteNetworkInsightsAnalysisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteNetworkInsightsAnalysisCommandOutput) => void
+  ): void;
+  public deleteNetworkInsightsAnalysis(
+    args: DeleteNetworkInsightsAnalysisCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNetworkInsightsAnalysisCommandOutput) => void),
+    cb?: (err: any, data?: DeleteNetworkInsightsAnalysisCommandOutput) => void
+  ): Promise<DeleteNetworkInsightsAnalysisCommandOutput> | void {
+    const command = new DeleteNetworkInsightsAnalysisCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the specified path.</p>
+   */
+  public deleteNetworkInsightsPath(
+    args: DeleteNetworkInsightsPathCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteNetworkInsightsPathCommandOutput>;
+  public deleteNetworkInsightsPath(
+    args: DeleteNetworkInsightsPathCommandInput,
+    cb: (err: any, data?: DeleteNetworkInsightsPathCommandOutput) => void
+  ): void;
+  public deleteNetworkInsightsPath(
+    args: DeleteNetworkInsightsPathCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteNetworkInsightsPathCommandOutput) => void
+  ): void;
+  public deleteNetworkInsightsPath(
+    args: DeleteNetworkInsightsPathCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNetworkInsightsPathCommandOutput) => void),
+    cb?: (err: any, data?: DeleteNetworkInsightsPathCommandOutput) => void
+  ): Promise<DeleteNetworkInsightsPathCommandOutput> | void {
+    const command = new DeleteNetworkInsightsPathCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the specified network interface. You must detach the network interface before you can delete it.</p>
    */
   public deleteNetworkInterface(
@@ -6984,6 +7255,71 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DeleteTransitGatewayCommandOutput) => void
   ): Promise<DeleteTransitGatewayCommandOutput> | void {
     const command = new DeleteTransitGatewayCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the specified Connect attachment. You must first delete any Connect peers for
+   *             the attachment.</p>
+   */
+  public deleteTransitGatewayConnect(
+    args: DeleteTransitGatewayConnectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTransitGatewayConnectCommandOutput>;
+  public deleteTransitGatewayConnect(
+    args: DeleteTransitGatewayConnectCommandInput,
+    cb: (err: any, data?: DeleteTransitGatewayConnectCommandOutput) => void
+  ): void;
+  public deleteTransitGatewayConnect(
+    args: DeleteTransitGatewayConnectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTransitGatewayConnectCommandOutput) => void
+  ): void;
+  public deleteTransitGatewayConnect(
+    args: DeleteTransitGatewayConnectCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTransitGatewayConnectCommandOutput) => void),
+    cb?: (err: any, data?: DeleteTransitGatewayConnectCommandOutput) => void
+  ): Promise<DeleteTransitGatewayConnectCommandOutput> | void {
+    const command = new DeleteTransitGatewayConnectCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the specified Connect peer.</p>
+   */
+  public deleteTransitGatewayConnectPeer(
+    args: DeleteTransitGatewayConnectPeerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTransitGatewayConnectPeerCommandOutput>;
+  public deleteTransitGatewayConnectPeer(
+    args: DeleteTransitGatewayConnectPeerCommandInput,
+    cb: (err: any, data?: DeleteTransitGatewayConnectPeerCommandOutput) => void
+  ): void;
+  public deleteTransitGatewayConnectPeer(
+    args: DeleteTransitGatewayConnectPeerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTransitGatewayConnectPeerCommandOutput) => void
+  ): void;
+  public deleteTransitGatewayConnectPeer(
+    args: DeleteTransitGatewayConnectPeerCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTransitGatewayConnectPeerCommandOutput) => void),
+    cb?: (err: any, data?: DeleteTransitGatewayConnectPeerCommandOutput) => void
+  ): Promise<DeleteTransitGatewayConnectPeerCommandOutput> | void {
+    const command = new DeleteTransitGatewayConnectPeerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -9845,6 +10181,70 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Describes one or more of your network insights analyses.</p>
+   */
+  public describeNetworkInsightsAnalyses(
+    args: DescribeNetworkInsightsAnalysesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeNetworkInsightsAnalysesCommandOutput>;
+  public describeNetworkInsightsAnalyses(
+    args: DescribeNetworkInsightsAnalysesCommandInput,
+    cb: (err: any, data?: DescribeNetworkInsightsAnalysesCommandOutput) => void
+  ): void;
+  public describeNetworkInsightsAnalyses(
+    args: DescribeNetworkInsightsAnalysesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeNetworkInsightsAnalysesCommandOutput) => void
+  ): void;
+  public describeNetworkInsightsAnalyses(
+    args: DescribeNetworkInsightsAnalysesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeNetworkInsightsAnalysesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeNetworkInsightsAnalysesCommandOutput) => void
+  ): Promise<DescribeNetworkInsightsAnalysesCommandOutput> | void {
+    const command = new DescribeNetworkInsightsAnalysesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes one or more of your paths.</p>
+   */
+  public describeNetworkInsightsPaths(
+    args: DescribeNetworkInsightsPathsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeNetworkInsightsPathsCommandOutput>;
+  public describeNetworkInsightsPaths(
+    args: DescribeNetworkInsightsPathsCommandInput,
+    cb: (err: any, data?: DescribeNetworkInsightsPathsCommandOutput) => void
+  ): void;
+  public describeNetworkInsightsPaths(
+    args: DescribeNetworkInsightsPathsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeNetworkInsightsPathsCommandOutput) => void
+  ): void;
+  public describeNetworkInsightsPaths(
+    args: DescribeNetworkInsightsPathsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeNetworkInsightsPathsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeNetworkInsightsPathsCommandOutput) => void
+  ): Promise<DescribeNetworkInsightsPathsCommandOutput> | void {
+    const command = new DescribeNetworkInsightsPathsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes a network interface attribute. You can specify only one attribute at a time.</p>
    */
   public describeNetworkInterfaceAttribute(
@@ -10982,6 +11382,70 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DescribeTransitGatewayAttachmentsCommandOutput) => void
   ): Promise<DescribeTransitGatewayAttachmentsCommandOutput> | void {
     const command = new DescribeTransitGatewayAttachmentsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes one or more Connect peers.</p>
+   */
+  public describeTransitGatewayConnectPeers(
+    args: DescribeTransitGatewayConnectPeersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTransitGatewayConnectPeersCommandOutput>;
+  public describeTransitGatewayConnectPeers(
+    args: DescribeTransitGatewayConnectPeersCommandInput,
+    cb: (err: any, data?: DescribeTransitGatewayConnectPeersCommandOutput) => void
+  ): void;
+  public describeTransitGatewayConnectPeers(
+    args: DescribeTransitGatewayConnectPeersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTransitGatewayConnectPeersCommandOutput) => void
+  ): void;
+  public describeTransitGatewayConnectPeers(
+    args: DescribeTransitGatewayConnectPeersCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTransitGatewayConnectPeersCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTransitGatewayConnectPeersCommandOutput) => void
+  ): Promise<DescribeTransitGatewayConnectPeersCommandOutput> | void {
+    const command = new DescribeTransitGatewayConnectPeersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes one or more Connect attachments.</p>
+   */
+  public describeTransitGatewayConnects(
+    args: DescribeTransitGatewayConnectsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTransitGatewayConnectsCommandOutput>;
+  public describeTransitGatewayConnects(
+    args: DescribeTransitGatewayConnectsCommandInput,
+    cb: (err: any, data?: DescribeTransitGatewayConnectsCommandOutput) => void
+  ): void;
+  public describeTransitGatewayConnects(
+    args: DescribeTransitGatewayConnectsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTransitGatewayConnectsCommandOutput) => void
+  ): void;
+  public describeTransitGatewayConnects(
+    args: DescribeTransitGatewayConnectsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTransitGatewayConnectsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTransitGatewayConnectsCommandOutput) => void
+  ): Promise<DescribeTransitGatewayConnectsCommandOutput> | void {
+    const command = new DescribeTransitGatewayConnectsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -15930,6 +16394,40 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Rejects a request to associate cross-account subnets with a transit gateway multicast domain.</p>
+   */
+  public rejectTransitGatewayMulticastDomainAssociations(
+    args: RejectTransitGatewayMulticastDomainAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RejectTransitGatewayMulticastDomainAssociationsCommandOutput>;
+  public rejectTransitGatewayMulticastDomainAssociations(
+    args: RejectTransitGatewayMulticastDomainAssociationsCommandInput,
+    cb: (err: any, data?: RejectTransitGatewayMulticastDomainAssociationsCommandOutput) => void
+  ): void;
+  public rejectTransitGatewayMulticastDomainAssociations(
+    args: RejectTransitGatewayMulticastDomainAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RejectTransitGatewayMulticastDomainAssociationsCommandOutput) => void
+  ): void;
+  public rejectTransitGatewayMulticastDomainAssociations(
+    args: RejectTransitGatewayMulticastDomainAssociationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RejectTransitGatewayMulticastDomainAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: RejectTransitGatewayMulticastDomainAssociationsCommandOutput) => void
+  ): Promise<RejectTransitGatewayMulticastDomainAssociationsCommandOutput> | void {
+    const command = new RejectTransitGatewayMulticastDomainAssociationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Rejects a transit gateway peering attachment request.</p>
    */
   public rejectTransitGatewayPeeringAttachment(
@@ -17171,6 +17669,39 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: StartInstancesCommandOutput) => void
   ): Promise<StartInstancesCommandOutput> | void {
     const command = new StartInstancesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts analyzing the specified path. If the path is reachable, the
+   *          operation returns the shortest feasible path.</p>
+   */
+  public startNetworkInsightsAnalysis(
+    args: StartNetworkInsightsAnalysisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartNetworkInsightsAnalysisCommandOutput>;
+  public startNetworkInsightsAnalysis(
+    args: StartNetworkInsightsAnalysisCommandInput,
+    cb: (err: any, data?: StartNetworkInsightsAnalysisCommandOutput) => void
+  ): void;
+  public startNetworkInsightsAnalysis(
+    args: StartNetworkInsightsAnalysisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartNetworkInsightsAnalysisCommandOutput) => void
+  ): void;
+  public startNetworkInsightsAnalysis(
+    args: StartNetworkInsightsAnalysisCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartNetworkInsightsAnalysisCommandOutput) => void),
+    cb?: (err: any, data?: StartNetworkInsightsAnalysisCommandOutput) => void
+  ): Promise<StartNetworkInsightsAnalysisCommandOutput> | void {
+    const command = new StartNetworkInsightsAnalysisCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

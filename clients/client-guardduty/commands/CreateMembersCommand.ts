@@ -26,7 +26,7 @@ export type CreateMembersCommandOutput = CreateMembersResponse & __MetadataBeare
  *       invitation or through an organization.</p>
  *          <p>When using <code>Create Members</code> as an organizations delegated administrator this
  *       action will enable GuardDuty in the added member accounts, with the exception of the
- *       organization master account, which must enable GuardDuty prior to being added as a
+ *       organization delegated administrator account, which must enable GuardDuty prior to being added as a
  *       member.</p>
  *          <p>If you are adding accounts by invitation use this action after GuardDuty has been enabled
  *       in potential member accounts and before using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">

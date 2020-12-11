@@ -21,7 +21,7 @@ export type DeleteMembersCommandInput = DeleteMembersRequest;
 export type DeleteMembersCommandOutput = DeleteMembersResponse & __MetadataBearer;
 
 /**
- * <p>Deletes GuardDuty member accounts (to the current GuardDuty master account) specified by
+ * <p>Deletes GuardDuty member accounts (to the current GuardDuty administrator account) specified by
  *       the account IDs.</p>
  */
 export class DeleteMembersCommand extends $Command<
