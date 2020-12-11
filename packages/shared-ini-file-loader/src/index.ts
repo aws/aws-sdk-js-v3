@@ -36,7 +36,7 @@ export interface SharedConfigFiles {
 
 const swallowError = () => ({});
 
-export function loadSharedConfigFiles(init: SharedConfigInit = {}): Promise<SharedConfigFiles> {
+export const loadSharedConfigFiles = (init: SharedConfigInit = {}): Promise<SharedConfigFiles> => {
   const {
     filepath = process.env[ENV_CREDENTIALS_PATH] || join(getHomeDir(), ".aws", "credentials"),
     configFilepath = process.env[ENV_CONFIG_PATH] || join(getHomeDir(), ".aws", "config"),
@@ -52,10 +52,10 @@ export function loadSharedConfigFiles(init: SharedConfigInit = {}): Promise<Shar
       credentialsFile,
     };
   });
-}
+};
 
 const profileKeyRegex = /^profile\s(["'])?([^\1]+)\1$/;
-function normalizeConfigFile(data: ParsedIniData): ParsedIniData {
+const normalizeConfigFile = (data: ParsedIniData): ParsedIniData => {
   const map: ParsedIniData = {};
   for (const key of Object.keys(data)) {
     let matches: Array<string> | null;
@@ -71,9 +71,10 @@ function normalizeConfigFile(data: ParsedIniData): ParsedIniData {
   }
 
   return map;
-}
+};
 
-function parseIni(iniData: string): ParsedIniData {
+const profileNameBlockList = ["__proto__", "profile __proto__"];
+const parseIni = (iniData: string): ParsedIniData => {
   const map: ParsedIniData = {};
   let currentSection: string | undefined;
   for (let line of iniData.split(/\r?\n/)) {
@@ -81,6 +82,9 @@ function parseIni(iniData: string): ParsedIniData {
     const section = line.match(/^\s*\[([^\[\]]+)]\s*$/);
     if (section) {
       currentSection = section[1];
+      if (profileNameBlockList.includes(currentSection)) {
+        throw new Error(`Found invalid profile name "${currentSection}"`);
+      }
     } else if (currentSection) {
       const item = line.match(/^\s*(.+?)\s*=\s*(.+?)\s*$/);
       if (item) {
@@ -91,10 +95,10 @@ function parseIni(iniData: string): ParsedIniData {
   }
 
   return map;
-}
+};
 
-function slurpFile(path: string): Promise<string> {
-  return new Promise((resolve, reject) => {
+const slurpFile = (path: string): Promise<string> =>
+  new Promise((resolve, reject) => {
     readFile(path, "utf8", (err, data) => {
       if (err) {
         reject(err);
@@ -103,9 +107,8 @@ function slurpFile(path: string): Promise<string> {
       }
     });
   });
-}
 
-function getHomeDir(): string {
+const getHomeDir = (): string => {
   const { HOME, USERPROFILE, HOMEPATH, HOMEDRIVE = `C:${sep}` } = process.env;
 
   if (HOME) return HOME;
@@ -113,4 +116,4 @@ function getHomeDir(): string {
   if (HOMEPATH) return `${HOMEDRIVE}${HOMEPATH}`;
 
   return homedir();
-}
+};
