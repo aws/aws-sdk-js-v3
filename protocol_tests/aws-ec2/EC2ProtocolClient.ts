@@ -22,6 +22,8 @@ import {
   SimpleScalarXmlPropertiesCommandOutput,
 } from "./commands/SimpleScalarXmlPropertiesCommand";
 import { XmlBlobsCommandInput, XmlBlobsCommandOutput } from "./commands/XmlBlobsCommand";
+import { XmlEmptyBlobsCommandInput, XmlEmptyBlobsCommandOutput } from "./commands/XmlEmptyBlobsCommand";
+import { XmlEmptyListsCommandInput, XmlEmptyListsCommandOutput } from "./commands/XmlEmptyListsCommand";
 import { XmlEnumsCommandInput, XmlEnumsCommandOutput } from "./commands/XmlEnumsCommand";
 import { XmlListsCommandInput, XmlListsCommandOutput } from "./commands/XmlListsCommand";
 import { XmlNamespacesCommandInput, XmlNamespacesCommandOutput } from "./commands/XmlNamespacesCommand";
@@ -88,6 +90,8 @@ export type ServiceInputTypes =
   | SimpleInputParamsCommandInput
   | SimpleScalarXmlPropertiesCommandInput
   | XmlBlobsCommandInput
+  | XmlEmptyBlobsCommandInput
+  | XmlEmptyListsCommandInput
   | XmlEnumsCommandInput
   | XmlListsCommandInput
   | XmlNamespacesCommandInput
@@ -106,6 +110,8 @@ export type ServiceOutputTypes =
   | SimpleInputParamsCommandOutput
   | SimpleScalarXmlPropertiesCommandOutput
   | XmlBlobsCommandOutput
+  | XmlEmptyBlobsCommandOutput
+  | XmlEmptyListsCommandOutput
   | XmlEnumsCommandOutput
   | XmlListsCommandOutput
   | XmlNamespacesCommandOutput

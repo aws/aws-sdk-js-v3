@@ -7,6 +7,10 @@ import {
   FlattenedXmlMapWithXmlNameCommandInput,
   FlattenedXmlMapWithXmlNameCommandOutput,
 } from "../commands/FlattenedXmlMapWithXmlNameCommand";
+import {
+  FlattenedXmlMapWithXmlNamespaceCommandInput,
+  FlattenedXmlMapWithXmlNamespaceCommandOutput,
+} from "../commands/FlattenedXmlMapWithXmlNamespaceCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "../commands/GreetingWithErrorsCommand";
 import {
   IgnoresWrappingXmlNameCommandInput,
@@ -29,6 +33,9 @@ import {
   SimpleScalarXmlPropertiesCommandOutput,
 } from "../commands/SimpleScalarXmlPropertiesCommand";
 import { XmlBlobsCommandInput, XmlBlobsCommandOutput } from "../commands/XmlBlobsCommand";
+import { XmlEmptyBlobsCommandInput, XmlEmptyBlobsCommandOutput } from "../commands/XmlEmptyBlobsCommand";
+import { XmlEmptyListsCommandInput, XmlEmptyListsCommandOutput } from "../commands/XmlEmptyListsCommand";
+import { XmlEmptyMapsCommandInput, XmlEmptyMapsCommandOutput } from "../commands/XmlEmptyMapsCommand";
 import { XmlEnumsCommandInput, XmlEnumsCommandOutput } from "../commands/XmlEnumsCommand";
 import { XmlListsCommandInput, XmlListsCommandOutput } from "../commands/XmlListsCommand";
 import { XmlMapsCommandInput, XmlMapsCommandOutput } from "../commands/XmlMapsCommand";
@@ -42,6 +49,7 @@ import {
   EmptyInputAndEmptyOutputOutput,
   FlattenedXmlMapOutput,
   FlattenedXmlMapWithXmlNameOutput,
+  FlattenedXmlMapWithXmlNamespaceOutput,
   FooEnum,
   GreetingStruct,
   GreetingWithErrorsOutput,
@@ -91,7 +99,7 @@ export const serializeAws_queryEmptyInputAndEmptyOutputCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -107,7 +115,7 @@ export const serializeAws_queryFlattenedXmlMapCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "FlattenedXmlMap",
@@ -121,10 +129,24 @@ export const serializeAws_queryFlattenedXmlMapWithXmlNameCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "FlattenedXmlMapWithXmlName",
+    Version: "2020-01-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryFlattenedXmlMapWithXmlNamespaceCommand = async (
+  input: FlattenedXmlMapWithXmlNamespaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  const body = buildFormUrlencodedString({
+    Action: "FlattenedXmlMapWithXmlNamespace",
     Version: "2020-01-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -135,7 +157,7 @@ export const serializeAws_queryGreetingWithErrorsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "GreetingWithErrors",
@@ -149,7 +171,7 @@ export const serializeAws_queryIgnoresWrappingXmlNameCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "IgnoresWrappingXmlName",
@@ -163,7 +185,7 @@ export const serializeAws_queryNestedStructuresCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -179,7 +201,7 @@ export const serializeAws_queryNoInputAndNoOutputCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "NoInputAndNoOutput",
@@ -193,7 +215,7 @@ export const serializeAws_queryNoInputAndOutputCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -209,7 +231,7 @@ export const serializeAws_queryQueryIdempotencyTokenAutoFillCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -225,7 +247,7 @@ export const serializeAws_queryQueryListsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -241,7 +263,7 @@ export const serializeAws_queryQueryMapsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -257,7 +279,7 @@ export const serializeAws_queryQueryTimestampsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -273,7 +295,7 @@ export const serializeAws_queryRecursiveXmlShapesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "RecursiveXmlShapes",
@@ -287,7 +309,7 @@ export const serializeAws_querySimpleInputParamsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -303,7 +325,7 @@ export const serializeAws_querySimpleScalarXmlPropertiesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "SimpleScalarXmlProperties",
@@ -317,10 +339,52 @@ export const serializeAws_queryXmlBlobsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "XmlBlobs",
+    Version: "2020-01-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryXmlEmptyBlobsCommand = async (
+  input: XmlEmptyBlobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  const body = buildFormUrlencodedString({
+    Action: "XmlEmptyBlobs",
+    Version: "2020-01-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryXmlEmptyListsCommand = async (
+  input: XmlEmptyListsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  const body = buildFormUrlencodedString({
+    Action: "XmlEmptyLists",
+    Version: "2020-01-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryXmlEmptyMapsCommand = async (
+  input: XmlEmptyMapsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  const body = buildFormUrlencodedString({
+    Action: "XmlEmptyMaps",
     Version: "2020-01-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -331,7 +395,7 @@ export const serializeAws_queryXmlEnumsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "XmlEnums",
@@ -345,7 +409,7 @@ export const serializeAws_queryXmlListsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "XmlLists",
@@ -359,7 +423,7 @@ export const serializeAws_queryXmlMapsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "XmlMaps",
@@ -373,7 +437,7 @@ export const serializeAws_queryXmlMapsXmlNameCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "XmlMapsXmlName",
@@ -387,7 +451,7 @@ export const serializeAws_queryXmlNamespacesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "XmlNamespaces",
@@ -401,7 +465,7 @@ export const serializeAws_queryXmlTimestampsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "XmlTimestamps",
@@ -523,6 +587,55 @@ const deserializeAws_queryFlattenedXmlMapWithXmlNameCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<FlattenedXmlMapWithXmlNameCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryFlattenedXmlMapWithXmlNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<FlattenedXmlMapWithXmlNamespaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryFlattenedXmlMapWithXmlNamespaceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryFlattenedXmlMapWithXmlNamespaceOutput(
+    data.FlattenedXmlMapWithXmlNamespaceResult,
+    context
+  );
+  const response: FlattenedXmlMapWithXmlNamespaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryFlattenedXmlMapWithXmlNamespaceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<FlattenedXmlMapWithXmlNamespaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1138,6 +1251,144 @@ const deserializeAws_queryXmlBlobsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryXmlEmptyBlobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlEmptyBlobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryXmlEmptyBlobsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryXmlBlobsOutput(data.XmlEmptyBlobsResult, context);
+  const response: XmlEmptyBlobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryXmlEmptyBlobsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlEmptyBlobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryXmlEmptyListsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlEmptyListsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryXmlEmptyListsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryXmlListsOutput(data.XmlEmptyListsResult, context);
+  const response: XmlEmptyListsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryXmlEmptyListsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlEmptyListsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryXmlEmptyMapsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlEmptyMapsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryXmlEmptyMapsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryXmlMapsOutput(data.XmlEmptyMapsResult, context);
+  const response: XmlEmptyMapsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryXmlEmptyMapsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlEmptyMapsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryXmlEnumsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1447,14 +1698,16 @@ const deserializeAws_queryInvalidGreetingResponse = async (
 const serializeAws_queryComplexMap = (input: { [key: string]: GreetingStruct }, context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  Object.keys(input).forEach((key) => {
-    entries[`entry.${counter}.key`] = key;
-    const memberEntries = serializeAws_queryGreetingStruct(input[key], context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      entries[`entry.${counter}.value.${key}`] = value;
+  Object.keys(input)
+    .filter((key) => input[key] != null)
+    .forEach((key) => {
+      entries[`entry.${counter}.key`] = key;
+      const memberEntries = serializeAws_queryGreetingStruct(input[key], context);
+      Object.entries(memberEntries).forEach(([key, value]) => {
+        entries[`entry.${counter}.value.${key}`] = value;
+      });
+      counter++;
     });
-    counter++;
-  });
   return entries;
 };
 
@@ -1470,6 +1723,9 @@ const serializeAws_queryListWithXmlName = (input: string[], context: __SerdeCont
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`item.${counter}`] = entry;
     counter++;
   }
@@ -1479,31 +1735,35 @@ const serializeAws_queryListWithXmlName = (input: string[], context: __SerdeCont
 const serializeAws_queryMapOfLists = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  Object.keys(input).forEach((key) => {
-    entries[`entry.${counter}.key`] = key;
-    const memberEntries = serializeAws_queryStringList(input[key], context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      entries[`entry.${counter}.value.${key}`] = value;
+  Object.keys(input)
+    .filter((key) => input[key] != null)
+    .forEach((key) => {
+      entries[`entry.${counter}.key`] = key;
+      const memberEntries = serializeAws_queryStringList(input[key], context);
+      Object.entries(memberEntries).forEach(([key, value]) => {
+        entries[`entry.${counter}.value.${key}`] = value;
+      });
+      counter++;
     });
-    counter++;
-  });
   return entries;
 };
 
 const serializeAws_queryMapWithXmlName = (input: { [key: string]: string }, context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  Object.keys(input).forEach((key) => {
-    entries[`entry.${counter}.K`] = key;
-    entries[`entry.${counter}.V`] = input[key];
-    counter++;
-  });
+  Object.keys(input)
+    .filter((key) => input[key] != null)
+    .forEach((key) => {
+      entries[`entry.${counter}.K`] = key;
+      entries[`entry.${counter}.V`] = input[key];
+      counter++;
+    });
   return entries;
 };
 
 const serializeAws_queryNestedStructuresInput = (input: NestedStructuresInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Nested !== undefined) {
+  if (input.Nested !== undefined && input.Nested !== null) {
     const memberEntries = serializeAws_queryStructArg(input.Nested, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Nested.${key}`;
@@ -1526,7 +1786,7 @@ const serializeAws_queryQueryIdempotencyTokenAutoFillInput = (
   if (input.token === undefined) {
     input.token = generateIdempotencyToken();
   }
-  if (input.token !== undefined) {
+  if (input.token !== undefined && input.token !== null) {
     entries["token"] = input.token;
   }
   return entries;
@@ -1534,35 +1794,35 @@ const serializeAws_queryQueryIdempotencyTokenAutoFillInput = (
 
 const serializeAws_queryQueryListsInput = (input: QueryListsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ListArg !== undefined) {
+  if (input.ListArg !== undefined && input.ListArg !== null) {
     const memberEntries = serializeAws_queryStringList(input.ListArg, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ListArg.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ComplexListArg !== undefined) {
+  if (input.ComplexListArg !== undefined && input.ComplexListArg !== null) {
     const memberEntries = serializeAws_queryGreetingList(input.ComplexListArg, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ComplexListArg.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.FlattenedListArg !== undefined) {
+  if (input.FlattenedListArg !== undefined && input.FlattenedListArg !== null) {
     const memberEntries = serializeAws_queryStringList(input.FlattenedListArg, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `FlattenedListArg.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
   }
-  if (input.ListArgWithXmlNameMember !== undefined) {
+  if (input.ListArgWithXmlNameMember !== undefined && input.ListArgWithXmlNameMember !== null) {
     const memberEntries = serializeAws_queryListWithXmlName(input.ListArgWithXmlNameMember, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ListArgWithXmlNameMember.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.FlattenedListArgWithXmlName !== undefined) {
+  if (input.FlattenedListArgWithXmlName !== undefined && input.FlattenedListArgWithXmlName !== null) {
     const memberEntries = serializeAws_queryListWithXmlName(input.FlattenedListArgWithXmlName, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Hi.${key.substring(key.indexOf(".") + 1)}`;
@@ -1574,49 +1834,49 @@ const serializeAws_queryQueryListsInput = (input: QueryListsInput, context: __Se
 
 const serializeAws_queryQueryMapsInput = (input: QueryMapsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MapArg !== undefined) {
+  if (input.MapArg !== undefined && input.MapArg !== null) {
     const memberEntries = serializeAws_queryStringMap(input.MapArg, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MapArg.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.RenamedMapArg !== undefined) {
+  if (input.RenamedMapArg !== undefined && input.RenamedMapArg !== null) {
     const memberEntries = serializeAws_queryStringMap(input.RenamedMapArg, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Foo.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ComplexMapArg !== undefined) {
+  if (input.ComplexMapArg !== undefined && input.ComplexMapArg !== null) {
     const memberEntries = serializeAws_queryComplexMap(input.ComplexMapArg, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ComplexMapArg.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.MapWithXmlMemberName !== undefined) {
+  if (input.MapWithXmlMemberName !== undefined && input.MapWithXmlMemberName !== null) {
     const memberEntries = serializeAws_queryMapWithXmlName(input.MapWithXmlMemberName, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MapWithXmlMemberName.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.FlattenedMap !== undefined) {
+  if (input.FlattenedMap !== undefined && input.FlattenedMap !== null) {
     const memberEntries = serializeAws_queryStringMap(input.FlattenedMap, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `FlattenedMap.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
   }
-  if (input.FlattenedMapWithXmlName !== undefined) {
+  if (input.FlattenedMapWithXmlName !== undefined && input.FlattenedMapWithXmlName !== null) {
     const memberEntries = serializeAws_queryMapWithXmlName(input.FlattenedMapWithXmlName, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Hi.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
   }
-  if (input.MapOfLists !== undefined) {
+  if (input.MapOfLists !== undefined && input.MapOfLists !== null) {
     const memberEntries = serializeAws_queryMapOfLists(input.MapOfLists, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MapOfLists.${key}`;
@@ -1628,13 +1888,13 @@ const serializeAws_queryQueryMapsInput = (input: QueryMapsInput, context: __Serd
 
 const serializeAws_queryQueryTimestampsInput = (input: QueryTimestampsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.normalFormat !== undefined) {
+  if (input.normalFormat !== undefined && input.normalFormat !== null) {
     entries["normalFormat"] = input.normalFormat.toISOString().split(".")[0] + "Z";
   }
-  if (input.epochMember !== undefined) {
+  if (input.epochMember !== undefined && input.epochMember !== null) {
     entries["epochMember"] = Math.round(input.epochMember.getTime() / 1000);
   }
-  if (input.epochTarget !== undefined) {
+  if (input.epochTarget !== undefined && input.epochTarget !== null) {
     entries["epochTarget"] = Math.round(input.epochTarget.getTime() / 1000);
   }
   return entries;
@@ -1642,25 +1902,25 @@ const serializeAws_queryQueryTimestampsInput = (input: QueryTimestampsInput, con
 
 const serializeAws_querySimpleInputParamsInput = (input: SimpleInputParamsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Foo !== undefined) {
+  if (input.Foo !== undefined && input.Foo !== null) {
     entries["Foo"] = input.Foo;
   }
-  if (input.Bar !== undefined) {
+  if (input.Bar !== undefined && input.Bar !== null) {
     entries["Bar"] = input.Bar;
   }
-  if (input.Baz !== undefined) {
+  if (input.Baz !== undefined && input.Baz !== null) {
     entries["Baz"] = input.Baz;
   }
-  if (input.Bam !== undefined) {
+  if (input.Bam !== undefined && input.Bam !== null) {
     entries["Bam"] = input.Bam;
   }
-  if (input.Boo !== undefined) {
+  if (input.Boo !== undefined && input.Boo !== null) {
     entries["Boo"] = input.Boo;
   }
-  if (input.Qux !== undefined) {
+  if (input.Qux !== undefined && input.Qux !== null) {
     entries["Qux"] = context.base64Encoder(input.Qux);
   }
-  if (input.FooEnum !== undefined) {
+  if (input.FooEnum !== undefined && input.FooEnum !== null) {
     entries["FooEnum"] = input.FooEnum;
   }
   return entries;
@@ -1668,13 +1928,13 @@ const serializeAws_querySimpleInputParamsInput = (input: SimpleInputParamsInput,
 
 const serializeAws_queryStructArg = (input: StructArg, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StringArg !== undefined) {
+  if (input.StringArg !== undefined && input.StringArg !== null) {
     entries["StringArg"] = input.StringArg;
   }
-  if (input.OtherArg !== undefined) {
+  if (input.OtherArg !== undefined && input.OtherArg !== null) {
     entries["OtherArg"] = input.OtherArg;
   }
-  if (input.RecursiveArg !== undefined) {
+  if (input.RecursiveArg !== undefined && input.RecursiveArg !== null) {
     const memberEntries = serializeAws_queryStructArg(input.RecursiveArg, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RecursiveArg.${key}`;
@@ -1688,6 +1948,9 @@ const serializeAws_queryGreetingList = (input: GreetingStruct[], context: __Serd
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryGreetingStruct(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
@@ -1699,7 +1962,7 @@ const serializeAws_queryGreetingList = (input: GreetingStruct[], context: __Serd
 
 const serializeAws_queryGreetingStruct = (input: GreetingStruct, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.hi !== undefined) {
+  if (input.hi !== undefined && input.hi !== null) {
     entries["hi"] = input.hi;
   }
   return entries;
@@ -1709,6 +1972,9 @@ const serializeAws_queryStringList = (input: string[], context: __SerdeContext):
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -1718,11 +1984,13 @@ const serializeAws_queryStringList = (input: string[], context: __SerdeContext):
 const serializeAws_queryStringMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  Object.keys(input).forEach((key) => {
-    entries[`entry.${counter}.key`] = key;
-    entries[`entry.${counter}.value`] = input[key];
-    counter++;
-  });
+  Object.keys(input)
+    .filter((key) => input[key] != null)
+    .forEach((key) => {
+      entries[`entry.${counter}.key`] = key;
+      entries[`entry.${counter}.value`] = input[key];
+      counter++;
+    });
   return entries;
 };
 
@@ -1794,13 +2062,49 @@ const deserializeAws_queryFlattenedXmlMapWithXmlNameOutputMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return output.reduce(
-    (acc: any, pair: any) => ({
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["V"] === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [pair["K"]]: pair["V"],
-    }),
-    {}
-  );
+    };
+  }, {});
+};
+
+const deserializeAws_queryFlattenedXmlMapWithXmlNamespaceOutput = (
+  output: any,
+  context: __SerdeContext
+): FlattenedXmlMapWithXmlNamespaceOutput => {
+  let contents: any = {
+    myMap: undefined,
+  };
+  if (output.KVP === "") {
+    contents.myMap = {};
+  }
+  if (output["KVP"] !== undefined) {
+    contents.myMap = deserializeAws_queryFlattenedXmlMapWithXmlNamespaceOutputMap(
+      __getArrayIfSingleItem(output["KVP"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryFlattenedXmlMapWithXmlNamespaceOutputMap = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: string } => {
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["V"] === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [pair["K"]]: pair["V"],
+    };
+  }, {});
 };
 
 const deserializeAws_queryGreetingWithErrorsOutput = (
@@ -1837,6 +2141,28 @@ const deserializeAws_queryInvalidGreeting = (output: any, context: __SerdeContex
     contents.Message = output["Message"];
   }
   return contents;
+};
+
+const deserializeAws_queryListWithMemberNamespace = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const deserializeAws_queryListWithNamespace = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryRecursiveXmlShapesOutput = (
@@ -1887,7 +2213,14 @@ const deserializeAws_queryRecursiveXmlShapesOutputNested2 = (
 };
 
 const deserializeAws_queryRenamedListMembers = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_querySimpleScalarXmlPropertiesOutput = (
@@ -1940,7 +2273,14 @@ const deserializeAws_querySimpleScalarXmlPropertiesOutput = (
 };
 
 const deserializeAws_queryStructureList = (output: any, context: __SerdeContext): StructureListMember[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryStructureListMember(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryStructureListMember(entry, context);
+    });
 };
 
 const deserializeAws_queryStructureListMember = (output: any, context: __SerdeContext): StructureListMember => {
@@ -2027,6 +2367,8 @@ const deserializeAws_queryXmlListsOutput = (output: any, context: __SerdeContext
     renamedListMembers: undefined,
     flattenedList: undefined,
     flattenedList2: undefined,
+    flattenedListWithMemberNamespace: undefined,
+    flattenedListWithNamespace: undefined,
     structureList: undefined,
   };
   if (output.stringList === "") {
@@ -2113,6 +2455,24 @@ const deserializeAws_queryXmlListsOutput = (output: any, context: __SerdeContext
       context
     );
   }
+  if (output.flattenedListWithMemberNamespace === "") {
+    contents.flattenedListWithMemberNamespace = [];
+  }
+  if (output["flattenedListWithMemberNamespace"] !== undefined) {
+    contents.flattenedListWithMemberNamespace = deserializeAws_queryListWithMemberNamespace(
+      __getArrayIfSingleItem(output["flattenedListWithMemberNamespace"]),
+      context
+    );
+  }
+  if (output.flattenedListWithNamespace === "") {
+    contents.flattenedListWithNamespace = [];
+  }
+  if (output["flattenedListWithNamespace"] !== undefined) {
+    contents.flattenedListWithNamespace = deserializeAws_queryListWithNamespace(
+      __getArrayIfSingleItem(output["flattenedListWithNamespace"]),
+      context
+    );
+  }
   if (output.myStructureList === "") {
     contents.structureList = [];
   }
@@ -2142,13 +2502,15 @@ const deserializeAws_queryXmlMapsOutputMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: GreetingStruct } => {
-  return output.reduce(
-    (acc: any, pair: any) => ({
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["value"] === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [pair["key"]]: deserializeAws_queryGreetingStruct(pair["value"], context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_queryXmlMapsXmlNameOutput = (output: any, context: __SerdeContext): XmlMapsXmlNameOutput => {
@@ -2171,17 +2533,26 @@ const deserializeAws_queryXmlMapsXmlNameOutputMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: GreetingStruct } => {
-  return output.reduce(
-    (acc: any, pair: any) => ({
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["Setting"] === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [pair["Attribute"]]: deserializeAws_queryGreetingStruct(pair["Setting"], context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_queryXmlNamespacedList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryXmlNamespaceNested = (output: any, context: __SerdeContext): XmlNamespaceNested => {
@@ -2237,25 +2608,48 @@ const deserializeAws_queryXmlTimestampsOutput = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_queryBooleanList = (output: any, context: __SerdeContext): boolean[] => {
-  return (output || []).map((entry: any) => entry == "true");
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry == "true";
+    });
 };
 
 const deserializeAws_queryFooEnumList = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryFooEnumMap = (output: any, context: __SerdeContext): { [key: string]: FooEnum | string } => {
-  return output.reduce(
-    (acc: any, pair: any) => ({
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["value"] === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [pair["key"]]: pair["value"],
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_queryFooEnumSet = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryGreetingStruct = (output: any, context: __SerdeContext): GreetingStruct => {
@@ -2269,25 +2663,58 @@ const deserializeAws_queryGreetingStruct = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryIntegerList = (output: any, context: __SerdeContext): number[] => {
-  return (output || []).map((entry: any) => parseInt(entry));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return parseInt(entry);
+    });
 };
 
 const deserializeAws_queryNestedStringList = (output: any, context: __SerdeContext): string[][] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryStringList(__getArrayIfSingleItem(entry["member"]), context)
-  );
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryStringList(__getArrayIfSingleItem(entry["member"]), context);
+    });
 };
 
 const deserializeAws_queryStringList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryStringSet = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryTimestampList = (output: any, context: __SerdeContext): Date[] => {
-  return (output || []).map((entry: any) => new Date(entry));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return new Date(entry);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

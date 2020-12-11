@@ -1,7 +1,13 @@
 import { JsonProtocolClient } from "../../JsonProtocolClient";
 import { EmptyOperationCommand } from "../../commands/EmptyOperationCommand";
+import { GreetingWithErrorsCommand } from "../../commands/GreetingWithErrorsCommand";
+import { JsonEnumsCommand } from "../../commands/JsonEnumsCommand";
+import { JsonUnionsCommand } from "../../commands/JsonUnionsCommand";
 import { KitchenSinkOperationCommand } from "../../commands/KitchenSinkOperationCommand";
+import { NullOperationCommand } from "../../commands/NullOperationCommand";
 import { OperationWithOptionalInputOutputCommand } from "../../commands/OperationWithOptionalInputOutputCommand";
+import { PutAndGetInlineDocumentsCommand } from "../../commands/PutAndGetInlineDocumentsCommand";
+import { ComplexError, FooError, InvalidGreeting } from "../../models/models_0";
 import { HttpHandlerOptions, HeaderBag } from "@aws-sdk/types";
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { Readable } from "stream";
@@ -179,8 +185,8 @@ it("includes_x_amz_target_and_content_type:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
     expect(r.headers["X-Amz-Target"]).toBeDefined();
     expect(r.headers["X-Amz-Target"]).toBe("JsonProtocol.EmptyOperation");
   }
@@ -216,6 +222,1385 @@ it("handles_empty_output_shape:Response", async () => {
 });
 
 /**
+ * Parses simple JSON errors
+ */
+it("AwsJson11InvalidGreetingError:Error:GreetingWithErrors", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      false,
+      400,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "__type": "InvalidGreeting",
+          "Message": "Hi"
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new GreetingWithErrorsCommand(params);
+
+  try {
+    await client.send(command);
+  } catch (err) {
+    if (err.name !== "InvalidGreeting") {
+      console.log(err);
+      fail(`Expected a InvalidGreeting to be thrown, got ${err.name} instead`);
+      return;
+    }
+    const r: any = err;
+    expect(r["$metadata"].httpStatusCode).toBe(400);
+    const paramsToValidate: any = [
+      {
+        message: "Hi",
+      },
+    ][0];
+    Object.keys(paramsToValidate).forEach((param) => {
+      expect(r[param]).toBeDefined();
+      expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    });
+    return;
+  }
+  fail("Expected an exception to be thrown from response");
+});
+
+/**
+ * Parses a complex error with no message member
+ */
+it("AwsJson11ComplexError:Error:GreetingWithErrors", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      false,
+      400,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "__type": "ComplexError",
+          "TopLevel": "Top level",
+          "Nested": {
+              "Fooooo": "bar"
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new GreetingWithErrorsCommand(params);
+
+  try {
+    await client.send(command);
+  } catch (err) {
+    if (err.name !== "ComplexError") {
+      console.log(err);
+      fail(`Expected a ComplexError to be thrown, got ${err.name} instead`);
+      return;
+    }
+    const r: any = err;
+    expect(r["$metadata"].httpStatusCode).toBe(400);
+    const paramsToValidate: any = [
+      {
+        TopLevel: "Top level",
+
+        Nested: {
+          Foo: "bar",
+        },
+      },
+    ][0];
+    Object.keys(paramsToValidate).forEach((param) => {
+      expect(r[param]).toBeDefined();
+      expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    });
+    return;
+  }
+  fail("Expected an exception to be thrown from response");
+});
+
+it("AwsJson11EmptyComplexError:Error:GreetingWithErrors", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      false,
+      400,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "__type": "ComplexError"
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new GreetingWithErrorsCommand(params);
+
+  try {
+    await client.send(command);
+  } catch (err) {
+    if (err.name !== "ComplexError") {
+      console.log(err);
+      fail(`Expected a ComplexError to be thrown, got ${err.name} instead`);
+      return;
+    }
+    const r: any = err;
+    expect(r["$metadata"].httpStatusCode).toBe(400);
+    return;
+  }
+  fail("Expected an exception to be thrown from response");
+});
+
+/**
+ * Serializes the X-Amzn-ErrorType header. For an example service, see Amazon EKS.
+ */
+it("AwsJson11FooErrorUsingXAmznErrorType:Error:GreetingWithErrors", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(false, 500, {
+      "x-amzn-errortype": "FooError",
+    }),
+  });
+
+  const params: any = {};
+  const command = new GreetingWithErrorsCommand(params);
+
+  try {
+    await client.send(command);
+  } catch (err) {
+    if (err.name !== "FooError") {
+      console.log(err);
+      fail(`Expected a FooError to be thrown, got ${err.name} instead`);
+      return;
+    }
+    const r: any = err;
+    expect(r["$metadata"].httpStatusCode).toBe(500);
+    return;
+  }
+  fail("Expected an exception to be thrown from response");
+});
+
+/**
+ * Some X-Amzn-Errortype headers contain URLs. Clients need to split the URL on ':' and take only the first half of the string. For example, 'ValidationException:http://internal.amazon.com/coral/com.amazon.coral.validate/'
+ * is to be interpreted as 'ValidationException'.
+ *
+ * For an example service see Amazon Polly.
+ */
+it("AwsJson11FooErrorUsingXAmznErrorTypeWithUri:Error:GreetingWithErrors", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(false, 500, {
+      "x-amzn-errortype": "FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/",
+    }),
+  });
+
+  const params: any = {};
+  const command = new GreetingWithErrorsCommand(params);
+
+  try {
+    await client.send(command);
+  } catch (err) {
+    if (err.name !== "FooError") {
+      console.log(err);
+      fail(`Expected a FooError to be thrown, got ${err.name} instead`);
+      return;
+    }
+    const r: any = err;
+    expect(r["$metadata"].httpStatusCode).toBe(500);
+    return;
+  }
+  fail("Expected an exception to be thrown from response");
+});
+
+/**
+ * X-Amzn-Errortype might contain a URL and a namespace. Client should extract only the shape name. This is a pathalogical case that might not actually happen in any deployed AWS service.
+ */
+it("AwsJson11FooErrorUsingXAmznErrorTypeWithUriAndNamespace:Error:GreetingWithErrors", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(false, 500, {
+      "x-amzn-errortype":
+        "aws.protocoltests.restjson#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/",
+    }),
+  });
+
+  const params: any = {};
+  const command = new GreetingWithErrorsCommand(params);
+
+  try {
+    await client.send(command);
+  } catch (err) {
+    if (err.name !== "FooError") {
+      console.log(err);
+      fail(`Expected a FooError to be thrown, got ${err.name} instead`);
+      return;
+    }
+    const r: any = err;
+    expect(r["$metadata"].httpStatusCode).toBe(500);
+    return;
+  }
+  fail("Expected an exception to be thrown from response");
+});
+
+/**
+ * This example uses the 'code' property in the output rather than X-Amzn-Errortype. Some services do this though it's preferable to send the X-Amzn-Errortype. Client implementations must first check for the X-Amzn-Errortype and then check for a top-level 'code' property.
+ *
+ * For example service see Amazon S3 Glacier.
+ */
+it("AwsJson11FooErrorUsingCode:Error:GreetingWithErrors", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      false,
+      500,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "code": "FooError"
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new GreetingWithErrorsCommand(params);
+
+  try {
+    await client.send(command);
+  } catch (err) {
+    if (err.name !== "FooError") {
+      console.log(err);
+      fail(`Expected a FooError to be thrown, got ${err.name} instead`);
+      return;
+    }
+    const r: any = err;
+    expect(r["$metadata"].httpStatusCode).toBe(500);
+    return;
+  }
+  fail("Expected an exception to be thrown from response");
+});
+
+/**
+ * Some services serialize errors using code, and it might contain a namespace. Clients should just take the last part of the string after '#'.
+ */
+it("AwsJson11FooErrorUsingCodeAndNamespace:Error:GreetingWithErrors", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      false,
+      500,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "code": "aws.protocoltests.restjson#FooError"
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new GreetingWithErrorsCommand(params);
+
+  try {
+    await client.send(command);
+  } catch (err) {
+    if (err.name !== "FooError") {
+      console.log(err);
+      fail(`Expected a FooError to be thrown, got ${err.name} instead`);
+      return;
+    }
+    const r: any = err;
+    expect(r["$metadata"].httpStatusCode).toBe(500);
+    return;
+  }
+  fail("Expected an exception to be thrown from response");
+});
+
+/**
+ * Some services serialize errors using code, and it might contain a namespace. It also might contain a URI. Clients should just take the last part of the string after '#' and before ":". This is a pathalogical case that might not occur in any deployed AWS service.
+ */
+it("AwsJson11FooErrorUsingCodeUriAndNamespace:Error:GreetingWithErrors", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      false,
+      500,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "code": "aws.protocoltests.restjson#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/"
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new GreetingWithErrorsCommand(params);
+
+  try {
+    await client.send(command);
+  } catch (err) {
+    if (err.name !== "FooError") {
+      console.log(err);
+      fail(`Expected a FooError to be thrown, got ${err.name} instead`);
+      return;
+    }
+    const r: any = err;
+    expect(r["$metadata"].httpStatusCode).toBe(500);
+    return;
+  }
+  fail("Expected an exception to be thrown from response");
+});
+
+/**
+ * Some services serialize errors using __type.
+ */
+it("AwsJson11FooErrorWithDunderType:Error:GreetingWithErrors", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      false,
+      500,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "__type": "FooError"
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new GreetingWithErrorsCommand(params);
+
+  try {
+    await client.send(command);
+  } catch (err) {
+    if (err.name !== "FooError") {
+      console.log(err);
+      fail(`Expected a FooError to be thrown, got ${err.name} instead`);
+      return;
+    }
+    const r: any = err;
+    expect(r["$metadata"].httpStatusCode).toBe(500);
+    return;
+  }
+  fail("Expected an exception to be thrown from response");
+});
+
+/**
+ * Some services serialize errors using __type, and it might contain a namespace. Clients should just take the last part of the string after '#'.
+ */
+it("AwsJson11FooErrorWithDunderTypeAndNamespace:Error:GreetingWithErrors", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      false,
+      500,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "__type": "aws.protocoltests.restjson#FooError"
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new GreetingWithErrorsCommand(params);
+
+  try {
+    await client.send(command);
+  } catch (err) {
+    if (err.name !== "FooError") {
+      console.log(err);
+      fail(`Expected a FooError to be thrown, got ${err.name} instead`);
+      return;
+    }
+    const r: any = err;
+    expect(r["$metadata"].httpStatusCode).toBe(500);
+    return;
+  }
+  fail("Expected an exception to be thrown from response");
+});
+
+/**
+ * Some services serialize errors using __type, and it might contain a namespace. It also might contain a URI. Clients should just take the last part of the string after '#' and before ":". This is a pathalogical case that might not occur in any deployed AWS service.
+ */
+it("AwsJson11FooErrorWithDunderTypeUriAndNamespace:Error:GreetingWithErrors", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      false,
+      500,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "__type": "aws.protocoltests.restjson#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/"
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new GreetingWithErrorsCommand(params);
+
+  try {
+    await client.send(command);
+  } catch (err) {
+    if (err.name !== "FooError") {
+      console.log(err);
+      fail(`Expected a FooError to be thrown, got ${err.name} instead`);
+      return;
+    }
+    const r: any = err;
+    expect(r["$metadata"].httpStatusCode).toBe(500);
+    return;
+  }
+  fail("Expected an exception to be thrown from response");
+});
+
+/**
+ * Serializes simple scalar properties
+ */
+it("AwsJson11Enums:Request", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonEnumsCommand({
+    fooEnum1: "Foo",
+
+    fooEnum2: "0",
+
+    fooEnum3: "1",
+
+    fooEnumList: ["Foo", "0"],
+
+    fooEnumSet: ["Foo", "0"],
+
+    fooEnumMap: {
+      hi: "Foo",
+
+      zero: "0",
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{
+        \"fooEnum1\": \"Foo\",
+        \"fooEnum2\": \"0\",
+        \"fooEnum3\": \"1\",
+        \"fooEnumList\": [
+            \"Foo\",
+            \"0\"
+        ],
+        \"fooEnumSet\": [
+            \"Foo\",
+            \"0\"
+        ],
+        \"fooEnumMap\": {
+            \"hi\": \"Foo\",
+            \"zero\": \"0\"
+        }
+    }`;
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes simple scalar properties
+ */
+it("AwsJson11Enums:Response", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "fooEnum1": "Foo",
+          "fooEnum2": "0",
+          "fooEnum3": "1",
+          "fooEnumList": [
+              "Foo",
+              "0"
+          ],
+          "fooEnumSet": [
+              "Foo",
+              "0"
+          ],
+          "fooEnumMap": {
+              "hi": "Foo",
+              "zero": "0"
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonEnumsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      fooEnum1: "Foo",
+
+      fooEnum2: "0",
+
+      fooEnum3: "1",
+
+      fooEnumList: ["Foo", "0"],
+
+      fooEnumSet: ["Foo", "0"],
+
+      fooEnumMap: {
+        hi: "Foo",
+
+        zero: "0",
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Serializes a string union value
+ */
+it("AwsJson11SerializeStringUnionValue:Request", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonUnionsCommand({
+    contents: {
+      stringValue: "foo",
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["X-Amz-Target"]).toBeDefined();
+    expect(r.headers["X-Amz-Target"]).toBe("JsonProtocol.JsonUnions");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{
+        \"contents\": {
+            \"stringValue\": \"foo\"
+        }
+    }`;
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes a boolean union value
+ */
+it("AwsJson11SerializeBooleanUnionValue:Request", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonUnionsCommand({
+    contents: {
+      booleanValue: true,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["X-Amz-Target"]).toBeDefined();
+    expect(r.headers["X-Amz-Target"]).toBe("JsonProtocol.JsonUnions");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{
+        \"contents\": {
+            \"booleanValue\": true
+        }
+    }`;
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes a number union value
+ */
+it("AwsJson11SerializeNumberUnionValue:Request", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonUnionsCommand({
+    contents: {
+      numberValue: 1,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["X-Amz-Target"]).toBeDefined();
+    expect(r.headers["X-Amz-Target"]).toBe("JsonProtocol.JsonUnions");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{
+        \"contents\": {
+            \"numberValue\": 1
+        }
+    }`;
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes a blob union value
+ */
+it("AwsJson11SerializeBlobUnionValue:Request", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonUnionsCommand({
+    contents: {
+      blobValue: Uint8Array.from("foo", (c) => c.charCodeAt(0)),
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["X-Amz-Target"]).toBeDefined();
+    expect(r.headers["X-Amz-Target"]).toBe("JsonProtocol.JsonUnions");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{
+        \"contents\": {
+            \"blobValue\": \"Zm9v\"
+        }
+    }`;
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes a timestamp union value
+ */
+it("AwsJson11SerializeTimestampUnionValue:Request", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonUnionsCommand({
+    contents: {
+      timestampValue: new Date(1398796238000),
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["X-Amz-Target"]).toBeDefined();
+    expect(r.headers["X-Amz-Target"]).toBe("JsonProtocol.JsonUnions");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{
+        \"contents\": {
+            \"timestampValue\": 1398796238
+        }
+    }`;
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes an enum union value
+ */
+it("AwsJson11SerializeEnumUnionValue:Request", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonUnionsCommand({
+    contents: {
+      enumValue: "Foo",
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["X-Amz-Target"]).toBeDefined();
+    expect(r.headers["X-Amz-Target"]).toBe("JsonProtocol.JsonUnions");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{
+        \"contents\": {
+            \"enumValue\": \"Foo\"
+        }
+    }`;
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes a list union value
+ */
+it("AwsJson11SerializeListUnionValue:Request", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonUnionsCommand({
+    contents: {
+      listValue: ["foo", "bar"],
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["X-Amz-Target"]).toBeDefined();
+    expect(r.headers["X-Amz-Target"]).toBe("JsonProtocol.JsonUnions");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{
+        \"contents\": {
+            \"listValue\": [\"foo\", \"bar\"]
+        }
+    }`;
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes a map union value
+ */
+it("AwsJson11SerializeMapUnionValue:Request", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonUnionsCommand({
+    contents: {
+      mapValue: {
+        foo: "bar",
+
+        spam: "eggs",
+      } as any,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["X-Amz-Target"]).toBeDefined();
+    expect(r.headers["X-Amz-Target"]).toBe("JsonProtocol.JsonUnions");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{
+        \"contents\": {
+            \"mapValue\": {
+                \"foo\": \"bar\",
+                \"spam\": \"eggs\"
+            }
+        }
+    }`;
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes a structure union value
+ */
+it("AwsJson11SerializeStructureUnionValue:Request", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonUnionsCommand({
+    contents: {
+      structureValue: {
+        hi: "hello",
+      } as any,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["X-Amz-Target"]).toBeDefined();
+    expect(r.headers["X-Amz-Target"]).toBe("JsonProtocol.JsonUnions");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{
+        \"contents\": {
+            \"structureValue\": {
+                \"hi\": \"hello\"
+            }
+        }
+    }`;
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Deserializes a string union value
+ */
+it("AwsJson11DeserializeStringUnionValue:Response", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "contents": {
+              "stringValue": "foo"
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      contents: {
+        stringValue: "foo",
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Deserializes a boolean union value
+ */
+it("AwsJson11DeserializeBooleanUnionValue:Response", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "contents": {
+              "booleanValue": true
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      contents: {
+        booleanValue: true,
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Deserializes a number union value
+ */
+it("AwsJson11DeserializeNumberUnionValue:Response", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "contents": {
+              "numberValue": 1
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      contents: {
+        numberValue: 1,
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Deserializes a blob union value
+ */
+it("AwsJson11DeserializeBlobUnionValue:Response", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "contents": {
+              "blobValue": "Zm9v"
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      contents: {
+        blobValue: Uint8Array.from("foo", (c) => c.charCodeAt(0)),
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Deserializes a timestamp union value
+ */
+it("AwsJson11DeserializeTimestampUnionValue:Response", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "contents": {
+              "timestampValue": 1398796238
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      contents: {
+        timestampValue: new Date(1398796238000),
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Deserializes an enum union value
+ */
+it("AwsJson11DeserializeEnumUnionValue:Response", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "contents": {
+              "enumValue": "Foo"
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      contents: {
+        enumValue: "Foo",
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Deserializes a list union value
+ */
+it("AwsJson11DeserializeListUnionValue:Response", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "contents": {
+              "listValue": ["foo", "bar"]
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      contents: {
+        listValue: ["foo", "bar"],
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Deserializes a map union value
+ */
+it("AwsJson11DeserializeMapUnionValue:Response", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "contents": {
+              "mapValue": {
+                  "foo": "bar",
+                  "spam": "eggs"
+              }
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      contents: {
+        mapValue: {
+          foo: "bar",
+
+          spam: "eggs",
+        },
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Deserializes a structure union value
+ */
+it("AwsJson11DeserializeStructureUnionValue:Response", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "contents": {
+              "structureValue": {
+                  "hi": "hello"
+              }
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      contents: {
+        structureValue: {
+          hi: "hello",
+        },
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * Serializes string shapes
  */
 it("serializes_string_shapes:Request", async () => {
@@ -239,6 +1624,10 @@ it("serializes_string_shapes:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"String\":\"abc xyz\"}`;
@@ -272,6 +1661,10 @@ it("serializes_string_shapes_with_jsonvalue_trait:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"JsonValue\":\"{\\"string\\":\\"value\\",\\"number\\":1234.5,\\"boolTrue\\":true,\\"boolFalse\\":false,\\"array\\":[1,2,3,4],\\"object\\":{\\"key\\":\\"value\\"},\\"null\\":null}\"}`;
@@ -304,6 +1697,10 @@ it("serializes_integer_shapes:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Integer\":1234}`;
@@ -336,6 +1733,10 @@ it("serializes_long_shapes:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Long\":999999999999}`;
@@ -368,6 +1769,10 @@ it("serializes_float_shapes:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Float\":1234.5}`;
@@ -400,6 +1805,10 @@ it("serializes_double_shapes:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Double\":1234.5}`;
@@ -432,6 +1841,10 @@ it("serializes_blob_shapes:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Blob\":\"YmluYXJ5LXZhbHVl\"}`;
@@ -464,6 +1877,10 @@ it("serializes_boolean_shapes_true:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Boolean\":true}`;
@@ -496,6 +1913,10 @@ it("serializes_boolean_shapes_false:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Boolean\":false}`;
@@ -528,6 +1949,10 @@ it("serializes_timestamp_shapes:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Timestamp\":946845296}`;
@@ -560,6 +1985,10 @@ it("serializes_timestamp_shapes_with_iso8601_timestampformat:Request", async () 
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Iso8601Timestamp\":\"2000-01-02T20:34:56Z\"}`;
@@ -592,6 +2021,10 @@ it("serializes_timestamp_shapes_with_httpdate_timestampformat:Request", async ()
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"HttpdateTimestamp\":\"Sun, 02 Jan 2000 20:34:56 GMT\"}`;
@@ -624,6 +2057,10 @@ it("serializes_timestamp_shapes_with_unixtimestamp_timestampformat:Request", asy
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"UnixTimestamp\":946845296}`;
@@ -656,6 +2093,10 @@ it("serializes_list_shapes:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"ListOfStrings\":[\"abc\",\"mno\",\"xyz\"]}`;
@@ -688,6 +2129,10 @@ it("serializes_empty_list_shapes:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"ListOfStrings\":[]}`;
@@ -732,6 +2177,10 @@ it("serializes_list_of_map_shapes:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"ListOfMapsOfStrings\":[{\"foo\":\"bar\"},{\"abc\":\"xyz\"},{\"red\":\"blue\"}]}`;
@@ -776,6 +2225,10 @@ it("serializes_list_of_structure_shapes:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"ListOfStructs\":[{\"Value\":\"abc\"},{\"Value\":\"mno\"},{\"Value\":\"xyz\"}]}`;
@@ -820,6 +2273,10 @@ it("serializes_list_of_recursive_structure_shapes:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"RecursiveList\":[{\"RecursiveList\":[{\"RecursiveList\":[{\"Integer\":123}]}]}]}`;
@@ -856,6 +2313,10 @@ it("serializes_map_shapes:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"MapOfStrings\":{\"abc\":\"xyz\",\"mno\":\"hjk\"}}`;
@@ -888,6 +2349,10 @@ it("serializes_empty_map_shapes:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"MapOfStrings\":{}}`;
@@ -924,6 +2389,10 @@ it("serializes_map_of_list_shapes:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"MapOfListsOfStrings\":{\"abc\":[\"abc\",\"xyz\"],\"mno\":[\"xyz\",\"abc\"]}}`;
@@ -964,6 +2433,10 @@ it("serializes_map_of_structure_shapes:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"MapOfStructs\":{\"key1\":{\"Value\":\"value-1\"},\"key2\":{\"Value\":\"value-2\"}}}`;
@@ -1008,6 +2481,10 @@ it("serializes_map_of_recursive_structure_shapes:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"RecursiveMap\":{\"key1\":{\"RecursiveMap\":{\"key2\":{\"RecursiveMap\":{\"key3\":{\"Boolean\":false}}}}}}}`;
@@ -1042,6 +2519,10 @@ it("serializes_structure_shapes:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"SimpleStruct\":{\"Value\":\"abc\"}}`;
@@ -1076,6 +2557,10 @@ it("serializes_structure_members_with_locationname_traits:Request", async () => 
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"StructWithLocationName\":{\"RenamedMember\":\"some-value\"}}`;
@@ -1108,6 +2593,10 @@ it("serializes_empty_structure_shapes:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"SimpleStruct\":{}}`;
@@ -1140,6 +2629,10 @@ it("serializes_structure_which_have_no_members:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"EmptyStruct\":{}}`;
@@ -1196,6 +2689,10 @@ it("serializes_recursive_structure_shapes:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"String\":\"top-value\",\"Boolean\":false,\"RecursiveStruct\":{\"String\":\"nested-value\",\"Boolean\":true,\"RecursiveList\":[{\"String\":\"string-only\"},{\"RecursiveStruct\":{\"MapOfStrings\":{\"color\":\"red\",\"size\":\"large\"}}}]}}`;
@@ -1210,7 +2707,14 @@ it("serializes_recursive_structure_shapes:Request", async () => {
 it("parses_operations_with_empty_json_bodies:Response", async () => {
   const client = new JsonProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `{}`),
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{}`
+    ),
   });
 
   const params: any = {};
@@ -1232,7 +2736,14 @@ it("parses_operations_with_empty_json_bodies:Response", async () => {
 it("parses_string_shapes:Response", async () => {
   const client = new JsonProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `{"String":"string-value"}`),
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{"String":"string-value"}`
+    ),
   });
 
   const params: any = {};
@@ -1263,7 +2774,14 @@ it("parses_string_shapes:Response", async () => {
 it("parses_integer_shapes:Response", async () => {
   const client = new JsonProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `{"Integer":1234}`),
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{"Integer":1234}`
+    ),
   });
 
   const params: any = {};
@@ -1294,7 +2812,14 @@ it("parses_integer_shapes:Response", async () => {
 it("parses_long_shapes:Response", async () => {
   const client = new JsonProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `{"Long":1234567890123456789}`),
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{"Long":1234567890123456789}`
+    ),
   });
 
   const params: any = {};
@@ -1325,7 +2850,14 @@ it("parses_long_shapes:Response", async () => {
 it("parses_float_shapes:Response", async () => {
   const client = new JsonProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `{"Float":1234.5}`),
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{"Float":1234.5}`
+    ),
   });
 
   const params: any = {};
@@ -1356,7 +2888,14 @@ it("parses_float_shapes:Response", async () => {
 it("parses_double_shapes:Response", async () => {
   const client = new JsonProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `{"Double":123456789.12345679}`),
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{"Double":123456789.12345679}`
+    ),
   });
 
   const params: any = {};
@@ -1372,7 +2911,7 @@ it("parses_double_shapes:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      Double: 123456789.12345679,
+      Double: 1.2345678912345679e8,
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -1387,7 +2926,14 @@ it("parses_double_shapes:Response", async () => {
 it("parses_boolean_shapes_true:Response", async () => {
   const client = new JsonProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `{"Boolean":true}`),
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{"Boolean":true}`
+    ),
   });
 
   const params: any = {};
@@ -1418,7 +2964,14 @@ it("parses_boolean_shapes_true:Response", async () => {
 it("parses_boolean_false:Response", async () => {
   const client = new JsonProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `{"Boolean":false}`),
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{"Boolean":false}`
+    ),
   });
 
   const params: any = {};
@@ -1449,7 +3002,14 @@ it("parses_boolean_false:Response", async () => {
 it("parses_blob_shapes:Response", async () => {
   const client = new JsonProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `{"Blob":"YmluYXJ5LXZhbHVl"}`),
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{"Blob":"YmluYXJ5LXZhbHVl"}`
+    ),
   });
 
   const params: any = {};
@@ -1480,7 +3040,14 @@ it("parses_blob_shapes:Response", async () => {
 it("parses_timestamp_shapes:Response", async () => {
   const client = new JsonProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `{"Timestamp":946845296}`),
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{"Timestamp":946845296}`
+    ),
   });
 
   const params: any = {};
@@ -1514,8 +3081,10 @@ it("parses_iso8601_timestamps:Response", async () => {
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
-      undefined,
-      `{"Timestamp":"2000-01-02T20:34:56.000Z"}`
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{"Iso8601Timestamp":"2000-01-02T20:34:56.000Z"}`
     ),
   });
 
@@ -1532,7 +3101,7 @@ it("parses_iso8601_timestamps:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      Timestamp: new Date(946845296000),
+      Iso8601Timestamp: new Date(946845296000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -1550,8 +3119,10 @@ it("parses_httpdate_timestamps:Response", async () => {
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
-      undefined,
-      `{"Timestamp":"Sun, 02 Jan 2000 20:34:56.000 GMT"}`
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{"HttpdateTimestamp":"Sun, 02 Jan 2000 20:34:56.000 GMT"}`
     ),
   });
 
@@ -1568,7 +3139,7 @@ it("parses_httpdate_timestamps:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      Timestamp: new Date(946845296000),
+      HttpdateTimestamp: new Date(946845296000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -1586,7 +3157,9 @@ it("parses_list_shapes:Response", async () => {
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
-      undefined,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
       `{"ListOfStrings":["abc","mno","xyz"]}`
     ),
   });
@@ -1622,7 +3195,9 @@ it("parses_list_of_map_shapes:Response", async () => {
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
-      undefined,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
       `{"ListOfMapsOfStrings":[{"size":"large"},{"color":"red"}]}`
     ),
   });
@@ -1666,7 +3241,9 @@ it("parses_list_of_list_shapes:Response", async () => {
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
-      undefined,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
       `{"ListOfLists":[["abc","mno","xyz"],["hjk","qrs","tuv"]]}`
     ),
   });
@@ -1706,7 +3283,9 @@ it("parses_list_of_structure_shapes:Response", async () => {
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
-      undefined,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
       `{"ListOfStructs":[{"Value":"value-1"},{"Value":"value-2"}]}`
     ),
   });
@@ -1750,7 +3329,9 @@ it("parses_list_of_recursive_structure_shapes:Response", async () => {
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
-      undefined,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
       `{"RecursiveList":[{"RecursiveList":[{"RecursiveList":[{"String":"value"}]}]}]}`
     ),
   });
@@ -1798,7 +3379,9 @@ it("parses_map_shapes:Response", async () => {
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
-      undefined,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
       `{"MapOfStrings":{"size":"large","color":"red"}}`
     ),
   });
@@ -1838,7 +3421,9 @@ it("parses_map_of_list_shapes:Response", async () => {
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
-      undefined,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
       `{"MapOfListsOfStrings":{"sizes":["large","small"],"colors":["red","green"]}}`
     ),
   });
@@ -1878,7 +3463,9 @@ it("parses_map_of_map_shapes:Response", async () => {
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
-      undefined,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
       `{"MapOfMaps":{"sizes":{"large":"L","medium":"M"},"colors":{"red":"R","blue":"B"}}}`
     ),
   });
@@ -1926,7 +3513,9 @@ it("parses_map_of_structure_shapes:Response", async () => {
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
-      undefined,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
       `{"MapOfStructs":{"size":{"Value":"small"},"color":{"Value":"red"}}}`
     ),
   });
@@ -1970,7 +3559,9 @@ it("parses_map_of_recursive_structure_shapes:Response", async () => {
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
-      undefined,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
       `{"RecursiveMap":{"key-1":{"RecursiveMap":{"key-2":{"RecursiveMap":{"key-3":{"String":"value"}}}}}}}`
     ),
   });
@@ -2020,6 +3611,7 @@ it("parses_the_request_id_from_the_response:Response", async () => {
       200,
       {
         "x-amzn-requestid": "amazon-uniq-request-id",
+        "content-type": "application/x-amz-json-1.1",
       },
       `{}`
     ),
@@ -2036,6 +3628,238 @@ it("parses_the_request_id_from_the_response:Response", async () => {
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
+});
+
+/**
+ * Null structure values are dropped
+ */
+it("AwsJson11StructuresDontSerializeNullValues:Request", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new NullOperationCommand({
+    string: null,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{}`;
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes null values in maps
+ */
+it("AwsJson11MapsSerializeNullValues:Request", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new NullOperationCommand({
+    sparseStringMap: {
+      foo: null,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{
+        \"sparseStringMap\": {
+            \"foo\": null
+        }
+    }`;
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes null values in lists
+ */
+it("AwsJson11ListsSerializeNull:Request", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new NullOperationCommand({
+    sparseStringList: [null],
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{
+        \"sparseStringList\": [
+            null
+        ]
+    }`;
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Null structure values are dropped
+ */
+it("AwsJson11StructuresDontDeserializeNullValues:Response", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "string": null
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new NullOperationCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+});
+
+/**
+ * Deserializes null values in maps
+ */
+it("AwsJson11MapsDeserializeNullValues:Response", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "sparseStringMap": {
+              "foo": null
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new NullOperationCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      sparseStringMap: {
+        foo: null,
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Deserializes null values in lists
+ */
+it("AwsJson11ListsDeserializeNull:Response", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "sparseStringList": [
+              null
+          ]
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new NullOperationCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      sparseStringList: [null],
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
 });
 
 /**
@@ -2061,8 +3885,8 @@ it("can_call_operation_with_no_input_or_output:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
     expect(r.headers["X-Amz-Target"]).toBeDefined();
     expect(r.headers["X-Amz-Target"]).toBe("JsonProtocol.OperationWithOptionalInputOutput");
 
@@ -2098,8 +3922,8 @@ it("can_call_operation_with_optional_input:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
     expect(r.headers["X-Amz-Target"]).toBeDefined();
     expect(r.headers["X-Amz-Target"]).toBe("JsonProtocol.OperationWithOptionalInputOutput");
 
@@ -2108,6 +3932,88 @@ it("can_call_operation_with_optional_input:Request", async () => {
     const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
+});
+
+/**
+ * Serializes inline documents in a JSON request.
+ */
+it("PutAndGetInlineDocumentsInput:Request", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new PutAndGetInlineDocumentsCommand({
+    inlineDocument: {
+      foo: "bar",
+    },
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{
+        \"inlineDocument\": {\"foo\": \"bar\"}
+    }`;
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes inline documents in a JSON response.
+ */
+it("PutAndGetInlineDocumentsInput:Response", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "inlineDocument": {"foo": "bar"}
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new PutAndGetInlineDocumentsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      inlineDocument: {
+        foo: "bar",
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
 });
 
 /**

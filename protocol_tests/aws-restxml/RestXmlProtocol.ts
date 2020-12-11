@@ -30,6 +30,11 @@ import {
   FlattenedXmlMapWithXmlNameCommandOutput,
 } from "./commands/FlattenedXmlMapWithXmlNameCommand";
 import {
+  FlattenedXmlMapWithXmlNamespaceCommand,
+  FlattenedXmlMapWithXmlNamespaceCommandInput,
+  FlattenedXmlMapWithXmlNamespaceCommandOutput,
+} from "./commands/FlattenedXmlMapWithXmlNamespaceCommand";
+import {
   GreetingWithErrorsCommand,
   GreetingWithErrorsCommandInput,
   GreetingWithErrorsCommandOutput,
@@ -84,6 +89,11 @@ import {
   HttpRequestWithLabelsCommandInput,
   HttpRequestWithLabelsCommandOutput,
 } from "./commands/HttpRequestWithLabelsCommand";
+import {
+  HttpResponseCodeCommand,
+  HttpResponseCodeCommandInput,
+  HttpResponseCodeCommandOutput,
+} from "./commands/HttpResponseCodeCommand";
 import {
   IgnoreQueryParamsInResponseCommand,
   IgnoreQueryParamsInResponseCommandInput,
@@ -150,6 +160,26 @@ import {
   XmlAttributesOnPayloadCommandOutput,
 } from "./commands/XmlAttributesOnPayloadCommand";
 import { XmlBlobsCommand, XmlBlobsCommandInput, XmlBlobsCommandOutput } from "./commands/XmlBlobsCommand";
+import {
+  XmlEmptyBlobsCommand,
+  XmlEmptyBlobsCommandInput,
+  XmlEmptyBlobsCommandOutput,
+} from "./commands/XmlEmptyBlobsCommand";
+import {
+  XmlEmptyListsCommand,
+  XmlEmptyListsCommandInput,
+  XmlEmptyListsCommandOutput,
+} from "./commands/XmlEmptyListsCommand";
+import {
+  XmlEmptyMapsCommand,
+  XmlEmptyMapsCommandInput,
+  XmlEmptyMapsCommandOutput,
+} from "./commands/XmlEmptyMapsCommand";
+import {
+  XmlEmptyStringsCommand,
+  XmlEmptyStringsCommandInput,
+  XmlEmptyStringsCommandOutput,
+} from "./commands/XmlEmptyStringsCommand";
 import { XmlEnumsCommand, XmlEnumsCommandInput, XmlEnumsCommandOutput } from "./commands/XmlEnumsCommand";
 import { XmlListsCommand, XmlListsCommandInput, XmlListsCommandOutput } from "./commands/XmlListsCommand";
 import { XmlMapsCommand, XmlMapsCommandInput, XmlMapsCommandOutput } from "./commands/XmlMapsCommand";
@@ -364,6 +394,38 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     cb?: (err: any, data?: FlattenedXmlMapWithXmlNameCommandOutput) => void
   ): Promise<FlattenedXmlMapWithXmlNameCommandOutput> | void {
     const command = new FlattenedXmlMapWithXmlNameCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Flattened maps with @xmlNamespace and @xmlName
+   */
+  public flattenedXmlMapWithXmlNamespace(
+    args: FlattenedXmlMapWithXmlNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<FlattenedXmlMapWithXmlNamespaceCommandOutput>;
+  public flattenedXmlMapWithXmlNamespace(
+    args: FlattenedXmlMapWithXmlNamespaceCommandInput,
+    cb: (err: any, data?: FlattenedXmlMapWithXmlNamespaceCommandOutput) => void
+  ): void;
+  public flattenedXmlMapWithXmlNamespace(
+    args: FlattenedXmlMapWithXmlNamespaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: FlattenedXmlMapWithXmlNamespaceCommandOutput) => void
+  ): void;
+  public flattenedXmlMapWithXmlNamespace(
+    args: FlattenedXmlMapWithXmlNamespaceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: FlattenedXmlMapWithXmlNamespaceCommandOutput) => void),
+    cb?: (err: any, data?: FlattenedXmlMapWithXmlNamespaceCommandOutput) => void
+  ): Promise<FlattenedXmlMapWithXmlNamespaceCommandOutput> | void {
+    const command = new FlattenedXmlMapWithXmlNamespaceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -733,6 +795,35 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     cb?: (err: any, data?: HttpRequestWithLabelsAndTimestampFormatCommandOutput) => void
   ): Promise<HttpRequestWithLabelsAndTimestampFormatCommandOutput> | void {
     const command = new HttpRequestWithLabelsAndTimestampFormatCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public httpResponseCode(
+    args: HttpResponseCodeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<HttpResponseCodeCommandOutput>;
+  public httpResponseCode(
+    args: HttpResponseCodeCommandInput,
+    cb: (err: any, data?: HttpResponseCodeCommandOutput) => void
+  ): void;
+  public httpResponseCode(
+    args: HttpResponseCodeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: HttpResponseCodeCommandOutput) => void
+  ): void;
+  public httpResponseCode(
+    args: HttpResponseCodeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: HttpResponseCodeCommandOutput) => void),
+    cb?: (err: any, data?: HttpResponseCodeCommandOutput) => void
+  ): Promise<HttpResponseCodeCommandOutput> | void {
+    const command = new HttpResponseCodeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1191,6 +1282,122 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * Blobs are base64 encoded
+   */
+  public xmlEmptyBlobs(
+    args: XmlEmptyBlobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<XmlEmptyBlobsCommandOutput>;
+  public xmlEmptyBlobs(
+    args: XmlEmptyBlobsCommandInput,
+    cb: (err: any, data?: XmlEmptyBlobsCommandOutput) => void
+  ): void;
+  public xmlEmptyBlobs(
+    args: XmlEmptyBlobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: XmlEmptyBlobsCommandOutput) => void
+  ): void;
+  public xmlEmptyBlobs(
+    args: XmlEmptyBlobsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: XmlEmptyBlobsCommandOutput) => void),
+    cb?: (err: any, data?: XmlEmptyBlobsCommandOutput) => void
+  ): Promise<XmlEmptyBlobsCommandOutput> | void {
+    const command = new XmlEmptyBlobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public xmlEmptyLists(
+    args: XmlEmptyListsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<XmlEmptyListsCommandOutput>;
+  public xmlEmptyLists(
+    args: XmlEmptyListsCommandInput,
+    cb: (err: any, data?: XmlEmptyListsCommandOutput) => void
+  ): void;
+  public xmlEmptyLists(
+    args: XmlEmptyListsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: XmlEmptyListsCommandOutput) => void
+  ): void;
+  public xmlEmptyLists(
+    args: XmlEmptyListsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: XmlEmptyListsCommandOutput) => void),
+    cb?: (err: any, data?: XmlEmptyListsCommandOutput) => void
+  ): Promise<XmlEmptyListsCommandOutput> | void {
+    const command = new XmlEmptyListsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public xmlEmptyMaps(
+    args: XmlEmptyMapsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<XmlEmptyMapsCommandOutput>;
+  public xmlEmptyMaps(args: XmlEmptyMapsCommandInput, cb: (err: any, data?: XmlEmptyMapsCommandOutput) => void): void;
+  public xmlEmptyMaps(
+    args: XmlEmptyMapsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: XmlEmptyMapsCommandOutput) => void
+  ): void;
+  public xmlEmptyMaps(
+    args: XmlEmptyMapsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: XmlEmptyMapsCommandOutput) => void),
+    cb?: (err: any, data?: XmlEmptyMapsCommandOutput) => void
+  ): Promise<XmlEmptyMapsCommandOutput> | void {
+    const command = new XmlEmptyMapsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public xmlEmptyStrings(
+    args: XmlEmptyStringsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<XmlEmptyStringsCommandOutput>;
+  public xmlEmptyStrings(
+    args: XmlEmptyStringsCommandInput,
+    cb: (err: any, data?: XmlEmptyStringsCommandOutput) => void
+  ): void;
+  public xmlEmptyStrings(
+    args: XmlEmptyStringsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: XmlEmptyStringsCommandOutput) => void
+  ): void;
+  public xmlEmptyStrings(
+    args: XmlEmptyStringsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: XmlEmptyStringsCommandOutput) => void),
+    cb?: (err: any, data?: XmlEmptyStringsCommandOutput) => void
+  ): Promise<XmlEmptyStringsCommandOutput> | void {
+    const command = new XmlEmptyStringsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * This example serializes enums as top level properties, in lists, sets, and maps.
    */
   public xmlEnums(args: XmlEnumsCommandInput, options?: __HttpHandlerOptions): Promise<XmlEnumsCommandOutput>;
@@ -1226,7 +1433,8 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
    * 4. XML lists with @xmlName on its members
    * 5. Flattened XML lists.
    * 6. Flattened XML lists with @xmlName.
-   * 7. Lists of structures.
+   * 7. Flattened XML lists with @xmlNamespace.
+   * 8. Lists of structures.
    */
   public xmlLists(args: XmlListsCommandInput, options?: __HttpHandlerOptions): Promise<XmlListsCommandOutput>;
   public xmlLists(args: XmlListsCommandInput, cb: (err: any, data?: XmlListsCommandOutput) => void): void;

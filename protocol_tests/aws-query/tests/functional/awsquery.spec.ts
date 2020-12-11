@@ -2,6 +2,7 @@ import { QueryProtocolClient } from "../../QueryProtocolClient";
 import { EmptyInputAndEmptyOutputCommand } from "../../commands/EmptyInputAndEmptyOutputCommand";
 import { FlattenedXmlMapCommand } from "../../commands/FlattenedXmlMapCommand";
 import { FlattenedXmlMapWithXmlNameCommand } from "../../commands/FlattenedXmlMapWithXmlNameCommand";
+import { FlattenedXmlMapWithXmlNamespaceCommand } from "../../commands/FlattenedXmlMapWithXmlNamespaceCommand";
 import { GreetingWithErrorsCommand } from "../../commands/GreetingWithErrorsCommand";
 import { IgnoresWrappingXmlNameCommand } from "../../commands/IgnoresWrappingXmlNameCommand";
 import { NestedStructuresCommand } from "../../commands/NestedStructuresCommand";
@@ -15,6 +16,9 @@ import { RecursiveXmlShapesCommand } from "../../commands/RecursiveXmlShapesComm
 import { SimpleInputParamsCommand } from "../../commands/SimpleInputParamsCommand";
 import { SimpleScalarXmlPropertiesCommand } from "../../commands/SimpleScalarXmlPropertiesCommand";
 import { XmlBlobsCommand } from "../../commands/XmlBlobsCommand";
+import { XmlEmptyBlobsCommand } from "../../commands/XmlEmptyBlobsCommand";
+import { XmlEmptyListsCommand } from "../../commands/XmlEmptyListsCommand";
+import { XmlEmptyMapsCommand } from "../../commands/XmlEmptyMapsCommand";
 import { XmlEnumsCommand } from "../../commands/XmlEnumsCommand";
 import { XmlListsCommand } from "../../commands/XmlListsCommand";
 import { XmlMapsCommand } from "../../commands/XmlMapsCommand";
@@ -174,8 +178,8 @@ it("QueryEmptyInputAndEmptyOutput:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=EmptyInputAndEmptyOutput
@@ -289,6 +293,59 @@ it("QueryQueryFlattenedXmlMapWithXmlName:Response", async () => {
 
   const params: any = {};
   const command = new FlattenedXmlMapWithXmlNameCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      myMap: {
+        a: "A",
+
+        b: "B",
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Serializes flattened XML maps in responses that have xmlNamespace and xmlName on members
+ */
+it("QueryQueryFlattenedXmlMapWithXmlNamespace:Response", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml",
+      },
+      `<FlattenedXmlMapWithXmlNamespaceResponse xmlns="https://example.com/">
+          <FlattenedXmlMapWithXmlNamespaceResult>
+              <KVP xmlns="https://the-member.example.com">
+                  <K xmlns="https://the-key.example.com">a</K>
+                  <V xmlns="https://the-value.example.com">A</V>
+              </KVP>
+              <KVP xmlns="https://the-member.example.com">
+                  <K xmlns="https://the-key.example.com">b</K>
+                  <V xmlns="https://the-value.example.com">B</V>
+              </KVP>
+          </FlattenedXmlMapWithXmlNamespaceResult>
+      </FlattenedXmlMapWithXmlNamespaceResponse>`
+    ),
+  });
+
+  const params: any = {};
+  const command = new FlattenedXmlMapWithXmlNamespaceCommand(params);
 
   let r: any;
   try {
@@ -538,9 +595,10 @@ it("NestedStructures:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=NestedStructures
@@ -576,8 +634,8 @@ it("QueryNoInputAndNoOutput:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=NoInputAndNoOutput
@@ -632,8 +690,8 @@ it("QueryNoInputAndOutput:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=NoInputAndOutput
@@ -689,9 +747,10 @@ it("QueryProtocolIdempotencyTokenAutoFill:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryIdempotencyTokenAutoFill
@@ -726,9 +785,10 @@ it("QueryProtocolIdempotencyTokenAutoFillIsSet:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryIdempotencyTokenAutoFill
@@ -774,8 +834,8 @@ it("QueryLists:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryLists
@@ -815,8 +875,8 @@ it("EmptyQueryLists:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryLists
@@ -851,8 +911,8 @@ it("FlattenedQueryLists:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryLists
@@ -889,8 +949,8 @@ it("QueryListArgWithXmlNameMember:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryLists
@@ -927,8 +987,8 @@ it("QueryFlattenedListArgWithXmlName:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryLists
@@ -951,9 +1011,9 @@ it("QuerySimpleQueryMaps:Request", async () => {
 
   const command = new QueryMapsCommand({
     MapArg: {
-      foo: "Foo",
-
       bar: "Bar",
+
+      foo: "Foo",
     } as any,
   } as any);
   try {
@@ -969,16 +1029,16 @@ it("QuerySimpleQueryMaps:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryMaps
     &Version=2020-01-08
-    &MapArg.entry.1.key=foo
-    &MapArg.entry.1.value=Foo
-    &MapArg.entry.2.key=bar
-    &MapArg.entry.2.value=Bar`;
+    &MapArg.entry.1.key=bar
+    &MapArg.entry.1.value=Bar
+    &MapArg.entry.2.key=foo
+    &MapArg.entry.2.value=Foo`;
     const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1011,8 +1071,8 @@ it("QuerySimpleQueryMapsWithXmlName:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryMaps
@@ -1035,12 +1095,12 @@ it("QueryComplexQueryMaps:Request", async () => {
 
   const command = new QueryMapsCommand({
     ComplexMapArg: {
-      foo: {
-        hi: "Foo",
-      } as any,
-
       bar: {
         hi: "Bar",
+      } as any,
+
+      foo: {
+        hi: "Foo",
       } as any,
     } as any,
   } as any);
@@ -1057,16 +1117,16 @@ it("QueryComplexQueryMaps:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryMaps
     &Version=2020-01-08
-    &ComplexMapArg.entry.1.key=foo
-    &ComplexMapArg.entry.1.value.hi=Foo
-    &ComplexMapArg.entry.2.key=bar
-    &ComplexMapArg.entry.2.value.hi=Bar`;
+    &ComplexMapArg.entry.1.key=bar
+    &ComplexMapArg.entry.1.value.hi=Bar
+    &ComplexMapArg.entry.2.key=foo
+    &ComplexMapArg.entry.2.value.hi=Foo`;
     const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1097,8 +1157,8 @@ it("QueryEmptyQueryMaps:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryMaps
@@ -1119,9 +1179,9 @@ it("QueryQueryMapWithMemberXmlName:Request", async () => {
 
   const command = new QueryMapsCommand({
     MapWithXmlMemberName: {
-      foo: "Foo",
-
       bar: "Bar",
+
+      foo: "Foo",
     } as any,
   } as any);
   try {
@@ -1137,16 +1197,16 @@ it("QueryQueryMapWithMemberXmlName:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryMaps
     &Version=2020-01-08
-    &MapWithXmlMemberName.entry.1.K=foo
-    &MapWithXmlMemberName.entry.1.V=Foo
-    &MapWithXmlMemberName.entry.2.K=bar
-    &MapWithXmlMemberName.entry.2.V=Bar`;
+    &MapWithXmlMemberName.entry.1.K=bar
+    &MapWithXmlMemberName.entry.1.V=Bar
+    &MapWithXmlMemberName.entry.2.K=foo
+    &MapWithXmlMemberName.entry.2.V=Foo`;
     const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1163,9 +1223,9 @@ it("QueryFlattenedQueryMaps:Request", async () => {
 
   const command = new QueryMapsCommand({
     FlattenedMap: {
-      foo: "Foo",
-
       bar: "Bar",
+
+      foo: "Foo",
     } as any,
   } as any);
   try {
@@ -1181,16 +1241,16 @@ it("QueryFlattenedQueryMaps:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryMaps
     &Version=2020-01-08
-    &FlattenedMap.1.key=foo
-    &FlattenedMap.1.value=Foo
-    &FlattenedMap.2.key=bar
-    &FlattenedMap.2.value=Bar`;
+    &FlattenedMap.1.key=bar
+    &FlattenedMap.1.value=Bar
+    &FlattenedMap.2.key=foo
+    &FlattenedMap.2.value=Foo`;
     const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1207,9 +1267,9 @@ it("QueryFlattenedQueryMapsWithXmlName:Request", async () => {
 
   const command = new QueryMapsCommand({
     FlattenedMapWithXmlName: {
-      foo: "Foo",
-
       bar: "Bar",
+
+      foo: "Foo",
     } as any,
   } as any);
   try {
@@ -1225,16 +1285,16 @@ it("QueryFlattenedQueryMapsWithXmlName:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryMaps
     &Version=2020-01-08
-    &Hi.1.K=foo
-    &Hi.1.V=Foo
-    &Hi.2.K=bar
-    &Hi.2.V=Bar`;
+    &Hi.1.K=bar
+    &Hi.1.V=Bar
+    &Hi.2.K=foo
+    &Hi.2.V=Foo`;
     const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1251,9 +1311,9 @@ it("QueryQueryMapOfLists:Request", async () => {
 
   const command = new QueryMapsCommand({
     MapOfLists: {
-      foo: ["A", "B"],
-
       bar: ["C", "D"],
+
+      foo: ["A", "B"],
     } as any,
   } as any);
   try {
@@ -1269,18 +1329,18 @@ it("QueryQueryMapOfLists:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryMaps
     &Version=2020-01-08
-    &MapOfLists.entry.1.key=foo
-    &MapOfLists.entry.1.value.member.1=A
-    &MapOfLists.entry.1.value.member.2=B
-    &MapOfLists.entry.2.key=bar
-    &MapOfLists.entry.2.value.member.1=C
-    &MapOfLists.entry.2.value.member.2=D`;
+    &MapOfLists.entry.1.key=bar
+    &MapOfLists.entry.1.value.member.1=C
+    &MapOfLists.entry.1.value.member.2=D
+    &MapOfLists.entry.2.key=foo
+    &MapOfLists.entry.2.value.member.1=A
+    &MapOfLists.entry.2.value.member.2=B`;
     const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1314,9 +1374,10 @@ it("QueryTimestampsInput:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryTimestamps
@@ -1423,9 +1484,10 @@ it("QuerySimpleInputParamsStrings:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=SimpleInputParams
@@ -1463,9 +1525,10 @@ it("QuerySimpleInputParamsStringAndBooleanTrue:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=SimpleInputParams
@@ -1501,9 +1564,10 @@ it("QuerySimpleInputParamsStringsAndBooleanFalse:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=SimpleInputParams
@@ -1538,9 +1602,10 @@ it("QuerySimpleInputParamsInteger:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=SimpleInputParams
@@ -1575,9 +1640,10 @@ it("QuerySimpleInputParamsFloat:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=SimpleInputParams
@@ -1612,9 +1678,10 @@ it("QuerySimpleInputParamsBlob:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=SimpleInputParams
@@ -1649,9 +1716,10 @@ it("QueryEnums:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=SimpleInputParams
@@ -1776,6 +1844,225 @@ it("QueryXmlBlobs:Response", async () => {
 });
 
 /**
+ * Empty blobs are deserialized as empty string
+ */
+it("QueryXmlEmptyBlobs:Response", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml",
+      },
+      `<XmlEmptyBlobsResponse xmlns="https://example.com/">
+          <XmlEmptyBlobsResult>
+              <data></data>
+          </XmlEmptyBlobsResult>
+      </XmlEmptyBlobsResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlEmptyBlobsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      data: Uint8Array.from("", (c) => c.charCodeAt(0)),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Empty self closed blobs are deserialized as empty string
+ */
+it("QueryXmlEmptySelfClosedBlobs:Response", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml",
+      },
+      `<XmlEmptyBlobsResponse xmlns="https://example.com/">
+          <XmlEmptyBlobsResult>
+              <data/>
+          </XmlEmptyBlobsResult>
+      </XmlEmptyBlobsResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlEmptyBlobsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      data: Uint8Array.from("", (c) => c.charCodeAt(0)),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Deserializes empty XML lists
+ */
+it("QueryXmlEmptyLists:Response", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml",
+      },
+      `<XmlEmptyListsResponse xmlns="https://example.com/">
+          <XmlEmptyListsResult>
+              <stringList/>
+              <stringSet></stringSet>
+          </XmlEmptyListsResult>
+      </XmlEmptyListsResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlEmptyListsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      stringList: [],
+
+      stringSet: [],
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Deserializes Empty XML maps
+ */
+it("QueryXmlEmptyMaps:Response", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml",
+      },
+      `<XmlEmptyMapsResponse xmlns="https://example.com/">
+          <XmlEmptyMapsResult>
+              <myMap>
+              </myMap>
+          </XmlEmptyMapsResult>
+      </XmlEmptyMapsResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlEmptyMapsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      myMap: {},
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Deserializes Self-Closed XML maps
+ */
+it("QueryXmlEmptySelfClosedMaps:Response", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml",
+      },
+      `<XmlEmptyMapsResponse xmlns="https://example.com/">
+          <XmlEmptyMapsResult>
+              <myMap/>
+          </XmlEmptyMapsResult>
+      </XmlEmptyMapsResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlEmptyMapsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      myMap: {},
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * Serializes simple scalar properties
  */
 it("QueryXmlEnums:Response", async () => {
@@ -1853,7 +2140,7 @@ it("QueryXmlEnums:Response", async () => {
 });
 
 /**
- * Serializes XML lists
+ * Tests for XML list serialization
  */
 it("QueryXmlLists:Response", async () => {
   const client = new QueryProtocolClient({
@@ -1908,6 +2195,10 @@ it("QueryXmlLists:Response", async () => {
               <flattenedList>bye</flattenedList>
               <customName>yep</customName>
               <customName>nope</customName>
+              <flattenedListWithMemberNamespace xmlns="https://xml-member.example.com">a</flattenedListWithMemberNamespace>
+              <flattenedListWithMemberNamespace xmlns="https://xml-member.example.com">b</flattenedListWithMemberNamespace>
+              <flattenedListWithNamespace>a</flattenedListWithNamespace>
+              <flattenedListWithNamespace>b</flattenedListWithNamespace>
               <myStructureList>
                   <item>
                       <value>1</value>
@@ -1961,6 +2252,10 @@ it("QueryXmlLists:Response", async () => {
 
       flattenedList2: ["yep", "nope"],
 
+      flattenedListWithMemberNamespace: ["a", "b"],
+
+      flattenedListWithNamespace: ["a", "b"],
+
       structureList: [
         {
           a: "1",
@@ -1983,7 +2278,7 @@ it("QueryXmlLists:Response", async () => {
 });
 
 /**
- * Serializes XML maps
+ * Tests for XML map serialization
  */
 it("QueryXmlMaps:Response", async () => {
   const client = new QueryProtocolClient({

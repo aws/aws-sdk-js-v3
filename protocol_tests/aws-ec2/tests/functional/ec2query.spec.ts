@@ -11,6 +11,8 @@ import { RecursiveXmlShapesCommand } from "../../commands/RecursiveXmlShapesComm
 import { SimpleInputParamsCommand } from "../../commands/SimpleInputParamsCommand";
 import { SimpleScalarXmlPropertiesCommand } from "../../commands/SimpleScalarXmlPropertiesCommand";
 import { XmlBlobsCommand } from "../../commands/XmlBlobsCommand";
+import { XmlEmptyBlobsCommand } from "../../commands/XmlEmptyBlobsCommand";
+import { XmlEmptyListsCommand } from "../../commands/XmlEmptyListsCommand";
 import { XmlEnumsCommand } from "../../commands/XmlEnumsCommand";
 import { XmlListsCommand } from "../../commands/XmlListsCommand";
 import { XmlNamespacesCommand } from "../../commands/XmlNamespacesCommand";
@@ -168,8 +170,8 @@ it("Ec2QueryEmptyInputAndEmptyOutput:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=EmptyInputAndEmptyOutput
@@ -436,9 +438,10 @@ it("Ec2NestedStructures:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=NestedStructures
@@ -474,8 +477,8 @@ it("Ec2QueryNoInputAndOutput:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=NoInputAndOutput
@@ -541,9 +544,10 @@ it("Ec2ProtocolIdempotencyTokenAutoFill:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryIdempotencyTokenAutoFill
@@ -578,9 +582,10 @@ it("Ec2ProtocolIdempotencyTokenAutoFillIsSet:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryIdempotencyTokenAutoFill
@@ -626,8 +631,8 @@ it("Ec2Lists:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryLists
@@ -667,8 +672,8 @@ it("Ec2EmptyQueryLists:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryLists
@@ -703,8 +708,8 @@ it("Ec2ListArgWithXmlNameMember:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryLists
@@ -741,8 +746,8 @@ it("Ec2ListMemberWithXmlName:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryLists
@@ -782,9 +787,10 @@ it("Ec2TimestampsInput:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryTimestamps
@@ -890,9 +896,10 @@ it("Ec2SimpleInputParamsStrings:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=SimpleInputParams
@@ -930,9 +937,10 @@ it("Ec2SimpleInputParamsStringAndBooleanTrue:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=SimpleInputParams
@@ -968,9 +976,10 @@ it("Ec2SimpleInputParamsStringsAndBooleanFalse:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=SimpleInputParams
@@ -1005,9 +1014,10 @@ it("Ec2SimpleInputParamsInteger:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=SimpleInputParams
@@ -1042,9 +1052,10 @@ it("Ec2SimpleInputParamsFloat:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=SimpleInputParams
@@ -1079,9 +1090,10 @@ it("Ec2SimpleInputParamsBlob:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=SimpleInputParams
@@ -1116,9 +1128,10 @@ it("Ec2Enums:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=SimpleInputParams
@@ -1153,9 +1166,10 @@ it("Ec2Query:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=SimpleInputParams
@@ -1190,9 +1204,10 @@ it("Ec2QueryIsPreferred:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=SimpleInputParams
@@ -1227,9 +1242,10 @@ it("Ec2XmlNameIsUppercased:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
     expect(r.body).toBeDefined();
     const bodyString = `Action=SimpleInputParams
@@ -1352,6 +1368,134 @@ it("Ec2XmlBlobs:Response", async () => {
 });
 
 /**
+ * Empty blobs are deserialized as empty string
+ */
+it("Ec2XmlEmptyBlobs:Response", async () => {
+  const client = new EC2ProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml;charset=UTF-8",
+      },
+      `<XmlEmptyBlobsResponse xmlns="https://example.com/">
+          <data></data>
+          <RequestId>requestid</RequestId>
+      </XmlEmptyBlobsResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlEmptyBlobsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      data: Uint8Array.from("", (c) => c.charCodeAt(0)),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Empty self closed blobs are deserialized as empty string
+ */
+it("Ec2XmlEmptySelfClosedBlobs:Response", async () => {
+  const client = new EC2ProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml;charset=UTF-8",
+      },
+      `<XmlEmptyBlobsResponse xmlns="https://example.com/">
+          <data/>
+          <RequestId>requestid</RequestId>
+      </XmlEmptyBlobsResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlEmptyBlobsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      data: Uint8Array.from("", (c) => c.charCodeAt(0)),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Deserializes empty XML lists
+ */
+it("Ec2XmlEmptyLists:Response", async () => {
+  const client = new EC2ProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml",
+      },
+      `<XmlEmptyListsResponse xmlns="https://example.com/">
+        <stringList/>
+        <stringSet></stringSet>
+      </XmlEmptyListsResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlEmptyListsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      stringList: [],
+
+      stringSet: [],
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * Serializes simple scalar properties
  */
 it("Ec2XmlEnums:Response", async () => {
@@ -1428,7 +1572,7 @@ it("Ec2XmlEnums:Response", async () => {
 });
 
 /**
- * Serializes XML lists
+ * Tests for XML list serialization
  */
 it("Ec2XmlLists:Response", async () => {
   const client = new EC2ProtocolClient({
@@ -1482,6 +1626,10 @@ it("Ec2XmlLists:Response", async () => {
           <flattenedList>bye</flattenedList>
           <customName>yep</customName>
           <customName>nope</customName>
+          <flattenedListWithMemberNamespace xmlns="https://xml-member.example.com">a</flattenedListWithMemberNamespace>
+          <flattenedListWithMemberNamespace xmlns="https://xml-member.example.com">b</flattenedListWithMemberNamespace>
+          <flattenedListWithNamespace>a</flattenedListWithNamespace>
+          <flattenedListWithNamespace>b</flattenedListWithNamespace>
           <myStructureList>
               <item>
                   <value>1</value>
@@ -1534,6 +1682,10 @@ it("Ec2XmlLists:Response", async () => {
       flattenedList: ["hi", "bye"],
 
       flattenedList2: ["yep", "nope"],
+
+      flattenedListWithMemberNamespace: ["a", "b"],
+
+      flattenedListWithNamespace: ["a", "b"],
 
       structureList: [
         {

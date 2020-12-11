@@ -1,7 +1,18 @@
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  DocumentType as __DocumentType,
+  LazyJsonString as __LazyJsonString,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+import { Readable } from "stream";
 
-export type FooEnum = "0" | "1" | "Bar" | "Baz" | "Foo";
+export enum FooEnum {
+  BAR = "Bar",
+  BAZ = "Baz",
+  FOO = "Foo",
+  ONE = "1",
+  ZERO = "0",
+}
 
 export interface AllQueryStringTypesInput {
   queryString?: string;
@@ -74,6 +85,16 @@ export interface ConstantQueryStringInput {
 
 export namespace ConstantQueryStringInput {
   export const filterSensitiveLog = (obj: ConstantQueryStringInput): any => ({
+    ...obj,
+  });
+}
+
+export interface GreetingStruct {
+  hi?: string;
+}
+
+export namespace GreetingStruct {
+  export const filterSensitiveLog = (obj: GreetingStruct): any => ({
     ...obj,
   });
 }
@@ -188,6 +209,16 @@ export namespace HttpPrefixHeadersInputOutput {
   });
 }
 
+export interface HttpPrefixHeadersResponseOutput {
+  prefixHeaders?: { [key: string]: string };
+}
+
+export namespace HttpPrefixHeadersResponseOutput {
+  export const filterSensitiveLog = (obj: HttpPrefixHeadersResponseOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface HttpRequestWithGreedyLabelInPathInput {
   foo: string | undefined;
   baz: string | undefined;
@@ -239,12 +270,43 @@ export namespace HttpRequestWithLabelsAndTimestampFormatInput {
   });
 }
 
+export interface HttpResponseCodeOutput {
+  Status?: number;
+}
+
+export namespace HttpResponseCodeOutput {
+  export const filterSensitiveLog = (obj: HttpResponseCodeOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface IgnoreQueryParamsInResponseOutput {
   baz?: string;
 }
 
 export namespace IgnoreQueryParamsInResponseOutput {
   export const filterSensitiveLog = (obj: IgnoreQueryParamsInResponseOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface InlineDocumentInputOutput {
+  stringValue?: string;
+  documentValue?: __DocumentType.Value;
+}
+
+export namespace InlineDocumentInputOutput {
+  export const filterSensitiveLog = (obj: InlineDocumentInputOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface InlineDocumentAsPayloadInputOutput {
+  documentValue?: __DocumentType.Value;
+}
+
+export namespace InlineDocumentAsPayloadInputOutput {
+  export const filterSensitiveLog = (obj: InlineDocumentAsPayloadInputOutput): any => ({
     ...obj,
   });
 }
@@ -312,6 +374,7 @@ export namespace StructureListMember {
 
 export interface JsonListsInputOutput {
   stringList?: string[];
+  sparseStringList?: string[];
   stringSet?: string[];
   integerList?: number[];
   booleanList?: boolean[];
@@ -331,18 +394,15 @@ export namespace JsonListsInputOutput {
   });
 }
 
-export interface GreetingStruct {
-  hi?: string;
-}
-
-export namespace GreetingStruct {
-  export const filterSensitiveLog = (obj: GreetingStruct): any => ({
-    ...obj,
-  });
-}
-
 export interface JsonMapsInputOutput {
-  myMap?: { [key: string]: GreetingStruct };
+  denseStructMap?: { [key: string]: GreetingStruct };
+  sparseStructMap?: { [key: string]: GreetingStruct };
+  denseNumberMap?: { [key: string]: number };
+  denseBooleanMap?: { [key: string]: boolean };
+  denseStringMap?: { [key: string]: string };
+  sparseNumberMap?: { [key: string]: number };
+  sparseBooleanMap?: { [key: string]: boolean };
+  sparseStringMap?: { [key: string]: string };
 }
 
 export namespace JsonMapsInputOutput {
@@ -360,6 +420,230 @@ export interface JsonTimestampsInputOutput {
 
 export namespace JsonTimestampsInputOutput {
   export const filterSensitiveLog = (obj: JsonTimestampsInputOutput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * A union with a representative set of types for members.
+ */
+export type MyUnion =
+  | MyUnion.BlobValueMember
+  | MyUnion.BooleanValueMember
+  | MyUnion.EnumValueMember
+  | MyUnion.ListValueMember
+  | MyUnion.MapValueMember
+  | MyUnion.NumberValueMember
+  | MyUnion.StringValueMember
+  | MyUnion.StructureValueMember
+  | MyUnion.TimestampValueMember
+  | MyUnion.$UnknownMember;
+
+export namespace MyUnion {
+  export interface StringValueMember {
+    stringValue: string;
+    booleanValue?: never;
+    numberValue?: never;
+    blobValue?: never;
+    timestampValue?: never;
+    enumValue?: never;
+    listValue?: never;
+    mapValue?: never;
+    structureValue?: never;
+    $unknown?: never;
+  }
+
+  export interface BooleanValueMember {
+    stringValue?: never;
+    booleanValue: boolean;
+    numberValue?: never;
+    blobValue?: never;
+    timestampValue?: never;
+    enumValue?: never;
+    listValue?: never;
+    mapValue?: never;
+    structureValue?: never;
+    $unknown?: never;
+  }
+
+  export interface NumberValueMember {
+    stringValue?: never;
+    booleanValue?: never;
+    numberValue: number;
+    blobValue?: never;
+    timestampValue?: never;
+    enumValue?: never;
+    listValue?: never;
+    mapValue?: never;
+    structureValue?: never;
+    $unknown?: never;
+  }
+
+  export interface BlobValueMember {
+    stringValue?: never;
+    booleanValue?: never;
+    numberValue?: never;
+    blobValue: Uint8Array;
+    timestampValue?: never;
+    enumValue?: never;
+    listValue?: never;
+    mapValue?: never;
+    structureValue?: never;
+    $unknown?: never;
+  }
+
+  export interface TimestampValueMember {
+    stringValue?: never;
+    booleanValue?: never;
+    numberValue?: never;
+    blobValue?: never;
+    timestampValue: Date;
+    enumValue?: never;
+    listValue?: never;
+    mapValue?: never;
+    structureValue?: never;
+    $unknown?: never;
+  }
+
+  export interface EnumValueMember {
+    stringValue?: never;
+    booleanValue?: never;
+    numberValue?: never;
+    blobValue?: never;
+    timestampValue?: never;
+    enumValue: FooEnum | string;
+    listValue?: never;
+    mapValue?: never;
+    structureValue?: never;
+    $unknown?: never;
+  }
+
+  export interface ListValueMember {
+    stringValue?: never;
+    booleanValue?: never;
+    numberValue?: never;
+    blobValue?: never;
+    timestampValue?: never;
+    enumValue?: never;
+    listValue: string[];
+    mapValue?: never;
+    structureValue?: never;
+    $unknown?: never;
+  }
+
+  export interface MapValueMember {
+    stringValue?: never;
+    booleanValue?: never;
+    numberValue?: never;
+    blobValue?: never;
+    timestampValue?: never;
+    enumValue?: never;
+    listValue?: never;
+    mapValue: { [key: string]: string };
+    structureValue?: never;
+    $unknown?: never;
+  }
+
+  export interface StructureValueMember {
+    stringValue?: never;
+    booleanValue?: never;
+    numberValue?: never;
+    blobValue?: never;
+    timestampValue?: never;
+    enumValue?: never;
+    listValue?: never;
+    mapValue?: never;
+    structureValue: GreetingStruct;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    stringValue?: never;
+    booleanValue?: never;
+    numberValue?: never;
+    blobValue?: never;
+    timestampValue?: never;
+    enumValue?: never;
+    listValue?: never;
+    mapValue?: never;
+    structureValue?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    stringValue: (value: string) => T;
+    booleanValue: (value: boolean) => T;
+    numberValue: (value: number) => T;
+    blobValue: (value: Uint8Array) => T;
+    timestampValue: (value: Date) => T;
+    enumValue: (value: FooEnum | string) => T;
+    listValue: (value: string[]) => T;
+    mapValue: (value: { [key: string]: string }) => T;
+    structureValue: (value: GreetingStruct) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: MyUnion, visitor: Visitor<T>): T => {
+    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
+    if (value.booleanValue !== undefined) return visitor.booleanValue(value.booleanValue);
+    if (value.numberValue !== undefined) return visitor.numberValue(value.numberValue);
+    if (value.blobValue !== undefined) return visitor.blobValue(value.blobValue);
+    if (value.timestampValue !== undefined) return visitor.timestampValue(value.timestampValue);
+    if (value.enumValue !== undefined) return visitor.enumValue(value.enumValue);
+    if (value.listValue !== undefined) return visitor.listValue(value.listValue);
+    if (value.mapValue !== undefined) return visitor.mapValue(value.mapValue);
+    if (value.structureValue !== undefined) return visitor.structureValue(value.structureValue);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: MyUnion): any => {
+    if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
+    if (obj.booleanValue !== undefined) return { booleanValue: obj.booleanValue };
+    if (obj.numberValue !== undefined) return { numberValue: obj.numberValue };
+    if (obj.blobValue !== undefined) return { blobValue: obj.blobValue };
+    if (obj.timestampValue !== undefined) return { timestampValue: obj.timestampValue };
+    if (obj.enumValue !== undefined) return { enumValue: obj.enumValue };
+    if (obj.listValue !== undefined) return { listValue: obj.listValue };
+    if (obj.mapValue !== undefined) return { mapValue: obj.mapValue };
+    if (obj.structureValue !== undefined)
+      return { structureValue: GreetingStruct.filterSensitiveLog(obj.structureValue) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
+}
+
+/**
+ * A shared structure that contains a single union member.
+ */
+export interface UnionInputOutput {
+  /**
+   * A union with a representative set of types for members.
+   */
+  contents?: MyUnion;
+}
+
+export namespace UnionInputOutput {
+  export const filterSensitiveLog = (obj: UnionInputOutput): any => ({
+    ...obj,
+    ...(obj.contents && { contents: MyUnion.filterSensitiveLog(obj.contents) }),
+  });
+}
+
+export interface MediaTypeHeaderInput {
+  json?: __LazyJsonString | string;
+}
+
+export namespace MediaTypeHeaderInput {
+  export const filterSensitiveLog = (obj: MediaTypeHeaderInput): any => ({
+    ...obj,
+  });
+}
+
+export interface MediaTypeHeaderOutput {
+  json?: __LazyJsonString | string;
+}
+
+export namespace MediaTypeHeaderOutput {
+  export const filterSensitiveLog = (obj: MediaTypeHeaderOutput): any => ({
     ...obj,
   });
 }
@@ -420,6 +704,39 @@ export interface SimpleScalarPropertiesInputOutput {
 
 export namespace SimpleScalarPropertiesInputOutput {
   export const filterSensitiveLog = (obj: SimpleScalarPropertiesInputOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface StreamingTraitsInputOutput {
+  foo?: string;
+  blob?: Readable | ReadableStream | Blob;
+}
+
+export namespace StreamingTraitsInputOutput {
+  export const filterSensitiveLog = (obj: StreamingTraitsInputOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface StreamingTraitsRequireLengthInputOutput {
+  foo?: string;
+  blob?: Readable | ReadableStream | Blob;
+}
+
+export namespace StreamingTraitsRequireLengthInputOutput {
+  export const filterSensitiveLog = (obj: StreamingTraitsRequireLengthInputOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface StreamingTraitsWithMediaTypeInputOutput {
+  foo?: string;
+  blob?: Readable | ReadableStream | Blob;
+}
+
+export namespace StreamingTraitsWithMediaTypeInputOutput {
+  export const filterSensitiveLog = (obj: StreamingTraitsWithMediaTypeInputOutput): any => ({
     ...obj,
   });
 }

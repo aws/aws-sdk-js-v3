@@ -1,8 +1,8 @@
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { TimestampFormatHeadersIO } from "../models/models_0";
+import { InlineDocumentAsPayloadInputOutput } from "../models/models_0";
 import {
-  deserializeAws_restJson1TimestampFormatHeadersCommand,
-  serializeAws_restJson1TimestampFormatHeadersCommand,
+  deserializeAws_restJson1InlineDocumentAsPayloadCommand,
+  serializeAws_restJson1InlineDocumentAsPayloadCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -17,21 +17,21 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TimestampFormatHeadersCommandInput = TimestampFormatHeadersIO;
-export type TimestampFormatHeadersCommandOutput = TimestampFormatHeadersIO & __MetadataBearer;
+export type InlineDocumentAsPayloadCommandInput = InlineDocumentAsPayloadInputOutput;
+export type InlineDocumentAsPayloadCommandOutput = InlineDocumentAsPayloadInputOutput & __MetadataBearer;
 
 /**
- * This example tests how timestamp request and response headers are serialized.
+ * This example serializes an inline document as the entire HTTP payload.
  */
-export class TimestampFormatHeadersCommand extends $Command<
-  TimestampFormatHeadersCommandInput,
-  TimestampFormatHeadersCommandOutput,
+export class InlineDocumentAsPayloadCommand extends $Command<
+  InlineDocumentAsPayloadCommandInput,
+  InlineDocumentAsPayloadCommandOutput,
   RestJsonProtocolClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: TimestampFormatHeadersCommandInput) {
+  constructor(readonly input: InlineDocumentAsPayloadCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -44,20 +44,20 @@ export class TimestampFormatHeadersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<TimestampFormatHeadersCommandInput, TimestampFormatHeadersCommandOutput> {
+  ): Handler<InlineDocumentAsPayloadCommandInput, InlineDocumentAsPayloadCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "RestJsonProtocolClient";
-    const commandName = "TimestampFormatHeadersCommand";
+    const commandName = "InlineDocumentAsPayloadCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TimestampFormatHeadersIO.filterSensitiveLog,
-      outputFilterSensitiveLog: TimestampFormatHeadersIO.filterSensitiveLog,
+      inputFilterSensitiveLog: InlineDocumentAsPayloadInputOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: InlineDocumentAsPayloadInputOutput.filterSensitiveLog,
     };
 
     if (typeof logger.info === "function") {
@@ -75,12 +75,12 @@ export class TimestampFormatHeadersCommand extends $Command<
     );
   }
 
-  private serialize(input: TimestampFormatHeadersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TimestampFormatHeadersCommand(input, context);
+  private serialize(input: InlineDocumentAsPayloadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1InlineDocumentAsPayloadCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TimestampFormatHeadersCommandOutput> {
-    return deserializeAws_restJson1TimestampFormatHeadersCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InlineDocumentAsPayloadCommandOutput> {
+    return deserializeAws_restJson1InlineDocumentAsPayloadCommand(output, context);
   }
 
   // Start section: command_body_extra

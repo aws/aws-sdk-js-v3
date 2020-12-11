@@ -8,16 +8,22 @@ import { HttpPayloadTraitsCommand } from "../../commands/HttpPayloadTraitsComman
 import { HttpPayloadTraitsWithMediaTypeCommand } from "../../commands/HttpPayloadTraitsWithMediaTypeCommand";
 import { HttpPayloadWithStructureCommand } from "../../commands/HttpPayloadWithStructureCommand";
 import { HttpPrefixHeadersCommand } from "../../commands/HttpPrefixHeadersCommand";
+import { HttpPrefixHeadersResponseCommand } from "../../commands/HttpPrefixHeadersResponseCommand";
 import { HttpRequestWithGreedyLabelInPathCommand } from "../../commands/HttpRequestWithGreedyLabelInPathCommand";
 import { HttpRequestWithLabelsAndTimestampFormatCommand } from "../../commands/HttpRequestWithLabelsAndTimestampFormatCommand";
 import { HttpRequestWithLabelsCommand } from "../../commands/HttpRequestWithLabelsCommand";
+import { HttpResponseCodeCommand } from "../../commands/HttpResponseCodeCommand";
 import { IgnoreQueryParamsInResponseCommand } from "../../commands/IgnoreQueryParamsInResponseCommand";
+import { InlineDocumentAsPayloadCommand } from "../../commands/InlineDocumentAsPayloadCommand";
+import { InlineDocumentCommand } from "../../commands/InlineDocumentCommand";
 import { InputAndOutputWithHeadersCommand } from "../../commands/InputAndOutputWithHeadersCommand";
 import { JsonBlobsCommand } from "../../commands/JsonBlobsCommand";
 import { JsonEnumsCommand } from "../../commands/JsonEnumsCommand";
 import { JsonListsCommand } from "../../commands/JsonListsCommand";
 import { JsonMapsCommand } from "../../commands/JsonMapsCommand";
 import { JsonTimestampsCommand } from "../../commands/JsonTimestampsCommand";
+import { JsonUnionsCommand } from "../../commands/JsonUnionsCommand";
+import { MediaTypeHeaderCommand } from "../../commands/MediaTypeHeaderCommand";
 import { NoInputAndNoOutputCommand } from "../../commands/NoInputAndNoOutputCommand";
 import { NoInputAndOutputCommand } from "../../commands/NoInputAndOutputCommand";
 import { NullAndEmptyHeadersClientCommand } from "../../commands/NullAndEmptyHeadersClientCommand";
@@ -25,6 +31,9 @@ import { OmitsNullSerializesEmptyStringCommand } from "../../commands/OmitsNullS
 import { QueryIdempotencyTokenAutoFillCommand } from "../../commands/QueryIdempotencyTokenAutoFillCommand";
 import { RecursiveShapesCommand } from "../../commands/RecursiveShapesCommand";
 import { SimpleScalarPropertiesCommand } from "../../commands/SimpleScalarPropertiesCommand";
+import { StreamingTraitsCommand } from "../../commands/StreamingTraitsCommand";
+import { StreamingTraitsRequireLengthCommand } from "../../commands/StreamingTraitsRequireLengthCommand";
+import { StreamingTraitsWithMediaTypeCommand } from "../../commands/StreamingTraitsWithMediaTypeCommand";
 import { TimestampFormatHeadersCommand } from "../../commands/TimestampFormatHeadersCommand";
 import { ComplexError, FooError, InvalidGreeting } from "../../models/models_0";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
@@ -185,11 +194,11 @@ it("RestJsonAllQueryStringTypes:Request", async () => {
 
     queryLong: 4,
 
-    queryFloat: 1,
+    queryFloat: 1.1,
 
-    queryDouble: 1,
+    queryDouble: 1.1,
 
-    queryDoubleList: [1.0, 2.0, 3.0],
+    queryDoubleList: [1.1, 2.1, 3.1],
 
     queryBoolean: true,
 
@@ -234,16 +243,16 @@ it("RestJsonAllQueryStringTypes:Request", async () => {
     expect(queryString).toContain("IntegerSet=2");
     expect(queryString).toContain("IntegerSet=3");
     expect(queryString).toContain("Long=4");
-    expect(queryString).toContain("Float=1");
-    expect(queryString).toContain("Double=1");
-    expect(queryString).toContain("DoubleList=1.0");
-    expect(queryString).toContain("DoubleList=2.0");
-    expect(queryString).toContain("DoubleList=3.0");
+    expect(queryString).toContain("Float=1.1");
+    expect(queryString).toContain("Double=1.1");
+    expect(queryString).toContain("DoubleList=1.1");
+    expect(queryString).toContain("DoubleList=2.1");
+    expect(queryString).toContain("DoubleList=3.1");
     expect(queryString).toContain("Boolean=true");
     expect(queryString).toContain("BooleanList=true");
     expect(queryString).toContain("BooleanList=false");
     expect(queryString).toContain("BooleanList=true");
-    expect(queryString).toContain("Timestamp=1");
+    expect(queryString).toContain("Timestamp=1970-01-01T00%3A00%3A01Z");
     expect(queryString).toContain("TimestampList=1970-01-01T00%3A00%3A01Z");
     expect(queryString).toContain("TimestampList=1970-01-01T00%3A00%3A02Z");
     expect(queryString).toContain("TimestampList=1970-01-01T00%3A00%3A03Z");
@@ -383,10 +392,7 @@ it("RestJsonEmptyInputAndEmptyOutput:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/EmptyInputAndEmptyOutput");
 
-    expect(r.body).toBeDefined();
-    const bodyString = `{}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
-    expect(unequalParts).toBeUndefined();
+    expect(r.body).toBeFalsy();
   }
 });
 
@@ -394,6 +400,28 @@ it("RestJsonEmptyInputAndEmptyOutput:Request", async () => {
  * Empty output serializes no payload
  */
 it("RestJsonEmptyInputAndEmptyOutput:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, ``),
+  });
+
+  const params: any = {};
+  const command = new EmptyInputAndEmptyOutputCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+});
+
+/**
+ * Empty output serializes no payload
+ */
+it("RestJsonEmptyInputAndEmptyJsonObjectOutput:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `{}`),
@@ -922,6 +950,7 @@ it("RestJsonHttpPayloadTraitsWithBlob:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/HttpPayloadTraits");
+    expect(r.headers["content-length"]).toBeDefined();
 
     expect(r.headers["X-Foo"]).toBeDefined();
     expect(r.headers["X-Foo"]).toBe("Foo");
@@ -1067,9 +1096,10 @@ it("RestJsonHttpPayloadTraitsWithMediaTypeWithBlob:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/HttpPayloadTraitsWithMediaType");
+    expect(r.headers["content-length"]).toBeDefined();
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("text/plain");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("text/plain");
     expect(r.headers["X-Foo"]).toBeDefined();
     expect(r.headers["X-Foo"]).toBe("Foo");
 
@@ -1147,9 +1177,10 @@ it("RestJsonHttpPayloadWithStructure:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/HttpPayloadWithStructure");
+    expect(r.headers["content-length"]).toBeDefined();
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/json");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
     const bodyString = `{
@@ -1329,9 +1360,9 @@ it("RestJsonHttpPrefixHeadersArePresent:Response", async () => {
 });
 
 /**
- * No prefix headers are serialized because the value is empty
+ * (de)serializes all response headers
  */
-it("RestJsonHttpPrefixHeadersAreNotPresent:Response", async () => {
+it("HttpPrefixHeadersResponse:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
@@ -1339,13 +1370,14 @@ it("RestJsonHttpPrefixHeadersAreNotPresent:Response", async () => {
       200,
       {
         "x-foo": "Foo",
+        hello: "Hello",
       },
       ``
     ),
   });
 
   const params: any = {};
-  const command = new HttpPrefixHeadersCommand(params);
+  const command = new HttpPrefixHeadersResponseCommand(params);
 
   let r: any;
   try {
@@ -1357,9 +1389,11 @@ it("RestJsonHttpPrefixHeadersAreNotPresent:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      foo: "Foo",
+      prefixHeaders: {
+        "x-foo": "Foo",
 
-      fooMap: {},
+        hello: "Hello",
+      },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -1417,9 +1451,9 @@ it("RestJsonInputWithHeadersAndAllParams:Request", async () => {
 
     long: 3,
 
-    float: 4.0,
+    float: 4.1,
 
-    double: 5.0,
+    double: 5.1,
 
     boolean: true,
 
@@ -1436,7 +1470,7 @@ it("RestJsonInputWithHeadersAndAllParams:Request", async () => {
     }
     const r = err.request;
     expect(r.method).toBe("GET");
-    expect(r.path).toBe("/HttpRequestWithLabels/string/1/2/3/4.0/5.0/true/2019-12-16T23%3A48%3A18Z");
+    expect(r.path).toBe("/HttpRequestWithLabels/string/1/2/3/4.1/5.1/true/2019-12-16T23%3A48%3A18Z");
 
     expect(r.body).toBeFalsy();
   }
@@ -1486,6 +1520,44 @@ it("RestJsonHttpRequestWithLabelsAndTimestampFormat:Request", async () => {
 });
 
 /**
+ * Binds the http response code to an output structure.
+ */
+it("RestJsonHttpResponseCode:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      201,
+      {
+        "content-type": "application/json",
+      },
+      ``
+    ),
+  });
+
+  const params: any = {};
+  const command = new HttpResponseCodeCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(201);
+  const paramsToValidate: any = [
+    {
+      Status: 201,
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * Query parameters must be ignored when serializing the output of an operation
  */
 it("RestJsonIgnoreQueryParamsInResponse:Response", async () => {
@@ -1512,6 +1584,178 @@ it("RestJsonIgnoreQueryParamsInResponse:Response", async () => {
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
+});
+
+/**
+ * Serializes inline documents as part of the JSON request payload with no escaping.
+ */
+it("InlineDocumentInput:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new InlineDocumentCommand({
+    stringValue: "string",
+
+    documentValue: {
+      foo: "bar",
+    },
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/InlineDocument");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{
+        \"stringValue\": \"string\",
+        \"documentValue\": {
+            \"foo\": \"bar\"
+        }
+    }`;
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes inline documents as part of the JSON response payload with no escaping.
+ */
+it("InlineDocumentOutput:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "stringValue": "string",
+          "documentValue": {
+              "foo": "bar"
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new InlineDocumentCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      stringValue: "string",
+
+      documentValue: {
+        foo: "bar",
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Serializes an inline document as the target of the httpPayload trait.
+ */
+it("InlineDocumentAsPayloadInput:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new InlineDocumentAsPayloadCommand({
+    documentValue: {
+      foo: "bar",
+    },
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/InlineDocumentAsPayload");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{
+        \"foo\": \"bar\"
+    }`;
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes an inline document as the target of the httpPayload trait.
+ */
+it("InlineDocumentAsPayloadInputOutput:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "foo": "bar"
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new InlineDocumentAsPayloadCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      documentValue: {
+        foo: "bar",
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
 });
 
 /**
@@ -1572,9 +1816,9 @@ it("RestJsonInputAndOutputWithNumericHeaders:Request", async () => {
 
     headerLong: 123,
 
-    headerFloat: 1.0,
+    headerFloat: 1.1,
 
-    headerDouble: 1.0,
+    headerDouble: 1.1,
 
     headerIntegerList: [1, 2, 3],
   } as any);
@@ -1594,9 +1838,9 @@ it("RestJsonInputAndOutputWithNumericHeaders:Request", async () => {
     expect(r.headers["X-Byte"]).toBeDefined();
     expect(r.headers["X-Byte"]).toBe("1");
     expect(r.headers["X-Double"]).toBeDefined();
-    expect(r.headers["X-Double"]).toBe("1.0");
+    expect(r.headers["X-Double"]).toBe("1.1");
     expect(r.headers["X-Float"]).toBeDefined();
-    expect(r.headers["X-Float"]).toBe("1.0");
+    expect(r.headers["X-Float"]).toBe("1.1");
     expect(r.headers["X-Integer"]).toBeDefined();
     expect(r.headers["X-Integer"]).toBe("123");
     expect(r.headers["X-IntegerList"]).toBeDefined();
@@ -1772,12 +2016,12 @@ it("RestJsonInputAndOutputWithNumericHeaders:Response", async () => {
       true,
       200,
       {
-        "x-float": "1.0",
+        "x-float": "1.1",
         "x-byte": "1",
         "x-long": "123",
         "x-integer": "123",
         "x-integerlist": "1, 2, 3",
-        "x-double": "1.0",
+        "x-double": "1.1",
         "x-short": "123",
       },
       ``
@@ -1805,9 +2049,9 @@ it("RestJsonInputAndOutputWithNumericHeaders:Response", async () => {
 
       headerLong: 123,
 
-      headerFloat: 1.0,
+      headerFloat: 1.1,
 
-      headerDouble: 1.0,
+      headerDouble: 1.1,
 
       headerIntegerList: [1, 2, 3],
     },
@@ -1966,8 +2210,8 @@ it("RestJsonJsonBlobs:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/JsonBlobs");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/json");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
     const bodyString = `{
@@ -2057,8 +2301,8 @@ it("RestJsonJsonEnums:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/JsonEnums");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/json");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
     const bodyString = `{
@@ -2206,8 +2450,8 @@ it("RestJsonLists:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/JsonLists");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/json");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
     const bodyString = `{
@@ -2286,8 +2530,8 @@ it("RestJsonListsEmpty:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/JsonLists");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/json");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
     const bodyString = `{
@@ -2308,7 +2552,7 @@ it("RestJsonListsSerializeNull:Request", async () => {
   });
 
   const command = new JsonListsCommand({
-    stringList: [undefined],
+    sparseStringList: [null, "hi"],
   } as any);
   try {
     await client.send(command);
@@ -2323,13 +2567,14 @@ it("RestJsonListsSerializeNull:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/JsonLists");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/json");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
     const bodyString = `{
-        \"stringList\": [
-            null
+        \"sparseStringList\": [
+            null,
+            \"hi\"
         ]
     }`;
     const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
@@ -2491,7 +2736,7 @@ it("RestJsonListsEmpty:Response", async () => {
 });
 
 /**
- * Serializes null values in lists
+ * Serializes null values in sparse lists
  */
 it("RestJsonListsSerializeNull:Response", async () => {
   const client = new RestJsonProtocolClient({
@@ -2503,8 +2748,9 @@ it("RestJsonListsSerializeNull:Response", async () => {
         "content-type": "application/json",
       },
       `{
-          "stringList": [
-              null
+          "sparseStringList": [
+              null,
+              "hi"
           ]
       }`
     ),
@@ -2523,7 +2769,7 @@ it("RestJsonListsSerializeNull:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      stringList: [null],
+      sparseStringList: [null, "hi"],
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -2542,7 +2788,17 @@ it("RestJsonJsonMaps:Request", async () => {
   });
 
   const command = new JsonMapsCommand({
-    myMap: {
+    denseStructMap: {
+      foo: {
+        hi: "there",
+      } as any,
+
+      baz: {
+        hi: "bye",
+      } as any,
+    } as any,
+
+    sparseStructMap: {
       foo: {
         hi: "there",
       } as any,
@@ -2565,12 +2821,20 @@ it("RestJsonJsonMaps:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/JsonMaps");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/json");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
     const bodyString = `{
-        \"myMap\": {
+        \"denseStructMap\": {
+            \"foo\": {
+                \"hi\": \"there\"
+            },
+            \"baz\": {
+                \"hi\": \"bye\"
+            }
+        },
+        \"sparseStructMap\": {
             \"foo\": {
                 \"hi\": \"there\"
             },
@@ -2585,7 +2849,131 @@ it("RestJsonJsonMaps:Request", async () => {
 });
 
 /**
- * Serializes JSON maps
+ * Serializes JSON map values in sparse maps
+ */
+it("RestJsonSerializesNullMapValues:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonMapsCommand({
+    sparseBooleanMap: {
+      x: null,
+    } as any,
+
+    sparseNumberMap: {
+      x: null,
+    } as any,
+
+    sparseStringMap: {
+      x: null,
+    } as any,
+
+    sparseStructMap: {
+      x: null,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/JsonMaps");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{
+        \"sparseBooleanMap\": {
+            \"x\": null
+        },
+        \"sparseNumberMap\": {
+            \"x\": null
+        },
+        \"sparseStringMap\": {
+            \"x\": null
+        },
+        \"sparseStructMap\": {
+            \"x\": null
+        }
+    }`;
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Ensure that 0 and false are sent over the wire in all maps and lists
+ */
+it("RestJsonSerializesZeroValuesInMaps:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonMapsCommand({
+    denseNumberMap: {
+      x: 0,
+    } as any,
+
+    sparseNumberMap: {
+      x: 0,
+    } as any,
+
+    denseBooleanMap: {
+      x: false,
+    } as any,
+
+    sparseBooleanMap: {
+      x: false,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/JsonMaps");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{
+        \"denseNumberMap\": {
+            \"x\": 0
+        },
+        \"sparseNumberMap\": {
+            \"x\": 0
+        },
+        \"denseBooleanMap\": {
+            \"x\": false
+        },
+        \"sparseBooleanMap\": {
+            \"x\": false
+        }
+    }`;
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Deserializes JSON maps
  */
 it("RestJsonJsonMaps:Response", async () => {
   const client = new RestJsonProtocolClient({
@@ -2597,13 +2985,90 @@ it("RestJsonJsonMaps:Response", async () => {
         "content-type": "application/json",
       },
       `{
-          "myMap": {
+          "denseStructMap": {
               "foo": {
                   "hi": "there"
               },
               "baz": {
                   "hi": "bye"
               }
+          },
+          "sparseStructMap": {
+              "foo": {
+                  "hi": "there"
+              },
+              "baz": {
+                  "hi": "bye"
+              }
+         }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonMapsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      denseStructMap: {
+        foo: {
+          hi: "there",
+        },
+
+        baz: {
+          hi: "bye",
+        },
+      },
+
+      sparseStructMap: {
+        foo: {
+          hi: "there",
+        },
+
+        baz: {
+          hi: "bye",
+        },
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Deserializes null JSON map values
+ */
+it("RestJsonDeserializesNullMapValues:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "sparseBooleanMap": {
+              "x": null
+          },
+          "sparseNumberMap": {
+              "x": null
+          },
+          "sparseStringMap": {
+              "x": null
+          },
+          "sparseStructMap": {
+              "x": null
           }
       }`
     ),
@@ -2622,14 +3087,85 @@ it("RestJsonJsonMaps:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      myMap: {
-        foo: {
-          hi: "there",
-        },
+      sparseBooleanMap: {
+        x: null,
+      },
 
-        baz: {
-          hi: "bye",
-        },
+      sparseNumberMap: {
+        x: null,
+      },
+
+      sparseStringMap: {
+        x: null,
+      },
+
+      sparseStructMap: {
+        x: null,
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Ensure that 0 and false are sent over the wire in all maps and lists
+ */
+it("RestJsonDeserializesZeroValuesInMaps:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "denseNumberMap": {
+              "x": 0
+          },
+          "sparseNumberMap": {
+              "x": 0
+          },
+          "denseBooleanMap": {
+              "x": false
+          },
+          "sparseBooleanMap": {
+              "x": false
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonMapsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      denseNumberMap: {
+        x: 0,
+      },
+
+      sparseNumberMap: {
+        x: 0,
+      },
+
+      denseBooleanMap: {
+        x: false,
+      },
+
+      sparseBooleanMap: {
+        x: false,
       },
     },
   ][0];
@@ -2664,8 +3200,8 @@ it("RestJsonJsonTimestamps:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/JsonTimestamps");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/json");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
     const bodyString = `{
@@ -2701,8 +3237,8 @@ it("RestJsonJsonTimestampsWithDateTimeFormat:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/JsonTimestamps");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/json");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
     const bodyString = `{
@@ -2738,8 +3274,8 @@ it("RestJsonJsonTimestampsWithEpochSecondsFormat:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/JsonTimestamps");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/json");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
     const bodyString = `{
@@ -2775,8 +3311,8 @@ it("RestJsonJsonTimestampsWithHttpDateFormat:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/JsonTimestamps");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/json");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
     const bodyString = `{
@@ -2948,6 +3484,863 @@ it("RestJsonJsonTimestampsWithHttpDateFormat:Response", async () => {
 });
 
 /**
+ * Serializes a string union value
+ */
+it("RestJsonSerializeStringUnionValue:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonUnionsCommand({
+    contents: {
+      stringValue: "foo",
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/JsonUnions");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{
+        \"contents\": {
+            \"stringValue\": \"foo\"
+        }
+    }`;
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes a boolean union value
+ */
+it("RestJsonSerializeBooleanUnionValue:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonUnionsCommand({
+    contents: {
+      booleanValue: true,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/JsonUnions");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{
+        \"contents\": {
+            \"booleanValue\": true
+        }
+    }`;
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes a number union value
+ */
+it("RestJsonSerializeNumberUnionValue:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonUnionsCommand({
+    contents: {
+      numberValue: 1,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/JsonUnions");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{
+        \"contents\": {
+            \"numberValue\": 1
+        }
+    }`;
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes a blob union value
+ */
+it("RestJsonSerializeBlobUnionValue:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonUnionsCommand({
+    contents: {
+      blobValue: Uint8Array.from("foo", (c) => c.charCodeAt(0)),
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/JsonUnions");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{
+        \"contents\": {
+            \"blobValue\": \"Zm9v\"
+        }
+    }`;
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes a timestamp union value
+ */
+it("RestJsonSerializeTimestampUnionValue:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonUnionsCommand({
+    contents: {
+      timestampValue: new Date(1398796238000),
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/JsonUnions");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{
+        \"contents\": {
+            \"timestampValue\": 1398796238
+        }
+    }`;
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes an enum union value
+ */
+it("RestJsonSerializeEnumUnionValue:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonUnionsCommand({
+    contents: {
+      enumValue: "Foo",
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/JsonUnions");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{
+        \"contents\": {
+            \"enumValue\": \"Foo\"
+        }
+    }`;
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes a list union value
+ */
+it("RestJsonSerializeListUnionValue:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonUnionsCommand({
+    contents: {
+      listValue: ["foo", "bar"],
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/JsonUnions");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{
+        \"contents\": {
+            \"listValue\": [\"foo\", \"bar\"]
+        }
+    }`;
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes a map union value
+ */
+it("RestJsonSerializeMapUnionValue:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonUnionsCommand({
+    contents: {
+      mapValue: {
+        foo: "bar",
+
+        spam: "eggs",
+      } as any,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/JsonUnions");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{
+        \"contents\": {
+            \"mapValue\": {
+                \"foo\": \"bar\",
+                \"spam\": \"eggs\"
+            }
+        }
+    }`;
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes a structure union value
+ */
+it("RestJsonSerializeStructureUnionValue:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonUnionsCommand({
+    contents: {
+      structureValue: {
+        hi: "hello",
+      } as any,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/JsonUnions");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{
+        \"contents\": {
+            \"structureValue\": {
+                \"hi\": \"hello\"
+            }
+        }
+    }`;
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Deserializes a string union value
+ */
+it("RestJsonDeserializeStringUnionValue:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "contents": {
+              "stringValue": "foo"
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      contents: {
+        stringValue: "foo",
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Deserializes a boolean union value
+ */
+it("RestJsonDeserializeBooleanUnionValue:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "contents": {
+              "booleanValue": true
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      contents: {
+        booleanValue: true,
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Deserializes a number union value
+ */
+it("RestJsonDeserializeNumberUnionValue:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "contents": {
+              "numberValue": 1
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      contents: {
+        numberValue: 1,
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Deserializes a blob union value
+ */
+it("RestJsonDeserializeBlobUnionValue:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "contents": {
+              "blobValue": "Zm9v"
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      contents: {
+        blobValue: Uint8Array.from("foo", (c) => c.charCodeAt(0)),
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Deserializes a timestamp union value
+ */
+it("RestJsonDeserializeTimestampUnionValue:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "contents": {
+              "timestampValue": 1398796238
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      contents: {
+        timestampValue: new Date(1398796238000),
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Deserializes an enum union value
+ */
+it("RestJsonDeserializeEnumUnionValue:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "contents": {
+              "enumValue": "Foo"
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      contents: {
+        enumValue: "Foo",
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Deserializes a list union value
+ */
+it("RestJsonDeserializeListUnionValue:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "contents": {
+              "listValue": ["foo", "bar"]
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      contents: {
+        listValue: ["foo", "bar"],
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Deserializes a map union value
+ */
+it("RestJsonDeserializeMapUnionValue:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "contents": {
+              "mapValue": {
+                  "foo": "bar",
+                  "spam": "eggs"
+              }
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      contents: {
+        mapValue: {
+          foo: "bar",
+
+          spam: "eggs",
+        },
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Deserializes a structure union value
+ */
+it("RestJsonDeserializeStructureUnionValue:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "contents": {
+              "structureValue": {
+                  "hi": "hello"
+              }
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      contents: {
+        structureValue: {
+          hi: "hello",
+        },
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Headers that target strings with a mediaType are base64 encoded
+ */
+it("MediaTypeHeaderInputBase64:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new MediaTypeHeaderCommand({
+    json: "true",
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("GET");
+    expect(r.path).toBe("/MediaTypeHeader");
+
+    expect(r.headers["X-Json"]).toBeDefined();
+    expect(r.headers["X-Json"]).toBe("dHJ1ZQ==");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Headers that target strings with a mediaType are base64 encoded
+ */
+it("MediaTypeHeaderOutputBase64:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "x-json": "dHJ1ZQ==",
+      },
+      ``
+    ),
+  });
+
+  const params: any = {};
+  const command = new MediaTypeHeaderCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      json: "true",
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * No input serializes no payload
  */
 it("RestJsonNoInputAndNoOutput:Request", async () => {
@@ -3051,7 +4444,7 @@ it("RestJsonNullAndEmptyHeaders:Request", async () => {
   });
 
   const command = new NullAndEmptyHeadersClientCommand({
-    a: undefined,
+    a: null,
 
     b: "",
 
@@ -3088,7 +4481,7 @@ it("RestJsonOmitsNullSerializesEmptyString:Request", async () => {
   });
 
   const command = new OmitsNullSerializesEmptyStringCommand({
-    nullValue: undefined,
+    nullValue: null,
 
     emptyString: "",
   } as any);
@@ -3215,8 +4608,8 @@ it("RestJsonRecursiveShapes:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/RecursiveShapes");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/json");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
     const bodyString = `{
@@ -3346,8 +4739,8 @@ it("RestJsonSimpleScalarProperties:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/SimpleScalarProperties");
 
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/json");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
     expect(r.headers["X-Foo"]).toBeDefined();
     expect(r.headers["X-Foo"]).toBe("Foo");
 
@@ -3365,6 +4758,39 @@ it("RestJsonSimpleScalarProperties:Request", async () => {
     }`;
     const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Rest Json should not serialize null structure values
+ */
+it("RestJsonDoesntSerializeNullStructureValues:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new SimpleScalarPropertiesCommand({
+    stringValue: null,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/SimpleScalarProperties");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    expect(r.body).toBe("{}");
   }
 });
 
@@ -3432,6 +4858,437 @@ it("RestJsonSimpleScalarProperties:Response", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Rest Json should not deserialize null structure values
+ */
+it("RestJsonDoesntDeserializeNullStructureValues:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "stringValue": null
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new SimpleScalarPropertiesCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+});
+
+/**
+ * Serializes a blob in the HTTP payload
+ */
+it("RestJsonStreamingTraitsWithBlob:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new StreamingTraitsCommand({
+    foo: "Foo",
+
+    blob: Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)),
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/StreamingTraits");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/octet-stream");
+    expect(r.headers["X-Foo"]).toBeDefined();
+    expect(r.headers["X-Foo"]).toBe("Foo");
+
+    expect(r.body).toBeDefined();
+    expect(r.body).toMatchObject(Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)));
+  }
+});
+
+/**
+ * Serializes an empty blob in the HTTP payload
+ */
+it("RestJsonStreamingTraitsWithNoBlobBody:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new StreamingTraitsCommand({
+    foo: "Foo",
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/StreamingTraits");
+
+    expect(r.headers["X-Foo"]).toBeDefined();
+    expect(r.headers["X-Foo"]).toBe("Foo");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Serializes a blob in the HTTP payload
+ */
+it("RestJsonStreamingTraitsWithBlob:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "x-foo": "Foo",
+        "content-type": "application/octet-stream",
+      },
+      `blobby blob blob`
+    ),
+  });
+
+  const params: any = {};
+  const command = new StreamingTraitsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      foo: "Foo",
+
+      blob: Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)),
+    },
+  ][0];
+  const comparableBlob = await client.config.streamCollector(r["blob"]);
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    if (param === "blob") {
+      expect(equivalentContents(comparableBlob, paramsToValidate[param])).toBe(true);
+    } else {
+      expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    }
+  });
+});
+
+/**
+ * Serializes an empty blob in the HTTP payload
+ */
+it("RestJsonStreamingTraitsWithNoBlobBody:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "x-foo": "Foo",
+      },
+      ``
+    ),
+  });
+
+  const params: any = {};
+  const command = new StreamingTraitsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      foo: "Foo",
+    },
+  ][0];
+  const comparableBlob = await client.config.streamCollector(r["blob"]);
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    if (param === "blob") {
+      expect(equivalentContents(comparableBlob, paramsToValidate[param])).toBe(true);
+    } else {
+      expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    }
+  });
+});
+
+/**
+ * Serializes a blob in the HTTP payload with a required length
+ */
+it("RestJsonStreamingTraitsRequireLengthWithBlob:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new StreamingTraitsRequireLengthCommand({
+    foo: "Foo",
+
+    blob: Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)),
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/StreamingTraitsRequireLength");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/octet-stream");
+    expect(r.headers["X-Foo"]).toBeDefined();
+    expect(r.headers["X-Foo"]).toBe("Foo");
+
+    expect(r.body).toBeDefined();
+    expect(r.body).toMatchObject(Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)));
+  }
+});
+
+/**
+ * Serializes an empty blob in the HTTP payload
+ */
+it("RestJsonStreamingTraitsRequireLengthWithNoBlobBody:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new StreamingTraitsRequireLengthCommand({
+    foo: "Foo",
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/StreamingTraitsRequireLength");
+
+    expect(r.headers["X-Foo"]).toBeDefined();
+    expect(r.headers["X-Foo"]).toBe("Foo");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Serializes a blob in the HTTP payload with a required length
+ */
+it("RestJsonStreamingTraitsRequireLengthWithBlob:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "x-foo": "Foo",
+        "content-type": "application/octet-stream",
+      },
+      `blobby blob blob`
+    ),
+  });
+
+  const params: any = {};
+  const command = new StreamingTraitsRequireLengthCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      foo: "Foo",
+
+      blob: Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)),
+    },
+  ][0];
+  const comparableBlob = await client.config.streamCollector(r["blob"]);
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    if (param === "blob") {
+      expect(equivalentContents(comparableBlob, paramsToValidate[param])).toBe(true);
+    } else {
+      expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    }
+  });
+});
+
+/**
+ * Serializes an empty blob in the HTTP payload
+ */
+it("RestJsonStreamingTraitsRequireLengthWithNoBlobBody:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "x-foo": "Foo",
+      },
+      ``
+    ),
+  });
+
+  const params: any = {};
+  const command = new StreamingTraitsRequireLengthCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      foo: "Foo",
+    },
+  ][0];
+  const comparableBlob = await client.config.streamCollector(r["blob"]);
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    if (param === "blob") {
+      expect(equivalentContents(comparableBlob, paramsToValidate[param])).toBe(true);
+    } else {
+      expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    }
+  });
+});
+
+/**
+ * Serializes a blob in the HTTP payload with a content-type
+ */
+it("RestJsonStreamingTraitsWithMediaTypeWithBlob:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new StreamingTraitsWithMediaTypeCommand({
+    foo: "Foo",
+
+    blob: Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)),
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/StreamingTraitsWithMediaType");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("text/plain");
+    expect(r.headers["X-Foo"]).toBeDefined();
+    expect(r.headers["X-Foo"]).toBe("Foo");
+
+    expect(r.body).toBeDefined();
+    expect(r.body).toMatchObject(Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)));
+  }
+});
+
+/**
+ * Serializes a blob in the HTTP payload with a content-type
+ */
+it("RestJsonStreamingTraitsWithMediaTypeWithBlob:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "x-foo": "Foo",
+        "content-type": "text/plain",
+      },
+      `blobby blob blob`
+    ),
+  });
+
+  const params: any = {};
+  const command = new StreamingTraitsWithMediaTypeCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      foo: "Foo",
+
+      blob: Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)),
+    },
+  ][0];
+  const comparableBlob = await client.config.streamCollector(r["blob"]);
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    if (param === "blob") {
+      expect(equivalentContents(comparableBlob, paramsToValidate[param])).toBe(true);
+    } else {
+      expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    }
   });
 });
 

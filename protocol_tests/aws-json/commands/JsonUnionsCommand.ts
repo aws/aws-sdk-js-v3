@@ -1,6 +1,9 @@
-import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { XmlListsOutput } from "../models/models_0";
-import { deserializeAws_ec2XmlListsCommand, serializeAws_ec2XmlListsCommand } from "../protocols/Aws_ec2";
+import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
+import { UnionInputOutput } from "../models/models_0";
+import {
+  deserializeAws_json1_1JsonUnionsCommand,
+  serializeAws_json1_1JsonUnionsCommand,
+} from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -14,31 +17,21 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type XmlListsCommandInput = {};
-export type XmlListsCommandOutput = XmlListsOutput & __MetadataBearer;
+export type JsonUnionsCommandInput = UnionInputOutput;
+export type JsonUnionsCommandOutput = UnionInputOutput & __MetadataBearer;
 
 /**
- * This test case serializes XML lists for the following cases for both
- * input and output:
- *
- * 1. Normal XML lists.
- * 2. Normal XML sets.
- * 3. XML lists of lists.
- * 4. XML lists with @xmlName on its members
- * 5. Flattened XML lists.
- * 6. Flattened XML lists with @xmlName.
- * 7. Flattened XML lists with @xmlNamespace.
- * 8. Lists of structures.
+ * This operation uses unions for inputs and outputs.
  */
-export class XmlListsCommand extends $Command<
-  XmlListsCommandInput,
-  XmlListsCommandOutput,
-  EC2ProtocolClientResolvedConfig
+export class JsonUnionsCommand extends $Command<
+  JsonUnionsCommandInput,
+  JsonUnionsCommandOutput,
+  JsonProtocolClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: XmlListsCommandInput) {
+  constructor(readonly input: JsonUnionsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -49,22 +42,22 @@ export class XmlListsCommand extends $Command<
    */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: EC2ProtocolClientResolvedConfig,
+    configuration: JsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<XmlListsCommandInput, XmlListsCommandOutput> {
+  ): Handler<JsonUnionsCommandInput, JsonUnionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
-    const clientName = "EC2ProtocolClient";
-    const commandName = "XmlListsCommand";
+    const clientName = "JsonProtocolClient";
+    const commandName = "JsonUnionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: XmlListsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UnionInputOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: UnionInputOutput.filterSensitiveLog,
     };
 
     if (typeof logger.info === "function") {
@@ -82,12 +75,12 @@ export class XmlListsCommand extends $Command<
     );
   }
 
-  private serialize(input: XmlListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2XmlListsCommand(input, context);
+  private serialize(input: JsonUnionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1JsonUnionsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlListsCommandOutput> {
-    return deserializeAws_ec2XmlListsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<JsonUnionsCommandOutput> {
+    return deserializeAws_json1_1JsonUnionsCommand(output, context);
   }
 
   // Start section: command_body_extra

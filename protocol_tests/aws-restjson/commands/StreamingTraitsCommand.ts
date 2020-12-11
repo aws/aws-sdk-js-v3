@@ -1,8 +1,8 @@
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { TimestampFormatHeadersIO } from "../models/models_0";
+import { StreamingTraitsInputOutput } from "../models/models_0";
 import {
-  deserializeAws_restJson1TimestampFormatHeadersCommand,
-  serializeAws_restJson1TimestampFormatHeadersCommand,
+  deserializeAws_restJson1StreamingTraitsCommand,
+  serializeAws_restJson1StreamingTraitsCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -17,21 +17,26 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TimestampFormatHeadersCommandInput = TimestampFormatHeadersIO;
-export type TimestampFormatHeadersCommandOutput = TimestampFormatHeadersIO & __MetadataBearer;
+export type StreamingTraitsCommandInput = Omit<StreamingTraitsInputOutput, "blob"> & {
+  blob?: StreamingTraitsInputOutput["blob"] | string | Uint8Array | Buffer;
+};
+export type StreamingTraitsCommandOutput = StreamingTraitsInputOutput & __MetadataBearer;
 
 /**
- * This example tests how timestamp request and response headers are serialized.
+ * This examples serializes a streaming blob shape in the request body.
+ *
+ * In this example, no JSON document is synthesized because the payload is
+ * not a structure or a union type.
  */
-export class TimestampFormatHeadersCommand extends $Command<
-  TimestampFormatHeadersCommandInput,
-  TimestampFormatHeadersCommandOutput,
+export class StreamingTraitsCommand extends $Command<
+  StreamingTraitsCommandInput,
+  StreamingTraitsCommandOutput,
   RestJsonProtocolClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: TimestampFormatHeadersCommandInput) {
+  constructor(readonly input: StreamingTraitsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -44,20 +49,20 @@ export class TimestampFormatHeadersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<TimestampFormatHeadersCommandInput, TimestampFormatHeadersCommandOutput> {
+  ): Handler<StreamingTraitsCommandInput, StreamingTraitsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "RestJsonProtocolClient";
-    const commandName = "TimestampFormatHeadersCommand";
+    const commandName = "StreamingTraitsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TimestampFormatHeadersIO.filterSensitiveLog,
-      outputFilterSensitiveLog: TimestampFormatHeadersIO.filterSensitiveLog,
+      inputFilterSensitiveLog: StreamingTraitsInputOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: StreamingTraitsInputOutput.filterSensitiveLog,
     };
 
     if (typeof logger.info === "function") {
@@ -75,12 +80,12 @@ export class TimestampFormatHeadersCommand extends $Command<
     );
   }
 
-  private serialize(input: TimestampFormatHeadersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TimestampFormatHeadersCommand(input, context);
+  private serialize(input: StreamingTraitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1StreamingTraitsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TimestampFormatHeadersCommandOutput> {
-    return deserializeAws_restJson1TimestampFormatHeadersCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StreamingTraitsCommandOutput> {
+    return deserializeAws_restJson1StreamingTraitsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -131,7 +131,13 @@ export namespace QueryTimestampsInput {
   });
 }
 
-export type FooEnum = "0" | "1" | "Bar" | "Baz" | "Foo";
+export enum FooEnum {
+  BAR = "Bar",
+  BAZ = "Baz",
+  FOO = "Foo",
+  ONE = "1",
+  ZERO = "0",
+}
 
 export interface SimpleInputParamsInput {
   Foo?: string;
@@ -181,21 +187,6 @@ export namespace XmlBlobsOutput {
   });
 }
 
-export interface XmlEnumsOutput {
-  fooEnum1?: FooEnum | string;
-  fooEnum2?: FooEnum | string;
-  fooEnum3?: FooEnum | string;
-  fooEnumList?: (FooEnum | string)[];
-  fooEnumSet?: (FooEnum | string)[];
-  fooEnumMap?: { [key: string]: FooEnum | string };
-}
-
-export namespace XmlEnumsOutput {
-  export const filterSensitiveLog = (obj: XmlEnumsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface StructureListMember {
   a?: string;
   b?: string;
@@ -222,11 +213,28 @@ export interface XmlListsOutput {
   renamedListMembers?: string[];
   flattenedList?: string[];
   flattenedList2?: string[];
+  flattenedListWithMemberNamespace?: string[];
+  flattenedListWithNamespace?: string[];
   structureList?: StructureListMember[];
 }
 
 export namespace XmlListsOutput {
   export const filterSensitiveLog = (obj: XmlListsOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface XmlEnumsOutput {
+  fooEnum1?: FooEnum | string;
+  fooEnum2?: FooEnum | string;
+  fooEnum3?: FooEnum | string;
+  fooEnumList?: (FooEnum | string)[];
+  fooEnumSet?: (FooEnum | string)[];
+  fooEnumMap?: { [key: string]: FooEnum | string };
+}
+
+export namespace XmlEnumsOutput {
+  export const filterSensitiveLog = (obj: XmlEnumsOutput): any => ({
     ...obj,
   });
 }

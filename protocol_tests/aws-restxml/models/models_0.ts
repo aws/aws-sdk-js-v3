@@ -1,7 +1,13 @@
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export type FooEnum = "0" | "1" | "Bar" | "Baz" | "Foo";
+export enum FooEnum {
+  BAR = "Bar",
+  BAZ = "Baz",
+  FOO = "Foo",
+  ONE = "1",
+  ZERO = "0",
+}
 
 export interface AllQueryStringTypesInput {
   queryString?: string;
@@ -110,6 +116,16 @@ export interface FlattenedXmlMapWithXmlNameInputOutput {
 
 export namespace FlattenedXmlMapWithXmlNameInputOutput {
   export const filterSensitiveLog = (obj: FlattenedXmlMapWithXmlNameInputOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface FlattenedXmlMapWithXmlNamespaceOutput {
+  myMap?: { [key: string]: string };
+}
+
+export namespace FlattenedXmlMapWithXmlNamespaceOutput {
+  export const filterSensitiveLog = (obj: FlattenedXmlMapWithXmlNamespaceOutput): any => ({
     ...obj,
   });
 }
@@ -304,6 +320,16 @@ export namespace HttpRequestWithLabelsAndTimestampFormatInput {
   });
 }
 
+export interface HttpResponseCodeOutput {
+  Status?: number;
+}
+
+export namespace HttpResponseCodeOutput {
+  export const filterSensitiveLog = (obj: HttpResponseCodeOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface IgnoreQueryParamsInResponseOutput {
   baz?: string;
 }
@@ -446,21 +472,6 @@ export namespace XmlBlobsInputOutput {
   });
 }
 
-export interface XmlEnumsInputOutput {
-  fooEnum1?: FooEnum | string;
-  fooEnum2?: FooEnum | string;
-  fooEnum3?: FooEnum | string;
-  fooEnumList?: (FooEnum | string)[];
-  fooEnumSet?: (FooEnum | string)[];
-  fooEnumMap?: { [key: string]: FooEnum | string };
-}
-
-export namespace XmlEnumsInputOutput {
-  export const filterSensitiveLog = (obj: XmlEnumsInputOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface StructureListMember {
   a?: string;
   b?: string;
@@ -487,6 +498,8 @@ export interface XmlListsInputOutput {
   renamedListMembers?: string[];
   flattenedList?: string[];
   flattenedList2?: string[];
+  flattenedListWithMemberNamespace?: string[];
+  flattenedListWithNamespace?: string[];
   structureList?: StructureListMember[];
 }
 
@@ -512,6 +525,31 @@ export interface XmlMapsInputOutput {
 
 export namespace XmlMapsInputOutput {
   export const filterSensitiveLog = (obj: XmlMapsInputOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface XmlEmptyStringsInputOutput {
+  emptyString?: string;
+}
+
+export namespace XmlEmptyStringsInputOutput {
+  export const filterSensitiveLog = (obj: XmlEmptyStringsInputOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface XmlEnumsInputOutput {
+  fooEnum1?: FooEnum | string;
+  fooEnum2?: FooEnum | string;
+  fooEnum3?: FooEnum | string;
+  fooEnumList?: (FooEnum | string)[];
+  fooEnumSet?: (FooEnum | string)[];
+  fooEnumMap?: { [key: string]: FooEnum | string };
+}
+
+export namespace XmlEnumsInputOutput {
+  export const filterSensitiveLog = (obj: XmlEnumsInputOutput): any => ({
     ...obj,
   });
 }

@@ -1,8 +1,8 @@
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { TimestampFormatHeadersIO } from "../models/models_0";
+import { StreamingTraitsWithMediaTypeInputOutput } from "../models/models_0";
 import {
-  deserializeAws_restJson1TimestampFormatHeadersCommand,
-  serializeAws_restJson1TimestampFormatHeadersCommand,
+  deserializeAws_restJson1StreamingTraitsWithMediaTypeCommand,
+  serializeAws_restJson1StreamingTraitsWithMediaTypeCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -17,21 +17,26 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TimestampFormatHeadersCommandInput = TimestampFormatHeadersIO;
-export type TimestampFormatHeadersCommandOutput = TimestampFormatHeadersIO & __MetadataBearer;
+export type StreamingTraitsWithMediaTypeCommandInput = Omit<StreamingTraitsWithMediaTypeInputOutput, "blob"> & {
+  blob?: StreamingTraitsWithMediaTypeInputOutput["blob"] | string | Uint8Array | Buffer;
+};
+export type StreamingTraitsWithMediaTypeCommandOutput = StreamingTraitsWithMediaTypeInputOutput & __MetadataBearer;
 
 /**
- * This example tests how timestamp request and response headers are serialized.
+ * This examples serializes a streaming media-typed blob shape in the request body.
+ *
+ * This examples uses a `@mediaType` trait on the payload to force a custom
+ * content-type to be serialized.
  */
-export class TimestampFormatHeadersCommand extends $Command<
-  TimestampFormatHeadersCommandInput,
-  TimestampFormatHeadersCommandOutput,
+export class StreamingTraitsWithMediaTypeCommand extends $Command<
+  StreamingTraitsWithMediaTypeCommandInput,
+  StreamingTraitsWithMediaTypeCommandOutput,
   RestJsonProtocolClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: TimestampFormatHeadersCommandInput) {
+  constructor(readonly input: StreamingTraitsWithMediaTypeCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -44,20 +49,20 @@ export class TimestampFormatHeadersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<TimestampFormatHeadersCommandInput, TimestampFormatHeadersCommandOutput> {
+  ): Handler<StreamingTraitsWithMediaTypeCommandInput, StreamingTraitsWithMediaTypeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "RestJsonProtocolClient";
-    const commandName = "TimestampFormatHeadersCommand";
+    const commandName = "StreamingTraitsWithMediaTypeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TimestampFormatHeadersIO.filterSensitiveLog,
-      outputFilterSensitiveLog: TimestampFormatHeadersIO.filterSensitiveLog,
+      inputFilterSensitiveLog: StreamingTraitsWithMediaTypeInputOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: StreamingTraitsWithMediaTypeInputOutput.filterSensitiveLog,
     };
 
     if (typeof logger.info === "function") {
@@ -75,12 +80,15 @@ export class TimestampFormatHeadersCommand extends $Command<
     );
   }
 
-  private serialize(input: TimestampFormatHeadersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TimestampFormatHeadersCommand(input, context);
+  private serialize(input: StreamingTraitsWithMediaTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1StreamingTraitsWithMediaTypeCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TimestampFormatHeadersCommandOutput> {
-    return deserializeAws_restJson1TimestampFormatHeadersCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<StreamingTraitsWithMediaTypeCommandOutput> {
+    return deserializeAws_restJson1StreamingTraitsWithMediaTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

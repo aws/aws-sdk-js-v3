@@ -7,6 +7,10 @@ import {
   FlattenedXmlMapWithXmlNameCommandInput,
   FlattenedXmlMapWithXmlNameCommandOutput,
 } from "./commands/FlattenedXmlMapWithXmlNameCommand";
+import {
+  FlattenedXmlMapWithXmlNamespaceCommandInput,
+  FlattenedXmlMapWithXmlNamespaceCommandOutput,
+} from "./commands/FlattenedXmlMapWithXmlNamespaceCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "./commands/GreetingWithErrorsCommand";
 import {
   IgnoresWrappingXmlNameCommandInput,
@@ -29,6 +33,9 @@ import {
   SimpleScalarXmlPropertiesCommandOutput,
 } from "./commands/SimpleScalarXmlPropertiesCommand";
 import { XmlBlobsCommandInput, XmlBlobsCommandOutput } from "./commands/XmlBlobsCommand";
+import { XmlEmptyBlobsCommandInput, XmlEmptyBlobsCommandOutput } from "./commands/XmlEmptyBlobsCommand";
+import { XmlEmptyListsCommandInput, XmlEmptyListsCommandOutput } from "./commands/XmlEmptyListsCommand";
+import { XmlEmptyMapsCommandInput, XmlEmptyMapsCommandOutput } from "./commands/XmlEmptyMapsCommand";
 import { XmlEnumsCommandInput, XmlEnumsCommandOutput } from "./commands/XmlEnumsCommand";
 import { XmlListsCommandInput, XmlListsCommandOutput } from "./commands/XmlListsCommand";
 import { XmlMapsCommandInput, XmlMapsCommandOutput } from "./commands/XmlMapsCommand";
@@ -88,6 +95,7 @@ export type ServiceInputTypes =
   | EmptyInputAndEmptyOutputCommandInput
   | FlattenedXmlMapCommandInput
   | FlattenedXmlMapWithXmlNameCommandInput
+  | FlattenedXmlMapWithXmlNamespaceCommandInput
   | GreetingWithErrorsCommandInput
   | IgnoresWrappingXmlNameCommandInput
   | NestedStructuresCommandInput
@@ -101,6 +109,9 @@ export type ServiceInputTypes =
   | SimpleInputParamsCommandInput
   | SimpleScalarXmlPropertiesCommandInput
   | XmlBlobsCommandInput
+  | XmlEmptyBlobsCommandInput
+  | XmlEmptyListsCommandInput
+  | XmlEmptyMapsCommandInput
   | XmlEnumsCommandInput
   | XmlListsCommandInput
   | XmlMapsCommandInput
@@ -112,6 +123,7 @@ export type ServiceOutputTypes =
   | EmptyInputAndEmptyOutputCommandOutput
   | FlattenedXmlMapCommandOutput
   | FlattenedXmlMapWithXmlNameCommandOutput
+  | FlattenedXmlMapWithXmlNamespaceCommandOutput
   | GreetingWithErrorsCommandOutput
   | IgnoresWrappingXmlNameCommandOutput
   | NestedStructuresCommandOutput
@@ -125,6 +137,9 @@ export type ServiceOutputTypes =
   | SimpleInputParamsCommandOutput
   | SimpleScalarXmlPropertiesCommandOutput
   | XmlBlobsCommandOutput
+  | XmlEmptyBlobsCommandOutput
+  | XmlEmptyListsCommandOutput
+  | XmlEmptyMapsCommandOutput
   | XmlEnumsCommandOutput
   | XmlListsCommandOutput
   | XmlMapsCommandOutput
