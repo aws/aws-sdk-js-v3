@@ -83,7 +83,7 @@ const parseIni = (iniData: string): ParsedIniData => {
     if (section) {
       currentSection = section[1];
       if (profileNameBlockList.includes(currentSection)) {
-        throw new Error(`Found invalid profile name ${currentSection}`);
+        throw new Error(`Found invalid profile name "${currentSection}"`);
       }
     } else if (currentSection) {
       const item = line.match(/^\s*(.+?)\s*=\s*(.+?)\s*$/);
