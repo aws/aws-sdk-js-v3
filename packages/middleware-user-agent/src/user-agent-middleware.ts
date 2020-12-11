@@ -1,12 +1,12 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
-  BuildHandler,
-  BuildHandlerArguments,
-  BuildHandlerOptions,
-  BuildHandlerOutput,
+  FinalizeHandler,
+  FinalizeHandlerArguments,
+  FinalizeHandlerOutput,
   HandlerExecutionContext,
   MetadataBearer,
   Pluggable,
+  RelativeMiddlewareOptions,
   UserAgentPair,
 } from "@aws-sdk/types";
 
@@ -26,9 +26,9 @@ import { SPACE, UA_ESCAPE_REGEX, USER_AGENT, X_AMZ_USER_AGENT } from "./constant
  * agent.
  */
 export const userAgentMiddleware = (options: UserAgentResolvedConfig) => <Output extends MetadataBearer>(
-  next: BuildHandler<any, any>,
+  next: FinalizeHandler<any, any>,
   context: HandlerExecutionContext
-): BuildHandler<any, any> => async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
+): FinalizeHandler<any, any> => async (args: FinalizeHandlerArguments<any>): Promise<FinalizeHandlerOutput<Output>> => {
   const { request } = args;
   if (!HttpRequest.isInstance(request)) return next(args);
   const { headers } = request;
@@ -57,7 +57,7 @@ export const userAgentMiddleware = (options: UserAgentResolvedConfig) => <Output
  * User agent name may include prefix like `md/`, `api/`, `os/` etc., we should not escape the `/` after the prefix.
  * @private
  */
-export const escapeUserAgent = ([name, version]: UserAgentPair): string => {
+const escapeUserAgent = ([name, version]: UserAgentPair): string => {
   const prefixSeparatorIndex = name.indexOf("/");
   const prefix = name.substring(0, prefixSeparatorIndex); // If no prefix, prefix is just ""
   const uaName = name.substring(prefixSeparatorIndex + 1);
@@ -67,14 +67,15 @@ export const escapeUserAgent = ([name, version]: UserAgentPair): string => {
     .join("/");
 };
 
-export const getUserAgentMiddlewareOptions: BuildHandlerOptions = {
+export const getUserAgentMiddlewareOptions: RelativeMiddlewareOptions = {
   name: "getUserAgentMiddleware",
-  step: "build",
+  relation: "before",
+  toMiddleware: "awsAuthMiddleware",
   tags: ["SET_USER_AGENT", "USER_AGENT"],
 };
 
 export const getUserAgentPlugin = (config: UserAgentResolvedConfig): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
-    clientStack.add(userAgentMiddleware(config), getUserAgentMiddlewareOptions);
+    clientStack.addRelativeTo(userAgentMiddleware(config), getUserAgentMiddlewareOptions);
   },
 });

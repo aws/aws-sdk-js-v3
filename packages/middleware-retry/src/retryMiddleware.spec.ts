@@ -1,4 +1,4 @@
-import { FinalizeHandlerArguments, MiddlewareStack, RetryStrategy } from "@aws-sdk/types";
+import { FinalizeHandlerArguments, HandlerExecutionContext, MiddlewareStack, RetryStrategy } from "@aws-sdk/types";
 
 import { getRetryPlugin, retryMiddleware, retryMiddlewareOptions } from "./retryMiddleware";
 
@@ -37,15 +37,21 @@ describe("retryMiddleware", () => {
       request: {},
     };
     const mockRetryStrategy = {
+      mode: "mock",
       maxAttempts,
       retry: jest.fn(),
     };
+    const context: HandlerExecutionContext = {};
 
     await retryMiddleware({
       maxAttempts: () => Promise.resolve(maxAttempts),
       retryStrategy: mockRetryStrategy,
-    })(next)(args as FinalizeHandlerArguments<any>);
+    })(
+      next,
+      context
+    )(args as FinalizeHandlerArguments<any>);
     expect(mockRetryStrategy.retry).toHaveBeenCalledTimes(1);
     expect(mockRetryStrategy.retry).toHaveBeenCalledWith(next, args);
+    expect(context.userAgent).toContainEqual(["cfg/retry-mode", "mock"]);
   });
 });

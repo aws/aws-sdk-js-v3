@@ -1,5 +1,10 @@
 import { Endpoint } from "./http";
-import { FinalizeHandler, FinalizeHandlerArguments, FinalizeHandlerOutput } from "./middleware";
+import {
+  FinalizeHandler,
+  FinalizeHandlerArguments,
+  FinalizeHandlerOutput,
+  HandlerExecutionContext,
+} from "./middleware";
 import { MetadataBearer } from "./response";
 
 /**
@@ -53,6 +58,10 @@ export interface BodyLengthCalculator {
  * Interface that specifies the retry behavior
  */
 export interface RetryStrategy {
+  /**
+   * The retry mode describing how the retry strategy control the traffic flow.
+   */
+  mode?: string;
   /**
    * the retry behavior the will invoke the next handler and handle the retry accordingly.
    * This function should also update the $metadata from the response accordingly.
