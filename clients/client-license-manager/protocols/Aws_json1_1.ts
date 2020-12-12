@@ -241,7 +241,7 @@ export const serializeAws_json1_1AcceptGrantCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.AcceptGrant",
   };
   let body: any;
@@ -254,7 +254,7 @@ export const serializeAws_json1_1CheckInLicenseCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.CheckInLicense",
   };
   let body: any;
@@ -267,7 +267,7 @@ export const serializeAws_json1_1CheckoutBorrowLicenseCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.CheckoutBorrowLicense",
   };
   let body: any;
@@ -280,7 +280,7 @@ export const serializeAws_json1_1CheckoutLicenseCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.CheckoutLicense",
   };
   let body: any;
@@ -293,7 +293,7 @@ export const serializeAws_json1_1CreateGrantCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.CreateGrant",
   };
   let body: any;
@@ -306,7 +306,7 @@ export const serializeAws_json1_1CreateGrantVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.CreateGrantVersion",
   };
   let body: any;
@@ -319,7 +319,7 @@ export const serializeAws_json1_1CreateLicenseCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.CreateLicense",
   };
   let body: any;
@@ -332,7 +332,7 @@ export const serializeAws_json1_1CreateLicenseConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.CreateLicenseConfiguration",
   };
   let body: any;
@@ -345,7 +345,7 @@ export const serializeAws_json1_1CreateLicenseVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.CreateLicenseVersion",
   };
   let body: any;
@@ -358,7 +358,7 @@ export const serializeAws_json1_1CreateTokenCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.CreateToken",
   };
   let body: any;
@@ -371,7 +371,7 @@ export const serializeAws_json1_1DeleteGrantCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.DeleteGrant",
   };
   let body: any;
@@ -384,7 +384,7 @@ export const serializeAws_json1_1DeleteLicenseCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.DeleteLicense",
   };
   let body: any;
@@ -397,7 +397,7 @@ export const serializeAws_json1_1DeleteLicenseConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.DeleteLicenseConfiguration",
   };
   let body: any;
@@ -410,7 +410,7 @@ export const serializeAws_json1_1DeleteTokenCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.DeleteToken",
   };
   let body: any;
@@ -423,7 +423,7 @@ export const serializeAws_json1_1ExtendLicenseConsumptionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.ExtendLicenseConsumption",
   };
   let body: any;
@@ -436,7 +436,7 @@ export const serializeAws_json1_1GetAccessTokenCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.GetAccessToken",
   };
   let body: any;
@@ -449,7 +449,7 @@ export const serializeAws_json1_1GetGrantCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.GetGrant",
   };
   let body: any;
@@ -462,7 +462,7 @@ export const serializeAws_json1_1GetLicenseCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.GetLicense",
   };
   let body: any;
@@ -475,7 +475,7 @@ export const serializeAws_json1_1GetLicenseConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.GetLicenseConfiguration",
   };
   let body: any;
@@ -488,7 +488,7 @@ export const serializeAws_json1_1GetLicenseUsageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.GetLicenseUsage",
   };
   let body: any;
@@ -501,7 +501,7 @@ export const serializeAws_json1_1GetServiceSettingsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.GetServiceSettings",
   };
   let body: any;
@@ -514,7 +514,7 @@ export const serializeAws_json1_1ListAssociationsForLicenseConfigurationCommand 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.ListAssociationsForLicenseConfiguration",
   };
   let body: any;
@@ -527,7 +527,7 @@ export const serializeAws_json1_1ListDistributedGrantsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.ListDistributedGrants",
   };
   let body: any;
@@ -540,7 +540,7 @@ export const serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCo
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.ListFailuresForLicenseConfigurationOperations",
   };
   let body: any;
@@ -553,7 +553,7 @@ export const serializeAws_json1_1ListLicenseConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.ListLicenseConfigurations",
   };
   let body: any;
@@ -566,7 +566,7 @@ export const serializeAws_json1_1ListLicensesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.ListLicenses",
   };
   let body: any;
@@ -579,7 +579,7 @@ export const serializeAws_json1_1ListLicenseSpecificationsForResourceCommand = a
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.ListLicenseSpecificationsForResource",
   };
   let body: any;
@@ -592,7 +592,7 @@ export const serializeAws_json1_1ListLicenseVersionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.ListLicenseVersions",
   };
   let body: any;
@@ -605,7 +605,7 @@ export const serializeAws_json1_1ListReceivedGrantsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.ListReceivedGrants",
   };
   let body: any;
@@ -618,7 +618,7 @@ export const serializeAws_json1_1ListReceivedLicensesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.ListReceivedLicenses",
   };
   let body: any;
@@ -631,7 +631,7 @@ export const serializeAws_json1_1ListResourceInventoryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.ListResourceInventory",
   };
   let body: any;
@@ -644,7 +644,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.ListTagsForResource",
   };
   let body: any;
@@ -657,7 +657,7 @@ export const serializeAws_json1_1ListTokensCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.ListTokens",
   };
   let body: any;
@@ -670,7 +670,7 @@ export const serializeAws_json1_1ListUsageForLicenseConfigurationCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.ListUsageForLicenseConfiguration",
   };
   let body: any;
@@ -683,7 +683,7 @@ export const serializeAws_json1_1RejectGrantCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.RejectGrant",
   };
   let body: any;
@@ -696,7 +696,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.TagResource",
   };
   let body: any;
@@ -709,7 +709,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.UntagResource",
   };
   let body: any;
@@ -722,7 +722,7 @@ export const serializeAws_json1_1UpdateLicenseConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.UpdateLicenseConfiguration",
   };
   let body: any;
@@ -735,7 +735,7 @@ export const serializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand =
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.UpdateLicenseSpecificationsForResource",
   };
   let body: any;
@@ -748,7 +748,7 @@ export const serializeAws_json1_1UpdateServiceSettingsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLicenseManager.UpdateServiceSettings",
   };
   let body: any;
@@ -783,8 +783,7 @@ const deserializeAws_json1_1AcceptGrantCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -886,8 +885,7 @@ const deserializeAws_json1_1CheckInLicenseCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -989,8 +987,7 @@ const deserializeAws_json1_1CheckoutBorrowLicenseCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -1116,8 +1113,7 @@ const deserializeAws_json1_1CheckoutLicenseCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -1235,8 +1231,7 @@ const deserializeAws_json1_1CreateGrantCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -1338,8 +1333,7 @@ const deserializeAws_json1_1CreateGrantVersionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -1441,8 +1435,7 @@ const deserializeAws_json1_1CreateLicenseCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -1544,8 +1537,7 @@ const deserializeAws_json1_1CreateLicenseConfigurationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -1639,8 +1631,7 @@ const deserializeAws_json1_1CreateLicenseVersionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -1750,8 +1741,7 @@ const deserializeAws_json1_1CreateTokenCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -1861,8 +1851,7 @@ const deserializeAws_json1_1DeleteGrantCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -1964,8 +1953,7 @@ const deserializeAws_json1_1DeleteLicenseCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -2075,8 +2063,7 @@ const deserializeAws_json1_1DeleteLicenseConfigurationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -2162,8 +2149,7 @@ const deserializeAws_json1_1DeleteTokenCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -2265,8 +2251,7 @@ const deserializeAws_json1_1ExtendLicenseConsumptionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -2368,8 +2353,7 @@ const deserializeAws_json1_1GetAccessTokenCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -2455,8 +2439,7 @@ const deserializeAws_json1_1GetGrantCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -2558,8 +2541,7 @@ const deserializeAws_json1_1GetLicenseCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -2653,8 +2635,7 @@ const deserializeAws_json1_1GetLicenseConfigurationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -2740,8 +2721,7 @@ const deserializeAws_json1_1GetLicenseUsageCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -2835,8 +2815,7 @@ const deserializeAws_json1_1GetServiceSettingsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -2914,8 +2893,7 @@ const deserializeAws_json1_1ListAssociationsForLicenseConfigurationCommandError 
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -3009,8 +2987,7 @@ const deserializeAws_json1_1ListDistributedGrantsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -3112,8 +3089,7 @@ const deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -3199,8 +3175,7 @@ const deserializeAws_json1_1ListLicenseConfigurationsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -3294,8 +3269,7 @@ const deserializeAws_json1_1ListLicensesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -3389,8 +3363,7 @@ const deserializeAws_json1_1ListLicenseSpecificationsForResourceCommandError = a
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -3476,8 +3449,7 @@ const deserializeAws_json1_1ListLicenseVersionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -3563,8 +3535,7 @@ const deserializeAws_json1_1ListReceivedGrantsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -3666,8 +3637,7 @@ const deserializeAws_json1_1ListReceivedLicensesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -3769,8 +3739,7 @@ const deserializeAws_json1_1ListResourceInventoryCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -3872,8 +3841,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -3959,8 +3927,7 @@ const deserializeAws_json1_1ListTokensCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -4046,8 +4013,7 @@ const deserializeAws_json1_1ListUsageForLicenseConfigurationCommandError = async
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -4141,8 +4107,7 @@ const deserializeAws_json1_1RejectGrantCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -4244,8 +4209,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -4331,8 +4295,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -4418,8 +4381,7 @@ const deserializeAws_json1_1UpdateLicenseConfigurationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -4513,8 +4475,7 @@ const deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommandError =
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -4616,8 +4577,7 @@ const deserializeAws_json1_1UpdateServiceSettingsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
@@ -4933,7 +4893,7 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
 
 const serializeAws_json1_1AcceptGrantRequest = (input: AcceptGrantRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GrantArn !== undefined && { GrantArn: input.GrantArn }),
+    ...(input.GrantArn !== undefined && input.GrantArn !== null && { GrantArn: input.GrantArn }),
   };
 };
 
@@ -4941,24 +4901,41 @@ const serializeAws_json1_1AllowedOperationList = (
   input: (AllowedOperation | string)[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ArnList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1BorrowConfiguration = (input: BorrowConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.AllowEarlyCheckIn !== undefined && { AllowEarlyCheckIn: input.AllowEarlyCheckIn }),
-    ...(input.MaxTimeToLiveInMinutes !== undefined && { MaxTimeToLiveInMinutes: input.MaxTimeToLiveInMinutes }),
+    ...(input.AllowEarlyCheckIn !== undefined &&
+      input.AllowEarlyCheckIn !== null && { AllowEarlyCheckIn: input.AllowEarlyCheckIn }),
+    ...(input.MaxTimeToLiveInMinutes !== undefined &&
+      input.MaxTimeToLiveInMinutes !== null && { MaxTimeToLiveInMinutes: input.MaxTimeToLiveInMinutes }),
   };
 };
 
 const serializeAws_json1_1CheckInLicenseRequest = (input: CheckInLicenseRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Beneficiary !== undefined && { Beneficiary: input.Beneficiary }),
-    ...(input.LicenseConsumptionToken !== undefined && { LicenseConsumptionToken: input.LicenseConsumptionToken }),
+    ...(input.Beneficiary !== undefined && input.Beneficiary !== null && { Beneficiary: input.Beneficiary }),
+    ...(input.LicenseConsumptionToken !== undefined &&
+      input.LicenseConsumptionToken !== null && { LicenseConsumptionToken: input.LicenseConsumptionToken }),
   };
 };
 
@@ -4967,30 +4944,35 @@ const serializeAws_json1_1CheckoutBorrowLicenseRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CheckoutMetadata !== undefined && {
-      CheckoutMetadata: serializeAws_json1_1MetadataList(input.CheckoutMetadata, context),
-    }),
-    ...(input.ClientToken !== undefined && { ClientToken: input.ClientToken }),
-    ...(input.DigitalSignatureMethod !== undefined && { DigitalSignatureMethod: input.DigitalSignatureMethod }),
-    ...(input.Entitlements !== undefined && {
-      Entitlements: serializeAws_json1_1EntitlementDataList(input.Entitlements, context),
-    }),
-    ...(input.LicenseArn !== undefined && { LicenseArn: input.LicenseArn }),
-    ...(input.NodeId !== undefined && { NodeId: input.NodeId }),
+    ...(input.CheckoutMetadata !== undefined &&
+      input.CheckoutMetadata !== null && {
+        CheckoutMetadata: serializeAws_json1_1MetadataList(input.CheckoutMetadata, context),
+      }),
+    ...(input.ClientToken !== undefined && input.ClientToken !== null && { ClientToken: input.ClientToken }),
+    ...(input.DigitalSignatureMethod !== undefined &&
+      input.DigitalSignatureMethod !== null && { DigitalSignatureMethod: input.DigitalSignatureMethod }),
+    ...(input.Entitlements !== undefined &&
+      input.Entitlements !== null && {
+        Entitlements: serializeAws_json1_1EntitlementDataList(input.Entitlements, context),
+      }),
+    ...(input.LicenseArn !== undefined && input.LicenseArn !== null && { LicenseArn: input.LicenseArn }),
+    ...(input.NodeId !== undefined && input.NodeId !== null && { NodeId: input.NodeId }),
   };
 };
 
 const serializeAws_json1_1CheckoutLicenseRequest = (input: CheckoutLicenseRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Beneficiary !== undefined && { Beneficiary: input.Beneficiary }),
-    ...(input.CheckoutType !== undefined && { CheckoutType: input.CheckoutType }),
-    ...(input.ClientToken !== undefined && { ClientToken: input.ClientToken }),
-    ...(input.Entitlements !== undefined && {
-      Entitlements: serializeAws_json1_1EntitlementDataList(input.Entitlements, context),
-    }),
-    ...(input.KeyFingerprint !== undefined && { KeyFingerprint: input.KeyFingerprint }),
-    ...(input.NodeId !== undefined && { NodeId: input.NodeId }),
-    ...(input.ProductSKU !== undefined && { ProductSKU: input.ProductSKU }),
+    ...(input.Beneficiary !== undefined && input.Beneficiary !== null && { Beneficiary: input.Beneficiary }),
+    ...(input.CheckoutType !== undefined && input.CheckoutType !== null && { CheckoutType: input.CheckoutType }),
+    ...(input.ClientToken !== undefined && input.ClientToken !== null && { ClientToken: input.ClientToken }),
+    ...(input.Entitlements !== undefined &&
+      input.Entitlements !== null && {
+        Entitlements: serializeAws_json1_1EntitlementDataList(input.Entitlements, context),
+      }),
+    ...(input.KeyFingerprint !== undefined &&
+      input.KeyFingerprint !== null && { KeyFingerprint: input.KeyFingerprint }),
+    ...(input.NodeId !== undefined && input.NodeId !== null && { NodeId: input.NodeId }),
+    ...(input.ProductSKU !== undefined && input.ProductSKU !== null && { ProductSKU: input.ProductSKU }),
   };
 };
 
@@ -4999,28 +4981,30 @@ const serializeAws_json1_1ConsumptionConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BorrowConfiguration !== undefined && {
-      BorrowConfiguration: serializeAws_json1_1BorrowConfiguration(input.BorrowConfiguration, context),
-    }),
-    ...(input.ProvisionalConfiguration !== undefined && {
-      ProvisionalConfiguration: serializeAws_json1_1ProvisionalConfiguration(input.ProvisionalConfiguration, context),
-    }),
-    ...(input.RenewType !== undefined && { RenewType: input.RenewType }),
+    ...(input.BorrowConfiguration !== undefined &&
+      input.BorrowConfiguration !== null && {
+        BorrowConfiguration: serializeAws_json1_1BorrowConfiguration(input.BorrowConfiguration, context),
+      }),
+    ...(input.ProvisionalConfiguration !== undefined &&
+      input.ProvisionalConfiguration !== null && {
+        ProvisionalConfiguration: serializeAws_json1_1ProvisionalConfiguration(input.ProvisionalConfiguration, context),
+      }),
+    ...(input.RenewType !== undefined && input.RenewType !== null && { RenewType: input.RenewType }),
   };
 };
 
 const serializeAws_json1_1CreateGrantRequest = (input: CreateGrantRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AllowedOperations !== undefined && {
-      AllowedOperations: serializeAws_json1_1AllowedOperationList(input.AllowedOperations, context),
-    }),
-    ...(input.ClientToken !== undefined && { ClientToken: input.ClientToken }),
-    ...(input.GrantName !== undefined && { GrantName: input.GrantName }),
-    ...(input.HomeRegion !== undefined && { HomeRegion: input.HomeRegion }),
-    ...(input.LicenseArn !== undefined && { LicenseArn: input.LicenseArn }),
-    ...(input.Principals !== undefined && {
-      Principals: serializeAws_json1_1PrincipalArnList(input.Principals, context),
-    }),
+    ...(input.AllowedOperations !== undefined &&
+      input.AllowedOperations !== null && {
+        AllowedOperations: serializeAws_json1_1AllowedOperationList(input.AllowedOperations, context),
+      }),
+    ...(input.ClientToken !== undefined && input.ClientToken !== null && { ClientToken: input.ClientToken }),
+    ...(input.GrantName !== undefined && input.GrantName !== null && { GrantName: input.GrantName }),
+    ...(input.HomeRegion !== undefined && input.HomeRegion !== null && { HomeRegion: input.HomeRegion }),
+    ...(input.LicenseArn !== undefined && input.LicenseArn !== null && { LicenseArn: input.LicenseArn }),
+    ...(input.Principals !== undefined &&
+      input.Principals !== null && { Principals: serializeAws_json1_1PrincipalArnList(input.Principals, context) }),
   };
 };
 
@@ -5029,14 +5013,15 @@ const serializeAws_json1_1CreateGrantVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AllowedOperations !== undefined && {
-      AllowedOperations: serializeAws_json1_1AllowedOperationList(input.AllowedOperations, context),
-    }),
-    ...(input.ClientToken !== undefined && { ClientToken: input.ClientToken }),
-    ...(input.GrantArn !== undefined && { GrantArn: input.GrantArn }),
-    ...(input.GrantName !== undefined && { GrantName: input.GrantName }),
-    ...(input.SourceVersion !== undefined && { SourceVersion: input.SourceVersion }),
-    ...(input.Status !== undefined && { Status: input.Status }),
+    ...(input.AllowedOperations !== undefined &&
+      input.AllowedOperations !== null && {
+        AllowedOperations: serializeAws_json1_1AllowedOperationList(input.AllowedOperations, context),
+      }),
+    ...(input.ClientToken !== undefined && input.ClientToken !== null && { ClientToken: input.ClientToken }),
+    ...(input.GrantArn !== undefined && input.GrantArn !== null && { GrantArn: input.GrantArn }),
+    ...(input.GrantName !== undefined && input.GrantName !== null && { GrantName: input.GrantName }),
+    ...(input.SourceVersion !== undefined && input.SourceVersion !== null && { SourceVersion: input.SourceVersion }),
+    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
   };
 };
 
@@ -5045,41 +5030,49 @@ const serializeAws_json1_1CreateLicenseConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.DisassociateWhenNotFound !== undefined && { DisassociateWhenNotFound: input.DisassociateWhenNotFound }),
-    ...(input.LicenseCount !== undefined && { LicenseCount: input.LicenseCount }),
-    ...(input.LicenseCountHardLimit !== undefined && { LicenseCountHardLimit: input.LicenseCountHardLimit }),
-    ...(input.LicenseCountingType !== undefined && { LicenseCountingType: input.LicenseCountingType }),
-    ...(input.LicenseRules !== undefined && {
-      LicenseRules: serializeAws_json1_1StringList(input.LicenseRules, context),
-    }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.ProductInformationList !== undefined && {
-      ProductInformationList: serializeAws_json1_1ProductInformationList(input.ProductInformationList, context),
-    }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.DisassociateWhenNotFound !== undefined &&
+      input.DisassociateWhenNotFound !== null && { DisassociateWhenNotFound: input.DisassociateWhenNotFound }),
+    ...(input.LicenseCount !== undefined && input.LicenseCount !== null && { LicenseCount: input.LicenseCount }),
+    ...(input.LicenseCountHardLimit !== undefined &&
+      input.LicenseCountHardLimit !== null && { LicenseCountHardLimit: input.LicenseCountHardLimit }),
+    ...(input.LicenseCountingType !== undefined &&
+      input.LicenseCountingType !== null && { LicenseCountingType: input.LicenseCountingType }),
+    ...(input.LicenseRules !== undefined &&
+      input.LicenseRules !== null && { LicenseRules: serializeAws_json1_1StringList(input.LicenseRules, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.ProductInformationList !== undefined &&
+      input.ProductInformationList !== null && {
+        ProductInformationList: serializeAws_json1_1ProductInformationList(input.ProductInformationList, context),
+      }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateLicenseRequest = (input: CreateLicenseRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Beneficiary !== undefined && { Beneficiary: input.Beneficiary }),
-    ...(input.ClientToken !== undefined && { ClientToken: input.ClientToken }),
-    ...(input.ConsumptionConfiguration !== undefined && {
-      ConsumptionConfiguration: serializeAws_json1_1ConsumptionConfiguration(input.ConsumptionConfiguration, context),
-    }),
-    ...(input.Entitlements !== undefined && {
-      Entitlements: serializeAws_json1_1EntitlementList(input.Entitlements, context),
-    }),
-    ...(input.HomeRegion !== undefined && { HomeRegion: input.HomeRegion }),
-    ...(input.Issuer !== undefined && { Issuer: serializeAws_json1_1Issuer(input.Issuer, context) }),
-    ...(input.LicenseMetadata !== undefined && {
-      LicenseMetadata: serializeAws_json1_1MetadataList(input.LicenseMetadata, context),
-    }),
-    ...(input.LicenseName !== undefined && { LicenseName: input.LicenseName }),
-    ...(input.ProductName !== undefined && { ProductName: input.ProductName }),
-    ...(input.ProductSKU !== undefined && { ProductSKU: input.ProductSKU }),
-    ...(input.Validity !== undefined && { Validity: serializeAws_json1_1DatetimeRange(input.Validity, context) }),
+    ...(input.Beneficiary !== undefined && input.Beneficiary !== null && { Beneficiary: input.Beneficiary }),
+    ...(input.ClientToken !== undefined && input.ClientToken !== null && { ClientToken: input.ClientToken }),
+    ...(input.ConsumptionConfiguration !== undefined &&
+      input.ConsumptionConfiguration !== null && {
+        ConsumptionConfiguration: serializeAws_json1_1ConsumptionConfiguration(input.ConsumptionConfiguration, context),
+      }),
+    ...(input.Entitlements !== undefined &&
+      input.Entitlements !== null && {
+        Entitlements: serializeAws_json1_1EntitlementList(input.Entitlements, context),
+      }),
+    ...(input.HomeRegion !== undefined && input.HomeRegion !== null && { HomeRegion: input.HomeRegion }),
+    ...(input.Issuer !== undefined &&
+      input.Issuer !== null && { Issuer: serializeAws_json1_1Issuer(input.Issuer, context) }),
+    ...(input.LicenseMetadata !== undefined &&
+      input.LicenseMetadata !== null && {
+        LicenseMetadata: serializeAws_json1_1MetadataList(input.LicenseMetadata, context),
+      }),
+    ...(input.LicenseName !== undefined && input.LicenseName !== null && { LicenseName: input.LicenseName }),
+    ...(input.ProductName !== undefined && input.ProductName !== null && { ProductName: input.ProductName }),
+    ...(input.ProductSKU !== undefined && input.ProductSKU !== null && { ProductSKU: input.ProductSKU }),
+    ...(input.Validity !== undefined &&
+      input.Validity !== null && { Validity: serializeAws_json1_1DatetimeRange(input.Validity, context) }),
   };
 };
 
@@ -5088,50 +5081,58 @@ const serializeAws_json1_1CreateLicenseVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ClientToken !== undefined && { ClientToken: input.ClientToken }),
-    ...(input.ConsumptionConfiguration !== undefined && {
-      ConsumptionConfiguration: serializeAws_json1_1ConsumptionConfiguration(input.ConsumptionConfiguration, context),
-    }),
-    ...(input.Entitlements !== undefined && {
-      Entitlements: serializeAws_json1_1EntitlementList(input.Entitlements, context),
-    }),
-    ...(input.HomeRegion !== undefined && { HomeRegion: input.HomeRegion }),
-    ...(input.Issuer !== undefined && { Issuer: serializeAws_json1_1Issuer(input.Issuer, context) }),
-    ...(input.LicenseArn !== undefined && { LicenseArn: input.LicenseArn }),
-    ...(input.LicenseMetadata !== undefined && {
-      LicenseMetadata: serializeAws_json1_1MetadataList(input.LicenseMetadata, context),
-    }),
-    ...(input.LicenseName !== undefined && { LicenseName: input.LicenseName }),
-    ...(input.ProductName !== undefined && { ProductName: input.ProductName }),
-    ...(input.SourceVersion !== undefined && { SourceVersion: input.SourceVersion }),
-    ...(input.Status !== undefined && { Status: input.Status }),
-    ...(input.Validity !== undefined && { Validity: serializeAws_json1_1DatetimeRange(input.Validity, context) }),
+    ...(input.ClientToken !== undefined && input.ClientToken !== null && { ClientToken: input.ClientToken }),
+    ...(input.ConsumptionConfiguration !== undefined &&
+      input.ConsumptionConfiguration !== null && {
+        ConsumptionConfiguration: serializeAws_json1_1ConsumptionConfiguration(input.ConsumptionConfiguration, context),
+      }),
+    ...(input.Entitlements !== undefined &&
+      input.Entitlements !== null && {
+        Entitlements: serializeAws_json1_1EntitlementList(input.Entitlements, context),
+      }),
+    ...(input.HomeRegion !== undefined && input.HomeRegion !== null && { HomeRegion: input.HomeRegion }),
+    ...(input.Issuer !== undefined &&
+      input.Issuer !== null && { Issuer: serializeAws_json1_1Issuer(input.Issuer, context) }),
+    ...(input.LicenseArn !== undefined && input.LicenseArn !== null && { LicenseArn: input.LicenseArn }),
+    ...(input.LicenseMetadata !== undefined &&
+      input.LicenseMetadata !== null && {
+        LicenseMetadata: serializeAws_json1_1MetadataList(input.LicenseMetadata, context),
+      }),
+    ...(input.LicenseName !== undefined && input.LicenseName !== null && { LicenseName: input.LicenseName }),
+    ...(input.ProductName !== undefined && input.ProductName !== null && { ProductName: input.ProductName }),
+    ...(input.SourceVersion !== undefined && input.SourceVersion !== null && { SourceVersion: input.SourceVersion }),
+    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+    ...(input.Validity !== undefined &&
+      input.Validity !== null && { Validity: serializeAws_json1_1DatetimeRange(input.Validity, context) }),
   };
 };
 
 const serializeAws_json1_1CreateTokenRequest = (input: CreateTokenRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClientToken !== undefined && { ClientToken: input.ClientToken }),
-    ...(input.ExpirationInDays !== undefined && { ExpirationInDays: input.ExpirationInDays }),
-    ...(input.LicenseArn !== undefined && { LicenseArn: input.LicenseArn }),
-    ...(input.RoleArns !== undefined && { RoleArns: serializeAws_json1_1ArnList(input.RoleArns, context) }),
-    ...(input.TokenProperties !== undefined && {
-      TokenProperties: serializeAws_json1_1MaxSize3StringList(input.TokenProperties, context),
-    }),
+    ...(input.ClientToken !== undefined && input.ClientToken !== null && { ClientToken: input.ClientToken }),
+    ...(input.ExpirationInDays !== undefined &&
+      input.ExpirationInDays !== null && { ExpirationInDays: input.ExpirationInDays }),
+    ...(input.LicenseArn !== undefined && input.LicenseArn !== null && { LicenseArn: input.LicenseArn }),
+    ...(input.RoleArns !== undefined &&
+      input.RoleArns !== null && { RoleArns: serializeAws_json1_1ArnList(input.RoleArns, context) }),
+    ...(input.TokenProperties !== undefined &&
+      input.TokenProperties !== null && {
+        TokenProperties: serializeAws_json1_1MaxSize3StringList(input.TokenProperties, context),
+      }),
   };
 };
 
 const serializeAws_json1_1DatetimeRange = (input: DatetimeRange, context: __SerdeContext): any => {
   return {
-    ...(input.Begin !== undefined && { Begin: input.Begin }),
-    ...(input.End !== undefined && { End: input.End }),
+    ...(input.Begin !== undefined && input.Begin !== null && { Begin: input.Begin }),
+    ...(input.End !== undefined && input.End !== null && { End: input.End }),
   };
 };
 
 const serializeAws_json1_1DeleteGrantRequest = (input: DeleteGrantRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GrantArn !== undefined && { GrantArn: input.GrantArn }),
-    ...(input.Version !== undefined && { Version: input.Version }),
+    ...(input.GrantArn !== undefined && input.GrantArn !== null && { GrantArn: input.GrantArn }),
+    ...(input.Version !== undefined && input.Version !== null && { Version: input.Version }),
   };
 };
 
@@ -5140,48 +5141,63 @@ const serializeAws_json1_1DeleteLicenseConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LicenseConfigurationArn !== undefined && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
+    ...(input.LicenseConfigurationArn !== undefined &&
+      input.LicenseConfigurationArn !== null && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
   };
 };
 
 const serializeAws_json1_1DeleteLicenseRequest = (input: DeleteLicenseRequest, context: __SerdeContext): any => {
   return {
-    ...(input.LicenseArn !== undefined && { LicenseArn: input.LicenseArn }),
-    ...(input.SourceVersion !== undefined && { SourceVersion: input.SourceVersion }),
+    ...(input.LicenseArn !== undefined && input.LicenseArn !== null && { LicenseArn: input.LicenseArn }),
+    ...(input.SourceVersion !== undefined && input.SourceVersion !== null && { SourceVersion: input.SourceVersion }),
   };
 };
 
 const serializeAws_json1_1DeleteTokenRequest = (input: DeleteTokenRequest, context: __SerdeContext): any => {
   return {
-    ...(input.TokenId !== undefined && { TokenId: input.TokenId }),
+    ...(input.TokenId !== undefined && input.TokenId !== null && { TokenId: input.TokenId }),
   };
 };
 
 const serializeAws_json1_1Entitlement = (input: Entitlement, context: __SerdeContext): any => {
   return {
-    ...(input.AllowCheckIn !== undefined && { AllowCheckIn: input.AllowCheckIn }),
-    ...(input.MaxCount !== undefined && { MaxCount: input.MaxCount }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Overage !== undefined && { Overage: input.Overage }),
-    ...(input.Unit !== undefined && { Unit: input.Unit }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.AllowCheckIn !== undefined && input.AllowCheckIn !== null && { AllowCheckIn: input.AllowCheckIn }),
+    ...(input.MaxCount !== undefined && input.MaxCount !== null && { MaxCount: input.MaxCount }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Overage !== undefined && input.Overage !== null && { Overage: input.Overage }),
+    ...(input.Unit !== undefined && input.Unit !== null && { Unit: input.Unit }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1EntitlementData = (input: EntitlementData, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Unit !== undefined && { Unit: input.Unit }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Unit !== undefined && input.Unit !== null && { Unit: input.Unit }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1EntitlementDataList = (input: EntitlementData[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1EntitlementData(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1EntitlementData(entry, context);
+    });
 };
 
 const serializeAws_json1_1EntitlementList = (input: Entitlement[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Entitlement(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Entitlement(entry, context);
+    });
 };
 
 const serializeAws_json1_1ExtendLicenseConsumptionRequest = (
@@ -5189,43 +5205,67 @@ const serializeAws_json1_1ExtendLicenseConsumptionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
-    ...(input.LicenseConsumptionToken !== undefined && { LicenseConsumptionToken: input.LicenseConsumptionToken }),
+    ...(input.DryRun !== undefined && input.DryRun !== null && { DryRun: input.DryRun }),
+    ...(input.LicenseConsumptionToken !== undefined &&
+      input.LicenseConsumptionToken !== null && { LicenseConsumptionToken: input.LicenseConsumptionToken }),
   };
 };
 
 const serializeAws_json1_1Filter = (input: Filter, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Values !== undefined && { Values: serializeAws_json1_1FilterValues(input.Values, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Values !== undefined &&
+      input.Values !== null && { Values: serializeAws_json1_1FilterValues(input.Values, context) }),
   };
 };
 
 const serializeAws_json1_1FilterList = (input: Filter[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Filter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Filter(entry, context);
+    });
 };
 
 const serializeAws_json1_1Filters = (input: Filter[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Filter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Filter(entry, context);
+    });
 };
 
 const serializeAws_json1_1FilterValues = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1GetAccessTokenRequest = (input: GetAccessTokenRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Token !== undefined && { Token: input.Token }),
-    ...(input.TokenProperties !== undefined && {
-      TokenProperties: serializeAws_json1_1MaxSize3StringList(input.TokenProperties, context),
-    }),
+    ...(input.Token !== undefined && input.Token !== null && { Token: input.Token }),
+    ...(input.TokenProperties !== undefined &&
+      input.TokenProperties !== null && {
+        TokenProperties: serializeAws_json1_1MaxSize3StringList(input.TokenProperties, context),
+      }),
   };
 };
 
 const serializeAws_json1_1GetGrantRequest = (input: GetGrantRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GrantArn !== undefined && { GrantArn: input.GrantArn }),
-    ...(input.Version !== undefined && { Version: input.Version }),
+    ...(input.GrantArn !== undefined && input.GrantArn !== null && { GrantArn: input.GrantArn }),
+    ...(input.Version !== undefined && input.Version !== null && { Version: input.Version }),
   };
 };
 
@@ -5234,20 +5274,21 @@ const serializeAws_json1_1GetLicenseConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LicenseConfigurationArn !== undefined && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
+    ...(input.LicenseConfigurationArn !== undefined &&
+      input.LicenseConfigurationArn !== null && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
   };
 };
 
 const serializeAws_json1_1GetLicenseRequest = (input: GetLicenseRequest, context: __SerdeContext): any => {
   return {
-    ...(input.LicenseArn !== undefined && { LicenseArn: input.LicenseArn }),
-    ...(input.Version !== undefined && { Version: input.Version }),
+    ...(input.LicenseArn !== undefined && input.LicenseArn !== null && { LicenseArn: input.LicenseArn }),
+    ...(input.Version !== undefined && input.Version !== null && { Version: input.Version }),
   };
 };
 
 const serializeAws_json1_1GetLicenseUsageRequest = (input: GetLicenseUsageRequest, context: __SerdeContext): any => {
   return {
-    ...(input.LicenseArn !== undefined && { LicenseArn: input.LicenseArn }),
+    ...(input.LicenseArn !== undefined && input.LicenseArn !== null && { LicenseArn: input.LicenseArn }),
   };
 };
 
@@ -5260,32 +5301,48 @@ const serializeAws_json1_1GetServiceSettingsRequest = (
 
 const serializeAws_json1_1InventoryFilter = (input: InventoryFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Condition !== undefined && { Condition: input.Condition }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Condition !== undefined && input.Condition !== null && { Condition: input.Condition }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1InventoryFilterList = (input: InventoryFilter[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1InventoryFilter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1InventoryFilter(entry, context);
+    });
 };
 
 const serializeAws_json1_1Issuer = (input: Issuer, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.SignKey !== undefined && { SignKey: input.SignKey }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.SignKey !== undefined && input.SignKey !== null && { SignKey: input.SignKey }),
   };
 };
 
 const serializeAws_json1_1LicenseSpecification = (input: LicenseSpecification, context: __SerdeContext): any => {
   return {
-    ...(input.AmiAssociationScope !== undefined && { AmiAssociationScope: input.AmiAssociationScope }),
-    ...(input.LicenseConfigurationArn !== undefined && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
+    ...(input.AmiAssociationScope !== undefined &&
+      input.AmiAssociationScope !== null && { AmiAssociationScope: input.AmiAssociationScope }),
+    ...(input.LicenseConfigurationArn !== undefined &&
+      input.LicenseConfigurationArn !== null && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
   };
 };
 
 const serializeAws_json1_1LicenseSpecifications = (input: LicenseSpecification[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1LicenseSpecification(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1LicenseSpecification(entry, context);
+    });
 };
 
 const serializeAws_json1_1ListAssociationsForLicenseConfigurationRequest = (
@@ -5293,9 +5350,10 @@ const serializeAws_json1_1ListAssociationsForLicenseConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LicenseConfigurationArn !== undefined && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.LicenseConfigurationArn !== undefined &&
+      input.LicenseConfigurationArn !== null && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5304,10 +5362,12 @@ const serializeAws_json1_1ListDistributedGrantsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
-    ...(input.GrantArns !== undefined && { GrantArns: serializeAws_json1_1ArnList(input.GrantArns, context) }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
+    ...(input.GrantArns !== undefined &&
+      input.GrantArns !== null && { GrantArns: serializeAws_json1_1ArnList(input.GrantArns, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5316,9 +5376,10 @@ const serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsRequest =
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LicenseConfigurationArn !== undefined && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.LicenseConfigurationArn !== undefined &&
+      input.LicenseConfigurationArn !== null && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5327,12 +5388,14 @@ const serializeAws_json1_1ListLicenseConfigurationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.LicenseConfigurationArns !== undefined && {
-      LicenseConfigurationArns: serializeAws_json1_1StringList(input.LicenseConfigurationArns, context),
-    }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.LicenseConfigurationArns !== undefined &&
+      input.LicenseConfigurationArns !== null && {
+        LicenseConfigurationArns: serializeAws_json1_1StringList(input.LicenseConfigurationArns, context),
+      }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5341,18 +5404,20 @@ const serializeAws_json1_1ListLicenseSpecificationsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
   };
 };
 
 const serializeAws_json1_1ListLicensesRequest = (input: ListLicensesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
-    ...(input.LicenseArns !== undefined && { LicenseArns: serializeAws_json1_1ArnList(input.LicenseArns, context) }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
+    ...(input.LicenseArns !== undefined &&
+      input.LicenseArns !== null && { LicenseArns: serializeAws_json1_1ArnList(input.LicenseArns, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5361,9 +5426,9 @@ const serializeAws_json1_1ListLicenseVersionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LicenseArn !== undefined && { LicenseArn: input.LicenseArn }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.LicenseArn !== undefined && input.LicenseArn !== null && { LicenseArn: input.LicenseArn }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5372,10 +5437,12 @@ const serializeAws_json1_1ListReceivedGrantsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
-    ...(input.GrantArns !== undefined && { GrantArns: serializeAws_json1_1ArnList(input.GrantArns, context) }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
+    ...(input.GrantArns !== undefined &&
+      input.GrantArns !== null && { GrantArns: serializeAws_json1_1ArnList(input.GrantArns, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5384,10 +5451,12 @@ const serializeAws_json1_1ListReceivedLicensesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
-    ...(input.LicenseArns !== undefined && { LicenseArns: serializeAws_json1_1ArnList(input.LicenseArns, context) }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
+    ...(input.LicenseArns !== undefined &&
+      input.LicenseArns !== null && { LicenseArns: serializeAws_json1_1ArnList(input.LicenseArns, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5396,9 +5465,10 @@ const serializeAws_json1_1ListResourceInventoryRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1InventoryFilterList(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1InventoryFilterList(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5407,16 +5477,18 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
   };
 };
 
 const serializeAws_json1_1ListTokensRequest = (input: ListTokensRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.TokenIds !== undefined && { TokenIds: serializeAws_json1_1StringList(input.TokenIds, context) }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.TokenIds !== undefined &&
+      input.TokenIds !== null && { TokenIds: serializeAws_json1_1StringList(input.TokenIds, context) }),
   };
 };
 
@@ -5425,26 +5497,42 @@ const serializeAws_json1_1ListUsageForLicenseConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.LicenseConfigurationArn !== undefined && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.LicenseConfigurationArn !== undefined &&
+      input.LicenseConfigurationArn !== null && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1MaxSize3StringList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1Metadata = (input: Metadata, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1MetadataList = (input: Metadata[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Metadata(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Metadata(entry, context);
+    });
 };
 
 const serializeAws_json1_1OrganizationConfiguration = (
@@ -5452,23 +5540,32 @@ const serializeAws_json1_1OrganizationConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EnableIntegration !== undefined && { EnableIntegration: input.EnableIntegration }),
+    ...(input.EnableIntegration !== undefined &&
+      input.EnableIntegration !== null && { EnableIntegration: input.EnableIntegration }),
   };
 };
 
 const serializeAws_json1_1PrincipalArnList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ProductInformation = (input: ProductInformation, context: __SerdeContext): any => {
   return {
-    ...(input.ProductInformationFilterList !== undefined && {
-      ProductInformationFilterList: serializeAws_json1_1ProductInformationFilterList(
-        input.ProductInformationFilterList,
-        context
-      ),
-    }),
-    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
+    ...(input.ProductInformationFilterList !== undefined &&
+      input.ProductInformationFilterList !== null && {
+        ProductInformationFilterList: serializeAws_json1_1ProductInformationFilterList(
+          input.ProductInformationFilterList,
+          context
+        ),
+      }),
+    ...(input.ResourceType !== undefined && input.ResourceType !== null && { ResourceType: input.ResourceType }),
   };
 };
 
@@ -5477,15 +5574,18 @@ const serializeAws_json1_1ProductInformationFilter = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ProductInformationFilterComparator !== undefined && {
-      ProductInformationFilterComparator: input.ProductInformationFilterComparator,
-    }),
-    ...(input.ProductInformationFilterName !== undefined && {
-      ProductInformationFilterName: input.ProductInformationFilterName,
-    }),
-    ...(input.ProductInformationFilterValue !== undefined && {
-      ProductInformationFilterValue: serializeAws_json1_1StringList(input.ProductInformationFilterValue, context),
-    }),
+    ...(input.ProductInformationFilterComparator !== undefined &&
+      input.ProductInformationFilterComparator !== null && {
+        ProductInformationFilterComparator: input.ProductInformationFilterComparator,
+      }),
+    ...(input.ProductInformationFilterName !== undefined &&
+      input.ProductInformationFilterName !== null && {
+        ProductInformationFilterName: input.ProductInformationFilterName,
+      }),
+    ...(input.ProductInformationFilterValue !== undefined &&
+      input.ProductInformationFilterValue !== null && {
+        ProductInformationFilterValue: serializeAws_json1_1StringList(input.ProductInformationFilterValue, context),
+      }),
   };
 };
 
@@ -5493,11 +5593,25 @@ const serializeAws_json1_1ProductInformationFilterList = (
   input: ProductInformationFilter[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1ProductInformationFilter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ProductInformationFilter(entry, context);
+    });
 };
 
 const serializeAws_json1_1ProductInformationList = (input: ProductInformation[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1ProductInformation(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ProductInformation(entry, context);
+    });
 };
 
 const serializeAws_json1_1ProvisionalConfiguration = (
@@ -5505,46 +5619,69 @@ const serializeAws_json1_1ProvisionalConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxTimeToLiveInMinutes !== undefined && { MaxTimeToLiveInMinutes: input.MaxTimeToLiveInMinutes }),
+    ...(input.MaxTimeToLiveInMinutes !== undefined &&
+      input.MaxTimeToLiveInMinutes !== null && { MaxTimeToLiveInMinutes: input.MaxTimeToLiveInMinutes }),
   };
 };
 
 const serializeAws_json1_1RejectGrantRequest = (input: RejectGrantRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GrantArn !== undefined && { GrantArn: input.GrantArn }),
+    ...(input.GrantArn !== undefined && input.GrantArn !== null && { GrantArn: input.GrantArn }),
   };
 };
 
 const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -5553,21 +5690,23 @@ const serializeAws_json1_1UpdateLicenseConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.DisassociateWhenNotFound !== undefined && { DisassociateWhenNotFound: input.DisassociateWhenNotFound }),
-    ...(input.LicenseConfigurationArn !== undefined && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
-    ...(input.LicenseConfigurationStatus !== undefined && {
-      LicenseConfigurationStatus: input.LicenseConfigurationStatus,
-    }),
-    ...(input.LicenseCount !== undefined && { LicenseCount: input.LicenseCount }),
-    ...(input.LicenseCountHardLimit !== undefined && { LicenseCountHardLimit: input.LicenseCountHardLimit }),
-    ...(input.LicenseRules !== undefined && {
-      LicenseRules: serializeAws_json1_1StringList(input.LicenseRules, context),
-    }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.ProductInformationList !== undefined && {
-      ProductInformationList: serializeAws_json1_1ProductInformationList(input.ProductInformationList, context),
-    }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.DisassociateWhenNotFound !== undefined &&
+      input.DisassociateWhenNotFound !== null && { DisassociateWhenNotFound: input.DisassociateWhenNotFound }),
+    ...(input.LicenseConfigurationArn !== undefined &&
+      input.LicenseConfigurationArn !== null && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
+    ...(input.LicenseConfigurationStatus !== undefined &&
+      input.LicenseConfigurationStatus !== null && { LicenseConfigurationStatus: input.LicenseConfigurationStatus }),
+    ...(input.LicenseCount !== undefined && input.LicenseCount !== null && { LicenseCount: input.LicenseCount }),
+    ...(input.LicenseCountHardLimit !== undefined &&
+      input.LicenseCountHardLimit !== null && { LicenseCountHardLimit: input.LicenseCountHardLimit }),
+    ...(input.LicenseRules !== undefined &&
+      input.LicenseRules !== null && { LicenseRules: serializeAws_json1_1StringList(input.LicenseRules, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.ProductInformationList !== undefined &&
+      input.ProductInformationList !== null && {
+        ProductInformationList: serializeAws_json1_1ProductInformationList(input.ProductInformationList, context),
+      }),
   };
 };
 
@@ -5576,16 +5715,18 @@ const serializeAws_json1_1UpdateLicenseSpecificationsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AddLicenseSpecifications !== undefined && {
-      AddLicenseSpecifications: serializeAws_json1_1LicenseSpecifications(input.AddLicenseSpecifications, context),
-    }),
-    ...(input.RemoveLicenseSpecifications !== undefined && {
-      RemoveLicenseSpecifications: serializeAws_json1_1LicenseSpecifications(
-        input.RemoveLicenseSpecifications,
-        context
-      ),
-    }),
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.AddLicenseSpecifications !== undefined &&
+      input.AddLicenseSpecifications !== null && {
+        AddLicenseSpecifications: serializeAws_json1_1LicenseSpecifications(input.AddLicenseSpecifications, context),
+      }),
+    ...(input.RemoveLicenseSpecifications !== undefined &&
+      input.RemoveLicenseSpecifications !== null && {
+        RemoveLicenseSpecifications: serializeAws_json1_1LicenseSpecifications(
+          input.RemoveLicenseSpecifications,
+          context
+        ),
+      }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
   };
 };
 
@@ -5594,17 +5735,19 @@ const serializeAws_json1_1UpdateServiceSettingsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EnableCrossAccountsDiscovery !== undefined && {
-      EnableCrossAccountsDiscovery: input.EnableCrossAccountsDiscovery,
-    }),
-    ...(input.OrganizationConfiguration !== undefined && {
-      OrganizationConfiguration: serializeAws_json1_1OrganizationConfiguration(
-        input.OrganizationConfiguration,
-        context
-      ),
-    }),
-    ...(input.S3BucketArn !== undefined && { S3BucketArn: input.S3BucketArn }),
-    ...(input.SnsTopicArn !== undefined && { SnsTopicArn: input.SnsTopicArn }),
+    ...(input.EnableCrossAccountsDiscovery !== undefined &&
+      input.EnableCrossAccountsDiscovery !== null && {
+        EnableCrossAccountsDiscovery: input.EnableCrossAccountsDiscovery,
+      }),
+    ...(input.OrganizationConfiguration !== undefined &&
+      input.OrganizationConfiguration !== null && {
+        OrganizationConfiguration: serializeAws_json1_1OrganizationConfiguration(
+          input.OrganizationConfiguration,
+          context
+        ),
+      }),
+    ...(input.S3BucketArn !== undefined && input.S3BucketArn !== null && { S3BucketArn: input.S3BucketArn }),
+    ...(input.SnsTopicArn !== undefined && input.SnsTopicArn !== null && { SnsTopicArn: input.SnsTopicArn }),
   };
 };
 
@@ -5626,11 +5769,25 @@ const deserializeAws_json1_1AllowedOperationList = (
   output: any,
   context: __SerdeContext
 ): (AllowedOperation | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ArnList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1AuthorizationException = (output: any, context: __SerdeContext): AuthorizationException => {
@@ -5732,7 +5889,14 @@ const deserializeAws_json1_1ConsumedLicenseSummaryList = (
   output: any,
   context: __SerdeContext
 ): ConsumedLicenseSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ConsumedLicenseSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ConsumedLicenseSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ConsumptionConfiguration = (
@@ -5863,11 +6027,25 @@ const deserializeAws_json1_1EntitlementData = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1EntitlementDataList = (output: any, context: __SerdeContext): EntitlementData[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1EntitlementData(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EntitlementData(entry, context);
+    });
 };
 
 const deserializeAws_json1_1EntitlementList = (output: any, context: __SerdeContext): Entitlement[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Entitlement(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Entitlement(entry, context);
+    });
 };
 
 const deserializeAws_json1_1EntitlementNotAllowedException = (
@@ -5890,7 +6068,14 @@ const deserializeAws_json1_1EntitlementUsage = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1EntitlementUsageList = (output: any, context: __SerdeContext): EntitlementUsage[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1EntitlementUsage(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EntitlementUsage(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ExtendLicenseConsumptionResponse = (
@@ -6103,11 +6288,25 @@ const deserializeAws_json1_1GrantedLicense = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1GrantedLicenseList = (output: any, context: __SerdeContext): GrantedLicense[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1GrantedLicense(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1GrantedLicense(entry, context);
+    });
 };
 
 const deserializeAws_json1_1GrantList = (output: any, context: __SerdeContext): Grant[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Grant(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Grant(entry, context);
+    });
 };
 
 const deserializeAws_json1_1InvalidParameterValueException = (
@@ -6248,11 +6447,25 @@ const deserializeAws_json1_1LicenseConfigurationAssociations = (
   output: any,
   context: __SerdeContext
 ): LicenseConfigurationAssociation[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1LicenseConfigurationAssociation(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LicenseConfigurationAssociation(entry, context);
+    });
 };
 
 const deserializeAws_json1_1LicenseConfigurations = (output: any, context: __SerdeContext): LicenseConfiguration[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1LicenseConfiguration(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LicenseConfiguration(entry, context);
+    });
 };
 
 const deserializeAws_json1_1LicenseConfigurationUsage = (
@@ -6279,11 +6492,25 @@ const deserializeAws_json1_1LicenseConfigurationUsageList = (
   output: any,
   context: __SerdeContext
 ): LicenseConfigurationUsage[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1LicenseConfigurationUsage(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LicenseConfigurationUsage(entry, context);
+    });
 };
 
 const deserializeAws_json1_1LicenseList = (output: any, context: __SerdeContext): License[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1License(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1License(entry, context);
+    });
 };
 
 const deserializeAws_json1_1LicenseOperationFailure = (
@@ -6317,7 +6544,14 @@ const deserializeAws_json1_1LicenseOperationFailureList = (
   output: any,
   context: __SerdeContext
 ): LicenseOperationFailure[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1LicenseOperationFailure(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LicenseOperationFailure(entry, context);
+    });
 };
 
 const deserializeAws_json1_1LicenseSpecification = (output: any, context: __SerdeContext): LicenseSpecification => {
@@ -6334,7 +6568,14 @@ const deserializeAws_json1_1LicenseSpecification = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1LicenseSpecifications = (output: any, context: __SerdeContext): LicenseSpecification[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1LicenseSpecification(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LicenseSpecification(entry, context);
+    });
 };
 
 const deserializeAws_json1_1LicenseUsage = (output: any, context: __SerdeContext): LicenseUsage => {
@@ -6526,11 +6767,25 @@ const deserializeAws_json1_1ManagedResourceSummaryList = (
   output: any,
   context: __SerdeContext
 ): ManagedResourceSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ManagedResourceSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ManagedResourceSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1MaxSize3StringList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1Metadata = (output: any, context: __SerdeContext): Metadata => {
@@ -6541,7 +6796,14 @@ const deserializeAws_json1_1Metadata = (output: any, context: __SerdeContext): M
 };
 
 const deserializeAws_json1_1MetadataList = (output: any, context: __SerdeContext): Metadata[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Metadata(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Metadata(entry, context);
+    });
 };
 
 const deserializeAws_json1_1NoEntitlementsAllowedException = (
@@ -6599,11 +6861,25 @@ const deserializeAws_json1_1ProductInformationFilterList = (
   output: any,
   context: __SerdeContext
 ): ProductInformationFilter[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ProductInformationFilter(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ProductInformationFilter(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ProductInformationList = (output: any, context: __SerdeContext): ProductInformation[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ProductInformation(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ProductInformation(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ProvisionalConfiguration = (
@@ -6669,7 +6945,14 @@ const deserializeAws_json1_1ResourceInventory = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1ResourceInventoryList = (output: any, context: __SerdeContext): ResourceInventory[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ResourceInventory(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ResourceInventory(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ResourceLimitExceededException = (
@@ -6700,7 +6983,14 @@ const deserializeAws_json1_1ServerInternalException = (
 };
 
 const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -6711,7 +7001,14 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
@@ -6738,7 +7035,14 @@ const deserializeAws_json1_1TokenData = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1TokenList = (output: any, context: __SerdeContext): TokenData[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1TokenData(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TokenData(entry, context);
+    });
 };
 
 const deserializeAws_json1_1UnsupportedDigitalSignatureMethodException = (
@@ -6831,3 +7135,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

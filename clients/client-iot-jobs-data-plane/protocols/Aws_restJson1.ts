@@ -39,9 +39,7 @@ export const serializeAws_restJson1DescribeJobExecutionCommand = async (
   input: DescribeJobExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/things/{thingName}/jobs/{jobId}";
   if (input.jobId !== undefined) {
     const labelValue: string = input.jobId;
@@ -83,9 +81,7 @@ export const serializeAws_restJson1GetPendingJobExecutionsCommand = async (
   input: GetPendingJobExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/things/{thingName}/jobs";
   if (input.thingName !== undefined) {
     const labelValue: string = input.thingName;
@@ -114,7 +110,7 @@ export const serializeAws_restJson1StartNextPendingJobExecutionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/things/{thingName}/jobs/$next";
   if (input.thingName !== undefined) {
@@ -128,10 +124,12 @@ export const serializeAws_restJson1StartNextPendingJobExecutionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.statusDetails !== undefined && {
-      statusDetails: serializeAws_restJson1DetailsMap(input.statusDetails, context),
-    }),
-    ...(input.stepTimeoutInMinutes !== undefined && { stepTimeoutInMinutes: input.stepTimeoutInMinutes }),
+    ...(input.statusDetails !== undefined &&
+      input.statusDetails !== null && {
+        statusDetails: serializeAws_restJson1DetailsMap(input.statusDetails, context),
+      }),
+    ...(input.stepTimeoutInMinutes !== undefined &&
+      input.stepTimeoutInMinutes !== null && { stepTimeoutInMinutes: input.stepTimeoutInMinutes }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -150,7 +148,7 @@ export const serializeAws_restJson1UpdateJobExecutionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/things/{thingName}/jobs/{jobId}";
   if (input.jobId !== undefined) {
@@ -173,15 +171,21 @@ export const serializeAws_restJson1UpdateJobExecutionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.executionNumber !== undefined && { executionNumber: input.executionNumber }),
-    ...(input.expectedVersion !== undefined && { expectedVersion: input.expectedVersion }),
-    ...(input.includeJobDocument !== undefined && { includeJobDocument: input.includeJobDocument }),
-    ...(input.includeJobExecutionState !== undefined && { includeJobExecutionState: input.includeJobExecutionState }),
-    ...(input.status !== undefined && { status: input.status }),
-    ...(input.statusDetails !== undefined && {
-      statusDetails: serializeAws_restJson1DetailsMap(input.statusDetails, context),
-    }),
-    ...(input.stepTimeoutInMinutes !== undefined && { stepTimeoutInMinutes: input.stepTimeoutInMinutes }),
+    ...(input.executionNumber !== undefined &&
+      input.executionNumber !== null && { executionNumber: input.executionNumber }),
+    ...(input.expectedVersion !== undefined &&
+      input.expectedVersion !== null && { expectedVersion: input.expectedVersion }),
+    ...(input.includeJobDocument !== undefined &&
+      input.includeJobDocument !== null && { includeJobDocument: input.includeJobDocument }),
+    ...(input.includeJobExecutionState !== undefined &&
+      input.includeJobExecutionState !== null && { includeJobExecutionState: input.includeJobExecutionState }),
+    ...(input.status !== undefined && input.status !== null && { status: input.status }),
+    ...(input.statusDetails !== undefined &&
+      input.statusDetails !== null && {
+        statusDetails: serializeAws_restJson1DetailsMap(input.statusDetails, context),
+      }),
+    ...(input.stepTimeoutInMinutes !== undefined &&
+      input.stepTimeoutInMinutes !== null && { stepTimeoutInMinutes: input.stepTimeoutInMinutes }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -691,23 +695,27 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
 };
 
 const serializeAws_restJson1DetailsMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1DetailsMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1JobExecution = (output: any, context: __SerdeContext): JobExecution => {
@@ -765,7 +773,14 @@ const deserializeAws_restJson1JobExecutionSummaryList = (
   output: any,
   context: __SerdeContext
 ): JobExecutionSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1JobExecutionSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1JobExecutionSummary(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -788,6 +803,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

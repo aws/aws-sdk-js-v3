@@ -17,7 +17,7 @@ export const serializeAws_restJson1InvokeEndpointCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/octet-stream",
+    "content-type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.ContentType) && { "Content-Type": input.ContentType! }),
     ...(isSerializableHeaderValue(input.Accept) && { Accept: input.Accept! }),
     ...(isSerializableHeaderValue(input.CustomAttributes) && {
@@ -242,6 +242,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

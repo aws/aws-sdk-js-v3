@@ -132,7 +132,7 @@ export const serializeAws_json1_1CreateBudgetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSBudgetServiceGateway.CreateBudget",
   };
   let body: any;
@@ -145,7 +145,7 @@ export const serializeAws_json1_1CreateBudgetActionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSBudgetServiceGateway.CreateBudgetAction",
   };
   let body: any;
@@ -158,7 +158,7 @@ export const serializeAws_json1_1CreateNotificationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSBudgetServiceGateway.CreateNotification",
   };
   let body: any;
@@ -171,7 +171,7 @@ export const serializeAws_json1_1CreateSubscriberCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSBudgetServiceGateway.CreateSubscriber",
   };
   let body: any;
@@ -184,7 +184,7 @@ export const serializeAws_json1_1DeleteBudgetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSBudgetServiceGateway.DeleteBudget",
   };
   let body: any;
@@ -197,7 +197,7 @@ export const serializeAws_json1_1DeleteBudgetActionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSBudgetServiceGateway.DeleteBudgetAction",
   };
   let body: any;
@@ -210,7 +210,7 @@ export const serializeAws_json1_1DeleteNotificationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSBudgetServiceGateway.DeleteNotification",
   };
   let body: any;
@@ -223,7 +223,7 @@ export const serializeAws_json1_1DeleteSubscriberCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSBudgetServiceGateway.DeleteSubscriber",
   };
   let body: any;
@@ -236,7 +236,7 @@ export const serializeAws_json1_1DescribeBudgetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSBudgetServiceGateway.DescribeBudget",
   };
   let body: any;
@@ -249,7 +249,7 @@ export const serializeAws_json1_1DescribeBudgetActionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSBudgetServiceGateway.DescribeBudgetAction",
   };
   let body: any;
@@ -262,7 +262,7 @@ export const serializeAws_json1_1DescribeBudgetActionHistoriesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSBudgetServiceGateway.DescribeBudgetActionHistories",
   };
   let body: any;
@@ -275,7 +275,7 @@ export const serializeAws_json1_1DescribeBudgetActionsForAccountCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSBudgetServiceGateway.DescribeBudgetActionsForAccount",
   };
   let body: any;
@@ -288,7 +288,7 @@ export const serializeAws_json1_1DescribeBudgetActionsForBudgetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSBudgetServiceGateway.DescribeBudgetActionsForBudget",
   };
   let body: any;
@@ -301,7 +301,7 @@ export const serializeAws_json1_1DescribeBudgetPerformanceHistoryCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSBudgetServiceGateway.DescribeBudgetPerformanceHistory",
   };
   let body: any;
@@ -314,7 +314,7 @@ export const serializeAws_json1_1DescribeBudgetsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSBudgetServiceGateway.DescribeBudgets",
   };
   let body: any;
@@ -327,7 +327,7 @@ export const serializeAws_json1_1DescribeNotificationsForBudgetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSBudgetServiceGateway.DescribeNotificationsForBudget",
   };
   let body: any;
@@ -340,7 +340,7 @@ export const serializeAws_json1_1DescribeSubscribersForNotificationCommand = asy
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSBudgetServiceGateway.DescribeSubscribersForNotification",
   };
   let body: any;
@@ -353,7 +353,7 @@ export const serializeAws_json1_1ExecuteBudgetActionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSBudgetServiceGateway.ExecuteBudgetAction",
   };
   let body: any;
@@ -366,7 +366,7 @@ export const serializeAws_json1_1UpdateBudgetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSBudgetServiceGateway.UpdateBudget",
   };
   let body: any;
@@ -379,7 +379,7 @@ export const serializeAws_json1_1UpdateBudgetActionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSBudgetServiceGateway.UpdateBudgetAction",
   };
   let body: any;
@@ -392,7 +392,7 @@ export const serializeAws_json1_1UpdateNotificationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSBudgetServiceGateway.UpdateNotification",
   };
   let body: any;
@@ -405,7 +405,7 @@ export const serializeAws_json1_1UpdateSubscriberCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSBudgetServiceGateway.UpdateSubscriber",
   };
   let body: any;
@@ -440,8 +440,7 @@ const deserializeAws_json1_1CreateBudgetCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.budgets#AccessDeniedException":
@@ -527,8 +526,7 @@ const deserializeAws_json1_1CreateBudgetActionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.budgets#AccessDeniedException":
@@ -622,8 +620,7 @@ const deserializeAws_json1_1CreateNotificationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.budgets#AccessDeniedException":
@@ -717,8 +714,7 @@ const deserializeAws_json1_1CreateSubscriberCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.budgets#AccessDeniedException":
@@ -812,8 +808,7 @@ const deserializeAws_json1_1DeleteBudgetCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.budgets#AccessDeniedException":
@@ -891,8 +886,7 @@ const deserializeAws_json1_1DeleteBudgetActionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.budgets#AccessDeniedException":
@@ -978,8 +972,7 @@ const deserializeAws_json1_1DeleteNotificationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.budgets#AccessDeniedException":
@@ -1057,8 +1050,7 @@ const deserializeAws_json1_1DeleteSubscriberCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.budgets#AccessDeniedException":
@@ -1136,8 +1128,7 @@ const deserializeAws_json1_1DescribeBudgetCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.budgets#AccessDeniedException":
@@ -1215,8 +1206,7 @@ const deserializeAws_json1_1DescribeBudgetActionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.budgets#AccessDeniedException":
@@ -1294,8 +1284,7 @@ const deserializeAws_json1_1DescribeBudgetActionHistoriesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.budgets#AccessDeniedException":
@@ -1381,8 +1370,7 @@ const deserializeAws_json1_1DescribeBudgetActionsForAccountCommandError = async 
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.budgets#AccessDeniedException":
@@ -1460,8 +1448,7 @@ const deserializeAws_json1_1DescribeBudgetActionsForBudgetCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.budgets#AccessDeniedException":
@@ -1547,8 +1534,7 @@ const deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommandError = async
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.budgets#AccessDeniedException":
@@ -1642,8 +1628,7 @@ const deserializeAws_json1_1DescribeBudgetsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.budgets#AccessDeniedException":
@@ -1737,8 +1722,7 @@ const deserializeAws_json1_1DescribeNotificationsForBudgetCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.budgets#AccessDeniedException":
@@ -1832,8 +1816,7 @@ const deserializeAws_json1_1DescribeSubscribersForNotificationCommandError = asy
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.budgets#AccessDeniedException":
@@ -1927,8 +1910,7 @@ const deserializeAws_json1_1ExecuteBudgetActionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.budgets#AccessDeniedException":
@@ -2014,8 +1996,7 @@ const deserializeAws_json1_1UpdateBudgetCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.budgets#AccessDeniedException":
@@ -2093,8 +2074,7 @@ const deserializeAws_json1_1UpdateBudgetActionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.budgets#AccessDeniedException":
@@ -2180,8 +2160,7 @@ const deserializeAws_json1_1UpdateNotificationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.budgets#AccessDeniedException":
@@ -2267,8 +2246,7 @@ const deserializeAws_json1_1UpdateSubscriberCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.budgets#AccessDeniedException":
@@ -2464,64 +2442,79 @@ const deserializeAws_json1_1ResourceLockedExceptionResponse = async (
 
 const serializeAws_json1_1ActionThreshold = (input: ActionThreshold, context: __SerdeContext): any => {
   return {
-    ...(input.ActionThresholdType !== undefined && { ActionThresholdType: input.ActionThresholdType }),
-    ...(input.ActionThresholdValue !== undefined && { ActionThresholdValue: input.ActionThresholdValue }),
+    ...(input.ActionThresholdType !== undefined &&
+      input.ActionThresholdType !== null && { ActionThresholdType: input.ActionThresholdType }),
+    ...(input.ActionThresholdValue !== undefined &&
+      input.ActionThresholdValue !== null && { ActionThresholdValue: input.ActionThresholdValue }),
   };
 };
 
 const serializeAws_json1_1Budget = (input: Budget, context: __SerdeContext): any => {
   return {
-    ...(input.BudgetLimit !== undefined && { BudgetLimit: serializeAws_json1_1Spend(input.BudgetLimit, context) }),
-    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
-    ...(input.BudgetType !== undefined && { BudgetType: input.BudgetType }),
-    ...(input.CalculatedSpend !== undefined && {
-      CalculatedSpend: serializeAws_json1_1CalculatedSpend(input.CalculatedSpend, context),
-    }),
-    ...(input.CostFilters !== undefined && {
-      CostFilters: serializeAws_json1_1CostFilters(input.CostFilters, context),
-    }),
-    ...(input.CostTypes !== undefined && { CostTypes: serializeAws_json1_1CostTypes(input.CostTypes, context) }),
-    ...(input.LastUpdatedTime !== undefined && { LastUpdatedTime: Math.round(input.LastUpdatedTime.getTime() / 1000) }),
-    ...(input.PlannedBudgetLimits !== undefined && {
-      PlannedBudgetLimits: serializeAws_json1_1PlannedBudgetLimits(input.PlannedBudgetLimits, context),
-    }),
-    ...(input.TimePeriod !== undefined && { TimePeriod: serializeAws_json1_1TimePeriod(input.TimePeriod, context) }),
-    ...(input.TimeUnit !== undefined && { TimeUnit: input.TimeUnit }),
+    ...(input.BudgetLimit !== undefined &&
+      input.BudgetLimit !== null && { BudgetLimit: serializeAws_json1_1Spend(input.BudgetLimit, context) }),
+    ...(input.BudgetName !== undefined && input.BudgetName !== null && { BudgetName: input.BudgetName }),
+    ...(input.BudgetType !== undefined && input.BudgetType !== null && { BudgetType: input.BudgetType }),
+    ...(input.CalculatedSpend !== undefined &&
+      input.CalculatedSpend !== null && {
+        CalculatedSpend: serializeAws_json1_1CalculatedSpend(input.CalculatedSpend, context),
+      }),
+    ...(input.CostFilters !== undefined &&
+      input.CostFilters !== null && { CostFilters: serializeAws_json1_1CostFilters(input.CostFilters, context) }),
+    ...(input.CostTypes !== undefined &&
+      input.CostTypes !== null && { CostTypes: serializeAws_json1_1CostTypes(input.CostTypes, context) }),
+    ...(input.LastUpdatedTime !== undefined &&
+      input.LastUpdatedTime !== null && { LastUpdatedTime: Math.round(input.LastUpdatedTime.getTime() / 1000) }),
+    ...(input.PlannedBudgetLimits !== undefined &&
+      input.PlannedBudgetLimits !== null && {
+        PlannedBudgetLimits: serializeAws_json1_1PlannedBudgetLimits(input.PlannedBudgetLimits, context),
+      }),
+    ...(input.TimePeriod !== undefined &&
+      input.TimePeriod !== null && { TimePeriod: serializeAws_json1_1TimePeriod(input.TimePeriod, context) }),
+    ...(input.TimeUnit !== undefined && input.TimeUnit !== null && { TimeUnit: input.TimeUnit }),
   };
 };
 
 const serializeAws_json1_1CalculatedSpend = (input: CalculatedSpend, context: __SerdeContext): any => {
   return {
-    ...(input.ActualSpend !== undefined && { ActualSpend: serializeAws_json1_1Spend(input.ActualSpend, context) }),
-    ...(input.ForecastedSpend !== undefined && {
-      ForecastedSpend: serializeAws_json1_1Spend(input.ForecastedSpend, context),
-    }),
+    ...(input.ActualSpend !== undefined &&
+      input.ActualSpend !== null && { ActualSpend: serializeAws_json1_1Spend(input.ActualSpend, context) }),
+    ...(input.ForecastedSpend !== undefined &&
+      input.ForecastedSpend !== null && { ForecastedSpend: serializeAws_json1_1Spend(input.ForecastedSpend, context) }),
   };
 };
 
 const serializeAws_json1_1CostFilters = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string[] }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: serializeAws_json1_1DimensionValues(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_json1_1CostTypes = (input: CostTypes, context: __SerdeContext): any => {
   return {
-    ...(input.IncludeCredit !== undefined && { IncludeCredit: input.IncludeCredit }),
-    ...(input.IncludeDiscount !== undefined && { IncludeDiscount: input.IncludeDiscount }),
-    ...(input.IncludeOtherSubscription !== undefined && { IncludeOtherSubscription: input.IncludeOtherSubscription }),
-    ...(input.IncludeRecurring !== undefined && { IncludeRecurring: input.IncludeRecurring }),
-    ...(input.IncludeRefund !== undefined && { IncludeRefund: input.IncludeRefund }),
-    ...(input.IncludeSubscription !== undefined && { IncludeSubscription: input.IncludeSubscription }),
-    ...(input.IncludeSupport !== undefined && { IncludeSupport: input.IncludeSupport }),
-    ...(input.IncludeTax !== undefined && { IncludeTax: input.IncludeTax }),
-    ...(input.IncludeUpfront !== undefined && { IncludeUpfront: input.IncludeUpfront }),
-    ...(input.UseAmortized !== undefined && { UseAmortized: input.UseAmortized }),
-    ...(input.UseBlended !== undefined && { UseBlended: input.UseBlended }),
+    ...(input.IncludeCredit !== undefined && input.IncludeCredit !== null && { IncludeCredit: input.IncludeCredit }),
+    ...(input.IncludeDiscount !== undefined &&
+      input.IncludeDiscount !== null && { IncludeDiscount: input.IncludeDiscount }),
+    ...(input.IncludeOtherSubscription !== undefined &&
+      input.IncludeOtherSubscription !== null && { IncludeOtherSubscription: input.IncludeOtherSubscription }),
+    ...(input.IncludeRecurring !== undefined &&
+      input.IncludeRecurring !== null && { IncludeRecurring: input.IncludeRecurring }),
+    ...(input.IncludeRefund !== undefined && input.IncludeRefund !== null && { IncludeRefund: input.IncludeRefund }),
+    ...(input.IncludeSubscription !== undefined &&
+      input.IncludeSubscription !== null && { IncludeSubscription: input.IncludeSubscription }),
+    ...(input.IncludeSupport !== undefined &&
+      input.IncludeSupport !== null && { IncludeSupport: input.IncludeSupport }),
+    ...(input.IncludeTax !== undefined && input.IncludeTax !== null && { IncludeTax: input.IncludeTax }),
+    ...(input.IncludeUpfront !== undefined &&
+      input.IncludeUpfront !== null && { IncludeUpfront: input.IncludeUpfront }),
+    ...(input.UseAmortized !== undefined && input.UseAmortized !== null && { UseAmortized: input.UseAmortized }),
+    ...(input.UseBlended !== undefined && input.UseBlended !== null && { UseBlended: input.UseBlended }),
   };
 };
 
@@ -2530,32 +2523,37 @@ const serializeAws_json1_1CreateBudgetActionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.ActionThreshold !== undefined && {
-      ActionThreshold: serializeAws_json1_1ActionThreshold(input.ActionThreshold, context),
-    }),
-    ...(input.ActionType !== undefined && { ActionType: input.ActionType }),
-    ...(input.ApprovalModel !== undefined && { ApprovalModel: input.ApprovalModel }),
-    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
-    ...(input.Definition !== undefined && { Definition: serializeAws_json1_1Definition(input.Definition, context) }),
-    ...(input.ExecutionRoleArn !== undefined && { ExecutionRoleArn: input.ExecutionRoleArn }),
-    ...(input.NotificationType !== undefined && { NotificationType: input.NotificationType }),
-    ...(input.Subscribers !== undefined && {
-      Subscribers: serializeAws_json1_1Subscribers(input.Subscribers, context),
-    }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.ActionThreshold !== undefined &&
+      input.ActionThreshold !== null && {
+        ActionThreshold: serializeAws_json1_1ActionThreshold(input.ActionThreshold, context),
+      }),
+    ...(input.ActionType !== undefined && input.ActionType !== null && { ActionType: input.ActionType }),
+    ...(input.ApprovalModel !== undefined && input.ApprovalModel !== null && { ApprovalModel: input.ApprovalModel }),
+    ...(input.BudgetName !== undefined && input.BudgetName !== null && { BudgetName: input.BudgetName }),
+    ...(input.Definition !== undefined &&
+      input.Definition !== null && { Definition: serializeAws_json1_1Definition(input.Definition, context) }),
+    ...(input.ExecutionRoleArn !== undefined &&
+      input.ExecutionRoleArn !== null && { ExecutionRoleArn: input.ExecutionRoleArn }),
+    ...(input.NotificationType !== undefined &&
+      input.NotificationType !== null && { NotificationType: input.NotificationType }),
+    ...(input.Subscribers !== undefined &&
+      input.Subscribers !== null && { Subscribers: serializeAws_json1_1Subscribers(input.Subscribers, context) }),
   };
 };
 
 const serializeAws_json1_1CreateBudgetRequest = (input: CreateBudgetRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.Budget !== undefined && { Budget: serializeAws_json1_1Budget(input.Budget, context) }),
-    ...(input.NotificationsWithSubscribers !== undefined && {
-      NotificationsWithSubscribers: serializeAws_json1_1NotificationWithSubscribersList(
-        input.NotificationsWithSubscribers,
-        context
-      ),
-    }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.Budget !== undefined &&
+      input.Budget !== null && { Budget: serializeAws_json1_1Budget(input.Budget, context) }),
+    ...(input.NotificationsWithSubscribers !== undefined &&
+      input.NotificationsWithSubscribers !== null && {
+        NotificationsWithSubscribers: serializeAws_json1_1NotificationWithSubscribersList(
+          input.NotificationsWithSubscribers,
+          context
+        ),
+      }),
   };
 };
 
@@ -2564,39 +2562,40 @@ const serializeAws_json1_1CreateNotificationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
-    ...(input.Notification !== undefined && {
-      Notification: serializeAws_json1_1Notification(input.Notification, context),
-    }),
-    ...(input.Subscribers !== undefined && {
-      Subscribers: serializeAws_json1_1Subscribers(input.Subscribers, context),
-    }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.BudgetName !== undefined && input.BudgetName !== null && { BudgetName: input.BudgetName }),
+    ...(input.Notification !== undefined &&
+      input.Notification !== null && { Notification: serializeAws_json1_1Notification(input.Notification, context) }),
+    ...(input.Subscribers !== undefined &&
+      input.Subscribers !== null && { Subscribers: serializeAws_json1_1Subscribers(input.Subscribers, context) }),
   };
 };
 
 const serializeAws_json1_1CreateSubscriberRequest = (input: CreateSubscriberRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
-    ...(input.Notification !== undefined && {
-      Notification: serializeAws_json1_1Notification(input.Notification, context),
-    }),
-    ...(input.Subscriber !== undefined && { Subscriber: serializeAws_json1_1Subscriber(input.Subscriber, context) }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.BudgetName !== undefined && input.BudgetName !== null && { BudgetName: input.BudgetName }),
+    ...(input.Notification !== undefined &&
+      input.Notification !== null && { Notification: serializeAws_json1_1Notification(input.Notification, context) }),
+    ...(input.Subscriber !== undefined &&
+      input.Subscriber !== null && { Subscriber: serializeAws_json1_1Subscriber(input.Subscriber, context) }),
   };
 };
 
 const serializeAws_json1_1Definition = (input: Definition, context: __SerdeContext): any => {
   return {
-    ...(input.IamActionDefinition !== undefined && {
-      IamActionDefinition: serializeAws_json1_1IamActionDefinition(input.IamActionDefinition, context),
-    }),
-    ...(input.ScpActionDefinition !== undefined && {
-      ScpActionDefinition: serializeAws_json1_1ScpActionDefinition(input.ScpActionDefinition, context),
-    }),
-    ...(input.SsmActionDefinition !== undefined && {
-      SsmActionDefinition: serializeAws_json1_1SsmActionDefinition(input.SsmActionDefinition, context),
-    }),
+    ...(input.IamActionDefinition !== undefined &&
+      input.IamActionDefinition !== null && {
+        IamActionDefinition: serializeAws_json1_1IamActionDefinition(input.IamActionDefinition, context),
+      }),
+    ...(input.ScpActionDefinition !== undefined &&
+      input.ScpActionDefinition !== null && {
+        ScpActionDefinition: serializeAws_json1_1ScpActionDefinition(input.ScpActionDefinition, context),
+      }),
+    ...(input.SsmActionDefinition !== undefined &&
+      input.SsmActionDefinition !== null && {
+        SsmActionDefinition: serializeAws_json1_1SsmActionDefinition(input.SsmActionDefinition, context),
+      }),
   };
 };
 
@@ -2605,16 +2604,16 @@ const serializeAws_json1_1DeleteBudgetActionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.ActionId !== undefined && { ActionId: input.ActionId }),
-    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.ActionId !== undefined && input.ActionId !== null && { ActionId: input.ActionId }),
+    ...(input.BudgetName !== undefined && input.BudgetName !== null && { BudgetName: input.BudgetName }),
   };
 };
 
 const serializeAws_json1_1DeleteBudgetRequest = (input: DeleteBudgetRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.BudgetName !== undefined && input.BudgetName !== null && { BudgetName: input.BudgetName }),
   };
 };
 
@@ -2623,22 +2622,21 @@ const serializeAws_json1_1DeleteNotificationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
-    ...(input.Notification !== undefined && {
-      Notification: serializeAws_json1_1Notification(input.Notification, context),
-    }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.BudgetName !== undefined && input.BudgetName !== null && { BudgetName: input.BudgetName }),
+    ...(input.Notification !== undefined &&
+      input.Notification !== null && { Notification: serializeAws_json1_1Notification(input.Notification, context) }),
   };
 };
 
 const serializeAws_json1_1DeleteSubscriberRequest = (input: DeleteSubscriberRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
-    ...(input.Notification !== undefined && {
-      Notification: serializeAws_json1_1Notification(input.Notification, context),
-    }),
-    ...(input.Subscriber !== undefined && { Subscriber: serializeAws_json1_1Subscriber(input.Subscriber, context) }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.BudgetName !== undefined && input.BudgetName !== null && { BudgetName: input.BudgetName }),
+    ...(input.Notification !== undefined &&
+      input.Notification !== null && { Notification: serializeAws_json1_1Notification(input.Notification, context) }),
+    ...(input.Subscriber !== undefined &&
+      input.Subscriber !== null && { Subscriber: serializeAws_json1_1Subscriber(input.Subscriber, context) }),
   };
 };
 
@@ -2647,12 +2645,13 @@ const serializeAws_json1_1DescribeBudgetActionHistoriesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.ActionId !== undefined && { ActionId: input.ActionId }),
-    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.TimePeriod !== undefined && { TimePeriod: serializeAws_json1_1TimePeriod(input.TimePeriod, context) }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.ActionId !== undefined && input.ActionId !== null && { ActionId: input.ActionId }),
+    ...(input.BudgetName !== undefined && input.BudgetName !== null && { BudgetName: input.BudgetName }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.TimePeriod !== undefined &&
+      input.TimePeriod !== null && { TimePeriod: serializeAws_json1_1TimePeriod(input.TimePeriod, context) }),
   };
 };
 
@@ -2661,9 +2660,9 @@ const serializeAws_json1_1DescribeBudgetActionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.ActionId !== undefined && { ActionId: input.ActionId }),
-    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.ActionId !== undefined && input.ActionId !== null && { ActionId: input.ActionId }),
+    ...(input.BudgetName !== undefined && input.BudgetName !== null && { BudgetName: input.BudgetName }),
   };
 };
 
@@ -2672,9 +2671,9 @@ const serializeAws_json1_1DescribeBudgetActionsForAccountRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2683,10 +2682,10 @@ const serializeAws_json1_1DescribeBudgetActionsForBudgetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.BudgetName !== undefined && input.BudgetName !== null && { BudgetName: input.BudgetName }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2695,26 +2694,27 @@ const serializeAws_json1_1DescribeBudgetPerformanceHistoryRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.TimePeriod !== undefined && { TimePeriod: serializeAws_json1_1TimePeriod(input.TimePeriod, context) }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.BudgetName !== undefined && input.BudgetName !== null && { BudgetName: input.BudgetName }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.TimePeriod !== undefined &&
+      input.TimePeriod !== null && { TimePeriod: serializeAws_json1_1TimePeriod(input.TimePeriod, context) }),
   };
 };
 
 const serializeAws_json1_1DescribeBudgetRequest = (input: DescribeBudgetRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.BudgetName !== undefined && input.BudgetName !== null && { BudgetName: input.BudgetName }),
   };
 };
 
 const serializeAws_json1_1DescribeBudgetsRequest = (input: DescribeBudgetsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2723,10 +2723,10 @@ const serializeAws_json1_1DescribeNotificationsForBudgetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.BudgetName !== undefined && input.BudgetName !== null && { BudgetName: input.BudgetName }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2735,18 +2735,24 @@ const serializeAws_json1_1DescribeSubscribersForNotificationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.Notification !== undefined && {
-      Notification: serializeAws_json1_1Notification(input.Notification, context),
-    }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.BudgetName !== undefined && input.BudgetName !== null && { BudgetName: input.BudgetName }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Notification !== undefined &&
+      input.Notification !== null && { Notification: serializeAws_json1_1Notification(input.Notification, context) }),
   };
 };
 
 const serializeAws_json1_1DimensionValues = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ExecuteBudgetActionRequest = (
@@ -2754,37 +2760,57 @@ const serializeAws_json1_1ExecuteBudgetActionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.ActionId !== undefined && { ActionId: input.ActionId }),
-    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
-    ...(input.ExecutionType !== undefined && { ExecutionType: input.ExecutionType }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.ActionId !== undefined && input.ActionId !== null && { ActionId: input.ActionId }),
+    ...(input.BudgetName !== undefined && input.BudgetName !== null && { BudgetName: input.BudgetName }),
+    ...(input.ExecutionType !== undefined && input.ExecutionType !== null && { ExecutionType: input.ExecutionType }),
   };
 };
 
 const serializeAws_json1_1Groups = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1IamActionDefinition = (input: IamActionDefinition, context: __SerdeContext): any => {
   return {
-    ...(input.Groups !== undefined && { Groups: serializeAws_json1_1Groups(input.Groups, context) }),
-    ...(input.PolicyArn !== undefined && { PolicyArn: input.PolicyArn }),
-    ...(input.Roles !== undefined && { Roles: serializeAws_json1_1Roles(input.Roles, context) }),
-    ...(input.Users !== undefined && { Users: serializeAws_json1_1Users(input.Users, context) }),
+    ...(input.Groups !== undefined &&
+      input.Groups !== null && { Groups: serializeAws_json1_1Groups(input.Groups, context) }),
+    ...(input.PolicyArn !== undefined && input.PolicyArn !== null && { PolicyArn: input.PolicyArn }),
+    ...(input.Roles !== undefined &&
+      input.Roles !== null && { Roles: serializeAws_json1_1Roles(input.Roles, context) }),
+    ...(input.Users !== undefined &&
+      input.Users !== null && { Users: serializeAws_json1_1Users(input.Users, context) }),
   };
 };
 
 const serializeAws_json1_1InstanceIds = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1Notification = (input: Notification, context: __SerdeContext): any => {
   return {
-    ...(input.ComparisonOperator !== undefined && { ComparisonOperator: input.ComparisonOperator }),
-    ...(input.NotificationState !== undefined && { NotificationState: input.NotificationState }),
-    ...(input.NotificationType !== undefined && { NotificationType: input.NotificationType }),
-    ...(input.Threshold !== undefined && { Threshold: input.Threshold }),
-    ...(input.ThresholdType !== undefined && { ThresholdType: input.ThresholdType }),
+    ...(input.ComparisonOperator !== undefined &&
+      input.ComparisonOperator !== null && { ComparisonOperator: input.ComparisonOperator }),
+    ...(input.NotificationState !== undefined &&
+      input.NotificationState !== null && { NotificationState: input.NotificationState }),
+    ...(input.NotificationType !== undefined &&
+      input.NotificationType !== null && { NotificationType: input.NotificationType }),
+    ...(input.Threshold !== undefined && input.Threshold !== null && { Threshold: input.Threshold }),
+    ...(input.ThresholdType !== undefined && input.ThresholdType !== null && { ThresholdType: input.ThresholdType }),
   };
 };
 
@@ -2793,12 +2819,10 @@ const serializeAws_json1_1NotificationWithSubscribers = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Notification !== undefined && {
-      Notification: serializeAws_json1_1Notification(input.Notification, context),
-    }),
-    ...(input.Subscribers !== undefined && {
-      Subscribers: serializeAws_json1_1Subscribers(input.Subscribers, context),
-    }),
+    ...(input.Notification !== undefined &&
+      input.Notification !== null && { Notification: serializeAws_json1_1Notification(input.Notification, context) }),
+    ...(input.Subscribers !== undefined &&
+      input.Subscribers !== null && { Subscribers: serializeAws_json1_1Subscribers(input.Subscribers, context) }),
   };
 };
 
@@ -2806,66 +2830,97 @@ const serializeAws_json1_1NotificationWithSubscribersList = (
   input: NotificationWithSubscribers[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1NotificationWithSubscribers(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1NotificationWithSubscribers(entry, context);
+    });
 };
 
 const serializeAws_json1_1PlannedBudgetLimits = (input: { [key: string]: Spend }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: Spend }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: Spend }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: serializeAws_json1_1Spend(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_json1_1Roles = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ScpActionDefinition = (input: ScpActionDefinition, context: __SerdeContext): any => {
   return {
-    ...(input.PolicyId !== undefined && { PolicyId: input.PolicyId }),
-    ...(input.TargetIds !== undefined && { TargetIds: serializeAws_json1_1TargetIds(input.TargetIds, context) }),
+    ...(input.PolicyId !== undefined && input.PolicyId !== null && { PolicyId: input.PolicyId }),
+    ...(input.TargetIds !== undefined &&
+      input.TargetIds !== null && { TargetIds: serializeAws_json1_1TargetIds(input.TargetIds, context) }),
   };
 };
 
 const serializeAws_json1_1Spend = (input: Spend, context: __SerdeContext): any => {
   return {
-    ...(input.Amount !== undefined && { Amount: input.Amount }),
-    ...(input.Unit !== undefined && { Unit: input.Unit }),
+    ...(input.Amount !== undefined && input.Amount !== null && { Amount: input.Amount }),
+    ...(input.Unit !== undefined && input.Unit !== null && { Unit: input.Unit }),
   };
 };
 
 const serializeAws_json1_1SsmActionDefinition = (input: SsmActionDefinition, context: __SerdeContext): any => {
   return {
-    ...(input.ActionSubType !== undefined && { ActionSubType: input.ActionSubType }),
-    ...(input.InstanceIds !== undefined && {
-      InstanceIds: serializeAws_json1_1InstanceIds(input.InstanceIds, context),
-    }),
-    ...(input.Region !== undefined && { Region: input.Region }),
+    ...(input.ActionSubType !== undefined && input.ActionSubType !== null && { ActionSubType: input.ActionSubType }),
+    ...(input.InstanceIds !== undefined &&
+      input.InstanceIds !== null && { InstanceIds: serializeAws_json1_1InstanceIds(input.InstanceIds, context) }),
+    ...(input.Region !== undefined && input.Region !== null && { Region: input.Region }),
   };
 };
 
 const serializeAws_json1_1Subscriber = (input: Subscriber, context: __SerdeContext): any => {
   return {
-    ...(input.Address !== undefined && { Address: input.Address }),
-    ...(input.SubscriptionType !== undefined && { SubscriptionType: input.SubscriptionType }),
+    ...(input.Address !== undefined && input.Address !== null && { Address: input.Address }),
+    ...(input.SubscriptionType !== undefined &&
+      input.SubscriptionType !== null && { SubscriptionType: input.SubscriptionType }),
   };
 };
 
 const serializeAws_json1_1Subscribers = (input: Subscriber[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Subscriber(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Subscriber(entry, context);
+    });
 };
 
 const serializeAws_json1_1TargetIds = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TimePeriod = (input: TimePeriod, context: __SerdeContext): any => {
   return {
-    ...(input.End !== undefined && { End: Math.round(input.End.getTime() / 1000) }),
-    ...(input.Start !== undefined && { Start: Math.round(input.Start.getTime() / 1000) }),
+    ...(input.End !== undefined && input.End !== null && { End: Math.round(input.End.getTime() / 1000) }),
+    ...(input.Start !== undefined && input.Start !== null && { Start: Math.round(input.Start.getTime() / 1000) }),
   };
 };
 
@@ -2874,26 +2929,30 @@ const serializeAws_json1_1UpdateBudgetActionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.ActionId !== undefined && { ActionId: input.ActionId }),
-    ...(input.ActionThreshold !== undefined && {
-      ActionThreshold: serializeAws_json1_1ActionThreshold(input.ActionThreshold, context),
-    }),
-    ...(input.ApprovalModel !== undefined && { ApprovalModel: input.ApprovalModel }),
-    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
-    ...(input.Definition !== undefined && { Definition: serializeAws_json1_1Definition(input.Definition, context) }),
-    ...(input.ExecutionRoleArn !== undefined && { ExecutionRoleArn: input.ExecutionRoleArn }),
-    ...(input.NotificationType !== undefined && { NotificationType: input.NotificationType }),
-    ...(input.Subscribers !== undefined && {
-      Subscribers: serializeAws_json1_1Subscribers(input.Subscribers, context),
-    }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.ActionId !== undefined && input.ActionId !== null && { ActionId: input.ActionId }),
+    ...(input.ActionThreshold !== undefined &&
+      input.ActionThreshold !== null && {
+        ActionThreshold: serializeAws_json1_1ActionThreshold(input.ActionThreshold, context),
+      }),
+    ...(input.ApprovalModel !== undefined && input.ApprovalModel !== null && { ApprovalModel: input.ApprovalModel }),
+    ...(input.BudgetName !== undefined && input.BudgetName !== null && { BudgetName: input.BudgetName }),
+    ...(input.Definition !== undefined &&
+      input.Definition !== null && { Definition: serializeAws_json1_1Definition(input.Definition, context) }),
+    ...(input.ExecutionRoleArn !== undefined &&
+      input.ExecutionRoleArn !== null && { ExecutionRoleArn: input.ExecutionRoleArn }),
+    ...(input.NotificationType !== undefined &&
+      input.NotificationType !== null && { NotificationType: input.NotificationType }),
+    ...(input.Subscribers !== undefined &&
+      input.Subscribers !== null && { Subscribers: serializeAws_json1_1Subscribers(input.Subscribers, context) }),
   };
 };
 
 const serializeAws_json1_1UpdateBudgetRequest = (input: UpdateBudgetRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.NewBudget !== undefined && { NewBudget: serializeAws_json1_1Budget(input.NewBudget, context) }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.NewBudget !== undefined &&
+      input.NewBudget !== null && { NewBudget: serializeAws_json1_1Budget(input.NewBudget, context) }),
   };
 };
 
@@ -2902,35 +2961,41 @@ const serializeAws_json1_1UpdateNotificationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
-    ...(input.NewNotification !== undefined && {
-      NewNotification: serializeAws_json1_1Notification(input.NewNotification, context),
-    }),
-    ...(input.OldNotification !== undefined && {
-      OldNotification: serializeAws_json1_1Notification(input.OldNotification, context),
-    }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.BudgetName !== undefined && input.BudgetName !== null && { BudgetName: input.BudgetName }),
+    ...(input.NewNotification !== undefined &&
+      input.NewNotification !== null && {
+        NewNotification: serializeAws_json1_1Notification(input.NewNotification, context),
+      }),
+    ...(input.OldNotification !== undefined &&
+      input.OldNotification !== null && {
+        OldNotification: serializeAws_json1_1Notification(input.OldNotification, context),
+      }),
   };
 };
 
 const serializeAws_json1_1UpdateSubscriberRequest = (input: UpdateSubscriberRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
-    ...(input.NewSubscriber !== undefined && {
-      NewSubscriber: serializeAws_json1_1Subscriber(input.NewSubscriber, context),
-    }),
-    ...(input.Notification !== undefined && {
-      Notification: serializeAws_json1_1Notification(input.Notification, context),
-    }),
-    ...(input.OldSubscriber !== undefined && {
-      OldSubscriber: serializeAws_json1_1Subscriber(input.OldSubscriber, context),
-    }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.BudgetName !== undefined && input.BudgetName !== null && { BudgetName: input.BudgetName }),
+    ...(input.NewSubscriber !== undefined &&
+      input.NewSubscriber !== null && { NewSubscriber: serializeAws_json1_1Subscriber(input.NewSubscriber, context) }),
+    ...(input.Notification !== undefined &&
+      input.Notification !== null && { Notification: serializeAws_json1_1Notification(input.Notification, context) }),
+    ...(input.OldSubscriber !== undefined &&
+      input.OldSubscriber !== null && { OldSubscriber: serializeAws_json1_1Subscriber(input.OldSubscriber, context) }),
   };
 };
 
 const serializeAws_json1_1Users = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
@@ -2967,7 +3032,14 @@ const deserializeAws_json1_1Action = (output: any, context: __SerdeContext): Act
 };
 
 const deserializeAws_json1_1ActionHistories = (output: any, context: __SerdeContext): ActionHistory[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ActionHistory(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ActionHistory(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ActionHistory = (output: any, context: __SerdeContext): ActionHistory => {
@@ -2996,7 +3068,14 @@ const deserializeAws_json1_1ActionHistoryDetails = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1Actions = (output: any, context: __SerdeContext): Action[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Action(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Action(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ActionThreshold = (output: any, context: __SerdeContext): ActionThreshold => {
@@ -3072,7 +3151,14 @@ const deserializeAws_json1_1BudgetedAndActualAmountsList = (
   output: any,
   context: __SerdeContext
 ): BudgetedAndActualAmounts[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1BudgetedAndActualAmounts(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1BudgetedAndActualAmounts(entry, context);
+    });
 };
 
 const deserializeAws_json1_1BudgetPerformanceHistory = (
@@ -3099,7 +3185,14 @@ const deserializeAws_json1_1BudgetPerformanceHistory = (
 };
 
 const deserializeAws_json1_1Budgets = (output: any, context: __SerdeContext): Budget[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Budget(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Budget(entry, context);
+    });
 };
 
 const deserializeAws_json1_1CalculatedSpend = (output: any, context: __SerdeContext): CalculatedSpend => {
@@ -3116,13 +3209,15 @@ const deserializeAws_json1_1CalculatedSpend = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1CostFilters = (output: any, context: __SerdeContext): { [key: string]: string[] } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string[] }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: deserializeAws_json1_1DimensionValues(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1CostTypes = (output: any, context: __SerdeContext): CostTypes => {
@@ -3355,7 +3450,14 @@ const deserializeAws_json1_1DescribeSubscribersForNotificationResponse = (
 };
 
 const deserializeAws_json1_1DimensionValues = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1DuplicateRecordException = (
@@ -3390,7 +3492,14 @@ const deserializeAws_json1_1ExpiredNextTokenException = (
 };
 
 const deserializeAws_json1_1Groups = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1IamActionDefinition = (output: any, context: __SerdeContext): IamActionDefinition => {
@@ -3412,7 +3521,14 @@ const deserializeAws_json1_1IamActionDefinition = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1InstanceIds = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
@@ -3464,17 +3580,26 @@ const deserializeAws_json1_1Notification = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1Notifications = (output: any, context: __SerdeContext): Notification[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Notification(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Notification(entry, context);
+    });
 };
 
 const deserializeAws_json1_1PlannedBudgetLimits = (output: any, context: __SerdeContext): { [key: string]: Spend } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: Spend }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: Spend }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: deserializeAws_json1_1Spend(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1ResourceLockedException = (
@@ -3487,7 +3612,14 @@ const deserializeAws_json1_1ResourceLockedException = (
 };
 
 const deserializeAws_json1_1Roles = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ScpActionDefinition = (output: any, context: __SerdeContext): ScpActionDefinition => {
@@ -3528,11 +3660,25 @@ const deserializeAws_json1_1Subscriber = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1Subscribers = (output: any, context: __SerdeContext): Subscriber[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Subscriber(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Subscriber(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TargetIds = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1TimePeriod = (output: any, context: __SerdeContext): TimePeriod => {
@@ -3579,7 +3725,14 @@ const deserializeAws_json1_1UpdateSubscriberResponse = (
 };
 
 const deserializeAws_json1_1Users = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -3632,3 +3785,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

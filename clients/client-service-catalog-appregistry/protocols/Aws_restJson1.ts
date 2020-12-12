@@ -76,9 +76,7 @@ export const serializeAws_restJson1AssociateAttributeGroupCommand = async (
   input: AssociateAttributeGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/applications/{application}/attribute-groups/{attributeGroup}";
   if (input.application !== undefined) {
     const labelValue: string = input.application;
@@ -115,9 +113,7 @@ export const serializeAws_restJson1AssociateResourceCommand = async (
   input: AssociateResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/applications/{application}/resources/{resourceType}/{resource}";
   if (input.application !== undefined) {
     const labelValue: string = input.application;
@@ -164,15 +160,15 @@ export const serializeAws_restJson1CreateApplicationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/applications";
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -191,16 +187,16 @@ export const serializeAws_restJson1CreateAttributeGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/attribute-groups";
   let body: any;
   body = JSON.stringify({
-    ...(input.attributes !== undefined && { attributes: input.attributes }),
+    ...(input.attributes !== undefined && input.attributes !== null && { attributes: input.attributes }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -218,9 +214,7 @@ export const serializeAws_restJson1DeleteApplicationCommand = async (
   input: DeleteApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/applications/{application}";
   if (input.application !== undefined) {
     const labelValue: string = input.application;
@@ -248,9 +242,7 @@ export const serializeAws_restJson1DeleteAttributeGroupCommand = async (
   input: DeleteAttributeGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/attribute-groups/{attributeGroup}";
   if (input.attributeGroup !== undefined) {
     const labelValue: string = input.attributeGroup;
@@ -278,9 +270,7 @@ export const serializeAws_restJson1DisassociateAttributeGroupCommand = async (
   input: DisassociateAttributeGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/applications/{application}/attribute-groups/{attributeGroup}";
   if (input.application !== undefined) {
     const labelValue: string = input.application;
@@ -317,9 +307,7 @@ export const serializeAws_restJson1DisassociateResourceCommand = async (
   input: DisassociateResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/applications/{application}/resources/{resourceType}/{resource}";
   if (input.application !== undefined) {
     const labelValue: string = input.application;
@@ -365,9 +353,7 @@ export const serializeAws_restJson1GetApplicationCommand = async (
   input: GetApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/applications/{application}";
   if (input.application !== undefined) {
     const labelValue: string = input.application;
@@ -395,9 +381,7 @@ export const serializeAws_restJson1GetAttributeGroupCommand = async (
   input: GetAttributeGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/attribute-groups/{attributeGroup}";
   if (input.attributeGroup !== undefined) {
     const labelValue: string = input.attributeGroup;
@@ -425,9 +409,7 @@ export const serializeAws_restJson1ListApplicationsCommand = async (
   input: ListApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/applications";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
@@ -451,9 +433,7 @@ export const serializeAws_restJson1ListAssociatedAttributeGroupsCommand = async 
   input: ListAssociatedAttributeGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/applications/{application}/attribute-groups";
   if (input.application !== undefined) {
     const labelValue: string = input.application;
@@ -486,9 +466,7 @@ export const serializeAws_restJson1ListAssociatedResourcesCommand = async (
   input: ListAssociatedResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/applications/{application}/resources";
   if (input.application !== undefined) {
     const labelValue: string = input.application;
@@ -521,9 +499,7 @@ export const serializeAws_restJson1ListAttributeGroupsCommand = async (
   input: ListAttributeGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/attribute-groups";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
@@ -547,9 +523,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -578,7 +552,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
@@ -592,7 +566,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -610,9 +584,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -645,7 +617,7 @@ export const serializeAws_restJson1UpdateApplicationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/applications/{application}";
   if (input.application !== undefined) {
@@ -659,8 +631,8 @@ export const serializeAws_restJson1UpdateApplicationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.name !== undefined && { name: input.name }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -679,7 +651,7 @@ export const serializeAws_restJson1UpdateAttributeGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/attribute-groups/{attributeGroup}";
   if (input.attributeGroup !== undefined) {
@@ -693,9 +665,9 @@ export const serializeAws_restJson1UpdateAttributeGroupCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.attributes !== undefined && { attributes: input.attributes }),
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.name !== undefined && { name: input.name }),
+    ...(input.attributes !== undefined && input.attributes !== null && { attributes: input.attributes }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2232,13 +2204,15 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 };
 
 const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1Application = (output: any, context: __SerdeContext): Application => {
@@ -2261,7 +2235,14 @@ const deserializeAws_restJson1Application = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1ApplicationSummaries = (output: any, context: __SerdeContext): ApplicationSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1ApplicationSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ApplicationSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ApplicationSummary = (output: any, context: __SerdeContext): ApplicationSummary => {
@@ -2299,14 +2280,28 @@ const deserializeAws_restJson1AttributeGroup = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1AttributeGroupIds = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1AttributeGroupSummaries = (
   output: any,
   context: __SerdeContext
 ): AttributeGroupSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1AttributeGroupSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AttributeGroupSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AttributeGroupSummary = (output: any, context: __SerdeContext): AttributeGroupSummary => {
@@ -2332,17 +2327,26 @@ const deserializeAws_restJson1ResourceInfo = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restJson1Resources = (output: any, context: __SerdeContext): ResourceInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1ResourceInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ResourceInfo(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -2365,6 +2369,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

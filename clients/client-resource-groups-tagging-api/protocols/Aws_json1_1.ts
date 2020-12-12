@@ -61,7 +61,7 @@ export const serializeAws_json1_1DescribeReportCreationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "ResourceGroupsTaggingAPI_20170126.DescribeReportCreation",
   };
   let body: any;
@@ -74,7 +74,7 @@ export const serializeAws_json1_1GetComplianceSummaryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "ResourceGroupsTaggingAPI_20170126.GetComplianceSummary",
   };
   let body: any;
@@ -87,7 +87,7 @@ export const serializeAws_json1_1GetResourcesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "ResourceGroupsTaggingAPI_20170126.GetResources",
   };
   let body: any;
@@ -100,7 +100,7 @@ export const serializeAws_json1_1GetTagKeysCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "ResourceGroupsTaggingAPI_20170126.GetTagKeys",
   };
   let body: any;
@@ -113,7 +113,7 @@ export const serializeAws_json1_1GetTagValuesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "ResourceGroupsTaggingAPI_20170126.GetTagValues",
   };
   let body: any;
@@ -126,7 +126,7 @@ export const serializeAws_json1_1StartReportCreationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "ResourceGroupsTaggingAPI_20170126.StartReportCreation",
   };
   let body: any;
@@ -139,7 +139,7 @@ export const serializeAws_json1_1TagResourcesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "ResourceGroupsTaggingAPI_20170126.TagResources",
   };
   let body: any;
@@ -152,7 +152,7 @@ export const serializeAws_json1_1UntagResourcesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "ResourceGroupsTaggingAPI_20170126.UntagResources",
   };
   let body: any;
@@ -187,8 +187,7 @@ const deserializeAws_json1_1DescribeReportCreationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConstraintViolationException":
     case "com.amazonaws.resourcegroupstaggingapi#ConstraintViolationException":
@@ -266,8 +265,7 @@ const deserializeAws_json1_1GetComplianceSummaryCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConstraintViolationException":
     case "com.amazonaws.resourcegroupstaggingapi#ConstraintViolationException":
@@ -345,8 +343,7 @@ const deserializeAws_json1_1GetResourcesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
@@ -424,8 +421,7 @@ const deserializeAws_json1_1GetTagKeysCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
@@ -503,8 +499,7 @@ const deserializeAws_json1_1GetTagValuesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
@@ -582,8 +577,7 @@ const deserializeAws_json1_1StartReportCreationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.resourcegroupstaggingapi#ConcurrentModificationException":
@@ -669,8 +663,7 @@ const deserializeAws_json1_1TagResourcesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
@@ -740,8 +733,7 @@ const deserializeAws_json1_1UntagResourcesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
@@ -886,69 +878,109 @@ const serializeAws_json1_1GetComplianceSummaryInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GroupBy !== undefined && { GroupBy: serializeAws_json1_1GroupBy(input.GroupBy, context) }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.PaginationToken !== undefined && { PaginationToken: input.PaginationToken }),
-    ...(input.RegionFilters !== undefined && {
-      RegionFilters: serializeAws_json1_1RegionFilterList(input.RegionFilters, context),
-    }),
-    ...(input.ResourceTypeFilters !== undefined && {
-      ResourceTypeFilters: serializeAws_json1_1ResourceTypeFilterList(input.ResourceTypeFilters, context),
-    }),
-    ...(input.TagKeyFilters !== undefined && {
-      TagKeyFilters: serializeAws_json1_1TagKeyFilterList(input.TagKeyFilters, context),
-    }),
-    ...(input.TargetIdFilters !== undefined && {
-      TargetIdFilters: serializeAws_json1_1TargetIdFilterList(input.TargetIdFilters, context),
-    }),
+    ...(input.GroupBy !== undefined &&
+      input.GroupBy !== null && { GroupBy: serializeAws_json1_1GroupBy(input.GroupBy, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.PaginationToken !== undefined &&
+      input.PaginationToken !== null && { PaginationToken: input.PaginationToken }),
+    ...(input.RegionFilters !== undefined &&
+      input.RegionFilters !== null && {
+        RegionFilters: serializeAws_json1_1RegionFilterList(input.RegionFilters, context),
+      }),
+    ...(input.ResourceTypeFilters !== undefined &&
+      input.ResourceTypeFilters !== null && {
+        ResourceTypeFilters: serializeAws_json1_1ResourceTypeFilterList(input.ResourceTypeFilters, context),
+      }),
+    ...(input.TagKeyFilters !== undefined &&
+      input.TagKeyFilters !== null && {
+        TagKeyFilters: serializeAws_json1_1TagKeyFilterList(input.TagKeyFilters, context),
+      }),
+    ...(input.TargetIdFilters !== undefined &&
+      input.TargetIdFilters !== null && {
+        TargetIdFilters: serializeAws_json1_1TargetIdFilterList(input.TargetIdFilters, context),
+      }),
   };
 };
 
 const serializeAws_json1_1GetResourcesInput = (input: GetResourcesInput, context: __SerdeContext): any => {
   return {
-    ...(input.ExcludeCompliantResources !== undefined && {
-      ExcludeCompliantResources: input.ExcludeCompliantResources,
-    }),
-    ...(input.IncludeComplianceDetails !== undefined && { IncludeComplianceDetails: input.IncludeComplianceDetails }),
-    ...(input.PaginationToken !== undefined && { PaginationToken: input.PaginationToken }),
-    ...(input.ResourceTypeFilters !== undefined && {
-      ResourceTypeFilters: serializeAws_json1_1ResourceTypeFilterList(input.ResourceTypeFilters, context),
-    }),
-    ...(input.ResourcesPerPage !== undefined && { ResourcesPerPage: input.ResourcesPerPage }),
-    ...(input.TagFilters !== undefined && { TagFilters: serializeAws_json1_1TagFilterList(input.TagFilters, context) }),
-    ...(input.TagsPerPage !== undefined && { TagsPerPage: input.TagsPerPage }),
+    ...(input.ExcludeCompliantResources !== undefined &&
+      input.ExcludeCompliantResources !== null && { ExcludeCompliantResources: input.ExcludeCompliantResources }),
+    ...(input.IncludeComplianceDetails !== undefined &&
+      input.IncludeComplianceDetails !== null && { IncludeComplianceDetails: input.IncludeComplianceDetails }),
+    ...(input.PaginationToken !== undefined &&
+      input.PaginationToken !== null && { PaginationToken: input.PaginationToken }),
+    ...(input.ResourceTypeFilters !== undefined &&
+      input.ResourceTypeFilters !== null && {
+        ResourceTypeFilters: serializeAws_json1_1ResourceTypeFilterList(input.ResourceTypeFilters, context),
+      }),
+    ...(input.ResourcesPerPage !== undefined &&
+      input.ResourcesPerPage !== null && { ResourcesPerPage: input.ResourcesPerPage }),
+    ...(input.TagFilters !== undefined &&
+      input.TagFilters !== null && { TagFilters: serializeAws_json1_1TagFilterList(input.TagFilters, context) }),
+    ...(input.TagsPerPage !== undefined && input.TagsPerPage !== null && { TagsPerPage: input.TagsPerPage }),
   };
 };
 
 const serializeAws_json1_1GetTagKeysInput = (input: GetTagKeysInput, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.PaginationToken !== undefined && { PaginationToken: input.PaginationToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.PaginationToken !== undefined &&
+      input.PaginationToken !== null && { PaginationToken: input.PaginationToken }),
   };
 };
 
 const serializeAws_json1_1GetTagValuesInput = (input: GetTagValuesInput, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.PaginationToken !== undefined && { PaginationToken: input.PaginationToken }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.PaginationToken !== undefined &&
+      input.PaginationToken !== null && { PaginationToken: input.PaginationToken }),
   };
 };
 
 const serializeAws_json1_1GroupBy = (input: (GroupByAttribute | string)[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1RegionFilterList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ResourceARNList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ResourceTypeFilterList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1StartReportCreationInput = (
@@ -956,62 +988,103 @@ const serializeAws_json1_1StartReportCreationInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.S3Bucket !== undefined && { S3Bucket: input.S3Bucket }),
+    ...(input.S3Bucket !== undefined && input.S3Bucket !== null && { S3Bucket: input.S3Bucket }),
   };
 };
 
 const serializeAws_json1_1TagFilter = (input: TagFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Values !== undefined && { Values: serializeAws_json1_1TagValueList(input.Values, context) }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Values !== undefined &&
+      input.Values !== null && { Values: serializeAws_json1_1TagValueList(input.Values, context) }),
   };
 };
 
 const serializeAws_json1_1TagFilterList = (input: TagFilter[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1TagFilter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1TagFilter(entry, context);
+    });
 };
 
 const serializeAws_json1_1TagKeyFilterList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TagKeyListForUntag = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_json1_1TagResourcesInput = (input: TagResourcesInput, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARNList !== undefined && {
-      ResourceARNList: serializeAws_json1_1ResourceARNList(input.ResourceARNList, context),
-    }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagMap(input.Tags, context) }),
+    ...(input.ResourceARNList !== undefined &&
+      input.ResourceARNList !== null && {
+        ResourceARNList: serializeAws_json1_1ResourceARNList(input.ResourceARNList, context),
+      }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagMap(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1TagValueList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TargetIdFilterList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1UntagResourcesInput = (input: UntagResourcesInput, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARNList !== undefined && {
-      ResourceARNList: serializeAws_json1_1ResourceARNList(input.ResourceARNList, context),
-    }),
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyListForUntag(input.TagKeys, context) }),
+    ...(input.ResourceARNList !== undefined &&
+      input.ResourceARNList !== null && {
+        ResourceARNList: serializeAws_json1_1ResourceARNList(input.ResourceARNList, context),
+      }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeyListForUntag(input.TagKeys, context) }),
   };
 };
 
@@ -1064,13 +1137,15 @@ const deserializeAws_json1_1FailedResourcesMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: FailureInfo } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: FailureInfo }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: FailureInfo }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: deserializeAws_json1_1FailureInfo(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1FailureInfo = (output: any, context: __SerdeContext): FailureInfo => {
@@ -1170,7 +1245,14 @@ const deserializeAws_json1_1ResourceTagMapping = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1ResourceTagMappingList = (output: any, context: __SerdeContext): ResourceTagMapping[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ResourceTagMapping(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ResourceTagMapping(entry, context);
+    });
 };
 
 const deserializeAws_json1_1StartReportCreationOutput = (
@@ -1195,7 +1277,14 @@ const deserializeAws_json1_1Summary = (output: any, context: __SerdeContext): Su
 };
 
 const deserializeAws_json1_1SummaryList = (output: any, context: __SerdeContext): Summary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Summary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Summary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -1206,11 +1295,25 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagKeyList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TagResourcesOutput = (output: any, context: __SerdeContext): TagResourcesOutput => {
@@ -1223,7 +1326,14 @@ const deserializeAws_json1_1TagResourcesOutput = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1TagValuesOutputList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ThrottledException = (output: any, context: __SerdeContext): ThrottledException => {
@@ -1291,3 +1401,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

@@ -25,7 +25,7 @@ export const serializeAws_json1_1GenerateDataSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MarketplaceCommerceAnalytics20150701.GenerateDataSet",
   };
   let body: any;
@@ -38,7 +38,7 @@ export const serializeAws_json1_1StartSupportDataExportCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MarketplaceCommerceAnalytics20150701.StartSupportDataExport",
   };
   let body: any;
@@ -73,8 +73,7 @@ const deserializeAws_json1_1GenerateDataSetCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "MarketplaceCommerceAnalyticsException":
     case "com.amazonaws.marketplacecommerceanalytics#MarketplaceCommerceAnalyticsException":
@@ -128,8 +127,7 @@ const deserializeAws_json1_1StartSupportDataExportCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "MarketplaceCommerceAnalyticsException":
     case "com.amazonaws.marketplacecommerceanalytics#MarketplaceCommerceAnalyticsException":
@@ -172,28 +170,34 @@ const deserializeAws_json1_1MarketplaceCommerceAnalyticsExceptionResponse = asyn
 };
 
 const serializeAws_json1_1CustomerDefinedValues = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_json1_1GenerateDataSetRequest = (input: GenerateDataSetRequest, context: __SerdeContext): any => {
   return {
-    ...(input.customerDefinedValues !== undefined && {
-      customerDefinedValues: serializeAws_json1_1CustomerDefinedValues(input.customerDefinedValues, context),
-    }),
-    ...(input.dataSetPublicationDate !== undefined && {
-      dataSetPublicationDate: Math.round(input.dataSetPublicationDate.getTime() / 1000),
-    }),
-    ...(input.dataSetType !== undefined && { dataSetType: input.dataSetType }),
-    ...(input.destinationS3BucketName !== undefined && { destinationS3BucketName: input.destinationS3BucketName }),
-    ...(input.destinationS3Prefix !== undefined && { destinationS3Prefix: input.destinationS3Prefix }),
-    ...(input.roleNameArn !== undefined && { roleNameArn: input.roleNameArn }),
-    ...(input.snsTopicArn !== undefined && { snsTopicArn: input.snsTopicArn }),
+    ...(input.customerDefinedValues !== undefined &&
+      input.customerDefinedValues !== null && {
+        customerDefinedValues: serializeAws_json1_1CustomerDefinedValues(input.customerDefinedValues, context),
+      }),
+    ...(input.dataSetPublicationDate !== undefined &&
+      input.dataSetPublicationDate !== null && {
+        dataSetPublicationDate: Math.round(input.dataSetPublicationDate.getTime() / 1000),
+      }),
+    ...(input.dataSetType !== undefined && input.dataSetType !== null && { dataSetType: input.dataSetType }),
+    ...(input.destinationS3BucketName !== undefined &&
+      input.destinationS3BucketName !== null && { destinationS3BucketName: input.destinationS3BucketName }),
+    ...(input.destinationS3Prefix !== undefined &&
+      input.destinationS3Prefix !== null && { destinationS3Prefix: input.destinationS3Prefix }),
+    ...(input.roleNameArn !== undefined && input.roleNameArn !== null && { roleNameArn: input.roleNameArn }),
+    ...(input.snsTopicArn !== undefined && input.snsTopicArn !== null && { snsTopicArn: input.snsTopicArn }),
   };
 };
 
@@ -202,15 +206,19 @@ const serializeAws_json1_1StartSupportDataExportRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.customerDefinedValues !== undefined && {
-      customerDefinedValues: serializeAws_json1_1CustomerDefinedValues(input.customerDefinedValues, context),
-    }),
-    ...(input.dataSetType !== undefined && { dataSetType: input.dataSetType }),
-    ...(input.destinationS3BucketName !== undefined && { destinationS3BucketName: input.destinationS3BucketName }),
-    ...(input.destinationS3Prefix !== undefined && { destinationS3Prefix: input.destinationS3Prefix }),
-    ...(input.fromDate !== undefined && { fromDate: Math.round(input.fromDate.getTime() / 1000) }),
-    ...(input.roleNameArn !== undefined && { roleNameArn: input.roleNameArn }),
-    ...(input.snsTopicArn !== undefined && { snsTopicArn: input.snsTopicArn }),
+    ...(input.customerDefinedValues !== undefined &&
+      input.customerDefinedValues !== null && {
+        customerDefinedValues: serializeAws_json1_1CustomerDefinedValues(input.customerDefinedValues, context),
+      }),
+    ...(input.dataSetType !== undefined && input.dataSetType !== null && { dataSetType: input.dataSetType }),
+    ...(input.destinationS3BucketName !== undefined &&
+      input.destinationS3BucketName !== null && { destinationS3BucketName: input.destinationS3BucketName }),
+    ...(input.destinationS3Prefix !== undefined &&
+      input.destinationS3Prefix !== null && { destinationS3Prefix: input.destinationS3Prefix }),
+    ...(input.fromDate !== undefined &&
+      input.fromDate !== null && { fromDate: Math.round(input.fromDate.getTime() / 1000) }),
+    ...(input.roleNameArn !== undefined && input.roleNameArn !== null && { roleNameArn: input.roleNameArn }),
+    ...(input.snsTopicArn !== undefined && input.snsTopicArn !== null && { snsTopicArn: input.snsTopicArn }),
   };
 };
 
@@ -290,3 +298,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

@@ -48,7 +48,7 @@ export const serializeAws_json1_1BatchMeterUsageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSMPMeteringService.BatchMeterUsage",
   };
   let body: any;
@@ -61,7 +61,7 @@ export const serializeAws_json1_1MeterUsageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSMPMeteringService.MeterUsage",
   };
   let body: any;
@@ -74,7 +74,7 @@ export const serializeAws_json1_1RegisterUsageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSMPMeteringService.RegisterUsage",
   };
   let body: any;
@@ -87,7 +87,7 @@ export const serializeAws_json1_1ResolveCustomerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSMPMeteringService.ResolveCustomer",
   };
   let body: any;
@@ -122,8 +122,7 @@ const deserializeAws_json1_1BatchMeterUsageCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DisabledApiException":
     case "com.amazonaws.marketplacemetering#DisabledApiException":
@@ -241,8 +240,7 @@ const deserializeAws_json1_1MeterUsageCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomerNotEntitledException":
     case "com.amazonaws.marketplacemetering#CustomerNotEntitledException":
@@ -368,8 +366,7 @@ const deserializeAws_json1_1RegisterUsageCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomerNotEntitledException":
     case "com.amazonaws.marketplacemetering#CustomerNotEntitledException":
@@ -479,8 +476,7 @@ const deserializeAws_json1_1ResolveCustomerCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DisabledApiException":
     case "com.amazonaws.marketplacemetering#DisabledApiException":
@@ -796,76 +792,107 @@ const deserializeAws_json1_1TimestampOutOfBoundsExceptionResponse = async (
 
 const serializeAws_json1_1BatchMeterUsageRequest = (input: BatchMeterUsageRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ProductCode !== undefined && { ProductCode: input.ProductCode }),
-    ...(input.UsageRecords !== undefined && {
-      UsageRecords: serializeAws_json1_1UsageRecordList(input.UsageRecords, context),
-    }),
+    ...(input.ProductCode !== undefined && input.ProductCode !== null && { ProductCode: input.ProductCode }),
+    ...(input.UsageRecords !== undefined &&
+      input.UsageRecords !== null && {
+        UsageRecords: serializeAws_json1_1UsageRecordList(input.UsageRecords, context),
+      }),
   };
 };
 
 const serializeAws_json1_1MeterUsageRequest = (input: MeterUsageRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
-    ...(input.ProductCode !== undefined && { ProductCode: input.ProductCode }),
-    ...(input.Timestamp !== undefined && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-    ...(input.UsageAllocations !== undefined && {
-      UsageAllocations: serializeAws_json1_1UsageAllocations(input.UsageAllocations, context),
-    }),
-    ...(input.UsageDimension !== undefined && { UsageDimension: input.UsageDimension }),
-    ...(input.UsageQuantity !== undefined && { UsageQuantity: input.UsageQuantity }),
+    ...(input.DryRun !== undefined && input.DryRun !== null && { DryRun: input.DryRun }),
+    ...(input.ProductCode !== undefined && input.ProductCode !== null && { ProductCode: input.ProductCode }),
+    ...(input.Timestamp !== undefined &&
+      input.Timestamp !== null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
+    ...(input.UsageAllocations !== undefined &&
+      input.UsageAllocations !== null && {
+        UsageAllocations: serializeAws_json1_1UsageAllocations(input.UsageAllocations, context),
+      }),
+    ...(input.UsageDimension !== undefined &&
+      input.UsageDimension !== null && { UsageDimension: input.UsageDimension }),
+    ...(input.UsageQuantity !== undefined && input.UsageQuantity !== null && { UsageQuantity: input.UsageQuantity }),
   };
 };
 
 const serializeAws_json1_1RegisterUsageRequest = (input: RegisterUsageRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Nonce !== undefined && { Nonce: input.Nonce }),
-    ...(input.ProductCode !== undefined && { ProductCode: input.ProductCode }),
-    ...(input.PublicKeyVersion !== undefined && { PublicKeyVersion: input.PublicKeyVersion }),
+    ...(input.Nonce !== undefined && input.Nonce !== null && { Nonce: input.Nonce }),
+    ...(input.ProductCode !== undefined && input.ProductCode !== null && { ProductCode: input.ProductCode }),
+    ...(input.PublicKeyVersion !== undefined &&
+      input.PublicKeyVersion !== null && { PublicKeyVersion: input.PublicKeyVersion }),
   };
 };
 
 const serializeAws_json1_1ResolveCustomerRequest = (input: ResolveCustomerRequest, context: __SerdeContext): any => {
   return {
-    ...(input.RegistrationToken !== undefined && { RegistrationToken: input.RegistrationToken }),
+    ...(input.RegistrationToken !== undefined &&
+      input.RegistrationToken !== null && { RegistrationToken: input.RegistrationToken }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const serializeAws_json1_1UsageAllocation = (input: UsageAllocation, context: __SerdeContext): any => {
   return {
-    ...(input.AllocatedUsageQuantity !== undefined && { AllocatedUsageQuantity: input.AllocatedUsageQuantity }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.AllocatedUsageQuantity !== undefined &&
+      input.AllocatedUsageQuantity !== null && { AllocatedUsageQuantity: input.AllocatedUsageQuantity }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1UsageAllocations = (input: UsageAllocation[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1UsageAllocation(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1UsageAllocation(entry, context);
+    });
 };
 
 const serializeAws_json1_1UsageRecord = (input: UsageRecord, context: __SerdeContext): any => {
   return {
-    ...(input.CustomerIdentifier !== undefined && { CustomerIdentifier: input.CustomerIdentifier }),
-    ...(input.Dimension !== undefined && { Dimension: input.Dimension }),
-    ...(input.Quantity !== undefined && { Quantity: input.Quantity }),
-    ...(input.Timestamp !== undefined && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-    ...(input.UsageAllocations !== undefined && {
-      UsageAllocations: serializeAws_json1_1UsageAllocations(input.UsageAllocations, context),
-    }),
+    ...(input.CustomerIdentifier !== undefined &&
+      input.CustomerIdentifier !== null && { CustomerIdentifier: input.CustomerIdentifier }),
+    ...(input.Dimension !== undefined && input.Dimension !== null && { Dimension: input.Dimension }),
+    ...(input.Quantity !== undefined && input.Quantity !== null && { Quantity: input.Quantity }),
+    ...(input.Timestamp !== undefined &&
+      input.Timestamp !== null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
+    ...(input.UsageAllocations !== undefined &&
+      input.UsageAllocations !== null && {
+        UsageAllocations: serializeAws_json1_1UsageAllocations(input.UsageAllocations, context),
+      }),
   };
 };
 
 const serializeAws_json1_1UsageRecordList = (input: UsageRecord[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1UsageRecord(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1UsageRecord(entry, context);
+    });
 };
 
 const deserializeAws_json1_1BatchMeterUsageResult = (output: any, context: __SerdeContext): BatchMeterUsageResult => {
@@ -1036,7 +1063,14 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
@@ -1068,7 +1102,14 @@ const deserializeAws_json1_1UsageAllocation = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1UsageAllocations = (output: any, context: __SerdeContext): UsageAllocation[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1UsageAllocation(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1UsageAllocation(entry, context);
+    });
 };
 
 const deserializeAws_json1_1UsageRecord = (output: any, context: __SerdeContext): UsageRecord => {
@@ -1091,7 +1132,14 @@ const deserializeAws_json1_1UsageRecord = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1UsageRecordList = (output: any, context: __SerdeContext): UsageRecord[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1UsageRecord(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1UsageRecord(entry, context);
+    });
 };
 
 const deserializeAws_json1_1UsageRecordResult = (output: any, context: __SerdeContext): UsageRecordResult => {
@@ -1107,7 +1155,14 @@ const deserializeAws_json1_1UsageRecordResult = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1UsageRecordResultList = (output: any, context: __SerdeContext): UsageRecordResult[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1UsageRecordResult(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1UsageRecordResult(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -1160,3 +1215,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

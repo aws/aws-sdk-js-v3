@@ -39,7 +39,7 @@ export const serializeAws_json1_0SendCommandCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.0",
+    "content-type": "application/x-amz-json-1.0",
     "X-Amz-Target": "QLDBSession.SendCommand",
   };
   let body: any;
@@ -74,8 +74,7 @@ const deserializeAws_json1_0SendCommandCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.qldbsession#BadRequestException":
@@ -218,8 +217,9 @@ const serializeAws_json1_0CommitTransactionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CommitDigest !== undefined && { CommitDigest: context.base64Encoder(input.CommitDigest) }),
-    ...(input.TransactionId !== undefined && { TransactionId: input.TransactionId }),
+    ...(input.CommitDigest !== undefined &&
+      input.CommitDigest !== null && { CommitDigest: context.base64Encoder(input.CommitDigest) }),
+    ...(input.TransactionId !== undefined && input.TransactionId !== null && { TransactionId: input.TransactionId }),
   };
 };
 
@@ -229,49 +229,53 @@ const serializeAws_json1_0EndSessionRequest = (input: EndSessionRequest, context
 
 const serializeAws_json1_0ExecuteStatementRequest = (input: ExecuteStatementRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Parameters !== undefined && {
-      Parameters: serializeAws_json1_0StatementParameters(input.Parameters, context),
-    }),
-    ...(input.Statement !== undefined && { Statement: input.Statement }),
-    ...(input.TransactionId !== undefined && { TransactionId: input.TransactionId }),
+    ...(input.Parameters !== undefined &&
+      input.Parameters !== null && { Parameters: serializeAws_json1_0StatementParameters(input.Parameters, context) }),
+    ...(input.Statement !== undefined && input.Statement !== null && { Statement: input.Statement }),
+    ...(input.TransactionId !== undefined && input.TransactionId !== null && { TransactionId: input.TransactionId }),
   };
 };
 
 const serializeAws_json1_0FetchPageRequest = (input: FetchPageRequest, context: __SerdeContext): any => {
   return {
-    ...(input.NextPageToken !== undefined && { NextPageToken: input.NextPageToken }),
-    ...(input.TransactionId !== undefined && { TransactionId: input.TransactionId }),
+    ...(input.NextPageToken !== undefined && input.NextPageToken !== null && { NextPageToken: input.NextPageToken }),
+    ...(input.TransactionId !== undefined && input.TransactionId !== null && { TransactionId: input.TransactionId }),
   };
 };
 
 const serializeAws_json1_0SendCommandRequest = (input: SendCommandRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AbortTransaction !== undefined && {
-      AbortTransaction: serializeAws_json1_0AbortTransactionRequest(input.AbortTransaction, context),
-    }),
-    ...(input.CommitTransaction !== undefined && {
-      CommitTransaction: serializeAws_json1_0CommitTransactionRequest(input.CommitTransaction, context),
-    }),
-    ...(input.EndSession !== undefined && {
-      EndSession: serializeAws_json1_0EndSessionRequest(input.EndSession, context),
-    }),
-    ...(input.ExecuteStatement !== undefined && {
-      ExecuteStatement: serializeAws_json1_0ExecuteStatementRequest(input.ExecuteStatement, context),
-    }),
-    ...(input.FetchPage !== undefined && { FetchPage: serializeAws_json1_0FetchPageRequest(input.FetchPage, context) }),
-    ...(input.SessionToken !== undefined && { SessionToken: input.SessionToken }),
-    ...(input.StartSession !== undefined && {
-      StartSession: serializeAws_json1_0StartSessionRequest(input.StartSession, context),
-    }),
-    ...(input.StartTransaction !== undefined && {
-      StartTransaction: serializeAws_json1_0StartTransactionRequest(input.StartTransaction, context),
-    }),
+    ...(input.AbortTransaction !== undefined &&
+      input.AbortTransaction !== null && {
+        AbortTransaction: serializeAws_json1_0AbortTransactionRequest(input.AbortTransaction, context),
+      }),
+    ...(input.CommitTransaction !== undefined &&
+      input.CommitTransaction !== null && {
+        CommitTransaction: serializeAws_json1_0CommitTransactionRequest(input.CommitTransaction, context),
+      }),
+    ...(input.EndSession !== undefined &&
+      input.EndSession !== null && { EndSession: serializeAws_json1_0EndSessionRequest(input.EndSession, context) }),
+    ...(input.ExecuteStatement !== undefined &&
+      input.ExecuteStatement !== null && {
+        ExecuteStatement: serializeAws_json1_0ExecuteStatementRequest(input.ExecuteStatement, context),
+      }),
+    ...(input.FetchPage !== undefined &&
+      input.FetchPage !== null && { FetchPage: serializeAws_json1_0FetchPageRequest(input.FetchPage, context) }),
+    ...(input.SessionToken !== undefined && input.SessionToken !== null && { SessionToken: input.SessionToken }),
+    ...(input.StartSession !== undefined &&
+      input.StartSession !== null && {
+        StartSession: serializeAws_json1_0StartSessionRequest(input.StartSession, context),
+      }),
+    ...(input.StartTransaction !== undefined &&
+      input.StartTransaction !== null && {
+        StartTransaction: serializeAws_json1_0StartTransactionRequest(input.StartTransaction, context),
+      }),
   };
 };
 
 const serializeAws_json1_0StartSessionRequest = (input: StartSessionRequest, context: __SerdeContext): any => {
   return {
-    ...(input.LedgerName !== undefined && { LedgerName: input.LedgerName }),
+    ...(input.LedgerName !== undefined && input.LedgerName !== null && { LedgerName: input.LedgerName }),
   };
 };
 
@@ -280,13 +284,21 @@ const serializeAws_json1_0StartTransactionRequest = (input: StartTransactionRequ
 };
 
 const serializeAws_json1_0StatementParameters = (input: ValueHolder[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_0ValueHolder(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_0ValueHolder(entry, context);
+    });
 };
 
 const serializeAws_json1_0ValueHolder = (input: ValueHolder, context: __SerdeContext): any => {
   return {
-    ...(input.IonBinary !== undefined && { IonBinary: context.base64Encoder(input.IonBinary) }),
-    ...(input.IonText !== undefined && { IonText: input.IonText }),
+    ...(input.IonBinary !== undefined &&
+      input.IonBinary !== null && { IonBinary: context.base64Encoder(input.IonBinary) }),
+    ...(input.IonText !== undefined && input.IonText !== null && { IonText: input.IonText }),
   };
 };
 
@@ -429,7 +441,14 @@ const deserializeAws_json1_0ValueHolder = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_0ValueHolders = (output: any, context: __SerdeContext): ValueHolder[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_0ValueHolder(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0ValueHolder(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -482,3 +501,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

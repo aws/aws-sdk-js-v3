@@ -90,7 +90,7 @@ export const serializeAws_restJson1CloneBackendCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/backend/{AppId}/environments/{BackendEnvironmentName}/clone";
   if (input.AppId !== undefined) {
@@ -113,7 +113,8 @@ export const serializeAws_restJson1CloneBackendCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.TargetEnvironmentName !== undefined && { targetEnvironmentName: input.TargetEnvironmentName }),
+    ...(input.TargetEnvironmentName !== undefined &&
+      input.TargetEnvironmentName !== null && { targetEnvironmentName: input.TargetEnvironmentName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -132,18 +133,20 @@ export const serializeAws_restJson1CreateBackendCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/backend";
   let body: any;
   body = JSON.stringify({
-    ...(input.AppId !== undefined && { appId: input.AppId }),
-    ...(input.AppName !== undefined && { appName: input.AppName }),
-    ...(input.BackendEnvironmentName !== undefined && { backendEnvironmentName: input.BackendEnvironmentName }),
-    ...(input.ResourceConfig !== undefined && {
-      resourceConfig: serializeAws_restJson1ResourceConfig(input.ResourceConfig, context),
-    }),
-    ...(input.ResourceName !== undefined && { resourceName: input.ResourceName }),
+    ...(input.AppId !== undefined && input.AppId !== null && { appId: input.AppId }),
+    ...(input.AppName !== undefined && input.AppName !== null && { appName: input.AppName }),
+    ...(input.BackendEnvironmentName !== undefined &&
+      input.BackendEnvironmentName !== null && { backendEnvironmentName: input.BackendEnvironmentName }),
+    ...(input.ResourceConfig !== undefined &&
+      input.ResourceConfig !== null && {
+        resourceConfig: serializeAws_restJson1ResourceConfig(input.ResourceConfig, context),
+      }),
+    ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -162,7 +165,7 @@ export const serializeAws_restJson1CreateBackendAPICommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/backend/{AppId}/api";
   if (input.AppId !== undefined) {
@@ -176,11 +179,13 @@ export const serializeAws_restJson1CreateBackendAPICommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.BackendEnvironmentName !== undefined && { backendEnvironmentName: input.BackendEnvironmentName }),
-    ...(input.ResourceConfig !== undefined && {
-      resourceConfig: serializeAws_restJson1BackendAPIResourceConfig(input.ResourceConfig, context),
-    }),
-    ...(input.ResourceName !== undefined && { resourceName: input.ResourceName }),
+    ...(input.BackendEnvironmentName !== undefined &&
+      input.BackendEnvironmentName !== null && { backendEnvironmentName: input.BackendEnvironmentName }),
+    ...(input.ResourceConfig !== undefined &&
+      input.ResourceConfig !== null && {
+        resourceConfig: serializeAws_restJson1BackendAPIResourceConfig(input.ResourceConfig, context),
+      }),
+    ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -199,7 +204,7 @@ export const serializeAws_restJson1CreateBackendAuthCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/backend/{AppId}/auth";
   if (input.AppId !== undefined) {
@@ -213,11 +218,13 @@ export const serializeAws_restJson1CreateBackendAuthCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.BackendEnvironmentName !== undefined && { backendEnvironmentName: input.BackendEnvironmentName }),
-    ...(input.ResourceConfig !== undefined && {
-      resourceConfig: serializeAws_restJson1CreateBackendAuthResourceConfig(input.ResourceConfig, context),
-    }),
-    ...(input.ResourceName !== undefined && { resourceName: input.ResourceName }),
+    ...(input.BackendEnvironmentName !== undefined &&
+      input.BackendEnvironmentName !== null && { backendEnvironmentName: input.BackendEnvironmentName }),
+    ...(input.ResourceConfig !== undefined &&
+      input.ResourceConfig !== null && {
+        resourceConfig: serializeAws_restJson1CreateBackendAuthResourceConfig(input.ResourceConfig, context),
+      }),
+    ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -236,7 +243,7 @@ export const serializeAws_restJson1CreateBackendConfigCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/backend/{AppId}/config";
   if (input.AppId !== undefined) {
@@ -250,7 +257,8 @@ export const serializeAws_restJson1CreateBackendConfigCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.BackendManagerAppId !== undefined && { backendManagerAppId: input.BackendManagerAppId }),
+    ...(input.BackendManagerAppId !== undefined &&
+      input.BackendManagerAppId !== null && { backendManagerAppId: input.BackendManagerAppId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -268,9 +276,7 @@ export const serializeAws_restJson1CreateTokenCommand = async (
   input: CreateTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/backend/{AppId}/challenge";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
@@ -298,9 +304,7 @@ export const serializeAws_restJson1DeleteBackendCommand = async (
   input: DeleteBackendCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/backend/{AppId}/environments/{BackendEnvironmentName}/remove";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
@@ -338,7 +342,7 @@ export const serializeAws_restJson1DeleteBackendAPICommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/backend/{AppId}/api/{BackendEnvironmentName}/remove";
   if (input.AppId !== undefined) {
@@ -361,10 +365,11 @@ export const serializeAws_restJson1DeleteBackendAPICommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceConfig !== undefined && {
-      resourceConfig: serializeAws_restJson1BackendAPIResourceConfig(input.ResourceConfig, context),
-    }),
-    ...(input.ResourceName !== undefined && { resourceName: input.ResourceName }),
+    ...(input.ResourceConfig !== undefined &&
+      input.ResourceConfig !== null && {
+        resourceConfig: serializeAws_restJson1BackendAPIResourceConfig(input.ResourceConfig, context),
+      }),
+    ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -383,7 +388,7 @@ export const serializeAws_restJson1DeleteBackendAuthCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/backend/{AppId}/auth/{BackendEnvironmentName}/remove";
   if (input.AppId !== undefined) {
@@ -406,7 +411,7 @@ export const serializeAws_restJson1DeleteBackendAuthCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceName !== undefined && { resourceName: input.ResourceName }),
+    ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -424,9 +429,7 @@ export const serializeAws_restJson1DeleteTokenCommand = async (
   input: DeleteTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/backend/{AppId}/challenge/{SessionId}/remove";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
@@ -464,7 +467,7 @@ export const serializeAws_restJson1GenerateBackendAPIModelsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/backend/{AppId}/api/{BackendEnvironmentName}/generateModels";
   if (input.AppId !== undefined) {
@@ -487,7 +490,7 @@ export const serializeAws_restJson1GenerateBackendAPIModelsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceName !== undefined && { resourceName: input.ResourceName }),
+    ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -506,7 +509,7 @@ export const serializeAws_restJson1GetBackendCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/backend/{AppId}/details";
   if (input.AppId !== undefined) {
@@ -520,7 +523,8 @@ export const serializeAws_restJson1GetBackendCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.BackendEnvironmentName !== undefined && { backendEnvironmentName: input.BackendEnvironmentName }),
+    ...(input.BackendEnvironmentName !== undefined &&
+      input.BackendEnvironmentName !== null && { backendEnvironmentName: input.BackendEnvironmentName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -539,7 +543,7 @@ export const serializeAws_restJson1GetBackendAPICommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/backend/{AppId}/api/{BackendEnvironmentName}/details";
   if (input.AppId !== undefined) {
@@ -562,10 +566,11 @@ export const serializeAws_restJson1GetBackendAPICommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceConfig !== undefined && {
-      resourceConfig: serializeAws_restJson1BackendAPIResourceConfig(input.ResourceConfig, context),
-    }),
-    ...(input.ResourceName !== undefined && { resourceName: input.ResourceName }),
+    ...(input.ResourceConfig !== undefined &&
+      input.ResourceConfig !== null && {
+        resourceConfig: serializeAws_restJson1BackendAPIResourceConfig(input.ResourceConfig, context),
+      }),
+    ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -584,7 +589,7 @@ export const serializeAws_restJson1GetBackendAPIModelsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/backend/{AppId}/api/{BackendEnvironmentName}/getModels";
   if (input.AppId !== undefined) {
@@ -607,7 +612,7 @@ export const serializeAws_restJson1GetBackendAPIModelsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceName !== undefined && { resourceName: input.ResourceName }),
+    ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -626,7 +631,7 @@ export const serializeAws_restJson1GetBackendAuthCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/backend/{AppId}/auth/{BackendEnvironmentName}/details";
   if (input.AppId !== undefined) {
@@ -649,7 +654,7 @@ export const serializeAws_restJson1GetBackendAuthCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceName !== undefined && { resourceName: input.ResourceName }),
+    ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -667,9 +672,7 @@ export const serializeAws_restJson1GetBackendJobCommand = async (
   input: GetBackendJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/backend/{AppId}/job/{BackendEnvironmentName}/{JobId}";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
@@ -715,9 +718,7 @@ export const serializeAws_restJson1GetTokenCommand = async (
   input: GetTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/backend/{AppId}/challenge/{SessionId}";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
@@ -755,7 +756,7 @@ export const serializeAws_restJson1ListBackendJobsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/backend/{AppId}/job/{BackendEnvironmentName}";
   if (input.AppId !== undefined) {
@@ -778,11 +779,11 @@ export const serializeAws_restJson1ListBackendJobsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.JobId !== undefined && { jobId: input.JobId }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.Operation !== undefined && { operation: input.Operation }),
-    ...(input.Status !== undefined && { status: input.Status }),
+    ...(input.JobId !== undefined && input.JobId !== null && { jobId: input.JobId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { maxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { nextToken: input.NextToken }),
+    ...(input.Operation !== undefined && input.Operation !== null && { operation: input.Operation }),
+    ...(input.Status !== undefined && input.Status !== null && { status: input.Status }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -801,7 +802,7 @@ export const serializeAws_restJson1RemoveAllBackendsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/backend/{AppId}/remove";
   if (input.AppId !== undefined) {
@@ -815,7 +816,8 @@ export const serializeAws_restJson1RemoveAllBackendsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.CleanAmplifyApp !== undefined && { cleanAmplifyApp: input.CleanAmplifyApp }),
+    ...(input.CleanAmplifyApp !== undefined &&
+      input.CleanAmplifyApp !== null && { cleanAmplifyApp: input.CleanAmplifyApp }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -833,9 +835,7 @@ export const serializeAws_restJson1RemoveBackendConfigCommand = async (
   input: RemoveBackendConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/backend/{AppId}/config/remove";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
@@ -864,7 +864,7 @@ export const serializeAws_restJson1UpdateBackendAPICommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/backend/{AppId}/api/{BackendEnvironmentName}";
   if (input.AppId !== undefined) {
@@ -887,10 +887,11 @@ export const serializeAws_restJson1UpdateBackendAPICommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceConfig !== undefined && {
-      resourceConfig: serializeAws_restJson1BackendAPIResourceConfig(input.ResourceConfig, context),
-    }),
-    ...(input.ResourceName !== undefined && { resourceName: input.ResourceName }),
+    ...(input.ResourceConfig !== undefined &&
+      input.ResourceConfig !== null && {
+        resourceConfig: serializeAws_restJson1BackendAPIResourceConfig(input.ResourceConfig, context),
+      }),
+    ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -909,7 +910,7 @@ export const serializeAws_restJson1UpdateBackendAuthCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/backend/{AppId}/auth/{BackendEnvironmentName}";
   if (input.AppId !== undefined) {
@@ -932,10 +933,11 @@ export const serializeAws_restJson1UpdateBackendAuthCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceConfig !== undefined && {
-      resourceConfig: serializeAws_restJson1UpdateBackendAuthResourceConfig(input.ResourceConfig, context),
-    }),
-    ...(input.ResourceName !== undefined && { resourceName: input.ResourceName }),
+    ...(input.ResourceConfig !== undefined &&
+      input.ResourceConfig !== null && {
+        resourceConfig: serializeAws_restJson1UpdateBackendAuthResourceConfig(input.ResourceConfig, context),
+      }),
+    ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -954,7 +956,7 @@ export const serializeAws_restJson1UpdateBackendConfigCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/backend/{AppId}/config/update";
   if (input.AppId !== undefined) {
@@ -968,9 +970,10 @@ export const serializeAws_restJson1UpdateBackendConfigCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.LoginAuthConfig !== undefined && {
-      loginAuthConfig: serializeAws_restJson1LoginAuthConfigReqObj(input.LoginAuthConfig, context),
-    }),
+    ...(input.LoginAuthConfig !== undefined &&
+      input.LoginAuthConfig !== null && {
+        loginAuthConfig: serializeAws_restJson1LoginAuthConfigReqObj(input.LoginAuthConfig, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -989,7 +992,7 @@ export const serializeAws_restJson1UpdateBackendJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/backend/{AppId}/job/{BackendEnvironmentName}/{JobId}";
   if (input.AppId !== undefined) {
@@ -1021,8 +1024,8 @@ export const serializeAws_restJson1UpdateBackendJobCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Operation !== undefined && { operation: input.Operation }),
-    ...(input.Status !== undefined && { status: input.Status }),
+    ...(input.Operation !== undefined && input.Operation !== null && { operation: input.Operation }),
+    ...(input.Status !== undefined && input.Status !== null && { status: input.Status }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3393,23 +3396,29 @@ const serializeAws_restJson1BackendAPIAppSyncAuthSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CognitoUserPoolId !== undefined && { cognitoUserPoolId: input.CognitoUserPoolId }),
-    ...(input.Description !== undefined && { description: input.Description }),
-    ...(input.ExpirationTime !== undefined && { expirationTime: input.ExpirationTime }),
-    ...(input.OpenIDAuthTTL !== undefined && { openIDAuthTTL: input.OpenIDAuthTTL }),
-    ...(input.OpenIDClientId !== undefined && { openIDClientId: input.OpenIDClientId }),
-    ...(input.OpenIDIatTTL !== undefined && { openIDIatTTL: input.OpenIDIatTTL }),
-    ...(input.OpenIDIssueURL !== undefined && { openIDIssueURL: input.OpenIDIssueURL }),
-    ...(input.OpenIDProviderName !== undefined && { openIDProviderName: input.OpenIDProviderName }),
+    ...(input.CognitoUserPoolId !== undefined &&
+      input.CognitoUserPoolId !== null && { cognitoUserPoolId: input.CognitoUserPoolId }),
+    ...(input.Description !== undefined && input.Description !== null && { description: input.Description }),
+    ...(input.ExpirationTime !== undefined &&
+      input.ExpirationTime !== null && { expirationTime: input.ExpirationTime }),
+    ...(input.OpenIDAuthTTL !== undefined && input.OpenIDAuthTTL !== null && { openIDAuthTTL: input.OpenIDAuthTTL }),
+    ...(input.OpenIDClientId !== undefined &&
+      input.OpenIDClientId !== null && { openIDClientId: input.OpenIDClientId }),
+    ...(input.OpenIDIatTTL !== undefined && input.OpenIDIatTTL !== null && { openIDIatTTL: input.OpenIDIatTTL }),
+    ...(input.OpenIDIssueURL !== undefined &&
+      input.OpenIDIssueURL !== null && { openIDIssueURL: input.OpenIDIssueURL }),
+    ...(input.OpenIDProviderName !== undefined &&
+      input.OpenIDProviderName !== null && { openIDProviderName: input.OpenIDProviderName }),
   };
 };
 
 const serializeAws_restJson1BackendAPIAuthType = (input: BackendAPIAuthType, context: __SerdeContext): any => {
   return {
-    ...(input.Mode !== undefined && { mode: input.Mode }),
-    ...(input.Settings !== undefined && {
-      settings: serializeAws_restJson1BackendAPIAppSyncAuthSettings(input.Settings, context),
-    }),
+    ...(input.Mode !== undefined && input.Mode !== null && { mode: input.Mode }),
+    ...(input.Settings !== undefined &&
+      input.Settings !== null && {
+        settings: serializeAws_restJson1BackendAPIAppSyncAuthSettings(input.Settings, context),
+      }),
   };
 };
 
@@ -3418,7 +3427,8 @@ const serializeAws_restJson1BackendAPIConflictResolution = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResolutionStrategy !== undefined && { resolutionStrategy: input.ResolutionStrategy }),
+    ...(input.ResolutionStrategy !== undefined &&
+      input.ResolutionStrategy !== null && { resolutionStrategy: input.ResolutionStrategy }),
   };
 };
 
@@ -3427,18 +3437,22 @@ const serializeAws_restJson1BackendAPIResourceConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AdditionalAuthTypes !== undefined && {
-      additionalAuthTypes: serializeAws_restJson1ListOfBackendAPIAuthType(input.AdditionalAuthTypes, context),
-    }),
-    ...(input.ApiName !== undefined && { apiName: input.ApiName }),
-    ...(input.ConflictResolution !== undefined && {
-      conflictResolution: serializeAws_restJson1BackendAPIConflictResolution(input.ConflictResolution, context),
-    }),
-    ...(input.DefaultAuthType !== undefined && {
-      defaultAuthType: serializeAws_restJson1BackendAPIAuthType(input.DefaultAuthType, context),
-    }),
-    ...(input.Service !== undefined && { service: input.Service }),
-    ...(input.TransformSchema !== undefined && { transformSchema: input.TransformSchema }),
+    ...(input.AdditionalAuthTypes !== undefined &&
+      input.AdditionalAuthTypes !== null && {
+        additionalAuthTypes: serializeAws_restJson1ListOfBackendAPIAuthType(input.AdditionalAuthTypes, context),
+      }),
+    ...(input.ApiName !== undefined && input.ApiName !== null && { apiName: input.ApiName }),
+    ...(input.ConflictResolution !== undefined &&
+      input.ConflictResolution !== null && {
+        conflictResolution: serializeAws_restJson1BackendAPIConflictResolution(input.ConflictResolution, context),
+      }),
+    ...(input.DefaultAuthType !== undefined &&
+      input.DefaultAuthType !== null && {
+        defaultAuthType: serializeAws_restJson1BackendAPIAuthType(input.DefaultAuthType, context),
+      }),
+    ...(input.Service !== undefined && input.Service !== null && { service: input.Service }),
+    ...(input.TransformSchema !== undefined &&
+      input.TransformSchema !== null && { transformSchema: input.TransformSchema }),
   };
 };
 
@@ -3447,8 +3461,8 @@ const serializeAws_restJson1BackendAuthSocialProviderConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ClientId !== undefined && { client_id: input.ClientId }),
-    ...(input.ClientSecret !== undefined && { client_secret: input.ClientSecret }),
+    ...(input.ClientId !== undefined && input.ClientId !== null && { client_id: input.ClientId }),
+    ...(input.ClientSecret !== undefined && input.ClientSecret !== null && { client_secret: input.ClientSecret }),
   };
 };
 
@@ -3457,13 +3471,14 @@ const serializeAws_restJson1CreateBackendAuthForgotPasswordConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DeliveryMethod !== undefined && { deliveryMethod: input.DeliveryMethod }),
-    ...(input.EmailSettings !== undefined && {
-      emailSettings: serializeAws_restJson1EmailSettings(input.EmailSettings, context),
-    }),
-    ...(input.SmsSettings !== undefined && {
-      smsSettings: serializeAws_restJson1SmsSettings(input.SmsSettings, context),
-    }),
+    ...(input.DeliveryMethod !== undefined &&
+      input.DeliveryMethod !== null && { deliveryMethod: input.DeliveryMethod }),
+    ...(input.EmailSettings !== undefined &&
+      input.EmailSettings !== null && {
+        emailSettings: serializeAws_restJson1EmailSettings(input.EmailSettings, context),
+      }),
+    ...(input.SmsSettings !== undefined &&
+      input.SmsSettings !== null && { smsSettings: serializeAws_restJson1SmsSettings(input.SmsSettings, context) }),
   };
 };
 
@@ -3472,8 +3487,10 @@ const serializeAws_restJson1CreateBackendAuthIdentityPoolConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IdentityPoolName !== undefined && { identityPoolName: input.IdentityPoolName }),
-    ...(input.UnauthenticatedLogin !== undefined && { unauthenticatedLogin: input.UnauthenticatedLogin }),
+    ...(input.IdentityPoolName !== undefined &&
+      input.IdentityPoolName !== null && { identityPoolName: input.IdentityPoolName }),
+    ...(input.UnauthenticatedLogin !== undefined &&
+      input.UnauthenticatedLogin !== null && { unauthenticatedLogin: input.UnauthenticatedLogin }),
   };
 };
 
@@ -3482,8 +3499,9 @@ const serializeAws_restJson1CreateBackendAuthMFAConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MFAMode !== undefined && { MFAMode: input.MFAMode }),
-    ...(input.Settings !== undefined && { settings: serializeAws_restJson1Settings(input.Settings, context) }),
+    ...(input.MFAMode !== undefined && input.MFAMode !== null && { MFAMode: input.MFAMode }),
+    ...(input.Settings !== undefined &&
+      input.Settings !== null && { settings: serializeAws_restJson1Settings(input.Settings, context) }),
   };
 };
 
@@ -3492,20 +3510,25 @@ const serializeAws_restJson1CreateBackendAuthOAuthConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainPrefix !== undefined && { domainPrefix: input.DomainPrefix }),
-    ...(input.OAuthGrantType !== undefined && { oAuthGrantType: input.OAuthGrantType }),
-    ...(input.OAuthScopes !== undefined && {
-      oAuthScopes: serializeAws_restJson1ListOfOAuthScopesElement(input.OAuthScopes, context),
-    }),
-    ...(input.RedirectSignInURIs !== undefined && {
-      redirectSignInURIs: serializeAws_restJson1ListOf__string(input.RedirectSignInURIs, context),
-    }),
-    ...(input.RedirectSignOutURIs !== undefined && {
-      redirectSignOutURIs: serializeAws_restJson1ListOf__string(input.RedirectSignOutURIs, context),
-    }),
-    ...(input.SocialProviderSettings !== undefined && {
-      socialProviderSettings: serializeAws_restJson1SocialProviderSettings(input.SocialProviderSettings, context),
-    }),
+    ...(input.DomainPrefix !== undefined && input.DomainPrefix !== null && { domainPrefix: input.DomainPrefix }),
+    ...(input.OAuthGrantType !== undefined &&
+      input.OAuthGrantType !== null && { oAuthGrantType: input.OAuthGrantType }),
+    ...(input.OAuthScopes !== undefined &&
+      input.OAuthScopes !== null && {
+        oAuthScopes: serializeAws_restJson1ListOfOAuthScopesElement(input.OAuthScopes, context),
+      }),
+    ...(input.RedirectSignInURIs !== undefined &&
+      input.RedirectSignInURIs !== null && {
+        redirectSignInURIs: serializeAws_restJson1ListOf__string(input.RedirectSignInURIs, context),
+      }),
+    ...(input.RedirectSignOutURIs !== undefined &&
+      input.RedirectSignOutURIs !== null && {
+        redirectSignOutURIs: serializeAws_restJson1ListOf__string(input.RedirectSignOutURIs, context),
+      }),
+    ...(input.SocialProviderSettings !== undefined &&
+      input.SocialProviderSettings !== null && {
+        socialProviderSettings: serializeAws_restJson1SocialProviderSettings(input.SocialProviderSettings, context),
+      }),
   };
 };
 
@@ -3514,13 +3537,14 @@ const serializeAws_restJson1CreateBackendAuthPasswordPolicyConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AdditionalConstraints !== undefined && {
-      additionalConstraints: serializeAws_restJson1ListOfAdditionalConstraintsElement(
-        input.AdditionalConstraints,
-        context
-      ),
-    }),
-    ...(input.MinimumLength !== undefined && { minimumLength: input.MinimumLength }),
+    ...(input.AdditionalConstraints !== undefined &&
+      input.AdditionalConstraints !== null && {
+        additionalConstraints: serializeAws_restJson1ListOfAdditionalConstraintsElement(
+          input.AdditionalConstraints,
+          context
+        ),
+      }),
+    ...(input.MinimumLength !== undefined && input.MinimumLength !== null && { minimumLength: input.MinimumLength }),
   };
 };
 
@@ -3529,17 +3553,19 @@ const serializeAws_restJson1CreateBackendAuthResourceConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AuthResources !== undefined && { authResources: input.AuthResources }),
-    ...(input.IdentityPoolConfigs !== undefined && {
-      identityPoolConfigs: serializeAws_restJson1CreateBackendAuthIdentityPoolConfig(
-        input.IdentityPoolConfigs,
-        context
-      ),
-    }),
-    ...(input.Service !== undefined && { service: input.Service }),
-    ...(input.UserPoolConfigs !== undefined && {
-      userPoolConfigs: serializeAws_restJson1CreateBackendAuthUserPoolConfig(input.UserPoolConfigs, context),
-    }),
+    ...(input.AuthResources !== undefined && input.AuthResources !== null && { authResources: input.AuthResources }),
+    ...(input.IdentityPoolConfigs !== undefined &&
+      input.IdentityPoolConfigs !== null && {
+        identityPoolConfigs: serializeAws_restJson1CreateBackendAuthIdentityPoolConfig(
+          input.IdentityPoolConfigs,
+          context
+        ),
+      }),
+    ...(input.Service !== undefined && input.Service !== null && { service: input.Service }),
+    ...(input.UserPoolConfigs !== undefined &&
+      input.UserPoolConfigs !== null && {
+        userPoolConfigs: serializeAws_restJson1CreateBackendAuthUserPoolConfig(input.UserPoolConfigs, context),
+      }),
   };
 };
 
@@ -3548,78 +3574,125 @@ const serializeAws_restJson1CreateBackendAuthUserPoolConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ForgotPassword !== undefined && {
-      forgotPassword: serializeAws_restJson1CreateBackendAuthForgotPasswordConfig(input.ForgotPassword, context),
-    }),
-    ...(input.Mfa !== undefined && { mfa: serializeAws_restJson1CreateBackendAuthMFAConfig(input.Mfa, context) }),
-    ...(input.OAuth !== undefined && {
-      oAuth: serializeAws_restJson1CreateBackendAuthOAuthConfig(input.OAuth, context),
-    }),
-    ...(input.PasswordPolicy !== undefined && {
-      passwordPolicy: serializeAws_restJson1CreateBackendAuthPasswordPolicyConfig(input.PasswordPolicy, context),
-    }),
-    ...(input.RequiredSignUpAttributes !== undefined && {
-      requiredSignUpAttributes: serializeAws_restJson1ListOfRequiredSignUpAttributesElement(
-        input.RequiredSignUpAttributes,
-        context
-      ),
-    }),
-    ...(input.SignInMethod !== undefined && { signInMethod: input.SignInMethod }),
-    ...(input.UserPoolName !== undefined && { userPoolName: input.UserPoolName }),
+    ...(input.ForgotPassword !== undefined &&
+      input.ForgotPassword !== null && {
+        forgotPassword: serializeAws_restJson1CreateBackendAuthForgotPasswordConfig(input.ForgotPassword, context),
+      }),
+    ...(input.Mfa !== undefined &&
+      input.Mfa !== null && { mfa: serializeAws_restJson1CreateBackendAuthMFAConfig(input.Mfa, context) }),
+    ...(input.OAuth !== undefined &&
+      input.OAuth !== null && { oAuth: serializeAws_restJson1CreateBackendAuthOAuthConfig(input.OAuth, context) }),
+    ...(input.PasswordPolicy !== undefined &&
+      input.PasswordPolicy !== null && {
+        passwordPolicy: serializeAws_restJson1CreateBackendAuthPasswordPolicyConfig(input.PasswordPolicy, context),
+      }),
+    ...(input.RequiredSignUpAttributes !== undefined &&
+      input.RequiredSignUpAttributes !== null && {
+        requiredSignUpAttributes: serializeAws_restJson1ListOfRequiredSignUpAttributesElement(
+          input.RequiredSignUpAttributes,
+          context
+        ),
+      }),
+    ...(input.SignInMethod !== undefined && input.SignInMethod !== null && { signInMethod: input.SignInMethod }),
+    ...(input.UserPoolName !== undefined && input.UserPoolName !== null && { userPoolName: input.UserPoolName }),
   };
 };
 
 const serializeAws_restJson1EmailSettings = (input: EmailSettings, context: __SerdeContext): any => {
   return {
-    ...(input.EmailMessage !== undefined && { emailMessage: input.EmailMessage }),
-    ...(input.EmailSubject !== undefined && { emailSubject: input.EmailSubject }),
+    ...(input.EmailMessage !== undefined && input.EmailMessage !== null && { emailMessage: input.EmailMessage }),
+    ...(input.EmailSubject !== undefined && input.EmailSubject !== null && { emailSubject: input.EmailSubject }),
   };
 };
 
 const serializeAws_restJson1ListOf__string = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1ListOfAdditionalConstraintsElement = (
   input: (AdditionalConstraintsElement | string)[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1ListOfBackendAPIAuthType = (input: BackendAPIAuthType[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1BackendAPIAuthType(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1BackendAPIAuthType(entry, context);
+    });
 };
 
 const serializeAws_restJson1ListOfMfaTypesElement = (
   input: (MfaTypesElement | string)[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1ListOfOAuthScopesElement = (
   input: (OAuthScopesElement | string)[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1ListOfRequiredSignUpAttributesElement = (
   input: (RequiredSignUpAttributesElement | string)[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1LoginAuthConfigReqObj = (input: LoginAuthConfigReqObj, context: __SerdeContext): any => {
   return {
-    ...(input.AwsCognitoIdentityPoolId !== undefined && {
-      aws_cognito_identity_pool_id: input.AwsCognitoIdentityPoolId,
-    }),
-    ...(input.AwsCognitoRegion !== undefined && { aws_cognito_region: input.AwsCognitoRegion }),
-    ...(input.AwsUserPoolsId !== undefined && { aws_user_pools_id: input.AwsUserPoolsId }),
-    ...(input.AwsUserPoolsWebClientId !== undefined && { aws_user_pools_web_client_id: input.AwsUserPoolsWebClientId }),
+    ...(input.AwsCognitoIdentityPoolId !== undefined &&
+      input.AwsCognitoIdentityPoolId !== null && { aws_cognito_identity_pool_id: input.AwsCognitoIdentityPoolId }),
+    ...(input.AwsCognitoRegion !== undefined &&
+      input.AwsCognitoRegion !== null && { aws_cognito_region: input.AwsCognitoRegion }),
+    ...(input.AwsUserPoolsId !== undefined &&
+      input.AwsUserPoolsId !== null && { aws_user_pools_id: input.AwsUserPoolsId }),
+    ...(input.AwsUserPoolsWebClientId !== undefined &&
+      input.AwsUserPoolsWebClientId !== null && { aws_user_pools_web_client_id: input.AwsUserPoolsWebClientId }),
   };
 };
 
@@ -3629,30 +3702,32 @@ const serializeAws_restJson1ResourceConfig = (input: ResourceConfig, context: __
 
 const serializeAws_restJson1Settings = (input: Settings, context: __SerdeContext): any => {
   return {
-    ...(input.MfaTypes !== undefined && {
-      mfaTypes: serializeAws_restJson1ListOfMfaTypesElement(input.MfaTypes, context),
-    }),
-    ...(input.SmsMessage !== undefined && { smsMessage: input.SmsMessage }),
+    ...(input.MfaTypes !== undefined &&
+      input.MfaTypes !== null && { mfaTypes: serializeAws_restJson1ListOfMfaTypesElement(input.MfaTypes, context) }),
+    ...(input.SmsMessage !== undefined && input.SmsMessage !== null && { smsMessage: input.SmsMessage }),
   };
 };
 
 const serializeAws_restJson1SmsSettings = (input: SmsSettings, context: __SerdeContext): any => {
   return {
-    ...(input.SmsMessage !== undefined && { smsMessage: input.SmsMessage }),
+    ...(input.SmsMessage !== undefined && input.SmsMessage !== null && { smsMessage: input.SmsMessage }),
   };
 };
 
 const serializeAws_restJson1SocialProviderSettings = (input: SocialProviderSettings, context: __SerdeContext): any => {
   return {
-    ...(input.Facebook !== undefined && {
-      Facebook: serializeAws_restJson1BackendAuthSocialProviderConfig(input.Facebook, context),
-    }),
-    ...(input.Google !== undefined && {
-      Google: serializeAws_restJson1BackendAuthSocialProviderConfig(input.Google, context),
-    }),
-    ...(input.LoginWithAmazon !== undefined && {
-      LoginWithAmazon: serializeAws_restJson1BackendAuthSocialProviderConfig(input.LoginWithAmazon, context),
-    }),
+    ...(input.Facebook !== undefined &&
+      input.Facebook !== null && {
+        Facebook: serializeAws_restJson1BackendAuthSocialProviderConfig(input.Facebook, context),
+      }),
+    ...(input.Google !== undefined &&
+      input.Google !== null && {
+        Google: serializeAws_restJson1BackendAuthSocialProviderConfig(input.Google, context),
+      }),
+    ...(input.LoginWithAmazon !== undefined &&
+      input.LoginWithAmazon !== null && {
+        LoginWithAmazon: serializeAws_restJson1BackendAuthSocialProviderConfig(input.LoginWithAmazon, context),
+      }),
   };
 };
 
@@ -3661,13 +3736,14 @@ const serializeAws_restJson1UpdateBackendAuthForgotPasswordConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DeliveryMethod !== undefined && { deliveryMethod: input.DeliveryMethod }),
-    ...(input.EmailSettings !== undefined && {
-      emailSettings: serializeAws_restJson1EmailSettings(input.EmailSettings, context),
-    }),
-    ...(input.SmsSettings !== undefined && {
-      smsSettings: serializeAws_restJson1SmsSettings(input.SmsSettings, context),
-    }),
+    ...(input.DeliveryMethod !== undefined &&
+      input.DeliveryMethod !== null && { deliveryMethod: input.DeliveryMethod }),
+    ...(input.EmailSettings !== undefined &&
+      input.EmailSettings !== null && {
+        emailSettings: serializeAws_restJson1EmailSettings(input.EmailSettings, context),
+      }),
+    ...(input.SmsSettings !== undefined &&
+      input.SmsSettings !== null && { smsSettings: serializeAws_restJson1SmsSettings(input.SmsSettings, context) }),
   };
 };
 
@@ -3676,7 +3752,8 @@ const serializeAws_restJson1UpdateBackendAuthIdentityPoolConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.UnauthenticatedLogin !== undefined && { unauthenticatedLogin: input.UnauthenticatedLogin }),
+    ...(input.UnauthenticatedLogin !== undefined &&
+      input.UnauthenticatedLogin !== null && { unauthenticatedLogin: input.UnauthenticatedLogin }),
   };
 };
 
@@ -3685,8 +3762,9 @@ const serializeAws_restJson1UpdateBackendAuthMFAConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MFAMode !== undefined && { MFAMode: input.MFAMode }),
-    ...(input.Settings !== undefined && { settings: serializeAws_restJson1Settings(input.Settings, context) }),
+    ...(input.MFAMode !== undefined && input.MFAMode !== null && { MFAMode: input.MFAMode }),
+    ...(input.Settings !== undefined &&
+      input.Settings !== null && { settings: serializeAws_restJson1Settings(input.Settings, context) }),
   };
 };
 
@@ -3695,20 +3773,25 @@ const serializeAws_restJson1UpdateBackendAuthOAuthConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainPrefix !== undefined && { domainPrefix: input.DomainPrefix }),
-    ...(input.OAuthGrantType !== undefined && { oAuthGrantType: input.OAuthGrantType }),
-    ...(input.OAuthScopes !== undefined && {
-      oAuthScopes: serializeAws_restJson1ListOfOAuthScopesElement(input.OAuthScopes, context),
-    }),
-    ...(input.RedirectSignInURIs !== undefined && {
-      redirectSignInURIs: serializeAws_restJson1ListOf__string(input.RedirectSignInURIs, context),
-    }),
-    ...(input.RedirectSignOutURIs !== undefined && {
-      redirectSignOutURIs: serializeAws_restJson1ListOf__string(input.RedirectSignOutURIs, context),
-    }),
-    ...(input.SocialProviderSettings !== undefined && {
-      socialProviderSettings: serializeAws_restJson1SocialProviderSettings(input.SocialProviderSettings, context),
-    }),
+    ...(input.DomainPrefix !== undefined && input.DomainPrefix !== null && { domainPrefix: input.DomainPrefix }),
+    ...(input.OAuthGrantType !== undefined &&
+      input.OAuthGrantType !== null && { oAuthGrantType: input.OAuthGrantType }),
+    ...(input.OAuthScopes !== undefined &&
+      input.OAuthScopes !== null && {
+        oAuthScopes: serializeAws_restJson1ListOfOAuthScopesElement(input.OAuthScopes, context),
+      }),
+    ...(input.RedirectSignInURIs !== undefined &&
+      input.RedirectSignInURIs !== null && {
+        redirectSignInURIs: serializeAws_restJson1ListOf__string(input.RedirectSignInURIs, context),
+      }),
+    ...(input.RedirectSignOutURIs !== undefined &&
+      input.RedirectSignOutURIs !== null && {
+        redirectSignOutURIs: serializeAws_restJson1ListOf__string(input.RedirectSignOutURIs, context),
+      }),
+    ...(input.SocialProviderSettings !== undefined &&
+      input.SocialProviderSettings !== null && {
+        socialProviderSettings: serializeAws_restJson1SocialProviderSettings(input.SocialProviderSettings, context),
+      }),
   };
 };
 
@@ -3717,13 +3800,14 @@ const serializeAws_restJson1UpdateBackendAuthPasswordPolicyConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AdditionalConstraints !== undefined && {
-      additionalConstraints: serializeAws_restJson1ListOfAdditionalConstraintsElement(
-        input.AdditionalConstraints,
-        context
-      ),
-    }),
-    ...(input.MinimumLength !== undefined && { minimumLength: input.MinimumLength }),
+    ...(input.AdditionalConstraints !== undefined &&
+      input.AdditionalConstraints !== null && {
+        additionalConstraints: serializeAws_restJson1ListOfAdditionalConstraintsElement(
+          input.AdditionalConstraints,
+          context
+        ),
+      }),
+    ...(input.MinimumLength !== undefined && input.MinimumLength !== null && { minimumLength: input.MinimumLength }),
   };
 };
 
@@ -3732,17 +3816,19 @@ const serializeAws_restJson1UpdateBackendAuthResourceConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AuthResources !== undefined && { authResources: input.AuthResources }),
-    ...(input.IdentityPoolConfigs !== undefined && {
-      identityPoolConfigs: serializeAws_restJson1UpdateBackendAuthIdentityPoolConfig(
-        input.IdentityPoolConfigs,
-        context
-      ),
-    }),
-    ...(input.Service !== undefined && { service: input.Service }),
-    ...(input.UserPoolConfigs !== undefined && {
-      userPoolConfigs: serializeAws_restJson1UpdateBackendAuthUserPoolConfig(input.UserPoolConfigs, context),
-    }),
+    ...(input.AuthResources !== undefined && input.AuthResources !== null && { authResources: input.AuthResources }),
+    ...(input.IdentityPoolConfigs !== undefined &&
+      input.IdentityPoolConfigs !== null && {
+        identityPoolConfigs: serializeAws_restJson1UpdateBackendAuthIdentityPoolConfig(
+          input.IdentityPoolConfigs,
+          context
+        ),
+      }),
+    ...(input.Service !== undefined && input.Service !== null && { service: input.Service }),
+    ...(input.UserPoolConfigs !== undefined &&
+      input.UserPoolConfigs !== null && {
+        userPoolConfigs: serializeAws_restJson1UpdateBackendAuthUserPoolConfig(input.UserPoolConfigs, context),
+      }),
   };
 };
 
@@ -3751,16 +3837,18 @@ const serializeAws_restJson1UpdateBackendAuthUserPoolConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ForgotPassword !== undefined && {
-      forgotPassword: serializeAws_restJson1UpdateBackendAuthForgotPasswordConfig(input.ForgotPassword, context),
-    }),
-    ...(input.Mfa !== undefined && { mfa: serializeAws_restJson1UpdateBackendAuthMFAConfig(input.Mfa, context) }),
-    ...(input.OAuth !== undefined && {
-      oAuth: serializeAws_restJson1UpdateBackendAuthOAuthConfig(input.OAuth, context),
-    }),
-    ...(input.PasswordPolicy !== undefined && {
-      passwordPolicy: serializeAws_restJson1UpdateBackendAuthPasswordPolicyConfig(input.PasswordPolicy, context),
-    }),
+    ...(input.ForgotPassword !== undefined &&
+      input.ForgotPassword !== null && {
+        forgotPassword: serializeAws_restJson1UpdateBackendAuthForgotPasswordConfig(input.ForgotPassword, context),
+      }),
+    ...(input.Mfa !== undefined &&
+      input.Mfa !== null && { mfa: serializeAws_restJson1UpdateBackendAuthMFAConfig(input.Mfa, context) }),
+    ...(input.OAuth !== undefined &&
+      input.OAuth !== null && { oAuth: serializeAws_restJson1UpdateBackendAuthOAuthConfig(input.OAuth, context) }),
+    ...(input.PasswordPolicy !== undefined &&
+      input.PasswordPolicy !== null && {
+        passwordPolicy: serializeAws_restJson1UpdateBackendAuthPasswordPolicyConfig(input.PasswordPolicy, context),
+      }),
   };
 };
 
@@ -4006,46 +4094,95 @@ const deserializeAws_restJson1EmailSettings = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1ListOf__string = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1ListOfAdditionalConstraintsElement = (
   output: any,
   context: __SerdeContext
 ): (AdditionalConstraintsElement | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1ListOfBackendAPIAuthType = (
   output: any,
   context: __SerdeContext
 ): BackendAPIAuthType[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1BackendAPIAuthType(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1BackendAPIAuthType(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ListOfBackendJobRespObj = (output: any, context: __SerdeContext): BackendJobRespObj[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1BackendJobRespObj(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1BackendJobRespObj(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ListOfMfaTypesElement = (
   output: any,
   context: __SerdeContext
 ): (MfaTypesElement | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1ListOfOAuthScopesElement = (
   output: any,
   context: __SerdeContext
 ): (OAuthScopesElement | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1ListOfRequiredSignUpAttributesElement = (
   output: any,
   context: __SerdeContext
 ): (RequiredSignUpAttributesElement | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1LoginAuthConfigReqObj = (output: any, context: __SerdeContext): LoginAuthConfigReqObj => {
@@ -4125,6 +4262,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

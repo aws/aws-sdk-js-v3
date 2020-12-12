@@ -43,7 +43,6 @@ export const serializeAws_restJson1StartMedicalStreamTranscriptionCommand = asyn
   context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.LanguageCode) && { "x-amzn-transcribe-language-code": input.LanguageCode! }),
     ...(isSerializableHeaderValue(input.MediaSampleRateHertz) && {
       "x-amzn-transcribe-sample-rate": input.MediaSampleRateHertz!.toString(),
@@ -89,7 +88,6 @@ export const serializeAws_restJson1StartStreamTranscriptionCommand = async (
   context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.LanguageCode) && { "x-amzn-transcribe-language-code": input.LanguageCode! }),
     ...(isSerializableHeaderValue(input.MediaSampleRateHertz) && {
       "x-amzn-transcribe-sample-rate": input.MediaSampleRateHertz!.toString(),
@@ -694,7 +692,8 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
 
 const serializeAws_restJson1AudioEvent = (input: AudioEvent, context: __SerdeContext): any => {
   return {
-    ...(input.AudioChunk !== undefined && { AudioChunk: context.base64Encoder(input.AudioChunk) }),
+    ...(input.AudioChunk !== undefined &&
+      input.AudioChunk !== null && { AudioChunk: context.base64Encoder(input.AudioChunk) }),
   };
 };
 
@@ -716,7 +715,14 @@ const deserializeAws_restJson1Alternative = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1AlternativeList = (output: any, context: __SerdeContext): Alternative[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Alternative(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Alternative(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Item => {
@@ -734,7 +740,14 @@ const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Ite
 };
 
 const deserializeAws_restJson1ItemList = (output: any, context: __SerdeContext): Item[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Item(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Item(entry, context);
+    });
 };
 
 const deserializeAws_restJson1MedicalAlternative = (output: any, context: __SerdeContext): MedicalAlternative => {
@@ -748,7 +761,14 @@ const deserializeAws_restJson1MedicalAlternative = (output: any, context: __Serd
 };
 
 const deserializeAws_restJson1MedicalAlternativeList = (output: any, context: __SerdeContext): MedicalAlternative[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1MedicalAlternative(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MedicalAlternative(entry, context);
+    });
 };
 
 const deserializeAws_restJson1MedicalItem = (output: any, context: __SerdeContext): MedicalItem => {
@@ -763,7 +783,14 @@ const deserializeAws_restJson1MedicalItem = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1MedicalItemList = (output: any, context: __SerdeContext): MedicalItem[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1MedicalItem(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MedicalItem(entry, context);
+    });
 };
 
 const deserializeAws_restJson1MedicalResult = (output: any, context: __SerdeContext): MedicalResult => {
@@ -781,7 +808,14 @@ const deserializeAws_restJson1MedicalResult = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1MedicalResultList = (output: any, context: __SerdeContext): MedicalResult[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1MedicalResult(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MedicalResult(entry, context);
+    });
 };
 
 const deserializeAws_restJson1MedicalTranscript = (output: any, context: __SerdeContext): MedicalTranscript => {
@@ -820,7 +854,14 @@ const deserializeAws_restJson1Result = (output: any, context: __SerdeContext): R
 };
 
 const deserializeAws_restJson1ResultList = (output: any, context: __SerdeContext): Result[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Result(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Result(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Transcript = (output: any, context: __SerdeContext): Transcript => {
@@ -861,6 +902,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

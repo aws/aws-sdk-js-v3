@@ -404,7 +404,7 @@ export const serializeAws_json1_1CreateDevicePoolCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.CreateDevicePool",
   };
   let body: any;
@@ -417,7 +417,7 @@ export const serializeAws_json1_1CreateInstanceProfileCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.CreateInstanceProfile",
   };
   let body: any;
@@ -430,7 +430,7 @@ export const serializeAws_json1_1CreateNetworkProfileCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.CreateNetworkProfile",
   };
   let body: any;
@@ -443,7 +443,7 @@ export const serializeAws_json1_1CreateProjectCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.CreateProject",
   };
   let body: any;
@@ -456,7 +456,7 @@ export const serializeAws_json1_1CreateRemoteAccessSessionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.CreateRemoteAccessSession",
   };
   let body: any;
@@ -469,7 +469,7 @@ export const serializeAws_json1_1CreateTestGridProjectCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.CreateTestGridProject",
   };
   let body: any;
@@ -482,7 +482,7 @@ export const serializeAws_json1_1CreateTestGridUrlCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.CreateTestGridUrl",
   };
   let body: any;
@@ -495,7 +495,7 @@ export const serializeAws_json1_1CreateUploadCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.CreateUpload",
   };
   let body: any;
@@ -508,7 +508,7 @@ export const serializeAws_json1_1CreateVPCEConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.CreateVPCEConfiguration",
   };
   let body: any;
@@ -521,7 +521,7 @@ export const serializeAws_json1_1DeleteDevicePoolCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.DeleteDevicePool",
   };
   let body: any;
@@ -534,7 +534,7 @@ export const serializeAws_json1_1DeleteInstanceProfileCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.DeleteInstanceProfile",
   };
   let body: any;
@@ -547,7 +547,7 @@ export const serializeAws_json1_1DeleteNetworkProfileCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.DeleteNetworkProfile",
   };
   let body: any;
@@ -560,7 +560,7 @@ export const serializeAws_json1_1DeleteProjectCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.DeleteProject",
   };
   let body: any;
@@ -573,7 +573,7 @@ export const serializeAws_json1_1DeleteRemoteAccessSessionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.DeleteRemoteAccessSession",
   };
   let body: any;
@@ -586,7 +586,7 @@ export const serializeAws_json1_1DeleteRunCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.DeleteRun",
   };
   let body: any;
@@ -599,7 +599,7 @@ export const serializeAws_json1_1DeleteTestGridProjectCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.DeleteTestGridProject",
   };
   let body: any;
@@ -612,7 +612,7 @@ export const serializeAws_json1_1DeleteUploadCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.DeleteUpload",
   };
   let body: any;
@@ -625,7 +625,7 @@ export const serializeAws_json1_1DeleteVPCEConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.DeleteVPCEConfiguration",
   };
   let body: any;
@@ -638,7 +638,7 @@ export const serializeAws_json1_1GetAccountSettingsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.GetAccountSettings",
   };
   let body: any;
@@ -651,7 +651,7 @@ export const serializeAws_json1_1GetDeviceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.GetDevice",
   };
   let body: any;
@@ -664,7 +664,7 @@ export const serializeAws_json1_1GetDeviceInstanceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.GetDeviceInstance",
   };
   let body: any;
@@ -677,7 +677,7 @@ export const serializeAws_json1_1GetDevicePoolCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.GetDevicePool",
   };
   let body: any;
@@ -690,7 +690,7 @@ export const serializeAws_json1_1GetDevicePoolCompatibilityCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.GetDevicePoolCompatibility",
   };
   let body: any;
@@ -703,7 +703,7 @@ export const serializeAws_json1_1GetInstanceProfileCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.GetInstanceProfile",
   };
   let body: any;
@@ -716,7 +716,7 @@ export const serializeAws_json1_1GetJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.GetJob",
   };
   let body: any;
@@ -729,7 +729,7 @@ export const serializeAws_json1_1GetNetworkProfileCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.GetNetworkProfile",
   };
   let body: any;
@@ -742,7 +742,7 @@ export const serializeAws_json1_1GetOfferingStatusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.GetOfferingStatus",
   };
   let body: any;
@@ -755,7 +755,7 @@ export const serializeAws_json1_1GetProjectCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.GetProject",
   };
   let body: any;
@@ -768,7 +768,7 @@ export const serializeAws_json1_1GetRemoteAccessSessionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.GetRemoteAccessSession",
   };
   let body: any;
@@ -781,7 +781,7 @@ export const serializeAws_json1_1GetRunCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.GetRun",
   };
   let body: any;
@@ -794,7 +794,7 @@ export const serializeAws_json1_1GetSuiteCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.GetSuite",
   };
   let body: any;
@@ -807,7 +807,7 @@ export const serializeAws_json1_1GetTestCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.GetTest",
   };
   let body: any;
@@ -820,7 +820,7 @@ export const serializeAws_json1_1GetTestGridProjectCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.GetTestGridProject",
   };
   let body: any;
@@ -833,7 +833,7 @@ export const serializeAws_json1_1GetTestGridSessionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.GetTestGridSession",
   };
   let body: any;
@@ -846,7 +846,7 @@ export const serializeAws_json1_1GetUploadCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.GetUpload",
   };
   let body: any;
@@ -859,7 +859,7 @@ export const serializeAws_json1_1GetVPCEConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.GetVPCEConfiguration",
   };
   let body: any;
@@ -872,7 +872,7 @@ export const serializeAws_json1_1InstallToRemoteAccessSessionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.InstallToRemoteAccessSession",
   };
   let body: any;
@@ -885,7 +885,7 @@ export const serializeAws_json1_1ListArtifactsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.ListArtifacts",
   };
   let body: any;
@@ -898,7 +898,7 @@ export const serializeAws_json1_1ListDeviceInstancesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.ListDeviceInstances",
   };
   let body: any;
@@ -911,7 +911,7 @@ export const serializeAws_json1_1ListDevicePoolsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.ListDevicePools",
   };
   let body: any;
@@ -924,7 +924,7 @@ export const serializeAws_json1_1ListDevicesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.ListDevices",
   };
   let body: any;
@@ -937,7 +937,7 @@ export const serializeAws_json1_1ListInstanceProfilesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.ListInstanceProfiles",
   };
   let body: any;
@@ -950,7 +950,7 @@ export const serializeAws_json1_1ListJobsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.ListJobs",
   };
   let body: any;
@@ -963,7 +963,7 @@ export const serializeAws_json1_1ListNetworkProfilesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.ListNetworkProfiles",
   };
   let body: any;
@@ -976,7 +976,7 @@ export const serializeAws_json1_1ListOfferingPromotionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.ListOfferingPromotions",
   };
   let body: any;
@@ -989,7 +989,7 @@ export const serializeAws_json1_1ListOfferingsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.ListOfferings",
   };
   let body: any;
@@ -1002,7 +1002,7 @@ export const serializeAws_json1_1ListOfferingTransactionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.ListOfferingTransactions",
   };
   let body: any;
@@ -1015,7 +1015,7 @@ export const serializeAws_json1_1ListProjectsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.ListProjects",
   };
   let body: any;
@@ -1028,7 +1028,7 @@ export const serializeAws_json1_1ListRemoteAccessSessionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.ListRemoteAccessSessions",
   };
   let body: any;
@@ -1041,7 +1041,7 @@ export const serializeAws_json1_1ListRunsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.ListRuns",
   };
   let body: any;
@@ -1054,7 +1054,7 @@ export const serializeAws_json1_1ListSamplesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.ListSamples",
   };
   let body: any;
@@ -1067,7 +1067,7 @@ export const serializeAws_json1_1ListSuitesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.ListSuites",
   };
   let body: any;
@@ -1080,7 +1080,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.ListTagsForResource",
   };
   let body: any;
@@ -1093,7 +1093,7 @@ export const serializeAws_json1_1ListTestGridProjectsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.ListTestGridProjects",
   };
   let body: any;
@@ -1106,7 +1106,7 @@ export const serializeAws_json1_1ListTestGridSessionActionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.ListTestGridSessionActions",
   };
   let body: any;
@@ -1119,7 +1119,7 @@ export const serializeAws_json1_1ListTestGridSessionArtifactsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.ListTestGridSessionArtifacts",
   };
   let body: any;
@@ -1132,7 +1132,7 @@ export const serializeAws_json1_1ListTestGridSessionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.ListTestGridSessions",
   };
   let body: any;
@@ -1145,7 +1145,7 @@ export const serializeAws_json1_1ListTestsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.ListTests",
   };
   let body: any;
@@ -1158,7 +1158,7 @@ export const serializeAws_json1_1ListUniqueProblemsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.ListUniqueProblems",
   };
   let body: any;
@@ -1171,7 +1171,7 @@ export const serializeAws_json1_1ListUploadsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.ListUploads",
   };
   let body: any;
@@ -1184,7 +1184,7 @@ export const serializeAws_json1_1ListVPCEConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.ListVPCEConfigurations",
   };
   let body: any;
@@ -1197,7 +1197,7 @@ export const serializeAws_json1_1PurchaseOfferingCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.PurchaseOffering",
   };
   let body: any;
@@ -1210,7 +1210,7 @@ export const serializeAws_json1_1RenewOfferingCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.RenewOffering",
   };
   let body: any;
@@ -1223,7 +1223,7 @@ export const serializeAws_json1_1ScheduleRunCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.ScheduleRun",
   };
   let body: any;
@@ -1236,7 +1236,7 @@ export const serializeAws_json1_1StopJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.StopJob",
   };
   let body: any;
@@ -1249,7 +1249,7 @@ export const serializeAws_json1_1StopRemoteAccessSessionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.StopRemoteAccessSession",
   };
   let body: any;
@@ -1262,7 +1262,7 @@ export const serializeAws_json1_1StopRunCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.StopRun",
   };
   let body: any;
@@ -1275,7 +1275,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.TagResource",
   };
   let body: any;
@@ -1288,7 +1288,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.UntagResource",
   };
   let body: any;
@@ -1301,7 +1301,7 @@ export const serializeAws_json1_1UpdateDeviceInstanceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.UpdateDeviceInstance",
   };
   let body: any;
@@ -1314,7 +1314,7 @@ export const serializeAws_json1_1UpdateDevicePoolCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.UpdateDevicePool",
   };
   let body: any;
@@ -1327,7 +1327,7 @@ export const serializeAws_json1_1UpdateInstanceProfileCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.UpdateInstanceProfile",
   };
   let body: any;
@@ -1340,7 +1340,7 @@ export const serializeAws_json1_1UpdateNetworkProfileCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.UpdateNetworkProfile",
   };
   let body: any;
@@ -1353,7 +1353,7 @@ export const serializeAws_json1_1UpdateProjectCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.UpdateProject",
   };
   let body: any;
@@ -1366,7 +1366,7 @@ export const serializeAws_json1_1UpdateTestGridProjectCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.UpdateTestGridProject",
   };
   let body: any;
@@ -1379,7 +1379,7 @@ export const serializeAws_json1_1UpdateUploadCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.UpdateUpload",
   };
   let body: any;
@@ -1392,7 +1392,7 @@ export const serializeAws_json1_1UpdateVPCEConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DeviceFarm_20150623.UpdateVPCEConfiguration",
   };
   let body: any;
@@ -1427,8 +1427,7 @@ const deserializeAws_json1_1CreateDevicePoolCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -1506,8 +1505,7 @@ const deserializeAws_json1_1CreateInstanceProfileCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -1585,8 +1583,7 @@ const deserializeAws_json1_1CreateNetworkProfileCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -1664,8 +1661,7 @@ const deserializeAws_json1_1CreateProjectCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -1751,8 +1747,7 @@ const deserializeAws_json1_1CreateRemoteAccessSessionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -1830,8 +1825,7 @@ const deserializeAws_json1_1CreateTestGridProjectCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.devicefarm#InternalServiceException":
@@ -1885,8 +1879,7 @@ const deserializeAws_json1_1CreateTestGridUrlCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -1956,8 +1949,7 @@ const deserializeAws_json1_1CreateUploadCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -2035,8 +2027,7 @@ const deserializeAws_json1_1CreateVPCEConfigurationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -2106,8 +2097,7 @@ const deserializeAws_json1_1DeleteDevicePoolCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -2185,8 +2175,7 @@ const deserializeAws_json1_1DeleteInstanceProfileCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -2264,8 +2253,7 @@ const deserializeAws_json1_1DeleteNetworkProfileCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -2343,8 +2331,7 @@ const deserializeAws_json1_1DeleteProjectCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -2422,8 +2409,7 @@ const deserializeAws_json1_1DeleteRemoteAccessSessionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -2501,8 +2487,7 @@ const deserializeAws_json1_1DeleteRunCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -2580,8 +2565,7 @@ const deserializeAws_json1_1DeleteTestGridProjectCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -2659,8 +2643,7 @@ const deserializeAws_json1_1DeleteUploadCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -2738,8 +2721,7 @@ const deserializeAws_json1_1DeleteVPCEConfigurationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -2817,8 +2799,7 @@ const deserializeAws_json1_1GetAccountSettingsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -2896,8 +2877,7 @@ const deserializeAws_json1_1GetDeviceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -2975,8 +2955,7 @@ const deserializeAws_json1_1GetDeviceInstanceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -3054,8 +3033,7 @@ const deserializeAws_json1_1GetDevicePoolCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -3133,8 +3111,7 @@ const deserializeAws_json1_1GetDevicePoolCompatibilityCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -3212,8 +3189,7 @@ const deserializeAws_json1_1GetInstanceProfileCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -3291,8 +3267,7 @@ const deserializeAws_json1_1GetJobCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -3370,8 +3345,7 @@ const deserializeAws_json1_1GetNetworkProfileCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -3449,8 +3423,7 @@ const deserializeAws_json1_1GetOfferingStatusCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -3536,8 +3509,7 @@ const deserializeAws_json1_1GetProjectCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -3615,8 +3587,7 @@ const deserializeAws_json1_1GetRemoteAccessSessionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -3694,8 +3665,7 @@ const deserializeAws_json1_1GetRunCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -3773,8 +3743,7 @@ const deserializeAws_json1_1GetSuiteCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -3852,8 +3821,7 @@ const deserializeAws_json1_1GetTestCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -3931,8 +3899,7 @@ const deserializeAws_json1_1GetTestGridProjectCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -4002,8 +3969,7 @@ const deserializeAws_json1_1GetTestGridSessionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -4073,8 +4039,7 @@ const deserializeAws_json1_1GetUploadCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -4152,8 +4117,7 @@ const deserializeAws_json1_1GetVPCEConfigurationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -4223,8 +4187,7 @@ const deserializeAws_json1_1InstallToRemoteAccessSessionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -4302,8 +4265,7 @@ const deserializeAws_json1_1ListArtifactsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -4381,8 +4343,7 @@ const deserializeAws_json1_1ListDeviceInstancesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -4460,8 +4421,7 @@ const deserializeAws_json1_1ListDevicePoolsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -4539,8 +4499,7 @@ const deserializeAws_json1_1ListDevicesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -4618,8 +4577,7 @@ const deserializeAws_json1_1ListInstanceProfilesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -4697,8 +4655,7 @@ const deserializeAws_json1_1ListJobsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -4776,8 +4733,7 @@ const deserializeAws_json1_1ListNetworkProfilesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -4855,8 +4811,7 @@ const deserializeAws_json1_1ListOfferingPromotionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -4942,8 +4897,7 @@ const deserializeAws_json1_1ListOfferingsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -5029,8 +4983,7 @@ const deserializeAws_json1_1ListOfferingTransactionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -5116,8 +5069,7 @@ const deserializeAws_json1_1ListProjectsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -5195,8 +5147,7 @@ const deserializeAws_json1_1ListRemoteAccessSessionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -5274,8 +5225,7 @@ const deserializeAws_json1_1ListRunsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -5353,8 +5303,7 @@ const deserializeAws_json1_1ListSamplesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -5432,8 +5381,7 @@ const deserializeAws_json1_1ListSuitesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -5511,8 +5459,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -5582,8 +5529,7 @@ const deserializeAws_json1_1ListTestGridProjectsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -5645,8 +5591,7 @@ const deserializeAws_json1_1ListTestGridSessionActionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -5716,8 +5661,7 @@ const deserializeAws_json1_1ListTestGridSessionArtifactsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -5787,8 +5731,7 @@ const deserializeAws_json1_1ListTestGridSessionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -5858,8 +5801,7 @@ const deserializeAws_json1_1ListTestsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -5937,8 +5879,7 @@ const deserializeAws_json1_1ListUniqueProblemsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -6016,8 +5957,7 @@ const deserializeAws_json1_1ListUploadsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -6095,8 +6035,7 @@ const deserializeAws_json1_1ListVPCEConfigurationsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -6158,8 +6097,7 @@ const deserializeAws_json1_1PurchaseOfferingCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -6245,8 +6183,7 @@ const deserializeAws_json1_1RenewOfferingCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -6332,8 +6269,7 @@ const deserializeAws_json1_1ScheduleRunCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -6419,8 +6355,7 @@ const deserializeAws_json1_1StopJobCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -6498,8 +6433,7 @@ const deserializeAws_json1_1StopRemoteAccessSessionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -6577,8 +6511,7 @@ const deserializeAws_json1_1StopRunCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -6656,8 +6589,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -6743,8 +6675,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -6814,8 +6745,7 @@ const deserializeAws_json1_1UpdateDeviceInstanceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -6893,8 +6823,7 @@ const deserializeAws_json1_1UpdateDevicePoolCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -6972,8 +6901,7 @@ const deserializeAws_json1_1UpdateInstanceProfileCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -7051,8 +6979,7 @@ const deserializeAws_json1_1UpdateNetworkProfileCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -7130,8 +7057,7 @@ const deserializeAws_json1_1UpdateProjectCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -7209,8 +7135,7 @@ const deserializeAws_json1_1UpdateTestGridProjectCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -7280,8 +7205,7 @@ const deserializeAws_json1_1UpdateUploadCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -7359,8 +7283,7 @@ const deserializeAws_json1_1UpdateVPCEConfigurationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazonaws.devicefarm#ArgumentException":
@@ -7592,20 +7515,35 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
 };
 
 const serializeAws_json1_1AmazonResourceNames = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1AndroidPaths = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1CreateDevicePoolRequest = (input: CreateDevicePoolRequest, context: __SerdeContext): any => {
   return {
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.maxDevices !== undefined && { maxDevices: input.maxDevices }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.projectArn !== undefined && { projectArn: input.projectArn }),
-    ...(input.rules !== undefined && { rules: serializeAws_json1_1Rules(input.rules, context) }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.maxDevices !== undefined && input.maxDevices !== null && { maxDevices: input.maxDevices }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.projectArn !== undefined && input.projectArn !== null && { projectArn: input.projectArn }),
+    ...(input.rules !== undefined &&
+      input.rules !== null && { rules: serializeAws_json1_1Rules(input.rules, context) }),
   };
 };
 
@@ -7614,13 +7552,16 @@ const serializeAws_json1_1CreateInstanceProfileRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.excludeAppPackagesFromCleanup !== undefined && {
-      excludeAppPackagesFromCleanup: serializeAws_json1_1PackageIds(input.excludeAppPackagesFromCleanup, context),
-    }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.packageCleanup !== undefined && { packageCleanup: input.packageCleanup }),
-    ...(input.rebootAfterUse !== undefined && { rebootAfterUse: input.rebootAfterUse }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.excludeAppPackagesFromCleanup !== undefined &&
+      input.excludeAppPackagesFromCleanup !== null && {
+        excludeAppPackagesFromCleanup: serializeAws_json1_1PackageIds(input.excludeAppPackagesFromCleanup, context),
+      }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.packageCleanup !== undefined &&
+      input.packageCleanup !== null && { packageCleanup: input.packageCleanup }),
+    ...(input.rebootAfterUse !== undefined &&
+      input.rebootAfterUse !== null && { rebootAfterUse: input.rebootAfterUse }),
   };
 };
 
@@ -7629,25 +7570,33 @@ const serializeAws_json1_1CreateNetworkProfileRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.downlinkBandwidthBits !== undefined && { downlinkBandwidthBits: input.downlinkBandwidthBits }),
-    ...(input.downlinkDelayMs !== undefined && { downlinkDelayMs: input.downlinkDelayMs }),
-    ...(input.downlinkJitterMs !== undefined && { downlinkJitterMs: input.downlinkJitterMs }),
-    ...(input.downlinkLossPercent !== undefined && { downlinkLossPercent: input.downlinkLossPercent }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.projectArn !== undefined && { projectArn: input.projectArn }),
-    ...(input.type !== undefined && { type: input.type }),
-    ...(input.uplinkBandwidthBits !== undefined && { uplinkBandwidthBits: input.uplinkBandwidthBits }),
-    ...(input.uplinkDelayMs !== undefined && { uplinkDelayMs: input.uplinkDelayMs }),
-    ...(input.uplinkJitterMs !== undefined && { uplinkJitterMs: input.uplinkJitterMs }),
-    ...(input.uplinkLossPercent !== undefined && { uplinkLossPercent: input.uplinkLossPercent }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.downlinkBandwidthBits !== undefined &&
+      input.downlinkBandwidthBits !== null && { downlinkBandwidthBits: input.downlinkBandwidthBits }),
+    ...(input.downlinkDelayMs !== undefined &&
+      input.downlinkDelayMs !== null && { downlinkDelayMs: input.downlinkDelayMs }),
+    ...(input.downlinkJitterMs !== undefined &&
+      input.downlinkJitterMs !== null && { downlinkJitterMs: input.downlinkJitterMs }),
+    ...(input.downlinkLossPercent !== undefined &&
+      input.downlinkLossPercent !== null && { downlinkLossPercent: input.downlinkLossPercent }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.projectArn !== undefined && input.projectArn !== null && { projectArn: input.projectArn }),
+    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.uplinkBandwidthBits !== undefined &&
+      input.uplinkBandwidthBits !== null && { uplinkBandwidthBits: input.uplinkBandwidthBits }),
+    ...(input.uplinkDelayMs !== undefined && input.uplinkDelayMs !== null && { uplinkDelayMs: input.uplinkDelayMs }),
+    ...(input.uplinkJitterMs !== undefined &&
+      input.uplinkJitterMs !== null && { uplinkJitterMs: input.uplinkJitterMs }),
+    ...(input.uplinkLossPercent !== undefined &&
+      input.uplinkLossPercent !== null && { uplinkLossPercent: input.uplinkLossPercent }),
   };
 };
 
 const serializeAws_json1_1CreateProjectRequest = (input: CreateProjectRequest, context: __SerdeContext): any => {
   return {
-    ...(input.defaultJobTimeoutMinutes !== undefined && { defaultJobTimeoutMinutes: input.defaultJobTimeoutMinutes }),
-    ...(input.name !== undefined && { name: input.name }),
+    ...(input.defaultJobTimeoutMinutes !== undefined &&
+      input.defaultJobTimeoutMinutes !== null && { defaultJobTimeoutMinutes: input.defaultJobTimeoutMinutes }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
   };
 };
 
@@ -7656,10 +7605,11 @@ const serializeAws_json1_1CreateRemoteAccessSessionConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.billingMethod !== undefined && { billingMethod: input.billingMethod }),
-    ...(input.vpceConfigurationArns !== undefined && {
-      vpceConfigurationArns: serializeAws_json1_1AmazonResourceNames(input.vpceConfigurationArns, context),
-    }),
+    ...(input.billingMethod !== undefined && input.billingMethod !== null && { billingMethod: input.billingMethod }),
+    ...(input.vpceConfigurationArns !== undefined &&
+      input.vpceConfigurationArns !== null && {
+        vpceConfigurationArns: serializeAws_json1_1AmazonResourceNames(input.vpceConfigurationArns, context),
+      }),
   };
 };
 
@@ -7668,20 +7618,25 @@ const serializeAws_json1_1CreateRemoteAccessSessionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.clientId !== undefined && { clientId: input.clientId }),
-    ...(input.configuration !== undefined && {
-      configuration: serializeAws_json1_1CreateRemoteAccessSessionConfiguration(input.configuration, context),
-    }),
-    ...(input.deviceArn !== undefined && { deviceArn: input.deviceArn }),
-    ...(input.instanceArn !== undefined && { instanceArn: input.instanceArn }),
-    ...(input.interactionMode !== undefined && { interactionMode: input.interactionMode }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.projectArn !== undefined && { projectArn: input.projectArn }),
-    ...(input.remoteDebugEnabled !== undefined && { remoteDebugEnabled: input.remoteDebugEnabled }),
-    ...(input.remoteRecordAppArn !== undefined && { remoteRecordAppArn: input.remoteRecordAppArn }),
-    ...(input.remoteRecordEnabled !== undefined && { remoteRecordEnabled: input.remoteRecordEnabled }),
-    ...(input.skipAppResign !== undefined && { skipAppResign: input.skipAppResign }),
-    ...(input.sshPublicKey !== undefined && { sshPublicKey: input.sshPublicKey }),
+    ...(input.clientId !== undefined && input.clientId !== null && { clientId: input.clientId }),
+    ...(input.configuration !== undefined &&
+      input.configuration !== null && {
+        configuration: serializeAws_json1_1CreateRemoteAccessSessionConfiguration(input.configuration, context),
+      }),
+    ...(input.deviceArn !== undefined && input.deviceArn !== null && { deviceArn: input.deviceArn }),
+    ...(input.instanceArn !== undefined && input.instanceArn !== null && { instanceArn: input.instanceArn }),
+    ...(input.interactionMode !== undefined &&
+      input.interactionMode !== null && { interactionMode: input.interactionMode }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.projectArn !== undefined && input.projectArn !== null && { projectArn: input.projectArn }),
+    ...(input.remoteDebugEnabled !== undefined &&
+      input.remoteDebugEnabled !== null && { remoteDebugEnabled: input.remoteDebugEnabled }),
+    ...(input.remoteRecordAppArn !== undefined &&
+      input.remoteRecordAppArn !== null && { remoteRecordAppArn: input.remoteRecordAppArn }),
+    ...(input.remoteRecordEnabled !== undefined &&
+      input.remoteRecordEnabled !== null && { remoteRecordEnabled: input.remoteRecordEnabled }),
+    ...(input.skipAppResign !== undefined && input.skipAppResign !== null && { skipAppResign: input.skipAppResign }),
+    ...(input.sshPublicKey !== undefined && input.sshPublicKey !== null && { sshPublicKey: input.sshPublicKey }),
   };
 };
 
@@ -7690,8 +7645,8 @@ const serializeAws_json1_1CreateTestGridProjectRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.name !== undefined && { name: input.name }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
   };
 };
 
@@ -7700,17 +7655,18 @@ const serializeAws_json1_1CreateTestGridUrlRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.expiresInSeconds !== undefined && { expiresInSeconds: input.expiresInSeconds }),
-    ...(input.projectArn !== undefined && { projectArn: input.projectArn }),
+    ...(input.expiresInSeconds !== undefined &&
+      input.expiresInSeconds !== null && { expiresInSeconds: input.expiresInSeconds }),
+    ...(input.projectArn !== undefined && input.projectArn !== null && { projectArn: input.projectArn }),
   };
 };
 
 const serializeAws_json1_1CreateUploadRequest = (input: CreateUploadRequest, context: __SerdeContext): any => {
   return {
-    ...(input.contentType !== undefined && { contentType: input.contentType }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.projectArn !== undefined && { projectArn: input.projectArn }),
-    ...(input.type !== undefined && { type: input.type }),
+    ...(input.contentType !== undefined && input.contentType !== null && { contentType: input.contentType }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.projectArn !== undefined && input.projectArn !== null && { projectArn: input.projectArn }),
+    ...(input.type !== undefined && input.type !== null && { type: input.type }),
   };
 };
 
@@ -7719,30 +7675,35 @@ const serializeAws_json1_1CreateVPCEConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.serviceDnsName !== undefined && { serviceDnsName: input.serviceDnsName }),
-    ...(input.vpceConfigurationDescription !== undefined && {
-      vpceConfigurationDescription: input.vpceConfigurationDescription,
-    }),
-    ...(input.vpceConfigurationName !== undefined && { vpceConfigurationName: input.vpceConfigurationName }),
-    ...(input.vpceServiceName !== undefined && { vpceServiceName: input.vpceServiceName }),
+    ...(input.serviceDnsName !== undefined &&
+      input.serviceDnsName !== null && { serviceDnsName: input.serviceDnsName }),
+    ...(input.vpceConfigurationDescription !== undefined &&
+      input.vpceConfigurationDescription !== null && {
+        vpceConfigurationDescription: input.vpceConfigurationDescription,
+      }),
+    ...(input.vpceConfigurationName !== undefined &&
+      input.vpceConfigurationName !== null && { vpceConfigurationName: input.vpceConfigurationName }),
+    ...(input.vpceServiceName !== undefined &&
+      input.vpceServiceName !== null && { vpceServiceName: input.vpceServiceName }),
   };
 };
 
 const serializeAws_json1_1CustomerArtifactPaths = (input: CustomerArtifactPaths, context: __SerdeContext): any => {
   return {
-    ...(input.androidPaths !== undefined && {
-      androidPaths: serializeAws_json1_1AndroidPaths(input.androidPaths, context),
-    }),
-    ...(input.deviceHostPaths !== undefined && {
-      deviceHostPaths: serializeAws_json1_1DeviceHostPaths(input.deviceHostPaths, context),
-    }),
-    ...(input.iosPaths !== undefined && { iosPaths: serializeAws_json1_1IosPaths(input.iosPaths, context) }),
+    ...(input.androidPaths !== undefined &&
+      input.androidPaths !== null && { androidPaths: serializeAws_json1_1AndroidPaths(input.androidPaths, context) }),
+    ...(input.deviceHostPaths !== undefined &&
+      input.deviceHostPaths !== null && {
+        deviceHostPaths: serializeAws_json1_1DeviceHostPaths(input.deviceHostPaths, context),
+      }),
+    ...(input.iosPaths !== undefined &&
+      input.iosPaths !== null && { iosPaths: serializeAws_json1_1IosPaths(input.iosPaths, context) }),
   };
 };
 
 const serializeAws_json1_1DeleteDevicePoolRequest = (input: DeleteDevicePoolRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   };
 };
 
@@ -7751,7 +7712,7 @@ const serializeAws_json1_1DeleteInstanceProfileRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   };
 };
 
@@ -7760,13 +7721,13 @@ const serializeAws_json1_1DeleteNetworkProfileRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   };
 };
 
 const serializeAws_json1_1DeleteProjectRequest = (input: DeleteProjectRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   };
 };
 
@@ -7775,13 +7736,13 @@ const serializeAws_json1_1DeleteRemoteAccessSessionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   };
 };
 
 const serializeAws_json1_1DeleteRunRequest = (input: DeleteRunRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   };
 };
 
@@ -7790,13 +7751,13 @@ const serializeAws_json1_1DeleteTestGridProjectRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.projectArn !== undefined && { projectArn: input.projectArn }),
+    ...(input.projectArn !== undefined && input.projectArn !== null && { projectArn: input.projectArn }),
   };
 };
 
 const serializeAws_json1_1DeleteUploadRequest = (input: DeleteUploadRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   };
 };
 
@@ -7805,28 +7766,50 @@ const serializeAws_json1_1DeleteVPCEConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   };
 };
 
 const serializeAws_json1_1DeviceFilter = (input: DeviceFilter, context: __SerdeContext): any => {
   return {
-    ...(input.attribute !== undefined && { attribute: input.attribute }),
-    ...(input.operator !== undefined && { operator: input.operator }),
-    ...(input.values !== undefined && { values: serializeAws_json1_1DeviceFilterValues(input.values, context) }),
+    ...(input.attribute !== undefined && input.attribute !== null && { attribute: input.attribute }),
+    ...(input.operator !== undefined && input.operator !== null && { operator: input.operator }),
+    ...(input.values !== undefined &&
+      input.values !== null && { values: serializeAws_json1_1DeviceFilterValues(input.values, context) }),
   };
 };
 
 const serializeAws_json1_1DeviceFilters = (input: DeviceFilter[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1DeviceFilter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1DeviceFilter(entry, context);
+    });
 };
 
 const serializeAws_json1_1DeviceFilterValues = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1DeviceHostPaths = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1DeviceSelectionConfiguration = (
@@ -7834,18 +7817,22 @@ const serializeAws_json1_1DeviceSelectionConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filters !== undefined && { filters: serializeAws_json1_1DeviceFilters(input.filters, context) }),
-    ...(input.maxDevices !== undefined && { maxDevices: input.maxDevices }),
+    ...(input.filters !== undefined &&
+      input.filters !== null && { filters: serializeAws_json1_1DeviceFilters(input.filters, context) }),
+    ...(input.maxDevices !== undefined && input.maxDevices !== null && { maxDevices: input.maxDevices }),
   };
 };
 
 const serializeAws_json1_1ExecutionConfiguration = (input: ExecutionConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.accountsCleanup !== undefined && { accountsCleanup: input.accountsCleanup }),
-    ...(input.appPackagesCleanup !== undefined && { appPackagesCleanup: input.appPackagesCleanup }),
-    ...(input.jobTimeoutMinutes !== undefined && { jobTimeoutMinutes: input.jobTimeoutMinutes }),
-    ...(input.skipAppResign !== undefined && { skipAppResign: input.skipAppResign }),
-    ...(input.videoCapture !== undefined && { videoCapture: input.videoCapture }),
+    ...(input.accountsCleanup !== undefined &&
+      input.accountsCleanup !== null && { accountsCleanup: input.accountsCleanup }),
+    ...(input.appPackagesCleanup !== undefined &&
+      input.appPackagesCleanup !== null && { appPackagesCleanup: input.appPackagesCleanup }),
+    ...(input.jobTimeoutMinutes !== undefined &&
+      input.jobTimeoutMinutes !== null && { jobTimeoutMinutes: input.jobTimeoutMinutes }),
+    ...(input.skipAppResign !== undefined && input.skipAppResign !== null && { skipAppResign: input.skipAppResign }),
+    ...(input.videoCapture !== undefined && input.videoCapture !== null && { videoCapture: input.videoCapture }),
   };
 };
 
@@ -7861,7 +7848,7 @@ const serializeAws_json1_1GetDeviceInstanceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   };
 };
 
@@ -7870,25 +7857,27 @@ const serializeAws_json1_1GetDevicePoolCompatibilityRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.appArn !== undefined && { appArn: input.appArn }),
-    ...(input.configuration !== undefined && {
-      configuration: serializeAws_json1_1ScheduleRunConfiguration(input.configuration, context),
-    }),
-    ...(input.devicePoolArn !== undefined && { devicePoolArn: input.devicePoolArn }),
-    ...(input.test !== undefined && { test: serializeAws_json1_1ScheduleRunTest(input.test, context) }),
-    ...(input.testType !== undefined && { testType: input.testType }),
+    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
+    ...(input.configuration !== undefined &&
+      input.configuration !== null && {
+        configuration: serializeAws_json1_1ScheduleRunConfiguration(input.configuration, context),
+      }),
+    ...(input.devicePoolArn !== undefined && input.devicePoolArn !== null && { devicePoolArn: input.devicePoolArn }),
+    ...(input.test !== undefined &&
+      input.test !== null && { test: serializeAws_json1_1ScheduleRunTest(input.test, context) }),
+    ...(input.testType !== undefined && input.testType !== null && { testType: input.testType }),
   };
 };
 
 const serializeAws_json1_1GetDevicePoolRequest = (input: GetDevicePoolRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   };
 };
 
 const serializeAws_json1_1GetDeviceRequest = (input: GetDeviceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   };
 };
 
@@ -7897,13 +7886,13 @@ const serializeAws_json1_1GetInstanceProfileRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   };
 };
 
 const serializeAws_json1_1GetJobRequest = (input: GetJobRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   };
 };
 
@@ -7912,7 +7901,7 @@ const serializeAws_json1_1GetNetworkProfileRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   };
 };
 
@@ -7921,13 +7910,13 @@ const serializeAws_json1_1GetOfferingStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1GetProjectRequest = (input: GetProjectRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   };
 };
 
@@ -7936,19 +7925,19 @@ const serializeAws_json1_1GetRemoteAccessSessionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   };
 };
 
 const serializeAws_json1_1GetRunRequest = (input: GetRunRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   };
 };
 
 const serializeAws_json1_1GetSuiteRequest = (input: GetSuiteRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   };
 };
 
@@ -7957,7 +7946,7 @@ const serializeAws_json1_1GetTestGridProjectRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.projectArn !== undefined && { projectArn: input.projectArn }),
+    ...(input.projectArn !== undefined && input.projectArn !== null && { projectArn: input.projectArn }),
   };
 };
 
@@ -7966,21 +7955,21 @@ const serializeAws_json1_1GetTestGridSessionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.projectArn !== undefined && { projectArn: input.projectArn }),
-    ...(input.sessionArn !== undefined && { sessionArn: input.sessionArn }),
-    ...(input.sessionId !== undefined && { sessionId: input.sessionId }),
+    ...(input.projectArn !== undefined && input.projectArn !== null && { projectArn: input.projectArn }),
+    ...(input.sessionArn !== undefined && input.sessionArn !== null && { sessionArn: input.sessionArn }),
+    ...(input.sessionId !== undefined && input.sessionId !== null && { sessionId: input.sessionId }),
   };
 };
 
 const serializeAws_json1_1GetTestRequest = (input: GetTestRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   };
 };
 
 const serializeAws_json1_1GetUploadRequest = (input: GetUploadRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   };
 };
 
@@ -7989,7 +7978,7 @@ const serializeAws_json1_1GetVPCEConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   };
 };
 
@@ -7998,24 +7987,39 @@ const serializeAws_json1_1InstallToRemoteAccessSessionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.appArn !== undefined && { appArn: input.appArn }),
-    ...(input.remoteAccessSessionArn !== undefined && { remoteAccessSessionArn: input.remoteAccessSessionArn }),
+    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
+    ...(input.remoteAccessSessionArn !== undefined &&
+      input.remoteAccessSessionArn !== null && { remoteAccessSessionArn: input.remoteAccessSessionArn }),
   };
 };
 
 const serializeAws_json1_1InstanceLabels = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1IosPaths = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ListArtifactsRequest = (input: ListArtifactsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.type !== undefined && { type: input.type }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.type !== undefined && input.type !== null && { type: input.type }),
   };
 };
 
@@ -8024,24 +8028,25 @@ const serializeAws_json1_1ListDeviceInstancesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1ListDevicePoolsRequest = (input: ListDevicePoolsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.type !== undefined && { type: input.type }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.type !== undefined && input.type !== null && { type: input.type }),
   };
 };
 
 const serializeAws_json1_1ListDevicesRequest = (input: ListDevicesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
-    ...(input.filters !== undefined && { filters: serializeAws_json1_1DeviceFilters(input.filters, context) }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.filters !== undefined &&
+      input.filters !== null && { filters: serializeAws_json1_1DeviceFilters(input.filters, context) }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
@@ -8050,15 +8055,15 @@ const serializeAws_json1_1ListInstanceProfilesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1ListJobsRequest = (input: ListJobsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
@@ -8067,9 +8072,9 @@ const serializeAws_json1_1ListNetworkProfilesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.type !== undefined && { type: input.type }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.type !== undefined && input.type !== null && { type: input.type }),
   };
 };
 
@@ -8078,13 +8083,13 @@ const serializeAws_json1_1ListOfferingPromotionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1ListOfferingsRequest = (input: ListOfferingsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
@@ -8093,14 +8098,14 @@ const serializeAws_json1_1ListOfferingTransactionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1ListProjectsRequest = (input: ListProjectsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
@@ -8109,29 +8114,29 @@ const serializeAws_json1_1ListRemoteAccessSessionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1ListRunsRequest = (input: ListRunsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1ListSamplesRequest = (input: ListSamplesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1ListSuitesRequest = (input: ListSuitesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
@@ -8140,7 +8145,7 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
   };
 };
 
@@ -8149,8 +8154,8 @@ const serializeAws_json1_1ListTestGridProjectsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResult !== undefined && { maxResult: input.maxResult }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResult !== undefined && input.maxResult !== null && { maxResult: input.maxResult }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
@@ -8159,9 +8164,9 @@ const serializeAws_json1_1ListTestGridSessionActionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResult !== undefined && { maxResult: input.maxResult }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.sessionArn !== undefined && { sessionArn: input.sessionArn }),
+    ...(input.maxResult !== undefined && input.maxResult !== null && { maxResult: input.maxResult }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.sessionArn !== undefined && input.sessionArn !== null && { sessionArn: input.sessionArn }),
   };
 };
 
@@ -8170,10 +8175,10 @@ const serializeAws_json1_1ListTestGridSessionArtifactsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResult !== undefined && { maxResult: input.maxResult }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.sessionArn !== undefined && { sessionArn: input.sessionArn }),
-    ...(input.type !== undefined && { type: input.type }),
+    ...(input.maxResult !== undefined && input.maxResult !== null && { maxResult: input.maxResult }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.sessionArn !== undefined && input.sessionArn !== null && { sessionArn: input.sessionArn }),
+    ...(input.type !== undefined && input.type !== null && { type: input.type }),
   };
 };
 
@@ -8182,25 +8187,27 @@ const serializeAws_json1_1ListTestGridSessionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.creationTimeAfter !== undefined && {
-      creationTimeAfter: Math.round(input.creationTimeAfter.getTime() / 1000),
-    }),
-    ...(input.creationTimeBefore !== undefined && {
-      creationTimeBefore: Math.round(input.creationTimeBefore.getTime() / 1000),
-    }),
-    ...(input.endTimeAfter !== undefined && { endTimeAfter: Math.round(input.endTimeAfter.getTime() / 1000) }),
-    ...(input.endTimeBefore !== undefined && { endTimeBefore: Math.round(input.endTimeBefore.getTime() / 1000) }),
-    ...(input.maxResult !== undefined && { maxResult: input.maxResult }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.projectArn !== undefined && { projectArn: input.projectArn }),
-    ...(input.status !== undefined && { status: input.status }),
+    ...(input.creationTimeAfter !== undefined &&
+      input.creationTimeAfter !== null && { creationTimeAfter: Math.round(input.creationTimeAfter.getTime() / 1000) }),
+    ...(input.creationTimeBefore !== undefined &&
+      input.creationTimeBefore !== null && {
+        creationTimeBefore: Math.round(input.creationTimeBefore.getTime() / 1000),
+      }),
+    ...(input.endTimeAfter !== undefined &&
+      input.endTimeAfter !== null && { endTimeAfter: Math.round(input.endTimeAfter.getTime() / 1000) }),
+    ...(input.endTimeBefore !== undefined &&
+      input.endTimeBefore !== null && { endTimeBefore: Math.round(input.endTimeBefore.getTime() / 1000) }),
+    ...(input.maxResult !== undefined && input.maxResult !== null && { maxResult: input.maxResult }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.projectArn !== undefined && input.projectArn !== null && { projectArn: input.projectArn }),
+    ...(input.status !== undefined && input.status !== null && { status: input.status }),
   };
 };
 
 const serializeAws_json1_1ListTestsRequest = (input: ListTestsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
@@ -8209,16 +8216,16 @@ const serializeAws_json1_1ListUniqueProblemsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1ListUploadsRequest = (input: ListUploadsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.type !== undefined && { type: input.type }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.type !== undefined && input.type !== null && { type: input.type }),
   };
 };
 
@@ -8227,56 +8234,71 @@ const serializeAws_json1_1ListVPCEConfigurationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1Location = (input: Location, context: __SerdeContext): any => {
   return {
-    ...(input.latitude !== undefined && { latitude: input.latitude }),
-    ...(input.longitude !== undefined && { longitude: input.longitude }),
+    ...(input.latitude !== undefined && input.latitude !== null && { latitude: input.latitude }),
+    ...(input.longitude !== undefined && input.longitude !== null && { longitude: input.longitude }),
   };
 };
 
 const serializeAws_json1_1PackageIds = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1PurchaseOfferingRequest = (input: PurchaseOfferingRequest, context: __SerdeContext): any => {
   return {
-    ...(input.offeringId !== undefined && { offeringId: input.offeringId }),
-    ...(input.offeringPromotionId !== undefined && { offeringPromotionId: input.offeringPromotionId }),
-    ...(input.quantity !== undefined && { quantity: input.quantity }),
+    ...(input.offeringId !== undefined && input.offeringId !== null && { offeringId: input.offeringId }),
+    ...(input.offeringPromotionId !== undefined &&
+      input.offeringPromotionId !== null && { offeringPromotionId: input.offeringPromotionId }),
+    ...(input.quantity !== undefined && input.quantity !== null && { quantity: input.quantity }),
   };
 };
 
 const serializeAws_json1_1Radios = (input: Radios, context: __SerdeContext): any => {
   return {
-    ...(input.bluetooth !== undefined && { bluetooth: input.bluetooth }),
-    ...(input.gps !== undefined && { gps: input.gps }),
-    ...(input.nfc !== undefined && { nfc: input.nfc }),
-    ...(input.wifi !== undefined && { wifi: input.wifi }),
+    ...(input.bluetooth !== undefined && input.bluetooth !== null && { bluetooth: input.bluetooth }),
+    ...(input.gps !== undefined && input.gps !== null && { gps: input.gps }),
+    ...(input.nfc !== undefined && input.nfc !== null && { nfc: input.nfc }),
+    ...(input.wifi !== undefined && input.wifi !== null && { wifi: input.wifi }),
   };
 };
 
 const serializeAws_json1_1RenewOfferingRequest = (input: RenewOfferingRequest, context: __SerdeContext): any => {
   return {
-    ...(input.offeringId !== undefined && { offeringId: input.offeringId }),
-    ...(input.quantity !== undefined && { quantity: input.quantity }),
+    ...(input.offeringId !== undefined && input.offeringId !== null && { offeringId: input.offeringId }),
+    ...(input.quantity !== undefined && input.quantity !== null && { quantity: input.quantity }),
   };
 };
 
 const serializeAws_json1_1Rule = (input: Rule, context: __SerdeContext): any => {
   return {
-    ...(input.attribute !== undefined && { attribute: input.attribute }),
-    ...(input.operator !== undefined && { operator: input.operator }),
-    ...(input.value !== undefined && { value: input.value }),
+    ...(input.attribute !== undefined && input.attribute !== null && { attribute: input.attribute }),
+    ...(input.operator !== undefined && input.operator !== null && { operator: input.operator }),
+    ...(input.value !== undefined && input.value !== null && { value: input.value }),
   };
 };
 
 const serializeAws_json1_1Rules = (input: Rule[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Rule(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Rule(entry, context);
+    });
 };
 
 const serializeAws_json1_1ScheduleRunConfiguration = (
@@ -8284,61 +8306,72 @@ const serializeAws_json1_1ScheduleRunConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.auxiliaryApps !== undefined && {
-      auxiliaryApps: serializeAws_json1_1AmazonResourceNames(input.auxiliaryApps, context),
-    }),
-    ...(input.billingMethod !== undefined && { billingMethod: input.billingMethod }),
-    ...(input.customerArtifactPaths !== undefined && {
-      customerArtifactPaths: serializeAws_json1_1CustomerArtifactPaths(input.customerArtifactPaths, context),
-    }),
-    ...(input.extraDataPackageArn !== undefined && { extraDataPackageArn: input.extraDataPackageArn }),
-    ...(input.locale !== undefined && { locale: input.locale }),
-    ...(input.location !== undefined && { location: serializeAws_json1_1Location(input.location, context) }),
-    ...(input.networkProfileArn !== undefined && { networkProfileArn: input.networkProfileArn }),
-    ...(input.radios !== undefined && { radios: serializeAws_json1_1Radios(input.radios, context) }),
-    ...(input.vpceConfigurationArns !== undefined && {
-      vpceConfigurationArns: serializeAws_json1_1AmazonResourceNames(input.vpceConfigurationArns, context),
-    }),
+    ...(input.auxiliaryApps !== undefined &&
+      input.auxiliaryApps !== null && {
+        auxiliaryApps: serializeAws_json1_1AmazonResourceNames(input.auxiliaryApps, context),
+      }),
+    ...(input.billingMethod !== undefined && input.billingMethod !== null && { billingMethod: input.billingMethod }),
+    ...(input.customerArtifactPaths !== undefined &&
+      input.customerArtifactPaths !== null && {
+        customerArtifactPaths: serializeAws_json1_1CustomerArtifactPaths(input.customerArtifactPaths, context),
+      }),
+    ...(input.extraDataPackageArn !== undefined &&
+      input.extraDataPackageArn !== null && { extraDataPackageArn: input.extraDataPackageArn }),
+    ...(input.locale !== undefined && input.locale !== null && { locale: input.locale }),
+    ...(input.location !== undefined &&
+      input.location !== null && { location: serializeAws_json1_1Location(input.location, context) }),
+    ...(input.networkProfileArn !== undefined &&
+      input.networkProfileArn !== null && { networkProfileArn: input.networkProfileArn }),
+    ...(input.radios !== undefined &&
+      input.radios !== null && { radios: serializeAws_json1_1Radios(input.radios, context) }),
+    ...(input.vpceConfigurationArns !== undefined &&
+      input.vpceConfigurationArns !== null && {
+        vpceConfigurationArns: serializeAws_json1_1AmazonResourceNames(input.vpceConfigurationArns, context),
+      }),
   };
 };
 
 const serializeAws_json1_1ScheduleRunRequest = (input: ScheduleRunRequest, context: __SerdeContext): any => {
   return {
-    ...(input.appArn !== undefined && { appArn: input.appArn }),
-    ...(input.configuration !== undefined && {
-      configuration: serializeAws_json1_1ScheduleRunConfiguration(input.configuration, context),
-    }),
-    ...(input.devicePoolArn !== undefined && { devicePoolArn: input.devicePoolArn }),
-    ...(input.deviceSelectionConfiguration !== undefined && {
-      deviceSelectionConfiguration: serializeAws_json1_1DeviceSelectionConfiguration(
-        input.deviceSelectionConfiguration,
-        context
-      ),
-    }),
-    ...(input.executionConfiguration !== undefined && {
-      executionConfiguration: serializeAws_json1_1ExecutionConfiguration(input.executionConfiguration, context),
-    }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.projectArn !== undefined && { projectArn: input.projectArn }),
-    ...(input.test !== undefined && { test: serializeAws_json1_1ScheduleRunTest(input.test, context) }),
+    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
+    ...(input.configuration !== undefined &&
+      input.configuration !== null && {
+        configuration: serializeAws_json1_1ScheduleRunConfiguration(input.configuration, context),
+      }),
+    ...(input.devicePoolArn !== undefined && input.devicePoolArn !== null && { devicePoolArn: input.devicePoolArn }),
+    ...(input.deviceSelectionConfiguration !== undefined &&
+      input.deviceSelectionConfiguration !== null && {
+        deviceSelectionConfiguration: serializeAws_json1_1DeviceSelectionConfiguration(
+          input.deviceSelectionConfiguration,
+          context
+        ),
+      }),
+    ...(input.executionConfiguration !== undefined &&
+      input.executionConfiguration !== null && {
+        executionConfiguration: serializeAws_json1_1ExecutionConfiguration(input.executionConfiguration, context),
+      }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.projectArn !== undefined && input.projectArn !== null && { projectArn: input.projectArn }),
+    ...(input.test !== undefined &&
+      input.test !== null && { test: serializeAws_json1_1ScheduleRunTest(input.test, context) }),
   };
 };
 
 const serializeAws_json1_1ScheduleRunTest = (input: ScheduleRunTest, context: __SerdeContext): any => {
   return {
-    ...(input.filter !== undefined && { filter: input.filter }),
-    ...(input.parameters !== undefined && {
-      parameters: serializeAws_json1_1TestParameters(input.parameters, context),
-    }),
-    ...(input.testPackageArn !== undefined && { testPackageArn: input.testPackageArn }),
-    ...(input.testSpecArn !== undefined && { testSpecArn: input.testSpecArn }),
-    ...(input.type !== undefined && { type: input.type }),
+    ...(input.filter !== undefined && input.filter !== null && { filter: input.filter }),
+    ...(input.parameters !== undefined &&
+      input.parameters !== null && { parameters: serializeAws_json1_1TestParameters(input.parameters, context) }),
+    ...(input.testPackageArn !== undefined &&
+      input.testPackageArn !== null && { testPackageArn: input.testPackageArn }),
+    ...(input.testSpecArn !== undefined && input.testSpecArn !== null && { testSpecArn: input.testSpecArn }),
+    ...(input.type !== undefined && input.type !== null && { type: input.type }),
   };
 };
 
 const serializeAws_json1_1StopJobRequest = (input: StopJobRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   };
 };
 
@@ -8347,52 +8380,69 @@ const serializeAws_json1_1StopRemoteAccessSessionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   };
 };
 
 const serializeAws_json1_1StopRunRequest = (input: StopRunRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1TestParameters = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -8401,20 +8451,23 @@ const serializeAws_json1_1UpdateDeviceInstanceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
-    ...(input.labels !== undefined && { labels: serializeAws_json1_1InstanceLabels(input.labels, context) }),
-    ...(input.profileArn !== undefined && { profileArn: input.profileArn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.labels !== undefined &&
+      input.labels !== null && { labels: serializeAws_json1_1InstanceLabels(input.labels, context) }),
+    ...(input.profileArn !== undefined && input.profileArn !== null && { profileArn: input.profileArn }),
   };
 };
 
 const serializeAws_json1_1UpdateDevicePoolRequest = (input: UpdateDevicePoolRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
-    ...(input.clearMaxDevices !== undefined && { clearMaxDevices: input.clearMaxDevices }),
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.maxDevices !== undefined && { maxDevices: input.maxDevices }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.rules !== undefined && { rules: serializeAws_json1_1Rules(input.rules, context) }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.clearMaxDevices !== undefined &&
+      input.clearMaxDevices !== null && { clearMaxDevices: input.clearMaxDevices }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.maxDevices !== undefined && input.maxDevices !== null && { maxDevices: input.maxDevices }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.rules !== undefined &&
+      input.rules !== null && { rules: serializeAws_json1_1Rules(input.rules, context) }),
   };
 };
 
@@ -8423,14 +8476,17 @@ const serializeAws_json1_1UpdateInstanceProfileRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.excludeAppPackagesFromCleanup !== undefined && {
-      excludeAppPackagesFromCleanup: serializeAws_json1_1PackageIds(input.excludeAppPackagesFromCleanup, context),
-    }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.packageCleanup !== undefined && { packageCleanup: input.packageCleanup }),
-    ...(input.rebootAfterUse !== undefined && { rebootAfterUse: input.rebootAfterUse }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.excludeAppPackagesFromCleanup !== undefined &&
+      input.excludeAppPackagesFromCleanup !== null && {
+        excludeAppPackagesFromCleanup: serializeAws_json1_1PackageIds(input.excludeAppPackagesFromCleanup, context),
+      }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.packageCleanup !== undefined &&
+      input.packageCleanup !== null && { packageCleanup: input.packageCleanup }),
+    ...(input.rebootAfterUse !== undefined &&
+      input.rebootAfterUse !== null && { rebootAfterUse: input.rebootAfterUse }),
   };
 };
 
@@ -8439,26 +8495,34 @@ const serializeAws_json1_1UpdateNetworkProfileRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.downlinkBandwidthBits !== undefined && { downlinkBandwidthBits: input.downlinkBandwidthBits }),
-    ...(input.downlinkDelayMs !== undefined && { downlinkDelayMs: input.downlinkDelayMs }),
-    ...(input.downlinkJitterMs !== undefined && { downlinkJitterMs: input.downlinkJitterMs }),
-    ...(input.downlinkLossPercent !== undefined && { downlinkLossPercent: input.downlinkLossPercent }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.type !== undefined && { type: input.type }),
-    ...(input.uplinkBandwidthBits !== undefined && { uplinkBandwidthBits: input.uplinkBandwidthBits }),
-    ...(input.uplinkDelayMs !== undefined && { uplinkDelayMs: input.uplinkDelayMs }),
-    ...(input.uplinkJitterMs !== undefined && { uplinkJitterMs: input.uplinkJitterMs }),
-    ...(input.uplinkLossPercent !== undefined && { uplinkLossPercent: input.uplinkLossPercent }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.downlinkBandwidthBits !== undefined &&
+      input.downlinkBandwidthBits !== null && { downlinkBandwidthBits: input.downlinkBandwidthBits }),
+    ...(input.downlinkDelayMs !== undefined &&
+      input.downlinkDelayMs !== null && { downlinkDelayMs: input.downlinkDelayMs }),
+    ...(input.downlinkJitterMs !== undefined &&
+      input.downlinkJitterMs !== null && { downlinkJitterMs: input.downlinkJitterMs }),
+    ...(input.downlinkLossPercent !== undefined &&
+      input.downlinkLossPercent !== null && { downlinkLossPercent: input.downlinkLossPercent }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.uplinkBandwidthBits !== undefined &&
+      input.uplinkBandwidthBits !== null && { uplinkBandwidthBits: input.uplinkBandwidthBits }),
+    ...(input.uplinkDelayMs !== undefined && input.uplinkDelayMs !== null && { uplinkDelayMs: input.uplinkDelayMs }),
+    ...(input.uplinkJitterMs !== undefined &&
+      input.uplinkJitterMs !== null && { uplinkJitterMs: input.uplinkJitterMs }),
+    ...(input.uplinkLossPercent !== undefined &&
+      input.uplinkLossPercent !== null && { uplinkLossPercent: input.uplinkLossPercent }),
   };
 };
 
 const serializeAws_json1_1UpdateProjectRequest = (input: UpdateProjectRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
-    ...(input.defaultJobTimeoutMinutes !== undefined && { defaultJobTimeoutMinutes: input.defaultJobTimeoutMinutes }),
-    ...(input.name !== undefined && { name: input.name }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.defaultJobTimeoutMinutes !== undefined &&
+      input.defaultJobTimeoutMinutes !== null && { defaultJobTimeoutMinutes: input.defaultJobTimeoutMinutes }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
   };
 };
 
@@ -8467,18 +8531,18 @@ const serializeAws_json1_1UpdateTestGridProjectRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.projectArn !== undefined && { projectArn: input.projectArn }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.projectArn !== undefined && input.projectArn !== null && { projectArn: input.projectArn }),
   };
 };
 
 const serializeAws_json1_1UpdateUploadRequest = (input: UpdateUploadRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
-    ...(input.contentType !== undefined && { contentType: input.contentType }),
-    ...(input.editContent !== undefined && { editContent: input.editContent }),
-    ...(input.name !== undefined && { name: input.name }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.contentType !== undefined && input.contentType !== null && { contentType: input.contentType }),
+    ...(input.editContent !== undefined && input.editContent !== null && { editContent: input.editContent }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
   };
 };
 
@@ -8487,13 +8551,17 @@ const serializeAws_json1_1UpdateVPCEConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
-    ...(input.serviceDnsName !== undefined && { serviceDnsName: input.serviceDnsName }),
-    ...(input.vpceConfigurationDescription !== undefined && {
-      vpceConfigurationDescription: input.vpceConfigurationDescription,
-    }),
-    ...(input.vpceConfigurationName !== undefined && { vpceConfigurationName: input.vpceConfigurationName }),
-    ...(input.vpceServiceName !== undefined && { vpceServiceName: input.vpceServiceName }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.serviceDnsName !== undefined &&
+      input.serviceDnsName !== null && { serviceDnsName: input.serviceDnsName }),
+    ...(input.vpceConfigurationDescription !== undefined &&
+      input.vpceConfigurationDescription !== null && {
+        vpceConfigurationDescription: input.vpceConfigurationDescription,
+      }),
+    ...(input.vpceConfigurationName !== undefined &&
+      input.vpceConfigurationName !== null && { vpceConfigurationName: input.vpceConfigurationName }),
+    ...(input.vpceServiceName !== undefined &&
+      input.vpceServiceName !== null && { vpceServiceName: input.vpceServiceName }),
   };
 };
 
@@ -8531,7 +8599,14 @@ const deserializeAws_json1_1AccountSettings = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1AndroidPaths = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ArgumentException = (output: any, context: __SerdeContext): ArgumentException => {
@@ -8551,7 +8626,14 @@ const deserializeAws_json1_1Artifact = (output: any, context: __SerdeContext): A
 };
 
 const deserializeAws_json1_1Artifacts = (output: any, context: __SerdeContext): Artifact[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Artifact(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Artifact(entry, context);
+    });
 };
 
 const deserializeAws_json1_1CannotDeleteException = (output: any, context: __SerdeContext): CannotDeleteException => {
@@ -8796,15 +8878,36 @@ const deserializeAws_json1_1DeviceFilter = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1DeviceFilters = (output: any, context: __SerdeContext): DeviceFilter[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DeviceFilter(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DeviceFilter(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DeviceFilterValues = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1DeviceHostPaths = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1DeviceInstance = (output: any, context: __SerdeContext): DeviceInstance => {
@@ -8825,7 +8928,14 @@ const deserializeAws_json1_1DeviceInstance = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1DeviceInstances = (output: any, context: __SerdeContext): DeviceInstance[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DeviceInstance(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DeviceInstance(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DeviceMinutes = (output: any, context: __SerdeContext): DeviceMinutes => {
@@ -8871,15 +8981,36 @@ const deserializeAws_json1_1DevicePoolCompatibilityResults = (
   output: any,
   context: __SerdeContext
 ): DevicePoolCompatibilityResult[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DevicePoolCompatibilityResult(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DevicePoolCompatibilityResult(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DevicePools = (output: any, context: __SerdeContext): DevicePool[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DevicePool(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DevicePool(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Devices = (output: any, context: __SerdeContext): Device[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Device(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Device(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DeviceSelectionResult = (output: any, context: __SerdeContext): DeviceSelectionResult => {
@@ -9106,7 +9237,14 @@ const deserializeAws_json1_1IncompatibilityMessages = (
   output: any,
   context: __SerdeContext
 ): IncompatibilityMessage[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1IncompatibilityMessage(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1IncompatibilityMessage(entry, context);
+    });
 };
 
 const deserializeAws_json1_1InstallToRemoteAccessSessionResult = (
@@ -9122,7 +9260,14 @@ const deserializeAws_json1_1InstallToRemoteAccessSessionResult = (
 };
 
 const deserializeAws_json1_1InstanceLabels = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1InstanceProfile = (output: any, context: __SerdeContext): InstanceProfile => {
@@ -9142,7 +9287,14 @@ const deserializeAws_json1_1InstanceProfile = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1InstanceProfiles = (output: any, context: __SerdeContext): InstanceProfile[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1InstanceProfile(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1InstanceProfile(entry, context);
+    });
 };
 
 const deserializeAws_json1_1InternalServiceException = (
@@ -9164,7 +9316,14 @@ const deserializeAws_json1_1InvalidOperationException = (
 };
 
 const deserializeAws_json1_1IosPaths = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1Job = (output: any, context: __SerdeContext): Job => {
@@ -9201,7 +9360,14 @@ const deserializeAws_json1_1Job = (output: any, context: __SerdeContext): Job =>
 };
 
 const deserializeAws_json1_1Jobs = (output: any, context: __SerdeContext): Job[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Job(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Job(entry, context);
+    });
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
@@ -9492,13 +9658,15 @@ const deserializeAws_json1_1Location = (output: any, context: __SerdeContext): L
 };
 
 const deserializeAws_json1_1MaxSlotMap = (output: any, context: __SerdeContext): { [key: string]: number } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: number }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1MonetaryAmount = (output: any, context: __SerdeContext): MonetaryAmount => {
@@ -9542,7 +9710,14 @@ const deserializeAws_json1_1NetworkProfile = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1NetworkProfiles = (output: any, context: __SerdeContext): NetworkProfile[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1NetworkProfile(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1NetworkProfile(entry, context);
+    });
 };
 
 const deserializeAws_json1_1NotEligibleException = (output: any, context: __SerdeContext): NotEligibleException => {
@@ -9578,11 +9753,25 @@ const deserializeAws_json1_1OfferingPromotion = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1OfferingPromotions = (output: any, context: __SerdeContext): OfferingPromotion[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1OfferingPromotion(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1OfferingPromotion(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Offerings = (output: any, context: __SerdeContext): Offering[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Offering(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Offering(entry, context);
+    });
 };
 
 const deserializeAws_json1_1OfferingStatus = (output: any, context: __SerdeContext): OfferingStatus => {
@@ -9604,13 +9793,15 @@ const deserializeAws_json1_1OfferingStatusMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: OfferingStatus } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: OfferingStatus }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: OfferingStatus }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: deserializeAws_json1_1OfferingStatus(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1OfferingTransaction = (output: any, context: __SerdeContext): OfferingTransaction => {
@@ -9637,11 +9828,25 @@ const deserializeAws_json1_1OfferingTransaction = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1OfferingTransactions = (output: any, context: __SerdeContext): OfferingTransaction[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1OfferingTransaction(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1OfferingTransaction(entry, context);
+    });
 };
 
 const deserializeAws_json1_1PackageIds = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1Problem = (output: any, context: __SerdeContext): Problem => {
@@ -9679,7 +9884,14 @@ const deserializeAws_json1_1ProblemDetail = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1Problems = (output: any, context: __SerdeContext): Problem[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Problem(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Problem(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Project = (output: any, context: __SerdeContext): Project => {
@@ -9696,15 +9908,27 @@ const deserializeAws_json1_1Project = (output: any, context: __SerdeContext): Pr
 };
 
 const deserializeAws_json1_1Projects = (output: any, context: __SerdeContext): Project[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Project(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Project(entry, context);
+    });
 };
 
 const deserializeAws_json1_1PurchasedDevicesMap = (output: any, context: __SerdeContext): { [key: string]: number } => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: number }, [key, value]: [DevicePlatform | string, any]) => ({
-      ...acc,
-      [key]: value,
-    }),
+    (acc: { [key: string]: number }, [key, value]: [DevicePlatform | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: value,
+      };
+    },
     {}
   );
 };
@@ -9738,7 +9962,14 @@ const deserializeAws_json1_1RecurringCharge = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1RecurringCharges = (output: any, context: __SerdeContext): RecurringCharge[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1RecurringCharge(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1RecurringCharge(entry, context);
+    });
 };
 
 const deserializeAws_json1_1RemoteAccessSession = (output: any, context: __SerdeContext): RemoteAccessSession => {
@@ -9789,7 +10020,14 @@ const deserializeAws_json1_1RemoteAccessSession = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1RemoteAccessSessions = (output: any, context: __SerdeContext): RemoteAccessSession[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1RemoteAccessSession(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1RemoteAccessSession(entry, context);
+    });
 };
 
 const deserializeAws_json1_1RenewOfferingResult = (output: any, context: __SerdeContext): RenewOfferingResult => {
@@ -9817,7 +10055,14 @@ const deserializeAws_json1_1Rule = (output: any, context: __SerdeContext): Rule 
 };
 
 const deserializeAws_json1_1Rules = (output: any, context: __SerdeContext): Rule[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Rule(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Rule(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Run = (output: any, context: __SerdeContext): Run => {
@@ -9889,7 +10134,14 @@ const deserializeAws_json1_1Run = (output: any, context: __SerdeContext): Run =>
 };
 
 const deserializeAws_json1_1Runs = (output: any, context: __SerdeContext): Run[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Run(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Run(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Sample = (output: any, context: __SerdeContext): Sample => {
@@ -9901,7 +10153,14 @@ const deserializeAws_json1_1Sample = (output: any, context: __SerdeContext): Sam
 };
 
 const deserializeAws_json1_1Samples = (output: any, context: __SerdeContext): Sample[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Sample(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Sample(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ScheduleRunResult = (output: any, context: __SerdeContext): ScheduleRunResult => {
@@ -9969,7 +10228,14 @@ const deserializeAws_json1_1Suite = (output: any, context: __SerdeContext): Suit
 };
 
 const deserializeAws_json1_1Suites = (output: any, context: __SerdeContext): Suite[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Suite(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Suite(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -9980,7 +10246,14 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TagOperationException = (output: any, context: __SerdeContext): TagOperationException => {
@@ -10037,7 +10310,14 @@ const deserializeAws_json1_1TestGridProject = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1TestGridProjects = (output: any, context: __SerdeContext): TestGridProject[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1TestGridProject(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TestGridProject(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TestGridSession = (output: any, context: __SerdeContext): TestGridSession => {
@@ -10072,7 +10352,14 @@ const deserializeAws_json1_1TestGridSessionActions = (
   output: any,
   context: __SerdeContext
 ): TestGridSessionAction[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1TestGridSessionAction(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TestGridSessionAction(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TestGridSessionArtifact = (
@@ -10090,15 +10377,36 @@ const deserializeAws_json1_1TestGridSessionArtifacts = (
   output: any,
   context: __SerdeContext
 ): TestGridSessionArtifact[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1TestGridSessionArtifact(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TestGridSessionArtifact(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TestGridSessions = (output: any, context: __SerdeContext): TestGridSession[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1TestGridSession(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TestGridSession(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Tests = (output: any, context: __SerdeContext): Test[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Test(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Test(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
@@ -10126,7 +10434,14 @@ const deserializeAws_json1_1UniqueProblem = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1UniqueProblems = (output: any, context: __SerdeContext): UniqueProblem[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1UniqueProblem(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1UniqueProblem(entry, context);
+    });
 };
 
 const deserializeAws_json1_1UniqueProblemsByExecutionResultMap = (
@@ -10134,10 +10449,15 @@ const deserializeAws_json1_1UniqueProblemsByExecutionResultMap = (
   context: __SerdeContext
 ): { [key: string]: UniqueProblem[] } => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: UniqueProblem[] }, [key, value]: [ExecutionResult | string, any]) => ({
-      ...acc,
-      [key]: deserializeAws_json1_1UniqueProblems(value, context),
-    }),
+    (acc: { [key: string]: UniqueProblem[] }, [key, value]: [ExecutionResult | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: deserializeAws_json1_1UniqueProblems(value, context),
+      };
+    },
     {}
   );
 };
@@ -10250,7 +10570,14 @@ const deserializeAws_json1_1Upload = (output: any, context: __SerdeContext): Upl
 };
 
 const deserializeAws_json1_1Uploads = (output: any, context: __SerdeContext): Upload[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Upload(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Upload(entry, context);
+    });
 };
 
 const deserializeAws_json1_1VPCEConfiguration = (output: any, context: __SerdeContext): VPCEConfiguration => {
@@ -10272,7 +10599,14 @@ const deserializeAws_json1_1VPCEConfiguration = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1VPCEConfigurations = (output: any, context: __SerdeContext): VPCEConfiguration[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1VPCEConfiguration(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1VPCEConfiguration(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -10325,3 +10659,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

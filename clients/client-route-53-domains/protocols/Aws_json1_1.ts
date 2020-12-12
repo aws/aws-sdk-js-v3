@@ -171,7 +171,7 @@ export const serializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountComman
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Domains_v20140515.AcceptDomainTransferFromAnotherAwsAccount",
   };
   let body: any;
@@ -184,7 +184,7 @@ export const serializeAws_json1_1CancelDomainTransferToAnotherAwsAccountCommand 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Domains_v20140515.CancelDomainTransferToAnotherAwsAccount",
   };
   let body: any;
@@ -197,7 +197,7 @@ export const serializeAws_json1_1CheckDomainAvailabilityCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Domains_v20140515.CheckDomainAvailability",
   };
   let body: any;
@@ -210,7 +210,7 @@ export const serializeAws_json1_1CheckDomainTransferabilityCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Domains_v20140515.CheckDomainTransferability",
   };
   let body: any;
@@ -223,7 +223,7 @@ export const serializeAws_json1_1DeleteTagsForDomainCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Domains_v20140515.DeleteTagsForDomain",
   };
   let body: any;
@@ -236,7 +236,7 @@ export const serializeAws_json1_1DisableDomainAutoRenewCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Domains_v20140515.DisableDomainAutoRenew",
   };
   let body: any;
@@ -249,7 +249,7 @@ export const serializeAws_json1_1DisableDomainTransferLockCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Domains_v20140515.DisableDomainTransferLock",
   };
   let body: any;
@@ -262,7 +262,7 @@ export const serializeAws_json1_1EnableDomainAutoRenewCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Domains_v20140515.EnableDomainAutoRenew",
   };
   let body: any;
@@ -275,7 +275,7 @@ export const serializeAws_json1_1EnableDomainTransferLockCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Domains_v20140515.EnableDomainTransferLock",
   };
   let body: any;
@@ -288,7 +288,7 @@ export const serializeAws_json1_1GetContactReachabilityStatusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Domains_v20140515.GetContactReachabilityStatus",
   };
   let body: any;
@@ -301,7 +301,7 @@ export const serializeAws_json1_1GetDomainDetailCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Domains_v20140515.GetDomainDetail",
   };
   let body: any;
@@ -314,7 +314,7 @@ export const serializeAws_json1_1GetDomainSuggestionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Domains_v20140515.GetDomainSuggestions",
   };
   let body: any;
@@ -327,7 +327,7 @@ export const serializeAws_json1_1GetOperationDetailCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Domains_v20140515.GetOperationDetail",
   };
   let body: any;
@@ -340,7 +340,7 @@ export const serializeAws_json1_1ListDomainsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Domains_v20140515.ListDomains",
   };
   let body: any;
@@ -353,7 +353,7 @@ export const serializeAws_json1_1ListOperationsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Domains_v20140515.ListOperations",
   };
   let body: any;
@@ -366,7 +366,7 @@ export const serializeAws_json1_1ListTagsForDomainCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Domains_v20140515.ListTagsForDomain",
   };
   let body: any;
@@ -379,7 +379,7 @@ export const serializeAws_json1_1RegisterDomainCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Domains_v20140515.RegisterDomain",
   };
   let body: any;
@@ -392,7 +392,7 @@ export const serializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountComman
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Domains_v20140515.RejectDomainTransferFromAnotherAwsAccount",
   };
   let body: any;
@@ -405,7 +405,7 @@ export const serializeAws_json1_1RenewDomainCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Domains_v20140515.RenewDomain",
   };
   let body: any;
@@ -418,7 +418,7 @@ export const serializeAws_json1_1ResendContactReachabilityEmailCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Domains_v20140515.ResendContactReachabilityEmail",
   };
   let body: any;
@@ -431,7 +431,7 @@ export const serializeAws_json1_1RetrieveDomainAuthCodeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Domains_v20140515.RetrieveDomainAuthCode",
   };
   let body: any;
@@ -444,7 +444,7 @@ export const serializeAws_json1_1TransferDomainCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Domains_v20140515.TransferDomain",
   };
   let body: any;
@@ -457,7 +457,7 @@ export const serializeAws_json1_1TransferDomainToAnotherAwsAccountCommand = asyn
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Domains_v20140515.TransferDomainToAnotherAwsAccount",
   };
   let body: any;
@@ -470,7 +470,7 @@ export const serializeAws_json1_1UpdateDomainContactCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Domains_v20140515.UpdateDomainContact",
   };
   let body: any;
@@ -483,7 +483,7 @@ export const serializeAws_json1_1UpdateDomainContactPrivacyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Domains_v20140515.UpdateDomainContactPrivacy",
   };
   let body: any;
@@ -496,7 +496,7 @@ export const serializeAws_json1_1UpdateDomainNameserversCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Domains_v20140515.UpdateDomainNameservers",
   };
   let body: any;
@@ -509,7 +509,7 @@ export const serializeAws_json1_1UpdateTagsForDomainCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Domains_v20140515.UpdateTagsForDomain",
   };
   let body: any;
@@ -522,7 +522,7 @@ export const serializeAws_json1_1ViewBillingCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Domains_v20140515.ViewBilling",
   };
   let body: any;
@@ -557,8 +557,7 @@ const deserializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountCommandErro
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DomainLimitExceeded":
     case "com.amazonaws.route53domains#DomainLimitExceeded":
@@ -628,8 +627,7 @@ const deserializeAws_json1_1CancelDomainTransferToAnotherAwsAccountCommandError 
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
@@ -691,8 +689,7 @@ const deserializeAws_json1_1CheckDomainAvailabilityCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
@@ -754,8 +751,7 @@ const deserializeAws_json1_1CheckDomainTransferabilityCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
@@ -817,8 +813,7 @@ const deserializeAws_json1_1DeleteTagsForDomainCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
@@ -888,8 +883,7 @@ const deserializeAws_json1_1DisableDomainAutoRenewCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
@@ -951,8 +945,7 @@ const deserializeAws_json1_1DisableDomainTransferLockCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53domains#DuplicateRequest":
@@ -1038,8 +1031,7 @@ const deserializeAws_json1_1EnableDomainAutoRenewCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
@@ -1109,8 +1101,7 @@ const deserializeAws_json1_1EnableDomainTransferLockCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53domains#DuplicateRequest":
@@ -1196,8 +1187,7 @@ const deserializeAws_json1_1GetContactReachabilityStatusCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
@@ -1267,8 +1257,7 @@ const deserializeAws_json1_1GetDomainDetailCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
@@ -1330,8 +1319,7 @@ const deserializeAws_json1_1GetDomainSuggestionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
@@ -1393,8 +1381,7 @@ const deserializeAws_json1_1GetOperationDetailCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
@@ -1448,8 +1435,7 @@ const deserializeAws_json1_1ListDomainsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
@@ -1503,8 +1489,7 @@ const deserializeAws_json1_1ListOperationsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
@@ -1558,8 +1543,7 @@ const deserializeAws_json1_1ListTagsForDomainCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
@@ -1629,8 +1613,7 @@ const deserializeAws_json1_1RegisterDomainCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DomainLimitExceeded":
     case "com.amazonaws.route53domains#DomainLimitExceeded":
@@ -1724,8 +1707,7 @@ const deserializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountCommandErro
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
@@ -1787,8 +1769,7 @@ const deserializeAws_json1_1RenewDomainCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53domains#DuplicateRequest":
@@ -1874,8 +1855,7 @@ const deserializeAws_json1_1ResendContactReachabilityEmailCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
@@ -1945,8 +1925,7 @@ const deserializeAws_json1_1RetrieveDomainAuthCodeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
@@ -2008,8 +1987,7 @@ const deserializeAws_json1_1TransferDomainCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DomainLimitExceeded":
     case "com.amazonaws.route53domains#DomainLimitExceeded":
@@ -2103,8 +2081,7 @@ const deserializeAws_json1_1TransferDomainToAnotherAwsAccountCommandError = asyn
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53domains#DuplicateRequest":
@@ -2174,8 +2151,7 @@ const deserializeAws_json1_1UpdateDomainContactCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53domains#DuplicateRequest":
@@ -2261,8 +2237,7 @@ const deserializeAws_json1_1UpdateDomainContactPrivacyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53domains#DuplicateRequest":
@@ -2348,8 +2323,7 @@ const deserializeAws_json1_1UpdateDomainNameserversCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53domains#DuplicateRequest":
@@ -2435,8 +2409,7 @@ const deserializeAws_json1_1UpdateTagsForDomainCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
@@ -2506,8 +2479,7 @@ const deserializeAws_json1_1ViewBillingCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
@@ -2629,8 +2601,8 @@ const serializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
-    ...(input.Password !== undefined && { Password: input.Password }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
   };
 };
 
@@ -2639,7 +2611,7 @@ const serializeAws_json1_1CancelDomainTransferToAnotherAwsAccountRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
   };
 };
 
@@ -2648,8 +2620,8 @@ const serializeAws_json1_1CheckDomainAvailabilityRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
-    ...(input.IdnLangCode !== undefined && { IdnLangCode: input.IdnLangCode }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.IdnLangCode !== undefined && input.IdnLangCode !== null && { IdnLangCode: input.IdnLangCode }),
   };
 };
 
@@ -2658,29 +2630,29 @@ const serializeAws_json1_1CheckDomainTransferabilityRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AuthCode !== undefined && { AuthCode: input.AuthCode }),
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.AuthCode !== undefined && input.AuthCode !== null && { AuthCode: input.AuthCode }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
   };
 };
 
 const serializeAws_json1_1ContactDetail = (input: ContactDetail, context: __SerdeContext): any => {
   return {
-    ...(input.AddressLine1 !== undefined && { AddressLine1: input.AddressLine1 }),
-    ...(input.AddressLine2 !== undefined && { AddressLine2: input.AddressLine2 }),
-    ...(input.City !== undefined && { City: input.City }),
-    ...(input.ContactType !== undefined && { ContactType: input.ContactType }),
-    ...(input.CountryCode !== undefined && { CountryCode: input.CountryCode }),
-    ...(input.Email !== undefined && { Email: input.Email }),
-    ...(input.ExtraParams !== undefined && {
-      ExtraParams: serializeAws_json1_1ExtraParamList(input.ExtraParams, context),
-    }),
-    ...(input.Fax !== undefined && { Fax: input.Fax }),
-    ...(input.FirstName !== undefined && { FirstName: input.FirstName }),
-    ...(input.LastName !== undefined && { LastName: input.LastName }),
-    ...(input.OrganizationName !== undefined && { OrganizationName: input.OrganizationName }),
-    ...(input.PhoneNumber !== undefined && { PhoneNumber: input.PhoneNumber }),
-    ...(input.State !== undefined && { State: input.State }),
-    ...(input.ZipCode !== undefined && { ZipCode: input.ZipCode }),
+    ...(input.AddressLine1 !== undefined && input.AddressLine1 !== null && { AddressLine1: input.AddressLine1 }),
+    ...(input.AddressLine2 !== undefined && input.AddressLine2 !== null && { AddressLine2: input.AddressLine2 }),
+    ...(input.City !== undefined && input.City !== null && { City: input.City }),
+    ...(input.ContactType !== undefined && input.ContactType !== null && { ContactType: input.ContactType }),
+    ...(input.CountryCode !== undefined && input.CountryCode !== null && { CountryCode: input.CountryCode }),
+    ...(input.Email !== undefined && input.Email !== null && { Email: input.Email }),
+    ...(input.ExtraParams !== undefined &&
+      input.ExtraParams !== null && { ExtraParams: serializeAws_json1_1ExtraParamList(input.ExtraParams, context) }),
+    ...(input.Fax !== undefined && input.Fax !== null && { Fax: input.Fax }),
+    ...(input.FirstName !== undefined && input.FirstName !== null && { FirstName: input.FirstName }),
+    ...(input.LastName !== undefined && input.LastName !== null && { LastName: input.LastName }),
+    ...(input.OrganizationName !== undefined &&
+      input.OrganizationName !== null && { OrganizationName: input.OrganizationName }),
+    ...(input.PhoneNumber !== undefined && input.PhoneNumber !== null && { PhoneNumber: input.PhoneNumber }),
+    ...(input.State !== undefined && input.State !== null && { State: input.State }),
+    ...(input.ZipCode !== undefined && input.ZipCode !== null && { ZipCode: input.ZipCode }),
   };
 };
 
@@ -2689,10 +2661,9 @@ const serializeAws_json1_1DeleteTagsForDomainRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
-    ...(input.TagsToDelete !== undefined && {
-      TagsToDelete: serializeAws_json1_1TagKeyList(input.TagsToDelete, context),
-    }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.TagsToDelete !== undefined &&
+      input.TagsToDelete !== null && { TagsToDelete: serializeAws_json1_1TagKeyList(input.TagsToDelete, context) }),
   };
 };
 
@@ -2701,7 +2672,7 @@ const serializeAws_json1_1DisableDomainAutoRenewRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
   };
 };
 
@@ -2710,7 +2681,7 @@ const serializeAws_json1_1DisableDomainTransferLockRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
   };
 };
 
@@ -2719,7 +2690,7 @@ const serializeAws_json1_1EnableDomainAutoRenewRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
   };
 };
 
@@ -2728,19 +2699,26 @@ const serializeAws_json1_1EnableDomainTransferLockRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
   };
 };
 
 const serializeAws_json1_1ExtraParam = (input: ExtraParam, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1ExtraParamList = (input: ExtraParam[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1ExtraParam(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ExtraParam(entry, context);
+    });
 };
 
 const serializeAws_json1_1GetContactReachabilityStatusRequest = (
@@ -2748,13 +2726,13 @@ const serializeAws_json1_1GetContactReachabilityStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.domainName !== undefined && { domainName: input.domainName }),
+    ...(input.domainName !== undefined && input.domainName !== null && { domainName: input.domainName }),
   };
 };
 
 const serializeAws_json1_1GetDomainDetailRequest = (input: GetDomainDetailRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
   };
 };
 
@@ -2763,9 +2741,10 @@ const serializeAws_json1_1GetDomainSuggestionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
-    ...(input.OnlyAvailable !== undefined && { OnlyAvailable: input.OnlyAvailable }),
-    ...(input.SuggestionCount !== undefined && { SuggestionCount: input.SuggestionCount }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.OnlyAvailable !== undefined && input.OnlyAvailable !== null && { OnlyAvailable: input.OnlyAvailable }),
+    ...(input.SuggestionCount !== undefined &&
+      input.SuggestionCount !== null && { SuggestionCount: input.SuggestionCount }),
   };
 };
 
@@ -2774,26 +2753,34 @@ const serializeAws_json1_1GetOperationDetailRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.OperationId !== undefined && { OperationId: input.OperationId }),
+    ...(input.OperationId !== undefined && input.OperationId !== null && { OperationId: input.OperationId }),
   };
 };
 
 const serializeAws_json1_1GlueIpList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ListDomainsRequest = (input: ListDomainsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems }),
+    ...(input.Marker !== undefined && input.Marker !== null && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && input.MaxItems !== null && { MaxItems: input.MaxItems }),
   };
 };
 
 const serializeAws_json1_1ListOperationsRequest = (input: ListOperationsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems }),
-    ...(input.SubmittedSince !== undefined && { SubmittedSince: Math.round(input.SubmittedSince.getTime() / 1000) }),
+    ...(input.Marker !== undefined && input.Marker !== null && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && input.MaxItems !== null && { MaxItems: input.MaxItems }),
+    ...(input.SubmittedSince !== undefined &&
+      input.SubmittedSince !== null && { SubmittedSince: Math.round(input.SubmittedSince.getTime() / 1000) }),
   };
 };
 
@@ -2802,45 +2789,52 @@ const serializeAws_json1_1ListTagsForDomainRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
   };
 };
 
 const serializeAws_json1_1Nameserver = (input: Nameserver, context: __SerdeContext): any => {
   return {
-    ...(input.GlueIps !== undefined && { GlueIps: serializeAws_json1_1GlueIpList(input.GlueIps, context) }),
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.GlueIps !== undefined &&
+      input.GlueIps !== null && { GlueIps: serializeAws_json1_1GlueIpList(input.GlueIps, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   };
 };
 
 const serializeAws_json1_1NameserverList = (input: Nameserver[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Nameserver(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Nameserver(entry, context);
+    });
 };
 
 const serializeAws_json1_1RegisterDomainRequest = (input: RegisterDomainRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AdminContact !== undefined && {
-      AdminContact: serializeAws_json1_1ContactDetail(input.AdminContact, context),
-    }),
-    ...(input.AutoRenew !== undefined && { AutoRenew: input.AutoRenew }),
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
-    ...(input.DurationInYears !== undefined && { DurationInYears: input.DurationInYears }),
-    ...(input.IdnLangCode !== undefined && { IdnLangCode: input.IdnLangCode }),
-    ...(input.PrivacyProtectAdminContact !== undefined && {
-      PrivacyProtectAdminContact: input.PrivacyProtectAdminContact,
-    }),
-    ...(input.PrivacyProtectRegistrantContact !== undefined && {
-      PrivacyProtectRegistrantContact: input.PrivacyProtectRegistrantContact,
-    }),
-    ...(input.PrivacyProtectTechContact !== undefined && {
-      PrivacyProtectTechContact: input.PrivacyProtectTechContact,
-    }),
-    ...(input.RegistrantContact !== undefined && {
-      RegistrantContact: serializeAws_json1_1ContactDetail(input.RegistrantContact, context),
-    }),
-    ...(input.TechContact !== undefined && {
-      TechContact: serializeAws_json1_1ContactDetail(input.TechContact, context),
-    }),
+    ...(input.AdminContact !== undefined &&
+      input.AdminContact !== null && { AdminContact: serializeAws_json1_1ContactDetail(input.AdminContact, context) }),
+    ...(input.AutoRenew !== undefined && input.AutoRenew !== null && { AutoRenew: input.AutoRenew }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.DurationInYears !== undefined &&
+      input.DurationInYears !== null && { DurationInYears: input.DurationInYears }),
+    ...(input.IdnLangCode !== undefined && input.IdnLangCode !== null && { IdnLangCode: input.IdnLangCode }),
+    ...(input.PrivacyProtectAdminContact !== undefined &&
+      input.PrivacyProtectAdminContact !== null && { PrivacyProtectAdminContact: input.PrivacyProtectAdminContact }),
+    ...(input.PrivacyProtectRegistrantContact !== undefined &&
+      input.PrivacyProtectRegistrantContact !== null && {
+        PrivacyProtectRegistrantContact: input.PrivacyProtectRegistrantContact,
+      }),
+    ...(input.PrivacyProtectTechContact !== undefined &&
+      input.PrivacyProtectTechContact !== null && { PrivacyProtectTechContact: input.PrivacyProtectTechContact }),
+    ...(input.RegistrantContact !== undefined &&
+      input.RegistrantContact !== null && {
+        RegistrantContact: serializeAws_json1_1ContactDetail(input.RegistrantContact, context),
+      }),
+    ...(input.TechContact !== undefined &&
+      input.TechContact !== null && { TechContact: serializeAws_json1_1ContactDetail(input.TechContact, context) }),
   };
 };
 
@@ -2849,15 +2843,17 @@ const serializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
   };
 };
 
 const serializeAws_json1_1RenewDomainRequest = (input: RenewDomainRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CurrentExpiryYear !== undefined && { CurrentExpiryYear: input.CurrentExpiryYear }),
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
-    ...(input.DurationInYears !== undefined && { DurationInYears: input.DurationInYears }),
+    ...(input.CurrentExpiryYear !== undefined &&
+      input.CurrentExpiryYear !== null && { CurrentExpiryYear: input.CurrentExpiryYear }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.DurationInYears !== undefined &&
+      input.DurationInYears !== null && { DurationInYears: input.DurationInYears }),
   };
 };
 
@@ -2866,7 +2862,7 @@ const serializeAws_json1_1ResendContactReachabilityEmailRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.domainName !== undefined && { domainName: input.domainName }),
+    ...(input.domainName !== undefined && input.domainName !== null && { domainName: input.domainName }),
   };
 };
 
@@ -2875,53 +2871,65 @@ const serializeAws_json1_1RetrieveDomainAuthCodeRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const serializeAws_json1_1TransferDomainRequest = (input: TransferDomainRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AdminContact !== undefined && {
-      AdminContact: serializeAws_json1_1ContactDetail(input.AdminContact, context),
-    }),
-    ...(input.AuthCode !== undefined && { AuthCode: input.AuthCode }),
-    ...(input.AutoRenew !== undefined && { AutoRenew: input.AutoRenew }),
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
-    ...(input.DurationInYears !== undefined && { DurationInYears: input.DurationInYears }),
-    ...(input.IdnLangCode !== undefined && { IdnLangCode: input.IdnLangCode }),
-    ...(input.Nameservers !== undefined && {
-      Nameservers: serializeAws_json1_1NameserverList(input.Nameservers, context),
-    }),
-    ...(input.PrivacyProtectAdminContact !== undefined && {
-      PrivacyProtectAdminContact: input.PrivacyProtectAdminContact,
-    }),
-    ...(input.PrivacyProtectRegistrantContact !== undefined && {
-      PrivacyProtectRegistrantContact: input.PrivacyProtectRegistrantContact,
-    }),
-    ...(input.PrivacyProtectTechContact !== undefined && {
-      PrivacyProtectTechContact: input.PrivacyProtectTechContact,
-    }),
-    ...(input.RegistrantContact !== undefined && {
-      RegistrantContact: serializeAws_json1_1ContactDetail(input.RegistrantContact, context),
-    }),
-    ...(input.TechContact !== undefined && {
-      TechContact: serializeAws_json1_1ContactDetail(input.TechContact, context),
-    }),
+    ...(input.AdminContact !== undefined &&
+      input.AdminContact !== null && { AdminContact: serializeAws_json1_1ContactDetail(input.AdminContact, context) }),
+    ...(input.AuthCode !== undefined && input.AuthCode !== null && { AuthCode: input.AuthCode }),
+    ...(input.AutoRenew !== undefined && input.AutoRenew !== null && { AutoRenew: input.AutoRenew }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.DurationInYears !== undefined &&
+      input.DurationInYears !== null && { DurationInYears: input.DurationInYears }),
+    ...(input.IdnLangCode !== undefined && input.IdnLangCode !== null && { IdnLangCode: input.IdnLangCode }),
+    ...(input.Nameservers !== undefined &&
+      input.Nameservers !== null && { Nameservers: serializeAws_json1_1NameserverList(input.Nameservers, context) }),
+    ...(input.PrivacyProtectAdminContact !== undefined &&
+      input.PrivacyProtectAdminContact !== null && { PrivacyProtectAdminContact: input.PrivacyProtectAdminContact }),
+    ...(input.PrivacyProtectRegistrantContact !== undefined &&
+      input.PrivacyProtectRegistrantContact !== null && {
+        PrivacyProtectRegistrantContact: input.PrivacyProtectRegistrantContact,
+      }),
+    ...(input.PrivacyProtectTechContact !== undefined &&
+      input.PrivacyProtectTechContact !== null && { PrivacyProtectTechContact: input.PrivacyProtectTechContact }),
+    ...(input.RegistrantContact !== undefined &&
+      input.RegistrantContact !== null && {
+        RegistrantContact: serializeAws_json1_1ContactDetail(input.RegistrantContact, context),
+      }),
+    ...(input.TechContact !== undefined &&
+      input.TechContact !== null && { TechContact: serializeAws_json1_1ContactDetail(input.TechContact, context) }),
   };
 };
 
@@ -2930,8 +2938,8 @@ const serializeAws_json1_1TransferDomainToAnotherAwsAccountRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
   };
 };
 
@@ -2940,10 +2948,11 @@ const serializeAws_json1_1UpdateDomainContactPrivacyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AdminPrivacy !== undefined && { AdminPrivacy: input.AdminPrivacy }),
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
-    ...(input.RegistrantPrivacy !== undefined && { RegistrantPrivacy: input.RegistrantPrivacy }),
-    ...(input.TechPrivacy !== undefined && { TechPrivacy: input.TechPrivacy }),
+    ...(input.AdminPrivacy !== undefined && input.AdminPrivacy !== null && { AdminPrivacy: input.AdminPrivacy }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.RegistrantPrivacy !== undefined &&
+      input.RegistrantPrivacy !== null && { RegistrantPrivacy: input.RegistrantPrivacy }),
+    ...(input.TechPrivacy !== undefined && input.TechPrivacy !== null && { TechPrivacy: input.TechPrivacy }),
   };
 };
 
@@ -2952,16 +2961,15 @@ const serializeAws_json1_1UpdateDomainContactRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AdminContact !== undefined && {
-      AdminContact: serializeAws_json1_1ContactDetail(input.AdminContact, context),
-    }),
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
-    ...(input.RegistrantContact !== undefined && {
-      RegistrantContact: serializeAws_json1_1ContactDetail(input.RegistrantContact, context),
-    }),
-    ...(input.TechContact !== undefined && {
-      TechContact: serializeAws_json1_1ContactDetail(input.TechContact, context),
-    }),
+    ...(input.AdminContact !== undefined &&
+      input.AdminContact !== null && { AdminContact: serializeAws_json1_1ContactDetail(input.AdminContact, context) }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.RegistrantContact !== undefined &&
+      input.RegistrantContact !== null && {
+        RegistrantContact: serializeAws_json1_1ContactDetail(input.RegistrantContact, context),
+      }),
+    ...(input.TechContact !== undefined &&
+      input.TechContact !== null && { TechContact: serializeAws_json1_1ContactDetail(input.TechContact, context) }),
   };
 };
 
@@ -2970,11 +2978,10 @@ const serializeAws_json1_1UpdateDomainNameserversRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
-    ...(input.FIAuthKey !== undefined && { FIAuthKey: input.FIAuthKey }),
-    ...(input.Nameservers !== undefined && {
-      Nameservers: serializeAws_json1_1NameserverList(input.Nameservers, context),
-    }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.FIAuthKey !== undefined && input.FIAuthKey !== null && { FIAuthKey: input.FIAuthKey }),
+    ...(input.Nameservers !== undefined &&
+      input.Nameservers !== null && { Nameservers: serializeAws_json1_1NameserverList(input.Nameservers, context) }),
   };
 };
 
@@ -2983,17 +2990,18 @@ const serializeAws_json1_1UpdateTagsForDomainRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
-    ...(input.TagsToUpdate !== undefined && { TagsToUpdate: serializeAws_json1_1TagList(input.TagsToUpdate, context) }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.TagsToUpdate !== undefined &&
+      input.TagsToUpdate !== null && { TagsToUpdate: serializeAws_json1_1TagList(input.TagsToUpdate, context) }),
   };
 };
 
 const serializeAws_json1_1ViewBillingRequest = (input: ViewBillingRequest, context: __SerdeContext): any => {
   return {
-    ...(input.End !== undefined && { End: Math.round(input.End.getTime() / 1000) }),
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems }),
-    ...(input.Start !== undefined && { Start: Math.round(input.Start.getTime() / 1000) }),
+    ...(input.End !== undefined && input.End !== null && { End: Math.round(input.End.getTime() / 1000) }),
+    ...(input.Marker !== undefined && input.Marker !== null && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && input.MaxItems !== null && { MaxItems: input.MaxItems }),
+    ...(input.Start !== undefined && input.Start !== null && { Start: Math.round(input.Start.getTime() / 1000) }),
   };
 };
 
@@ -3020,7 +3028,14 @@ const deserializeAws_json1_1BillingRecord = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1BillingRecords = (output: any, context: __SerdeContext): BillingRecord[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1BillingRecord(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1BillingRecord(entry, context);
+    });
 };
 
 const deserializeAws_json1_1CancelDomainTransferToAnotherAwsAccountResponse = (
@@ -3106,7 +3121,14 @@ const deserializeAws_json1_1DomainLimitExceeded = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1DomainStatusList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1DomainSuggestion = (output: any, context: __SerdeContext): DomainSuggestion => {
@@ -3117,7 +3139,14 @@ const deserializeAws_json1_1DomainSuggestion = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1DomainSuggestionsList = (output: any, context: __SerdeContext): DomainSuggestion[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DomainSuggestion(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DomainSuggestion(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DomainSummary = (output: any, context: __SerdeContext): DomainSummary => {
@@ -3131,7 +3160,14 @@ const deserializeAws_json1_1DomainSummary = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1DomainSummaryList = (output: any, context: __SerdeContext): DomainSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DomainSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DomainSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DomainTransferability = (output: any, context: __SerdeContext): DomainTransferability => {
@@ -3170,7 +3206,14 @@ const deserializeAws_json1_1ExtraParam = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1ExtraParamList = (output: any, context: __SerdeContext): ExtraParam[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ExtraParam(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ExtraParam(entry, context);
+    });
 };
 
 const deserializeAws_json1_1GetContactReachabilityStatusResponse = (
@@ -3277,7 +3320,14 @@ const deserializeAws_json1_1GetOperationDetailResponse = (
 };
 
 const deserializeAws_json1_1GlueIpList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1InvalidInput = (output: any, context: __SerdeContext): InvalidInput => {
@@ -3331,7 +3381,14 @@ const deserializeAws_json1_1Nameserver = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1NameserverList = (output: any, context: __SerdeContext): Nameserver[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Nameserver(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Nameserver(entry, context);
+    });
 };
 
 const deserializeAws_json1_1OperationLimitExceeded = (output: any, context: __SerdeContext): OperationLimitExceeded => {
@@ -3353,7 +3410,14 @@ const deserializeAws_json1_1OperationSummary = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1OperationSummaryList = (output: any, context: __SerdeContext): OperationSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1OperationSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1OperationSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1RegisterDomainResponse = (output: any, context: __SerdeContext): RegisterDomainResponse => {
@@ -3408,7 +3472,14 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TLDRulesViolation = (output: any, context: __SerdeContext): TLDRulesViolation => {
@@ -3534,3 +3605,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

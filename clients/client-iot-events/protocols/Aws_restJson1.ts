@@ -100,20 +100,24 @@ export const serializeAws_restJson1CreateDetectorModelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/detector-models";
   let body: any;
   body = JSON.stringify({
-    ...(input.detectorModelDefinition !== undefined && {
-      detectorModelDefinition: serializeAws_restJson1DetectorModelDefinition(input.detectorModelDefinition, context),
-    }),
-    ...(input.detectorModelDescription !== undefined && { detectorModelDescription: input.detectorModelDescription }),
-    ...(input.detectorModelName !== undefined && { detectorModelName: input.detectorModelName }),
-    ...(input.evaluationMethod !== undefined && { evaluationMethod: input.evaluationMethod }),
-    ...(input.key !== undefined && { key: input.key }),
-    ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
-    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.detectorModelDefinition !== undefined &&
+      input.detectorModelDefinition !== null && {
+        detectorModelDefinition: serializeAws_restJson1DetectorModelDefinition(input.detectorModelDefinition, context),
+      }),
+    ...(input.detectorModelDescription !== undefined &&
+      input.detectorModelDescription !== null && { detectorModelDescription: input.detectorModelDescription }),
+    ...(input.detectorModelName !== undefined &&
+      input.detectorModelName !== null && { detectorModelName: input.detectorModelName }),
+    ...(input.evaluationMethod !== undefined &&
+      input.evaluationMethod !== null && { evaluationMethod: input.evaluationMethod }),
+    ...(input.key !== undefined && input.key !== null && { key: input.key }),
+    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -132,17 +136,19 @@ export const serializeAws_restJson1CreateInputCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/inputs";
   let body: any;
   body = JSON.stringify({
-    ...(input.inputDefinition !== undefined && {
-      inputDefinition: serializeAws_restJson1InputDefinition(input.inputDefinition, context),
-    }),
-    ...(input.inputDescription !== undefined && { inputDescription: input.inputDescription }),
-    ...(input.inputName !== undefined && { inputName: input.inputName }),
-    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.inputDefinition !== undefined &&
+      input.inputDefinition !== null && {
+        inputDefinition: serializeAws_restJson1InputDefinition(input.inputDefinition, context),
+      }),
+    ...(input.inputDescription !== undefined &&
+      input.inputDescription !== null && { inputDescription: input.inputDescription }),
+    ...(input.inputName !== undefined && input.inputName !== null && { inputName: input.inputName }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -160,9 +166,7 @@ export const serializeAws_restJson1DeleteDetectorModelCommand = async (
   input: DeleteDetectorModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/detector-models/{detectorModelName}";
   if (input.detectorModelName !== undefined) {
     const labelValue: string = input.detectorModelName;
@@ -190,9 +194,7 @@ export const serializeAws_restJson1DeleteInputCommand = async (
   input: DeleteInputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/inputs/{inputName}";
   if (input.inputName !== undefined) {
     const labelValue: string = input.inputName;
@@ -220,9 +222,7 @@ export const serializeAws_restJson1DescribeDetectorModelCommand = async (
   input: DescribeDetectorModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/detector-models/{detectorModelName}";
   if (input.detectorModelName !== undefined) {
     const labelValue: string = input.detectorModelName;
@@ -254,9 +254,7 @@ export const serializeAws_restJson1DescribeInputCommand = async (
   input: DescribeInputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/inputs/{inputName}";
   if (input.inputName !== undefined) {
     const labelValue: string = input.inputName;
@@ -284,12 +282,10 @@ export const serializeAws_restJson1DescribeLoggingOptionsCommand = async (
   input: DescribeLoggingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/logging";
   let body: any;
-  body = "{}";
+  body = "";
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -306,9 +302,7 @@ export const serializeAws_restJson1ListDetectorModelsCommand = async (
   input: ListDetectorModelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/detector-models";
   const query: any = {
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
@@ -332,9 +326,7 @@ export const serializeAws_restJson1ListDetectorModelVersionsCommand = async (
   input: ListDetectorModelVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/detector-models/{detectorModelName}/versions";
   if (input.detectorModelName !== undefined) {
     const labelValue: string = input.detectorModelName;
@@ -367,9 +359,7 @@ export const serializeAws_restJson1ListInputsCommand = async (
   input: ListInputsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/inputs";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
@@ -393,9 +383,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/tags";
   const query: any = {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
@@ -419,14 +407,15 @@ export const serializeAws_restJson1PutLoggingOptionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/logging";
   let body: any;
   body = JSON.stringify({
-    ...(input.loggingOptions !== undefined && {
-      loggingOptions: serializeAws_restJson1LoggingOptions(input.loggingOptions, context),
-    }),
+    ...(input.loggingOptions !== undefined &&
+      input.loggingOptions !== null && {
+        loggingOptions: serializeAws_restJson1LoggingOptions(input.loggingOptions, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -445,7 +434,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/tags";
   const query: any = {
@@ -453,7 +442,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -472,9 +461,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/tags";
   const query: any = {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
@@ -499,7 +486,7 @@ export const serializeAws_restJson1UpdateDetectorModelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/detector-models/{detectorModelName}";
   if (input.detectorModelName !== undefined) {
@@ -513,12 +500,15 @@ export const serializeAws_restJson1UpdateDetectorModelCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.detectorModelDefinition !== undefined && {
-      detectorModelDefinition: serializeAws_restJson1DetectorModelDefinition(input.detectorModelDefinition, context),
-    }),
-    ...(input.detectorModelDescription !== undefined && { detectorModelDescription: input.detectorModelDescription }),
-    ...(input.evaluationMethod !== undefined && { evaluationMethod: input.evaluationMethod }),
-    ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
+    ...(input.detectorModelDefinition !== undefined &&
+      input.detectorModelDefinition !== null && {
+        detectorModelDefinition: serializeAws_restJson1DetectorModelDefinition(input.detectorModelDefinition, context),
+      }),
+    ...(input.detectorModelDescription !== undefined &&
+      input.detectorModelDescription !== null && { detectorModelDescription: input.detectorModelDescription }),
+    ...(input.evaluationMethod !== undefined &&
+      input.evaluationMethod !== null && { evaluationMethod: input.evaluationMethod }),
+    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -537,7 +527,7 @@ export const serializeAws_restJson1UpdateInputCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/inputs/{inputName}";
   if (input.inputName !== undefined) {
@@ -551,10 +541,12 @@ export const serializeAws_restJson1UpdateInputCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.inputDefinition !== undefined && {
-      inputDefinition: serializeAws_restJson1InputDefinition(input.inputDefinition, context),
-    }),
-    ...(input.inputDescription !== undefined && { inputDescription: input.inputDescription }),
+    ...(input.inputDefinition !== undefined &&
+      input.inputDefinition !== null && {
+        inputDefinition: serializeAws_restJson1InputDefinition(input.inputDefinition, context),
+      }),
+    ...(input.inputDescription !== undefined &&
+      input.inputDescription !== null && { inputDescription: input.inputDescription }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2183,91 +2175,119 @@ const deserializeAws_restJson1UnsupportedOperationExceptionResponse = async (
 
 const serializeAws_restJson1Action = (input: Action, context: __SerdeContext): any => {
   return {
-    ...(input.clearTimer !== undefined && {
-      clearTimer: serializeAws_restJson1ClearTimerAction(input.clearTimer, context),
-    }),
-    ...(input.dynamoDB !== undefined && { dynamoDB: serializeAws_restJson1DynamoDBAction(input.dynamoDB, context) }),
-    ...(input.dynamoDBv2 !== undefined && {
-      dynamoDBv2: serializeAws_restJson1DynamoDBv2Action(input.dynamoDBv2, context),
-    }),
-    ...(input.firehose !== undefined && { firehose: serializeAws_restJson1FirehoseAction(input.firehose, context) }),
-    ...(input.iotEvents !== undefined && {
-      iotEvents: serializeAws_restJson1IotEventsAction(input.iotEvents, context),
-    }),
-    ...(input.iotSiteWise !== undefined && {
-      iotSiteWise: serializeAws_restJson1IotSiteWiseAction(input.iotSiteWise, context),
-    }),
-    ...(input.iotTopicPublish !== undefined && {
-      iotTopicPublish: serializeAws_restJson1IotTopicPublishAction(input.iotTopicPublish, context),
-    }),
-    ...(input.lambda !== undefined && { lambda: serializeAws_restJson1LambdaAction(input.lambda, context) }),
-    ...(input.resetTimer !== undefined && {
-      resetTimer: serializeAws_restJson1ResetTimerAction(input.resetTimer, context),
-    }),
-    ...(input.setTimer !== undefined && { setTimer: serializeAws_restJson1SetTimerAction(input.setTimer, context) }),
-    ...(input.setVariable !== undefined && {
-      setVariable: serializeAws_restJson1SetVariableAction(input.setVariable, context),
-    }),
-    ...(input.sns !== undefined && { sns: serializeAws_restJson1SNSTopicPublishAction(input.sns, context) }),
-    ...(input.sqs !== undefined && { sqs: serializeAws_restJson1SqsAction(input.sqs, context) }),
+    ...(input.clearTimer !== undefined &&
+      input.clearTimer !== null && { clearTimer: serializeAws_restJson1ClearTimerAction(input.clearTimer, context) }),
+    ...(input.dynamoDB !== undefined &&
+      input.dynamoDB !== null && { dynamoDB: serializeAws_restJson1DynamoDBAction(input.dynamoDB, context) }),
+    ...(input.dynamoDBv2 !== undefined &&
+      input.dynamoDBv2 !== null && { dynamoDBv2: serializeAws_restJson1DynamoDBv2Action(input.dynamoDBv2, context) }),
+    ...(input.firehose !== undefined &&
+      input.firehose !== null && { firehose: serializeAws_restJson1FirehoseAction(input.firehose, context) }),
+    ...(input.iotEvents !== undefined &&
+      input.iotEvents !== null && { iotEvents: serializeAws_restJson1IotEventsAction(input.iotEvents, context) }),
+    ...(input.iotSiteWise !== undefined &&
+      input.iotSiteWise !== null && {
+        iotSiteWise: serializeAws_restJson1IotSiteWiseAction(input.iotSiteWise, context),
+      }),
+    ...(input.iotTopicPublish !== undefined &&
+      input.iotTopicPublish !== null && {
+        iotTopicPublish: serializeAws_restJson1IotTopicPublishAction(input.iotTopicPublish, context),
+      }),
+    ...(input.lambda !== undefined &&
+      input.lambda !== null && { lambda: serializeAws_restJson1LambdaAction(input.lambda, context) }),
+    ...(input.resetTimer !== undefined &&
+      input.resetTimer !== null && { resetTimer: serializeAws_restJson1ResetTimerAction(input.resetTimer, context) }),
+    ...(input.setTimer !== undefined &&
+      input.setTimer !== null && { setTimer: serializeAws_restJson1SetTimerAction(input.setTimer, context) }),
+    ...(input.setVariable !== undefined &&
+      input.setVariable !== null && {
+        setVariable: serializeAws_restJson1SetVariableAction(input.setVariable, context),
+      }),
+    ...(input.sns !== undefined &&
+      input.sns !== null && { sns: serializeAws_restJson1SNSTopicPublishAction(input.sns, context) }),
+    ...(input.sqs !== undefined && input.sqs !== null && { sqs: serializeAws_restJson1SqsAction(input.sqs, context) }),
   };
 };
 
 const serializeAws_restJson1Actions = (input: Action[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1Action(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Action(entry, context);
+    });
 };
 
 const serializeAws_restJson1AssetPropertyTimestamp = (input: AssetPropertyTimestamp, context: __SerdeContext): any => {
   return {
-    ...(input.offsetInNanos !== undefined && { offsetInNanos: input.offsetInNanos }),
-    ...(input.timeInSeconds !== undefined && { timeInSeconds: input.timeInSeconds }),
+    ...(input.offsetInNanos !== undefined && input.offsetInNanos !== null && { offsetInNanos: input.offsetInNanos }),
+    ...(input.timeInSeconds !== undefined && input.timeInSeconds !== null && { timeInSeconds: input.timeInSeconds }),
   };
 };
 
 const serializeAws_restJson1AssetPropertyValue = (input: AssetPropertyValue, context: __SerdeContext): any => {
   return {
-    ...(input.quality !== undefined && { quality: input.quality }),
-    ...(input.timestamp !== undefined && {
-      timestamp: serializeAws_restJson1AssetPropertyTimestamp(input.timestamp, context),
-    }),
-    ...(input.value !== undefined && { value: serializeAws_restJson1AssetPropertyVariant(input.value, context) }),
+    ...(input.quality !== undefined && input.quality !== null && { quality: input.quality }),
+    ...(input.timestamp !== undefined &&
+      input.timestamp !== null && {
+        timestamp: serializeAws_restJson1AssetPropertyTimestamp(input.timestamp, context),
+      }),
+    ...(input.value !== undefined &&
+      input.value !== null && { value: serializeAws_restJson1AssetPropertyVariant(input.value, context) }),
   };
 };
 
 const serializeAws_restJson1AssetPropertyVariant = (input: AssetPropertyVariant, context: __SerdeContext): any => {
   return {
-    ...(input.booleanValue !== undefined && { booleanValue: input.booleanValue }),
-    ...(input.doubleValue !== undefined && { doubleValue: input.doubleValue }),
-    ...(input.integerValue !== undefined && { integerValue: input.integerValue }),
-    ...(input.stringValue !== undefined && { stringValue: input.stringValue }),
+    ...(input.booleanValue !== undefined && input.booleanValue !== null && { booleanValue: input.booleanValue }),
+    ...(input.doubleValue !== undefined && input.doubleValue !== null && { doubleValue: input.doubleValue }),
+    ...(input.integerValue !== undefined && input.integerValue !== null && { integerValue: input.integerValue }),
+    ...(input.stringValue !== undefined && input.stringValue !== null && { stringValue: input.stringValue }),
   };
 };
 
 const serializeAws_restJson1Attribute = (input: Attribute, context: __SerdeContext): any => {
   return {
-    ...(input.jsonPath !== undefined && { jsonPath: input.jsonPath }),
+    ...(input.jsonPath !== undefined && input.jsonPath !== null && { jsonPath: input.jsonPath }),
   };
 };
 
 const serializeAws_restJson1Attributes = (input: Attribute[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1Attribute(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Attribute(entry, context);
+    });
 };
 
 const serializeAws_restJson1ClearTimerAction = (input: ClearTimerAction, context: __SerdeContext): any => {
   return {
-    ...(input.timerName !== undefined && { timerName: input.timerName }),
+    ...(input.timerName !== undefined && input.timerName !== null && { timerName: input.timerName }),
   };
 };
 
 const serializeAws_restJson1DetectorDebugOption = (input: DetectorDebugOption, context: __SerdeContext): any => {
   return {
-    ...(input.detectorModelName !== undefined && { detectorModelName: input.detectorModelName }),
-    ...(input.keyValue !== undefined && { keyValue: input.keyValue }),
+    ...(input.detectorModelName !== undefined &&
+      input.detectorModelName !== null && { detectorModelName: input.detectorModelName }),
+    ...(input.keyValue !== undefined && input.keyValue !== null && { keyValue: input.keyValue }),
   };
 };
 
 const serializeAws_restJson1DetectorDebugOptions = (input: DetectorDebugOption[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1DetectorDebugOption(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1DetectorDebugOption(entry, context);
+    });
 };
 
 const serializeAws_restJson1DetectorModelDefinition = (
@@ -2275,202 +2295,255 @@ const serializeAws_restJson1DetectorModelDefinition = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.initialStateName !== undefined && { initialStateName: input.initialStateName }),
-    ...(input.states !== undefined && { states: serializeAws_restJson1States(input.states, context) }),
+    ...(input.initialStateName !== undefined &&
+      input.initialStateName !== null && { initialStateName: input.initialStateName }),
+    ...(input.states !== undefined &&
+      input.states !== null && { states: serializeAws_restJson1States(input.states, context) }),
   };
 };
 
 const serializeAws_restJson1DynamoDBAction = (input: DynamoDBAction, context: __SerdeContext): any => {
   return {
-    ...(input.hashKeyField !== undefined && { hashKeyField: input.hashKeyField }),
-    ...(input.hashKeyType !== undefined && { hashKeyType: input.hashKeyType }),
-    ...(input.hashKeyValue !== undefined && { hashKeyValue: input.hashKeyValue }),
-    ...(input.operation !== undefined && { operation: input.operation }),
-    ...(input.payload !== undefined && { payload: serializeAws_restJson1Payload(input.payload, context) }),
-    ...(input.payloadField !== undefined && { payloadField: input.payloadField }),
-    ...(input.rangeKeyField !== undefined && { rangeKeyField: input.rangeKeyField }),
-    ...(input.rangeKeyType !== undefined && { rangeKeyType: input.rangeKeyType }),
-    ...(input.rangeKeyValue !== undefined && { rangeKeyValue: input.rangeKeyValue }),
-    ...(input.tableName !== undefined && { tableName: input.tableName }),
+    ...(input.hashKeyField !== undefined && input.hashKeyField !== null && { hashKeyField: input.hashKeyField }),
+    ...(input.hashKeyType !== undefined && input.hashKeyType !== null && { hashKeyType: input.hashKeyType }),
+    ...(input.hashKeyValue !== undefined && input.hashKeyValue !== null && { hashKeyValue: input.hashKeyValue }),
+    ...(input.operation !== undefined && input.operation !== null && { operation: input.operation }),
+    ...(input.payload !== undefined &&
+      input.payload !== null && { payload: serializeAws_restJson1Payload(input.payload, context) }),
+    ...(input.payloadField !== undefined && input.payloadField !== null && { payloadField: input.payloadField }),
+    ...(input.rangeKeyField !== undefined && input.rangeKeyField !== null && { rangeKeyField: input.rangeKeyField }),
+    ...(input.rangeKeyType !== undefined && input.rangeKeyType !== null && { rangeKeyType: input.rangeKeyType }),
+    ...(input.rangeKeyValue !== undefined && input.rangeKeyValue !== null && { rangeKeyValue: input.rangeKeyValue }),
+    ...(input.tableName !== undefined && input.tableName !== null && { tableName: input.tableName }),
   };
 };
 
 const serializeAws_restJson1DynamoDBv2Action = (input: DynamoDBv2Action, context: __SerdeContext): any => {
   return {
-    ...(input.payload !== undefined && { payload: serializeAws_restJson1Payload(input.payload, context) }),
-    ...(input.tableName !== undefined && { tableName: input.tableName }),
+    ...(input.payload !== undefined &&
+      input.payload !== null && { payload: serializeAws_restJson1Payload(input.payload, context) }),
+    ...(input.tableName !== undefined && input.tableName !== null && { tableName: input.tableName }),
   };
 };
 
 const serializeAws_restJson1Event = (input: Event, context: __SerdeContext): any => {
   return {
-    ...(input.actions !== undefined && { actions: serializeAws_restJson1Actions(input.actions, context) }),
-    ...(input.condition !== undefined && { condition: input.condition }),
-    ...(input.eventName !== undefined && { eventName: input.eventName }),
+    ...(input.actions !== undefined &&
+      input.actions !== null && { actions: serializeAws_restJson1Actions(input.actions, context) }),
+    ...(input.condition !== undefined && input.condition !== null && { condition: input.condition }),
+    ...(input.eventName !== undefined && input.eventName !== null && { eventName: input.eventName }),
   };
 };
 
 const serializeAws_restJson1Events = (input: Event[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1Event(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Event(entry, context);
+    });
 };
 
 const serializeAws_restJson1FirehoseAction = (input: FirehoseAction, context: __SerdeContext): any => {
   return {
-    ...(input.deliveryStreamName !== undefined && { deliveryStreamName: input.deliveryStreamName }),
-    ...(input.payload !== undefined && { payload: serializeAws_restJson1Payload(input.payload, context) }),
-    ...(input.separator !== undefined && { separator: input.separator }),
+    ...(input.deliveryStreamName !== undefined &&
+      input.deliveryStreamName !== null && { deliveryStreamName: input.deliveryStreamName }),
+    ...(input.payload !== undefined &&
+      input.payload !== null && { payload: serializeAws_restJson1Payload(input.payload, context) }),
+    ...(input.separator !== undefined && input.separator !== null && { separator: input.separator }),
   };
 };
 
 const serializeAws_restJson1InputDefinition = (input: InputDefinition, context: __SerdeContext): any => {
   return {
-    ...(input.attributes !== undefined && { attributes: serializeAws_restJson1Attributes(input.attributes, context) }),
+    ...(input.attributes !== undefined &&
+      input.attributes !== null && { attributes: serializeAws_restJson1Attributes(input.attributes, context) }),
   };
 };
 
 const serializeAws_restJson1IotEventsAction = (input: IotEventsAction, context: __SerdeContext): any => {
   return {
-    ...(input.inputName !== undefined && { inputName: input.inputName }),
-    ...(input.payload !== undefined && { payload: serializeAws_restJson1Payload(input.payload, context) }),
+    ...(input.inputName !== undefined && input.inputName !== null && { inputName: input.inputName }),
+    ...(input.payload !== undefined &&
+      input.payload !== null && { payload: serializeAws_restJson1Payload(input.payload, context) }),
   };
 };
 
 const serializeAws_restJson1IotSiteWiseAction = (input: IotSiteWiseAction, context: __SerdeContext): any => {
   return {
-    ...(input.assetId !== undefined && { assetId: input.assetId }),
-    ...(input.entryId !== undefined && { entryId: input.entryId }),
-    ...(input.propertyAlias !== undefined && { propertyAlias: input.propertyAlias }),
-    ...(input.propertyId !== undefined && { propertyId: input.propertyId }),
-    ...(input.propertyValue !== undefined && {
-      propertyValue: serializeAws_restJson1AssetPropertyValue(input.propertyValue, context),
-    }),
+    ...(input.assetId !== undefined && input.assetId !== null && { assetId: input.assetId }),
+    ...(input.entryId !== undefined && input.entryId !== null && { entryId: input.entryId }),
+    ...(input.propertyAlias !== undefined && input.propertyAlias !== null && { propertyAlias: input.propertyAlias }),
+    ...(input.propertyId !== undefined && input.propertyId !== null && { propertyId: input.propertyId }),
+    ...(input.propertyValue !== undefined &&
+      input.propertyValue !== null && {
+        propertyValue: serializeAws_restJson1AssetPropertyValue(input.propertyValue, context),
+      }),
   };
 };
 
 const serializeAws_restJson1IotTopicPublishAction = (input: IotTopicPublishAction, context: __SerdeContext): any => {
   return {
-    ...(input.mqttTopic !== undefined && { mqttTopic: input.mqttTopic }),
-    ...(input.payload !== undefined && { payload: serializeAws_restJson1Payload(input.payload, context) }),
+    ...(input.mqttTopic !== undefined && input.mqttTopic !== null && { mqttTopic: input.mqttTopic }),
+    ...(input.payload !== undefined &&
+      input.payload !== null && { payload: serializeAws_restJson1Payload(input.payload, context) }),
   };
 };
 
 const serializeAws_restJson1LambdaAction = (input: LambdaAction, context: __SerdeContext): any => {
   return {
-    ...(input.functionArn !== undefined && { functionArn: input.functionArn }),
-    ...(input.payload !== undefined && { payload: serializeAws_restJson1Payload(input.payload, context) }),
+    ...(input.functionArn !== undefined && input.functionArn !== null && { functionArn: input.functionArn }),
+    ...(input.payload !== undefined &&
+      input.payload !== null && { payload: serializeAws_restJson1Payload(input.payload, context) }),
   };
 };
 
 const serializeAws_restJson1LoggingOptions = (input: LoggingOptions, context: __SerdeContext): any => {
   return {
-    ...(input.detectorDebugOptions !== undefined && {
-      detectorDebugOptions: serializeAws_restJson1DetectorDebugOptions(input.detectorDebugOptions, context),
-    }),
-    ...(input.enabled !== undefined && { enabled: input.enabled }),
-    ...(input.level !== undefined && { level: input.level }),
-    ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
+    ...(input.detectorDebugOptions !== undefined &&
+      input.detectorDebugOptions !== null && {
+        detectorDebugOptions: serializeAws_restJson1DetectorDebugOptions(input.detectorDebugOptions, context),
+      }),
+    ...(input.enabled !== undefined && input.enabled !== null && { enabled: input.enabled }),
+    ...(input.level !== undefined && input.level !== null && { level: input.level }),
+    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
   };
 };
 
 const serializeAws_restJson1OnEnterLifecycle = (input: OnEnterLifecycle, context: __SerdeContext): any => {
   return {
-    ...(input.events !== undefined && { events: serializeAws_restJson1Events(input.events, context) }),
+    ...(input.events !== undefined &&
+      input.events !== null && { events: serializeAws_restJson1Events(input.events, context) }),
   };
 };
 
 const serializeAws_restJson1OnExitLifecycle = (input: OnExitLifecycle, context: __SerdeContext): any => {
   return {
-    ...(input.events !== undefined && { events: serializeAws_restJson1Events(input.events, context) }),
+    ...(input.events !== undefined &&
+      input.events !== null && { events: serializeAws_restJson1Events(input.events, context) }),
   };
 };
 
 const serializeAws_restJson1OnInputLifecycle = (input: OnInputLifecycle, context: __SerdeContext): any => {
   return {
-    ...(input.events !== undefined && { events: serializeAws_restJson1Events(input.events, context) }),
-    ...(input.transitionEvents !== undefined && {
-      transitionEvents: serializeAws_restJson1TransitionEvents(input.transitionEvents, context),
-    }),
+    ...(input.events !== undefined &&
+      input.events !== null && { events: serializeAws_restJson1Events(input.events, context) }),
+    ...(input.transitionEvents !== undefined &&
+      input.transitionEvents !== null && {
+        transitionEvents: serializeAws_restJson1TransitionEvents(input.transitionEvents, context),
+      }),
   };
 };
 
 const serializeAws_restJson1Payload = (input: Payload, context: __SerdeContext): any => {
   return {
-    ...(input.contentExpression !== undefined && { contentExpression: input.contentExpression }),
-    ...(input.type !== undefined && { type: input.type }),
+    ...(input.contentExpression !== undefined &&
+      input.contentExpression !== null && { contentExpression: input.contentExpression }),
+    ...(input.type !== undefined && input.type !== null && { type: input.type }),
   };
 };
 
 const serializeAws_restJson1ResetTimerAction = (input: ResetTimerAction, context: __SerdeContext): any => {
   return {
-    ...(input.timerName !== undefined && { timerName: input.timerName }),
+    ...(input.timerName !== undefined && input.timerName !== null && { timerName: input.timerName }),
   };
 };
 
 const serializeAws_restJson1SetTimerAction = (input: SetTimerAction, context: __SerdeContext): any => {
   return {
-    ...(input.durationExpression !== undefined && { durationExpression: input.durationExpression }),
-    ...(input.seconds !== undefined && { seconds: input.seconds }),
-    ...(input.timerName !== undefined && { timerName: input.timerName }),
+    ...(input.durationExpression !== undefined &&
+      input.durationExpression !== null && { durationExpression: input.durationExpression }),
+    ...(input.seconds !== undefined && input.seconds !== null && { seconds: input.seconds }),
+    ...(input.timerName !== undefined && input.timerName !== null && { timerName: input.timerName }),
   };
 };
 
 const serializeAws_restJson1SetVariableAction = (input: SetVariableAction, context: __SerdeContext): any => {
   return {
-    ...(input.value !== undefined && { value: input.value }),
-    ...(input.variableName !== undefined && { variableName: input.variableName }),
+    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+    ...(input.variableName !== undefined && input.variableName !== null && { variableName: input.variableName }),
   };
 };
 
 const serializeAws_restJson1SNSTopicPublishAction = (input: SNSTopicPublishAction, context: __SerdeContext): any => {
   return {
-    ...(input.payload !== undefined && { payload: serializeAws_restJson1Payload(input.payload, context) }),
-    ...(input.targetArn !== undefined && { targetArn: input.targetArn }),
+    ...(input.payload !== undefined &&
+      input.payload !== null && { payload: serializeAws_restJson1Payload(input.payload, context) }),
+    ...(input.targetArn !== undefined && input.targetArn !== null && { targetArn: input.targetArn }),
   };
 };
 
 const serializeAws_restJson1SqsAction = (input: SqsAction, context: __SerdeContext): any => {
   return {
-    ...(input.payload !== undefined && { payload: serializeAws_restJson1Payload(input.payload, context) }),
-    ...(input.queueUrl !== undefined && { queueUrl: input.queueUrl }),
-    ...(input.useBase64 !== undefined && { useBase64: input.useBase64 }),
+    ...(input.payload !== undefined &&
+      input.payload !== null && { payload: serializeAws_restJson1Payload(input.payload, context) }),
+    ...(input.queueUrl !== undefined && input.queueUrl !== null && { queueUrl: input.queueUrl }),
+    ...(input.useBase64 !== undefined && input.useBase64 !== null && { useBase64: input.useBase64 }),
   };
 };
 
 const serializeAws_restJson1State = (input: State, context: __SerdeContext): any => {
   return {
-    ...(input.onEnter !== undefined && { onEnter: serializeAws_restJson1OnEnterLifecycle(input.onEnter, context) }),
-    ...(input.onExit !== undefined && { onExit: serializeAws_restJson1OnExitLifecycle(input.onExit, context) }),
-    ...(input.onInput !== undefined && { onInput: serializeAws_restJson1OnInputLifecycle(input.onInput, context) }),
-    ...(input.stateName !== undefined && { stateName: input.stateName }),
+    ...(input.onEnter !== undefined &&
+      input.onEnter !== null && { onEnter: serializeAws_restJson1OnEnterLifecycle(input.onEnter, context) }),
+    ...(input.onExit !== undefined &&
+      input.onExit !== null && { onExit: serializeAws_restJson1OnExitLifecycle(input.onExit, context) }),
+    ...(input.onInput !== undefined &&
+      input.onInput !== null && { onInput: serializeAws_restJson1OnInputLifecycle(input.onInput, context) }),
+    ...(input.stateName !== undefined && input.stateName !== null && { stateName: input.stateName }),
   };
 };
 
 const serializeAws_restJson1States = (input: State[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1State(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1State(entry, context);
+    });
 };
 
 const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.key !== undefined && { key: input.key }),
-    ...(input.value !== undefined && { value: input.value }),
+    ...(input.key !== undefined && input.key !== null && { key: input.key }),
+    ...(input.value !== undefined && input.value !== null && { value: input.value }),
   };
 };
 
 const serializeAws_restJson1Tags = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Tag(entry, context);
+    });
 };
 
 const serializeAws_restJson1TransitionEvent = (input: TransitionEvent, context: __SerdeContext): any => {
   return {
-    ...(input.actions !== undefined && { actions: serializeAws_restJson1Actions(input.actions, context) }),
-    ...(input.condition !== undefined && { condition: input.condition }),
-    ...(input.eventName !== undefined && { eventName: input.eventName }),
-    ...(input.nextState !== undefined && { nextState: input.nextState }),
+    ...(input.actions !== undefined &&
+      input.actions !== null && { actions: serializeAws_restJson1Actions(input.actions, context) }),
+    ...(input.condition !== undefined && input.condition !== null && { condition: input.condition }),
+    ...(input.eventName !== undefined && input.eventName !== null && { eventName: input.eventName }),
+    ...(input.nextState !== undefined && input.nextState !== null && { nextState: input.nextState }),
   };
 };
 
 const serializeAws_restJson1TransitionEvents = (input: TransitionEvent[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1TransitionEvent(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1TransitionEvent(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Action = (output: any, context: __SerdeContext): Action => {
@@ -2531,7 +2604,14 @@ const deserializeAws_restJson1Action = (output: any, context: __SerdeContext): A
 };
 
 const deserializeAws_restJson1Actions = (output: any, context: __SerdeContext): Action[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Action(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Action(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AssetPropertyTimestamp = (
@@ -2576,7 +2656,14 @@ const deserializeAws_restJson1Attribute = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restJson1Attributes = (output: any, context: __SerdeContext): Attribute[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Attribute(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Attribute(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ClearTimerAction = (output: any, context: __SerdeContext): ClearTimerAction => {
@@ -2596,7 +2683,14 @@ const deserializeAws_restJson1DetectorDebugOption = (output: any, context: __Ser
 };
 
 const deserializeAws_restJson1DetectorDebugOptions = (output: any, context: __SerdeContext): DetectorDebugOption[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1DetectorDebugOption(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DetectorDebugOption(entry, context);
+    });
 };
 
 const deserializeAws_restJson1DetectorModel = (output: any, context: __SerdeContext): DetectorModel => {
@@ -2665,7 +2759,14 @@ const deserializeAws_restJson1DetectorModelSummaries = (
   output: any,
   context: __SerdeContext
 ): DetectorModelSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1DetectorModelSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DetectorModelSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1DetectorModelSummary = (output: any, context: __SerdeContext): DetectorModelSummary => {
@@ -2689,7 +2790,14 @@ const deserializeAws_restJson1DetectorModelVersionSummaries = (
   output: any,
   context: __SerdeContext
 ): DetectorModelVersionSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1DetectorModelVersionSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DetectorModelVersionSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1DetectorModelVersionSummary = (
@@ -2764,7 +2872,14 @@ const deserializeAws_restJson1Event = (output: any, context: __SerdeContext): Ev
 };
 
 const deserializeAws_restJson1Events = (output: any, context: __SerdeContext): Event[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Event(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Event(entry, context);
+    });
 };
 
 const deserializeAws_restJson1FirehoseAction = (output: any, context: __SerdeContext): FirehoseAction => {
@@ -2822,7 +2937,14 @@ const deserializeAws_restJson1InputDefinition = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1InputSummaries = (output: any, context: __SerdeContext): InputSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1InputSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1InputSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1InputSummary = (output: any, context: __SerdeContext): InputSummary => {
@@ -3004,7 +3126,14 @@ const deserializeAws_restJson1State = (output: any, context: __SerdeContext): St
 };
 
 const deserializeAws_restJson1States = (output: any, context: __SerdeContext): State[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1State(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1State(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -3015,7 +3144,14 @@ const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag 
 };
 
 const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Tag(entry, context);
+    });
 };
 
 const deserializeAws_restJson1TransitionEvent = (output: any, context: __SerdeContext): TransitionEvent => {
@@ -3031,7 +3167,14 @@ const deserializeAws_restJson1TransitionEvent = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1TransitionEvents = (output: any, context: __SerdeContext): TransitionEvent[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1TransitionEvent(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1TransitionEvent(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -3054,6 +3197,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

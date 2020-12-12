@@ -449,7 +449,7 @@ export const serializeAws_queryCloneReceiptRuleSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -465,7 +465,7 @@ export const serializeAws_queryCreateConfigurationSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -481,7 +481,7 @@ export const serializeAws_queryCreateConfigurationSetEventDestinationCommand = a
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -497,7 +497,7 @@ export const serializeAws_queryCreateConfigurationSetTrackingOptionsCommand = as
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -513,7 +513,7 @@ export const serializeAws_queryCreateCustomVerificationEmailTemplateCommand = as
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -529,7 +529,7 @@ export const serializeAws_queryCreateReceiptFilterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -545,7 +545,7 @@ export const serializeAws_queryCreateReceiptRuleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -561,7 +561,7 @@ export const serializeAws_queryCreateReceiptRuleSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -577,7 +577,7 @@ export const serializeAws_queryCreateTemplateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -593,7 +593,7 @@ export const serializeAws_queryDeleteConfigurationSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -609,7 +609,7 @@ export const serializeAws_queryDeleteConfigurationSetEventDestinationCommand = a
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -625,7 +625,7 @@ export const serializeAws_queryDeleteConfigurationSetTrackingOptionsCommand = as
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -641,7 +641,7 @@ export const serializeAws_queryDeleteCustomVerificationEmailTemplateCommand = as
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -657,7 +657,7 @@ export const serializeAws_queryDeleteIdentityCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -673,7 +673,7 @@ export const serializeAws_queryDeleteIdentityPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -689,7 +689,7 @@ export const serializeAws_queryDeleteReceiptFilterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -705,7 +705,7 @@ export const serializeAws_queryDeleteReceiptRuleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -721,7 +721,7 @@ export const serializeAws_queryDeleteReceiptRuleSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -737,7 +737,7 @@ export const serializeAws_queryDeleteTemplateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -753,7 +753,7 @@ export const serializeAws_queryDeleteVerifiedEmailAddressCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -769,7 +769,7 @@ export const serializeAws_queryDescribeActiveReceiptRuleSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -785,7 +785,7 @@ export const serializeAws_queryDescribeConfigurationSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -801,7 +801,7 @@ export const serializeAws_queryDescribeReceiptRuleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -817,7 +817,7 @@ export const serializeAws_queryDescribeReceiptRuleSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -833,7 +833,7 @@ export const serializeAws_queryGetAccountSendingEnabledCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "GetAccountSendingEnabled",
@@ -847,7 +847,7 @@ export const serializeAws_queryGetCustomVerificationEmailTemplateCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -863,7 +863,7 @@ export const serializeAws_queryGetIdentityDkimAttributesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -879,7 +879,7 @@ export const serializeAws_queryGetIdentityMailFromDomainAttributesCommand = asyn
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -895,7 +895,7 @@ export const serializeAws_queryGetIdentityNotificationAttributesCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -911,7 +911,7 @@ export const serializeAws_queryGetIdentityPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -927,7 +927,7 @@ export const serializeAws_queryGetIdentityVerificationAttributesCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -943,7 +943,7 @@ export const serializeAws_queryGetSendQuotaCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "GetSendQuota",
@@ -957,7 +957,7 @@ export const serializeAws_queryGetSendStatisticsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "GetSendStatistics",
@@ -971,7 +971,7 @@ export const serializeAws_queryGetTemplateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -987,7 +987,7 @@ export const serializeAws_queryListConfigurationSetsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1003,7 +1003,7 @@ export const serializeAws_queryListCustomVerificationEmailTemplatesCommand = asy
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1019,7 +1019,7 @@ export const serializeAws_queryListIdentitiesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1035,7 +1035,7 @@ export const serializeAws_queryListIdentityPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1051,7 +1051,7 @@ export const serializeAws_queryListReceiptFiltersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1067,7 +1067,7 @@ export const serializeAws_queryListReceiptRuleSetsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1083,7 +1083,7 @@ export const serializeAws_queryListTemplatesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1099,7 +1099,7 @@ export const serializeAws_queryListVerifiedEmailAddressesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "ListVerifiedEmailAddresses",
@@ -1113,7 +1113,7 @@ export const serializeAws_queryPutConfigurationSetDeliveryOptionsCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1129,7 +1129,7 @@ export const serializeAws_queryPutIdentityPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1145,7 +1145,7 @@ export const serializeAws_queryReorderReceiptRuleSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1161,7 +1161,7 @@ export const serializeAws_querySendBounceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1177,7 +1177,7 @@ export const serializeAws_querySendBulkTemplatedEmailCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1193,7 +1193,7 @@ export const serializeAws_querySendCustomVerificationEmailCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1209,7 +1209,7 @@ export const serializeAws_querySendEmailCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1225,7 +1225,7 @@ export const serializeAws_querySendRawEmailCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1241,7 +1241,7 @@ export const serializeAws_querySendTemplatedEmailCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1257,7 +1257,7 @@ export const serializeAws_querySetActiveReceiptRuleSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1273,7 +1273,7 @@ export const serializeAws_querySetIdentityDkimEnabledCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1289,7 +1289,7 @@ export const serializeAws_querySetIdentityFeedbackForwardingEnabledCommand = asy
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1305,7 +1305,7 @@ export const serializeAws_querySetIdentityHeadersInNotificationsEnabledCommand =
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1321,7 +1321,7 @@ export const serializeAws_querySetIdentityMailFromDomainCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1337,7 +1337,7 @@ export const serializeAws_querySetIdentityNotificationTopicCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1353,7 +1353,7 @@ export const serializeAws_querySetReceiptRulePositionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1369,7 +1369,7 @@ export const serializeAws_queryTestRenderTemplateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1385,7 +1385,7 @@ export const serializeAws_queryUpdateAccountSendingEnabledCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1401,7 +1401,7 @@ export const serializeAws_queryUpdateConfigurationSetEventDestinationCommand = a
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1417,7 +1417,7 @@ export const serializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCom
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1433,7 +1433,7 @@ export const serializeAws_queryUpdateConfigurationSetSendingEnabledCommand = asy
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1449,7 +1449,7 @@ export const serializeAws_queryUpdateConfigurationSetTrackingOptionsCommand = as
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1465,7 +1465,7 @@ export const serializeAws_queryUpdateCustomVerificationEmailTemplateCommand = as
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1481,7 +1481,7 @@ export const serializeAws_queryUpdateReceiptRuleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1497,7 +1497,7 @@ export const serializeAws_queryUpdateTemplateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1513,7 +1513,7 @@ export const serializeAws_queryVerifyDomainDkimCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1529,7 +1529,7 @@ export const serializeAws_queryVerifyDomainIdentityCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1545,7 +1545,7 @@ export const serializeAws_queryVerifyEmailAddressCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1561,7 +1561,7 @@ export const serializeAws_queryVerifyEmailIdentityCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -6234,10 +6234,10 @@ const deserializeAws_queryTrackingOptionsDoesNotExistExceptionResponse = async (
 
 const serializeAws_queryAddHeaderAction = (input: AddHeaderAction, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.HeaderName !== undefined) {
+  if (input.HeaderName !== undefined && input.HeaderName !== null) {
     entries["HeaderName"] = input.HeaderName;
   }
-  if (input.HeaderValue !== undefined) {
+  if (input.HeaderValue !== undefined && input.HeaderValue !== null) {
     entries["HeaderValue"] = input.HeaderValue;
   }
   return entries;
@@ -6247,6 +6247,9 @@ const serializeAws_queryAddressList = (input: string[], context: __SerdeContext)
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -6255,14 +6258,14 @@ const serializeAws_queryAddressList = (input: string[], context: __SerdeContext)
 
 const serializeAws_queryBody = (input: Body, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Html !== undefined) {
+  if (input.Html !== undefined && input.Html !== null) {
     const memberEntries = serializeAws_queryContent(input.Html, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Html.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Text !== undefined) {
+  if (input.Text !== undefined && input.Text !== null) {
     const memberEntries = serializeAws_queryContent(input.Text, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Text.${key}`;
@@ -6274,19 +6277,19 @@ const serializeAws_queryBody = (input: Body, context: __SerdeContext): any => {
 
 const serializeAws_queryBounceAction = (input: BounceAction, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SmtpReplyCode !== undefined) {
+  if (input.SmtpReplyCode !== undefined && input.SmtpReplyCode !== null) {
     entries["SmtpReplyCode"] = input.SmtpReplyCode;
   }
-  if (input.Sender !== undefined) {
+  if (input.Sender !== undefined && input.Sender !== null) {
     entries["Sender"] = input.Sender;
   }
-  if (input.StatusCode !== undefined) {
+  if (input.StatusCode !== undefined && input.StatusCode !== null) {
     entries["StatusCode"] = input.StatusCode;
   }
-  if (input.TopicArn !== undefined) {
+  if (input.TopicArn !== undefined && input.TopicArn !== null) {
     entries["TopicArn"] = input.TopicArn;
   }
-  if (input.Message !== undefined) {
+  if (input.Message !== undefined && input.Message !== null) {
     entries["Message"] = input.Message;
   }
   return entries;
@@ -6294,20 +6297,20 @@ const serializeAws_queryBounceAction = (input: BounceAction, context: __SerdeCon
 
 const serializeAws_queryBouncedRecipientInfo = (input: BouncedRecipientInfo, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RecipientArn !== undefined) {
+  if (input.RecipientArn !== undefined && input.RecipientArn !== null) {
     entries["RecipientArn"] = input.RecipientArn;
   }
-  if (input.BounceType !== undefined) {
+  if (input.BounceType !== undefined && input.BounceType !== null) {
     entries["BounceType"] = input.BounceType;
   }
-  if (input.RecipientDsnFields !== undefined) {
+  if (input.RecipientDsnFields !== undefined && input.RecipientDsnFields !== null) {
     const memberEntries = serializeAws_queryRecipientDsnFields(input.RecipientDsnFields, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RecipientDsnFields.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Recipient !== undefined) {
+  if (input.Recipient !== undefined && input.Recipient !== null) {
     entries["Recipient"] = input.Recipient;
   }
   return entries;
@@ -6317,6 +6320,9 @@ const serializeAws_queryBouncedRecipientInfoList = (input: BouncedRecipientInfo[
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryBouncedRecipientInfo(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
@@ -6328,21 +6334,21 @@ const serializeAws_queryBouncedRecipientInfoList = (input: BouncedRecipientInfo[
 
 const serializeAws_queryBulkEmailDestination = (input: BulkEmailDestination, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplacementTags !== undefined) {
+  if (input.ReplacementTags !== undefined && input.ReplacementTags !== null) {
     const memberEntries = serializeAws_queryMessageTagList(input.ReplacementTags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplacementTags.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Destination !== undefined) {
+  if (input.Destination !== undefined && input.Destination !== null) {
     const memberEntries = serializeAws_queryDestination(input.Destination, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Destination.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ReplacementTemplateData !== undefined) {
+  if (input.ReplacementTemplateData !== undefined && input.ReplacementTemplateData !== null) {
     entries["ReplacementTemplateData"] = input.ReplacementTemplateData;
   }
   return entries;
@@ -6352,6 +6358,9 @@ const serializeAws_queryBulkEmailDestinationList = (input: BulkEmailDestination[
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryBulkEmailDestination(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
@@ -6366,10 +6375,10 @@ const serializeAws_queryCloneReceiptRuleSetRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RuleSetName !== undefined) {
+  if (input.RuleSetName !== undefined && input.RuleSetName !== null) {
     entries["RuleSetName"] = input.RuleSetName;
   }
-  if (input.OriginalRuleSetName !== undefined) {
+  if (input.OriginalRuleSetName !== undefined && input.OriginalRuleSetName !== null) {
     entries["OriginalRuleSetName"] = input.OriginalRuleSetName;
   }
   return entries;
@@ -6377,7 +6386,7 @@ const serializeAws_queryCloneReceiptRuleSetRequest = (
 
 const serializeAws_queryCloudWatchDestination = (input: CloudWatchDestination, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DimensionConfigurations !== undefined) {
+  if (input.DimensionConfigurations !== undefined && input.DimensionConfigurations !== null) {
     const memberEntries = serializeAws_queryCloudWatchDimensionConfigurations(input.DimensionConfigurations, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DimensionConfigurations.${key}`;
@@ -6392,13 +6401,13 @@ const serializeAws_queryCloudWatchDimensionConfiguration = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DefaultDimensionValue !== undefined) {
+  if (input.DefaultDimensionValue !== undefined && input.DefaultDimensionValue !== null) {
     entries["DefaultDimensionValue"] = input.DefaultDimensionValue;
   }
-  if (input.DimensionName !== undefined) {
+  if (input.DimensionName !== undefined && input.DimensionName !== null) {
     entries["DimensionName"] = input.DimensionName;
   }
-  if (input.DimensionValueSource !== undefined) {
+  if (input.DimensionValueSource !== undefined && input.DimensionValueSource !== null) {
     entries["DimensionValueSource"] = input.DimensionValueSource;
   }
   return entries;
@@ -6411,6 +6420,9 @@ const serializeAws_queryCloudWatchDimensionConfigurations = (
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryCloudWatchDimensionConfiguration(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
@@ -6422,7 +6434,7 @@ const serializeAws_queryCloudWatchDimensionConfigurations = (
 
 const serializeAws_queryConfigurationSet = (input: ConfigurationSet, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name !== undefined) {
+  if (input.Name !== undefined && input.Name !== null) {
     entries["Name"] = input.Name;
   }
   return entries;
@@ -6435,6 +6447,9 @@ const serializeAws_queryConfigurationSetAttributeList = (
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -6443,10 +6458,10 @@ const serializeAws_queryConfigurationSetAttributeList = (
 
 const serializeAws_queryContent = (input: Content, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Data !== undefined) {
+  if (input.Data !== undefined && input.Data !== null) {
     entries["Data"] = input.Data;
   }
-  if (input.Charset !== undefined) {
+  if (input.Charset !== undefined && input.Charset !== null) {
     entries["Charset"] = input.Charset;
   }
   return entries;
@@ -6457,10 +6472,10 @@ const serializeAws_queryCreateConfigurationSetEventDestinationRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ConfigurationSetName !== undefined) {
+  if (input.ConfigurationSetName !== undefined && input.ConfigurationSetName !== null) {
     entries["ConfigurationSetName"] = input.ConfigurationSetName;
   }
-  if (input.EventDestination !== undefined) {
+  if (input.EventDestination !== undefined && input.EventDestination !== null) {
     const memberEntries = serializeAws_queryEventDestination(input.EventDestination, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EventDestination.${key}`;
@@ -6475,7 +6490,7 @@ const serializeAws_queryCreateConfigurationSetRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ConfigurationSet !== undefined) {
+  if (input.ConfigurationSet !== undefined && input.ConfigurationSet !== null) {
     const memberEntries = serializeAws_queryConfigurationSet(input.ConfigurationSet, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ConfigurationSet.${key}`;
@@ -6490,10 +6505,10 @@ const serializeAws_queryCreateConfigurationSetTrackingOptionsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ConfigurationSetName !== undefined) {
+  if (input.ConfigurationSetName !== undefined && input.ConfigurationSetName !== null) {
     entries["ConfigurationSetName"] = input.ConfigurationSetName;
   }
-  if (input.TrackingOptions !== undefined) {
+  if (input.TrackingOptions !== undefined && input.TrackingOptions !== null) {
     const memberEntries = serializeAws_queryTrackingOptions(input.TrackingOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TrackingOptions.${key}`;
@@ -6508,22 +6523,22 @@ const serializeAws_queryCreateCustomVerificationEmailTemplateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.TemplateSubject !== undefined) {
+  if (input.TemplateSubject !== undefined && input.TemplateSubject !== null) {
     entries["TemplateSubject"] = input.TemplateSubject;
   }
-  if (input.TemplateContent !== undefined) {
+  if (input.TemplateContent !== undefined && input.TemplateContent !== null) {
     entries["TemplateContent"] = input.TemplateContent;
   }
-  if (input.FailureRedirectionURL !== undefined) {
+  if (input.FailureRedirectionURL !== undefined && input.FailureRedirectionURL !== null) {
     entries["FailureRedirectionURL"] = input.FailureRedirectionURL;
   }
-  if (input.FromEmailAddress !== undefined) {
+  if (input.FromEmailAddress !== undefined && input.FromEmailAddress !== null) {
     entries["FromEmailAddress"] = input.FromEmailAddress;
   }
-  if (input.SuccessRedirectionURL !== undefined) {
+  if (input.SuccessRedirectionURL !== undefined && input.SuccessRedirectionURL !== null) {
     entries["SuccessRedirectionURL"] = input.SuccessRedirectionURL;
   }
-  if (input.TemplateName !== undefined) {
+  if (input.TemplateName !== undefined && input.TemplateName !== null) {
     entries["TemplateName"] = input.TemplateName;
   }
   return entries;
@@ -6534,7 +6549,7 @@ const serializeAws_queryCreateReceiptFilterRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Filter !== undefined) {
+  if (input.Filter !== undefined && input.Filter !== null) {
     const memberEntries = serializeAws_queryReceiptFilter(input.Filter, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key}`;
@@ -6546,13 +6561,13 @@ const serializeAws_queryCreateReceiptFilterRequest = (
 
 const serializeAws_queryCreateReceiptRuleRequest = (input: CreateReceiptRuleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.After !== undefined) {
+  if (input.After !== undefined && input.After !== null) {
     entries["After"] = input.After;
   }
-  if (input.RuleSetName !== undefined) {
+  if (input.RuleSetName !== undefined && input.RuleSetName !== null) {
     entries["RuleSetName"] = input.RuleSetName;
   }
-  if (input.Rule !== undefined) {
+  if (input.Rule !== undefined && input.Rule !== null) {
     const memberEntries = serializeAws_queryReceiptRule(input.Rule, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Rule.${key}`;
@@ -6567,7 +6582,7 @@ const serializeAws_queryCreateReceiptRuleSetRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RuleSetName !== undefined) {
+  if (input.RuleSetName !== undefined && input.RuleSetName !== null) {
     entries["RuleSetName"] = input.RuleSetName;
   }
   return entries;
@@ -6575,7 +6590,7 @@ const serializeAws_queryCreateReceiptRuleSetRequest = (
 
 const serializeAws_queryCreateTemplateRequest = (input: CreateTemplateRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Template !== undefined) {
+  if (input.Template !== undefined && input.Template !== null) {
     const memberEntries = serializeAws_queryTemplate(input.Template, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Template.${key}`;
@@ -6590,10 +6605,10 @@ const serializeAws_queryDeleteConfigurationSetEventDestinationRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ConfigurationSetName !== undefined) {
+  if (input.ConfigurationSetName !== undefined && input.ConfigurationSetName !== null) {
     entries["ConfigurationSetName"] = input.ConfigurationSetName;
   }
-  if (input.EventDestinationName !== undefined) {
+  if (input.EventDestinationName !== undefined && input.EventDestinationName !== null) {
     entries["EventDestinationName"] = input.EventDestinationName;
   }
   return entries;
@@ -6604,7 +6619,7 @@ const serializeAws_queryDeleteConfigurationSetRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ConfigurationSetName !== undefined) {
+  if (input.ConfigurationSetName !== undefined && input.ConfigurationSetName !== null) {
     entries["ConfigurationSetName"] = input.ConfigurationSetName;
   }
   return entries;
@@ -6615,7 +6630,7 @@ const serializeAws_queryDeleteConfigurationSetTrackingOptionsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ConfigurationSetName !== undefined) {
+  if (input.ConfigurationSetName !== undefined && input.ConfigurationSetName !== null) {
     entries["ConfigurationSetName"] = input.ConfigurationSetName;
   }
   return entries;
@@ -6626,7 +6641,7 @@ const serializeAws_queryDeleteCustomVerificationEmailTemplateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.TemplateName !== undefined) {
+  if (input.TemplateName !== undefined && input.TemplateName !== null) {
     entries["TemplateName"] = input.TemplateName;
   }
   return entries;
@@ -6637,10 +6652,10 @@ const serializeAws_queryDeleteIdentityPolicyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Identity !== undefined) {
+  if (input.Identity !== undefined && input.Identity !== null) {
     entries["Identity"] = input.Identity;
   }
-  if (input.PolicyName !== undefined) {
+  if (input.PolicyName !== undefined && input.PolicyName !== null) {
     entries["PolicyName"] = input.PolicyName;
   }
   return entries;
@@ -6648,7 +6663,7 @@ const serializeAws_queryDeleteIdentityPolicyRequest = (
 
 const serializeAws_queryDeleteIdentityRequest = (input: DeleteIdentityRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Identity !== undefined) {
+  if (input.Identity !== undefined && input.Identity !== null) {
     entries["Identity"] = input.Identity;
   }
   return entries;
@@ -6659,7 +6674,7 @@ const serializeAws_queryDeleteReceiptFilterRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.FilterName !== undefined) {
+  if (input.FilterName !== undefined && input.FilterName !== null) {
     entries["FilterName"] = input.FilterName;
   }
   return entries;
@@ -6667,10 +6682,10 @@ const serializeAws_queryDeleteReceiptFilterRequest = (
 
 const serializeAws_queryDeleteReceiptRuleRequest = (input: DeleteReceiptRuleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RuleName !== undefined) {
+  if (input.RuleName !== undefined && input.RuleName !== null) {
     entries["RuleName"] = input.RuleName;
   }
-  if (input.RuleSetName !== undefined) {
+  if (input.RuleSetName !== undefined && input.RuleSetName !== null) {
     entries["RuleSetName"] = input.RuleSetName;
   }
   return entries;
@@ -6681,7 +6696,7 @@ const serializeAws_queryDeleteReceiptRuleSetRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RuleSetName !== undefined) {
+  if (input.RuleSetName !== undefined && input.RuleSetName !== null) {
     entries["RuleSetName"] = input.RuleSetName;
   }
   return entries;
@@ -6689,7 +6704,7 @@ const serializeAws_queryDeleteReceiptRuleSetRequest = (
 
 const serializeAws_queryDeleteTemplateRequest = (input: DeleteTemplateRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TemplateName !== undefined) {
+  if (input.TemplateName !== undefined && input.TemplateName !== null) {
     entries["TemplateName"] = input.TemplateName;
   }
   return entries;
@@ -6700,7 +6715,7 @@ const serializeAws_queryDeleteVerifiedEmailAddressRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EmailAddress !== undefined) {
+  if (input.EmailAddress !== undefined && input.EmailAddress !== null) {
     entries["EmailAddress"] = input.EmailAddress;
   }
   return entries;
@@ -6708,7 +6723,7 @@ const serializeAws_queryDeleteVerifiedEmailAddressRequest = (
 
 const serializeAws_queryDeliveryOptions = (input: DeliveryOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TlsPolicy !== undefined) {
+  if (input.TlsPolicy !== undefined && input.TlsPolicy !== null) {
     entries["TlsPolicy"] = input.TlsPolicy;
   }
   return entries;
@@ -6727,10 +6742,10 @@ const serializeAws_queryDescribeConfigurationSetRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ConfigurationSetName !== undefined) {
+  if (input.ConfigurationSetName !== undefined && input.ConfigurationSetName !== null) {
     entries["ConfigurationSetName"] = input.ConfigurationSetName;
   }
-  if (input.ConfigurationSetAttributeNames !== undefined) {
+  if (input.ConfigurationSetAttributeNames !== undefined && input.ConfigurationSetAttributeNames !== null) {
     const memberEntries = serializeAws_queryConfigurationSetAttributeList(
       input.ConfigurationSetAttributeNames,
       context
@@ -6748,10 +6763,10 @@ const serializeAws_queryDescribeReceiptRuleRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RuleSetName !== undefined) {
+  if (input.RuleSetName !== undefined && input.RuleSetName !== null) {
     entries["RuleSetName"] = input.RuleSetName;
   }
-  if (input.RuleName !== undefined) {
+  if (input.RuleName !== undefined && input.RuleName !== null) {
     entries["RuleName"] = input.RuleName;
   }
   return entries;
@@ -6762,7 +6777,7 @@ const serializeAws_queryDescribeReceiptRuleSetRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RuleSetName !== undefined) {
+  if (input.RuleSetName !== undefined && input.RuleSetName !== null) {
     entries["RuleSetName"] = input.RuleSetName;
   }
   return entries;
@@ -6770,21 +6785,21 @@ const serializeAws_queryDescribeReceiptRuleSetRequest = (
 
 const serializeAws_queryDestination = (input: Destination, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ToAddresses !== undefined) {
+  if (input.ToAddresses !== undefined && input.ToAddresses !== null) {
     const memberEntries = serializeAws_queryAddressList(input.ToAddresses, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ToAddresses.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.CcAddresses !== undefined) {
+  if (input.CcAddresses !== undefined && input.CcAddresses !== null) {
     const memberEntries = serializeAws_queryAddressList(input.CcAddresses, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CcAddresses.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.BccAddresses !== undefined) {
+  if (input.BccAddresses !== undefined && input.BccAddresses !== null) {
     const memberEntries = serializeAws_queryAddressList(input.BccAddresses, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BccAddresses.${key}`;
@@ -6796,34 +6811,34 @@ const serializeAws_queryDestination = (input: Destination, context: __SerdeConte
 
 const serializeAws_queryEventDestination = (input: EventDestination, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CloudWatchDestination !== undefined) {
+  if (input.CloudWatchDestination !== undefined && input.CloudWatchDestination !== null) {
     const memberEntries = serializeAws_queryCloudWatchDestination(input.CloudWatchDestination, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CloudWatchDestination.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Enabled !== undefined) {
+  if (input.Enabled !== undefined && input.Enabled !== null) {
     entries["Enabled"] = input.Enabled;
   }
-  if (input.SNSDestination !== undefined) {
+  if (input.SNSDestination !== undefined && input.SNSDestination !== null) {
     const memberEntries = serializeAws_querySNSDestination(input.SNSDestination, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SNSDestination.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.MatchingEventTypes !== undefined) {
+  if (input.MatchingEventTypes !== undefined && input.MatchingEventTypes !== null) {
     const memberEntries = serializeAws_queryEventTypes(input.MatchingEventTypes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MatchingEventTypes.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Name !== undefined) {
+  if (input.Name !== undefined && input.Name !== null) {
     entries["Name"] = input.Name;
   }
-  if (input.KinesisFirehoseDestination !== undefined) {
+  if (input.KinesisFirehoseDestination !== undefined && input.KinesisFirehoseDestination !== null) {
     const memberEntries = serializeAws_queryKinesisFirehoseDestination(input.KinesisFirehoseDestination, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `KinesisFirehoseDestination.${key}`;
@@ -6837,6 +6852,9 @@ const serializeAws_queryEventTypes = (input: (EventType | string)[], context: __
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -6845,10 +6863,10 @@ const serializeAws_queryEventTypes = (input: (EventType | string)[], context: __
 
 const serializeAws_queryExtensionField = (input: ExtensionField, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name !== undefined) {
+  if (input.Name !== undefined && input.Name !== null) {
     entries["Name"] = input.Name;
   }
-  if (input.Value !== undefined) {
+  if (input.Value !== undefined && input.Value !== null) {
     entries["Value"] = input.Value;
   }
   return entries;
@@ -6858,6 +6876,9 @@ const serializeAws_queryExtensionFieldList = (input: ExtensionField[], context: 
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryExtensionField(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
@@ -6872,7 +6893,7 @@ const serializeAws_queryGetCustomVerificationEmailTemplateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.TemplateName !== undefined) {
+  if (input.TemplateName !== undefined && input.TemplateName !== null) {
     entries["TemplateName"] = input.TemplateName;
   }
   return entries;
@@ -6883,7 +6904,7 @@ const serializeAws_queryGetIdentityDkimAttributesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Identities !== undefined) {
+  if (input.Identities !== undefined && input.Identities !== null) {
     const memberEntries = serializeAws_queryIdentityList(input.Identities, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Identities.${key}`;
@@ -6898,7 +6919,7 @@ const serializeAws_queryGetIdentityMailFromDomainAttributesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Identities !== undefined) {
+  if (input.Identities !== undefined && input.Identities !== null) {
     const memberEntries = serializeAws_queryIdentityList(input.Identities, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Identities.${key}`;
@@ -6913,7 +6934,7 @@ const serializeAws_queryGetIdentityNotificationAttributesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Identities !== undefined) {
+  if (input.Identities !== undefined && input.Identities !== null) {
     const memberEntries = serializeAws_queryIdentityList(input.Identities, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Identities.${key}`;
@@ -6928,14 +6949,14 @@ const serializeAws_queryGetIdentityPoliciesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PolicyNames !== undefined) {
+  if (input.PolicyNames !== undefined && input.PolicyNames !== null) {
     const memberEntries = serializeAws_queryPolicyNameList(input.PolicyNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyNames.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Identity !== undefined) {
+  if (input.Identity !== undefined && input.Identity !== null) {
     entries["Identity"] = input.Identity;
   }
   return entries;
@@ -6946,7 +6967,7 @@ const serializeAws_queryGetIdentityVerificationAttributesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Identities !== undefined) {
+  if (input.Identities !== undefined && input.Identities !== null) {
     const memberEntries = serializeAws_queryIdentityList(input.Identities, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Identities.${key}`;
@@ -6958,7 +6979,7 @@ const serializeAws_queryGetIdentityVerificationAttributesRequest = (
 
 const serializeAws_queryGetTemplateRequest = (input: GetTemplateRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TemplateName !== undefined) {
+  if (input.TemplateName !== undefined && input.TemplateName !== null) {
     entries["TemplateName"] = input.TemplateName;
   }
   return entries;
@@ -6968,6 +6989,9 @@ const serializeAws_queryIdentityList = (input: string[], context: __SerdeContext
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -6979,10 +7003,10 @@ const serializeAws_queryKinesisFirehoseDestination = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DeliveryStreamARN !== undefined) {
+  if (input.DeliveryStreamARN !== undefined && input.DeliveryStreamARN !== null) {
     entries["DeliveryStreamARN"] = input.DeliveryStreamARN;
   }
-  if (input.IAMRoleARN !== undefined) {
+  if (input.IAMRoleARN !== undefined && input.IAMRoleARN !== null) {
     entries["IAMRoleARN"] = input.IAMRoleARN;
   }
   return entries;
@@ -6990,13 +7014,13 @@ const serializeAws_queryKinesisFirehoseDestination = (
 
 const serializeAws_queryLambdaAction = (input: LambdaAction, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.InvocationType !== undefined) {
+  if (input.InvocationType !== undefined && input.InvocationType !== null) {
     entries["InvocationType"] = input.InvocationType;
   }
-  if (input.FunctionArn !== undefined) {
+  if (input.FunctionArn !== undefined && input.FunctionArn !== null) {
     entries["FunctionArn"] = input.FunctionArn;
   }
-  if (input.TopicArn !== undefined) {
+  if (input.TopicArn !== undefined && input.TopicArn !== null) {
     entries["TopicArn"] = input.TopicArn;
   }
   return entries;
@@ -7007,10 +7031,10 @@ const serializeAws_queryListConfigurationSetsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
   return entries;
@@ -7021,10 +7045,10 @@ const serializeAws_queryListCustomVerificationEmailTemplatesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
-  if (input.MaxResults !== undefined) {
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
     entries["MaxResults"] = input.MaxResults;
   }
   return entries;
@@ -7032,13 +7056,13 @@ const serializeAws_queryListCustomVerificationEmailTemplatesRequest = (
 
 const serializeAws_queryListIdentitiesRequest = (input: ListIdentitiesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.IdentityType !== undefined) {
+  if (input.IdentityType !== undefined && input.IdentityType !== null) {
     entries["IdentityType"] = input.IdentityType;
   }
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -7049,7 +7073,7 @@ const serializeAws_queryListIdentityPoliciesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Identity !== undefined) {
+  if (input.Identity !== undefined && input.Identity !== null) {
     entries["Identity"] = input.Identity;
   }
   return entries;
@@ -7068,7 +7092,7 @@ const serializeAws_queryListReceiptRuleSetsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
   return entries;
@@ -7076,10 +7100,10 @@ const serializeAws_queryListReceiptRuleSetsRequest = (
 
 const serializeAws_queryListTemplatesRequest = (input: ListTemplatesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
   return entries;
@@ -7087,14 +7111,14 @@ const serializeAws_queryListTemplatesRequest = (input: ListTemplatesRequest, con
 
 const serializeAws_queryMessage = (input: Message, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Body !== undefined) {
+  if (input.Body !== undefined && input.Body !== null) {
     const memberEntries = serializeAws_queryBody(input.Body, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Body.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Subject !== undefined) {
+  if (input.Subject !== undefined && input.Subject !== null) {
     const memberEntries = serializeAws_queryContent(input.Subject, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Subject.${key}`;
@@ -7106,17 +7130,17 @@ const serializeAws_queryMessage = (input: Message, context: __SerdeContext): any
 
 const serializeAws_queryMessageDsn = (input: MessageDsn, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ExtensionFields !== undefined) {
+  if (input.ExtensionFields !== undefined && input.ExtensionFields !== null) {
     const memberEntries = serializeAws_queryExtensionFieldList(input.ExtensionFields, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExtensionFields.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ReportingMta !== undefined) {
+  if (input.ReportingMta !== undefined && input.ReportingMta !== null) {
     entries["ReportingMta"] = input.ReportingMta;
   }
-  if (input.ArrivalDate !== undefined) {
+  if (input.ArrivalDate !== undefined && input.ArrivalDate !== null) {
     entries["ArrivalDate"] = input.ArrivalDate.toISOString().split(".")[0] + "Z";
   }
   return entries;
@@ -7124,10 +7148,10 @@ const serializeAws_queryMessageDsn = (input: MessageDsn, context: __SerdeContext
 
 const serializeAws_queryMessageTag = (input: MessageTag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Value !== undefined) {
+  if (input.Value !== undefined && input.Value !== null) {
     entries["Value"] = input.Value;
   }
-  if (input.Name !== undefined) {
+  if (input.Name !== undefined && input.Name !== null) {
     entries["Name"] = input.Name;
   }
   return entries;
@@ -7137,6 +7161,9 @@ const serializeAws_queryMessageTagList = (input: MessageTag[], context: __SerdeC
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryMessageTag(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
@@ -7150,6 +7177,9 @@ const serializeAws_queryPolicyNameList = (input: string[], context: __SerdeConte
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -7161,14 +7191,14 @@ const serializeAws_queryPutConfigurationSetDeliveryOptionsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DeliveryOptions !== undefined) {
+  if (input.DeliveryOptions !== undefined && input.DeliveryOptions !== null) {
     const memberEntries = serializeAws_queryDeliveryOptions(input.DeliveryOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DeliveryOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ConfigurationSetName !== undefined) {
+  if (input.ConfigurationSetName !== undefined && input.ConfigurationSetName !== null) {
     entries["ConfigurationSetName"] = input.ConfigurationSetName;
   }
   return entries;
@@ -7176,13 +7206,13 @@ const serializeAws_queryPutConfigurationSetDeliveryOptionsRequest = (
 
 const serializeAws_queryPutIdentityPolicyRequest = (input: PutIdentityPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Policy !== undefined) {
+  if (input.Policy !== undefined && input.Policy !== null) {
     entries["Policy"] = input.Policy;
   }
-  if (input.Identity !== undefined) {
+  if (input.Identity !== undefined && input.Identity !== null) {
     entries["Identity"] = input.Identity;
   }
-  if (input.PolicyName !== undefined) {
+  if (input.PolicyName !== undefined && input.PolicyName !== null) {
     entries["PolicyName"] = input.PolicyName;
   }
   return entries;
@@ -7190,7 +7220,7 @@ const serializeAws_queryPutIdentityPolicyRequest = (input: PutIdentityPolicyRequ
 
 const serializeAws_queryRawMessage = (input: RawMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Data !== undefined) {
+  if (input.Data !== undefined && input.Data !== null) {
     entries["Data"] = context.base64Encoder(input.Data);
   }
   return entries;
@@ -7198,49 +7228,49 @@ const serializeAws_queryRawMessage = (input: RawMessage, context: __SerdeContext
 
 const serializeAws_queryReceiptAction = (input: ReceiptAction, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StopAction !== undefined) {
+  if (input.StopAction !== undefined && input.StopAction !== null) {
     const memberEntries = serializeAws_queryStopAction(input.StopAction, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `StopAction.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.S3Action !== undefined) {
+  if (input.S3Action !== undefined && input.S3Action !== null) {
     const memberEntries = serializeAws_queryS3Action(input.S3Action, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `S3Action.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.BounceAction !== undefined) {
+  if (input.BounceAction !== undefined && input.BounceAction !== null) {
     const memberEntries = serializeAws_queryBounceAction(input.BounceAction, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BounceAction.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.LambdaAction !== undefined) {
+  if (input.LambdaAction !== undefined && input.LambdaAction !== null) {
     const memberEntries = serializeAws_queryLambdaAction(input.LambdaAction, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LambdaAction.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.AddHeaderAction !== undefined) {
+  if (input.AddHeaderAction !== undefined && input.AddHeaderAction !== null) {
     const memberEntries = serializeAws_queryAddHeaderAction(input.AddHeaderAction, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddHeaderAction.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.SNSAction !== undefined) {
+  if (input.SNSAction !== undefined && input.SNSAction !== null) {
     const memberEntries = serializeAws_querySNSAction(input.SNSAction, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SNSAction.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.WorkmailAction !== undefined) {
+  if (input.WorkmailAction !== undefined && input.WorkmailAction !== null) {
     const memberEntries = serializeAws_queryWorkmailAction(input.WorkmailAction, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `WorkmailAction.${key}`;
@@ -7254,6 +7284,9 @@ const serializeAws_queryReceiptActionsList = (input: ReceiptAction[], context: _
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryReceiptAction(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
@@ -7265,14 +7298,14 @@ const serializeAws_queryReceiptActionsList = (input: ReceiptAction[], context: _
 
 const serializeAws_queryReceiptFilter = (input: ReceiptFilter, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.IpFilter !== undefined) {
+  if (input.IpFilter !== undefined && input.IpFilter !== null) {
     const memberEntries = serializeAws_queryReceiptIpFilter(input.IpFilter, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IpFilter.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Name !== undefined) {
+  if (input.Name !== undefined && input.Name !== null) {
     entries["Name"] = input.Name;
   }
   return entries;
@@ -7280,10 +7313,10 @@ const serializeAws_queryReceiptFilter = (input: ReceiptFilter, context: __SerdeC
 
 const serializeAws_queryReceiptIpFilter = (input: ReceiptIpFilter, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Policy !== undefined) {
+  if (input.Policy !== undefined && input.Policy !== null) {
     entries["Policy"] = input.Policy;
   }
-  if (input.Cidr !== undefined) {
+  if (input.Cidr !== undefined && input.Cidr !== null) {
     entries["Cidr"] = input.Cidr;
   }
   return entries;
@@ -7291,26 +7324,26 @@ const serializeAws_queryReceiptIpFilter = (input: ReceiptIpFilter, context: __Se
 
 const serializeAws_queryReceiptRule = (input: ReceiptRule, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name !== undefined) {
+  if (input.Name !== undefined && input.Name !== null) {
     entries["Name"] = input.Name;
   }
-  if (input.Actions !== undefined) {
+  if (input.Actions !== undefined && input.Actions !== null) {
     const memberEntries = serializeAws_queryReceiptActionsList(input.Actions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Actions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.TlsPolicy !== undefined) {
+  if (input.TlsPolicy !== undefined && input.TlsPolicy !== null) {
     entries["TlsPolicy"] = input.TlsPolicy;
   }
-  if (input.Enabled !== undefined) {
+  if (input.Enabled !== undefined && input.Enabled !== null) {
     entries["Enabled"] = input.Enabled;
   }
-  if (input.ScanEnabled !== undefined) {
+  if (input.ScanEnabled !== undefined && input.ScanEnabled !== null) {
     entries["ScanEnabled"] = input.ScanEnabled;
   }
-  if (input.Recipients !== undefined) {
+  if (input.Recipients !== undefined && input.Recipients !== null) {
     const memberEntries = serializeAws_queryRecipientsList(input.Recipients, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Recipients.${key}`;
@@ -7324,6 +7357,9 @@ const serializeAws_queryReceiptRuleNamesList = (input: string[], context: __Serd
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -7332,25 +7368,25 @@ const serializeAws_queryReceiptRuleNamesList = (input: string[], context: __Serd
 
 const serializeAws_queryRecipientDsnFields = (input: RecipientDsnFields, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LastAttemptDate !== undefined) {
+  if (input.LastAttemptDate !== undefined && input.LastAttemptDate !== null) {
     entries["LastAttemptDate"] = input.LastAttemptDate.toISOString().split(".")[0] + "Z";
   }
-  if (input.DiagnosticCode !== undefined) {
+  if (input.DiagnosticCode !== undefined && input.DiagnosticCode !== null) {
     entries["DiagnosticCode"] = input.DiagnosticCode;
   }
-  if (input.FinalRecipient !== undefined) {
+  if (input.FinalRecipient !== undefined && input.FinalRecipient !== null) {
     entries["FinalRecipient"] = input.FinalRecipient;
   }
-  if (input.Action !== undefined) {
+  if (input.Action !== undefined && input.Action !== null) {
     entries["Action"] = input.Action;
   }
-  if (input.RemoteMta !== undefined) {
+  if (input.RemoteMta !== undefined && input.RemoteMta !== null) {
     entries["RemoteMta"] = input.RemoteMta;
   }
-  if (input.Status !== undefined) {
+  if (input.Status !== undefined && input.Status !== null) {
     entries["Status"] = input.Status;
   }
-  if (input.ExtensionFields !== undefined) {
+  if (input.ExtensionFields !== undefined && input.ExtensionFields !== null) {
     const memberEntries = serializeAws_queryExtensionFieldList(input.ExtensionFields, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExtensionFields.${key}`;
@@ -7364,6 +7400,9 @@ const serializeAws_queryRecipientsList = (input: string[], context: __SerdeConte
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -7375,10 +7414,10 @@ const serializeAws_queryReorderReceiptRuleSetRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RuleSetName !== undefined) {
+  if (input.RuleSetName !== undefined && input.RuleSetName !== null) {
     entries["RuleSetName"] = input.RuleSetName;
   }
-  if (input.RuleNames !== undefined) {
+  if (input.RuleNames !== undefined && input.RuleNames !== null) {
     const memberEntries = serializeAws_queryReceiptRuleNamesList(input.RuleNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RuleNames.${key}`;
@@ -7390,16 +7429,16 @@ const serializeAws_queryReorderReceiptRuleSetRequest = (
 
 const serializeAws_queryS3Action = (input: S3Action, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.BucketName !== undefined) {
+  if (input.BucketName !== undefined && input.BucketName !== null) {
     entries["BucketName"] = input.BucketName;
   }
-  if (input.ObjectKeyPrefix !== undefined) {
+  if (input.ObjectKeyPrefix !== undefined && input.ObjectKeyPrefix !== null) {
     entries["ObjectKeyPrefix"] = input.ObjectKeyPrefix;
   }
-  if (input.TopicArn !== undefined) {
+  if (input.TopicArn !== undefined && input.TopicArn !== null) {
     entries["TopicArn"] = input.TopicArn;
   }
-  if (input.KmsKeyArn !== undefined) {
+  if (input.KmsKeyArn !== undefined && input.KmsKeyArn !== null) {
     entries["KmsKeyArn"] = input.KmsKeyArn;
   }
   return entries;
@@ -7407,26 +7446,26 @@ const serializeAws_queryS3Action = (input: S3Action, context: __SerdeContext): a
 
 const serializeAws_querySendBounceRequest = (input: SendBounceRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.BounceSenderArn !== undefined) {
+  if (input.BounceSenderArn !== undefined && input.BounceSenderArn !== null) {
     entries["BounceSenderArn"] = input.BounceSenderArn;
   }
-  if (input.OriginalMessageId !== undefined) {
+  if (input.OriginalMessageId !== undefined && input.OriginalMessageId !== null) {
     entries["OriginalMessageId"] = input.OriginalMessageId;
   }
-  if (input.BounceSender !== undefined) {
+  if (input.BounceSender !== undefined && input.BounceSender !== null) {
     entries["BounceSender"] = input.BounceSender;
   }
-  if (input.MessageDsn !== undefined) {
+  if (input.MessageDsn !== undefined && input.MessageDsn !== null) {
     const memberEntries = serializeAws_queryMessageDsn(input.MessageDsn, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MessageDsn.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Explanation !== undefined) {
+  if (input.Explanation !== undefined && input.Explanation !== null) {
     entries["Explanation"] = input.Explanation;
   }
-  if (input.BouncedRecipientInfoList !== undefined) {
+  if (input.BouncedRecipientInfoList !== undefined && input.BouncedRecipientInfoList !== null) {
     const memberEntries = serializeAws_queryBouncedRecipientInfoList(input.BouncedRecipientInfoList, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BouncedRecipientInfoList.${key}`;
@@ -7441,49 +7480,49 @@ const serializeAws_querySendBulkTemplatedEmailRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ReturnPathArn !== undefined) {
+  if (input.ReturnPathArn !== undefined && input.ReturnPathArn !== null) {
     entries["ReturnPathArn"] = input.ReturnPathArn;
   }
-  if (input.ReturnPath !== undefined) {
+  if (input.ReturnPath !== undefined && input.ReturnPath !== null) {
     entries["ReturnPath"] = input.ReturnPath;
   }
-  if (input.TemplateArn !== undefined) {
+  if (input.TemplateArn !== undefined && input.TemplateArn !== null) {
     entries["TemplateArn"] = input.TemplateArn;
   }
-  if (input.DefaultTemplateData !== undefined) {
+  if (input.DefaultTemplateData !== undefined && input.DefaultTemplateData !== null) {
     entries["DefaultTemplateData"] = input.DefaultTemplateData;
   }
-  if (input.SourceArn !== undefined) {
+  if (input.SourceArn !== undefined && input.SourceArn !== null) {
     entries["SourceArn"] = input.SourceArn;
   }
-  if (input.DefaultTags !== undefined) {
+  if (input.DefaultTags !== undefined && input.DefaultTags !== null) {
     const memberEntries = serializeAws_queryMessageTagList(input.DefaultTags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DefaultTags.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ConfigurationSetName !== undefined) {
+  if (input.ConfigurationSetName !== undefined && input.ConfigurationSetName !== null) {
     entries["ConfigurationSetName"] = input.ConfigurationSetName;
   }
-  if (input.ReplyToAddresses !== undefined) {
+  if (input.ReplyToAddresses !== undefined && input.ReplyToAddresses !== null) {
     const memberEntries = serializeAws_queryAddressList(input.ReplyToAddresses, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplyToAddresses.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Destinations !== undefined) {
+  if (input.Destinations !== undefined && input.Destinations !== null) {
     const memberEntries = serializeAws_queryBulkEmailDestinationList(input.Destinations, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Destinations.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Source !== undefined) {
+  if (input.Source !== undefined && input.Source !== null) {
     entries["Source"] = input.Source;
   }
-  if (input.Template !== undefined) {
+  if (input.Template !== undefined && input.Template !== null) {
     entries["Template"] = input.Template;
   }
   return entries;
@@ -7494,13 +7533,13 @@ const serializeAws_querySendCustomVerificationEmailRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EmailAddress !== undefined) {
+  if (input.EmailAddress !== undefined && input.EmailAddress !== null) {
     entries["EmailAddress"] = input.EmailAddress;
   }
-  if (input.ConfigurationSetName !== undefined) {
+  if (input.ConfigurationSetName !== undefined && input.ConfigurationSetName !== null) {
     entries["ConfigurationSetName"] = input.ConfigurationSetName;
   }
-  if (input.TemplateName !== undefined) {
+  if (input.TemplateName !== undefined && input.TemplateName !== null) {
     entries["TemplateName"] = input.TemplateName;
   }
   return entries;
@@ -7508,47 +7547,47 @@ const serializeAws_querySendCustomVerificationEmailRequest = (
 
 const serializeAws_querySendEmailRequest = (input: SendEmailRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplyToAddresses !== undefined) {
+  if (input.ReplyToAddresses !== undefined && input.ReplyToAddresses !== null) {
     const memberEntries = serializeAws_queryAddressList(input.ReplyToAddresses, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplyToAddresses.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ConfigurationSetName !== undefined) {
+  if (input.ConfigurationSetName !== undefined && input.ConfigurationSetName !== null) {
     entries["ConfigurationSetName"] = input.ConfigurationSetName;
   }
-  if (input.Source !== undefined) {
+  if (input.Source !== undefined && input.Source !== null) {
     entries["Source"] = input.Source;
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryMessageTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ReturnPathArn !== undefined) {
+  if (input.ReturnPathArn !== undefined && input.ReturnPathArn !== null) {
     entries["ReturnPathArn"] = input.ReturnPathArn;
   }
-  if (input.Destination !== undefined) {
+  if (input.Destination !== undefined && input.Destination !== null) {
     const memberEntries = serializeAws_queryDestination(input.Destination, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Destination.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.SourceArn !== undefined) {
+  if (input.SourceArn !== undefined && input.SourceArn !== null) {
     entries["SourceArn"] = input.SourceArn;
   }
-  if (input.Message !== undefined) {
+  if (input.Message !== undefined && input.Message !== null) {
     const memberEntries = serializeAws_queryMessage(input.Message, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Message.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ReturnPath !== undefined) {
+  if (input.ReturnPath !== undefined && input.ReturnPath !== null) {
     entries["ReturnPath"] = input.ReturnPath;
   }
   return entries;
@@ -7556,36 +7595,36 @@ const serializeAws_querySendEmailRequest = (input: SendEmailRequest, context: __
 
 const serializeAws_querySendRawEmailRequest = (input: SendRawEmailRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RawMessage !== undefined) {
+  if (input.RawMessage !== undefined && input.RawMessage !== null) {
     const memberEntries = serializeAws_queryRawMessage(input.RawMessage, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RawMessage.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.SourceArn !== undefined) {
+  if (input.SourceArn !== undefined && input.SourceArn !== null) {
     entries["SourceArn"] = input.SourceArn;
   }
-  if (input.FromArn !== undefined) {
+  if (input.FromArn !== undefined && input.FromArn !== null) {
     entries["FromArn"] = input.FromArn;
   }
-  if (input.ReturnPathArn !== undefined) {
+  if (input.ReturnPathArn !== undefined && input.ReturnPathArn !== null) {
     entries["ReturnPathArn"] = input.ReturnPathArn;
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryMessageTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Source !== undefined) {
+  if (input.Source !== undefined && input.Source !== null) {
     entries["Source"] = input.Source;
   }
-  if (input.ConfigurationSetName !== undefined) {
+  if (input.ConfigurationSetName !== undefined && input.ConfigurationSetName !== null) {
     entries["ConfigurationSetName"] = input.ConfigurationSetName;
   }
-  if (input.Destinations !== undefined) {
+  if (input.Destinations !== undefined && input.Destinations !== null) {
     const memberEntries = serializeAws_queryAddressList(input.Destinations, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Destinations.${key}`;
@@ -7600,49 +7639,49 @@ const serializeAws_querySendTemplatedEmailRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ReplyToAddresses !== undefined) {
+  if (input.ReplyToAddresses !== undefined && input.ReplyToAddresses !== null) {
     const memberEntries = serializeAws_queryAddressList(input.ReplyToAddresses, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplyToAddresses.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Source !== undefined) {
+  if (input.Source !== undefined && input.Source !== null) {
     entries["Source"] = input.Source;
   }
-  if (input.TemplateData !== undefined) {
+  if (input.TemplateData !== undefined && input.TemplateData !== null) {
     entries["TemplateData"] = input.TemplateData;
   }
-  if (input.Template !== undefined) {
+  if (input.Template !== undefined && input.Template !== null) {
     entries["Template"] = input.Template;
   }
-  if (input.Destination !== undefined) {
+  if (input.Destination !== undefined && input.Destination !== null) {
     const memberEntries = serializeAws_queryDestination(input.Destination, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Destination.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ReturnPathArn !== undefined) {
+  if (input.ReturnPathArn !== undefined && input.ReturnPathArn !== null) {
     entries["ReturnPathArn"] = input.ReturnPathArn;
   }
-  if (input.TemplateArn !== undefined) {
+  if (input.TemplateArn !== undefined && input.TemplateArn !== null) {
     entries["TemplateArn"] = input.TemplateArn;
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryMessageTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ReturnPath !== undefined) {
+  if (input.ReturnPath !== undefined && input.ReturnPath !== null) {
     entries["ReturnPath"] = input.ReturnPath;
   }
-  if (input.SourceArn !== undefined) {
+  if (input.SourceArn !== undefined && input.SourceArn !== null) {
     entries["SourceArn"] = input.SourceArn;
   }
-  if (input.ConfigurationSetName !== undefined) {
+  if (input.ConfigurationSetName !== undefined && input.ConfigurationSetName !== null) {
     entries["ConfigurationSetName"] = input.ConfigurationSetName;
   }
   return entries;
@@ -7653,7 +7692,7 @@ const serializeAws_querySetActiveReceiptRuleSetRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RuleSetName !== undefined) {
+  if (input.RuleSetName !== undefined && input.RuleSetName !== null) {
     entries["RuleSetName"] = input.RuleSetName;
   }
   return entries;
@@ -7664,10 +7703,10 @@ const serializeAws_querySetIdentityDkimEnabledRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Identity !== undefined) {
+  if (input.Identity !== undefined && input.Identity !== null) {
     entries["Identity"] = input.Identity;
   }
-  if (input.DkimEnabled !== undefined) {
+  if (input.DkimEnabled !== undefined && input.DkimEnabled !== null) {
     entries["DkimEnabled"] = input.DkimEnabled;
   }
   return entries;
@@ -7678,10 +7717,10 @@ const serializeAws_querySetIdentityFeedbackForwardingEnabledRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ForwardingEnabled !== undefined) {
+  if (input.ForwardingEnabled !== undefined && input.ForwardingEnabled !== null) {
     entries["ForwardingEnabled"] = input.ForwardingEnabled;
   }
-  if (input.Identity !== undefined) {
+  if (input.Identity !== undefined && input.Identity !== null) {
     entries["Identity"] = input.Identity;
   }
   return entries;
@@ -7692,13 +7731,13 @@ const serializeAws_querySetIdentityHeadersInNotificationsEnabledRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Identity !== undefined) {
+  if (input.Identity !== undefined && input.Identity !== null) {
     entries["Identity"] = input.Identity;
   }
-  if (input.NotificationType !== undefined) {
+  if (input.NotificationType !== undefined && input.NotificationType !== null) {
     entries["NotificationType"] = input.NotificationType;
   }
-  if (input.Enabled !== undefined) {
+  if (input.Enabled !== undefined && input.Enabled !== null) {
     entries["Enabled"] = input.Enabled;
   }
   return entries;
@@ -7709,13 +7748,13 @@ const serializeAws_querySetIdentityMailFromDomainRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.MailFromDomain !== undefined) {
+  if (input.MailFromDomain !== undefined && input.MailFromDomain !== null) {
     entries["MailFromDomain"] = input.MailFromDomain;
   }
-  if (input.BehaviorOnMXFailure !== undefined) {
+  if (input.BehaviorOnMXFailure !== undefined && input.BehaviorOnMXFailure !== null) {
     entries["BehaviorOnMXFailure"] = input.BehaviorOnMXFailure;
   }
-  if (input.Identity !== undefined) {
+  if (input.Identity !== undefined && input.Identity !== null) {
     entries["Identity"] = input.Identity;
   }
   return entries;
@@ -7726,13 +7765,13 @@ const serializeAws_querySetIdentityNotificationTopicRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.NotificationType !== undefined) {
+  if (input.NotificationType !== undefined && input.NotificationType !== null) {
     entries["NotificationType"] = input.NotificationType;
   }
-  if (input.SnsTopic !== undefined) {
+  if (input.SnsTopic !== undefined && input.SnsTopic !== null) {
     entries["SnsTopic"] = input.SnsTopic;
   }
-  if (input.Identity !== undefined) {
+  if (input.Identity !== undefined && input.Identity !== null) {
     entries["Identity"] = input.Identity;
   }
   return entries;
@@ -7743,13 +7782,13 @@ const serializeAws_querySetReceiptRulePositionRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RuleName !== undefined) {
+  if (input.RuleName !== undefined && input.RuleName !== null) {
     entries["RuleName"] = input.RuleName;
   }
-  if (input.RuleSetName !== undefined) {
+  if (input.RuleSetName !== undefined && input.RuleSetName !== null) {
     entries["RuleSetName"] = input.RuleSetName;
   }
-  if (input.After !== undefined) {
+  if (input.After !== undefined && input.After !== null) {
     entries["After"] = input.After;
   }
   return entries;
@@ -7757,10 +7796,10 @@ const serializeAws_querySetReceiptRulePositionRequest = (
 
 const serializeAws_querySNSAction = (input: SNSAction, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Encoding !== undefined) {
+  if (input.Encoding !== undefined && input.Encoding !== null) {
     entries["Encoding"] = input.Encoding;
   }
-  if (input.TopicArn !== undefined) {
+  if (input.TopicArn !== undefined && input.TopicArn !== null) {
     entries["TopicArn"] = input.TopicArn;
   }
   return entries;
@@ -7768,7 +7807,7 @@ const serializeAws_querySNSAction = (input: SNSAction, context: __SerdeContext):
 
 const serializeAws_querySNSDestination = (input: SNSDestination, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TopicARN !== undefined) {
+  if (input.TopicARN !== undefined && input.TopicARN !== null) {
     entries["TopicARN"] = input.TopicARN;
   }
   return entries;
@@ -7776,10 +7815,10 @@ const serializeAws_querySNSDestination = (input: SNSDestination, context: __Serd
 
 const serializeAws_queryStopAction = (input: StopAction, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TopicArn !== undefined) {
+  if (input.TopicArn !== undefined && input.TopicArn !== null) {
     entries["TopicArn"] = input.TopicArn;
   }
-  if (input.Scope !== undefined) {
+  if (input.Scope !== undefined && input.Scope !== null) {
     entries["Scope"] = input.Scope;
   }
   return entries;
@@ -7787,16 +7826,16 @@ const serializeAws_queryStopAction = (input: StopAction, context: __SerdeContext
 
 const serializeAws_queryTemplate = (input: Template, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TextPart !== undefined) {
+  if (input.TextPart !== undefined && input.TextPart !== null) {
     entries["TextPart"] = input.TextPart;
   }
-  if (input.SubjectPart !== undefined) {
+  if (input.SubjectPart !== undefined && input.SubjectPart !== null) {
     entries["SubjectPart"] = input.SubjectPart;
   }
-  if (input.TemplateName !== undefined) {
+  if (input.TemplateName !== undefined && input.TemplateName !== null) {
     entries["TemplateName"] = input.TemplateName;
   }
-  if (input.HtmlPart !== undefined) {
+  if (input.HtmlPart !== undefined && input.HtmlPart !== null) {
     entries["HtmlPart"] = input.HtmlPart;
   }
   return entries;
@@ -7807,10 +7846,10 @@ const serializeAws_queryTestRenderTemplateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.TemplateName !== undefined) {
+  if (input.TemplateName !== undefined && input.TemplateName !== null) {
     entries["TemplateName"] = input.TemplateName;
   }
-  if (input.TemplateData !== undefined) {
+  if (input.TemplateData !== undefined && input.TemplateData !== null) {
     entries["TemplateData"] = input.TemplateData;
   }
   return entries;
@@ -7818,7 +7857,7 @@ const serializeAws_queryTestRenderTemplateRequest = (
 
 const serializeAws_queryTrackingOptions = (input: TrackingOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CustomRedirectDomain !== undefined) {
+  if (input.CustomRedirectDomain !== undefined && input.CustomRedirectDomain !== null) {
     entries["CustomRedirectDomain"] = input.CustomRedirectDomain;
   }
   return entries;
@@ -7829,7 +7868,7 @@ const serializeAws_queryUpdateAccountSendingEnabledRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Enabled !== undefined) {
+  if (input.Enabled !== undefined && input.Enabled !== null) {
     entries["Enabled"] = input.Enabled;
   }
   return entries;
@@ -7840,10 +7879,10 @@ const serializeAws_queryUpdateConfigurationSetEventDestinationRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ConfigurationSetName !== undefined) {
+  if (input.ConfigurationSetName !== undefined && input.ConfigurationSetName !== null) {
     entries["ConfigurationSetName"] = input.ConfigurationSetName;
   }
-  if (input.EventDestination !== undefined) {
+  if (input.EventDestination !== undefined && input.EventDestination !== null) {
     const memberEntries = serializeAws_queryEventDestination(input.EventDestination, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EventDestination.${key}`;
@@ -7858,10 +7897,10 @@ const serializeAws_queryUpdateConfigurationSetReputationMetricsEnabledRequest = 
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Enabled !== undefined) {
+  if (input.Enabled !== undefined && input.Enabled !== null) {
     entries["Enabled"] = input.Enabled;
   }
-  if (input.ConfigurationSetName !== undefined) {
+  if (input.ConfigurationSetName !== undefined && input.ConfigurationSetName !== null) {
     entries["ConfigurationSetName"] = input.ConfigurationSetName;
   }
   return entries;
@@ -7872,10 +7911,10 @@ const serializeAws_queryUpdateConfigurationSetSendingEnabledRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Enabled !== undefined) {
+  if (input.Enabled !== undefined && input.Enabled !== null) {
     entries["Enabled"] = input.Enabled;
   }
-  if (input.ConfigurationSetName !== undefined) {
+  if (input.ConfigurationSetName !== undefined && input.ConfigurationSetName !== null) {
     entries["ConfigurationSetName"] = input.ConfigurationSetName;
   }
   return entries;
@@ -7886,10 +7925,10 @@ const serializeAws_queryUpdateConfigurationSetTrackingOptionsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ConfigurationSetName !== undefined) {
+  if (input.ConfigurationSetName !== undefined && input.ConfigurationSetName !== null) {
     entries["ConfigurationSetName"] = input.ConfigurationSetName;
   }
-  if (input.TrackingOptions !== undefined) {
+  if (input.TrackingOptions !== undefined && input.TrackingOptions !== null) {
     const memberEntries = serializeAws_queryTrackingOptions(input.TrackingOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TrackingOptions.${key}`;
@@ -7904,22 +7943,22 @@ const serializeAws_queryUpdateCustomVerificationEmailTemplateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.TemplateName !== undefined) {
+  if (input.TemplateName !== undefined && input.TemplateName !== null) {
     entries["TemplateName"] = input.TemplateName;
   }
-  if (input.TemplateSubject !== undefined) {
+  if (input.TemplateSubject !== undefined && input.TemplateSubject !== null) {
     entries["TemplateSubject"] = input.TemplateSubject;
   }
-  if (input.FailureRedirectionURL !== undefined) {
+  if (input.FailureRedirectionURL !== undefined && input.FailureRedirectionURL !== null) {
     entries["FailureRedirectionURL"] = input.FailureRedirectionURL;
   }
-  if (input.FromEmailAddress !== undefined) {
+  if (input.FromEmailAddress !== undefined && input.FromEmailAddress !== null) {
     entries["FromEmailAddress"] = input.FromEmailAddress;
   }
-  if (input.SuccessRedirectionURL !== undefined) {
+  if (input.SuccessRedirectionURL !== undefined && input.SuccessRedirectionURL !== null) {
     entries["SuccessRedirectionURL"] = input.SuccessRedirectionURL;
   }
-  if (input.TemplateContent !== undefined) {
+  if (input.TemplateContent !== undefined && input.TemplateContent !== null) {
     entries["TemplateContent"] = input.TemplateContent;
   }
   return entries;
@@ -7927,14 +7966,14 @@ const serializeAws_queryUpdateCustomVerificationEmailTemplateRequest = (
 
 const serializeAws_queryUpdateReceiptRuleRequest = (input: UpdateReceiptRuleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Rule !== undefined) {
+  if (input.Rule !== undefined && input.Rule !== null) {
     const memberEntries = serializeAws_queryReceiptRule(input.Rule, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Rule.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.RuleSetName !== undefined) {
+  if (input.RuleSetName !== undefined && input.RuleSetName !== null) {
     entries["RuleSetName"] = input.RuleSetName;
   }
   return entries;
@@ -7942,7 +7981,7 @@ const serializeAws_queryUpdateReceiptRuleRequest = (input: UpdateReceiptRuleRequ
 
 const serializeAws_queryUpdateTemplateRequest = (input: UpdateTemplateRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Template !== undefined) {
+  if (input.Template !== undefined && input.Template !== null) {
     const memberEntries = serializeAws_queryTemplate(input.Template, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Template.${key}`;
@@ -7954,7 +7993,7 @@ const serializeAws_queryUpdateTemplateRequest = (input: UpdateTemplateRequest, c
 
 const serializeAws_queryVerifyDomainDkimRequest = (input: VerifyDomainDkimRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Domain !== undefined) {
+  if (input.Domain !== undefined && input.Domain !== null) {
     entries["Domain"] = input.Domain;
   }
   return entries;
@@ -7965,7 +8004,7 @@ const serializeAws_queryVerifyDomainIdentityRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Domain !== undefined) {
+  if (input.Domain !== undefined && input.Domain !== null) {
     entries["Domain"] = input.Domain;
   }
   return entries;
@@ -7976,7 +8015,7 @@ const serializeAws_queryVerifyEmailAddressRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EmailAddress !== undefined) {
+  if (input.EmailAddress !== undefined && input.EmailAddress !== null) {
     entries["EmailAddress"] = input.EmailAddress;
   }
   return entries;
@@ -7987,7 +8026,7 @@ const serializeAws_queryVerifyEmailIdentityRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EmailAddress !== undefined) {
+  if (input.EmailAddress !== undefined && input.EmailAddress !== null) {
     entries["EmailAddress"] = input.EmailAddress;
   }
   return entries;
@@ -7995,10 +8034,10 @@ const serializeAws_queryVerifyEmailIdentityRequest = (
 
 const serializeAws_queryWorkmailAction = (input: WorkmailAction, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.OrganizationArn !== undefined) {
+  if (input.OrganizationArn !== undefined && input.OrganizationArn !== null) {
     entries["OrganizationArn"] = input.OrganizationArn;
   }
-  if (input.TopicArn !== undefined) {
+  if (input.TopicArn !== undefined && input.TopicArn !== null) {
     entries["TopicArn"] = input.TopicArn;
   }
   return entries;
@@ -8032,7 +8071,14 @@ const deserializeAws_queryAddHeaderAction = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_queryAddressList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryAlreadyExistsException = (output: any, context: __SerdeContext): AlreadyExistsException => {
@@ -8100,7 +8146,14 @@ const deserializeAws_queryBulkEmailDestinationStatusList = (
   output: any,
   context: __SerdeContext
 ): BulkEmailDestinationStatus[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryBulkEmailDestinationStatus(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryBulkEmailDestinationStatus(entry, context);
+    });
 };
 
 const deserializeAws_queryCannotDeleteException = (output: any, context: __SerdeContext): CannotDeleteException => {
@@ -8166,7 +8219,14 @@ const deserializeAws_queryCloudWatchDimensionConfigurations = (
   output: any,
   context: __SerdeContext
 ): CloudWatchDimensionConfiguration[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryCloudWatchDimensionConfiguration(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryCloudWatchDimensionConfiguration(entry, context);
+    });
 };
 
 const deserializeAws_queryConfigurationSet = (output: any, context: __SerdeContext): ConfigurationSet => {
@@ -8214,7 +8274,14 @@ const deserializeAws_queryConfigurationSetDoesNotExistException = (
 };
 
 const deserializeAws_queryConfigurationSets = (output: any, context: __SerdeContext): ConfigurationSet[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryConfigurationSet(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryConfigurationSet(entry, context);
+    });
 };
 
 const deserializeAws_queryConfigurationSetSendingPausedException = (
@@ -8367,7 +8434,14 @@ const deserializeAws_queryCustomVerificationEmailTemplates = (
   output: any,
   context: __SerdeContext
 ): CustomVerificationEmailTemplate[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryCustomVerificationEmailTemplate(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryCustomVerificationEmailTemplate(entry, context);
+    });
 };
 
 const deserializeAws_queryDeleteConfigurationSetEventDestinationResponse = (
@@ -8538,13 +8612,15 @@ const deserializeAws_queryDkimAttributes = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: IdentityDkimAttributes } => {
-  return output.reduce(
-    (acc: any, pair: any) => ({
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["value"] === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [pair["key"]]: deserializeAws_queryIdentityDkimAttributes(pair["value"], context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_queryEventDestination = (output: any, context: __SerdeContext): EventDestination => {
@@ -8632,11 +8708,25 @@ const deserializeAws_queryEventDestinationDoesNotExistException = (
 };
 
 const deserializeAws_queryEventDestinations = (output: any, context: __SerdeContext): EventDestination[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryEventDestination(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryEventDestination(entry, context);
+    });
 };
 
 const deserializeAws_queryEventTypes = (output: any, context: __SerdeContext): (EventType | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryFromEmailAddressNotVerifiedException = (
@@ -8866,7 +8956,14 @@ const deserializeAws_queryIdentityDkimAttributes = (output: any, context: __Serd
 };
 
 const deserializeAws_queryIdentityList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryIdentityMailFromDomainAttributes = (
@@ -9359,13 +9456,15 @@ const deserializeAws_queryMailFromDomainAttributes = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: IdentityMailFromDomainAttributes } => {
-  return output.reduce(
-    (acc: any, pair: any) => ({
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["value"] === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [pair["key"]]: deserializeAws_queryIdentityMailFromDomainAttributes(pair["value"], context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_queryMailFromDomainNotVerifiedException = (
@@ -9412,27 +9511,38 @@ const deserializeAws_queryNotificationAttributes = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: IdentityNotificationAttributes } => {
-  return output.reduce(
-    (acc: any, pair: any) => ({
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["value"] === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [pair["key"]]: deserializeAws_queryIdentityNotificationAttributes(pair["value"], context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_queryPolicyMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return output.reduce(
-    (acc: any, pair: any) => ({
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["value"] === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [pair["key"]]: pair["value"],
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_queryPolicyNameList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryProductionAccessNotGrantedException = (
@@ -9499,7 +9609,14 @@ const deserializeAws_queryReceiptAction = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryReceiptActionsList = (output: any, context: __SerdeContext): ReceiptAction[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryReceiptAction(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryReceiptAction(entry, context);
+    });
 };
 
 const deserializeAws_queryReceiptFilter = (output: any, context: __SerdeContext): ReceiptFilter => {
@@ -9517,7 +9634,14 @@ const deserializeAws_queryReceiptFilter = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryReceiptFilterList = (output: any, context: __SerdeContext): ReceiptFilter[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryReceiptFilter(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryReceiptFilter(entry, context);
+    });
 };
 
 const deserializeAws_queryReceiptIpFilter = (output: any, context: __SerdeContext): ReceiptIpFilter => {
@@ -9591,15 +9715,36 @@ const deserializeAws_queryReceiptRuleSetMetadata = (output: any, context: __Serd
 };
 
 const deserializeAws_queryReceiptRuleSetsLists = (output: any, context: __SerdeContext): ReceiptRuleSetMetadata[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryReceiptRuleSetMetadata(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryReceiptRuleSetMetadata(entry, context);
+    });
 };
 
 const deserializeAws_queryReceiptRulesList = (output: any, context: __SerdeContext): ReceiptRule[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryReceiptRule(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryReceiptRule(entry, context);
+    });
 };
 
 const deserializeAws_queryRecipientsList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryReorderReceiptRuleSetResponse = (
@@ -9753,7 +9898,14 @@ const deserializeAws_querySendDataPoint = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_querySendDataPointList = (output: any, context: __SerdeContext): SendDataPoint[] => {
-  return (output || []).map((entry: any) => deserializeAws_querySendDataPoint(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_querySendDataPoint(entry, context);
+    });
 };
 
 const deserializeAws_querySendEmailResponse = (output: any, context: __SerdeContext): SendEmailResponse => {
@@ -9937,7 +10089,14 @@ const deserializeAws_queryTemplateMetadata = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryTemplateMetadataList = (output: any, context: __SerdeContext): TemplateMetadata[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryTemplateMetadata(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryTemplateMetadata(entry, context);
+    });
 };
 
 const deserializeAws_queryTestRenderTemplateResponse = (
@@ -10030,17 +10189,26 @@ const deserializeAws_queryVerificationAttributes = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: IdentityVerificationAttributes } => {
-  return output.reduce(
-    (acc: any, pair: any) => ({
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["value"] === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [pair["key"]]: deserializeAws_queryIdentityVerificationAttributes(pair["value"], context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_queryVerificationTokenList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryVerifyDomainDkimResponse = (

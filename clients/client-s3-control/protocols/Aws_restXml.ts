@@ -193,7 +193,7 @@ export const serializeAws_restXmlCreateAccessPointCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/accesspoint/{Name}";
@@ -254,7 +254,7 @@ export const serializeAws_restXmlCreateBucketCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ACL) && { "x-amz-acl": input.ACL! }),
     ...(isSerializableHeaderValue(input.GrantFullControl) && { "x-amz-grant-full-control": input.GrantFullControl! }),
     ...(isSerializableHeaderValue(input.GrantRead) && { "x-amz-grant-read": input.GrantRead! }),
@@ -301,7 +301,7 @@ export const serializeAws_restXmlCreateJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/jobs";
@@ -387,7 +387,6 @@ export const serializeAws_restXmlDeleteAccessPointCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/accesspoint/{Name}";
@@ -429,7 +428,6 @@ export const serializeAws_restXmlDeleteAccessPointPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/accesspoint/{Name}/policy";
@@ -471,7 +469,6 @@ export const serializeAws_restXmlDeleteBucketCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/bucket/{Bucket}";
@@ -513,7 +510,6 @@ export const serializeAws_restXmlDeleteBucketLifecycleConfigurationCommand = asy
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/bucket/{Bucket}/lifecycleconfiguration";
@@ -555,7 +551,6 @@ export const serializeAws_restXmlDeleteBucketPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/bucket/{Bucket}/policy";
@@ -597,7 +592,6 @@ export const serializeAws_restXmlDeleteBucketTaggingCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/bucket/{Bucket}/tagging";
@@ -639,7 +633,6 @@ export const serializeAws_restXmlDeleteJobTaggingCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/jobs/{JobId}/tagging";
@@ -681,7 +674,6 @@ export const serializeAws_restXmlDeletePublicAccessBlockCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/configuration/publicAccessBlock";
@@ -714,7 +706,6 @@ export const serializeAws_restXmlDeleteStorageLensConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/storagelens/{ConfigId}";
@@ -756,7 +747,6 @@ export const serializeAws_restXmlDeleteStorageLensConfigurationTaggingCommand = 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/storagelens/{ConfigId}/tagging";
@@ -798,7 +788,6 @@ export const serializeAws_restXmlDescribeJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/jobs/{JobId}";
@@ -840,7 +829,6 @@ export const serializeAws_restXmlGetAccessPointCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/accesspoint/{Name}";
@@ -882,7 +870,6 @@ export const serializeAws_restXmlGetAccessPointPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/accesspoint/{Name}/policy";
@@ -924,7 +911,6 @@ export const serializeAws_restXmlGetAccessPointPolicyStatusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/accesspoint/{Name}/policyStatus";
@@ -966,7 +952,6 @@ export const serializeAws_restXmlGetBucketCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/bucket/{Bucket}";
@@ -1008,7 +993,6 @@ export const serializeAws_restXmlGetBucketLifecycleConfigurationCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/bucket/{Bucket}/lifecycleconfiguration";
@@ -1050,7 +1034,6 @@ export const serializeAws_restXmlGetBucketPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/bucket/{Bucket}/policy";
@@ -1092,7 +1075,6 @@ export const serializeAws_restXmlGetBucketTaggingCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/bucket/{Bucket}/tagging";
@@ -1134,7 +1116,6 @@ export const serializeAws_restXmlGetJobTaggingCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/jobs/{JobId}/tagging";
@@ -1176,7 +1157,6 @@ export const serializeAws_restXmlGetPublicAccessBlockCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/configuration/publicAccessBlock";
@@ -1209,7 +1189,6 @@ export const serializeAws_restXmlGetStorageLensConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/storagelens/{ConfigId}";
@@ -1251,7 +1230,6 @@ export const serializeAws_restXmlGetStorageLensConfigurationTaggingCommand = asy
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/storagelens/{ConfigId}/tagging";
@@ -1293,7 +1271,6 @@ export const serializeAws_restXmlListAccessPointsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/accesspoint";
@@ -1332,7 +1309,6 @@ export const serializeAws_restXmlListJobsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/jobs";
@@ -1371,7 +1347,6 @@ export const serializeAws_restXmlListRegionalBucketsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
     ...(isSerializableHeaderValue(input.OutpostId) && { "x-amz-outpost-id": input.OutpostId! }),
   };
@@ -1410,7 +1385,6 @@ export const serializeAws_restXmlListStorageLensConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/storagelens";
@@ -1447,7 +1421,7 @@ export const serializeAws_restXmlPutAccessPointPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/accesspoint/{Name}/policy";
@@ -1497,7 +1471,7 @@ export const serializeAws_restXmlPutBucketLifecycleConfigurationCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/bucket/{Bucket}/lifecycleconfiguration";
@@ -1546,7 +1520,7 @@ export const serializeAws_restXmlPutBucketPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
     ...(isSerializableHeaderValue(input.ConfirmRemoveSelfBucketAccess) && {
       "x-amz-confirm-remove-self-bucket-access": input.ConfirmRemoveSelfBucketAccess!.toString(),
@@ -1599,7 +1573,7 @@ export const serializeAws_restXmlPutBucketTaggingCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/bucket/{Bucket}/tagging";
@@ -1648,7 +1622,7 @@ export const serializeAws_restXmlPutJobTaggingCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/jobs/{JobId}/tagging";
@@ -1702,7 +1676,7 @@ export const serializeAws_restXmlPutPublicAccessBlockCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/configuration/publicAccessBlock";
@@ -1742,7 +1716,7 @@ export const serializeAws_restXmlPutStorageLensConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/storagelens/{ConfigId}";
@@ -1802,7 +1776,7 @@ export const serializeAws_restXmlPutStorageLensConfigurationTaggingCommand = asy
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/storagelens/{ConfigId}/tagging";
@@ -1856,7 +1830,6 @@ export const serializeAws_restXmlUpdateJobPriorityCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/jobs/{JobId}/priority";
@@ -1902,7 +1875,6 @@ export const serializeAws_restXmlUpdateJobStatusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/jobs/{JobId}/status";
@@ -4265,7 +4237,7 @@ const serializeAws_restXmlAbortIncompleteMultipartUpload = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("AbortIncompleteMultipartUpload");
-  if (input.DaysAfterInitiation !== undefined) {
+  if (input.DaysAfterInitiation !== undefined && input.DaysAfterInitiation !== null) {
     const node = new __XmlNode("DaysAfterInitiation")
       .addChildNode(new __XmlText(String(input.DaysAfterInitiation)))
       .withName("DaysAfterInitiation");
@@ -4276,11 +4248,11 @@ const serializeAws_restXmlAbortIncompleteMultipartUpload = (
 
 const serializeAws_restXmlAccountLevel = (input: AccountLevel, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("AccountLevel");
-  if (input.ActivityMetrics !== undefined) {
+  if (input.ActivityMetrics !== undefined && input.ActivityMetrics !== null) {
     const node = serializeAws_restXmlActivityMetrics(input.ActivityMetrics, context).withName("ActivityMetrics");
     bodyNode.addChildNode(node);
   }
-  if (input.BucketLevel !== undefined) {
+  if (input.BucketLevel !== undefined && input.BucketLevel !== null) {
     const node = serializeAws_restXmlBucketLevel(input.BucketLevel, context).withName("BucketLevel");
     bodyNode.addChildNode(node);
   }
@@ -4289,7 +4261,7 @@ const serializeAws_restXmlAccountLevel = (input: AccountLevel, context: __SerdeC
 
 const serializeAws_restXmlActivityMetrics = (input: ActivityMetrics, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("ActivityMetrics");
-  if (input.IsEnabled !== undefined) {
+  if (input.IsEnabled !== undefined && input.IsEnabled !== null) {
     const node = new __XmlNode("IsEnabled").addChildNode(new __XmlText(String(input.IsEnabled))).withName("IsEnabled");
     bodyNode.addChildNode(node);
   }
@@ -4298,11 +4270,11 @@ const serializeAws_restXmlActivityMetrics = (input: ActivityMetrics, context: __
 
 const serializeAws_restXmlBucketLevel = (input: BucketLevel, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("BucketLevel");
-  if (input.ActivityMetrics !== undefined) {
+  if (input.ActivityMetrics !== undefined && input.ActivityMetrics !== null) {
     const node = serializeAws_restXmlActivityMetrics(input.ActivityMetrics, context).withName("ActivityMetrics");
     bodyNode.addChildNode(node);
   }
-  if (input.PrefixLevel !== undefined) {
+  if (input.PrefixLevel !== undefined && input.PrefixLevel !== null) {
     const node = serializeAws_restXmlPrefixLevel(input.PrefixLevel, context).withName("PrefixLevel");
     bodyNode.addChildNode(node);
   }
@@ -4310,10 +4282,15 @@ const serializeAws_restXmlBucketLevel = (input: BucketLevel, context: __SerdeCon
 };
 
 const serializeAws_restXmlBuckets = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = new __XmlNode("S3BucketArnString").addChildNode(new __XmlText(entry));
-    return node.withName("Arn");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = new __XmlNode("S3BucketArnString").addChildNode(new __XmlText(entry));
+      return node.withName("Arn");
+    });
 };
 
 const serializeAws_restXmlCreateBucketConfiguration = (
@@ -4321,7 +4298,7 @@ const serializeAws_restXmlCreateBucketConfiguration = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("CreateBucketConfiguration");
-  if (input.LocationConstraint !== undefined) {
+  if (input.LocationConstraint !== undefined && input.LocationConstraint !== null) {
     const node = new __XmlNode("BucketLocationConstraint")
       .addChildNode(new __XmlText(input.LocationConstraint))
       .withName("LocationConstraint");
@@ -4332,7 +4309,7 @@ const serializeAws_restXmlCreateBucketConfiguration = (
 
 const serializeAws_restXml_Exclude = (input: _Exclude, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("Exclude");
-  if (input.Buckets !== undefined) {
+  if (input.Buckets !== undefined && input.Buckets !== null) {
     const nodes = serializeAws_restXmlBuckets(input.Buckets, context);
     const containerNode = new __XmlNode("Buckets");
     nodes.map((node: any) => {
@@ -4340,7 +4317,7 @@ const serializeAws_restXml_Exclude = (input: _Exclude, context: __SerdeContext):
     });
     bodyNode.addChildNode(containerNode);
   }
-  if (input.Regions !== undefined) {
+  if (input.Regions !== undefined && input.Regions !== null) {
     const nodes = serializeAws_restXmlRegions(input.Regions, context);
     const containerNode = new __XmlNode("Regions");
     nodes.map((node: any) => {
@@ -4353,7 +4330,7 @@ const serializeAws_restXml_Exclude = (input: _Exclude, context: __SerdeContext):
 
 const serializeAws_restXmlInclude = (input: Include, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("Include");
-  if (input.Buckets !== undefined) {
+  if (input.Buckets !== undefined && input.Buckets !== null) {
     const nodes = serializeAws_restXmlBuckets(input.Buckets, context);
     const containerNode = new __XmlNode("Buckets");
     nodes.map((node: any) => {
@@ -4361,7 +4338,7 @@ const serializeAws_restXmlInclude = (input: Include, context: __SerdeContext): a
     });
     bodyNode.addChildNode(containerNode);
   }
-  if (input.Regions !== undefined) {
+  if (input.Regions !== undefined && input.Regions !== null) {
     const nodes = serializeAws_restXmlRegions(input.Regions, context);
     const containerNode = new __XmlNode("Regions");
     nodes.map((node: any) => {
@@ -4374,11 +4351,11 @@ const serializeAws_restXmlInclude = (input: Include, context: __SerdeContext): a
 
 const serializeAws_restXmlJobManifest = (input: JobManifest, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("JobManifest");
-  if (input.Spec !== undefined) {
+  if (input.Spec !== undefined && input.Spec !== null) {
     const node = serializeAws_restXmlJobManifestSpec(input.Spec, context).withName("Spec");
     bodyNode.addChildNode(node);
   }
-  if (input.Location !== undefined) {
+  if (input.Location !== undefined && input.Location !== null) {
     const node = serializeAws_restXmlJobManifestLocation(input.Location, context).withName("Location");
     bodyNode.addChildNode(node);
   }
@@ -4389,25 +4366,30 @@ const serializeAws_restXmlJobManifestFieldList = (
   input: (JobManifestFieldName | string)[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => {
-    const node = new __XmlNode("JobManifestFieldName").addChildNode(new __XmlText(entry));
-    return node.withName("member");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = new __XmlNode("JobManifestFieldName").addChildNode(new __XmlText(entry));
+      return node.withName("member");
+    });
 };
 
 const serializeAws_restXmlJobManifestLocation = (input: JobManifestLocation, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("JobManifestLocation");
-  if (input.ObjectArn !== undefined) {
+  if (input.ObjectArn !== undefined && input.ObjectArn !== null) {
     const node = new __XmlNode("S3KeyArnString").addChildNode(new __XmlText(input.ObjectArn)).withName("ObjectArn");
     bodyNode.addChildNode(node);
   }
-  if (input.ObjectVersionId !== undefined) {
+  if (input.ObjectVersionId !== undefined && input.ObjectVersionId !== null) {
     const node = new __XmlNode("S3ObjectVersionId")
       .addChildNode(new __XmlText(input.ObjectVersionId))
       .withName("ObjectVersionId");
     bodyNode.addChildNode(node);
   }
-  if (input.ETag !== undefined) {
+  if (input.ETag !== undefined && input.ETag !== null) {
     const node = new __XmlNode("NonEmptyMaxLength1024String").addChildNode(new __XmlText(input.ETag)).withName("ETag");
     bodyNode.addChildNode(node);
   }
@@ -4416,11 +4398,11 @@ const serializeAws_restXmlJobManifestLocation = (input: JobManifestLocation, con
 
 const serializeAws_restXmlJobManifestSpec = (input: JobManifestSpec, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("JobManifestSpec");
-  if (input.Format !== undefined) {
+  if (input.Format !== undefined && input.Format !== null) {
     const node = new __XmlNode("JobManifestFormat").addChildNode(new __XmlText(input.Format)).withName("Format");
     bodyNode.addChildNode(node);
   }
-  if (input.Fields !== undefined) {
+  if (input.Fields !== undefined && input.Fields !== null) {
     const nodes = serializeAws_restXmlJobManifestFieldList(input.Fields, context);
     const containerNode = new __XmlNode("Fields");
     nodes.map((node: any) => {
@@ -4433,37 +4415,37 @@ const serializeAws_restXmlJobManifestSpec = (input: JobManifestSpec, context: __
 
 const serializeAws_restXmlJobOperation = (input: JobOperation, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("JobOperation");
-  if (input.LambdaInvoke !== undefined) {
+  if (input.LambdaInvoke !== undefined && input.LambdaInvoke !== null) {
     const node = serializeAws_restXmlLambdaInvokeOperation(input.LambdaInvoke, context).withName("LambdaInvoke");
     bodyNode.addChildNode(node);
   }
-  if (input.S3PutObjectCopy !== undefined) {
+  if (input.S3PutObjectCopy !== undefined && input.S3PutObjectCopy !== null) {
     const node = serializeAws_restXmlS3CopyObjectOperation(input.S3PutObjectCopy, context).withName("S3PutObjectCopy");
     bodyNode.addChildNode(node);
   }
-  if (input.S3PutObjectAcl !== undefined) {
+  if (input.S3PutObjectAcl !== undefined && input.S3PutObjectAcl !== null) {
     const node = serializeAws_restXmlS3SetObjectAclOperation(input.S3PutObjectAcl, context).withName("S3PutObjectAcl");
     bodyNode.addChildNode(node);
   }
-  if (input.S3PutObjectTagging !== undefined) {
+  if (input.S3PutObjectTagging !== undefined && input.S3PutObjectTagging !== null) {
     const node = serializeAws_restXmlS3SetObjectTaggingOperation(input.S3PutObjectTagging, context).withName(
       "S3PutObjectTagging"
     );
     bodyNode.addChildNode(node);
   }
-  if (input.S3InitiateRestoreObject !== undefined) {
+  if (input.S3InitiateRestoreObject !== undefined && input.S3InitiateRestoreObject !== null) {
     const node = serializeAws_restXmlS3InitiateRestoreObjectOperation(input.S3InitiateRestoreObject, context).withName(
       "S3InitiateRestoreObject"
     );
     bodyNode.addChildNode(node);
   }
-  if (input.S3PutObjectLegalHold !== undefined) {
+  if (input.S3PutObjectLegalHold !== undefined && input.S3PutObjectLegalHold !== null) {
     const node = serializeAws_restXmlS3SetObjectLegalHoldOperation(input.S3PutObjectLegalHold, context).withName(
       "S3PutObjectLegalHold"
     );
     bodyNode.addChildNode(node);
   }
-  if (input.S3PutObjectRetention !== undefined) {
+  if (input.S3PutObjectRetention !== undefined && input.S3PutObjectRetention !== null) {
     const node = serializeAws_restXmlS3SetObjectRetentionOperation(input.S3PutObjectRetention, context).withName(
       "S3PutObjectRetention"
     );
@@ -4474,23 +4456,23 @@ const serializeAws_restXmlJobOperation = (input: JobOperation, context: __SerdeC
 
 const serializeAws_restXmlJobReport = (input: JobReport, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("JobReport");
-  if (input.Bucket !== undefined) {
+  if (input.Bucket !== undefined && input.Bucket !== null) {
     const node = new __XmlNode("S3BucketArnString").addChildNode(new __XmlText(input.Bucket)).withName("Bucket");
     bodyNode.addChildNode(node);
   }
-  if (input.Format !== undefined) {
+  if (input.Format !== undefined && input.Format !== null) {
     const node = new __XmlNode("JobReportFormat").addChildNode(new __XmlText(input.Format)).withName("Format");
     bodyNode.addChildNode(node);
   }
-  if (input.Enabled !== undefined) {
+  if (input.Enabled !== undefined && input.Enabled !== null) {
     const node = new __XmlNode("Boolean").addChildNode(new __XmlText(String(input.Enabled))).withName("Enabled");
     bodyNode.addChildNode(node);
   }
-  if (input.Prefix !== undefined) {
+  if (input.Prefix !== undefined && input.Prefix !== null) {
     const node = new __XmlNode("ReportPrefixString").addChildNode(new __XmlText(input.Prefix)).withName("Prefix");
     bodyNode.addChildNode(node);
   }
-  if (input.ReportScope !== undefined) {
+  if (input.ReportScope !== undefined && input.ReportScope !== null) {
     const node = new __XmlNode("JobReportScope").addChildNode(new __XmlText(input.ReportScope)).withName("ReportScope");
     bodyNode.addChildNode(node);
   }
@@ -4499,7 +4481,7 @@ const serializeAws_restXmlJobReport = (input: JobReport, context: __SerdeContext
 
 const serializeAws_restXmlLambdaInvokeOperation = (input: LambdaInvokeOperation, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("LambdaInvokeOperation");
-  if (input.FunctionArn !== undefined) {
+  if (input.FunctionArn !== undefined && input.FunctionArn !== null) {
     const node = new __XmlNode("FunctionArnString")
       .addChildNode(new __XmlText(input.FunctionArn))
       .withName("FunctionArn");
@@ -4510,7 +4492,7 @@ const serializeAws_restXmlLambdaInvokeOperation = (input: LambdaInvokeOperation,
 
 const serializeAws_restXmlLifecycleConfiguration = (input: LifecycleConfiguration, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("LifecycleConfiguration");
-  if (input.Rules !== undefined) {
+  if (input.Rules !== undefined && input.Rules !== null) {
     const nodes = serializeAws_restXmlLifecycleRules(input.Rules, context);
     const containerNode = new __XmlNode("Rules");
     nodes.map((node: any) => {
@@ -4523,17 +4505,17 @@ const serializeAws_restXmlLifecycleConfiguration = (input: LifecycleConfiguratio
 
 const serializeAws_restXmlLifecycleExpiration = (input: LifecycleExpiration, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("LifecycleExpiration");
-  if (input.Date !== undefined) {
+  if (input.Date !== undefined && input.Date !== null) {
     const node = new __XmlNode("Date")
       .addChildNode(new __XmlText(input.Date.toISOString().split(".")[0] + "Z"))
       .withName("Date");
     bodyNode.addChildNode(node);
   }
-  if (input.Days !== undefined) {
+  if (input.Days !== undefined && input.Days !== null) {
     const node = new __XmlNode("Days").addChildNode(new __XmlText(String(input.Days))).withName("Days");
     bodyNode.addChildNode(node);
   }
-  if (input.ExpiredObjectDeleteMarker !== undefined) {
+  if (input.ExpiredObjectDeleteMarker !== undefined && input.ExpiredObjectDeleteMarker !== null) {
     const node = new __XmlNode("ExpiredObjectDeleteMarker")
       .addChildNode(new __XmlText(String(input.ExpiredObjectDeleteMarker)))
       .withName("ExpiredObjectDeleteMarker");
@@ -4544,23 +4526,23 @@ const serializeAws_restXmlLifecycleExpiration = (input: LifecycleExpiration, con
 
 const serializeAws_restXmlLifecycleRule = (input: LifecycleRule, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("LifecycleRule");
-  if (input.Expiration !== undefined) {
+  if (input.Expiration !== undefined && input.Expiration !== null) {
     const node = serializeAws_restXmlLifecycleExpiration(input.Expiration, context).withName("Expiration");
     bodyNode.addChildNode(node);
   }
-  if (input.ID !== undefined) {
+  if (input.ID !== undefined && input.ID !== null) {
     const node = new __XmlNode("ID").addChildNode(new __XmlText(input.ID)).withName("ID");
     bodyNode.addChildNode(node);
   }
-  if (input.Filter !== undefined) {
+  if (input.Filter !== undefined && input.Filter !== null) {
     const node = serializeAws_restXmlLifecycleRuleFilter(input.Filter, context).withName("Filter");
     bodyNode.addChildNode(node);
   }
-  if (input.Status !== undefined) {
+  if (input.Status !== undefined && input.Status !== null) {
     const node = new __XmlNode("ExpirationStatus").addChildNode(new __XmlText(input.Status)).withName("Status");
     bodyNode.addChildNode(node);
   }
-  if (input.Transitions !== undefined) {
+  if (input.Transitions !== undefined && input.Transitions !== null) {
     const nodes = serializeAws_restXmlTransitionList(input.Transitions, context);
     const containerNode = new __XmlNode("Transitions");
     nodes.map((node: any) => {
@@ -4568,7 +4550,7 @@ const serializeAws_restXmlLifecycleRule = (input: LifecycleRule, context: __Serd
     });
     bodyNode.addChildNode(containerNode);
   }
-  if (input.NoncurrentVersionTransitions !== undefined) {
+  if (input.NoncurrentVersionTransitions !== undefined && input.NoncurrentVersionTransitions !== null) {
     const nodes = serializeAws_restXmlNoncurrentVersionTransitionList(input.NoncurrentVersionTransitions, context);
     const containerNode = new __XmlNode("NoncurrentVersionTransitions");
     nodes.map((node: any) => {
@@ -4576,13 +4558,13 @@ const serializeAws_restXmlLifecycleRule = (input: LifecycleRule, context: __Serd
     });
     bodyNode.addChildNode(containerNode);
   }
-  if (input.NoncurrentVersionExpiration !== undefined) {
+  if (input.NoncurrentVersionExpiration !== undefined && input.NoncurrentVersionExpiration !== null) {
     const node = serializeAws_restXmlNoncurrentVersionExpiration(input.NoncurrentVersionExpiration, context).withName(
       "NoncurrentVersionExpiration"
     );
     bodyNode.addChildNode(node);
   }
-  if (input.AbortIncompleteMultipartUpload !== undefined) {
+  if (input.AbortIncompleteMultipartUpload !== undefined && input.AbortIncompleteMultipartUpload !== null) {
     const node = serializeAws_restXmlAbortIncompleteMultipartUpload(
       input.AbortIncompleteMultipartUpload,
       context
@@ -4597,11 +4579,11 @@ const serializeAws_restXmlLifecycleRuleAndOperator = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("LifecycleRuleAndOperator");
-  if (input.Prefix !== undefined) {
+  if (input.Prefix !== undefined && input.Prefix !== null) {
     const node = new __XmlNode("Prefix").addChildNode(new __XmlText(input.Prefix)).withName("Prefix");
     bodyNode.addChildNode(node);
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const nodes = serializeAws_restXmlS3TagSet(input.Tags, context);
     const containerNode = new __XmlNode("Tags");
     nodes.map((node: any) => {
@@ -4614,15 +4596,15 @@ const serializeAws_restXmlLifecycleRuleAndOperator = (
 
 const serializeAws_restXmlLifecycleRuleFilter = (input: LifecycleRuleFilter, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("LifecycleRuleFilter");
-  if (input.Prefix !== undefined) {
+  if (input.Prefix !== undefined && input.Prefix !== null) {
     const node = new __XmlNode("Prefix").addChildNode(new __XmlText(input.Prefix)).withName("Prefix");
     bodyNode.addChildNode(node);
   }
-  if (input.Tag !== undefined) {
+  if (input.Tag !== undefined && input.Tag !== null) {
     const node = serializeAws_restXmlS3Tag(input.Tag, context).withName("Tag");
     bodyNode.addChildNode(node);
   }
-  if (input.And !== undefined) {
+  if (input.And !== undefined && input.And !== null) {
     const node = serializeAws_restXmlLifecycleRuleAndOperator(input.And, context).withName("And");
     bodyNode.addChildNode(node);
   }
@@ -4630,10 +4612,15 @@ const serializeAws_restXmlLifecycleRuleFilter = (input: LifecycleRuleFilter, con
 };
 
 const serializeAws_restXmlLifecycleRules = (input: LifecycleRule[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = serializeAws_restXmlLifecycleRule(entry, context);
-    return node.withName("Rule");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = serializeAws_restXmlLifecycleRule(entry, context);
+      return node.withName("Rule");
+    });
 };
 
 const serializeAws_restXmlNoncurrentVersionExpiration = (
@@ -4641,7 +4628,7 @@ const serializeAws_restXmlNoncurrentVersionExpiration = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("NoncurrentVersionExpiration");
-  if (input.NoncurrentDays !== undefined) {
+  if (input.NoncurrentDays !== undefined && input.NoncurrentDays !== null) {
     const node = new __XmlNode("Days")
       .addChildNode(new __XmlText(String(input.NoncurrentDays)))
       .withName("NoncurrentDays");
@@ -4655,13 +4642,13 @@ const serializeAws_restXmlNoncurrentVersionTransition = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("NoncurrentVersionTransition");
-  if (input.NoncurrentDays !== undefined) {
+  if (input.NoncurrentDays !== undefined && input.NoncurrentDays !== null) {
     const node = new __XmlNode("Days")
       .addChildNode(new __XmlText(String(input.NoncurrentDays)))
       .withName("NoncurrentDays");
     bodyNode.addChildNode(node);
   }
-  if (input.StorageClass !== undefined) {
+  if (input.StorageClass !== undefined && input.StorageClass !== null) {
     const node = new __XmlNode("TransitionStorageClass")
       .addChildNode(new __XmlText(input.StorageClass))
       .withName("StorageClass");
@@ -4674,15 +4661,20 @@ const serializeAws_restXmlNoncurrentVersionTransitionList = (
   input: NoncurrentVersionTransition[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => {
-    const node = serializeAws_restXmlNoncurrentVersionTransition(entry, context);
-    return node.withName("NoncurrentVersionTransition");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = serializeAws_restXmlNoncurrentVersionTransition(entry, context);
+      return node.withName("NoncurrentVersionTransition");
+    });
 };
 
 const serializeAws_restXmlPrefixLevel = (input: PrefixLevel, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("PrefixLevel");
-  if (input.StorageMetrics !== undefined) {
+  if (input.StorageMetrics !== undefined && input.StorageMetrics !== null) {
     const node = serializeAws_restXmlPrefixLevelStorageMetrics(input.StorageMetrics, context).withName(
       "StorageMetrics"
     );
@@ -4696,11 +4688,11 @@ const serializeAws_restXmlPrefixLevelStorageMetrics = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("PrefixLevelStorageMetrics");
-  if (input.IsEnabled !== undefined) {
+  if (input.IsEnabled !== undefined && input.IsEnabled !== null) {
     const node = new __XmlNode("IsEnabled").addChildNode(new __XmlText(String(input.IsEnabled))).withName("IsEnabled");
     bodyNode.addChildNode(node);
   }
-  if (input.SelectionCriteria !== undefined) {
+  if (input.SelectionCriteria !== undefined && input.SelectionCriteria !== null) {
     const node = serializeAws_restXmlSelectionCriteria(input.SelectionCriteria, context).withName("SelectionCriteria");
     bodyNode.addChildNode(node);
   }
@@ -4712,25 +4704,25 @@ const serializeAws_restXmlPublicAccessBlockConfiguration = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("PublicAccessBlockConfiguration");
-  if (input.BlockPublicAcls !== undefined) {
+  if (input.BlockPublicAcls !== undefined && input.BlockPublicAcls !== null) {
     const node = new __XmlNode("Setting")
       .addChildNode(new __XmlText(String(input.BlockPublicAcls)))
       .withName("BlockPublicAcls");
     bodyNode.addChildNode(node);
   }
-  if (input.IgnorePublicAcls !== undefined) {
+  if (input.IgnorePublicAcls !== undefined && input.IgnorePublicAcls !== null) {
     const node = new __XmlNode("Setting")
       .addChildNode(new __XmlText(String(input.IgnorePublicAcls)))
       .withName("IgnorePublicAcls");
     bodyNode.addChildNode(node);
   }
-  if (input.BlockPublicPolicy !== undefined) {
+  if (input.BlockPublicPolicy !== undefined && input.BlockPublicPolicy !== null) {
     const node = new __XmlNode("Setting")
       .addChildNode(new __XmlText(String(input.BlockPublicPolicy)))
       .withName("BlockPublicPolicy");
     bodyNode.addChildNode(node);
   }
-  if (input.RestrictPublicBuckets !== undefined) {
+  if (input.RestrictPublicBuckets !== undefined && input.RestrictPublicBuckets !== null) {
     const node = new __XmlNode("Setting")
       .addChildNode(new __XmlText(String(input.RestrictPublicBuckets)))
       .withName("RestrictPublicBuckets");
@@ -4740,19 +4732,24 @@ const serializeAws_restXmlPublicAccessBlockConfiguration = (
 };
 
 const serializeAws_restXmlRegions = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = new __XmlNode("S3AWSRegion").addChildNode(new __XmlText(entry));
-    return node.withName("Region");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = new __XmlNode("S3AWSRegion").addChildNode(new __XmlText(entry));
+      return node.withName("Region");
+    });
 };
 
 const serializeAws_restXmlS3AccessControlList = (input: S3AccessControlList, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("S3AccessControlList");
-  if (input.Owner !== undefined) {
+  if (input.Owner !== undefined && input.Owner !== null) {
     const node = serializeAws_restXmlS3ObjectOwner(input.Owner, context).withName("Owner");
     bodyNode.addChildNode(node);
   }
-  if (input.Grants !== undefined) {
+  if (input.Grants !== undefined && input.Grants !== null) {
     const nodes = serializeAws_restXmlS3GrantList(input.Grants, context);
     const containerNode = new __XmlNode("Grants");
     nodes.map((node: any) => {
@@ -4765,13 +4762,13 @@ const serializeAws_restXmlS3AccessControlList = (input: S3AccessControlList, con
 
 const serializeAws_restXmlS3AccessControlPolicy = (input: S3AccessControlPolicy, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("S3AccessControlPolicy");
-  if (input.AccessControlList !== undefined) {
+  if (input.AccessControlList !== undefined && input.AccessControlList !== null) {
     const node = serializeAws_restXmlS3AccessControlList(input.AccessControlList, context).withName(
       "AccessControlList"
     );
     bodyNode.addChildNode(node);
   }
-  if (input.CannedAccessControlList !== undefined) {
+  if (input.CannedAccessControlList !== undefined && input.CannedAccessControlList !== null) {
     const node = new __XmlNode("S3CannedAccessControlList")
       .addChildNode(new __XmlText(input.CannedAccessControlList))
       .withName("CannedAccessControlList");
@@ -4782,29 +4779,29 @@ const serializeAws_restXmlS3AccessControlPolicy = (input: S3AccessControlPolicy,
 
 const serializeAws_restXmlS3BucketDestination = (input: S3BucketDestination, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("S3BucketDestination");
-  if (input.Format !== undefined) {
+  if (input.Format !== undefined && input.Format !== null) {
     const node = new __XmlNode("Format").addChildNode(new __XmlText(input.Format)).withName("Format");
     bodyNode.addChildNode(node);
   }
-  if (input.OutputSchemaVersion !== undefined) {
+  if (input.OutputSchemaVersion !== undefined && input.OutputSchemaVersion !== null) {
     const node = new __XmlNode("OutputSchemaVersion")
       .addChildNode(new __XmlText(input.OutputSchemaVersion))
       .withName("OutputSchemaVersion");
     bodyNode.addChildNode(node);
   }
-  if (input.AccountId !== undefined) {
+  if (input.AccountId !== undefined && input.AccountId !== null) {
     const node = new __XmlNode("AccountId").addChildNode(new __XmlText(input.AccountId)).withName("AccountId");
     bodyNode.addChildNode(node);
   }
-  if (input.Arn !== undefined) {
+  if (input.Arn !== undefined && input.Arn !== null) {
     const node = new __XmlNode("S3BucketArnString").addChildNode(new __XmlText(input.Arn)).withName("Arn");
     bodyNode.addChildNode(node);
   }
-  if (input.Prefix !== undefined) {
+  if (input.Prefix !== undefined && input.Prefix !== null) {
     const node = new __XmlNode("Prefix").addChildNode(new __XmlText(input.Prefix)).withName("Prefix");
     bodyNode.addChildNode(node);
   }
-  if (input.Encryption !== undefined) {
+  if (input.Encryption !== undefined && input.Encryption !== null) {
     const node = serializeAws_restXmlStorageLensDataExportEncryption(input.Encryption, context).withName("Encryption");
     bodyNode.addChildNode(node);
   }
@@ -4813,19 +4810,19 @@ const serializeAws_restXmlS3BucketDestination = (input: S3BucketDestination, con
 
 const serializeAws_restXmlS3CopyObjectOperation = (input: S3CopyObjectOperation, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("S3CopyObjectOperation");
-  if (input.TargetResource !== undefined) {
+  if (input.TargetResource !== undefined && input.TargetResource !== null) {
     const node = new __XmlNode("S3BucketArnString")
       .addChildNode(new __XmlText(input.TargetResource))
       .withName("TargetResource");
     bodyNode.addChildNode(node);
   }
-  if (input.CannedAccessControlList !== undefined) {
+  if (input.CannedAccessControlList !== undefined && input.CannedAccessControlList !== null) {
     const node = new __XmlNode("S3CannedAccessControlList")
       .addChildNode(new __XmlText(input.CannedAccessControlList))
       .withName("CannedAccessControlList");
     bodyNode.addChildNode(node);
   }
-  if (input.AccessControlGrants !== undefined) {
+  if (input.AccessControlGrants !== undefined && input.AccessControlGrants !== null) {
     const nodes = serializeAws_restXmlS3GrantList(input.AccessControlGrants, context);
     const containerNode = new __XmlNode("AccessControlGrants");
     nodes.map((node: any) => {
@@ -4833,23 +4830,23 @@ const serializeAws_restXmlS3CopyObjectOperation = (input: S3CopyObjectOperation,
     });
     bodyNode.addChildNode(containerNode);
   }
-  if (input.MetadataDirective !== undefined) {
+  if (input.MetadataDirective !== undefined && input.MetadataDirective !== null) {
     const node = new __XmlNode("S3MetadataDirective")
       .addChildNode(new __XmlText(input.MetadataDirective))
       .withName("MetadataDirective");
     bodyNode.addChildNode(node);
   }
-  if (input.ModifiedSinceConstraint !== undefined) {
+  if (input.ModifiedSinceConstraint !== undefined && input.ModifiedSinceConstraint !== null) {
     const node = new __XmlNode("TimeStamp")
       .addChildNode(new __XmlText(input.ModifiedSinceConstraint.toISOString().split(".")[0] + "Z"))
       .withName("ModifiedSinceConstraint");
     bodyNode.addChildNode(node);
   }
-  if (input.NewObjectMetadata !== undefined) {
+  if (input.NewObjectMetadata !== undefined && input.NewObjectMetadata !== null) {
     const node = serializeAws_restXmlS3ObjectMetadata(input.NewObjectMetadata, context).withName("NewObjectMetadata");
     bodyNode.addChildNode(node);
   }
-  if (input.NewObjectTagging !== undefined) {
+  if (input.NewObjectTagging !== undefined && input.NewObjectTagging !== null) {
     const nodes = serializeAws_restXmlS3TagSet(input.NewObjectTagging, context);
     const containerNode = new __XmlNode("NewObjectTagging");
     nodes.map((node: any) => {
@@ -4857,55 +4854,55 @@ const serializeAws_restXmlS3CopyObjectOperation = (input: S3CopyObjectOperation,
     });
     bodyNode.addChildNode(containerNode);
   }
-  if (input.RedirectLocation !== undefined) {
+  if (input.RedirectLocation !== undefined && input.RedirectLocation !== null) {
     const node = new __XmlNode("NonEmptyMaxLength2048String")
       .addChildNode(new __XmlText(input.RedirectLocation))
       .withName("RedirectLocation");
     bodyNode.addChildNode(node);
   }
-  if (input.RequesterPays !== undefined) {
+  if (input.RequesterPays !== undefined && input.RequesterPays !== null) {
     const node = new __XmlNode("Boolean")
       .addChildNode(new __XmlText(String(input.RequesterPays)))
       .withName("RequesterPays");
     bodyNode.addChildNode(node);
   }
-  if (input.StorageClass !== undefined) {
+  if (input.StorageClass !== undefined && input.StorageClass !== null) {
     const node = new __XmlNode("S3StorageClass")
       .addChildNode(new __XmlText(input.StorageClass))
       .withName("StorageClass");
     bodyNode.addChildNode(node);
   }
-  if (input.UnModifiedSinceConstraint !== undefined) {
+  if (input.UnModifiedSinceConstraint !== undefined && input.UnModifiedSinceConstraint !== null) {
     const node = new __XmlNode("TimeStamp")
       .addChildNode(new __XmlText(input.UnModifiedSinceConstraint.toISOString().split(".")[0] + "Z"))
       .withName("UnModifiedSinceConstraint");
     bodyNode.addChildNode(node);
   }
-  if (input.SSEAwsKmsKeyId !== undefined) {
+  if (input.SSEAwsKmsKeyId !== undefined && input.SSEAwsKmsKeyId !== null) {
     const node = new __XmlNode("KmsKeyArnString")
       .addChildNode(new __XmlText(input.SSEAwsKmsKeyId))
       .withName("SSEAwsKmsKeyId");
     bodyNode.addChildNode(node);
   }
-  if (input.TargetKeyPrefix !== undefined) {
+  if (input.TargetKeyPrefix !== undefined && input.TargetKeyPrefix !== null) {
     const node = new __XmlNode("NonEmptyMaxLength1024String")
       .addChildNode(new __XmlText(input.TargetKeyPrefix))
       .withName("TargetKeyPrefix");
     bodyNode.addChildNode(node);
   }
-  if (input.ObjectLockLegalHoldStatus !== undefined) {
+  if (input.ObjectLockLegalHoldStatus !== undefined && input.ObjectLockLegalHoldStatus !== null) {
     const node = new __XmlNode("S3ObjectLockLegalHoldStatus")
       .addChildNode(new __XmlText(input.ObjectLockLegalHoldStatus))
       .withName("ObjectLockLegalHoldStatus");
     bodyNode.addChildNode(node);
   }
-  if (input.ObjectLockMode !== undefined) {
+  if (input.ObjectLockMode !== undefined && input.ObjectLockMode !== null) {
     const node = new __XmlNode("S3ObjectLockMode")
       .addChildNode(new __XmlText(input.ObjectLockMode))
       .withName("ObjectLockMode");
     bodyNode.addChildNode(node);
   }
-  if (input.ObjectLockRetainUntilDate !== undefined) {
+  if (input.ObjectLockRetainUntilDate !== undefined && input.ObjectLockRetainUntilDate !== null) {
     const node = new __XmlNode("TimeStamp")
       .addChildNode(new __XmlText(input.ObjectLockRetainUntilDate.toISOString().split(".")[0] + "Z"))
       .withName("ObjectLockRetainUntilDate");
@@ -4916,11 +4913,11 @@ const serializeAws_restXmlS3CopyObjectOperation = (input: S3CopyObjectOperation,
 
 const serializeAws_restXmlS3Grant = (input: S3Grant, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("S3Grant");
-  if (input.Grantee !== undefined) {
+  if (input.Grantee !== undefined && input.Grantee !== null) {
     const node = serializeAws_restXmlS3Grantee(input.Grantee, context).withName("Grantee");
     bodyNode.addChildNode(node);
   }
-  if (input.Permission !== undefined) {
+  if (input.Permission !== undefined && input.Permission !== null) {
     const node = new __XmlNode("S3Permission").addChildNode(new __XmlText(input.Permission)).withName("Permission");
     bodyNode.addChildNode(node);
   }
@@ -4929,19 +4926,19 @@ const serializeAws_restXmlS3Grant = (input: S3Grant, context: __SerdeContext): a
 
 const serializeAws_restXmlS3Grantee = (input: S3Grantee, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("S3Grantee");
-  if (input.TypeIdentifier !== undefined) {
+  if (input.TypeIdentifier !== undefined && input.TypeIdentifier !== null) {
     const node = new __XmlNode("S3GranteeTypeIdentifier")
       .addChildNode(new __XmlText(input.TypeIdentifier))
       .withName("TypeIdentifier");
     bodyNode.addChildNode(node);
   }
-  if (input.Identifier !== undefined) {
+  if (input.Identifier !== undefined && input.Identifier !== null) {
     const node = new __XmlNode("NonEmptyMaxLength1024String")
       .addChildNode(new __XmlText(input.Identifier))
       .withName("Identifier");
     bodyNode.addChildNode(node);
   }
-  if (input.DisplayName !== undefined) {
+  if (input.DisplayName !== undefined && input.DisplayName !== null) {
     const node = new __XmlNode("NonEmptyMaxLength1024String")
       .addChildNode(new __XmlText(input.DisplayName))
       .withName("DisplayName");
@@ -4951,10 +4948,15 @@ const serializeAws_restXmlS3Grantee = (input: S3Grantee, context: __SerdeContext
 };
 
 const serializeAws_restXmlS3GrantList = (input: S3Grant[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = serializeAws_restXmlS3Grant(entry, context);
-    return node.withName("member");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = serializeAws_restXmlS3Grant(entry, context);
+      return node.withName("member");
+    });
 };
 
 const serializeAws_restXmlS3InitiateRestoreObjectOperation = (
@@ -4962,13 +4964,13 @@ const serializeAws_restXmlS3InitiateRestoreObjectOperation = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("S3InitiateRestoreObjectOperation");
-  if (input.ExpirationInDays !== undefined) {
+  if (input.ExpirationInDays !== undefined && input.ExpirationInDays !== null) {
     const node = new __XmlNode("S3ExpirationInDays")
       .addChildNode(new __XmlText(String(input.ExpirationInDays)))
       .withName("ExpirationInDays");
     bodyNode.addChildNode(node);
   }
-  if (input.GlacierJobTier !== undefined) {
+  if (input.GlacierJobTier !== undefined && input.GlacierJobTier !== null) {
     const node = new __XmlNode("S3GlacierJobTier")
       .addChildNode(new __XmlText(input.GlacierJobTier))
       .withName("GlacierJobTier");
@@ -4979,7 +4981,7 @@ const serializeAws_restXmlS3InitiateRestoreObjectOperation = (
 
 const serializeAws_restXmlS3ObjectLockLegalHold = (input: S3ObjectLockLegalHold, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("S3ObjectLockLegalHold");
-  if (input.Status !== undefined) {
+  if (input.Status !== undefined && input.Status !== null) {
     const node = new __XmlNode("S3ObjectLockLegalHoldStatus")
       .addChildNode(new __XmlText(input.Status))
       .withName("Status");
@@ -4990,31 +4992,31 @@ const serializeAws_restXmlS3ObjectLockLegalHold = (input: S3ObjectLockLegalHold,
 
 const serializeAws_restXmlS3ObjectMetadata = (input: S3ObjectMetadata, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("S3ObjectMetadata");
-  if (input.CacheControl !== undefined) {
+  if (input.CacheControl !== undefined && input.CacheControl !== null) {
     const node = new __XmlNode("NonEmptyMaxLength1024String")
       .addChildNode(new __XmlText(input.CacheControl))
       .withName("CacheControl");
     bodyNode.addChildNode(node);
   }
-  if (input.ContentDisposition !== undefined) {
+  if (input.ContentDisposition !== undefined && input.ContentDisposition !== null) {
     const node = new __XmlNode("NonEmptyMaxLength1024String")
       .addChildNode(new __XmlText(input.ContentDisposition))
       .withName("ContentDisposition");
     bodyNode.addChildNode(node);
   }
-  if (input.ContentEncoding !== undefined) {
+  if (input.ContentEncoding !== undefined && input.ContentEncoding !== null) {
     const node = new __XmlNode("NonEmptyMaxLength1024String")
       .addChildNode(new __XmlText(input.ContentEncoding))
       .withName("ContentEncoding");
     bodyNode.addChildNode(node);
   }
-  if (input.ContentLanguage !== undefined) {
+  if (input.ContentLanguage !== undefined && input.ContentLanguage !== null) {
     const node = new __XmlNode("NonEmptyMaxLength1024String")
       .addChildNode(new __XmlText(input.ContentLanguage))
       .withName("ContentLanguage");
     bodyNode.addChildNode(node);
   }
-  if (input.UserMetadata !== undefined) {
+  if (input.UserMetadata !== undefined && input.UserMetadata !== null) {
     const nodes = serializeAws_restXmlS3UserMetadata(input.UserMetadata, context);
     const containerNode = new __XmlNode("UserMetadata");
     nodes.map((node: any) => {
@@ -5022,37 +5024,37 @@ const serializeAws_restXmlS3ObjectMetadata = (input: S3ObjectMetadata, context: 
     });
     bodyNode.addChildNode(containerNode);
   }
-  if (input.ContentLength !== undefined) {
+  if (input.ContentLength !== undefined && input.ContentLength !== null) {
     const node = new __XmlNode("S3ContentLength")
       .addChildNode(new __XmlText(String(input.ContentLength)))
       .withName("ContentLength");
     bodyNode.addChildNode(node);
   }
-  if (input.ContentMD5 !== undefined) {
+  if (input.ContentMD5 !== undefined && input.ContentMD5 !== null) {
     const node = new __XmlNode("NonEmptyMaxLength1024String")
       .addChildNode(new __XmlText(input.ContentMD5))
       .withName("ContentMD5");
     bodyNode.addChildNode(node);
   }
-  if (input.ContentType !== undefined) {
+  if (input.ContentType !== undefined && input.ContentType !== null) {
     const node = new __XmlNode("NonEmptyMaxLength1024String")
       .addChildNode(new __XmlText(input.ContentType))
       .withName("ContentType");
     bodyNode.addChildNode(node);
   }
-  if (input.HttpExpiresDate !== undefined) {
+  if (input.HttpExpiresDate !== undefined && input.HttpExpiresDate !== null) {
     const node = new __XmlNode("TimeStamp")
       .addChildNode(new __XmlText(input.HttpExpiresDate.toISOString().split(".")[0] + "Z"))
       .withName("HttpExpiresDate");
     bodyNode.addChildNode(node);
   }
-  if (input.RequesterCharged !== undefined) {
+  if (input.RequesterCharged !== undefined && input.RequesterCharged !== null) {
     const node = new __XmlNode("Boolean")
       .addChildNode(new __XmlText(String(input.RequesterCharged)))
       .withName("RequesterCharged");
     bodyNode.addChildNode(node);
   }
-  if (input.SSEAlgorithm !== undefined) {
+  if (input.SSEAlgorithm !== undefined && input.SSEAlgorithm !== null) {
     const node = new __XmlNode("S3SSEAlgorithm")
       .addChildNode(new __XmlText(input.SSEAlgorithm))
       .withName("SSEAlgorithm");
@@ -5063,11 +5065,11 @@ const serializeAws_restXmlS3ObjectMetadata = (input: S3ObjectMetadata, context: 
 
 const serializeAws_restXmlS3ObjectOwner = (input: S3ObjectOwner, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("S3ObjectOwner");
-  if (input.ID !== undefined) {
+  if (input.ID !== undefined && input.ID !== null) {
     const node = new __XmlNode("NonEmptyMaxLength1024String").addChildNode(new __XmlText(input.ID)).withName("ID");
     bodyNode.addChildNode(node);
   }
-  if (input.DisplayName !== undefined) {
+  if (input.DisplayName !== undefined && input.DisplayName !== null) {
     const node = new __XmlNode("NonEmptyMaxLength1024String")
       .addChildNode(new __XmlText(input.DisplayName))
       .withName("DisplayName");
@@ -5078,13 +5080,13 @@ const serializeAws_restXmlS3ObjectOwner = (input: S3ObjectOwner, context: __Serd
 
 const serializeAws_restXmlS3Retention = (input: S3Retention, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("S3Retention");
-  if (input.RetainUntilDate !== undefined) {
+  if (input.RetainUntilDate !== undefined && input.RetainUntilDate !== null) {
     const node = new __XmlNode("TimeStamp")
       .addChildNode(new __XmlText(input.RetainUntilDate.toISOString().split(".")[0] + "Z"))
       .withName("RetainUntilDate");
     bodyNode.addChildNode(node);
   }
-  if (input.Mode !== undefined) {
+  if (input.Mode !== undefined && input.Mode !== null) {
     const node = new __XmlNode("S3ObjectLockRetentionMode").addChildNode(new __XmlText(input.Mode)).withName("Mode");
     bodyNode.addChildNode(node);
   }
@@ -5093,7 +5095,7 @@ const serializeAws_restXmlS3Retention = (input: S3Retention, context: __SerdeCon
 
 const serializeAws_restXmlS3SetObjectAclOperation = (input: S3SetObjectAclOperation, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("S3SetObjectAclOperation");
-  if (input.AccessControlPolicy !== undefined) {
+  if (input.AccessControlPolicy !== undefined && input.AccessControlPolicy !== null) {
     const node = serializeAws_restXmlS3AccessControlPolicy(input.AccessControlPolicy, context).withName(
       "AccessControlPolicy"
     );
@@ -5107,7 +5109,7 @@ const serializeAws_restXmlS3SetObjectLegalHoldOperation = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("S3SetObjectLegalHoldOperation");
-  if (input.LegalHold !== undefined) {
+  if (input.LegalHold !== undefined && input.LegalHold !== null) {
     const node = serializeAws_restXmlS3ObjectLockLegalHold(input.LegalHold, context).withName("LegalHold");
     bodyNode.addChildNode(node);
   }
@@ -5119,13 +5121,13 @@ const serializeAws_restXmlS3SetObjectRetentionOperation = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("S3SetObjectRetentionOperation");
-  if (input.BypassGovernanceRetention !== undefined) {
+  if (input.BypassGovernanceRetention !== undefined && input.BypassGovernanceRetention !== null) {
     const node = new __XmlNode("Boolean")
       .addChildNode(new __XmlText(String(input.BypassGovernanceRetention)))
       .withName("BypassGovernanceRetention");
     bodyNode.addChildNode(node);
   }
-  if (input.Retention !== undefined) {
+  if (input.Retention !== undefined && input.Retention !== null) {
     const node = serializeAws_restXmlS3Retention(input.Retention, context).withName("Retention");
     bodyNode.addChildNode(node);
   }
@@ -5137,7 +5139,7 @@ const serializeAws_restXmlS3SetObjectTaggingOperation = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("S3SetObjectTaggingOperation");
-  if (input.TagSet !== undefined) {
+  if (input.TagSet !== undefined && input.TagSet !== null) {
     const nodes = serializeAws_restXmlS3TagSet(input.TagSet, context);
     const containerNode = new __XmlNode("TagSet");
     nodes.map((node: any) => {
@@ -5150,11 +5152,11 @@ const serializeAws_restXmlS3SetObjectTaggingOperation = (
 
 const serializeAws_restXmlS3Tag = (input: S3Tag, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("S3Tag");
-  if (input.Key !== undefined) {
+  if (input.Key !== undefined && input.Key !== null) {
     const node = new __XmlNode("TagKeyString").addChildNode(new __XmlText(input.Key)).withName("Key");
     bodyNode.addChildNode(node);
   }
-  if (input.Value !== undefined) {
+  if (input.Value !== undefined && input.Value !== null) {
     const node = new __XmlNode("TagValueString").addChildNode(new __XmlText(input.Value)).withName("Value");
     bodyNode.addChildNode(node);
   }
@@ -5162,38 +5164,46 @@ const serializeAws_restXmlS3Tag = (input: S3Tag, context: __SerdeContext): any =
 };
 
 const serializeAws_restXmlS3TagSet = (input: S3Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = serializeAws_restXmlS3Tag(entry, context);
-    return node.withName("member");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = serializeAws_restXmlS3Tag(entry, context);
+      return node.withName("member");
+    });
 };
 
 const serializeAws_restXmlS3UserMetadata = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.keys(input).map((key) => {
-    const entryNode = new __XmlNode("entry");
-    const keyNode = new __XmlNode("NonEmptyMaxLength1024String").addChildNode(new __XmlText(key)).withName("key");
-    entryNode.addChildNode(keyNode);
-    const node = new __XmlNode("MaxLength1024String").addChildNode(new __XmlText(input[key]));
-    entryNode.addChildNode(node.withName("value"));
-    return entryNode;
-  });
+  return Object.keys(input)
+    .filter((key) => input[key] != null)
+    .map((key) => {
+      const entryNode = new __XmlNode("entry");
+      const keyNode = new __XmlNode("NonEmptyMaxLength1024String").addChildNode(new __XmlText(key)).withName("key");
+      entryNode.addChildNode(keyNode);
+      var node;
+      node = new __XmlNode("MaxLength1024String").addChildNode(new __XmlText(input[key]));
+      entryNode.addChildNode(node.withName("value"));
+      return entryNode;
+    });
 };
 
 const serializeAws_restXmlSelectionCriteria = (input: SelectionCriteria, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("SelectionCriteria");
-  if (input.Delimiter !== undefined) {
+  if (input.Delimiter !== undefined && input.Delimiter !== null) {
     const node = new __XmlNode("StorageLensPrefixLevelDelimiter")
       .addChildNode(new __XmlText(input.Delimiter))
       .withName("Delimiter");
     bodyNode.addChildNode(node);
   }
-  if (input.MaxDepth !== undefined) {
+  if (input.MaxDepth !== undefined && input.MaxDepth !== null) {
     const node = new __XmlNode("StorageLensPrefixLevelMaxDepth")
       .addChildNode(new __XmlText(String(input.MaxDepth)))
       .withName("MaxDepth");
     bodyNode.addChildNode(node);
   }
-  if (input.MinStorageBytesPercentage !== undefined) {
+  if (input.MinStorageBytesPercentage !== undefined && input.MinStorageBytesPercentage !== null) {
     const node = new __XmlNode("MinStorageBytesPercentage")
       .addChildNode(new __XmlText(String(input.MinStorageBytesPercentage)))
       .withName("MinStorageBytesPercentage");
@@ -5204,7 +5214,7 @@ const serializeAws_restXmlSelectionCriteria = (input: SelectionCriteria, context
 
 const serializeAws_restXmlSSEKMS = (input: SSEKMS, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("SSE-KMS");
-  if (input.KeyId !== undefined) {
+  if (input.KeyId !== undefined && input.KeyId !== null) {
     const node = new __XmlNode("SSEKMSKeyId").addChildNode(new __XmlText(input.KeyId)).withName("KeyId");
     bodyNode.addChildNode(node);
   }
@@ -5218,7 +5228,7 @@ const serializeAws_restXmlSSES3 = (input: SSES3, context: __SerdeContext): any =
 
 const serializeAws_restXmlStorageLensAwsOrg = (input: StorageLensAwsOrg, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("StorageLensAwsOrg");
-  if (input.Arn !== undefined) {
+  if (input.Arn !== undefined && input.Arn !== null) {
     const node = new __XmlNode("AwsOrgArn").addChildNode(new __XmlText(input.Arn)).withName("Arn");
     bodyNode.addChildNode(node);
   }
@@ -5230,35 +5240,35 @@ const serializeAws_restXmlStorageLensConfiguration = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("StorageLensConfiguration");
-  if (input.Id !== undefined) {
+  if (input.Id !== undefined && input.Id !== null) {
     const node = new __XmlNode("ConfigId").addChildNode(new __XmlText(input.Id)).withName("Id");
     bodyNode.addChildNode(node);
   }
-  if (input.AccountLevel !== undefined) {
+  if (input.AccountLevel !== undefined && input.AccountLevel !== null) {
     const node = serializeAws_restXmlAccountLevel(input.AccountLevel, context).withName("AccountLevel");
     bodyNode.addChildNode(node);
   }
-  if (input.Include !== undefined) {
+  if (input.Include !== undefined && input.Include !== null) {
     const node = serializeAws_restXmlInclude(input.Include, context).withName("Include");
     bodyNode.addChildNode(node);
   }
-  if (input.Exclude !== undefined) {
+  if (input.Exclude !== undefined && input.Exclude !== null) {
     const node = serializeAws_restXml_Exclude(input.Exclude, context).withName("Exclude");
     bodyNode.addChildNode(node);
   }
-  if (input.DataExport !== undefined) {
+  if (input.DataExport !== undefined && input.DataExport !== null) {
     const node = serializeAws_restXmlStorageLensDataExport(input.DataExport, context).withName("DataExport");
     bodyNode.addChildNode(node);
   }
-  if (input.IsEnabled !== undefined) {
+  if (input.IsEnabled !== undefined && input.IsEnabled !== null) {
     const node = new __XmlNode("IsEnabled").addChildNode(new __XmlText(String(input.IsEnabled))).withName("IsEnabled");
     bodyNode.addChildNode(node);
   }
-  if (input.AwsOrg !== undefined) {
+  if (input.AwsOrg !== undefined && input.AwsOrg !== null) {
     const node = serializeAws_restXmlStorageLensAwsOrg(input.AwsOrg, context).withName("AwsOrg");
     bodyNode.addChildNode(node);
   }
-  if (input.StorageLensArn !== undefined) {
+  if (input.StorageLensArn !== undefined && input.StorageLensArn !== null) {
     const node = new __XmlNode("StorageLensArn")
       .addChildNode(new __XmlText(input.StorageLensArn))
       .withName("StorageLensArn");
@@ -5269,7 +5279,7 @@ const serializeAws_restXmlStorageLensConfiguration = (
 
 const serializeAws_restXmlStorageLensDataExport = (input: StorageLensDataExport, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("StorageLensDataExport");
-  if (input.S3BucketDestination !== undefined) {
+  if (input.S3BucketDestination !== undefined && input.S3BucketDestination !== null) {
     const node = serializeAws_restXmlS3BucketDestination(input.S3BucketDestination, context).withName(
       "S3BucketDestination"
     );
@@ -5283,11 +5293,11 @@ const serializeAws_restXmlStorageLensDataExportEncryption = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("StorageLensDataExportEncryption");
-  if (input.SSES3 !== undefined) {
+  if (input.SSES3 !== undefined && input.SSES3 !== null) {
     const node = serializeAws_restXmlSSES3(input.SSES3, context).withName("SSE-S3");
     bodyNode.addChildNode(node);
   }
-  if (input.SSEKMS !== undefined) {
+  if (input.SSEKMS !== undefined && input.SSEKMS !== null) {
     const node = serializeAws_restXmlSSEKMS(input.SSEKMS, context).withName("SSE-KMS");
     bodyNode.addChildNode(node);
   }
@@ -5296,11 +5306,11 @@ const serializeAws_restXmlStorageLensDataExportEncryption = (
 
 const serializeAws_restXmlStorageLensTag = (input: StorageLensTag, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("StorageLensTag");
-  if (input.Key !== undefined) {
+  if (input.Key !== undefined && input.Key !== null) {
     const node = new __XmlNode("TagKeyString").addChildNode(new __XmlText(input.Key)).withName("Key");
     bodyNode.addChildNode(node);
   }
-  if (input.Value !== undefined) {
+  if (input.Value !== undefined && input.Value !== null) {
     const node = new __XmlNode("TagValueString").addChildNode(new __XmlText(input.Value)).withName("Value");
     bodyNode.addChildNode(node);
   }
@@ -5308,15 +5318,20 @@ const serializeAws_restXmlStorageLensTag = (input: StorageLensTag, context: __Se
 };
 
 const serializeAws_restXmlStorageLensTags = (input: StorageLensTag[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = serializeAws_restXmlStorageLensTag(entry, context);
-    return node.withName("Tag");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = serializeAws_restXmlStorageLensTag(entry, context);
+      return node.withName("Tag");
+    });
 };
 
 const serializeAws_restXmlTagging = (input: Tagging, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("Tagging");
-  if (input.TagSet !== undefined) {
+  if (input.TagSet !== undefined && input.TagSet !== null) {
     const nodes = serializeAws_restXmlS3TagSet(input.TagSet, context);
     const containerNode = new __XmlNode("TagSet");
     nodes.map((node: any) => {
@@ -5329,17 +5344,17 @@ const serializeAws_restXmlTagging = (input: Tagging, context: __SerdeContext): a
 
 const serializeAws_restXmlTransition = (input: Transition, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("Transition");
-  if (input.Date !== undefined) {
+  if (input.Date !== undefined && input.Date !== null) {
     const node = new __XmlNode("Date")
       .addChildNode(new __XmlText(input.Date.toISOString().split(".")[0] + "Z"))
       .withName("Date");
     bodyNode.addChildNode(node);
   }
-  if (input.Days !== undefined) {
+  if (input.Days !== undefined && input.Days !== null) {
     const node = new __XmlNode("Days").addChildNode(new __XmlText(String(input.Days))).withName("Days");
     bodyNode.addChildNode(node);
   }
-  if (input.StorageClass !== undefined) {
+  if (input.StorageClass !== undefined && input.StorageClass !== null) {
     const node = new __XmlNode("TransitionStorageClass")
       .addChildNode(new __XmlText(input.StorageClass))
       .withName("StorageClass");
@@ -5349,15 +5364,20 @@ const serializeAws_restXmlTransition = (input: Transition, context: __SerdeConte
 };
 
 const serializeAws_restXmlTransitionList = (input: Transition[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = serializeAws_restXmlTransition(entry, context);
-    return node.withName("Transition");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = serializeAws_restXmlTransition(entry, context);
+      return node.withName("Transition");
+    });
 };
 
 const serializeAws_restXmlVpcConfiguration = (input: VpcConfiguration, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("VpcConfiguration");
-  if (input.VpcId !== undefined) {
+  if (input.VpcId !== undefined && input.VpcId !== null) {
     const node = new __XmlNode("VpcId").addChildNode(new __XmlText(input.VpcId)).withName("VpcId");
     bodyNode.addChildNode(node);
   }
@@ -5404,7 +5424,14 @@ const deserializeAws_restXmlAccessPoint = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restXmlAccessPointList = (output: any, context: __SerdeContext): AccessPoint[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlAccessPoint(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlAccessPoint(entry, context);
+    });
 };
 
 const deserializeAws_restXmlAccountLevel = (output: any, context: __SerdeContext): AccountLevel => {
@@ -5446,7 +5473,14 @@ const deserializeAws_restXmlBucketLevel = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restXmlBuckets = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restXml_Exclude = (output: any, context: __SerdeContext): _Exclude => {
@@ -5584,7 +5618,14 @@ const deserializeAws_restXmlJobFailure = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restXmlJobFailureList = (output: any, context: __SerdeContext): JobFailure[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlJobFailure(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlJobFailure(entry, context);
+    });
 };
 
 const deserializeAws_restXmlJobListDescriptor = (output: any, context: __SerdeContext): JobListDescriptor => {
@@ -5626,7 +5667,14 @@ const deserializeAws_restXmlJobListDescriptor = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restXmlJobListDescriptorList = (output: any, context: __SerdeContext): JobListDescriptor[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlJobListDescriptor(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlJobListDescriptor(entry, context);
+    });
 };
 
 const deserializeAws_restXmlJobManifest = (output: any, context: __SerdeContext): JobManifest => {
@@ -5647,7 +5695,14 @@ const deserializeAws_restXmlJobManifestFieldList = (
   output: any,
   context: __SerdeContext
 ): (JobManifestFieldName | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restXmlJobManifestLocation = (output: any, context: __SerdeContext): JobManifestLocation => {
@@ -5904,7 +5959,14 @@ const deserializeAws_restXmlLifecycleRuleFilter = (output: any, context: __Serde
 };
 
 const deserializeAws_restXmlLifecycleRules = (output: any, context: __SerdeContext): LifecycleRule[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlLifecycleRule(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlLifecycleRule(entry, context);
+    });
 };
 
 const deserializeAws_restXmlListStorageLensConfigurationEntry = (
@@ -5966,7 +6028,14 @@ const deserializeAws_restXmlNoncurrentVersionTransitionList = (
   output: any,
   context: __SerdeContext
 ): NoncurrentVersionTransition[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlNoncurrentVersionTransition(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlNoncurrentVersionTransition(entry, context);
+    });
 };
 
 const deserializeAws_restXmlPolicyStatus = (output: any, context: __SerdeContext): PolicyStatus => {
@@ -6058,11 +6127,25 @@ const deserializeAws_restXmlRegionalBucket = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restXmlRegionalBucketList = (output: any, context: __SerdeContext): RegionalBucket[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlRegionalBucket(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlRegionalBucket(entry, context);
+    });
 };
 
 const deserializeAws_restXmlRegions = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restXmlS3AccessControlList = (output: any, context: __SerdeContext): S3AccessControlList => {
@@ -6241,7 +6324,14 @@ const deserializeAws_restXmlS3Grantee = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_restXmlS3GrantList = (output: any, context: __SerdeContext): S3Grant[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlS3Grant(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlS3Grant(entry, context);
+    });
 };
 
 const deserializeAws_restXmlS3InitiateRestoreObjectOperation = (
@@ -6429,17 +6519,26 @@ const deserializeAws_restXmlS3Tag = (output: any, context: __SerdeContext): S3Ta
 };
 
 const deserializeAws_restXmlS3TagSet = (output: any, context: __SerdeContext): S3Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlS3Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlS3Tag(entry, context);
+    });
 };
 
 const deserializeAws_restXmlS3UserMetadata = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return output.reduce(
-    (acc: any, pair: any) => ({
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["value"] === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [pair["key"]]: pair["value"],
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restXmlSelectionCriteria = (output: any, context: __SerdeContext): SelectionCriteria => {
@@ -6530,7 +6629,14 @@ const deserializeAws_restXmlStorageLensConfigurationList = (
   output: any,
   context: __SerdeContext
 ): ListStorageLensConfigurationEntry[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlListStorageLensConfigurationEntry(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlListStorageLensConfigurationEntry(entry, context);
+    });
 };
 
 const deserializeAws_restXmlStorageLensDataExport = (output: any, context: __SerdeContext): StorageLensDataExport => {
@@ -6575,7 +6681,14 @@ const deserializeAws_restXmlStorageLensTag = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restXmlStorageLensTags = (output: any, context: __SerdeContext): StorageLensTag[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlStorageLensTag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlStorageLensTag(entry, context);
+    });
 };
 
 const deserializeAws_restXmlTransition = (output: any, context: __SerdeContext): Transition => {
@@ -6597,7 +6710,14 @@ const deserializeAws_restXmlTransition = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restXmlTransitionList = (output: any, context: __SerdeContext): Transition[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlTransition(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlTransition(entry, context);
+    });
 };
 
 const deserializeAws_restXmlVpcConfiguration = (output: any, context: __SerdeContext): VpcConfiguration => {
@@ -6630,6 +6750,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

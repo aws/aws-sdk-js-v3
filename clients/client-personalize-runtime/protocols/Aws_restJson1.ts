@@ -18,19 +18,20 @@ export const serializeAws_restJson1GetPersonalizedRankingCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/personalize-ranking";
   let body: any;
   body = JSON.stringify({
-    ...(input.campaignArn !== undefined && { campaignArn: input.campaignArn }),
-    ...(input.context !== undefined && { context: serializeAws_restJson1Context(input.context, context) }),
-    ...(input.filterArn !== undefined && { filterArn: input.filterArn }),
-    ...(input.filterValues !== undefined && {
-      filterValues: serializeAws_restJson1FilterValues(input.filterValues, context),
-    }),
-    ...(input.inputList !== undefined && { inputList: serializeAws_restJson1InputList(input.inputList, context) }),
-    ...(input.userId !== undefined && { userId: input.userId }),
+    ...(input.campaignArn !== undefined && input.campaignArn !== null && { campaignArn: input.campaignArn }),
+    ...(input.context !== undefined &&
+      input.context !== null && { context: serializeAws_restJson1Context(input.context, context) }),
+    ...(input.filterArn !== undefined && input.filterArn !== null && { filterArn: input.filterArn }),
+    ...(input.filterValues !== undefined &&
+      input.filterValues !== null && { filterValues: serializeAws_restJson1FilterValues(input.filterValues, context) }),
+    ...(input.inputList !== undefined &&
+      input.inputList !== null && { inputList: serializeAws_restJson1InputList(input.inputList, context) }),
+    ...(input.userId !== undefined && input.userId !== null && { userId: input.userId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -49,20 +50,20 @@ export const serializeAws_restJson1GetRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/recommendations";
   let body: any;
   body = JSON.stringify({
-    ...(input.campaignArn !== undefined && { campaignArn: input.campaignArn }),
-    ...(input.context !== undefined && { context: serializeAws_restJson1Context(input.context, context) }),
-    ...(input.filterArn !== undefined && { filterArn: input.filterArn }),
-    ...(input.filterValues !== undefined && {
-      filterValues: serializeAws_restJson1FilterValues(input.filterValues, context),
-    }),
-    ...(input.itemId !== undefined && { itemId: input.itemId }),
-    ...(input.numResults !== undefined && { numResults: input.numResults }),
-    ...(input.userId !== undefined && { userId: input.userId }),
+    ...(input.campaignArn !== undefined && input.campaignArn !== null && { campaignArn: input.campaignArn }),
+    ...(input.context !== undefined &&
+      input.context !== null && { context: serializeAws_restJson1Context(input.context, context) }),
+    ...(input.filterArn !== undefined && input.filterArn !== null && { filterArn: input.filterArn }),
+    ...(input.filterValues !== undefined &&
+      input.filterValues !== null && { filterValues: serializeAws_restJson1FilterValues(input.filterValues, context) }),
+    ...(input.itemId !== undefined && input.itemId !== null && { itemId: input.itemId }),
+    ...(input.numResults !== undefined && input.numResults !== null && { numResults: input.numResults }),
+    ...(input.userId !== undefined && input.userId !== null && { userId: input.userId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -245,31 +246,49 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
 };
 
 const serializeAws_restJson1Context = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_restJson1FilterValues = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_restJson1InputList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1ItemList = (output: any, context: __SerdeContext): PredictedItem[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1PredictedItem(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1PredictedItem(entry, context);
+    });
 };
 
 const deserializeAws_restJson1PredictedItem = (output: any, context: __SerdeContext): PredictedItem => {
@@ -299,6 +318,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

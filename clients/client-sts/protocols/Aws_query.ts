@@ -63,7 +63,7 @@ export const serializeAws_queryAssumeRoleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -79,7 +79,7 @@ export const serializeAws_queryAssumeRoleWithSAMLCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -95,7 +95,7 @@ export const serializeAws_queryAssumeRoleWithWebIdentityCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -111,7 +111,7 @@ export const serializeAws_queryDecodeAuthorizationMessageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -127,7 +127,7 @@ export const serializeAws_queryGetAccessKeyInfoCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -143,7 +143,7 @@ export const serializeAws_queryGetCallerIdentityCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -159,7 +159,7 @@ export const serializeAws_queryGetFederationTokenCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -175,7 +175,7 @@ export const serializeAws_queryGetSessionTokenCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -852,46 +852,46 @@ const deserializeAws_queryRegionDisabledExceptionResponse = async (
 
 const serializeAws_queryAssumeRoleRequest = (input: AssumeRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DurationSeconds !== undefined) {
+  if (input.DurationSeconds !== undefined && input.DurationSeconds !== null) {
     entries["DurationSeconds"] = input.DurationSeconds;
   }
-  if (input.RoleSessionName !== undefined) {
+  if (input.RoleSessionName !== undefined && input.RoleSessionName !== null) {
     entries["RoleSessionName"] = input.RoleSessionName;
   }
-  if (input.TokenCode !== undefined) {
+  if (input.TokenCode !== undefined && input.TokenCode !== null) {
     entries["TokenCode"] = input.TokenCode;
   }
-  if (input.PolicyArns !== undefined) {
+  if (input.PolicyArns !== undefined && input.PolicyArns !== null) {
     const memberEntries = serializeAws_querypolicyDescriptorListType(input.PolicyArns, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyArns.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.RoleArn !== undefined) {
+  if (input.RoleArn !== undefined && input.RoleArn !== null) {
     entries["RoleArn"] = input.RoleArn;
   }
-  if (input.Policy !== undefined) {
+  if (input.Policy !== undefined && input.Policy !== null) {
     entries["Policy"] = input.Policy;
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ExternalId !== undefined) {
+  if (input.ExternalId !== undefined && input.ExternalId !== null) {
     entries["ExternalId"] = input.ExternalId;
   }
-  if (input.TransitiveTagKeys !== undefined) {
+  if (input.TransitiveTagKeys !== undefined && input.TransitiveTagKeys !== null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TransitiveTagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TransitiveTagKeys.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.SerialNumber !== undefined) {
+  if (input.SerialNumber !== undefined && input.SerialNumber !== null) {
     entries["SerialNumber"] = input.SerialNumber;
   }
   return entries;
@@ -902,26 +902,26 @@ const serializeAws_queryAssumeRoleWithSAMLRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Policy !== undefined) {
+  if (input.Policy !== undefined && input.Policy !== null) {
     entries["Policy"] = input.Policy;
   }
-  if (input.RoleArn !== undefined) {
+  if (input.RoleArn !== undefined && input.RoleArn !== null) {
     entries["RoleArn"] = input.RoleArn;
   }
-  if (input.PolicyArns !== undefined) {
+  if (input.PolicyArns !== undefined && input.PolicyArns !== null) {
     const memberEntries = serializeAws_querypolicyDescriptorListType(input.PolicyArns, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyArns.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.PrincipalArn !== undefined) {
+  if (input.PrincipalArn !== undefined && input.PrincipalArn !== null) {
     entries["PrincipalArn"] = input.PrincipalArn;
   }
-  if (input.SAMLAssertion !== undefined) {
+  if (input.SAMLAssertion !== undefined && input.SAMLAssertion !== null) {
     entries["SAMLAssertion"] = input.SAMLAssertion;
   }
-  if (input.DurationSeconds !== undefined) {
+  if (input.DurationSeconds !== undefined && input.DurationSeconds !== null) {
     entries["DurationSeconds"] = input.DurationSeconds;
   }
   return entries;
@@ -932,25 +932,25 @@ const serializeAws_queryAssumeRoleWithWebIdentityRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.WebIdentityToken !== undefined) {
+  if (input.WebIdentityToken !== undefined && input.WebIdentityToken !== null) {
     entries["WebIdentityToken"] = input.WebIdentityToken;
   }
-  if (input.ProviderId !== undefined) {
+  if (input.ProviderId !== undefined && input.ProviderId !== null) {
     entries["ProviderId"] = input.ProviderId;
   }
-  if (input.Policy !== undefined) {
+  if (input.Policy !== undefined && input.Policy !== null) {
     entries["Policy"] = input.Policy;
   }
-  if (input.RoleSessionName !== undefined) {
+  if (input.RoleSessionName !== undefined && input.RoleSessionName !== null) {
     entries["RoleSessionName"] = input.RoleSessionName;
   }
-  if (input.RoleArn !== undefined) {
+  if (input.RoleArn !== undefined && input.RoleArn !== null) {
     entries["RoleArn"] = input.RoleArn;
   }
-  if (input.DurationSeconds !== undefined) {
+  if (input.DurationSeconds !== undefined && input.DurationSeconds !== null) {
     entries["DurationSeconds"] = input.DurationSeconds;
   }
-  if (input.PolicyArns !== undefined) {
+  if (input.PolicyArns !== undefined && input.PolicyArns !== null) {
     const memberEntries = serializeAws_querypolicyDescriptorListType(input.PolicyArns, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyArns.${key}`;
@@ -965,7 +965,7 @@ const serializeAws_queryDecodeAuthorizationMessageRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EncodedMessage !== undefined) {
+  if (input.EncodedMessage !== undefined && input.EncodedMessage !== null) {
     entries["EncodedMessage"] = input.EncodedMessage;
   }
   return entries;
@@ -973,7 +973,7 @@ const serializeAws_queryDecodeAuthorizationMessageRequest = (
 
 const serializeAws_queryGetAccessKeyInfoRequest = (input: GetAccessKeyInfoRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AccessKeyId !== undefined) {
+  if (input.AccessKeyId !== undefined && input.AccessKeyId !== null) {
     entries["AccessKeyId"] = input.AccessKeyId;
   }
   return entries;
@@ -989,27 +989,27 @@ const serializeAws_queryGetFederationTokenRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Policy !== undefined) {
+  if (input.Policy !== undefined && input.Policy !== null) {
     entries["Policy"] = input.Policy;
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Name !== undefined) {
+  if (input.Name !== undefined && input.Name !== null) {
     entries["Name"] = input.Name;
   }
-  if (input.PolicyArns !== undefined) {
+  if (input.PolicyArns !== undefined && input.PolicyArns !== null) {
     const memberEntries = serializeAws_querypolicyDescriptorListType(input.PolicyArns, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyArns.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.DurationSeconds !== undefined) {
+  if (input.DurationSeconds !== undefined && input.DurationSeconds !== null) {
     entries["DurationSeconds"] = input.DurationSeconds;
   }
   return entries;
@@ -1017,13 +1017,13 @@ const serializeAws_queryGetFederationTokenRequest = (
 
 const serializeAws_queryGetSessionTokenRequest = (input: GetSessionTokenRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SerialNumber !== undefined) {
+  if (input.SerialNumber !== undefined && input.SerialNumber !== null) {
     entries["SerialNumber"] = input.SerialNumber;
   }
-  if (input.DurationSeconds !== undefined) {
+  if (input.DurationSeconds !== undefined && input.DurationSeconds !== null) {
     entries["DurationSeconds"] = input.DurationSeconds;
   }
-  if (input.TokenCode !== undefined) {
+  if (input.TokenCode !== undefined && input.TokenCode !== null) {
     entries["TokenCode"] = input.TokenCode;
   }
   return entries;
@@ -1033,6 +1033,9 @@ const serializeAws_querypolicyDescriptorListType = (input: PolicyDescriptorType[
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryPolicyDescriptorType(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
@@ -1044,7 +1047,7 @@ const serializeAws_querypolicyDescriptorListType = (input: PolicyDescriptorType[
 
 const serializeAws_queryPolicyDescriptorType = (input: PolicyDescriptorType, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.arn !== undefined) {
+  if (input.arn !== undefined && input.arn !== null) {
     entries["arn"] = input.arn;
   }
   return entries;
@@ -1052,10 +1055,10 @@ const serializeAws_queryPolicyDescriptorType = (input: PolicyDescriptorType, con
 
 const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key !== undefined) {
+  if (input.Key !== undefined && input.Key !== null) {
     entries["Key"] = input.Key;
   }
-  if (input.Value !== undefined) {
+  if (input.Value !== undefined && input.Value !== null) {
     entries["Value"] = input.Value;
   }
   return entries;
@@ -1065,6 +1068,9 @@ const serializeAws_querytagKeyListType = (input: string[], context: __SerdeConte
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -1075,6 +1081,9 @@ const serializeAws_querytagListType = (input: Tag[], context: __SerdeContext): a
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryTag(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;

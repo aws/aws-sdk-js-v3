@@ -99,7 +99,7 @@ export const serializeAws_json1_1CreateContainerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MediaStore_20170901.CreateContainer",
   };
   let body: any;
@@ -112,7 +112,7 @@ export const serializeAws_json1_1DeleteContainerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MediaStore_20170901.DeleteContainer",
   };
   let body: any;
@@ -125,7 +125,7 @@ export const serializeAws_json1_1DeleteContainerPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MediaStore_20170901.DeleteContainerPolicy",
   };
   let body: any;
@@ -138,7 +138,7 @@ export const serializeAws_json1_1DeleteCorsPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MediaStore_20170901.DeleteCorsPolicy",
   };
   let body: any;
@@ -151,7 +151,7 @@ export const serializeAws_json1_1DeleteLifecyclePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MediaStore_20170901.DeleteLifecyclePolicy",
   };
   let body: any;
@@ -164,7 +164,7 @@ export const serializeAws_json1_1DeleteMetricPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MediaStore_20170901.DeleteMetricPolicy",
   };
   let body: any;
@@ -177,7 +177,7 @@ export const serializeAws_json1_1DescribeContainerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MediaStore_20170901.DescribeContainer",
   };
   let body: any;
@@ -190,7 +190,7 @@ export const serializeAws_json1_1GetContainerPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MediaStore_20170901.GetContainerPolicy",
   };
   let body: any;
@@ -203,7 +203,7 @@ export const serializeAws_json1_1GetCorsPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MediaStore_20170901.GetCorsPolicy",
   };
   let body: any;
@@ -216,7 +216,7 @@ export const serializeAws_json1_1GetLifecyclePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MediaStore_20170901.GetLifecyclePolicy",
   };
   let body: any;
@@ -229,7 +229,7 @@ export const serializeAws_json1_1GetMetricPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MediaStore_20170901.GetMetricPolicy",
   };
   let body: any;
@@ -242,7 +242,7 @@ export const serializeAws_json1_1ListContainersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MediaStore_20170901.ListContainers",
   };
   let body: any;
@@ -255,7 +255,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MediaStore_20170901.ListTagsForResource",
   };
   let body: any;
@@ -268,7 +268,7 @@ export const serializeAws_json1_1PutContainerPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MediaStore_20170901.PutContainerPolicy",
   };
   let body: any;
@@ -281,7 +281,7 @@ export const serializeAws_json1_1PutCorsPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MediaStore_20170901.PutCorsPolicy",
   };
   let body: any;
@@ -294,7 +294,7 @@ export const serializeAws_json1_1PutLifecyclePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MediaStore_20170901.PutLifecyclePolicy",
   };
   let body: any;
@@ -307,7 +307,7 @@ export const serializeAws_json1_1PutMetricPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MediaStore_20170901.PutMetricPolicy",
   };
   let body: any;
@@ -320,7 +320,7 @@ export const serializeAws_json1_1StartAccessLoggingCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MediaStore_20170901.StartAccessLogging",
   };
   let body: any;
@@ -333,7 +333,7 @@ export const serializeAws_json1_1StopAccessLoggingCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MediaStore_20170901.StopAccessLogging",
   };
   let body: any;
@@ -346,7 +346,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MediaStore_20170901.TagResource",
   };
   let body: any;
@@ -359,7 +359,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MediaStore_20170901.UntagResource",
   };
   let body: any;
@@ -394,8 +394,7 @@ const deserializeAws_json1_1CreateContainerCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
@@ -465,8 +464,7 @@ const deserializeAws_json1_1DeleteContainerCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
@@ -536,8 +534,7 @@ const deserializeAws_json1_1DeleteContainerPolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
@@ -615,8 +612,7 @@ const deserializeAws_json1_1DeleteCorsPolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
@@ -694,8 +690,7 @@ const deserializeAws_json1_1DeleteLifecyclePolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
@@ -773,8 +768,7 @@ const deserializeAws_json1_1DeleteMetricPolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
@@ -852,8 +846,7 @@ const deserializeAws_json1_1DescribeContainerCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastore#ContainerNotFoundException":
@@ -915,8 +908,7 @@ const deserializeAws_json1_1GetContainerPolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
@@ -994,8 +986,7 @@ const deserializeAws_json1_1GetCorsPolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
@@ -1073,8 +1064,7 @@ const deserializeAws_json1_1GetLifecyclePolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
@@ -1152,8 +1142,7 @@ const deserializeAws_json1_1GetMetricPolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
@@ -1231,8 +1220,7 @@ const deserializeAws_json1_1ListContainersCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.mediastore#InternalServerError":
@@ -1286,8 +1274,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
@@ -1357,8 +1344,7 @@ const deserializeAws_json1_1PutContainerPolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
@@ -1428,8 +1414,7 @@ const deserializeAws_json1_1PutCorsPolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
@@ -1499,8 +1484,7 @@ const deserializeAws_json1_1PutLifecyclePolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
@@ -1570,8 +1554,7 @@ const deserializeAws_json1_1PutMetricPolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
@@ -1641,8 +1624,7 @@ const deserializeAws_json1_1StartAccessLoggingCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
@@ -1712,8 +1694,7 @@ const deserializeAws_json1_1StopAccessLoggingCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
@@ -1783,8 +1764,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
@@ -1854,8 +1834,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
@@ -1989,49 +1968,81 @@ const deserializeAws_json1_1PolicyNotFoundExceptionResponse = async (
 };
 
 const serializeAws_json1_1AllowedHeaders = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1AllowedMethods = (input: (MethodName | string)[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1AllowedOrigins = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1CorsPolicy = (input: CorsRule[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1CorsRule(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1CorsRule(entry, context);
+    });
 };
 
 const serializeAws_json1_1CorsRule = (input: CorsRule, context: __SerdeContext): any => {
   return {
-    ...(input.AllowedHeaders !== undefined && {
-      AllowedHeaders: serializeAws_json1_1AllowedHeaders(input.AllowedHeaders, context),
-    }),
-    ...(input.AllowedMethods !== undefined && {
-      AllowedMethods: serializeAws_json1_1AllowedMethods(input.AllowedMethods, context),
-    }),
-    ...(input.AllowedOrigins !== undefined && {
-      AllowedOrigins: serializeAws_json1_1AllowedOrigins(input.AllowedOrigins, context),
-    }),
-    ...(input.ExposeHeaders !== undefined && {
-      ExposeHeaders: serializeAws_json1_1ExposeHeaders(input.ExposeHeaders, context),
-    }),
-    ...(input.MaxAgeSeconds !== undefined && { MaxAgeSeconds: input.MaxAgeSeconds }),
+    ...(input.AllowedHeaders !== undefined &&
+      input.AllowedHeaders !== null && {
+        AllowedHeaders: serializeAws_json1_1AllowedHeaders(input.AllowedHeaders, context),
+      }),
+    ...(input.AllowedMethods !== undefined &&
+      input.AllowedMethods !== null && {
+        AllowedMethods: serializeAws_json1_1AllowedMethods(input.AllowedMethods, context),
+      }),
+    ...(input.AllowedOrigins !== undefined &&
+      input.AllowedOrigins !== null && {
+        AllowedOrigins: serializeAws_json1_1AllowedOrigins(input.AllowedOrigins, context),
+      }),
+    ...(input.ExposeHeaders !== undefined &&
+      input.ExposeHeaders !== null && {
+        ExposeHeaders: serializeAws_json1_1ExposeHeaders(input.ExposeHeaders, context),
+      }),
+    ...(input.MaxAgeSeconds !== undefined && input.MaxAgeSeconds !== null && { MaxAgeSeconds: input.MaxAgeSeconds }),
   };
 };
 
 const serializeAws_json1_1CreateContainerInput = (input: CreateContainerInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1DeleteContainerInput = (input: DeleteContainerInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
+    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
   };
 };
 
@@ -2040,13 +2051,13 @@ const serializeAws_json1_1DeleteContainerPolicyInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
+    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
   };
 };
 
 const serializeAws_json1_1DeleteCorsPolicyInput = (input: DeleteCorsPolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
+    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
   };
 };
 
@@ -2055,54 +2066,61 @@ const serializeAws_json1_1DeleteLifecyclePolicyInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
+    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
   };
 };
 
 const serializeAws_json1_1DeleteMetricPolicyInput = (input: DeleteMetricPolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
+    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
   };
 };
 
 const serializeAws_json1_1DescribeContainerInput = (input: DescribeContainerInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
+    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
   };
 };
 
 const serializeAws_json1_1ExposeHeaders = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1GetContainerPolicyInput = (input: GetContainerPolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
+    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
   };
 };
 
 const serializeAws_json1_1GetCorsPolicyInput = (input: GetCorsPolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
+    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
   };
 };
 
 const serializeAws_json1_1GetLifecyclePolicyInput = (input: GetLifecyclePolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
+    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
   };
 };
 
 const serializeAws_json1_1GetMetricPolicyInput = (input: GetMetricPolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
+    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
   };
 };
 
 const serializeAws_json1_1ListContainersInput = (input: ListContainersInput, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2111,111 +2129,158 @@ const serializeAws_json1_1ListTagsForResourceInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Resource !== undefined && { Resource: input.Resource }),
+    ...(input.Resource !== undefined && input.Resource !== null && { Resource: input.Resource }),
   };
 };
 
 const serializeAws_json1_1MetricPolicy = (input: MetricPolicy, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerLevelMetrics !== undefined && { ContainerLevelMetrics: input.ContainerLevelMetrics }),
-    ...(input.MetricPolicyRules !== undefined && {
-      MetricPolicyRules: serializeAws_json1_1MetricPolicyRules(input.MetricPolicyRules, context),
-    }),
+    ...(input.ContainerLevelMetrics !== undefined &&
+      input.ContainerLevelMetrics !== null && { ContainerLevelMetrics: input.ContainerLevelMetrics }),
+    ...(input.MetricPolicyRules !== undefined &&
+      input.MetricPolicyRules !== null && {
+        MetricPolicyRules: serializeAws_json1_1MetricPolicyRules(input.MetricPolicyRules, context),
+      }),
   };
 };
 
 const serializeAws_json1_1MetricPolicyRule = (input: MetricPolicyRule, context: __SerdeContext): any => {
   return {
-    ...(input.ObjectGroup !== undefined && { ObjectGroup: input.ObjectGroup }),
-    ...(input.ObjectGroupName !== undefined && { ObjectGroupName: input.ObjectGroupName }),
+    ...(input.ObjectGroup !== undefined && input.ObjectGroup !== null && { ObjectGroup: input.ObjectGroup }),
+    ...(input.ObjectGroupName !== undefined &&
+      input.ObjectGroupName !== null && { ObjectGroupName: input.ObjectGroupName }),
   };
 };
 
 const serializeAws_json1_1MetricPolicyRules = (input: MetricPolicyRule[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1MetricPolicyRule(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1MetricPolicyRule(entry, context);
+    });
 };
 
 const serializeAws_json1_1PutContainerPolicyInput = (input: PutContainerPolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
-    ...(input.Policy !== undefined && { Policy: input.Policy }),
+    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
+    ...(input.Policy !== undefined && input.Policy !== null && { Policy: input.Policy }),
   };
 };
 
 const serializeAws_json1_1PutCorsPolicyInput = (input: PutCorsPolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
-    ...(input.CorsPolicy !== undefined && { CorsPolicy: serializeAws_json1_1CorsPolicy(input.CorsPolicy, context) }),
+    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
+    ...(input.CorsPolicy !== undefined &&
+      input.CorsPolicy !== null && { CorsPolicy: serializeAws_json1_1CorsPolicy(input.CorsPolicy, context) }),
   };
 };
 
 const serializeAws_json1_1PutLifecyclePolicyInput = (input: PutLifecyclePolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
-    ...(input.LifecyclePolicy !== undefined && { LifecyclePolicy: input.LifecyclePolicy }),
+    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
+    ...(input.LifecyclePolicy !== undefined &&
+      input.LifecyclePolicy !== null && { LifecyclePolicy: input.LifecyclePolicy }),
   };
 };
 
 const serializeAws_json1_1PutMetricPolicyInput = (input: PutMetricPolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
-    ...(input.MetricPolicy !== undefined && {
-      MetricPolicy: serializeAws_json1_1MetricPolicy(input.MetricPolicy, context),
-    }),
+    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
+    ...(input.MetricPolicy !== undefined &&
+      input.MetricPolicy !== null && { MetricPolicy: serializeAws_json1_1MetricPolicy(input.MetricPolicy, context) }),
   };
 };
 
 const serializeAws_json1_1StartAccessLoggingInput = (input: StartAccessLoggingInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
+    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
   };
 };
 
 const serializeAws_json1_1StopAccessLoggingInput = (input: StopAccessLoggingInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
+    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const serializeAws_json1_1TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.Resource !== undefined && { Resource: input.Resource }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Resource !== undefined && input.Resource !== null && { Resource: input.Resource }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.Resource !== undefined && { Resource: input.Resource }),
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.Resource !== undefined && input.Resource !== null && { Resource: input.Resource }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
 const deserializeAws_json1_1AllowedHeaders = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1AllowedMethods = (output: any, context: __SerdeContext): (MethodName | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1AllowedOrigins = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1Container = (output: any, context: __SerdeContext): Container => {
@@ -2245,7 +2310,14 @@ const deserializeAws_json1_1ContainerInUseException = (
 };
 
 const deserializeAws_json1_1ContainerList = (output: any, context: __SerdeContext): Container[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Container(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Container(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ContainerNotFoundException = (
@@ -2258,7 +2330,14 @@ const deserializeAws_json1_1ContainerNotFoundException = (
 };
 
 const deserializeAws_json1_1CorsPolicy = (output: any, context: __SerdeContext): CorsRule[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1CorsRule(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CorsRule(entry, context);
+    });
 };
 
 const deserializeAws_json1_1CorsPolicyNotFoundException = (
@@ -2344,7 +2423,14 @@ const deserializeAws_json1_1DescribeContainerOutput = (
 };
 
 const deserializeAws_json1_1ExposeHeaders = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1GetContainerPolicyOutput = (
@@ -2440,7 +2526,14 @@ const deserializeAws_json1_1MetricPolicyRule = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1MetricPolicyRules = (output: any, context: __SerdeContext): MetricPolicyRule[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1MetricPolicyRule(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1MetricPolicyRule(entry, context);
+    });
 };
 
 const deserializeAws_json1_1PolicyNotFoundException = (
@@ -2496,7 +2589,14 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TagResourceOutput = (output: any, context: __SerdeContext): TagResourceOutput => {
@@ -2557,3 +2657,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

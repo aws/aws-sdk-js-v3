@@ -222,7 +222,7 @@ export const serializeAws_json1_1CreateAppCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.CreateApp",
   };
   let body: any;
@@ -235,7 +235,7 @@ export const serializeAws_json1_1CreateReplicationJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.CreateReplicationJob",
   };
   let body: any;
@@ -248,7 +248,7 @@ export const serializeAws_json1_1DeleteAppCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.DeleteApp",
   };
   let body: any;
@@ -261,7 +261,7 @@ export const serializeAws_json1_1DeleteAppLaunchConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.DeleteAppLaunchConfiguration",
   };
   let body: any;
@@ -274,7 +274,7 @@ export const serializeAws_json1_1DeleteAppReplicationConfigurationCommand = asyn
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.DeleteAppReplicationConfiguration",
   };
   let body: any;
@@ -287,7 +287,7 @@ export const serializeAws_json1_1DeleteAppValidationConfigurationCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.DeleteAppValidationConfiguration",
   };
   let body: any;
@@ -300,7 +300,7 @@ export const serializeAws_json1_1DeleteReplicationJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.DeleteReplicationJob",
   };
   let body: any;
@@ -313,7 +313,7 @@ export const serializeAws_json1_1DeleteServerCatalogCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.DeleteServerCatalog",
   };
   let body: any;
@@ -326,7 +326,7 @@ export const serializeAws_json1_1DisassociateConnectorCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.DisassociateConnector",
   };
   let body: any;
@@ -339,7 +339,7 @@ export const serializeAws_json1_1GenerateChangeSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GenerateChangeSet",
   };
   let body: any;
@@ -352,7 +352,7 @@ export const serializeAws_json1_1GenerateTemplateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GenerateTemplate",
   };
   let body: any;
@@ -365,7 +365,7 @@ export const serializeAws_json1_1GetAppCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GetApp",
   };
   let body: any;
@@ -378,7 +378,7 @@ export const serializeAws_json1_1GetAppLaunchConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GetAppLaunchConfiguration",
   };
   let body: any;
@@ -391,7 +391,7 @@ export const serializeAws_json1_1GetAppReplicationConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GetAppReplicationConfiguration",
   };
   let body: any;
@@ -404,7 +404,7 @@ export const serializeAws_json1_1GetAppValidationConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GetAppValidationConfiguration",
   };
   let body: any;
@@ -417,7 +417,7 @@ export const serializeAws_json1_1GetAppValidationOutputCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GetAppValidationOutput",
   };
   let body: any;
@@ -430,7 +430,7 @@ export const serializeAws_json1_1GetConnectorsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GetConnectors",
   };
   let body: any;
@@ -443,7 +443,7 @@ export const serializeAws_json1_1GetReplicationJobsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GetReplicationJobs",
   };
   let body: any;
@@ -456,7 +456,7 @@ export const serializeAws_json1_1GetReplicationRunsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GetReplicationRuns",
   };
   let body: any;
@@ -469,7 +469,7 @@ export const serializeAws_json1_1GetServersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GetServers",
   };
   let body: any;
@@ -482,7 +482,7 @@ export const serializeAws_json1_1ImportAppCatalogCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.ImportAppCatalog",
   };
   let body: any;
@@ -495,7 +495,7 @@ export const serializeAws_json1_1ImportServerCatalogCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.ImportServerCatalog",
   };
   let body: any;
@@ -508,7 +508,7 @@ export const serializeAws_json1_1LaunchAppCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.LaunchApp",
   };
   let body: any;
@@ -521,7 +521,7 @@ export const serializeAws_json1_1ListAppsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.ListApps",
   };
   let body: any;
@@ -534,7 +534,7 @@ export const serializeAws_json1_1NotifyAppValidationOutputCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.NotifyAppValidationOutput",
   };
   let body: any;
@@ -547,7 +547,7 @@ export const serializeAws_json1_1PutAppLaunchConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.PutAppLaunchConfiguration",
   };
   let body: any;
@@ -560,7 +560,7 @@ export const serializeAws_json1_1PutAppReplicationConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.PutAppReplicationConfiguration",
   };
   let body: any;
@@ -573,7 +573,7 @@ export const serializeAws_json1_1PutAppValidationConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.PutAppValidationConfiguration",
   };
   let body: any;
@@ -586,7 +586,7 @@ export const serializeAws_json1_1StartAppReplicationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.StartAppReplication",
   };
   let body: any;
@@ -599,7 +599,7 @@ export const serializeAws_json1_1StartOnDemandAppReplicationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.StartOnDemandAppReplication",
   };
   let body: any;
@@ -612,7 +612,7 @@ export const serializeAws_json1_1StartOnDemandReplicationRunCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.StartOnDemandReplicationRun",
   };
   let body: any;
@@ -625,7 +625,7 @@ export const serializeAws_json1_1StopAppReplicationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.StopAppReplication",
   };
   let body: any;
@@ -638,7 +638,7 @@ export const serializeAws_json1_1TerminateAppCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.TerminateApp",
   };
   let body: any;
@@ -651,7 +651,7 @@ export const serializeAws_json1_1UpdateAppCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.UpdateApp",
   };
   let body: any;
@@ -664,7 +664,7 @@ export const serializeAws_json1_1UpdateReplicationJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.UpdateReplicationJob",
   };
   let body: any;
@@ -699,8 +699,7 @@ const deserializeAws_json1_1CreateAppCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
@@ -786,8 +785,7 @@ const deserializeAws_json1_1CreateReplicationJobCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
@@ -905,8 +903,7 @@ const deserializeAws_json1_1DeleteAppCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
@@ -992,8 +989,7 @@ const deserializeAws_json1_1DeleteAppLaunchConfigurationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
@@ -1079,8 +1075,7 @@ const deserializeAws_json1_1DeleteAppReplicationConfigurationCommandError = asyn
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
@@ -1166,8 +1161,7 @@ const deserializeAws_json1_1DeleteAppValidationConfigurationCommandError = async
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
@@ -1253,8 +1247,7 @@ const deserializeAws_json1_1DeleteReplicationJobCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
@@ -1340,8 +1333,7 @@ const deserializeAws_json1_1DeleteServerCatalogCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
@@ -1419,8 +1411,7 @@ const deserializeAws_json1_1DisassociateConnectorCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
@@ -1498,8 +1489,7 @@ const deserializeAws_json1_1GenerateChangeSetCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
@@ -1585,8 +1575,7 @@ const deserializeAws_json1_1GenerateTemplateCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
@@ -1672,8 +1661,7 @@ const deserializeAws_json1_1GetAppCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
@@ -1759,8 +1747,7 @@ const deserializeAws_json1_1GetAppLaunchConfigurationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
@@ -1846,8 +1833,7 @@ const deserializeAws_json1_1GetAppReplicationConfigurationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
@@ -1933,8 +1919,7 @@ const deserializeAws_json1_1GetAppValidationConfigurationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
@@ -2020,8 +2005,7 @@ const deserializeAws_json1_1GetAppValidationOutputCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
@@ -2107,8 +2091,7 @@ const deserializeAws_json1_1GetConnectorsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
@@ -2162,8 +2145,7 @@ const deserializeAws_json1_1GetReplicationJobsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
@@ -2233,8 +2215,7 @@ const deserializeAws_json1_1GetReplicationRunsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
@@ -2304,8 +2285,7 @@ const deserializeAws_json1_1GetServersCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
@@ -2383,8 +2363,7 @@ const deserializeAws_json1_1ImportAppCatalogCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
@@ -2470,8 +2449,7 @@ const deserializeAws_json1_1ImportServerCatalogCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
@@ -2557,8 +2535,7 @@ const deserializeAws_json1_1LaunchAppCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
@@ -2644,8 +2621,7 @@ const deserializeAws_json1_1ListAppsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
@@ -2731,8 +2707,7 @@ const deserializeAws_json1_1NotifyAppValidationOutputCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
@@ -2818,8 +2793,7 @@ const deserializeAws_json1_1PutAppLaunchConfigurationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
@@ -2905,8 +2879,7 @@ const deserializeAws_json1_1PutAppReplicationConfigurationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
@@ -2992,8 +2965,7 @@ const deserializeAws_json1_1PutAppValidationConfigurationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
@@ -3079,8 +3051,7 @@ const deserializeAws_json1_1StartAppReplicationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
@@ -3166,8 +3137,7 @@ const deserializeAws_json1_1StartOnDemandAppReplicationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
@@ -3253,8 +3223,7 @@ const deserializeAws_json1_1StartOnDemandReplicationRunCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DryRunOperationException":
     case "com.amazonaws.sms#DryRunOperationException":
@@ -3348,8 +3317,7 @@ const deserializeAws_json1_1StopAppReplicationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
@@ -3435,8 +3403,7 @@ const deserializeAws_json1_1TerminateAppCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
@@ -3522,8 +3489,7 @@ const deserializeAws_json1_1UpdateAppCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
@@ -3609,8 +3575,7 @@ const deserializeAws_json1_1UpdateReplicationJobCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
@@ -3874,7 +3839,14 @@ const deserializeAws_json1_1UnauthorizedOperationExceptionResponse = async (
 };
 
 const serializeAws_json1_1AppIds = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1AppValidationConfiguration = (
@@ -3882,12 +3854,14 @@ const serializeAws_json1_1AppValidationConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.appValidationStrategy !== undefined && { appValidationStrategy: input.appValidationStrategy }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.ssmValidationParameters !== undefined && {
-      ssmValidationParameters: serializeAws_json1_1SSMValidationParameters(input.ssmValidationParameters, context),
-    }),
-    ...(input.validationId !== undefined && { validationId: input.validationId }),
+    ...(input.appValidationStrategy !== undefined &&
+      input.appValidationStrategy !== null && { appValidationStrategy: input.appValidationStrategy }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.ssmValidationParameters !== undefined &&
+      input.ssmValidationParameters !== null && {
+        ssmValidationParameters: serializeAws_json1_1SSMValidationParameters(input.ssmValidationParameters, context),
+      }),
+    ...(input.validationId !== undefined && input.validationId !== null && { validationId: input.validationId }),
   };
 };
 
@@ -3895,19 +3869,25 @@ const serializeAws_json1_1AppValidationConfigurations = (
   input: AppValidationConfiguration[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1AppValidationConfiguration(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1AppValidationConfiguration(entry, context);
+    });
 };
 
 const serializeAws_json1_1CreateAppRequest = (input: CreateAppRequest, context: __SerdeContext): any => {
   return {
-    ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.roleName !== undefined && { roleName: input.roleName }),
-    ...(input.serverGroups !== undefined && {
-      serverGroups: serializeAws_json1_1ServerGroups(input.serverGroups, context),
-    }),
-    ...(input.tags !== undefined && { tags: serializeAws_json1_1Tags(input.tags, context) }),
+    ...(input.clientToken !== undefined && input.clientToken !== null && { clientToken: input.clientToken }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.roleName !== undefined && input.roleName !== null && { roleName: input.roleName }),
+    ...(input.serverGroups !== undefined &&
+      input.serverGroups !== null && { serverGroups: serializeAws_json1_1ServerGroups(input.serverGroups, context) }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
@@ -3916,18 +3896,20 @@ const serializeAws_json1_1CreateReplicationJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.encrypted !== undefined && { encrypted: input.encrypted }),
-    ...(input.frequency !== undefined && { frequency: input.frequency }),
-    ...(input.kmsKeyId !== undefined && { kmsKeyId: input.kmsKeyId }),
-    ...(input.licenseType !== undefined && { licenseType: input.licenseType }),
-    ...(input.numberOfRecentAmisToKeep !== undefined && { numberOfRecentAmisToKeep: input.numberOfRecentAmisToKeep }),
-    ...(input.roleName !== undefined && { roleName: input.roleName }),
-    ...(input.runOnce !== undefined && { runOnce: input.runOnce }),
-    ...(input.seedReplicationTime !== undefined && {
-      seedReplicationTime: Math.round(input.seedReplicationTime.getTime() / 1000),
-    }),
-    ...(input.serverId !== undefined && { serverId: input.serverId }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.encrypted !== undefined && input.encrypted !== null && { encrypted: input.encrypted }),
+    ...(input.frequency !== undefined && input.frequency !== null && { frequency: input.frequency }),
+    ...(input.kmsKeyId !== undefined && input.kmsKeyId !== null && { kmsKeyId: input.kmsKeyId }),
+    ...(input.licenseType !== undefined && input.licenseType !== null && { licenseType: input.licenseType }),
+    ...(input.numberOfRecentAmisToKeep !== undefined &&
+      input.numberOfRecentAmisToKeep !== null && { numberOfRecentAmisToKeep: input.numberOfRecentAmisToKeep }),
+    ...(input.roleName !== undefined && input.roleName !== null && { roleName: input.roleName }),
+    ...(input.runOnce !== undefined && input.runOnce !== null && { runOnce: input.runOnce }),
+    ...(input.seedReplicationTime !== undefined &&
+      input.seedReplicationTime !== null && {
+        seedReplicationTime: Math.round(input.seedReplicationTime.getTime() / 1000),
+      }),
+    ...(input.serverId !== undefined && input.serverId !== null && { serverId: input.serverId }),
   };
 };
 
@@ -3936,7 +3918,7 @@ const serializeAws_json1_1DeleteAppLaunchConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.appId !== undefined && { appId: input.appId }),
+    ...(input.appId !== undefined && input.appId !== null && { appId: input.appId }),
   };
 };
 
@@ -3945,15 +3927,17 @@ const serializeAws_json1_1DeleteAppReplicationConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.appId !== undefined && { appId: input.appId }),
+    ...(input.appId !== undefined && input.appId !== null && { appId: input.appId }),
   };
 };
 
 const serializeAws_json1_1DeleteAppRequest = (input: DeleteAppRequest, context: __SerdeContext): any => {
   return {
-    ...(input.appId !== undefined && { appId: input.appId }),
-    ...(input.forceStopAppReplication !== undefined && { forceStopAppReplication: input.forceStopAppReplication }),
-    ...(input.forceTerminateApp !== undefined && { forceTerminateApp: input.forceTerminateApp }),
+    ...(input.appId !== undefined && input.appId !== null && { appId: input.appId }),
+    ...(input.forceStopAppReplication !== undefined &&
+      input.forceStopAppReplication !== null && { forceStopAppReplication: input.forceStopAppReplication }),
+    ...(input.forceTerminateApp !== undefined &&
+      input.forceTerminateApp !== null && { forceTerminateApp: input.forceTerminateApp }),
   };
 };
 
@@ -3962,7 +3946,7 @@ const serializeAws_json1_1DeleteAppValidationConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.appId !== undefined && { appId: input.appId }),
+    ...(input.appId !== undefined && input.appId !== null && { appId: input.appId }),
   };
 };
 
@@ -3971,7 +3955,8 @@ const serializeAws_json1_1DeleteReplicationJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.replicationJobId !== undefined && { replicationJobId: input.replicationJobId }),
+    ...(input.replicationJobId !== undefined &&
+      input.replicationJobId !== null && { replicationJobId: input.replicationJobId }),
   };
 };
 
@@ -3987,7 +3972,7 @@ const serializeAws_json1_1DisassociateConnectorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.connectorId !== undefined && { connectorId: input.connectorId }),
+    ...(input.connectorId !== undefined && input.connectorId !== null && { connectorId: input.connectorId }),
   };
 };
 
@@ -3996,15 +3981,17 @@ const serializeAws_json1_1GenerateChangeSetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.appId !== undefined && { appId: input.appId }),
-    ...(input.changesetFormat !== undefined && { changesetFormat: input.changesetFormat }),
+    ...(input.appId !== undefined && input.appId !== null && { appId: input.appId }),
+    ...(input.changesetFormat !== undefined &&
+      input.changesetFormat !== null && { changesetFormat: input.changesetFormat }),
   };
 };
 
 const serializeAws_json1_1GenerateTemplateRequest = (input: GenerateTemplateRequest, context: __SerdeContext): any => {
   return {
-    ...(input.appId !== undefined && { appId: input.appId }),
-    ...(input.templateFormat !== undefined && { templateFormat: input.templateFormat }),
+    ...(input.appId !== undefined && input.appId !== null && { appId: input.appId }),
+    ...(input.templateFormat !== undefined &&
+      input.templateFormat !== null && { templateFormat: input.templateFormat }),
   };
 };
 
@@ -4013,7 +4000,7 @@ const serializeAws_json1_1GetAppLaunchConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.appId !== undefined && { appId: input.appId }),
+    ...(input.appId !== undefined && input.appId !== null && { appId: input.appId }),
   };
 };
 
@@ -4022,13 +4009,13 @@ const serializeAws_json1_1GetAppReplicationConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.appId !== undefined && { appId: input.appId }),
+    ...(input.appId !== undefined && input.appId !== null && { appId: input.appId }),
   };
 };
 
 const serializeAws_json1_1GetAppRequest = (input: GetAppRequest, context: __SerdeContext): any => {
   return {
-    ...(input.appId !== undefined && { appId: input.appId }),
+    ...(input.appId !== undefined && input.appId !== null && { appId: input.appId }),
   };
 };
 
@@ -4037,7 +4024,7 @@ const serializeAws_json1_1GetAppValidationConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.appId !== undefined && { appId: input.appId }),
+    ...(input.appId !== undefined && input.appId !== null && { appId: input.appId }),
   };
 };
 
@@ -4046,14 +4033,14 @@ const serializeAws_json1_1GetAppValidationOutputRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.appId !== undefined && { appId: input.appId }),
+    ...(input.appId !== undefined && input.appId !== null && { appId: input.appId }),
   };
 };
 
 const serializeAws_json1_1GetConnectorsRequest = (input: GetConnectorsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
@@ -4062,9 +4049,10 @@ const serializeAws_json1_1GetReplicationJobsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.replicationJobId !== undefined && { replicationJobId: input.replicationJobId }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.replicationJobId !== undefined &&
+      input.replicationJobId !== null && { replicationJobId: input.replicationJobId }),
   };
 };
 
@@ -4073,25 +4061,27 @@ const serializeAws_json1_1GetReplicationRunsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.replicationJobId !== undefined && { replicationJobId: input.replicationJobId }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.replicationJobId !== undefined &&
+      input.replicationJobId !== null && { replicationJobId: input.replicationJobId }),
   };
 };
 
 const serializeAws_json1_1GetServersRequest = (input: GetServersRequest, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.vmServerAddressList !== undefined && {
-      vmServerAddressList: serializeAws_json1_1VmServerAddressList(input.vmServerAddressList, context),
-    }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.vmServerAddressList !== undefined &&
+      input.vmServerAddressList !== null && {
+        vmServerAddressList: serializeAws_json1_1VmServerAddressList(input.vmServerAddressList, context),
+      }),
   };
 };
 
 const serializeAws_json1_1ImportAppCatalogRequest = (input: ImportAppCatalogRequest, context: __SerdeContext): any => {
   return {
-    ...(input.roleName !== undefined && { roleName: input.roleName }),
+    ...(input.roleName !== undefined && input.roleName !== null && { roleName: input.roleName }),
   };
 };
 
@@ -4104,23 +4094,24 @@ const serializeAws_json1_1ImportServerCatalogRequest = (
 
 const serializeAws_json1_1LaunchAppRequest = (input: LaunchAppRequest, context: __SerdeContext): any => {
   return {
-    ...(input.appId !== undefined && { appId: input.appId }),
+    ...(input.appId !== undefined && input.appId !== null && { appId: input.appId }),
   };
 };
 
 const serializeAws_json1_1ListAppsRequest = (input: ListAppsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.appIds !== undefined && { appIds: serializeAws_json1_1AppIds(input.appIds, context) }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.appIds !== undefined &&
+      input.appIds !== null && { appIds: serializeAws_json1_1AppIds(input.appIds, context) }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1NotificationContext = (input: NotificationContext, context: __SerdeContext): any => {
   return {
-    ...(input.status !== undefined && { status: input.status }),
-    ...(input.statusMessage !== undefined && { statusMessage: input.statusMessage }),
-    ...(input.validationId !== undefined && { validationId: input.validationId }),
+    ...(input.status !== undefined && input.status !== null && { status: input.status }),
+    ...(input.statusMessage !== undefined && input.statusMessage !== null && { statusMessage: input.statusMessage }),
+    ...(input.validationId !== undefined && input.validationId !== null && { validationId: input.validationId }),
   };
 };
 
@@ -4129,10 +4120,11 @@ const serializeAws_json1_1NotifyAppValidationOutputRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.appId !== undefined && { appId: input.appId }),
-    ...(input.notificationContext !== undefined && {
-      notificationContext: serializeAws_json1_1NotificationContext(input.notificationContext, context),
-    }),
+    ...(input.appId !== undefined && input.appId !== null && { appId: input.appId }),
+    ...(input.notificationContext !== undefined &&
+      input.notificationContext !== null && {
+        notificationContext: serializeAws_json1_1NotificationContext(input.notificationContext, context),
+      }),
   };
 };
 
@@ -4141,15 +4133,16 @@ const serializeAws_json1_1PutAppLaunchConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.appId !== undefined && { appId: input.appId }),
-    ...(input.autoLaunch !== undefined && { autoLaunch: input.autoLaunch }),
-    ...(input.roleName !== undefined && { roleName: input.roleName }),
-    ...(input.serverGroupLaunchConfigurations !== undefined && {
-      serverGroupLaunchConfigurations: serializeAws_json1_1ServerGroupLaunchConfigurations(
-        input.serverGroupLaunchConfigurations,
-        context
-      ),
-    }),
+    ...(input.appId !== undefined && input.appId !== null && { appId: input.appId }),
+    ...(input.autoLaunch !== undefined && input.autoLaunch !== null && { autoLaunch: input.autoLaunch }),
+    ...(input.roleName !== undefined && input.roleName !== null && { roleName: input.roleName }),
+    ...(input.serverGroupLaunchConfigurations !== undefined &&
+      input.serverGroupLaunchConfigurations !== null && {
+        serverGroupLaunchConfigurations: serializeAws_json1_1ServerGroupLaunchConfigurations(
+          input.serverGroupLaunchConfigurations,
+          context
+        ),
+      }),
   };
 };
 
@@ -4158,13 +4151,14 @@ const serializeAws_json1_1PutAppReplicationConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.appId !== undefined && { appId: input.appId }),
-    ...(input.serverGroupReplicationConfigurations !== undefined && {
-      serverGroupReplicationConfigurations: serializeAws_json1_1ServerGroupReplicationConfigurations(
-        input.serverGroupReplicationConfigurations,
-        context
-      ),
-    }),
+    ...(input.appId !== undefined && input.appId !== null && { appId: input.appId }),
+    ...(input.serverGroupReplicationConfigurations !== undefined &&
+      input.serverGroupReplicationConfigurations !== null && {
+        serverGroupReplicationConfigurations: serializeAws_json1_1ServerGroupReplicationConfigurations(
+          input.serverGroupReplicationConfigurations,
+          context
+        ),
+      }),
   };
 };
 
@@ -4173,44 +4167,50 @@ const serializeAws_json1_1PutAppValidationConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.appId !== undefined && { appId: input.appId }),
-    ...(input.appValidationConfigurations !== undefined && {
-      appValidationConfigurations: serializeAws_json1_1AppValidationConfigurations(
-        input.appValidationConfigurations,
-        context
-      ),
-    }),
-    ...(input.serverGroupValidationConfigurations !== undefined && {
-      serverGroupValidationConfigurations: serializeAws_json1_1ServerGroupValidationConfigurations(
-        input.serverGroupValidationConfigurations,
-        context
-      ),
-    }),
+    ...(input.appId !== undefined && input.appId !== null && { appId: input.appId }),
+    ...(input.appValidationConfigurations !== undefined &&
+      input.appValidationConfigurations !== null && {
+        appValidationConfigurations: serializeAws_json1_1AppValidationConfigurations(
+          input.appValidationConfigurations,
+          context
+        ),
+      }),
+    ...(input.serverGroupValidationConfigurations !== undefined &&
+      input.serverGroupValidationConfigurations !== null && {
+        serverGroupValidationConfigurations: serializeAws_json1_1ServerGroupValidationConfigurations(
+          input.serverGroupValidationConfigurations,
+          context
+        ),
+      }),
   };
 };
 
 const serializeAws_json1_1S3Location = (input: S3Location, context: __SerdeContext): any => {
   return {
-    ...(input.bucket !== undefined && { bucket: input.bucket }),
-    ...(input.key !== undefined && { key: input.key }),
+    ...(input.bucket !== undefined && input.bucket !== null && { bucket: input.bucket }),
+    ...(input.key !== undefined && input.key !== null && { key: input.key }),
   };
 };
 
 const serializeAws_json1_1Server = (input: Server, context: __SerdeContext): any => {
   return {
-    ...(input.replicationJobId !== undefined && { replicationJobId: input.replicationJobId }),
-    ...(input.replicationJobTerminated !== undefined && { replicationJobTerminated: input.replicationJobTerminated }),
-    ...(input.serverId !== undefined && { serverId: input.serverId }),
-    ...(input.serverType !== undefined && { serverType: input.serverType }),
-    ...(input.vmServer !== undefined && { vmServer: serializeAws_json1_1VmServer(input.vmServer, context) }),
+    ...(input.replicationJobId !== undefined &&
+      input.replicationJobId !== null && { replicationJobId: input.replicationJobId }),
+    ...(input.replicationJobTerminated !== undefined &&
+      input.replicationJobTerminated !== null && { replicationJobTerminated: input.replicationJobTerminated }),
+    ...(input.serverId !== undefined && input.serverId !== null && { serverId: input.serverId }),
+    ...(input.serverType !== undefined && input.serverType !== null && { serverType: input.serverType }),
+    ...(input.vmServer !== undefined &&
+      input.vmServer !== null && { vmServer: serializeAws_json1_1VmServer(input.vmServer, context) }),
   };
 };
 
 const serializeAws_json1_1ServerGroup = (input: ServerGroup, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.serverGroupId !== undefined && { serverGroupId: input.serverGroupId }),
-    ...(input.serverList !== undefined && { serverList: serializeAws_json1_1ServerList(input.serverList, context) }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.serverGroupId !== undefined && input.serverGroupId !== null && { serverGroupId: input.serverGroupId }),
+    ...(input.serverList !== undefined &&
+      input.serverList !== null && { serverList: serializeAws_json1_1ServerList(input.serverList, context) }),
   };
 };
 
@@ -4219,14 +4219,15 @@ const serializeAws_json1_1ServerGroupLaunchConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.launchOrder !== undefined && { launchOrder: input.launchOrder }),
-    ...(input.serverGroupId !== undefined && { serverGroupId: input.serverGroupId }),
-    ...(input.serverLaunchConfigurations !== undefined && {
-      serverLaunchConfigurations: serializeAws_json1_1ServerLaunchConfigurations(
-        input.serverLaunchConfigurations,
-        context
-      ),
-    }),
+    ...(input.launchOrder !== undefined && input.launchOrder !== null && { launchOrder: input.launchOrder }),
+    ...(input.serverGroupId !== undefined && input.serverGroupId !== null && { serverGroupId: input.serverGroupId }),
+    ...(input.serverLaunchConfigurations !== undefined &&
+      input.serverLaunchConfigurations !== null && {
+        serverLaunchConfigurations: serializeAws_json1_1ServerLaunchConfigurations(
+          input.serverLaunchConfigurations,
+          context
+        ),
+      }),
   };
 };
 
@@ -4234,7 +4235,14 @@ const serializeAws_json1_1ServerGroupLaunchConfigurations = (
   input: ServerGroupLaunchConfiguration[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1ServerGroupLaunchConfiguration(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ServerGroupLaunchConfiguration(entry, context);
+    });
 };
 
 const serializeAws_json1_1ServerGroupReplicationConfiguration = (
@@ -4242,13 +4250,14 @@ const serializeAws_json1_1ServerGroupReplicationConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.serverGroupId !== undefined && { serverGroupId: input.serverGroupId }),
-    ...(input.serverReplicationConfigurations !== undefined && {
-      serverReplicationConfigurations: serializeAws_json1_1ServerReplicationConfigurations(
-        input.serverReplicationConfigurations,
-        context
-      ),
-    }),
+    ...(input.serverGroupId !== undefined && input.serverGroupId !== null && { serverGroupId: input.serverGroupId }),
+    ...(input.serverReplicationConfigurations !== undefined &&
+      input.serverReplicationConfigurations !== null && {
+        serverReplicationConfigurations: serializeAws_json1_1ServerReplicationConfigurations(
+          input.serverReplicationConfigurations,
+          context
+        ),
+      }),
   };
 };
 
@@ -4256,11 +4265,25 @@ const serializeAws_json1_1ServerGroupReplicationConfigurations = (
   input: ServerGroupReplicationConfiguration[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1ServerGroupReplicationConfiguration(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ServerGroupReplicationConfiguration(entry, context);
+    });
 };
 
 const serializeAws_json1_1ServerGroups = (input: ServerGroup[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1ServerGroup(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ServerGroup(entry, context);
+    });
 };
 
 const serializeAws_json1_1ServerGroupValidationConfiguration = (
@@ -4268,13 +4291,14 @@ const serializeAws_json1_1ServerGroupValidationConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.serverGroupId !== undefined && { serverGroupId: input.serverGroupId }),
-    ...(input.serverValidationConfigurations !== undefined && {
-      serverValidationConfigurations: serializeAws_json1_1ServerValidationConfigurations(
-        input.serverValidationConfigurations,
-        context
-      ),
-    }),
+    ...(input.serverGroupId !== undefined && input.serverGroupId !== null && { serverGroupId: input.serverGroupId }),
+    ...(input.serverValidationConfigurations !== undefined &&
+      input.serverValidationConfigurations !== null && {
+        serverValidationConfigurations: serializeAws_json1_1ServerValidationConfigurations(
+          input.serverValidationConfigurations,
+          context
+        ),
+      }),
   };
 };
 
@@ -4282,7 +4306,14 @@ const serializeAws_json1_1ServerGroupValidationConfigurations = (
   input: ServerGroupValidationConfiguration[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1ServerGroupValidationConfiguration(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ServerGroupValidationConfiguration(entry, context);
+    });
 };
 
 const serializeAws_json1_1ServerLaunchConfiguration = (
@@ -4290,20 +4321,26 @@ const serializeAws_json1_1ServerLaunchConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.associatePublicIpAddress !== undefined && { associatePublicIpAddress: input.associatePublicIpAddress }),
-    ...(input.configureScript !== undefined && {
-      configureScript: serializeAws_json1_1S3Location(input.configureScript, context),
-    }),
-    ...(input.configureScriptType !== undefined && { configureScriptType: input.configureScriptType }),
-    ...(input.ec2KeyName !== undefined && { ec2KeyName: input.ec2KeyName }),
-    ...(input.iamInstanceProfileName !== undefined && { iamInstanceProfileName: input.iamInstanceProfileName }),
-    ...(input.instanceType !== undefined && { instanceType: input.instanceType }),
-    ...(input.logicalId !== undefined && { logicalId: input.logicalId }),
-    ...(input.securityGroup !== undefined && { securityGroup: input.securityGroup }),
-    ...(input.server !== undefined && { server: serializeAws_json1_1Server(input.server, context) }),
-    ...(input.subnet !== undefined && { subnet: input.subnet }),
-    ...(input.userData !== undefined && { userData: serializeAws_json1_1UserData(input.userData, context) }),
-    ...(input.vpc !== undefined && { vpc: input.vpc }),
+    ...(input.associatePublicIpAddress !== undefined &&
+      input.associatePublicIpAddress !== null && { associatePublicIpAddress: input.associatePublicIpAddress }),
+    ...(input.configureScript !== undefined &&
+      input.configureScript !== null && {
+        configureScript: serializeAws_json1_1S3Location(input.configureScript, context),
+      }),
+    ...(input.configureScriptType !== undefined &&
+      input.configureScriptType !== null && { configureScriptType: input.configureScriptType }),
+    ...(input.ec2KeyName !== undefined && input.ec2KeyName !== null && { ec2KeyName: input.ec2KeyName }),
+    ...(input.iamInstanceProfileName !== undefined &&
+      input.iamInstanceProfileName !== null && { iamInstanceProfileName: input.iamInstanceProfileName }),
+    ...(input.instanceType !== undefined && input.instanceType !== null && { instanceType: input.instanceType }),
+    ...(input.logicalId !== undefined && input.logicalId !== null && { logicalId: input.logicalId }),
+    ...(input.securityGroup !== undefined && input.securityGroup !== null && { securityGroup: input.securityGroup }),
+    ...(input.server !== undefined &&
+      input.server !== null && { server: serializeAws_json1_1Server(input.server, context) }),
+    ...(input.subnet !== undefined && input.subnet !== null && { subnet: input.subnet }),
+    ...(input.userData !== undefined &&
+      input.userData !== null && { userData: serializeAws_json1_1UserData(input.userData, context) }),
+    ...(input.vpc !== undefined && input.vpc !== null && { vpc: input.vpc }),
   };
 };
 
@@ -4311,11 +4348,25 @@ const serializeAws_json1_1ServerLaunchConfigurations = (
   input: ServerLaunchConfiguration[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1ServerLaunchConfiguration(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ServerLaunchConfiguration(entry, context);
+    });
 };
 
 const serializeAws_json1_1ServerList = (input: Server[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Server(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Server(entry, context);
+    });
 };
 
 const serializeAws_json1_1ServerReplicationConfiguration = (
@@ -4323,13 +4374,15 @@ const serializeAws_json1_1ServerReplicationConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.server !== undefined && { server: serializeAws_json1_1Server(input.server, context) }),
-    ...(input.serverReplicationParameters !== undefined && {
-      serverReplicationParameters: serializeAws_json1_1ServerReplicationParameters(
-        input.serverReplicationParameters,
-        context
-      ),
-    }),
+    ...(input.server !== undefined &&
+      input.server !== null && { server: serializeAws_json1_1Server(input.server, context) }),
+    ...(input.serverReplicationParameters !== undefined &&
+      input.serverReplicationParameters !== null && {
+        serverReplicationParameters: serializeAws_json1_1ServerReplicationParameters(
+          input.serverReplicationParameters,
+          context
+        ),
+      }),
   };
 };
 
@@ -4337,7 +4390,14 @@ const serializeAws_json1_1ServerReplicationConfigurations = (
   input: ServerReplicationConfiguration[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1ServerReplicationConfiguration(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ServerReplicationConfiguration(entry, context);
+    });
 };
 
 const serializeAws_json1_1ServerReplicationParameters = (
@@ -4345,13 +4405,15 @@ const serializeAws_json1_1ServerReplicationParameters = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.encrypted !== undefined && { encrypted: input.encrypted }),
-    ...(input.frequency !== undefined && { frequency: input.frequency }),
-    ...(input.kmsKeyId !== undefined && { kmsKeyId: input.kmsKeyId }),
-    ...(input.licenseType !== undefined && { licenseType: input.licenseType }),
-    ...(input.numberOfRecentAmisToKeep !== undefined && { numberOfRecentAmisToKeep: input.numberOfRecentAmisToKeep }),
-    ...(input.runOnce !== undefined && { runOnce: input.runOnce }),
-    ...(input.seedTime !== undefined && { seedTime: Math.round(input.seedTime.getTime() / 1000) }),
+    ...(input.encrypted !== undefined && input.encrypted !== null && { encrypted: input.encrypted }),
+    ...(input.frequency !== undefined && input.frequency !== null && { frequency: input.frequency }),
+    ...(input.kmsKeyId !== undefined && input.kmsKeyId !== null && { kmsKeyId: input.kmsKeyId }),
+    ...(input.licenseType !== undefined && input.licenseType !== null && { licenseType: input.licenseType }),
+    ...(input.numberOfRecentAmisToKeep !== undefined &&
+      input.numberOfRecentAmisToKeep !== null && { numberOfRecentAmisToKeep: input.numberOfRecentAmisToKeep }),
+    ...(input.runOnce !== undefined && input.runOnce !== null && { runOnce: input.runOnce }),
+    ...(input.seedTime !== undefined &&
+      input.seedTime !== null && { seedTime: Math.round(input.seedTime.getTime() / 1000) }),
   };
 };
 
@@ -4360,16 +4422,19 @@ const serializeAws_json1_1ServerValidationConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.server !== undefined && { server: serializeAws_json1_1Server(input.server, context) }),
-    ...(input.serverValidationStrategy !== undefined && { serverValidationStrategy: input.serverValidationStrategy }),
-    ...(input.userDataValidationParameters !== undefined && {
-      userDataValidationParameters: serializeAws_json1_1UserDataValidationParameters(
-        input.userDataValidationParameters,
-        context
-      ),
-    }),
-    ...(input.validationId !== undefined && { validationId: input.validationId }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.server !== undefined &&
+      input.server !== null && { server: serializeAws_json1_1Server(input.server, context) }),
+    ...(input.serverValidationStrategy !== undefined &&
+      input.serverValidationStrategy !== null && { serverValidationStrategy: input.serverValidationStrategy }),
+    ...(input.userDataValidationParameters !== undefined &&
+      input.userDataValidationParameters !== null && {
+        userDataValidationParameters: serializeAws_json1_1UserDataValidationParameters(
+          input.userDataValidationParameters,
+          context
+        ),
+      }),
+    ...(input.validationId !== undefined && input.validationId !== null && { validationId: input.validationId }),
   };
 };
 
@@ -4377,23 +4442,34 @@ const serializeAws_json1_1ServerValidationConfigurations = (
   input: ServerValidationConfiguration[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1ServerValidationConfiguration(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ServerValidationConfiguration(entry, context);
+    });
 };
 
 const serializeAws_json1_1Source = (input: Source, context: __SerdeContext): any => {
   return {
-    ...(input.s3Location !== undefined && { s3Location: serializeAws_json1_1S3Location(input.s3Location, context) }),
+    ...(input.s3Location !== undefined &&
+      input.s3Location !== null && { s3Location: serializeAws_json1_1S3Location(input.s3Location, context) }),
   };
 };
 
 const serializeAws_json1_1SSMValidationParameters = (input: SSMValidationParameters, context: __SerdeContext): any => {
   return {
-    ...(input.command !== undefined && { command: input.command }),
-    ...(input.executionTimeoutSeconds !== undefined && { executionTimeoutSeconds: input.executionTimeoutSeconds }),
-    ...(input.instanceId !== undefined && { instanceId: input.instanceId }),
-    ...(input.outputS3BucketName !== undefined && { outputS3BucketName: input.outputS3BucketName }),
-    ...(input.scriptType !== undefined && { scriptType: input.scriptType }),
-    ...(input.source !== undefined && { source: serializeAws_json1_1Source(input.source, context) }),
+    ...(input.command !== undefined && input.command !== null && { command: input.command }),
+    ...(input.executionTimeoutSeconds !== undefined &&
+      input.executionTimeoutSeconds !== null && { executionTimeoutSeconds: input.executionTimeoutSeconds }),
+    ...(input.instanceId !== undefined && input.instanceId !== null && { instanceId: input.instanceId }),
+    ...(input.outputS3BucketName !== undefined &&
+      input.outputS3BucketName !== null && { outputS3BucketName: input.outputS3BucketName }),
+    ...(input.scriptType !== undefined && input.scriptType !== null && { scriptType: input.scriptType }),
+    ...(input.source !== undefined &&
+      input.source !== null && { source: serializeAws_json1_1Source(input.source, context) }),
   };
 };
 
@@ -4402,7 +4478,7 @@ const serializeAws_json1_1StartAppReplicationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.appId !== undefined && { appId: input.appId }),
+    ...(input.appId !== undefined && input.appId !== null && { appId: input.appId }),
   };
 };
 
@@ -4411,8 +4487,8 @@ const serializeAws_json1_1StartOnDemandAppReplicationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.appId !== undefined && { appId: input.appId }),
-    ...(input.description !== undefined && { description: input.description }),
+    ...(input.appId !== undefined && input.appId !== null && { appId: input.appId }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
   };
 };
 
@@ -4421,8 +4497,9 @@ const serializeAws_json1_1StartOnDemandReplicationRunRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.replicationJobId !== undefined && { replicationJobId: input.replicationJobId }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.replicationJobId !== undefined &&
+      input.replicationJobId !== null && { replicationJobId: input.replicationJobId }),
   };
 };
 
@@ -4431,37 +4508,43 @@ const serializeAws_json1_1StopAppReplicationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.appId !== undefined && { appId: input.appId }),
+    ...(input.appId !== undefined && input.appId !== null && { appId: input.appId }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.key !== undefined && { key: input.key }),
-    ...(input.value !== undefined && { value: input.value }),
+    ...(input.key !== undefined && input.key !== null && { key: input.key }),
+    ...(input.value !== undefined && input.value !== null && { value: input.value }),
   };
 };
 
 const serializeAws_json1_1Tags = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const serializeAws_json1_1TerminateAppRequest = (input: TerminateAppRequest, context: __SerdeContext): any => {
   return {
-    ...(input.appId !== undefined && { appId: input.appId }),
+    ...(input.appId !== undefined && input.appId !== null && { appId: input.appId }),
   };
 };
 
 const serializeAws_json1_1UpdateAppRequest = (input: UpdateAppRequest, context: __SerdeContext): any => {
   return {
-    ...(input.appId !== undefined && { appId: input.appId }),
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.roleName !== undefined && { roleName: input.roleName }),
-    ...(input.serverGroups !== undefined && {
-      serverGroups: serializeAws_json1_1ServerGroups(input.serverGroups, context),
-    }),
-    ...(input.tags !== undefined && { tags: serializeAws_json1_1Tags(input.tags, context) }),
+    ...(input.appId !== undefined && input.appId !== null && { appId: input.appId }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.roleName !== undefined && input.roleName !== null && { roleName: input.roleName }),
+    ...(input.serverGroups !== undefined &&
+      input.serverGroups !== null && { serverGroups: serializeAws_json1_1ServerGroups(input.serverGroups, context) }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
@@ -4470,23 +4553,27 @@ const serializeAws_json1_1UpdateReplicationJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.encrypted !== undefined && { encrypted: input.encrypted }),
-    ...(input.frequency !== undefined && { frequency: input.frequency }),
-    ...(input.kmsKeyId !== undefined && { kmsKeyId: input.kmsKeyId }),
-    ...(input.licenseType !== undefined && { licenseType: input.licenseType }),
-    ...(input.nextReplicationRunStartTime !== undefined && {
-      nextReplicationRunStartTime: Math.round(input.nextReplicationRunStartTime.getTime() / 1000),
-    }),
-    ...(input.numberOfRecentAmisToKeep !== undefined && { numberOfRecentAmisToKeep: input.numberOfRecentAmisToKeep }),
-    ...(input.replicationJobId !== undefined && { replicationJobId: input.replicationJobId }),
-    ...(input.roleName !== undefined && { roleName: input.roleName }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.encrypted !== undefined && input.encrypted !== null && { encrypted: input.encrypted }),
+    ...(input.frequency !== undefined && input.frequency !== null && { frequency: input.frequency }),
+    ...(input.kmsKeyId !== undefined && input.kmsKeyId !== null && { kmsKeyId: input.kmsKeyId }),
+    ...(input.licenseType !== undefined && input.licenseType !== null && { licenseType: input.licenseType }),
+    ...(input.nextReplicationRunStartTime !== undefined &&
+      input.nextReplicationRunStartTime !== null && {
+        nextReplicationRunStartTime: Math.round(input.nextReplicationRunStartTime.getTime() / 1000),
+      }),
+    ...(input.numberOfRecentAmisToKeep !== undefined &&
+      input.numberOfRecentAmisToKeep !== null && { numberOfRecentAmisToKeep: input.numberOfRecentAmisToKeep }),
+    ...(input.replicationJobId !== undefined &&
+      input.replicationJobId !== null && { replicationJobId: input.replicationJobId }),
+    ...(input.roleName !== undefined && input.roleName !== null && { roleName: input.roleName }),
   };
 };
 
 const serializeAws_json1_1UserData = (input: UserData, context: __SerdeContext): any => {
   return {
-    ...(input.s3Location !== undefined && { s3Location: serializeAws_json1_1S3Location(input.s3Location, context) }),
+    ...(input.s3Location !== undefined &&
+      input.s3Location !== null && { s3Location: serializeAws_json1_1S3Location(input.s3Location, context) }),
   };
 };
 
@@ -4495,36 +4582,52 @@ const serializeAws_json1_1UserDataValidationParameters = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.scriptType !== undefined && { scriptType: input.scriptType }),
-    ...(input.source !== undefined && { source: serializeAws_json1_1Source(input.source, context) }),
+    ...(input.scriptType !== undefined && input.scriptType !== null && { scriptType: input.scriptType }),
+    ...(input.source !== undefined &&
+      input.source !== null && { source: serializeAws_json1_1Source(input.source, context) }),
   };
 };
 
 const serializeAws_json1_1VmServer = (input: VmServer, context: __SerdeContext): any => {
   return {
-    ...(input.vmManagerName !== undefined && { vmManagerName: input.vmManagerName }),
-    ...(input.vmManagerType !== undefined && { vmManagerType: input.vmManagerType }),
-    ...(input.vmName !== undefined && { vmName: input.vmName }),
-    ...(input.vmPath !== undefined && { vmPath: input.vmPath }),
-    ...(input.vmServerAddress !== undefined && {
-      vmServerAddress: serializeAws_json1_1VmServerAddress(input.vmServerAddress, context),
-    }),
+    ...(input.vmManagerName !== undefined && input.vmManagerName !== null && { vmManagerName: input.vmManagerName }),
+    ...(input.vmManagerType !== undefined && input.vmManagerType !== null && { vmManagerType: input.vmManagerType }),
+    ...(input.vmName !== undefined && input.vmName !== null && { vmName: input.vmName }),
+    ...(input.vmPath !== undefined && input.vmPath !== null && { vmPath: input.vmPath }),
+    ...(input.vmServerAddress !== undefined &&
+      input.vmServerAddress !== null && {
+        vmServerAddress: serializeAws_json1_1VmServerAddress(input.vmServerAddress, context),
+      }),
   };
 };
 
 const serializeAws_json1_1VmServerAddress = (input: VmServerAddress, context: __SerdeContext): any => {
   return {
-    ...(input.vmId !== undefined && { vmId: input.vmId }),
-    ...(input.vmManagerId !== undefined && { vmManagerId: input.vmManagerId }),
+    ...(input.vmId !== undefined && input.vmId !== null && { vmId: input.vmId }),
+    ...(input.vmManagerId !== undefined && input.vmManagerId !== null && { vmManagerId: input.vmManagerId }),
   };
 };
 
 const serializeAws_json1_1VmServerAddressList = (input: VmServerAddress[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1VmServerAddress(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1VmServerAddress(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Apps = (output: any, context: __SerdeContext): AppSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1AppSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AppSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1AppSummary = (output: any, context: __SerdeContext): AppSummary => {
@@ -4605,7 +4708,14 @@ const deserializeAws_json1_1AppValidationConfigurations = (
   output: any,
   context: __SerdeContext
 ): AppValidationConfiguration[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1AppValidationConfiguration(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AppValidationConfiguration(entry, context);
+    });
 };
 
 const deserializeAws_json1_1AppValidationOutput = (output: any, context: __SerdeContext): AppValidationOutput => {
@@ -4644,11 +4754,25 @@ const deserializeAws_json1_1ConnectorCapabilityList = (
   output: any,
   context: __SerdeContext
 ): (ConnectorCapability | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ConnectorList = (output: any, context: __SerdeContext): Connector[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Connector(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Connector(entry, context);
+    });
 };
 
 const deserializeAws_json1_1CreateAppResponse = (output: any, context: __SerdeContext): CreateAppResponse => {
@@ -5043,7 +5167,14 @@ const deserializeAws_json1_1ReplicationJobAlreadyExistsException = (
 };
 
 const deserializeAws_json1_1ReplicationJobList = (output: any, context: __SerdeContext): ReplicationJob[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ReplicationJob(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ReplicationJob(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ReplicationJobNotFoundException = (
@@ -5092,7 +5223,14 @@ const deserializeAws_json1_1ReplicationRunLimitExceededException = (
 };
 
 const deserializeAws_json1_1ReplicationRunList = (output: any, context: __SerdeContext): ReplicationRun[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ReplicationRun(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ReplicationRun(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ReplicationRunStageDetails = (
@@ -5170,7 +5308,14 @@ const deserializeAws_json1_1ServerGroupLaunchConfigurations = (
   output: any,
   context: __SerdeContext
 ): ServerGroupLaunchConfiguration[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ServerGroupLaunchConfiguration(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ServerGroupLaunchConfiguration(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ServerGroupReplicationConfiguration = (
@@ -5191,11 +5336,25 @@ const deserializeAws_json1_1ServerGroupReplicationConfigurations = (
   output: any,
   context: __SerdeContext
 ): ServerGroupReplicationConfiguration[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ServerGroupReplicationConfiguration(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ServerGroupReplicationConfiguration(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ServerGroups = (output: any, context: __SerdeContext): ServerGroup[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ServerGroup(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ServerGroup(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ServerGroupValidationConfiguration = (
@@ -5216,7 +5375,14 @@ const deserializeAws_json1_1ServerGroupValidationConfigurations = (
   output: any,
   context: __SerdeContext
 ): ServerGroupValidationConfiguration[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ServerGroupValidationConfiguration(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ServerGroupValidationConfiguration(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ServerLaunchConfiguration = (
@@ -5262,11 +5428,25 @@ const deserializeAws_json1_1ServerLaunchConfigurations = (
   output: any,
   context: __SerdeContext
 ): ServerLaunchConfiguration[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ServerLaunchConfiguration(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ServerLaunchConfiguration(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ServerList = (output: any, context: __SerdeContext): Server[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Server(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Server(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ServerReplicationConfiguration = (
@@ -5289,7 +5469,14 @@ const deserializeAws_json1_1ServerReplicationConfigurations = (
   output: any,
   context: __SerdeContext
 ): ServerReplicationConfiguration[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ServerReplicationConfiguration(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ServerReplicationConfiguration(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ServerReplicationParameters = (
@@ -5339,7 +5526,14 @@ const deserializeAws_json1_1ServerValidationConfigurations = (
   output: any,
   context: __SerdeContext
 ): ServerValidationConfiguration[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ServerValidationConfiguration(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ServerValidationConfiguration(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ServerValidationOutput = (output: any, context: __SerdeContext): ServerValidationOutput => {
@@ -5431,7 +5625,14 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TemporarilyUnavailableException = (
@@ -5521,7 +5722,14 @@ const deserializeAws_json1_1ValidationOutput = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1ValidationOutputList = (output: any, context: __SerdeContext): ValidationOutput[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ValidationOutput(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ValidationOutput(entry, context);
+    });
 };
 
 const deserializeAws_json1_1VmServer = (output: any, context: __SerdeContext): VmServer => {
@@ -5596,3 +5804,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

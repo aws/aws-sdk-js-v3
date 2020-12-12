@@ -38,7 +38,7 @@ export const serializeAws_json1_1CreateHomeRegionControlCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSMigrationHubMultiAccountService.CreateHomeRegionControl",
   };
   let body: any;
@@ -51,7 +51,7 @@ export const serializeAws_json1_1DescribeHomeRegionControlsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSMigrationHubMultiAccountService.DescribeHomeRegionControls",
   };
   let body: any;
@@ -64,7 +64,7 @@ export const serializeAws_json1_1GetHomeRegionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSMigrationHubMultiAccountService.GetHomeRegion",
   };
   let body: any;
@@ -99,8 +99,7 @@ const deserializeAws_json1_1CreateHomeRegionControlCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhubconfig#AccessDeniedException":
@@ -194,8 +193,7 @@ const deserializeAws_json1_1DescribeHomeRegionControlsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhubconfig#AccessDeniedException":
@@ -281,8 +279,7 @@ const deserializeAws_json1_1GetHomeRegionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhubconfig#AccessDeniedException":
@@ -436,9 +433,10 @@ const serializeAws_json1_1CreateHomeRegionControlRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
-    ...(input.HomeRegion !== undefined && { HomeRegion: input.HomeRegion }),
-    ...(input.Target !== undefined && { Target: serializeAws_json1_1Target(input.Target, context) }),
+    ...(input.DryRun !== undefined && input.DryRun !== null && { DryRun: input.DryRun }),
+    ...(input.HomeRegion !== undefined && input.HomeRegion !== null && { HomeRegion: input.HomeRegion }),
+    ...(input.Target !== undefined &&
+      input.Target !== null && { Target: serializeAws_json1_1Target(input.Target, context) }),
   };
 };
 
@@ -447,11 +445,12 @@ const serializeAws_json1_1DescribeHomeRegionControlsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ControlId !== undefined && { ControlId: input.ControlId }),
-    ...(input.HomeRegion !== undefined && { HomeRegion: input.HomeRegion }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.Target !== undefined && { Target: serializeAws_json1_1Target(input.Target, context) }),
+    ...(input.ControlId !== undefined && input.ControlId !== null && { ControlId: input.ControlId }),
+    ...(input.HomeRegion !== undefined && input.HomeRegion !== null && { HomeRegion: input.HomeRegion }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Target !== undefined &&
+      input.Target !== null && { Target: serializeAws_json1_1Target(input.Target, context) }),
   };
 };
 
@@ -461,8 +460,8 @@ const serializeAws_json1_1GetHomeRegionRequest = (input: GetHomeRegionRequest, c
 
 const serializeAws_json1_1Target = (input: Target, context: __SerdeContext): any => {
   return {
-    ...(input.Id !== undefined && { Id: input.Id }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
 };
 
@@ -525,7 +524,14 @@ const deserializeAws_json1_1HomeRegionControl = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1HomeRegionControls = (output: any, context: __SerdeContext): HomeRegionControl[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1HomeRegionControl(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1HomeRegionControl(entry, context);
+    });
 };
 
 const deserializeAws_json1_1InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
@@ -616,3 +622,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

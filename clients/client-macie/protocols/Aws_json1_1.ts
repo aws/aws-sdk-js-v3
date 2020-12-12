@@ -57,7 +57,7 @@ export const serializeAws_json1_1AssociateMemberAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MacieService.AssociateMemberAccount",
   };
   let body: any;
@@ -70,7 +70,7 @@ export const serializeAws_json1_1AssociateS3ResourcesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MacieService.AssociateS3Resources",
   };
   let body: any;
@@ -83,7 +83,7 @@ export const serializeAws_json1_1DisassociateMemberAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MacieService.DisassociateMemberAccount",
   };
   let body: any;
@@ -96,7 +96,7 @@ export const serializeAws_json1_1DisassociateS3ResourcesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MacieService.DisassociateS3Resources",
   };
   let body: any;
@@ -109,7 +109,7 @@ export const serializeAws_json1_1ListMemberAccountsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MacieService.ListMemberAccounts",
   };
   let body: any;
@@ -122,7 +122,7 @@ export const serializeAws_json1_1ListS3ResourcesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MacieService.ListS3Resources",
   };
   let body: any;
@@ -135,7 +135,7 @@ export const serializeAws_json1_1UpdateS3ResourcesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MacieService.UpdateS3Resources",
   };
   let body: any;
@@ -167,8 +167,7 @@ const deserializeAws_json1_1AssociateMemberAccountCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.macie#InternalException":
@@ -238,8 +237,7 @@ const deserializeAws_json1_1AssociateS3ResourcesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.macie#AccessDeniedException":
@@ -314,8 +312,7 @@ const deserializeAws_json1_1DisassociateMemberAccountCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.macie#InternalException":
@@ -377,8 +374,7 @@ const deserializeAws_json1_1DisassociateS3ResourcesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.macie#AccessDeniedException":
@@ -448,8 +444,7 @@ const deserializeAws_json1_1ListMemberAccountsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.macie#InternalException":
@@ -511,8 +506,7 @@ const deserializeAws_json1_1ListS3ResourcesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.macie#AccessDeniedException":
@@ -582,8 +576,7 @@ const deserializeAws_json1_1UpdateS3ResourcesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.macie#AccessDeniedException":
@@ -691,7 +684,8 @@ const serializeAws_json1_1AssociateMemberAccountRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.memberAccountId !== undefined && { memberAccountId: input.memberAccountId }),
+    ...(input.memberAccountId !== undefined &&
+      input.memberAccountId !== null && { memberAccountId: input.memberAccountId }),
   };
 };
 
@@ -700,17 +694,19 @@ const serializeAws_json1_1AssociateS3ResourcesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.memberAccountId !== undefined && { memberAccountId: input.memberAccountId }),
-    ...(input.s3Resources !== undefined && {
-      s3Resources: serializeAws_json1_1S3ResourcesClassification(input.s3Resources, context),
-    }),
+    ...(input.memberAccountId !== undefined &&
+      input.memberAccountId !== null && { memberAccountId: input.memberAccountId }),
+    ...(input.s3Resources !== undefined &&
+      input.s3Resources !== null && {
+        s3Resources: serializeAws_json1_1S3ResourcesClassification(input.s3Resources, context),
+      }),
   };
 };
 
 const serializeAws_json1_1ClassificationType = (input: ClassificationType, context: __SerdeContext): any => {
   return {
-    ...(input.continuous !== undefined && { continuous: input.continuous }),
-    ...(input.oneTime !== undefined && { oneTime: input.oneTime }),
+    ...(input.continuous !== undefined && input.continuous !== null && { continuous: input.continuous }),
+    ...(input.oneTime !== undefined && input.oneTime !== null && { oneTime: input.oneTime }),
   };
 };
 
@@ -719,8 +715,8 @@ const serializeAws_json1_1ClassificationTypeUpdate = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.continuous !== undefined && { continuous: input.continuous }),
-    ...(input.oneTime !== undefined && { oneTime: input.oneTime }),
+    ...(input.continuous !== undefined && input.continuous !== null && { continuous: input.continuous }),
+    ...(input.oneTime !== undefined && input.oneTime !== null && { oneTime: input.oneTime }),
   };
 };
 
@@ -729,7 +725,8 @@ const serializeAws_json1_1DisassociateMemberAccountRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.memberAccountId !== undefined && { memberAccountId: input.memberAccountId }),
+    ...(input.memberAccountId !== undefined &&
+      input.memberAccountId !== null && { memberAccountId: input.memberAccountId }),
   };
 };
 
@@ -738,10 +735,12 @@ const serializeAws_json1_1DisassociateS3ResourcesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.associatedS3Resources !== undefined && {
-      associatedS3Resources: serializeAws_json1_1S3Resources(input.associatedS3Resources, context),
-    }),
-    ...(input.memberAccountId !== undefined && { memberAccountId: input.memberAccountId }),
+    ...(input.associatedS3Resources !== undefined &&
+      input.associatedS3Resources !== null && {
+        associatedS3Resources: serializeAws_json1_1S3Resources(input.associatedS3Resources, context),
+      }),
+    ...(input.memberAccountId !== undefined &&
+      input.memberAccountId !== null && { memberAccountId: input.memberAccountId }),
   };
 };
 
@@ -750,23 +749,24 @@ const serializeAws_json1_1ListMemberAccountsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1ListS3ResourcesRequest = (input: ListS3ResourcesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.memberAccountId !== undefined && { memberAccountId: input.memberAccountId }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.memberAccountId !== undefined &&
+      input.memberAccountId !== null && { memberAccountId: input.memberAccountId }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1S3Resource = (input: S3Resource, context: __SerdeContext): any => {
   return {
-    ...(input.bucketName !== undefined && { bucketName: input.bucketName }),
-    ...(input.prefix !== undefined && { prefix: input.prefix }),
+    ...(input.bucketName !== undefined && input.bucketName !== null && { bucketName: input.bucketName }),
+    ...(input.prefix !== undefined && input.prefix !== null && { prefix: input.prefix }),
   };
 };
 
@@ -775,11 +775,12 @@ const serializeAws_json1_1S3ResourceClassification = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.bucketName !== undefined && { bucketName: input.bucketName }),
-    ...(input.classificationType !== undefined && {
-      classificationType: serializeAws_json1_1ClassificationType(input.classificationType, context),
-    }),
-    ...(input.prefix !== undefined && { prefix: input.prefix }),
+    ...(input.bucketName !== undefined && input.bucketName !== null && { bucketName: input.bucketName }),
+    ...(input.classificationType !== undefined &&
+      input.classificationType !== null && {
+        classificationType: serializeAws_json1_1ClassificationType(input.classificationType, context),
+      }),
+    ...(input.prefix !== undefined && input.prefix !== null && { prefix: input.prefix }),
   };
 };
 
@@ -788,30 +789,52 @@ const serializeAws_json1_1S3ResourceClassificationUpdate = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.bucketName !== undefined && { bucketName: input.bucketName }),
-    ...(input.classificationTypeUpdate !== undefined && {
-      classificationTypeUpdate: serializeAws_json1_1ClassificationTypeUpdate(input.classificationTypeUpdate, context),
-    }),
-    ...(input.prefix !== undefined && { prefix: input.prefix }),
+    ...(input.bucketName !== undefined && input.bucketName !== null && { bucketName: input.bucketName }),
+    ...(input.classificationTypeUpdate !== undefined &&
+      input.classificationTypeUpdate !== null && {
+        classificationTypeUpdate: serializeAws_json1_1ClassificationTypeUpdate(input.classificationTypeUpdate, context),
+      }),
+    ...(input.prefix !== undefined && input.prefix !== null && { prefix: input.prefix }),
   };
 };
 
 const serializeAws_json1_1S3Resources = (input: S3Resource[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1S3Resource(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1S3Resource(entry, context);
+    });
 };
 
 const serializeAws_json1_1S3ResourcesClassification = (
   input: S3ResourceClassification[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1S3ResourceClassification(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1S3ResourceClassification(entry, context);
+    });
 };
 
 const serializeAws_json1_1S3ResourcesClassificationUpdate = (
   input: S3ResourceClassificationUpdate[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1S3ResourceClassificationUpdate(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1S3ResourceClassificationUpdate(entry, context);
+    });
 };
 
 const serializeAws_json1_1UpdateS3ResourcesRequest = (
@@ -819,10 +842,12 @@ const serializeAws_json1_1UpdateS3ResourcesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.memberAccountId !== undefined && { memberAccountId: input.memberAccountId }),
-    ...(input.s3ResourcesUpdate !== undefined && {
-      s3ResourcesUpdate: serializeAws_json1_1S3ResourcesClassificationUpdate(input.s3ResourcesUpdate, context),
-    }),
+    ...(input.memberAccountId !== undefined &&
+      input.memberAccountId !== null && { memberAccountId: input.memberAccountId }),
+    ...(input.s3ResourcesUpdate !== undefined &&
+      input.s3ResourcesUpdate !== null && {
+        s3ResourcesUpdate: serializeAws_json1_1S3ResourcesClassificationUpdate(input.s3ResourcesUpdate, context),
+      }),
   };
 };
 
@@ -876,7 +901,14 @@ const deserializeAws_json1_1FailedS3Resource = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1FailedS3Resources = (output: any, context: __SerdeContext): FailedS3Resource[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1FailedS3Resource(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FailedS3Resource(entry, context);
+    });
 };
 
 const deserializeAws_json1_1InternalException = (output: any, context: __SerdeContext): InternalException => {
@@ -932,7 +964,14 @@ const deserializeAws_json1_1MemberAccount = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1MemberAccounts = (output: any, context: __SerdeContext): MemberAccount[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1MemberAccount(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1MemberAccount(entry, context);
+    });
 };
 
 const deserializeAws_json1_1S3Resource = (output: any, context: __SerdeContext): S3Resource => {
@@ -960,7 +999,14 @@ const deserializeAws_json1_1S3ResourcesClassification = (
   output: any,
   context: __SerdeContext
 ): S3ResourceClassification[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1S3ResourceClassification(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1S3ResourceClassification(entry, context);
+    });
 };
 
 const deserializeAws_json1_1UpdateS3ResourcesResult = (
@@ -1025,3 +1071,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

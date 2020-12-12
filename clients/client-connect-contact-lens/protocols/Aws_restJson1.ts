@@ -30,15 +30,15 @@ export const serializeAws_restJson1ListRealtimeContactAnalysisSegmentsCommand = 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/realtime-contact-analysis/analysis-segments";
   let body: any;
   body = JSON.stringify({
-    ...(input.ContactId !== undefined && { ContactId: input.ContactId }),
-    ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ContactId !== undefined && input.ContactId !== null && { ContactId: input.ContactId }),
+    ...(input.InstanceId !== undefined && input.InstanceId !== null && { InstanceId: input.InstanceId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -269,24 +269,40 @@ const deserializeAws_restJson1IssueDetected = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1IssuesDetected = (output: any, context: __SerdeContext): IssueDetected[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1IssueDetected(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1IssueDetected(entry, context);
+    });
 };
 
 const deserializeAws_restJson1MatchedCategories = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1MatchedDetails = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: CategoryDetails } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: CategoryDetails }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: CategoryDetails }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: deserializeAws_restJson1CategoryDetails(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1PointOfInterest = (output: any, context: __SerdeContext): PointOfInterest => {
@@ -301,7 +317,14 @@ const deserializeAws_restJson1PointOfInterest = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1PointsOfInterest = (output: any, context: __SerdeContext): PointOfInterest[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1PointOfInterest(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1PointOfInterest(entry, context);
+    });
 };
 
 const deserializeAws_restJson1RealtimeContactAnalysisSegment = (
@@ -324,7 +347,14 @@ const deserializeAws_restJson1RealtimeContactAnalysisSegments = (
   output: any,
   context: __SerdeContext
 ): RealtimeContactAnalysisSegment[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1RealtimeContactAnalysisSegment(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RealtimeContactAnalysisSegment(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Transcript = (output: any, context: __SerdeContext): Transcript => {
@@ -369,6 +399,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

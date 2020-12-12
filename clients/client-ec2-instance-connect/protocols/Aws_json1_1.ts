@@ -23,7 +23,7 @@ export const serializeAws_json1_1SendSSHPublicKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSEC2InstanceConnectService.SendSSHPublicKey",
   };
   let body: any;
@@ -58,8 +58,7 @@ const deserializeAws_json1_1SendSSHPublicKeyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthException":
     case "com.amazonaws.ec2instanceconnect#AuthException":
@@ -195,10 +194,12 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
 
 const serializeAws_json1_1SendSSHPublicKeyRequest = (input: SendSSHPublicKeyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AvailabilityZone !== undefined && { AvailabilityZone: input.AvailabilityZone }),
-    ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
-    ...(input.InstanceOSUser !== undefined && { InstanceOSUser: input.InstanceOSUser }),
-    ...(input.SSHPublicKey !== undefined && { SSHPublicKey: input.SSHPublicKey }),
+    ...(input.AvailabilityZone !== undefined &&
+      input.AvailabilityZone !== null && { AvailabilityZone: input.AvailabilityZone }),
+    ...(input.InstanceId !== undefined && input.InstanceId !== null && { InstanceId: input.InstanceId }),
+    ...(input.InstanceOSUser !== undefined &&
+      input.InstanceOSUser !== null && { InstanceOSUser: input.InstanceOSUser }),
+    ...(input.SSHPublicKey !== undefined && input.SSHPublicKey !== null && { SSHPublicKey: input.SSHPublicKey }),
   };
 };
 
@@ -295,3 +296,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

@@ -37,7 +37,7 @@ export const serializeAws_restJson1CancelQuantumTaskCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/quantum-task/{quantumTaskArn}/cancel";
   if (input.quantumTaskArn !== undefined) {
@@ -70,20 +70,21 @@ export const serializeAws_restJson1CreateQuantumTaskCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/quantum-task";
   let body: any;
   body = JSON.stringify({
-    ...(input.action !== undefined && { action: __LazyJsonString.fromObject(input.action) }),
+    ...(input.action !== undefined && input.action !== null && { action: __LazyJsonString.fromObject(input.action) }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.deviceArn !== undefined && { deviceArn: input.deviceArn }),
-    ...(input.deviceParameters !== undefined && {
-      deviceParameters: __LazyJsonString.fromObject(input.deviceParameters),
-    }),
-    ...(input.outputS3Bucket !== undefined && { outputS3Bucket: input.outputS3Bucket }),
-    ...(input.outputS3KeyPrefix !== undefined && { outputS3KeyPrefix: input.outputS3KeyPrefix }),
-    ...(input.shots !== undefined && { shots: input.shots }),
+    ...(input.deviceArn !== undefined && input.deviceArn !== null && { deviceArn: input.deviceArn }),
+    ...(input.deviceParameters !== undefined &&
+      input.deviceParameters !== null && { deviceParameters: __LazyJsonString.fromObject(input.deviceParameters) }),
+    ...(input.outputS3Bucket !== undefined &&
+      input.outputS3Bucket !== null && { outputS3Bucket: input.outputS3Bucket }),
+    ...(input.outputS3KeyPrefix !== undefined &&
+      input.outputS3KeyPrefix !== null && { outputS3KeyPrefix: input.outputS3KeyPrefix }),
+    ...(input.shots !== undefined && input.shots !== null && { shots: input.shots }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -101,9 +102,7 @@ export const serializeAws_restJson1GetDeviceCommand = async (
   input: GetDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/device/{deviceArn}";
   if (input.deviceArn !== undefined) {
     const labelValue: string = input.deviceArn;
@@ -131,9 +130,7 @@ export const serializeAws_restJson1GetQuantumTaskCommand = async (
   input: GetQuantumTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/quantum-task/{quantumTaskArn}";
   if (input.quantumTaskArn !== undefined) {
     const labelValue: string = input.quantumTaskArn;
@@ -162,16 +159,15 @@ export const serializeAws_restJson1SearchDevicesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/devices";
   let body: any;
   body = JSON.stringify({
-    ...(input.filters !== undefined && {
-      filters: serializeAws_restJson1SearchDevicesFilterList(input.filters, context),
-    }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.filters !== undefined &&
+      input.filters !== null && { filters: serializeAws_restJson1SearchDevicesFilterList(input.filters, context) }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -190,16 +186,17 @@ export const serializeAws_restJson1SearchQuantumTasksCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/quantum-tasks";
   let body: any;
   body = JSON.stringify({
-    ...(input.filters !== undefined && {
-      filters: serializeAws_restJson1SearchQuantumTasksFilterList(input.filters, context),
-    }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.filters !== undefined &&
+      input.filters !== null && {
+        filters: serializeAws_restJson1SearchQuantumTasksFilterList(input.filters, context),
+      }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -941,13 +938,21 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1SearchDevicesFilter = (input: SearchDevicesFilter, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.values !== undefined && { values: serializeAws_restJson1String256List(input.values, context) }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.values !== undefined &&
+      input.values !== null && { values: serializeAws_restJson1String256List(input.values, context) }),
   };
 };
 
 const serializeAws_restJson1SearchDevicesFilterList = (input: SearchDevicesFilter[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1SearchDevicesFilter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1SearchDevicesFilter(entry, context);
+    });
 };
 
 const serializeAws_restJson1SearchQuantumTasksFilter = (
@@ -955,9 +960,10 @@ const serializeAws_restJson1SearchQuantumTasksFilter = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.operator !== undefined && { operator: input.operator }),
-    ...(input.values !== undefined && { values: serializeAws_restJson1String256List(input.values, context) }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.operator !== undefined && input.operator !== null && { operator: input.operator }),
+    ...(input.values !== undefined &&
+      input.values !== null && { values: serializeAws_restJson1String256List(input.values, context) }),
   };
 };
 
@@ -965,11 +971,25 @@ const serializeAws_restJson1SearchQuantumTasksFilterList = (
   input: SearchQuantumTasksFilter[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_restJson1SearchQuantumTasksFilter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1SearchQuantumTasksFilter(entry, context);
+    });
 };
 
 const serializeAws_restJson1String256List = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1DeviceSummary = (output: any, context: __SerdeContext): DeviceSummary => {
@@ -983,7 +1003,14 @@ const deserializeAws_restJson1DeviceSummary = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1DeviceSummaryList = (output: any, context: __SerdeContext): DeviceSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1DeviceSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DeviceSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1QuantumTaskSummary = (output: any, context: __SerdeContext): QuantumTaskSummary => {
@@ -1009,7 +1036,14 @@ const deserializeAws_restJson1QuantumTaskSummary = (output: any, context: __Serd
 };
 
 const deserializeAws_restJson1QuantumTaskSummaryList = (output: any, context: __SerdeContext): QuantumTaskSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1QuantumTaskSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1QuantumTaskSummary(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -1032,6 +1066,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

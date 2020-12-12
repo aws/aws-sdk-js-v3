@@ -34,7 +34,7 @@ export const serializeAws_json1_1DescribeDimensionKeysCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "PerformanceInsightsv20180227.DescribeDimensionKeys",
   };
   let body: any;
@@ -47,7 +47,7 @@ export const serializeAws_json1_1GetResourceMetricsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "PerformanceInsightsv20180227.GetResourceMetrics",
   };
   let body: any;
@@ -82,8 +82,7 @@ const deserializeAws_json1_1DescribeDimensionKeysCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.pi#InternalServiceError":
@@ -153,8 +152,7 @@ const deserializeAws_json1_1GetResourceMetricsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.pi#InternalServiceError":
@@ -247,27 +245,32 @@ const serializeAws_json1_1DescribeDimensionKeysRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndTime !== undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1MetricQueryFilterMap(input.Filter, context) }),
-    ...(input.GroupBy !== undefined && { GroupBy: serializeAws_json1_1DimensionGroup(input.GroupBy, context) }),
-    ...(input.Identifier !== undefined && { Identifier: input.Identifier }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.Metric !== undefined && { Metric: input.Metric }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.PartitionBy !== undefined && {
-      PartitionBy: serializeAws_json1_1DimensionGroup(input.PartitionBy, context),
-    }),
-    ...(input.PeriodInSeconds !== undefined && { PeriodInSeconds: input.PeriodInSeconds }),
-    ...(input.ServiceType !== undefined && { ServiceType: input.ServiceType }),
-    ...(input.StartTime !== undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+    ...(input.EndTime !== undefined &&
+      input.EndTime !== null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.Filter !== undefined &&
+      input.Filter !== null && { Filter: serializeAws_json1_1MetricQueryFilterMap(input.Filter, context) }),
+    ...(input.GroupBy !== undefined &&
+      input.GroupBy !== null && { GroupBy: serializeAws_json1_1DimensionGroup(input.GroupBy, context) }),
+    ...(input.Identifier !== undefined && input.Identifier !== null && { Identifier: input.Identifier }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.Metric !== undefined && input.Metric !== null && { Metric: input.Metric }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.PartitionBy !== undefined &&
+      input.PartitionBy !== null && { PartitionBy: serializeAws_json1_1DimensionGroup(input.PartitionBy, context) }),
+    ...(input.PeriodInSeconds !== undefined &&
+      input.PeriodInSeconds !== null && { PeriodInSeconds: input.PeriodInSeconds }),
+    ...(input.ServiceType !== undefined && input.ServiceType !== null && { ServiceType: input.ServiceType }),
+    ...(input.StartTime !== undefined &&
+      input.StartTime !== null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
 const serializeAws_json1_1DimensionGroup = (input: DimensionGroup, context: __SerdeContext): any => {
   return {
-    ...(input.Dimensions !== undefined && { Dimensions: serializeAws_json1_1StringList(input.Dimensions, context) }),
-    ...(input.Group !== undefined && { Group: input.Group }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.Dimensions !== undefined &&
+      input.Dimensions !== null && { Dimensions: serializeAws_json1_1StringList(input.Dimensions, context) }),
+    ...(input.Group !== undefined && input.Group !== null && { Group: input.Group }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
   };
 };
 
@@ -276,43 +279,65 @@ const serializeAws_json1_1GetResourceMetricsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndTime !== undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.Identifier !== undefined && { Identifier: input.Identifier }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.MetricQueries !== undefined && {
-      MetricQueries: serializeAws_json1_1MetricQueryList(input.MetricQueries, context),
-    }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.PeriodInSeconds !== undefined && { PeriodInSeconds: input.PeriodInSeconds }),
-    ...(input.ServiceType !== undefined && { ServiceType: input.ServiceType }),
-    ...(input.StartTime !== undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+    ...(input.EndTime !== undefined &&
+      input.EndTime !== null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.Identifier !== undefined && input.Identifier !== null && { Identifier: input.Identifier }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.MetricQueries !== undefined &&
+      input.MetricQueries !== null && {
+        MetricQueries: serializeAws_json1_1MetricQueryList(input.MetricQueries, context),
+      }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.PeriodInSeconds !== undefined &&
+      input.PeriodInSeconds !== null && { PeriodInSeconds: input.PeriodInSeconds }),
+    ...(input.ServiceType !== undefined && input.ServiceType !== null && { ServiceType: input.ServiceType }),
+    ...(input.StartTime !== undefined &&
+      input.StartTime !== null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
 const serializeAws_json1_1MetricQuery = (input: MetricQuery, context: __SerdeContext): any => {
   return {
-    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1MetricQueryFilterMap(input.Filter, context) }),
-    ...(input.GroupBy !== undefined && { GroupBy: serializeAws_json1_1DimensionGroup(input.GroupBy, context) }),
-    ...(input.Metric !== undefined && { Metric: input.Metric }),
+    ...(input.Filter !== undefined &&
+      input.Filter !== null && { Filter: serializeAws_json1_1MetricQueryFilterMap(input.Filter, context) }),
+    ...(input.GroupBy !== undefined &&
+      input.GroupBy !== null && { GroupBy: serializeAws_json1_1DimensionGroup(input.GroupBy, context) }),
+    ...(input.Metric !== undefined && input.Metric !== null && { Metric: input.Metric }),
   };
 };
 
 const serializeAws_json1_1MetricQueryFilterMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_json1_1MetricQueryList = (input: MetricQuery[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1MetricQuery(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1MetricQuery(entry, context);
+    });
 };
 
 const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1DataPoint = (output: any, context: __SerdeContext): DataPoint => {
@@ -326,7 +351,14 @@ const deserializeAws_json1_1DataPoint = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1DataPointsList = (output: any, context: __SerdeContext): DataPoint[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DataPoint(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DataPoint(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DescribeDimensionKeysResponse = (
@@ -375,17 +407,26 @@ const deserializeAws_json1_1DimensionKeyDescriptionList = (
   output: any,
   context: __SerdeContext
 ): DimensionKeyDescription[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DimensionKeyDescription(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DimensionKeyDescription(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DimensionMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1GetResourceMetricsResponse = (
@@ -439,11 +480,25 @@ const deserializeAws_json1_1MetricKeyDataPoints = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1MetricKeyDataPointsList = (output: any, context: __SerdeContext): MetricKeyDataPoints[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1MetricKeyDataPoints(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1MetricKeyDataPoints(entry, context);
+    });
 };
 
 const deserializeAws_json1_1MetricValuesList = (output: any, context: __SerdeContext): number[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1NotAuthorizedException = (output: any, context: __SerdeContext): NotAuthorizedException => {
@@ -465,7 +520,14 @@ const deserializeAws_json1_1ResponsePartitionKeyList = (
   output: any,
   context: __SerdeContext
 ): ResponsePartitionKey[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ResponsePartitionKey(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ResponsePartitionKey(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ResponseResourceMetricKey = (
@@ -531,3 +593,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

@@ -149,9 +149,7 @@ export const serializeAws_restXmlAllQueryStringTypesCommand = async (
   input: AllQueryStringTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "content-type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/AllQueryStringTypesInput";
   const query: any = {
     ...(input.queryString !== undefined && { String: input.queryString }),
@@ -211,9 +209,7 @@ export const serializeAws_restXmlConstantAndVariableQueryStringCommand = async (
   input: ConstantAndVariableQueryStringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "content-type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/ConstantAndVariableQueryString";
   const query: any = {
     foo: "bar",
@@ -238,9 +234,7 @@ export const serializeAws_restXmlConstantQueryStringCommand = async (
   input: ConstantQueryStringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "content-type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/ConstantQueryString/{hello}";
   if (input.hello !== undefined) {
     const labelValue: string = input.hello;
@@ -273,9 +267,7 @@ export const serializeAws_restXmlEmptyInputAndEmptyOutputCommand = async (
   input: EmptyInputAndEmptyOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "content-type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/EmptyInputAndEmptyOutput";
   let body: any;
   body = "";
@@ -357,9 +349,7 @@ export const serializeAws_restXmlFlattenedXmlMapWithXmlNamespaceCommand = async 
   input: FlattenedXmlMapWithXmlNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "content-type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/FlattenedXmlMapWithXmlNamespace";
   let body: any;
   body = "";
@@ -379,9 +369,7 @@ export const serializeAws_restXmlGreetingWithErrorsCommand = async (
   input: GreetingWithErrorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "content-type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/GreetingWithErrors";
   let body: any;
   body = "";
@@ -566,7 +554,6 @@ export const serializeAws_restXmlHttpPrefixHeadersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "content-type": "",
     ...(isSerializableHeaderValue(input.foo) && { "X-Foo": input.foo! }),
     ...(input.fooMap !== undefined &&
       Object.keys(input.fooMap).reduce((acc: any, suffix: string) => {
@@ -592,9 +579,7 @@ export const serializeAws_restXmlHttpRequestWithGreedyLabelInPathCommand = async
   input: HttpRequestWithGreedyLabelInPathCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "content-type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/HttpRequestWithGreedyLabelInPath/foo/{foo}/baz/{baz+}";
   if (input.foo !== undefined) {
     const labelValue: string = input.foo;
@@ -637,9 +622,7 @@ export const serializeAws_restXmlHttpRequestWithLabelsCommand = async (
   input: HttpRequestWithLabelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "content-type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/HttpRequestWithLabels/{string}/{short}/{integer}/{long}/{float}/{double}/{boolean}/{timestamp}";
   if (input.string !== undefined) {
     const labelValue: string = input.string;
@@ -730,9 +713,7 @@ export const serializeAws_restXmlHttpRequestWithLabelsAndTimestampFormatCommand 
   input: HttpRequestWithLabelsAndTimestampFormatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "content-type": "",
-  };
+  const headers: any = {};
   let resolvedPath =
     "/HttpRequestWithLabelsAndTimestampFormat/{memberEpochSeconds}/{memberHttpDate}/{memberDateTime}/{defaultFormat}/{targetEpochSeconds}/{targetHttpDate}/{targetDateTime}";
   if (input.memberEpochSeconds !== undefined) {
@@ -815,9 +796,7 @@ export const serializeAws_restXmlHttpResponseCodeCommand = async (
   input: HttpResponseCodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "content-type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/HttpResponseCode";
   let body: any;
   body = "";
@@ -837,9 +816,7 @@ export const serializeAws_restXmlIgnoreQueryParamsInResponseCommand = async (
   input: IgnoreQueryParamsInResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "content-type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/IgnoreQueryParamsInResponse";
   let body: any;
   body = "";
@@ -860,7 +837,6 @@ export const serializeAws_restXmlInputAndOutputWithHeadersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "content-type": "",
     ...(isSerializableHeaderValue(input.headerString) && { "X-String": input.headerString! }),
     ...(isSerializableHeaderValue(input.headerByte) && { "X-Byte": input.headerByte!.toString() }),
     ...(isSerializableHeaderValue(input.headerShort) && { "X-Short": input.headerShort!.toString() }),
@@ -914,9 +890,7 @@ export const serializeAws_restXmlNoInputAndNoOutputCommand = async (
   input: NoInputAndNoOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "content-type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/NoInputAndNoOutput";
   let body: any;
   body = "";
@@ -936,9 +910,7 @@ export const serializeAws_restXmlNoInputAndOutputCommand = async (
   input: NoInputAndOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "content-type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/NoInputAndOutputOutput";
   let body: any;
   body = "";
@@ -959,7 +931,6 @@ export const serializeAws_restXmlNullAndEmptyHeadersClientCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "content-type": "",
     ...(isSerializableHeaderValue(input.a) && { "X-A": input.a! }),
     ...(isSerializableHeaderValue(input.b) && { "X-B": input.b! }),
     ...(isSerializableHeaderValue(input.c) && { "X-C": (input.c! || []).map((_entry) => _entry).join(", ") }),
@@ -983,7 +954,6 @@ export const serializeAws_restXmlNullAndEmptyHeadersServerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "content-type": "",
     ...(isSerializableHeaderValue(input.a) && { "X-A": input.a! }),
     ...(isSerializableHeaderValue(input.b) && { "X-B": input.b! }),
     ...(isSerializableHeaderValue(input.c) && { "X-C": (input.c! || []).map((_entry) => _entry).join(", ") }),
@@ -1006,9 +976,7 @@ export const serializeAws_restXmlOmitsNullSerializesEmptyStringCommand = async (
   input: OmitsNullSerializesEmptyStringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "content-type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/OmitsNullSerializesEmptyString";
   const query: any = {
     ...(input.nullValue !== undefined && { Null: input.nullValue }),
@@ -1032,9 +1000,7 @@ export const serializeAws_restXmlQueryIdempotencyTokenAutoFillCommand = async (
   input: QueryIdempotencyTokenAutoFillCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "content-type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/QueryIdempotencyTokenAutoFill";
   const query: any = {
     ...(input.token !== undefined && { token: input.token }),
@@ -1155,7 +1121,6 @@ export const serializeAws_restXmlTimestampFormatHeadersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "content-type": "",
     ...(isSerializableHeaderValue(input.memberEpochSeconds) && {
       "X-memberEpochSeconds": Math.round(input.memberEpochSeconds!.getTime() / 1000).toString(),
     }),

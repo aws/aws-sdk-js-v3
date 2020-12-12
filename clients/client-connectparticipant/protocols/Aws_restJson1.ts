@@ -35,13 +35,14 @@ export const serializeAws_restJson1CreateParticipantConnectionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
     ...(isSerializableHeaderValue(input.ParticipantToken) && { "X-Amz-Bearer": input.ParticipantToken! }),
   };
   let resolvedPath = "/participant/connection";
   let body: any;
   body = JSON.stringify({
-    ...(input.Type !== undefined && { Type: serializeAws_restJson1ConnectionTypeList(input.Type, context) }),
+    ...(input.Type !== undefined &&
+      input.Type !== null && { Type: serializeAws_restJson1ConnectionTypeList(input.Type, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -60,7 +61,7 @@ export const serializeAws_restJson1DisconnectParticipantCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
     ...(isSerializableHeaderValue(input.ConnectionToken) && { "X-Amz-Bearer": input.ConnectionToken! }),
   };
   let resolvedPath = "/participant/disconnect";
@@ -85,20 +86,21 @@ export const serializeAws_restJson1GetTranscriptCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
     ...(isSerializableHeaderValue(input.ConnectionToken) && { "X-Amz-Bearer": input.ConnectionToken! }),
   };
   let resolvedPath = "/participant/transcript";
   let body: any;
   body = JSON.stringify({
-    ...(input.ContactId !== undefined && { ContactId: input.ContactId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ScanDirection !== undefined && { ScanDirection: input.ScanDirection }),
-    ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder }),
-    ...(input.StartPosition !== undefined && {
-      StartPosition: serializeAws_restJson1StartPosition(input.StartPosition, context),
-    }),
+    ...(input.ContactId !== undefined && input.ContactId !== null && { ContactId: input.ContactId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ScanDirection !== undefined && input.ScanDirection !== null && { ScanDirection: input.ScanDirection }),
+    ...(input.SortOrder !== undefined && input.SortOrder !== null && { SortOrder: input.SortOrder }),
+    ...(input.StartPosition !== undefined &&
+      input.StartPosition !== null && {
+        StartPosition: serializeAws_restJson1StartPosition(input.StartPosition, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -117,15 +119,15 @@ export const serializeAws_restJson1SendEventCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
     ...(isSerializableHeaderValue(input.ConnectionToken) && { "X-Amz-Bearer": input.ConnectionToken! }),
   };
   let resolvedPath = "/participant/event";
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Content !== undefined && { Content: input.Content }),
-    ...(input.ContentType !== undefined && { ContentType: input.ContentType }),
+    ...(input.Content !== undefined && input.Content !== null && { Content: input.Content }),
+    ...(input.ContentType !== undefined && input.ContentType !== null && { ContentType: input.ContentType }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -144,15 +146,15 @@ export const serializeAws_restJson1SendMessageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
     ...(isSerializableHeaderValue(input.ConnectionToken) && { "X-Amz-Bearer": input.ConnectionToken! }),
   };
   let resolvedPath = "/participant/message";
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Content !== undefined && { Content: input.Content }),
-    ...(input.ContentType !== undefined && { ContentType: input.ContentType }),
+    ...(input.Content !== undefined && input.Content !== null && { Content: input.Content }),
+    ...(input.ContentType !== undefined && input.ContentType !== null && { ContentType: input.ContentType }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -646,14 +648,21 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 };
 
 const serializeAws_restJson1ConnectionTypeList = (input: (ConnectionType | string)[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1StartPosition = (input: StartPosition, context: __SerdeContext): any => {
   return {
-    ...(input.AbsoluteTime !== undefined && { AbsoluteTime: input.AbsoluteTime }),
-    ...(input.Id !== undefined && { Id: input.Id }),
-    ...(input.MostRecent !== undefined && { MostRecent: input.MostRecent }),
+    ...(input.AbsoluteTime !== undefined && input.AbsoluteTime !== null && { AbsoluteTime: input.AbsoluteTime }),
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.MostRecent !== undefined && input.MostRecent !== null && { MostRecent: input.MostRecent }),
   };
 };
 
@@ -681,7 +690,14 @@ const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Ite
 };
 
 const deserializeAws_restJson1Transcript = (output: any, context: __SerdeContext): Item[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Item(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Item(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Websocket = (output: any, context: __SerdeContext): Websocket => {
@@ -712,6 +728,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

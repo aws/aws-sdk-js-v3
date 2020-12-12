@@ -175,7 +175,7 @@ export const serializeAws_json1_1CreateLanguageModelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Transcribe.CreateLanguageModel",
   };
   let body: any;
@@ -188,7 +188,7 @@ export const serializeAws_json1_1CreateMedicalVocabularyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Transcribe.CreateMedicalVocabulary",
   };
   let body: any;
@@ -201,7 +201,7 @@ export const serializeAws_json1_1CreateVocabularyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Transcribe.CreateVocabulary",
   };
   let body: any;
@@ -214,7 +214,7 @@ export const serializeAws_json1_1CreateVocabularyFilterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Transcribe.CreateVocabularyFilter",
   };
   let body: any;
@@ -227,7 +227,7 @@ export const serializeAws_json1_1DeleteLanguageModelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Transcribe.DeleteLanguageModel",
   };
   let body: any;
@@ -240,7 +240,7 @@ export const serializeAws_json1_1DeleteMedicalTranscriptionJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Transcribe.DeleteMedicalTranscriptionJob",
   };
   let body: any;
@@ -253,7 +253,7 @@ export const serializeAws_json1_1DeleteMedicalVocabularyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Transcribe.DeleteMedicalVocabulary",
   };
   let body: any;
@@ -266,7 +266,7 @@ export const serializeAws_json1_1DeleteTranscriptionJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Transcribe.DeleteTranscriptionJob",
   };
   let body: any;
@@ -279,7 +279,7 @@ export const serializeAws_json1_1DeleteVocabularyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Transcribe.DeleteVocabulary",
   };
   let body: any;
@@ -292,7 +292,7 @@ export const serializeAws_json1_1DeleteVocabularyFilterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Transcribe.DeleteVocabularyFilter",
   };
   let body: any;
@@ -305,7 +305,7 @@ export const serializeAws_json1_1DescribeLanguageModelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Transcribe.DescribeLanguageModel",
   };
   let body: any;
@@ -318,7 +318,7 @@ export const serializeAws_json1_1GetMedicalTranscriptionJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Transcribe.GetMedicalTranscriptionJob",
   };
   let body: any;
@@ -331,7 +331,7 @@ export const serializeAws_json1_1GetMedicalVocabularyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Transcribe.GetMedicalVocabulary",
   };
   let body: any;
@@ -344,7 +344,7 @@ export const serializeAws_json1_1GetTranscriptionJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Transcribe.GetTranscriptionJob",
   };
   let body: any;
@@ -357,7 +357,7 @@ export const serializeAws_json1_1GetVocabularyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Transcribe.GetVocabulary",
   };
   let body: any;
@@ -370,7 +370,7 @@ export const serializeAws_json1_1GetVocabularyFilterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Transcribe.GetVocabularyFilter",
   };
   let body: any;
@@ -383,7 +383,7 @@ export const serializeAws_json1_1ListLanguageModelsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Transcribe.ListLanguageModels",
   };
   let body: any;
@@ -396,7 +396,7 @@ export const serializeAws_json1_1ListMedicalTranscriptionJobsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Transcribe.ListMedicalTranscriptionJobs",
   };
   let body: any;
@@ -409,7 +409,7 @@ export const serializeAws_json1_1ListMedicalVocabulariesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Transcribe.ListMedicalVocabularies",
   };
   let body: any;
@@ -422,7 +422,7 @@ export const serializeAws_json1_1ListTranscriptionJobsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Transcribe.ListTranscriptionJobs",
   };
   let body: any;
@@ -435,7 +435,7 @@ export const serializeAws_json1_1ListVocabulariesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Transcribe.ListVocabularies",
   };
   let body: any;
@@ -448,7 +448,7 @@ export const serializeAws_json1_1ListVocabularyFiltersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Transcribe.ListVocabularyFilters",
   };
   let body: any;
@@ -461,7 +461,7 @@ export const serializeAws_json1_1StartMedicalTranscriptionJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Transcribe.StartMedicalTranscriptionJob",
   };
   let body: any;
@@ -474,7 +474,7 @@ export const serializeAws_json1_1StartTranscriptionJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Transcribe.StartTranscriptionJob",
   };
   let body: any;
@@ -487,7 +487,7 @@ export const serializeAws_json1_1UpdateMedicalVocabularyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Transcribe.UpdateMedicalVocabulary",
   };
   let body: any;
@@ -500,7 +500,7 @@ export const serializeAws_json1_1UpdateVocabularyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Transcribe.UpdateVocabulary",
   };
   let body: any;
@@ -513,7 +513,7 @@ export const serializeAws_json1_1UpdateVocabularyFilterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Transcribe.UpdateVocabularyFilter",
   };
   let body: any;
@@ -548,8 +548,7 @@ const deserializeAws_json1_1CreateLanguageModelCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
@@ -627,8 +626,7 @@ const deserializeAws_json1_1CreateMedicalVocabularyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
@@ -706,8 +704,7 @@ const deserializeAws_json1_1CreateVocabularyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
@@ -785,8 +782,7 @@ const deserializeAws_json1_1CreateVocabularyFilterCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
@@ -861,8 +857,7 @@ const deserializeAws_json1_1DeleteLanguageModelCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
@@ -929,8 +924,7 @@ const deserializeAws_json1_1DeleteMedicalTranscriptionJobCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
@@ -997,8 +991,7 @@ const deserializeAws_json1_1DeleteMedicalVocabularyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
@@ -1073,8 +1066,7 @@ const deserializeAws_json1_1DeleteTranscriptionJobCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
@@ -1141,8 +1133,7 @@ const deserializeAws_json1_1DeleteVocabularyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
@@ -1217,8 +1208,7 @@ const deserializeAws_json1_1DeleteVocabularyFilterCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
@@ -1296,8 +1286,7 @@ const deserializeAws_json1_1DescribeLanguageModelCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
@@ -1375,8 +1364,7 @@ const deserializeAws_json1_1GetMedicalTranscriptionJobCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
@@ -1454,8 +1442,7 @@ const deserializeAws_json1_1GetMedicalVocabularyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
@@ -1533,8 +1520,7 @@ const deserializeAws_json1_1GetTranscriptionJobCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
@@ -1612,8 +1598,7 @@ const deserializeAws_json1_1GetVocabularyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
@@ -1691,8 +1676,7 @@ const deserializeAws_json1_1GetVocabularyFilterCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
@@ -1770,8 +1754,7 @@ const deserializeAws_json1_1ListLanguageModelsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
@@ -1841,8 +1824,7 @@ const deserializeAws_json1_1ListMedicalTranscriptionJobsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
@@ -1912,8 +1894,7 @@ const deserializeAws_json1_1ListMedicalVocabulariesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
@@ -1983,8 +1964,7 @@ const deserializeAws_json1_1ListTranscriptionJobsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
@@ -2054,8 +2034,7 @@ const deserializeAws_json1_1ListVocabulariesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
@@ -2125,8 +2104,7 @@ const deserializeAws_json1_1ListVocabularyFiltersCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
@@ -2196,8 +2174,7 @@ const deserializeAws_json1_1StartMedicalTranscriptionJobCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
@@ -2275,8 +2252,7 @@ const deserializeAws_json1_1StartTranscriptionJobCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
@@ -2354,8 +2330,7 @@ const deserializeAws_json1_1UpdateMedicalVocabularyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
@@ -2441,8 +2416,7 @@ const deserializeAws_json1_1UpdateVocabularyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
@@ -2528,8 +2502,7 @@ const deserializeAws_json1_1UpdateVocabularyFilterCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
@@ -2657,8 +2630,9 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
 
 const serializeAws_json1_1ContentRedaction = (input: ContentRedaction, context: __SerdeContext): any => {
   return {
-    ...(input.RedactionOutput !== undefined && { RedactionOutput: input.RedactionOutput }),
-    ...(input.RedactionType !== undefined && { RedactionType: input.RedactionType }),
+    ...(input.RedactionOutput !== undefined &&
+      input.RedactionOutput !== null && { RedactionOutput: input.RedactionOutput }),
+    ...(input.RedactionType !== undefined && input.RedactionType !== null && { RedactionType: input.RedactionType }),
   };
 };
 
@@ -2667,12 +2641,13 @@ const serializeAws_json1_1CreateLanguageModelRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BaseModelName !== undefined && { BaseModelName: input.BaseModelName }),
-    ...(input.InputDataConfig !== undefined && {
-      InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
-    }),
-    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
-    ...(input.ModelName !== undefined && { ModelName: input.ModelName }),
+    ...(input.BaseModelName !== undefined && input.BaseModelName !== null && { BaseModelName: input.BaseModelName }),
+    ...(input.InputDataConfig !== undefined &&
+      input.InputDataConfig !== null && {
+        InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
+      }),
+    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
+    ...(input.ModelName !== undefined && input.ModelName !== null && { ModelName: input.ModelName }),
   };
 };
 
@@ -2681,9 +2656,11 @@ const serializeAws_json1_1CreateMedicalVocabularyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
-    ...(input.VocabularyFileUri !== undefined && { VocabularyFileUri: input.VocabularyFileUri }),
-    ...(input.VocabularyName !== undefined && { VocabularyName: input.VocabularyName }),
+    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
+    ...(input.VocabularyFileUri !== undefined &&
+      input.VocabularyFileUri !== null && { VocabularyFileUri: input.VocabularyFileUri }),
+    ...(input.VocabularyName !== undefined &&
+      input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
   };
 };
 
@@ -2692,19 +2669,25 @@ const serializeAws_json1_1CreateVocabularyFilterRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
-    ...(input.VocabularyFilterFileUri !== undefined && { VocabularyFilterFileUri: input.VocabularyFilterFileUri }),
-    ...(input.VocabularyFilterName !== undefined && { VocabularyFilterName: input.VocabularyFilterName }),
-    ...(input.Words !== undefined && { Words: serializeAws_json1_1Words(input.Words, context) }),
+    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
+    ...(input.VocabularyFilterFileUri !== undefined &&
+      input.VocabularyFilterFileUri !== null && { VocabularyFilterFileUri: input.VocabularyFilterFileUri }),
+    ...(input.VocabularyFilterName !== undefined &&
+      input.VocabularyFilterName !== null && { VocabularyFilterName: input.VocabularyFilterName }),
+    ...(input.Words !== undefined &&
+      input.Words !== null && { Words: serializeAws_json1_1Words(input.Words, context) }),
   };
 };
 
 const serializeAws_json1_1CreateVocabularyRequest = (input: CreateVocabularyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
-    ...(input.Phrases !== undefined && { Phrases: serializeAws_json1_1Phrases(input.Phrases, context) }),
-    ...(input.VocabularyFileUri !== undefined && { VocabularyFileUri: input.VocabularyFileUri }),
-    ...(input.VocabularyName !== undefined && { VocabularyName: input.VocabularyName }),
+    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
+    ...(input.Phrases !== undefined &&
+      input.Phrases !== null && { Phrases: serializeAws_json1_1Phrases(input.Phrases, context) }),
+    ...(input.VocabularyFileUri !== undefined &&
+      input.VocabularyFileUri !== null && { VocabularyFileUri: input.VocabularyFileUri }),
+    ...(input.VocabularyName !== undefined &&
+      input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
   };
 };
 
@@ -2713,7 +2696,7 @@ const serializeAws_json1_1DeleteLanguageModelRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ModelName !== undefined && { ModelName: input.ModelName }),
+    ...(input.ModelName !== undefined && input.ModelName !== null && { ModelName: input.ModelName }),
   };
 };
 
@@ -2722,9 +2705,8 @@ const serializeAws_json1_1DeleteMedicalTranscriptionJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MedicalTranscriptionJobName !== undefined && {
-      MedicalTranscriptionJobName: input.MedicalTranscriptionJobName,
-    }),
+    ...(input.MedicalTranscriptionJobName !== undefined &&
+      input.MedicalTranscriptionJobName !== null && { MedicalTranscriptionJobName: input.MedicalTranscriptionJobName }),
   };
 };
 
@@ -2733,7 +2715,8 @@ const serializeAws_json1_1DeleteMedicalVocabularyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.VocabularyName !== undefined && { VocabularyName: input.VocabularyName }),
+    ...(input.VocabularyName !== undefined &&
+      input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
   };
 };
 
@@ -2742,7 +2725,8 @@ const serializeAws_json1_1DeleteTranscriptionJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.TranscriptionJobName !== undefined && { TranscriptionJobName: input.TranscriptionJobName }),
+    ...(input.TranscriptionJobName !== undefined &&
+      input.TranscriptionJobName !== null && { TranscriptionJobName: input.TranscriptionJobName }),
   };
 };
 
@@ -2751,13 +2735,15 @@ const serializeAws_json1_1DeleteVocabularyFilterRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.VocabularyFilterName !== undefined && { VocabularyFilterName: input.VocabularyFilterName }),
+    ...(input.VocabularyFilterName !== undefined &&
+      input.VocabularyFilterName !== null && { VocabularyFilterName: input.VocabularyFilterName }),
   };
 };
 
 const serializeAws_json1_1DeleteVocabularyRequest = (input: DeleteVocabularyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.VocabularyName !== undefined && { VocabularyName: input.VocabularyName }),
+    ...(input.VocabularyName !== undefined &&
+      input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
   };
 };
 
@@ -2766,7 +2752,7 @@ const serializeAws_json1_1DescribeLanguageModelRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ModelName !== undefined && { ModelName: input.ModelName }),
+    ...(input.ModelName !== undefined && input.ModelName !== null && { ModelName: input.ModelName }),
   };
 };
 
@@ -2775,9 +2761,8 @@ const serializeAws_json1_1GetMedicalTranscriptionJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MedicalTranscriptionJobName !== undefined && {
-      MedicalTranscriptionJobName: input.MedicalTranscriptionJobName,
-    }),
+    ...(input.MedicalTranscriptionJobName !== undefined &&
+      input.MedicalTranscriptionJobName !== null && { MedicalTranscriptionJobName: input.MedicalTranscriptionJobName }),
   };
 };
 
@@ -2786,7 +2771,8 @@ const serializeAws_json1_1GetMedicalVocabularyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.VocabularyName !== undefined && { VocabularyName: input.VocabularyName }),
+    ...(input.VocabularyName !== undefined &&
+      input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
   };
 };
 
@@ -2795,7 +2781,8 @@ const serializeAws_json1_1GetTranscriptionJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.TranscriptionJobName !== undefined && { TranscriptionJobName: input.TranscriptionJobName }),
+    ...(input.TranscriptionJobName !== undefined &&
+      input.TranscriptionJobName !== null && { TranscriptionJobName: input.TranscriptionJobName }),
   };
 };
 
@@ -2804,33 +2791,46 @@ const serializeAws_json1_1GetVocabularyFilterRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.VocabularyFilterName !== undefined && { VocabularyFilterName: input.VocabularyFilterName }),
+    ...(input.VocabularyFilterName !== undefined &&
+      input.VocabularyFilterName !== null && { VocabularyFilterName: input.VocabularyFilterName }),
   };
 };
 
 const serializeAws_json1_1GetVocabularyRequest = (input: GetVocabularyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.VocabularyName !== undefined && { VocabularyName: input.VocabularyName }),
+    ...(input.VocabularyName !== undefined &&
+      input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
   };
 };
 
 const serializeAws_json1_1InputDataConfig = (input: InputDataConfig, context: __SerdeContext): any => {
   return {
-    ...(input.DataAccessRoleArn !== undefined && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.S3Uri !== undefined && { S3Uri: input.S3Uri }),
-    ...(input.TuningDataS3Uri !== undefined && { TuningDataS3Uri: input.TuningDataS3Uri }),
+    ...(input.DataAccessRoleArn !== undefined &&
+      input.DataAccessRoleArn !== null && { DataAccessRoleArn: input.DataAccessRoleArn }),
+    ...(input.S3Uri !== undefined && input.S3Uri !== null && { S3Uri: input.S3Uri }),
+    ...(input.TuningDataS3Uri !== undefined &&
+      input.TuningDataS3Uri !== null && { TuningDataS3Uri: input.TuningDataS3Uri }),
   };
 };
 
 const serializeAws_json1_1JobExecutionSettings = (input: JobExecutionSettings, context: __SerdeContext): any => {
   return {
-    ...(input.AllowDeferredExecution !== undefined && { AllowDeferredExecution: input.AllowDeferredExecution }),
-    ...(input.DataAccessRoleArn !== undefined && { DataAccessRoleArn: input.DataAccessRoleArn }),
+    ...(input.AllowDeferredExecution !== undefined &&
+      input.AllowDeferredExecution !== null && { AllowDeferredExecution: input.AllowDeferredExecution }),
+    ...(input.DataAccessRoleArn !== undefined &&
+      input.DataAccessRoleArn !== null && { DataAccessRoleArn: input.DataAccessRoleArn }),
   };
 };
 
 const serializeAws_json1_1LanguageOptions = (input: (LanguageCode | string)[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ListLanguageModelsRequest = (
@@ -2838,10 +2838,10 @@ const serializeAws_json1_1ListLanguageModelsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NameContains !== undefined && { NameContains: input.NameContains }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.StatusEquals !== undefined && { StatusEquals: input.StatusEquals }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NameContains !== undefined && input.NameContains !== null && { NameContains: input.NameContains }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.StatusEquals !== undefined && input.StatusEquals !== null && { StatusEquals: input.StatusEquals }),
   };
 };
 
@@ -2850,10 +2850,11 @@ const serializeAws_json1_1ListMedicalTranscriptionJobsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.JobNameContains !== undefined && { JobNameContains: input.JobNameContains }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.Status !== undefined && { Status: input.Status }),
+    ...(input.JobNameContains !== undefined &&
+      input.JobNameContains !== null && { JobNameContains: input.JobNameContains }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
   };
 };
 
@@ -2862,10 +2863,10 @@ const serializeAws_json1_1ListMedicalVocabulariesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NameContains !== undefined && { NameContains: input.NameContains }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.StateEquals !== undefined && { StateEquals: input.StateEquals }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NameContains !== undefined && input.NameContains !== null && { NameContains: input.NameContains }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.StateEquals !== undefined && input.StateEquals !== null && { StateEquals: input.StateEquals }),
   };
 };
 
@@ -2874,19 +2875,20 @@ const serializeAws_json1_1ListTranscriptionJobsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.JobNameContains !== undefined && { JobNameContains: input.JobNameContains }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.Status !== undefined && { Status: input.Status }),
+    ...(input.JobNameContains !== undefined &&
+      input.JobNameContains !== null && { JobNameContains: input.JobNameContains }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
   };
 };
 
 const serializeAws_json1_1ListVocabulariesRequest = (input: ListVocabulariesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NameContains !== undefined && { NameContains: input.NameContains }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.StateEquals !== undefined && { StateEquals: input.StateEquals }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NameContains !== undefined && input.NameContains !== null && { NameContains: input.NameContains }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.StateEquals !== undefined && input.StateEquals !== null && { StateEquals: input.StateEquals }),
   };
 };
 
@@ -2895,15 +2897,15 @@ const serializeAws_json1_1ListVocabularyFiltersRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NameContains !== undefined && { NameContains: input.NameContains }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NameContains !== undefined && input.NameContains !== null && { NameContains: input.NameContains }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1Media = (input: Media, context: __SerdeContext): any => {
   return {
-    ...(input.MediaFileUri !== undefined && { MediaFileUri: input.MediaFileUri }),
+    ...(input.MediaFileUri !== undefined && input.MediaFileUri !== null && { MediaFileUri: input.MediaFileUri }),
   };
 };
 
@@ -2912,35 +2914,57 @@ const serializeAws_json1_1MedicalTranscriptionSetting = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ChannelIdentification !== undefined && { ChannelIdentification: input.ChannelIdentification }),
-    ...(input.MaxAlternatives !== undefined && { MaxAlternatives: input.MaxAlternatives }),
-    ...(input.MaxSpeakerLabels !== undefined && { MaxSpeakerLabels: input.MaxSpeakerLabels }),
-    ...(input.ShowAlternatives !== undefined && { ShowAlternatives: input.ShowAlternatives }),
-    ...(input.ShowSpeakerLabels !== undefined && { ShowSpeakerLabels: input.ShowSpeakerLabels }),
-    ...(input.VocabularyName !== undefined && { VocabularyName: input.VocabularyName }),
+    ...(input.ChannelIdentification !== undefined &&
+      input.ChannelIdentification !== null && { ChannelIdentification: input.ChannelIdentification }),
+    ...(input.MaxAlternatives !== undefined &&
+      input.MaxAlternatives !== null && { MaxAlternatives: input.MaxAlternatives }),
+    ...(input.MaxSpeakerLabels !== undefined &&
+      input.MaxSpeakerLabels !== null && { MaxSpeakerLabels: input.MaxSpeakerLabels }),
+    ...(input.ShowAlternatives !== undefined &&
+      input.ShowAlternatives !== null && { ShowAlternatives: input.ShowAlternatives }),
+    ...(input.ShowSpeakerLabels !== undefined &&
+      input.ShowSpeakerLabels !== null && { ShowSpeakerLabels: input.ShowSpeakerLabels }),
+    ...(input.VocabularyName !== undefined &&
+      input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
   };
 };
 
 const serializeAws_json1_1ModelSettings = (input: ModelSettings, context: __SerdeContext): any => {
   return {
-    ...(input.LanguageModelName !== undefined && { LanguageModelName: input.LanguageModelName }),
+    ...(input.LanguageModelName !== undefined &&
+      input.LanguageModelName !== null && { LanguageModelName: input.LanguageModelName }),
   };
 };
 
 const serializeAws_json1_1Phrases = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1Settings = (input: Settings, context: __SerdeContext): any => {
   return {
-    ...(input.ChannelIdentification !== undefined && { ChannelIdentification: input.ChannelIdentification }),
-    ...(input.MaxAlternatives !== undefined && { MaxAlternatives: input.MaxAlternatives }),
-    ...(input.MaxSpeakerLabels !== undefined && { MaxSpeakerLabels: input.MaxSpeakerLabels }),
-    ...(input.ShowAlternatives !== undefined && { ShowAlternatives: input.ShowAlternatives }),
-    ...(input.ShowSpeakerLabels !== undefined && { ShowSpeakerLabels: input.ShowSpeakerLabels }),
-    ...(input.VocabularyFilterMethod !== undefined && { VocabularyFilterMethod: input.VocabularyFilterMethod }),
-    ...(input.VocabularyFilterName !== undefined && { VocabularyFilterName: input.VocabularyFilterName }),
-    ...(input.VocabularyName !== undefined && { VocabularyName: input.VocabularyName }),
+    ...(input.ChannelIdentification !== undefined &&
+      input.ChannelIdentification !== null && { ChannelIdentification: input.ChannelIdentification }),
+    ...(input.MaxAlternatives !== undefined &&
+      input.MaxAlternatives !== null && { MaxAlternatives: input.MaxAlternatives }),
+    ...(input.MaxSpeakerLabels !== undefined &&
+      input.MaxSpeakerLabels !== null && { MaxSpeakerLabels: input.MaxSpeakerLabels }),
+    ...(input.ShowAlternatives !== undefined &&
+      input.ShowAlternatives !== null && { ShowAlternatives: input.ShowAlternatives }),
+    ...(input.ShowSpeakerLabels !== undefined &&
+      input.ShowSpeakerLabels !== null && { ShowSpeakerLabels: input.ShowSpeakerLabels }),
+    ...(input.VocabularyFilterMethod !== undefined &&
+      input.VocabularyFilterMethod !== null && { VocabularyFilterMethod: input.VocabularyFilterMethod }),
+    ...(input.VocabularyFilterName !== undefined &&
+      input.VocabularyFilterName !== null && { VocabularyFilterName: input.VocabularyFilterName }),
+    ...(input.VocabularyName !== undefined &&
+      input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
   };
 };
 
@@ -2949,21 +2973,25 @@ const serializeAws_json1_1StartMedicalTranscriptionJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
-    ...(input.Media !== undefined && { Media: serializeAws_json1_1Media(input.Media, context) }),
-    ...(input.MediaFormat !== undefined && { MediaFormat: input.MediaFormat }),
-    ...(input.MediaSampleRateHertz !== undefined && { MediaSampleRateHertz: input.MediaSampleRateHertz }),
-    ...(input.MedicalTranscriptionJobName !== undefined && {
-      MedicalTranscriptionJobName: input.MedicalTranscriptionJobName,
-    }),
-    ...(input.OutputBucketName !== undefined && { OutputBucketName: input.OutputBucketName }),
-    ...(input.OutputEncryptionKMSKeyId !== undefined && { OutputEncryptionKMSKeyId: input.OutputEncryptionKMSKeyId }),
-    ...(input.OutputKey !== undefined && { OutputKey: input.OutputKey }),
-    ...(input.Settings !== undefined && {
-      Settings: serializeAws_json1_1MedicalTranscriptionSetting(input.Settings, context),
-    }),
-    ...(input.Specialty !== undefined && { Specialty: input.Specialty }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
+    ...(input.Media !== undefined &&
+      input.Media !== null && { Media: serializeAws_json1_1Media(input.Media, context) }),
+    ...(input.MediaFormat !== undefined && input.MediaFormat !== null && { MediaFormat: input.MediaFormat }),
+    ...(input.MediaSampleRateHertz !== undefined &&
+      input.MediaSampleRateHertz !== null && { MediaSampleRateHertz: input.MediaSampleRateHertz }),
+    ...(input.MedicalTranscriptionJobName !== undefined &&
+      input.MedicalTranscriptionJobName !== null && { MedicalTranscriptionJobName: input.MedicalTranscriptionJobName }),
+    ...(input.OutputBucketName !== undefined &&
+      input.OutputBucketName !== null && { OutputBucketName: input.OutputBucketName }),
+    ...(input.OutputEncryptionKMSKeyId !== undefined &&
+      input.OutputEncryptionKMSKeyId !== null && { OutputEncryptionKMSKeyId: input.OutputEncryptionKMSKeyId }),
+    ...(input.OutputKey !== undefined && input.OutputKey !== null && { OutputKey: input.OutputKey }),
+    ...(input.Settings !== undefined &&
+      input.Settings !== null && {
+        Settings: serializeAws_json1_1MedicalTranscriptionSetting(input.Settings, context),
+      }),
+    ...(input.Specialty !== undefined && input.Specialty !== null && { Specialty: input.Specialty }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
 };
 
@@ -2972,28 +3000,39 @@ const serializeAws_json1_1StartTranscriptionJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ContentRedaction !== undefined && {
-      ContentRedaction: serializeAws_json1_1ContentRedaction(input.ContentRedaction, context),
-    }),
-    ...(input.IdentifyLanguage !== undefined && { IdentifyLanguage: input.IdentifyLanguage }),
-    ...(input.JobExecutionSettings !== undefined && {
-      JobExecutionSettings: serializeAws_json1_1JobExecutionSettings(input.JobExecutionSettings, context),
-    }),
-    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
-    ...(input.LanguageOptions !== undefined && {
-      LanguageOptions: serializeAws_json1_1LanguageOptions(input.LanguageOptions, context),
-    }),
-    ...(input.Media !== undefined && { Media: serializeAws_json1_1Media(input.Media, context) }),
-    ...(input.MediaFormat !== undefined && { MediaFormat: input.MediaFormat }),
-    ...(input.MediaSampleRateHertz !== undefined && { MediaSampleRateHertz: input.MediaSampleRateHertz }),
-    ...(input.ModelSettings !== undefined && {
-      ModelSettings: serializeAws_json1_1ModelSettings(input.ModelSettings, context),
-    }),
-    ...(input.OutputBucketName !== undefined && { OutputBucketName: input.OutputBucketName }),
-    ...(input.OutputEncryptionKMSKeyId !== undefined && { OutputEncryptionKMSKeyId: input.OutputEncryptionKMSKeyId }),
-    ...(input.OutputKey !== undefined && { OutputKey: input.OutputKey }),
-    ...(input.Settings !== undefined && { Settings: serializeAws_json1_1Settings(input.Settings, context) }),
-    ...(input.TranscriptionJobName !== undefined && { TranscriptionJobName: input.TranscriptionJobName }),
+    ...(input.ContentRedaction !== undefined &&
+      input.ContentRedaction !== null && {
+        ContentRedaction: serializeAws_json1_1ContentRedaction(input.ContentRedaction, context),
+      }),
+    ...(input.IdentifyLanguage !== undefined &&
+      input.IdentifyLanguage !== null && { IdentifyLanguage: input.IdentifyLanguage }),
+    ...(input.JobExecutionSettings !== undefined &&
+      input.JobExecutionSettings !== null && {
+        JobExecutionSettings: serializeAws_json1_1JobExecutionSettings(input.JobExecutionSettings, context),
+      }),
+    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
+    ...(input.LanguageOptions !== undefined &&
+      input.LanguageOptions !== null && {
+        LanguageOptions: serializeAws_json1_1LanguageOptions(input.LanguageOptions, context),
+      }),
+    ...(input.Media !== undefined &&
+      input.Media !== null && { Media: serializeAws_json1_1Media(input.Media, context) }),
+    ...(input.MediaFormat !== undefined && input.MediaFormat !== null && { MediaFormat: input.MediaFormat }),
+    ...(input.MediaSampleRateHertz !== undefined &&
+      input.MediaSampleRateHertz !== null && { MediaSampleRateHertz: input.MediaSampleRateHertz }),
+    ...(input.ModelSettings !== undefined &&
+      input.ModelSettings !== null && {
+        ModelSettings: serializeAws_json1_1ModelSettings(input.ModelSettings, context),
+      }),
+    ...(input.OutputBucketName !== undefined &&
+      input.OutputBucketName !== null && { OutputBucketName: input.OutputBucketName }),
+    ...(input.OutputEncryptionKMSKeyId !== undefined &&
+      input.OutputEncryptionKMSKeyId !== null && { OutputEncryptionKMSKeyId: input.OutputEncryptionKMSKeyId }),
+    ...(input.OutputKey !== undefined && input.OutputKey !== null && { OutputKey: input.OutputKey }),
+    ...(input.Settings !== undefined &&
+      input.Settings !== null && { Settings: serializeAws_json1_1Settings(input.Settings, context) }),
+    ...(input.TranscriptionJobName !== undefined &&
+      input.TranscriptionJobName !== null && { TranscriptionJobName: input.TranscriptionJobName }),
   };
 };
 
@@ -3002,9 +3041,11 @@ const serializeAws_json1_1UpdateMedicalVocabularyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
-    ...(input.VocabularyFileUri !== undefined && { VocabularyFileUri: input.VocabularyFileUri }),
-    ...(input.VocabularyName !== undefined && { VocabularyName: input.VocabularyName }),
+    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
+    ...(input.VocabularyFileUri !== undefined &&
+      input.VocabularyFileUri !== null && { VocabularyFileUri: input.VocabularyFileUri }),
+    ...(input.VocabularyName !== undefined &&
+      input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
   };
 };
 
@@ -3013,23 +3054,36 @@ const serializeAws_json1_1UpdateVocabularyFilterRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.VocabularyFilterFileUri !== undefined && { VocabularyFilterFileUri: input.VocabularyFilterFileUri }),
-    ...(input.VocabularyFilterName !== undefined && { VocabularyFilterName: input.VocabularyFilterName }),
-    ...(input.Words !== undefined && { Words: serializeAws_json1_1Words(input.Words, context) }),
+    ...(input.VocabularyFilterFileUri !== undefined &&
+      input.VocabularyFilterFileUri !== null && { VocabularyFilterFileUri: input.VocabularyFilterFileUri }),
+    ...(input.VocabularyFilterName !== undefined &&
+      input.VocabularyFilterName !== null && { VocabularyFilterName: input.VocabularyFilterName }),
+    ...(input.Words !== undefined &&
+      input.Words !== null && { Words: serializeAws_json1_1Words(input.Words, context) }),
   };
 };
 
 const serializeAws_json1_1UpdateVocabularyRequest = (input: UpdateVocabularyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
-    ...(input.Phrases !== undefined && { Phrases: serializeAws_json1_1Phrases(input.Phrases, context) }),
-    ...(input.VocabularyFileUri !== undefined && { VocabularyFileUri: input.VocabularyFileUri }),
-    ...(input.VocabularyName !== undefined && { VocabularyName: input.VocabularyName }),
+    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
+    ...(input.Phrases !== undefined &&
+      input.Phrases !== null && { Phrases: serializeAws_json1_1Phrases(input.Phrases, context) }),
+    ...(input.VocabularyFileUri !== undefined &&
+      input.VocabularyFileUri !== null && { VocabularyFileUri: input.VocabularyFileUri }),
+    ...(input.VocabularyName !== undefined &&
+      input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
   };
 };
 
 const serializeAws_json1_1Words = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1BadRequestException = (output: any, context: __SerdeContext): BadRequestException => {
@@ -3279,7 +3333,14 @@ const deserializeAws_json1_1LanguageModel = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1LanguageOptions = (output: any, context: __SerdeContext): (LanguageCode | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
@@ -3439,7 +3500,14 @@ const deserializeAws_json1_1MedicalTranscriptionJobSummaries = (
   output: any,
   context: __SerdeContext
 ): MedicalTranscriptionJobSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1MedicalTranscriptionJobSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1MedicalTranscriptionJobSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1MedicalTranscriptionJobSummary = (
@@ -3504,7 +3572,14 @@ const deserializeAws_json1_1MedicalTranscriptionSetting = (
 };
 
 const deserializeAws_json1_1Models = (output: any, context: __SerdeContext): LanguageModel[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1LanguageModel(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LanguageModel(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ModelSettings = (output: any, context: __SerdeContext): ModelSettings => {
@@ -3659,7 +3734,14 @@ const deserializeAws_json1_1TranscriptionJobSummaries = (
   output: any,
   context: __SerdeContext
 ): TranscriptionJobSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1TranscriptionJobSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TranscriptionJobSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TranscriptionJobSummary = (
@@ -3763,7 +3845,14 @@ const deserializeAws_json1_1UpdateVocabularyResponse = (
 };
 
 const deserializeAws_json1_1Vocabularies = (output: any, context: __SerdeContext): VocabularyInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1VocabularyInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1VocabularyInfo(entry, context);
+    });
 };
 
 const deserializeAws_json1_1VocabularyFilterInfo = (output: any, context: __SerdeContext): VocabularyFilterInfo => {
@@ -3781,7 +3870,14 @@ const deserializeAws_json1_1VocabularyFilterInfo = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1VocabularyFilters = (output: any, context: __SerdeContext): VocabularyFilterInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1VocabularyFilterInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1VocabularyFilterInfo(entry, context);
+    });
 };
 
 const deserializeAws_json1_1VocabularyInfo = (output: any, context: __SerdeContext): VocabularyInfo => {
@@ -3848,3 +3944,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

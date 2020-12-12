@@ -56,18 +56,20 @@ export const serializeAws_restJson1CreateLifecyclePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/policies";
   let body: any;
   body = JSON.stringify({
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.ExecutionRoleArn !== undefined && { ExecutionRoleArn: input.ExecutionRoleArn }),
-    ...(input.PolicyDetails !== undefined && {
-      PolicyDetails: serializeAws_restJson1PolicyDetails(input.PolicyDetails, context),
-    }),
-    ...(input.State !== undefined && { State: input.State }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.ExecutionRoleArn !== undefined &&
+      input.ExecutionRoleArn !== null && { ExecutionRoleArn: input.ExecutionRoleArn }),
+    ...(input.PolicyDetails !== undefined &&
+      input.PolicyDetails !== null && {
+        PolicyDetails: serializeAws_restJson1PolicyDetails(input.PolicyDetails, context),
+      }),
+    ...(input.State !== undefined && input.State !== null && { State: input.State }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -85,9 +87,7 @@ export const serializeAws_restJson1DeleteLifecyclePolicyCommand = async (
   input: DeleteLifecyclePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/policies/{PolicyId}";
   if (input.PolicyId !== undefined) {
     const labelValue: string = input.PolicyId;
@@ -115,9 +115,7 @@ export const serializeAws_restJson1GetLifecyclePoliciesCommand = async (
   input: GetLifecyclePoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/policies";
   const query: any = {
     ...(input.State !== undefined && { state: input.State }),
@@ -144,9 +142,7 @@ export const serializeAws_restJson1GetLifecyclePolicyCommand = async (
   input: GetLifecyclePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/policies/{PolicyId}";
   if (input.PolicyId !== undefined) {
     const labelValue: string = input.PolicyId;
@@ -174,9 +170,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -205,7 +199,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
@@ -219,7 +213,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -237,9 +231,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -272,7 +264,7 @@ export const serializeAws_restJson1UpdateLifecyclePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/policies/{PolicyId}";
   if (input.PolicyId !== undefined) {
@@ -286,12 +278,14 @@ export const serializeAws_restJson1UpdateLifecyclePolicyCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.ExecutionRoleArn !== undefined && { ExecutionRoleArn: input.ExecutionRoleArn }),
-    ...(input.PolicyDetails !== undefined && {
-      PolicyDetails: serializeAws_restJson1PolicyDetails(input.PolicyDetails, context),
-    }),
-    ...(input.State !== undefined && { State: input.State }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.ExecutionRoleArn !== undefined &&
+      input.ExecutionRoleArn !== null && { ExecutionRoleArn: input.ExecutionRoleArn }),
+    ...(input.PolicyDetails !== undefined &&
+      input.PolicyDetails !== null && {
+        PolicyDetails: serializeAws_restJson1PolicyDetails(input.PolicyDetails, context),
+      }),
+    ...(input.State !== undefined && input.State !== null && { State: input.State }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -981,15 +975,24 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
 };
 
 const serializeAws_restJson1AvailabilityZoneList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1CreateRule = (input: CreateRule, context: __SerdeContext): any => {
   return {
-    ...(input.CronExpression !== undefined && { CronExpression: input.CronExpression }),
-    ...(input.Interval !== undefined && { Interval: input.Interval }),
-    ...(input.IntervalUnit !== undefined && { IntervalUnit: input.IntervalUnit }),
-    ...(input.Times !== undefined && { Times: serializeAws_restJson1TimesList(input.Times, context) }),
+    ...(input.CronExpression !== undefined &&
+      input.CronExpression !== null && { CronExpression: input.CronExpression }),
+    ...(input.Interval !== undefined && input.Interval !== null && { Interval: input.Interval }),
+    ...(input.IntervalUnit !== undefined && input.IntervalUnit !== null && { IntervalUnit: input.IntervalUnit }),
+    ...(input.Times !== undefined &&
+      input.Times !== null && { Times: serializeAws_restJson1TimesList(input.Times, context) }),
   };
 };
 
@@ -998,56 +1001,68 @@ const serializeAws_restJson1CrossRegionCopyRetainRule = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Interval !== undefined && { Interval: input.Interval }),
-    ...(input.IntervalUnit !== undefined && { IntervalUnit: input.IntervalUnit }),
+    ...(input.Interval !== undefined && input.Interval !== null && { Interval: input.Interval }),
+    ...(input.IntervalUnit !== undefined && input.IntervalUnit !== null && { IntervalUnit: input.IntervalUnit }),
   };
 };
 
 const serializeAws_restJson1CrossRegionCopyRule = (input: CrossRegionCopyRule, context: __SerdeContext): any => {
   return {
-    ...(input.CmkArn !== undefined && { CmkArn: input.CmkArn }),
-    ...(input.CopyTags !== undefined && { CopyTags: input.CopyTags }),
-    ...(input.Encrypted !== undefined && { Encrypted: input.Encrypted }),
-    ...(input.RetainRule !== undefined && {
-      RetainRule: serializeAws_restJson1CrossRegionCopyRetainRule(input.RetainRule, context),
-    }),
-    ...(input.TargetRegion !== undefined && { TargetRegion: input.TargetRegion }),
+    ...(input.CmkArn !== undefined && input.CmkArn !== null && { CmkArn: input.CmkArn }),
+    ...(input.CopyTags !== undefined && input.CopyTags !== null && { CopyTags: input.CopyTags }),
+    ...(input.Encrypted !== undefined && input.Encrypted !== null && { Encrypted: input.Encrypted }),
+    ...(input.RetainRule !== undefined &&
+      input.RetainRule !== null && {
+        RetainRule: serializeAws_restJson1CrossRegionCopyRetainRule(input.RetainRule, context),
+      }),
+    ...(input.TargetRegion !== undefined && input.TargetRegion !== null && { TargetRegion: input.TargetRegion }),
   };
 };
 
 const serializeAws_restJson1CrossRegionCopyRules = (input: CrossRegionCopyRule[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1CrossRegionCopyRule(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1CrossRegionCopyRule(entry, context);
+    });
 };
 
 const serializeAws_restJson1FastRestoreRule = (input: FastRestoreRule, context: __SerdeContext): any => {
   return {
-    ...(input.AvailabilityZones !== undefined && {
-      AvailabilityZones: serializeAws_restJson1AvailabilityZoneList(input.AvailabilityZones, context),
-    }),
-    ...(input.Count !== undefined && { Count: input.Count }),
-    ...(input.Interval !== undefined && { Interval: input.Interval }),
-    ...(input.IntervalUnit !== undefined && { IntervalUnit: input.IntervalUnit }),
+    ...(input.AvailabilityZones !== undefined &&
+      input.AvailabilityZones !== null && {
+        AvailabilityZones: serializeAws_restJson1AvailabilityZoneList(input.AvailabilityZones, context),
+      }),
+    ...(input.Count !== undefined && input.Count !== null && { Count: input.Count }),
+    ...(input.Interval !== undefined && input.Interval !== null && { Interval: input.Interval }),
+    ...(input.IntervalUnit !== undefined && input.IntervalUnit !== null && { IntervalUnit: input.IntervalUnit }),
   };
 };
 
 const serializeAws_restJson1_Parameters = (input: _Parameters, context: __SerdeContext): any => {
   return {
-    ...(input.ExcludeBootVolume !== undefined && { ExcludeBootVolume: input.ExcludeBootVolume }),
-    ...(input.NoReboot !== undefined && { NoReboot: input.NoReboot }),
+    ...(input.ExcludeBootVolume !== undefined &&
+      input.ExcludeBootVolume !== null && { ExcludeBootVolume: input.ExcludeBootVolume }),
+    ...(input.NoReboot !== undefined && input.NoReboot !== null && { NoReboot: input.NoReboot }),
   };
 };
 
 const serializeAws_restJson1PolicyDetails = (input: PolicyDetails, context: __SerdeContext): any => {
   return {
-    ...(input.Parameters !== undefined && { Parameters: serializeAws_restJson1_Parameters(input.Parameters, context) }),
-    ...(input.PolicyType !== undefined && { PolicyType: input.PolicyType }),
-    ...(input.ResourceTypes !== undefined && {
-      ResourceTypes: serializeAws_restJson1ResourceTypeValuesList(input.ResourceTypes, context),
-    }),
-    ...(input.Schedules !== undefined && { Schedules: serializeAws_restJson1ScheduleList(input.Schedules, context) }),
-    ...(input.TargetTags !== undefined && {
-      TargetTags: serializeAws_restJson1TargetTagList(input.TargetTags, context),
-    }),
+    ...(input.Parameters !== undefined &&
+      input.Parameters !== null && { Parameters: serializeAws_restJson1_Parameters(input.Parameters, context) }),
+    ...(input.PolicyType !== undefined && input.PolicyType !== null && { PolicyType: input.PolicyType }),
+    ...(input.ResourceTypes !== undefined &&
+      input.ResourceTypes !== null && {
+        ResourceTypes: serializeAws_restJson1ResourceTypeValuesList(input.ResourceTypes, context),
+      }),
+    ...(input.Schedules !== undefined &&
+      input.Schedules !== null && { Schedules: serializeAws_restJson1ScheduleList(input.Schedules, context) }),
+    ...(input.TargetTags !== undefined &&
+      input.TargetTags !== null && { TargetTags: serializeAws_restJson1TargetTagList(input.TargetTags, context) }),
   };
 };
 
@@ -1055,75 +1070,132 @@ const serializeAws_restJson1ResourceTypeValuesList = (
   input: (ResourceTypeValues | string)[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1RetainRule = (input: RetainRule, context: __SerdeContext): any => {
   return {
-    ...(input.Count !== undefined && { Count: input.Count }),
-    ...(input.Interval !== undefined && { Interval: input.Interval }),
-    ...(input.IntervalUnit !== undefined && { IntervalUnit: input.IntervalUnit }),
+    ...(input.Count !== undefined && input.Count !== null && { Count: input.Count }),
+    ...(input.Interval !== undefined && input.Interval !== null && { Interval: input.Interval }),
+    ...(input.IntervalUnit !== undefined && input.IntervalUnit !== null && { IntervalUnit: input.IntervalUnit }),
   };
 };
 
 const serializeAws_restJson1Schedule = (input: Schedule, context: __SerdeContext): any => {
   return {
-    ...(input.CopyTags !== undefined && { CopyTags: input.CopyTags }),
-    ...(input.CreateRule !== undefined && { CreateRule: serializeAws_restJson1CreateRule(input.CreateRule, context) }),
-    ...(input.CrossRegionCopyRules !== undefined && {
-      CrossRegionCopyRules: serializeAws_restJson1CrossRegionCopyRules(input.CrossRegionCopyRules, context),
-    }),
-    ...(input.FastRestoreRule !== undefined && {
-      FastRestoreRule: serializeAws_restJson1FastRestoreRule(input.FastRestoreRule, context),
-    }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.RetainRule !== undefined && { RetainRule: serializeAws_restJson1RetainRule(input.RetainRule, context) }),
-    ...(input.TagsToAdd !== undefined && { TagsToAdd: serializeAws_restJson1TagsToAddList(input.TagsToAdd, context) }),
-    ...(input.VariableTags !== undefined && {
-      VariableTags: serializeAws_restJson1VariableTagsList(input.VariableTags, context),
-    }),
+    ...(input.CopyTags !== undefined && input.CopyTags !== null && { CopyTags: input.CopyTags }),
+    ...(input.CreateRule !== undefined &&
+      input.CreateRule !== null && { CreateRule: serializeAws_restJson1CreateRule(input.CreateRule, context) }),
+    ...(input.CrossRegionCopyRules !== undefined &&
+      input.CrossRegionCopyRules !== null && {
+        CrossRegionCopyRules: serializeAws_restJson1CrossRegionCopyRules(input.CrossRegionCopyRules, context),
+      }),
+    ...(input.FastRestoreRule !== undefined &&
+      input.FastRestoreRule !== null && {
+        FastRestoreRule: serializeAws_restJson1FastRestoreRule(input.FastRestoreRule, context),
+      }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.RetainRule !== undefined &&
+      input.RetainRule !== null && { RetainRule: serializeAws_restJson1RetainRule(input.RetainRule, context) }),
+    ...(input.TagsToAdd !== undefined &&
+      input.TagsToAdd !== null && { TagsToAdd: serializeAws_restJson1TagsToAddList(input.TagsToAdd, context) }),
+    ...(input.VariableTags !== undefined &&
+      input.VariableTags !== null && {
+        VariableTags: serializeAws_restJson1VariableTagsList(input.VariableTags, context),
+      }),
   };
 };
 
 const serializeAws_restJson1ScheduleList = (input: Schedule[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1Schedule(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Schedule(entry, context);
+    });
 };
 
 const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_restJson1TagsToAddList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Tag(entry, context);
+    });
 };
 
 const serializeAws_restJson1TargetTagList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Tag(entry, context);
+    });
 };
 
 const serializeAws_restJson1TimesList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1VariableTagsList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Tag(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AvailabilityZoneList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1CreateRule = (output: any, context: __SerdeContext): CreateRule => {
@@ -1163,7 +1235,14 @@ const deserializeAws_restJson1CrossRegionCopyRule = (output: any, context: __Ser
 };
 
 const deserializeAws_restJson1CrossRegionCopyRules = (output: any, context: __SerdeContext): CrossRegionCopyRule[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1CrossRegionCopyRule(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CrossRegionCopyRule(entry, context);
+    });
 };
 
 const deserializeAws_restJson1FastRestoreRule = (output: any, context: __SerdeContext): FastRestoreRule => {
@@ -1227,11 +1306,25 @@ const deserializeAws_restJson1LifecyclePolicySummaryList = (
   output: any,
   context: __SerdeContext
 ): LifecyclePolicySummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1LifecyclePolicySummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1LifecyclePolicySummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ParameterList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1_Parameters = (output: any, context: __SerdeContext): _Parameters => {
@@ -1267,14 +1360,28 @@ const deserializeAws_restJson1PolicyDetails = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1PolicyIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1ResourceTypeValuesList = (
   output: any,
   context: __SerdeContext
 ): (ResourceTypeValues | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1RetainRule = (output: any, context: __SerdeContext): RetainRule => {
@@ -1317,7 +1424,14 @@ const deserializeAws_restJson1Schedule = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restJson1ScheduleList = (output: any, context: __SerdeContext): Schedule[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Schedule(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Schedule(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -1328,29 +1442,59 @@ const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag 
 };
 
 const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1TagsToAddList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Tag(entry, context);
+    });
 };
 
 const deserializeAws_restJson1TargetTagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Tag(entry, context);
+    });
 };
 
 const deserializeAws_restJson1TimesList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1VariableTagsList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Tag(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -1373,6 +1517,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

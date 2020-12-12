@@ -656,7 +656,7 @@ export const serializeAws_queryAcceptReservedNodeExchangeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -672,7 +672,7 @@ export const serializeAws_queryAuthorizeClusterSecurityGroupIngressCommand = asy
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -688,7 +688,7 @@ export const serializeAws_queryAuthorizeSnapshotAccessCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -704,7 +704,7 @@ export const serializeAws_queryBatchDeleteClusterSnapshotsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -720,7 +720,7 @@ export const serializeAws_queryBatchModifyClusterSnapshotsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -736,7 +736,7 @@ export const serializeAws_queryCancelResizeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -752,7 +752,7 @@ export const serializeAws_queryCopyClusterSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -768,7 +768,7 @@ export const serializeAws_queryCreateClusterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -784,7 +784,7 @@ export const serializeAws_queryCreateClusterParameterGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -800,7 +800,7 @@ export const serializeAws_queryCreateClusterSecurityGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -816,7 +816,7 @@ export const serializeAws_queryCreateClusterSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -832,7 +832,7 @@ export const serializeAws_queryCreateClusterSubnetGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -848,7 +848,7 @@ export const serializeAws_queryCreateEventSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -864,7 +864,7 @@ export const serializeAws_queryCreateHsmClientCertificateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -880,7 +880,7 @@ export const serializeAws_queryCreateHsmConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -896,7 +896,7 @@ export const serializeAws_queryCreateScheduledActionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -912,7 +912,7 @@ export const serializeAws_queryCreateSnapshotCopyGrantCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -928,7 +928,7 @@ export const serializeAws_queryCreateSnapshotScheduleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -944,7 +944,7 @@ export const serializeAws_queryCreateTagsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -960,7 +960,7 @@ export const serializeAws_queryCreateUsageLimitCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -976,7 +976,7 @@ export const serializeAws_queryDeleteClusterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -992,7 +992,7 @@ export const serializeAws_queryDeleteClusterParameterGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1008,7 +1008,7 @@ export const serializeAws_queryDeleteClusterSecurityGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1024,7 +1024,7 @@ export const serializeAws_queryDeleteClusterSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1040,7 +1040,7 @@ export const serializeAws_queryDeleteClusterSubnetGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1056,7 +1056,7 @@ export const serializeAws_queryDeleteEventSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1072,7 +1072,7 @@ export const serializeAws_queryDeleteHsmClientCertificateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1088,7 +1088,7 @@ export const serializeAws_queryDeleteHsmConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1104,7 +1104,7 @@ export const serializeAws_queryDeleteScheduledActionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1120,7 +1120,7 @@ export const serializeAws_queryDeleteSnapshotCopyGrantCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1136,7 +1136,7 @@ export const serializeAws_queryDeleteSnapshotScheduleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1152,7 +1152,7 @@ export const serializeAws_queryDeleteTagsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1168,7 +1168,7 @@ export const serializeAws_queryDeleteUsageLimitCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1184,7 +1184,7 @@ export const serializeAws_queryDescribeAccountAttributesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1200,7 +1200,7 @@ export const serializeAws_queryDescribeClusterDbRevisionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1216,7 +1216,7 @@ export const serializeAws_queryDescribeClusterParameterGroupsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1232,7 +1232,7 @@ export const serializeAws_queryDescribeClusterParametersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1248,7 +1248,7 @@ export const serializeAws_queryDescribeClustersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1264,7 +1264,7 @@ export const serializeAws_queryDescribeClusterSecurityGroupsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1280,7 +1280,7 @@ export const serializeAws_queryDescribeClusterSnapshotsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1296,7 +1296,7 @@ export const serializeAws_queryDescribeClusterSubnetGroupsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1312,7 +1312,7 @@ export const serializeAws_queryDescribeClusterTracksCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1328,7 +1328,7 @@ export const serializeAws_queryDescribeClusterVersionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1344,7 +1344,7 @@ export const serializeAws_queryDescribeDefaultClusterParametersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1360,7 +1360,7 @@ export const serializeAws_queryDescribeEventCategoriesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1376,7 +1376,7 @@ export const serializeAws_queryDescribeEventsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1392,7 +1392,7 @@ export const serializeAws_queryDescribeEventSubscriptionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1408,7 +1408,7 @@ export const serializeAws_queryDescribeHsmClientCertificatesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1424,7 +1424,7 @@ export const serializeAws_queryDescribeHsmConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1440,7 +1440,7 @@ export const serializeAws_queryDescribeLoggingStatusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1456,7 +1456,7 @@ export const serializeAws_queryDescribeNodeConfigurationOptionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1472,7 +1472,7 @@ export const serializeAws_queryDescribeOrderableClusterOptionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1488,7 +1488,7 @@ export const serializeAws_queryDescribeReservedNodeOfferingsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1504,7 +1504,7 @@ export const serializeAws_queryDescribeReservedNodesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1520,7 +1520,7 @@ export const serializeAws_queryDescribeResizeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1536,7 +1536,7 @@ export const serializeAws_queryDescribeScheduledActionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1552,7 +1552,7 @@ export const serializeAws_queryDescribeSnapshotCopyGrantsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1568,7 +1568,7 @@ export const serializeAws_queryDescribeSnapshotSchedulesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1584,7 +1584,7 @@ export const serializeAws_queryDescribeStorageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "DescribeStorage",
@@ -1598,7 +1598,7 @@ export const serializeAws_queryDescribeTableRestoreStatusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1614,7 +1614,7 @@ export const serializeAws_queryDescribeTagsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1630,7 +1630,7 @@ export const serializeAws_queryDescribeUsageLimitsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1646,7 +1646,7 @@ export const serializeAws_queryDisableLoggingCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1662,7 +1662,7 @@ export const serializeAws_queryDisableSnapshotCopyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1678,7 +1678,7 @@ export const serializeAws_queryEnableLoggingCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1694,7 +1694,7 @@ export const serializeAws_queryEnableSnapshotCopyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1710,7 +1710,7 @@ export const serializeAws_queryGetClusterCredentialsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1726,7 +1726,7 @@ export const serializeAws_queryGetReservedNodeExchangeOfferingsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1742,7 +1742,7 @@ export const serializeAws_queryModifyClusterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1758,7 +1758,7 @@ export const serializeAws_queryModifyClusterDbRevisionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1774,7 +1774,7 @@ export const serializeAws_queryModifyClusterIamRolesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1790,7 +1790,7 @@ export const serializeAws_queryModifyClusterMaintenanceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1806,7 +1806,7 @@ export const serializeAws_queryModifyClusterParameterGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1822,7 +1822,7 @@ export const serializeAws_queryModifyClusterSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1838,7 +1838,7 @@ export const serializeAws_queryModifyClusterSnapshotScheduleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1854,7 +1854,7 @@ export const serializeAws_queryModifyClusterSubnetGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1870,7 +1870,7 @@ export const serializeAws_queryModifyEventSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1886,7 +1886,7 @@ export const serializeAws_queryModifyScheduledActionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1902,7 +1902,7 @@ export const serializeAws_queryModifySnapshotCopyRetentionPeriodCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1918,7 +1918,7 @@ export const serializeAws_queryModifySnapshotScheduleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1934,7 +1934,7 @@ export const serializeAws_queryModifyUsageLimitCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1950,7 +1950,7 @@ export const serializeAws_queryPauseClusterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1966,7 +1966,7 @@ export const serializeAws_queryPurchaseReservedNodeOfferingCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1982,7 +1982,7 @@ export const serializeAws_queryRebootClusterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1998,7 +1998,7 @@ export const serializeAws_queryResetClusterParameterGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2014,7 +2014,7 @@ export const serializeAws_queryResizeClusterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2030,7 +2030,7 @@ export const serializeAws_queryRestoreFromClusterSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2046,7 +2046,7 @@ export const serializeAws_queryRestoreTableFromClusterSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2062,7 +2062,7 @@ export const serializeAws_queryResumeClusterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2078,7 +2078,7 @@ export const serializeAws_queryRevokeClusterSecurityGroupIngressCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2094,7 +2094,7 @@ export const serializeAws_queryRevokeSnapshotAccessCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2110,7 +2110,7 @@ export const serializeAws_queryRotateEncryptionKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -10780,10 +10780,10 @@ const serializeAws_queryAcceptReservedNodeExchangeInputMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ReservedNodeId !== undefined) {
+  if (input.ReservedNodeId !== undefined && input.ReservedNodeId !== null) {
     entries["ReservedNodeId"] = input.ReservedNodeId;
   }
-  if (input.TargetReservedNodeOfferingId !== undefined) {
+  if (input.TargetReservedNodeOfferingId !== undefined && input.TargetReservedNodeOfferingId !== null) {
     entries["TargetReservedNodeOfferingId"] = input.TargetReservedNodeOfferingId;
   }
   return entries;
@@ -10793,6 +10793,9 @@ const serializeAws_queryAttributeNameList = (input: string[], context: __SerdeCo
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`AttributeName.${counter}`] = entry;
     counter++;
   }
@@ -10804,16 +10807,16 @@ const serializeAws_queryAuthorizeClusterSecurityGroupIngressMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClusterSecurityGroupName !== undefined) {
+  if (input.ClusterSecurityGroupName !== undefined && input.ClusterSecurityGroupName !== null) {
     entries["ClusterSecurityGroupName"] = input.ClusterSecurityGroupName;
   }
-  if (input.CIDRIP !== undefined) {
+  if (input.CIDRIP !== undefined && input.CIDRIP !== null) {
     entries["CIDRIP"] = input.CIDRIP;
   }
-  if (input.EC2SecurityGroupName !== undefined) {
+  if (input.EC2SecurityGroupName !== undefined && input.EC2SecurityGroupName !== null) {
     entries["EC2SecurityGroupName"] = input.EC2SecurityGroupName;
   }
-  if (input.EC2SecurityGroupOwnerId !== undefined) {
+  if (input.EC2SecurityGroupOwnerId !== undefined && input.EC2SecurityGroupOwnerId !== null) {
     entries["EC2SecurityGroupOwnerId"] = input.EC2SecurityGroupOwnerId;
   }
   return entries;
@@ -10824,13 +10827,13 @@ const serializeAws_queryAuthorizeSnapshotAccessMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SnapshotIdentifier !== undefined) {
+  if (input.SnapshotIdentifier !== undefined && input.SnapshotIdentifier !== null) {
     entries["SnapshotIdentifier"] = input.SnapshotIdentifier;
   }
-  if (input.SnapshotClusterIdentifier !== undefined) {
+  if (input.SnapshotClusterIdentifier !== undefined && input.SnapshotClusterIdentifier !== null) {
     entries["SnapshotClusterIdentifier"] = input.SnapshotClusterIdentifier;
   }
-  if (input.AccountWithRestoreAccess !== undefined) {
+  if (input.AccountWithRestoreAccess !== undefined && input.AccountWithRestoreAccess !== null) {
     entries["AccountWithRestoreAccess"] = input.AccountWithRestoreAccess;
   }
   return entries;
@@ -10841,7 +10844,7 @@ const serializeAws_queryBatchDeleteClusterSnapshotsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Identifiers !== undefined) {
+  if (input.Identifiers !== undefined && input.Identifiers !== null) {
     const memberEntries = serializeAws_queryDeleteClusterSnapshotMessageList(input.Identifiers, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Identifiers.${key}`;
@@ -10856,17 +10859,17 @@ const serializeAws_queryBatchModifyClusterSnapshotsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SnapshotIdentifierList !== undefined) {
+  if (input.SnapshotIdentifierList !== undefined && input.SnapshotIdentifierList !== null) {
     const memberEntries = serializeAws_querySnapshotIdentifierList(input.SnapshotIdentifierList, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SnapshotIdentifierList.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ManualSnapshotRetentionPeriod !== undefined) {
+  if (input.ManualSnapshotRetentionPeriod !== undefined && input.ManualSnapshotRetentionPeriod !== null) {
     entries["ManualSnapshotRetentionPeriod"] = input.ManualSnapshotRetentionPeriod;
   }
-  if (input.Force !== undefined) {
+  if (input.Force !== undefined && input.Force !== null) {
     entries["Force"] = input.Force;
   }
   return entries;
@@ -10874,7 +10877,7 @@ const serializeAws_queryBatchModifyClusterSnapshotsMessage = (
 
 const serializeAws_queryCancelResizeMessage = (input: CancelResizeMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
   return entries;
@@ -10884,6 +10887,9 @@ const serializeAws_queryClusterSecurityGroupNameList = (input: string[], context
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`ClusterSecurityGroupName.${counter}`] = entry;
     counter++;
   }
@@ -10895,16 +10901,16 @@ const serializeAws_queryCopyClusterSnapshotMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SourceSnapshotIdentifier !== undefined) {
+  if (input.SourceSnapshotIdentifier !== undefined && input.SourceSnapshotIdentifier !== null) {
     entries["SourceSnapshotIdentifier"] = input.SourceSnapshotIdentifier;
   }
-  if (input.SourceSnapshotClusterIdentifier !== undefined) {
+  if (input.SourceSnapshotClusterIdentifier !== undefined && input.SourceSnapshotClusterIdentifier !== null) {
     entries["SourceSnapshotClusterIdentifier"] = input.SourceSnapshotClusterIdentifier;
   }
-  if (input.TargetSnapshotIdentifier !== undefined) {
+  if (input.TargetSnapshotIdentifier !== undefined && input.TargetSnapshotIdentifier !== null) {
     entries["TargetSnapshotIdentifier"] = input.TargetSnapshotIdentifier;
   }
-  if (input.ManualSnapshotRetentionPeriod !== undefined) {
+  if (input.ManualSnapshotRetentionPeriod !== undefined && input.ManualSnapshotRetentionPeriod !== null) {
     entries["ManualSnapshotRetentionPeriod"] = input.ManualSnapshotRetentionPeriod;
   }
   return entries;
@@ -10912,113 +10918,113 @@ const serializeAws_queryCopyClusterSnapshotMessage = (
 
 const serializeAws_queryCreateClusterMessage = (input: CreateClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBName !== undefined) {
+  if (input.DBName !== undefined && input.DBName !== null) {
     entries["DBName"] = input.DBName;
   }
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
-  if (input.ClusterType !== undefined) {
+  if (input.ClusterType !== undefined && input.ClusterType !== null) {
     entries["ClusterType"] = input.ClusterType;
   }
-  if (input.NodeType !== undefined) {
+  if (input.NodeType !== undefined && input.NodeType !== null) {
     entries["NodeType"] = input.NodeType;
   }
-  if (input.MasterUsername !== undefined) {
+  if (input.MasterUsername !== undefined && input.MasterUsername !== null) {
     entries["MasterUsername"] = input.MasterUsername;
   }
-  if (input.MasterUserPassword !== undefined) {
+  if (input.MasterUserPassword !== undefined && input.MasterUserPassword !== null) {
     entries["MasterUserPassword"] = input.MasterUserPassword;
   }
-  if (input.ClusterSecurityGroups !== undefined) {
+  if (input.ClusterSecurityGroups !== undefined && input.ClusterSecurityGroups !== null) {
     const memberEntries = serializeAws_queryClusterSecurityGroupNameList(input.ClusterSecurityGroups, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ClusterSecurityGroups.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.VpcSecurityGroupIds !== undefined) {
+  if (input.VpcSecurityGroupIds !== undefined && input.VpcSecurityGroupIds !== null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ClusterSubnetGroupName !== undefined) {
+  if (input.ClusterSubnetGroupName !== undefined && input.ClusterSubnetGroupName !== null) {
     entries["ClusterSubnetGroupName"] = input.ClusterSubnetGroupName;
   }
-  if (input.AvailabilityZone !== undefined) {
+  if (input.AvailabilityZone !== undefined && input.AvailabilityZone !== null) {
     entries["AvailabilityZone"] = input.AvailabilityZone;
   }
-  if (input.PreferredMaintenanceWindow !== undefined) {
+  if (input.PreferredMaintenanceWindow !== undefined && input.PreferredMaintenanceWindow !== null) {
     entries["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
   }
-  if (input.ClusterParameterGroupName !== undefined) {
+  if (input.ClusterParameterGroupName !== undefined && input.ClusterParameterGroupName !== null) {
     entries["ClusterParameterGroupName"] = input.ClusterParameterGroupName;
   }
-  if (input.AutomatedSnapshotRetentionPeriod !== undefined) {
+  if (input.AutomatedSnapshotRetentionPeriod !== undefined && input.AutomatedSnapshotRetentionPeriod !== null) {
     entries["AutomatedSnapshotRetentionPeriod"] = input.AutomatedSnapshotRetentionPeriod;
   }
-  if (input.ManualSnapshotRetentionPeriod !== undefined) {
+  if (input.ManualSnapshotRetentionPeriod !== undefined && input.ManualSnapshotRetentionPeriod !== null) {
     entries["ManualSnapshotRetentionPeriod"] = input.ManualSnapshotRetentionPeriod;
   }
-  if (input.Port !== undefined) {
+  if (input.Port !== undefined && input.Port !== null) {
     entries["Port"] = input.Port;
   }
-  if (input.ClusterVersion !== undefined) {
+  if (input.ClusterVersion !== undefined && input.ClusterVersion !== null) {
     entries["ClusterVersion"] = input.ClusterVersion;
   }
-  if (input.AllowVersionUpgrade !== undefined) {
+  if (input.AllowVersionUpgrade !== undefined && input.AllowVersionUpgrade !== null) {
     entries["AllowVersionUpgrade"] = input.AllowVersionUpgrade;
   }
-  if (input.NumberOfNodes !== undefined) {
+  if (input.NumberOfNodes !== undefined && input.NumberOfNodes !== null) {
     entries["NumberOfNodes"] = input.NumberOfNodes;
   }
-  if (input.PubliclyAccessible !== undefined) {
+  if (input.PubliclyAccessible !== undefined && input.PubliclyAccessible !== null) {
     entries["PubliclyAccessible"] = input.PubliclyAccessible;
   }
-  if (input.Encrypted !== undefined) {
+  if (input.Encrypted !== undefined && input.Encrypted !== null) {
     entries["Encrypted"] = input.Encrypted;
   }
-  if (input.HsmClientCertificateIdentifier !== undefined) {
+  if (input.HsmClientCertificateIdentifier !== undefined && input.HsmClientCertificateIdentifier !== null) {
     entries["HsmClientCertificateIdentifier"] = input.HsmClientCertificateIdentifier;
   }
-  if (input.HsmConfigurationIdentifier !== undefined) {
+  if (input.HsmConfigurationIdentifier !== undefined && input.HsmConfigurationIdentifier !== null) {
     entries["HsmConfigurationIdentifier"] = input.HsmConfigurationIdentifier;
   }
-  if (input.ElasticIp !== undefined) {
+  if (input.ElasticIp !== undefined && input.ElasticIp !== null) {
     entries["ElasticIp"] = input.ElasticIp;
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.KmsKeyId !== undefined) {
+  if (input.KmsKeyId !== undefined && input.KmsKeyId !== null) {
     entries["KmsKeyId"] = input.KmsKeyId;
   }
-  if (input.EnhancedVpcRouting !== undefined) {
+  if (input.EnhancedVpcRouting !== undefined && input.EnhancedVpcRouting !== null) {
     entries["EnhancedVpcRouting"] = input.EnhancedVpcRouting;
   }
-  if (input.AdditionalInfo !== undefined) {
+  if (input.AdditionalInfo !== undefined && input.AdditionalInfo !== null) {
     entries["AdditionalInfo"] = input.AdditionalInfo;
   }
-  if (input.IamRoles !== undefined) {
+  if (input.IamRoles !== undefined && input.IamRoles !== null) {
     const memberEntries = serializeAws_queryIamRoleArnList(input.IamRoles, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IamRoles.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.MaintenanceTrackName !== undefined) {
+  if (input.MaintenanceTrackName !== undefined && input.MaintenanceTrackName !== null) {
     entries["MaintenanceTrackName"] = input.MaintenanceTrackName;
   }
-  if (input.SnapshotScheduleIdentifier !== undefined) {
+  if (input.SnapshotScheduleIdentifier !== undefined && input.SnapshotScheduleIdentifier !== null) {
     entries["SnapshotScheduleIdentifier"] = input.SnapshotScheduleIdentifier;
   }
-  if (input.AvailabilityZoneRelocation !== undefined) {
+  if (input.AvailabilityZoneRelocation !== undefined && input.AvailabilityZoneRelocation !== null) {
     entries["AvailabilityZoneRelocation"] = input.AvailabilityZoneRelocation;
   }
   return entries;
@@ -11029,16 +11035,16 @@ const serializeAws_queryCreateClusterParameterGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ParameterGroupName !== undefined) {
+  if (input.ParameterGroupName !== undefined && input.ParameterGroupName !== null) {
     entries["ParameterGroupName"] = input.ParameterGroupName;
   }
-  if (input.ParameterGroupFamily !== undefined) {
+  if (input.ParameterGroupFamily !== undefined && input.ParameterGroupFamily !== null) {
     entries["ParameterGroupFamily"] = input.ParameterGroupFamily;
   }
-  if (input.Description !== undefined) {
+  if (input.Description !== undefined && input.Description !== null) {
     entries["Description"] = input.Description;
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -11053,13 +11059,13 @@ const serializeAws_queryCreateClusterSecurityGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClusterSecurityGroupName !== undefined) {
+  if (input.ClusterSecurityGroupName !== undefined && input.ClusterSecurityGroupName !== null) {
     entries["ClusterSecurityGroupName"] = input.ClusterSecurityGroupName;
   }
-  if (input.Description !== undefined) {
+  if (input.Description !== undefined && input.Description !== null) {
     entries["Description"] = input.Description;
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -11074,16 +11080,16 @@ const serializeAws_queryCreateClusterSnapshotMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SnapshotIdentifier !== undefined) {
+  if (input.SnapshotIdentifier !== undefined && input.SnapshotIdentifier !== null) {
     entries["SnapshotIdentifier"] = input.SnapshotIdentifier;
   }
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
-  if (input.ManualSnapshotRetentionPeriod !== undefined) {
+  if (input.ManualSnapshotRetentionPeriod !== undefined && input.ManualSnapshotRetentionPeriod !== null) {
     entries["ManualSnapshotRetentionPeriod"] = input.ManualSnapshotRetentionPeriod;
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -11098,20 +11104,20 @@ const serializeAws_queryCreateClusterSubnetGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClusterSubnetGroupName !== undefined) {
+  if (input.ClusterSubnetGroupName !== undefined && input.ClusterSubnetGroupName !== null) {
     entries["ClusterSubnetGroupName"] = input.ClusterSubnetGroupName;
   }
-  if (input.Description !== undefined) {
+  if (input.Description !== undefined && input.Description !== null) {
     entries["Description"] = input.Description;
   }
-  if (input.SubnetIds !== undefined) {
+  if (input.SubnetIds !== undefined && input.SubnetIds !== null) {
     const memberEntries = serializeAws_querySubnetIdentifierList(input.SubnetIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetIds.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -11126,36 +11132,36 @@ const serializeAws_queryCreateEventSubscriptionMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SubscriptionName !== undefined) {
+  if (input.SubscriptionName !== undefined && input.SubscriptionName !== null) {
     entries["SubscriptionName"] = input.SubscriptionName;
   }
-  if (input.SnsTopicArn !== undefined) {
+  if (input.SnsTopicArn !== undefined && input.SnsTopicArn !== null) {
     entries["SnsTopicArn"] = input.SnsTopicArn;
   }
-  if (input.SourceType !== undefined) {
+  if (input.SourceType !== undefined && input.SourceType !== null) {
     entries["SourceType"] = input.SourceType;
   }
-  if (input.SourceIds !== undefined) {
+  if (input.SourceIds !== undefined && input.SourceIds !== null) {
     const memberEntries = serializeAws_querySourceIdsList(input.SourceIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SourceIds.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.EventCategories !== undefined) {
+  if (input.EventCategories !== undefined && input.EventCategories !== null) {
     const memberEntries = serializeAws_queryEventCategoriesList(input.EventCategories, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EventCategories.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Severity !== undefined) {
+  if (input.Severity !== undefined && input.Severity !== null) {
     entries["Severity"] = input.Severity;
   }
-  if (input.Enabled !== undefined) {
+  if (input.Enabled !== undefined && input.Enabled !== null) {
     entries["Enabled"] = input.Enabled;
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -11170,10 +11176,10 @@ const serializeAws_queryCreateHsmClientCertificateMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.HsmClientCertificateIdentifier !== undefined) {
+  if (input.HsmClientCertificateIdentifier !== undefined && input.HsmClientCertificateIdentifier !== null) {
     entries["HsmClientCertificateIdentifier"] = input.HsmClientCertificateIdentifier;
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -11188,25 +11194,25 @@ const serializeAws_queryCreateHsmConfigurationMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.HsmConfigurationIdentifier !== undefined) {
+  if (input.HsmConfigurationIdentifier !== undefined && input.HsmConfigurationIdentifier !== null) {
     entries["HsmConfigurationIdentifier"] = input.HsmConfigurationIdentifier;
   }
-  if (input.Description !== undefined) {
+  if (input.Description !== undefined && input.Description !== null) {
     entries["Description"] = input.Description;
   }
-  if (input.HsmIpAddress !== undefined) {
+  if (input.HsmIpAddress !== undefined && input.HsmIpAddress !== null) {
     entries["HsmIpAddress"] = input.HsmIpAddress;
   }
-  if (input.HsmPartitionName !== undefined) {
+  if (input.HsmPartitionName !== undefined && input.HsmPartitionName !== null) {
     entries["HsmPartitionName"] = input.HsmPartitionName;
   }
-  if (input.HsmPartitionPassword !== undefined) {
+  if (input.HsmPartitionPassword !== undefined && input.HsmPartitionPassword !== null) {
     entries["HsmPartitionPassword"] = input.HsmPartitionPassword;
   }
-  if (input.HsmServerPublicCertificate !== undefined) {
+  if (input.HsmServerPublicCertificate !== undefined && input.HsmServerPublicCertificate !== null) {
     entries["HsmServerPublicCertificate"] = input.HsmServerPublicCertificate;
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -11221,32 +11227,32 @@ const serializeAws_queryCreateScheduledActionMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ScheduledActionName !== undefined) {
+  if (input.ScheduledActionName !== undefined && input.ScheduledActionName !== null) {
     entries["ScheduledActionName"] = input.ScheduledActionName;
   }
-  if (input.TargetAction !== undefined) {
+  if (input.TargetAction !== undefined && input.TargetAction !== null) {
     const memberEntries = serializeAws_queryScheduledActionType(input.TargetAction, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TargetAction.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Schedule !== undefined) {
+  if (input.Schedule !== undefined && input.Schedule !== null) {
     entries["Schedule"] = input.Schedule;
   }
-  if (input.IamRole !== undefined) {
+  if (input.IamRole !== undefined && input.IamRole !== null) {
     entries["IamRole"] = input.IamRole;
   }
-  if (input.ScheduledActionDescription !== undefined) {
+  if (input.ScheduledActionDescription !== undefined && input.ScheduledActionDescription !== null) {
     entries["ScheduledActionDescription"] = input.ScheduledActionDescription;
   }
-  if (input.StartTime !== undefined) {
+  if (input.StartTime !== undefined && input.StartTime !== null) {
     entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
   }
-  if (input.EndTime !== undefined) {
+  if (input.EndTime !== undefined && input.EndTime !== null) {
     entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
   }
-  if (input.Enable !== undefined) {
+  if (input.Enable !== undefined && input.Enable !== null) {
     entries["Enable"] = input.Enable;
   }
   return entries;
@@ -11257,13 +11263,13 @@ const serializeAws_queryCreateSnapshotCopyGrantMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SnapshotCopyGrantName !== undefined) {
+  if (input.SnapshotCopyGrantName !== undefined && input.SnapshotCopyGrantName !== null) {
     entries["SnapshotCopyGrantName"] = input.SnapshotCopyGrantName;
   }
-  if (input.KmsKeyId !== undefined) {
+  if (input.KmsKeyId !== undefined && input.KmsKeyId !== null) {
     entries["KmsKeyId"] = input.KmsKeyId;
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -11278,30 +11284,30 @@ const serializeAws_queryCreateSnapshotScheduleMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ScheduleDefinitions !== undefined) {
+  if (input.ScheduleDefinitions !== undefined && input.ScheduleDefinitions !== null) {
     const memberEntries = serializeAws_queryScheduleDefinitionList(input.ScheduleDefinitions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ScheduleDefinitions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ScheduleIdentifier !== undefined) {
+  if (input.ScheduleIdentifier !== undefined && input.ScheduleIdentifier !== null) {
     entries["ScheduleIdentifier"] = input.ScheduleIdentifier;
   }
-  if (input.ScheduleDescription !== undefined) {
+  if (input.ScheduleDescription !== undefined && input.ScheduleDescription !== null) {
     entries["ScheduleDescription"] = input.ScheduleDescription;
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.DryRun !== undefined) {
+  if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
   }
-  if (input.NextInvocations !== undefined) {
+  if (input.NextInvocations !== undefined && input.NextInvocations !== null) {
     entries["NextInvocations"] = input.NextInvocations;
   }
   return entries;
@@ -11309,10 +11315,10 @@ const serializeAws_queryCreateSnapshotScheduleMessage = (
 
 const serializeAws_queryCreateTagsMessage = (input: CreateTagsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceName !== undefined) {
+  if (input.ResourceName !== undefined && input.ResourceName !== null) {
     entries["ResourceName"] = input.ResourceName;
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -11324,25 +11330,25 @@ const serializeAws_queryCreateTagsMessage = (input: CreateTagsMessage, context: 
 
 const serializeAws_queryCreateUsageLimitMessage = (input: CreateUsageLimitMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
-  if (input.FeatureType !== undefined) {
+  if (input.FeatureType !== undefined && input.FeatureType !== null) {
     entries["FeatureType"] = input.FeatureType;
   }
-  if (input.LimitType !== undefined) {
+  if (input.LimitType !== undefined && input.LimitType !== null) {
     entries["LimitType"] = input.LimitType;
   }
-  if (input.Amount !== undefined) {
+  if (input.Amount !== undefined && input.Amount !== null) {
     entries["Amount"] = input.Amount;
   }
-  if (input.Period !== undefined) {
+  if (input.Period !== undefined && input.Period !== null) {
     entries["Period"] = input.Period;
   }
-  if (input.BreachAction !== undefined) {
+  if (input.BreachAction !== undefined && input.BreachAction !== null) {
     entries["BreachAction"] = input.BreachAction;
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -11356,6 +11362,9 @@ const serializeAws_queryDbGroupList = (input: string[], context: __SerdeContext)
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`DbGroup.${counter}`] = entry;
     counter++;
   }
@@ -11364,16 +11373,16 @@ const serializeAws_queryDbGroupList = (input: string[], context: __SerdeContext)
 
 const serializeAws_queryDeleteClusterMessage = (input: DeleteClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
-  if (input.SkipFinalClusterSnapshot !== undefined) {
+  if (input.SkipFinalClusterSnapshot !== undefined && input.SkipFinalClusterSnapshot !== null) {
     entries["SkipFinalClusterSnapshot"] = input.SkipFinalClusterSnapshot;
   }
-  if (input.FinalClusterSnapshotIdentifier !== undefined) {
+  if (input.FinalClusterSnapshotIdentifier !== undefined && input.FinalClusterSnapshotIdentifier !== null) {
     entries["FinalClusterSnapshotIdentifier"] = input.FinalClusterSnapshotIdentifier;
   }
-  if (input.FinalClusterSnapshotRetentionPeriod !== undefined) {
+  if (input.FinalClusterSnapshotRetentionPeriod !== undefined && input.FinalClusterSnapshotRetentionPeriod !== null) {
     entries["FinalClusterSnapshotRetentionPeriod"] = input.FinalClusterSnapshotRetentionPeriod;
   }
   return entries;
@@ -11384,7 +11393,7 @@ const serializeAws_queryDeleteClusterParameterGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ParameterGroupName !== undefined) {
+  if (input.ParameterGroupName !== undefined && input.ParameterGroupName !== null) {
     entries["ParameterGroupName"] = input.ParameterGroupName;
   }
   return entries;
@@ -11395,7 +11404,7 @@ const serializeAws_queryDeleteClusterSecurityGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClusterSecurityGroupName !== undefined) {
+  if (input.ClusterSecurityGroupName !== undefined && input.ClusterSecurityGroupName !== null) {
     entries["ClusterSecurityGroupName"] = input.ClusterSecurityGroupName;
   }
   return entries;
@@ -11406,10 +11415,10 @@ const serializeAws_queryDeleteClusterSnapshotMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SnapshotIdentifier !== undefined) {
+  if (input.SnapshotIdentifier !== undefined && input.SnapshotIdentifier !== null) {
     entries["SnapshotIdentifier"] = input.SnapshotIdentifier;
   }
-  if (input.SnapshotClusterIdentifier !== undefined) {
+  if (input.SnapshotClusterIdentifier !== undefined && input.SnapshotClusterIdentifier !== null) {
     entries["SnapshotClusterIdentifier"] = input.SnapshotClusterIdentifier;
   }
   return entries;
@@ -11422,6 +11431,9 @@ const serializeAws_queryDeleteClusterSnapshotMessageList = (
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryDeleteClusterSnapshotMessage(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`DeleteClusterSnapshotMessage.${counter}.${key}`] = value;
@@ -11436,7 +11448,7 @@ const serializeAws_queryDeleteClusterSubnetGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClusterSubnetGroupName !== undefined) {
+  if (input.ClusterSubnetGroupName !== undefined && input.ClusterSubnetGroupName !== null) {
     entries["ClusterSubnetGroupName"] = input.ClusterSubnetGroupName;
   }
   return entries;
@@ -11447,7 +11459,7 @@ const serializeAws_queryDeleteEventSubscriptionMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SubscriptionName !== undefined) {
+  if (input.SubscriptionName !== undefined && input.SubscriptionName !== null) {
     entries["SubscriptionName"] = input.SubscriptionName;
   }
   return entries;
@@ -11458,7 +11470,7 @@ const serializeAws_queryDeleteHsmClientCertificateMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.HsmClientCertificateIdentifier !== undefined) {
+  if (input.HsmClientCertificateIdentifier !== undefined && input.HsmClientCertificateIdentifier !== null) {
     entries["HsmClientCertificateIdentifier"] = input.HsmClientCertificateIdentifier;
   }
   return entries;
@@ -11469,7 +11481,7 @@ const serializeAws_queryDeleteHsmConfigurationMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.HsmConfigurationIdentifier !== undefined) {
+  if (input.HsmConfigurationIdentifier !== undefined && input.HsmConfigurationIdentifier !== null) {
     entries["HsmConfigurationIdentifier"] = input.HsmConfigurationIdentifier;
   }
   return entries;
@@ -11480,7 +11492,7 @@ const serializeAws_queryDeleteScheduledActionMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ScheduledActionName !== undefined) {
+  if (input.ScheduledActionName !== undefined && input.ScheduledActionName !== null) {
     entries["ScheduledActionName"] = input.ScheduledActionName;
   }
   return entries;
@@ -11491,7 +11503,7 @@ const serializeAws_queryDeleteSnapshotCopyGrantMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SnapshotCopyGrantName !== undefined) {
+  if (input.SnapshotCopyGrantName !== undefined && input.SnapshotCopyGrantName !== null) {
     entries["SnapshotCopyGrantName"] = input.SnapshotCopyGrantName;
   }
   return entries;
@@ -11502,7 +11514,7 @@ const serializeAws_queryDeleteSnapshotScheduleMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ScheduleIdentifier !== undefined) {
+  if (input.ScheduleIdentifier !== undefined && input.ScheduleIdentifier !== null) {
     entries["ScheduleIdentifier"] = input.ScheduleIdentifier;
   }
   return entries;
@@ -11510,10 +11522,10 @@ const serializeAws_queryDeleteSnapshotScheduleMessage = (
 
 const serializeAws_queryDeleteTagsMessage = (input: DeleteTagsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceName !== undefined) {
+  if (input.ResourceName !== undefined && input.ResourceName !== null) {
     entries["ResourceName"] = input.ResourceName;
   }
-  if (input.TagKeys !== undefined) {
+  if (input.TagKeys !== undefined && input.TagKeys !== null) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
@@ -11525,7 +11537,7 @@ const serializeAws_queryDeleteTagsMessage = (input: DeleteTagsMessage, context: 
 
 const serializeAws_queryDeleteUsageLimitMessage = (input: DeleteUsageLimitMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UsageLimitId !== undefined) {
+  if (input.UsageLimitId !== undefined && input.UsageLimitId !== null) {
     entries["UsageLimitId"] = input.UsageLimitId;
   }
   return entries;
@@ -11536,7 +11548,7 @@ const serializeAws_queryDescribeAccountAttributesMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.AttributeNames !== undefined) {
+  if (input.AttributeNames !== undefined && input.AttributeNames !== null) {
     const memberEntries = serializeAws_queryAttributeNameList(input.AttributeNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AttributeNames.${key}`;
@@ -11551,13 +11563,13 @@ const serializeAws_queryDescribeClusterDbRevisionsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
-  if (input.MaxRecords !== undefined) {
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
@@ -11568,23 +11580,23 @@ const serializeAws_queryDescribeClusterParameterGroupsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ParameterGroupName !== undefined) {
+  if (input.ParameterGroupName !== undefined && input.ParameterGroupName !== null) {
     entries["ParameterGroupName"] = input.ParameterGroupName;
   }
-  if (input.MaxRecords !== undefined) {
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.TagKeys !== undefined) {
+  if (input.TagKeys !== undefined && input.TagKeys !== null) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.TagValues !== undefined) {
+  if (input.TagValues !== undefined && input.TagValues !== null) {
     const memberEntries = serializeAws_queryTagValueList(input.TagValues, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagValues.${key}`;
@@ -11599,16 +11611,16 @@ const serializeAws_queryDescribeClusterParametersMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ParameterGroupName !== undefined) {
+  if (input.ParameterGroupName !== undefined && input.ParameterGroupName !== null) {
     entries["ParameterGroupName"] = input.ParameterGroupName;
   }
-  if (input.Source !== undefined) {
+  if (input.Source !== undefined && input.Source !== null) {
     entries["Source"] = input.Source;
   }
-  if (input.MaxRecords !== undefined) {
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
@@ -11619,23 +11631,23 @@ const serializeAws_queryDescribeClusterSecurityGroupsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClusterSecurityGroupName !== undefined) {
+  if (input.ClusterSecurityGroupName !== undefined && input.ClusterSecurityGroupName !== null) {
     entries["ClusterSecurityGroupName"] = input.ClusterSecurityGroupName;
   }
-  if (input.MaxRecords !== undefined) {
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.TagKeys !== undefined) {
+  if (input.TagKeys !== undefined && input.TagKeys !== null) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.TagValues !== undefined) {
+  if (input.TagValues !== undefined && input.TagValues !== null) {
     const memberEntries = serializeAws_queryTagValueList(input.TagValues, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagValues.${key}`;
@@ -11647,23 +11659,23 @@ const serializeAws_queryDescribeClusterSecurityGroupsMessage = (
 
 const serializeAws_queryDescribeClustersMessage = (input: DescribeClustersMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
-  if (input.MaxRecords !== undefined) {
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.TagKeys !== undefined) {
+  if (input.TagKeys !== undefined && input.TagKeys !== null) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.TagValues !== undefined) {
+  if (input.TagValues !== undefined && input.TagValues !== null) {
     const memberEntries = serializeAws_queryTagValueList(input.TagValues, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagValues.${key}`;
@@ -11678,48 +11690,48 @@ const serializeAws_queryDescribeClusterSnapshotsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
-  if (input.SnapshotIdentifier !== undefined) {
+  if (input.SnapshotIdentifier !== undefined && input.SnapshotIdentifier !== null) {
     entries["SnapshotIdentifier"] = input.SnapshotIdentifier;
   }
-  if (input.SnapshotType !== undefined) {
+  if (input.SnapshotType !== undefined && input.SnapshotType !== null) {
     entries["SnapshotType"] = input.SnapshotType;
   }
-  if (input.StartTime !== undefined) {
+  if (input.StartTime !== undefined && input.StartTime !== null) {
     entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
   }
-  if (input.EndTime !== undefined) {
+  if (input.EndTime !== undefined && input.EndTime !== null) {
     entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
   }
-  if (input.MaxRecords !== undefined) {
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.OwnerAccount !== undefined) {
+  if (input.OwnerAccount !== undefined && input.OwnerAccount !== null) {
     entries["OwnerAccount"] = input.OwnerAccount;
   }
-  if (input.TagKeys !== undefined) {
+  if (input.TagKeys !== undefined && input.TagKeys !== null) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.TagValues !== undefined) {
+  if (input.TagValues !== undefined && input.TagValues !== null) {
     const memberEntries = serializeAws_queryTagValueList(input.TagValues, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagValues.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ClusterExists !== undefined) {
+  if (input.ClusterExists !== undefined && input.ClusterExists !== null) {
     entries["ClusterExists"] = input.ClusterExists;
   }
-  if (input.SortingEntities !== undefined) {
+  if (input.SortingEntities !== undefined && input.SortingEntities !== null) {
     const memberEntries = serializeAws_querySnapshotSortingEntityList(input.SortingEntities, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SortingEntities.${key}`;
@@ -11734,23 +11746,23 @@ const serializeAws_queryDescribeClusterSubnetGroupsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClusterSubnetGroupName !== undefined) {
+  if (input.ClusterSubnetGroupName !== undefined && input.ClusterSubnetGroupName !== null) {
     entries["ClusterSubnetGroupName"] = input.ClusterSubnetGroupName;
   }
-  if (input.MaxRecords !== undefined) {
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.TagKeys !== undefined) {
+  if (input.TagKeys !== undefined && input.TagKeys !== null) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.TagValues !== undefined) {
+  if (input.TagValues !== undefined && input.TagValues !== null) {
     const memberEntries = serializeAws_queryTagValueList(input.TagValues, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagValues.${key}`;
@@ -11765,13 +11777,13 @@ const serializeAws_queryDescribeClusterTracksMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.MaintenanceTrackName !== undefined) {
+  if (input.MaintenanceTrackName !== undefined && input.MaintenanceTrackName !== null) {
     entries["MaintenanceTrackName"] = input.MaintenanceTrackName;
   }
-  if (input.MaxRecords !== undefined) {
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
@@ -11782,16 +11794,16 @@ const serializeAws_queryDescribeClusterVersionsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClusterVersion !== undefined) {
+  if (input.ClusterVersion !== undefined && input.ClusterVersion !== null) {
     entries["ClusterVersion"] = input.ClusterVersion;
   }
-  if (input.ClusterParameterGroupFamily !== undefined) {
+  if (input.ClusterParameterGroupFamily !== undefined && input.ClusterParameterGroupFamily !== null) {
     entries["ClusterParameterGroupFamily"] = input.ClusterParameterGroupFamily;
   }
-  if (input.MaxRecords !== undefined) {
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
@@ -11802,13 +11814,13 @@ const serializeAws_queryDescribeDefaultClusterParametersMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ParameterGroupFamily !== undefined) {
+  if (input.ParameterGroupFamily !== undefined && input.ParameterGroupFamily !== null) {
     entries["ParameterGroupFamily"] = input.ParameterGroupFamily;
   }
-  if (input.MaxRecords !== undefined) {
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
@@ -11819,7 +11831,7 @@ const serializeAws_queryDescribeEventCategoriesMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SourceType !== undefined) {
+  if (input.SourceType !== undefined && input.SourceType !== null) {
     entries["SourceType"] = input.SourceType;
   }
   return entries;
@@ -11827,25 +11839,25 @@ const serializeAws_queryDescribeEventCategoriesMessage = (
 
 const serializeAws_queryDescribeEventsMessage = (input: DescribeEventsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SourceIdentifier !== undefined) {
+  if (input.SourceIdentifier !== undefined && input.SourceIdentifier !== null) {
     entries["SourceIdentifier"] = input.SourceIdentifier;
   }
-  if (input.SourceType !== undefined) {
+  if (input.SourceType !== undefined && input.SourceType !== null) {
     entries["SourceType"] = input.SourceType;
   }
-  if (input.StartTime !== undefined) {
+  if (input.StartTime !== undefined && input.StartTime !== null) {
     entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
   }
-  if (input.EndTime !== undefined) {
+  if (input.EndTime !== undefined && input.EndTime !== null) {
     entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
   }
-  if (input.Duration !== undefined) {
+  if (input.Duration !== undefined && input.Duration !== null) {
     entries["Duration"] = input.Duration;
   }
-  if (input.MaxRecords !== undefined) {
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
@@ -11856,23 +11868,23 @@ const serializeAws_queryDescribeEventSubscriptionsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SubscriptionName !== undefined) {
+  if (input.SubscriptionName !== undefined && input.SubscriptionName !== null) {
     entries["SubscriptionName"] = input.SubscriptionName;
   }
-  if (input.MaxRecords !== undefined) {
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.TagKeys !== undefined) {
+  if (input.TagKeys !== undefined && input.TagKeys !== null) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.TagValues !== undefined) {
+  if (input.TagValues !== undefined && input.TagValues !== null) {
     const memberEntries = serializeAws_queryTagValueList(input.TagValues, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagValues.${key}`;
@@ -11887,23 +11899,23 @@ const serializeAws_queryDescribeHsmClientCertificatesMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.HsmClientCertificateIdentifier !== undefined) {
+  if (input.HsmClientCertificateIdentifier !== undefined && input.HsmClientCertificateIdentifier !== null) {
     entries["HsmClientCertificateIdentifier"] = input.HsmClientCertificateIdentifier;
   }
-  if (input.MaxRecords !== undefined) {
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.TagKeys !== undefined) {
+  if (input.TagKeys !== undefined && input.TagKeys !== null) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.TagValues !== undefined) {
+  if (input.TagValues !== undefined && input.TagValues !== null) {
     const memberEntries = serializeAws_queryTagValueList(input.TagValues, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagValues.${key}`;
@@ -11918,23 +11930,23 @@ const serializeAws_queryDescribeHsmConfigurationsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.HsmConfigurationIdentifier !== undefined) {
+  if (input.HsmConfigurationIdentifier !== undefined && input.HsmConfigurationIdentifier !== null) {
     entries["HsmConfigurationIdentifier"] = input.HsmConfigurationIdentifier;
   }
-  if (input.MaxRecords !== undefined) {
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.TagKeys !== undefined) {
+  if (input.TagKeys !== undefined && input.TagKeys !== null) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.TagValues !== undefined) {
+  if (input.TagValues !== undefined && input.TagValues !== null) {
     const memberEntries = serializeAws_queryTagValueList(input.TagValues, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagValues.${key}`;
@@ -11949,7 +11961,7 @@ const serializeAws_queryDescribeLoggingStatusMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
   return entries;
@@ -11960,29 +11972,29 @@ const serializeAws_queryDescribeNodeConfigurationOptionsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ActionType !== undefined) {
+  if (input.ActionType !== undefined && input.ActionType !== null) {
     entries["ActionType"] = input.ActionType;
   }
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
-  if (input.SnapshotIdentifier !== undefined) {
+  if (input.SnapshotIdentifier !== undefined && input.SnapshotIdentifier !== null) {
     entries["SnapshotIdentifier"] = input.SnapshotIdentifier;
   }
-  if (input.OwnerAccount !== undefined) {
+  if (input.OwnerAccount !== undefined && input.OwnerAccount !== null) {
     entries["OwnerAccount"] = input.OwnerAccount;
   }
-  if (input.Filters !== undefined) {
+  if (input.Filters !== undefined && input.Filters !== null) {
     const memberEntries = serializeAws_queryNodeConfigurationOptionsFilterList(input.Filters, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxRecords !== undefined) {
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
   return entries;
@@ -11993,16 +12005,16 @@ const serializeAws_queryDescribeOrderableClusterOptionsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClusterVersion !== undefined) {
+  if (input.ClusterVersion !== undefined && input.ClusterVersion !== null) {
     entries["ClusterVersion"] = input.ClusterVersion;
   }
-  if (input.NodeType !== undefined) {
+  if (input.NodeType !== undefined && input.NodeType !== null) {
     entries["NodeType"] = input.NodeType;
   }
-  if (input.MaxRecords !== undefined) {
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
@@ -12013,13 +12025,13 @@ const serializeAws_queryDescribeReservedNodeOfferingsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ReservedNodeOfferingId !== undefined) {
+  if (input.ReservedNodeOfferingId !== undefined && input.ReservedNodeOfferingId !== null) {
     entries["ReservedNodeOfferingId"] = input.ReservedNodeOfferingId;
   }
-  if (input.MaxRecords !== undefined) {
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
@@ -12030,13 +12042,13 @@ const serializeAws_queryDescribeReservedNodesMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ReservedNodeId !== undefined) {
+  if (input.ReservedNodeId !== undefined && input.ReservedNodeId !== null) {
     entries["ReservedNodeId"] = input.ReservedNodeId;
   }
-  if (input.MaxRecords !== undefined) {
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
@@ -12044,7 +12056,7 @@ const serializeAws_queryDescribeReservedNodesMessage = (
 
 const serializeAws_queryDescribeResizeMessage = (input: DescribeResizeMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
   return entries;
@@ -12055,32 +12067,32 @@ const serializeAws_queryDescribeScheduledActionsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ScheduledActionName !== undefined) {
+  if (input.ScheduledActionName !== undefined && input.ScheduledActionName !== null) {
     entries["ScheduledActionName"] = input.ScheduledActionName;
   }
-  if (input.TargetActionType !== undefined) {
+  if (input.TargetActionType !== undefined && input.TargetActionType !== null) {
     entries["TargetActionType"] = input.TargetActionType;
   }
-  if (input.StartTime !== undefined) {
+  if (input.StartTime !== undefined && input.StartTime !== null) {
     entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
   }
-  if (input.EndTime !== undefined) {
+  if (input.EndTime !== undefined && input.EndTime !== null) {
     entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
   }
-  if (input.Active !== undefined) {
+  if (input.Active !== undefined && input.Active !== null) {
     entries["Active"] = input.Active;
   }
-  if (input.Filters !== undefined) {
+  if (input.Filters !== undefined && input.Filters !== null) {
     const memberEntries = serializeAws_queryScheduledActionFilterList(input.Filters, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxRecords !== undefined) {
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
   return entries;
@@ -12091,23 +12103,23 @@ const serializeAws_queryDescribeSnapshotCopyGrantsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SnapshotCopyGrantName !== undefined) {
+  if (input.SnapshotCopyGrantName !== undefined && input.SnapshotCopyGrantName !== null) {
     entries["SnapshotCopyGrantName"] = input.SnapshotCopyGrantName;
   }
-  if (input.MaxRecords !== undefined) {
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.TagKeys !== undefined) {
+  if (input.TagKeys !== undefined && input.TagKeys !== null) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.TagValues !== undefined) {
+  if (input.TagValues !== undefined && input.TagValues !== null) {
     const memberEntries = serializeAws_queryTagValueList(input.TagValues, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagValues.${key}`;
@@ -12122,30 +12134,30 @@ const serializeAws_queryDescribeSnapshotSchedulesMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
-  if (input.ScheduleIdentifier !== undefined) {
+  if (input.ScheduleIdentifier !== undefined && input.ScheduleIdentifier !== null) {
     entries["ScheduleIdentifier"] = input.ScheduleIdentifier;
   }
-  if (input.TagKeys !== undefined) {
+  if (input.TagKeys !== undefined && input.TagKeys !== null) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.TagValues !== undefined) {
+  if (input.TagValues !== undefined && input.TagValues !== null) {
     const memberEntries = serializeAws_queryTagValueList(input.TagValues, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagValues.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxRecords !== undefined) {
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
   return entries;
@@ -12156,16 +12168,16 @@ const serializeAws_queryDescribeTableRestoreStatusMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
-  if (input.TableRestoreRequestId !== undefined) {
+  if (input.TableRestoreRequestId !== undefined && input.TableRestoreRequestId !== null) {
     entries["TableRestoreRequestId"] = input.TableRestoreRequestId;
   }
-  if (input.MaxRecords !== undefined) {
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
@@ -12173,26 +12185,26 @@ const serializeAws_queryDescribeTableRestoreStatusMessage = (
 
 const serializeAws_queryDescribeTagsMessage = (input: DescribeTagsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceName !== undefined) {
+  if (input.ResourceName !== undefined && input.ResourceName !== null) {
     entries["ResourceName"] = input.ResourceName;
   }
-  if (input.ResourceType !== undefined) {
+  if (input.ResourceType !== undefined && input.ResourceType !== null) {
     entries["ResourceType"] = input.ResourceType;
   }
-  if (input.MaxRecords !== undefined) {
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.TagKeys !== undefined) {
+  if (input.TagKeys !== undefined && input.TagKeys !== null) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.TagValues !== undefined) {
+  if (input.TagValues !== undefined && input.TagValues !== null) {
     const memberEntries = serializeAws_queryTagValueList(input.TagValues, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagValues.${key}`;
@@ -12207,29 +12219,29 @@ const serializeAws_queryDescribeUsageLimitsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UsageLimitId !== undefined) {
+  if (input.UsageLimitId !== undefined && input.UsageLimitId !== null) {
     entries["UsageLimitId"] = input.UsageLimitId;
   }
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
-  if (input.FeatureType !== undefined) {
+  if (input.FeatureType !== undefined && input.FeatureType !== null) {
     entries["FeatureType"] = input.FeatureType;
   }
-  if (input.MaxRecords !== undefined) {
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.TagKeys !== undefined) {
+  if (input.TagKeys !== undefined && input.TagKeys !== null) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.TagValues !== undefined) {
+  if (input.TagValues !== undefined && input.TagValues !== null) {
     const memberEntries = serializeAws_queryTagValueList(input.TagValues, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagValues.${key}`;
@@ -12241,7 +12253,7 @@ const serializeAws_queryDescribeUsageLimitsMessage = (
 
 const serializeAws_queryDisableLoggingMessage = (input: DisableLoggingMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
   return entries;
@@ -12252,7 +12264,7 @@ const serializeAws_queryDisableSnapshotCopyMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
   return entries;
@@ -12260,13 +12272,13 @@ const serializeAws_queryDisableSnapshotCopyMessage = (
 
 const serializeAws_queryEnableLoggingMessage = (input: EnableLoggingMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
-  if (input.BucketName !== undefined) {
+  if (input.BucketName !== undefined && input.BucketName !== null) {
     entries["BucketName"] = input.BucketName;
   }
-  if (input.S3KeyPrefix !== undefined) {
+  if (input.S3KeyPrefix !== undefined && input.S3KeyPrefix !== null) {
     entries["S3KeyPrefix"] = input.S3KeyPrefix;
   }
   return entries;
@@ -12277,19 +12289,19 @@ const serializeAws_queryEnableSnapshotCopyMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
-  if (input.DestinationRegion !== undefined) {
+  if (input.DestinationRegion !== undefined && input.DestinationRegion !== null) {
     entries["DestinationRegion"] = input.DestinationRegion;
   }
-  if (input.RetentionPeriod !== undefined) {
+  if (input.RetentionPeriod !== undefined && input.RetentionPeriod !== null) {
     entries["RetentionPeriod"] = input.RetentionPeriod;
   }
-  if (input.SnapshotCopyGrantName !== undefined) {
+  if (input.SnapshotCopyGrantName !== undefined && input.SnapshotCopyGrantName !== null) {
     entries["SnapshotCopyGrantName"] = input.SnapshotCopyGrantName;
   }
-  if (input.ManualSnapshotRetentionPeriod !== undefined) {
+  if (input.ManualSnapshotRetentionPeriod !== undefined && input.ManualSnapshotRetentionPeriod !== null) {
     entries["ManualSnapshotRetentionPeriod"] = input.ManualSnapshotRetentionPeriod;
   }
   return entries;
@@ -12299,6 +12311,9 @@ const serializeAws_queryEventCategoriesList = (input: string[], context: __Serde
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`EventCategory.${counter}`] = entry;
     counter++;
   }
@@ -12310,22 +12325,22 @@ const serializeAws_queryGetClusterCredentialsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DbUser !== undefined) {
+  if (input.DbUser !== undefined && input.DbUser !== null) {
     entries["DbUser"] = input.DbUser;
   }
-  if (input.DbName !== undefined) {
+  if (input.DbName !== undefined && input.DbName !== null) {
     entries["DbName"] = input.DbName;
   }
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
-  if (input.DurationSeconds !== undefined) {
+  if (input.DurationSeconds !== undefined && input.DurationSeconds !== null) {
     entries["DurationSeconds"] = input.DurationSeconds;
   }
-  if (input.AutoCreate !== undefined) {
+  if (input.AutoCreate !== undefined && input.AutoCreate !== null) {
     entries["AutoCreate"] = input.AutoCreate;
   }
-  if (input.DbGroups !== undefined) {
+  if (input.DbGroups !== undefined && input.DbGroups !== null) {
     const memberEntries = serializeAws_queryDbGroupList(input.DbGroups, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DbGroups.${key}`;
@@ -12340,13 +12355,13 @@ const serializeAws_queryGetReservedNodeExchangeOfferingsInputMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ReservedNodeId !== undefined) {
+  if (input.ReservedNodeId !== undefined && input.ReservedNodeId !== null) {
     entries["ReservedNodeId"] = input.ReservedNodeId;
   }
-  if (input.MaxRecords !== undefined) {
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
@@ -12356,6 +12371,9 @@ const serializeAws_queryIamRoleArnList = (input: string[], context: __SerdeConte
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`IamRoleArn.${counter}`] = entry;
     counter++;
   }
@@ -12367,10 +12385,10 @@ const serializeAws_queryModifyClusterDbRevisionMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
-  if (input.RevisionTarget !== undefined) {
+  if (input.RevisionTarget !== undefined && input.RevisionTarget !== null) {
     entries["RevisionTarget"] = input.RevisionTarget;
   }
   return entries;
@@ -12381,17 +12399,17 @@ const serializeAws_queryModifyClusterIamRolesMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
-  if (input.AddIamRoles !== undefined) {
+  if (input.AddIamRoles !== undefined && input.AddIamRoles !== null) {
     const memberEntries = serializeAws_queryIamRoleArnList(input.AddIamRoles, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddIamRoles.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.RemoveIamRoles !== undefined) {
+  if (input.RemoveIamRoles !== undefined && input.RemoveIamRoles !== null) {
     const memberEntries = serializeAws_queryIamRoleArnList(input.RemoveIamRoles, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveIamRoles.${key}`;
@@ -12406,22 +12424,22 @@ const serializeAws_queryModifyClusterMaintenanceMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
-  if (input.DeferMaintenance !== undefined) {
+  if (input.DeferMaintenance !== undefined && input.DeferMaintenance !== null) {
     entries["DeferMaintenance"] = input.DeferMaintenance;
   }
-  if (input.DeferMaintenanceIdentifier !== undefined) {
+  if (input.DeferMaintenanceIdentifier !== undefined && input.DeferMaintenanceIdentifier !== null) {
     entries["DeferMaintenanceIdentifier"] = input.DeferMaintenanceIdentifier;
   }
-  if (input.DeferMaintenanceStartTime !== undefined) {
+  if (input.DeferMaintenanceStartTime !== undefined && input.DeferMaintenanceStartTime !== null) {
     entries["DeferMaintenanceStartTime"] = input.DeferMaintenanceStartTime.toISOString().split(".")[0] + "Z";
   }
-  if (input.DeferMaintenanceEndTime !== undefined) {
+  if (input.DeferMaintenanceEndTime !== undefined && input.DeferMaintenanceEndTime !== null) {
     entries["DeferMaintenanceEndTime"] = input.DeferMaintenanceEndTime.toISOString().split(".")[0] + "Z";
   }
-  if (input.DeferMaintenanceDuration !== undefined) {
+  if (input.DeferMaintenanceDuration !== undefined && input.DeferMaintenanceDuration !== null) {
     entries["DeferMaintenanceDuration"] = input.DeferMaintenanceDuration;
   }
   return entries;
@@ -12429,87 +12447,87 @@ const serializeAws_queryModifyClusterMaintenanceMessage = (
 
 const serializeAws_queryModifyClusterMessage = (input: ModifyClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
-  if (input.ClusterType !== undefined) {
+  if (input.ClusterType !== undefined && input.ClusterType !== null) {
     entries["ClusterType"] = input.ClusterType;
   }
-  if (input.NodeType !== undefined) {
+  if (input.NodeType !== undefined && input.NodeType !== null) {
     entries["NodeType"] = input.NodeType;
   }
-  if (input.NumberOfNodes !== undefined) {
+  if (input.NumberOfNodes !== undefined && input.NumberOfNodes !== null) {
     entries["NumberOfNodes"] = input.NumberOfNodes;
   }
-  if (input.ClusterSecurityGroups !== undefined) {
+  if (input.ClusterSecurityGroups !== undefined && input.ClusterSecurityGroups !== null) {
     const memberEntries = serializeAws_queryClusterSecurityGroupNameList(input.ClusterSecurityGroups, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ClusterSecurityGroups.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.VpcSecurityGroupIds !== undefined) {
+  if (input.VpcSecurityGroupIds !== undefined && input.VpcSecurityGroupIds !== null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.MasterUserPassword !== undefined) {
+  if (input.MasterUserPassword !== undefined && input.MasterUserPassword !== null) {
     entries["MasterUserPassword"] = input.MasterUserPassword;
   }
-  if (input.ClusterParameterGroupName !== undefined) {
+  if (input.ClusterParameterGroupName !== undefined && input.ClusterParameterGroupName !== null) {
     entries["ClusterParameterGroupName"] = input.ClusterParameterGroupName;
   }
-  if (input.AutomatedSnapshotRetentionPeriod !== undefined) {
+  if (input.AutomatedSnapshotRetentionPeriod !== undefined && input.AutomatedSnapshotRetentionPeriod !== null) {
     entries["AutomatedSnapshotRetentionPeriod"] = input.AutomatedSnapshotRetentionPeriod;
   }
-  if (input.ManualSnapshotRetentionPeriod !== undefined) {
+  if (input.ManualSnapshotRetentionPeriod !== undefined && input.ManualSnapshotRetentionPeriod !== null) {
     entries["ManualSnapshotRetentionPeriod"] = input.ManualSnapshotRetentionPeriod;
   }
-  if (input.PreferredMaintenanceWindow !== undefined) {
+  if (input.PreferredMaintenanceWindow !== undefined && input.PreferredMaintenanceWindow !== null) {
     entries["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
   }
-  if (input.ClusterVersion !== undefined) {
+  if (input.ClusterVersion !== undefined && input.ClusterVersion !== null) {
     entries["ClusterVersion"] = input.ClusterVersion;
   }
-  if (input.AllowVersionUpgrade !== undefined) {
+  if (input.AllowVersionUpgrade !== undefined && input.AllowVersionUpgrade !== null) {
     entries["AllowVersionUpgrade"] = input.AllowVersionUpgrade;
   }
-  if (input.HsmClientCertificateIdentifier !== undefined) {
+  if (input.HsmClientCertificateIdentifier !== undefined && input.HsmClientCertificateIdentifier !== null) {
     entries["HsmClientCertificateIdentifier"] = input.HsmClientCertificateIdentifier;
   }
-  if (input.HsmConfigurationIdentifier !== undefined) {
+  if (input.HsmConfigurationIdentifier !== undefined && input.HsmConfigurationIdentifier !== null) {
     entries["HsmConfigurationIdentifier"] = input.HsmConfigurationIdentifier;
   }
-  if (input.NewClusterIdentifier !== undefined) {
+  if (input.NewClusterIdentifier !== undefined && input.NewClusterIdentifier !== null) {
     entries["NewClusterIdentifier"] = input.NewClusterIdentifier;
   }
-  if (input.PubliclyAccessible !== undefined) {
+  if (input.PubliclyAccessible !== undefined && input.PubliclyAccessible !== null) {
     entries["PubliclyAccessible"] = input.PubliclyAccessible;
   }
-  if (input.ElasticIp !== undefined) {
+  if (input.ElasticIp !== undefined && input.ElasticIp !== null) {
     entries["ElasticIp"] = input.ElasticIp;
   }
-  if (input.EnhancedVpcRouting !== undefined) {
+  if (input.EnhancedVpcRouting !== undefined && input.EnhancedVpcRouting !== null) {
     entries["EnhancedVpcRouting"] = input.EnhancedVpcRouting;
   }
-  if (input.MaintenanceTrackName !== undefined) {
+  if (input.MaintenanceTrackName !== undefined && input.MaintenanceTrackName !== null) {
     entries["MaintenanceTrackName"] = input.MaintenanceTrackName;
   }
-  if (input.Encrypted !== undefined) {
+  if (input.Encrypted !== undefined && input.Encrypted !== null) {
     entries["Encrypted"] = input.Encrypted;
   }
-  if (input.KmsKeyId !== undefined) {
+  if (input.KmsKeyId !== undefined && input.KmsKeyId !== null) {
     entries["KmsKeyId"] = input.KmsKeyId;
   }
-  if (input.AvailabilityZoneRelocation !== undefined) {
+  if (input.AvailabilityZoneRelocation !== undefined && input.AvailabilityZoneRelocation !== null) {
     entries["AvailabilityZoneRelocation"] = input.AvailabilityZoneRelocation;
   }
-  if (input.AvailabilityZone !== undefined) {
+  if (input.AvailabilityZone !== undefined && input.AvailabilityZone !== null) {
     entries["AvailabilityZone"] = input.AvailabilityZone;
   }
-  if (input.Port !== undefined) {
+  if (input.Port !== undefined && input.Port !== null) {
     entries["Port"] = input.Port;
   }
   return entries;
@@ -12520,10 +12538,10 @@ const serializeAws_queryModifyClusterParameterGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ParameterGroupName !== undefined) {
+  if (input.ParameterGroupName !== undefined && input.ParameterGroupName !== null) {
     entries["ParameterGroupName"] = input.ParameterGroupName;
   }
-  if (input.Parameters !== undefined) {
+  if (input.Parameters !== undefined && input.Parameters !== null) {
     const memberEntries = serializeAws_queryParametersList(input.Parameters, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
@@ -12538,13 +12556,13 @@ const serializeAws_queryModifyClusterSnapshotMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SnapshotIdentifier !== undefined) {
+  if (input.SnapshotIdentifier !== undefined && input.SnapshotIdentifier !== null) {
     entries["SnapshotIdentifier"] = input.SnapshotIdentifier;
   }
-  if (input.ManualSnapshotRetentionPeriod !== undefined) {
+  if (input.ManualSnapshotRetentionPeriod !== undefined && input.ManualSnapshotRetentionPeriod !== null) {
     entries["ManualSnapshotRetentionPeriod"] = input.ManualSnapshotRetentionPeriod;
   }
-  if (input.Force !== undefined) {
+  if (input.Force !== undefined && input.Force !== null) {
     entries["Force"] = input.Force;
   }
   return entries;
@@ -12555,13 +12573,13 @@ const serializeAws_queryModifyClusterSnapshotScheduleMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
-  if (input.ScheduleIdentifier !== undefined) {
+  if (input.ScheduleIdentifier !== undefined && input.ScheduleIdentifier !== null) {
     entries["ScheduleIdentifier"] = input.ScheduleIdentifier;
   }
-  if (input.DisassociateSchedule !== undefined) {
+  if (input.DisassociateSchedule !== undefined && input.DisassociateSchedule !== null) {
     entries["DisassociateSchedule"] = input.DisassociateSchedule;
   }
   return entries;
@@ -12572,13 +12590,13 @@ const serializeAws_queryModifyClusterSubnetGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClusterSubnetGroupName !== undefined) {
+  if (input.ClusterSubnetGroupName !== undefined && input.ClusterSubnetGroupName !== null) {
     entries["ClusterSubnetGroupName"] = input.ClusterSubnetGroupName;
   }
-  if (input.Description !== undefined) {
+  if (input.Description !== undefined && input.Description !== null) {
     entries["Description"] = input.Description;
   }
-  if (input.SubnetIds !== undefined) {
+  if (input.SubnetIds !== undefined && input.SubnetIds !== null) {
     const memberEntries = serializeAws_querySubnetIdentifierList(input.SubnetIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetIds.${key}`;
@@ -12593,33 +12611,33 @@ const serializeAws_queryModifyEventSubscriptionMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SubscriptionName !== undefined) {
+  if (input.SubscriptionName !== undefined && input.SubscriptionName !== null) {
     entries["SubscriptionName"] = input.SubscriptionName;
   }
-  if (input.SnsTopicArn !== undefined) {
+  if (input.SnsTopicArn !== undefined && input.SnsTopicArn !== null) {
     entries["SnsTopicArn"] = input.SnsTopicArn;
   }
-  if (input.SourceType !== undefined) {
+  if (input.SourceType !== undefined && input.SourceType !== null) {
     entries["SourceType"] = input.SourceType;
   }
-  if (input.SourceIds !== undefined) {
+  if (input.SourceIds !== undefined && input.SourceIds !== null) {
     const memberEntries = serializeAws_querySourceIdsList(input.SourceIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SourceIds.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.EventCategories !== undefined) {
+  if (input.EventCategories !== undefined && input.EventCategories !== null) {
     const memberEntries = serializeAws_queryEventCategoriesList(input.EventCategories, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EventCategories.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Severity !== undefined) {
+  if (input.Severity !== undefined && input.Severity !== null) {
     entries["Severity"] = input.Severity;
   }
-  if (input.Enabled !== undefined) {
+  if (input.Enabled !== undefined && input.Enabled !== null) {
     entries["Enabled"] = input.Enabled;
   }
   return entries;
@@ -12630,32 +12648,32 @@ const serializeAws_queryModifyScheduledActionMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ScheduledActionName !== undefined) {
+  if (input.ScheduledActionName !== undefined && input.ScheduledActionName !== null) {
     entries["ScheduledActionName"] = input.ScheduledActionName;
   }
-  if (input.TargetAction !== undefined) {
+  if (input.TargetAction !== undefined && input.TargetAction !== null) {
     const memberEntries = serializeAws_queryScheduledActionType(input.TargetAction, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TargetAction.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Schedule !== undefined) {
+  if (input.Schedule !== undefined && input.Schedule !== null) {
     entries["Schedule"] = input.Schedule;
   }
-  if (input.IamRole !== undefined) {
+  if (input.IamRole !== undefined && input.IamRole !== null) {
     entries["IamRole"] = input.IamRole;
   }
-  if (input.ScheduledActionDescription !== undefined) {
+  if (input.ScheduledActionDescription !== undefined && input.ScheduledActionDescription !== null) {
     entries["ScheduledActionDescription"] = input.ScheduledActionDescription;
   }
-  if (input.StartTime !== undefined) {
+  if (input.StartTime !== undefined && input.StartTime !== null) {
     entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
   }
-  if (input.EndTime !== undefined) {
+  if (input.EndTime !== undefined && input.EndTime !== null) {
     entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
   }
-  if (input.Enable !== undefined) {
+  if (input.Enable !== undefined && input.Enable !== null) {
     entries["Enable"] = input.Enable;
   }
   return entries;
@@ -12666,13 +12684,13 @@ const serializeAws_queryModifySnapshotCopyRetentionPeriodMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
-  if (input.RetentionPeriod !== undefined) {
+  if (input.RetentionPeriod !== undefined && input.RetentionPeriod !== null) {
     entries["RetentionPeriod"] = input.RetentionPeriod;
   }
-  if (input.Manual !== undefined) {
+  if (input.Manual !== undefined && input.Manual !== null) {
     entries["Manual"] = input.Manual;
   }
   return entries;
@@ -12683,10 +12701,10 @@ const serializeAws_queryModifySnapshotScheduleMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ScheduleIdentifier !== undefined) {
+  if (input.ScheduleIdentifier !== undefined && input.ScheduleIdentifier !== null) {
     entries["ScheduleIdentifier"] = input.ScheduleIdentifier;
   }
-  if (input.ScheduleDefinitions !== undefined) {
+  if (input.ScheduleDefinitions !== undefined && input.ScheduleDefinitions !== null) {
     const memberEntries = serializeAws_queryScheduleDefinitionList(input.ScheduleDefinitions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ScheduleDefinitions.${key}`;
@@ -12698,13 +12716,13 @@ const serializeAws_queryModifySnapshotScheduleMessage = (
 
 const serializeAws_queryModifyUsageLimitMessage = (input: ModifyUsageLimitMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UsageLimitId !== undefined) {
+  if (input.UsageLimitId !== undefined && input.UsageLimitId !== null) {
     entries["UsageLimitId"] = input.UsageLimitId;
   }
-  if (input.Amount !== undefined) {
+  if (input.Amount !== undefined && input.Amount !== null) {
     entries["Amount"] = input.Amount;
   }
-  if (input.BreachAction !== undefined) {
+  if (input.BreachAction !== undefined && input.BreachAction !== null) {
     entries["BreachAction"] = input.BreachAction;
   }
   return entries;
@@ -12715,13 +12733,13 @@ const serializeAws_queryNodeConfigurationOptionsFilter = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Name !== undefined) {
+  if (input.Name !== undefined && input.Name !== null) {
     entries["Name"] = input.Name;
   }
-  if (input.Operator !== undefined) {
+  if (input.Operator !== undefined && input.Operator !== null) {
     entries["Operator"] = input.Operator;
   }
-  if (input.Values !== undefined) {
+  if (input.Values !== undefined && input.Values !== null) {
     const memberEntries = serializeAws_queryValueStringList(input.Values, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Value.${key}`;
@@ -12738,6 +12756,9 @@ const serializeAws_queryNodeConfigurationOptionsFilterList = (
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryNodeConfigurationOptionsFilter(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`NodeConfigurationOptionsFilter.${counter}.${key}`] = value;
@@ -12749,31 +12770,31 @@ const serializeAws_queryNodeConfigurationOptionsFilterList = (
 
 const serializeAws_queryParameter = (input: Parameter, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ParameterName !== undefined) {
+  if (input.ParameterName !== undefined && input.ParameterName !== null) {
     entries["ParameterName"] = input.ParameterName;
   }
-  if (input.ParameterValue !== undefined) {
+  if (input.ParameterValue !== undefined && input.ParameterValue !== null) {
     entries["ParameterValue"] = input.ParameterValue;
   }
-  if (input.Description !== undefined) {
+  if (input.Description !== undefined && input.Description !== null) {
     entries["Description"] = input.Description;
   }
-  if (input.Source !== undefined) {
+  if (input.Source !== undefined && input.Source !== null) {
     entries["Source"] = input.Source;
   }
-  if (input.DataType !== undefined) {
+  if (input.DataType !== undefined && input.DataType !== null) {
     entries["DataType"] = input.DataType;
   }
-  if (input.AllowedValues !== undefined) {
+  if (input.AllowedValues !== undefined && input.AllowedValues !== null) {
     entries["AllowedValues"] = input.AllowedValues;
   }
-  if (input.ApplyType !== undefined) {
+  if (input.ApplyType !== undefined && input.ApplyType !== null) {
     entries["ApplyType"] = input.ApplyType;
   }
-  if (input.IsModifiable !== undefined) {
+  if (input.IsModifiable !== undefined && input.IsModifiable !== null) {
     entries["IsModifiable"] = input.IsModifiable;
   }
-  if (input.MinimumEngineVersion !== undefined) {
+  if (input.MinimumEngineVersion !== undefined && input.MinimumEngineVersion !== null) {
     entries["MinimumEngineVersion"] = input.MinimumEngineVersion;
   }
   return entries;
@@ -12783,6 +12804,9 @@ const serializeAws_queryParametersList = (input: Parameter[], context: __SerdeCo
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryParameter(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`Parameter.${counter}.${key}`] = value;
@@ -12794,7 +12818,7 @@ const serializeAws_queryParametersList = (input: Parameter[], context: __SerdeCo
 
 const serializeAws_queryPauseClusterMessage = (input: PauseClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
   return entries;
@@ -12805,10 +12829,10 @@ const serializeAws_queryPurchaseReservedNodeOfferingMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ReservedNodeOfferingId !== undefined) {
+  if (input.ReservedNodeOfferingId !== undefined && input.ReservedNodeOfferingId !== null) {
     entries["ReservedNodeOfferingId"] = input.ReservedNodeOfferingId;
   }
-  if (input.NodeCount !== undefined) {
+  if (input.NodeCount !== undefined && input.NodeCount !== null) {
     entries["NodeCount"] = input.NodeCount;
   }
   return entries;
@@ -12816,7 +12840,7 @@ const serializeAws_queryPurchaseReservedNodeOfferingMessage = (
 
 const serializeAws_queryRebootClusterMessage = (input: RebootClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
   return entries;
@@ -12827,13 +12851,13 @@ const serializeAws_queryResetClusterParameterGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ParameterGroupName !== undefined) {
+  if (input.ParameterGroupName !== undefined && input.ParameterGroupName !== null) {
     entries["ParameterGroupName"] = input.ParameterGroupName;
   }
-  if (input.ResetAllParameters !== undefined) {
+  if (input.ResetAllParameters !== undefined && input.ResetAllParameters !== null) {
     entries["ResetAllParameters"] = input.ResetAllParameters;
   }
-  if (input.Parameters !== undefined) {
+  if (input.Parameters !== undefined && input.Parameters !== null) {
     const memberEntries = serializeAws_queryParametersList(input.Parameters, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
@@ -12845,19 +12869,19 @@ const serializeAws_queryResetClusterParameterGroupMessage = (
 
 const serializeAws_queryResizeClusterMessage = (input: ResizeClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
-  if (input.ClusterType !== undefined) {
+  if (input.ClusterType !== undefined && input.ClusterType !== null) {
     entries["ClusterType"] = input.ClusterType;
   }
-  if (input.NodeType !== undefined) {
+  if (input.NodeType !== undefined && input.NodeType !== null) {
     entries["NodeType"] = input.NodeType;
   }
-  if (input.NumberOfNodes !== undefined) {
+  if (input.NumberOfNodes !== undefined && input.NumberOfNodes !== null) {
     entries["NumberOfNodes"] = input.NumberOfNodes;
   }
-  if (input.Classic !== undefined) {
+  if (input.Classic !== undefined && input.Classic !== null) {
     entries["Classic"] = input.Classic;
   }
   return entries;
@@ -12868,97 +12892,97 @@ const serializeAws_queryRestoreFromClusterSnapshotMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
-  if (input.SnapshotIdentifier !== undefined) {
+  if (input.SnapshotIdentifier !== undefined && input.SnapshotIdentifier !== null) {
     entries["SnapshotIdentifier"] = input.SnapshotIdentifier;
   }
-  if (input.SnapshotClusterIdentifier !== undefined) {
+  if (input.SnapshotClusterIdentifier !== undefined && input.SnapshotClusterIdentifier !== null) {
     entries["SnapshotClusterIdentifier"] = input.SnapshotClusterIdentifier;
   }
-  if (input.Port !== undefined) {
+  if (input.Port !== undefined && input.Port !== null) {
     entries["Port"] = input.Port;
   }
-  if (input.AvailabilityZone !== undefined) {
+  if (input.AvailabilityZone !== undefined && input.AvailabilityZone !== null) {
     entries["AvailabilityZone"] = input.AvailabilityZone;
   }
-  if (input.AllowVersionUpgrade !== undefined) {
+  if (input.AllowVersionUpgrade !== undefined && input.AllowVersionUpgrade !== null) {
     entries["AllowVersionUpgrade"] = input.AllowVersionUpgrade;
   }
-  if (input.ClusterSubnetGroupName !== undefined) {
+  if (input.ClusterSubnetGroupName !== undefined && input.ClusterSubnetGroupName !== null) {
     entries["ClusterSubnetGroupName"] = input.ClusterSubnetGroupName;
   }
-  if (input.PubliclyAccessible !== undefined) {
+  if (input.PubliclyAccessible !== undefined && input.PubliclyAccessible !== null) {
     entries["PubliclyAccessible"] = input.PubliclyAccessible;
   }
-  if (input.OwnerAccount !== undefined) {
+  if (input.OwnerAccount !== undefined && input.OwnerAccount !== null) {
     entries["OwnerAccount"] = input.OwnerAccount;
   }
-  if (input.HsmClientCertificateIdentifier !== undefined) {
+  if (input.HsmClientCertificateIdentifier !== undefined && input.HsmClientCertificateIdentifier !== null) {
     entries["HsmClientCertificateIdentifier"] = input.HsmClientCertificateIdentifier;
   }
-  if (input.HsmConfigurationIdentifier !== undefined) {
+  if (input.HsmConfigurationIdentifier !== undefined && input.HsmConfigurationIdentifier !== null) {
     entries["HsmConfigurationIdentifier"] = input.HsmConfigurationIdentifier;
   }
-  if (input.ElasticIp !== undefined) {
+  if (input.ElasticIp !== undefined && input.ElasticIp !== null) {
     entries["ElasticIp"] = input.ElasticIp;
   }
-  if (input.ClusterParameterGroupName !== undefined) {
+  if (input.ClusterParameterGroupName !== undefined && input.ClusterParameterGroupName !== null) {
     entries["ClusterParameterGroupName"] = input.ClusterParameterGroupName;
   }
-  if (input.ClusterSecurityGroups !== undefined) {
+  if (input.ClusterSecurityGroups !== undefined && input.ClusterSecurityGroups !== null) {
     const memberEntries = serializeAws_queryClusterSecurityGroupNameList(input.ClusterSecurityGroups, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ClusterSecurityGroups.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.VpcSecurityGroupIds !== undefined) {
+  if (input.VpcSecurityGroupIds !== undefined && input.VpcSecurityGroupIds !== null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.PreferredMaintenanceWindow !== undefined) {
+  if (input.PreferredMaintenanceWindow !== undefined && input.PreferredMaintenanceWindow !== null) {
     entries["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
   }
-  if (input.AutomatedSnapshotRetentionPeriod !== undefined) {
+  if (input.AutomatedSnapshotRetentionPeriod !== undefined && input.AutomatedSnapshotRetentionPeriod !== null) {
     entries["AutomatedSnapshotRetentionPeriod"] = input.AutomatedSnapshotRetentionPeriod;
   }
-  if (input.ManualSnapshotRetentionPeriod !== undefined) {
+  if (input.ManualSnapshotRetentionPeriod !== undefined && input.ManualSnapshotRetentionPeriod !== null) {
     entries["ManualSnapshotRetentionPeriod"] = input.ManualSnapshotRetentionPeriod;
   }
-  if (input.KmsKeyId !== undefined) {
+  if (input.KmsKeyId !== undefined && input.KmsKeyId !== null) {
     entries["KmsKeyId"] = input.KmsKeyId;
   }
-  if (input.NodeType !== undefined) {
+  if (input.NodeType !== undefined && input.NodeType !== null) {
     entries["NodeType"] = input.NodeType;
   }
-  if (input.EnhancedVpcRouting !== undefined) {
+  if (input.EnhancedVpcRouting !== undefined && input.EnhancedVpcRouting !== null) {
     entries["EnhancedVpcRouting"] = input.EnhancedVpcRouting;
   }
-  if (input.AdditionalInfo !== undefined) {
+  if (input.AdditionalInfo !== undefined && input.AdditionalInfo !== null) {
     entries["AdditionalInfo"] = input.AdditionalInfo;
   }
-  if (input.IamRoles !== undefined) {
+  if (input.IamRoles !== undefined && input.IamRoles !== null) {
     const memberEntries = serializeAws_queryIamRoleArnList(input.IamRoles, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IamRoles.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.MaintenanceTrackName !== undefined) {
+  if (input.MaintenanceTrackName !== undefined && input.MaintenanceTrackName !== null) {
     entries["MaintenanceTrackName"] = input.MaintenanceTrackName;
   }
-  if (input.SnapshotScheduleIdentifier !== undefined) {
+  if (input.SnapshotScheduleIdentifier !== undefined && input.SnapshotScheduleIdentifier !== null) {
     entries["SnapshotScheduleIdentifier"] = input.SnapshotScheduleIdentifier;
   }
-  if (input.NumberOfNodes !== undefined) {
+  if (input.NumberOfNodes !== undefined && input.NumberOfNodes !== null) {
     entries["NumberOfNodes"] = input.NumberOfNodes;
   }
-  if (input.AvailabilityZoneRelocation !== undefined) {
+  if (input.AvailabilityZoneRelocation !== undefined && input.AvailabilityZoneRelocation !== null) {
     entries["AvailabilityZoneRelocation"] = input.AvailabilityZoneRelocation;
   }
   return entries;
@@ -12969,28 +12993,28 @@ const serializeAws_queryRestoreTableFromClusterSnapshotMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
-  if (input.SnapshotIdentifier !== undefined) {
+  if (input.SnapshotIdentifier !== undefined && input.SnapshotIdentifier !== null) {
     entries["SnapshotIdentifier"] = input.SnapshotIdentifier;
   }
-  if (input.SourceDatabaseName !== undefined) {
+  if (input.SourceDatabaseName !== undefined && input.SourceDatabaseName !== null) {
     entries["SourceDatabaseName"] = input.SourceDatabaseName;
   }
-  if (input.SourceSchemaName !== undefined) {
+  if (input.SourceSchemaName !== undefined && input.SourceSchemaName !== null) {
     entries["SourceSchemaName"] = input.SourceSchemaName;
   }
-  if (input.SourceTableName !== undefined) {
+  if (input.SourceTableName !== undefined && input.SourceTableName !== null) {
     entries["SourceTableName"] = input.SourceTableName;
   }
-  if (input.TargetDatabaseName !== undefined) {
+  if (input.TargetDatabaseName !== undefined && input.TargetDatabaseName !== null) {
     entries["TargetDatabaseName"] = input.TargetDatabaseName;
   }
-  if (input.TargetSchemaName !== undefined) {
+  if (input.TargetSchemaName !== undefined && input.TargetSchemaName !== null) {
     entries["TargetSchemaName"] = input.TargetSchemaName;
   }
-  if (input.NewTableName !== undefined) {
+  if (input.NewTableName !== undefined && input.NewTableName !== null) {
     entries["NewTableName"] = input.NewTableName;
   }
   return entries;
@@ -12998,7 +13022,7 @@ const serializeAws_queryRestoreTableFromClusterSnapshotMessage = (
 
 const serializeAws_queryResumeClusterMessage = (input: ResumeClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
   return entries;
@@ -13009,16 +13033,16 @@ const serializeAws_queryRevokeClusterSecurityGroupIngressMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClusterSecurityGroupName !== undefined) {
+  if (input.ClusterSecurityGroupName !== undefined && input.ClusterSecurityGroupName !== null) {
     entries["ClusterSecurityGroupName"] = input.ClusterSecurityGroupName;
   }
-  if (input.CIDRIP !== undefined) {
+  if (input.CIDRIP !== undefined && input.CIDRIP !== null) {
     entries["CIDRIP"] = input.CIDRIP;
   }
-  if (input.EC2SecurityGroupName !== undefined) {
+  if (input.EC2SecurityGroupName !== undefined && input.EC2SecurityGroupName !== null) {
     entries["EC2SecurityGroupName"] = input.EC2SecurityGroupName;
   }
-  if (input.EC2SecurityGroupOwnerId !== undefined) {
+  if (input.EC2SecurityGroupOwnerId !== undefined && input.EC2SecurityGroupOwnerId !== null) {
     entries["EC2SecurityGroupOwnerId"] = input.EC2SecurityGroupOwnerId;
   }
   return entries;
@@ -13029,13 +13053,13 @@ const serializeAws_queryRevokeSnapshotAccessMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SnapshotIdentifier !== undefined) {
+  if (input.SnapshotIdentifier !== undefined && input.SnapshotIdentifier !== null) {
     entries["SnapshotIdentifier"] = input.SnapshotIdentifier;
   }
-  if (input.SnapshotClusterIdentifier !== undefined) {
+  if (input.SnapshotClusterIdentifier !== undefined && input.SnapshotClusterIdentifier !== null) {
     entries["SnapshotClusterIdentifier"] = input.SnapshotClusterIdentifier;
   }
-  if (input.AccountWithRestoreAccess !== undefined) {
+  if (input.AccountWithRestoreAccess !== undefined && input.AccountWithRestoreAccess !== null) {
     entries["AccountWithRestoreAccess"] = input.AccountWithRestoreAccess;
   }
   return entries;
@@ -13046,7 +13070,7 @@ const serializeAws_queryRotateEncryptionKeyMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClusterIdentifier !== undefined) {
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
   }
   return entries;
@@ -13054,10 +13078,10 @@ const serializeAws_queryRotateEncryptionKeyMessage = (
 
 const serializeAws_queryScheduledActionFilter = (input: ScheduledActionFilter, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name !== undefined) {
+  if (input.Name !== undefined && input.Name !== null) {
     entries["Name"] = input.Name;
   }
-  if (input.Values !== undefined) {
+  if (input.Values !== undefined && input.Values !== null) {
     const memberEntries = serializeAws_queryValueStringList(input.Values, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Values.${key}`;
@@ -13071,6 +13095,9 @@ const serializeAws_queryScheduledActionFilterList = (input: ScheduledActionFilte
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryScheduledActionFilter(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`ScheduledActionFilter.${counter}.${key}`] = value;
@@ -13082,21 +13109,21 @@ const serializeAws_queryScheduledActionFilterList = (input: ScheduledActionFilte
 
 const serializeAws_queryScheduledActionType = (input: ScheduledActionType, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResizeCluster !== undefined) {
+  if (input.ResizeCluster !== undefined && input.ResizeCluster !== null) {
     const memberEntries = serializeAws_queryResizeClusterMessage(input.ResizeCluster, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResizeCluster.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.PauseCluster !== undefined) {
+  if (input.PauseCluster !== undefined && input.PauseCluster !== null) {
     const memberEntries = serializeAws_queryPauseClusterMessage(input.PauseCluster, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PauseCluster.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ResumeCluster !== undefined) {
+  if (input.ResumeCluster !== undefined && input.ResumeCluster !== null) {
     const memberEntries = serializeAws_queryResumeClusterMessage(input.ResumeCluster, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResumeCluster.${key}`;
@@ -13110,6 +13137,9 @@ const serializeAws_queryScheduleDefinitionList = (input: string[], context: __Se
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`ScheduleDefinition.${counter}`] = entry;
     counter++;
   }
@@ -13120,6 +13150,9 @@ const serializeAws_querySnapshotIdentifierList = (input: string[], context: __Se
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`String.${counter}`] = entry;
     counter++;
   }
@@ -13128,10 +13161,10 @@ const serializeAws_querySnapshotIdentifierList = (input: string[], context: __Se
 
 const serializeAws_querySnapshotSortingEntity = (input: SnapshotSortingEntity, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Attribute !== undefined) {
+  if (input.Attribute !== undefined && input.Attribute !== null) {
     entries["Attribute"] = input.Attribute;
   }
-  if (input.SortOrder !== undefined) {
+  if (input.SortOrder !== undefined && input.SortOrder !== null) {
     entries["SortOrder"] = input.SortOrder;
   }
   return entries;
@@ -13141,6 +13174,9 @@ const serializeAws_querySnapshotSortingEntityList = (input: SnapshotSortingEntit
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_querySnapshotSortingEntity(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`SnapshotSortingEntity.${counter}.${key}`] = value;
@@ -13154,6 +13190,9 @@ const serializeAws_querySourceIdsList = (input: string[], context: __SerdeContex
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`SourceId.${counter}`] = entry;
     counter++;
   }
@@ -13164,6 +13203,9 @@ const serializeAws_querySubnetIdentifierList = (input: string[], context: __Serd
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`SubnetIdentifier.${counter}`] = entry;
     counter++;
   }
@@ -13172,10 +13214,10 @@ const serializeAws_querySubnetIdentifierList = (input: string[], context: __Serd
 
 const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key !== undefined) {
+  if (input.Key !== undefined && input.Key !== null) {
     entries["Key"] = input.Key;
   }
-  if (input.Value !== undefined) {
+  if (input.Value !== undefined && input.Value !== null) {
     entries["Value"] = input.Value;
   }
   return entries;
@@ -13185,6 +13227,9 @@ const serializeAws_queryTagKeyList = (input: string[], context: __SerdeContext):
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`TagKey.${counter}`] = entry;
     counter++;
   }
@@ -13195,6 +13240,9 @@ const serializeAws_queryTagList = (input: Tag[], context: __SerdeContext): any =
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryTag(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`Tag.${counter}.${key}`] = value;
@@ -13208,6 +13256,9 @@ const serializeAws_queryTagValueList = (input: string[], context: __SerdeContext
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`TagValue.${counter}`] = entry;
     counter++;
   }
@@ -13218,6 +13269,9 @@ const serializeAws_queryValueStringList = (input: string[], context: __SerdeCont
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`item.${counter}`] = entry;
     counter++;
   }
@@ -13228,6 +13282,9 @@ const serializeAws_queryVpcSecurityGroupIdList = (input: string[], context: __Se
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`VpcSecurityGroupId.${counter}`] = entry;
     counter++;
   }
@@ -13300,7 +13357,14 @@ const deserializeAws_queryAccountsWithRestoreAccessList = (
   output: any,
   context: __SerdeContext
 ): AccountWithRestoreAccess[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryAccountWithRestoreAccess(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryAccountWithRestoreAccess(entry, context);
+    });
 };
 
 const deserializeAws_queryAccountWithRestoreAccess = (
@@ -13324,15 +13388,36 @@ const deserializeAws_queryAssociatedClusterList = (
   output: any,
   context: __SerdeContext
 ): ClusterAssociatedToSchedule[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryClusterAssociatedToSchedule(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryClusterAssociatedToSchedule(entry, context);
+    });
 };
 
 const deserializeAws_queryAttributeList = (output: any, context: __SerdeContext): AccountAttribute[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryAccountAttribute(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryAccountAttribute(entry, context);
+    });
 };
 
 const deserializeAws_queryAttributeValueList = (output: any, context: __SerdeContext): AttributeValueTarget[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryAttributeValueTarget(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryAttributeValueTarget(entry, context);
+    });
 };
 
 const deserializeAws_queryAttributeValueTarget = (output: any, context: __SerdeContext): AttributeValueTarget => {
@@ -13431,7 +13516,14 @@ const deserializeAws_queryAvailabilityZone = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryAvailabilityZoneList = (output: any, context: __SerdeContext): AvailabilityZone[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryAvailabilityZone(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryAvailabilityZone(entry, context);
+    });
 };
 
 const deserializeAws_queryBatchDeleteClusterSnapshotsResult = (
@@ -13522,14 +13614,28 @@ const deserializeAws_queryBatchSnapshotOperationErrorList = (
   output: any,
   context: __SerdeContext
 ): SnapshotErrorMessage[] => {
-  return (output || []).map((entry: any) => deserializeAws_querySnapshotErrorMessage(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_querySnapshotErrorMessage(entry, context);
+    });
 };
 
 const deserializeAws_queryBatchSnapshotOperationErrors = (
   output: any,
   context: __SerdeContext
 ): SnapshotErrorMessage[] => {
-  return (output || []).map((entry: any) => deserializeAws_querySnapshotErrorMessage(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_querySnapshotErrorMessage(entry, context);
+    });
 };
 
 const deserializeAws_queryBucketNotFoundFault = (output: any, context: __SerdeContext): BucketNotFoundFault => {
@@ -13877,7 +13983,14 @@ const deserializeAws_queryClusterDbRevision = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryClusterDbRevisionsList = (output: any, context: __SerdeContext): ClusterDbRevision[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryClusterDbRevision(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryClusterDbRevision(entry, context);
+    });
 };
 
 const deserializeAws_queryClusterDbRevisionsMessage = (
@@ -13918,11 +14031,25 @@ const deserializeAws_queryClusterIamRole = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryClusterIamRoleList = (output: any, context: __SerdeContext): ClusterIamRole[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryClusterIamRole(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryClusterIamRole(entry, context);
+    });
 };
 
 const deserializeAws_queryClusterList = (output: any, context: __SerdeContext): Cluster[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryCluster(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryCluster(entry, context);
+    });
 };
 
 const deserializeAws_queryClusterNode = (output: any, context: __SerdeContext): ClusterNode => {
@@ -13944,7 +14071,14 @@ const deserializeAws_queryClusterNode = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_queryClusterNodesList = (output: any, context: __SerdeContext): ClusterNode[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryClusterNode(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryClusterNode(entry, context);
+    });
 };
 
 const deserializeAws_queryClusterNotFoundFault = (output: any, context: __SerdeContext): ClusterNotFoundFault => {
@@ -14131,7 +14265,14 @@ const deserializeAws_queryClusterParameterGroupStatusList = (
   output: any,
   context: __SerdeContext
 ): ClusterParameterGroupStatus[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryClusterParameterGroupStatus(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryClusterParameterGroupStatus(entry, context);
+    });
 };
 
 const deserializeAws_queryClusterParameterStatus = (output: any, context: __SerdeContext): ClusterParameterStatus => {
@@ -14156,7 +14297,14 @@ const deserializeAws_queryClusterParameterStatusList = (
   output: any,
   context: __SerdeContext
 ): ClusterParameterStatus[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryClusterParameterStatus(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryClusterParameterStatus(entry, context);
+    });
 };
 
 const deserializeAws_queryClusterQuotaExceededFault = (
@@ -14244,7 +14392,14 @@ const deserializeAws_queryClusterSecurityGroupMembershipList = (
   output: any,
   context: __SerdeContext
 ): ClusterSecurityGroupMembership[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryClusterSecurityGroupMembership(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryClusterSecurityGroupMembership(entry, context);
+    });
 };
 
 const deserializeAws_queryClusterSecurityGroupMessage = (
@@ -14300,7 +14455,14 @@ const deserializeAws_queryClusterSecurityGroupQuotaExceededFault = (
 };
 
 const deserializeAws_queryClusterSecurityGroups = (output: any, context: __SerdeContext): ClusterSecurityGroup[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryClusterSecurityGroup(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryClusterSecurityGroup(entry, context);
+    });
 };
 
 const deserializeAws_queryClustersMessage = (output: any, context: __SerdeContext): ClustersMessage => {
@@ -14486,7 +14648,14 @@ const deserializeAws_queryClusterSubnetGroupQuotaExceededFault = (
 };
 
 const deserializeAws_queryClusterSubnetGroups = (output: any, context: __SerdeContext): ClusterSubnetGroup[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryClusterSubnetGroup(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryClusterSubnetGroup(entry, context);
+    });
 };
 
 const deserializeAws_queryClusterSubnetQuotaExceededFault = (
@@ -14521,7 +14690,14 @@ const deserializeAws_queryClusterVersion = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryClusterVersionList = (output: any, context: __SerdeContext): ClusterVersion[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryClusterVersion(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryClusterVersion(entry, context);
+    });
 };
 
 const deserializeAws_queryClusterVersionsMessage = (output: any, context: __SerdeContext): ClusterVersionsMessage => {
@@ -14783,7 +14959,14 @@ const deserializeAws_queryDeferredMaintenanceWindowsList = (
   output: any,
   context: __SerdeContext
 ): DeferredMaintenanceWindow[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryDeferredMaintenanceWindow(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryDeferredMaintenanceWindow(entry, context);
+    });
 };
 
 const deserializeAws_queryDeleteClusterResult = (output: any, context: __SerdeContext): DeleteClusterResult => {
@@ -14913,7 +15096,14 @@ const deserializeAws_queryEC2SecurityGroup = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryEC2SecurityGroupList = (output: any, context: __SerdeContext): EC2SecurityGroup[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryEC2SecurityGroup(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryEC2SecurityGroup(entry, context);
+    });
 };
 
 const deserializeAws_queryElasticIpStatus = (output: any, context: __SerdeContext): ElasticIpStatus => {
@@ -14931,7 +15121,14 @@ const deserializeAws_queryElasticIpStatus = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_queryEligibleTracksToUpdateList = (output: any, context: __SerdeContext): UpdateTarget[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryUpdateTarget(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryUpdateTarget(entry, context);
+    });
 };
 
 const deserializeAws_queryEnableSnapshotCopyResult = (
@@ -15012,7 +15209,14 @@ const deserializeAws_queryEvent = (output: any, context: __SerdeContext): Event 
 };
 
 const deserializeAws_queryEventCategoriesList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryEventCategoriesMap = (output: any, context: __SerdeContext): EventCategoriesMap => {
@@ -15036,7 +15240,14 @@ const deserializeAws_queryEventCategoriesMap = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryEventCategoriesMapList = (output: any, context: __SerdeContext): EventCategoriesMap[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryEventCategoriesMap(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryEventCategoriesMap(entry, context);
+    });
 };
 
 const deserializeAws_queryEventCategoriesMessage = (output: any, context: __SerdeContext): EventCategoriesMessage => {
@@ -15087,11 +15298,25 @@ const deserializeAws_queryEventInfoMap = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_queryEventInfoMapList = (output: any, context: __SerdeContext): EventInfoMap[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryEventInfoMap(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryEventInfoMap(entry, context);
+    });
 };
 
 const deserializeAws_queryEventList = (output: any, context: __SerdeContext): Event[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryEvent(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryEvent(entry, context);
+    });
 };
 
 const deserializeAws_queryEventsMessage = (output: any, context: __SerdeContext): EventsMessage => {
@@ -15190,7 +15415,14 @@ const deserializeAws_queryEventSubscriptionQuotaExceededFault = (
 };
 
 const deserializeAws_queryEventSubscriptionsList = (output: any, context: __SerdeContext): EventSubscription[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryEventSubscription(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryEventSubscription(entry, context);
+    });
 };
 
 const deserializeAws_queryEventSubscriptionsMessage = (
@@ -15280,7 +15512,14 @@ const deserializeAws_queryHsmClientCertificateAlreadyExistsFault = (
 };
 
 const deserializeAws_queryHsmClientCertificateList = (output: any, context: __SerdeContext): HsmClientCertificate[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryHsmClientCertificate(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryHsmClientCertificate(entry, context);
+    });
 };
 
 const deserializeAws_queryHsmClientCertificateMessage = (
@@ -15378,7 +15617,14 @@ const deserializeAws_queryHsmConfigurationAlreadyExistsFault = (
 };
 
 const deserializeAws_queryHsmConfigurationList = (output: any, context: __SerdeContext): HsmConfiguration[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryHsmConfiguration(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryHsmConfiguration(entry, context);
+    });
 };
 
 const deserializeAws_queryHsmConfigurationMessage = (output: any, context: __SerdeContext): HsmConfigurationMessage => {
@@ -15446,15 +15692,36 @@ const deserializeAws_queryHsmStatus = (output: any, context: __SerdeContext): Hs
 };
 
 const deserializeAws_queryImportTablesCompleted = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryImportTablesInProgress = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryImportTablesNotStarted = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryIncompatibleOrderableOptions = (
@@ -15835,7 +16102,14 @@ const deserializeAws_queryIPRange = (output: any, context: __SerdeContext): IPRa
 };
 
 const deserializeAws_queryIPRangeList = (output: any, context: __SerdeContext): IPRange[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryIPRange(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryIPRange(entry, context);
+    });
 };
 
 const deserializeAws_queryLimitExceededFault = (output: any, context: __SerdeContext): LimitExceededFault => {
@@ -16029,7 +16303,14 @@ const deserializeAws_queryNodeConfigurationOptionList = (
   output: any,
   context: __SerdeContext
 ): NodeConfigurationOption[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryNodeConfigurationOption(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryNodeConfigurationOption(entry, context);
+    });
 };
 
 const deserializeAws_queryNodeConfigurationOptionsMessage = (
@@ -16116,7 +16397,14 @@ const deserializeAws_queryOrderableClusterOptionsList = (
   output: any,
   context: __SerdeContext
 ): OrderableClusterOption[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryOrderableClusterOption(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryOrderableClusterOption(entry, context);
+    });
 };
 
 const deserializeAws_queryOrderableClusterOptionsMessage = (
@@ -16188,11 +16476,25 @@ const deserializeAws_queryParameter = (output: any, context: __SerdeContext): Pa
 };
 
 const deserializeAws_queryParameterGroupList = (output: any, context: __SerdeContext): ClusterParameterGroup[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryClusterParameterGroup(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryClusterParameterGroup(entry, context);
+    });
 };
 
 const deserializeAws_queryParametersList = (output: any, context: __SerdeContext): Parameter[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryParameter(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryParameter(entry, context);
+    });
 };
 
 const deserializeAws_queryPauseClusterMessage = (output: any, context: __SerdeContext): PauseClusterMessage => {
@@ -16216,7 +16518,14 @@ const deserializeAws_queryPauseClusterResult = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryPendingActionsList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryPendingModifiedValues = (output: any, context: __SerdeContext): PendingModifiedValues => {
@@ -16307,7 +16616,14 @@ const deserializeAws_queryRecurringCharge = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_queryRecurringChargeList = (output: any, context: __SerdeContext): RecurringCharge[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryRecurringCharge(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryRecurringCharge(entry, context);
+    });
 };
 
 const deserializeAws_queryReservedNode = (output: any, context: __SerdeContext): ReservedNode => {
@@ -16401,7 +16717,14 @@ const deserializeAws_queryReservedNodeAlreadyMigratedFault = (
 };
 
 const deserializeAws_queryReservedNodeList = (output: any, context: __SerdeContext): ReservedNode[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryReservedNode(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryReservedNode(entry, context);
+    });
 };
 
 const deserializeAws_queryReservedNodeNotFoundFault = (
@@ -16466,7 +16789,14 @@ const deserializeAws_queryReservedNodeOffering = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryReservedNodeOfferingList = (output: any, context: __SerdeContext): ReservedNodeOffering[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryReservedNodeOffering(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryReservedNodeOffering(entry, context);
+    });
 };
 
 const deserializeAws_queryReservedNodeOfferingNotFoundFault = (
@@ -16700,7 +17030,14 @@ const deserializeAws_queryResourceNotFoundFault = (output: any, context: __Serde
 };
 
 const deserializeAws_queryRestorableNodeTypeList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryRestoreFromClusterSnapshotResult = (
@@ -16798,7 +17135,14 @@ const deserializeAws_queryRevisionTarget = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryRevisionTargetsList = (output: any, context: __SerdeContext): RevisionTarget[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryRevisionTarget(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryRevisionTarget(entry, context);
+    });
 };
 
 const deserializeAws_queryRevokeClusterSecurityGroupIngressResult = (
@@ -16902,7 +17246,14 @@ const deserializeAws_queryScheduledActionAlreadyExistsFault = (
 };
 
 const deserializeAws_queryScheduledActionList = (output: any, context: __SerdeContext): ScheduledAction[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryScheduledAction(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryScheduledAction(entry, context);
+    });
 };
 
 const deserializeAws_queryScheduledActionNotFoundFault = (
@@ -16952,7 +17303,14 @@ const deserializeAws_queryScheduledActionsMessage = (output: any, context: __Ser
 };
 
 const deserializeAws_queryScheduledActionTimeList = (output: any, context: __SerdeContext): Date[] => {
-  return (output || []).map((entry: any) => new Date(entry));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return new Date(entry);
+    });
 };
 
 const deserializeAws_queryScheduledActionType = (output: any, context: __SerdeContext): ScheduledActionType => {
@@ -16987,7 +17345,14 @@ const deserializeAws_queryScheduledActionTypeUnsupportedFault = (
 };
 
 const deserializeAws_queryScheduleDefinitionList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryScheduleDefinitionTypeUnsupportedFault = (
@@ -17004,7 +17369,14 @@ const deserializeAws_queryScheduleDefinitionTypeUnsupportedFault = (
 };
 
 const deserializeAws_queryScheduledSnapshotTimeList = (output: any, context: __SerdeContext): Date[] => {
-  return (output || []).map((entry: any) => new Date(entry));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return new Date(entry);
+    });
 };
 
 const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Snapshot => {
@@ -17241,7 +17613,14 @@ const deserializeAws_querySnapshotCopyGrantAlreadyExistsFault = (
 };
 
 const deserializeAws_querySnapshotCopyGrantList = (output: any, context: __SerdeContext): SnapshotCopyGrant[] => {
-  return (output || []).map((entry: any) => deserializeAws_querySnapshotCopyGrant(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_querySnapshotCopyGrant(entry, context);
+    });
 };
 
 const deserializeAws_querySnapshotCopyGrantMessage = (
@@ -17316,11 +17695,25 @@ const deserializeAws_querySnapshotErrorMessage = (output: any, context: __SerdeC
 };
 
 const deserializeAws_querySnapshotIdentifierList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_querySnapshotList = (output: any, context: __SerdeContext): Snapshot[] => {
-  return (output || []).map((entry: any) => deserializeAws_querySnapshot(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_querySnapshot(entry, context);
+    });
 };
 
 const deserializeAws_querySnapshotMessage = (output: any, context: __SerdeContext): SnapshotMessage => {
@@ -17418,7 +17811,14 @@ const deserializeAws_querySnapshotScheduleAlreadyExistsFault = (
 };
 
 const deserializeAws_querySnapshotScheduleList = (output: any, context: __SerdeContext): SnapshotSchedule[] => {
-  return (output || []).map((entry: any) => deserializeAws_querySnapshotSchedule(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_querySnapshotSchedule(entry, context);
+    });
 };
 
 const deserializeAws_querySnapshotScheduleNotFoundFault = (
@@ -17494,7 +17894,14 @@ const deserializeAws_querySNSTopicArnNotFoundFault = (
 };
 
 const deserializeAws_querySourceIdsList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_querySourceNotFoundFault = (output: any, context: __SerdeContext): SourceNotFoundFault => {
@@ -17521,7 +17928,14 @@ const deserializeAws_querySpartaProxyVpcEndpointList = (
   output: any,
   context: __SerdeContext
 ): SpartaProxyVpcEndpoint[] => {
-  return (output || []).map((entry: any) => deserializeAws_querySpartaProxyVpcEndpoint(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_querySpartaProxyVpcEndpoint(entry, context);
+    });
 };
 
 const deserializeAws_querySubnet = (output: any, context: __SerdeContext): Subnet => {
@@ -17553,7 +17967,14 @@ const deserializeAws_querySubnetAlreadyInUse = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_querySubnetList = (output: any, context: __SerdeContext): Subnet[] => {
-  return (output || []).map((entry: any) => deserializeAws_querySubnet(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_querySubnet(entry, context);
+    });
 };
 
 const deserializeAws_querySubscriptionAlreadyExistFault = (
@@ -17632,7 +18053,14 @@ const deserializeAws_querySupportedOperation = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_querySupportedOperationList = (output: any, context: __SerdeContext): SupportedOperation[] => {
-  return (output || []).map((entry: any) => deserializeAws_querySupportedOperation(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_querySupportedOperation(entry, context);
+    });
 };
 
 const deserializeAws_querySupportedPlatform = (output: any, context: __SerdeContext): SupportedPlatform => {
@@ -17646,7 +18074,14 @@ const deserializeAws_querySupportedPlatform = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_querySupportedPlatformsList = (output: any, context: __SerdeContext): SupportedPlatform[] => {
-  return (output || []).map((entry: any) => deserializeAws_querySupportedPlatform(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_querySupportedPlatform(entry, context);
+    });
 };
 
 const deserializeAws_queryTableLimitExceededFault = (output: any, context: __SerdeContext): TableLimitExceededFault => {
@@ -17735,7 +18170,14 @@ const deserializeAws_queryTableRestoreStatus = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryTableRestoreStatusList = (output: any, context: __SerdeContext): TableRestoreStatus[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryTableRestoreStatus(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryTableRestoreStatus(entry, context);
+    });
 };
 
 const deserializeAws_queryTableRestoreStatusMessage = (
@@ -17797,7 +18239,14 @@ const deserializeAws_queryTaggedResource = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryTaggedResourceList = (output: any, context: __SerdeContext): TaggedResource[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryTaggedResource(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryTaggedResource(entry, context);
+    });
 };
 
 const deserializeAws_queryTaggedResourceListMessage = (
@@ -17834,11 +18283,25 @@ const deserializeAws_queryTagLimitExceededFault = (output: any, context: __Serde
 };
 
 const deserializeAws_queryTagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryTag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryTag(entry, context);
+    });
 };
 
 const deserializeAws_queryTrackList = (output: any, context: __SerdeContext): MaintenanceTrack[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryMaintenanceTrack(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryMaintenanceTrack(entry, context);
+    });
 };
 
 const deserializeAws_queryTrackListMessage = (output: any, context: __SerdeContext): TrackListMessage => {
@@ -18019,7 +18482,14 @@ const deserializeAws_queryUsageLimitNotFoundFault = (output: any, context: __Ser
 };
 
 const deserializeAws_queryUsageLimits = (output: any, context: __SerdeContext): UsageLimit[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryUsageLimit(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryUsageLimit(entry, context);
+    });
 };
 
 const deserializeAws_queryVpcSecurityGroupMembership = (
@@ -18043,7 +18513,14 @@ const deserializeAws_queryVpcSecurityGroupMembershipList = (
   output: any,
   context: __SerdeContext
 ): VpcSecurityGroupMembership[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryVpcSecurityGroupMembership(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryVpcSecurityGroupMembership(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

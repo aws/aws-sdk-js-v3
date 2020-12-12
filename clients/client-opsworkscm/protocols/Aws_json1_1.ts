@@ -99,7 +99,7 @@ export const serializeAws_json1_1AssociateNodeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "OpsWorksCM_V2016_11_01.AssociateNode",
   };
   let body: any;
@@ -112,7 +112,7 @@ export const serializeAws_json1_1CreateBackupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "OpsWorksCM_V2016_11_01.CreateBackup",
   };
   let body: any;
@@ -125,7 +125,7 @@ export const serializeAws_json1_1CreateServerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "OpsWorksCM_V2016_11_01.CreateServer",
   };
   let body: any;
@@ -138,7 +138,7 @@ export const serializeAws_json1_1DeleteBackupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "OpsWorksCM_V2016_11_01.DeleteBackup",
   };
   let body: any;
@@ -151,7 +151,7 @@ export const serializeAws_json1_1DeleteServerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "OpsWorksCM_V2016_11_01.DeleteServer",
   };
   let body: any;
@@ -164,7 +164,7 @@ export const serializeAws_json1_1DescribeAccountAttributesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "OpsWorksCM_V2016_11_01.DescribeAccountAttributes",
   };
   let body: any;
@@ -177,7 +177,7 @@ export const serializeAws_json1_1DescribeBackupsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "OpsWorksCM_V2016_11_01.DescribeBackups",
   };
   let body: any;
@@ -190,7 +190,7 @@ export const serializeAws_json1_1DescribeEventsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "OpsWorksCM_V2016_11_01.DescribeEvents",
   };
   let body: any;
@@ -203,7 +203,7 @@ export const serializeAws_json1_1DescribeNodeAssociationStatusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "OpsWorksCM_V2016_11_01.DescribeNodeAssociationStatus",
   };
   let body: any;
@@ -216,7 +216,7 @@ export const serializeAws_json1_1DescribeServersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "OpsWorksCM_V2016_11_01.DescribeServers",
   };
   let body: any;
@@ -229,7 +229,7 @@ export const serializeAws_json1_1DisassociateNodeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "OpsWorksCM_V2016_11_01.DisassociateNode",
   };
   let body: any;
@@ -242,7 +242,7 @@ export const serializeAws_json1_1ExportServerEngineAttributeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "OpsWorksCM_V2016_11_01.ExportServerEngineAttribute",
   };
   let body: any;
@@ -255,7 +255,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "OpsWorksCM_V2016_11_01.ListTagsForResource",
   };
   let body: any;
@@ -268,7 +268,7 @@ export const serializeAws_json1_1RestoreServerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "OpsWorksCM_V2016_11_01.RestoreServer",
   };
   let body: any;
@@ -281,7 +281,7 @@ export const serializeAws_json1_1StartMaintenanceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "OpsWorksCM_V2016_11_01.StartMaintenance",
   };
   let body: any;
@@ -294,7 +294,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "OpsWorksCM_V2016_11_01.TagResource",
   };
   let body: any;
@@ -307,7 +307,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "OpsWorksCM_V2016_11_01.UntagResource",
   };
   let body: any;
@@ -320,7 +320,7 @@ export const serializeAws_json1_1UpdateServerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "OpsWorksCM_V2016_11_01.UpdateServer",
   };
   let body: any;
@@ -333,7 +333,7 @@ export const serializeAws_json1_1UpdateServerEngineAttributesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "OpsWorksCM_V2016_11_01.UpdateServerEngineAttributes",
   };
   let body: any;
@@ -368,8 +368,7 @@ const deserializeAws_json1_1AssociateNodeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidStateException":
     case "com.amazonaws.opsworkscm#InvalidStateException":
@@ -439,8 +438,7 @@ const deserializeAws_json1_1CreateBackupCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidStateException":
     case "com.amazonaws.opsworkscm#InvalidStateException":
@@ -518,8 +516,7 @@ const deserializeAws_json1_1CreateServerCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.opsworkscm#LimitExceededException":
@@ -597,8 +594,7 @@ const deserializeAws_json1_1DeleteBackupCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidStateException":
     case "com.amazonaws.opsworkscm#InvalidStateException":
@@ -668,8 +664,7 @@ const deserializeAws_json1_1DeleteServerCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidStateException":
     case "com.amazonaws.opsworkscm#InvalidStateException":
@@ -739,8 +734,7 @@ const deserializeAws_json1_1DescribeAccountAttributesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
@@ -786,8 +780,7 @@ const deserializeAws_json1_1DescribeBackupsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.opsworkscm#InvalidNextTokenException":
@@ -857,8 +850,7 @@ const deserializeAws_json1_1DescribeEventsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.opsworkscm#InvalidNextTokenException":
@@ -928,8 +920,7 @@ const deserializeAws_json1_1DescribeNodeAssociationStatusCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.opsworkscm#ResourceNotFoundException":
@@ -991,8 +982,7 @@ const deserializeAws_json1_1DescribeServersCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.opsworkscm#InvalidNextTokenException":
@@ -1062,8 +1052,7 @@ const deserializeAws_json1_1DisassociateNodeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidStateException":
     case "com.amazonaws.opsworkscm#InvalidStateException":
@@ -1133,8 +1122,7 @@ const deserializeAws_json1_1ExportServerEngineAttributeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidStateException":
     case "com.amazonaws.opsworkscm#InvalidStateException":
@@ -1204,8 +1192,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.opsworkscm#ResourceNotFoundException":
@@ -1267,8 +1254,7 @@ const deserializeAws_json1_1RestoreServerCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidStateException":
     case "com.amazonaws.opsworkscm#InvalidStateException":
@@ -1338,8 +1324,7 @@ const deserializeAws_json1_1StartMaintenanceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidStateException":
     case "com.amazonaws.opsworkscm#InvalidStateException":
@@ -1409,8 +1394,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidStateException":
     case "com.amazonaws.opsworkscm#InvalidStateException":
@@ -1480,8 +1464,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidStateException":
     case "com.amazonaws.opsworkscm#InvalidStateException":
@@ -1551,8 +1534,7 @@ const deserializeAws_json1_1UpdateServerCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidStateException":
     case "com.amazonaws.opsworkscm#InvalidStateException":
@@ -1622,8 +1604,7 @@ const deserializeAws_json1_1UpdateServerEngineAttributesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidStateException":
     case "com.amazonaws.opsworkscm#InvalidStateException":
@@ -1758,63 +1739,74 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
 
 const serializeAws_json1_1AssociateNodeRequest = (input: AssociateNodeRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EngineAttributes !== undefined && {
-      EngineAttributes: serializeAws_json1_1EngineAttributes(input.EngineAttributes, context),
-    }),
-    ...(input.NodeName !== undefined && { NodeName: input.NodeName }),
-    ...(input.ServerName !== undefined && { ServerName: input.ServerName }),
+    ...(input.EngineAttributes !== undefined &&
+      input.EngineAttributes !== null && {
+        EngineAttributes: serializeAws_json1_1EngineAttributes(input.EngineAttributes, context),
+      }),
+    ...(input.NodeName !== undefined && input.NodeName !== null && { NodeName: input.NodeName }),
+    ...(input.ServerName !== undefined && input.ServerName !== null && { ServerName: input.ServerName }),
   };
 };
 
 const serializeAws_json1_1CreateBackupRequest = (input: CreateBackupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.ServerName !== undefined && { ServerName: input.ServerName }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.ServerName !== undefined && input.ServerName !== null && { ServerName: input.ServerName }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateServerRequest = (input: CreateServerRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AssociatePublicIpAddress !== undefined && { AssociatePublicIpAddress: input.AssociatePublicIpAddress }),
-    ...(input.BackupId !== undefined && { BackupId: input.BackupId }),
-    ...(input.BackupRetentionCount !== undefined && { BackupRetentionCount: input.BackupRetentionCount }),
-    ...(input.CustomCertificate !== undefined && { CustomCertificate: input.CustomCertificate }),
-    ...(input.CustomDomain !== undefined && { CustomDomain: input.CustomDomain }),
-    ...(input.CustomPrivateKey !== undefined && { CustomPrivateKey: input.CustomPrivateKey }),
-    ...(input.DisableAutomatedBackup !== undefined && { DisableAutomatedBackup: input.DisableAutomatedBackup }),
-    ...(input.Engine !== undefined && { Engine: input.Engine }),
-    ...(input.EngineAttributes !== undefined && {
-      EngineAttributes: serializeAws_json1_1EngineAttributes(input.EngineAttributes, context),
-    }),
-    ...(input.EngineModel !== undefined && { EngineModel: input.EngineModel }),
-    ...(input.EngineVersion !== undefined && { EngineVersion: input.EngineVersion }),
-    ...(input.InstanceProfileArn !== undefined && { InstanceProfileArn: input.InstanceProfileArn }),
-    ...(input.InstanceType !== undefined && { InstanceType: input.InstanceType }),
-    ...(input.KeyPair !== undefined && { KeyPair: input.KeyPair }),
-    ...(input.PreferredBackupWindow !== undefined && { PreferredBackupWindow: input.PreferredBackupWindow }),
-    ...(input.PreferredMaintenanceWindow !== undefined && {
-      PreferredMaintenanceWindow: input.PreferredMaintenanceWindow,
-    }),
-    ...(input.SecurityGroupIds !== undefined && {
-      SecurityGroupIds: serializeAws_json1_1Strings(input.SecurityGroupIds, context),
-    }),
-    ...(input.ServerName !== undefined && { ServerName: input.ServerName }),
-    ...(input.ServiceRoleArn !== undefined && { ServiceRoleArn: input.ServiceRoleArn }),
-    ...(input.SubnetIds !== undefined && { SubnetIds: serializeAws_json1_1Strings(input.SubnetIds, context) }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.AssociatePublicIpAddress !== undefined &&
+      input.AssociatePublicIpAddress !== null && { AssociatePublicIpAddress: input.AssociatePublicIpAddress }),
+    ...(input.BackupId !== undefined && input.BackupId !== null && { BackupId: input.BackupId }),
+    ...(input.BackupRetentionCount !== undefined &&
+      input.BackupRetentionCount !== null && { BackupRetentionCount: input.BackupRetentionCount }),
+    ...(input.CustomCertificate !== undefined &&
+      input.CustomCertificate !== null && { CustomCertificate: input.CustomCertificate }),
+    ...(input.CustomDomain !== undefined && input.CustomDomain !== null && { CustomDomain: input.CustomDomain }),
+    ...(input.CustomPrivateKey !== undefined &&
+      input.CustomPrivateKey !== null && { CustomPrivateKey: input.CustomPrivateKey }),
+    ...(input.DisableAutomatedBackup !== undefined &&
+      input.DisableAutomatedBackup !== null && { DisableAutomatedBackup: input.DisableAutomatedBackup }),
+    ...(input.Engine !== undefined && input.Engine !== null && { Engine: input.Engine }),
+    ...(input.EngineAttributes !== undefined &&
+      input.EngineAttributes !== null && {
+        EngineAttributes: serializeAws_json1_1EngineAttributes(input.EngineAttributes, context),
+      }),
+    ...(input.EngineModel !== undefined && input.EngineModel !== null && { EngineModel: input.EngineModel }),
+    ...(input.EngineVersion !== undefined && input.EngineVersion !== null && { EngineVersion: input.EngineVersion }),
+    ...(input.InstanceProfileArn !== undefined &&
+      input.InstanceProfileArn !== null && { InstanceProfileArn: input.InstanceProfileArn }),
+    ...(input.InstanceType !== undefined && input.InstanceType !== null && { InstanceType: input.InstanceType }),
+    ...(input.KeyPair !== undefined && input.KeyPair !== null && { KeyPair: input.KeyPair }),
+    ...(input.PreferredBackupWindow !== undefined &&
+      input.PreferredBackupWindow !== null && { PreferredBackupWindow: input.PreferredBackupWindow }),
+    ...(input.PreferredMaintenanceWindow !== undefined &&
+      input.PreferredMaintenanceWindow !== null && { PreferredMaintenanceWindow: input.PreferredMaintenanceWindow }),
+    ...(input.SecurityGroupIds !== undefined &&
+      input.SecurityGroupIds !== null && {
+        SecurityGroupIds: serializeAws_json1_1Strings(input.SecurityGroupIds, context),
+      }),
+    ...(input.ServerName !== undefined && input.ServerName !== null && { ServerName: input.ServerName }),
+    ...(input.ServiceRoleArn !== undefined &&
+      input.ServiceRoleArn !== null && { ServiceRoleArn: input.ServiceRoleArn }),
+    ...(input.SubnetIds !== undefined &&
+      input.SubnetIds !== null && { SubnetIds: serializeAws_json1_1Strings(input.SubnetIds, context) }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1DeleteBackupRequest = (input: DeleteBackupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.BackupId !== undefined && { BackupId: input.BackupId }),
+    ...(input.BackupId !== undefined && input.BackupId !== null && { BackupId: input.BackupId }),
   };
 };
 
 const serializeAws_json1_1DeleteServerRequest = (input: DeleteServerRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ServerName !== undefined && { ServerName: input.ServerName }),
+    ...(input.ServerName !== undefined && input.ServerName !== null && { ServerName: input.ServerName }),
   };
 };
 
@@ -1827,18 +1819,18 @@ const serializeAws_json1_1DescribeAccountAttributesRequest = (
 
 const serializeAws_json1_1DescribeBackupsRequest = (input: DescribeBackupsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.BackupId !== undefined && { BackupId: input.BackupId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ServerName !== undefined && { ServerName: input.ServerName }),
+    ...(input.BackupId !== undefined && input.BackupId !== null && { BackupId: input.BackupId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ServerName !== undefined && input.ServerName !== null && { ServerName: input.ServerName }),
   };
 };
 
 const serializeAws_json1_1DescribeEventsRequest = (input: DescribeEventsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ServerName !== undefined && { ServerName: input.ServerName }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ServerName !== undefined && input.ServerName !== null && { ServerName: input.ServerName }),
   };
 };
 
@@ -1847,40 +1839,47 @@ const serializeAws_json1_1DescribeNodeAssociationStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.NodeAssociationStatusToken !== undefined && {
-      NodeAssociationStatusToken: input.NodeAssociationStatusToken,
-    }),
-    ...(input.ServerName !== undefined && { ServerName: input.ServerName }),
+    ...(input.NodeAssociationStatusToken !== undefined &&
+      input.NodeAssociationStatusToken !== null && { NodeAssociationStatusToken: input.NodeAssociationStatusToken }),
+    ...(input.ServerName !== undefined && input.ServerName !== null && { ServerName: input.ServerName }),
   };
 };
 
 const serializeAws_json1_1DescribeServersRequest = (input: DescribeServersRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ServerName !== undefined && { ServerName: input.ServerName }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ServerName !== undefined && input.ServerName !== null && { ServerName: input.ServerName }),
   };
 };
 
 const serializeAws_json1_1DisassociateNodeRequest = (input: DisassociateNodeRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EngineAttributes !== undefined && {
-      EngineAttributes: serializeAws_json1_1EngineAttributes(input.EngineAttributes, context),
-    }),
-    ...(input.NodeName !== undefined && { NodeName: input.NodeName }),
-    ...(input.ServerName !== undefined && { ServerName: input.ServerName }),
+    ...(input.EngineAttributes !== undefined &&
+      input.EngineAttributes !== null && {
+        EngineAttributes: serializeAws_json1_1EngineAttributes(input.EngineAttributes, context),
+      }),
+    ...(input.NodeName !== undefined && input.NodeName !== null && { NodeName: input.NodeName }),
+    ...(input.ServerName !== undefined && input.ServerName !== null && { ServerName: input.ServerName }),
   };
 };
 
 const serializeAws_json1_1EngineAttribute = (input: EngineAttribute, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1EngineAttributes = (input: EngineAttribute[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1EngineAttribute(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1EngineAttribute(entry, context);
+    });
 };
 
 const serializeAws_json1_1ExportServerEngineAttributeRequest = (
@@ -1888,11 +1887,13 @@ const serializeAws_json1_1ExportServerEngineAttributeRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ExportAttributeName !== undefined && { ExportAttributeName: input.ExportAttributeName }),
-    ...(input.InputAttributes !== undefined && {
-      InputAttributes: serializeAws_json1_1EngineAttributes(input.InputAttributes, context),
-    }),
-    ...(input.ServerName !== undefined && { ServerName: input.ServerName }),
+    ...(input.ExportAttributeName !== undefined &&
+      input.ExportAttributeName !== null && { ExportAttributeName: input.ExportAttributeName }),
+    ...(input.InputAttributes !== undefined &&
+      input.InputAttributes !== null && {
+        InputAttributes: serializeAws_json1_1EngineAttributes(input.InputAttributes, context),
+      }),
+    ...(input.ServerName !== undefined && input.ServerName !== null && { ServerName: input.ServerName }),
   };
 };
 
@@ -1901,60 +1902,83 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
   };
 };
 
 const serializeAws_json1_1RestoreServerRequest = (input: RestoreServerRequest, context: __SerdeContext): any => {
   return {
-    ...(input.BackupId !== undefined && { BackupId: input.BackupId }),
-    ...(input.InstanceType !== undefined && { InstanceType: input.InstanceType }),
-    ...(input.KeyPair !== undefined && { KeyPair: input.KeyPair }),
-    ...(input.ServerName !== undefined && { ServerName: input.ServerName }),
+    ...(input.BackupId !== undefined && input.BackupId !== null && { BackupId: input.BackupId }),
+    ...(input.InstanceType !== undefined && input.InstanceType !== null && { InstanceType: input.InstanceType }),
+    ...(input.KeyPair !== undefined && input.KeyPair !== null && { KeyPair: input.KeyPair }),
+    ...(input.ServerName !== undefined && input.ServerName !== null && { ServerName: input.ServerName }),
   };
 };
 
 const serializeAws_json1_1StartMaintenanceRequest = (input: StartMaintenanceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EngineAttributes !== undefined && {
-      EngineAttributes: serializeAws_json1_1EngineAttributes(input.EngineAttributes, context),
-    }),
-    ...(input.ServerName !== undefined && { ServerName: input.ServerName }),
+    ...(input.EngineAttributes !== undefined &&
+      input.EngineAttributes !== null && {
+        EngineAttributes: serializeAws_json1_1EngineAttributes(input.EngineAttributes, context),
+      }),
+    ...(input.ServerName !== undefined && input.ServerName !== null && { ServerName: input.ServerName }),
   };
 };
 
 const serializeAws_json1_1Strings = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -1963,21 +1987,24 @@ const serializeAws_json1_1UpdateServerEngineAttributesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AttributeName !== undefined && { AttributeName: input.AttributeName }),
-    ...(input.AttributeValue !== undefined && { AttributeValue: input.AttributeValue }),
-    ...(input.ServerName !== undefined && { ServerName: input.ServerName }),
+    ...(input.AttributeName !== undefined && input.AttributeName !== null && { AttributeName: input.AttributeName }),
+    ...(input.AttributeValue !== undefined &&
+      input.AttributeValue !== null && { AttributeValue: input.AttributeValue }),
+    ...(input.ServerName !== undefined && input.ServerName !== null && { ServerName: input.ServerName }),
   };
 };
 
 const serializeAws_json1_1UpdateServerRequest = (input: UpdateServerRequest, context: __SerdeContext): any => {
   return {
-    ...(input.BackupRetentionCount !== undefined && { BackupRetentionCount: input.BackupRetentionCount }),
-    ...(input.DisableAutomatedBackup !== undefined && { DisableAutomatedBackup: input.DisableAutomatedBackup }),
-    ...(input.PreferredBackupWindow !== undefined && { PreferredBackupWindow: input.PreferredBackupWindow }),
-    ...(input.PreferredMaintenanceWindow !== undefined && {
-      PreferredMaintenanceWindow: input.PreferredMaintenanceWindow,
-    }),
-    ...(input.ServerName !== undefined && { ServerName: input.ServerName }),
+    ...(input.BackupRetentionCount !== undefined &&
+      input.BackupRetentionCount !== null && { BackupRetentionCount: input.BackupRetentionCount }),
+    ...(input.DisableAutomatedBackup !== undefined &&
+      input.DisableAutomatedBackup !== null && { DisableAutomatedBackup: input.DisableAutomatedBackup }),
+    ...(input.PreferredBackupWindow !== undefined &&
+      input.PreferredBackupWindow !== null && { PreferredBackupWindow: input.PreferredBackupWindow }),
+    ...(input.PreferredMaintenanceWindow !== undefined &&
+      input.PreferredMaintenanceWindow !== null && { PreferredMaintenanceWindow: input.PreferredMaintenanceWindow }),
+    ...(input.ServerName !== undefined && input.ServerName !== null && { ServerName: input.ServerName }),
   };
 };
 
@@ -1990,7 +2017,14 @@ const deserializeAws_json1_1AccountAttribute = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1AccountAttributes = (output: any, context: __SerdeContext): AccountAttribute[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1AccountAttribute(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AccountAttribute(entry, context);
+    });
 };
 
 const deserializeAws_json1_1AssociateNodeResponse = (output: any, context: __SerdeContext): AssociateNodeResponse => {
@@ -2055,7 +2089,14 @@ const deserializeAws_json1_1Backup = (output: any, context: __SerdeContext): Bac
 };
 
 const deserializeAws_json1_1Backups = (output: any, context: __SerdeContext): Backup[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Backup(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Backup(entry, context);
+    });
 };
 
 const deserializeAws_json1_1CreateBackupResponse = (output: any, context: __SerdeContext): CreateBackupResponse => {
@@ -2168,7 +2209,14 @@ const deserializeAws_json1_1EngineAttribute = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1EngineAttributes = (output: any, context: __SerdeContext): EngineAttribute[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1EngineAttribute(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EngineAttribute(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ExportServerEngineAttributeResponse = (
@@ -2320,11 +2368,25 @@ const deserializeAws_json1_1ServerEvent = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1ServerEvents = (output: any, context: __SerdeContext): ServerEvent[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ServerEvent(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ServerEvent(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Servers = (output: any, context: __SerdeContext): Server[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Server(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Server(entry, context);
+    });
 };
 
 const deserializeAws_json1_1StartMaintenanceResponse = (
@@ -2340,7 +2402,14 @@ const deserializeAws_json1_1StartMaintenanceResponse = (
 };
 
 const deserializeAws_json1_1Strings = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -2351,7 +2420,14 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
@@ -2439,3 +2515,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

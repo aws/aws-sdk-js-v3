@@ -201,7 +201,7 @@ export const serializeAws_restJson1AssociateAssetsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/assets/{assetId}/associate";
   if (input.assetId !== undefined) {
@@ -215,9 +215,9 @@ export const serializeAws_restJson1AssociateAssetsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.childAssetId !== undefined && { childAssetId: input.childAssetId }),
+    ...(input.childAssetId !== undefined && input.childAssetId !== null && { childAssetId: input.childAssetId }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.hierarchyId !== undefined && { hierarchyId: input.hierarchyId }),
+    ...(input.hierarchyId !== undefined && input.hierarchyId !== null && { hierarchyId: input.hierarchyId }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -243,7 +243,7 @@ export const serializeAws_restJson1BatchAssociateProjectAssetsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/projects/{projectId}/assets/associate";
   if (input.projectId !== undefined) {
@@ -257,7 +257,8 @@ export const serializeAws_restJson1BatchAssociateProjectAssetsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.assetIds !== undefined && { assetIds: serializeAws_restJson1IDs(input.assetIds, context) }),
+    ...(input.assetIds !== undefined &&
+      input.assetIds !== null && { assetIds: serializeAws_restJson1IDs(input.assetIds, context) }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -284,7 +285,7 @@ export const serializeAws_restJson1BatchDisassociateProjectAssetsCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/projects/{projectId}/assets/disassociate";
   if (input.projectId !== undefined) {
@@ -298,7 +299,8 @@ export const serializeAws_restJson1BatchDisassociateProjectAssetsCommand = async
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.assetIds !== undefined && { assetIds: serializeAws_restJson1IDs(input.assetIds, context) }),
+    ...(input.assetIds !== undefined &&
+      input.assetIds !== null && { assetIds: serializeAws_restJson1IDs(input.assetIds, context) }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -325,14 +327,15 @@ export const serializeAws_restJson1BatchPutAssetPropertyValueCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/properties";
   let body: any;
   body = JSON.stringify({
-    ...(input.entries !== undefined && {
-      entries: serializeAws_restJson1PutAssetPropertyValueEntries(input.entries, context),
-    }),
+    ...(input.entries !== undefined &&
+      input.entries !== null && {
+        entries: serializeAws_restJson1PutAssetPropertyValueEntries(input.entries, context),
+      }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -358,20 +361,23 @@ export const serializeAws_restJson1CreateAccessPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/access-policies";
   let body: any;
   body = JSON.stringify({
-    ...(input.accessPolicyIdentity !== undefined && {
-      accessPolicyIdentity: serializeAws_restJson1Identity(input.accessPolicyIdentity, context),
-    }),
-    ...(input.accessPolicyPermission !== undefined && { accessPolicyPermission: input.accessPolicyPermission }),
-    ...(input.accessPolicyResource !== undefined && {
-      accessPolicyResource: serializeAws_restJson1Resource(input.accessPolicyResource, context),
-    }),
+    ...(input.accessPolicyIdentity !== undefined &&
+      input.accessPolicyIdentity !== null && {
+        accessPolicyIdentity: serializeAws_restJson1Identity(input.accessPolicyIdentity, context),
+      }),
+    ...(input.accessPolicyPermission !== undefined &&
+      input.accessPolicyPermission !== null && { accessPolicyPermission: input.accessPolicyPermission }),
+    ...(input.accessPolicyResource !== undefined &&
+      input.accessPolicyResource !== null && {
+        accessPolicyResource: serializeAws_restJson1Resource(input.accessPolicyResource, context),
+      }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -397,15 +403,15 @@ export const serializeAws_restJson1CreateAssetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/assets";
   let body: any;
   body = JSON.stringify({
-    ...(input.assetModelId !== undefined && { assetModelId: input.assetModelId }),
-    ...(input.assetName !== undefined && { assetName: input.assetName }),
+    ...(input.assetModelId !== undefined && input.assetModelId !== null && { assetModelId: input.assetModelId }),
+    ...(input.assetName !== undefined && input.assetName !== null && { assetName: input.assetName }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -431,27 +437,35 @@ export const serializeAws_restJson1CreateAssetModelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/asset-models";
   let body: any;
   body = JSON.stringify({
-    ...(input.assetModelCompositeModels !== undefined && {
-      assetModelCompositeModels: serializeAws_restJson1AssetModelCompositeModelDefinitions(
-        input.assetModelCompositeModels,
-        context
-      ),
-    }),
-    ...(input.assetModelDescription !== undefined && { assetModelDescription: input.assetModelDescription }),
-    ...(input.assetModelHierarchies !== undefined && {
-      assetModelHierarchies: serializeAws_restJson1AssetModelHierarchyDefinitions(input.assetModelHierarchies, context),
-    }),
-    ...(input.assetModelName !== undefined && { assetModelName: input.assetModelName }),
-    ...(input.assetModelProperties !== undefined && {
-      assetModelProperties: serializeAws_restJson1AssetModelPropertyDefinitions(input.assetModelProperties, context),
-    }),
+    ...(input.assetModelCompositeModels !== undefined &&
+      input.assetModelCompositeModels !== null && {
+        assetModelCompositeModels: serializeAws_restJson1AssetModelCompositeModelDefinitions(
+          input.assetModelCompositeModels,
+          context
+        ),
+      }),
+    ...(input.assetModelDescription !== undefined &&
+      input.assetModelDescription !== null && { assetModelDescription: input.assetModelDescription }),
+    ...(input.assetModelHierarchies !== undefined &&
+      input.assetModelHierarchies !== null && {
+        assetModelHierarchies: serializeAws_restJson1AssetModelHierarchyDefinitions(
+          input.assetModelHierarchies,
+          context
+        ),
+      }),
+    ...(input.assetModelName !== undefined &&
+      input.assetModelName !== null && { assetModelName: input.assetModelName }),
+    ...(input.assetModelProperties !== undefined &&
+      input.assetModelProperties !== null && {
+        assetModelProperties: serializeAws_restJson1AssetModelPropertyDefinitions(input.assetModelProperties, context),
+      }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -477,17 +491,19 @@ export const serializeAws_restJson1CreateDashboardCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/dashboards";
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.dashboardDefinition !== undefined && { dashboardDefinition: input.dashboardDefinition }),
-    ...(input.dashboardDescription !== undefined && { dashboardDescription: input.dashboardDescription }),
-    ...(input.dashboardName !== undefined && { dashboardName: input.dashboardName }),
-    ...(input.projectId !== undefined && { projectId: input.projectId }),
-    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.dashboardDefinition !== undefined &&
+      input.dashboardDefinition !== null && { dashboardDefinition: input.dashboardDefinition }),
+    ...(input.dashboardDescription !== undefined &&
+      input.dashboardDescription !== null && { dashboardDescription: input.dashboardDescription }),
+    ...(input.dashboardName !== undefined && input.dashboardName !== null && { dashboardName: input.dashboardName }),
+    ...(input.projectId !== undefined && input.projectId !== null && { projectId: input.projectId }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -513,16 +529,17 @@ export const serializeAws_restJson1CreateGatewayCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/20200301/gateways";
   let body: any;
   body = JSON.stringify({
-    ...(input.gatewayName !== undefined && { gatewayName: input.gatewayName }),
-    ...(input.gatewayPlatform !== undefined && {
-      gatewayPlatform: serializeAws_restJson1GatewayPlatform(input.gatewayPlatform, context),
-    }),
-    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.gatewayName !== undefined && input.gatewayName !== null && { gatewayName: input.gatewayName }),
+    ...(input.gatewayPlatform !== undefined &&
+      input.gatewayPlatform !== null && {
+        gatewayPlatform: serializeAws_restJson1GatewayPlatform(input.gatewayPlatform, context),
+      }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -548,21 +565,25 @@ export const serializeAws_restJson1CreatePortalCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/portals";
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.portalAuthMode !== undefined && { portalAuthMode: input.portalAuthMode }),
-    ...(input.portalContactEmail !== undefined && { portalContactEmail: input.portalContactEmail }),
-    ...(input.portalDescription !== undefined && { portalDescription: input.portalDescription }),
-    ...(input.portalLogoImageFile !== undefined && {
-      portalLogoImageFile: serializeAws_restJson1ImageFile(input.portalLogoImageFile, context),
-    }),
-    ...(input.portalName !== undefined && { portalName: input.portalName }),
-    ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
-    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.portalAuthMode !== undefined &&
+      input.portalAuthMode !== null && { portalAuthMode: input.portalAuthMode }),
+    ...(input.portalContactEmail !== undefined &&
+      input.portalContactEmail !== null && { portalContactEmail: input.portalContactEmail }),
+    ...(input.portalDescription !== undefined &&
+      input.portalDescription !== null && { portalDescription: input.portalDescription }),
+    ...(input.portalLogoImageFile !== undefined &&
+      input.portalLogoImageFile !== null && {
+        portalLogoImageFile: serializeAws_restJson1ImageFile(input.portalLogoImageFile, context),
+      }),
+    ...(input.portalName !== undefined && input.portalName !== null && { portalName: input.portalName }),
+    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -588,16 +609,17 @@ export const serializeAws_restJson1CreateProjectCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/projects";
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.portalId !== undefined && { portalId: input.portalId }),
-    ...(input.projectDescription !== undefined && { projectDescription: input.projectDescription }),
-    ...(input.projectName !== undefined && { projectName: input.projectName }),
-    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.portalId !== undefined && input.portalId !== null && { portalId: input.portalId }),
+    ...(input.projectDescription !== undefined &&
+      input.projectDescription !== null && { projectDescription: input.projectDescription }),
+    ...(input.projectName !== undefined && input.projectName !== null && { projectName: input.projectName }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -622,9 +644,7 @@ export const serializeAws_restJson1DeleteAccessPolicyCommand = async (
   input: DeleteAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/access-policies/{accessPolicyId}";
   if (input.accessPolicyId !== undefined) {
     const labelValue: string = input.accessPolicyId;
@@ -663,9 +683,7 @@ export const serializeAws_restJson1DeleteAssetCommand = async (
   input: DeleteAssetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/assets/{assetId}";
   if (input.assetId !== undefined) {
     const labelValue: string = input.assetId;
@@ -704,9 +722,7 @@ export const serializeAws_restJson1DeleteAssetModelCommand = async (
   input: DeleteAssetModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/asset-models/{assetModelId}";
   if (input.assetModelId !== undefined) {
     const labelValue: string = input.assetModelId;
@@ -745,9 +761,7 @@ export const serializeAws_restJson1DeleteDashboardCommand = async (
   input: DeleteDashboardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/dashboards/{dashboardId}";
   if (input.dashboardId !== undefined) {
     const labelValue: string = input.dashboardId;
@@ -786,9 +800,7 @@ export const serializeAws_restJson1DeleteGatewayCommand = async (
   input: DeleteGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/20200301/gateways/{gatewayId}";
   if (input.gatewayId !== undefined) {
     const labelValue: string = input.gatewayId;
@@ -823,9 +835,7 @@ export const serializeAws_restJson1DeletePortalCommand = async (
   input: DeletePortalCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/portals/{portalId}";
   if (input.portalId !== undefined) {
     const labelValue: string = input.portalId;
@@ -864,9 +874,7 @@ export const serializeAws_restJson1DeleteProjectCommand = async (
   input: DeleteProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/projects/{projectId}";
   if (input.projectId !== undefined) {
     const labelValue: string = input.projectId;
@@ -905,9 +913,7 @@ export const serializeAws_restJson1DescribeAccessPolicyCommand = async (
   input: DescribeAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/access-policies/{accessPolicyId}";
   if (input.accessPolicyId !== undefined) {
     const labelValue: string = input.accessPolicyId;
@@ -942,9 +948,7 @@ export const serializeAws_restJson1DescribeAssetCommand = async (
   input: DescribeAssetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/assets/{assetId}";
   if (input.assetId !== undefined) {
     const labelValue: string = input.assetId;
@@ -979,9 +983,7 @@ export const serializeAws_restJson1DescribeAssetModelCommand = async (
   input: DescribeAssetModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/asset-models/{assetModelId}";
   if (input.assetModelId !== undefined) {
     const labelValue: string = input.assetModelId;
@@ -1016,9 +1018,7 @@ export const serializeAws_restJson1DescribeAssetPropertyCommand = async (
   input: DescribeAssetPropertyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/assets/{assetId}/properties/{propertyId}";
   if (input.assetId !== undefined) {
     const labelValue: string = input.assetId;
@@ -1062,9 +1062,7 @@ export const serializeAws_restJson1DescribeDashboardCommand = async (
   input: DescribeDashboardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/dashboards/{dashboardId}";
   if (input.dashboardId !== undefined) {
     const labelValue: string = input.dashboardId;
@@ -1099,12 +1097,10 @@ export const serializeAws_restJson1DescribeDefaultEncryptionConfigurationCommand
   input: DescribeDefaultEncryptionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/configuration/account/encryption";
   let body: any;
-  body = "{}";
+  body = "";
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1121,9 +1117,7 @@ export const serializeAws_restJson1DescribeGatewayCommand = async (
   input: DescribeGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/20200301/gateways/{gatewayId}";
   if (input.gatewayId !== undefined) {
     const labelValue: string = input.gatewayId;
@@ -1158,9 +1152,7 @@ export const serializeAws_restJson1DescribeGatewayCapabilityConfigurationCommand
   input: DescribeGatewayCapabilityConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/20200301/gateways/{gatewayId}/capability/{capabilityNamespace}";
   if (input.gatewayId !== undefined) {
     const labelValue: string = input.gatewayId;
@@ -1204,12 +1196,10 @@ export const serializeAws_restJson1DescribeLoggingOptionsCommand = async (
   input: DescribeLoggingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/logging";
   let body: any;
-  body = "{}";
+  body = "";
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "model." + resolvedHostname;
@@ -1233,9 +1223,7 @@ export const serializeAws_restJson1DescribePortalCommand = async (
   input: DescribePortalCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/portals/{portalId}";
   if (input.portalId !== undefined) {
     const labelValue: string = input.portalId;
@@ -1270,9 +1258,7 @@ export const serializeAws_restJson1DescribeProjectCommand = async (
   input: DescribeProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/projects/{projectId}";
   if (input.projectId !== undefined) {
     const labelValue: string = input.projectId;
@@ -1308,7 +1294,7 @@ export const serializeAws_restJson1DisassociateAssetsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/assets/{assetId}/disassociate";
   if (input.assetId !== undefined) {
@@ -1322,9 +1308,9 @@ export const serializeAws_restJson1DisassociateAssetsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.childAssetId !== undefined && { childAssetId: input.childAssetId }),
+    ...(input.childAssetId !== undefined && input.childAssetId !== null && { childAssetId: input.childAssetId }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.hierarchyId !== undefined && { hierarchyId: input.hierarchyId }),
+    ...(input.hierarchyId !== undefined && input.hierarchyId !== null && { hierarchyId: input.hierarchyId }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1349,9 +1335,7 @@ export const serializeAws_restJson1GetAssetPropertyAggregatesCommand = async (
   input: GetAssetPropertyAggregatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/properties/aggregates";
   const query: any = {
     ...(input.assetId !== undefined && { assetId: input.assetId }),
@@ -1391,9 +1375,7 @@ export const serializeAws_restJson1GetAssetPropertyValueCommand = async (
   input: GetAssetPropertyValueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/properties/latest";
   const query: any = {
     ...(input.assetId !== undefined && { assetId: input.assetId }),
@@ -1425,9 +1407,7 @@ export const serializeAws_restJson1GetAssetPropertyValueHistoryCommand = async (
   input: GetAssetPropertyValueHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/properties/history";
   const query: any = {
     ...(input.assetId !== undefined && { assetId: input.assetId }),
@@ -1465,9 +1445,7 @@ export const serializeAws_restJson1ListAccessPoliciesCommand = async (
   input: ListAccessPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/access-policies";
   const query: any = {
     ...(input.identityType !== undefined && { identityType: input.identityType }),
@@ -1503,9 +1481,7 @@ export const serializeAws_restJson1ListAssetModelsCommand = async (
   input: ListAssetModelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/asset-models";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
@@ -1536,9 +1512,7 @@ export const serializeAws_restJson1ListAssetRelationshipsCommand = async (
   input: ListAssetRelationshipsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/assets/{assetId}/assetRelationships";
   if (input.assetId !== undefined) {
     const labelValue: string = input.assetId;
@@ -1579,9 +1553,7 @@ export const serializeAws_restJson1ListAssetsCommand = async (
   input: ListAssetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/assets";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
@@ -1614,9 +1586,7 @@ export const serializeAws_restJson1ListAssociatedAssetsCommand = async (
   input: ListAssociatedAssetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/assets/{assetId}/hierarchies";
   if (input.assetId !== undefined) {
     const labelValue: string = input.assetId;
@@ -1658,9 +1628,7 @@ export const serializeAws_restJson1ListDashboardsCommand = async (
   input: ListDashboardsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/dashboards";
   const query: any = {
     ...(input.projectId !== undefined && { projectId: input.projectId }),
@@ -1692,9 +1660,7 @@ export const serializeAws_restJson1ListGatewaysCommand = async (
   input: ListGatewaysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/20200301/gateways";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
@@ -1725,9 +1691,7 @@ export const serializeAws_restJson1ListPortalsCommand = async (
   input: ListPortalsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/portals";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
@@ -1758,9 +1722,7 @@ export const serializeAws_restJson1ListProjectAssetsCommand = async (
   input: ListProjectAssetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/projects/{projectId}/assets";
   if (input.projectId !== undefined) {
     const labelValue: string = input.projectId;
@@ -1800,9 +1762,7 @@ export const serializeAws_restJson1ListProjectsCommand = async (
   input: ListProjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/projects";
   const query: any = {
     ...(input.portalId !== undefined && { portalId: input.portalId }),
@@ -1834,9 +1794,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/tags";
   const query: any = {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
@@ -1860,13 +1818,14 @@ export const serializeAws_restJson1PutDefaultEncryptionConfigurationCommand = as
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/configuration/account/encryption";
   let body: any;
   body = JSON.stringify({
-    ...(input.encryptionType !== undefined && { encryptionType: input.encryptionType }),
-    ...(input.kmsKeyId !== undefined && { kmsKeyId: input.kmsKeyId }),
+    ...(input.encryptionType !== undefined &&
+      input.encryptionType !== null && { encryptionType: input.encryptionType }),
+    ...(input.kmsKeyId !== undefined && input.kmsKeyId !== null && { kmsKeyId: input.kmsKeyId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1885,14 +1844,15 @@ export const serializeAws_restJson1PutLoggingOptionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/logging";
   let body: any;
   body = JSON.stringify({
-    ...(input.loggingOptions !== undefined && {
-      loggingOptions: serializeAws_restJson1LoggingOptions(input.loggingOptions, context),
-    }),
+    ...(input.loggingOptions !== undefined &&
+      input.loggingOptions !== null && {
+        loggingOptions: serializeAws_restJson1LoggingOptions(input.loggingOptions, context),
+      }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1918,7 +1878,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/tags";
   const query: any = {
@@ -1926,7 +1886,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1945,9 +1905,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/tags";
   const query: any = {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
@@ -1972,7 +1930,7 @@ export const serializeAws_restJson1UpdateAccessPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/access-policies/{accessPolicyId}";
   if (input.accessPolicyId !== undefined) {
@@ -1986,13 +1944,16 @@ export const serializeAws_restJson1UpdateAccessPolicyCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.accessPolicyIdentity !== undefined && {
-      accessPolicyIdentity: serializeAws_restJson1Identity(input.accessPolicyIdentity, context),
-    }),
-    ...(input.accessPolicyPermission !== undefined && { accessPolicyPermission: input.accessPolicyPermission }),
-    ...(input.accessPolicyResource !== undefined && {
-      accessPolicyResource: serializeAws_restJson1Resource(input.accessPolicyResource, context),
-    }),
+    ...(input.accessPolicyIdentity !== undefined &&
+      input.accessPolicyIdentity !== null && {
+        accessPolicyIdentity: serializeAws_restJson1Identity(input.accessPolicyIdentity, context),
+      }),
+    ...(input.accessPolicyPermission !== undefined &&
+      input.accessPolicyPermission !== null && { accessPolicyPermission: input.accessPolicyPermission }),
+    ...(input.accessPolicyResource !== undefined &&
+      input.accessPolicyResource !== null && {
+        accessPolicyResource: serializeAws_restJson1Resource(input.accessPolicyResource, context),
+      }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2019,7 +1980,7 @@ export const serializeAws_restJson1UpdateAssetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/assets/{assetId}";
   if (input.assetId !== undefined) {
@@ -2033,7 +1994,7 @@ export const serializeAws_restJson1UpdateAssetCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.assetName !== undefined && { assetName: input.assetName }),
+    ...(input.assetName !== undefined && input.assetName !== null && { assetName: input.assetName }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2060,7 +2021,7 @@ export const serializeAws_restJson1UpdateAssetModelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/asset-models/{assetModelId}";
   if (input.assetModelId !== undefined) {
@@ -2074,20 +2035,25 @@ export const serializeAws_restJson1UpdateAssetModelCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.assetModelCompositeModels !== undefined && {
-      assetModelCompositeModels: serializeAws_restJson1AssetModelCompositeModels(
-        input.assetModelCompositeModels,
-        context
-      ),
-    }),
-    ...(input.assetModelDescription !== undefined && { assetModelDescription: input.assetModelDescription }),
-    ...(input.assetModelHierarchies !== undefined && {
-      assetModelHierarchies: serializeAws_restJson1AssetModelHierarchies(input.assetModelHierarchies, context),
-    }),
-    ...(input.assetModelName !== undefined && { assetModelName: input.assetModelName }),
-    ...(input.assetModelProperties !== undefined && {
-      assetModelProperties: serializeAws_restJson1AssetModelProperties(input.assetModelProperties, context),
-    }),
+    ...(input.assetModelCompositeModels !== undefined &&
+      input.assetModelCompositeModels !== null && {
+        assetModelCompositeModels: serializeAws_restJson1AssetModelCompositeModels(
+          input.assetModelCompositeModels,
+          context
+        ),
+      }),
+    ...(input.assetModelDescription !== undefined &&
+      input.assetModelDescription !== null && { assetModelDescription: input.assetModelDescription }),
+    ...(input.assetModelHierarchies !== undefined &&
+      input.assetModelHierarchies !== null && {
+        assetModelHierarchies: serializeAws_restJson1AssetModelHierarchies(input.assetModelHierarchies, context),
+      }),
+    ...(input.assetModelName !== undefined &&
+      input.assetModelName !== null && { assetModelName: input.assetModelName }),
+    ...(input.assetModelProperties !== undefined &&
+      input.assetModelProperties !== null && {
+        assetModelProperties: serializeAws_restJson1AssetModelProperties(input.assetModelProperties, context),
+      }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2114,7 +2080,7 @@ export const serializeAws_restJson1UpdateAssetPropertyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/assets/{assetId}/properties/{propertyId}";
   if (input.assetId !== undefined) {
@@ -2138,10 +2104,9 @@ export const serializeAws_restJson1UpdateAssetPropertyCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.propertyAlias !== undefined && { propertyAlias: input.propertyAlias }),
-    ...(input.propertyNotificationState !== undefined && {
-      propertyNotificationState: input.propertyNotificationState,
-    }),
+    ...(input.propertyAlias !== undefined && input.propertyAlias !== null && { propertyAlias: input.propertyAlias }),
+    ...(input.propertyNotificationState !== undefined &&
+      input.propertyNotificationState !== null && { propertyNotificationState: input.propertyNotificationState }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2167,7 +2132,7 @@ export const serializeAws_restJson1UpdateDashboardCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/dashboards/{dashboardId}";
   if (input.dashboardId !== undefined) {
@@ -2182,9 +2147,11 @@ export const serializeAws_restJson1UpdateDashboardCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.dashboardDefinition !== undefined && { dashboardDefinition: input.dashboardDefinition }),
-    ...(input.dashboardDescription !== undefined && { dashboardDescription: input.dashboardDescription }),
-    ...(input.dashboardName !== undefined && { dashboardName: input.dashboardName }),
+    ...(input.dashboardDefinition !== undefined &&
+      input.dashboardDefinition !== null && { dashboardDefinition: input.dashboardDefinition }),
+    ...(input.dashboardDescription !== undefined &&
+      input.dashboardDescription !== null && { dashboardDescription: input.dashboardDescription }),
+    ...(input.dashboardName !== undefined && input.dashboardName !== null && { dashboardName: input.dashboardName }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2210,7 +2177,7 @@ export const serializeAws_restJson1UpdateGatewayCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/20200301/gateways/{gatewayId}";
   if (input.gatewayId !== undefined) {
@@ -2224,7 +2191,7 @@ export const serializeAws_restJson1UpdateGatewayCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.gatewayName !== undefined && { gatewayName: input.gatewayName }),
+    ...(input.gatewayName !== undefined && input.gatewayName !== null && { gatewayName: input.gatewayName }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2250,7 +2217,7 @@ export const serializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand =
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/20200301/gateways/{gatewayId}/capability";
   if (input.gatewayId !== undefined) {
@@ -2264,8 +2231,10 @@ export const serializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand =
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.capabilityConfiguration !== undefined && { capabilityConfiguration: input.capabilityConfiguration }),
-    ...(input.capabilityNamespace !== undefined && { capabilityNamespace: input.capabilityNamespace }),
+    ...(input.capabilityConfiguration !== undefined &&
+      input.capabilityConfiguration !== null && { capabilityConfiguration: input.capabilityConfiguration }),
+    ...(input.capabilityNamespace !== undefined &&
+      input.capabilityNamespace !== null && { capabilityNamespace: input.capabilityNamespace }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2291,7 +2260,7 @@ export const serializeAws_restJson1UpdatePortalCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/portals/{portalId}";
   if (input.portalId !== undefined) {
@@ -2306,13 +2275,16 @@ export const serializeAws_restJson1UpdatePortalCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.portalContactEmail !== undefined && { portalContactEmail: input.portalContactEmail }),
-    ...(input.portalDescription !== undefined && { portalDescription: input.portalDescription }),
-    ...(input.portalLogoImage !== undefined && {
-      portalLogoImage: serializeAws_restJson1Image(input.portalLogoImage, context),
-    }),
-    ...(input.portalName !== undefined && { portalName: input.portalName }),
-    ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
+    ...(input.portalContactEmail !== undefined &&
+      input.portalContactEmail !== null && { portalContactEmail: input.portalContactEmail }),
+    ...(input.portalDescription !== undefined &&
+      input.portalDescription !== null && { portalDescription: input.portalDescription }),
+    ...(input.portalLogoImage !== undefined &&
+      input.portalLogoImage !== null && {
+        portalLogoImage: serializeAws_restJson1Image(input.portalLogoImage, context),
+      }),
+    ...(input.portalName !== undefined && input.portalName !== null && { portalName: input.portalName }),
+    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2338,7 +2310,7 @@ export const serializeAws_restJson1UpdateProjectCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/projects/{projectId}";
   if (input.projectId !== undefined) {
@@ -2353,8 +2325,9 @@ export const serializeAws_restJson1UpdateProjectCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.projectDescription !== undefined && { projectDescription: input.projectDescription }),
-    ...(input.projectName !== undefined && { projectName: input.projectName }),
+    ...(input.projectDescription !== undefined &&
+      input.projectDescription !== null && { projectDescription: input.projectDescription }),
+    ...(input.projectName !== undefined && input.projectName !== null && { projectName: input.projectName }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -7697,12 +7670,13 @@ const serializeAws_restJson1AssetModelCompositeModel = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.properties !== undefined && {
-      properties: serializeAws_restJson1AssetModelProperties(input.properties, context),
-    }),
-    ...(input.type !== undefined && { type: input.type }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.properties !== undefined &&
+      input.properties !== null && {
+        properties: serializeAws_restJson1AssetModelProperties(input.properties, context),
+      }),
+    ...(input.type !== undefined && input.type !== null && { type: input.type }),
   };
 };
 
@@ -7711,12 +7685,13 @@ const serializeAws_restJson1AssetModelCompositeModelDefinition = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.properties !== undefined && {
-      properties: serializeAws_restJson1AssetModelPropertyDefinitions(input.properties, context),
-    }),
-    ...(input.type !== undefined && { type: input.type }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.properties !== undefined &&
+      input.properties !== null && {
+        properties: serializeAws_restJson1AssetModelPropertyDefinitions(input.properties, context),
+      }),
+    ...(input.type !== undefined && input.type !== null && { type: input.type }),
   };
 };
 
@@ -7724,25 +7699,47 @@ const serializeAws_restJson1AssetModelCompositeModelDefinitions = (
   input: AssetModelCompositeModelDefinition[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_restJson1AssetModelCompositeModelDefinition(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1AssetModelCompositeModelDefinition(entry, context);
+    });
 };
 
 const serializeAws_restJson1AssetModelCompositeModels = (
   input: AssetModelCompositeModel[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_restJson1AssetModelCompositeModel(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1AssetModelCompositeModel(entry, context);
+    });
 };
 
 const serializeAws_restJson1AssetModelHierarchies = (input: AssetModelHierarchy[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1AssetModelHierarchy(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1AssetModelHierarchy(entry, context);
+    });
 };
 
 const serializeAws_restJson1AssetModelHierarchy = (input: AssetModelHierarchy, context: __SerdeContext): any => {
   return {
-    ...(input.childAssetModelId !== undefined && { childAssetModelId: input.childAssetModelId }),
-    ...(input.id !== undefined && { id: input.id }),
-    ...(input.name !== undefined && { name: input.name }),
+    ...(input.childAssetModelId !== undefined &&
+      input.childAssetModelId !== null && { childAssetModelId: input.childAssetModelId }),
+    ...(input.id !== undefined && input.id !== null && { id: input.id }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
   };
 };
 
@@ -7751,8 +7748,9 @@ const serializeAws_restJson1AssetModelHierarchyDefinition = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.childAssetModelId !== undefined && { childAssetModelId: input.childAssetModelId }),
-    ...(input.name !== undefined && { name: input.name }),
+    ...(input.childAssetModelId !== undefined &&
+      input.childAssetModelId !== null && { childAssetModelId: input.childAssetModelId }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
   };
 };
 
@@ -7760,21 +7758,36 @@ const serializeAws_restJson1AssetModelHierarchyDefinitions = (
   input: AssetModelHierarchyDefinition[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_restJson1AssetModelHierarchyDefinition(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1AssetModelHierarchyDefinition(entry, context);
+    });
 };
 
 const serializeAws_restJson1AssetModelProperties = (input: AssetModelProperty[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1AssetModelProperty(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1AssetModelProperty(entry, context);
+    });
 };
 
 const serializeAws_restJson1AssetModelProperty = (input: AssetModelProperty, context: __SerdeContext): any => {
   return {
-    ...(input.dataType !== undefined && { dataType: input.dataType }),
-    ...(input.dataTypeSpec !== undefined && { dataTypeSpec: input.dataTypeSpec }),
-    ...(input.id !== undefined && { id: input.id }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.type !== undefined && { type: serializeAws_restJson1PropertyType(input.type, context) }),
-    ...(input.unit !== undefined && { unit: input.unit }),
+    ...(input.dataType !== undefined && input.dataType !== null && { dataType: input.dataType }),
+    ...(input.dataTypeSpec !== undefined && input.dataTypeSpec !== null && { dataTypeSpec: input.dataTypeSpec }),
+    ...(input.id !== undefined && input.id !== null && { id: input.id }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.type !== undefined &&
+      input.type !== null && { type: serializeAws_restJson1PropertyType(input.type, context) }),
+    ...(input.unit !== undefined && input.unit !== null && { unit: input.unit }),
   };
 };
 
@@ -7783,11 +7796,12 @@ const serializeAws_restJson1AssetModelPropertyDefinition = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.dataType !== undefined && { dataType: input.dataType }),
-    ...(input.dataTypeSpec !== undefined && { dataTypeSpec: input.dataTypeSpec }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.type !== undefined && { type: serializeAws_restJson1PropertyType(input.type, context) }),
-    ...(input.unit !== undefined && { unit: input.unit }),
+    ...(input.dataType !== undefined && input.dataType !== null && { dataType: input.dataType }),
+    ...(input.dataTypeSpec !== undefined && input.dataTypeSpec !== null && { dataTypeSpec: input.dataTypeSpec }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.type !== undefined &&
+      input.type !== null && { type: serializeAws_restJson1PropertyType(input.type, context) }),
+    ...(input.unit !== undefined && input.unit !== null && { unit: input.unit }),
   };
 };
 
@@ -7795,91 +7809,127 @@ const serializeAws_restJson1AssetModelPropertyDefinitions = (
   input: AssetModelPropertyDefinition[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_restJson1AssetModelPropertyDefinition(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1AssetModelPropertyDefinition(entry, context);
+    });
 };
 
 const serializeAws_restJson1AssetPropertyValue = (input: AssetPropertyValue, context: __SerdeContext): any => {
   return {
-    ...(input.quality !== undefined && { quality: input.quality }),
-    ...(input.timestamp !== undefined && { timestamp: serializeAws_restJson1TimeInNanos(input.timestamp, context) }),
-    ...(input.value !== undefined && { value: serializeAws_restJson1Variant(input.value, context) }),
+    ...(input.quality !== undefined && input.quality !== null && { quality: input.quality }),
+    ...(input.timestamp !== undefined &&
+      input.timestamp !== null && { timestamp: serializeAws_restJson1TimeInNanos(input.timestamp, context) }),
+    ...(input.value !== undefined &&
+      input.value !== null && { value: serializeAws_restJson1Variant(input.value, context) }),
   };
 };
 
 const serializeAws_restJson1AssetPropertyValues = (input: AssetPropertyValue[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1AssetPropertyValue(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1AssetPropertyValue(entry, context);
+    });
 };
 
 const serializeAws_restJson1Attribute = (input: Attribute, context: __SerdeContext): any => {
   return {
-    ...(input.defaultValue !== undefined && { defaultValue: input.defaultValue }),
+    ...(input.defaultValue !== undefined && input.defaultValue !== null && { defaultValue: input.defaultValue }),
   };
 };
 
 const serializeAws_restJson1ExpressionVariable = (input: ExpressionVariable, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.value !== undefined && { value: serializeAws_restJson1VariableValue(input.value, context) }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.value !== undefined &&
+      input.value !== null && { value: serializeAws_restJson1VariableValue(input.value, context) }),
   };
 };
 
 const serializeAws_restJson1ExpressionVariables = (input: ExpressionVariable[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1ExpressionVariable(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1ExpressionVariable(entry, context);
+    });
 };
 
 const serializeAws_restJson1GatewayPlatform = (input: GatewayPlatform, context: __SerdeContext): any => {
   return {
-    ...(input.greengrass !== undefined && { greengrass: serializeAws_restJson1Greengrass(input.greengrass, context) }),
+    ...(input.greengrass !== undefined &&
+      input.greengrass !== null && { greengrass: serializeAws_restJson1Greengrass(input.greengrass, context) }),
   };
 };
 
 const serializeAws_restJson1Greengrass = (input: Greengrass, context: __SerdeContext): any => {
   return {
-    ...(input.groupArn !== undefined && { groupArn: input.groupArn }),
+    ...(input.groupArn !== undefined && input.groupArn !== null && { groupArn: input.groupArn }),
   };
 };
 
 const serializeAws_restJson1GroupIdentity = (input: GroupIdentity, context: __SerdeContext): any => {
   return {
-    ...(input.id !== undefined && { id: input.id }),
+    ...(input.id !== undefined && input.id !== null && { id: input.id }),
   };
 };
 
 const serializeAws_restJson1IAMUserIdentity = (input: IAMUserIdentity, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   };
 };
 
 const serializeAws_restJson1Identity = (input: Identity, context: __SerdeContext): any => {
   return {
-    ...(input.group !== undefined && { group: serializeAws_restJson1GroupIdentity(input.group, context) }),
-    ...(input.iamUser !== undefined && { iamUser: serializeAws_restJson1IAMUserIdentity(input.iamUser, context) }),
-    ...(input.user !== undefined && { user: serializeAws_restJson1UserIdentity(input.user, context) }),
+    ...(input.group !== undefined &&
+      input.group !== null && { group: serializeAws_restJson1GroupIdentity(input.group, context) }),
+    ...(input.iamUser !== undefined &&
+      input.iamUser !== null && { iamUser: serializeAws_restJson1IAMUserIdentity(input.iamUser, context) }),
+    ...(input.user !== undefined &&
+      input.user !== null && { user: serializeAws_restJson1UserIdentity(input.user, context) }),
   };
 };
 
 const serializeAws_restJson1IDs = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1Image = (input: Image, context: __SerdeContext): any => {
   return {
-    ...(input.file !== undefined && { file: serializeAws_restJson1ImageFile(input.file, context) }),
-    ...(input.id !== undefined && { id: input.id }),
+    ...(input.file !== undefined &&
+      input.file !== null && { file: serializeAws_restJson1ImageFile(input.file, context) }),
+    ...(input.id !== undefined && input.id !== null && { id: input.id }),
   };
 };
 
 const serializeAws_restJson1ImageFile = (input: ImageFile, context: __SerdeContext): any => {
   return {
-    ...(input.data !== undefined && { data: context.base64Encoder(input.data) }),
-    ...(input.type !== undefined && { type: input.type }),
+    ...(input.data !== undefined && input.data !== null && { data: context.base64Encoder(input.data) }),
+    ...(input.type !== undefined && input.type !== null && { type: input.type }),
   };
 };
 
 const serializeAws_restJson1LoggingOptions = (input: LoggingOptions, context: __SerdeContext): any => {
   return {
-    ...(input.level !== undefined && { level: input.level }),
+    ...(input.level !== undefined && input.level !== null && { level: input.level }),
   };
 };
 
@@ -7889,40 +7939,43 @@ const serializeAws_restJson1Measurement = (input: Measurement, context: __SerdeC
 
 const serializeAws_restJson1Metric = (input: Metric, context: __SerdeContext): any => {
   return {
-    ...(input.expression !== undefined && { expression: input.expression }),
-    ...(input.variables !== undefined && {
-      variables: serializeAws_restJson1ExpressionVariables(input.variables, context),
-    }),
-    ...(input.window !== undefined && { window: serializeAws_restJson1MetricWindow(input.window, context) }),
+    ...(input.expression !== undefined && input.expression !== null && { expression: input.expression }),
+    ...(input.variables !== undefined &&
+      input.variables !== null && { variables: serializeAws_restJson1ExpressionVariables(input.variables, context) }),
+    ...(input.window !== undefined &&
+      input.window !== null && { window: serializeAws_restJson1MetricWindow(input.window, context) }),
   };
 };
 
 const serializeAws_restJson1MetricWindow = (input: MetricWindow, context: __SerdeContext): any => {
   return {
-    ...(input.tumbling !== undefined && { tumbling: serializeAws_restJson1TumblingWindow(input.tumbling, context) }),
+    ...(input.tumbling !== undefined &&
+      input.tumbling !== null && { tumbling: serializeAws_restJson1TumblingWindow(input.tumbling, context) }),
   };
 };
 
 const serializeAws_restJson1PortalResource = (input: PortalResource, context: __SerdeContext): any => {
   return {
-    ...(input.id !== undefined && { id: input.id }),
+    ...(input.id !== undefined && input.id !== null && { id: input.id }),
   };
 };
 
 const serializeAws_restJson1ProjectResource = (input: ProjectResource, context: __SerdeContext): any => {
   return {
-    ...(input.id !== undefined && { id: input.id }),
+    ...(input.id !== undefined && input.id !== null && { id: input.id }),
   };
 };
 
 const serializeAws_restJson1PropertyType = (input: PropertyType, context: __SerdeContext): any => {
   return {
-    ...(input.attribute !== undefined && { attribute: serializeAws_restJson1Attribute(input.attribute, context) }),
-    ...(input.measurement !== undefined && {
-      measurement: serializeAws_restJson1Measurement(input.measurement, context),
-    }),
-    ...(input.metric !== undefined && { metric: serializeAws_restJson1Metric(input.metric, context) }),
-    ...(input.transform !== undefined && { transform: serializeAws_restJson1Transform(input.transform, context) }),
+    ...(input.attribute !== undefined &&
+      input.attribute !== null && { attribute: serializeAws_restJson1Attribute(input.attribute, context) }),
+    ...(input.measurement !== undefined &&
+      input.measurement !== null && { measurement: serializeAws_restJson1Measurement(input.measurement, context) }),
+    ...(input.metric !== undefined &&
+      input.metric !== null && { metric: serializeAws_restJson1Metric(input.metric, context) }),
+    ...(input.transform !== undefined &&
+      input.transform !== null && { transform: serializeAws_restJson1Transform(input.transform, context) }),
   };
 };
 
@@ -7930,7 +7983,14 @@ const serializeAws_restJson1PutAssetPropertyValueEntries = (
   input: PutAssetPropertyValueEntry[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_restJson1PutAssetPropertyValueEntry(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1PutAssetPropertyValueEntry(entry, context);
+    });
 };
 
 const serializeAws_restJson1PutAssetPropertyValueEntry = (
@@ -7938,79 +7998,90 @@ const serializeAws_restJson1PutAssetPropertyValueEntry = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assetId !== undefined && { assetId: input.assetId }),
-    ...(input.entryId !== undefined && { entryId: input.entryId }),
-    ...(input.propertyAlias !== undefined && { propertyAlias: input.propertyAlias }),
-    ...(input.propertyId !== undefined && { propertyId: input.propertyId }),
-    ...(input.propertyValues !== undefined && {
-      propertyValues: serializeAws_restJson1AssetPropertyValues(input.propertyValues, context),
-    }),
+    ...(input.assetId !== undefined && input.assetId !== null && { assetId: input.assetId }),
+    ...(input.entryId !== undefined && input.entryId !== null && { entryId: input.entryId }),
+    ...(input.propertyAlias !== undefined && input.propertyAlias !== null && { propertyAlias: input.propertyAlias }),
+    ...(input.propertyId !== undefined && input.propertyId !== null && { propertyId: input.propertyId }),
+    ...(input.propertyValues !== undefined &&
+      input.propertyValues !== null && {
+        propertyValues: serializeAws_restJson1AssetPropertyValues(input.propertyValues, context),
+      }),
   };
 };
 
 const serializeAws_restJson1Resource = (input: Resource, context: __SerdeContext): any => {
   return {
-    ...(input.portal !== undefined && { portal: serializeAws_restJson1PortalResource(input.portal, context) }),
-    ...(input.project !== undefined && { project: serializeAws_restJson1ProjectResource(input.project, context) }),
+    ...(input.portal !== undefined &&
+      input.portal !== null && { portal: serializeAws_restJson1PortalResource(input.portal, context) }),
+    ...(input.project !== undefined &&
+      input.project !== null && { project: serializeAws_restJson1ProjectResource(input.project, context) }),
   };
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_restJson1TimeInNanos = (input: TimeInNanos, context: __SerdeContext): any => {
   return {
-    ...(input.offsetInNanos !== undefined && { offsetInNanos: input.offsetInNanos }),
-    ...(input.timeInSeconds !== undefined && { timeInSeconds: input.timeInSeconds }),
+    ...(input.offsetInNanos !== undefined && input.offsetInNanos !== null && { offsetInNanos: input.offsetInNanos }),
+    ...(input.timeInSeconds !== undefined && input.timeInSeconds !== null && { timeInSeconds: input.timeInSeconds }),
   };
 };
 
 const serializeAws_restJson1Transform = (input: Transform, context: __SerdeContext): any => {
   return {
-    ...(input.expression !== undefined && { expression: input.expression }),
-    ...(input.variables !== undefined && {
-      variables: serializeAws_restJson1ExpressionVariables(input.variables, context),
-    }),
+    ...(input.expression !== undefined && input.expression !== null && { expression: input.expression }),
+    ...(input.variables !== undefined &&
+      input.variables !== null && { variables: serializeAws_restJson1ExpressionVariables(input.variables, context) }),
   };
 };
 
 const serializeAws_restJson1TumblingWindow = (input: TumblingWindow, context: __SerdeContext): any => {
   return {
-    ...(input.interval !== undefined && { interval: input.interval }),
+    ...(input.interval !== undefined && input.interval !== null && { interval: input.interval }),
   };
 };
 
 const serializeAws_restJson1UserIdentity = (input: UserIdentity, context: __SerdeContext): any => {
   return {
-    ...(input.id !== undefined && { id: input.id }),
+    ...(input.id !== undefined && input.id !== null && { id: input.id }),
   };
 };
 
 const serializeAws_restJson1VariableValue = (input: VariableValue, context: __SerdeContext): any => {
   return {
-    ...(input.hierarchyId !== undefined && { hierarchyId: input.hierarchyId }),
-    ...(input.propertyId !== undefined && { propertyId: input.propertyId }),
+    ...(input.hierarchyId !== undefined && input.hierarchyId !== null && { hierarchyId: input.hierarchyId }),
+    ...(input.propertyId !== undefined && input.propertyId !== null && { propertyId: input.propertyId }),
   };
 };
 
 const serializeAws_restJson1Variant = (input: Variant, context: __SerdeContext): any => {
   return {
-    ...(input.booleanValue !== undefined && { booleanValue: input.booleanValue }),
-    ...(input.doubleValue !== undefined && { doubleValue: input.doubleValue }),
-    ...(input.integerValue !== undefined && { integerValue: input.integerValue }),
-    ...(input.stringValue !== undefined && { stringValue: input.stringValue }),
+    ...(input.booleanValue !== undefined && input.booleanValue !== null && { booleanValue: input.booleanValue }),
+    ...(input.doubleValue !== undefined && input.doubleValue !== null && { doubleValue: input.doubleValue }),
+    ...(input.integerValue !== undefined && input.integerValue !== null && { integerValue: input.integerValue }),
+    ...(input.stringValue !== undefined && input.stringValue !== null && { stringValue: input.stringValue }),
   };
 };
 
 const deserializeAws_restJson1AccessPolicySummaries = (output: any, context: __SerdeContext): AccessPolicySummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1AccessPolicySummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AccessPolicySummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AccessPolicySummary = (output: any, context: __SerdeContext): AccessPolicySummary => {
@@ -8051,7 +8122,14 @@ const deserializeAws_restJson1AggregatedValue = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1AggregatedValues = (output: any, context: __SerdeContext): AggregatedValue[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1AggregatedValue(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AggregatedValue(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Aggregates = (output: any, context: __SerdeContext): Aggregates => {
@@ -8081,7 +8159,14 @@ const deserializeAws_restJson1AssetCompositeModel = (output: any, context: __Ser
 };
 
 const deserializeAws_restJson1AssetCompositeModels = (output: any, context: __SerdeContext): AssetCompositeModel[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1AssetCompositeModel(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AssetCompositeModel(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AssetErrorDetails = (output: any, context: __SerdeContext): AssetErrorDetails => {
@@ -8093,7 +8178,14 @@ const deserializeAws_restJson1AssetErrorDetails = (output: any, context: __Serde
 };
 
 const deserializeAws_restJson1AssetHierarchies = (output: any, context: __SerdeContext): AssetHierarchy[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1AssetHierarchy(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AssetHierarchy(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AssetHierarchy = (output: any, context: __SerdeContext): AssetHierarchy => {
@@ -8112,7 +8204,14 @@ const deserializeAws_restJson1AssetHierarchyInfo = (output: any, context: __Serd
 };
 
 const deserializeAws_restJson1AssetIDs = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1AssetModelCompositeModel = (
@@ -8134,11 +8233,25 @@ const deserializeAws_restJson1AssetModelCompositeModels = (
   output: any,
   context: __SerdeContext
 ): AssetModelCompositeModel[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1AssetModelCompositeModel(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AssetModelCompositeModel(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AssetModelHierarchies = (output: any, context: __SerdeContext): AssetModelHierarchy[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1AssetModelHierarchy(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AssetModelHierarchy(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AssetModelHierarchy = (output: any, context: __SerdeContext): AssetModelHierarchy => {
@@ -8153,7 +8266,14 @@ const deserializeAws_restJson1AssetModelHierarchy = (output: any, context: __Ser
 };
 
 const deserializeAws_restJson1AssetModelProperties = (output: any, context: __SerdeContext): AssetModelProperty[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1AssetModelProperty(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AssetModelProperty(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AssetModelProperty = (output: any, context: __SerdeContext): AssetModelProperty => {
@@ -8181,7 +8301,14 @@ const deserializeAws_restJson1AssetModelStatus = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1AssetModelSummaries = (output: any, context: __SerdeContext): AssetModelSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1AssetModelSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AssetModelSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AssetModelSummary = (output: any, context: __SerdeContext): AssetModelSummary => {
@@ -8206,7 +8333,14 @@ const deserializeAws_restJson1AssetModelSummary = (output: any, context: __Serde
 };
 
 const deserializeAws_restJson1AssetProperties = (output: any, context: __SerdeContext): AssetProperty[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1AssetProperty(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AssetProperty(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AssetProperty = (output: any, context: __SerdeContext): AssetProperty => {
@@ -8242,14 +8376,28 @@ const deserializeAws_restJson1AssetPropertyValueHistory = (
   output: any,
   context: __SerdeContext
 ): AssetPropertyValue[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1AssetPropertyValue(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AssetPropertyValue(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AssetRelationshipSummaries = (
   output: any,
   context: __SerdeContext
 ): AssetRelationshipSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1AssetRelationshipSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AssetRelationshipSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AssetRelationshipSummary = (
@@ -8277,7 +8425,14 @@ const deserializeAws_restJson1AssetStatus = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1AssetSummaries = (output: any, context: __SerdeContext): AssetSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1AssetSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AssetSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AssetSummary = (output: any, context: __SerdeContext): AssetSummary => {
@@ -8309,7 +8464,14 @@ const deserializeAws_restJson1AssociatedAssetsSummaries = (
   output: any,
   context: __SerdeContext
 ): AssociatedAssetsSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1AssociatedAssetsSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AssociatedAssetsSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AssociatedAssetsSummary = (
@@ -8350,14 +8512,28 @@ const deserializeAws_restJson1BatchAssociateProjectAssetsErrors = (
   output: any,
   context: __SerdeContext
 ): AssetErrorDetails[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1AssetErrorDetails(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AssetErrorDetails(entry, context);
+    });
 };
 
 const deserializeAws_restJson1BatchDisassociateProjectAssetsErrors = (
   output: any,
   context: __SerdeContext
 ): AssetErrorDetails[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1AssetErrorDetails(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AssetErrorDetails(entry, context);
+    });
 };
 
 const deserializeAws_restJson1BatchPutAssetPropertyError = (
@@ -8378,7 +8554,14 @@ const deserializeAws_restJson1BatchPutAssetPropertyErrorEntries = (
   output: any,
   context: __SerdeContext
 ): BatchPutAssetPropertyErrorEntry[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1BatchPutAssetPropertyErrorEntry(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1BatchPutAssetPropertyErrorEntry(entry, context);
+    });
 };
 
 const deserializeAws_restJson1BatchPutAssetPropertyErrorEntry = (
@@ -8398,7 +8581,14 @@ const deserializeAws_restJson1BatchPutAssetPropertyErrors = (
   output: any,
   context: __SerdeContext
 ): BatchPutAssetPropertyError[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1BatchPutAssetPropertyError(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1BatchPutAssetPropertyError(entry, context);
+    });
 };
 
 const deserializeAws_restJson1CompositeModelProperty = (
@@ -8436,7 +8626,14 @@ const deserializeAws_restJson1ConfigurationStatus = (output: any, context: __Ser
 };
 
 const deserializeAws_restJson1DashboardSummaries = (output: any, context: __SerdeContext): DashboardSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1DashboardSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DashboardSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1DashboardSummary = (output: any, context: __SerdeContext): DashboardSummary => {
@@ -8473,14 +8670,28 @@ const deserializeAws_restJson1ExpressionVariable = (output: any, context: __Serd
 };
 
 const deserializeAws_restJson1ExpressionVariables = (output: any, context: __SerdeContext): ExpressionVariable[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1ExpressionVariable(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ExpressionVariable(entry, context);
+    });
 };
 
 const deserializeAws_restJson1GatewayCapabilitySummaries = (
   output: any,
   context: __SerdeContext
 ): GatewayCapabilitySummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1GatewayCapabilitySummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1GatewayCapabilitySummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1GatewayCapabilitySummary = (
@@ -8509,7 +8720,14 @@ const deserializeAws_restJson1GatewayPlatform = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1GatewaySummaries = (output: any, context: __SerdeContext): GatewaySummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1GatewaySummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1GatewaySummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1GatewaySummary = (output: any, context: __SerdeContext): GatewaySummary => {
@@ -8630,7 +8848,14 @@ const deserializeAws_restJson1PortalStatus = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restJson1PortalSummaries = (output: any, context: __SerdeContext): PortalSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1PortalSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1PortalSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1PortalSummary = (output: any, context: __SerdeContext): PortalSummary => {
@@ -8662,7 +8887,14 @@ const deserializeAws_restJson1ProjectResource = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1ProjectSummaries = (output: any, context: __SerdeContext): ProjectSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1ProjectSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ProjectSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary => {
@@ -8741,13 +8973,15 @@ const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1TimeInNanos = (output: any, context: __SerdeContext): TimeInNanos => {
@@ -8760,7 +8994,14 @@ const deserializeAws_restJson1TimeInNanos = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1Timestamps = (output: any, context: __SerdeContext): TimeInNanos[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1TimeInNanos(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1TimeInNanos(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Transform = (output: any, context: __SerdeContext): Transform => {
@@ -8821,6 +9062,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

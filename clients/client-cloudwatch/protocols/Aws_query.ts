@@ -176,7 +176,7 @@ export const serializeAws_queryDeleteAlarmsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -192,7 +192,7 @@ export const serializeAws_queryDeleteAnomalyDetectorCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -208,7 +208,7 @@ export const serializeAws_queryDeleteDashboardsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -224,7 +224,7 @@ export const serializeAws_queryDeleteInsightRulesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -240,7 +240,7 @@ export const serializeAws_queryDescribeAlarmHistoryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -256,7 +256,7 @@ export const serializeAws_queryDescribeAlarmsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -272,7 +272,7 @@ export const serializeAws_queryDescribeAlarmsForMetricCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -288,7 +288,7 @@ export const serializeAws_queryDescribeAnomalyDetectorsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -304,7 +304,7 @@ export const serializeAws_queryDescribeInsightRulesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -320,7 +320,7 @@ export const serializeAws_queryDisableAlarmActionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -336,7 +336,7 @@ export const serializeAws_queryDisableInsightRulesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -352,7 +352,7 @@ export const serializeAws_queryEnableAlarmActionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -368,7 +368,7 @@ export const serializeAws_queryEnableInsightRulesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -384,7 +384,7 @@ export const serializeAws_queryGetDashboardCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -400,7 +400,7 @@ export const serializeAws_queryGetInsightRuleReportCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -416,7 +416,7 @@ export const serializeAws_queryGetMetricDataCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -432,7 +432,7 @@ export const serializeAws_queryGetMetricStatisticsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -448,7 +448,7 @@ export const serializeAws_queryGetMetricWidgetImageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -464,7 +464,7 @@ export const serializeAws_queryListDashboardsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -480,7 +480,7 @@ export const serializeAws_queryListMetricsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -496,7 +496,7 @@ export const serializeAws_queryListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -512,7 +512,7 @@ export const serializeAws_queryPutAnomalyDetectorCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -528,7 +528,7 @@ export const serializeAws_queryPutCompositeAlarmCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -544,7 +544,7 @@ export const serializeAws_queryPutDashboardCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -560,7 +560,7 @@ export const serializeAws_queryPutInsightRuleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -576,7 +576,7 @@ export const serializeAws_queryPutMetricAlarmCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -592,7 +592,7 @@ export const serializeAws_queryPutMetricDataCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -608,7 +608,7 @@ export const serializeAws_querySetAlarmStateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -624,7 +624,7 @@ export const serializeAws_queryTagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -640,7 +640,7 @@ export const serializeAws_queryUntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2721,6 +2721,9 @@ const serializeAws_queryAlarmNames = (input: string[], context: __SerdeContext):
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -2731,6 +2734,9 @@ const serializeAws_queryAlarmTypes = (input: (AlarmType | string)[], context: __
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -2742,14 +2748,14 @@ const serializeAws_queryAnomalyDetectorConfiguration = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ExcludedTimeRanges !== undefined) {
+  if (input.ExcludedTimeRanges !== undefined && input.ExcludedTimeRanges !== null) {
     const memberEntries = serializeAws_queryAnomalyDetectorExcludedTimeRanges(input.ExcludedTimeRanges, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExcludedTimeRanges.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.MetricTimezone !== undefined) {
+  if (input.MetricTimezone !== undefined && input.MetricTimezone !== null) {
     entries["MetricTimezone"] = input.MetricTimezone;
   }
   return entries;
@@ -2759,6 +2765,9 @@ const serializeAws_queryAnomalyDetectorExcludedTimeRanges = (input: Range[], con
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryRange(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
@@ -2772,6 +2781,9 @@ const serializeAws_queryCounts = (input: number[], context: __SerdeContext): any
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -2782,6 +2794,9 @@ const serializeAws_queryDashboardNames = (input: string[], context: __SerdeConte
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -2790,7 +2805,7 @@ const serializeAws_queryDashboardNames = (input: string[], context: __SerdeConte
 
 const serializeAws_queryDeleteAlarmsInput = (input: DeleteAlarmsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AlarmNames !== undefined) {
+  if (input.AlarmNames !== undefined && input.AlarmNames !== null) {
     const memberEntries = serializeAws_queryAlarmNames(input.AlarmNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AlarmNames.${key}`;
@@ -2805,20 +2820,20 @@ const serializeAws_queryDeleteAnomalyDetectorInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Namespace !== undefined) {
+  if (input.Namespace !== undefined && input.Namespace !== null) {
     entries["Namespace"] = input.Namespace;
   }
-  if (input.MetricName !== undefined) {
+  if (input.MetricName !== undefined && input.MetricName !== null) {
     entries["MetricName"] = input.MetricName;
   }
-  if (input.Dimensions !== undefined) {
+  if (input.Dimensions !== undefined && input.Dimensions !== null) {
     const memberEntries = serializeAws_queryDimensions(input.Dimensions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Dimensions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Stat !== undefined) {
+  if (input.Stat !== undefined && input.Stat !== null) {
     entries["Stat"] = input.Stat;
   }
   return entries;
@@ -2826,7 +2841,7 @@ const serializeAws_queryDeleteAnomalyDetectorInput = (
 
 const serializeAws_queryDeleteDashboardsInput = (input: DeleteDashboardsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DashboardNames !== undefined) {
+  if (input.DashboardNames !== undefined && input.DashboardNames !== null) {
     const memberEntries = serializeAws_queryDashboardNames(input.DashboardNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DashboardNames.${key}`;
@@ -2838,7 +2853,7 @@ const serializeAws_queryDeleteDashboardsInput = (input: DeleteDashboardsInput, c
 
 const serializeAws_queryDeleteInsightRulesInput = (input: DeleteInsightRulesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RuleNames !== undefined) {
+  if (input.RuleNames !== undefined && input.RuleNames !== null) {
     const memberEntries = serializeAws_queryInsightRuleNames(input.RuleNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RuleNames.${key}`;
@@ -2853,32 +2868,32 @@ const serializeAws_queryDescribeAlarmHistoryInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.AlarmName !== undefined) {
+  if (input.AlarmName !== undefined && input.AlarmName !== null) {
     entries["AlarmName"] = input.AlarmName;
   }
-  if (input.AlarmTypes !== undefined) {
+  if (input.AlarmTypes !== undefined && input.AlarmTypes !== null) {
     const memberEntries = serializeAws_queryAlarmTypes(input.AlarmTypes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AlarmTypes.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.HistoryItemType !== undefined) {
+  if (input.HistoryItemType !== undefined && input.HistoryItemType !== null) {
     entries["HistoryItemType"] = input.HistoryItemType;
   }
-  if (input.StartDate !== undefined) {
+  if (input.StartDate !== undefined && input.StartDate !== null) {
     entries["StartDate"] = input.StartDate.toISOString().split(".")[0] + "Z";
   }
-  if (input.EndDate !== undefined) {
+  if (input.EndDate !== undefined && input.EndDate !== null) {
     entries["EndDate"] = input.EndDate.toISOString().split(".")[0] + "Z";
   }
-  if (input.MaxRecords !== undefined) {
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
-  if (input.ScanBy !== undefined) {
+  if (input.ScanBy !== undefined && input.ScanBy !== null) {
     entries["ScanBy"] = input.ScanBy;
   }
   return entries;
@@ -2889,29 +2904,29 @@ const serializeAws_queryDescribeAlarmsForMetricInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.MetricName !== undefined) {
+  if (input.MetricName !== undefined && input.MetricName !== null) {
     entries["MetricName"] = input.MetricName;
   }
-  if (input.Namespace !== undefined) {
+  if (input.Namespace !== undefined && input.Namespace !== null) {
     entries["Namespace"] = input.Namespace;
   }
-  if (input.Statistic !== undefined) {
+  if (input.Statistic !== undefined && input.Statistic !== null) {
     entries["Statistic"] = input.Statistic;
   }
-  if (input.ExtendedStatistic !== undefined) {
+  if (input.ExtendedStatistic !== undefined && input.ExtendedStatistic !== null) {
     entries["ExtendedStatistic"] = input.ExtendedStatistic;
   }
-  if (input.Dimensions !== undefined) {
+  if (input.Dimensions !== undefined && input.Dimensions !== null) {
     const memberEntries = serializeAws_queryDimensions(input.Dimensions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Dimensions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Period !== undefined) {
+  if (input.Period !== undefined && input.Period !== null) {
     entries["Period"] = input.Period;
   }
-  if (input.Unit !== undefined) {
+  if (input.Unit !== undefined && input.Unit !== null) {
     entries["Unit"] = input.Unit;
   }
   return entries;
@@ -2919,39 +2934,39 @@ const serializeAws_queryDescribeAlarmsForMetricInput = (
 
 const serializeAws_queryDescribeAlarmsInput = (input: DescribeAlarmsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AlarmNames !== undefined) {
+  if (input.AlarmNames !== undefined && input.AlarmNames !== null) {
     const memberEntries = serializeAws_queryAlarmNames(input.AlarmNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AlarmNames.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.AlarmNamePrefix !== undefined) {
+  if (input.AlarmNamePrefix !== undefined && input.AlarmNamePrefix !== null) {
     entries["AlarmNamePrefix"] = input.AlarmNamePrefix;
   }
-  if (input.AlarmTypes !== undefined) {
+  if (input.AlarmTypes !== undefined && input.AlarmTypes !== null) {
     const memberEntries = serializeAws_queryAlarmTypes(input.AlarmTypes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AlarmTypes.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ChildrenOfAlarmName !== undefined) {
+  if (input.ChildrenOfAlarmName !== undefined && input.ChildrenOfAlarmName !== null) {
     entries["ChildrenOfAlarmName"] = input.ChildrenOfAlarmName;
   }
-  if (input.ParentsOfAlarmName !== undefined) {
+  if (input.ParentsOfAlarmName !== undefined && input.ParentsOfAlarmName !== null) {
     entries["ParentsOfAlarmName"] = input.ParentsOfAlarmName;
   }
-  if (input.StateValue !== undefined) {
+  if (input.StateValue !== undefined && input.StateValue !== null) {
     entries["StateValue"] = input.StateValue;
   }
-  if (input.ActionPrefix !== undefined) {
+  if (input.ActionPrefix !== undefined && input.ActionPrefix !== null) {
     entries["ActionPrefix"] = input.ActionPrefix;
   }
-  if (input.MaxRecords !== undefined) {
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
   return entries;
@@ -2962,19 +2977,19 @@ const serializeAws_queryDescribeAnomalyDetectorsInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
-  if (input.MaxResults !== undefined) {
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
     entries["MaxResults"] = input.MaxResults;
   }
-  if (input.Namespace !== undefined) {
+  if (input.Namespace !== undefined && input.Namespace !== null) {
     entries["Namespace"] = input.Namespace;
   }
-  if (input.MetricName !== undefined) {
+  if (input.MetricName !== undefined && input.MetricName !== null) {
     entries["MetricName"] = input.MetricName;
   }
-  if (input.Dimensions !== undefined) {
+  if (input.Dimensions !== undefined && input.Dimensions !== null) {
     const memberEntries = serializeAws_queryDimensions(input.Dimensions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Dimensions.${key}`;
@@ -2989,10 +3004,10 @@ const serializeAws_queryDescribeInsightRulesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
-  if (input.MaxResults !== undefined) {
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
     entries["MaxResults"] = input.MaxResults;
   }
   return entries;
@@ -3000,10 +3015,10 @@ const serializeAws_queryDescribeInsightRulesInput = (
 
 const serializeAws_queryDimension = (input: Dimension, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name !== undefined) {
+  if (input.Name !== undefined && input.Name !== null) {
     entries["Name"] = input.Name;
   }
-  if (input.Value !== undefined) {
+  if (input.Value !== undefined && input.Value !== null) {
     entries["Value"] = input.Value;
   }
   return entries;
@@ -3011,10 +3026,10 @@ const serializeAws_queryDimension = (input: Dimension, context: __SerdeContext):
 
 const serializeAws_queryDimensionFilter = (input: DimensionFilter, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name !== undefined) {
+  if (input.Name !== undefined && input.Name !== null) {
     entries["Name"] = input.Name;
   }
-  if (input.Value !== undefined) {
+  if (input.Value !== undefined && input.Value !== null) {
     entries["Value"] = input.Value;
   }
   return entries;
@@ -3024,6 +3039,9 @@ const serializeAws_queryDimensionFilters = (input: DimensionFilter[], context: _
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryDimensionFilter(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
@@ -3037,6 +3055,9 @@ const serializeAws_queryDimensions = (input: Dimension[], context: __SerdeContex
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryDimension(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
@@ -3048,7 +3069,7 @@ const serializeAws_queryDimensions = (input: Dimension[], context: __SerdeContex
 
 const serializeAws_queryDisableAlarmActionsInput = (input: DisableAlarmActionsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AlarmNames !== undefined) {
+  if (input.AlarmNames !== undefined && input.AlarmNames !== null) {
     const memberEntries = serializeAws_queryAlarmNames(input.AlarmNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AlarmNames.${key}`;
@@ -3060,7 +3081,7 @@ const serializeAws_queryDisableAlarmActionsInput = (input: DisableAlarmActionsIn
 
 const serializeAws_queryDisableInsightRulesInput = (input: DisableInsightRulesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RuleNames !== undefined) {
+  if (input.RuleNames !== undefined && input.RuleNames !== null) {
     const memberEntries = serializeAws_queryInsightRuleNames(input.RuleNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RuleNames.${key}`;
@@ -3072,7 +3093,7 @@ const serializeAws_queryDisableInsightRulesInput = (input: DisableInsightRulesIn
 
 const serializeAws_queryEnableAlarmActionsInput = (input: EnableAlarmActionsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AlarmNames !== undefined) {
+  if (input.AlarmNames !== undefined && input.AlarmNames !== null) {
     const memberEntries = serializeAws_queryAlarmNames(input.AlarmNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AlarmNames.${key}`;
@@ -3084,7 +3105,7 @@ const serializeAws_queryEnableAlarmActionsInput = (input: EnableAlarmActionsInpu
 
 const serializeAws_queryEnableInsightRulesInput = (input: EnableInsightRulesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RuleNames !== undefined) {
+  if (input.RuleNames !== undefined && input.RuleNames !== null) {
     const memberEntries = serializeAws_queryInsightRuleNames(input.RuleNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RuleNames.${key}`;
@@ -3098,6 +3119,9 @@ const serializeAws_queryExtendedStatistics = (input: string[], context: __SerdeC
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -3106,7 +3130,7 @@ const serializeAws_queryExtendedStatistics = (input: string[], context: __SerdeC
 
 const serializeAws_queryGetDashboardInput = (input: GetDashboardInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DashboardName !== undefined) {
+  if (input.DashboardName !== undefined && input.DashboardName !== null) {
     entries["DashboardName"] = input.DashboardName;
   }
   return entries;
@@ -3117,29 +3141,29 @@ const serializeAws_queryGetInsightRuleReportInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RuleName !== undefined) {
+  if (input.RuleName !== undefined && input.RuleName !== null) {
     entries["RuleName"] = input.RuleName;
   }
-  if (input.StartTime !== undefined) {
+  if (input.StartTime !== undefined && input.StartTime !== null) {
     entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
   }
-  if (input.EndTime !== undefined) {
+  if (input.EndTime !== undefined && input.EndTime !== null) {
     entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
   }
-  if (input.Period !== undefined) {
+  if (input.Period !== undefined && input.Period !== null) {
     entries["Period"] = input.Period;
   }
-  if (input.MaxContributorCount !== undefined) {
+  if (input.MaxContributorCount !== undefined && input.MaxContributorCount !== null) {
     entries["MaxContributorCount"] = input.MaxContributorCount;
   }
-  if (input.Metrics !== undefined) {
+  if (input.Metrics !== undefined && input.Metrics !== null) {
     const memberEntries = serializeAws_queryInsightRuleMetricList(input.Metrics, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Metrics.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.OrderBy !== undefined) {
+  if (input.OrderBy !== undefined && input.OrderBy !== null) {
     entries["OrderBy"] = input.OrderBy;
   }
   return entries;
@@ -3147,26 +3171,26 @@ const serializeAws_queryGetInsightRuleReportInput = (
 
 const serializeAws_queryGetMetricDataInput = (input: GetMetricDataInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MetricDataQueries !== undefined) {
+  if (input.MetricDataQueries !== undefined && input.MetricDataQueries !== null) {
     const memberEntries = serializeAws_queryMetricDataQueries(input.MetricDataQueries, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MetricDataQueries.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.StartTime !== undefined) {
+  if (input.StartTime !== undefined && input.StartTime !== null) {
     entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
   }
-  if (input.EndTime !== undefined) {
+  if (input.EndTime !== undefined && input.EndTime !== null) {
     entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
   }
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
-  if (input.ScanBy !== undefined) {
+  if (input.ScanBy !== undefined && input.ScanBy !== null) {
     entries["ScanBy"] = input.ScanBy;
   }
-  if (input.MaxDatapoints !== undefined) {
+  if (input.MaxDatapoints !== undefined && input.MaxDatapoints !== null) {
     entries["MaxDatapoints"] = input.MaxDatapoints;
   }
   return entries;
@@ -3174,43 +3198,43 @@ const serializeAws_queryGetMetricDataInput = (input: GetMetricDataInput, context
 
 const serializeAws_queryGetMetricStatisticsInput = (input: GetMetricStatisticsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Namespace !== undefined) {
+  if (input.Namespace !== undefined && input.Namespace !== null) {
     entries["Namespace"] = input.Namespace;
   }
-  if (input.MetricName !== undefined) {
+  if (input.MetricName !== undefined && input.MetricName !== null) {
     entries["MetricName"] = input.MetricName;
   }
-  if (input.Dimensions !== undefined) {
+  if (input.Dimensions !== undefined && input.Dimensions !== null) {
     const memberEntries = serializeAws_queryDimensions(input.Dimensions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Dimensions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.StartTime !== undefined) {
+  if (input.StartTime !== undefined && input.StartTime !== null) {
     entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
   }
-  if (input.EndTime !== undefined) {
+  if (input.EndTime !== undefined && input.EndTime !== null) {
     entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
   }
-  if (input.Period !== undefined) {
+  if (input.Period !== undefined && input.Period !== null) {
     entries["Period"] = input.Period;
   }
-  if (input.Statistics !== undefined) {
+  if (input.Statistics !== undefined && input.Statistics !== null) {
     const memberEntries = serializeAws_queryStatistics(input.Statistics, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Statistics.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ExtendedStatistics !== undefined) {
+  if (input.ExtendedStatistics !== undefined && input.ExtendedStatistics !== null) {
     const memberEntries = serializeAws_queryExtendedStatistics(input.ExtendedStatistics, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExtendedStatistics.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Unit !== undefined) {
+  if (input.Unit !== undefined && input.Unit !== null) {
     entries["Unit"] = input.Unit;
   }
   return entries;
@@ -3221,10 +3245,10 @@ const serializeAws_queryGetMetricWidgetImageInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.MetricWidget !== undefined) {
+  if (input.MetricWidget !== undefined && input.MetricWidget !== null) {
     entries["MetricWidget"] = input.MetricWidget;
   }
-  if (input.OutputFormat !== undefined) {
+  if (input.OutputFormat !== undefined && input.OutputFormat !== null) {
     entries["OutputFormat"] = input.OutputFormat;
   }
   return entries;
@@ -3234,6 +3258,9 @@ const serializeAws_queryInsightRuleMetricList = (input: string[], context: __Ser
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -3244,6 +3271,9 @@ const serializeAws_queryInsightRuleNames = (input: string[], context: __SerdeCon
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -3252,10 +3282,10 @@ const serializeAws_queryInsightRuleNames = (input: string[], context: __SerdeCon
 
 const serializeAws_queryListDashboardsInput = (input: ListDashboardsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DashboardNamePrefix !== undefined) {
+  if (input.DashboardNamePrefix !== undefined && input.DashboardNamePrefix !== null) {
     entries["DashboardNamePrefix"] = input.DashboardNamePrefix;
   }
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
   return entries;
@@ -3263,23 +3293,23 @@ const serializeAws_queryListDashboardsInput = (input: ListDashboardsInput, conte
 
 const serializeAws_queryListMetricsInput = (input: ListMetricsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Namespace !== undefined) {
+  if (input.Namespace !== undefined && input.Namespace !== null) {
     entries["Namespace"] = input.Namespace;
   }
-  if (input.MetricName !== undefined) {
+  if (input.MetricName !== undefined && input.MetricName !== null) {
     entries["MetricName"] = input.MetricName;
   }
-  if (input.Dimensions !== undefined) {
+  if (input.Dimensions !== undefined && input.Dimensions !== null) {
     const memberEntries = serializeAws_queryDimensionFilters(input.Dimensions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Dimensions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
-  if (input.RecentlyActive !== undefined) {
+  if (input.RecentlyActive !== undefined && input.RecentlyActive !== null) {
     entries["RecentlyActive"] = input.RecentlyActive;
   }
   return entries;
@@ -3287,7 +3317,7 @@ const serializeAws_queryListMetricsInput = (input: ListMetricsInput, context: __
 
 const serializeAws_queryListTagsForResourceInput = (input: ListTagsForResourceInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceARN !== undefined) {
+  if (input.ResourceARN !== undefined && input.ResourceARN !== null) {
     entries["ResourceARN"] = input.ResourceARN;
   }
   return entries;
@@ -3295,13 +3325,13 @@ const serializeAws_queryListTagsForResourceInput = (input: ListTagsForResourceIn
 
 const serializeAws_queryMetric = (input: Metric, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Namespace !== undefined) {
+  if (input.Namespace !== undefined && input.Namespace !== null) {
     entries["Namespace"] = input.Namespace;
   }
-  if (input.MetricName !== undefined) {
+  if (input.MetricName !== undefined && input.MetricName !== null) {
     entries["MetricName"] = input.MetricName;
   }
-  if (input.Dimensions !== undefined) {
+  if (input.Dimensions !== undefined && input.Dimensions !== null) {
     const memberEntries = serializeAws_queryDimensions(input.Dimensions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Dimensions.${key}`;
@@ -3315,6 +3345,9 @@ const serializeAws_queryMetricData = (input: MetricDatum[], context: __SerdeCont
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryMetricDatum(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
@@ -3328,6 +3361,9 @@ const serializeAws_queryMetricDataQueries = (input: MetricDataQuery[], context: 
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryMetricDataQuery(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
@@ -3339,26 +3375,26 @@ const serializeAws_queryMetricDataQueries = (input: MetricDataQuery[], context: 
 
 const serializeAws_queryMetricDataQuery = (input: MetricDataQuery, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Id !== undefined) {
+  if (input.Id !== undefined && input.Id !== null) {
     entries["Id"] = input.Id;
   }
-  if (input.MetricStat !== undefined) {
+  if (input.MetricStat !== undefined && input.MetricStat !== null) {
     const memberEntries = serializeAws_queryMetricStat(input.MetricStat, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MetricStat.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Expression !== undefined) {
+  if (input.Expression !== undefined && input.Expression !== null) {
     entries["Expression"] = input.Expression;
   }
-  if (input.Label !== undefined) {
+  if (input.Label !== undefined && input.Label !== null) {
     entries["Label"] = input.Label;
   }
-  if (input.ReturnData !== undefined) {
+  if (input.ReturnData !== undefined && input.ReturnData !== null) {
     entries["ReturnData"] = input.ReturnData;
   }
-  if (input.Period !== undefined) {
+  if (input.Period !== undefined && input.Period !== null) {
     entries["Period"] = input.Period;
   }
   return entries;
@@ -3366,47 +3402,47 @@ const serializeAws_queryMetricDataQuery = (input: MetricDataQuery, context: __Se
 
 const serializeAws_queryMetricDatum = (input: MetricDatum, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MetricName !== undefined) {
+  if (input.MetricName !== undefined && input.MetricName !== null) {
     entries["MetricName"] = input.MetricName;
   }
-  if (input.Dimensions !== undefined) {
+  if (input.Dimensions !== undefined && input.Dimensions !== null) {
     const memberEntries = serializeAws_queryDimensions(input.Dimensions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Dimensions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Timestamp !== undefined) {
+  if (input.Timestamp !== undefined && input.Timestamp !== null) {
     entries["Timestamp"] = input.Timestamp.toISOString().split(".")[0] + "Z";
   }
-  if (input.Value !== undefined) {
+  if (input.Value !== undefined && input.Value !== null) {
     entries["Value"] = input.Value;
   }
-  if (input.StatisticValues !== undefined) {
+  if (input.StatisticValues !== undefined && input.StatisticValues !== null) {
     const memberEntries = serializeAws_queryStatisticSet(input.StatisticValues, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `StatisticValues.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Values !== undefined) {
+  if (input.Values !== undefined && input.Values !== null) {
     const memberEntries = serializeAws_queryValues(input.Values, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Values.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Counts !== undefined) {
+  if (input.Counts !== undefined && input.Counts !== null) {
     const memberEntries = serializeAws_queryCounts(input.Counts, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Counts.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Unit !== undefined) {
+  if (input.Unit !== undefined && input.Unit !== null) {
     entries["Unit"] = input.Unit;
   }
-  if (input.StorageResolution !== undefined) {
+  if (input.StorageResolution !== undefined && input.StorageResolution !== null) {
     entries["StorageResolution"] = input.StorageResolution;
   }
   return entries;
@@ -3414,20 +3450,20 @@ const serializeAws_queryMetricDatum = (input: MetricDatum, context: __SerdeConte
 
 const serializeAws_queryMetricStat = (input: MetricStat, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Metric !== undefined) {
+  if (input.Metric !== undefined && input.Metric !== null) {
     const memberEntries = serializeAws_queryMetric(input.Metric, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Metric.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Period !== undefined) {
+  if (input.Period !== undefined && input.Period !== null) {
     entries["Period"] = input.Period;
   }
-  if (input.Stat !== undefined) {
+  if (input.Stat !== undefined && input.Stat !== null) {
     entries["Stat"] = input.Stat;
   }
-  if (input.Unit !== undefined) {
+  if (input.Unit !== undefined && input.Unit !== null) {
     entries["Unit"] = input.Unit;
   }
   return entries;
@@ -3435,23 +3471,23 @@ const serializeAws_queryMetricStat = (input: MetricStat, context: __SerdeContext
 
 const serializeAws_queryPutAnomalyDetectorInput = (input: PutAnomalyDetectorInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Namespace !== undefined) {
+  if (input.Namespace !== undefined && input.Namespace !== null) {
     entries["Namespace"] = input.Namespace;
   }
-  if (input.MetricName !== undefined) {
+  if (input.MetricName !== undefined && input.MetricName !== null) {
     entries["MetricName"] = input.MetricName;
   }
-  if (input.Dimensions !== undefined) {
+  if (input.Dimensions !== undefined && input.Dimensions !== null) {
     const memberEntries = serializeAws_queryDimensions(input.Dimensions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Dimensions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Stat !== undefined) {
+  if (input.Stat !== undefined && input.Stat !== null) {
     entries["Stat"] = input.Stat;
   }
-  if (input.Configuration !== undefined) {
+  if (input.Configuration !== undefined && input.Configuration !== null) {
     const memberEntries = serializeAws_queryAnomalyDetectorConfiguration(input.Configuration, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Configuration.${key}`;
@@ -3463,40 +3499,40 @@ const serializeAws_queryPutAnomalyDetectorInput = (input: PutAnomalyDetectorInpu
 
 const serializeAws_queryPutCompositeAlarmInput = (input: PutCompositeAlarmInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ActionsEnabled !== undefined) {
+  if (input.ActionsEnabled !== undefined && input.ActionsEnabled !== null) {
     entries["ActionsEnabled"] = input.ActionsEnabled;
   }
-  if (input.AlarmActions !== undefined) {
+  if (input.AlarmActions !== undefined && input.AlarmActions !== null) {
     const memberEntries = serializeAws_queryResourceList(input.AlarmActions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AlarmActions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.AlarmDescription !== undefined) {
+  if (input.AlarmDescription !== undefined && input.AlarmDescription !== null) {
     entries["AlarmDescription"] = input.AlarmDescription;
   }
-  if (input.AlarmName !== undefined) {
+  if (input.AlarmName !== undefined && input.AlarmName !== null) {
     entries["AlarmName"] = input.AlarmName;
   }
-  if (input.AlarmRule !== undefined) {
+  if (input.AlarmRule !== undefined && input.AlarmRule !== null) {
     entries["AlarmRule"] = input.AlarmRule;
   }
-  if (input.InsufficientDataActions !== undefined) {
+  if (input.InsufficientDataActions !== undefined && input.InsufficientDataActions !== null) {
     const memberEntries = serializeAws_queryResourceList(input.InsufficientDataActions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InsufficientDataActions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.OKActions !== undefined) {
+  if (input.OKActions !== undefined && input.OKActions !== null) {
     const memberEntries = serializeAws_queryResourceList(input.OKActions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OKActions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -3508,10 +3544,10 @@ const serializeAws_queryPutCompositeAlarmInput = (input: PutCompositeAlarmInput,
 
 const serializeAws_queryPutDashboardInput = (input: PutDashboardInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DashboardName !== undefined) {
+  if (input.DashboardName !== undefined && input.DashboardName !== null) {
     entries["DashboardName"] = input.DashboardName;
   }
-  if (input.DashboardBody !== undefined) {
+  if (input.DashboardBody !== undefined && input.DashboardBody !== null) {
     entries["DashboardBody"] = input.DashboardBody;
   }
   return entries;
@@ -3519,16 +3555,16 @@ const serializeAws_queryPutDashboardInput = (input: PutDashboardInput, context: 
 
 const serializeAws_queryPutInsightRuleInput = (input: PutInsightRuleInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RuleName !== undefined) {
+  if (input.RuleName !== undefined && input.RuleName !== null) {
     entries["RuleName"] = input.RuleName;
   }
-  if (input.RuleState !== undefined) {
+  if (input.RuleState !== undefined && input.RuleState !== null) {
     entries["RuleState"] = input.RuleState;
   }
-  if (input.RuleDefinition !== undefined) {
+  if (input.RuleDefinition !== undefined && input.RuleDefinition !== null) {
     entries["RuleDefinition"] = input.RuleDefinition;
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -3540,94 +3576,94 @@ const serializeAws_queryPutInsightRuleInput = (input: PutInsightRuleInput, conte
 
 const serializeAws_queryPutMetricAlarmInput = (input: PutMetricAlarmInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AlarmName !== undefined) {
+  if (input.AlarmName !== undefined && input.AlarmName !== null) {
     entries["AlarmName"] = input.AlarmName;
   }
-  if (input.AlarmDescription !== undefined) {
+  if (input.AlarmDescription !== undefined && input.AlarmDescription !== null) {
     entries["AlarmDescription"] = input.AlarmDescription;
   }
-  if (input.ActionsEnabled !== undefined) {
+  if (input.ActionsEnabled !== undefined && input.ActionsEnabled !== null) {
     entries["ActionsEnabled"] = input.ActionsEnabled;
   }
-  if (input.OKActions !== undefined) {
+  if (input.OKActions !== undefined && input.OKActions !== null) {
     const memberEntries = serializeAws_queryResourceList(input.OKActions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OKActions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.AlarmActions !== undefined) {
+  if (input.AlarmActions !== undefined && input.AlarmActions !== null) {
     const memberEntries = serializeAws_queryResourceList(input.AlarmActions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AlarmActions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.InsufficientDataActions !== undefined) {
+  if (input.InsufficientDataActions !== undefined && input.InsufficientDataActions !== null) {
     const memberEntries = serializeAws_queryResourceList(input.InsufficientDataActions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InsufficientDataActions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.MetricName !== undefined) {
+  if (input.MetricName !== undefined && input.MetricName !== null) {
     entries["MetricName"] = input.MetricName;
   }
-  if (input.Namespace !== undefined) {
+  if (input.Namespace !== undefined && input.Namespace !== null) {
     entries["Namespace"] = input.Namespace;
   }
-  if (input.Statistic !== undefined) {
+  if (input.Statistic !== undefined && input.Statistic !== null) {
     entries["Statistic"] = input.Statistic;
   }
-  if (input.ExtendedStatistic !== undefined) {
+  if (input.ExtendedStatistic !== undefined && input.ExtendedStatistic !== null) {
     entries["ExtendedStatistic"] = input.ExtendedStatistic;
   }
-  if (input.Dimensions !== undefined) {
+  if (input.Dimensions !== undefined && input.Dimensions !== null) {
     const memberEntries = serializeAws_queryDimensions(input.Dimensions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Dimensions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Period !== undefined) {
+  if (input.Period !== undefined && input.Period !== null) {
     entries["Period"] = input.Period;
   }
-  if (input.Unit !== undefined) {
+  if (input.Unit !== undefined && input.Unit !== null) {
     entries["Unit"] = input.Unit;
   }
-  if (input.EvaluationPeriods !== undefined) {
+  if (input.EvaluationPeriods !== undefined && input.EvaluationPeriods !== null) {
     entries["EvaluationPeriods"] = input.EvaluationPeriods;
   }
-  if (input.DatapointsToAlarm !== undefined) {
+  if (input.DatapointsToAlarm !== undefined && input.DatapointsToAlarm !== null) {
     entries["DatapointsToAlarm"] = input.DatapointsToAlarm;
   }
-  if (input.Threshold !== undefined) {
+  if (input.Threshold !== undefined && input.Threshold !== null) {
     entries["Threshold"] = input.Threshold;
   }
-  if (input.ComparisonOperator !== undefined) {
+  if (input.ComparisonOperator !== undefined && input.ComparisonOperator !== null) {
     entries["ComparisonOperator"] = input.ComparisonOperator;
   }
-  if (input.TreatMissingData !== undefined) {
+  if (input.TreatMissingData !== undefined && input.TreatMissingData !== null) {
     entries["TreatMissingData"] = input.TreatMissingData;
   }
-  if (input.EvaluateLowSampleCountPercentile !== undefined) {
+  if (input.EvaluateLowSampleCountPercentile !== undefined && input.EvaluateLowSampleCountPercentile !== null) {
     entries["EvaluateLowSampleCountPercentile"] = input.EvaluateLowSampleCountPercentile;
   }
-  if (input.Metrics !== undefined) {
+  if (input.Metrics !== undefined && input.Metrics !== null) {
     const memberEntries = serializeAws_queryMetricDataQueries(input.Metrics, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Metrics.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ThresholdMetricId !== undefined) {
+  if (input.ThresholdMetricId !== undefined && input.ThresholdMetricId !== null) {
     entries["ThresholdMetricId"] = input.ThresholdMetricId;
   }
   return entries;
@@ -3635,10 +3671,10 @@ const serializeAws_queryPutMetricAlarmInput = (input: PutMetricAlarmInput, conte
 
 const serializeAws_queryPutMetricDataInput = (input: PutMetricDataInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Namespace !== undefined) {
+  if (input.Namespace !== undefined && input.Namespace !== null) {
     entries["Namespace"] = input.Namespace;
   }
-  if (input.MetricData !== undefined) {
+  if (input.MetricData !== undefined && input.MetricData !== null) {
     const memberEntries = serializeAws_queryMetricData(input.MetricData, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MetricData.${key}`;
@@ -3650,10 +3686,10 @@ const serializeAws_queryPutMetricDataInput = (input: PutMetricDataInput, context
 
 const serializeAws_queryRange = (input: Range, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StartTime !== undefined) {
+  if (input.StartTime !== undefined && input.StartTime !== null) {
     entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
   }
-  if (input.EndTime !== undefined) {
+  if (input.EndTime !== undefined && input.EndTime !== null) {
     entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
   }
   return entries;
@@ -3663,6 +3699,9 @@ const serializeAws_queryResourceList = (input: string[], context: __SerdeContext
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -3671,16 +3710,16 @@ const serializeAws_queryResourceList = (input: string[], context: __SerdeContext
 
 const serializeAws_querySetAlarmStateInput = (input: SetAlarmStateInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AlarmName !== undefined) {
+  if (input.AlarmName !== undefined && input.AlarmName !== null) {
     entries["AlarmName"] = input.AlarmName;
   }
-  if (input.StateValue !== undefined) {
+  if (input.StateValue !== undefined && input.StateValue !== null) {
     entries["StateValue"] = input.StateValue;
   }
-  if (input.StateReason !== undefined) {
+  if (input.StateReason !== undefined && input.StateReason !== null) {
     entries["StateReason"] = input.StateReason;
   }
-  if (input.StateReasonData !== undefined) {
+  if (input.StateReasonData !== undefined && input.StateReasonData !== null) {
     entries["StateReasonData"] = input.StateReasonData;
   }
   return entries;
@@ -3690,6 +3729,9 @@ const serializeAws_queryStatistics = (input: (Statistic | string)[], context: __
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -3698,16 +3740,16 @@ const serializeAws_queryStatistics = (input: (Statistic | string)[], context: __
 
 const serializeAws_queryStatisticSet = (input: StatisticSet, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SampleCount !== undefined) {
+  if (input.SampleCount !== undefined && input.SampleCount !== null) {
     entries["SampleCount"] = input.SampleCount;
   }
-  if (input.Sum !== undefined) {
+  if (input.Sum !== undefined && input.Sum !== null) {
     entries["Sum"] = input.Sum;
   }
-  if (input.Minimum !== undefined) {
+  if (input.Minimum !== undefined && input.Minimum !== null) {
     entries["Minimum"] = input.Minimum;
   }
-  if (input.Maximum !== undefined) {
+  if (input.Maximum !== undefined && input.Maximum !== null) {
     entries["Maximum"] = input.Maximum;
   }
   return entries;
@@ -3715,10 +3757,10 @@ const serializeAws_queryStatisticSet = (input: StatisticSet, context: __SerdeCon
 
 const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key !== undefined) {
+  if (input.Key !== undefined && input.Key !== null) {
     entries["Key"] = input.Key;
   }
-  if (input.Value !== undefined) {
+  if (input.Value !== undefined && input.Value !== null) {
     entries["Value"] = input.Value;
   }
   return entries;
@@ -3728,6 +3770,9 @@ const serializeAws_queryTagKeyList = (input: string[], context: __SerdeContext):
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -3738,6 +3783,9 @@ const serializeAws_queryTagList = (input: Tag[], context: __SerdeContext): any =
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryTag(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
@@ -3749,10 +3797,10 @@ const serializeAws_queryTagList = (input: Tag[], context: __SerdeContext): any =
 
 const serializeAws_queryTagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceARN !== undefined) {
+  if (input.ResourceARN !== undefined && input.ResourceARN !== null) {
     entries["ResourceARN"] = input.ResourceARN;
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -3764,10 +3812,10 @@ const serializeAws_queryTagResourceInput = (input: TagResourceInput, context: __
 
 const serializeAws_queryUntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceARN !== undefined) {
+  if (input.ResourceARN !== undefined && input.ResourceARN !== null) {
     entries["ResourceARN"] = input.ResourceARN;
   }
-  if (input.TagKeys !== undefined) {
+  if (input.TagKeys !== undefined && input.TagKeys !== null) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
@@ -3781,6 +3829,9 @@ const serializeAws_queryValues = (input: number[], context: __SerdeContext): any
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -3818,7 +3869,14 @@ const deserializeAws_queryAlarmHistoryItem = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryAlarmHistoryItems = (output: any, context: __SerdeContext): AlarmHistoryItem[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryAlarmHistoryItem(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryAlarmHistoryItem(entry, context);
+    });
 };
 
 const deserializeAws_queryAnomalyDetector = (output: any, context: __SerdeContext): AnomalyDetector => {
@@ -3881,15 +3939,36 @@ const deserializeAws_queryAnomalyDetectorConfiguration = (
 };
 
 const deserializeAws_queryAnomalyDetectorExcludedTimeRanges = (output: any, context: __SerdeContext): Range[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryRange(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryRange(entry, context);
+    });
 };
 
 const deserializeAws_queryAnomalyDetectors = (output: any, context: __SerdeContext): AnomalyDetector[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryAnomalyDetector(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryAnomalyDetector(entry, context);
+    });
 };
 
 const deserializeAws_queryBatchFailures = (output: any, context: __SerdeContext): PartialFailure[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryPartialFailure(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryPartialFailure(entry, context);
+    });
 };
 
 const deserializeAws_queryCompositeAlarm = (output: any, context: __SerdeContext): CompositeAlarm => {
@@ -3969,7 +4048,14 @@ const deserializeAws_queryCompositeAlarm = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryCompositeAlarms = (output: any, context: __SerdeContext): CompositeAlarm[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryCompositeAlarm(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryCompositeAlarm(entry, context);
+    });
 };
 
 const deserializeAws_queryConcurrentModificationException = (
@@ -3986,7 +4072,14 @@ const deserializeAws_queryConcurrentModificationException = (
 };
 
 const deserializeAws_queryDashboardEntries = (output: any, context: __SerdeContext): DashboardEntry[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryDashboardEntry(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryDashboardEntry(entry, context);
+    });
 };
 
 const deserializeAws_queryDashboardEntry = (output: any, context: __SerdeContext): DashboardEntry => {
@@ -4068,7 +4161,14 @@ const deserializeAws_queryDashboardValidationMessages = (
   output: any,
   context: __SerdeContext
 ): DashboardValidationMessage[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryDashboardValidationMessage(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryDashboardValidationMessage(entry, context);
+    });
 };
 
 const deserializeAws_queryDatapoint = (output: any, context: __SerdeContext): Datapoint => {
@@ -4116,21 +4216,37 @@ const deserializeAws_queryDatapoint = (output: any, context: __SerdeContext): Da
 };
 
 const deserializeAws_queryDatapoints = (output: any, context: __SerdeContext): Datapoint[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryDatapoint(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryDatapoint(entry, context);
+    });
 };
 
 const deserializeAws_queryDatapointValueMap = (output: any, context: __SerdeContext): { [key: string]: number } => {
-  return output.reduce(
-    (acc: any, pair: any) => ({
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["value"] === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [pair["key"]]: parseFloat(pair["value"]),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_queryDatapointValues = (output: any, context: __SerdeContext): number[] => {
-  return (output || []).map((entry: any) => parseFloat(entry));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return parseFloat(entry);
+    });
 };
 
 const deserializeAws_queryDeleteAnomalyDetectorOutput = (
@@ -4298,7 +4414,14 @@ const deserializeAws_queryDimension = (output: any, context: __SerdeContext): Di
 };
 
 const deserializeAws_queryDimensions = (output: any, context: __SerdeContext): Dimension[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryDimension(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryDimension(entry, context);
+    });
 };
 
 const deserializeAws_queryDisableInsightRulesOutput = (
@@ -4547,22 +4670,50 @@ const deserializeAws_queryInsightRuleContributorDatapoints = (
   output: any,
   context: __SerdeContext
 ): InsightRuleContributorDatapoint[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryInsightRuleContributorDatapoint(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryInsightRuleContributorDatapoint(entry, context);
+    });
 };
 
 const deserializeAws_queryInsightRuleContributorKeyLabels = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryInsightRuleContributorKeys = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryInsightRuleContributors = (
   output: any,
   context: __SerdeContext
 ): InsightRuleContributor[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryInsightRuleContributor(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryInsightRuleContributor(entry, context);
+    });
 };
 
 const deserializeAws_queryInsightRuleMetricDatapoint = (
@@ -4610,11 +4761,25 @@ const deserializeAws_queryInsightRuleMetricDatapoints = (
   output: any,
   context: __SerdeContext
 ): InsightRuleMetricDatapoint[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryInsightRuleMetricDatapoint(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryInsightRuleMetricDatapoint(entry, context);
+    });
 };
 
 const deserializeAws_queryInsightRules = (output: any, context: __SerdeContext): InsightRule[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryInsightRule(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryInsightRule(entry, context);
+    });
 };
 
 const deserializeAws_queryInternalServiceFault = (output: any, context: __SerdeContext): InternalServiceFault => {
@@ -4929,11 +5094,25 @@ const deserializeAws_queryMetricAlarm = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_queryMetricAlarms = (output: any, context: __SerdeContext): MetricAlarm[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryMetricAlarm(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryMetricAlarm(entry, context);
+    });
 };
 
 const deserializeAws_queryMetricDataQueries = (output: any, context: __SerdeContext): MetricDataQuery[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryMetricDataQuery(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryMetricDataQuery(entry, context);
+    });
 };
 
 const deserializeAws_queryMetricDataQuery = (output: any, context: __SerdeContext): MetricDataQuery => {
@@ -5012,15 +5191,36 @@ const deserializeAws_queryMetricDataResult = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryMetricDataResultMessages = (output: any, context: __SerdeContext): MessageData[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryMessageData(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryMessageData(entry, context);
+    });
 };
 
 const deserializeAws_queryMetricDataResults = (output: any, context: __SerdeContext): MetricDataResult[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryMetricDataResult(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryMetricDataResult(entry, context);
+    });
 };
 
 const deserializeAws_queryMetrics = (output: any, context: __SerdeContext): Metric[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryMetric(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryMetric(entry, context);
+    });
 };
 
 const deserializeAws_queryMetricStat = (output: any, context: __SerdeContext): MetricStat => {
@@ -5127,7 +5327,14 @@ const deserializeAws_queryRange = (output: any, context: __SerdeContext): Range 
 };
 
 const deserializeAws_queryResourceList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryResourceNotFound = (output: any, context: __SerdeContext): ResourceNotFound => {
@@ -5176,7 +5383,14 @@ const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
 };
 
 const deserializeAws_queryTagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryTag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryTag(entry, context);
+    });
 };
 
 const deserializeAws_queryTagResourceOutput = (output: any, context: __SerdeContext): TagResourceOutput => {
@@ -5185,7 +5399,14 @@ const deserializeAws_queryTagResourceOutput = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryTimestamps = (output: any, context: __SerdeContext): Date[] => {
-  return (output || []).map((entry: any) => new Date(entry));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return new Date(entry);
+    });
 };
 
 const deserializeAws_queryUntagResourceOutput = (output: any, context: __SerdeContext): UntagResourceOutput => {

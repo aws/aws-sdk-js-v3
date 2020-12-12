@@ -46,7 +46,7 @@ export const serializeAws_json1_1DeleteReportDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrigamiServiceGatewayService.DeleteReportDefinition",
   };
   let body: any;
@@ -59,7 +59,7 @@ export const serializeAws_json1_1DescribeReportDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrigamiServiceGatewayService.DescribeReportDefinitions",
   };
   let body: any;
@@ -72,7 +72,7 @@ export const serializeAws_json1_1ModifyReportDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrigamiServiceGatewayService.ModifyReportDefinition",
   };
   let body: any;
@@ -85,7 +85,7 @@ export const serializeAws_json1_1PutReportDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrigamiServiceGatewayService.PutReportDefinition",
   };
   let body: any;
@@ -120,8 +120,7 @@ const deserializeAws_json1_1DeleteReportDefinitionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.costandusagereportservice#InternalErrorException":
@@ -183,8 +182,7 @@ const deserializeAws_json1_1DescribeReportDefinitionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.costandusagereportservice#InternalErrorException":
@@ -238,8 +236,7 @@ const deserializeAws_json1_1ModifyReportDefinitionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.costandusagereportservice#InternalErrorException":
@@ -301,8 +298,7 @@ const deserializeAws_json1_1PutReportDefinitionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateReportNameException":
     case "com.amazonaws.costandusagereportservice#DuplicateReportNameException":
@@ -417,7 +413,14 @@ const serializeAws_json1_1AdditionalArtifactList = (
   input: (AdditionalArtifact | string)[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1DeleteReportDefinitionRequest = (
@@ -425,7 +428,7 @@ const serializeAws_json1_1DeleteReportDefinitionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ReportName !== undefined && { ReportName: input.ReportName }),
+    ...(input.ReportName !== undefined && input.ReportName !== null && { ReportName: input.ReportName }),
   };
 };
 
@@ -434,8 +437,8 @@ const serializeAws_json1_1DescribeReportDefinitionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -444,10 +447,11 @@ const serializeAws_json1_1ModifyReportDefinitionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ReportDefinition !== undefined && {
-      ReportDefinition: serializeAws_json1_1ReportDefinition(input.ReportDefinition, context),
-    }),
-    ...(input.ReportName !== undefined && { ReportName: input.ReportName }),
+    ...(input.ReportDefinition !== undefined &&
+      input.ReportDefinition !== null && {
+        ReportDefinition: serializeAws_json1_1ReportDefinition(input.ReportDefinition, context),
+      }),
+    ...(input.ReportName !== undefined && input.ReportName !== null && { ReportName: input.ReportName }),
   };
 };
 
@@ -456,41 +460,60 @@ const serializeAws_json1_1PutReportDefinitionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ReportDefinition !== undefined && {
-      ReportDefinition: serializeAws_json1_1ReportDefinition(input.ReportDefinition, context),
-    }),
+    ...(input.ReportDefinition !== undefined &&
+      input.ReportDefinition !== null && {
+        ReportDefinition: serializeAws_json1_1ReportDefinition(input.ReportDefinition, context),
+      }),
   };
 };
 
 const serializeAws_json1_1ReportDefinition = (input: ReportDefinition, context: __SerdeContext): any => {
   return {
-    ...(input.AdditionalArtifacts !== undefined && {
-      AdditionalArtifacts: serializeAws_json1_1AdditionalArtifactList(input.AdditionalArtifacts, context),
-    }),
-    ...(input.AdditionalSchemaElements !== undefined && {
-      AdditionalSchemaElements: serializeAws_json1_1SchemaElementList(input.AdditionalSchemaElements, context),
-    }),
-    ...(input.Compression !== undefined && { Compression: input.Compression }),
-    ...(input.Format !== undefined && { Format: input.Format }),
-    ...(input.RefreshClosedReports !== undefined && { RefreshClosedReports: input.RefreshClosedReports }),
-    ...(input.ReportName !== undefined && { ReportName: input.ReportName }),
-    ...(input.ReportVersioning !== undefined && { ReportVersioning: input.ReportVersioning }),
-    ...(input.S3Bucket !== undefined && { S3Bucket: input.S3Bucket }),
-    ...(input.S3Prefix !== undefined && { S3Prefix: input.S3Prefix }),
-    ...(input.S3Region !== undefined && { S3Region: input.S3Region }),
-    ...(input.TimeUnit !== undefined && { TimeUnit: input.TimeUnit }),
+    ...(input.AdditionalArtifacts !== undefined &&
+      input.AdditionalArtifacts !== null && {
+        AdditionalArtifacts: serializeAws_json1_1AdditionalArtifactList(input.AdditionalArtifacts, context),
+      }),
+    ...(input.AdditionalSchemaElements !== undefined &&
+      input.AdditionalSchemaElements !== null && {
+        AdditionalSchemaElements: serializeAws_json1_1SchemaElementList(input.AdditionalSchemaElements, context),
+      }),
+    ...(input.Compression !== undefined && input.Compression !== null && { Compression: input.Compression }),
+    ...(input.Format !== undefined && input.Format !== null && { Format: input.Format }),
+    ...(input.RefreshClosedReports !== undefined &&
+      input.RefreshClosedReports !== null && { RefreshClosedReports: input.RefreshClosedReports }),
+    ...(input.ReportName !== undefined && input.ReportName !== null && { ReportName: input.ReportName }),
+    ...(input.ReportVersioning !== undefined &&
+      input.ReportVersioning !== null && { ReportVersioning: input.ReportVersioning }),
+    ...(input.S3Bucket !== undefined && input.S3Bucket !== null && { S3Bucket: input.S3Bucket }),
+    ...(input.S3Prefix !== undefined && input.S3Prefix !== null && { S3Prefix: input.S3Prefix }),
+    ...(input.S3Region !== undefined && input.S3Region !== null && { S3Region: input.S3Region }),
+    ...(input.TimeUnit !== undefined && input.TimeUnit !== null && { TimeUnit: input.TimeUnit }),
   };
 };
 
 const serializeAws_json1_1SchemaElementList = (input: (SchemaElement | string)[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1AdditionalArtifactList = (
   output: any,
   context: __SerdeContext
 ): (AdditionalArtifact | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1DeleteReportDefinitionResponse = (
@@ -572,7 +595,14 @@ const deserializeAws_json1_1ReportDefinition = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1ReportDefinitionList = (output: any, context: __SerdeContext): ReportDefinition[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ReportDefinition(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ReportDefinition(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ReportLimitReachedException = (
@@ -585,7 +615,14 @@ const deserializeAws_json1_1ReportLimitReachedException = (
 };
 
 const deserializeAws_json1_1SchemaElementList = (output: any, context: __SerdeContext): (SchemaElement | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
@@ -644,3 +681,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

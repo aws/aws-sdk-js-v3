@@ -22,16 +22,17 @@ export const serializeAws_restJson1GetMediaCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/getMedia";
   let body: any;
   body = JSON.stringify({
-    ...(input.StartSelector !== undefined && {
-      StartSelector: serializeAws_restJson1StartSelector(input.StartSelector, context),
-    }),
-    ...(input.StreamARN !== undefined && { StreamARN: input.StreamARN }),
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.StartSelector !== undefined &&
+      input.StartSelector !== null && {
+        StartSelector: serializeAws_restJson1StartSelector(input.StartSelector, context),
+      }),
+    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -246,10 +247,14 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
 
 const serializeAws_restJson1StartSelector = (input: StartSelector, context: __SerdeContext): any => {
   return {
-    ...(input.AfterFragmentNumber !== undefined && { AfterFragmentNumber: input.AfterFragmentNumber }),
-    ...(input.ContinuationToken !== undefined && { ContinuationToken: input.ContinuationToken }),
-    ...(input.StartSelectorType !== undefined && { StartSelectorType: input.StartSelectorType }),
-    ...(input.StartTimestamp !== undefined && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
+    ...(input.AfterFragmentNumber !== undefined &&
+      input.AfterFragmentNumber !== null && { AfterFragmentNumber: input.AfterFragmentNumber }),
+    ...(input.ContinuationToken !== undefined &&
+      input.ContinuationToken !== null && { ContinuationToken: input.ContinuationToken }),
+    ...(input.StartSelectorType !== undefined &&
+      input.StartSelectorType !== null && { StartSelectorType: input.StartSelectorType }),
+    ...(input.StartTimestamp !== undefined &&
+      input.StartTimestamp !== null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
   };
 };
 
@@ -273,6 +278,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

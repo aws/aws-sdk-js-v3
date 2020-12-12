@@ -132,7 +132,7 @@ export const serializeAws_json1_1AssociateCreatedArtifactCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSMigrationHub.AssociateCreatedArtifact",
   };
   let body: any;
@@ -145,7 +145,7 @@ export const serializeAws_json1_1AssociateDiscoveredResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSMigrationHub.AssociateDiscoveredResource",
   };
   let body: any;
@@ -158,7 +158,7 @@ export const serializeAws_json1_1CreateProgressUpdateStreamCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSMigrationHub.CreateProgressUpdateStream",
   };
   let body: any;
@@ -171,7 +171,7 @@ export const serializeAws_json1_1DeleteProgressUpdateStreamCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSMigrationHub.DeleteProgressUpdateStream",
   };
   let body: any;
@@ -184,7 +184,7 @@ export const serializeAws_json1_1DescribeApplicationStateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSMigrationHub.DescribeApplicationState",
   };
   let body: any;
@@ -197,7 +197,7 @@ export const serializeAws_json1_1DescribeMigrationTaskCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSMigrationHub.DescribeMigrationTask",
   };
   let body: any;
@@ -210,7 +210,7 @@ export const serializeAws_json1_1DisassociateCreatedArtifactCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSMigrationHub.DisassociateCreatedArtifact",
   };
   let body: any;
@@ -223,7 +223,7 @@ export const serializeAws_json1_1DisassociateDiscoveredResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSMigrationHub.DisassociateDiscoveredResource",
   };
   let body: any;
@@ -236,7 +236,7 @@ export const serializeAws_json1_1ImportMigrationTaskCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSMigrationHub.ImportMigrationTask",
   };
   let body: any;
@@ -249,7 +249,7 @@ export const serializeAws_json1_1ListApplicationStatesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSMigrationHub.ListApplicationStates",
   };
   let body: any;
@@ -262,7 +262,7 @@ export const serializeAws_json1_1ListCreatedArtifactsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSMigrationHub.ListCreatedArtifacts",
   };
   let body: any;
@@ -275,7 +275,7 @@ export const serializeAws_json1_1ListDiscoveredResourcesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSMigrationHub.ListDiscoveredResources",
   };
   let body: any;
@@ -288,7 +288,7 @@ export const serializeAws_json1_1ListMigrationTasksCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSMigrationHub.ListMigrationTasks",
   };
   let body: any;
@@ -301,7 +301,7 @@ export const serializeAws_json1_1ListProgressUpdateStreamsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSMigrationHub.ListProgressUpdateStreams",
   };
   let body: any;
@@ -314,7 +314,7 @@ export const serializeAws_json1_1NotifyApplicationStateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSMigrationHub.NotifyApplicationState",
   };
   let body: any;
@@ -327,7 +327,7 @@ export const serializeAws_json1_1NotifyMigrationTaskStateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSMigrationHub.NotifyMigrationTaskState",
   };
   let body: any;
@@ -340,7 +340,7 @@ export const serializeAws_json1_1PutResourceAttributesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSMigrationHub.PutResourceAttributes",
   };
   let body: any;
@@ -375,8 +375,7 @@ const deserializeAws_json1_1AssociateCreatedArtifactCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhub#AccessDeniedException":
@@ -494,8 +493,7 @@ const deserializeAws_json1_1AssociateDiscoveredResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhub#AccessDeniedException":
@@ -621,8 +619,7 @@ const deserializeAws_json1_1CreateProgressUpdateStreamCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhub#AccessDeniedException":
@@ -732,8 +729,7 @@ const deserializeAws_json1_1DeleteProgressUpdateStreamCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhub#AccessDeniedException":
@@ -851,8 +847,7 @@ const deserializeAws_json1_1DescribeApplicationStateCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhub#AccessDeniedException":
@@ -962,8 +957,7 @@ const deserializeAws_json1_1DescribeMigrationTaskCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhub#AccessDeniedException":
@@ -1065,8 +1059,7 @@ const deserializeAws_json1_1DisassociateCreatedArtifactCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhub#AccessDeniedException":
@@ -1184,8 +1177,7 @@ const deserializeAws_json1_1DisassociateDiscoveredResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhub#AccessDeniedException":
@@ -1303,8 +1295,7 @@ const deserializeAws_json1_1ImportMigrationTaskCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhub#AccessDeniedException":
@@ -1422,8 +1413,7 @@ const deserializeAws_json1_1ListApplicationStatesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhub#AccessDeniedException":
@@ -1517,8 +1507,7 @@ const deserializeAws_json1_1ListCreatedArtifactsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhub#AccessDeniedException":
@@ -1620,8 +1609,7 @@ const deserializeAws_json1_1ListDiscoveredResourcesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhub#AccessDeniedException":
@@ -1723,8 +1711,7 @@ const deserializeAws_json1_1ListMigrationTasksCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhub#AccessDeniedException":
@@ -1834,8 +1821,7 @@ const deserializeAws_json1_1ListProgressUpdateStreamsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhub#AccessDeniedException":
@@ -1929,8 +1915,7 @@ const deserializeAws_json1_1NotifyApplicationStateCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhub#AccessDeniedException":
@@ -2056,8 +2041,7 @@ const deserializeAws_json1_1NotifyMigrationTaskStateCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhub#AccessDeniedException":
@@ -2175,8 +2159,7 @@ const deserializeAws_json1_1PutResourceAttributesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhub#AccessDeniedException":
@@ -2418,7 +2401,14 @@ const deserializeAws_json1_1UnauthorizedOperationResponse = async (
 };
 
 const serializeAws_json1_1ApplicationIds = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1AssociateCreatedArtifactRequest = (
@@ -2426,12 +2416,15 @@ const serializeAws_json1_1AssociateCreatedArtifactRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CreatedArtifact !== undefined && {
-      CreatedArtifact: serializeAws_json1_1CreatedArtifact(input.CreatedArtifact, context),
-    }),
-    ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
-    ...(input.MigrationTaskName !== undefined && { MigrationTaskName: input.MigrationTaskName }),
-    ...(input.ProgressUpdateStream !== undefined && { ProgressUpdateStream: input.ProgressUpdateStream }),
+    ...(input.CreatedArtifact !== undefined &&
+      input.CreatedArtifact !== null && {
+        CreatedArtifact: serializeAws_json1_1CreatedArtifact(input.CreatedArtifact, context),
+      }),
+    ...(input.DryRun !== undefined && input.DryRun !== null && { DryRun: input.DryRun }),
+    ...(input.MigrationTaskName !== undefined &&
+      input.MigrationTaskName !== null && { MigrationTaskName: input.MigrationTaskName }),
+    ...(input.ProgressUpdateStream !== undefined &&
+      input.ProgressUpdateStream !== null && { ProgressUpdateStream: input.ProgressUpdateStream }),
   };
 };
 
@@ -2440,19 +2433,22 @@ const serializeAws_json1_1AssociateDiscoveredResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DiscoveredResource !== undefined && {
-      DiscoveredResource: serializeAws_json1_1DiscoveredResource(input.DiscoveredResource, context),
-    }),
-    ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
-    ...(input.MigrationTaskName !== undefined && { MigrationTaskName: input.MigrationTaskName }),
-    ...(input.ProgressUpdateStream !== undefined && { ProgressUpdateStream: input.ProgressUpdateStream }),
+    ...(input.DiscoveredResource !== undefined &&
+      input.DiscoveredResource !== null && {
+        DiscoveredResource: serializeAws_json1_1DiscoveredResource(input.DiscoveredResource, context),
+      }),
+    ...(input.DryRun !== undefined && input.DryRun !== null && { DryRun: input.DryRun }),
+    ...(input.MigrationTaskName !== undefined &&
+      input.MigrationTaskName !== null && { MigrationTaskName: input.MigrationTaskName }),
+    ...(input.ProgressUpdateStream !== undefined &&
+      input.ProgressUpdateStream !== null && { ProgressUpdateStream: input.ProgressUpdateStream }),
   };
 };
 
 const serializeAws_json1_1CreatedArtifact = (input: CreatedArtifact, context: __SerdeContext): any => {
   return {
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   };
 };
 
@@ -2461,8 +2457,9 @@ const serializeAws_json1_1CreateProgressUpdateStreamRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
-    ...(input.ProgressUpdateStreamName !== undefined && { ProgressUpdateStreamName: input.ProgressUpdateStreamName }),
+    ...(input.DryRun !== undefined && input.DryRun !== null && { DryRun: input.DryRun }),
+    ...(input.ProgressUpdateStreamName !== undefined &&
+      input.ProgressUpdateStreamName !== null && { ProgressUpdateStreamName: input.ProgressUpdateStreamName }),
   };
 };
 
@@ -2471,8 +2468,9 @@ const serializeAws_json1_1DeleteProgressUpdateStreamRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
-    ...(input.ProgressUpdateStreamName !== undefined && { ProgressUpdateStreamName: input.ProgressUpdateStreamName }),
+    ...(input.DryRun !== undefined && input.DryRun !== null && { DryRun: input.DryRun }),
+    ...(input.ProgressUpdateStreamName !== undefined &&
+      input.ProgressUpdateStreamName !== null && { ProgressUpdateStreamName: input.ProgressUpdateStreamName }),
   };
 };
 
@@ -2481,7 +2479,7 @@ const serializeAws_json1_1DescribeApplicationStateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ApplicationId !== undefined && { ApplicationId: input.ApplicationId }),
+    ...(input.ApplicationId !== undefined && input.ApplicationId !== null && { ApplicationId: input.ApplicationId }),
   };
 };
 
@@ -2490,8 +2488,10 @@ const serializeAws_json1_1DescribeMigrationTaskRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MigrationTaskName !== undefined && { MigrationTaskName: input.MigrationTaskName }),
-    ...(input.ProgressUpdateStream !== undefined && { ProgressUpdateStream: input.ProgressUpdateStream }),
+    ...(input.MigrationTaskName !== undefined &&
+      input.MigrationTaskName !== null && { MigrationTaskName: input.MigrationTaskName }),
+    ...(input.ProgressUpdateStream !== undefined &&
+      input.ProgressUpdateStream !== null && { ProgressUpdateStream: input.ProgressUpdateStream }),
   };
 };
 
@@ -2500,10 +2500,13 @@ const serializeAws_json1_1DisassociateCreatedArtifactRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CreatedArtifactName !== undefined && { CreatedArtifactName: input.CreatedArtifactName }),
-    ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
-    ...(input.MigrationTaskName !== undefined && { MigrationTaskName: input.MigrationTaskName }),
-    ...(input.ProgressUpdateStream !== undefined && { ProgressUpdateStream: input.ProgressUpdateStream }),
+    ...(input.CreatedArtifactName !== undefined &&
+      input.CreatedArtifactName !== null && { CreatedArtifactName: input.CreatedArtifactName }),
+    ...(input.DryRun !== undefined && input.DryRun !== null && { DryRun: input.DryRun }),
+    ...(input.MigrationTaskName !== undefined &&
+      input.MigrationTaskName !== null && { MigrationTaskName: input.MigrationTaskName }),
+    ...(input.ProgressUpdateStream !== undefined &&
+      input.ProgressUpdateStream !== null && { ProgressUpdateStream: input.ProgressUpdateStream }),
   };
 };
 
@@ -2512,17 +2515,21 @@ const serializeAws_json1_1DisassociateDiscoveredResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConfigurationId !== undefined && { ConfigurationId: input.ConfigurationId }),
-    ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
-    ...(input.MigrationTaskName !== undefined && { MigrationTaskName: input.MigrationTaskName }),
-    ...(input.ProgressUpdateStream !== undefined && { ProgressUpdateStream: input.ProgressUpdateStream }),
+    ...(input.ConfigurationId !== undefined &&
+      input.ConfigurationId !== null && { ConfigurationId: input.ConfigurationId }),
+    ...(input.DryRun !== undefined && input.DryRun !== null && { DryRun: input.DryRun }),
+    ...(input.MigrationTaskName !== undefined &&
+      input.MigrationTaskName !== null && { MigrationTaskName: input.MigrationTaskName }),
+    ...(input.ProgressUpdateStream !== undefined &&
+      input.ProgressUpdateStream !== null && { ProgressUpdateStream: input.ProgressUpdateStream }),
   };
 };
 
 const serializeAws_json1_1DiscoveredResource = (input: DiscoveredResource, context: __SerdeContext): any => {
   return {
-    ...(input.ConfigurationId !== undefined && { ConfigurationId: input.ConfigurationId }),
-    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.ConfigurationId !== undefined &&
+      input.ConfigurationId !== null && { ConfigurationId: input.ConfigurationId }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
   };
 };
 
@@ -2531,9 +2538,11 @@ const serializeAws_json1_1ImportMigrationTaskRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
-    ...(input.MigrationTaskName !== undefined && { MigrationTaskName: input.MigrationTaskName }),
-    ...(input.ProgressUpdateStream !== undefined && { ProgressUpdateStream: input.ProgressUpdateStream }),
+    ...(input.DryRun !== undefined && input.DryRun !== null && { DryRun: input.DryRun }),
+    ...(input.MigrationTaskName !== undefined &&
+      input.MigrationTaskName !== null && { MigrationTaskName: input.MigrationTaskName }),
+    ...(input.ProgressUpdateStream !== undefined &&
+      input.ProgressUpdateStream !== null && { ProgressUpdateStream: input.ProgressUpdateStream }),
   };
 };
 
@@ -2542,11 +2551,12 @@ const serializeAws_json1_1ListApplicationStatesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ApplicationIds !== undefined && {
-      ApplicationIds: serializeAws_json1_1ApplicationIds(input.ApplicationIds, context),
-    }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ApplicationIds !== undefined &&
+      input.ApplicationIds !== null && {
+        ApplicationIds: serializeAws_json1_1ApplicationIds(input.ApplicationIds, context),
+      }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2555,10 +2565,12 @@ const serializeAws_json1_1ListCreatedArtifactsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.MigrationTaskName !== undefined && { MigrationTaskName: input.MigrationTaskName }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ProgressUpdateStream !== undefined && { ProgressUpdateStream: input.ProgressUpdateStream }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.MigrationTaskName !== undefined &&
+      input.MigrationTaskName !== null && { MigrationTaskName: input.MigrationTaskName }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ProgressUpdateStream !== undefined &&
+      input.ProgressUpdateStream !== null && { ProgressUpdateStream: input.ProgressUpdateStream }),
   };
 };
 
@@ -2567,10 +2579,12 @@ const serializeAws_json1_1ListDiscoveredResourcesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.MigrationTaskName !== undefined && { MigrationTaskName: input.MigrationTaskName }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ProgressUpdateStream !== undefined && { ProgressUpdateStream: input.ProgressUpdateStream }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.MigrationTaskName !== undefined &&
+      input.MigrationTaskName !== null && { MigrationTaskName: input.MigrationTaskName }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ProgressUpdateStream !== undefined &&
+      input.ProgressUpdateStream !== null && { ProgressUpdateStream: input.ProgressUpdateStream }),
   };
 };
 
@@ -2579,9 +2593,9 @@ const serializeAws_json1_1ListMigrationTasksRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceName !== undefined && { ResourceName: input.ResourceName }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ResourceName !== undefined && input.ResourceName !== null && { ResourceName: input.ResourceName }),
   };
 };
 
@@ -2590,8 +2604,8 @@ const serializeAws_json1_1ListProgressUpdateStreamsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2600,10 +2614,11 @@ const serializeAws_json1_1NotifyApplicationStateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ApplicationId !== undefined && { ApplicationId: input.ApplicationId }),
-    ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
-    ...(input.Status !== undefined && { Status: input.Status }),
-    ...(input.UpdateDateTime !== undefined && { UpdateDateTime: Math.round(input.UpdateDateTime.getTime() / 1000) }),
+    ...(input.ApplicationId !== undefined && input.ApplicationId !== null && { ApplicationId: input.ApplicationId }),
+    ...(input.DryRun !== undefined && input.DryRun !== null && { DryRun: input.DryRun }),
+    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+    ...(input.UpdateDateTime !== undefined &&
+      input.UpdateDateTime !== null && { UpdateDateTime: Math.round(input.UpdateDateTime.getTime() / 1000) }),
   };
 };
 
@@ -2612,12 +2627,16 @@ const serializeAws_json1_1NotifyMigrationTaskStateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
-    ...(input.MigrationTaskName !== undefined && { MigrationTaskName: input.MigrationTaskName }),
-    ...(input.NextUpdateSeconds !== undefined && { NextUpdateSeconds: input.NextUpdateSeconds }),
-    ...(input.ProgressUpdateStream !== undefined && { ProgressUpdateStream: input.ProgressUpdateStream }),
-    ...(input.Task !== undefined && { Task: serializeAws_json1_1Task(input.Task, context) }),
-    ...(input.UpdateDateTime !== undefined && { UpdateDateTime: Math.round(input.UpdateDateTime.getTime() / 1000) }),
+    ...(input.DryRun !== undefined && input.DryRun !== null && { DryRun: input.DryRun }),
+    ...(input.MigrationTaskName !== undefined &&
+      input.MigrationTaskName !== null && { MigrationTaskName: input.MigrationTaskName }),
+    ...(input.NextUpdateSeconds !== undefined &&
+      input.NextUpdateSeconds !== null && { NextUpdateSeconds: input.NextUpdateSeconds }),
+    ...(input.ProgressUpdateStream !== undefined &&
+      input.ProgressUpdateStream !== null && { ProgressUpdateStream: input.ProgressUpdateStream }),
+    ...(input.Task !== undefined && input.Task !== null && { Task: serializeAws_json1_1Task(input.Task, context) }),
+    ...(input.UpdateDateTime !== undefined &&
+      input.UpdateDateTime !== null && { UpdateDateTime: Math.round(input.UpdateDateTime.getTime() / 1000) }),
   };
 };
 
@@ -2626,31 +2645,42 @@ const serializeAws_json1_1PutResourceAttributesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
-    ...(input.MigrationTaskName !== undefined && { MigrationTaskName: input.MigrationTaskName }),
-    ...(input.ProgressUpdateStream !== undefined && { ProgressUpdateStream: input.ProgressUpdateStream }),
-    ...(input.ResourceAttributeList !== undefined && {
-      ResourceAttributeList: serializeAws_json1_1ResourceAttributeList(input.ResourceAttributeList, context),
-    }),
+    ...(input.DryRun !== undefined && input.DryRun !== null && { DryRun: input.DryRun }),
+    ...(input.MigrationTaskName !== undefined &&
+      input.MigrationTaskName !== null && { MigrationTaskName: input.MigrationTaskName }),
+    ...(input.ProgressUpdateStream !== undefined &&
+      input.ProgressUpdateStream !== null && { ProgressUpdateStream: input.ProgressUpdateStream }),
+    ...(input.ResourceAttributeList !== undefined &&
+      input.ResourceAttributeList !== null && {
+        ResourceAttributeList: serializeAws_json1_1ResourceAttributeList(input.ResourceAttributeList, context),
+      }),
   };
 };
 
 const serializeAws_json1_1ResourceAttribute = (input: ResourceAttribute, context: __SerdeContext): any => {
   return {
-    ...(input.Type !== undefined && { Type: input.Type }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1ResourceAttributeList = (input: ResourceAttribute[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1ResourceAttribute(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ResourceAttribute(entry, context);
+    });
 };
 
 const serializeAws_json1_1Task = (input: Task, context: __SerdeContext): any => {
   return {
-    ...(input.ProgressPercent !== undefined && { ProgressPercent: input.ProgressPercent }),
-    ...(input.Status !== undefined && { Status: input.Status }),
-    ...(input.StatusDetail !== undefined && { StatusDetail: input.StatusDetail }),
+    ...(input.ProgressPercent !== undefined &&
+      input.ProgressPercent !== null && { ProgressPercent: input.ProgressPercent }),
+    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+    ...(input.StatusDetail !== undefined && input.StatusDetail !== null && { StatusDetail: input.StatusDetail }),
   };
 };
 
@@ -2676,7 +2706,14 @@ const deserializeAws_json1_1ApplicationState = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1ApplicationStateList = (output: any, context: __SerdeContext): ApplicationState[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ApplicationState(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ApplicationState(entry, context);
+    });
 };
 
 const deserializeAws_json1_1AssociateCreatedArtifactResult = (
@@ -2701,7 +2738,14 @@ const deserializeAws_json1_1CreatedArtifact = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1CreatedArtifactList = (output: any, context: __SerdeContext): CreatedArtifact[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1CreatedArtifact(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CreatedArtifact(entry, context);
+    });
 };
 
 const deserializeAws_json1_1CreateProgressUpdateStreamResult = (
@@ -2769,7 +2813,14 @@ const deserializeAws_json1_1DiscoveredResource = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1DiscoveredResourceList = (output: any, context: __SerdeContext): DiscoveredResource[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DiscoveredResource(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DiscoveredResource(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DryRunOperation = (output: any, context: __SerdeContext): DryRunOperation => {
@@ -2810,7 +2861,14 @@ const deserializeAws_json1_1LatestResourceAttributeList = (
   output: any,
   context: __SerdeContext
 ): ResourceAttribute[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ResourceAttribute(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ResourceAttribute(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ListApplicationStatesResult = (
@@ -2926,7 +2984,14 @@ const deserializeAws_json1_1MigrationTaskSummaryList = (
   output: any,
   context: __SerdeContext
 ): MigrationTaskSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1MigrationTaskSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1MigrationTaskSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1NotifyApplicationStateResult = (
@@ -2965,7 +3030,14 @@ const deserializeAws_json1_1ProgressUpdateStreamSummaryList = (
   output: any,
   context: __SerdeContext
 ): ProgressUpdateStreamSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ProgressUpdateStreamSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ProgressUpdateStreamSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1PutResourceAttributesResult = (
@@ -3075,3 +3147,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

@@ -291,7 +291,7 @@ export const serializeAws_json1_1AcceptHandshakeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.AcceptHandshake",
   };
   let body: any;
@@ -304,7 +304,7 @@ export const serializeAws_json1_1AttachPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.AttachPolicy",
   };
   let body: any;
@@ -317,7 +317,7 @@ export const serializeAws_json1_1CancelHandshakeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.CancelHandshake",
   };
   let body: any;
@@ -330,7 +330,7 @@ export const serializeAws_json1_1CreateAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.CreateAccount",
   };
   let body: any;
@@ -343,7 +343,7 @@ export const serializeAws_json1_1CreateGovCloudAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.CreateGovCloudAccount",
   };
   let body: any;
@@ -356,7 +356,7 @@ export const serializeAws_json1_1CreateOrganizationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.CreateOrganization",
   };
   let body: any;
@@ -369,7 +369,7 @@ export const serializeAws_json1_1CreateOrganizationalUnitCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.CreateOrganizationalUnit",
   };
   let body: any;
@@ -382,7 +382,7 @@ export const serializeAws_json1_1CreatePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.CreatePolicy",
   };
   let body: any;
@@ -395,7 +395,7 @@ export const serializeAws_json1_1DeclineHandshakeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.DeclineHandshake",
   };
   let body: any;
@@ -408,7 +408,7 @@ export const serializeAws_json1_1DeleteOrganizationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.DeleteOrganization",
   };
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
@@ -419,7 +419,7 @@ export const serializeAws_json1_1DeleteOrganizationalUnitCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.DeleteOrganizationalUnit",
   };
   let body: any;
@@ -432,7 +432,7 @@ export const serializeAws_json1_1DeletePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.DeletePolicy",
   };
   let body: any;
@@ -445,7 +445,7 @@ export const serializeAws_json1_1DeregisterDelegatedAdministratorCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.DeregisterDelegatedAdministrator",
   };
   let body: any;
@@ -458,7 +458,7 @@ export const serializeAws_json1_1DescribeAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.DescribeAccount",
   };
   let body: any;
@@ -471,7 +471,7 @@ export const serializeAws_json1_1DescribeCreateAccountStatusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.DescribeCreateAccountStatus",
   };
   let body: any;
@@ -484,7 +484,7 @@ export const serializeAws_json1_1DescribeEffectivePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.DescribeEffectivePolicy",
   };
   let body: any;
@@ -497,7 +497,7 @@ export const serializeAws_json1_1DescribeHandshakeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.DescribeHandshake",
   };
   let body: any;
@@ -510,7 +510,7 @@ export const serializeAws_json1_1DescribeOrganizationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.DescribeOrganization",
   };
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
@@ -521,7 +521,7 @@ export const serializeAws_json1_1DescribeOrganizationalUnitCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.DescribeOrganizationalUnit",
   };
   let body: any;
@@ -534,7 +534,7 @@ export const serializeAws_json1_1DescribePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.DescribePolicy",
   };
   let body: any;
@@ -547,7 +547,7 @@ export const serializeAws_json1_1DetachPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.DetachPolicy",
   };
   let body: any;
@@ -560,7 +560,7 @@ export const serializeAws_json1_1DisableAWSServiceAccessCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.DisableAWSServiceAccess",
   };
   let body: any;
@@ -573,7 +573,7 @@ export const serializeAws_json1_1DisablePolicyTypeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.DisablePolicyType",
   };
   let body: any;
@@ -586,7 +586,7 @@ export const serializeAws_json1_1EnableAllFeaturesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.EnableAllFeatures",
   };
   let body: any;
@@ -599,7 +599,7 @@ export const serializeAws_json1_1EnableAWSServiceAccessCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.EnableAWSServiceAccess",
   };
   let body: any;
@@ -612,7 +612,7 @@ export const serializeAws_json1_1EnablePolicyTypeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.EnablePolicyType",
   };
   let body: any;
@@ -625,7 +625,7 @@ export const serializeAws_json1_1InviteAccountToOrganizationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.InviteAccountToOrganization",
   };
   let body: any;
@@ -638,7 +638,7 @@ export const serializeAws_json1_1LeaveOrganizationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.LeaveOrganization",
   };
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
@@ -649,7 +649,7 @@ export const serializeAws_json1_1ListAccountsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.ListAccounts",
   };
   let body: any;
@@ -662,7 +662,7 @@ export const serializeAws_json1_1ListAccountsForParentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.ListAccountsForParent",
   };
   let body: any;
@@ -675,7 +675,7 @@ export const serializeAws_json1_1ListAWSServiceAccessForOrganizationCommand = as
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.ListAWSServiceAccessForOrganization",
   };
   let body: any;
@@ -688,7 +688,7 @@ export const serializeAws_json1_1ListChildrenCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.ListChildren",
   };
   let body: any;
@@ -701,7 +701,7 @@ export const serializeAws_json1_1ListCreateAccountStatusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.ListCreateAccountStatus",
   };
   let body: any;
@@ -714,7 +714,7 @@ export const serializeAws_json1_1ListDelegatedAdministratorsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.ListDelegatedAdministrators",
   };
   let body: any;
@@ -727,7 +727,7 @@ export const serializeAws_json1_1ListDelegatedServicesForAccountCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.ListDelegatedServicesForAccount",
   };
   let body: any;
@@ -740,7 +740,7 @@ export const serializeAws_json1_1ListHandshakesForAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.ListHandshakesForAccount",
   };
   let body: any;
@@ -753,7 +753,7 @@ export const serializeAws_json1_1ListHandshakesForOrganizationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.ListHandshakesForOrganization",
   };
   let body: any;
@@ -766,7 +766,7 @@ export const serializeAws_json1_1ListOrganizationalUnitsForParentCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.ListOrganizationalUnitsForParent",
   };
   let body: any;
@@ -779,7 +779,7 @@ export const serializeAws_json1_1ListParentsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.ListParents",
   };
   let body: any;
@@ -792,7 +792,7 @@ export const serializeAws_json1_1ListPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.ListPolicies",
   };
   let body: any;
@@ -805,7 +805,7 @@ export const serializeAws_json1_1ListPoliciesForTargetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.ListPoliciesForTarget",
   };
   let body: any;
@@ -818,7 +818,7 @@ export const serializeAws_json1_1ListRootsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.ListRoots",
   };
   let body: any;
@@ -831,7 +831,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.ListTagsForResource",
   };
   let body: any;
@@ -844,7 +844,7 @@ export const serializeAws_json1_1ListTargetsForPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.ListTargetsForPolicy",
   };
   let body: any;
@@ -857,7 +857,7 @@ export const serializeAws_json1_1MoveAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.MoveAccount",
   };
   let body: any;
@@ -870,7 +870,7 @@ export const serializeAws_json1_1RegisterDelegatedAdministratorCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.RegisterDelegatedAdministrator",
   };
   let body: any;
@@ -883,7 +883,7 @@ export const serializeAws_json1_1RemoveAccountFromOrganizationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.RemoveAccountFromOrganization",
   };
   let body: any;
@@ -896,7 +896,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.TagResource",
   };
   let body: any;
@@ -909,7 +909,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.UntagResource",
   };
   let body: any;
@@ -922,7 +922,7 @@ export const serializeAws_json1_1UpdateOrganizationalUnitCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.UpdateOrganizationalUnit",
   };
   let body: any;
@@ -935,7 +935,7 @@ export const serializeAws_json1_1UpdatePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSOrganizationsV20161128.UpdatePolicy",
   };
   let body: any;
@@ -970,8 +970,7 @@ const deserializeAws_json1_1AcceptHandshakeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -1102,8 +1101,7 @@ const deserializeAws_json1_1AttachPolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -1253,8 +1251,7 @@ const deserializeAws_json1_1CancelHandshakeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -1364,8 +1361,7 @@ const deserializeAws_json1_1CreateAccountCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -1483,8 +1479,7 @@ const deserializeAws_json1_1CreateGovCloudAccountCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -1602,8 +1597,7 @@ const deserializeAws_json1_1CreateOrganizationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -1713,8 +1707,7 @@ const deserializeAws_json1_1CreateOrganizationalUnitCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -1832,8 +1825,7 @@ const deserializeAws_json1_1CreatePolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -1967,8 +1959,7 @@ const deserializeAws_json1_1DeclineHandshakeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -2075,8 +2066,7 @@ const deserializeAws_json1_1DeleteOrganizationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -2175,8 +2165,7 @@ const deserializeAws_json1_1DeleteOrganizationalUnitCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -2283,8 +2272,7 @@ const deserializeAws_json1_1DeletePolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -2399,8 +2387,7 @@ const deserializeAws_json1_1DeregisterDelegatedAdministratorCommandError = async
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -2526,8 +2513,7 @@ const deserializeAws_json1_1DescribeAccountCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -2621,8 +2607,7 @@ const deserializeAws_json1_1DescribeCreateAccountStatusCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -2724,8 +2709,7 @@ const deserializeAws_json1_1DescribeEffectivePolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -2843,8 +2827,7 @@ const deserializeAws_json1_1DescribeHandshakeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -2938,8 +2921,7 @@ const deserializeAws_json1_1DescribeOrganizationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -3025,8 +3007,7 @@ const deserializeAws_json1_1DescribeOrganizationalUnitCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -3120,8 +3101,7 @@ const deserializeAws_json1_1DescribePolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -3220,8 +3200,7 @@ const deserializeAws_json1_1DetachPolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -3360,8 +3339,7 @@ const deserializeAws_json1_1DisableAWSServiceAccessCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -3471,8 +3449,7 @@ const deserializeAws_json1_1DisablePolicyTypeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -3606,8 +3583,7 @@ const deserializeAws_json1_1EnableAllFeaturesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -3706,8 +3682,7 @@ const deserializeAws_json1_1EnableAWSServiceAccessCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -3817,8 +3792,7 @@ const deserializeAws_json1_1EnablePolicyTypeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -3960,8 +3934,7 @@ const deserializeAws_json1_1InviteAccountToOrganizationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -4092,8 +4065,7 @@ const deserializeAws_json1_1LeaveOrganizationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -4211,8 +4183,7 @@ const deserializeAws_json1_1ListAccountsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -4298,8 +4269,7 @@ const deserializeAws_json1_1ListAccountsForParentCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -4393,8 +4363,7 @@ const deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommandError = as
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -4496,8 +4465,7 @@ const deserializeAws_json1_1ListChildrenCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -4591,8 +4559,7 @@ const deserializeAws_json1_1ListCreateAccountStatusCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -4686,8 +4653,7 @@ const deserializeAws_json1_1ListDelegatedAdministratorsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -4789,8 +4755,7 @@ const deserializeAws_json1_1ListDelegatedServicesForAccountCommandError = async 
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -4908,8 +4873,7 @@ const deserializeAws_json1_1ListHandshakesForAccountCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -4995,8 +4959,7 @@ const deserializeAws_json1_1ListHandshakesForOrganizationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -5090,8 +5053,7 @@ const deserializeAws_json1_1ListOrganizationalUnitsForParentCommandError = async
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -5185,8 +5147,7 @@ const deserializeAws_json1_1ListParentsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -5280,8 +5241,7 @@ const deserializeAws_json1_1ListPoliciesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -5375,8 +5335,7 @@ const deserializeAws_json1_1ListPoliciesForTargetCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -5478,8 +5437,7 @@ const deserializeAws_json1_1ListRootsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -5565,8 +5523,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -5660,8 +5617,7 @@ const deserializeAws_json1_1ListTargetsForPolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -5760,8 +5716,7 @@ const deserializeAws_json1_1MoveAccountCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -5884,8 +5839,7 @@ const deserializeAws_json1_1RegisterDelegatedAdministratorCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -6008,8 +5962,7 @@ const deserializeAws_json1_1RemoveAccountFromOrganizationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -6124,8 +6077,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -6232,8 +6184,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -6343,8 +6294,7 @@ const deserializeAws_json1_1UpdateOrganizationalUnitCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -6454,8 +6404,7 @@ const deserializeAws_json1_1UpdatePolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
@@ -7232,30 +7181,31 @@ const deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse = async (
 
 const serializeAws_json1_1AcceptHandshakeRequest = (input: AcceptHandshakeRequest, context: __SerdeContext): any => {
   return {
-    ...(input.HandshakeId !== undefined && { HandshakeId: input.HandshakeId }),
+    ...(input.HandshakeId !== undefined && input.HandshakeId !== null && { HandshakeId: input.HandshakeId }),
   };
 };
 
 const serializeAws_json1_1AttachPolicyRequest = (input: AttachPolicyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.PolicyId !== undefined && { PolicyId: input.PolicyId }),
-    ...(input.TargetId !== undefined && { TargetId: input.TargetId }),
+    ...(input.PolicyId !== undefined && input.PolicyId !== null && { PolicyId: input.PolicyId }),
+    ...(input.TargetId !== undefined && input.TargetId !== null && { TargetId: input.TargetId }),
   };
 };
 
 const serializeAws_json1_1CancelHandshakeRequest = (input: CancelHandshakeRequest, context: __SerdeContext): any => {
   return {
-    ...(input.HandshakeId !== undefined && { HandshakeId: input.HandshakeId }),
+    ...(input.HandshakeId !== undefined && input.HandshakeId !== null && { HandshakeId: input.HandshakeId }),
   };
 };
 
 const serializeAws_json1_1CreateAccountRequest = (input: CreateAccountRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AccountName !== undefined && { AccountName: input.AccountName }),
-    ...(input.Email !== undefined && { Email: input.Email }),
-    ...(input.IamUserAccessToBilling !== undefined && { IamUserAccessToBilling: input.IamUserAccessToBilling }),
-    ...(input.RoleName !== undefined && { RoleName: input.RoleName }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.AccountName !== undefined && input.AccountName !== null && { AccountName: input.AccountName }),
+    ...(input.Email !== undefined && input.Email !== null && { Email: input.Email }),
+    ...(input.IamUserAccessToBilling !== undefined &&
+      input.IamUserAccessToBilling !== null && { IamUserAccessToBilling: input.IamUserAccessToBilling }),
+    ...(input.RoleName !== undefined && input.RoleName !== null && { RoleName: input.RoleName }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -7263,7 +7213,14 @@ const serializeAws_json1_1CreateAccountStates = (
   input: (CreateAccountState | string)[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1CreateGovCloudAccountRequest = (
@@ -7271,11 +7228,12 @@ const serializeAws_json1_1CreateGovCloudAccountRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountName !== undefined && { AccountName: input.AccountName }),
-    ...(input.Email !== undefined && { Email: input.Email }),
-    ...(input.IamUserAccessToBilling !== undefined && { IamUserAccessToBilling: input.IamUserAccessToBilling }),
-    ...(input.RoleName !== undefined && { RoleName: input.RoleName }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.AccountName !== undefined && input.AccountName !== null && { AccountName: input.AccountName }),
+    ...(input.Email !== undefined && input.Email !== null && { Email: input.Email }),
+    ...(input.IamUserAccessToBilling !== undefined &&
+      input.IamUserAccessToBilling !== null && { IamUserAccessToBilling: input.IamUserAccessToBilling }),
+    ...(input.RoleName !== undefined && input.RoleName !== null && { RoleName: input.RoleName }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -7284,9 +7242,9 @@ const serializeAws_json1_1CreateOrganizationalUnitRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.ParentId !== undefined && { ParentId: input.ParentId }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.ParentId !== undefined && input.ParentId !== null && { ParentId: input.ParentId }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -7295,23 +7253,23 @@ const serializeAws_json1_1CreateOrganizationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FeatureSet !== undefined && { FeatureSet: input.FeatureSet }),
+    ...(input.FeatureSet !== undefined && input.FeatureSet !== null && { FeatureSet: input.FeatureSet }),
   };
 };
 
 const serializeAws_json1_1CreatePolicyRequest = (input: CreatePolicyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Content !== undefined && { Content: input.Content }),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.Content !== undefined && input.Content !== null && { Content: input.Content }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
 };
 
 const serializeAws_json1_1DeclineHandshakeRequest = (input: DeclineHandshakeRequest, context: __SerdeContext): any => {
   return {
-    ...(input.HandshakeId !== undefined && { HandshakeId: input.HandshakeId }),
+    ...(input.HandshakeId !== undefined && input.HandshakeId !== null && { HandshakeId: input.HandshakeId }),
   };
 };
 
@@ -7320,13 +7278,14 @@ const serializeAws_json1_1DeleteOrganizationalUnitRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.OrganizationalUnitId !== undefined && { OrganizationalUnitId: input.OrganizationalUnitId }),
+    ...(input.OrganizationalUnitId !== undefined &&
+      input.OrganizationalUnitId !== null && { OrganizationalUnitId: input.OrganizationalUnitId }),
   };
 };
 
 const serializeAws_json1_1DeletePolicyRequest = (input: DeletePolicyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.PolicyId !== undefined && { PolicyId: input.PolicyId }),
+    ...(input.PolicyId !== undefined && input.PolicyId !== null && { PolicyId: input.PolicyId }),
   };
 };
 
@@ -7335,14 +7294,15 @@ const serializeAws_json1_1DeregisterDelegatedAdministratorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.ServicePrincipal !== undefined && { ServicePrincipal: input.ServicePrincipal }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.ServicePrincipal !== undefined &&
+      input.ServicePrincipal !== null && { ServicePrincipal: input.ServicePrincipal }),
   };
 };
 
 const serializeAws_json1_1DescribeAccountRequest = (input: DescribeAccountRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
   };
 };
 
@@ -7351,7 +7311,8 @@ const serializeAws_json1_1DescribeCreateAccountStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CreateAccountRequestId !== undefined && { CreateAccountRequestId: input.CreateAccountRequestId }),
+    ...(input.CreateAccountRequestId !== undefined &&
+      input.CreateAccountRequestId !== null && { CreateAccountRequestId: input.CreateAccountRequestId }),
   };
 };
 
@@ -7360,8 +7321,8 @@ const serializeAws_json1_1DescribeEffectivePolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.PolicyType !== undefined && { PolicyType: input.PolicyType }),
-    ...(input.TargetId !== undefined && { TargetId: input.TargetId }),
+    ...(input.PolicyType !== undefined && input.PolicyType !== null && { PolicyType: input.PolicyType }),
+    ...(input.TargetId !== undefined && input.TargetId !== null && { TargetId: input.TargetId }),
   };
 };
 
@@ -7370,7 +7331,7 @@ const serializeAws_json1_1DescribeHandshakeRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.HandshakeId !== undefined && { HandshakeId: input.HandshakeId }),
+    ...(input.HandshakeId !== undefined && input.HandshakeId !== null && { HandshakeId: input.HandshakeId }),
   };
 };
 
@@ -7379,20 +7340,21 @@ const serializeAws_json1_1DescribeOrganizationalUnitRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.OrganizationalUnitId !== undefined && { OrganizationalUnitId: input.OrganizationalUnitId }),
+    ...(input.OrganizationalUnitId !== undefined &&
+      input.OrganizationalUnitId !== null && { OrganizationalUnitId: input.OrganizationalUnitId }),
   };
 };
 
 const serializeAws_json1_1DescribePolicyRequest = (input: DescribePolicyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.PolicyId !== undefined && { PolicyId: input.PolicyId }),
+    ...(input.PolicyId !== undefined && input.PolicyId !== null && { PolicyId: input.PolicyId }),
   };
 };
 
 const serializeAws_json1_1DetachPolicyRequest = (input: DetachPolicyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.PolicyId !== undefined && { PolicyId: input.PolicyId }),
-    ...(input.TargetId !== undefined && { TargetId: input.TargetId }),
+    ...(input.PolicyId !== undefined && input.PolicyId !== null && { PolicyId: input.PolicyId }),
+    ...(input.TargetId !== undefined && input.TargetId !== null && { TargetId: input.TargetId }),
   };
 };
 
@@ -7401,7 +7363,8 @@ const serializeAws_json1_1DisableAWSServiceAccessRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ServicePrincipal !== undefined && { ServicePrincipal: input.ServicePrincipal }),
+    ...(input.ServicePrincipal !== undefined &&
+      input.ServicePrincipal !== null && { ServicePrincipal: input.ServicePrincipal }),
   };
 };
 
@@ -7410,8 +7373,8 @@ const serializeAws_json1_1DisablePolicyTypeRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.PolicyType !== undefined && { PolicyType: input.PolicyType }),
-    ...(input.RootId !== undefined && { RootId: input.RootId }),
+    ...(input.PolicyType !== undefined && input.PolicyType !== null && { PolicyType: input.PolicyType }),
+    ...(input.RootId !== undefined && input.RootId !== null && { RootId: input.RootId }),
   };
 };
 
@@ -7427,28 +7390,30 @@ const serializeAws_json1_1EnableAWSServiceAccessRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ServicePrincipal !== undefined && { ServicePrincipal: input.ServicePrincipal }),
+    ...(input.ServicePrincipal !== undefined &&
+      input.ServicePrincipal !== null && { ServicePrincipal: input.ServicePrincipal }),
   };
 };
 
 const serializeAws_json1_1EnablePolicyTypeRequest = (input: EnablePolicyTypeRequest, context: __SerdeContext): any => {
   return {
-    ...(input.PolicyType !== undefined && { PolicyType: input.PolicyType }),
-    ...(input.RootId !== undefined && { RootId: input.RootId }),
+    ...(input.PolicyType !== undefined && input.PolicyType !== null && { PolicyType: input.PolicyType }),
+    ...(input.RootId !== undefined && input.RootId !== null && { RootId: input.RootId }),
   };
 };
 
 const serializeAws_json1_1HandshakeFilter = (input: HandshakeFilter, context: __SerdeContext): any => {
   return {
-    ...(input.ActionType !== undefined && { ActionType: input.ActionType }),
-    ...(input.ParentHandshakeId !== undefined && { ParentHandshakeId: input.ParentHandshakeId }),
+    ...(input.ActionType !== undefined && input.ActionType !== null && { ActionType: input.ActionType }),
+    ...(input.ParentHandshakeId !== undefined &&
+      input.ParentHandshakeId !== null && { ParentHandshakeId: input.ParentHandshakeId }),
   };
 };
 
 const serializeAws_json1_1HandshakeParty = (input: HandshakeParty, context: __SerdeContext): any => {
   return {
-    ...(input.Id !== undefined && { Id: input.Id }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
 };
 
@@ -7457,9 +7422,10 @@ const serializeAws_json1_1InviteAccountToOrganizationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Notes !== undefined && { Notes: input.Notes }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.Target !== undefined && { Target: serializeAws_json1_1HandshakeParty(input.Target, context) }),
+    ...(input.Notes !== undefined && input.Notes !== null && { Notes: input.Notes }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Target !== undefined &&
+      input.Target !== null && { Target: serializeAws_json1_1HandshakeParty(input.Target, context) }),
   };
 };
 
@@ -7468,16 +7434,16 @@ const serializeAws_json1_1ListAccountsForParentRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ParentId !== undefined && { ParentId: input.ParentId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ParentId !== undefined && input.ParentId !== null && { ParentId: input.ParentId }),
   };
 };
 
 const serializeAws_json1_1ListAccountsRequest = (input: ListAccountsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -7486,17 +7452,17 @@ const serializeAws_json1_1ListAWSServiceAccessForOrganizationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListChildrenRequest = (input: ListChildrenRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ChildType !== undefined && { ChildType: input.ChildType }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ParentId !== undefined && { ParentId: input.ParentId }),
+    ...(input.ChildType !== undefined && input.ChildType !== null && { ChildType: input.ChildType }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ParentId !== undefined && input.ParentId !== null && { ParentId: input.ParentId }),
   };
 };
 
@@ -7505,9 +7471,10 @@ const serializeAws_json1_1ListCreateAccountStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.States !== undefined && { States: serializeAws_json1_1CreateAccountStates(input.States, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.States !== undefined &&
+      input.States !== null && { States: serializeAws_json1_1CreateAccountStates(input.States, context) }),
   };
 };
 
@@ -7516,9 +7483,10 @@ const serializeAws_json1_1ListDelegatedAdministratorsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ServicePrincipal !== undefined && { ServicePrincipal: input.ServicePrincipal }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ServicePrincipal !== undefined &&
+      input.ServicePrincipal !== null && { ServicePrincipal: input.ServicePrincipal }),
   };
 };
 
@@ -7527,9 +7495,9 @@ const serializeAws_json1_1ListDelegatedServicesForAccountRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -7538,9 +7506,10 @@ const serializeAws_json1_1ListHandshakesForAccountRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1HandshakeFilter(input.Filter, context) }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filter !== undefined &&
+      input.Filter !== null && { Filter: serializeAws_json1_1HandshakeFilter(input.Filter, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -7549,9 +7518,10 @@ const serializeAws_json1_1ListHandshakesForOrganizationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1HandshakeFilter(input.Filter, context) }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filter !== undefined &&
+      input.Filter !== null && { Filter: serializeAws_json1_1HandshakeFilter(input.Filter, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -7560,17 +7530,17 @@ const serializeAws_json1_1ListOrganizationalUnitsForParentRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ParentId !== undefined && { ParentId: input.ParentId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ParentId !== undefined && input.ParentId !== null && { ParentId: input.ParentId }),
   };
 };
 
 const serializeAws_json1_1ListParentsRequest = (input: ListParentsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ChildId !== undefined && { ChildId: input.ChildId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ChildId !== undefined && input.ChildId !== null && { ChildId: input.ChildId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -7579,25 +7549,25 @@ const serializeAws_json1_1ListPoliciesForTargetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter !== undefined && { Filter: input.Filter }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.TargetId !== undefined && { TargetId: input.TargetId }),
+    ...(input.Filter !== undefined && input.Filter !== null && { Filter: input.Filter }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.TargetId !== undefined && input.TargetId !== null && { TargetId: input.TargetId }),
   };
 };
 
 const serializeAws_json1_1ListPoliciesRequest = (input: ListPoliciesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filter !== undefined && { Filter: input.Filter }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filter !== undefined && input.Filter !== null && { Filter: input.Filter }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListRootsRequest = (input: ListRootsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -7606,8 +7576,8 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -7616,17 +7586,19 @@ const serializeAws_json1_1ListTargetsForPolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.PolicyId !== undefined && { PolicyId: input.PolicyId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.PolicyId !== undefined && input.PolicyId !== null && { PolicyId: input.PolicyId }),
   };
 };
 
 const serializeAws_json1_1MoveAccountRequest = (input: MoveAccountRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.DestinationParentId !== undefined && { DestinationParentId: input.DestinationParentId }),
-    ...(input.SourceParentId !== undefined && { SourceParentId: input.SourceParentId }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.DestinationParentId !== undefined &&
+      input.DestinationParentId !== null && { DestinationParentId: input.DestinationParentId }),
+    ...(input.SourceParentId !== undefined &&
+      input.SourceParentId !== null && { SourceParentId: input.SourceParentId }),
   };
 };
 
@@ -7635,8 +7607,9 @@ const serializeAws_json1_1RegisterDelegatedAdministratorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.ServicePrincipal !== undefined && { ServicePrincipal: input.ServicePrincipal }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.ServicePrincipal !== undefined &&
+      input.ServicePrincipal !== null && { ServicePrincipal: input.ServicePrincipal }),
   };
 };
 
@@ -7645,36 +7618,51 @@ const serializeAws_json1_1RemoveAccountFromOrganizationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1Tags = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context) }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context) }),
   };
 };
 
@@ -7683,17 +7671,18 @@ const serializeAws_json1_1UpdateOrganizationalUnitRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.OrganizationalUnitId !== undefined && { OrganizationalUnitId: input.OrganizationalUnitId }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.OrganizationalUnitId !== undefined &&
+      input.OrganizationalUnitId !== null && { OrganizationalUnitId: input.OrganizationalUnitId }),
   };
 };
 
 const serializeAws_json1_1UpdatePolicyRequest = (input: UpdatePolicyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Content !== undefined && { Content: input.Content }),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.PolicyId !== undefined && { PolicyId: input.PolicyId }),
+    ...(input.Content !== undefined && input.Content !== null && { Content: input.Content }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.PolicyId !== undefined && input.PolicyId !== null && { PolicyId: input.PolicyId }),
   };
 };
 
@@ -7777,7 +7766,14 @@ const deserializeAws_json1_1AccountOwnerNotVerifiedException = (
 };
 
 const deserializeAws_json1_1Accounts = (output: any, context: __SerdeContext): Account[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Account(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Account(entry, context);
+    });
 };
 
 const deserializeAws_json1_1AlreadyInOrganizationException = (
@@ -7824,7 +7820,14 @@ const deserializeAws_json1_1ChildNotFoundException = (output: any, context: __Se
 };
 
 const deserializeAws_json1_1Children = (output: any, context: __SerdeContext): Child[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Child(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Child(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ConcurrentModificationException = (
@@ -7879,7 +7882,14 @@ const deserializeAws_json1_1CreateAccountStatus = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1CreateAccountStatuses = (output: any, context: __SerdeContext): CreateAccountStatus[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1CreateAccountStatus(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CreateAccountStatus(entry, context);
+    });
 };
 
 const deserializeAws_json1_1CreateAccountStatusNotFoundException = (
@@ -7971,7 +7981,14 @@ const deserializeAws_json1_1DelegatedAdministrators = (
   output: any,
   context: __SerdeContext
 ): DelegatedAdministrator[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DelegatedAdministrator(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DelegatedAdministrator(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DelegatedService = (output: any, context: __SerdeContext): DelegatedService => {
@@ -7986,7 +8003,14 @@ const deserializeAws_json1_1DelegatedService = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1DelegatedServices = (output: any, context: __SerdeContext): DelegatedService[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DelegatedService(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DelegatedService(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DescribeAccountResponse = (
@@ -8186,7 +8210,14 @@ const deserializeAws_json1_1EnabledServicePrincipals = (
   output: any,
   context: __SerdeContext
 ): EnabledServicePrincipal[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1EnabledServicePrincipal(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EnabledServicePrincipal(entry, context);
+    });
 };
 
 const deserializeAws_json1_1EnablePolicyTypeResponse = (
@@ -8262,7 +8293,14 @@ const deserializeAws_json1_1HandshakeNotFoundException = (
 };
 
 const deserializeAws_json1_1HandshakeParties = (output: any, context: __SerdeContext): HandshakeParty[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1HandshakeParty(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1HandshakeParty(entry, context);
+    });
 };
 
 const deserializeAws_json1_1HandshakeParty = (output: any, context: __SerdeContext): HandshakeParty => {
@@ -8284,11 +8322,25 @@ const deserializeAws_json1_1HandshakeResource = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1HandshakeResources = (output: any, context: __SerdeContext): HandshakeResource[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1HandshakeResource(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1HandshakeResource(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Handshakes = (output: any, context: __SerdeContext): Handshake[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Handshake(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Handshake(entry, context);
+    });
 };
 
 const deserializeAws_json1_1InvalidHandshakeTransitionException = (
@@ -8575,7 +8627,14 @@ const deserializeAws_json1_1OrganizationalUnitNotFoundException = (
 };
 
 const deserializeAws_json1_1OrganizationalUnits = (output: any, context: __SerdeContext): OrganizationalUnit[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1OrganizationalUnit(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1OrganizationalUnit(entry, context);
+    });
 };
 
 const deserializeAws_json1_1OrganizationNotEmptyException = (
@@ -8604,11 +8663,25 @@ const deserializeAws_json1_1ParentNotFoundException = (
 };
 
 const deserializeAws_json1_1Parents = (output: any, context: __SerdeContext): Parent[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Parent(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Parent(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Policies = (output: any, context: __SerdeContext): PolicySummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1PolicySummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1PolicySummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Policy = (output: any, context: __SerdeContext): Policy => {
@@ -8666,7 +8739,14 @@ const deserializeAws_json1_1PolicySummary = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1PolicyTargets = (output: any, context: __SerdeContext): PolicyTargetSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1PolicyTargetSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1PolicyTargetSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1PolicyTargetSummary = (output: any, context: __SerdeContext): PolicyTargetSummary => {
@@ -8706,7 +8786,14 @@ const deserializeAws_json1_1PolicyTypeNotEnabledException = (
 };
 
 const deserializeAws_json1_1PolicyTypes = (output: any, context: __SerdeContext): PolicyTypeSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1PolicyTypeSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1PolicyTypeSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1PolicyTypeSummary = (output: any, context: __SerdeContext): PolicyTypeSummary => {
@@ -8735,7 +8822,14 @@ const deserializeAws_json1_1RootNotFoundException = (output: any, context: __Ser
 };
 
 const deserializeAws_json1_1Roots = (output: any, context: __SerdeContext): Root[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Root(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Root(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ServiceException = (output: any, context: __SerdeContext): ServiceException => {
@@ -8761,7 +8855,14 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TargetNotFoundException = (
@@ -8863,3 +8964,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

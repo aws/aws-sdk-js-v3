@@ -208,12 +208,12 @@ export const serializeAws_restJson1AssociateCertificateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2017-08-29/certificates";
   let body: any;
   body = JSON.stringify({
-    ...(input.Arn !== undefined && { arn: input.Arn }),
+    ...(input.Arn !== undefined && input.Arn !== null && { arn: input.Arn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -231,9 +231,7 @@ export const serializeAws_restJson1CancelJobCommand = async (
   input: CancelJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2017-08-29/jobs/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -262,30 +260,38 @@ export const serializeAws_restJson1CreateJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2017-08-29/jobs";
   let body: any;
   body = JSON.stringify({
-    ...(input.AccelerationSettings !== undefined && {
-      accelerationSettings: serializeAws_restJson1AccelerationSettings(input.AccelerationSettings, context),
-    }),
-    ...(input.BillingTagsSource !== undefined && { billingTagsSource: input.BillingTagsSource }),
+    ...(input.AccelerationSettings !== undefined &&
+      input.AccelerationSettings !== null && {
+        accelerationSettings: serializeAws_restJson1AccelerationSettings(input.AccelerationSettings, context),
+      }),
+    ...(input.BillingTagsSource !== undefined &&
+      input.BillingTagsSource !== null && { billingTagsSource: input.BillingTagsSource }),
     clientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.HopDestinations !== undefined && {
-      hopDestinations: serializeAws_restJson1__listOfHopDestination(input.HopDestinations, context),
-    }),
-    ...(input.JobTemplate !== undefined && { jobTemplate: input.JobTemplate }),
-    ...(input.Priority !== undefined && { priority: input.Priority }),
-    ...(input.Queue !== undefined && { queue: input.Queue }),
-    ...(input.Role !== undefined && { role: input.Role }),
-    ...(input.Settings !== undefined && { settings: serializeAws_restJson1JobSettings(input.Settings, context) }),
-    ...(input.SimulateReservedQueue !== undefined && { simulateReservedQueue: input.SimulateReservedQueue }),
-    ...(input.StatusUpdateInterval !== undefined && { statusUpdateInterval: input.StatusUpdateInterval }),
-    ...(input.Tags !== undefined && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
-    ...(input.UserMetadata !== undefined && {
-      userMetadata: serializeAws_restJson1__mapOf__string(input.UserMetadata, context),
-    }),
+    ...(input.HopDestinations !== undefined &&
+      input.HopDestinations !== null && {
+        hopDestinations: serializeAws_restJson1__listOfHopDestination(input.HopDestinations, context),
+      }),
+    ...(input.JobTemplate !== undefined && input.JobTemplate !== null && { jobTemplate: input.JobTemplate }),
+    ...(input.Priority !== undefined && input.Priority !== null && { priority: input.Priority }),
+    ...(input.Queue !== undefined && input.Queue !== null && { queue: input.Queue }),
+    ...(input.Role !== undefined && input.Role !== null && { role: input.Role }),
+    ...(input.Settings !== undefined &&
+      input.Settings !== null && { settings: serializeAws_restJson1JobSettings(input.Settings, context) }),
+    ...(input.SimulateReservedQueue !== undefined &&
+      input.SimulateReservedQueue !== null && { simulateReservedQueue: input.SimulateReservedQueue }),
+    ...(input.StatusUpdateInterval !== undefined &&
+      input.StatusUpdateInterval !== null && { statusUpdateInterval: input.StatusUpdateInterval }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
+    ...(input.UserMetadata !== undefined &&
+      input.UserMetadata !== null && {
+        userMetadata: serializeAws_restJson1__mapOf__string(input.UserMetadata, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -304,27 +310,30 @@ export const serializeAws_restJson1CreateJobTemplateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2017-08-29/jobTemplates";
   let body: any;
   body = JSON.stringify({
-    ...(input.AccelerationSettings !== undefined && {
-      accelerationSettings: serializeAws_restJson1AccelerationSettings(input.AccelerationSettings, context),
-    }),
-    ...(input.Category !== undefined && { category: input.Category }),
-    ...(input.Description !== undefined && { description: input.Description }),
-    ...(input.HopDestinations !== undefined && {
-      hopDestinations: serializeAws_restJson1__listOfHopDestination(input.HopDestinations, context),
-    }),
-    ...(input.Name !== undefined && { name: input.Name }),
-    ...(input.Priority !== undefined && { priority: input.Priority }),
-    ...(input.Queue !== undefined && { queue: input.Queue }),
-    ...(input.Settings !== undefined && {
-      settings: serializeAws_restJson1JobTemplateSettings(input.Settings, context),
-    }),
-    ...(input.StatusUpdateInterval !== undefined && { statusUpdateInterval: input.StatusUpdateInterval }),
-    ...(input.Tags !== undefined && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
+    ...(input.AccelerationSettings !== undefined &&
+      input.AccelerationSettings !== null && {
+        accelerationSettings: serializeAws_restJson1AccelerationSettings(input.AccelerationSettings, context),
+      }),
+    ...(input.Category !== undefined && input.Category !== null && { category: input.Category }),
+    ...(input.Description !== undefined && input.Description !== null && { description: input.Description }),
+    ...(input.HopDestinations !== undefined &&
+      input.HopDestinations !== null && {
+        hopDestinations: serializeAws_restJson1__listOfHopDestination(input.HopDestinations, context),
+      }),
+    ...(input.Name !== undefined && input.Name !== null && { name: input.Name }),
+    ...(input.Priority !== undefined && input.Priority !== null && { priority: input.Priority }),
+    ...(input.Queue !== undefined && input.Queue !== null && { queue: input.Queue }),
+    ...(input.Settings !== undefined &&
+      input.Settings !== null && { settings: serializeAws_restJson1JobTemplateSettings(input.Settings, context) }),
+    ...(input.StatusUpdateInterval !== undefined &&
+      input.StatusUpdateInterval !== null && { statusUpdateInterval: input.StatusUpdateInterval }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -343,16 +352,18 @@ export const serializeAws_restJson1CreatePresetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2017-08-29/presets";
   let body: any;
   body = JSON.stringify({
-    ...(input.Category !== undefined && { category: input.Category }),
-    ...(input.Description !== undefined && { description: input.Description }),
-    ...(input.Name !== undefined && { name: input.Name }),
-    ...(input.Settings !== undefined && { settings: serializeAws_restJson1PresetSettings(input.Settings, context) }),
-    ...(input.Tags !== undefined && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
+    ...(input.Category !== undefined && input.Category !== null && { category: input.Category }),
+    ...(input.Description !== undefined && input.Description !== null && { description: input.Description }),
+    ...(input.Name !== undefined && input.Name !== null && { name: input.Name }),
+    ...(input.Settings !== undefined &&
+      input.Settings !== null && { settings: serializeAws_restJson1PresetSettings(input.Settings, context) }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -371,19 +382,21 @@ export const serializeAws_restJson1CreateQueueCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2017-08-29/queues";
   let body: any;
   body = JSON.stringify({
-    ...(input.Description !== undefined && { description: input.Description }),
-    ...(input.Name !== undefined && { name: input.Name }),
-    ...(input.PricingPlan !== undefined && { pricingPlan: input.PricingPlan }),
-    ...(input.ReservationPlanSettings !== undefined && {
-      reservationPlanSettings: serializeAws_restJson1ReservationPlanSettings(input.ReservationPlanSettings, context),
-    }),
-    ...(input.Status !== undefined && { status: input.Status }),
-    ...(input.Tags !== undefined && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
+    ...(input.Description !== undefined && input.Description !== null && { description: input.Description }),
+    ...(input.Name !== undefined && input.Name !== null && { name: input.Name }),
+    ...(input.PricingPlan !== undefined && input.PricingPlan !== null && { pricingPlan: input.PricingPlan }),
+    ...(input.ReservationPlanSettings !== undefined &&
+      input.ReservationPlanSettings !== null && {
+        reservationPlanSettings: serializeAws_restJson1ReservationPlanSettings(input.ReservationPlanSettings, context),
+      }),
+    ...(input.Status !== undefined && input.Status !== null && { status: input.Status }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -401,9 +414,7 @@ export const serializeAws_restJson1DeleteJobTemplateCommand = async (
   input: DeleteJobTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2017-08-29/jobTemplates/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -431,9 +442,7 @@ export const serializeAws_restJson1DeletePresetCommand = async (
   input: DeletePresetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2017-08-29/presets/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -461,9 +470,7 @@ export const serializeAws_restJson1DeleteQueueCommand = async (
   input: DeleteQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2017-08-29/queues/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -492,14 +499,14 @@ export const serializeAws_restJson1DescribeEndpointsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2017-08-29/endpoints";
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
-    ...(input.Mode !== undefined && { mode: input.Mode }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { maxResults: input.MaxResults }),
+    ...(input.Mode !== undefined && input.Mode !== null && { mode: input.Mode }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { nextToken: input.NextToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -517,9 +524,7 @@ export const serializeAws_restJson1DisassociateCertificateCommand = async (
   input: DisassociateCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2017-08-29/certificates/{Arn}";
   if (input.Arn !== undefined) {
     const labelValue: string = input.Arn;
@@ -547,9 +552,7 @@ export const serializeAws_restJson1GetJobCommand = async (
   input: GetJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2017-08-29/jobs/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -577,9 +580,7 @@ export const serializeAws_restJson1GetJobTemplateCommand = async (
   input: GetJobTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2017-08-29/jobTemplates/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -607,9 +608,7 @@ export const serializeAws_restJson1GetPresetCommand = async (
   input: GetPresetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2017-08-29/presets/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -637,9 +636,7 @@ export const serializeAws_restJson1GetQueueCommand = async (
   input: GetQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2017-08-29/queues/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -667,9 +664,7 @@ export const serializeAws_restJson1ListJobsCommand = async (
   input: ListJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2017-08-29/jobs";
   const query: any = {
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
@@ -696,9 +691,7 @@ export const serializeAws_restJson1ListJobTemplatesCommand = async (
   input: ListJobTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2017-08-29/jobTemplates";
   const query: any = {
     ...(input.Category !== undefined && { category: input.Category }),
@@ -725,9 +718,7 @@ export const serializeAws_restJson1ListPresetsCommand = async (
   input: ListPresetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2017-08-29/presets";
   const query: any = {
     ...(input.Category !== undefined && { category: input.Category }),
@@ -754,9 +745,7 @@ export const serializeAws_restJson1ListQueuesCommand = async (
   input: ListQueuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2017-08-29/queues";
   const query: any = {
     ...(input.ListBy !== undefined && { listBy: input.ListBy }),
@@ -782,9 +771,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2017-08-29/tags/{Arn}";
   if (input.Arn !== undefined) {
     const labelValue: string = input.Arn;
@@ -813,13 +800,14 @@ export const serializeAws_restJson1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2017-08-29/tags";
   let body: any;
   body = JSON.stringify({
-    ...(input.Arn !== undefined && { arn: input.Arn }),
-    ...(input.Tags !== undefined && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
+    ...(input.Arn !== undefined && input.Arn !== null && { arn: input.Arn }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -838,7 +826,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2017-08-29/tags/{Arn}";
   if (input.Arn !== undefined) {
@@ -852,7 +840,8 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.TagKeys !== undefined && { tagKeys: serializeAws_restJson1__listOf__string(input.TagKeys, context) }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { tagKeys: serializeAws_restJson1__listOf__string(input.TagKeys, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -871,7 +860,7 @@ export const serializeAws_restJson1UpdateJobTemplateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2017-08-29/jobTemplates/{Name}";
   if (input.Name !== undefined) {
@@ -885,20 +874,22 @@ export const serializeAws_restJson1UpdateJobTemplateCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.AccelerationSettings !== undefined && {
-      accelerationSettings: serializeAws_restJson1AccelerationSettings(input.AccelerationSettings, context),
-    }),
-    ...(input.Category !== undefined && { category: input.Category }),
-    ...(input.Description !== undefined && { description: input.Description }),
-    ...(input.HopDestinations !== undefined && {
-      hopDestinations: serializeAws_restJson1__listOfHopDestination(input.HopDestinations, context),
-    }),
-    ...(input.Priority !== undefined && { priority: input.Priority }),
-    ...(input.Queue !== undefined && { queue: input.Queue }),
-    ...(input.Settings !== undefined && {
-      settings: serializeAws_restJson1JobTemplateSettings(input.Settings, context),
-    }),
-    ...(input.StatusUpdateInterval !== undefined && { statusUpdateInterval: input.StatusUpdateInterval }),
+    ...(input.AccelerationSettings !== undefined &&
+      input.AccelerationSettings !== null && {
+        accelerationSettings: serializeAws_restJson1AccelerationSettings(input.AccelerationSettings, context),
+      }),
+    ...(input.Category !== undefined && input.Category !== null && { category: input.Category }),
+    ...(input.Description !== undefined && input.Description !== null && { description: input.Description }),
+    ...(input.HopDestinations !== undefined &&
+      input.HopDestinations !== null && {
+        hopDestinations: serializeAws_restJson1__listOfHopDestination(input.HopDestinations, context),
+      }),
+    ...(input.Priority !== undefined && input.Priority !== null && { priority: input.Priority }),
+    ...(input.Queue !== undefined && input.Queue !== null && { queue: input.Queue }),
+    ...(input.Settings !== undefined &&
+      input.Settings !== null && { settings: serializeAws_restJson1JobTemplateSettings(input.Settings, context) }),
+    ...(input.StatusUpdateInterval !== undefined &&
+      input.StatusUpdateInterval !== null && { statusUpdateInterval: input.StatusUpdateInterval }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -917,7 +908,7 @@ export const serializeAws_restJson1UpdatePresetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2017-08-29/presets/{Name}";
   if (input.Name !== undefined) {
@@ -931,9 +922,10 @@ export const serializeAws_restJson1UpdatePresetCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Category !== undefined && { category: input.Category }),
-    ...(input.Description !== undefined && { description: input.Description }),
-    ...(input.Settings !== undefined && { settings: serializeAws_restJson1PresetSettings(input.Settings, context) }),
+    ...(input.Category !== undefined && input.Category !== null && { category: input.Category }),
+    ...(input.Description !== undefined && input.Description !== null && { description: input.Description }),
+    ...(input.Settings !== undefined &&
+      input.Settings !== null && { settings: serializeAws_restJson1PresetSettings(input.Settings, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -952,7 +944,7 @@ export const serializeAws_restJson1UpdateQueueCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2017-08-29/queues/{Name}";
   if (input.Name !== undefined) {
@@ -966,11 +958,12 @@ export const serializeAws_restJson1UpdateQueueCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description !== undefined && { description: input.Description }),
-    ...(input.ReservationPlanSettings !== undefined && {
-      reservationPlanSettings: serializeAws_restJson1ReservationPlanSettings(input.ReservationPlanSettings, context),
-    }),
-    ...(input.Status !== undefined && { status: input.Status }),
+    ...(input.Description !== undefined && input.Description !== null && { description: input.Description }),
+    ...(input.ReservationPlanSettings !== undefined &&
+      input.ReservationPlanSettings !== null && {
+        reservationPlanSettings: serializeAws_restJson1ReservationPlanSettings(input.ReservationPlanSettings, context),
+      }),
+    ...(input.Status !== undefined && input.Status !== null && { status: input.Status }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3450,237 +3443,438 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
 };
 
 const serializeAws_restJson1__listOf__integerMin1Max2147483647 = (input: number[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1__listOf__integerMin32Max8182 = (input: number[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1__listOf__integerMinNegative60Max6 = (input: number[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1__listOf__string = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1__listOf__stringMin1 = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1__listOf__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12 = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1__listOf__stringPattern09aFAF809aFAF409aFAF409aFAF409aFAF12 = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1__listOf__stringPatternS3ASSETMAPXml = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1__listOfAudioDescription = (input: AudioDescription[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1AudioDescription(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1AudioDescription(entry, context);
+    });
 };
 
 const serializeAws_restJson1__listOfCaptionDescription = (
   input: CaptionDescription[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_restJson1CaptionDescription(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1CaptionDescription(entry, context);
+    });
 };
 
 const serializeAws_restJson1__listOfCaptionDescriptionPreset = (
   input: CaptionDescriptionPreset[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_restJson1CaptionDescriptionPreset(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1CaptionDescriptionPreset(entry, context);
+    });
 };
 
 const serializeAws_restJson1__listOfCmafAdditionalManifest = (
   input: CmafAdditionalManifest[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_restJson1CmafAdditionalManifest(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1CmafAdditionalManifest(entry, context);
+    });
 };
 
 const serializeAws_restJson1__listOfDashAdditionalManifest = (
   input: DashAdditionalManifest[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_restJson1DashAdditionalManifest(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1DashAdditionalManifest(entry, context);
+    });
 };
 
 const serializeAws_restJson1__listOfHlsAdditionalManifest = (
   input: HlsAdditionalManifest[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_restJson1HlsAdditionalManifest(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1HlsAdditionalManifest(entry, context);
+    });
 };
 
 const serializeAws_restJson1__listOfHlsAdMarkers = (input: (HlsAdMarkers | string)[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1__listOfHlsCaptionLanguageMapping = (
   input: HlsCaptionLanguageMapping[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_restJson1HlsCaptionLanguageMapping(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1HlsCaptionLanguageMapping(entry, context);
+    });
 };
 
 const serializeAws_restJson1__listOfHopDestination = (input: HopDestination[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1HopDestination(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1HopDestination(entry, context);
+    });
 };
 
 const serializeAws_restJson1__listOfId3Insertion = (input: Id3Insertion[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1Id3Insertion(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Id3Insertion(entry, context);
+    });
 };
 
 const serializeAws_restJson1__listOfInput = (input: Input[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1Input(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Input(entry, context);
+    });
 };
 
 const serializeAws_restJson1__listOfInputClipping = (input: InputClipping[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1InputClipping(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1InputClipping(entry, context);
+    });
 };
 
 const serializeAws_restJson1__listOfInputTemplate = (input: InputTemplate[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1InputTemplate(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1InputTemplate(entry, context);
+    });
 };
 
 const serializeAws_restJson1__listOfInsertableImage = (input: InsertableImage[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1InsertableImage(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1InsertableImage(entry, context);
+    });
 };
 
 const serializeAws_restJson1__listOfMsSmoothAdditionalManifest = (
   input: MsSmoothAdditionalManifest[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_restJson1MsSmoothAdditionalManifest(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1MsSmoothAdditionalManifest(entry, context);
+    });
 };
 
 const serializeAws_restJson1__listOfOutput = (input: Output[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1Output(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Output(entry, context);
+    });
 };
 
 const serializeAws_restJson1__listOfOutputChannelMapping = (
   input: OutputChannelMapping[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_restJson1OutputChannelMapping(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1OutputChannelMapping(entry, context);
+    });
 };
 
 const serializeAws_restJson1__listOfOutputGroup = (input: OutputGroup[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1OutputGroup(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1OutputGroup(entry, context);
+    });
 };
 
 const serializeAws_restJson1__listOfTeletextPageType = (
   input: (TeletextPageType | string)[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1__mapOf__string = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_restJson1__mapOfAudioSelector = (
   input: { [key: string]: AudioSelector },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: AudioSelector }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: AudioSelector }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: serializeAws_restJson1AudioSelector(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_restJson1__mapOfAudioSelectorGroup = (
   input: { [key: string]: AudioSelectorGroup },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: AudioSelectorGroup }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: AudioSelectorGroup }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: serializeAws_restJson1AudioSelectorGroup(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_restJson1__mapOfCaptionSelector = (
   input: { [key: string]: CaptionSelector },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: CaptionSelector }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: CaptionSelector }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: serializeAws_restJson1CaptionSelector(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_restJson1AacSettings = (input: AacSettings, context: __SerdeContext): any => {
   return {
-    ...(input.AudioDescriptionBroadcasterMix !== undefined && {
-      audioDescriptionBroadcasterMix: input.AudioDescriptionBroadcasterMix,
-    }),
-    ...(input.Bitrate !== undefined && { bitrate: input.Bitrate }),
-    ...(input.CodecProfile !== undefined && { codecProfile: input.CodecProfile }),
-    ...(input.CodingMode !== undefined && { codingMode: input.CodingMode }),
-    ...(input.RateControlMode !== undefined && { rateControlMode: input.RateControlMode }),
-    ...(input.RawFormat !== undefined && { rawFormat: input.RawFormat }),
-    ...(input.SampleRate !== undefined && { sampleRate: input.SampleRate }),
-    ...(input.Specification !== undefined && { specification: input.Specification }),
-    ...(input.VbrQuality !== undefined && { vbrQuality: input.VbrQuality }),
+    ...(input.AudioDescriptionBroadcasterMix !== undefined &&
+      input.AudioDescriptionBroadcasterMix !== null && {
+        audioDescriptionBroadcasterMix: input.AudioDescriptionBroadcasterMix,
+      }),
+    ...(input.Bitrate !== undefined && input.Bitrate !== null && { bitrate: input.Bitrate }),
+    ...(input.CodecProfile !== undefined && input.CodecProfile !== null && { codecProfile: input.CodecProfile }),
+    ...(input.CodingMode !== undefined && input.CodingMode !== null && { codingMode: input.CodingMode }),
+    ...(input.RateControlMode !== undefined &&
+      input.RateControlMode !== null && { rateControlMode: input.RateControlMode }),
+    ...(input.RawFormat !== undefined && input.RawFormat !== null && { rawFormat: input.RawFormat }),
+    ...(input.SampleRate !== undefined && input.SampleRate !== null && { sampleRate: input.SampleRate }),
+    ...(input.Specification !== undefined && input.Specification !== null && { specification: input.Specification }),
+    ...(input.VbrQuality !== undefined && input.VbrQuality !== null && { vbrQuality: input.VbrQuality }),
   };
 };
 
 const serializeAws_restJson1Ac3Settings = (input: Ac3Settings, context: __SerdeContext): any => {
   return {
-    ...(input.Bitrate !== undefined && { bitrate: input.Bitrate }),
-    ...(input.BitstreamMode !== undefined && { bitstreamMode: input.BitstreamMode }),
-    ...(input.CodingMode !== undefined && { codingMode: input.CodingMode }),
-    ...(input.Dialnorm !== undefined && { dialnorm: input.Dialnorm }),
-    ...(input.DynamicRangeCompressionProfile !== undefined && {
-      dynamicRangeCompressionProfile: input.DynamicRangeCompressionProfile,
-    }),
-    ...(input.LfeFilter !== undefined && { lfeFilter: input.LfeFilter }),
-    ...(input.MetadataControl !== undefined && { metadataControl: input.MetadataControl }),
-    ...(input.SampleRate !== undefined && { sampleRate: input.SampleRate }),
+    ...(input.Bitrate !== undefined && input.Bitrate !== null && { bitrate: input.Bitrate }),
+    ...(input.BitstreamMode !== undefined && input.BitstreamMode !== null && { bitstreamMode: input.BitstreamMode }),
+    ...(input.CodingMode !== undefined && input.CodingMode !== null && { codingMode: input.CodingMode }),
+    ...(input.Dialnorm !== undefined && input.Dialnorm !== null && { dialnorm: input.Dialnorm }),
+    ...(input.DynamicRangeCompressionProfile !== undefined &&
+      input.DynamicRangeCompressionProfile !== null && {
+        dynamicRangeCompressionProfile: input.DynamicRangeCompressionProfile,
+      }),
+    ...(input.LfeFilter !== undefined && input.LfeFilter !== null && { lfeFilter: input.LfeFilter }),
+    ...(input.MetadataControl !== undefined &&
+      input.MetadataControl !== null && { metadataControl: input.MetadataControl }),
+    ...(input.SampleRate !== undefined && input.SampleRate !== null && { sampleRate: input.SampleRate }),
   };
 };
 
 const serializeAws_restJson1AccelerationSettings = (input: AccelerationSettings, context: __SerdeContext): any => {
   return {
-    ...(input.Mode !== undefined && { mode: input.Mode }),
+    ...(input.Mode !== undefined && input.Mode !== null && { mode: input.Mode }),
   };
 };
 
 const serializeAws_restJson1AiffSettings = (input: AiffSettings, context: __SerdeContext): any => {
   return {
-    ...(input.BitDepth !== undefined && { bitDepth: input.BitDepth }),
-    ...(input.Channels !== undefined && { channels: input.Channels }),
-    ...(input.SampleRate !== undefined && { sampleRate: input.SampleRate }),
+    ...(input.BitDepth !== undefined && input.BitDepth !== null && { bitDepth: input.BitDepth }),
+    ...(input.Channels !== undefined && input.Channels !== null && { channels: input.Channels }),
+    ...(input.SampleRate !== undefined && input.SampleRate !== null && { sampleRate: input.SampleRate }),
   };
 };
 
@@ -3689,11 +3883,14 @@ const serializeAws_restJson1AncillarySourceSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Convert608To708 !== undefined && { convert608To708: input.Convert608To708 }),
-    ...(input.SourceAncillaryChannelNumber !== undefined && {
-      sourceAncillaryChannelNumber: input.SourceAncillaryChannelNumber,
-    }),
-    ...(input.TerminateCaptions !== undefined && { terminateCaptions: input.TerminateCaptions }),
+    ...(input.Convert608To708 !== undefined &&
+      input.Convert608To708 !== null && { convert608To708: input.Convert608To708 }),
+    ...(input.SourceAncillaryChannelNumber !== undefined &&
+      input.SourceAncillaryChannelNumber !== null && {
+        sourceAncillaryChannelNumber: input.SourceAncillaryChannelNumber,
+      }),
+    ...(input.TerminateCaptions !== undefined &&
+      input.TerminateCaptions !== null && { terminateCaptions: input.TerminateCaptions }),
   };
 };
 
@@ -3702,73 +3899,75 @@ const serializeAws_restJson1AudioChannelTaggingSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ChannelTag !== undefined && { channelTag: input.ChannelTag }),
+    ...(input.ChannelTag !== undefined && input.ChannelTag !== null && { channelTag: input.ChannelTag }),
   };
 };
 
 const serializeAws_restJson1AudioCodecSettings = (input: AudioCodecSettings, context: __SerdeContext): any => {
   return {
-    ...(input.AacSettings !== undefined && {
-      aacSettings: serializeAws_restJson1AacSettings(input.AacSettings, context),
-    }),
-    ...(input.Ac3Settings !== undefined && {
-      ac3Settings: serializeAws_restJson1Ac3Settings(input.Ac3Settings, context),
-    }),
-    ...(input.AiffSettings !== undefined && {
-      aiffSettings: serializeAws_restJson1AiffSettings(input.AiffSettings, context),
-    }),
-    ...(input.Codec !== undefined && { codec: input.Codec }),
-    ...(input.Eac3AtmosSettings !== undefined && {
-      eac3AtmosSettings: serializeAws_restJson1Eac3AtmosSettings(input.Eac3AtmosSettings, context),
-    }),
-    ...(input.Eac3Settings !== undefined && {
-      eac3Settings: serializeAws_restJson1Eac3Settings(input.Eac3Settings, context),
-    }),
-    ...(input.Mp2Settings !== undefined && {
-      mp2Settings: serializeAws_restJson1Mp2Settings(input.Mp2Settings, context),
-    }),
-    ...(input.Mp3Settings !== undefined && {
-      mp3Settings: serializeAws_restJson1Mp3Settings(input.Mp3Settings, context),
-    }),
-    ...(input.OpusSettings !== undefined && {
-      opusSettings: serializeAws_restJson1OpusSettings(input.OpusSettings, context),
-    }),
-    ...(input.VorbisSettings !== undefined && {
-      vorbisSettings: serializeAws_restJson1VorbisSettings(input.VorbisSettings, context),
-    }),
-    ...(input.WavSettings !== undefined && {
-      wavSettings: serializeAws_restJson1WavSettings(input.WavSettings, context),
-    }),
+    ...(input.AacSettings !== undefined &&
+      input.AacSettings !== null && { aacSettings: serializeAws_restJson1AacSettings(input.AacSettings, context) }),
+    ...(input.Ac3Settings !== undefined &&
+      input.Ac3Settings !== null && { ac3Settings: serializeAws_restJson1Ac3Settings(input.Ac3Settings, context) }),
+    ...(input.AiffSettings !== undefined &&
+      input.AiffSettings !== null && { aiffSettings: serializeAws_restJson1AiffSettings(input.AiffSettings, context) }),
+    ...(input.Codec !== undefined && input.Codec !== null && { codec: input.Codec }),
+    ...(input.Eac3AtmosSettings !== undefined &&
+      input.Eac3AtmosSettings !== null && {
+        eac3AtmosSettings: serializeAws_restJson1Eac3AtmosSettings(input.Eac3AtmosSettings, context),
+      }),
+    ...(input.Eac3Settings !== undefined &&
+      input.Eac3Settings !== null && { eac3Settings: serializeAws_restJson1Eac3Settings(input.Eac3Settings, context) }),
+    ...(input.Mp2Settings !== undefined &&
+      input.Mp2Settings !== null && { mp2Settings: serializeAws_restJson1Mp2Settings(input.Mp2Settings, context) }),
+    ...(input.Mp3Settings !== undefined &&
+      input.Mp3Settings !== null && { mp3Settings: serializeAws_restJson1Mp3Settings(input.Mp3Settings, context) }),
+    ...(input.OpusSettings !== undefined &&
+      input.OpusSettings !== null && { opusSettings: serializeAws_restJson1OpusSettings(input.OpusSettings, context) }),
+    ...(input.VorbisSettings !== undefined &&
+      input.VorbisSettings !== null && {
+        vorbisSettings: serializeAws_restJson1VorbisSettings(input.VorbisSettings, context),
+      }),
+    ...(input.WavSettings !== undefined &&
+      input.WavSettings !== null && { wavSettings: serializeAws_restJson1WavSettings(input.WavSettings, context) }),
   };
 };
 
 const serializeAws_restJson1AudioDescription = (input: AudioDescription, context: __SerdeContext): any => {
   return {
-    ...(input.AudioChannelTaggingSettings !== undefined && {
-      audioChannelTaggingSettings: serializeAws_restJson1AudioChannelTaggingSettings(
-        input.AudioChannelTaggingSettings,
-        context
-      ),
-    }),
-    ...(input.AudioNormalizationSettings !== undefined && {
-      audioNormalizationSettings: serializeAws_restJson1AudioNormalizationSettings(
-        input.AudioNormalizationSettings,
-        context
-      ),
-    }),
-    ...(input.AudioSourceName !== undefined && { audioSourceName: input.AudioSourceName }),
-    ...(input.AudioType !== undefined && { audioType: input.AudioType }),
-    ...(input.AudioTypeControl !== undefined && { audioTypeControl: input.AudioTypeControl }),
-    ...(input.CodecSettings !== undefined && {
-      codecSettings: serializeAws_restJson1AudioCodecSettings(input.CodecSettings, context),
-    }),
-    ...(input.CustomLanguageCode !== undefined && { customLanguageCode: input.CustomLanguageCode }),
-    ...(input.LanguageCode !== undefined && { languageCode: input.LanguageCode }),
-    ...(input.LanguageCodeControl !== undefined && { languageCodeControl: input.LanguageCodeControl }),
-    ...(input.RemixSettings !== undefined && {
-      remixSettings: serializeAws_restJson1RemixSettings(input.RemixSettings, context),
-    }),
-    ...(input.StreamName !== undefined && { streamName: input.StreamName }),
+    ...(input.AudioChannelTaggingSettings !== undefined &&
+      input.AudioChannelTaggingSettings !== null && {
+        audioChannelTaggingSettings: serializeAws_restJson1AudioChannelTaggingSettings(
+          input.AudioChannelTaggingSettings,
+          context
+        ),
+      }),
+    ...(input.AudioNormalizationSettings !== undefined &&
+      input.AudioNormalizationSettings !== null && {
+        audioNormalizationSettings: serializeAws_restJson1AudioNormalizationSettings(
+          input.AudioNormalizationSettings,
+          context
+        ),
+      }),
+    ...(input.AudioSourceName !== undefined &&
+      input.AudioSourceName !== null && { audioSourceName: input.AudioSourceName }),
+    ...(input.AudioType !== undefined && input.AudioType !== null && { audioType: input.AudioType }),
+    ...(input.AudioTypeControl !== undefined &&
+      input.AudioTypeControl !== null && { audioTypeControl: input.AudioTypeControl }),
+    ...(input.CodecSettings !== undefined &&
+      input.CodecSettings !== null && {
+        codecSettings: serializeAws_restJson1AudioCodecSettings(input.CodecSettings, context),
+      }),
+    ...(input.CustomLanguageCode !== undefined &&
+      input.CustomLanguageCode !== null && { customLanguageCode: input.CustomLanguageCode }),
+    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { languageCode: input.LanguageCode }),
+    ...(input.LanguageCodeControl !== undefined &&
+      input.LanguageCodeControl !== null && { languageCodeControl: input.LanguageCodeControl }),
+    ...(input.RemixSettings !== undefined &&
+      input.RemixSettings !== null && {
+        remixSettings: serializeAws_restJson1RemixSettings(input.RemixSettings, context),
+      }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { streamName: input.StreamName }),
   };
 };
 
@@ -3777,49 +3976,59 @@ const serializeAws_restJson1AudioNormalizationSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Algorithm !== undefined && { algorithm: input.Algorithm }),
-    ...(input.AlgorithmControl !== undefined && { algorithmControl: input.AlgorithmControl }),
-    ...(input.CorrectionGateLevel !== undefined && { correctionGateLevel: input.CorrectionGateLevel }),
-    ...(input.LoudnessLogging !== undefined && { loudnessLogging: input.LoudnessLogging }),
-    ...(input.PeakCalculation !== undefined && { peakCalculation: input.PeakCalculation }),
-    ...(input.TargetLkfs !== undefined && { targetLkfs: input.TargetLkfs }),
+    ...(input.Algorithm !== undefined && input.Algorithm !== null && { algorithm: input.Algorithm }),
+    ...(input.AlgorithmControl !== undefined &&
+      input.AlgorithmControl !== null && { algorithmControl: input.AlgorithmControl }),
+    ...(input.CorrectionGateLevel !== undefined &&
+      input.CorrectionGateLevel !== null && { correctionGateLevel: input.CorrectionGateLevel }),
+    ...(input.LoudnessLogging !== undefined &&
+      input.LoudnessLogging !== null && { loudnessLogging: input.LoudnessLogging }),
+    ...(input.PeakCalculation !== undefined &&
+      input.PeakCalculation !== null && { peakCalculation: input.PeakCalculation }),
+    ...(input.TargetLkfs !== undefined && input.TargetLkfs !== null && { targetLkfs: input.TargetLkfs }),
   };
 };
 
 const serializeAws_restJson1AudioSelector = (input: AudioSelector, context: __SerdeContext): any => {
   return {
-    ...(input.CustomLanguageCode !== undefined && { customLanguageCode: input.CustomLanguageCode }),
-    ...(input.DefaultSelection !== undefined && { defaultSelection: input.DefaultSelection }),
-    ...(input.ExternalAudioFileInput !== undefined && { externalAudioFileInput: input.ExternalAudioFileInput }),
-    ...(input.LanguageCode !== undefined && { languageCode: input.LanguageCode }),
-    ...(input.Offset !== undefined && { offset: input.Offset }),
-    ...(input.Pids !== undefined && {
-      pids: serializeAws_restJson1__listOf__integerMin1Max2147483647(input.Pids, context),
-    }),
-    ...(input.ProgramSelection !== undefined && { programSelection: input.ProgramSelection }),
-    ...(input.RemixSettings !== undefined && {
-      remixSettings: serializeAws_restJson1RemixSettings(input.RemixSettings, context),
-    }),
-    ...(input.SelectorType !== undefined && { selectorType: input.SelectorType }),
-    ...(input.Tracks !== undefined && {
-      tracks: serializeAws_restJson1__listOf__integerMin1Max2147483647(input.Tracks, context),
-    }),
+    ...(input.CustomLanguageCode !== undefined &&
+      input.CustomLanguageCode !== null && { customLanguageCode: input.CustomLanguageCode }),
+    ...(input.DefaultSelection !== undefined &&
+      input.DefaultSelection !== null && { defaultSelection: input.DefaultSelection }),
+    ...(input.ExternalAudioFileInput !== undefined &&
+      input.ExternalAudioFileInput !== null && { externalAudioFileInput: input.ExternalAudioFileInput }),
+    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { languageCode: input.LanguageCode }),
+    ...(input.Offset !== undefined && input.Offset !== null && { offset: input.Offset }),
+    ...(input.Pids !== undefined &&
+      input.Pids !== null && { pids: serializeAws_restJson1__listOf__integerMin1Max2147483647(input.Pids, context) }),
+    ...(input.ProgramSelection !== undefined &&
+      input.ProgramSelection !== null && { programSelection: input.ProgramSelection }),
+    ...(input.RemixSettings !== undefined &&
+      input.RemixSettings !== null && {
+        remixSettings: serializeAws_restJson1RemixSettings(input.RemixSettings, context),
+      }),
+    ...(input.SelectorType !== undefined && input.SelectorType !== null && { selectorType: input.SelectorType }),
+    ...(input.Tracks !== undefined &&
+      input.Tracks !== null && {
+        tracks: serializeAws_restJson1__listOf__integerMin1Max2147483647(input.Tracks, context),
+      }),
   };
 };
 
 const serializeAws_restJson1AudioSelectorGroup = (input: AudioSelectorGroup, context: __SerdeContext): any => {
   return {
-    ...(input.AudioSelectorNames !== undefined && {
-      audioSelectorNames: serializeAws_restJson1__listOf__stringMin1(input.AudioSelectorNames, context),
-    }),
+    ...(input.AudioSelectorNames !== undefined &&
+      input.AudioSelectorNames !== null && {
+        audioSelectorNames: serializeAws_restJson1__listOf__stringMin1(input.AudioSelectorNames, context),
+      }),
   };
 };
 
 const serializeAws_restJson1AutomatedAbrSettings = (input: AutomatedAbrSettings, context: __SerdeContext): any => {
   return {
-    ...(input.MaxAbrBitrate !== undefined && { maxAbrBitrate: input.MaxAbrBitrate }),
-    ...(input.MaxRenditions !== undefined && { maxRenditions: input.MaxRenditions }),
-    ...(input.MinAbrBitrate !== undefined && { minAbrBitrate: input.MinAbrBitrate }),
+    ...(input.MaxAbrBitrate !== undefined && input.MaxAbrBitrate !== null && { maxAbrBitrate: input.MaxAbrBitrate }),
+    ...(input.MaxRenditions !== undefined && input.MaxRenditions !== null && { maxRenditions: input.MaxRenditions }),
+    ...(input.MinAbrBitrate !== undefined && input.MinAbrBitrate !== null && { minAbrBitrate: input.MinAbrBitrate }),
   };
 };
 
@@ -3828,62 +4037,77 @@ const serializeAws_restJson1AutomatedEncodingSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AbrSettings !== undefined && {
-      abrSettings: serializeAws_restJson1AutomatedAbrSettings(input.AbrSettings, context),
-    }),
+    ...(input.AbrSettings !== undefined &&
+      input.AbrSettings !== null && {
+        abrSettings: serializeAws_restJson1AutomatedAbrSettings(input.AbrSettings, context),
+      }),
   };
 };
 
 const serializeAws_restJson1Av1QvbrSettings = (input: Av1QvbrSettings, context: __SerdeContext): any => {
   return {
-    ...(input.QvbrQualityLevel !== undefined && { qvbrQualityLevel: input.QvbrQualityLevel }),
-    ...(input.QvbrQualityLevelFineTune !== undefined && { qvbrQualityLevelFineTune: input.QvbrQualityLevelFineTune }),
+    ...(input.QvbrQualityLevel !== undefined &&
+      input.QvbrQualityLevel !== null && { qvbrQualityLevel: input.QvbrQualityLevel }),
+    ...(input.QvbrQualityLevelFineTune !== undefined &&
+      input.QvbrQualityLevelFineTune !== null && { qvbrQualityLevelFineTune: input.QvbrQualityLevelFineTune }),
   };
 };
 
 const serializeAws_restJson1Av1Settings = (input: Av1Settings, context: __SerdeContext): any => {
   return {
-    ...(input.AdaptiveQuantization !== undefined && { adaptiveQuantization: input.AdaptiveQuantization }),
-    ...(input.FramerateControl !== undefined && { framerateControl: input.FramerateControl }),
-    ...(input.FramerateConversionAlgorithm !== undefined && {
-      framerateConversionAlgorithm: input.FramerateConversionAlgorithm,
-    }),
-    ...(input.FramerateDenominator !== undefined && { framerateDenominator: input.FramerateDenominator }),
-    ...(input.FramerateNumerator !== undefined && { framerateNumerator: input.FramerateNumerator }),
-    ...(input.GopSize !== undefined && { gopSize: input.GopSize }),
-    ...(input.MaxBitrate !== undefined && { maxBitrate: input.MaxBitrate }),
-    ...(input.NumberBFramesBetweenReferenceFrames !== undefined && {
-      numberBFramesBetweenReferenceFrames: input.NumberBFramesBetweenReferenceFrames,
-    }),
-    ...(input.QvbrSettings !== undefined && {
-      qvbrSettings: serializeAws_restJson1Av1QvbrSettings(input.QvbrSettings, context),
-    }),
-    ...(input.RateControlMode !== undefined && { rateControlMode: input.RateControlMode }),
-    ...(input.Slices !== undefined && { slices: input.Slices }),
-    ...(input.SpatialAdaptiveQuantization !== undefined && {
-      spatialAdaptiveQuantization: input.SpatialAdaptiveQuantization,
-    }),
+    ...(input.AdaptiveQuantization !== undefined &&
+      input.AdaptiveQuantization !== null && { adaptiveQuantization: input.AdaptiveQuantization }),
+    ...(input.FramerateControl !== undefined &&
+      input.FramerateControl !== null && { framerateControl: input.FramerateControl }),
+    ...(input.FramerateConversionAlgorithm !== undefined &&
+      input.FramerateConversionAlgorithm !== null && {
+        framerateConversionAlgorithm: input.FramerateConversionAlgorithm,
+      }),
+    ...(input.FramerateDenominator !== undefined &&
+      input.FramerateDenominator !== null && { framerateDenominator: input.FramerateDenominator }),
+    ...(input.FramerateNumerator !== undefined &&
+      input.FramerateNumerator !== null && { framerateNumerator: input.FramerateNumerator }),
+    ...(input.GopSize !== undefined && input.GopSize !== null && { gopSize: input.GopSize }),
+    ...(input.MaxBitrate !== undefined && input.MaxBitrate !== null && { maxBitrate: input.MaxBitrate }),
+    ...(input.NumberBFramesBetweenReferenceFrames !== undefined &&
+      input.NumberBFramesBetweenReferenceFrames !== null && {
+        numberBFramesBetweenReferenceFrames: input.NumberBFramesBetweenReferenceFrames,
+      }),
+    ...(input.QvbrSettings !== undefined &&
+      input.QvbrSettings !== null && {
+        qvbrSettings: serializeAws_restJson1Av1QvbrSettings(input.QvbrSettings, context),
+      }),
+    ...(input.RateControlMode !== undefined &&
+      input.RateControlMode !== null && { rateControlMode: input.RateControlMode }),
+    ...(input.Slices !== undefined && input.Slices !== null && { slices: input.Slices }),
+    ...(input.SpatialAdaptiveQuantization !== undefined &&
+      input.SpatialAdaptiveQuantization !== null && { spatialAdaptiveQuantization: input.SpatialAdaptiveQuantization }),
   };
 };
 
 const serializeAws_restJson1AvailBlanking = (input: AvailBlanking, context: __SerdeContext): any => {
   return {
-    ...(input.AvailBlankingImage !== undefined && { availBlankingImage: input.AvailBlankingImage }),
+    ...(input.AvailBlankingImage !== undefined &&
+      input.AvailBlankingImage !== null && { availBlankingImage: input.AvailBlankingImage }),
   };
 };
 
 const serializeAws_restJson1AvcIntraSettings = (input: AvcIntraSettings, context: __SerdeContext): any => {
   return {
-    ...(input.AvcIntraClass !== undefined && { avcIntraClass: input.AvcIntraClass }),
-    ...(input.FramerateControl !== undefined && { framerateControl: input.FramerateControl }),
-    ...(input.FramerateConversionAlgorithm !== undefined && {
-      framerateConversionAlgorithm: input.FramerateConversionAlgorithm,
-    }),
-    ...(input.FramerateDenominator !== undefined && { framerateDenominator: input.FramerateDenominator }),
-    ...(input.FramerateNumerator !== undefined && { framerateNumerator: input.FramerateNumerator }),
-    ...(input.InterlaceMode !== undefined && { interlaceMode: input.InterlaceMode }),
-    ...(input.SlowPal !== undefined && { slowPal: input.SlowPal }),
-    ...(input.Telecine !== undefined && { telecine: input.Telecine }),
+    ...(input.AvcIntraClass !== undefined && input.AvcIntraClass !== null && { avcIntraClass: input.AvcIntraClass }),
+    ...(input.FramerateControl !== undefined &&
+      input.FramerateControl !== null && { framerateControl: input.FramerateControl }),
+    ...(input.FramerateConversionAlgorithm !== undefined &&
+      input.FramerateConversionAlgorithm !== null && {
+        framerateConversionAlgorithm: input.FramerateConversionAlgorithm,
+      }),
+    ...(input.FramerateDenominator !== undefined &&
+      input.FramerateDenominator !== null && { framerateDenominator: input.FramerateDenominator }),
+    ...(input.FramerateNumerator !== undefined &&
+      input.FramerateNumerator !== null && { framerateNumerator: input.FramerateNumerator }),
+    ...(input.InterlaceMode !== undefined && input.InterlaceMode !== null && { interlaceMode: input.InterlaceMode }),
+    ...(input.SlowPal !== undefined && input.SlowPal !== null && { slowPal: input.SlowPal }),
+    ...(input.Telecine !== undefined && input.Telecine !== null && { telecine: input.Telecine }),
   };
 };
 
@@ -3892,35 +4116,43 @@ const serializeAws_restJson1BurninDestinationSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Alignment !== undefined && { alignment: input.Alignment }),
-    ...(input.BackgroundColor !== undefined && { backgroundColor: input.BackgroundColor }),
-    ...(input.BackgroundOpacity !== undefined && { backgroundOpacity: input.BackgroundOpacity }),
-    ...(input.FontColor !== undefined && { fontColor: input.FontColor }),
-    ...(input.FontOpacity !== undefined && { fontOpacity: input.FontOpacity }),
-    ...(input.FontResolution !== undefined && { fontResolution: input.FontResolution }),
-    ...(input.FontScript !== undefined && { fontScript: input.FontScript }),
-    ...(input.FontSize !== undefined && { fontSize: input.FontSize }),
-    ...(input.OutlineColor !== undefined && { outlineColor: input.OutlineColor }),
-    ...(input.OutlineSize !== undefined && { outlineSize: input.OutlineSize }),
-    ...(input.ShadowColor !== undefined && { shadowColor: input.ShadowColor }),
-    ...(input.ShadowOpacity !== undefined && { shadowOpacity: input.ShadowOpacity }),
-    ...(input.ShadowXOffset !== undefined && { shadowXOffset: input.ShadowXOffset }),
-    ...(input.ShadowYOffset !== undefined && { shadowYOffset: input.ShadowYOffset }),
-    ...(input.TeletextSpacing !== undefined && { teletextSpacing: input.TeletextSpacing }),
-    ...(input.XPosition !== undefined && { xPosition: input.XPosition }),
-    ...(input.YPosition !== undefined && { yPosition: input.YPosition }),
+    ...(input.Alignment !== undefined && input.Alignment !== null && { alignment: input.Alignment }),
+    ...(input.BackgroundColor !== undefined &&
+      input.BackgroundColor !== null && { backgroundColor: input.BackgroundColor }),
+    ...(input.BackgroundOpacity !== undefined &&
+      input.BackgroundOpacity !== null && { backgroundOpacity: input.BackgroundOpacity }),
+    ...(input.FontColor !== undefined && input.FontColor !== null && { fontColor: input.FontColor }),
+    ...(input.FontOpacity !== undefined && input.FontOpacity !== null && { fontOpacity: input.FontOpacity }),
+    ...(input.FontResolution !== undefined &&
+      input.FontResolution !== null && { fontResolution: input.FontResolution }),
+    ...(input.FontScript !== undefined && input.FontScript !== null && { fontScript: input.FontScript }),
+    ...(input.FontSize !== undefined && input.FontSize !== null && { fontSize: input.FontSize }),
+    ...(input.OutlineColor !== undefined && input.OutlineColor !== null && { outlineColor: input.OutlineColor }),
+    ...(input.OutlineSize !== undefined && input.OutlineSize !== null && { outlineSize: input.OutlineSize }),
+    ...(input.ShadowColor !== undefined && input.ShadowColor !== null && { shadowColor: input.ShadowColor }),
+    ...(input.ShadowOpacity !== undefined && input.ShadowOpacity !== null && { shadowOpacity: input.ShadowOpacity }),
+    ...(input.ShadowXOffset !== undefined && input.ShadowXOffset !== null && { shadowXOffset: input.ShadowXOffset }),
+    ...(input.ShadowYOffset !== undefined && input.ShadowYOffset !== null && { shadowYOffset: input.ShadowYOffset }),
+    ...(input.TeletextSpacing !== undefined &&
+      input.TeletextSpacing !== null && { teletextSpacing: input.TeletextSpacing }),
+    ...(input.XPosition !== undefined && input.XPosition !== null && { xPosition: input.XPosition }),
+    ...(input.YPosition !== undefined && input.YPosition !== null && { yPosition: input.YPosition }),
   };
 };
 
 const serializeAws_restJson1CaptionDescription = (input: CaptionDescription, context: __SerdeContext): any => {
   return {
-    ...(input.CaptionSelectorName !== undefined && { captionSelectorName: input.CaptionSelectorName }),
-    ...(input.CustomLanguageCode !== undefined && { customLanguageCode: input.CustomLanguageCode }),
-    ...(input.DestinationSettings !== undefined && {
-      destinationSettings: serializeAws_restJson1CaptionDestinationSettings(input.DestinationSettings, context),
-    }),
-    ...(input.LanguageCode !== undefined && { languageCode: input.LanguageCode }),
-    ...(input.LanguageDescription !== undefined && { languageDescription: input.LanguageDescription }),
+    ...(input.CaptionSelectorName !== undefined &&
+      input.CaptionSelectorName !== null && { captionSelectorName: input.CaptionSelectorName }),
+    ...(input.CustomLanguageCode !== undefined &&
+      input.CustomLanguageCode !== null && { customLanguageCode: input.CustomLanguageCode }),
+    ...(input.DestinationSettings !== undefined &&
+      input.DestinationSettings !== null && {
+        destinationSettings: serializeAws_restJson1CaptionDestinationSettings(input.DestinationSettings, context),
+      }),
+    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { languageCode: input.LanguageCode }),
+    ...(input.LanguageDescription !== undefined &&
+      input.LanguageDescription !== null && { languageDescription: input.LanguageDescription }),
   };
 };
 
@@ -3929,12 +4161,15 @@ const serializeAws_restJson1CaptionDescriptionPreset = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CustomLanguageCode !== undefined && { customLanguageCode: input.CustomLanguageCode }),
-    ...(input.DestinationSettings !== undefined && {
-      destinationSettings: serializeAws_restJson1CaptionDestinationSettings(input.DestinationSettings, context),
-    }),
-    ...(input.LanguageCode !== undefined && { languageCode: input.LanguageCode }),
-    ...(input.LanguageDescription !== undefined && { languageDescription: input.LanguageDescription }),
+    ...(input.CustomLanguageCode !== undefined &&
+      input.CustomLanguageCode !== null && { customLanguageCode: input.CustomLanguageCode }),
+    ...(input.DestinationSettings !== undefined &&
+      input.DestinationSettings !== null && {
+        destinationSettings: serializeAws_restJson1CaptionDestinationSettings(input.DestinationSettings, context),
+      }),
+    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { languageCode: input.LanguageCode }),
+    ...(input.LanguageDescription !== undefined &&
+      input.LanguageDescription !== null && { languageDescription: input.LanguageDescription }),
   };
 };
 
@@ -3943,209 +4178,244 @@ const serializeAws_restJson1CaptionDestinationSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BurninDestinationSettings !== undefined && {
-      burninDestinationSettings: serializeAws_restJson1BurninDestinationSettings(
-        input.BurninDestinationSettings,
-        context
-      ),
-    }),
-    ...(input.DestinationType !== undefined && { destinationType: input.DestinationType }),
-    ...(input.DvbSubDestinationSettings !== undefined && {
-      dvbSubDestinationSettings: serializeAws_restJson1DvbSubDestinationSettings(
-        input.DvbSubDestinationSettings,
-        context
-      ),
-    }),
-    ...(input.EmbeddedDestinationSettings !== undefined && {
-      embeddedDestinationSettings: serializeAws_restJson1EmbeddedDestinationSettings(
-        input.EmbeddedDestinationSettings,
-        context
-      ),
-    }),
-    ...(input.ImscDestinationSettings !== undefined && {
-      imscDestinationSettings: serializeAws_restJson1ImscDestinationSettings(input.ImscDestinationSettings, context),
-    }),
-    ...(input.SccDestinationSettings !== undefined && {
-      sccDestinationSettings: serializeAws_restJson1SccDestinationSettings(input.SccDestinationSettings, context),
-    }),
-    ...(input.TeletextDestinationSettings !== undefined && {
-      teletextDestinationSettings: serializeAws_restJson1TeletextDestinationSettings(
-        input.TeletextDestinationSettings,
-        context
-      ),
-    }),
-    ...(input.TtmlDestinationSettings !== undefined && {
-      ttmlDestinationSettings: serializeAws_restJson1TtmlDestinationSettings(input.TtmlDestinationSettings, context),
-    }),
+    ...(input.BurninDestinationSettings !== undefined &&
+      input.BurninDestinationSettings !== null && {
+        burninDestinationSettings: serializeAws_restJson1BurninDestinationSettings(
+          input.BurninDestinationSettings,
+          context
+        ),
+      }),
+    ...(input.DestinationType !== undefined &&
+      input.DestinationType !== null && { destinationType: input.DestinationType }),
+    ...(input.DvbSubDestinationSettings !== undefined &&
+      input.DvbSubDestinationSettings !== null && {
+        dvbSubDestinationSettings: serializeAws_restJson1DvbSubDestinationSettings(
+          input.DvbSubDestinationSettings,
+          context
+        ),
+      }),
+    ...(input.EmbeddedDestinationSettings !== undefined &&
+      input.EmbeddedDestinationSettings !== null && {
+        embeddedDestinationSettings: serializeAws_restJson1EmbeddedDestinationSettings(
+          input.EmbeddedDestinationSettings,
+          context
+        ),
+      }),
+    ...(input.ImscDestinationSettings !== undefined &&
+      input.ImscDestinationSettings !== null && {
+        imscDestinationSettings: serializeAws_restJson1ImscDestinationSettings(input.ImscDestinationSettings, context),
+      }),
+    ...(input.SccDestinationSettings !== undefined &&
+      input.SccDestinationSettings !== null && {
+        sccDestinationSettings: serializeAws_restJson1SccDestinationSettings(input.SccDestinationSettings, context),
+      }),
+    ...(input.TeletextDestinationSettings !== undefined &&
+      input.TeletextDestinationSettings !== null && {
+        teletextDestinationSettings: serializeAws_restJson1TeletextDestinationSettings(
+          input.TeletextDestinationSettings,
+          context
+        ),
+      }),
+    ...(input.TtmlDestinationSettings !== undefined &&
+      input.TtmlDestinationSettings !== null && {
+        ttmlDestinationSettings: serializeAws_restJson1TtmlDestinationSettings(input.TtmlDestinationSettings, context),
+      }),
   };
 };
 
 const serializeAws_restJson1CaptionSelector = (input: CaptionSelector, context: __SerdeContext): any => {
   return {
-    ...(input.CustomLanguageCode !== undefined && { customLanguageCode: input.CustomLanguageCode }),
-    ...(input.LanguageCode !== undefined && { languageCode: input.LanguageCode }),
-    ...(input.SourceSettings !== undefined && {
-      sourceSettings: serializeAws_restJson1CaptionSourceSettings(input.SourceSettings, context),
-    }),
+    ...(input.CustomLanguageCode !== undefined &&
+      input.CustomLanguageCode !== null && { customLanguageCode: input.CustomLanguageCode }),
+    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { languageCode: input.LanguageCode }),
+    ...(input.SourceSettings !== undefined &&
+      input.SourceSettings !== null && {
+        sourceSettings: serializeAws_restJson1CaptionSourceSettings(input.SourceSettings, context),
+      }),
   };
 };
 
 const serializeAws_restJson1CaptionSourceFramerate = (input: CaptionSourceFramerate, context: __SerdeContext): any => {
   return {
-    ...(input.FramerateDenominator !== undefined && { framerateDenominator: input.FramerateDenominator }),
-    ...(input.FramerateNumerator !== undefined && { framerateNumerator: input.FramerateNumerator }),
+    ...(input.FramerateDenominator !== undefined &&
+      input.FramerateDenominator !== null && { framerateDenominator: input.FramerateDenominator }),
+    ...(input.FramerateNumerator !== undefined &&
+      input.FramerateNumerator !== null && { framerateNumerator: input.FramerateNumerator }),
   };
 };
 
 const serializeAws_restJson1CaptionSourceSettings = (input: CaptionSourceSettings, context: __SerdeContext): any => {
   return {
-    ...(input.AncillarySourceSettings !== undefined && {
-      ancillarySourceSettings: serializeAws_restJson1AncillarySourceSettings(input.AncillarySourceSettings, context),
-    }),
-    ...(input.DvbSubSourceSettings !== undefined && {
-      dvbSubSourceSettings: serializeAws_restJson1DvbSubSourceSettings(input.DvbSubSourceSettings, context),
-    }),
-    ...(input.EmbeddedSourceSettings !== undefined && {
-      embeddedSourceSettings: serializeAws_restJson1EmbeddedSourceSettings(input.EmbeddedSourceSettings, context),
-    }),
-    ...(input.FileSourceSettings !== undefined && {
-      fileSourceSettings: serializeAws_restJson1FileSourceSettings(input.FileSourceSettings, context),
-    }),
-    ...(input.SourceType !== undefined && { sourceType: input.SourceType }),
-    ...(input.TeletextSourceSettings !== undefined && {
-      teletextSourceSettings: serializeAws_restJson1TeletextSourceSettings(input.TeletextSourceSettings, context),
-    }),
-    ...(input.TrackSourceSettings !== undefined && {
-      trackSourceSettings: serializeAws_restJson1TrackSourceSettings(input.TrackSourceSettings, context),
-    }),
+    ...(input.AncillarySourceSettings !== undefined &&
+      input.AncillarySourceSettings !== null && {
+        ancillarySourceSettings: serializeAws_restJson1AncillarySourceSettings(input.AncillarySourceSettings, context),
+      }),
+    ...(input.DvbSubSourceSettings !== undefined &&
+      input.DvbSubSourceSettings !== null && {
+        dvbSubSourceSettings: serializeAws_restJson1DvbSubSourceSettings(input.DvbSubSourceSettings, context),
+      }),
+    ...(input.EmbeddedSourceSettings !== undefined &&
+      input.EmbeddedSourceSettings !== null && {
+        embeddedSourceSettings: serializeAws_restJson1EmbeddedSourceSettings(input.EmbeddedSourceSettings, context),
+      }),
+    ...(input.FileSourceSettings !== undefined &&
+      input.FileSourceSettings !== null && {
+        fileSourceSettings: serializeAws_restJson1FileSourceSettings(input.FileSourceSettings, context),
+      }),
+    ...(input.SourceType !== undefined && input.SourceType !== null && { sourceType: input.SourceType }),
+    ...(input.TeletextSourceSettings !== undefined &&
+      input.TeletextSourceSettings !== null && {
+        teletextSourceSettings: serializeAws_restJson1TeletextSourceSettings(input.TeletextSourceSettings, context),
+      }),
+    ...(input.TrackSourceSettings !== undefined &&
+      input.TrackSourceSettings !== null && {
+        trackSourceSettings: serializeAws_restJson1TrackSourceSettings(input.TrackSourceSettings, context),
+      }),
   };
 };
 
 const serializeAws_restJson1ChannelMapping = (input: ChannelMapping, context: __SerdeContext): any => {
   return {
-    ...(input.OutputChannels !== undefined && {
-      outputChannels: serializeAws_restJson1__listOfOutputChannelMapping(input.OutputChannels, context),
-    }),
+    ...(input.OutputChannels !== undefined &&
+      input.OutputChannels !== null && {
+        outputChannels: serializeAws_restJson1__listOfOutputChannelMapping(input.OutputChannels, context),
+      }),
   };
 };
 
 const serializeAws_restJson1CmafAdditionalManifest = (input: CmafAdditionalManifest, context: __SerdeContext): any => {
   return {
-    ...(input.ManifestNameModifier !== undefined && { manifestNameModifier: input.ManifestNameModifier }),
-    ...(input.SelectedOutputs !== undefined && {
-      selectedOutputs: serializeAws_restJson1__listOf__stringMin1(input.SelectedOutputs, context),
-    }),
+    ...(input.ManifestNameModifier !== undefined &&
+      input.ManifestNameModifier !== null && { manifestNameModifier: input.ManifestNameModifier }),
+    ...(input.SelectedOutputs !== undefined &&
+      input.SelectedOutputs !== null && {
+        selectedOutputs: serializeAws_restJson1__listOf__stringMin1(input.SelectedOutputs, context),
+      }),
   };
 };
 
 const serializeAws_restJson1CmafEncryptionSettings = (input: CmafEncryptionSettings, context: __SerdeContext): any => {
   return {
-    ...(input.ConstantInitializationVector !== undefined && {
-      constantInitializationVector: input.ConstantInitializationVector,
-    }),
-    ...(input.EncryptionMethod !== undefined && { encryptionMethod: input.EncryptionMethod }),
-    ...(input.InitializationVectorInManifest !== undefined && {
-      initializationVectorInManifest: input.InitializationVectorInManifest,
-    }),
-    ...(input.SpekeKeyProvider !== undefined && {
-      spekeKeyProvider: serializeAws_restJson1SpekeKeyProviderCmaf(input.SpekeKeyProvider, context),
-    }),
-    ...(input.StaticKeyProvider !== undefined && {
-      staticKeyProvider: serializeAws_restJson1StaticKeyProvider(input.StaticKeyProvider, context),
-    }),
-    ...(input.Type !== undefined && { type: input.Type }),
+    ...(input.ConstantInitializationVector !== undefined &&
+      input.ConstantInitializationVector !== null && {
+        constantInitializationVector: input.ConstantInitializationVector,
+      }),
+    ...(input.EncryptionMethod !== undefined &&
+      input.EncryptionMethod !== null && { encryptionMethod: input.EncryptionMethod }),
+    ...(input.InitializationVectorInManifest !== undefined &&
+      input.InitializationVectorInManifest !== null && {
+        initializationVectorInManifest: input.InitializationVectorInManifest,
+      }),
+    ...(input.SpekeKeyProvider !== undefined &&
+      input.SpekeKeyProvider !== null && {
+        spekeKeyProvider: serializeAws_restJson1SpekeKeyProviderCmaf(input.SpekeKeyProvider, context),
+      }),
+    ...(input.StaticKeyProvider !== undefined &&
+      input.StaticKeyProvider !== null && {
+        staticKeyProvider: serializeAws_restJson1StaticKeyProvider(input.StaticKeyProvider, context),
+      }),
+    ...(input.Type !== undefined && input.Type !== null && { type: input.Type }),
   };
 };
 
 const serializeAws_restJson1CmafGroupSettings = (input: CmafGroupSettings, context: __SerdeContext): any => {
   return {
-    ...(input.AdditionalManifests !== undefined && {
-      additionalManifests: serializeAws_restJson1__listOfCmafAdditionalManifest(input.AdditionalManifests, context),
-    }),
-    ...(input.BaseUrl !== undefined && { baseUrl: input.BaseUrl }),
-    ...(input.ClientCache !== undefined && { clientCache: input.ClientCache }),
-    ...(input.CodecSpecification !== undefined && { codecSpecification: input.CodecSpecification }),
-    ...(input.Destination !== undefined && { destination: input.Destination }),
-    ...(input.DestinationSettings !== undefined && {
-      destinationSettings: serializeAws_restJson1DestinationSettings(input.DestinationSettings, context),
-    }),
-    ...(input.Encryption !== undefined && {
-      encryption: serializeAws_restJson1CmafEncryptionSettings(input.Encryption, context),
-    }),
-    ...(input.FragmentLength !== undefined && { fragmentLength: input.FragmentLength }),
-    ...(input.ManifestCompression !== undefined && { manifestCompression: input.ManifestCompression }),
-    ...(input.ManifestDurationFormat !== undefined && { manifestDurationFormat: input.ManifestDurationFormat }),
-    ...(input.MinBufferTime !== undefined && { minBufferTime: input.MinBufferTime }),
-    ...(input.MinFinalSegmentLength !== undefined && { minFinalSegmentLength: input.MinFinalSegmentLength }),
-    ...(input.MpdProfile !== undefined && { mpdProfile: input.MpdProfile }),
-    ...(input.SegmentControl !== undefined && { segmentControl: input.SegmentControl }),
-    ...(input.SegmentLength !== undefined && { segmentLength: input.SegmentLength }),
-    ...(input.StreamInfResolution !== undefined && { streamInfResolution: input.StreamInfResolution }),
-    ...(input.WriteDashManifest !== undefined && { writeDashManifest: input.WriteDashManifest }),
-    ...(input.WriteHlsManifest !== undefined && { writeHlsManifest: input.WriteHlsManifest }),
-    ...(input.WriteSegmentTimelineInRepresentation !== undefined && {
-      writeSegmentTimelineInRepresentation: input.WriteSegmentTimelineInRepresentation,
-    }),
+    ...(input.AdditionalManifests !== undefined &&
+      input.AdditionalManifests !== null && {
+        additionalManifests: serializeAws_restJson1__listOfCmafAdditionalManifest(input.AdditionalManifests, context),
+      }),
+    ...(input.BaseUrl !== undefined && input.BaseUrl !== null && { baseUrl: input.BaseUrl }),
+    ...(input.ClientCache !== undefined && input.ClientCache !== null && { clientCache: input.ClientCache }),
+    ...(input.CodecSpecification !== undefined &&
+      input.CodecSpecification !== null && { codecSpecification: input.CodecSpecification }),
+    ...(input.Destination !== undefined && input.Destination !== null && { destination: input.Destination }),
+    ...(input.DestinationSettings !== undefined &&
+      input.DestinationSettings !== null && {
+        destinationSettings: serializeAws_restJson1DestinationSettings(input.DestinationSettings, context),
+      }),
+    ...(input.Encryption !== undefined &&
+      input.Encryption !== null && {
+        encryption: serializeAws_restJson1CmafEncryptionSettings(input.Encryption, context),
+      }),
+    ...(input.FragmentLength !== undefined &&
+      input.FragmentLength !== null && { fragmentLength: input.FragmentLength }),
+    ...(input.ManifestCompression !== undefined &&
+      input.ManifestCompression !== null && { manifestCompression: input.ManifestCompression }),
+    ...(input.ManifestDurationFormat !== undefined &&
+      input.ManifestDurationFormat !== null && { manifestDurationFormat: input.ManifestDurationFormat }),
+    ...(input.MinBufferTime !== undefined && input.MinBufferTime !== null && { minBufferTime: input.MinBufferTime }),
+    ...(input.MinFinalSegmentLength !== undefined &&
+      input.MinFinalSegmentLength !== null && { minFinalSegmentLength: input.MinFinalSegmentLength }),
+    ...(input.MpdProfile !== undefined && input.MpdProfile !== null && { mpdProfile: input.MpdProfile }),
+    ...(input.SegmentControl !== undefined &&
+      input.SegmentControl !== null && { segmentControl: input.SegmentControl }),
+    ...(input.SegmentLength !== undefined && input.SegmentLength !== null && { segmentLength: input.SegmentLength }),
+    ...(input.StreamInfResolution !== undefined &&
+      input.StreamInfResolution !== null && { streamInfResolution: input.StreamInfResolution }),
+    ...(input.WriteDashManifest !== undefined &&
+      input.WriteDashManifest !== null && { writeDashManifest: input.WriteDashManifest }),
+    ...(input.WriteHlsManifest !== undefined &&
+      input.WriteHlsManifest !== null && { writeHlsManifest: input.WriteHlsManifest }),
+    ...(input.WriteSegmentTimelineInRepresentation !== undefined &&
+      input.WriteSegmentTimelineInRepresentation !== null && {
+        writeSegmentTimelineInRepresentation: input.WriteSegmentTimelineInRepresentation,
+      }),
   };
 };
 
 const serializeAws_restJson1CmfcSettings = (input: CmfcSettings, context: __SerdeContext): any => {
   return {
-    ...(input.AudioDuration !== undefined && { audioDuration: input.AudioDuration }),
-    ...(input.Scte35Esam !== undefined && { scte35Esam: input.Scte35Esam }),
-    ...(input.Scte35Source !== undefined && { scte35Source: input.Scte35Source }),
+    ...(input.AudioDuration !== undefined && input.AudioDuration !== null && { audioDuration: input.AudioDuration }),
+    ...(input.Scte35Esam !== undefined && input.Scte35Esam !== null && { scte35Esam: input.Scte35Esam }),
+    ...(input.Scte35Source !== undefined && input.Scte35Source !== null && { scte35Source: input.Scte35Source }),
   };
 };
 
 const serializeAws_restJson1ColorCorrector = (input: ColorCorrector, context: __SerdeContext): any => {
   return {
-    ...(input.Brightness !== undefined && { brightness: input.Brightness }),
-    ...(input.ColorSpaceConversion !== undefined && { colorSpaceConversion: input.ColorSpaceConversion }),
-    ...(input.Contrast !== undefined && { contrast: input.Contrast }),
-    ...(input.Hdr10Metadata !== undefined && {
-      hdr10Metadata: serializeAws_restJson1Hdr10Metadata(input.Hdr10Metadata, context),
-    }),
-    ...(input.Hue !== undefined && { hue: input.Hue }),
-    ...(input.Saturation !== undefined && { saturation: input.Saturation }),
+    ...(input.Brightness !== undefined && input.Brightness !== null && { brightness: input.Brightness }),
+    ...(input.ColorSpaceConversion !== undefined &&
+      input.ColorSpaceConversion !== null && { colorSpaceConversion: input.ColorSpaceConversion }),
+    ...(input.Contrast !== undefined && input.Contrast !== null && { contrast: input.Contrast }),
+    ...(input.Hdr10Metadata !== undefined &&
+      input.Hdr10Metadata !== null && {
+        hdr10Metadata: serializeAws_restJson1Hdr10Metadata(input.Hdr10Metadata, context),
+      }),
+    ...(input.Hue !== undefined && input.Hue !== null && { hue: input.Hue }),
+    ...(input.Saturation !== undefined && input.Saturation !== null && { saturation: input.Saturation }),
   };
 };
 
 const serializeAws_restJson1ContainerSettings = (input: ContainerSettings, context: __SerdeContext): any => {
   return {
-    ...(input.CmfcSettings !== undefined && {
-      cmfcSettings: serializeAws_restJson1CmfcSettings(input.CmfcSettings, context),
-    }),
-    ...(input.Container !== undefined && { container: input.Container }),
-    ...(input.F4vSettings !== undefined && {
-      f4vSettings: serializeAws_restJson1F4vSettings(input.F4vSettings, context),
-    }),
-    ...(input.M2tsSettings !== undefined && {
-      m2tsSettings: serializeAws_restJson1M2tsSettings(input.M2tsSettings, context),
-    }),
-    ...(input.M3u8Settings !== undefined && {
-      m3u8Settings: serializeAws_restJson1M3u8Settings(input.M3u8Settings, context),
-    }),
-    ...(input.MovSettings !== undefined && {
-      movSettings: serializeAws_restJson1MovSettings(input.MovSettings, context),
-    }),
-    ...(input.Mp4Settings !== undefined && {
-      mp4Settings: serializeAws_restJson1Mp4Settings(input.Mp4Settings, context),
-    }),
-    ...(input.MpdSettings !== undefined && {
-      mpdSettings: serializeAws_restJson1MpdSettings(input.MpdSettings, context),
-    }),
-    ...(input.MxfSettings !== undefined && {
-      mxfSettings: serializeAws_restJson1MxfSettings(input.MxfSettings, context),
-    }),
+    ...(input.CmfcSettings !== undefined &&
+      input.CmfcSettings !== null && { cmfcSettings: serializeAws_restJson1CmfcSettings(input.CmfcSettings, context) }),
+    ...(input.Container !== undefined && input.Container !== null && { container: input.Container }),
+    ...(input.F4vSettings !== undefined &&
+      input.F4vSettings !== null && { f4vSettings: serializeAws_restJson1F4vSettings(input.F4vSettings, context) }),
+    ...(input.M2tsSettings !== undefined &&
+      input.M2tsSettings !== null && { m2tsSettings: serializeAws_restJson1M2tsSettings(input.M2tsSettings, context) }),
+    ...(input.M3u8Settings !== undefined &&
+      input.M3u8Settings !== null && { m3u8Settings: serializeAws_restJson1M3u8Settings(input.M3u8Settings, context) }),
+    ...(input.MovSettings !== undefined &&
+      input.MovSettings !== null && { movSettings: serializeAws_restJson1MovSettings(input.MovSettings, context) }),
+    ...(input.Mp4Settings !== undefined &&
+      input.Mp4Settings !== null && { mp4Settings: serializeAws_restJson1Mp4Settings(input.Mp4Settings, context) }),
+    ...(input.MpdSettings !== undefined &&
+      input.MpdSettings !== null && { mpdSettings: serializeAws_restJson1MpdSettings(input.MpdSettings, context) }),
+    ...(input.MxfSettings !== undefined &&
+      input.MxfSettings !== null && { mxfSettings: serializeAws_restJson1MxfSettings(input.MxfSettings, context) }),
   };
 };
 
 const serializeAws_restJson1DashAdditionalManifest = (input: DashAdditionalManifest, context: __SerdeContext): any => {
   return {
-    ...(input.ManifestNameModifier !== undefined && { manifestNameModifier: input.ManifestNameModifier }),
-    ...(input.SelectedOutputs !== undefined && {
-      selectedOutputs: serializeAws_restJson1__listOf__stringMin1(input.SelectedOutputs, context),
-    }),
+    ...(input.ManifestNameModifier !== undefined &&
+      input.ManifestNameModifier !== null && { manifestNameModifier: input.ManifestNameModifier }),
+    ...(input.SelectedOutputs !== undefined &&
+      input.SelectedOutputs !== null && {
+        selectedOutputs: serializeAws_restJson1__listOf__stringMin1(input.SelectedOutputs, context),
+      }),
   };
 };
 
@@ -4154,64 +4424,74 @@ const serializeAws_restJson1DashIsoEncryptionSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.PlaybackDeviceCompatibility !== undefined && {
-      playbackDeviceCompatibility: input.PlaybackDeviceCompatibility,
-    }),
-    ...(input.SpekeKeyProvider !== undefined && {
-      spekeKeyProvider: serializeAws_restJson1SpekeKeyProvider(input.SpekeKeyProvider, context),
-    }),
+    ...(input.PlaybackDeviceCompatibility !== undefined &&
+      input.PlaybackDeviceCompatibility !== null && { playbackDeviceCompatibility: input.PlaybackDeviceCompatibility }),
+    ...(input.SpekeKeyProvider !== undefined &&
+      input.SpekeKeyProvider !== null && {
+        spekeKeyProvider: serializeAws_restJson1SpekeKeyProvider(input.SpekeKeyProvider, context),
+      }),
   };
 };
 
 const serializeAws_restJson1DashIsoGroupSettings = (input: DashIsoGroupSettings, context: __SerdeContext): any => {
   return {
-    ...(input.AdditionalManifests !== undefined && {
-      additionalManifests: serializeAws_restJson1__listOfDashAdditionalManifest(input.AdditionalManifests, context),
-    }),
-    ...(input.BaseUrl !== undefined && { baseUrl: input.BaseUrl }),
-    ...(input.Destination !== undefined && { destination: input.Destination }),
-    ...(input.DestinationSettings !== undefined && {
-      destinationSettings: serializeAws_restJson1DestinationSettings(input.DestinationSettings, context),
-    }),
-    ...(input.Encryption !== undefined && {
-      encryption: serializeAws_restJson1DashIsoEncryptionSettings(input.Encryption, context),
-    }),
-    ...(input.FragmentLength !== undefined && { fragmentLength: input.FragmentLength }),
-    ...(input.HbbtvCompliance !== undefined && { hbbtvCompliance: input.HbbtvCompliance }),
-    ...(input.MinBufferTime !== undefined && { minBufferTime: input.MinBufferTime }),
-    ...(input.MinFinalSegmentLength !== undefined && { minFinalSegmentLength: input.MinFinalSegmentLength }),
-    ...(input.MpdProfile !== undefined && { mpdProfile: input.MpdProfile }),
-    ...(input.SegmentControl !== undefined && { segmentControl: input.SegmentControl }),
-    ...(input.SegmentLength !== undefined && { segmentLength: input.SegmentLength }),
-    ...(input.WriteSegmentTimelineInRepresentation !== undefined && {
-      writeSegmentTimelineInRepresentation: input.WriteSegmentTimelineInRepresentation,
-    }),
+    ...(input.AdditionalManifests !== undefined &&
+      input.AdditionalManifests !== null && {
+        additionalManifests: serializeAws_restJson1__listOfDashAdditionalManifest(input.AdditionalManifests, context),
+      }),
+    ...(input.BaseUrl !== undefined && input.BaseUrl !== null && { baseUrl: input.BaseUrl }),
+    ...(input.Destination !== undefined && input.Destination !== null && { destination: input.Destination }),
+    ...(input.DestinationSettings !== undefined &&
+      input.DestinationSettings !== null && {
+        destinationSettings: serializeAws_restJson1DestinationSettings(input.DestinationSettings, context),
+      }),
+    ...(input.Encryption !== undefined &&
+      input.Encryption !== null && {
+        encryption: serializeAws_restJson1DashIsoEncryptionSettings(input.Encryption, context),
+      }),
+    ...(input.FragmentLength !== undefined &&
+      input.FragmentLength !== null && { fragmentLength: input.FragmentLength }),
+    ...(input.HbbtvCompliance !== undefined &&
+      input.HbbtvCompliance !== null && { hbbtvCompliance: input.HbbtvCompliance }),
+    ...(input.MinBufferTime !== undefined && input.MinBufferTime !== null && { minBufferTime: input.MinBufferTime }),
+    ...(input.MinFinalSegmentLength !== undefined &&
+      input.MinFinalSegmentLength !== null && { minFinalSegmentLength: input.MinFinalSegmentLength }),
+    ...(input.MpdProfile !== undefined && input.MpdProfile !== null && { mpdProfile: input.MpdProfile }),
+    ...(input.SegmentControl !== undefined &&
+      input.SegmentControl !== null && { segmentControl: input.SegmentControl }),
+    ...(input.SegmentLength !== undefined && input.SegmentLength !== null && { segmentLength: input.SegmentLength }),
+    ...(input.WriteSegmentTimelineInRepresentation !== undefined &&
+      input.WriteSegmentTimelineInRepresentation !== null && {
+        writeSegmentTimelineInRepresentation: input.WriteSegmentTimelineInRepresentation,
+      }),
   };
 };
 
 const serializeAws_restJson1Deinterlacer = (input: Deinterlacer, context: __SerdeContext): any => {
   return {
-    ...(input.Algorithm !== undefined && { algorithm: input.Algorithm }),
-    ...(input.Control !== undefined && { control: input.Control }),
-    ...(input.Mode !== undefined && { mode: input.Mode }),
+    ...(input.Algorithm !== undefined && input.Algorithm !== null && { algorithm: input.Algorithm }),
+    ...(input.Control !== undefined && input.Control !== null && { control: input.Control }),
+    ...(input.Mode !== undefined && input.Mode !== null && { mode: input.Mode }),
   };
 };
 
 const serializeAws_restJson1DestinationSettings = (input: DestinationSettings, context: __SerdeContext): any => {
   return {
-    ...(input.S3Settings !== undefined && {
-      s3Settings: serializeAws_restJson1S3DestinationSettings(input.S3Settings, context),
-    }),
+    ...(input.S3Settings !== undefined &&
+      input.S3Settings !== null && {
+        s3Settings: serializeAws_restJson1S3DestinationSettings(input.S3Settings, context),
+      }),
   };
 };
 
 const serializeAws_restJson1DolbyVision = (input: DolbyVision, context: __SerdeContext): any => {
   return {
-    ...(input.L6Metadata !== undefined && {
-      l6Metadata: serializeAws_restJson1DolbyVisionLevel6Metadata(input.L6Metadata, context),
-    }),
-    ...(input.L6Mode !== undefined && { l6Mode: input.L6Mode }),
-    ...(input.Profile !== undefined && { profile: input.Profile }),
+    ...(input.L6Metadata !== undefined &&
+      input.L6Metadata !== null && {
+        l6Metadata: serializeAws_restJson1DolbyVisionLevel6Metadata(input.L6Metadata, context),
+      }),
+    ...(input.L6Mode !== undefined && input.L6Mode !== null && { l6Mode: input.L6Mode }),
+    ...(input.Profile !== undefined && input.Profile !== null && { profile: input.Profile }),
   };
 };
 
@@ -4220,25 +4500,26 @@ const serializeAws_restJson1DolbyVisionLevel6Metadata = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxCll !== undefined && { maxCll: input.MaxCll }),
-    ...(input.MaxFall !== undefined && { maxFall: input.MaxFall }),
+    ...(input.MaxCll !== undefined && input.MaxCll !== null && { maxCll: input.MaxCll }),
+    ...(input.MaxFall !== undefined && input.MaxFall !== null && { maxFall: input.MaxFall }),
   };
 };
 
 const serializeAws_restJson1DvbNitSettings = (input: DvbNitSettings, context: __SerdeContext): any => {
   return {
-    ...(input.NetworkId !== undefined && { networkId: input.NetworkId }),
-    ...(input.NetworkName !== undefined && { networkName: input.NetworkName }),
-    ...(input.NitInterval !== undefined && { nitInterval: input.NitInterval }),
+    ...(input.NetworkId !== undefined && input.NetworkId !== null && { networkId: input.NetworkId }),
+    ...(input.NetworkName !== undefined && input.NetworkName !== null && { networkName: input.NetworkName }),
+    ...(input.NitInterval !== undefined && input.NitInterval !== null && { nitInterval: input.NitInterval }),
   };
 };
 
 const serializeAws_restJson1DvbSdtSettings = (input: DvbSdtSettings, context: __SerdeContext): any => {
   return {
-    ...(input.OutputSdt !== undefined && { outputSdt: input.OutputSdt }),
-    ...(input.SdtInterval !== undefined && { sdtInterval: input.SdtInterval }),
-    ...(input.ServiceName !== undefined && { serviceName: input.ServiceName }),
-    ...(input.ServiceProviderName !== undefined && { serviceProviderName: input.ServiceProviderName }),
+    ...(input.OutputSdt !== undefined && input.OutputSdt !== null && { outputSdt: input.OutputSdt }),
+    ...(input.SdtInterval !== undefined && input.SdtInterval !== null && { sdtInterval: input.SdtInterval }),
+    ...(input.ServiceName !== undefined && input.ServiceName !== null && { serviceName: input.ServiceName }),
+    ...(input.ServiceProviderName !== undefined &&
+      input.ServiceProviderName !== null && { serviceProviderName: input.ServiceProviderName }),
   };
 };
 
@@ -4247,90 +4528,106 @@ const serializeAws_restJson1DvbSubDestinationSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Alignment !== undefined && { alignment: input.Alignment }),
-    ...(input.BackgroundColor !== undefined && { backgroundColor: input.BackgroundColor }),
-    ...(input.BackgroundOpacity !== undefined && { backgroundOpacity: input.BackgroundOpacity }),
-    ...(input.FontColor !== undefined && { fontColor: input.FontColor }),
-    ...(input.FontOpacity !== undefined && { fontOpacity: input.FontOpacity }),
-    ...(input.FontResolution !== undefined && { fontResolution: input.FontResolution }),
-    ...(input.FontScript !== undefined && { fontScript: input.FontScript }),
-    ...(input.FontSize !== undefined && { fontSize: input.FontSize }),
-    ...(input.OutlineColor !== undefined && { outlineColor: input.OutlineColor }),
-    ...(input.OutlineSize !== undefined && { outlineSize: input.OutlineSize }),
-    ...(input.ShadowColor !== undefined && { shadowColor: input.ShadowColor }),
-    ...(input.ShadowOpacity !== undefined && { shadowOpacity: input.ShadowOpacity }),
-    ...(input.ShadowXOffset !== undefined && { shadowXOffset: input.ShadowXOffset }),
-    ...(input.ShadowYOffset !== undefined && { shadowYOffset: input.ShadowYOffset }),
-    ...(input.SubtitlingType !== undefined && { subtitlingType: input.SubtitlingType }),
-    ...(input.TeletextSpacing !== undefined && { teletextSpacing: input.TeletextSpacing }),
-    ...(input.XPosition !== undefined && { xPosition: input.XPosition }),
-    ...(input.YPosition !== undefined && { yPosition: input.YPosition }),
+    ...(input.Alignment !== undefined && input.Alignment !== null && { alignment: input.Alignment }),
+    ...(input.BackgroundColor !== undefined &&
+      input.BackgroundColor !== null && { backgroundColor: input.BackgroundColor }),
+    ...(input.BackgroundOpacity !== undefined &&
+      input.BackgroundOpacity !== null && { backgroundOpacity: input.BackgroundOpacity }),
+    ...(input.FontColor !== undefined && input.FontColor !== null && { fontColor: input.FontColor }),
+    ...(input.FontOpacity !== undefined && input.FontOpacity !== null && { fontOpacity: input.FontOpacity }),
+    ...(input.FontResolution !== undefined &&
+      input.FontResolution !== null && { fontResolution: input.FontResolution }),
+    ...(input.FontScript !== undefined && input.FontScript !== null && { fontScript: input.FontScript }),
+    ...(input.FontSize !== undefined && input.FontSize !== null && { fontSize: input.FontSize }),
+    ...(input.OutlineColor !== undefined && input.OutlineColor !== null && { outlineColor: input.OutlineColor }),
+    ...(input.OutlineSize !== undefined && input.OutlineSize !== null && { outlineSize: input.OutlineSize }),
+    ...(input.ShadowColor !== undefined && input.ShadowColor !== null && { shadowColor: input.ShadowColor }),
+    ...(input.ShadowOpacity !== undefined && input.ShadowOpacity !== null && { shadowOpacity: input.ShadowOpacity }),
+    ...(input.ShadowXOffset !== undefined && input.ShadowXOffset !== null && { shadowXOffset: input.ShadowXOffset }),
+    ...(input.ShadowYOffset !== undefined && input.ShadowYOffset !== null && { shadowYOffset: input.ShadowYOffset }),
+    ...(input.SubtitlingType !== undefined &&
+      input.SubtitlingType !== null && { subtitlingType: input.SubtitlingType }),
+    ...(input.TeletextSpacing !== undefined &&
+      input.TeletextSpacing !== null && { teletextSpacing: input.TeletextSpacing }),
+    ...(input.XPosition !== undefined && input.XPosition !== null && { xPosition: input.XPosition }),
+    ...(input.YPosition !== undefined && input.YPosition !== null && { yPosition: input.YPosition }),
   };
 };
 
 const serializeAws_restJson1DvbSubSourceSettings = (input: DvbSubSourceSettings, context: __SerdeContext): any => {
   return {
-    ...(input.Pid !== undefined && { pid: input.Pid }),
+    ...(input.Pid !== undefined && input.Pid !== null && { pid: input.Pid }),
   };
 };
 
 const serializeAws_restJson1DvbTdtSettings = (input: DvbTdtSettings, context: __SerdeContext): any => {
   return {
-    ...(input.TdtInterval !== undefined && { tdtInterval: input.TdtInterval }),
+    ...(input.TdtInterval !== undefined && input.TdtInterval !== null && { tdtInterval: input.TdtInterval }),
   };
 };
 
 const serializeAws_restJson1Eac3AtmosSettings = (input: Eac3AtmosSettings, context: __SerdeContext): any => {
   return {
-    ...(input.Bitrate !== undefined && { bitrate: input.Bitrate }),
-    ...(input.BitstreamMode !== undefined && { bitstreamMode: input.BitstreamMode }),
-    ...(input.CodingMode !== undefined && { codingMode: input.CodingMode }),
-    ...(input.DialogueIntelligence !== undefined && { dialogueIntelligence: input.DialogueIntelligence }),
-    ...(input.DynamicRangeCompressionLine !== undefined && {
-      dynamicRangeCompressionLine: input.DynamicRangeCompressionLine,
-    }),
-    ...(input.DynamicRangeCompressionRf !== undefined && {
-      dynamicRangeCompressionRf: input.DynamicRangeCompressionRf,
-    }),
-    ...(input.LoRoCenterMixLevel !== undefined && { loRoCenterMixLevel: input.LoRoCenterMixLevel }),
-    ...(input.LoRoSurroundMixLevel !== undefined && { loRoSurroundMixLevel: input.LoRoSurroundMixLevel }),
-    ...(input.LtRtCenterMixLevel !== undefined && { ltRtCenterMixLevel: input.LtRtCenterMixLevel }),
-    ...(input.LtRtSurroundMixLevel !== undefined && { ltRtSurroundMixLevel: input.LtRtSurroundMixLevel }),
-    ...(input.MeteringMode !== undefined && { meteringMode: input.MeteringMode }),
-    ...(input.SampleRate !== undefined && { sampleRate: input.SampleRate }),
-    ...(input.SpeechThreshold !== undefined && { speechThreshold: input.SpeechThreshold }),
-    ...(input.StereoDownmix !== undefined && { stereoDownmix: input.StereoDownmix }),
-    ...(input.SurroundExMode !== undefined && { surroundExMode: input.SurroundExMode }),
+    ...(input.Bitrate !== undefined && input.Bitrate !== null && { bitrate: input.Bitrate }),
+    ...(input.BitstreamMode !== undefined && input.BitstreamMode !== null && { bitstreamMode: input.BitstreamMode }),
+    ...(input.CodingMode !== undefined && input.CodingMode !== null && { codingMode: input.CodingMode }),
+    ...(input.DialogueIntelligence !== undefined &&
+      input.DialogueIntelligence !== null && { dialogueIntelligence: input.DialogueIntelligence }),
+    ...(input.DynamicRangeCompressionLine !== undefined &&
+      input.DynamicRangeCompressionLine !== null && { dynamicRangeCompressionLine: input.DynamicRangeCompressionLine }),
+    ...(input.DynamicRangeCompressionRf !== undefined &&
+      input.DynamicRangeCompressionRf !== null && { dynamicRangeCompressionRf: input.DynamicRangeCompressionRf }),
+    ...(input.LoRoCenterMixLevel !== undefined &&
+      input.LoRoCenterMixLevel !== null && { loRoCenterMixLevel: input.LoRoCenterMixLevel }),
+    ...(input.LoRoSurroundMixLevel !== undefined &&
+      input.LoRoSurroundMixLevel !== null && { loRoSurroundMixLevel: input.LoRoSurroundMixLevel }),
+    ...(input.LtRtCenterMixLevel !== undefined &&
+      input.LtRtCenterMixLevel !== null && { ltRtCenterMixLevel: input.LtRtCenterMixLevel }),
+    ...(input.LtRtSurroundMixLevel !== undefined &&
+      input.LtRtSurroundMixLevel !== null && { ltRtSurroundMixLevel: input.LtRtSurroundMixLevel }),
+    ...(input.MeteringMode !== undefined && input.MeteringMode !== null && { meteringMode: input.MeteringMode }),
+    ...(input.SampleRate !== undefined && input.SampleRate !== null && { sampleRate: input.SampleRate }),
+    ...(input.SpeechThreshold !== undefined &&
+      input.SpeechThreshold !== null && { speechThreshold: input.SpeechThreshold }),
+    ...(input.StereoDownmix !== undefined && input.StereoDownmix !== null && { stereoDownmix: input.StereoDownmix }),
+    ...(input.SurroundExMode !== undefined &&
+      input.SurroundExMode !== null && { surroundExMode: input.SurroundExMode }),
   };
 };
 
 const serializeAws_restJson1Eac3Settings = (input: Eac3Settings, context: __SerdeContext): any => {
   return {
-    ...(input.AttenuationControl !== undefined && { attenuationControl: input.AttenuationControl }),
-    ...(input.Bitrate !== undefined && { bitrate: input.Bitrate }),
-    ...(input.BitstreamMode !== undefined && { bitstreamMode: input.BitstreamMode }),
-    ...(input.CodingMode !== undefined && { codingMode: input.CodingMode }),
-    ...(input.DcFilter !== undefined && { dcFilter: input.DcFilter }),
-    ...(input.Dialnorm !== undefined && { dialnorm: input.Dialnorm }),
-    ...(input.DynamicRangeCompressionLine !== undefined && {
-      dynamicRangeCompressionLine: input.DynamicRangeCompressionLine,
-    }),
-    ...(input.DynamicRangeCompressionRf !== undefined && {
-      dynamicRangeCompressionRf: input.DynamicRangeCompressionRf,
-    }),
-    ...(input.LfeControl !== undefined && { lfeControl: input.LfeControl }),
-    ...(input.LfeFilter !== undefined && { lfeFilter: input.LfeFilter }),
-    ...(input.LoRoCenterMixLevel !== undefined && { loRoCenterMixLevel: input.LoRoCenterMixLevel }),
-    ...(input.LoRoSurroundMixLevel !== undefined && { loRoSurroundMixLevel: input.LoRoSurroundMixLevel }),
-    ...(input.LtRtCenterMixLevel !== undefined && { ltRtCenterMixLevel: input.LtRtCenterMixLevel }),
-    ...(input.LtRtSurroundMixLevel !== undefined && { ltRtSurroundMixLevel: input.LtRtSurroundMixLevel }),
-    ...(input.MetadataControl !== undefined && { metadataControl: input.MetadataControl }),
-    ...(input.PassthroughControl !== undefined && { passthroughControl: input.PassthroughControl }),
-    ...(input.PhaseControl !== undefined && { phaseControl: input.PhaseControl }),
-    ...(input.SampleRate !== undefined && { sampleRate: input.SampleRate }),
-    ...(input.StereoDownmix !== undefined && { stereoDownmix: input.StereoDownmix }),
-    ...(input.SurroundExMode !== undefined && { surroundExMode: input.SurroundExMode }),
-    ...(input.SurroundMode !== undefined && { surroundMode: input.SurroundMode }),
+    ...(input.AttenuationControl !== undefined &&
+      input.AttenuationControl !== null && { attenuationControl: input.AttenuationControl }),
+    ...(input.Bitrate !== undefined && input.Bitrate !== null && { bitrate: input.Bitrate }),
+    ...(input.BitstreamMode !== undefined && input.BitstreamMode !== null && { bitstreamMode: input.BitstreamMode }),
+    ...(input.CodingMode !== undefined && input.CodingMode !== null && { codingMode: input.CodingMode }),
+    ...(input.DcFilter !== undefined && input.DcFilter !== null && { dcFilter: input.DcFilter }),
+    ...(input.Dialnorm !== undefined && input.Dialnorm !== null && { dialnorm: input.Dialnorm }),
+    ...(input.DynamicRangeCompressionLine !== undefined &&
+      input.DynamicRangeCompressionLine !== null && { dynamicRangeCompressionLine: input.DynamicRangeCompressionLine }),
+    ...(input.DynamicRangeCompressionRf !== undefined &&
+      input.DynamicRangeCompressionRf !== null && { dynamicRangeCompressionRf: input.DynamicRangeCompressionRf }),
+    ...(input.LfeControl !== undefined && input.LfeControl !== null && { lfeControl: input.LfeControl }),
+    ...(input.LfeFilter !== undefined && input.LfeFilter !== null && { lfeFilter: input.LfeFilter }),
+    ...(input.LoRoCenterMixLevel !== undefined &&
+      input.LoRoCenterMixLevel !== null && { loRoCenterMixLevel: input.LoRoCenterMixLevel }),
+    ...(input.LoRoSurroundMixLevel !== undefined &&
+      input.LoRoSurroundMixLevel !== null && { loRoSurroundMixLevel: input.LoRoSurroundMixLevel }),
+    ...(input.LtRtCenterMixLevel !== undefined &&
+      input.LtRtCenterMixLevel !== null && { ltRtCenterMixLevel: input.LtRtCenterMixLevel }),
+    ...(input.LtRtSurroundMixLevel !== undefined &&
+      input.LtRtSurroundMixLevel !== null && { ltRtSurroundMixLevel: input.LtRtSurroundMixLevel }),
+    ...(input.MetadataControl !== undefined &&
+      input.MetadataControl !== null && { metadataControl: input.MetadataControl }),
+    ...(input.PassthroughControl !== undefined &&
+      input.PassthroughControl !== null && { passthroughControl: input.PassthroughControl }),
+    ...(input.PhaseControl !== undefined && input.PhaseControl !== null && { phaseControl: input.PhaseControl }),
+    ...(input.SampleRate !== undefined && input.SampleRate !== null && { sampleRate: input.SampleRate }),
+    ...(input.StereoDownmix !== undefined && input.StereoDownmix !== null && { stereoDownmix: input.StereoDownmix }),
+    ...(input.SurroundExMode !== undefined &&
+      input.SurroundExMode !== null && { surroundExMode: input.SurroundExMode }),
+    ...(input.SurroundMode !== undefined && input.SurroundMode !== null && { surroundMode: input.SurroundMode }),
   };
 };
 
@@ -4339,21 +4636,23 @@ const serializeAws_restJson1EmbeddedDestinationSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Destination608ChannelNumber !== undefined && {
-      destination608ChannelNumber: input.Destination608ChannelNumber,
-    }),
-    ...(input.Destination708ServiceNumber !== undefined && {
-      destination708ServiceNumber: input.Destination708ServiceNumber,
-    }),
+    ...(input.Destination608ChannelNumber !== undefined &&
+      input.Destination608ChannelNumber !== null && { destination608ChannelNumber: input.Destination608ChannelNumber }),
+    ...(input.Destination708ServiceNumber !== undefined &&
+      input.Destination708ServiceNumber !== null && { destination708ServiceNumber: input.Destination708ServiceNumber }),
   };
 };
 
 const serializeAws_restJson1EmbeddedSourceSettings = (input: EmbeddedSourceSettings, context: __SerdeContext): any => {
   return {
-    ...(input.Convert608To708 !== undefined && { convert608To708: input.Convert608To708 }),
-    ...(input.Source608ChannelNumber !== undefined && { source608ChannelNumber: input.Source608ChannelNumber }),
-    ...(input.Source608TrackNumber !== undefined && { source608TrackNumber: input.Source608TrackNumber }),
-    ...(input.TerminateCaptions !== undefined && { terminateCaptions: input.TerminateCaptions }),
+    ...(input.Convert608To708 !== undefined &&
+      input.Convert608To708 !== null && { convert608To708: input.Convert608To708 }),
+    ...(input.Source608ChannelNumber !== undefined &&
+      input.Source608ChannelNumber !== null && { source608ChannelNumber: input.Source608ChannelNumber }),
+    ...(input.Source608TrackNumber !== undefined &&
+      input.Source608TrackNumber !== null && { source608TrackNumber: input.Source608TrackNumber }),
+    ...(input.TerminateCaptions !== undefined &&
+      input.TerminateCaptions !== null && { terminateCaptions: input.TerminateCaptions }),
   };
 };
 
@@ -4362,25 +4661,28 @@ const serializeAws_restJson1EsamManifestConfirmConditionNotification = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MccXml !== undefined && { mccXml: input.MccXml }),
+    ...(input.MccXml !== undefined && input.MccXml !== null && { mccXml: input.MccXml }),
   };
 };
 
 const serializeAws_restJson1EsamSettings = (input: EsamSettings, context: __SerdeContext): any => {
   return {
-    ...(input.ManifestConfirmConditionNotification !== undefined && {
-      manifestConfirmConditionNotification: serializeAws_restJson1EsamManifestConfirmConditionNotification(
-        input.ManifestConfirmConditionNotification,
-        context
-      ),
-    }),
-    ...(input.ResponseSignalPreroll !== undefined && { responseSignalPreroll: input.ResponseSignalPreroll }),
-    ...(input.SignalProcessingNotification !== undefined && {
-      signalProcessingNotification: serializeAws_restJson1EsamSignalProcessingNotification(
-        input.SignalProcessingNotification,
-        context
-      ),
-    }),
+    ...(input.ManifestConfirmConditionNotification !== undefined &&
+      input.ManifestConfirmConditionNotification !== null && {
+        manifestConfirmConditionNotification: serializeAws_restJson1EsamManifestConfirmConditionNotification(
+          input.ManifestConfirmConditionNotification,
+          context
+        ),
+      }),
+    ...(input.ResponseSignalPreroll !== undefined &&
+      input.ResponseSignalPreroll !== null && { responseSignalPreroll: input.ResponseSignalPreroll }),
+    ...(input.SignalProcessingNotification !== undefined &&
+      input.SignalProcessingNotification !== null && {
+        signalProcessingNotification: serializeAws_restJson1EsamSignalProcessingNotification(
+          input.SignalProcessingNotification,
+          context
+        ),
+      }),
   };
 };
 
@@ -4389,206 +4691,251 @@ const serializeAws_restJson1EsamSignalProcessingNotification = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SccXml !== undefined && { sccXml: input.SccXml }),
+    ...(input.SccXml !== undefined && input.SccXml !== null && { sccXml: input.SccXml }),
   };
 };
 
 const serializeAws_restJson1F4vSettings = (input: F4vSettings, context: __SerdeContext): any => {
   return {
-    ...(input.MoovPlacement !== undefined && { moovPlacement: input.MoovPlacement }),
+    ...(input.MoovPlacement !== undefined && input.MoovPlacement !== null && { moovPlacement: input.MoovPlacement }),
   };
 };
 
 const serializeAws_restJson1FileGroupSettings = (input: FileGroupSettings, context: __SerdeContext): any => {
   return {
-    ...(input.Destination !== undefined && { destination: input.Destination }),
-    ...(input.DestinationSettings !== undefined && {
-      destinationSettings: serializeAws_restJson1DestinationSettings(input.DestinationSettings, context),
-    }),
+    ...(input.Destination !== undefined && input.Destination !== null && { destination: input.Destination }),
+    ...(input.DestinationSettings !== undefined &&
+      input.DestinationSettings !== null && {
+        destinationSettings: serializeAws_restJson1DestinationSettings(input.DestinationSettings, context),
+      }),
   };
 };
 
 const serializeAws_restJson1FileSourceSettings = (input: FileSourceSettings, context: __SerdeContext): any => {
   return {
-    ...(input.Convert608To708 !== undefined && { convert608To708: input.Convert608To708 }),
-    ...(input.Framerate !== undefined && {
-      framerate: serializeAws_restJson1CaptionSourceFramerate(input.Framerate, context),
-    }),
-    ...(input.SourceFile !== undefined && { sourceFile: input.SourceFile }),
-    ...(input.TimeDelta !== undefined && { timeDelta: input.TimeDelta }),
+    ...(input.Convert608To708 !== undefined &&
+      input.Convert608To708 !== null && { convert608To708: input.Convert608To708 }),
+    ...(input.Framerate !== undefined &&
+      input.Framerate !== null && {
+        framerate: serializeAws_restJson1CaptionSourceFramerate(input.Framerate, context),
+      }),
+    ...(input.SourceFile !== undefined && input.SourceFile !== null && { sourceFile: input.SourceFile }),
+    ...(input.TimeDelta !== undefined && input.TimeDelta !== null && { timeDelta: input.TimeDelta }),
   };
 };
 
 const serializeAws_restJson1FrameCaptureSettings = (input: FrameCaptureSettings, context: __SerdeContext): any => {
   return {
-    ...(input.FramerateDenominator !== undefined && { framerateDenominator: input.FramerateDenominator }),
-    ...(input.FramerateNumerator !== undefined && { framerateNumerator: input.FramerateNumerator }),
-    ...(input.MaxCaptures !== undefined && { maxCaptures: input.MaxCaptures }),
-    ...(input.Quality !== undefined && { quality: input.Quality }),
+    ...(input.FramerateDenominator !== undefined &&
+      input.FramerateDenominator !== null && { framerateDenominator: input.FramerateDenominator }),
+    ...(input.FramerateNumerator !== undefined &&
+      input.FramerateNumerator !== null && { framerateNumerator: input.FramerateNumerator }),
+    ...(input.MaxCaptures !== undefined && input.MaxCaptures !== null && { maxCaptures: input.MaxCaptures }),
+    ...(input.Quality !== undefined && input.Quality !== null && { quality: input.Quality }),
   };
 };
 
 const serializeAws_restJson1H264QvbrSettings = (input: H264QvbrSettings, context: __SerdeContext): any => {
   return {
-    ...(input.MaxAverageBitrate !== undefined && { maxAverageBitrate: input.MaxAverageBitrate }),
-    ...(input.QvbrQualityLevel !== undefined && { qvbrQualityLevel: input.QvbrQualityLevel }),
-    ...(input.QvbrQualityLevelFineTune !== undefined && { qvbrQualityLevelFineTune: input.QvbrQualityLevelFineTune }),
+    ...(input.MaxAverageBitrate !== undefined &&
+      input.MaxAverageBitrate !== null && { maxAverageBitrate: input.MaxAverageBitrate }),
+    ...(input.QvbrQualityLevel !== undefined &&
+      input.QvbrQualityLevel !== null && { qvbrQualityLevel: input.QvbrQualityLevel }),
+    ...(input.QvbrQualityLevelFineTune !== undefined &&
+      input.QvbrQualityLevelFineTune !== null && { qvbrQualityLevelFineTune: input.QvbrQualityLevelFineTune }),
   };
 };
 
 const serializeAws_restJson1H264Settings = (input: H264Settings, context: __SerdeContext): any => {
   return {
-    ...(input.AdaptiveQuantization !== undefined && { adaptiveQuantization: input.AdaptiveQuantization }),
-    ...(input.Bitrate !== undefined && { bitrate: input.Bitrate }),
-    ...(input.CodecLevel !== undefined && { codecLevel: input.CodecLevel }),
-    ...(input.CodecProfile !== undefined && { codecProfile: input.CodecProfile }),
-    ...(input.DynamicSubGop !== undefined && { dynamicSubGop: input.DynamicSubGop }),
-    ...(input.EntropyEncoding !== undefined && { entropyEncoding: input.EntropyEncoding }),
-    ...(input.FieldEncoding !== undefined && { fieldEncoding: input.FieldEncoding }),
-    ...(input.FlickerAdaptiveQuantization !== undefined && {
-      flickerAdaptiveQuantization: input.FlickerAdaptiveQuantization,
-    }),
-    ...(input.FramerateControl !== undefined && { framerateControl: input.FramerateControl }),
-    ...(input.FramerateConversionAlgorithm !== undefined && {
-      framerateConversionAlgorithm: input.FramerateConversionAlgorithm,
-    }),
-    ...(input.FramerateDenominator !== undefined && { framerateDenominator: input.FramerateDenominator }),
-    ...(input.FramerateNumerator !== undefined && { framerateNumerator: input.FramerateNumerator }),
-    ...(input.GopBReference !== undefined && { gopBReference: input.GopBReference }),
-    ...(input.GopClosedCadence !== undefined && { gopClosedCadence: input.GopClosedCadence }),
-    ...(input.GopSize !== undefined && { gopSize: input.GopSize }),
-    ...(input.GopSizeUnits !== undefined && { gopSizeUnits: input.GopSizeUnits }),
-    ...(input.HrdBufferInitialFillPercentage !== undefined && {
-      hrdBufferInitialFillPercentage: input.HrdBufferInitialFillPercentage,
-    }),
-    ...(input.HrdBufferSize !== undefined && { hrdBufferSize: input.HrdBufferSize }),
-    ...(input.InterlaceMode !== undefined && { interlaceMode: input.InterlaceMode }),
-    ...(input.MaxBitrate !== undefined && { maxBitrate: input.MaxBitrate }),
-    ...(input.MinIInterval !== undefined && { minIInterval: input.MinIInterval }),
-    ...(input.NumberBFramesBetweenReferenceFrames !== undefined && {
-      numberBFramesBetweenReferenceFrames: input.NumberBFramesBetweenReferenceFrames,
-    }),
-    ...(input.NumberReferenceFrames !== undefined && { numberReferenceFrames: input.NumberReferenceFrames }),
-    ...(input.ParControl !== undefined && { parControl: input.ParControl }),
-    ...(input.ParDenominator !== undefined && { parDenominator: input.ParDenominator }),
-    ...(input.ParNumerator !== undefined && { parNumerator: input.ParNumerator }),
-    ...(input.QualityTuningLevel !== undefined && { qualityTuningLevel: input.QualityTuningLevel }),
-    ...(input.QvbrSettings !== undefined && {
-      qvbrSettings: serializeAws_restJson1H264QvbrSettings(input.QvbrSettings, context),
-    }),
-    ...(input.RateControlMode !== undefined && { rateControlMode: input.RateControlMode }),
-    ...(input.RepeatPps !== undefined && { repeatPps: input.RepeatPps }),
-    ...(input.SceneChangeDetect !== undefined && { sceneChangeDetect: input.SceneChangeDetect }),
-    ...(input.Slices !== undefined && { slices: input.Slices }),
-    ...(input.SlowPal !== undefined && { slowPal: input.SlowPal }),
-    ...(input.Softness !== undefined && { softness: input.Softness }),
-    ...(input.SpatialAdaptiveQuantization !== undefined && {
-      spatialAdaptiveQuantization: input.SpatialAdaptiveQuantization,
-    }),
-    ...(input.Syntax !== undefined && { syntax: input.Syntax }),
-    ...(input.Telecine !== undefined && { telecine: input.Telecine }),
-    ...(input.TemporalAdaptiveQuantization !== undefined && {
-      temporalAdaptiveQuantization: input.TemporalAdaptiveQuantization,
-    }),
-    ...(input.UnregisteredSeiTimecode !== undefined && { unregisteredSeiTimecode: input.UnregisteredSeiTimecode }),
+    ...(input.AdaptiveQuantization !== undefined &&
+      input.AdaptiveQuantization !== null && { adaptiveQuantization: input.AdaptiveQuantization }),
+    ...(input.Bitrate !== undefined && input.Bitrate !== null && { bitrate: input.Bitrate }),
+    ...(input.CodecLevel !== undefined && input.CodecLevel !== null && { codecLevel: input.CodecLevel }),
+    ...(input.CodecProfile !== undefined && input.CodecProfile !== null && { codecProfile: input.CodecProfile }),
+    ...(input.DynamicSubGop !== undefined && input.DynamicSubGop !== null && { dynamicSubGop: input.DynamicSubGop }),
+    ...(input.EntropyEncoding !== undefined &&
+      input.EntropyEncoding !== null && { entropyEncoding: input.EntropyEncoding }),
+    ...(input.FieldEncoding !== undefined && input.FieldEncoding !== null && { fieldEncoding: input.FieldEncoding }),
+    ...(input.FlickerAdaptiveQuantization !== undefined &&
+      input.FlickerAdaptiveQuantization !== null && { flickerAdaptiveQuantization: input.FlickerAdaptiveQuantization }),
+    ...(input.FramerateControl !== undefined &&
+      input.FramerateControl !== null && { framerateControl: input.FramerateControl }),
+    ...(input.FramerateConversionAlgorithm !== undefined &&
+      input.FramerateConversionAlgorithm !== null && {
+        framerateConversionAlgorithm: input.FramerateConversionAlgorithm,
+      }),
+    ...(input.FramerateDenominator !== undefined &&
+      input.FramerateDenominator !== null && { framerateDenominator: input.FramerateDenominator }),
+    ...(input.FramerateNumerator !== undefined &&
+      input.FramerateNumerator !== null && { framerateNumerator: input.FramerateNumerator }),
+    ...(input.GopBReference !== undefined && input.GopBReference !== null && { gopBReference: input.GopBReference }),
+    ...(input.GopClosedCadence !== undefined &&
+      input.GopClosedCadence !== null && { gopClosedCadence: input.GopClosedCadence }),
+    ...(input.GopSize !== undefined && input.GopSize !== null && { gopSize: input.GopSize }),
+    ...(input.GopSizeUnits !== undefined && input.GopSizeUnits !== null && { gopSizeUnits: input.GopSizeUnits }),
+    ...(input.HrdBufferInitialFillPercentage !== undefined &&
+      input.HrdBufferInitialFillPercentage !== null && {
+        hrdBufferInitialFillPercentage: input.HrdBufferInitialFillPercentage,
+      }),
+    ...(input.HrdBufferSize !== undefined && input.HrdBufferSize !== null && { hrdBufferSize: input.HrdBufferSize }),
+    ...(input.InterlaceMode !== undefined && input.InterlaceMode !== null && { interlaceMode: input.InterlaceMode }),
+    ...(input.MaxBitrate !== undefined && input.MaxBitrate !== null && { maxBitrate: input.MaxBitrate }),
+    ...(input.MinIInterval !== undefined && input.MinIInterval !== null && { minIInterval: input.MinIInterval }),
+    ...(input.NumberBFramesBetweenReferenceFrames !== undefined &&
+      input.NumberBFramesBetweenReferenceFrames !== null && {
+        numberBFramesBetweenReferenceFrames: input.NumberBFramesBetweenReferenceFrames,
+      }),
+    ...(input.NumberReferenceFrames !== undefined &&
+      input.NumberReferenceFrames !== null && { numberReferenceFrames: input.NumberReferenceFrames }),
+    ...(input.ParControl !== undefined && input.ParControl !== null && { parControl: input.ParControl }),
+    ...(input.ParDenominator !== undefined &&
+      input.ParDenominator !== null && { parDenominator: input.ParDenominator }),
+    ...(input.ParNumerator !== undefined && input.ParNumerator !== null && { parNumerator: input.ParNumerator }),
+    ...(input.QualityTuningLevel !== undefined &&
+      input.QualityTuningLevel !== null && { qualityTuningLevel: input.QualityTuningLevel }),
+    ...(input.QvbrSettings !== undefined &&
+      input.QvbrSettings !== null && {
+        qvbrSettings: serializeAws_restJson1H264QvbrSettings(input.QvbrSettings, context),
+      }),
+    ...(input.RateControlMode !== undefined &&
+      input.RateControlMode !== null && { rateControlMode: input.RateControlMode }),
+    ...(input.RepeatPps !== undefined && input.RepeatPps !== null && { repeatPps: input.RepeatPps }),
+    ...(input.SceneChangeDetect !== undefined &&
+      input.SceneChangeDetect !== null && { sceneChangeDetect: input.SceneChangeDetect }),
+    ...(input.Slices !== undefined && input.Slices !== null && { slices: input.Slices }),
+    ...(input.SlowPal !== undefined && input.SlowPal !== null && { slowPal: input.SlowPal }),
+    ...(input.Softness !== undefined && input.Softness !== null && { softness: input.Softness }),
+    ...(input.SpatialAdaptiveQuantization !== undefined &&
+      input.SpatialAdaptiveQuantization !== null && { spatialAdaptiveQuantization: input.SpatialAdaptiveQuantization }),
+    ...(input.Syntax !== undefined && input.Syntax !== null && { syntax: input.Syntax }),
+    ...(input.Telecine !== undefined && input.Telecine !== null && { telecine: input.Telecine }),
+    ...(input.TemporalAdaptiveQuantization !== undefined &&
+      input.TemporalAdaptiveQuantization !== null && {
+        temporalAdaptiveQuantization: input.TemporalAdaptiveQuantization,
+      }),
+    ...(input.UnregisteredSeiTimecode !== undefined &&
+      input.UnregisteredSeiTimecode !== null && { unregisteredSeiTimecode: input.UnregisteredSeiTimecode }),
   };
 };
 
 const serializeAws_restJson1H265QvbrSettings = (input: H265QvbrSettings, context: __SerdeContext): any => {
   return {
-    ...(input.MaxAverageBitrate !== undefined && { maxAverageBitrate: input.MaxAverageBitrate }),
-    ...(input.QvbrQualityLevel !== undefined && { qvbrQualityLevel: input.QvbrQualityLevel }),
-    ...(input.QvbrQualityLevelFineTune !== undefined && { qvbrQualityLevelFineTune: input.QvbrQualityLevelFineTune }),
+    ...(input.MaxAverageBitrate !== undefined &&
+      input.MaxAverageBitrate !== null && { maxAverageBitrate: input.MaxAverageBitrate }),
+    ...(input.QvbrQualityLevel !== undefined &&
+      input.QvbrQualityLevel !== null && { qvbrQualityLevel: input.QvbrQualityLevel }),
+    ...(input.QvbrQualityLevelFineTune !== undefined &&
+      input.QvbrQualityLevelFineTune !== null && { qvbrQualityLevelFineTune: input.QvbrQualityLevelFineTune }),
   };
 };
 
 const serializeAws_restJson1H265Settings = (input: H265Settings, context: __SerdeContext): any => {
   return {
-    ...(input.AdaptiveQuantization !== undefined && { adaptiveQuantization: input.AdaptiveQuantization }),
-    ...(input.AlternateTransferFunctionSei !== undefined && {
-      alternateTransferFunctionSei: input.AlternateTransferFunctionSei,
-    }),
-    ...(input.Bitrate !== undefined && { bitrate: input.Bitrate }),
-    ...(input.CodecLevel !== undefined && { codecLevel: input.CodecLevel }),
-    ...(input.CodecProfile !== undefined && { codecProfile: input.CodecProfile }),
-    ...(input.DynamicSubGop !== undefined && { dynamicSubGop: input.DynamicSubGop }),
-    ...(input.FlickerAdaptiveQuantization !== undefined && {
-      flickerAdaptiveQuantization: input.FlickerAdaptiveQuantization,
-    }),
-    ...(input.FramerateControl !== undefined && { framerateControl: input.FramerateControl }),
-    ...(input.FramerateConversionAlgorithm !== undefined && {
-      framerateConversionAlgorithm: input.FramerateConversionAlgorithm,
-    }),
-    ...(input.FramerateDenominator !== undefined && { framerateDenominator: input.FramerateDenominator }),
-    ...(input.FramerateNumerator !== undefined && { framerateNumerator: input.FramerateNumerator }),
-    ...(input.GopBReference !== undefined && { gopBReference: input.GopBReference }),
-    ...(input.GopClosedCadence !== undefined && { gopClosedCadence: input.GopClosedCadence }),
-    ...(input.GopSize !== undefined && { gopSize: input.GopSize }),
-    ...(input.GopSizeUnits !== undefined && { gopSizeUnits: input.GopSizeUnits }),
-    ...(input.HrdBufferInitialFillPercentage !== undefined && {
-      hrdBufferInitialFillPercentage: input.HrdBufferInitialFillPercentage,
-    }),
-    ...(input.HrdBufferSize !== undefined && { hrdBufferSize: input.HrdBufferSize }),
-    ...(input.InterlaceMode !== undefined && { interlaceMode: input.InterlaceMode }),
-    ...(input.MaxBitrate !== undefined && { maxBitrate: input.MaxBitrate }),
-    ...(input.MinIInterval !== undefined && { minIInterval: input.MinIInterval }),
-    ...(input.NumberBFramesBetweenReferenceFrames !== undefined && {
-      numberBFramesBetweenReferenceFrames: input.NumberBFramesBetweenReferenceFrames,
-    }),
-    ...(input.NumberReferenceFrames !== undefined && { numberReferenceFrames: input.NumberReferenceFrames }),
-    ...(input.ParControl !== undefined && { parControl: input.ParControl }),
-    ...(input.ParDenominator !== undefined && { parDenominator: input.ParDenominator }),
-    ...(input.ParNumerator !== undefined && { parNumerator: input.ParNumerator }),
-    ...(input.QualityTuningLevel !== undefined && { qualityTuningLevel: input.QualityTuningLevel }),
-    ...(input.QvbrSettings !== undefined && {
-      qvbrSettings: serializeAws_restJson1H265QvbrSettings(input.QvbrSettings, context),
-    }),
-    ...(input.RateControlMode !== undefined && { rateControlMode: input.RateControlMode }),
-    ...(input.SampleAdaptiveOffsetFilterMode !== undefined && {
-      sampleAdaptiveOffsetFilterMode: input.SampleAdaptiveOffsetFilterMode,
-    }),
-    ...(input.SceneChangeDetect !== undefined && { sceneChangeDetect: input.SceneChangeDetect }),
-    ...(input.Slices !== undefined && { slices: input.Slices }),
-    ...(input.SlowPal !== undefined && { slowPal: input.SlowPal }),
-    ...(input.SpatialAdaptiveQuantization !== undefined && {
-      spatialAdaptiveQuantization: input.SpatialAdaptiveQuantization,
-    }),
-    ...(input.Telecine !== undefined && { telecine: input.Telecine }),
-    ...(input.TemporalAdaptiveQuantization !== undefined && {
-      temporalAdaptiveQuantization: input.TemporalAdaptiveQuantization,
-    }),
-    ...(input.TemporalIds !== undefined && { temporalIds: input.TemporalIds }),
-    ...(input.Tiles !== undefined && { tiles: input.Tiles }),
-    ...(input.UnregisteredSeiTimecode !== undefined && { unregisteredSeiTimecode: input.UnregisteredSeiTimecode }),
-    ...(input.WriteMp4PackagingType !== undefined && { writeMp4PackagingType: input.WriteMp4PackagingType }),
+    ...(input.AdaptiveQuantization !== undefined &&
+      input.AdaptiveQuantization !== null && { adaptiveQuantization: input.AdaptiveQuantization }),
+    ...(input.AlternateTransferFunctionSei !== undefined &&
+      input.AlternateTransferFunctionSei !== null && {
+        alternateTransferFunctionSei: input.AlternateTransferFunctionSei,
+      }),
+    ...(input.Bitrate !== undefined && input.Bitrate !== null && { bitrate: input.Bitrate }),
+    ...(input.CodecLevel !== undefined && input.CodecLevel !== null && { codecLevel: input.CodecLevel }),
+    ...(input.CodecProfile !== undefined && input.CodecProfile !== null && { codecProfile: input.CodecProfile }),
+    ...(input.DynamicSubGop !== undefined && input.DynamicSubGop !== null && { dynamicSubGop: input.DynamicSubGop }),
+    ...(input.FlickerAdaptiveQuantization !== undefined &&
+      input.FlickerAdaptiveQuantization !== null && { flickerAdaptiveQuantization: input.FlickerAdaptiveQuantization }),
+    ...(input.FramerateControl !== undefined &&
+      input.FramerateControl !== null && { framerateControl: input.FramerateControl }),
+    ...(input.FramerateConversionAlgorithm !== undefined &&
+      input.FramerateConversionAlgorithm !== null && {
+        framerateConversionAlgorithm: input.FramerateConversionAlgorithm,
+      }),
+    ...(input.FramerateDenominator !== undefined &&
+      input.FramerateDenominator !== null && { framerateDenominator: input.FramerateDenominator }),
+    ...(input.FramerateNumerator !== undefined &&
+      input.FramerateNumerator !== null && { framerateNumerator: input.FramerateNumerator }),
+    ...(input.GopBReference !== undefined && input.GopBReference !== null && { gopBReference: input.GopBReference }),
+    ...(input.GopClosedCadence !== undefined &&
+      input.GopClosedCadence !== null && { gopClosedCadence: input.GopClosedCadence }),
+    ...(input.GopSize !== undefined && input.GopSize !== null && { gopSize: input.GopSize }),
+    ...(input.GopSizeUnits !== undefined && input.GopSizeUnits !== null && { gopSizeUnits: input.GopSizeUnits }),
+    ...(input.HrdBufferInitialFillPercentage !== undefined &&
+      input.HrdBufferInitialFillPercentage !== null && {
+        hrdBufferInitialFillPercentage: input.HrdBufferInitialFillPercentage,
+      }),
+    ...(input.HrdBufferSize !== undefined && input.HrdBufferSize !== null && { hrdBufferSize: input.HrdBufferSize }),
+    ...(input.InterlaceMode !== undefined && input.InterlaceMode !== null && { interlaceMode: input.InterlaceMode }),
+    ...(input.MaxBitrate !== undefined && input.MaxBitrate !== null && { maxBitrate: input.MaxBitrate }),
+    ...(input.MinIInterval !== undefined && input.MinIInterval !== null && { minIInterval: input.MinIInterval }),
+    ...(input.NumberBFramesBetweenReferenceFrames !== undefined &&
+      input.NumberBFramesBetweenReferenceFrames !== null && {
+        numberBFramesBetweenReferenceFrames: input.NumberBFramesBetweenReferenceFrames,
+      }),
+    ...(input.NumberReferenceFrames !== undefined &&
+      input.NumberReferenceFrames !== null && { numberReferenceFrames: input.NumberReferenceFrames }),
+    ...(input.ParControl !== undefined && input.ParControl !== null && { parControl: input.ParControl }),
+    ...(input.ParDenominator !== undefined &&
+      input.ParDenominator !== null && { parDenominator: input.ParDenominator }),
+    ...(input.ParNumerator !== undefined && input.ParNumerator !== null && { parNumerator: input.ParNumerator }),
+    ...(input.QualityTuningLevel !== undefined &&
+      input.QualityTuningLevel !== null && { qualityTuningLevel: input.QualityTuningLevel }),
+    ...(input.QvbrSettings !== undefined &&
+      input.QvbrSettings !== null && {
+        qvbrSettings: serializeAws_restJson1H265QvbrSettings(input.QvbrSettings, context),
+      }),
+    ...(input.RateControlMode !== undefined &&
+      input.RateControlMode !== null && { rateControlMode: input.RateControlMode }),
+    ...(input.SampleAdaptiveOffsetFilterMode !== undefined &&
+      input.SampleAdaptiveOffsetFilterMode !== null && {
+        sampleAdaptiveOffsetFilterMode: input.SampleAdaptiveOffsetFilterMode,
+      }),
+    ...(input.SceneChangeDetect !== undefined &&
+      input.SceneChangeDetect !== null && { sceneChangeDetect: input.SceneChangeDetect }),
+    ...(input.Slices !== undefined && input.Slices !== null && { slices: input.Slices }),
+    ...(input.SlowPal !== undefined && input.SlowPal !== null && { slowPal: input.SlowPal }),
+    ...(input.SpatialAdaptiveQuantization !== undefined &&
+      input.SpatialAdaptiveQuantization !== null && { spatialAdaptiveQuantization: input.SpatialAdaptiveQuantization }),
+    ...(input.Telecine !== undefined && input.Telecine !== null && { telecine: input.Telecine }),
+    ...(input.TemporalAdaptiveQuantization !== undefined &&
+      input.TemporalAdaptiveQuantization !== null && {
+        temporalAdaptiveQuantization: input.TemporalAdaptiveQuantization,
+      }),
+    ...(input.TemporalIds !== undefined && input.TemporalIds !== null && { temporalIds: input.TemporalIds }),
+    ...(input.Tiles !== undefined && input.Tiles !== null && { tiles: input.Tiles }),
+    ...(input.UnregisteredSeiTimecode !== undefined &&
+      input.UnregisteredSeiTimecode !== null && { unregisteredSeiTimecode: input.UnregisteredSeiTimecode }),
+    ...(input.WriteMp4PackagingType !== undefined &&
+      input.WriteMp4PackagingType !== null && { writeMp4PackagingType: input.WriteMp4PackagingType }),
   };
 };
 
 const serializeAws_restJson1Hdr10Metadata = (input: Hdr10Metadata, context: __SerdeContext): any => {
   return {
-    ...(input.BluePrimaryX !== undefined && { bluePrimaryX: input.BluePrimaryX }),
-    ...(input.BluePrimaryY !== undefined && { bluePrimaryY: input.BluePrimaryY }),
-    ...(input.GreenPrimaryX !== undefined && { greenPrimaryX: input.GreenPrimaryX }),
-    ...(input.GreenPrimaryY !== undefined && { greenPrimaryY: input.GreenPrimaryY }),
-    ...(input.MaxContentLightLevel !== undefined && { maxContentLightLevel: input.MaxContentLightLevel }),
-    ...(input.MaxFrameAverageLightLevel !== undefined && {
-      maxFrameAverageLightLevel: input.MaxFrameAverageLightLevel,
-    }),
-    ...(input.MaxLuminance !== undefined && { maxLuminance: input.MaxLuminance }),
-    ...(input.MinLuminance !== undefined && { minLuminance: input.MinLuminance }),
-    ...(input.RedPrimaryX !== undefined && { redPrimaryX: input.RedPrimaryX }),
-    ...(input.RedPrimaryY !== undefined && { redPrimaryY: input.RedPrimaryY }),
-    ...(input.WhitePointX !== undefined && { whitePointX: input.WhitePointX }),
-    ...(input.WhitePointY !== undefined && { whitePointY: input.WhitePointY }),
+    ...(input.BluePrimaryX !== undefined && input.BluePrimaryX !== null && { bluePrimaryX: input.BluePrimaryX }),
+    ...(input.BluePrimaryY !== undefined && input.BluePrimaryY !== null && { bluePrimaryY: input.BluePrimaryY }),
+    ...(input.GreenPrimaryX !== undefined && input.GreenPrimaryX !== null && { greenPrimaryX: input.GreenPrimaryX }),
+    ...(input.GreenPrimaryY !== undefined && input.GreenPrimaryY !== null && { greenPrimaryY: input.GreenPrimaryY }),
+    ...(input.MaxContentLightLevel !== undefined &&
+      input.MaxContentLightLevel !== null && { maxContentLightLevel: input.MaxContentLightLevel }),
+    ...(input.MaxFrameAverageLightLevel !== undefined &&
+      input.MaxFrameAverageLightLevel !== null && { maxFrameAverageLightLevel: input.MaxFrameAverageLightLevel }),
+    ...(input.MaxLuminance !== undefined && input.MaxLuminance !== null && { maxLuminance: input.MaxLuminance }),
+    ...(input.MinLuminance !== undefined && input.MinLuminance !== null && { minLuminance: input.MinLuminance }),
+    ...(input.RedPrimaryX !== undefined && input.RedPrimaryX !== null && { redPrimaryX: input.RedPrimaryX }),
+    ...(input.RedPrimaryY !== undefined && input.RedPrimaryY !== null && { redPrimaryY: input.RedPrimaryY }),
+    ...(input.WhitePointX !== undefined && input.WhitePointX !== null && { whitePointX: input.WhitePointX }),
+    ...(input.WhitePointY !== undefined && input.WhitePointY !== null && { whitePointY: input.WhitePointY }),
   };
 };
 
 const serializeAws_restJson1HlsAdditionalManifest = (input: HlsAdditionalManifest, context: __SerdeContext): any => {
   return {
-    ...(input.ManifestNameModifier !== undefined && { manifestNameModifier: input.ManifestNameModifier }),
-    ...(input.SelectedOutputs !== undefined && {
-      selectedOutputs: serializeAws_restJson1__listOf__stringMin1(input.SelectedOutputs, context),
-    }),
+    ...(input.ManifestNameModifier !== undefined &&
+      input.ManifestNameModifier !== null && { manifestNameModifier: input.ManifestNameModifier }),
+    ...(input.SelectedOutputs !== undefined &&
+      input.SelectedOutputs !== null && {
+        selectedOutputs: serializeAws_restJson1__listOf__stringMin1(input.SelectedOutputs, context),
+      }),
   };
 };
 
@@ -4597,110 +4944,143 @@ const serializeAws_restJson1HlsCaptionLanguageMapping = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CaptionChannel !== undefined && { captionChannel: input.CaptionChannel }),
-    ...(input.CustomLanguageCode !== undefined && { customLanguageCode: input.CustomLanguageCode }),
-    ...(input.LanguageCode !== undefined && { languageCode: input.LanguageCode }),
-    ...(input.LanguageDescription !== undefined && { languageDescription: input.LanguageDescription }),
+    ...(input.CaptionChannel !== undefined &&
+      input.CaptionChannel !== null && { captionChannel: input.CaptionChannel }),
+    ...(input.CustomLanguageCode !== undefined &&
+      input.CustomLanguageCode !== null && { customLanguageCode: input.CustomLanguageCode }),
+    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { languageCode: input.LanguageCode }),
+    ...(input.LanguageDescription !== undefined &&
+      input.LanguageDescription !== null && { languageDescription: input.LanguageDescription }),
   };
 };
 
 const serializeAws_restJson1HlsEncryptionSettings = (input: HlsEncryptionSettings, context: __SerdeContext): any => {
   return {
-    ...(input.ConstantInitializationVector !== undefined && {
-      constantInitializationVector: input.ConstantInitializationVector,
-    }),
-    ...(input.EncryptionMethod !== undefined && { encryptionMethod: input.EncryptionMethod }),
-    ...(input.InitializationVectorInManifest !== undefined && {
-      initializationVectorInManifest: input.InitializationVectorInManifest,
-    }),
-    ...(input.OfflineEncrypted !== undefined && { offlineEncrypted: input.OfflineEncrypted }),
-    ...(input.SpekeKeyProvider !== undefined && {
-      spekeKeyProvider: serializeAws_restJson1SpekeKeyProvider(input.SpekeKeyProvider, context),
-    }),
-    ...(input.StaticKeyProvider !== undefined && {
-      staticKeyProvider: serializeAws_restJson1StaticKeyProvider(input.StaticKeyProvider, context),
-    }),
-    ...(input.Type !== undefined && { type: input.Type }),
+    ...(input.ConstantInitializationVector !== undefined &&
+      input.ConstantInitializationVector !== null && {
+        constantInitializationVector: input.ConstantInitializationVector,
+      }),
+    ...(input.EncryptionMethod !== undefined &&
+      input.EncryptionMethod !== null && { encryptionMethod: input.EncryptionMethod }),
+    ...(input.InitializationVectorInManifest !== undefined &&
+      input.InitializationVectorInManifest !== null && {
+        initializationVectorInManifest: input.InitializationVectorInManifest,
+      }),
+    ...(input.OfflineEncrypted !== undefined &&
+      input.OfflineEncrypted !== null && { offlineEncrypted: input.OfflineEncrypted }),
+    ...(input.SpekeKeyProvider !== undefined &&
+      input.SpekeKeyProvider !== null && {
+        spekeKeyProvider: serializeAws_restJson1SpekeKeyProvider(input.SpekeKeyProvider, context),
+      }),
+    ...(input.StaticKeyProvider !== undefined &&
+      input.StaticKeyProvider !== null && {
+        staticKeyProvider: serializeAws_restJson1StaticKeyProvider(input.StaticKeyProvider, context),
+      }),
+    ...(input.Type !== undefined && input.Type !== null && { type: input.Type }),
   };
 };
 
 const serializeAws_restJson1HlsGroupSettings = (input: HlsGroupSettings, context: __SerdeContext): any => {
   return {
-    ...(input.AdMarkers !== undefined && {
-      adMarkers: serializeAws_restJson1__listOfHlsAdMarkers(input.AdMarkers, context),
-    }),
-    ...(input.AdditionalManifests !== undefined && {
-      additionalManifests: serializeAws_restJson1__listOfHlsAdditionalManifest(input.AdditionalManifests, context),
-    }),
-    ...(input.AudioOnlyHeader !== undefined && { audioOnlyHeader: input.AudioOnlyHeader }),
-    ...(input.BaseUrl !== undefined && { baseUrl: input.BaseUrl }),
-    ...(input.CaptionLanguageMappings !== undefined && {
-      captionLanguageMappings: serializeAws_restJson1__listOfHlsCaptionLanguageMapping(
-        input.CaptionLanguageMappings,
-        context
-      ),
-    }),
-    ...(input.CaptionLanguageSetting !== undefined && { captionLanguageSetting: input.CaptionLanguageSetting }),
-    ...(input.ClientCache !== undefined && { clientCache: input.ClientCache }),
-    ...(input.CodecSpecification !== undefined && { codecSpecification: input.CodecSpecification }),
-    ...(input.Destination !== undefined && { destination: input.Destination }),
-    ...(input.DestinationSettings !== undefined && {
-      destinationSettings: serializeAws_restJson1DestinationSettings(input.DestinationSettings, context),
-    }),
-    ...(input.DirectoryStructure !== undefined && { directoryStructure: input.DirectoryStructure }),
-    ...(input.Encryption !== undefined && {
-      encryption: serializeAws_restJson1HlsEncryptionSettings(input.Encryption, context),
-    }),
-    ...(input.ManifestCompression !== undefined && { manifestCompression: input.ManifestCompression }),
-    ...(input.ManifestDurationFormat !== undefined && { manifestDurationFormat: input.ManifestDurationFormat }),
-    ...(input.MinFinalSegmentLength !== undefined && { minFinalSegmentLength: input.MinFinalSegmentLength }),
-    ...(input.MinSegmentLength !== undefined && { minSegmentLength: input.MinSegmentLength }),
-    ...(input.OutputSelection !== undefined && { outputSelection: input.OutputSelection }),
-    ...(input.ProgramDateTime !== undefined && { programDateTime: input.ProgramDateTime }),
-    ...(input.ProgramDateTimePeriod !== undefined && { programDateTimePeriod: input.ProgramDateTimePeriod }),
-    ...(input.SegmentControl !== undefined && { segmentControl: input.SegmentControl }),
-    ...(input.SegmentLength !== undefined && { segmentLength: input.SegmentLength }),
-    ...(input.SegmentsPerSubdirectory !== undefined && { segmentsPerSubdirectory: input.SegmentsPerSubdirectory }),
-    ...(input.StreamInfResolution !== undefined && { streamInfResolution: input.StreamInfResolution }),
-    ...(input.TimedMetadataId3Frame !== undefined && { timedMetadataId3Frame: input.TimedMetadataId3Frame }),
-    ...(input.TimedMetadataId3Period !== undefined && { timedMetadataId3Period: input.TimedMetadataId3Period }),
-    ...(input.TimestampDeltaMilliseconds !== undefined && {
-      timestampDeltaMilliseconds: input.TimestampDeltaMilliseconds,
-    }),
+    ...(input.AdMarkers !== undefined &&
+      input.AdMarkers !== null && { adMarkers: serializeAws_restJson1__listOfHlsAdMarkers(input.AdMarkers, context) }),
+    ...(input.AdditionalManifests !== undefined &&
+      input.AdditionalManifests !== null && {
+        additionalManifests: serializeAws_restJson1__listOfHlsAdditionalManifest(input.AdditionalManifests, context),
+      }),
+    ...(input.AudioOnlyHeader !== undefined &&
+      input.AudioOnlyHeader !== null && { audioOnlyHeader: input.AudioOnlyHeader }),
+    ...(input.BaseUrl !== undefined && input.BaseUrl !== null && { baseUrl: input.BaseUrl }),
+    ...(input.CaptionLanguageMappings !== undefined &&
+      input.CaptionLanguageMappings !== null && {
+        captionLanguageMappings: serializeAws_restJson1__listOfHlsCaptionLanguageMapping(
+          input.CaptionLanguageMappings,
+          context
+        ),
+      }),
+    ...(input.CaptionLanguageSetting !== undefined &&
+      input.CaptionLanguageSetting !== null && { captionLanguageSetting: input.CaptionLanguageSetting }),
+    ...(input.ClientCache !== undefined && input.ClientCache !== null && { clientCache: input.ClientCache }),
+    ...(input.CodecSpecification !== undefined &&
+      input.CodecSpecification !== null && { codecSpecification: input.CodecSpecification }),
+    ...(input.Destination !== undefined && input.Destination !== null && { destination: input.Destination }),
+    ...(input.DestinationSettings !== undefined &&
+      input.DestinationSettings !== null && {
+        destinationSettings: serializeAws_restJson1DestinationSettings(input.DestinationSettings, context),
+      }),
+    ...(input.DirectoryStructure !== undefined &&
+      input.DirectoryStructure !== null && { directoryStructure: input.DirectoryStructure }),
+    ...(input.Encryption !== undefined &&
+      input.Encryption !== null && {
+        encryption: serializeAws_restJson1HlsEncryptionSettings(input.Encryption, context),
+      }),
+    ...(input.ManifestCompression !== undefined &&
+      input.ManifestCompression !== null && { manifestCompression: input.ManifestCompression }),
+    ...(input.ManifestDurationFormat !== undefined &&
+      input.ManifestDurationFormat !== null && { manifestDurationFormat: input.ManifestDurationFormat }),
+    ...(input.MinFinalSegmentLength !== undefined &&
+      input.MinFinalSegmentLength !== null && { minFinalSegmentLength: input.MinFinalSegmentLength }),
+    ...(input.MinSegmentLength !== undefined &&
+      input.MinSegmentLength !== null && { minSegmentLength: input.MinSegmentLength }),
+    ...(input.OutputSelection !== undefined &&
+      input.OutputSelection !== null && { outputSelection: input.OutputSelection }),
+    ...(input.ProgramDateTime !== undefined &&
+      input.ProgramDateTime !== null && { programDateTime: input.ProgramDateTime }),
+    ...(input.ProgramDateTimePeriod !== undefined &&
+      input.ProgramDateTimePeriod !== null && { programDateTimePeriod: input.ProgramDateTimePeriod }),
+    ...(input.SegmentControl !== undefined &&
+      input.SegmentControl !== null && { segmentControl: input.SegmentControl }),
+    ...(input.SegmentLength !== undefined && input.SegmentLength !== null && { segmentLength: input.SegmentLength }),
+    ...(input.SegmentsPerSubdirectory !== undefined &&
+      input.SegmentsPerSubdirectory !== null && { segmentsPerSubdirectory: input.SegmentsPerSubdirectory }),
+    ...(input.StreamInfResolution !== undefined &&
+      input.StreamInfResolution !== null && { streamInfResolution: input.StreamInfResolution }),
+    ...(input.TimedMetadataId3Frame !== undefined &&
+      input.TimedMetadataId3Frame !== null && { timedMetadataId3Frame: input.TimedMetadataId3Frame }),
+    ...(input.TimedMetadataId3Period !== undefined &&
+      input.TimedMetadataId3Period !== null && { timedMetadataId3Period: input.TimedMetadataId3Period }),
+    ...(input.TimestampDeltaMilliseconds !== undefined &&
+      input.TimestampDeltaMilliseconds !== null && { timestampDeltaMilliseconds: input.TimestampDeltaMilliseconds }),
   };
 };
 
 const serializeAws_restJson1HlsSettings = (input: HlsSettings, context: __SerdeContext): any => {
   return {
-    ...(input.AudioGroupId !== undefined && { audioGroupId: input.AudioGroupId }),
-    ...(input.AudioOnlyContainer !== undefined && { audioOnlyContainer: input.AudioOnlyContainer }),
-    ...(input.AudioRenditionSets !== undefined && { audioRenditionSets: input.AudioRenditionSets }),
-    ...(input.AudioTrackType !== undefined && { audioTrackType: input.AudioTrackType }),
-    ...(input.IFrameOnlyManifest !== undefined && { iFrameOnlyManifest: input.IFrameOnlyManifest }),
-    ...(input.SegmentModifier !== undefined && { segmentModifier: input.SegmentModifier }),
+    ...(input.AudioGroupId !== undefined && input.AudioGroupId !== null && { audioGroupId: input.AudioGroupId }),
+    ...(input.AudioOnlyContainer !== undefined &&
+      input.AudioOnlyContainer !== null && { audioOnlyContainer: input.AudioOnlyContainer }),
+    ...(input.AudioRenditionSets !== undefined &&
+      input.AudioRenditionSets !== null && { audioRenditionSets: input.AudioRenditionSets }),
+    ...(input.AudioTrackType !== undefined &&
+      input.AudioTrackType !== null && { audioTrackType: input.AudioTrackType }),
+    ...(input.IFrameOnlyManifest !== undefined &&
+      input.IFrameOnlyManifest !== null && { iFrameOnlyManifest: input.IFrameOnlyManifest }),
+    ...(input.SegmentModifier !== undefined &&
+      input.SegmentModifier !== null && { segmentModifier: input.SegmentModifier }),
   };
 };
 
 const serializeAws_restJson1HopDestination = (input: HopDestination, context: __SerdeContext): any => {
   return {
-    ...(input.Priority !== undefined && { priority: input.Priority }),
-    ...(input.Queue !== undefined && { queue: input.Queue }),
-    ...(input.WaitMinutes !== undefined && { waitMinutes: input.WaitMinutes }),
+    ...(input.Priority !== undefined && input.Priority !== null && { priority: input.Priority }),
+    ...(input.Queue !== undefined && input.Queue !== null && { queue: input.Queue }),
+    ...(input.WaitMinutes !== undefined && input.WaitMinutes !== null && { waitMinutes: input.WaitMinutes }),
   };
 };
 
 const serializeAws_restJson1Id3Insertion = (input: Id3Insertion, context: __SerdeContext): any => {
   return {
-    ...(input.Id3 !== undefined && { id3: input.Id3 }),
-    ...(input.Timecode !== undefined && { timecode: input.Timecode }),
+    ...(input.Id3 !== undefined && input.Id3 !== null && { id3: input.Id3 }),
+    ...(input.Timecode !== undefined && input.Timecode !== null && { timecode: input.Timecode }),
   };
 };
 
 const serializeAws_restJson1ImageInserter = (input: ImageInserter, context: __SerdeContext): any => {
   return {
-    ...(input.InsertableImages !== undefined && {
-      insertableImages: serializeAws_restJson1__listOfInsertableImage(input.InsertableImages, context),
-    }),
+    ...(input.InsertableImages !== undefined &&
+      input.InsertableImages !== null && {
+        insertableImages: serializeAws_restJson1__listOfInsertableImage(input.InsertableImages, context),
+      }),
   };
 };
 
@@ -4709,55 +5089,68 @@ const serializeAws_restJson1ImscDestinationSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.StylePassthrough !== undefined && { stylePassthrough: input.StylePassthrough }),
+    ...(input.StylePassthrough !== undefined &&
+      input.StylePassthrough !== null && { stylePassthrough: input.StylePassthrough }),
   };
 };
 
 const serializeAws_restJson1Input = (input: Input, context: __SerdeContext): any => {
   return {
-    ...(input.AudioSelectorGroups !== undefined && {
-      audioSelectorGroups: serializeAws_restJson1__mapOfAudioSelectorGroup(input.AudioSelectorGroups, context),
-    }),
-    ...(input.AudioSelectors !== undefined && {
-      audioSelectors: serializeAws_restJson1__mapOfAudioSelector(input.AudioSelectors, context),
-    }),
-    ...(input.CaptionSelectors !== undefined && {
-      captionSelectors: serializeAws_restJson1__mapOfCaptionSelector(input.CaptionSelectors, context),
-    }),
-    ...(input.Crop !== undefined && { crop: serializeAws_restJson1Rectangle(input.Crop, context) }),
-    ...(input.DeblockFilter !== undefined && { deblockFilter: input.DeblockFilter }),
-    ...(input.DecryptionSettings !== undefined && {
-      decryptionSettings: serializeAws_restJson1InputDecryptionSettings(input.DecryptionSettings, context),
-    }),
-    ...(input.DenoiseFilter !== undefined && { denoiseFilter: input.DenoiseFilter }),
-    ...(input.FileInput !== undefined && { fileInput: input.FileInput }),
-    ...(input.FilterEnable !== undefined && { filterEnable: input.FilterEnable }),
-    ...(input.FilterStrength !== undefined && { filterStrength: input.FilterStrength }),
-    ...(input.ImageInserter !== undefined && {
-      imageInserter: serializeAws_restJson1ImageInserter(input.ImageInserter, context),
-    }),
-    ...(input.InputClippings !== undefined && {
-      inputClippings: serializeAws_restJson1__listOfInputClipping(input.InputClippings, context),
-    }),
-    ...(input.InputScanType !== undefined && { inputScanType: input.InputScanType }),
-    ...(input.Position !== undefined && { position: serializeAws_restJson1Rectangle(input.Position, context) }),
-    ...(input.ProgramNumber !== undefined && { programNumber: input.ProgramNumber }),
-    ...(input.PsiControl !== undefined && { psiControl: input.PsiControl }),
-    ...(input.SupplementalImps !== undefined && {
-      supplementalImps: serializeAws_restJson1__listOf__stringPatternS3ASSETMAPXml(input.SupplementalImps, context),
-    }),
-    ...(input.TimecodeSource !== undefined && { timecodeSource: input.TimecodeSource }),
-    ...(input.TimecodeStart !== undefined && { timecodeStart: input.TimecodeStart }),
-    ...(input.VideoSelector !== undefined && {
-      videoSelector: serializeAws_restJson1VideoSelector(input.VideoSelector, context),
-    }),
+    ...(input.AudioSelectorGroups !== undefined &&
+      input.AudioSelectorGroups !== null && {
+        audioSelectorGroups: serializeAws_restJson1__mapOfAudioSelectorGroup(input.AudioSelectorGroups, context),
+      }),
+    ...(input.AudioSelectors !== undefined &&
+      input.AudioSelectors !== null && {
+        audioSelectors: serializeAws_restJson1__mapOfAudioSelector(input.AudioSelectors, context),
+      }),
+    ...(input.CaptionSelectors !== undefined &&
+      input.CaptionSelectors !== null && {
+        captionSelectors: serializeAws_restJson1__mapOfCaptionSelector(input.CaptionSelectors, context),
+      }),
+    ...(input.Crop !== undefined &&
+      input.Crop !== null && { crop: serializeAws_restJson1Rectangle(input.Crop, context) }),
+    ...(input.DeblockFilter !== undefined && input.DeblockFilter !== null && { deblockFilter: input.DeblockFilter }),
+    ...(input.DecryptionSettings !== undefined &&
+      input.DecryptionSettings !== null && {
+        decryptionSettings: serializeAws_restJson1InputDecryptionSettings(input.DecryptionSettings, context),
+      }),
+    ...(input.DenoiseFilter !== undefined && input.DenoiseFilter !== null && { denoiseFilter: input.DenoiseFilter }),
+    ...(input.FileInput !== undefined && input.FileInput !== null && { fileInput: input.FileInput }),
+    ...(input.FilterEnable !== undefined && input.FilterEnable !== null && { filterEnable: input.FilterEnable }),
+    ...(input.FilterStrength !== undefined &&
+      input.FilterStrength !== null && { filterStrength: input.FilterStrength }),
+    ...(input.ImageInserter !== undefined &&
+      input.ImageInserter !== null && {
+        imageInserter: serializeAws_restJson1ImageInserter(input.ImageInserter, context),
+      }),
+    ...(input.InputClippings !== undefined &&
+      input.InputClippings !== null && {
+        inputClippings: serializeAws_restJson1__listOfInputClipping(input.InputClippings, context),
+      }),
+    ...(input.InputScanType !== undefined && input.InputScanType !== null && { inputScanType: input.InputScanType }),
+    ...(input.Position !== undefined &&
+      input.Position !== null && { position: serializeAws_restJson1Rectangle(input.Position, context) }),
+    ...(input.ProgramNumber !== undefined && input.ProgramNumber !== null && { programNumber: input.ProgramNumber }),
+    ...(input.PsiControl !== undefined && input.PsiControl !== null && { psiControl: input.PsiControl }),
+    ...(input.SupplementalImps !== undefined &&
+      input.SupplementalImps !== null && {
+        supplementalImps: serializeAws_restJson1__listOf__stringPatternS3ASSETMAPXml(input.SupplementalImps, context),
+      }),
+    ...(input.TimecodeSource !== undefined &&
+      input.TimecodeSource !== null && { timecodeSource: input.TimecodeSource }),
+    ...(input.TimecodeStart !== undefined && input.TimecodeStart !== null && { timecodeStart: input.TimecodeStart }),
+    ...(input.VideoSelector !== undefined &&
+      input.VideoSelector !== null && {
+        videoSelector: serializeAws_restJson1VideoSelector(input.VideoSelector, context),
+      }),
   };
 };
 
 const serializeAws_restJson1InputClipping = (input: InputClipping, context: __SerdeContext): any => {
   return {
-    ...(input.EndTimecode !== undefined && { endTimecode: input.EndTimecode }),
-    ...(input.StartTimecode !== undefined && { startTimecode: input.StartTimecode }),
+    ...(input.EndTimecode !== undefined && input.EndTimecode !== null && { endTimecode: input.EndTimecode }),
+    ...(input.StartTimecode !== undefined && input.StartTimecode !== null && { startTimecode: input.StartTimecode }),
   };
 };
 
@@ -4766,223 +5159,278 @@ const serializeAws_restJson1InputDecryptionSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DecryptionMode !== undefined && { decryptionMode: input.DecryptionMode }),
-    ...(input.EncryptedDecryptionKey !== undefined && { encryptedDecryptionKey: input.EncryptedDecryptionKey }),
-    ...(input.InitializationVector !== undefined && { initializationVector: input.InitializationVector }),
-    ...(input.KmsKeyRegion !== undefined && { kmsKeyRegion: input.KmsKeyRegion }),
+    ...(input.DecryptionMode !== undefined &&
+      input.DecryptionMode !== null && { decryptionMode: input.DecryptionMode }),
+    ...(input.EncryptedDecryptionKey !== undefined &&
+      input.EncryptedDecryptionKey !== null && { encryptedDecryptionKey: input.EncryptedDecryptionKey }),
+    ...(input.InitializationVector !== undefined &&
+      input.InitializationVector !== null && { initializationVector: input.InitializationVector }),
+    ...(input.KmsKeyRegion !== undefined && input.KmsKeyRegion !== null && { kmsKeyRegion: input.KmsKeyRegion }),
   };
 };
 
 const serializeAws_restJson1InputTemplate = (input: InputTemplate, context: __SerdeContext): any => {
   return {
-    ...(input.AudioSelectorGroups !== undefined && {
-      audioSelectorGroups: serializeAws_restJson1__mapOfAudioSelectorGroup(input.AudioSelectorGroups, context),
-    }),
-    ...(input.AudioSelectors !== undefined && {
-      audioSelectors: serializeAws_restJson1__mapOfAudioSelector(input.AudioSelectors, context),
-    }),
-    ...(input.CaptionSelectors !== undefined && {
-      captionSelectors: serializeAws_restJson1__mapOfCaptionSelector(input.CaptionSelectors, context),
-    }),
-    ...(input.Crop !== undefined && { crop: serializeAws_restJson1Rectangle(input.Crop, context) }),
-    ...(input.DeblockFilter !== undefined && { deblockFilter: input.DeblockFilter }),
-    ...(input.DenoiseFilter !== undefined && { denoiseFilter: input.DenoiseFilter }),
-    ...(input.FilterEnable !== undefined && { filterEnable: input.FilterEnable }),
-    ...(input.FilterStrength !== undefined && { filterStrength: input.FilterStrength }),
-    ...(input.ImageInserter !== undefined && {
-      imageInserter: serializeAws_restJson1ImageInserter(input.ImageInserter, context),
-    }),
-    ...(input.InputClippings !== undefined && {
-      inputClippings: serializeAws_restJson1__listOfInputClipping(input.InputClippings, context),
-    }),
-    ...(input.InputScanType !== undefined && { inputScanType: input.InputScanType }),
-    ...(input.Position !== undefined && { position: serializeAws_restJson1Rectangle(input.Position, context) }),
-    ...(input.ProgramNumber !== undefined && { programNumber: input.ProgramNumber }),
-    ...(input.PsiControl !== undefined && { psiControl: input.PsiControl }),
-    ...(input.TimecodeSource !== undefined && { timecodeSource: input.TimecodeSource }),
-    ...(input.TimecodeStart !== undefined && { timecodeStart: input.TimecodeStart }),
-    ...(input.VideoSelector !== undefined && {
-      videoSelector: serializeAws_restJson1VideoSelector(input.VideoSelector, context),
-    }),
+    ...(input.AudioSelectorGroups !== undefined &&
+      input.AudioSelectorGroups !== null && {
+        audioSelectorGroups: serializeAws_restJson1__mapOfAudioSelectorGroup(input.AudioSelectorGroups, context),
+      }),
+    ...(input.AudioSelectors !== undefined &&
+      input.AudioSelectors !== null && {
+        audioSelectors: serializeAws_restJson1__mapOfAudioSelector(input.AudioSelectors, context),
+      }),
+    ...(input.CaptionSelectors !== undefined &&
+      input.CaptionSelectors !== null && {
+        captionSelectors: serializeAws_restJson1__mapOfCaptionSelector(input.CaptionSelectors, context),
+      }),
+    ...(input.Crop !== undefined &&
+      input.Crop !== null && { crop: serializeAws_restJson1Rectangle(input.Crop, context) }),
+    ...(input.DeblockFilter !== undefined && input.DeblockFilter !== null && { deblockFilter: input.DeblockFilter }),
+    ...(input.DenoiseFilter !== undefined && input.DenoiseFilter !== null && { denoiseFilter: input.DenoiseFilter }),
+    ...(input.FilterEnable !== undefined && input.FilterEnable !== null && { filterEnable: input.FilterEnable }),
+    ...(input.FilterStrength !== undefined &&
+      input.FilterStrength !== null && { filterStrength: input.FilterStrength }),
+    ...(input.ImageInserter !== undefined &&
+      input.ImageInserter !== null && {
+        imageInserter: serializeAws_restJson1ImageInserter(input.ImageInserter, context),
+      }),
+    ...(input.InputClippings !== undefined &&
+      input.InputClippings !== null && {
+        inputClippings: serializeAws_restJson1__listOfInputClipping(input.InputClippings, context),
+      }),
+    ...(input.InputScanType !== undefined && input.InputScanType !== null && { inputScanType: input.InputScanType }),
+    ...(input.Position !== undefined &&
+      input.Position !== null && { position: serializeAws_restJson1Rectangle(input.Position, context) }),
+    ...(input.ProgramNumber !== undefined && input.ProgramNumber !== null && { programNumber: input.ProgramNumber }),
+    ...(input.PsiControl !== undefined && input.PsiControl !== null && { psiControl: input.PsiControl }),
+    ...(input.TimecodeSource !== undefined &&
+      input.TimecodeSource !== null && { timecodeSource: input.TimecodeSource }),
+    ...(input.TimecodeStart !== undefined && input.TimecodeStart !== null && { timecodeStart: input.TimecodeStart }),
+    ...(input.VideoSelector !== undefined &&
+      input.VideoSelector !== null && {
+        videoSelector: serializeAws_restJson1VideoSelector(input.VideoSelector, context),
+      }),
   };
 };
 
 const serializeAws_restJson1InsertableImage = (input: InsertableImage, context: __SerdeContext): any => {
   return {
-    ...(input.Duration !== undefined && { duration: input.Duration }),
-    ...(input.FadeIn !== undefined && { fadeIn: input.FadeIn }),
-    ...(input.FadeOut !== undefined && { fadeOut: input.FadeOut }),
-    ...(input.Height !== undefined && { height: input.Height }),
-    ...(input.ImageInserterInput !== undefined && { imageInserterInput: input.ImageInserterInput }),
-    ...(input.ImageX !== undefined && { imageX: input.ImageX }),
-    ...(input.ImageY !== undefined && { imageY: input.ImageY }),
-    ...(input.Layer !== undefined && { layer: input.Layer }),
-    ...(input.Opacity !== undefined && { opacity: input.Opacity }),
-    ...(input.StartTime !== undefined && { startTime: input.StartTime }),
-    ...(input.Width !== undefined && { width: input.Width }),
+    ...(input.Duration !== undefined && input.Duration !== null && { duration: input.Duration }),
+    ...(input.FadeIn !== undefined && input.FadeIn !== null && { fadeIn: input.FadeIn }),
+    ...(input.FadeOut !== undefined && input.FadeOut !== null && { fadeOut: input.FadeOut }),
+    ...(input.Height !== undefined && input.Height !== null && { height: input.Height }),
+    ...(input.ImageInserterInput !== undefined &&
+      input.ImageInserterInput !== null && { imageInserterInput: input.ImageInserterInput }),
+    ...(input.ImageX !== undefined && input.ImageX !== null && { imageX: input.ImageX }),
+    ...(input.ImageY !== undefined && input.ImageY !== null && { imageY: input.ImageY }),
+    ...(input.Layer !== undefined && input.Layer !== null && { layer: input.Layer }),
+    ...(input.Opacity !== undefined && input.Opacity !== null && { opacity: input.Opacity }),
+    ...(input.StartTime !== undefined && input.StartTime !== null && { startTime: input.StartTime }),
+    ...(input.Width !== undefined && input.Width !== null && { width: input.Width }),
   };
 };
 
 const serializeAws_restJson1JobSettings = (input: JobSettings, context: __SerdeContext): any => {
   return {
-    ...(input.AdAvailOffset !== undefined && { adAvailOffset: input.AdAvailOffset }),
-    ...(input.AvailBlanking !== undefined && {
-      availBlanking: serializeAws_restJson1AvailBlanking(input.AvailBlanking, context),
-    }),
-    ...(input.Esam !== undefined && { esam: serializeAws_restJson1EsamSettings(input.Esam, context) }),
-    ...(input.Inputs !== undefined && { inputs: serializeAws_restJson1__listOfInput(input.Inputs, context) }),
-    ...(input.MotionImageInserter !== undefined && {
-      motionImageInserter: serializeAws_restJson1MotionImageInserter(input.MotionImageInserter, context),
-    }),
-    ...(input.NielsenConfiguration !== undefined && {
-      nielsenConfiguration: serializeAws_restJson1NielsenConfiguration(input.NielsenConfiguration, context),
-    }),
-    ...(input.NielsenNonLinearWatermark !== undefined && {
-      nielsenNonLinearWatermark: serializeAws_restJson1NielsenNonLinearWatermarkSettings(
-        input.NielsenNonLinearWatermark,
-        context
-      ),
-    }),
-    ...(input.OutputGroups !== undefined && {
-      outputGroups: serializeAws_restJson1__listOfOutputGroup(input.OutputGroups, context),
-    }),
-    ...(input.TimecodeConfig !== undefined && {
-      timecodeConfig: serializeAws_restJson1TimecodeConfig(input.TimecodeConfig, context),
-    }),
-    ...(input.TimedMetadataInsertion !== undefined && {
-      timedMetadataInsertion: serializeAws_restJson1TimedMetadataInsertion(input.TimedMetadataInsertion, context),
-    }),
+    ...(input.AdAvailOffset !== undefined && input.AdAvailOffset !== null && { adAvailOffset: input.AdAvailOffset }),
+    ...(input.AvailBlanking !== undefined &&
+      input.AvailBlanking !== null && {
+        availBlanking: serializeAws_restJson1AvailBlanking(input.AvailBlanking, context),
+      }),
+    ...(input.Esam !== undefined &&
+      input.Esam !== null && { esam: serializeAws_restJson1EsamSettings(input.Esam, context) }),
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { inputs: serializeAws_restJson1__listOfInput(input.Inputs, context) }),
+    ...(input.MotionImageInserter !== undefined &&
+      input.MotionImageInserter !== null && {
+        motionImageInserter: serializeAws_restJson1MotionImageInserter(input.MotionImageInserter, context),
+      }),
+    ...(input.NielsenConfiguration !== undefined &&
+      input.NielsenConfiguration !== null && {
+        nielsenConfiguration: serializeAws_restJson1NielsenConfiguration(input.NielsenConfiguration, context),
+      }),
+    ...(input.NielsenNonLinearWatermark !== undefined &&
+      input.NielsenNonLinearWatermark !== null && {
+        nielsenNonLinearWatermark: serializeAws_restJson1NielsenNonLinearWatermarkSettings(
+          input.NielsenNonLinearWatermark,
+          context
+        ),
+      }),
+    ...(input.OutputGroups !== undefined &&
+      input.OutputGroups !== null && {
+        outputGroups: serializeAws_restJson1__listOfOutputGroup(input.OutputGroups, context),
+      }),
+    ...(input.TimecodeConfig !== undefined &&
+      input.TimecodeConfig !== null && {
+        timecodeConfig: serializeAws_restJson1TimecodeConfig(input.TimecodeConfig, context),
+      }),
+    ...(input.TimedMetadataInsertion !== undefined &&
+      input.TimedMetadataInsertion !== null && {
+        timedMetadataInsertion: serializeAws_restJson1TimedMetadataInsertion(input.TimedMetadataInsertion, context),
+      }),
   };
 };
 
 const serializeAws_restJson1JobTemplateSettings = (input: JobTemplateSettings, context: __SerdeContext): any => {
   return {
-    ...(input.AdAvailOffset !== undefined && { adAvailOffset: input.AdAvailOffset }),
-    ...(input.AvailBlanking !== undefined && {
-      availBlanking: serializeAws_restJson1AvailBlanking(input.AvailBlanking, context),
-    }),
-    ...(input.Esam !== undefined && { esam: serializeAws_restJson1EsamSettings(input.Esam, context) }),
-    ...(input.Inputs !== undefined && { inputs: serializeAws_restJson1__listOfInputTemplate(input.Inputs, context) }),
-    ...(input.MotionImageInserter !== undefined && {
-      motionImageInserter: serializeAws_restJson1MotionImageInserter(input.MotionImageInserter, context),
-    }),
-    ...(input.NielsenConfiguration !== undefined && {
-      nielsenConfiguration: serializeAws_restJson1NielsenConfiguration(input.NielsenConfiguration, context),
-    }),
-    ...(input.NielsenNonLinearWatermark !== undefined && {
-      nielsenNonLinearWatermark: serializeAws_restJson1NielsenNonLinearWatermarkSettings(
-        input.NielsenNonLinearWatermark,
-        context
-      ),
-    }),
-    ...(input.OutputGroups !== undefined && {
-      outputGroups: serializeAws_restJson1__listOfOutputGroup(input.OutputGroups, context),
-    }),
-    ...(input.TimecodeConfig !== undefined && {
-      timecodeConfig: serializeAws_restJson1TimecodeConfig(input.TimecodeConfig, context),
-    }),
-    ...(input.TimedMetadataInsertion !== undefined && {
-      timedMetadataInsertion: serializeAws_restJson1TimedMetadataInsertion(input.TimedMetadataInsertion, context),
-    }),
+    ...(input.AdAvailOffset !== undefined && input.AdAvailOffset !== null && { adAvailOffset: input.AdAvailOffset }),
+    ...(input.AvailBlanking !== undefined &&
+      input.AvailBlanking !== null && {
+        availBlanking: serializeAws_restJson1AvailBlanking(input.AvailBlanking, context),
+      }),
+    ...(input.Esam !== undefined &&
+      input.Esam !== null && { esam: serializeAws_restJson1EsamSettings(input.Esam, context) }),
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { inputs: serializeAws_restJson1__listOfInputTemplate(input.Inputs, context) }),
+    ...(input.MotionImageInserter !== undefined &&
+      input.MotionImageInserter !== null && {
+        motionImageInserter: serializeAws_restJson1MotionImageInserter(input.MotionImageInserter, context),
+      }),
+    ...(input.NielsenConfiguration !== undefined &&
+      input.NielsenConfiguration !== null && {
+        nielsenConfiguration: serializeAws_restJson1NielsenConfiguration(input.NielsenConfiguration, context),
+      }),
+    ...(input.NielsenNonLinearWatermark !== undefined &&
+      input.NielsenNonLinearWatermark !== null && {
+        nielsenNonLinearWatermark: serializeAws_restJson1NielsenNonLinearWatermarkSettings(
+          input.NielsenNonLinearWatermark,
+          context
+        ),
+      }),
+    ...(input.OutputGroups !== undefined &&
+      input.OutputGroups !== null && {
+        outputGroups: serializeAws_restJson1__listOfOutputGroup(input.OutputGroups, context),
+      }),
+    ...(input.TimecodeConfig !== undefined &&
+      input.TimecodeConfig !== null && {
+        timecodeConfig: serializeAws_restJson1TimecodeConfig(input.TimecodeConfig, context),
+      }),
+    ...(input.TimedMetadataInsertion !== undefined &&
+      input.TimedMetadataInsertion !== null && {
+        timedMetadataInsertion: serializeAws_restJson1TimedMetadataInsertion(input.TimedMetadataInsertion, context),
+      }),
   };
 };
 
 const serializeAws_restJson1M2tsScte35Esam = (input: M2tsScte35Esam, context: __SerdeContext): any => {
   return {
-    ...(input.Scte35EsamPid !== undefined && { scte35EsamPid: input.Scte35EsamPid }),
+    ...(input.Scte35EsamPid !== undefined && input.Scte35EsamPid !== null && { scte35EsamPid: input.Scte35EsamPid }),
   };
 };
 
 const serializeAws_restJson1M2tsSettings = (input: M2tsSettings, context: __SerdeContext): any => {
   return {
-    ...(input.AudioBufferModel !== undefined && { audioBufferModel: input.AudioBufferModel }),
-    ...(input.AudioDuration !== undefined && { audioDuration: input.AudioDuration }),
-    ...(input.AudioFramesPerPes !== undefined && { audioFramesPerPes: input.AudioFramesPerPes }),
-    ...(input.AudioPids !== undefined && {
-      audioPids: serializeAws_restJson1__listOf__integerMin32Max8182(input.AudioPids, context),
-    }),
-    ...(input.Bitrate !== undefined && { bitrate: input.Bitrate }),
-    ...(input.BufferModel !== undefined && { bufferModel: input.BufferModel }),
-    ...(input.DvbNitSettings !== undefined && {
-      dvbNitSettings: serializeAws_restJson1DvbNitSettings(input.DvbNitSettings, context),
-    }),
-    ...(input.DvbSdtSettings !== undefined && {
-      dvbSdtSettings: serializeAws_restJson1DvbSdtSettings(input.DvbSdtSettings, context),
-    }),
-    ...(input.DvbSubPids !== undefined && {
-      dvbSubPids: serializeAws_restJson1__listOf__integerMin32Max8182(input.DvbSubPids, context),
-    }),
-    ...(input.DvbTdtSettings !== undefined && {
-      dvbTdtSettings: serializeAws_restJson1DvbTdtSettings(input.DvbTdtSettings, context),
-    }),
-    ...(input.DvbTeletextPid !== undefined && { dvbTeletextPid: input.DvbTeletextPid }),
-    ...(input.EbpAudioInterval !== undefined && { ebpAudioInterval: input.EbpAudioInterval }),
-    ...(input.EbpPlacement !== undefined && { ebpPlacement: input.EbpPlacement }),
-    ...(input.EsRateInPes !== undefined && { esRateInPes: input.EsRateInPes }),
-    ...(input.ForceTsVideoEbpOrder !== undefined && { forceTsVideoEbpOrder: input.ForceTsVideoEbpOrder }),
-    ...(input.FragmentTime !== undefined && { fragmentTime: input.FragmentTime }),
-    ...(input.MaxPcrInterval !== undefined && { maxPcrInterval: input.MaxPcrInterval }),
-    ...(input.MinEbpInterval !== undefined && { minEbpInterval: input.MinEbpInterval }),
-    ...(input.NielsenId3 !== undefined && { nielsenId3: input.NielsenId3 }),
-    ...(input.NullPacketBitrate !== undefined && { nullPacketBitrate: input.NullPacketBitrate }),
-    ...(input.PatInterval !== undefined && { patInterval: input.PatInterval }),
-    ...(input.PcrControl !== undefined && { pcrControl: input.PcrControl }),
-    ...(input.PcrPid !== undefined && { pcrPid: input.PcrPid }),
-    ...(input.PmtInterval !== undefined && { pmtInterval: input.PmtInterval }),
-    ...(input.PmtPid !== undefined && { pmtPid: input.PmtPid }),
-    ...(input.PrivateMetadataPid !== undefined && { privateMetadataPid: input.PrivateMetadataPid }),
-    ...(input.ProgramNumber !== undefined && { programNumber: input.ProgramNumber }),
-    ...(input.RateMode !== undefined && { rateMode: input.RateMode }),
-    ...(input.Scte35Esam !== undefined && {
-      scte35Esam: serializeAws_restJson1M2tsScte35Esam(input.Scte35Esam, context),
-    }),
-    ...(input.Scte35Pid !== undefined && { scte35Pid: input.Scte35Pid }),
-    ...(input.Scte35Source !== undefined && { scte35Source: input.Scte35Source }),
-    ...(input.SegmentationMarkers !== undefined && { segmentationMarkers: input.SegmentationMarkers }),
-    ...(input.SegmentationStyle !== undefined && { segmentationStyle: input.SegmentationStyle }),
-    ...(input.SegmentationTime !== undefined && { segmentationTime: input.SegmentationTime }),
-    ...(input.TimedMetadataPid !== undefined && { timedMetadataPid: input.TimedMetadataPid }),
-    ...(input.TransportStreamId !== undefined && { transportStreamId: input.TransportStreamId }),
-    ...(input.VideoPid !== undefined && { videoPid: input.VideoPid }),
+    ...(input.AudioBufferModel !== undefined &&
+      input.AudioBufferModel !== null && { audioBufferModel: input.AudioBufferModel }),
+    ...(input.AudioDuration !== undefined && input.AudioDuration !== null && { audioDuration: input.AudioDuration }),
+    ...(input.AudioFramesPerPes !== undefined &&
+      input.AudioFramesPerPes !== null && { audioFramesPerPes: input.AudioFramesPerPes }),
+    ...(input.AudioPids !== undefined &&
+      input.AudioPids !== null && {
+        audioPids: serializeAws_restJson1__listOf__integerMin32Max8182(input.AudioPids, context),
+      }),
+    ...(input.Bitrate !== undefined && input.Bitrate !== null && { bitrate: input.Bitrate }),
+    ...(input.BufferModel !== undefined && input.BufferModel !== null && { bufferModel: input.BufferModel }),
+    ...(input.DvbNitSettings !== undefined &&
+      input.DvbNitSettings !== null && {
+        dvbNitSettings: serializeAws_restJson1DvbNitSettings(input.DvbNitSettings, context),
+      }),
+    ...(input.DvbSdtSettings !== undefined &&
+      input.DvbSdtSettings !== null && {
+        dvbSdtSettings: serializeAws_restJson1DvbSdtSettings(input.DvbSdtSettings, context),
+      }),
+    ...(input.DvbSubPids !== undefined &&
+      input.DvbSubPids !== null && {
+        dvbSubPids: serializeAws_restJson1__listOf__integerMin32Max8182(input.DvbSubPids, context),
+      }),
+    ...(input.DvbTdtSettings !== undefined &&
+      input.DvbTdtSettings !== null && {
+        dvbTdtSettings: serializeAws_restJson1DvbTdtSettings(input.DvbTdtSettings, context),
+      }),
+    ...(input.DvbTeletextPid !== undefined &&
+      input.DvbTeletextPid !== null && { dvbTeletextPid: input.DvbTeletextPid }),
+    ...(input.EbpAudioInterval !== undefined &&
+      input.EbpAudioInterval !== null && { ebpAudioInterval: input.EbpAudioInterval }),
+    ...(input.EbpPlacement !== undefined && input.EbpPlacement !== null && { ebpPlacement: input.EbpPlacement }),
+    ...(input.EsRateInPes !== undefined && input.EsRateInPes !== null && { esRateInPes: input.EsRateInPes }),
+    ...(input.ForceTsVideoEbpOrder !== undefined &&
+      input.ForceTsVideoEbpOrder !== null && { forceTsVideoEbpOrder: input.ForceTsVideoEbpOrder }),
+    ...(input.FragmentTime !== undefined && input.FragmentTime !== null && { fragmentTime: input.FragmentTime }),
+    ...(input.MaxPcrInterval !== undefined &&
+      input.MaxPcrInterval !== null && { maxPcrInterval: input.MaxPcrInterval }),
+    ...(input.MinEbpInterval !== undefined &&
+      input.MinEbpInterval !== null && { minEbpInterval: input.MinEbpInterval }),
+    ...(input.NielsenId3 !== undefined && input.NielsenId3 !== null && { nielsenId3: input.NielsenId3 }),
+    ...(input.NullPacketBitrate !== undefined &&
+      input.NullPacketBitrate !== null && { nullPacketBitrate: input.NullPacketBitrate }),
+    ...(input.PatInterval !== undefined && input.PatInterval !== null && { patInterval: input.PatInterval }),
+    ...(input.PcrControl !== undefined && input.PcrControl !== null && { pcrControl: input.PcrControl }),
+    ...(input.PcrPid !== undefined && input.PcrPid !== null && { pcrPid: input.PcrPid }),
+    ...(input.PmtInterval !== undefined && input.PmtInterval !== null && { pmtInterval: input.PmtInterval }),
+    ...(input.PmtPid !== undefined && input.PmtPid !== null && { pmtPid: input.PmtPid }),
+    ...(input.PrivateMetadataPid !== undefined &&
+      input.PrivateMetadataPid !== null && { privateMetadataPid: input.PrivateMetadataPid }),
+    ...(input.ProgramNumber !== undefined && input.ProgramNumber !== null && { programNumber: input.ProgramNumber }),
+    ...(input.RateMode !== undefined && input.RateMode !== null && { rateMode: input.RateMode }),
+    ...(input.Scte35Esam !== undefined &&
+      input.Scte35Esam !== null && { scte35Esam: serializeAws_restJson1M2tsScte35Esam(input.Scte35Esam, context) }),
+    ...(input.Scte35Pid !== undefined && input.Scte35Pid !== null && { scte35Pid: input.Scte35Pid }),
+    ...(input.Scte35Source !== undefined && input.Scte35Source !== null && { scte35Source: input.Scte35Source }),
+    ...(input.SegmentationMarkers !== undefined &&
+      input.SegmentationMarkers !== null && { segmentationMarkers: input.SegmentationMarkers }),
+    ...(input.SegmentationStyle !== undefined &&
+      input.SegmentationStyle !== null && { segmentationStyle: input.SegmentationStyle }),
+    ...(input.SegmentationTime !== undefined &&
+      input.SegmentationTime !== null && { segmentationTime: input.SegmentationTime }),
+    ...(input.TimedMetadataPid !== undefined &&
+      input.TimedMetadataPid !== null && { timedMetadataPid: input.TimedMetadataPid }),
+    ...(input.TransportStreamId !== undefined &&
+      input.TransportStreamId !== null && { transportStreamId: input.TransportStreamId }),
+    ...(input.VideoPid !== undefined && input.VideoPid !== null && { videoPid: input.VideoPid }),
   };
 };
 
 const serializeAws_restJson1M3u8Settings = (input: M3u8Settings, context: __SerdeContext): any => {
   return {
-    ...(input.AudioDuration !== undefined && { audioDuration: input.AudioDuration }),
-    ...(input.AudioFramesPerPes !== undefined && { audioFramesPerPes: input.AudioFramesPerPes }),
-    ...(input.AudioPids !== undefined && {
-      audioPids: serializeAws_restJson1__listOf__integerMin32Max8182(input.AudioPids, context),
-    }),
-    ...(input.NielsenId3 !== undefined && { nielsenId3: input.NielsenId3 }),
-    ...(input.PatInterval !== undefined && { patInterval: input.PatInterval }),
-    ...(input.PcrControl !== undefined && { pcrControl: input.PcrControl }),
-    ...(input.PcrPid !== undefined && { pcrPid: input.PcrPid }),
-    ...(input.PmtInterval !== undefined && { pmtInterval: input.PmtInterval }),
-    ...(input.PmtPid !== undefined && { pmtPid: input.PmtPid }),
-    ...(input.PrivateMetadataPid !== undefined && { privateMetadataPid: input.PrivateMetadataPid }),
-    ...(input.ProgramNumber !== undefined && { programNumber: input.ProgramNumber }),
-    ...(input.Scte35Pid !== undefined && { scte35Pid: input.Scte35Pid }),
-    ...(input.Scte35Source !== undefined && { scte35Source: input.Scte35Source }),
-    ...(input.TimedMetadata !== undefined && { timedMetadata: input.TimedMetadata }),
-    ...(input.TimedMetadataPid !== undefined && { timedMetadataPid: input.TimedMetadataPid }),
-    ...(input.TransportStreamId !== undefined && { transportStreamId: input.TransportStreamId }),
-    ...(input.VideoPid !== undefined && { videoPid: input.VideoPid }),
+    ...(input.AudioDuration !== undefined && input.AudioDuration !== null && { audioDuration: input.AudioDuration }),
+    ...(input.AudioFramesPerPes !== undefined &&
+      input.AudioFramesPerPes !== null && { audioFramesPerPes: input.AudioFramesPerPes }),
+    ...(input.AudioPids !== undefined &&
+      input.AudioPids !== null && {
+        audioPids: serializeAws_restJson1__listOf__integerMin32Max8182(input.AudioPids, context),
+      }),
+    ...(input.NielsenId3 !== undefined && input.NielsenId3 !== null && { nielsenId3: input.NielsenId3 }),
+    ...(input.PatInterval !== undefined && input.PatInterval !== null && { patInterval: input.PatInterval }),
+    ...(input.PcrControl !== undefined && input.PcrControl !== null && { pcrControl: input.PcrControl }),
+    ...(input.PcrPid !== undefined && input.PcrPid !== null && { pcrPid: input.PcrPid }),
+    ...(input.PmtInterval !== undefined && input.PmtInterval !== null && { pmtInterval: input.PmtInterval }),
+    ...(input.PmtPid !== undefined && input.PmtPid !== null && { pmtPid: input.PmtPid }),
+    ...(input.PrivateMetadataPid !== undefined &&
+      input.PrivateMetadataPid !== null && { privateMetadataPid: input.PrivateMetadataPid }),
+    ...(input.ProgramNumber !== undefined && input.ProgramNumber !== null && { programNumber: input.ProgramNumber }),
+    ...(input.Scte35Pid !== undefined && input.Scte35Pid !== null && { scte35Pid: input.Scte35Pid }),
+    ...(input.Scte35Source !== undefined && input.Scte35Source !== null && { scte35Source: input.Scte35Source }),
+    ...(input.TimedMetadata !== undefined && input.TimedMetadata !== null && { timedMetadata: input.TimedMetadata }),
+    ...(input.TimedMetadataPid !== undefined &&
+      input.TimedMetadataPid !== null && { timedMetadataPid: input.TimedMetadataPid }),
+    ...(input.TransportStreamId !== undefined &&
+      input.TransportStreamId !== null && { transportStreamId: input.TransportStreamId }),
+    ...(input.VideoPid !== undefined && input.VideoPid !== null && { videoPid: input.VideoPid }),
   };
 };
 
 const serializeAws_restJson1MotionImageInserter = (input: MotionImageInserter, context: __SerdeContext): any => {
   return {
-    ...(input.Framerate !== undefined && {
-      framerate: serializeAws_restJson1MotionImageInsertionFramerate(input.Framerate, context),
-    }),
-    ...(input.Input !== undefined && { input: input.Input }),
-    ...(input.InsertionMode !== undefined && { insertionMode: input.InsertionMode }),
-    ...(input.Offset !== undefined && {
-      offset: serializeAws_restJson1MotionImageInsertionOffset(input.Offset, context),
-    }),
-    ...(input.Playback !== undefined && { playback: input.Playback }),
-    ...(input.StartTime !== undefined && { startTime: input.StartTime }),
+    ...(input.Framerate !== undefined &&
+      input.Framerate !== null && {
+        framerate: serializeAws_restJson1MotionImageInsertionFramerate(input.Framerate, context),
+      }),
+    ...(input.Input !== undefined && input.Input !== null && { input: input.Input }),
+    ...(input.InsertionMode !== undefined && input.InsertionMode !== null && { insertionMode: input.InsertionMode }),
+    ...(input.Offset !== undefined &&
+      input.Offset !== null && { offset: serializeAws_restJson1MotionImageInsertionOffset(input.Offset, context) }),
+    ...(input.Playback !== undefined && input.Playback !== null && { playback: input.Playback }),
+    ...(input.StartTime !== undefined && input.StartTime !== null && { startTime: input.StartTime }),
   };
 };
 
@@ -4991,8 +5439,10 @@ const serializeAws_restJson1MotionImageInsertionFramerate = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FramerateDenominator !== undefined && { framerateDenominator: input.FramerateDenominator }),
-    ...(input.FramerateNumerator !== undefined && { framerateNumerator: input.FramerateNumerator }),
+    ...(input.FramerateDenominator !== undefined &&
+      input.FramerateDenominator !== null && { framerateDenominator: input.FramerateDenominator }),
+    ...(input.FramerateNumerator !== undefined &&
+      input.FramerateNumerator !== null && { framerateNumerator: input.FramerateNumerator }),
   };
 };
 
@@ -5001,105 +5451,121 @@ const serializeAws_restJson1MotionImageInsertionOffset = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ImageX !== undefined && { imageX: input.ImageX }),
-    ...(input.ImageY !== undefined && { imageY: input.ImageY }),
+    ...(input.ImageX !== undefined && input.ImageX !== null && { imageX: input.ImageX }),
+    ...(input.ImageY !== undefined && input.ImageY !== null && { imageY: input.ImageY }),
   };
 };
 
 const serializeAws_restJson1MovSettings = (input: MovSettings, context: __SerdeContext): any => {
   return {
-    ...(input.ClapAtom !== undefined && { clapAtom: input.ClapAtom }),
-    ...(input.CslgAtom !== undefined && { cslgAtom: input.CslgAtom }),
-    ...(input.Mpeg2FourCCControl !== undefined && { mpeg2FourCCControl: input.Mpeg2FourCCControl }),
-    ...(input.PaddingControl !== undefined && { paddingControl: input.PaddingControl }),
-    ...(input.Reference !== undefined && { reference: input.Reference }),
+    ...(input.ClapAtom !== undefined && input.ClapAtom !== null && { clapAtom: input.ClapAtom }),
+    ...(input.CslgAtom !== undefined && input.CslgAtom !== null && { cslgAtom: input.CslgAtom }),
+    ...(input.Mpeg2FourCCControl !== undefined &&
+      input.Mpeg2FourCCControl !== null && { mpeg2FourCCControl: input.Mpeg2FourCCControl }),
+    ...(input.PaddingControl !== undefined &&
+      input.PaddingControl !== null && { paddingControl: input.PaddingControl }),
+    ...(input.Reference !== undefined && input.Reference !== null && { reference: input.Reference }),
   };
 };
 
 const serializeAws_restJson1Mp2Settings = (input: Mp2Settings, context: __SerdeContext): any => {
   return {
-    ...(input.Bitrate !== undefined && { bitrate: input.Bitrate }),
-    ...(input.Channels !== undefined && { channels: input.Channels }),
-    ...(input.SampleRate !== undefined && { sampleRate: input.SampleRate }),
+    ...(input.Bitrate !== undefined && input.Bitrate !== null && { bitrate: input.Bitrate }),
+    ...(input.Channels !== undefined && input.Channels !== null && { channels: input.Channels }),
+    ...(input.SampleRate !== undefined && input.SampleRate !== null && { sampleRate: input.SampleRate }),
   };
 };
 
 const serializeAws_restJson1Mp3Settings = (input: Mp3Settings, context: __SerdeContext): any => {
   return {
-    ...(input.Bitrate !== undefined && { bitrate: input.Bitrate }),
-    ...(input.Channels !== undefined && { channels: input.Channels }),
-    ...(input.RateControlMode !== undefined && { rateControlMode: input.RateControlMode }),
-    ...(input.SampleRate !== undefined && { sampleRate: input.SampleRate }),
-    ...(input.VbrQuality !== undefined && { vbrQuality: input.VbrQuality }),
+    ...(input.Bitrate !== undefined && input.Bitrate !== null && { bitrate: input.Bitrate }),
+    ...(input.Channels !== undefined && input.Channels !== null && { channels: input.Channels }),
+    ...(input.RateControlMode !== undefined &&
+      input.RateControlMode !== null && { rateControlMode: input.RateControlMode }),
+    ...(input.SampleRate !== undefined && input.SampleRate !== null && { sampleRate: input.SampleRate }),
+    ...(input.VbrQuality !== undefined && input.VbrQuality !== null && { vbrQuality: input.VbrQuality }),
   };
 };
 
 const serializeAws_restJson1Mp4Settings = (input: Mp4Settings, context: __SerdeContext): any => {
   return {
-    ...(input.AudioDuration !== undefined && { audioDuration: input.AudioDuration }),
-    ...(input.CslgAtom !== undefined && { cslgAtom: input.CslgAtom }),
-    ...(input.CttsVersion !== undefined && { cttsVersion: input.CttsVersion }),
-    ...(input.FreeSpaceBox !== undefined && { freeSpaceBox: input.FreeSpaceBox }),
-    ...(input.MoovPlacement !== undefined && { moovPlacement: input.MoovPlacement }),
-    ...(input.Mp4MajorBrand !== undefined && { mp4MajorBrand: input.Mp4MajorBrand }),
+    ...(input.AudioDuration !== undefined && input.AudioDuration !== null && { audioDuration: input.AudioDuration }),
+    ...(input.CslgAtom !== undefined && input.CslgAtom !== null && { cslgAtom: input.CslgAtom }),
+    ...(input.CttsVersion !== undefined && input.CttsVersion !== null && { cttsVersion: input.CttsVersion }),
+    ...(input.FreeSpaceBox !== undefined && input.FreeSpaceBox !== null && { freeSpaceBox: input.FreeSpaceBox }),
+    ...(input.MoovPlacement !== undefined && input.MoovPlacement !== null && { moovPlacement: input.MoovPlacement }),
+    ...(input.Mp4MajorBrand !== undefined && input.Mp4MajorBrand !== null && { mp4MajorBrand: input.Mp4MajorBrand }),
   };
 };
 
 const serializeAws_restJson1MpdSettings = (input: MpdSettings, context: __SerdeContext): any => {
   return {
-    ...(input.AccessibilityCaptionHints !== undefined && {
-      accessibilityCaptionHints: input.AccessibilityCaptionHints,
-    }),
-    ...(input.AudioDuration !== undefined && { audioDuration: input.AudioDuration }),
-    ...(input.CaptionContainerType !== undefined && { captionContainerType: input.CaptionContainerType }),
-    ...(input.Scte35Esam !== undefined && { scte35Esam: input.Scte35Esam }),
-    ...(input.Scte35Source !== undefined && { scte35Source: input.Scte35Source }),
+    ...(input.AccessibilityCaptionHints !== undefined &&
+      input.AccessibilityCaptionHints !== null && { accessibilityCaptionHints: input.AccessibilityCaptionHints }),
+    ...(input.AudioDuration !== undefined && input.AudioDuration !== null && { audioDuration: input.AudioDuration }),
+    ...(input.CaptionContainerType !== undefined &&
+      input.CaptionContainerType !== null && { captionContainerType: input.CaptionContainerType }),
+    ...(input.Scte35Esam !== undefined && input.Scte35Esam !== null && { scte35Esam: input.Scte35Esam }),
+    ...(input.Scte35Source !== undefined && input.Scte35Source !== null && { scte35Source: input.Scte35Source }),
   };
 };
 
 const serializeAws_restJson1Mpeg2Settings = (input: Mpeg2Settings, context: __SerdeContext): any => {
   return {
-    ...(input.AdaptiveQuantization !== undefined && { adaptiveQuantization: input.AdaptiveQuantization }),
-    ...(input.Bitrate !== undefined && { bitrate: input.Bitrate }),
-    ...(input.CodecLevel !== undefined && { codecLevel: input.CodecLevel }),
-    ...(input.CodecProfile !== undefined && { codecProfile: input.CodecProfile }),
-    ...(input.DynamicSubGop !== undefined && { dynamicSubGop: input.DynamicSubGop }),
-    ...(input.FramerateControl !== undefined && { framerateControl: input.FramerateControl }),
-    ...(input.FramerateConversionAlgorithm !== undefined && {
-      framerateConversionAlgorithm: input.FramerateConversionAlgorithm,
-    }),
-    ...(input.FramerateDenominator !== undefined && { framerateDenominator: input.FramerateDenominator }),
-    ...(input.FramerateNumerator !== undefined && { framerateNumerator: input.FramerateNumerator }),
-    ...(input.GopClosedCadence !== undefined && { gopClosedCadence: input.GopClosedCadence }),
-    ...(input.GopSize !== undefined && { gopSize: input.GopSize }),
-    ...(input.GopSizeUnits !== undefined && { gopSizeUnits: input.GopSizeUnits }),
-    ...(input.HrdBufferInitialFillPercentage !== undefined && {
-      hrdBufferInitialFillPercentage: input.HrdBufferInitialFillPercentage,
-    }),
-    ...(input.HrdBufferSize !== undefined && { hrdBufferSize: input.HrdBufferSize }),
-    ...(input.InterlaceMode !== undefined && { interlaceMode: input.InterlaceMode }),
-    ...(input.IntraDcPrecision !== undefined && { intraDcPrecision: input.IntraDcPrecision }),
-    ...(input.MaxBitrate !== undefined && { maxBitrate: input.MaxBitrate }),
-    ...(input.MinIInterval !== undefined && { minIInterval: input.MinIInterval }),
-    ...(input.NumberBFramesBetweenReferenceFrames !== undefined && {
-      numberBFramesBetweenReferenceFrames: input.NumberBFramesBetweenReferenceFrames,
-    }),
-    ...(input.ParControl !== undefined && { parControl: input.ParControl }),
-    ...(input.ParDenominator !== undefined && { parDenominator: input.ParDenominator }),
-    ...(input.ParNumerator !== undefined && { parNumerator: input.ParNumerator }),
-    ...(input.QualityTuningLevel !== undefined && { qualityTuningLevel: input.QualityTuningLevel }),
-    ...(input.RateControlMode !== undefined && { rateControlMode: input.RateControlMode }),
-    ...(input.SceneChangeDetect !== undefined && { sceneChangeDetect: input.SceneChangeDetect }),
-    ...(input.SlowPal !== undefined && { slowPal: input.SlowPal }),
-    ...(input.Softness !== undefined && { softness: input.Softness }),
-    ...(input.SpatialAdaptiveQuantization !== undefined && {
-      spatialAdaptiveQuantization: input.SpatialAdaptiveQuantization,
-    }),
-    ...(input.Syntax !== undefined && { syntax: input.Syntax }),
-    ...(input.Telecine !== undefined && { telecine: input.Telecine }),
-    ...(input.TemporalAdaptiveQuantization !== undefined && {
-      temporalAdaptiveQuantization: input.TemporalAdaptiveQuantization,
-    }),
+    ...(input.AdaptiveQuantization !== undefined &&
+      input.AdaptiveQuantization !== null && { adaptiveQuantization: input.AdaptiveQuantization }),
+    ...(input.Bitrate !== undefined && input.Bitrate !== null && { bitrate: input.Bitrate }),
+    ...(input.CodecLevel !== undefined && input.CodecLevel !== null && { codecLevel: input.CodecLevel }),
+    ...(input.CodecProfile !== undefined && input.CodecProfile !== null && { codecProfile: input.CodecProfile }),
+    ...(input.DynamicSubGop !== undefined && input.DynamicSubGop !== null && { dynamicSubGop: input.DynamicSubGop }),
+    ...(input.FramerateControl !== undefined &&
+      input.FramerateControl !== null && { framerateControl: input.FramerateControl }),
+    ...(input.FramerateConversionAlgorithm !== undefined &&
+      input.FramerateConversionAlgorithm !== null && {
+        framerateConversionAlgorithm: input.FramerateConversionAlgorithm,
+      }),
+    ...(input.FramerateDenominator !== undefined &&
+      input.FramerateDenominator !== null && { framerateDenominator: input.FramerateDenominator }),
+    ...(input.FramerateNumerator !== undefined &&
+      input.FramerateNumerator !== null && { framerateNumerator: input.FramerateNumerator }),
+    ...(input.GopClosedCadence !== undefined &&
+      input.GopClosedCadence !== null && { gopClosedCadence: input.GopClosedCadence }),
+    ...(input.GopSize !== undefined && input.GopSize !== null && { gopSize: input.GopSize }),
+    ...(input.GopSizeUnits !== undefined && input.GopSizeUnits !== null && { gopSizeUnits: input.GopSizeUnits }),
+    ...(input.HrdBufferInitialFillPercentage !== undefined &&
+      input.HrdBufferInitialFillPercentage !== null && {
+        hrdBufferInitialFillPercentage: input.HrdBufferInitialFillPercentage,
+      }),
+    ...(input.HrdBufferSize !== undefined && input.HrdBufferSize !== null && { hrdBufferSize: input.HrdBufferSize }),
+    ...(input.InterlaceMode !== undefined && input.InterlaceMode !== null && { interlaceMode: input.InterlaceMode }),
+    ...(input.IntraDcPrecision !== undefined &&
+      input.IntraDcPrecision !== null && { intraDcPrecision: input.IntraDcPrecision }),
+    ...(input.MaxBitrate !== undefined && input.MaxBitrate !== null && { maxBitrate: input.MaxBitrate }),
+    ...(input.MinIInterval !== undefined && input.MinIInterval !== null && { minIInterval: input.MinIInterval }),
+    ...(input.NumberBFramesBetweenReferenceFrames !== undefined &&
+      input.NumberBFramesBetweenReferenceFrames !== null && {
+        numberBFramesBetweenReferenceFrames: input.NumberBFramesBetweenReferenceFrames,
+      }),
+    ...(input.ParControl !== undefined && input.ParControl !== null && { parControl: input.ParControl }),
+    ...(input.ParDenominator !== undefined &&
+      input.ParDenominator !== null && { parDenominator: input.ParDenominator }),
+    ...(input.ParNumerator !== undefined && input.ParNumerator !== null && { parNumerator: input.ParNumerator }),
+    ...(input.QualityTuningLevel !== undefined &&
+      input.QualityTuningLevel !== null && { qualityTuningLevel: input.QualityTuningLevel }),
+    ...(input.RateControlMode !== undefined &&
+      input.RateControlMode !== null && { rateControlMode: input.RateControlMode }),
+    ...(input.SceneChangeDetect !== undefined &&
+      input.SceneChangeDetect !== null && { sceneChangeDetect: input.SceneChangeDetect }),
+    ...(input.SlowPal !== undefined && input.SlowPal !== null && { slowPal: input.SlowPal }),
+    ...(input.Softness !== undefined && input.Softness !== null && { softness: input.Softness }),
+    ...(input.SpatialAdaptiveQuantization !== undefined &&
+      input.SpatialAdaptiveQuantization !== null && { spatialAdaptiveQuantization: input.SpatialAdaptiveQuantization }),
+    ...(input.Syntax !== undefined && input.Syntax !== null && { syntax: input.Syntax }),
+    ...(input.Telecine !== undefined && input.Telecine !== null && { telecine: input.Telecine }),
+    ...(input.TemporalAdaptiveQuantization !== undefined &&
+      input.TemporalAdaptiveQuantization !== null && {
+        temporalAdaptiveQuantization: input.TemporalAdaptiveQuantization,
+      }),
   };
 };
 
@@ -5108,10 +5574,12 @@ const serializeAws_restJson1MsSmoothAdditionalManifest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ManifestNameModifier !== undefined && { manifestNameModifier: input.ManifestNameModifier }),
-    ...(input.SelectedOutputs !== undefined && {
-      selectedOutputs: serializeAws_restJson1__listOf__stringMin1(input.SelectedOutputs, context),
-    }),
+    ...(input.ManifestNameModifier !== undefined &&
+      input.ManifestNameModifier !== null && { manifestNameModifier: input.ManifestNameModifier }),
+    ...(input.SelectedOutputs !== undefined &&
+      input.SelectedOutputs !== null && {
+        selectedOutputs: serializeAws_restJson1__listOf__stringMin1(input.SelectedOutputs, context),
+      }),
   };
 };
 
@@ -5120,34 +5588,44 @@ const serializeAws_restJson1MsSmoothEncryptionSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SpekeKeyProvider !== undefined && {
-      spekeKeyProvider: serializeAws_restJson1SpekeKeyProvider(input.SpekeKeyProvider, context),
-    }),
+    ...(input.SpekeKeyProvider !== undefined &&
+      input.SpekeKeyProvider !== null && {
+        spekeKeyProvider: serializeAws_restJson1SpekeKeyProvider(input.SpekeKeyProvider, context),
+      }),
   };
 };
 
 const serializeAws_restJson1MsSmoothGroupSettings = (input: MsSmoothGroupSettings, context: __SerdeContext): any => {
   return {
-    ...(input.AdditionalManifests !== undefined && {
-      additionalManifests: serializeAws_restJson1__listOfMsSmoothAdditionalManifest(input.AdditionalManifests, context),
-    }),
-    ...(input.AudioDeduplication !== undefined && { audioDeduplication: input.AudioDeduplication }),
-    ...(input.Destination !== undefined && { destination: input.Destination }),
-    ...(input.DestinationSettings !== undefined && {
-      destinationSettings: serializeAws_restJson1DestinationSettings(input.DestinationSettings, context),
-    }),
-    ...(input.Encryption !== undefined && {
-      encryption: serializeAws_restJson1MsSmoothEncryptionSettings(input.Encryption, context),
-    }),
-    ...(input.FragmentLength !== undefined && { fragmentLength: input.FragmentLength }),
-    ...(input.ManifestEncoding !== undefined && { manifestEncoding: input.ManifestEncoding }),
+    ...(input.AdditionalManifests !== undefined &&
+      input.AdditionalManifests !== null && {
+        additionalManifests: serializeAws_restJson1__listOfMsSmoothAdditionalManifest(
+          input.AdditionalManifests,
+          context
+        ),
+      }),
+    ...(input.AudioDeduplication !== undefined &&
+      input.AudioDeduplication !== null && { audioDeduplication: input.AudioDeduplication }),
+    ...(input.Destination !== undefined && input.Destination !== null && { destination: input.Destination }),
+    ...(input.DestinationSettings !== undefined &&
+      input.DestinationSettings !== null && {
+        destinationSettings: serializeAws_restJson1DestinationSettings(input.DestinationSettings, context),
+      }),
+    ...(input.Encryption !== undefined &&
+      input.Encryption !== null && {
+        encryption: serializeAws_restJson1MsSmoothEncryptionSettings(input.Encryption, context),
+      }),
+    ...(input.FragmentLength !== undefined &&
+      input.FragmentLength !== null && { fragmentLength: input.FragmentLength }),
+    ...(input.ManifestEncoding !== undefined &&
+      input.ManifestEncoding !== null && { manifestEncoding: input.ManifestEncoding }),
   };
 };
 
 const serializeAws_restJson1MxfSettings = (input: MxfSettings, context: __SerdeContext): any => {
   return {
-    ...(input.AfdSignaling !== undefined && { afdSignaling: input.AfdSignaling }),
-    ...(input.Profile !== undefined && { profile: input.Profile }),
+    ...(input.AfdSignaling !== undefined && input.AfdSignaling !== null && { afdSignaling: input.AfdSignaling }),
+    ...(input.Profile !== undefined && input.Profile !== null && { profile: input.Profile }),
   };
 };
 
@@ -5156,17 +5634,17 @@ const serializeAws_restJson1NexGuardFileMarkerSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.License !== undefined && { license: input.License }),
-    ...(input.Payload !== undefined && { payload: input.Payload }),
-    ...(input.Preset !== undefined && { preset: input.Preset }),
-    ...(input.Strength !== undefined && { strength: input.Strength }),
+    ...(input.License !== undefined && input.License !== null && { license: input.License }),
+    ...(input.Payload !== undefined && input.Payload !== null && { payload: input.Payload }),
+    ...(input.Preset !== undefined && input.Preset !== null && { preset: input.Preset }),
+    ...(input.Strength !== undefined && input.Strength !== null && { strength: input.Strength }),
   };
 };
 
 const serializeAws_restJson1NielsenConfiguration = (input: NielsenConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.BreakoutCode !== undefined && { breakoutCode: input.BreakoutCode }),
-    ...(input.DistributorId !== undefined && { distributorId: input.DistributorId }),
+    ...(input.BreakoutCode !== undefined && input.BreakoutCode !== null && { breakoutCode: input.BreakoutCode }),
+    ...(input.DistributorId !== undefined && input.DistributorId !== null && { distributorId: input.DistributorId }),
   };
 };
 
@@ -5175,38 +5653,45 @@ const serializeAws_restJson1NielsenNonLinearWatermarkSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ActiveWatermarkProcess !== undefined && { activeWatermarkProcess: input.ActiveWatermarkProcess }),
-    ...(input.AdiFilename !== undefined && { adiFilename: input.AdiFilename }),
-    ...(input.AssetId !== undefined && { assetId: input.AssetId }),
-    ...(input.AssetName !== undefined && { assetName: input.AssetName }),
-    ...(input.CbetSourceId !== undefined && { cbetSourceId: input.CbetSourceId }),
-    ...(input.EpisodeId !== undefined && { episodeId: input.EpisodeId }),
-    ...(input.MetadataDestination !== undefined && { metadataDestination: input.MetadataDestination }),
-    ...(input.SourceId !== undefined && { sourceId: input.SourceId }),
-    ...(input.SourceWatermarkStatus !== undefined && { sourceWatermarkStatus: input.SourceWatermarkStatus }),
-    ...(input.TicServerUrl !== undefined && { ticServerUrl: input.TicServerUrl }),
-    ...(input.UniqueTicPerAudioTrack !== undefined && { uniqueTicPerAudioTrack: input.UniqueTicPerAudioTrack }),
+    ...(input.ActiveWatermarkProcess !== undefined &&
+      input.ActiveWatermarkProcess !== null && { activeWatermarkProcess: input.ActiveWatermarkProcess }),
+    ...(input.AdiFilename !== undefined && input.AdiFilename !== null && { adiFilename: input.AdiFilename }),
+    ...(input.AssetId !== undefined && input.AssetId !== null && { assetId: input.AssetId }),
+    ...(input.AssetName !== undefined && input.AssetName !== null && { assetName: input.AssetName }),
+    ...(input.CbetSourceId !== undefined && input.CbetSourceId !== null && { cbetSourceId: input.CbetSourceId }),
+    ...(input.EpisodeId !== undefined && input.EpisodeId !== null && { episodeId: input.EpisodeId }),
+    ...(input.MetadataDestination !== undefined &&
+      input.MetadataDestination !== null && { metadataDestination: input.MetadataDestination }),
+    ...(input.SourceId !== undefined && input.SourceId !== null && { sourceId: input.SourceId }),
+    ...(input.SourceWatermarkStatus !== undefined &&
+      input.SourceWatermarkStatus !== null && { sourceWatermarkStatus: input.SourceWatermarkStatus }),
+    ...(input.TicServerUrl !== undefined && input.TicServerUrl !== null && { ticServerUrl: input.TicServerUrl }),
+    ...(input.UniqueTicPerAudioTrack !== undefined &&
+      input.UniqueTicPerAudioTrack !== null && { uniqueTicPerAudioTrack: input.UniqueTicPerAudioTrack }),
   };
 };
 
 const serializeAws_restJson1NoiseReducer = (input: NoiseReducer, context: __SerdeContext): any => {
   return {
-    ...(input.Filter !== undefined && { filter: input.Filter }),
-    ...(input.FilterSettings !== undefined && {
-      filterSettings: serializeAws_restJson1NoiseReducerFilterSettings(input.FilterSettings, context),
-    }),
-    ...(input.SpatialFilterSettings !== undefined && {
-      spatialFilterSettings: serializeAws_restJson1NoiseReducerSpatialFilterSettings(
-        input.SpatialFilterSettings,
-        context
-      ),
-    }),
-    ...(input.TemporalFilterSettings !== undefined && {
-      temporalFilterSettings: serializeAws_restJson1NoiseReducerTemporalFilterSettings(
-        input.TemporalFilterSettings,
-        context
-      ),
-    }),
+    ...(input.Filter !== undefined && input.Filter !== null && { filter: input.Filter }),
+    ...(input.FilterSettings !== undefined &&
+      input.FilterSettings !== null && {
+        filterSettings: serializeAws_restJson1NoiseReducerFilterSettings(input.FilterSettings, context),
+      }),
+    ...(input.SpatialFilterSettings !== undefined &&
+      input.SpatialFilterSettings !== null && {
+        spatialFilterSettings: serializeAws_restJson1NoiseReducerSpatialFilterSettings(
+          input.SpatialFilterSettings,
+          context
+        ),
+      }),
+    ...(input.TemporalFilterSettings !== undefined &&
+      input.TemporalFilterSettings !== null && {
+        temporalFilterSettings: serializeAws_restJson1NoiseReducerTemporalFilterSettings(
+          input.TemporalFilterSettings,
+          context
+        ),
+      }),
   };
 };
 
@@ -5215,7 +5700,7 @@ const serializeAws_restJson1NoiseReducerFilterSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Strength !== undefined && { strength: input.Strength }),
+    ...(input.Strength !== undefined && input.Strength !== null && { strength: input.Strength }),
   };
 };
 
@@ -5224,11 +5709,10 @@ const serializeAws_restJson1NoiseReducerSpatialFilterSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.PostFilterSharpenStrength !== undefined && {
-      postFilterSharpenStrength: input.PostFilterSharpenStrength,
-    }),
-    ...(input.Speed !== undefined && { speed: input.Speed }),
-    ...(input.Strength !== undefined && { strength: input.Strength }),
+    ...(input.PostFilterSharpenStrength !== undefined &&
+      input.PostFilterSharpenStrength !== null && { postFilterSharpenStrength: input.PostFilterSharpenStrength }),
+    ...(input.Speed !== undefined && input.Speed !== null && { speed: input.Speed }),
+    ...(input.Strength !== undefined && input.Strength !== null && { strength: input.Strength }),
   };
 };
 
@@ -5237,160 +5721,186 @@ const serializeAws_restJson1NoiseReducerTemporalFilterSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AggressiveMode !== undefined && { aggressiveMode: input.AggressiveMode }),
-    ...(input.PostTemporalSharpening !== undefined && { postTemporalSharpening: input.PostTemporalSharpening }),
-    ...(input.Speed !== undefined && { speed: input.Speed }),
-    ...(input.Strength !== undefined && { strength: input.Strength }),
+    ...(input.AggressiveMode !== undefined &&
+      input.AggressiveMode !== null && { aggressiveMode: input.AggressiveMode }),
+    ...(input.PostTemporalSharpening !== undefined &&
+      input.PostTemporalSharpening !== null && { postTemporalSharpening: input.PostTemporalSharpening }),
+    ...(input.Speed !== undefined && input.Speed !== null && { speed: input.Speed }),
+    ...(input.Strength !== undefined && input.Strength !== null && { strength: input.Strength }),
   };
 };
 
 const serializeAws_restJson1OpusSettings = (input: OpusSettings, context: __SerdeContext): any => {
   return {
-    ...(input.Bitrate !== undefined && { bitrate: input.Bitrate }),
-    ...(input.Channels !== undefined && { channels: input.Channels }),
-    ...(input.SampleRate !== undefined && { sampleRate: input.SampleRate }),
+    ...(input.Bitrate !== undefined && input.Bitrate !== null && { bitrate: input.Bitrate }),
+    ...(input.Channels !== undefined && input.Channels !== null && { channels: input.Channels }),
+    ...(input.SampleRate !== undefined && input.SampleRate !== null && { sampleRate: input.SampleRate }),
   };
 };
 
 const serializeAws_restJson1Output = (input: Output, context: __SerdeContext): any => {
   return {
-    ...(input.AudioDescriptions !== undefined && {
-      audioDescriptions: serializeAws_restJson1__listOfAudioDescription(input.AudioDescriptions, context),
-    }),
-    ...(input.CaptionDescriptions !== undefined && {
-      captionDescriptions: serializeAws_restJson1__listOfCaptionDescription(input.CaptionDescriptions, context),
-    }),
-    ...(input.ContainerSettings !== undefined && {
-      containerSettings: serializeAws_restJson1ContainerSettings(input.ContainerSettings, context),
-    }),
-    ...(input.Extension !== undefined && { extension: input.Extension }),
-    ...(input.NameModifier !== undefined && { nameModifier: input.NameModifier }),
-    ...(input.OutputSettings !== undefined && {
-      outputSettings: serializeAws_restJson1OutputSettings(input.OutputSettings, context),
-    }),
-    ...(input.Preset !== undefined && { preset: input.Preset }),
-    ...(input.VideoDescription !== undefined && {
-      videoDescription: serializeAws_restJson1VideoDescription(input.VideoDescription, context),
-    }),
+    ...(input.AudioDescriptions !== undefined &&
+      input.AudioDescriptions !== null && {
+        audioDescriptions: serializeAws_restJson1__listOfAudioDescription(input.AudioDescriptions, context),
+      }),
+    ...(input.CaptionDescriptions !== undefined &&
+      input.CaptionDescriptions !== null && {
+        captionDescriptions: serializeAws_restJson1__listOfCaptionDescription(input.CaptionDescriptions, context),
+      }),
+    ...(input.ContainerSettings !== undefined &&
+      input.ContainerSettings !== null && {
+        containerSettings: serializeAws_restJson1ContainerSettings(input.ContainerSettings, context),
+      }),
+    ...(input.Extension !== undefined && input.Extension !== null && { extension: input.Extension }),
+    ...(input.NameModifier !== undefined && input.NameModifier !== null && { nameModifier: input.NameModifier }),
+    ...(input.OutputSettings !== undefined &&
+      input.OutputSettings !== null && {
+        outputSettings: serializeAws_restJson1OutputSettings(input.OutputSettings, context),
+      }),
+    ...(input.Preset !== undefined && input.Preset !== null && { preset: input.Preset }),
+    ...(input.VideoDescription !== undefined &&
+      input.VideoDescription !== null && {
+        videoDescription: serializeAws_restJson1VideoDescription(input.VideoDescription, context),
+      }),
   };
 };
 
 const serializeAws_restJson1OutputChannelMapping = (input: OutputChannelMapping, context: __SerdeContext): any => {
   return {
-    ...(input.InputChannels !== undefined && {
-      inputChannels: serializeAws_restJson1__listOf__integerMinNegative60Max6(input.InputChannels, context),
-    }),
+    ...(input.InputChannels !== undefined &&
+      input.InputChannels !== null && {
+        inputChannels: serializeAws_restJson1__listOf__integerMinNegative60Max6(input.InputChannels, context),
+      }),
   };
 };
 
 const serializeAws_restJson1OutputGroup = (input: OutputGroup, context: __SerdeContext): any => {
   return {
-    ...(input.AutomatedEncodingSettings !== undefined && {
-      automatedEncodingSettings: serializeAws_restJson1AutomatedEncodingSettings(
-        input.AutomatedEncodingSettings,
-        context
-      ),
-    }),
-    ...(input.CustomName !== undefined && { customName: input.CustomName }),
-    ...(input.Name !== undefined && { name: input.Name }),
-    ...(input.OutputGroupSettings !== undefined && {
-      outputGroupSettings: serializeAws_restJson1OutputGroupSettings(input.OutputGroupSettings, context),
-    }),
-    ...(input.Outputs !== undefined && { outputs: serializeAws_restJson1__listOfOutput(input.Outputs, context) }),
+    ...(input.AutomatedEncodingSettings !== undefined &&
+      input.AutomatedEncodingSettings !== null && {
+        automatedEncodingSettings: serializeAws_restJson1AutomatedEncodingSettings(
+          input.AutomatedEncodingSettings,
+          context
+        ),
+      }),
+    ...(input.CustomName !== undefined && input.CustomName !== null && { customName: input.CustomName }),
+    ...(input.Name !== undefined && input.Name !== null && { name: input.Name }),
+    ...(input.OutputGroupSettings !== undefined &&
+      input.OutputGroupSettings !== null && {
+        outputGroupSettings: serializeAws_restJson1OutputGroupSettings(input.OutputGroupSettings, context),
+      }),
+    ...(input.Outputs !== undefined &&
+      input.Outputs !== null && { outputs: serializeAws_restJson1__listOfOutput(input.Outputs, context) }),
   };
 };
 
 const serializeAws_restJson1OutputGroupSettings = (input: OutputGroupSettings, context: __SerdeContext): any => {
   return {
-    ...(input.CmafGroupSettings !== undefined && {
-      cmafGroupSettings: serializeAws_restJson1CmafGroupSettings(input.CmafGroupSettings, context),
-    }),
-    ...(input.DashIsoGroupSettings !== undefined && {
-      dashIsoGroupSettings: serializeAws_restJson1DashIsoGroupSettings(input.DashIsoGroupSettings, context),
-    }),
-    ...(input.FileGroupSettings !== undefined && {
-      fileGroupSettings: serializeAws_restJson1FileGroupSettings(input.FileGroupSettings, context),
-    }),
-    ...(input.HlsGroupSettings !== undefined && {
-      hlsGroupSettings: serializeAws_restJson1HlsGroupSettings(input.HlsGroupSettings, context),
-    }),
-    ...(input.MsSmoothGroupSettings !== undefined && {
-      msSmoothGroupSettings: serializeAws_restJson1MsSmoothGroupSettings(input.MsSmoothGroupSettings, context),
-    }),
-    ...(input.Type !== undefined && { type: input.Type }),
+    ...(input.CmafGroupSettings !== undefined &&
+      input.CmafGroupSettings !== null && {
+        cmafGroupSettings: serializeAws_restJson1CmafGroupSettings(input.CmafGroupSettings, context),
+      }),
+    ...(input.DashIsoGroupSettings !== undefined &&
+      input.DashIsoGroupSettings !== null && {
+        dashIsoGroupSettings: serializeAws_restJson1DashIsoGroupSettings(input.DashIsoGroupSettings, context),
+      }),
+    ...(input.FileGroupSettings !== undefined &&
+      input.FileGroupSettings !== null && {
+        fileGroupSettings: serializeAws_restJson1FileGroupSettings(input.FileGroupSettings, context),
+      }),
+    ...(input.HlsGroupSettings !== undefined &&
+      input.HlsGroupSettings !== null && {
+        hlsGroupSettings: serializeAws_restJson1HlsGroupSettings(input.HlsGroupSettings, context),
+      }),
+    ...(input.MsSmoothGroupSettings !== undefined &&
+      input.MsSmoothGroupSettings !== null && {
+        msSmoothGroupSettings: serializeAws_restJson1MsSmoothGroupSettings(input.MsSmoothGroupSettings, context),
+      }),
+    ...(input.Type !== undefined && input.Type !== null && { type: input.Type }),
   };
 };
 
 const serializeAws_restJson1OutputSettings = (input: OutputSettings, context: __SerdeContext): any => {
   return {
-    ...(input.HlsSettings !== undefined && {
-      hlsSettings: serializeAws_restJson1HlsSettings(input.HlsSettings, context),
-    }),
+    ...(input.HlsSettings !== undefined &&
+      input.HlsSettings !== null && { hlsSettings: serializeAws_restJson1HlsSettings(input.HlsSettings, context) }),
   };
 };
 
 const serializeAws_restJson1PartnerWatermarking = (input: PartnerWatermarking, context: __SerdeContext): any => {
   return {
-    ...(input.NexguardFileMarkerSettings !== undefined && {
-      nexguardFileMarkerSettings: serializeAws_restJson1NexGuardFileMarkerSettings(
-        input.NexguardFileMarkerSettings,
-        context
-      ),
-    }),
+    ...(input.NexguardFileMarkerSettings !== undefined &&
+      input.NexguardFileMarkerSettings !== null && {
+        nexguardFileMarkerSettings: serializeAws_restJson1NexGuardFileMarkerSettings(
+          input.NexguardFileMarkerSettings,
+          context
+        ),
+      }),
   };
 };
 
 const serializeAws_restJson1PresetSettings = (input: PresetSettings, context: __SerdeContext): any => {
   return {
-    ...(input.AudioDescriptions !== undefined && {
-      audioDescriptions: serializeAws_restJson1__listOfAudioDescription(input.AudioDescriptions, context),
-    }),
-    ...(input.CaptionDescriptions !== undefined && {
-      captionDescriptions: serializeAws_restJson1__listOfCaptionDescriptionPreset(input.CaptionDescriptions, context),
-    }),
-    ...(input.ContainerSettings !== undefined && {
-      containerSettings: serializeAws_restJson1ContainerSettings(input.ContainerSettings, context),
-    }),
-    ...(input.VideoDescription !== undefined && {
-      videoDescription: serializeAws_restJson1VideoDescription(input.VideoDescription, context),
-    }),
+    ...(input.AudioDescriptions !== undefined &&
+      input.AudioDescriptions !== null && {
+        audioDescriptions: serializeAws_restJson1__listOfAudioDescription(input.AudioDescriptions, context),
+      }),
+    ...(input.CaptionDescriptions !== undefined &&
+      input.CaptionDescriptions !== null && {
+        captionDescriptions: serializeAws_restJson1__listOfCaptionDescriptionPreset(input.CaptionDescriptions, context),
+      }),
+    ...(input.ContainerSettings !== undefined &&
+      input.ContainerSettings !== null && {
+        containerSettings: serializeAws_restJson1ContainerSettings(input.ContainerSettings, context),
+      }),
+    ...(input.VideoDescription !== undefined &&
+      input.VideoDescription !== null && {
+        videoDescription: serializeAws_restJson1VideoDescription(input.VideoDescription, context),
+      }),
   };
 };
 
 const serializeAws_restJson1ProresSettings = (input: ProresSettings, context: __SerdeContext): any => {
   return {
-    ...(input.CodecProfile !== undefined && { codecProfile: input.CodecProfile }),
-    ...(input.FramerateControl !== undefined && { framerateControl: input.FramerateControl }),
-    ...(input.FramerateConversionAlgorithm !== undefined && {
-      framerateConversionAlgorithm: input.FramerateConversionAlgorithm,
-    }),
-    ...(input.FramerateDenominator !== undefined && { framerateDenominator: input.FramerateDenominator }),
-    ...(input.FramerateNumerator !== undefined && { framerateNumerator: input.FramerateNumerator }),
-    ...(input.InterlaceMode !== undefined && { interlaceMode: input.InterlaceMode }),
-    ...(input.ParControl !== undefined && { parControl: input.ParControl }),
-    ...(input.ParDenominator !== undefined && { parDenominator: input.ParDenominator }),
-    ...(input.ParNumerator !== undefined && { parNumerator: input.ParNumerator }),
-    ...(input.SlowPal !== undefined && { slowPal: input.SlowPal }),
-    ...(input.Telecine !== undefined && { telecine: input.Telecine }),
+    ...(input.CodecProfile !== undefined && input.CodecProfile !== null && { codecProfile: input.CodecProfile }),
+    ...(input.FramerateControl !== undefined &&
+      input.FramerateControl !== null && { framerateControl: input.FramerateControl }),
+    ...(input.FramerateConversionAlgorithm !== undefined &&
+      input.FramerateConversionAlgorithm !== null && {
+        framerateConversionAlgorithm: input.FramerateConversionAlgorithm,
+      }),
+    ...(input.FramerateDenominator !== undefined &&
+      input.FramerateDenominator !== null && { framerateDenominator: input.FramerateDenominator }),
+    ...(input.FramerateNumerator !== undefined &&
+      input.FramerateNumerator !== null && { framerateNumerator: input.FramerateNumerator }),
+    ...(input.InterlaceMode !== undefined && input.InterlaceMode !== null && { interlaceMode: input.InterlaceMode }),
+    ...(input.ParControl !== undefined && input.ParControl !== null && { parControl: input.ParControl }),
+    ...(input.ParDenominator !== undefined &&
+      input.ParDenominator !== null && { parDenominator: input.ParDenominator }),
+    ...(input.ParNumerator !== undefined && input.ParNumerator !== null && { parNumerator: input.ParNumerator }),
+    ...(input.SlowPal !== undefined && input.SlowPal !== null && { slowPal: input.SlowPal }),
+    ...(input.Telecine !== undefined && input.Telecine !== null && { telecine: input.Telecine }),
   };
 };
 
 const serializeAws_restJson1Rectangle = (input: Rectangle, context: __SerdeContext): any => {
   return {
-    ...(input.Height !== undefined && { height: input.Height }),
-    ...(input.Width !== undefined && { width: input.Width }),
-    ...(input.X !== undefined && { x: input.X }),
-    ...(input.Y !== undefined && { y: input.Y }),
+    ...(input.Height !== undefined && input.Height !== null && { height: input.Height }),
+    ...(input.Width !== undefined && input.Width !== null && { width: input.Width }),
+    ...(input.X !== undefined && input.X !== null && { x: input.X }),
+    ...(input.Y !== undefined && input.Y !== null && { y: input.Y }),
   };
 };
 
 const serializeAws_restJson1RemixSettings = (input: RemixSettings, context: __SerdeContext): any => {
   return {
-    ...(input.ChannelMapping !== undefined && {
-      channelMapping: serializeAws_restJson1ChannelMapping(input.ChannelMapping, context),
-    }),
-    ...(input.ChannelsIn !== undefined && { channelsIn: input.ChannelsIn }),
-    ...(input.ChannelsOut !== undefined && { channelsOut: input.ChannelsOut }),
+    ...(input.ChannelMapping !== undefined &&
+      input.ChannelMapping !== null && {
+        channelMapping: serializeAws_restJson1ChannelMapping(input.ChannelMapping, context),
+      }),
+    ...(input.ChannelsIn !== undefined && input.ChannelsIn !== null && { channelsIn: input.ChannelsIn }),
+    ...(input.ChannelsOut !== undefined && input.ChannelsOut !== null && { channelsOut: input.ChannelsOut }),
   };
 };
 
@@ -5399,9 +5909,9 @@ const serializeAws_restJson1ReservationPlanSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Commitment !== undefined && { commitment: input.Commitment }),
-    ...(input.RenewalType !== undefined && { renewalType: input.RenewalType }),
-    ...(input.ReservedSlots !== undefined && { reservedSlots: input.ReservedSlots }),
+    ...(input.Commitment !== undefined && input.Commitment !== null && { commitment: input.Commitment }),
+    ...(input.RenewalType !== undefined && input.RenewalType !== null && { renewalType: input.RenewalType }),
+    ...(input.ReservedSlots !== undefined && input.ReservedSlots !== null && { reservedSlots: input.ReservedSlots }),
   };
 };
 
@@ -5410,74 +5920,84 @@ const serializeAws_restJson1S3DestinationAccessControl = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CannedAcl !== undefined && { cannedAcl: input.CannedAcl }),
+    ...(input.CannedAcl !== undefined && input.CannedAcl !== null && { cannedAcl: input.CannedAcl }),
   };
 };
 
 const serializeAws_restJson1S3DestinationSettings = (input: S3DestinationSettings, context: __SerdeContext): any => {
   return {
-    ...(input.AccessControl !== undefined && {
-      accessControl: serializeAws_restJson1S3DestinationAccessControl(input.AccessControl, context),
-    }),
-    ...(input.Encryption !== undefined && {
-      encryption: serializeAws_restJson1S3EncryptionSettings(input.Encryption, context),
-    }),
+    ...(input.AccessControl !== undefined &&
+      input.AccessControl !== null && {
+        accessControl: serializeAws_restJson1S3DestinationAccessControl(input.AccessControl, context),
+      }),
+    ...(input.Encryption !== undefined &&
+      input.Encryption !== null && {
+        encryption: serializeAws_restJson1S3EncryptionSettings(input.Encryption, context),
+      }),
   };
 };
 
 const serializeAws_restJson1S3EncryptionSettings = (input: S3EncryptionSettings, context: __SerdeContext): any => {
   return {
-    ...(input.EncryptionType !== undefined && { encryptionType: input.EncryptionType }),
-    ...(input.KmsKeyArn !== undefined && { kmsKeyArn: input.KmsKeyArn }),
+    ...(input.EncryptionType !== undefined &&
+      input.EncryptionType !== null && { encryptionType: input.EncryptionType }),
+    ...(input.KmsKeyArn !== undefined && input.KmsKeyArn !== null && { kmsKeyArn: input.KmsKeyArn }),
   };
 };
 
 const serializeAws_restJson1SccDestinationSettings = (input: SccDestinationSettings, context: __SerdeContext): any => {
   return {
-    ...(input.Framerate !== undefined && { framerate: input.Framerate }),
+    ...(input.Framerate !== undefined && input.Framerate !== null && { framerate: input.Framerate }),
   };
 };
 
 const serializeAws_restJson1SpekeKeyProvider = (input: SpekeKeyProvider, context: __SerdeContext): any => {
   return {
-    ...(input.CertificateArn !== undefined && { certificateArn: input.CertificateArn }),
-    ...(input.ResourceId !== undefined && { resourceId: input.ResourceId }),
-    ...(input.SystemIds !== undefined && {
-      systemIds: serializeAws_restJson1__listOf__stringPattern09aFAF809aFAF409aFAF409aFAF409aFAF12(
-        input.SystemIds,
-        context
-      ),
-    }),
-    ...(input.Url !== undefined && { url: input.Url }),
+    ...(input.CertificateArn !== undefined &&
+      input.CertificateArn !== null && { certificateArn: input.CertificateArn }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { resourceId: input.ResourceId }),
+    ...(input.SystemIds !== undefined &&
+      input.SystemIds !== null && {
+        systemIds: serializeAws_restJson1__listOf__stringPattern09aFAF809aFAF409aFAF409aFAF409aFAF12(
+          input.SystemIds,
+          context
+        ),
+      }),
+    ...(input.Url !== undefined && input.Url !== null && { url: input.Url }),
   };
 };
 
 const serializeAws_restJson1SpekeKeyProviderCmaf = (input: SpekeKeyProviderCmaf, context: __SerdeContext): any => {
   return {
-    ...(input.CertificateArn !== undefined && { certificateArn: input.CertificateArn }),
-    ...(input.DashSignaledSystemIds !== undefined && {
-      dashSignaledSystemIds: serializeAws_restJson1__listOf__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12(
-        input.DashSignaledSystemIds,
-        context
-      ),
-    }),
-    ...(input.HlsSignaledSystemIds !== undefined && {
-      hlsSignaledSystemIds: serializeAws_restJson1__listOf__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12(
-        input.HlsSignaledSystemIds,
-        context
-      ),
-    }),
-    ...(input.ResourceId !== undefined && { resourceId: input.ResourceId }),
-    ...(input.Url !== undefined && { url: input.Url }),
+    ...(input.CertificateArn !== undefined &&
+      input.CertificateArn !== null && { certificateArn: input.CertificateArn }),
+    ...(input.DashSignaledSystemIds !== undefined &&
+      input.DashSignaledSystemIds !== null && {
+        dashSignaledSystemIds: serializeAws_restJson1__listOf__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12(
+          input.DashSignaledSystemIds,
+          context
+        ),
+      }),
+    ...(input.HlsSignaledSystemIds !== undefined &&
+      input.HlsSignaledSystemIds !== null && {
+        hlsSignaledSystemIds: serializeAws_restJson1__listOf__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12(
+          input.HlsSignaledSystemIds,
+          context
+        ),
+      }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { resourceId: input.ResourceId }),
+    ...(input.Url !== undefined && input.Url !== null && { url: input.Url }),
   };
 };
 
 const serializeAws_restJson1StaticKeyProvider = (input: StaticKeyProvider, context: __SerdeContext): any => {
   return {
-    ...(input.KeyFormat !== undefined && { keyFormat: input.KeyFormat }),
-    ...(input.KeyFormatVersions !== undefined && { keyFormatVersions: input.KeyFormatVersions }),
-    ...(input.StaticKeyValue !== undefined && { staticKeyValue: input.StaticKeyValue }),
-    ...(input.Url !== undefined && { url: input.Url }),
+    ...(input.KeyFormat !== undefined && input.KeyFormat !== null && { keyFormat: input.KeyFormat }),
+    ...(input.KeyFormatVersions !== undefined &&
+      input.KeyFormatVersions !== null && { keyFormatVersions: input.KeyFormatVersions }),
+    ...(input.StaticKeyValue !== undefined &&
+      input.StaticKeyValue !== null && { staticKeyValue: input.StaticKeyValue }),
+    ...(input.Url !== undefined && input.Url !== null && { url: input.Url }),
   };
 };
 
@@ -5486,47 +6006,50 @@ const serializeAws_restJson1TeletextDestinationSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.PageNumber !== undefined && { pageNumber: input.PageNumber }),
-    ...(input.PageTypes !== undefined && {
-      pageTypes: serializeAws_restJson1__listOfTeletextPageType(input.PageTypes, context),
-    }),
+    ...(input.PageNumber !== undefined && input.PageNumber !== null && { pageNumber: input.PageNumber }),
+    ...(input.PageTypes !== undefined &&
+      input.PageTypes !== null && {
+        pageTypes: serializeAws_restJson1__listOfTeletextPageType(input.PageTypes, context),
+      }),
   };
 };
 
 const serializeAws_restJson1TeletextSourceSettings = (input: TeletextSourceSettings, context: __SerdeContext): any => {
   return {
-    ...(input.PageNumber !== undefined && { pageNumber: input.PageNumber }),
+    ...(input.PageNumber !== undefined && input.PageNumber !== null && { pageNumber: input.PageNumber }),
   };
 };
 
 const serializeAws_restJson1TimecodeBurnin = (input: TimecodeBurnin, context: __SerdeContext): any => {
   return {
-    ...(input.FontSize !== undefined && { fontSize: input.FontSize }),
-    ...(input.Position !== undefined && { position: input.Position }),
-    ...(input.Prefix !== undefined && { prefix: input.Prefix }),
+    ...(input.FontSize !== undefined && input.FontSize !== null && { fontSize: input.FontSize }),
+    ...(input.Position !== undefined && input.Position !== null && { position: input.Position }),
+    ...(input.Prefix !== undefined && input.Prefix !== null && { prefix: input.Prefix }),
   };
 };
 
 const serializeAws_restJson1TimecodeConfig = (input: TimecodeConfig, context: __SerdeContext): any => {
   return {
-    ...(input.Anchor !== undefined && { anchor: input.Anchor }),
-    ...(input.Source !== undefined && { source: input.Source }),
-    ...(input.Start !== undefined && { start: input.Start }),
-    ...(input.TimestampOffset !== undefined && { timestampOffset: input.TimestampOffset }),
+    ...(input.Anchor !== undefined && input.Anchor !== null && { anchor: input.Anchor }),
+    ...(input.Source !== undefined && input.Source !== null && { source: input.Source }),
+    ...(input.Start !== undefined && input.Start !== null && { start: input.Start }),
+    ...(input.TimestampOffset !== undefined &&
+      input.TimestampOffset !== null && { timestampOffset: input.TimestampOffset }),
   };
 };
 
 const serializeAws_restJson1TimedMetadataInsertion = (input: TimedMetadataInsertion, context: __SerdeContext): any => {
   return {
-    ...(input.Id3Insertions !== undefined && {
-      id3Insertions: serializeAws_restJson1__listOfId3Insertion(input.Id3Insertions, context),
-    }),
+    ...(input.Id3Insertions !== undefined &&
+      input.Id3Insertions !== null && {
+        id3Insertions: serializeAws_restJson1__listOfId3Insertion(input.Id3Insertions, context),
+      }),
   };
 };
 
 const serializeAws_restJson1TrackSourceSettings = (input: TrackSourceSettings, context: __SerdeContext): any => {
   return {
-    ...(input.TrackNumber !== undefined && { trackNumber: input.TrackNumber }),
+    ...(input.TrackNumber !== undefined && input.TrackNumber !== null && { trackNumber: input.TrackNumber }),
   };
 };
 
@@ -5535,411 +6058,691 @@ const serializeAws_restJson1TtmlDestinationSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.StylePassthrough !== undefined && { stylePassthrough: input.StylePassthrough }),
+    ...(input.StylePassthrough !== undefined &&
+      input.StylePassthrough !== null && { stylePassthrough: input.StylePassthrough }),
   };
 };
 
 const serializeAws_restJson1Vc3Settings = (input: Vc3Settings, context: __SerdeContext): any => {
   return {
-    ...(input.FramerateControl !== undefined && { framerateControl: input.FramerateControl }),
-    ...(input.FramerateConversionAlgorithm !== undefined && {
-      framerateConversionAlgorithm: input.FramerateConversionAlgorithm,
-    }),
-    ...(input.FramerateDenominator !== undefined && { framerateDenominator: input.FramerateDenominator }),
-    ...(input.FramerateNumerator !== undefined && { framerateNumerator: input.FramerateNumerator }),
-    ...(input.InterlaceMode !== undefined && { interlaceMode: input.InterlaceMode }),
-    ...(input.SlowPal !== undefined && { slowPal: input.SlowPal }),
-    ...(input.Telecine !== undefined && { telecine: input.Telecine }),
-    ...(input.Vc3Class !== undefined && { vc3Class: input.Vc3Class }),
+    ...(input.FramerateControl !== undefined &&
+      input.FramerateControl !== null && { framerateControl: input.FramerateControl }),
+    ...(input.FramerateConversionAlgorithm !== undefined &&
+      input.FramerateConversionAlgorithm !== null && {
+        framerateConversionAlgorithm: input.FramerateConversionAlgorithm,
+      }),
+    ...(input.FramerateDenominator !== undefined &&
+      input.FramerateDenominator !== null && { framerateDenominator: input.FramerateDenominator }),
+    ...(input.FramerateNumerator !== undefined &&
+      input.FramerateNumerator !== null && { framerateNumerator: input.FramerateNumerator }),
+    ...(input.InterlaceMode !== undefined && input.InterlaceMode !== null && { interlaceMode: input.InterlaceMode }),
+    ...(input.SlowPal !== undefined && input.SlowPal !== null && { slowPal: input.SlowPal }),
+    ...(input.Telecine !== undefined && input.Telecine !== null && { telecine: input.Telecine }),
+    ...(input.Vc3Class !== undefined && input.Vc3Class !== null && { vc3Class: input.Vc3Class }),
   };
 };
 
 const serializeAws_restJson1VideoCodecSettings = (input: VideoCodecSettings, context: __SerdeContext): any => {
   return {
-    ...(input.Av1Settings !== undefined && {
-      av1Settings: serializeAws_restJson1Av1Settings(input.Av1Settings, context),
-    }),
-    ...(input.AvcIntraSettings !== undefined && {
-      avcIntraSettings: serializeAws_restJson1AvcIntraSettings(input.AvcIntraSettings, context),
-    }),
-    ...(input.Codec !== undefined && { codec: input.Codec }),
-    ...(input.FrameCaptureSettings !== undefined && {
-      frameCaptureSettings: serializeAws_restJson1FrameCaptureSettings(input.FrameCaptureSettings, context),
-    }),
-    ...(input.H264Settings !== undefined && {
-      h264Settings: serializeAws_restJson1H264Settings(input.H264Settings, context),
-    }),
-    ...(input.H265Settings !== undefined && {
-      h265Settings: serializeAws_restJson1H265Settings(input.H265Settings, context),
-    }),
-    ...(input.Mpeg2Settings !== undefined && {
-      mpeg2Settings: serializeAws_restJson1Mpeg2Settings(input.Mpeg2Settings, context),
-    }),
-    ...(input.ProresSettings !== undefined && {
-      proresSettings: serializeAws_restJson1ProresSettings(input.ProresSettings, context),
-    }),
-    ...(input.Vc3Settings !== undefined && {
-      vc3Settings: serializeAws_restJson1Vc3Settings(input.Vc3Settings, context),
-    }),
-    ...(input.Vp8Settings !== undefined && {
-      vp8Settings: serializeAws_restJson1Vp8Settings(input.Vp8Settings, context),
-    }),
-    ...(input.Vp9Settings !== undefined && {
-      vp9Settings: serializeAws_restJson1Vp9Settings(input.Vp9Settings, context),
-    }),
+    ...(input.Av1Settings !== undefined &&
+      input.Av1Settings !== null && { av1Settings: serializeAws_restJson1Av1Settings(input.Av1Settings, context) }),
+    ...(input.AvcIntraSettings !== undefined &&
+      input.AvcIntraSettings !== null && {
+        avcIntraSettings: serializeAws_restJson1AvcIntraSettings(input.AvcIntraSettings, context),
+      }),
+    ...(input.Codec !== undefined && input.Codec !== null && { codec: input.Codec }),
+    ...(input.FrameCaptureSettings !== undefined &&
+      input.FrameCaptureSettings !== null && {
+        frameCaptureSettings: serializeAws_restJson1FrameCaptureSettings(input.FrameCaptureSettings, context),
+      }),
+    ...(input.H264Settings !== undefined &&
+      input.H264Settings !== null && { h264Settings: serializeAws_restJson1H264Settings(input.H264Settings, context) }),
+    ...(input.H265Settings !== undefined &&
+      input.H265Settings !== null && { h265Settings: serializeAws_restJson1H265Settings(input.H265Settings, context) }),
+    ...(input.Mpeg2Settings !== undefined &&
+      input.Mpeg2Settings !== null && {
+        mpeg2Settings: serializeAws_restJson1Mpeg2Settings(input.Mpeg2Settings, context),
+      }),
+    ...(input.ProresSettings !== undefined &&
+      input.ProresSettings !== null && {
+        proresSettings: serializeAws_restJson1ProresSettings(input.ProresSettings, context),
+      }),
+    ...(input.Vc3Settings !== undefined &&
+      input.Vc3Settings !== null && { vc3Settings: serializeAws_restJson1Vc3Settings(input.Vc3Settings, context) }),
+    ...(input.Vp8Settings !== undefined &&
+      input.Vp8Settings !== null && { vp8Settings: serializeAws_restJson1Vp8Settings(input.Vp8Settings, context) }),
+    ...(input.Vp9Settings !== undefined &&
+      input.Vp9Settings !== null && { vp9Settings: serializeAws_restJson1Vp9Settings(input.Vp9Settings, context) }),
   };
 };
 
 const serializeAws_restJson1VideoDescription = (input: VideoDescription, context: __SerdeContext): any => {
   return {
-    ...(input.AfdSignaling !== undefined && { afdSignaling: input.AfdSignaling }),
-    ...(input.AntiAlias !== undefined && { antiAlias: input.AntiAlias }),
-    ...(input.CodecSettings !== undefined && {
-      codecSettings: serializeAws_restJson1VideoCodecSettings(input.CodecSettings, context),
-    }),
-    ...(input.ColorMetadata !== undefined && { colorMetadata: input.ColorMetadata }),
-    ...(input.Crop !== undefined && { crop: serializeAws_restJson1Rectangle(input.Crop, context) }),
-    ...(input.DropFrameTimecode !== undefined && { dropFrameTimecode: input.DropFrameTimecode }),
-    ...(input.FixedAfd !== undefined && { fixedAfd: input.FixedAfd }),
-    ...(input.Height !== undefined && { height: input.Height }),
-    ...(input.Position !== undefined && { position: serializeAws_restJson1Rectangle(input.Position, context) }),
-    ...(input.RespondToAfd !== undefined && { respondToAfd: input.RespondToAfd }),
-    ...(input.ScalingBehavior !== undefined && { scalingBehavior: input.ScalingBehavior }),
-    ...(input.Sharpness !== undefined && { sharpness: input.Sharpness }),
-    ...(input.TimecodeInsertion !== undefined && { timecodeInsertion: input.TimecodeInsertion }),
-    ...(input.VideoPreprocessors !== undefined && {
-      videoPreprocessors: serializeAws_restJson1VideoPreprocessor(input.VideoPreprocessors, context),
-    }),
-    ...(input.Width !== undefined && { width: input.Width }),
+    ...(input.AfdSignaling !== undefined && input.AfdSignaling !== null && { afdSignaling: input.AfdSignaling }),
+    ...(input.AntiAlias !== undefined && input.AntiAlias !== null && { antiAlias: input.AntiAlias }),
+    ...(input.CodecSettings !== undefined &&
+      input.CodecSettings !== null && {
+        codecSettings: serializeAws_restJson1VideoCodecSettings(input.CodecSettings, context),
+      }),
+    ...(input.ColorMetadata !== undefined && input.ColorMetadata !== null && { colorMetadata: input.ColorMetadata }),
+    ...(input.Crop !== undefined &&
+      input.Crop !== null && { crop: serializeAws_restJson1Rectangle(input.Crop, context) }),
+    ...(input.DropFrameTimecode !== undefined &&
+      input.DropFrameTimecode !== null && { dropFrameTimecode: input.DropFrameTimecode }),
+    ...(input.FixedAfd !== undefined && input.FixedAfd !== null && { fixedAfd: input.FixedAfd }),
+    ...(input.Height !== undefined && input.Height !== null && { height: input.Height }),
+    ...(input.Position !== undefined &&
+      input.Position !== null && { position: serializeAws_restJson1Rectangle(input.Position, context) }),
+    ...(input.RespondToAfd !== undefined && input.RespondToAfd !== null && { respondToAfd: input.RespondToAfd }),
+    ...(input.ScalingBehavior !== undefined &&
+      input.ScalingBehavior !== null && { scalingBehavior: input.ScalingBehavior }),
+    ...(input.Sharpness !== undefined && input.Sharpness !== null && { sharpness: input.Sharpness }),
+    ...(input.TimecodeInsertion !== undefined &&
+      input.TimecodeInsertion !== null && { timecodeInsertion: input.TimecodeInsertion }),
+    ...(input.VideoPreprocessors !== undefined &&
+      input.VideoPreprocessors !== null && {
+        videoPreprocessors: serializeAws_restJson1VideoPreprocessor(input.VideoPreprocessors, context),
+      }),
+    ...(input.Width !== undefined && input.Width !== null && { width: input.Width }),
   };
 };
 
 const serializeAws_restJson1VideoPreprocessor = (input: VideoPreprocessor, context: __SerdeContext): any => {
   return {
-    ...(input.ColorCorrector !== undefined && {
-      colorCorrector: serializeAws_restJson1ColorCorrector(input.ColorCorrector, context),
-    }),
-    ...(input.Deinterlacer !== undefined && {
-      deinterlacer: serializeAws_restJson1Deinterlacer(input.Deinterlacer, context),
-    }),
-    ...(input.DolbyVision !== undefined && {
-      dolbyVision: serializeAws_restJson1DolbyVision(input.DolbyVision, context),
-    }),
-    ...(input.ImageInserter !== undefined && {
-      imageInserter: serializeAws_restJson1ImageInserter(input.ImageInserter, context),
-    }),
-    ...(input.NoiseReducer !== undefined && {
-      noiseReducer: serializeAws_restJson1NoiseReducer(input.NoiseReducer, context),
-    }),
-    ...(input.PartnerWatermarking !== undefined && {
-      partnerWatermarking: serializeAws_restJson1PartnerWatermarking(input.PartnerWatermarking, context),
-    }),
-    ...(input.TimecodeBurnin !== undefined && {
-      timecodeBurnin: serializeAws_restJson1TimecodeBurnin(input.TimecodeBurnin, context),
-    }),
+    ...(input.ColorCorrector !== undefined &&
+      input.ColorCorrector !== null && {
+        colorCorrector: serializeAws_restJson1ColorCorrector(input.ColorCorrector, context),
+      }),
+    ...(input.Deinterlacer !== undefined &&
+      input.Deinterlacer !== null && { deinterlacer: serializeAws_restJson1Deinterlacer(input.Deinterlacer, context) }),
+    ...(input.DolbyVision !== undefined &&
+      input.DolbyVision !== null && { dolbyVision: serializeAws_restJson1DolbyVision(input.DolbyVision, context) }),
+    ...(input.ImageInserter !== undefined &&
+      input.ImageInserter !== null && {
+        imageInserter: serializeAws_restJson1ImageInserter(input.ImageInserter, context),
+      }),
+    ...(input.NoiseReducer !== undefined &&
+      input.NoiseReducer !== null && { noiseReducer: serializeAws_restJson1NoiseReducer(input.NoiseReducer, context) }),
+    ...(input.PartnerWatermarking !== undefined &&
+      input.PartnerWatermarking !== null && {
+        partnerWatermarking: serializeAws_restJson1PartnerWatermarking(input.PartnerWatermarking, context),
+      }),
+    ...(input.TimecodeBurnin !== undefined &&
+      input.TimecodeBurnin !== null && {
+        timecodeBurnin: serializeAws_restJson1TimecodeBurnin(input.TimecodeBurnin, context),
+      }),
   };
 };
 
 const serializeAws_restJson1VideoSelector = (input: VideoSelector, context: __SerdeContext): any => {
   return {
-    ...(input.AlphaBehavior !== undefined && { alphaBehavior: input.AlphaBehavior }),
-    ...(input.ColorSpace !== undefined && { colorSpace: input.ColorSpace }),
-    ...(input.ColorSpaceUsage !== undefined && { colorSpaceUsage: input.ColorSpaceUsage }),
-    ...(input.Hdr10Metadata !== undefined && {
-      hdr10Metadata: serializeAws_restJson1Hdr10Metadata(input.Hdr10Metadata, context),
-    }),
-    ...(input.Pid !== undefined && { pid: input.Pid }),
-    ...(input.ProgramNumber !== undefined && { programNumber: input.ProgramNumber }),
-    ...(input.Rotate !== undefined && { rotate: input.Rotate }),
+    ...(input.AlphaBehavior !== undefined && input.AlphaBehavior !== null && { alphaBehavior: input.AlphaBehavior }),
+    ...(input.ColorSpace !== undefined && input.ColorSpace !== null && { colorSpace: input.ColorSpace }),
+    ...(input.ColorSpaceUsage !== undefined &&
+      input.ColorSpaceUsage !== null && { colorSpaceUsage: input.ColorSpaceUsage }),
+    ...(input.Hdr10Metadata !== undefined &&
+      input.Hdr10Metadata !== null && {
+        hdr10Metadata: serializeAws_restJson1Hdr10Metadata(input.Hdr10Metadata, context),
+      }),
+    ...(input.Pid !== undefined && input.Pid !== null && { pid: input.Pid }),
+    ...(input.ProgramNumber !== undefined && input.ProgramNumber !== null && { programNumber: input.ProgramNumber }),
+    ...(input.Rotate !== undefined && input.Rotate !== null && { rotate: input.Rotate }),
   };
 };
 
 const serializeAws_restJson1VorbisSettings = (input: VorbisSettings, context: __SerdeContext): any => {
   return {
-    ...(input.Channels !== undefined && { channels: input.Channels }),
-    ...(input.SampleRate !== undefined && { sampleRate: input.SampleRate }),
-    ...(input.VbrQuality !== undefined && { vbrQuality: input.VbrQuality }),
+    ...(input.Channels !== undefined && input.Channels !== null && { channels: input.Channels }),
+    ...(input.SampleRate !== undefined && input.SampleRate !== null && { sampleRate: input.SampleRate }),
+    ...(input.VbrQuality !== undefined && input.VbrQuality !== null && { vbrQuality: input.VbrQuality }),
   };
 };
 
 const serializeAws_restJson1Vp8Settings = (input: Vp8Settings, context: __SerdeContext): any => {
   return {
-    ...(input.Bitrate !== undefined && { bitrate: input.Bitrate }),
-    ...(input.FramerateControl !== undefined && { framerateControl: input.FramerateControl }),
-    ...(input.FramerateConversionAlgorithm !== undefined && {
-      framerateConversionAlgorithm: input.FramerateConversionAlgorithm,
-    }),
-    ...(input.FramerateDenominator !== undefined && { framerateDenominator: input.FramerateDenominator }),
-    ...(input.FramerateNumerator !== undefined && { framerateNumerator: input.FramerateNumerator }),
-    ...(input.GopSize !== undefined && { gopSize: input.GopSize }),
-    ...(input.HrdBufferSize !== undefined && { hrdBufferSize: input.HrdBufferSize }),
-    ...(input.MaxBitrate !== undefined && { maxBitrate: input.MaxBitrate }),
-    ...(input.ParControl !== undefined && { parControl: input.ParControl }),
-    ...(input.ParDenominator !== undefined && { parDenominator: input.ParDenominator }),
-    ...(input.ParNumerator !== undefined && { parNumerator: input.ParNumerator }),
-    ...(input.QualityTuningLevel !== undefined && { qualityTuningLevel: input.QualityTuningLevel }),
-    ...(input.RateControlMode !== undefined && { rateControlMode: input.RateControlMode }),
+    ...(input.Bitrate !== undefined && input.Bitrate !== null && { bitrate: input.Bitrate }),
+    ...(input.FramerateControl !== undefined &&
+      input.FramerateControl !== null && { framerateControl: input.FramerateControl }),
+    ...(input.FramerateConversionAlgorithm !== undefined &&
+      input.FramerateConversionAlgorithm !== null && {
+        framerateConversionAlgorithm: input.FramerateConversionAlgorithm,
+      }),
+    ...(input.FramerateDenominator !== undefined &&
+      input.FramerateDenominator !== null && { framerateDenominator: input.FramerateDenominator }),
+    ...(input.FramerateNumerator !== undefined &&
+      input.FramerateNumerator !== null && { framerateNumerator: input.FramerateNumerator }),
+    ...(input.GopSize !== undefined && input.GopSize !== null && { gopSize: input.GopSize }),
+    ...(input.HrdBufferSize !== undefined && input.HrdBufferSize !== null && { hrdBufferSize: input.HrdBufferSize }),
+    ...(input.MaxBitrate !== undefined && input.MaxBitrate !== null && { maxBitrate: input.MaxBitrate }),
+    ...(input.ParControl !== undefined && input.ParControl !== null && { parControl: input.ParControl }),
+    ...(input.ParDenominator !== undefined &&
+      input.ParDenominator !== null && { parDenominator: input.ParDenominator }),
+    ...(input.ParNumerator !== undefined && input.ParNumerator !== null && { parNumerator: input.ParNumerator }),
+    ...(input.QualityTuningLevel !== undefined &&
+      input.QualityTuningLevel !== null && { qualityTuningLevel: input.QualityTuningLevel }),
+    ...(input.RateControlMode !== undefined &&
+      input.RateControlMode !== null && { rateControlMode: input.RateControlMode }),
   };
 };
 
 const serializeAws_restJson1Vp9Settings = (input: Vp9Settings, context: __SerdeContext): any => {
   return {
-    ...(input.Bitrate !== undefined && { bitrate: input.Bitrate }),
-    ...(input.FramerateControl !== undefined && { framerateControl: input.FramerateControl }),
-    ...(input.FramerateConversionAlgorithm !== undefined && {
-      framerateConversionAlgorithm: input.FramerateConversionAlgorithm,
-    }),
-    ...(input.FramerateDenominator !== undefined && { framerateDenominator: input.FramerateDenominator }),
-    ...(input.FramerateNumerator !== undefined && { framerateNumerator: input.FramerateNumerator }),
-    ...(input.GopSize !== undefined && { gopSize: input.GopSize }),
-    ...(input.HrdBufferSize !== undefined && { hrdBufferSize: input.HrdBufferSize }),
-    ...(input.MaxBitrate !== undefined && { maxBitrate: input.MaxBitrate }),
-    ...(input.ParControl !== undefined && { parControl: input.ParControl }),
-    ...(input.ParDenominator !== undefined && { parDenominator: input.ParDenominator }),
-    ...(input.ParNumerator !== undefined && { parNumerator: input.ParNumerator }),
-    ...(input.QualityTuningLevel !== undefined && { qualityTuningLevel: input.QualityTuningLevel }),
-    ...(input.RateControlMode !== undefined && { rateControlMode: input.RateControlMode }),
+    ...(input.Bitrate !== undefined && input.Bitrate !== null && { bitrate: input.Bitrate }),
+    ...(input.FramerateControl !== undefined &&
+      input.FramerateControl !== null && { framerateControl: input.FramerateControl }),
+    ...(input.FramerateConversionAlgorithm !== undefined &&
+      input.FramerateConversionAlgorithm !== null && {
+        framerateConversionAlgorithm: input.FramerateConversionAlgorithm,
+      }),
+    ...(input.FramerateDenominator !== undefined &&
+      input.FramerateDenominator !== null && { framerateDenominator: input.FramerateDenominator }),
+    ...(input.FramerateNumerator !== undefined &&
+      input.FramerateNumerator !== null && { framerateNumerator: input.FramerateNumerator }),
+    ...(input.GopSize !== undefined && input.GopSize !== null && { gopSize: input.GopSize }),
+    ...(input.HrdBufferSize !== undefined && input.HrdBufferSize !== null && { hrdBufferSize: input.HrdBufferSize }),
+    ...(input.MaxBitrate !== undefined && input.MaxBitrate !== null && { maxBitrate: input.MaxBitrate }),
+    ...(input.ParControl !== undefined && input.ParControl !== null && { parControl: input.ParControl }),
+    ...(input.ParDenominator !== undefined &&
+      input.ParDenominator !== null && { parDenominator: input.ParDenominator }),
+    ...(input.ParNumerator !== undefined && input.ParNumerator !== null && { parNumerator: input.ParNumerator }),
+    ...(input.QualityTuningLevel !== undefined &&
+      input.QualityTuningLevel !== null && { qualityTuningLevel: input.QualityTuningLevel }),
+    ...(input.RateControlMode !== undefined &&
+      input.RateControlMode !== null && { rateControlMode: input.RateControlMode }),
   };
 };
 
 const serializeAws_restJson1WavSettings = (input: WavSettings, context: __SerdeContext): any => {
   return {
-    ...(input.BitDepth !== undefined && { bitDepth: input.BitDepth }),
-    ...(input.Channels !== undefined && { channels: input.Channels }),
-    ...(input.Format !== undefined && { format: input.Format }),
-    ...(input.SampleRate !== undefined && { sampleRate: input.SampleRate }),
+    ...(input.BitDepth !== undefined && input.BitDepth !== null && { bitDepth: input.BitDepth }),
+    ...(input.Channels !== undefined && input.Channels !== null && { channels: input.Channels }),
+    ...(input.Format !== undefined && input.Format !== null && { format: input.Format }),
+    ...(input.SampleRate !== undefined && input.SampleRate !== null && { sampleRate: input.SampleRate }),
   };
 };
 
 const deserializeAws_restJson1__listOf__integerMin1Max2147483647 = (output: any, context: __SerdeContext): number[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1__listOf__integerMin32Max8182 = (output: any, context: __SerdeContext): number[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1__listOf__integerMinNegative60Max6 = (output: any, context: __SerdeContext): number[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1__listOf__stringMin1 = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1__listOf__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12 = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1__listOf__stringPattern09aFAF809aFAF409aFAF409aFAF409aFAF12 = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1__listOf__stringPatternS3ASSETMAPXml = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1__listOfAudioDescription = (output: any, context: __SerdeContext): AudioDescription[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1AudioDescription(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AudioDescription(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfCaptionDescription = (
   output: any,
   context: __SerdeContext
 ): CaptionDescription[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1CaptionDescription(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CaptionDescription(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfCaptionDescriptionPreset = (
   output: any,
   context: __SerdeContext
 ): CaptionDescriptionPreset[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1CaptionDescriptionPreset(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CaptionDescriptionPreset(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfCmafAdditionalManifest = (
   output: any,
   context: __SerdeContext
 ): CmafAdditionalManifest[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1CmafAdditionalManifest(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CmafAdditionalManifest(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfDashAdditionalManifest = (
   output: any,
   context: __SerdeContext
 ): DashAdditionalManifest[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1DashAdditionalManifest(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DashAdditionalManifest(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfEndpoint = (output: any, context: __SerdeContext): Endpoint[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Endpoint(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Endpoint(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfHlsAdditionalManifest = (
   output: any,
   context: __SerdeContext
 ): HlsAdditionalManifest[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1HlsAdditionalManifest(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1HlsAdditionalManifest(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfHlsAdMarkers = (
   output: any,
   context: __SerdeContext
 ): (HlsAdMarkers | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1__listOfHlsCaptionLanguageMapping = (
   output: any,
   context: __SerdeContext
 ): HlsCaptionLanguageMapping[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1HlsCaptionLanguageMapping(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1HlsCaptionLanguageMapping(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfHopDestination = (output: any, context: __SerdeContext): HopDestination[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1HopDestination(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1HopDestination(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfId3Insertion = (output: any, context: __SerdeContext): Id3Insertion[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Id3Insertion(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Id3Insertion(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfInput = (output: any, context: __SerdeContext): Input[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Input(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Input(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfInputClipping = (output: any, context: __SerdeContext): InputClipping[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1InputClipping(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1InputClipping(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfInputTemplate = (output: any, context: __SerdeContext): InputTemplate[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1InputTemplate(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1InputTemplate(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfInsertableImage = (output: any, context: __SerdeContext): InsertableImage[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1InsertableImage(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1InsertableImage(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfJob = (output: any, context: __SerdeContext): Job[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Job(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Job(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfJobTemplate = (output: any, context: __SerdeContext): JobTemplate[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1JobTemplate(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1JobTemplate(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfMsSmoothAdditionalManifest = (
   output: any,
   context: __SerdeContext
 ): MsSmoothAdditionalManifest[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1MsSmoothAdditionalManifest(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MsSmoothAdditionalManifest(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfOutput = (output: any, context: __SerdeContext): Output[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Output(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Output(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfOutputChannelMapping = (
   output: any,
   context: __SerdeContext
 ): OutputChannelMapping[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1OutputChannelMapping(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1OutputChannelMapping(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfOutputDetail = (output: any, context: __SerdeContext): OutputDetail[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1OutputDetail(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1OutputDetail(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfOutputGroup = (output: any, context: __SerdeContext): OutputGroup[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1OutputGroup(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1OutputGroup(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfOutputGroupDetail = (
   output: any,
   context: __SerdeContext
 ): OutputGroupDetail[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1OutputGroupDetail(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1OutputGroupDetail(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfPreset = (output: any, context: __SerdeContext): Preset[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Preset(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Preset(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfQueue = (output: any, context: __SerdeContext): Queue[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Queue(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Queue(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfQueueTransition = (output: any, context: __SerdeContext): QueueTransition[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1QueueTransition(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1QueueTransition(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfTeletextPageType = (
   output: any,
   context: __SerdeContext
 ): (TeletextPageType | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1__mapOfAudioSelector = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: AudioSelector } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: AudioSelector }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: AudioSelector }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: deserializeAws_restJson1AudioSelector(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1__mapOfAudioSelectorGroup = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: AudioSelectorGroup } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: AudioSelectorGroup }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: AudioSelectorGroup }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: deserializeAws_restJson1AudioSelectorGroup(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1__mapOfCaptionSelector = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: CaptionSelector } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: CaptionSelector }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: CaptionSelector }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: deserializeAws_restJson1CaptionSelector(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1AacSettings = (output: any, context: __SerdeContext): AacSettings => {
@@ -9068,6 +9871,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

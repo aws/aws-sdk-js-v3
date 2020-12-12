@@ -131,7 +131,7 @@ export const serializeAws_json1_1AddTagsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudTrail_20131101.AddTags",
   };
   let body: any;
@@ -144,7 +144,7 @@ export const serializeAws_json1_1CreateTrailCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudTrail_20131101.CreateTrail",
   };
   let body: any;
@@ -157,7 +157,7 @@ export const serializeAws_json1_1DeleteTrailCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudTrail_20131101.DeleteTrail",
   };
   let body: any;
@@ -170,7 +170,7 @@ export const serializeAws_json1_1DescribeTrailsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudTrail_20131101.DescribeTrails",
   };
   let body: any;
@@ -183,7 +183,7 @@ export const serializeAws_json1_1GetEventSelectorsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudTrail_20131101.GetEventSelectors",
   };
   let body: any;
@@ -196,7 +196,7 @@ export const serializeAws_json1_1GetInsightSelectorsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudTrail_20131101.GetInsightSelectors",
   };
   let body: any;
@@ -209,7 +209,7 @@ export const serializeAws_json1_1GetTrailCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudTrail_20131101.GetTrail",
   };
   let body: any;
@@ -222,7 +222,7 @@ export const serializeAws_json1_1GetTrailStatusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudTrail_20131101.GetTrailStatus",
   };
   let body: any;
@@ -235,7 +235,7 @@ export const serializeAws_json1_1ListPublicKeysCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudTrail_20131101.ListPublicKeys",
   };
   let body: any;
@@ -248,7 +248,7 @@ export const serializeAws_json1_1ListTagsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudTrail_20131101.ListTags",
   };
   let body: any;
@@ -261,7 +261,7 @@ export const serializeAws_json1_1ListTrailsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudTrail_20131101.ListTrails",
   };
   let body: any;
@@ -274,7 +274,7 @@ export const serializeAws_json1_1LookupEventsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudTrail_20131101.LookupEvents",
   };
   let body: any;
@@ -287,7 +287,7 @@ export const serializeAws_json1_1PutEventSelectorsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudTrail_20131101.PutEventSelectors",
   };
   let body: any;
@@ -300,7 +300,7 @@ export const serializeAws_json1_1PutInsightSelectorsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudTrail_20131101.PutInsightSelectors",
   };
   let body: any;
@@ -313,7 +313,7 @@ export const serializeAws_json1_1RemoveTagsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudTrail_20131101.RemoveTags",
   };
   let body: any;
@@ -326,7 +326,7 @@ export const serializeAws_json1_1StartLoggingCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudTrail_20131101.StartLogging",
   };
   let body: any;
@@ -339,7 +339,7 @@ export const serializeAws_json1_1StopLoggingCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudTrail_20131101.StopLogging",
   };
   let body: any;
@@ -352,7 +352,7 @@ export const serializeAws_json1_1UpdateTrailCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudTrail_20131101.UpdateTrail",
   };
   let body: any;
@@ -387,8 +387,7 @@ const deserializeAws_json1_1AddTagsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudTrailARNInvalidException":
     case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
@@ -506,8 +505,7 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudTrailAccessNotEnabledException":
     case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
@@ -780,8 +778,7 @@ const deserializeAws_json1_1DeleteTrailCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
@@ -886,8 +883,7 @@ const deserializeAws_json1_1DescribeTrailsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
@@ -957,8 +953,7 @@ const deserializeAws_json1_1GetEventSelectorsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
@@ -1036,8 +1031,7 @@ const deserializeAws_json1_1GetInsightSelectorsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsightNotEnabledException":
     case "com.amazonaws.cloudtrail#InsightNotEnabledException":
@@ -1123,8 +1117,7 @@ const deserializeAws_json1_1GetTrailCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
@@ -1202,8 +1195,7 @@ const deserializeAws_json1_1GetTrailStatusCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
@@ -1281,8 +1273,7 @@ const deserializeAws_json1_1ListPublicKeysCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidTimeRangeException":
     case "com.amazonaws.cloudtrail#InvalidTimeRangeException":
@@ -1360,8 +1351,7 @@ const deserializeAws_json1_1ListTagsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudTrailARNInvalidException":
     case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
@@ -1463,8 +1453,7 @@ const deserializeAws_json1_1ListTrailsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
@@ -1526,8 +1515,7 @@ const deserializeAws_json1_1LookupEventsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidEventCategoryException":
     case "com.amazonaws.cloudtrail#InvalidEventCategoryException":
@@ -1629,8 +1617,7 @@ const deserializeAws_json1_1PutEventSelectorsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
@@ -1743,8 +1730,7 @@ const deserializeAws_json1_1PutInsightSelectorsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientEncryptionPolicyException":
     case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
@@ -1862,8 +1848,7 @@ const deserializeAws_json1_1RemoveTagsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudTrailARNInvalidException":
     case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
@@ -1973,8 +1958,7 @@ const deserializeAws_json1_1StartLoggingCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
@@ -2079,8 +2063,7 @@ const deserializeAws_json1_1StopLoggingCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
@@ -2185,8 +2168,7 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudTrailAccessNotEnabledException":
     case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
@@ -3079,115 +3061,172 @@ const deserializeAws_json1_1UnsupportedOperationExceptionResponse = async (
 
 const serializeAws_json1_1AddTagsRequest = (input: AddTagsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.TagsList !== undefined && { TagsList: serializeAws_json1_1TagsList(input.TagsList, context) }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.TagsList !== undefined &&
+      input.TagsList !== null && { TagsList: serializeAws_json1_1TagsList(input.TagsList, context) }),
   };
 };
 
 const serializeAws_json1_1AdvancedEventSelector = (input: AdvancedEventSelector, context: __SerdeContext): any => {
   return {
-    ...(input.FieldSelectors !== undefined && {
-      FieldSelectors: serializeAws_json1_1AdvancedFieldSelectors(input.FieldSelectors, context),
-    }),
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.FieldSelectors !== undefined &&
+      input.FieldSelectors !== null && {
+        FieldSelectors: serializeAws_json1_1AdvancedFieldSelectors(input.FieldSelectors, context),
+      }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   };
 };
 
 const serializeAws_json1_1AdvancedEventSelectors = (input: AdvancedEventSelector[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1AdvancedEventSelector(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1AdvancedEventSelector(entry, context);
+    });
 };
 
 const serializeAws_json1_1AdvancedFieldSelector = (input: AdvancedFieldSelector, context: __SerdeContext): any => {
   return {
-    ...(input.EndsWith !== undefined && { EndsWith: serializeAws_json1_1Operator(input.EndsWith, context) }),
-    ...(input.Equals !== undefined && { Equals: serializeAws_json1_1Operator(input.Equals, context) }),
-    ...(input.Field !== undefined && { Field: input.Field }),
-    ...(input.NotEndsWith !== undefined && { NotEndsWith: serializeAws_json1_1Operator(input.NotEndsWith, context) }),
-    ...(input.NotEquals !== undefined && { NotEquals: serializeAws_json1_1Operator(input.NotEquals, context) }),
-    ...(input.NotStartsWith !== undefined && {
-      NotStartsWith: serializeAws_json1_1Operator(input.NotStartsWith, context),
-    }),
-    ...(input.StartsWith !== undefined && { StartsWith: serializeAws_json1_1Operator(input.StartsWith, context) }),
+    ...(input.EndsWith !== undefined &&
+      input.EndsWith !== null && { EndsWith: serializeAws_json1_1Operator(input.EndsWith, context) }),
+    ...(input.Equals !== undefined &&
+      input.Equals !== null && { Equals: serializeAws_json1_1Operator(input.Equals, context) }),
+    ...(input.Field !== undefined && input.Field !== null && { Field: input.Field }),
+    ...(input.NotEndsWith !== undefined &&
+      input.NotEndsWith !== null && { NotEndsWith: serializeAws_json1_1Operator(input.NotEndsWith, context) }),
+    ...(input.NotEquals !== undefined &&
+      input.NotEquals !== null && { NotEquals: serializeAws_json1_1Operator(input.NotEquals, context) }),
+    ...(input.NotStartsWith !== undefined &&
+      input.NotStartsWith !== null && { NotStartsWith: serializeAws_json1_1Operator(input.NotStartsWith, context) }),
+    ...(input.StartsWith !== undefined &&
+      input.StartsWith !== null && { StartsWith: serializeAws_json1_1Operator(input.StartsWith, context) }),
   };
 };
 
 const serializeAws_json1_1AdvancedFieldSelectors = (input: AdvancedFieldSelector[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1AdvancedFieldSelector(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1AdvancedFieldSelector(entry, context);
+    });
 };
 
 const serializeAws_json1_1CreateTrailRequest = (input: CreateTrailRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CloudWatchLogsLogGroupArn !== undefined && {
-      CloudWatchLogsLogGroupArn: input.CloudWatchLogsLogGroupArn,
-    }),
-    ...(input.CloudWatchLogsRoleArn !== undefined && { CloudWatchLogsRoleArn: input.CloudWatchLogsRoleArn }),
-    ...(input.EnableLogFileValidation !== undefined && { EnableLogFileValidation: input.EnableLogFileValidation }),
-    ...(input.IncludeGlobalServiceEvents !== undefined && {
-      IncludeGlobalServiceEvents: input.IncludeGlobalServiceEvents,
-    }),
-    ...(input.IsMultiRegionTrail !== undefined && { IsMultiRegionTrail: input.IsMultiRegionTrail }),
-    ...(input.IsOrganizationTrail !== undefined && { IsOrganizationTrail: input.IsOrganizationTrail }),
-    ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.S3BucketName !== undefined && { S3BucketName: input.S3BucketName }),
-    ...(input.S3KeyPrefix !== undefined && { S3KeyPrefix: input.S3KeyPrefix }),
-    ...(input.SnsTopicName !== undefined && { SnsTopicName: input.SnsTopicName }),
-    ...(input.TagsList !== undefined && { TagsList: serializeAws_json1_1TagsList(input.TagsList, context) }),
+    ...(input.CloudWatchLogsLogGroupArn !== undefined &&
+      input.CloudWatchLogsLogGroupArn !== null && { CloudWatchLogsLogGroupArn: input.CloudWatchLogsLogGroupArn }),
+    ...(input.CloudWatchLogsRoleArn !== undefined &&
+      input.CloudWatchLogsRoleArn !== null && { CloudWatchLogsRoleArn: input.CloudWatchLogsRoleArn }),
+    ...(input.EnableLogFileValidation !== undefined &&
+      input.EnableLogFileValidation !== null && { EnableLogFileValidation: input.EnableLogFileValidation }),
+    ...(input.IncludeGlobalServiceEvents !== undefined &&
+      input.IncludeGlobalServiceEvents !== null && { IncludeGlobalServiceEvents: input.IncludeGlobalServiceEvents }),
+    ...(input.IsMultiRegionTrail !== undefined &&
+      input.IsMultiRegionTrail !== null && { IsMultiRegionTrail: input.IsMultiRegionTrail }),
+    ...(input.IsOrganizationTrail !== undefined &&
+      input.IsOrganizationTrail !== null && { IsOrganizationTrail: input.IsOrganizationTrail }),
+    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.S3BucketName !== undefined && input.S3BucketName !== null && { S3BucketName: input.S3BucketName }),
+    ...(input.S3KeyPrefix !== undefined && input.S3KeyPrefix !== null && { S3KeyPrefix: input.S3KeyPrefix }),
+    ...(input.SnsTopicName !== undefined && input.SnsTopicName !== null && { SnsTopicName: input.SnsTopicName }),
+    ...(input.TagsList !== undefined &&
+      input.TagsList !== null && { TagsList: serializeAws_json1_1TagsList(input.TagsList, context) }),
   };
 };
 
 const serializeAws_json1_1DataResource = (input: DataResource, context: __SerdeContext): any => {
   return {
-    ...(input.Type !== undefined && { Type: input.Type }),
-    ...(input.Values !== undefined && { Values: serializeAws_json1_1DataResourceValues(input.Values, context) }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.Values !== undefined &&
+      input.Values !== null && { Values: serializeAws_json1_1DataResourceValues(input.Values, context) }),
   };
 };
 
 const serializeAws_json1_1DataResources = (input: DataResource[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1DataResource(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1DataResource(entry, context);
+    });
 };
 
 const serializeAws_json1_1DataResourceValues = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1DeleteTrailRequest = (input: DeleteTrailRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   };
 };
 
 const serializeAws_json1_1DescribeTrailsRequest = (input: DescribeTrailsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.includeShadowTrails !== undefined && { includeShadowTrails: input.includeShadowTrails }),
-    ...(input.trailNameList !== undefined && {
-      trailNameList: serializeAws_json1_1TrailNameList(input.trailNameList, context),
-    }),
+    ...(input.includeShadowTrails !== undefined &&
+      input.includeShadowTrails !== null && { includeShadowTrails: input.includeShadowTrails }),
+    ...(input.trailNameList !== undefined &&
+      input.trailNameList !== null && {
+        trailNameList: serializeAws_json1_1TrailNameList(input.trailNameList, context),
+      }),
   };
 };
 
 const serializeAws_json1_1EventSelector = (input: EventSelector, context: __SerdeContext): any => {
   return {
-    ...(input.DataResources !== undefined && {
-      DataResources: serializeAws_json1_1DataResources(input.DataResources, context),
-    }),
-    ...(input.ExcludeManagementEventSources !== undefined && {
-      ExcludeManagementEventSources: serializeAws_json1_1ExcludeManagementEventSources(
-        input.ExcludeManagementEventSources,
-        context
-      ),
-    }),
-    ...(input.IncludeManagementEvents !== undefined && { IncludeManagementEvents: input.IncludeManagementEvents }),
-    ...(input.ReadWriteType !== undefined && { ReadWriteType: input.ReadWriteType }),
+    ...(input.DataResources !== undefined &&
+      input.DataResources !== null && {
+        DataResources: serializeAws_json1_1DataResources(input.DataResources, context),
+      }),
+    ...(input.ExcludeManagementEventSources !== undefined &&
+      input.ExcludeManagementEventSources !== null && {
+        ExcludeManagementEventSources: serializeAws_json1_1ExcludeManagementEventSources(
+          input.ExcludeManagementEventSources,
+          context
+        ),
+      }),
+    ...(input.IncludeManagementEvents !== undefined &&
+      input.IncludeManagementEvents !== null && { IncludeManagementEvents: input.IncludeManagementEvents }),
+    ...(input.ReadWriteType !== undefined && input.ReadWriteType !== null && { ReadWriteType: input.ReadWriteType }),
   };
 };
 
 const serializeAws_json1_1EventSelectors = (input: EventSelector[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1EventSelector(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1EventSelector(entry, context);
+    });
 };
 
 const serializeAws_json1_1ExcludeManagementEventSources = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1GetEventSelectorsRequest = (
@@ -3195,7 +3234,7 @@ const serializeAws_json1_1GetEventSelectorsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.TrailName !== undefined && { TrailName: input.TrailName }),
+    ...(input.TrailName !== undefined && input.TrailName !== null && { TrailName: input.TrailName }),
   };
 };
 
@@ -3204,81 +3243,109 @@ const serializeAws_json1_1GetInsightSelectorsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.TrailName !== undefined && { TrailName: input.TrailName }),
+    ...(input.TrailName !== undefined && input.TrailName !== null && { TrailName: input.TrailName }),
   };
 };
 
 const serializeAws_json1_1GetTrailRequest = (input: GetTrailRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   };
 };
 
 const serializeAws_json1_1GetTrailStatusRequest = (input: GetTrailStatusRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   };
 };
 
 const serializeAws_json1_1InsightSelector = (input: InsightSelector, context: __SerdeContext): any => {
   return {
-    ...(input.InsightType !== undefined && { InsightType: input.InsightType }),
+    ...(input.InsightType !== undefined && input.InsightType !== null && { InsightType: input.InsightType }),
   };
 };
 
 const serializeAws_json1_1InsightSelectors = (input: InsightSelector[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1InsightSelector(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1InsightSelector(entry, context);
+    });
 };
 
 const serializeAws_json1_1ListPublicKeysRequest = (input: ListPublicKeysRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EndTime !== undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.StartTime !== undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+    ...(input.EndTime !== undefined &&
+      input.EndTime !== null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.StartTime !== undefined &&
+      input.StartTime !== null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
 const serializeAws_json1_1ListTagsRequest = (input: ListTagsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceIdList !== undefined && {
-      ResourceIdList: serializeAws_json1_1ResourceIdList(input.ResourceIdList, context),
-    }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ResourceIdList !== undefined &&
+      input.ResourceIdList !== null && {
+        ResourceIdList: serializeAws_json1_1ResourceIdList(input.ResourceIdList, context),
+      }),
   };
 };
 
 const serializeAws_json1_1ListTrailsRequest = (input: ListTrailsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1LookupAttribute = (input: LookupAttribute, context: __SerdeContext): any => {
   return {
-    ...(input.AttributeKey !== undefined && { AttributeKey: input.AttributeKey }),
-    ...(input.AttributeValue !== undefined && { AttributeValue: input.AttributeValue }),
+    ...(input.AttributeKey !== undefined && input.AttributeKey !== null && { AttributeKey: input.AttributeKey }),
+    ...(input.AttributeValue !== undefined &&
+      input.AttributeValue !== null && { AttributeValue: input.AttributeValue }),
   };
 };
 
 const serializeAws_json1_1LookupAttributesList = (input: LookupAttribute[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1LookupAttribute(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1LookupAttribute(entry, context);
+    });
 };
 
 const serializeAws_json1_1LookupEventsRequest = (input: LookupEventsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EndTime !== undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.EventCategory !== undefined && { EventCategory: input.EventCategory }),
-    ...(input.LookupAttributes !== undefined && {
-      LookupAttributes: serializeAws_json1_1LookupAttributesList(input.LookupAttributes, context),
-    }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.StartTime !== undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+    ...(input.EndTime !== undefined &&
+      input.EndTime !== null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.EventCategory !== undefined && input.EventCategory !== null && { EventCategory: input.EventCategory }),
+    ...(input.LookupAttributes !== undefined &&
+      input.LookupAttributes !== null && {
+        LookupAttributes: serializeAws_json1_1LookupAttributesList(input.LookupAttributes, context),
+      }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.StartTime !== undefined &&
+      input.StartTime !== null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
 const serializeAws_json1_1Operator = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1PutEventSelectorsRequest = (
@@ -3286,13 +3353,15 @@ const serializeAws_json1_1PutEventSelectorsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AdvancedEventSelectors !== undefined && {
-      AdvancedEventSelectors: serializeAws_json1_1AdvancedEventSelectors(input.AdvancedEventSelectors, context),
-    }),
-    ...(input.EventSelectors !== undefined && {
-      EventSelectors: serializeAws_json1_1EventSelectors(input.EventSelectors, context),
-    }),
-    ...(input.TrailName !== undefined && { TrailName: input.TrailName }),
+    ...(input.AdvancedEventSelectors !== undefined &&
+      input.AdvancedEventSelectors !== null && {
+        AdvancedEventSelectors: serializeAws_json1_1AdvancedEventSelectors(input.AdvancedEventSelectors, context),
+      }),
+    ...(input.EventSelectors !== undefined &&
+      input.EventSelectors !== null && {
+        EventSelectors: serializeAws_json1_1EventSelectors(input.EventSelectors, context),
+      }),
+    ...(input.TrailName !== undefined && input.TrailName !== null && { TrailName: input.TrailName }),
   };
 };
 
@@ -3301,68 +3370,93 @@ const serializeAws_json1_1PutInsightSelectorsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InsightSelectors !== undefined && {
-      InsightSelectors: serializeAws_json1_1InsightSelectors(input.InsightSelectors, context),
-    }),
-    ...(input.TrailName !== undefined && { TrailName: input.TrailName }),
+    ...(input.InsightSelectors !== undefined &&
+      input.InsightSelectors !== null && {
+        InsightSelectors: serializeAws_json1_1InsightSelectors(input.InsightSelectors, context),
+      }),
+    ...(input.TrailName !== undefined && input.TrailName !== null && { TrailName: input.TrailName }),
   };
 };
 
 const serializeAws_json1_1RemoveTagsRequest = (input: RemoveTagsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.TagsList !== undefined && { TagsList: serializeAws_json1_1TagsList(input.TagsList, context) }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.TagsList !== undefined &&
+      input.TagsList !== null && { TagsList: serializeAws_json1_1TagsList(input.TagsList, context) }),
   };
 };
 
 const serializeAws_json1_1ResourceIdList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1StartLoggingRequest = (input: StartLoggingRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   };
 };
 
 const serializeAws_json1_1StopLoggingRequest = (input: StopLoggingRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1TagsList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const serializeAws_json1_1TrailNameList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1UpdateTrailRequest = (input: UpdateTrailRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CloudWatchLogsLogGroupArn !== undefined && {
-      CloudWatchLogsLogGroupArn: input.CloudWatchLogsLogGroupArn,
-    }),
-    ...(input.CloudWatchLogsRoleArn !== undefined && { CloudWatchLogsRoleArn: input.CloudWatchLogsRoleArn }),
-    ...(input.EnableLogFileValidation !== undefined && { EnableLogFileValidation: input.EnableLogFileValidation }),
-    ...(input.IncludeGlobalServiceEvents !== undefined && {
-      IncludeGlobalServiceEvents: input.IncludeGlobalServiceEvents,
-    }),
-    ...(input.IsMultiRegionTrail !== undefined && { IsMultiRegionTrail: input.IsMultiRegionTrail }),
-    ...(input.IsOrganizationTrail !== undefined && { IsOrganizationTrail: input.IsOrganizationTrail }),
-    ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.S3BucketName !== undefined && { S3BucketName: input.S3BucketName }),
-    ...(input.S3KeyPrefix !== undefined && { S3KeyPrefix: input.S3KeyPrefix }),
-    ...(input.SnsTopicName !== undefined && { SnsTopicName: input.SnsTopicName }),
+    ...(input.CloudWatchLogsLogGroupArn !== undefined &&
+      input.CloudWatchLogsLogGroupArn !== null && { CloudWatchLogsLogGroupArn: input.CloudWatchLogsLogGroupArn }),
+    ...(input.CloudWatchLogsRoleArn !== undefined &&
+      input.CloudWatchLogsRoleArn !== null && { CloudWatchLogsRoleArn: input.CloudWatchLogsRoleArn }),
+    ...(input.EnableLogFileValidation !== undefined &&
+      input.EnableLogFileValidation !== null && { EnableLogFileValidation: input.EnableLogFileValidation }),
+    ...(input.IncludeGlobalServiceEvents !== undefined &&
+      input.IncludeGlobalServiceEvents !== null && { IncludeGlobalServiceEvents: input.IncludeGlobalServiceEvents }),
+    ...(input.IsMultiRegionTrail !== undefined &&
+      input.IsMultiRegionTrail !== null && { IsMultiRegionTrail: input.IsMultiRegionTrail }),
+    ...(input.IsOrganizationTrail !== undefined &&
+      input.IsOrganizationTrail !== null && { IsOrganizationTrail: input.IsOrganizationTrail }),
+    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.S3BucketName !== undefined && input.S3BucketName !== null && { S3BucketName: input.S3BucketName }),
+    ...(input.S3KeyPrefix !== undefined && input.S3KeyPrefix !== null && { S3KeyPrefix: input.S3KeyPrefix }),
+    ...(input.SnsTopicName !== undefined && input.SnsTopicName !== null && { SnsTopicName: input.SnsTopicName }),
   };
 };
 
@@ -3384,7 +3478,14 @@ const deserializeAws_json1_1AdvancedEventSelectors = (
   output: any,
   context: __SerdeContext
 ): AdvancedEventSelector[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1AdvancedEventSelector(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AdvancedEventSelector(entry, context);
+    });
 };
 
 const deserializeAws_json1_1AdvancedFieldSelector = (output: any, context: __SerdeContext): AdvancedFieldSelector => {
@@ -3421,7 +3522,14 @@ const deserializeAws_json1_1AdvancedFieldSelectors = (
   output: any,
   context: __SerdeContext
 ): AdvancedFieldSelector[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1AdvancedFieldSelector(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AdvancedFieldSelector(entry, context);
+    });
 };
 
 const deserializeAws_json1_1CloudTrailAccessNotEnabledException = (
@@ -3507,11 +3615,25 @@ const deserializeAws_json1_1DataResource = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1DataResources = (output: any, context: __SerdeContext): DataResource[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DataResource(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DataResource(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DataResourceValues = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1DeleteTrailResponse = (output: any, context: __SerdeContext): DeleteTrailResponse => {
@@ -3568,15 +3690,36 @@ const deserializeAws_json1_1EventSelector = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1EventSelectors = (output: any, context: __SerdeContext): EventSelector[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1EventSelector(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EventSelector(entry, context);
+    });
 };
 
 const deserializeAws_json1_1EventsList = (output: any, context: __SerdeContext): Event[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Event(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Event(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ExcludeManagementEventSources = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1GetEventSelectorsResponse = (
@@ -3704,7 +3847,14 @@ const deserializeAws_json1_1InsightSelector = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1InsightSelectors = (output: any, context: __SerdeContext): InsightSelector[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1InsightSelector(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1InsightSelector(entry, context);
+    });
 };
 
 const deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionException = (
@@ -3994,7 +4144,14 @@ const deserializeAws_json1_1OperationNotPermittedException = (
 };
 
 const deserializeAws_json1_1Operator = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1OrganizationNotInAllFeaturesModeException = (
@@ -4031,7 +4188,14 @@ const deserializeAws_json1_1PublicKey = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1PublicKeyList = (output: any, context: __SerdeContext): PublicKey[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1PublicKey(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1PublicKey(entry, context);
+    });
 };
 
 const deserializeAws_json1_1PutEventSelectorsResponse = (
@@ -4076,7 +4240,14 @@ const deserializeAws_json1_1Resource = (output: any, context: __SerdeContext): R
 };
 
 const deserializeAws_json1_1ResourceList = (output: any, context: __SerdeContext): Resource[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Resource(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Resource(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ResourceNotFoundException = (
@@ -4099,7 +4270,14 @@ const deserializeAws_json1_1ResourceTag = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1ResourceTagList = (output: any, context: __SerdeContext): ResourceTag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ResourceTag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ResourceTag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ResourceTypeNotSupportedException = (
@@ -4145,7 +4323,14 @@ const deserializeAws_json1_1TagsLimitExceededException = (
 };
 
 const deserializeAws_json1_1TagsList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Trail = (output: any, context: __SerdeContext): Trail => {
@@ -4211,7 +4396,14 @@ const deserializeAws_json1_1TrailInfo = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1TrailList = (output: any, context: __SerdeContext): Trail[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Trail(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Trail(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TrailNotFoundException = (output: any, context: __SerdeContext): TrailNotFoundException => {
@@ -4230,7 +4422,14 @@ const deserializeAws_json1_1TrailNotProvidedException = (
 };
 
 const deserializeAws_json1_1Trails = (output: any, context: __SerdeContext): TrailInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1TrailInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TrailInfo(entry, context);
+    });
 };
 
 const deserializeAws_json1_1UnsupportedOperationException = (
@@ -4328,3 +4527,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

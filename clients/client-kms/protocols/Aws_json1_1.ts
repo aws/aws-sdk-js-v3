@@ -226,7 +226,7 @@ export const serializeAws_json1_1CancelKeyDeletionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.CancelKeyDeletion",
   };
   let body: any;
@@ -239,7 +239,7 @@ export const serializeAws_json1_1ConnectCustomKeyStoreCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.ConnectCustomKeyStore",
   };
   let body: any;
@@ -252,7 +252,7 @@ export const serializeAws_json1_1CreateAliasCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.CreateAlias",
   };
   let body: any;
@@ -265,7 +265,7 @@ export const serializeAws_json1_1CreateCustomKeyStoreCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.CreateCustomKeyStore",
   };
   let body: any;
@@ -278,7 +278,7 @@ export const serializeAws_json1_1CreateGrantCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.CreateGrant",
   };
   let body: any;
@@ -291,7 +291,7 @@ export const serializeAws_json1_1CreateKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.CreateKey",
   };
   let body: any;
@@ -304,7 +304,7 @@ export const serializeAws_json1_1DecryptCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.Decrypt",
   };
   let body: any;
@@ -317,7 +317,7 @@ export const serializeAws_json1_1DeleteAliasCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.DeleteAlias",
   };
   let body: any;
@@ -330,7 +330,7 @@ export const serializeAws_json1_1DeleteCustomKeyStoreCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.DeleteCustomKeyStore",
   };
   let body: any;
@@ -343,7 +343,7 @@ export const serializeAws_json1_1DeleteImportedKeyMaterialCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.DeleteImportedKeyMaterial",
   };
   let body: any;
@@ -356,7 +356,7 @@ export const serializeAws_json1_1DescribeCustomKeyStoresCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.DescribeCustomKeyStores",
   };
   let body: any;
@@ -369,7 +369,7 @@ export const serializeAws_json1_1DescribeKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.DescribeKey",
   };
   let body: any;
@@ -382,7 +382,7 @@ export const serializeAws_json1_1DisableKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.DisableKey",
   };
   let body: any;
@@ -395,7 +395,7 @@ export const serializeAws_json1_1DisableKeyRotationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.DisableKeyRotation",
   };
   let body: any;
@@ -408,7 +408,7 @@ export const serializeAws_json1_1DisconnectCustomKeyStoreCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.DisconnectCustomKeyStore",
   };
   let body: any;
@@ -421,7 +421,7 @@ export const serializeAws_json1_1EnableKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.EnableKey",
   };
   let body: any;
@@ -434,7 +434,7 @@ export const serializeAws_json1_1EnableKeyRotationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.EnableKeyRotation",
   };
   let body: any;
@@ -447,7 +447,7 @@ export const serializeAws_json1_1EncryptCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.Encrypt",
   };
   let body: any;
@@ -460,7 +460,7 @@ export const serializeAws_json1_1GenerateDataKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.GenerateDataKey",
   };
   let body: any;
@@ -473,7 +473,7 @@ export const serializeAws_json1_1GenerateDataKeyPairCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.GenerateDataKeyPair",
   };
   let body: any;
@@ -486,7 +486,7 @@ export const serializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand = as
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.GenerateDataKeyPairWithoutPlaintext",
   };
   let body: any;
@@ -499,7 +499,7 @@ export const serializeAws_json1_1GenerateDataKeyWithoutPlaintextCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.GenerateDataKeyWithoutPlaintext",
   };
   let body: any;
@@ -512,7 +512,7 @@ export const serializeAws_json1_1GenerateRandomCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.GenerateRandom",
   };
   let body: any;
@@ -525,7 +525,7 @@ export const serializeAws_json1_1GetKeyPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.GetKeyPolicy",
   };
   let body: any;
@@ -538,7 +538,7 @@ export const serializeAws_json1_1GetKeyRotationStatusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.GetKeyRotationStatus",
   };
   let body: any;
@@ -551,7 +551,7 @@ export const serializeAws_json1_1GetParametersForImportCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.GetParametersForImport",
   };
   let body: any;
@@ -564,7 +564,7 @@ export const serializeAws_json1_1GetPublicKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.GetPublicKey",
   };
   let body: any;
@@ -577,7 +577,7 @@ export const serializeAws_json1_1ImportKeyMaterialCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.ImportKeyMaterial",
   };
   let body: any;
@@ -590,7 +590,7 @@ export const serializeAws_json1_1ListAliasesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.ListAliases",
   };
   let body: any;
@@ -603,7 +603,7 @@ export const serializeAws_json1_1ListGrantsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.ListGrants",
   };
   let body: any;
@@ -616,7 +616,7 @@ export const serializeAws_json1_1ListKeyPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.ListKeyPolicies",
   };
   let body: any;
@@ -629,7 +629,7 @@ export const serializeAws_json1_1ListKeysCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.ListKeys",
   };
   let body: any;
@@ -642,7 +642,7 @@ export const serializeAws_json1_1ListResourceTagsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.ListResourceTags",
   };
   let body: any;
@@ -655,7 +655,7 @@ export const serializeAws_json1_1ListRetirableGrantsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.ListRetirableGrants",
   };
   let body: any;
@@ -668,7 +668,7 @@ export const serializeAws_json1_1PutKeyPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.PutKeyPolicy",
   };
   let body: any;
@@ -681,7 +681,7 @@ export const serializeAws_json1_1ReEncryptCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.ReEncrypt",
   };
   let body: any;
@@ -694,7 +694,7 @@ export const serializeAws_json1_1RetireGrantCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.RetireGrant",
   };
   let body: any;
@@ -707,7 +707,7 @@ export const serializeAws_json1_1RevokeGrantCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.RevokeGrant",
   };
   let body: any;
@@ -720,7 +720,7 @@ export const serializeAws_json1_1ScheduleKeyDeletionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.ScheduleKeyDeletion",
   };
   let body: any;
@@ -733,7 +733,7 @@ export const serializeAws_json1_1SignCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.Sign",
   };
   let body: any;
@@ -746,7 +746,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.TagResource",
   };
   let body: any;
@@ -759,7 +759,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.UntagResource",
   };
   let body: any;
@@ -772,7 +772,7 @@ export const serializeAws_json1_1UpdateAliasCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.UpdateAlias",
   };
   let body: any;
@@ -785,7 +785,7 @@ export const serializeAws_json1_1UpdateCustomKeyStoreCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.UpdateCustomKeyStore",
   };
   let body: any;
@@ -798,7 +798,7 @@ export const serializeAws_json1_1UpdateKeyDescriptionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.UpdateKeyDescription",
   };
   let body: any;
@@ -811,7 +811,7 @@ export const serializeAws_json1_1VerifyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "TrentService.Verify",
   };
   let body: any;
@@ -846,8 +846,7 @@ const deserializeAws_json1_1CancelKeyDeletionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -933,8 +932,7 @@ const deserializeAws_json1_1ConnectCustomKeyStoreCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmClusterInvalidConfigurationException":
     case "com.amazonaws.kms#CloudHsmClusterInvalidConfigurationException":
@@ -1017,8 +1015,7 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.kms#AlreadyExistsException":
@@ -1120,8 +1117,7 @@ const deserializeAws_json1_1CreateCustomKeyStoreCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmClusterInUseException":
     case "com.amazonaws.kms#CloudHsmClusterInUseException":
@@ -1223,8 +1219,7 @@ const deserializeAws_json1_1CreateGrantCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -1334,8 +1329,7 @@ const deserializeAws_json1_1CreateKeyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmClusterInvalidConfigurationException":
     case "com.amazonaws.kms#CloudHsmClusterInvalidConfigurationException":
@@ -1461,8 +1455,7 @@ const deserializeAws_json1_1DecryptCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -1585,8 +1578,7 @@ const deserializeAws_json1_1DeleteAliasCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -1664,8 +1656,7 @@ const deserializeAws_json1_1DeleteCustomKeyStoreCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomKeyStoreHasCMKsException":
     case "com.amazonaws.kms#CustomKeyStoreHasCMKsException":
@@ -1740,8 +1731,7 @@ const deserializeAws_json1_1DeleteImportedKeyMaterialCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -1835,8 +1825,7 @@ const deserializeAws_json1_1DescribeCustomKeyStoresCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomKeyStoreNotFoundException":
     case "com.amazonaws.kms#CustomKeyStoreNotFoundException":
@@ -1898,8 +1887,7 @@ const deserializeAws_json1_1DescribeKeyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -1974,8 +1962,7 @@ const deserializeAws_json1_1DisableKeyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -2058,8 +2045,7 @@ const deserializeAws_json1_1DisableKeyRotationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -2161,8 +2147,7 @@ const deserializeAws_json1_1DisconnectCustomKeyStoreCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomKeyStoreInvalidStateException":
     case "com.amazonaws.kms#CustomKeyStoreInvalidStateException":
@@ -2229,8 +2214,7 @@ const deserializeAws_json1_1EnableKeyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -2321,8 +2305,7 @@ const deserializeAws_json1_1EnableKeyRotationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -2424,8 +2407,7 @@ const deserializeAws_json1_1EncryptCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -2535,8 +2517,7 @@ const deserializeAws_json1_1GenerateDataKeyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -2646,8 +2627,7 @@ const deserializeAws_json1_1GenerateDataKeyPairCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -2765,8 +2745,7 @@ const deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommandError = as
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -2884,8 +2863,7 @@ const deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommandError = async 
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -2995,8 +2973,7 @@ const deserializeAws_json1_1GenerateRandomCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomKeyStoreInvalidStateException":
     case "com.amazonaws.kms#CustomKeyStoreInvalidStateException":
@@ -3074,8 +3051,7 @@ const deserializeAws_json1_1GetKeyPolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -3161,8 +3137,7 @@ const deserializeAws_json1_1GetKeyRotationStatusCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -3256,8 +3231,7 @@ const deserializeAws_json1_1GetParametersForImportCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -3351,8 +3325,7 @@ const deserializeAws_json1_1GetPublicKeyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -3478,8 +3451,7 @@ const deserializeAws_json1_1ImportKeyMaterialCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -3605,8 +3577,7 @@ const deserializeAws_json1_1ListAliasesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -3692,8 +3663,7 @@ const deserializeAws_json1_1ListGrantsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -3787,8 +3757,7 @@ const deserializeAws_json1_1ListKeyPoliciesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -3874,8 +3843,7 @@ const deserializeAws_json1_1ListKeysCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -3945,8 +3913,7 @@ const deserializeAws_json1_1ListResourceTagsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
@@ -4024,8 +3991,7 @@ const deserializeAws_json1_1ListRetirableGrantsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -4108,8 +4074,7 @@ const deserializeAws_json1_1PutKeyPolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -4219,8 +4184,7 @@ const deserializeAws_json1_1ReEncryptCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -4343,8 +4307,7 @@ const deserializeAws_json1_1RetireGrantCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -4443,8 +4406,7 @@ const deserializeAws_json1_1RevokeGrantCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -4538,8 +4500,7 @@ const deserializeAws_json1_1ScheduleKeyDeletionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -4625,8 +4586,7 @@ const deserializeAws_json1_1SignCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -4733,8 +4693,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
@@ -4825,8 +4784,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
@@ -4909,8 +4867,7 @@ const deserializeAws_json1_1UpdateAliasCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -4996,8 +4953,7 @@ const deserializeAws_json1_1UpdateCustomKeyStoreCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmClusterInvalidConfigurationException":
     case "com.amazonaws.kms#CloudHsmClusterInvalidConfigurationException":
@@ -5104,8 +5060,7 @@ const deserializeAws_json1_1UpdateKeyDescriptionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -5191,8 +5146,7 @@ const deserializeAws_json1_1VerifyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
@@ -5783,7 +5737,7 @@ const serializeAws_json1_1CancelKeyDeletionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
   };
 };
 
@@ -5792,14 +5746,15 @@ const serializeAws_json1_1ConnectCustomKeyStoreRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CustomKeyStoreId !== undefined && { CustomKeyStoreId: input.CustomKeyStoreId }),
+    ...(input.CustomKeyStoreId !== undefined &&
+      input.CustomKeyStoreId !== null && { CustomKeyStoreId: input.CustomKeyStoreId }),
   };
 };
 
 const serializeAws_json1_1CreateAliasRequest = (input: CreateAliasRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AliasName !== undefined && { AliasName: input.AliasName }),
-    ...(input.TargetKeyId !== undefined && { TargetKeyId: input.TargetKeyId }),
+    ...(input.AliasName !== undefined && input.AliasName !== null && { AliasName: input.AliasName }),
+    ...(input.TargetKeyId !== undefined && input.TargetKeyId !== null && { TargetKeyId: input.TargetKeyId }),
   };
 };
 
@@ -5808,63 +5763,71 @@ const serializeAws_json1_1CreateCustomKeyStoreRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CloudHsmClusterId !== undefined && { CloudHsmClusterId: input.CloudHsmClusterId }),
-    ...(input.CustomKeyStoreName !== undefined && { CustomKeyStoreName: input.CustomKeyStoreName }),
-    ...(input.KeyStorePassword !== undefined && { KeyStorePassword: input.KeyStorePassword }),
-    ...(input.TrustAnchorCertificate !== undefined && { TrustAnchorCertificate: input.TrustAnchorCertificate }),
+    ...(input.CloudHsmClusterId !== undefined &&
+      input.CloudHsmClusterId !== null && { CloudHsmClusterId: input.CloudHsmClusterId }),
+    ...(input.CustomKeyStoreName !== undefined &&
+      input.CustomKeyStoreName !== null && { CustomKeyStoreName: input.CustomKeyStoreName }),
+    ...(input.KeyStorePassword !== undefined &&
+      input.KeyStorePassword !== null && { KeyStorePassword: input.KeyStorePassword }),
+    ...(input.TrustAnchorCertificate !== undefined &&
+      input.TrustAnchorCertificate !== null && { TrustAnchorCertificate: input.TrustAnchorCertificate }),
   };
 };
 
 const serializeAws_json1_1CreateGrantRequest = (input: CreateGrantRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Constraints !== undefined && {
-      Constraints: serializeAws_json1_1GrantConstraints(input.Constraints, context),
-    }),
-    ...(input.GrantTokens !== undefined && {
-      GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context),
-    }),
-    ...(input.GranteePrincipal !== undefined && { GranteePrincipal: input.GranteePrincipal }),
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Operations !== undefined && {
-      Operations: serializeAws_json1_1GrantOperationList(input.Operations, context),
-    }),
-    ...(input.RetiringPrincipal !== undefined && { RetiringPrincipal: input.RetiringPrincipal }),
+    ...(input.Constraints !== undefined &&
+      input.Constraints !== null && { Constraints: serializeAws_json1_1GrantConstraints(input.Constraints, context) }),
+    ...(input.GrantTokens !== undefined &&
+      input.GrantTokens !== null && { GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context) }),
+    ...(input.GranteePrincipal !== undefined &&
+      input.GranteePrincipal !== null && { GranteePrincipal: input.GranteePrincipal }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Operations !== undefined &&
+      input.Operations !== null && { Operations: serializeAws_json1_1GrantOperationList(input.Operations, context) }),
+    ...(input.RetiringPrincipal !== undefined &&
+      input.RetiringPrincipal !== null && { RetiringPrincipal: input.RetiringPrincipal }),
   };
 };
 
 const serializeAws_json1_1CreateKeyRequest = (input: CreateKeyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.BypassPolicyLockoutSafetyCheck !== undefined && {
-      BypassPolicyLockoutSafetyCheck: input.BypassPolicyLockoutSafetyCheck,
-    }),
-    ...(input.CustomKeyStoreId !== undefined && { CustomKeyStoreId: input.CustomKeyStoreId }),
-    ...(input.CustomerMasterKeySpec !== undefined && { CustomerMasterKeySpec: input.CustomerMasterKeySpec }),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.KeyUsage !== undefined && { KeyUsage: input.KeyUsage }),
-    ...(input.Origin !== undefined && { Origin: input.Origin }),
-    ...(input.Policy !== undefined && { Policy: input.Policy }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.BypassPolicyLockoutSafetyCheck !== undefined &&
+      input.BypassPolicyLockoutSafetyCheck !== null && {
+        BypassPolicyLockoutSafetyCheck: input.BypassPolicyLockoutSafetyCheck,
+      }),
+    ...(input.CustomKeyStoreId !== undefined &&
+      input.CustomKeyStoreId !== null && { CustomKeyStoreId: input.CustomKeyStoreId }),
+    ...(input.CustomerMasterKeySpec !== undefined &&
+      input.CustomerMasterKeySpec !== null && { CustomerMasterKeySpec: input.CustomerMasterKeySpec }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.KeyUsage !== undefined && input.KeyUsage !== null && { KeyUsage: input.KeyUsage }),
+    ...(input.Origin !== undefined && input.Origin !== null && { Origin: input.Origin }),
+    ...(input.Policy !== undefined && input.Policy !== null && { Policy: input.Policy }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1DecryptRequest = (input: DecryptRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CiphertextBlob !== undefined && { CiphertextBlob: context.base64Encoder(input.CiphertextBlob) }),
-    ...(input.EncryptionAlgorithm !== undefined && { EncryptionAlgorithm: input.EncryptionAlgorithm }),
-    ...(input.EncryptionContext !== undefined && {
-      EncryptionContext: serializeAws_json1_1EncryptionContextType(input.EncryptionContext, context),
-    }),
-    ...(input.GrantTokens !== undefined && {
-      GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context),
-    }),
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
+    ...(input.CiphertextBlob !== undefined &&
+      input.CiphertextBlob !== null && { CiphertextBlob: context.base64Encoder(input.CiphertextBlob) }),
+    ...(input.EncryptionAlgorithm !== undefined &&
+      input.EncryptionAlgorithm !== null && { EncryptionAlgorithm: input.EncryptionAlgorithm }),
+    ...(input.EncryptionContext !== undefined &&
+      input.EncryptionContext !== null && {
+        EncryptionContext: serializeAws_json1_1EncryptionContextType(input.EncryptionContext, context),
+      }),
+    ...(input.GrantTokens !== undefined &&
+      input.GrantTokens !== null && { GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context) }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
   };
 };
 
 const serializeAws_json1_1DeleteAliasRequest = (input: DeleteAliasRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AliasName !== undefined && { AliasName: input.AliasName }),
+    ...(input.AliasName !== undefined && input.AliasName !== null && { AliasName: input.AliasName }),
   };
 };
 
@@ -5873,7 +5836,8 @@ const serializeAws_json1_1DeleteCustomKeyStoreRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CustomKeyStoreId !== undefined && { CustomKeyStoreId: input.CustomKeyStoreId }),
+    ...(input.CustomKeyStoreId !== undefined &&
+      input.CustomKeyStoreId !== null && { CustomKeyStoreId: input.CustomKeyStoreId }),
   };
 };
 
@@ -5882,7 +5846,7 @@ const serializeAws_json1_1DeleteImportedKeyMaterialRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
   };
 };
 
@@ -5891,25 +5855,26 @@ const serializeAws_json1_1DescribeCustomKeyStoresRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CustomKeyStoreId !== undefined && { CustomKeyStoreId: input.CustomKeyStoreId }),
-    ...(input.CustomKeyStoreName !== undefined && { CustomKeyStoreName: input.CustomKeyStoreName }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.CustomKeyStoreId !== undefined &&
+      input.CustomKeyStoreId !== null && { CustomKeyStoreId: input.CustomKeyStoreId }),
+    ...(input.CustomKeyStoreName !== undefined &&
+      input.CustomKeyStoreName !== null && { CustomKeyStoreName: input.CustomKeyStoreName }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.Marker !== undefined && input.Marker !== null && { Marker: input.Marker }),
   };
 };
 
 const serializeAws_json1_1DescribeKeyRequest = (input: DescribeKeyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GrantTokens !== undefined && {
-      GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context),
-    }),
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
+    ...(input.GrantTokens !== undefined &&
+      input.GrantTokens !== null && { GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context) }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
   };
 };
 
 const serializeAws_json1_1DisableKeyRequest = (input: DisableKeyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
   };
 };
 
@@ -5918,7 +5883,7 @@ const serializeAws_json1_1DisableKeyRotationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
   };
 };
 
@@ -5927,13 +5892,14 @@ const serializeAws_json1_1DisconnectCustomKeyStoreRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CustomKeyStoreId !== undefined && { CustomKeyStoreId: input.CustomKeyStoreId }),
+    ...(input.CustomKeyStoreId !== undefined &&
+      input.CustomKeyStoreId !== null && { CustomKeyStoreId: input.CustomKeyStoreId }),
   };
 };
 
 const serializeAws_json1_1EnableKeyRequest = (input: EnableKeyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
   };
 };
 
@@ -5942,31 +5908,35 @@ const serializeAws_json1_1EnableKeyRotationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
   };
 };
 
 const serializeAws_json1_1EncryptionContextType = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_json1_1EncryptRequest = (input: EncryptRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EncryptionAlgorithm !== undefined && { EncryptionAlgorithm: input.EncryptionAlgorithm }),
-    ...(input.EncryptionContext !== undefined && {
-      EncryptionContext: serializeAws_json1_1EncryptionContextType(input.EncryptionContext, context),
-    }),
-    ...(input.GrantTokens !== undefined && {
-      GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context),
-    }),
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.Plaintext !== undefined && { Plaintext: context.base64Encoder(input.Plaintext) }),
+    ...(input.EncryptionAlgorithm !== undefined &&
+      input.EncryptionAlgorithm !== null && { EncryptionAlgorithm: input.EncryptionAlgorithm }),
+    ...(input.EncryptionContext !== undefined &&
+      input.EncryptionContext !== null && {
+        EncryptionContext: serializeAws_json1_1EncryptionContextType(input.EncryptionContext, context),
+      }),
+    ...(input.GrantTokens !== undefined &&
+      input.GrantTokens !== null && { GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context) }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
+    ...(input.Plaintext !== undefined &&
+      input.Plaintext !== null && { Plaintext: context.base64Encoder(input.Plaintext) }),
   };
 };
 
@@ -5975,14 +5945,14 @@ const serializeAws_json1_1GenerateDataKeyPairRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EncryptionContext !== undefined && {
-      EncryptionContext: serializeAws_json1_1EncryptionContextType(input.EncryptionContext, context),
-    }),
-    ...(input.GrantTokens !== undefined && {
-      GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context),
-    }),
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.KeyPairSpec !== undefined && { KeyPairSpec: input.KeyPairSpec }),
+    ...(input.EncryptionContext !== undefined &&
+      input.EncryptionContext !== null && {
+        EncryptionContext: serializeAws_json1_1EncryptionContextType(input.EncryptionContext, context),
+      }),
+    ...(input.GrantTokens !== undefined &&
+      input.GrantTokens !== null && { GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context) }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
+    ...(input.KeyPairSpec !== undefined && input.KeyPairSpec !== null && { KeyPairSpec: input.KeyPairSpec }),
   };
 };
 
@@ -5991,28 +5961,28 @@ const serializeAws_json1_1GenerateDataKeyPairWithoutPlaintextRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EncryptionContext !== undefined && {
-      EncryptionContext: serializeAws_json1_1EncryptionContextType(input.EncryptionContext, context),
-    }),
-    ...(input.GrantTokens !== undefined && {
-      GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context),
-    }),
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.KeyPairSpec !== undefined && { KeyPairSpec: input.KeyPairSpec }),
+    ...(input.EncryptionContext !== undefined &&
+      input.EncryptionContext !== null && {
+        EncryptionContext: serializeAws_json1_1EncryptionContextType(input.EncryptionContext, context),
+      }),
+    ...(input.GrantTokens !== undefined &&
+      input.GrantTokens !== null && { GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context) }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
+    ...(input.KeyPairSpec !== undefined && input.KeyPairSpec !== null && { KeyPairSpec: input.KeyPairSpec }),
   };
 };
 
 const serializeAws_json1_1GenerateDataKeyRequest = (input: GenerateDataKeyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EncryptionContext !== undefined && {
-      EncryptionContext: serializeAws_json1_1EncryptionContextType(input.EncryptionContext, context),
-    }),
-    ...(input.GrantTokens !== undefined && {
-      GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context),
-    }),
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.KeySpec !== undefined && { KeySpec: input.KeySpec }),
-    ...(input.NumberOfBytes !== undefined && { NumberOfBytes: input.NumberOfBytes }),
+    ...(input.EncryptionContext !== undefined &&
+      input.EncryptionContext !== null && {
+        EncryptionContext: serializeAws_json1_1EncryptionContextType(input.EncryptionContext, context),
+      }),
+    ...(input.GrantTokens !== undefined &&
+      input.GrantTokens !== null && { GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context) }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
+    ...(input.KeySpec !== undefined && input.KeySpec !== null && { KeySpec: input.KeySpec }),
+    ...(input.NumberOfBytes !== undefined && input.NumberOfBytes !== null && { NumberOfBytes: input.NumberOfBytes }),
   };
 };
 
@@ -6021,29 +5991,30 @@ const serializeAws_json1_1GenerateDataKeyWithoutPlaintextRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EncryptionContext !== undefined && {
-      EncryptionContext: serializeAws_json1_1EncryptionContextType(input.EncryptionContext, context),
-    }),
-    ...(input.GrantTokens !== undefined && {
-      GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context),
-    }),
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.KeySpec !== undefined && { KeySpec: input.KeySpec }),
-    ...(input.NumberOfBytes !== undefined && { NumberOfBytes: input.NumberOfBytes }),
+    ...(input.EncryptionContext !== undefined &&
+      input.EncryptionContext !== null && {
+        EncryptionContext: serializeAws_json1_1EncryptionContextType(input.EncryptionContext, context),
+      }),
+    ...(input.GrantTokens !== undefined &&
+      input.GrantTokens !== null && { GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context) }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
+    ...(input.KeySpec !== undefined && input.KeySpec !== null && { KeySpec: input.KeySpec }),
+    ...(input.NumberOfBytes !== undefined && input.NumberOfBytes !== null && { NumberOfBytes: input.NumberOfBytes }),
   };
 };
 
 const serializeAws_json1_1GenerateRandomRequest = (input: GenerateRandomRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CustomKeyStoreId !== undefined && { CustomKeyStoreId: input.CustomKeyStoreId }),
-    ...(input.NumberOfBytes !== undefined && { NumberOfBytes: input.NumberOfBytes }),
+    ...(input.CustomKeyStoreId !== undefined &&
+      input.CustomKeyStoreId !== null && { CustomKeyStoreId: input.CustomKeyStoreId }),
+    ...(input.NumberOfBytes !== undefined && input.NumberOfBytes !== null && { NumberOfBytes: input.NumberOfBytes }),
   };
 };
 
 const serializeAws_json1_1GetKeyPolicyRequest = (input: GetKeyPolicyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.PolicyName !== undefined && { PolicyName: input.PolicyName }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
+    ...(input.PolicyName !== undefined && input.PolicyName !== null && { PolicyName: input.PolicyName }),
   };
 };
 
@@ -6052,7 +6023,7 @@ const serializeAws_json1_1GetKeyRotationStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
   };
 };
 
@@ -6061,38 +6032,55 @@ const serializeAws_json1_1GetParametersForImportRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.WrappingAlgorithm !== undefined && { WrappingAlgorithm: input.WrappingAlgorithm }),
-    ...(input.WrappingKeySpec !== undefined && { WrappingKeySpec: input.WrappingKeySpec }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
+    ...(input.WrappingAlgorithm !== undefined &&
+      input.WrappingAlgorithm !== null && { WrappingAlgorithm: input.WrappingAlgorithm }),
+    ...(input.WrappingKeySpec !== undefined &&
+      input.WrappingKeySpec !== null && { WrappingKeySpec: input.WrappingKeySpec }),
   };
 };
 
 const serializeAws_json1_1GetPublicKeyRequest = (input: GetPublicKeyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GrantTokens !== undefined && {
-      GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context),
-    }),
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
+    ...(input.GrantTokens !== undefined &&
+      input.GrantTokens !== null && { GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context) }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
   };
 };
 
 const serializeAws_json1_1GrantConstraints = (input: GrantConstraints, context: __SerdeContext): any => {
   return {
-    ...(input.EncryptionContextEquals !== undefined && {
-      EncryptionContextEquals: serializeAws_json1_1EncryptionContextType(input.EncryptionContextEquals, context),
-    }),
-    ...(input.EncryptionContextSubset !== undefined && {
-      EncryptionContextSubset: serializeAws_json1_1EncryptionContextType(input.EncryptionContextSubset, context),
-    }),
+    ...(input.EncryptionContextEquals !== undefined &&
+      input.EncryptionContextEquals !== null && {
+        EncryptionContextEquals: serializeAws_json1_1EncryptionContextType(input.EncryptionContextEquals, context),
+      }),
+    ...(input.EncryptionContextSubset !== undefined &&
+      input.EncryptionContextSubset !== null && {
+        EncryptionContextSubset: serializeAws_json1_1EncryptionContextType(input.EncryptionContextSubset, context),
+      }),
   };
 };
 
 const serializeAws_json1_1GrantOperationList = (input: (GrantOperation | string)[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1GrantTokenList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ImportKeyMaterialRequest = (
@@ -6100,52 +6088,56 @@ const serializeAws_json1_1ImportKeyMaterialRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EncryptedKeyMaterial !== undefined && {
-      EncryptedKeyMaterial: context.base64Encoder(input.EncryptedKeyMaterial),
-    }),
-    ...(input.ExpirationModel !== undefined && { ExpirationModel: input.ExpirationModel }),
-    ...(input.ImportToken !== undefined && { ImportToken: context.base64Encoder(input.ImportToken) }),
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.ValidTo !== undefined && { ValidTo: Math.round(input.ValidTo.getTime() / 1000) }),
+    ...(input.EncryptedKeyMaterial !== undefined &&
+      input.EncryptedKeyMaterial !== null && {
+        EncryptedKeyMaterial: context.base64Encoder(input.EncryptedKeyMaterial),
+      }),
+    ...(input.ExpirationModel !== undefined &&
+      input.ExpirationModel !== null && { ExpirationModel: input.ExpirationModel }),
+    ...(input.ImportToken !== undefined &&
+      input.ImportToken !== null && { ImportToken: context.base64Encoder(input.ImportToken) }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
+    ...(input.ValidTo !== undefined &&
+      input.ValidTo !== null && { ValidTo: Math.round(input.ValidTo.getTime() / 1000) }),
   };
 };
 
 const serializeAws_json1_1ListAliasesRequest = (input: ListAliasesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.Marker !== undefined && input.Marker !== null && { Marker: input.Marker }),
   };
 };
 
 const serializeAws_json1_1ListGrantsRequest = (input: ListGrantsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.Marker !== undefined && input.Marker !== null && { Marker: input.Marker }),
   };
 };
 
 const serializeAws_json1_1ListKeyPoliciesRequest = (input: ListKeyPoliciesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.Marker !== undefined && input.Marker !== null && { Marker: input.Marker }),
   };
 };
 
 const serializeAws_json1_1ListKeysRequest = (input: ListKeysRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.Marker !== undefined && input.Marker !== null && { Marker: input.Marker }),
   };
 };
 
 const serializeAws_json1_1ListResourceTagsRequest = (input: ListResourceTagsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.Marker !== undefined && input.Marker !== null && { Marker: input.Marker }),
   };
 };
 
@@ -6154,61 +6146,66 @@ const serializeAws_json1_1ListRetirableGrantsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.RetiringPrincipal !== undefined && { RetiringPrincipal: input.RetiringPrincipal }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.Marker !== undefined && input.Marker !== null && { Marker: input.Marker }),
+    ...(input.RetiringPrincipal !== undefined &&
+      input.RetiringPrincipal !== null && { RetiringPrincipal: input.RetiringPrincipal }),
   };
 };
 
 const serializeAws_json1_1PutKeyPolicyRequest = (input: PutKeyPolicyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.BypassPolicyLockoutSafetyCheck !== undefined && {
-      BypassPolicyLockoutSafetyCheck: input.BypassPolicyLockoutSafetyCheck,
-    }),
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.Policy !== undefined && { Policy: input.Policy }),
-    ...(input.PolicyName !== undefined && { PolicyName: input.PolicyName }),
+    ...(input.BypassPolicyLockoutSafetyCheck !== undefined &&
+      input.BypassPolicyLockoutSafetyCheck !== null && {
+        BypassPolicyLockoutSafetyCheck: input.BypassPolicyLockoutSafetyCheck,
+      }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
+    ...(input.Policy !== undefined && input.Policy !== null && { Policy: input.Policy }),
+    ...(input.PolicyName !== undefined && input.PolicyName !== null && { PolicyName: input.PolicyName }),
   };
 };
 
 const serializeAws_json1_1ReEncryptRequest = (input: ReEncryptRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CiphertextBlob !== undefined && { CiphertextBlob: context.base64Encoder(input.CiphertextBlob) }),
-    ...(input.DestinationEncryptionAlgorithm !== undefined && {
-      DestinationEncryptionAlgorithm: input.DestinationEncryptionAlgorithm,
-    }),
-    ...(input.DestinationEncryptionContext !== undefined && {
-      DestinationEncryptionContext: serializeAws_json1_1EncryptionContextType(
-        input.DestinationEncryptionContext,
-        context
-      ),
-    }),
-    ...(input.DestinationKeyId !== undefined && { DestinationKeyId: input.DestinationKeyId }),
-    ...(input.GrantTokens !== undefined && {
-      GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context),
-    }),
-    ...(input.SourceEncryptionAlgorithm !== undefined && {
-      SourceEncryptionAlgorithm: input.SourceEncryptionAlgorithm,
-    }),
-    ...(input.SourceEncryptionContext !== undefined && {
-      SourceEncryptionContext: serializeAws_json1_1EncryptionContextType(input.SourceEncryptionContext, context),
-    }),
-    ...(input.SourceKeyId !== undefined && { SourceKeyId: input.SourceKeyId }),
+    ...(input.CiphertextBlob !== undefined &&
+      input.CiphertextBlob !== null && { CiphertextBlob: context.base64Encoder(input.CiphertextBlob) }),
+    ...(input.DestinationEncryptionAlgorithm !== undefined &&
+      input.DestinationEncryptionAlgorithm !== null && {
+        DestinationEncryptionAlgorithm: input.DestinationEncryptionAlgorithm,
+      }),
+    ...(input.DestinationEncryptionContext !== undefined &&
+      input.DestinationEncryptionContext !== null && {
+        DestinationEncryptionContext: serializeAws_json1_1EncryptionContextType(
+          input.DestinationEncryptionContext,
+          context
+        ),
+      }),
+    ...(input.DestinationKeyId !== undefined &&
+      input.DestinationKeyId !== null && { DestinationKeyId: input.DestinationKeyId }),
+    ...(input.GrantTokens !== undefined &&
+      input.GrantTokens !== null && { GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context) }),
+    ...(input.SourceEncryptionAlgorithm !== undefined &&
+      input.SourceEncryptionAlgorithm !== null && { SourceEncryptionAlgorithm: input.SourceEncryptionAlgorithm }),
+    ...(input.SourceEncryptionContext !== undefined &&
+      input.SourceEncryptionContext !== null && {
+        SourceEncryptionContext: serializeAws_json1_1EncryptionContextType(input.SourceEncryptionContext, context),
+      }),
+    ...(input.SourceKeyId !== undefined && input.SourceKeyId !== null && { SourceKeyId: input.SourceKeyId }),
   };
 };
 
 const serializeAws_json1_1RetireGrantRequest = (input: RetireGrantRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GrantId !== undefined && { GrantId: input.GrantId }),
-    ...(input.GrantToken !== undefined && { GrantToken: input.GrantToken }),
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
+    ...(input.GrantId !== undefined && input.GrantId !== null && { GrantId: input.GrantId }),
+    ...(input.GrantToken !== undefined && input.GrantToken !== null && { GrantToken: input.GrantToken }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
   };
 };
 
 const serializeAws_json1_1RevokeGrantRequest = (input: RevokeGrantRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GrantId !== undefined && { GrantId: input.GrantId }),
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
+    ...(input.GrantId !== undefined && input.GrantId !== null && { GrantId: input.GrantId }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
   };
 };
 
@@ -6217,56 +6214,72 @@ const serializeAws_json1_1ScheduleKeyDeletionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.PendingWindowInDays !== undefined && { PendingWindowInDays: input.PendingWindowInDays }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
+    ...(input.PendingWindowInDays !== undefined &&
+      input.PendingWindowInDays !== null && { PendingWindowInDays: input.PendingWindowInDays }),
   };
 };
 
 const serializeAws_json1_1SignRequest = (input: SignRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GrantTokens !== undefined && {
-      GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context),
-    }),
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.Message !== undefined && { Message: context.base64Encoder(input.Message) }),
-    ...(input.MessageType !== undefined && { MessageType: input.MessageType }),
-    ...(input.SigningAlgorithm !== undefined && { SigningAlgorithm: input.SigningAlgorithm }),
+    ...(input.GrantTokens !== undefined &&
+      input.GrantTokens !== null && { GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context) }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
+    ...(input.Message !== undefined && input.Message !== null && { Message: context.base64Encoder(input.Message) }),
+    ...(input.MessageType !== undefined && input.MessageType !== null && { MessageType: input.MessageType }),
+    ...(input.SigningAlgorithm !== undefined &&
+      input.SigningAlgorithm !== null && { SigningAlgorithm: input.SigningAlgorithm }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.TagKey !== undefined && { TagKey: input.TagKey }),
-    ...(input.TagValue !== undefined && { TagValue: input.TagValue }),
+    ...(input.TagKey !== undefined && input.TagKey !== null && { TagKey: input.TagKey }),
+    ...(input.TagValue !== undefined && input.TagValue !== null && { TagValue: input.TagValue }),
   };
 };
 
 const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
 const serializeAws_json1_1UpdateAliasRequest = (input: UpdateAliasRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AliasName !== undefined && { AliasName: input.AliasName }),
-    ...(input.TargetKeyId !== undefined && { TargetKeyId: input.TargetKeyId }),
+    ...(input.AliasName !== undefined && input.AliasName !== null && { AliasName: input.AliasName }),
+    ...(input.TargetKeyId !== undefined && input.TargetKeyId !== null && { TargetKeyId: input.TargetKeyId }),
   };
 };
 
@@ -6275,10 +6288,14 @@ const serializeAws_json1_1UpdateCustomKeyStoreRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CloudHsmClusterId !== undefined && { CloudHsmClusterId: input.CloudHsmClusterId }),
-    ...(input.CustomKeyStoreId !== undefined && { CustomKeyStoreId: input.CustomKeyStoreId }),
-    ...(input.KeyStorePassword !== undefined && { KeyStorePassword: input.KeyStorePassword }),
-    ...(input.NewCustomKeyStoreName !== undefined && { NewCustomKeyStoreName: input.NewCustomKeyStoreName }),
+    ...(input.CloudHsmClusterId !== undefined &&
+      input.CloudHsmClusterId !== null && { CloudHsmClusterId: input.CloudHsmClusterId }),
+    ...(input.CustomKeyStoreId !== undefined &&
+      input.CustomKeyStoreId !== null && { CustomKeyStoreId: input.CustomKeyStoreId }),
+    ...(input.KeyStorePassword !== undefined &&
+      input.KeyStorePassword !== null && { KeyStorePassword: input.KeyStorePassword }),
+    ...(input.NewCustomKeyStoreName !== undefined &&
+      input.NewCustomKeyStoreName !== null && { NewCustomKeyStoreName: input.NewCustomKeyStoreName }),
   };
 };
 
@@ -6287,26 +6304,34 @@ const serializeAws_json1_1UpdateKeyDescriptionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
   };
 };
 
 const serializeAws_json1_1VerifyRequest = (input: VerifyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GrantTokens !== undefined && {
-      GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context),
-    }),
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.Message !== undefined && { Message: context.base64Encoder(input.Message) }),
-    ...(input.MessageType !== undefined && { MessageType: input.MessageType }),
-    ...(input.Signature !== undefined && { Signature: context.base64Encoder(input.Signature) }),
-    ...(input.SigningAlgorithm !== undefined && { SigningAlgorithm: input.SigningAlgorithm }),
+    ...(input.GrantTokens !== undefined &&
+      input.GrantTokens !== null && { GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context) }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
+    ...(input.Message !== undefined && input.Message !== null && { Message: context.base64Encoder(input.Message) }),
+    ...(input.MessageType !== undefined && input.MessageType !== null && { MessageType: input.MessageType }),
+    ...(input.Signature !== undefined &&
+      input.Signature !== null && { Signature: context.base64Encoder(input.Signature) }),
+    ...(input.SigningAlgorithm !== undefined &&
+      input.SigningAlgorithm !== null && { SigningAlgorithm: input.SigningAlgorithm }),
   };
 };
 
 const deserializeAws_json1_1AliasList = (output: any, context: __SerdeContext): AliasListEntry[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1AliasListEntry(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AliasListEntry(entry, context);
+    });
 };
 
 const deserializeAws_json1_1AliasListEntry = (output: any, context: __SerdeContext): AliasListEntry => {
@@ -6450,7 +6475,14 @@ const deserializeAws_json1_1CustomKeyStoresList = (
   output: any,
   context: __SerdeContext
 ): CustomKeyStoresListEntry[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1CustomKeyStoresListEntry(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CustomKeyStoresListEntry(entry, context);
+    });
 };
 
 const deserializeAws_json1_1CustomKeyStoresListEntry = (
@@ -6553,20 +6585,29 @@ const deserializeAws_json1_1EncryptionAlgorithmSpecList = (
   output: any,
   context: __SerdeContext
 ): (EncryptionAlgorithmSpec | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1EncryptionContextType = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1EncryptResponse = (output: any, context: __SerdeContext): EncryptResponse => {
@@ -6735,7 +6776,14 @@ const deserializeAws_json1_1GrantConstraints = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1GrantList = (output: any, context: __SerdeContext): GrantListEntry[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1GrantListEntry(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1GrantListEntry(entry, context);
+    });
 };
 
 const deserializeAws_json1_1GrantListEntry = (output: any, context: __SerdeContext): GrantListEntry => {
@@ -6770,7 +6818,14 @@ const deserializeAws_json1_1GrantOperationList = (
   output: any,
   context: __SerdeContext
 ): (GrantOperation | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ImportKeyMaterialResponse = (
@@ -6871,7 +6926,14 @@ const deserializeAws_json1_1InvalidMarkerException = (output: any, context: __Se
 };
 
 const deserializeAws_json1_1KeyList = (output: any, context: __SerdeContext): KeyListEntry[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1KeyListEntry(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1KeyListEntry(entry, context);
+    });
 };
 
 const deserializeAws_json1_1KeyListEntry = (output: any, context: __SerdeContext): KeyListEntry => {
@@ -7041,7 +7103,14 @@ const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1PolicyNameList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ReEncryptResponse = (output: any, context: __SerdeContext): ReEncryptResponse => {
@@ -7080,7 +7149,14 @@ const deserializeAws_json1_1SigningAlgorithmSpecList = (
   output: any,
   context: __SerdeContext
 ): (SigningAlgorithmSpec | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1SignResponse = (output: any, context: __SerdeContext): SignResponse => {
@@ -7107,7 +7183,14 @@ const deserializeAws_json1_1TagException = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1UnsupportedOperationException = (
@@ -7186,3 +7269,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

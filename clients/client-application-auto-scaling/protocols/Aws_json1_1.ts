@@ -89,7 +89,7 @@ export const serializeAws_json1_1DeleteScalingPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AnyScaleFrontendService.DeleteScalingPolicy",
   };
   let body: any;
@@ -102,7 +102,7 @@ export const serializeAws_json1_1DeleteScheduledActionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AnyScaleFrontendService.DeleteScheduledAction",
   };
   let body: any;
@@ -115,7 +115,7 @@ export const serializeAws_json1_1DeregisterScalableTargetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AnyScaleFrontendService.DeregisterScalableTarget",
   };
   let body: any;
@@ -128,7 +128,7 @@ export const serializeAws_json1_1DescribeScalableTargetsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AnyScaleFrontendService.DescribeScalableTargets",
   };
   let body: any;
@@ -141,7 +141,7 @@ export const serializeAws_json1_1DescribeScalingActivitiesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AnyScaleFrontendService.DescribeScalingActivities",
   };
   let body: any;
@@ -154,7 +154,7 @@ export const serializeAws_json1_1DescribeScalingPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AnyScaleFrontendService.DescribeScalingPolicies",
   };
   let body: any;
@@ -167,7 +167,7 @@ export const serializeAws_json1_1DescribeScheduledActionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AnyScaleFrontendService.DescribeScheduledActions",
   };
   let body: any;
@@ -180,7 +180,7 @@ export const serializeAws_json1_1PutScalingPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AnyScaleFrontendService.PutScalingPolicy",
   };
   let body: any;
@@ -193,7 +193,7 @@ export const serializeAws_json1_1PutScheduledActionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AnyScaleFrontendService.PutScheduledAction",
   };
   let body: any;
@@ -206,7 +206,7 @@ export const serializeAws_json1_1RegisterScalableTargetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AnyScaleFrontendService.RegisterScalableTarget",
   };
   let body: any;
@@ -241,8 +241,7 @@ const deserializeAws_json1_1DeleteScalingPolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
@@ -320,8 +319,7 @@ const deserializeAws_json1_1DeleteScheduledActionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
@@ -399,8 +397,7 @@ const deserializeAws_json1_1DeregisterScalableTargetCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
@@ -478,8 +475,7 @@ const deserializeAws_json1_1DescribeScalableTargetsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
@@ -557,8 +553,7 @@ const deserializeAws_json1_1DescribeScalingActivitiesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
@@ -636,8 +631,7 @@ const deserializeAws_json1_1DescribeScalingPoliciesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
@@ -723,8 +717,7 @@ const deserializeAws_json1_1DescribeScheduledActionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
@@ -802,8 +795,7 @@ const deserializeAws_json1_1PutScalingPolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
@@ -897,8 +889,7 @@ const deserializeAws_json1_1PutScheduledActionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
@@ -984,8 +975,7 @@ const deserializeAws_json1_1RegisterScalableTargetCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
@@ -1146,13 +1136,12 @@ const serializeAws_json1_1CustomizedMetricSpecification = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Dimensions !== undefined && {
-      Dimensions: serializeAws_json1_1MetricDimensions(input.Dimensions, context),
-    }),
-    ...(input.MetricName !== undefined && { MetricName: input.MetricName }),
-    ...(input.Namespace !== undefined && { Namespace: input.Namespace }),
-    ...(input.Statistic !== undefined && { Statistic: input.Statistic }),
-    ...(input.Unit !== undefined && { Unit: input.Unit }),
+    ...(input.Dimensions !== undefined &&
+      input.Dimensions !== null && { Dimensions: serializeAws_json1_1MetricDimensions(input.Dimensions, context) }),
+    ...(input.MetricName !== undefined && input.MetricName !== null && { MetricName: input.MetricName }),
+    ...(input.Namespace !== undefined && input.Namespace !== null && { Namespace: input.Namespace }),
+    ...(input.Statistic !== undefined && input.Statistic !== null && { Statistic: input.Statistic }),
+    ...(input.Unit !== undefined && input.Unit !== null && { Unit: input.Unit }),
   };
 };
 
@@ -1161,10 +1150,12 @@ const serializeAws_json1_1DeleteScalingPolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.PolicyName !== undefined && { PolicyName: input.PolicyName }),
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.ScalableDimension !== undefined && { ScalableDimension: input.ScalableDimension }),
-    ...(input.ServiceNamespace !== undefined && { ServiceNamespace: input.ServiceNamespace }),
+    ...(input.PolicyName !== undefined && input.PolicyName !== null && { PolicyName: input.PolicyName }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.ScalableDimension !== undefined &&
+      input.ScalableDimension !== null && { ScalableDimension: input.ScalableDimension }),
+    ...(input.ServiceNamespace !== undefined &&
+      input.ServiceNamespace !== null && { ServiceNamespace: input.ServiceNamespace }),
   };
 };
 
@@ -1173,10 +1164,13 @@ const serializeAws_json1_1DeleteScheduledActionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.ScalableDimension !== undefined && { ScalableDimension: input.ScalableDimension }),
-    ...(input.ScheduledActionName !== undefined && { ScheduledActionName: input.ScheduledActionName }),
-    ...(input.ServiceNamespace !== undefined && { ServiceNamespace: input.ServiceNamespace }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.ScalableDimension !== undefined &&
+      input.ScalableDimension !== null && { ScalableDimension: input.ScalableDimension }),
+    ...(input.ScheduledActionName !== undefined &&
+      input.ScheduledActionName !== null && { ScheduledActionName: input.ScheduledActionName }),
+    ...(input.ServiceNamespace !== undefined &&
+      input.ServiceNamespace !== null && { ServiceNamespace: input.ServiceNamespace }),
   };
 };
 
@@ -1185,9 +1179,11 @@ const serializeAws_json1_1DeregisterScalableTargetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.ScalableDimension !== undefined && { ScalableDimension: input.ScalableDimension }),
-    ...(input.ServiceNamespace !== undefined && { ServiceNamespace: input.ServiceNamespace }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.ScalableDimension !== undefined &&
+      input.ScalableDimension !== null && { ScalableDimension: input.ScalableDimension }),
+    ...(input.ServiceNamespace !== undefined &&
+      input.ServiceNamespace !== null && { ServiceNamespace: input.ServiceNamespace }),
   };
 };
 
@@ -1196,13 +1192,16 @@ const serializeAws_json1_1DescribeScalableTargetsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceIds !== undefined && {
-      ResourceIds: serializeAws_json1_1ResourceIdsMaxLen1600(input.ResourceIds, context),
-    }),
-    ...(input.ScalableDimension !== undefined && { ScalableDimension: input.ScalableDimension }),
-    ...(input.ServiceNamespace !== undefined && { ServiceNamespace: input.ServiceNamespace }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ResourceIds !== undefined &&
+      input.ResourceIds !== null && {
+        ResourceIds: serializeAws_json1_1ResourceIdsMaxLen1600(input.ResourceIds, context),
+      }),
+    ...(input.ScalableDimension !== undefined &&
+      input.ScalableDimension !== null && { ScalableDimension: input.ScalableDimension }),
+    ...(input.ServiceNamespace !== undefined &&
+      input.ServiceNamespace !== null && { ServiceNamespace: input.ServiceNamespace }),
   };
 };
 
@@ -1211,11 +1210,13 @@ const serializeAws_json1_1DescribeScalingActivitiesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.ScalableDimension !== undefined && { ScalableDimension: input.ScalableDimension }),
-    ...(input.ServiceNamespace !== undefined && { ServiceNamespace: input.ServiceNamespace }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.ScalableDimension !== undefined &&
+      input.ScalableDimension !== null && { ScalableDimension: input.ScalableDimension }),
+    ...(input.ServiceNamespace !== undefined &&
+      input.ServiceNamespace !== null && { ServiceNamespace: input.ServiceNamespace }),
   };
 };
 
@@ -1224,14 +1225,17 @@ const serializeAws_json1_1DescribeScalingPoliciesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.PolicyNames !== undefined && {
-      PolicyNames: serializeAws_json1_1ResourceIdsMaxLen1600(input.PolicyNames, context),
-    }),
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.ScalableDimension !== undefined && { ScalableDimension: input.ScalableDimension }),
-    ...(input.ServiceNamespace !== undefined && { ServiceNamespace: input.ServiceNamespace }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.PolicyNames !== undefined &&
+      input.PolicyNames !== null && {
+        PolicyNames: serializeAws_json1_1ResourceIdsMaxLen1600(input.PolicyNames, context),
+      }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.ScalableDimension !== undefined &&
+      input.ScalableDimension !== null && { ScalableDimension: input.ScalableDimension }),
+    ...(input.ServiceNamespace !== undefined &&
+      input.ServiceNamespace !== null && { ServiceNamespace: input.ServiceNamespace }),
   };
 };
 
@@ -1240,26 +1244,36 @@ const serializeAws_json1_1DescribeScheduledActionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.ScalableDimension !== undefined && { ScalableDimension: input.ScalableDimension }),
-    ...(input.ScheduledActionNames !== undefined && {
-      ScheduledActionNames: serializeAws_json1_1ResourceIdsMaxLen1600(input.ScheduledActionNames, context),
-    }),
-    ...(input.ServiceNamespace !== undefined && { ServiceNamespace: input.ServiceNamespace }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.ScalableDimension !== undefined &&
+      input.ScalableDimension !== null && { ScalableDimension: input.ScalableDimension }),
+    ...(input.ScheduledActionNames !== undefined &&
+      input.ScheduledActionNames !== null && {
+        ScheduledActionNames: serializeAws_json1_1ResourceIdsMaxLen1600(input.ScheduledActionNames, context),
+      }),
+    ...(input.ServiceNamespace !== undefined &&
+      input.ServiceNamespace !== null && { ServiceNamespace: input.ServiceNamespace }),
   };
 };
 
 const serializeAws_json1_1MetricDimension = (input: MetricDimension, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1MetricDimensions = (input: MetricDimension[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1MetricDimension(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1MetricDimension(entry, context);
+    });
 };
 
 const serializeAws_json1_1PredefinedMetricSpecification = (
@@ -1267,30 +1281,35 @@ const serializeAws_json1_1PredefinedMetricSpecification = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.PredefinedMetricType !== undefined && { PredefinedMetricType: input.PredefinedMetricType }),
-    ...(input.ResourceLabel !== undefined && { ResourceLabel: input.ResourceLabel }),
+    ...(input.PredefinedMetricType !== undefined &&
+      input.PredefinedMetricType !== null && { PredefinedMetricType: input.PredefinedMetricType }),
+    ...(input.ResourceLabel !== undefined && input.ResourceLabel !== null && { ResourceLabel: input.ResourceLabel }),
   };
 };
 
 const serializeAws_json1_1PutScalingPolicyRequest = (input: PutScalingPolicyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.PolicyName !== undefined && { PolicyName: input.PolicyName }),
-    ...(input.PolicyType !== undefined && { PolicyType: input.PolicyType }),
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.ScalableDimension !== undefined && { ScalableDimension: input.ScalableDimension }),
-    ...(input.ServiceNamespace !== undefined && { ServiceNamespace: input.ServiceNamespace }),
-    ...(input.StepScalingPolicyConfiguration !== undefined && {
-      StepScalingPolicyConfiguration: serializeAws_json1_1StepScalingPolicyConfiguration(
-        input.StepScalingPolicyConfiguration,
-        context
-      ),
-    }),
-    ...(input.TargetTrackingScalingPolicyConfiguration !== undefined && {
-      TargetTrackingScalingPolicyConfiguration: serializeAws_json1_1TargetTrackingScalingPolicyConfiguration(
-        input.TargetTrackingScalingPolicyConfiguration,
-        context
-      ),
-    }),
+    ...(input.PolicyName !== undefined && input.PolicyName !== null && { PolicyName: input.PolicyName }),
+    ...(input.PolicyType !== undefined && input.PolicyType !== null && { PolicyType: input.PolicyType }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.ScalableDimension !== undefined &&
+      input.ScalableDimension !== null && { ScalableDimension: input.ScalableDimension }),
+    ...(input.ServiceNamespace !== undefined &&
+      input.ServiceNamespace !== null && { ServiceNamespace: input.ServiceNamespace }),
+    ...(input.StepScalingPolicyConfiguration !== undefined &&
+      input.StepScalingPolicyConfiguration !== null && {
+        StepScalingPolicyConfiguration: serializeAws_json1_1StepScalingPolicyConfiguration(
+          input.StepScalingPolicyConfiguration,
+          context
+        ),
+      }),
+    ...(input.TargetTrackingScalingPolicyConfiguration !== undefined &&
+      input.TargetTrackingScalingPolicyConfiguration !== null && {
+        TargetTrackingScalingPolicyConfiguration: serializeAws_json1_1TargetTrackingScalingPolicyConfiguration(
+          input.TargetTrackingScalingPolicyConfiguration,
+          context
+        ),
+      }),
   };
 };
 
@@ -1299,16 +1318,22 @@ const serializeAws_json1_1PutScheduledActionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndTime !== undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.ScalableDimension !== undefined && { ScalableDimension: input.ScalableDimension }),
-    ...(input.ScalableTargetAction !== undefined && {
-      ScalableTargetAction: serializeAws_json1_1ScalableTargetAction(input.ScalableTargetAction, context),
-    }),
-    ...(input.Schedule !== undefined && { Schedule: input.Schedule }),
-    ...(input.ScheduledActionName !== undefined && { ScheduledActionName: input.ScheduledActionName }),
-    ...(input.ServiceNamespace !== undefined && { ServiceNamespace: input.ServiceNamespace }),
-    ...(input.StartTime !== undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+    ...(input.EndTime !== undefined &&
+      input.EndTime !== null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.ScalableDimension !== undefined &&
+      input.ScalableDimension !== null && { ScalableDimension: input.ScalableDimension }),
+    ...(input.ScalableTargetAction !== undefined &&
+      input.ScalableTargetAction !== null && {
+        ScalableTargetAction: serializeAws_json1_1ScalableTargetAction(input.ScalableTargetAction, context),
+      }),
+    ...(input.Schedule !== undefined && input.Schedule !== null && { Schedule: input.Schedule }),
+    ...(input.ScheduledActionName !== undefined &&
+      input.ScheduledActionName !== null && { ScheduledActionName: input.ScheduledActionName }),
+    ...(input.ServiceNamespace !== undefined &&
+      input.ServiceNamespace !== null && { ServiceNamespace: input.ServiceNamespace }),
+    ...(input.StartTime !== undefined &&
+      input.StartTime !== null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
@@ -1317,39 +1342,59 @@ const serializeAws_json1_1RegisterScalableTargetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxCapacity !== undefined && { MaxCapacity: input.MaxCapacity }),
-    ...(input.MinCapacity !== undefined && { MinCapacity: input.MinCapacity }),
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.RoleARN !== undefined && { RoleARN: input.RoleARN }),
-    ...(input.ScalableDimension !== undefined && { ScalableDimension: input.ScalableDimension }),
-    ...(input.ServiceNamespace !== undefined && { ServiceNamespace: input.ServiceNamespace }),
-    ...(input.SuspendedState !== undefined && {
-      SuspendedState: serializeAws_json1_1SuspendedState(input.SuspendedState, context),
-    }),
+    ...(input.MaxCapacity !== undefined && input.MaxCapacity !== null && { MaxCapacity: input.MaxCapacity }),
+    ...(input.MinCapacity !== undefined && input.MinCapacity !== null && { MinCapacity: input.MinCapacity }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.RoleARN !== undefined && input.RoleARN !== null && { RoleARN: input.RoleARN }),
+    ...(input.ScalableDimension !== undefined &&
+      input.ScalableDimension !== null && { ScalableDimension: input.ScalableDimension }),
+    ...(input.ServiceNamespace !== undefined &&
+      input.ServiceNamespace !== null && { ServiceNamespace: input.ServiceNamespace }),
+    ...(input.SuspendedState !== undefined &&
+      input.SuspendedState !== null && {
+        SuspendedState: serializeAws_json1_1SuspendedState(input.SuspendedState, context),
+      }),
   };
 };
 
 const serializeAws_json1_1ResourceIdsMaxLen1600 = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ScalableTargetAction = (input: ScalableTargetAction, context: __SerdeContext): any => {
   return {
-    ...(input.MaxCapacity !== undefined && { MaxCapacity: input.MaxCapacity }),
-    ...(input.MinCapacity !== undefined && { MinCapacity: input.MinCapacity }),
+    ...(input.MaxCapacity !== undefined && input.MaxCapacity !== null && { MaxCapacity: input.MaxCapacity }),
+    ...(input.MinCapacity !== undefined && input.MinCapacity !== null && { MinCapacity: input.MinCapacity }),
   };
 };
 
 const serializeAws_json1_1StepAdjustment = (input: StepAdjustment, context: __SerdeContext): any => {
   return {
-    ...(input.MetricIntervalLowerBound !== undefined && { MetricIntervalLowerBound: input.MetricIntervalLowerBound }),
-    ...(input.MetricIntervalUpperBound !== undefined && { MetricIntervalUpperBound: input.MetricIntervalUpperBound }),
-    ...(input.ScalingAdjustment !== undefined && { ScalingAdjustment: input.ScalingAdjustment }),
+    ...(input.MetricIntervalLowerBound !== undefined &&
+      input.MetricIntervalLowerBound !== null && { MetricIntervalLowerBound: input.MetricIntervalLowerBound }),
+    ...(input.MetricIntervalUpperBound !== undefined &&
+      input.MetricIntervalUpperBound !== null && { MetricIntervalUpperBound: input.MetricIntervalUpperBound }),
+    ...(input.ScalingAdjustment !== undefined &&
+      input.ScalingAdjustment !== null && { ScalingAdjustment: input.ScalingAdjustment }),
   };
 };
 
 const serializeAws_json1_1StepAdjustments = (input: StepAdjustment[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1StepAdjustment(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1StepAdjustment(entry, context);
+    });
 };
 
 const serializeAws_json1_1StepScalingPolicyConfiguration = (
@@ -1357,27 +1402,28 @@ const serializeAws_json1_1StepScalingPolicyConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AdjustmentType !== undefined && { AdjustmentType: input.AdjustmentType }),
-    ...(input.Cooldown !== undefined && { Cooldown: input.Cooldown }),
-    ...(input.MetricAggregationType !== undefined && { MetricAggregationType: input.MetricAggregationType }),
-    ...(input.MinAdjustmentMagnitude !== undefined && { MinAdjustmentMagnitude: input.MinAdjustmentMagnitude }),
-    ...(input.StepAdjustments !== undefined && {
-      StepAdjustments: serializeAws_json1_1StepAdjustments(input.StepAdjustments, context),
-    }),
+    ...(input.AdjustmentType !== undefined &&
+      input.AdjustmentType !== null && { AdjustmentType: input.AdjustmentType }),
+    ...(input.Cooldown !== undefined && input.Cooldown !== null && { Cooldown: input.Cooldown }),
+    ...(input.MetricAggregationType !== undefined &&
+      input.MetricAggregationType !== null && { MetricAggregationType: input.MetricAggregationType }),
+    ...(input.MinAdjustmentMagnitude !== undefined &&
+      input.MinAdjustmentMagnitude !== null && { MinAdjustmentMagnitude: input.MinAdjustmentMagnitude }),
+    ...(input.StepAdjustments !== undefined &&
+      input.StepAdjustments !== null && {
+        StepAdjustments: serializeAws_json1_1StepAdjustments(input.StepAdjustments, context),
+      }),
   };
 };
 
 const serializeAws_json1_1SuspendedState = (input: SuspendedState, context: __SerdeContext): any => {
   return {
-    ...(input.DynamicScalingInSuspended !== undefined && {
-      DynamicScalingInSuspended: input.DynamicScalingInSuspended,
-    }),
-    ...(input.DynamicScalingOutSuspended !== undefined && {
-      DynamicScalingOutSuspended: input.DynamicScalingOutSuspended,
-    }),
-    ...(input.ScheduledScalingSuspended !== undefined && {
-      ScheduledScalingSuspended: input.ScheduledScalingSuspended,
-    }),
+    ...(input.DynamicScalingInSuspended !== undefined &&
+      input.DynamicScalingInSuspended !== null && { DynamicScalingInSuspended: input.DynamicScalingInSuspended }),
+    ...(input.DynamicScalingOutSuspended !== undefined &&
+      input.DynamicScalingOutSuspended !== null && { DynamicScalingOutSuspended: input.DynamicScalingOutSuspended }),
+    ...(input.ScheduledScalingSuspended !== undefined &&
+      input.ScheduledScalingSuspended !== null && { ScheduledScalingSuspended: input.ScheduledScalingSuspended }),
   };
 };
 
@@ -1386,22 +1432,27 @@ const serializeAws_json1_1TargetTrackingScalingPolicyConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CustomizedMetricSpecification !== undefined && {
-      CustomizedMetricSpecification: serializeAws_json1_1CustomizedMetricSpecification(
-        input.CustomizedMetricSpecification,
-        context
-      ),
-    }),
-    ...(input.DisableScaleIn !== undefined && { DisableScaleIn: input.DisableScaleIn }),
-    ...(input.PredefinedMetricSpecification !== undefined && {
-      PredefinedMetricSpecification: serializeAws_json1_1PredefinedMetricSpecification(
-        input.PredefinedMetricSpecification,
-        context
-      ),
-    }),
-    ...(input.ScaleInCooldown !== undefined && { ScaleInCooldown: input.ScaleInCooldown }),
-    ...(input.ScaleOutCooldown !== undefined && { ScaleOutCooldown: input.ScaleOutCooldown }),
-    ...(input.TargetValue !== undefined && { TargetValue: input.TargetValue }),
+    ...(input.CustomizedMetricSpecification !== undefined &&
+      input.CustomizedMetricSpecification !== null && {
+        CustomizedMetricSpecification: serializeAws_json1_1CustomizedMetricSpecification(
+          input.CustomizedMetricSpecification,
+          context
+        ),
+      }),
+    ...(input.DisableScaleIn !== undefined &&
+      input.DisableScaleIn !== null && { DisableScaleIn: input.DisableScaleIn }),
+    ...(input.PredefinedMetricSpecification !== undefined &&
+      input.PredefinedMetricSpecification !== null && {
+        PredefinedMetricSpecification: serializeAws_json1_1PredefinedMetricSpecification(
+          input.PredefinedMetricSpecification,
+          context
+        ),
+      }),
+    ...(input.ScaleInCooldown !== undefined &&
+      input.ScaleInCooldown !== null && { ScaleInCooldown: input.ScaleInCooldown }),
+    ...(input.ScaleOutCooldown !== undefined &&
+      input.ScaleOutCooldown !== null && { ScaleOutCooldown: input.ScaleOutCooldown }),
+    ...(input.TargetValue !== undefined && input.TargetValue !== null && { TargetValue: input.TargetValue }),
   };
 };
 
@@ -1413,7 +1464,14 @@ const deserializeAws_json1_1Alarm = (output: any, context: __SerdeContext): Alar
 };
 
 const deserializeAws_json1_1Alarms = (output: any, context: __SerdeContext): Alarm[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Alarm(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Alarm(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ConcurrentUpdateException = (
@@ -1555,7 +1613,14 @@ const deserializeAws_json1_1MetricDimension = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1MetricDimensions = (output: any, context: __SerdeContext): MetricDimension[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1MetricDimension(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1MetricDimension(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ObjectNotFoundException = (
@@ -1639,11 +1704,25 @@ const deserializeAws_json1_1ScalableTargetAction = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1ScalableTargets = (output: any, context: __SerdeContext): ScalableTarget[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ScalableTarget(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ScalableTarget(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ScalingActivities = (output: any, context: __SerdeContext): ScalingActivity[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ScalingActivity(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ScalingActivity(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ScalingActivity = (output: any, context: __SerdeContext): ScalingActivity => {
@@ -1672,7 +1751,14 @@ const deserializeAws_json1_1ScalingActivity = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1ScalingPolicies = (output: any, context: __SerdeContext): ScalingPolicy[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ScalingPolicy(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ScalingPolicy(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ScalingPolicy = (output: any, context: __SerdeContext): ScalingPolicy => {
@@ -1746,7 +1832,14 @@ const deserializeAws_json1_1ScheduledAction = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1ScheduledActions = (output: any, context: __SerdeContext): ScheduledAction[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ScheduledAction(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ScheduledAction(entry, context);
+    });
 };
 
 const deserializeAws_json1_1StepAdjustment = (output: any, context: __SerdeContext): StepAdjustment => {
@@ -1767,7 +1860,14 @@ const deserializeAws_json1_1StepAdjustment = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1StepAdjustments = (output: any, context: __SerdeContext): StepAdjustment[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1StepAdjustment(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1StepAdjustment(entry, context);
+    });
 };
 
 const deserializeAws_json1_1StepScalingPolicyConfiguration = (
@@ -1889,3 +1989,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

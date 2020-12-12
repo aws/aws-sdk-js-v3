@@ -35,17 +35,19 @@ export const serializeAws_restJson1CreateOutpostCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/outposts";
   let body: any;
   body = JSON.stringify({
-    ...(input.AvailabilityZone !== undefined && { AvailabilityZone: input.AvailabilityZone }),
-    ...(input.AvailabilityZoneId !== undefined && { AvailabilityZoneId: input.AvailabilityZoneId }),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.SiteId !== undefined && { SiteId: input.SiteId }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.AvailabilityZone !== undefined &&
+      input.AvailabilityZone !== null && { AvailabilityZone: input.AvailabilityZone }),
+    ...(input.AvailabilityZoneId !== undefined &&
+      input.AvailabilityZoneId !== null && { AvailabilityZoneId: input.AvailabilityZoneId }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.SiteId !== undefined && input.SiteId !== null && { SiteId: input.SiteId }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -63,9 +65,7 @@ export const serializeAws_restJson1DeleteOutpostCommand = async (
   input: DeleteOutpostCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/outposts/{OutpostId}";
   if (input.OutpostId !== undefined) {
     const labelValue: string = input.OutpostId;
@@ -93,9 +93,7 @@ export const serializeAws_restJson1DeleteSiteCommand = async (
   input: DeleteSiteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/sites/{SiteId}";
   if (input.SiteId !== undefined) {
     const labelValue: string = input.SiteId;
@@ -123,9 +121,7 @@ export const serializeAws_restJson1GetOutpostCommand = async (
   input: GetOutpostCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/outposts/{OutpostId}";
   if (input.OutpostId !== undefined) {
     const labelValue: string = input.OutpostId;
@@ -153,9 +149,7 @@ export const serializeAws_restJson1GetOutpostInstanceTypesCommand = async (
   input: GetOutpostInstanceTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/outposts/{OutpostId}/instanceTypes";
   if (input.OutpostId !== undefined) {
     const labelValue: string = input.OutpostId;
@@ -188,9 +182,7 @@ export const serializeAws_restJson1ListOutpostsCommand = async (
   input: ListOutpostsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/outposts";
   const query: any = {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
@@ -214,9 +206,7 @@ export const serializeAws_restJson1ListSitesCommand = async (
   input: ListSitesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/sites";
   const query: any = {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
@@ -879,13 +869,15 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1InstanceTypeItem = (output: any, context: __SerdeContext): InstanceTypeItem => {
@@ -898,7 +890,14 @@ const deserializeAws_restJson1InstanceTypeListDefinition = (
   output: any,
   context: __SerdeContext
 ): InstanceTypeItem[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1InstanceTypeItem(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1InstanceTypeItem(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Outpost = (output: any, context: __SerdeContext): Outpost => {
@@ -925,7 +924,14 @@ const deserializeAws_restJson1Outpost = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_restJson1outpostListDefinition = (output: any, context: __SerdeContext): Outpost[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Outpost(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Outpost(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Site = (output: any, context: __SerdeContext): Site => {
@@ -942,17 +948,26 @@ const deserializeAws_restJson1Site = (output: any, context: __SerdeContext): Sit
 };
 
 const deserializeAws_restJson1siteListDefinition = (output: any, context: __SerdeContext): Site[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Site(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Site(entry, context);
+    });
 };
 
 const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -975,6 +990,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

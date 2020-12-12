@@ -28,7 +28,6 @@ export const serializeAws_restJson1GetRoleCredentialsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.accessToken) && { "x-amz-sso_bearer_token": input.accessToken! }),
   };
   let resolvedPath = "/federation/credentials";
@@ -55,14 +54,13 @@ export const serializeAws_restJson1ListAccountRolesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.accessToken) && { "x-amz-sso_bearer_token": input.accessToken! }),
   };
   let resolvedPath = "/assignment/roles";
   const query: any = {
+    ...(input.nextToken !== undefined && { next_token: input.nextToken }),
     ...(input.maxResults !== undefined && { max_result: input.maxResults.toString() }),
     ...(input.accountId !== undefined && { account_id: input.accountId }),
-    ...(input.nextToken !== undefined && { next_token: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -83,13 +81,12 @@ export const serializeAws_restJson1ListAccountsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.accessToken) && { "x-amz-sso_bearer_token": input.accessToken! }),
   };
   let resolvedPath = "/assignment/accounts";
   const query: any = {
-    ...(input.maxResults !== undefined && { max_result: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { next_token: input.nextToken }),
+    ...(input.maxResults !== undefined && { max_result: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -110,7 +107,6 @@ export const serializeAws_restJson1LogoutCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.accessToken) && { "x-amz-sso_bearer_token": input.accessToken! }),
   };
   let resolvedPath = "/logout";
@@ -516,7 +512,14 @@ const deserializeAws_restJson1AccountInfo = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1AccountListType = (output: any, context: __SerdeContext): AccountInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1AccountInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AccountInfo(entry, context);
+    });
 };
 
 const deserializeAws_restJson1RoleCredentials = (output: any, context: __SerdeContext): RoleCredentials => {
@@ -537,7 +540,14 @@ const deserializeAws_restJson1RoleInfo = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restJson1RoleListType = (output: any, context: __SerdeContext): RoleInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1RoleInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RoleInfo(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -560,6 +570,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

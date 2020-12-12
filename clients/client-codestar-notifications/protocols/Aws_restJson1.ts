@@ -61,21 +61,21 @@ export const serializeAws_restJson1CreateNotificationRuleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/createNotificationRule";
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DetailType !== undefined && { DetailType: input.DetailType }),
-    ...(input.EventTypeIds !== undefined && {
-      EventTypeIds: serializeAws_restJson1EventTypeIds(input.EventTypeIds, context),
-    }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Resource !== undefined && { Resource: input.Resource }),
-    ...(input.Status !== undefined && { Status: input.Status }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
-    ...(input.Targets !== undefined && { Targets: serializeAws_restJson1Targets(input.Targets, context) }),
+    ...(input.DetailType !== undefined && input.DetailType !== null && { DetailType: input.DetailType }),
+    ...(input.EventTypeIds !== undefined &&
+      input.EventTypeIds !== null && { EventTypeIds: serializeAws_restJson1EventTypeIds(input.EventTypeIds, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Resource !== undefined && input.Resource !== null && { Resource: input.Resource }),
+    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.Targets !== undefined &&
+      input.Targets !== null && { Targets: serializeAws_restJson1Targets(input.Targets, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -94,12 +94,12 @@ export const serializeAws_restJson1DeleteNotificationRuleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/deleteNotificationRule";
   let body: any;
   body = JSON.stringify({
-    ...(input.Arn !== undefined && { Arn: input.Arn }),
+    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -118,13 +118,14 @@ export const serializeAws_restJson1DeleteTargetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/deleteTarget";
   let body: any;
   body = JSON.stringify({
-    ...(input.ForceUnsubscribeAll !== undefined && { ForceUnsubscribeAll: input.ForceUnsubscribeAll }),
-    ...(input.TargetAddress !== undefined && { TargetAddress: input.TargetAddress }),
+    ...(input.ForceUnsubscribeAll !== undefined &&
+      input.ForceUnsubscribeAll !== null && { ForceUnsubscribeAll: input.ForceUnsubscribeAll }),
+    ...(input.TargetAddress !== undefined && input.TargetAddress !== null && { TargetAddress: input.TargetAddress }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -143,12 +144,12 @@ export const serializeAws_restJson1DescribeNotificationRuleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/describeNotificationRule";
   let body: any;
   body = JSON.stringify({
-    ...(input.Arn !== undefined && { Arn: input.Arn }),
+    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -167,16 +168,15 @@ export const serializeAws_restJson1ListEventTypesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/listEventTypes";
   let body: any;
   body = JSON.stringify({
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_restJson1ListEventTypesFilters(input.Filters, context),
-    }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_restJson1ListEventTypesFilters(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -195,16 +195,17 @@ export const serializeAws_restJson1ListNotificationRulesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/listNotificationRules";
   let body: any;
   body = JSON.stringify({
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_restJson1ListNotificationRulesFilters(input.Filters, context),
-    }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && {
+        Filters: serializeAws_restJson1ListNotificationRulesFilters(input.Filters, context),
+      }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -223,12 +224,12 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/listTagsForResource";
   let body: any;
   body = JSON.stringify({
-    ...(input.Arn !== undefined && { Arn: input.Arn }),
+    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -247,14 +248,15 @@ export const serializeAws_restJson1ListTargetsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/listTargets";
   let body: any;
   body = JSON.stringify({
-    ...(input.Filters !== undefined && { Filters: serializeAws_restJson1ListTargetsFilters(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_restJson1ListTargetsFilters(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -273,14 +275,16 @@ export const serializeAws_restJson1SubscribeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/subscribe";
   let body: any;
   body = JSON.stringify({
-    ...(input.Arn !== undefined && { Arn: input.Arn }),
-    ...(input.ClientRequestToken !== undefined && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.Target !== undefined && { Target: serializeAws_restJson1Target(input.Target, context) }),
+    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
+    ...(input.ClientRequestToken !== undefined &&
+      input.ClientRequestToken !== null && { ClientRequestToken: input.ClientRequestToken }),
+    ...(input.Target !== undefined &&
+      input.Target !== null && { Target: serializeAws_restJson1Target(input.Target, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -299,13 +303,13 @@ export const serializeAws_restJson1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/tagResource";
   let body: any;
   body = JSON.stringify({
-    ...(input.Arn !== undefined && { Arn: input.Arn }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -324,13 +328,13 @@ export const serializeAws_restJson1UnsubscribeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/unsubscribe";
   let body: any;
   body = JSON.stringify({
-    ...(input.Arn !== undefined && { Arn: input.Arn }),
-    ...(input.TargetAddress !== undefined && { TargetAddress: input.TargetAddress }),
+    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
+    ...(input.TargetAddress !== undefined && input.TargetAddress !== null && { TargetAddress: input.TargetAddress }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -349,13 +353,14 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/untagResource";
   let body: any;
   body = JSON.stringify({
-    ...(input.Arn !== undefined && { Arn: input.Arn }),
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_restJson1TagKeys(input.TagKeys, context) }),
+    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_restJson1TagKeys(input.TagKeys, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -374,19 +379,19 @@ export const serializeAws_restJson1UpdateNotificationRuleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/updateNotificationRule";
   let body: any;
   body = JSON.stringify({
-    ...(input.Arn !== undefined && { Arn: input.Arn }),
-    ...(input.DetailType !== undefined && { DetailType: input.DetailType }),
-    ...(input.EventTypeIds !== undefined && {
-      EventTypeIds: serializeAws_restJson1EventTypeIds(input.EventTypeIds, context),
-    }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Status !== undefined && { Status: input.Status }),
-    ...(input.Targets !== undefined && { Targets: serializeAws_restJson1Targets(input.Targets, context) }),
+    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
+    ...(input.DetailType !== undefined && input.DetailType !== null && { DetailType: input.DetailType }),
+    ...(input.EventTypeIds !== undefined &&
+      input.EventTypeIds !== null && { EventTypeIds: serializeAws_restJson1EventTypeIds(input.EventTypeIds, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+    ...(input.Targets !== undefined &&
+      input.Targets !== null && { Targets: serializeAws_restJson1Targets(input.Targets, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1436,18 +1441,32 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 };
 
 const serializeAws_restJson1EventTypeIds = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1ListEventTypesFilter = (input: ListEventTypesFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_restJson1ListEventTypesFilters = (input: ListEventTypesFilter[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1ListEventTypesFilter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1ListEventTypesFilter(entry, context);
+    });
 };
 
 const serializeAws_restJson1ListNotificationRulesFilter = (
@@ -1455,8 +1474,8 @@ const serializeAws_restJson1ListNotificationRulesFilter = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
@@ -1464,47 +1483,84 @@ const serializeAws_restJson1ListNotificationRulesFilters = (
   input: ListNotificationRulesFilter[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_restJson1ListNotificationRulesFilter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1ListNotificationRulesFilter(entry, context);
+    });
 };
 
 const serializeAws_restJson1ListTargetsFilter = (input: ListTargetsFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_restJson1ListTargetsFilters = (input: ListTargetsFilter[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1ListTargetsFilter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1ListTargetsFilter(entry, context);
+    });
 };
 
 const serializeAws_restJson1TagKeys = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_restJson1Target = (input: Target, context: __SerdeContext): any => {
   return {
-    ...(input.TargetAddress !== undefined && { TargetAddress: input.TargetAddress }),
-    ...(input.TargetType !== undefined && { TargetType: input.TargetType }),
+    ...(input.TargetAddress !== undefined && input.TargetAddress !== null && { TargetAddress: input.TargetAddress }),
+    ...(input.TargetType !== undefined && input.TargetType !== null && { TargetType: input.TargetType }),
   };
 };
 
 const serializeAws_restJson1Targets = (input: Target[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1Target(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Target(entry, context);
+    });
 };
 
 const deserializeAws_restJson1EventTypeBatch = (output: any, context: __SerdeContext): EventTypeSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1EventTypeSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1EventTypeSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1EventTypeSummary = (output: any, context: __SerdeContext): EventTypeSummary => {
@@ -1521,7 +1577,14 @@ const deserializeAws_restJson1NotificationRuleBatch = (
   output: any,
   context: __SerdeContext
 ): NotificationRuleSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1NotificationRuleSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1NotificationRuleSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1NotificationRuleSummary = (
@@ -1535,17 +1598,26 @@ const deserializeAws_restJson1NotificationRuleSummary = (
 };
 
 const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1TargetsBatch = (output: any, context: __SerdeContext): TargetSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1TargetSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1TargetSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1TargetSummary = (output: any, context: __SerdeContext): TargetSummary => {
@@ -1577,6 +1649,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

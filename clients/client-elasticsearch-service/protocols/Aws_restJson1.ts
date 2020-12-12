@@ -209,9 +209,7 @@ export const serializeAws_restJson1AcceptInboundCrossClusterSearchConnectionComm
   input: AcceptInboundCrossClusterSearchConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-01-01/es/ccs/inboundConnection/{CrossClusterSearchConnectionId}/accept";
   if (input.CrossClusterSearchConnectionId !== undefined) {
     const labelValue: string = input.CrossClusterSearchConnectionId;
@@ -240,13 +238,14 @@ export const serializeAws_restJson1AddTagsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2015-01-01/tags";
   let body: any;
   body = JSON.stringify({
-    ...(input.ARN !== undefined && { ARN: input.ARN }),
-    ...(input.TagList !== undefined && { TagList: serializeAws_restJson1TagList(input.TagList, context) }),
+    ...(input.ARN !== undefined && input.ARN !== null && { ARN: input.ARN }),
+    ...(input.TagList !== undefined &&
+      input.TagList !== null && { TagList: serializeAws_restJson1TagList(input.TagList, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -264,9 +263,7 @@ export const serializeAws_restJson1AssociatePackageCommand = async (
   input: AssociatePackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-01-01/packages/associate/{PackageID}/{DomainName}";
   if (input.PackageID !== undefined) {
     const labelValue: string = input.PackageID;
@@ -304,12 +301,12 @@ export const serializeAws_restJson1CancelElasticsearchServiceSoftwareUpdateComma
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2015-01-01/es/serviceSoftwareUpdate/cancel";
   let body: any;
   body = JSON.stringify({
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -328,52 +325,65 @@ export const serializeAws_restJson1CreateElasticsearchDomainCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2015-01-01/es/domain";
   let body: any;
   body = JSON.stringify({
-    ...(input.AccessPolicies !== undefined && { AccessPolicies: input.AccessPolicies }),
-    ...(input.AdvancedOptions !== undefined && {
-      AdvancedOptions: serializeAws_restJson1AdvancedOptions(input.AdvancedOptions, context),
-    }),
-    ...(input.AdvancedSecurityOptions !== undefined && {
-      AdvancedSecurityOptions: serializeAws_restJson1AdvancedSecurityOptionsInput(
-        input.AdvancedSecurityOptions,
-        context
-      ),
-    }),
-    ...(input.CognitoOptions !== undefined && {
-      CognitoOptions: serializeAws_restJson1CognitoOptions(input.CognitoOptions, context),
-    }),
-    ...(input.DomainEndpointOptions !== undefined && {
-      DomainEndpointOptions: serializeAws_restJson1DomainEndpointOptions(input.DomainEndpointOptions, context),
-    }),
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
-    ...(input.EBSOptions !== undefined && { EBSOptions: serializeAws_restJson1EBSOptions(input.EBSOptions, context) }),
-    ...(input.ElasticsearchClusterConfig !== undefined && {
-      ElasticsearchClusterConfig: serializeAws_restJson1ElasticsearchClusterConfig(
-        input.ElasticsearchClusterConfig,
-        context
-      ),
-    }),
-    ...(input.ElasticsearchVersion !== undefined && { ElasticsearchVersion: input.ElasticsearchVersion }),
-    ...(input.EncryptionAtRestOptions !== undefined && {
-      EncryptionAtRestOptions: serializeAws_restJson1EncryptionAtRestOptions(input.EncryptionAtRestOptions, context),
-    }),
-    ...(input.LogPublishingOptions !== undefined && {
-      LogPublishingOptions: serializeAws_restJson1LogPublishingOptions(input.LogPublishingOptions, context),
-    }),
-    ...(input.NodeToNodeEncryptionOptions !== undefined && {
-      NodeToNodeEncryptionOptions: serializeAws_restJson1NodeToNodeEncryptionOptions(
-        input.NodeToNodeEncryptionOptions,
-        context
-      ),
-    }),
-    ...(input.SnapshotOptions !== undefined && {
-      SnapshotOptions: serializeAws_restJson1SnapshotOptions(input.SnapshotOptions, context),
-    }),
-    ...(input.VPCOptions !== undefined && { VPCOptions: serializeAws_restJson1VPCOptions(input.VPCOptions, context) }),
+    ...(input.AccessPolicies !== undefined &&
+      input.AccessPolicies !== null && { AccessPolicies: input.AccessPolicies }),
+    ...(input.AdvancedOptions !== undefined &&
+      input.AdvancedOptions !== null && {
+        AdvancedOptions: serializeAws_restJson1AdvancedOptions(input.AdvancedOptions, context),
+      }),
+    ...(input.AdvancedSecurityOptions !== undefined &&
+      input.AdvancedSecurityOptions !== null && {
+        AdvancedSecurityOptions: serializeAws_restJson1AdvancedSecurityOptionsInput(
+          input.AdvancedSecurityOptions,
+          context
+        ),
+      }),
+    ...(input.CognitoOptions !== undefined &&
+      input.CognitoOptions !== null && {
+        CognitoOptions: serializeAws_restJson1CognitoOptions(input.CognitoOptions, context),
+      }),
+    ...(input.DomainEndpointOptions !== undefined &&
+      input.DomainEndpointOptions !== null && {
+        DomainEndpointOptions: serializeAws_restJson1DomainEndpointOptions(input.DomainEndpointOptions, context),
+      }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.EBSOptions !== undefined &&
+      input.EBSOptions !== null && { EBSOptions: serializeAws_restJson1EBSOptions(input.EBSOptions, context) }),
+    ...(input.ElasticsearchClusterConfig !== undefined &&
+      input.ElasticsearchClusterConfig !== null && {
+        ElasticsearchClusterConfig: serializeAws_restJson1ElasticsearchClusterConfig(
+          input.ElasticsearchClusterConfig,
+          context
+        ),
+      }),
+    ...(input.ElasticsearchVersion !== undefined &&
+      input.ElasticsearchVersion !== null && { ElasticsearchVersion: input.ElasticsearchVersion }),
+    ...(input.EncryptionAtRestOptions !== undefined &&
+      input.EncryptionAtRestOptions !== null && {
+        EncryptionAtRestOptions: serializeAws_restJson1EncryptionAtRestOptions(input.EncryptionAtRestOptions, context),
+      }),
+    ...(input.LogPublishingOptions !== undefined &&
+      input.LogPublishingOptions !== null && {
+        LogPublishingOptions: serializeAws_restJson1LogPublishingOptions(input.LogPublishingOptions, context),
+      }),
+    ...(input.NodeToNodeEncryptionOptions !== undefined &&
+      input.NodeToNodeEncryptionOptions !== null && {
+        NodeToNodeEncryptionOptions: serializeAws_restJson1NodeToNodeEncryptionOptions(
+          input.NodeToNodeEncryptionOptions,
+          context
+        ),
+      }),
+    ...(input.SnapshotOptions !== undefined &&
+      input.SnapshotOptions !== null && {
+        SnapshotOptions: serializeAws_restJson1SnapshotOptions(input.SnapshotOptions, context),
+      }),
+    ...(input.VPCOptions !== undefined &&
+      input.VPCOptions !== null && { VPCOptions: serializeAws_restJson1VPCOptions(input.VPCOptions, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -392,18 +402,21 @@ export const serializeAws_restJson1CreateOutboundCrossClusterSearchConnectionCom
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2015-01-01/es/ccs/outboundConnection";
   let body: any;
   body = JSON.stringify({
-    ...(input.ConnectionAlias !== undefined && { ConnectionAlias: input.ConnectionAlias }),
-    ...(input.DestinationDomainInfo !== undefined && {
-      DestinationDomainInfo: serializeAws_restJson1DomainInformation(input.DestinationDomainInfo, context),
-    }),
-    ...(input.SourceDomainInfo !== undefined && {
-      SourceDomainInfo: serializeAws_restJson1DomainInformation(input.SourceDomainInfo, context),
-    }),
+    ...(input.ConnectionAlias !== undefined &&
+      input.ConnectionAlias !== null && { ConnectionAlias: input.ConnectionAlias }),
+    ...(input.DestinationDomainInfo !== undefined &&
+      input.DestinationDomainInfo !== null && {
+        DestinationDomainInfo: serializeAws_restJson1DomainInformation(input.DestinationDomainInfo, context),
+      }),
+    ...(input.SourceDomainInfo !== undefined &&
+      input.SourceDomainInfo !== null && {
+        SourceDomainInfo: serializeAws_restJson1DomainInformation(input.SourceDomainInfo, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -422,17 +435,19 @@ export const serializeAws_restJson1CreatePackageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2015-01-01/packages";
   let body: any;
   body = JSON.stringify({
-    ...(input.PackageDescription !== undefined && { PackageDescription: input.PackageDescription }),
-    ...(input.PackageName !== undefined && { PackageName: input.PackageName }),
-    ...(input.PackageSource !== undefined && {
-      PackageSource: serializeAws_restJson1PackageSource(input.PackageSource, context),
-    }),
-    ...(input.PackageType !== undefined && { PackageType: input.PackageType }),
+    ...(input.PackageDescription !== undefined &&
+      input.PackageDescription !== null && { PackageDescription: input.PackageDescription }),
+    ...(input.PackageName !== undefined && input.PackageName !== null && { PackageName: input.PackageName }),
+    ...(input.PackageSource !== undefined &&
+      input.PackageSource !== null && {
+        PackageSource: serializeAws_restJson1PackageSource(input.PackageSource, context),
+      }),
+    ...(input.PackageType !== undefined && input.PackageType !== null && { PackageType: input.PackageType }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -450,9 +465,7 @@ export const serializeAws_restJson1DeleteElasticsearchDomainCommand = async (
   input: DeleteElasticsearchDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-01-01/es/domain/{DomainName}";
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
@@ -480,12 +493,10 @@ export const serializeAws_restJson1DeleteElasticsearchServiceRoleCommand = async
   input: DeleteElasticsearchServiceRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-01-01/es/role";
   let body: any;
-  body = "{}";
+  body = "";
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -502,9 +513,7 @@ export const serializeAws_restJson1DeleteInboundCrossClusterSearchConnectionComm
   input: DeleteInboundCrossClusterSearchConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-01-01/es/ccs/inboundConnection/{CrossClusterSearchConnectionId}";
   if (input.CrossClusterSearchConnectionId !== undefined) {
     const labelValue: string = input.CrossClusterSearchConnectionId;
@@ -532,9 +541,7 @@ export const serializeAws_restJson1DeleteOutboundCrossClusterSearchConnectionCom
   input: DeleteOutboundCrossClusterSearchConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-01-01/es/ccs/outboundConnection/{CrossClusterSearchConnectionId}";
   if (input.CrossClusterSearchConnectionId !== undefined) {
     const labelValue: string = input.CrossClusterSearchConnectionId;
@@ -562,9 +569,7 @@ export const serializeAws_restJson1DeletePackageCommand = async (
   input: DeletePackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-01-01/packages/{PackageID}";
   if (input.PackageID !== undefined) {
     const labelValue: string = input.PackageID;
@@ -592,9 +597,7 @@ export const serializeAws_restJson1DescribeElasticsearchDomainCommand = async (
   input: DescribeElasticsearchDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-01-01/es/domain/{DomainName}";
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
@@ -622,9 +625,7 @@ export const serializeAws_restJson1DescribeElasticsearchDomainConfigCommand = as
   input: DescribeElasticsearchDomainConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-01-01/es/domain/{DomainName}/config";
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
@@ -653,14 +654,13 @@ export const serializeAws_restJson1DescribeElasticsearchDomainsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2015-01-01/es/domain-info";
   let body: any;
   body = JSON.stringify({
-    ...(input.DomainNames !== undefined && {
-      DomainNames: serializeAws_restJson1DomainNameList(input.DomainNames, context),
-    }),
+    ...(input.DomainNames !== undefined &&
+      input.DomainNames !== null && { DomainNames: serializeAws_restJson1DomainNameList(input.DomainNames, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -678,9 +678,7 @@ export const serializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsComman
   input: DescribeElasticsearchInstanceTypeLimitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-01-01/es/instanceTypeLimits/{ElasticsearchVersion}/{InstanceType}";
   if (input.InstanceType !== undefined) {
     const labelValue: string = input.InstanceType;
@@ -722,14 +720,15 @@ export const serializeAws_restJson1DescribeInboundCrossClusterSearchConnectionsC
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2015-01-01/es/ccs/inboundConnection/search";
   let body: any;
   body = JSON.stringify({
-    ...(input.Filters !== undefined && { Filters: serializeAws_restJson1FilterList(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_restJson1FilterList(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -748,14 +747,15 @@ export const serializeAws_restJson1DescribeOutboundCrossClusterSearchConnections
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2015-01-01/es/ccs/outboundConnection/search";
   let body: any;
   body = JSON.stringify({
-    ...(input.Filters !== undefined && { Filters: serializeAws_restJson1FilterList(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_restJson1FilterList(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -774,16 +774,15 @@ export const serializeAws_restJson1DescribePackagesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2015-01-01/packages/describe";
   let body: any;
   body = JSON.stringify({
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_restJson1DescribePackagesFilterList(input.Filters, context),
-    }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_restJson1DescribePackagesFilterList(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -801,9 +800,7 @@ export const serializeAws_restJson1DescribeReservedElasticsearchInstanceOffering
   input: DescribeReservedElasticsearchInstanceOfferingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-01-01/es/reservedInstanceOfferings";
   const query: any = {
     ...(input.ReservedElasticsearchInstanceOfferingId !== undefined && {
@@ -830,9 +827,7 @@ export const serializeAws_restJson1DescribeReservedElasticsearchInstancesCommand
   input: DescribeReservedElasticsearchInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-01-01/es/reservedInstances";
   const query: any = {
     ...(input.ReservedElasticsearchInstanceId !== undefined && {
@@ -859,9 +854,7 @@ export const serializeAws_restJson1DissociatePackageCommand = async (
   input: DissociatePackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-01-01/packages/dissociate/{PackageID}/{DomainName}";
   if (input.PackageID !== undefined) {
     const labelValue: string = input.PackageID;
@@ -898,9 +891,7 @@ export const serializeAws_restJson1GetCompatibleElasticsearchVersionsCommand = a
   input: GetCompatibleElasticsearchVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-01-01/es/compatibleVersions";
   const query: any = {
     ...(input.DomainName !== undefined && { domainName: input.DomainName }),
@@ -923,9 +914,7 @@ export const serializeAws_restJson1GetPackageVersionHistoryCommand = async (
   input: GetPackageVersionHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-01-01/packages/{PackageID}/history";
   if (input.PackageID !== undefined) {
     const labelValue: string = input.PackageID;
@@ -958,9 +947,7 @@ export const serializeAws_restJson1GetUpgradeHistoryCommand = async (
   input: GetUpgradeHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-01-01/es/upgradeDomain/{DomainName}/history";
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
@@ -993,9 +980,7 @@ export const serializeAws_restJson1GetUpgradeStatusCommand = async (
   input: GetUpgradeStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-01-01/es/upgradeDomain/{DomainName}/status";
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
@@ -1023,12 +1008,10 @@ export const serializeAws_restJson1ListDomainNamesCommand = async (
   input: ListDomainNamesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-01-01/domain";
   let body: any;
-  body = "{}";
+  body = "";
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1045,9 +1028,7 @@ export const serializeAws_restJson1ListDomainsForPackageCommand = async (
   input: ListDomainsForPackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-01-01/packages/{PackageID}/domains";
   if (input.PackageID !== undefined) {
     const labelValue: string = input.PackageID;
@@ -1080,9 +1061,7 @@ export const serializeAws_restJson1ListElasticsearchInstanceTypesCommand = async
   input: ListElasticsearchInstanceTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-01-01/es/instanceTypes/{ElasticsearchVersion}";
   if (input.ElasticsearchVersion !== undefined) {
     const labelValue: string = input.ElasticsearchVersion;
@@ -1116,9 +1095,7 @@ export const serializeAws_restJson1ListElasticsearchVersionsCommand = async (
   input: ListElasticsearchVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-01-01/es/versions";
   const query: any = {
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
@@ -1142,9 +1119,7 @@ export const serializeAws_restJson1ListPackagesForDomainCommand = async (
   input: ListPackagesForDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-01-01/domain/{DomainName}/packages";
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
@@ -1177,9 +1152,7 @@ export const serializeAws_restJson1ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-01-01/tags";
   const query: any = {
     ...(input.ARN !== undefined && { arn: input.ARN }),
@@ -1203,16 +1176,18 @@ export const serializeAws_restJson1PurchaseReservedElasticsearchInstanceOffering
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2015-01-01/es/purchaseReservedInstanceOffering";
   let body: any;
   body = JSON.stringify({
-    ...(input.InstanceCount !== undefined && { InstanceCount: input.InstanceCount }),
-    ...(input.ReservationName !== undefined && { ReservationName: input.ReservationName }),
-    ...(input.ReservedElasticsearchInstanceOfferingId !== undefined && {
-      ReservedElasticsearchInstanceOfferingId: input.ReservedElasticsearchInstanceOfferingId,
-    }),
+    ...(input.InstanceCount !== undefined && input.InstanceCount !== null && { InstanceCount: input.InstanceCount }),
+    ...(input.ReservationName !== undefined &&
+      input.ReservationName !== null && { ReservationName: input.ReservationName }),
+    ...(input.ReservedElasticsearchInstanceOfferingId !== undefined &&
+      input.ReservedElasticsearchInstanceOfferingId !== null && {
+        ReservedElasticsearchInstanceOfferingId: input.ReservedElasticsearchInstanceOfferingId,
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1230,9 +1205,7 @@ export const serializeAws_restJson1RejectInboundCrossClusterSearchConnectionComm
   input: RejectInboundCrossClusterSearchConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-01-01/es/ccs/inboundConnection/{CrossClusterSearchConnectionId}/reject";
   if (input.CrossClusterSearchConnectionId !== undefined) {
     const labelValue: string = input.CrossClusterSearchConnectionId;
@@ -1261,13 +1234,14 @@ export const serializeAws_restJson1RemoveTagsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2015-01-01/tags-removal";
   let body: any;
   body = JSON.stringify({
-    ...(input.ARN !== undefined && { ARN: input.ARN }),
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_restJson1StringList(input.TagKeys, context) }),
+    ...(input.ARN !== undefined && input.ARN !== null && { ARN: input.ARN }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_restJson1StringList(input.TagKeys, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1286,12 +1260,12 @@ export const serializeAws_restJson1StartElasticsearchServiceSoftwareUpdateComman
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2015-01-01/es/serviceSoftwareUpdate/start";
   let body: any;
   body = JSON.stringify({
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1310,7 +1284,7 @@ export const serializeAws_restJson1UpdateElasticsearchDomainConfigCommand = asyn
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2015-01-01/es/domain/{DomainName}/config";
   if (input.DomainName !== undefined) {
@@ -1324,36 +1298,46 @@ export const serializeAws_restJson1UpdateElasticsearchDomainConfigCommand = asyn
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.AccessPolicies !== undefined && { AccessPolicies: input.AccessPolicies }),
-    ...(input.AdvancedOptions !== undefined && {
-      AdvancedOptions: serializeAws_restJson1AdvancedOptions(input.AdvancedOptions, context),
-    }),
-    ...(input.AdvancedSecurityOptions !== undefined && {
-      AdvancedSecurityOptions: serializeAws_restJson1AdvancedSecurityOptionsInput(
-        input.AdvancedSecurityOptions,
-        context
-      ),
-    }),
-    ...(input.CognitoOptions !== undefined && {
-      CognitoOptions: serializeAws_restJson1CognitoOptions(input.CognitoOptions, context),
-    }),
-    ...(input.DomainEndpointOptions !== undefined && {
-      DomainEndpointOptions: serializeAws_restJson1DomainEndpointOptions(input.DomainEndpointOptions, context),
-    }),
-    ...(input.EBSOptions !== undefined && { EBSOptions: serializeAws_restJson1EBSOptions(input.EBSOptions, context) }),
-    ...(input.ElasticsearchClusterConfig !== undefined && {
-      ElasticsearchClusterConfig: serializeAws_restJson1ElasticsearchClusterConfig(
-        input.ElasticsearchClusterConfig,
-        context
-      ),
-    }),
-    ...(input.LogPublishingOptions !== undefined && {
-      LogPublishingOptions: serializeAws_restJson1LogPublishingOptions(input.LogPublishingOptions, context),
-    }),
-    ...(input.SnapshotOptions !== undefined && {
-      SnapshotOptions: serializeAws_restJson1SnapshotOptions(input.SnapshotOptions, context),
-    }),
-    ...(input.VPCOptions !== undefined && { VPCOptions: serializeAws_restJson1VPCOptions(input.VPCOptions, context) }),
+    ...(input.AccessPolicies !== undefined &&
+      input.AccessPolicies !== null && { AccessPolicies: input.AccessPolicies }),
+    ...(input.AdvancedOptions !== undefined &&
+      input.AdvancedOptions !== null && {
+        AdvancedOptions: serializeAws_restJson1AdvancedOptions(input.AdvancedOptions, context),
+      }),
+    ...(input.AdvancedSecurityOptions !== undefined &&
+      input.AdvancedSecurityOptions !== null && {
+        AdvancedSecurityOptions: serializeAws_restJson1AdvancedSecurityOptionsInput(
+          input.AdvancedSecurityOptions,
+          context
+        ),
+      }),
+    ...(input.CognitoOptions !== undefined &&
+      input.CognitoOptions !== null && {
+        CognitoOptions: serializeAws_restJson1CognitoOptions(input.CognitoOptions, context),
+      }),
+    ...(input.DomainEndpointOptions !== undefined &&
+      input.DomainEndpointOptions !== null && {
+        DomainEndpointOptions: serializeAws_restJson1DomainEndpointOptions(input.DomainEndpointOptions, context),
+      }),
+    ...(input.EBSOptions !== undefined &&
+      input.EBSOptions !== null && { EBSOptions: serializeAws_restJson1EBSOptions(input.EBSOptions, context) }),
+    ...(input.ElasticsearchClusterConfig !== undefined &&
+      input.ElasticsearchClusterConfig !== null && {
+        ElasticsearchClusterConfig: serializeAws_restJson1ElasticsearchClusterConfig(
+          input.ElasticsearchClusterConfig,
+          context
+        ),
+      }),
+    ...(input.LogPublishingOptions !== undefined &&
+      input.LogPublishingOptions !== null && {
+        LogPublishingOptions: serializeAws_restJson1LogPublishingOptions(input.LogPublishingOptions, context),
+      }),
+    ...(input.SnapshotOptions !== undefined &&
+      input.SnapshotOptions !== null && {
+        SnapshotOptions: serializeAws_restJson1SnapshotOptions(input.SnapshotOptions, context),
+      }),
+    ...(input.VPCOptions !== undefined &&
+      input.VPCOptions !== null && { VPCOptions: serializeAws_restJson1VPCOptions(input.VPCOptions, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1372,17 +1356,19 @@ export const serializeAws_restJson1UpdatePackageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2015-01-01/packages/update";
   let body: any;
   body = JSON.stringify({
-    ...(input.CommitMessage !== undefined && { CommitMessage: input.CommitMessage }),
-    ...(input.PackageDescription !== undefined && { PackageDescription: input.PackageDescription }),
-    ...(input.PackageID !== undefined && { PackageID: input.PackageID }),
-    ...(input.PackageSource !== undefined && {
-      PackageSource: serializeAws_restJson1PackageSource(input.PackageSource, context),
-    }),
+    ...(input.CommitMessage !== undefined && input.CommitMessage !== null && { CommitMessage: input.CommitMessage }),
+    ...(input.PackageDescription !== undefined &&
+      input.PackageDescription !== null && { PackageDescription: input.PackageDescription }),
+    ...(input.PackageID !== undefined && input.PackageID !== null && { PackageID: input.PackageID }),
+    ...(input.PackageSource !== undefined &&
+      input.PackageSource !== null && {
+        PackageSource: serializeAws_restJson1PackageSource(input.PackageSource, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1401,14 +1387,15 @@ export const serializeAws_restJson1UpgradeElasticsearchDomainCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2015-01-01/es/upgradeDomain";
   let body: any;
   body = JSON.stringify({
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
-    ...(input.PerformCheckOnly !== undefined && { PerformCheckOnly: input.PerformCheckOnly }),
-    ...(input.TargetVersion !== undefined && { TargetVersion: input.TargetVersion }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.PerformCheckOnly !== undefined &&
+      input.PerformCheckOnly !== null && { PerformCheckOnly: input.PerformCheckOnly }),
+    ...(input.TargetVersion !== undefined && input.TargetVersion !== null && { TargetVersion: input.TargetVersion }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -4921,13 +4908,15 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 };
 
 const serializeAws_restJson1AdvancedOptions = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_restJson1AdvancedSecurityOptionsInput = (
@@ -4935,34 +4924,35 @@ const serializeAws_restJson1AdvancedSecurityOptionsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
-    ...(input.InternalUserDatabaseEnabled !== undefined && {
-      InternalUserDatabaseEnabled: input.InternalUserDatabaseEnabled,
-    }),
-    ...(input.MasterUserOptions !== undefined && {
-      MasterUserOptions: serializeAws_restJson1MasterUserOptions(input.MasterUserOptions, context),
-    }),
-    ...(input.SAMLOptions !== undefined && {
-      SAMLOptions: serializeAws_restJson1SAMLOptionsInput(input.SAMLOptions, context),
-    }),
+    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
+    ...(input.InternalUserDatabaseEnabled !== undefined &&
+      input.InternalUserDatabaseEnabled !== null && { InternalUserDatabaseEnabled: input.InternalUserDatabaseEnabled }),
+    ...(input.MasterUserOptions !== undefined &&
+      input.MasterUserOptions !== null && {
+        MasterUserOptions: serializeAws_restJson1MasterUserOptions(input.MasterUserOptions, context),
+      }),
+    ...(input.SAMLOptions !== undefined &&
+      input.SAMLOptions !== null && {
+        SAMLOptions: serializeAws_restJson1SAMLOptionsInput(input.SAMLOptions, context),
+      }),
   };
 };
 
 const serializeAws_restJson1CognitoOptions = (input: CognitoOptions, context: __SerdeContext): any => {
   return {
-    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
-    ...(input.IdentityPoolId !== undefined && { IdentityPoolId: input.IdentityPoolId }),
-    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
-    ...(input.UserPoolId !== undefined && { UserPoolId: input.UserPoolId }),
+    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
+    ...(input.IdentityPoolId !== undefined &&
+      input.IdentityPoolId !== null && { IdentityPoolId: input.IdentityPoolId }),
+    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
+    ...(input.UserPoolId !== undefined && input.UserPoolId !== null && { UserPoolId: input.UserPoolId }),
   };
 };
 
 const serializeAws_restJson1DescribePackagesFilter = (input: DescribePackagesFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Value !== undefined && {
-      Value: serializeAws_restJson1DescribePackagesFilterValues(input.Value, context),
-    }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Value !== undefined &&
+      input.Value !== null && { Value: serializeAws_restJson1DescribePackagesFilterValues(input.Value, context) }),
   };
 };
 
@@ -4970,43 +4960,68 @@ const serializeAws_restJson1DescribePackagesFilterList = (
   input: DescribePackagesFilter[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_restJson1DescribePackagesFilter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1DescribePackagesFilter(entry, context);
+    });
 };
 
 const serializeAws_restJson1DescribePackagesFilterValues = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1DomainEndpointOptions = (input: DomainEndpointOptions, context: __SerdeContext): any => {
   return {
-    ...(input.CustomEndpoint !== undefined && { CustomEndpoint: input.CustomEndpoint }),
-    ...(input.CustomEndpointCertificateArn !== undefined && {
-      CustomEndpointCertificateArn: input.CustomEndpointCertificateArn,
-    }),
-    ...(input.CustomEndpointEnabled !== undefined && { CustomEndpointEnabled: input.CustomEndpointEnabled }),
-    ...(input.EnforceHTTPS !== undefined && { EnforceHTTPS: input.EnforceHTTPS }),
-    ...(input.TLSSecurityPolicy !== undefined && { TLSSecurityPolicy: input.TLSSecurityPolicy }),
+    ...(input.CustomEndpoint !== undefined &&
+      input.CustomEndpoint !== null && { CustomEndpoint: input.CustomEndpoint }),
+    ...(input.CustomEndpointCertificateArn !== undefined &&
+      input.CustomEndpointCertificateArn !== null && {
+        CustomEndpointCertificateArn: input.CustomEndpointCertificateArn,
+      }),
+    ...(input.CustomEndpointEnabled !== undefined &&
+      input.CustomEndpointEnabled !== null && { CustomEndpointEnabled: input.CustomEndpointEnabled }),
+    ...(input.EnforceHTTPS !== undefined && input.EnforceHTTPS !== null && { EnforceHTTPS: input.EnforceHTTPS }),
+    ...(input.TLSSecurityPolicy !== undefined &&
+      input.TLSSecurityPolicy !== null && { TLSSecurityPolicy: input.TLSSecurityPolicy }),
   };
 };
 
 const serializeAws_restJson1DomainInformation = (input: DomainInformation, context: __SerdeContext): any => {
   return {
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
-    ...(input.OwnerId !== undefined && { OwnerId: input.OwnerId }),
-    ...(input.Region !== undefined && { Region: input.Region }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.OwnerId !== undefined && input.OwnerId !== null && { OwnerId: input.OwnerId }),
+    ...(input.Region !== undefined && input.Region !== null && { Region: input.Region }),
   };
 };
 
 const serializeAws_restJson1DomainNameList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1EBSOptions = (input: EBSOptions, context: __SerdeContext): any => {
   return {
-    ...(input.EBSEnabled !== undefined && { EBSEnabled: input.EBSEnabled }),
-    ...(input.Iops !== undefined && { Iops: input.Iops }),
-    ...(input.VolumeSize !== undefined && { VolumeSize: input.VolumeSize }),
-    ...(input.VolumeType !== undefined && { VolumeType: input.VolumeType }),
+    ...(input.EBSEnabled !== undefined && input.EBSEnabled !== null && { EBSEnabled: input.EBSEnabled }),
+    ...(input.Iops !== undefined && input.Iops !== null && { Iops: input.Iops }),
+    ...(input.VolumeSize !== undefined && input.VolumeSize !== null && { VolumeSize: input.VolumeSize }),
+    ...(input.VolumeType !== undefined && input.VolumeType !== null && { VolumeType: input.VolumeType }),
   };
 };
 
@@ -5015,18 +5030,23 @@ const serializeAws_restJson1ElasticsearchClusterConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DedicatedMasterCount !== undefined && { DedicatedMasterCount: input.DedicatedMasterCount }),
-    ...(input.DedicatedMasterEnabled !== undefined && { DedicatedMasterEnabled: input.DedicatedMasterEnabled }),
-    ...(input.DedicatedMasterType !== undefined && { DedicatedMasterType: input.DedicatedMasterType }),
-    ...(input.InstanceCount !== undefined && { InstanceCount: input.InstanceCount }),
-    ...(input.InstanceType !== undefined && { InstanceType: input.InstanceType }),
-    ...(input.WarmCount !== undefined && { WarmCount: input.WarmCount }),
-    ...(input.WarmEnabled !== undefined && { WarmEnabled: input.WarmEnabled }),
-    ...(input.WarmType !== undefined && { WarmType: input.WarmType }),
-    ...(input.ZoneAwarenessConfig !== undefined && {
-      ZoneAwarenessConfig: serializeAws_restJson1ZoneAwarenessConfig(input.ZoneAwarenessConfig, context),
-    }),
-    ...(input.ZoneAwarenessEnabled !== undefined && { ZoneAwarenessEnabled: input.ZoneAwarenessEnabled }),
+    ...(input.DedicatedMasterCount !== undefined &&
+      input.DedicatedMasterCount !== null && { DedicatedMasterCount: input.DedicatedMasterCount }),
+    ...(input.DedicatedMasterEnabled !== undefined &&
+      input.DedicatedMasterEnabled !== null && { DedicatedMasterEnabled: input.DedicatedMasterEnabled }),
+    ...(input.DedicatedMasterType !== undefined &&
+      input.DedicatedMasterType !== null && { DedicatedMasterType: input.DedicatedMasterType }),
+    ...(input.InstanceCount !== undefined && input.InstanceCount !== null && { InstanceCount: input.InstanceCount }),
+    ...(input.InstanceType !== undefined && input.InstanceType !== null && { InstanceType: input.InstanceType }),
+    ...(input.WarmCount !== undefined && input.WarmCount !== null && { WarmCount: input.WarmCount }),
+    ...(input.WarmEnabled !== undefined && input.WarmEnabled !== null && { WarmEnabled: input.WarmEnabled }),
+    ...(input.WarmType !== undefined && input.WarmType !== null && { WarmType: input.WarmType }),
+    ...(input.ZoneAwarenessConfig !== undefined &&
+      input.ZoneAwarenessConfig !== null && {
+        ZoneAwarenessConfig: serializeAws_restJson1ZoneAwarenessConfig(input.ZoneAwarenessConfig, context),
+      }),
+    ...(input.ZoneAwarenessEnabled !== undefined &&
+      input.ZoneAwarenessEnabled !== null && { ZoneAwarenessEnabled: input.ZoneAwarenessEnabled }),
   };
 };
 
@@ -5035,28 +5055,35 @@ const serializeAws_restJson1EncryptionAtRestOptions = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
-    ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId }),
+    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
+    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
   };
 };
 
 const serializeAws_restJson1Filter = (input: Filter, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Values !== undefined && { Values: serializeAws_restJson1ValueStringList(input.Values, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Values !== undefined &&
+      input.Values !== null && { Values: serializeAws_restJson1ValueStringList(input.Values, context) }),
   };
 };
 
 const serializeAws_restJson1FilterList = (input: Filter[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1Filter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Filter(entry, context);
+    });
 };
 
 const serializeAws_restJson1LogPublishingOption = (input: LogPublishingOption, context: __SerdeContext): any => {
   return {
-    ...(input.CloudWatchLogsLogGroupArn !== undefined && {
-      CloudWatchLogsLogGroupArn: input.CloudWatchLogsLogGroupArn,
-    }),
-    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
+    ...(input.CloudWatchLogsLogGroupArn !== undefined &&
+      input.CloudWatchLogsLogGroupArn !== null && { CloudWatchLogsLogGroupArn: input.CloudWatchLogsLogGroupArn }),
+    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
   };
 };
 
@@ -5065,19 +5092,26 @@ const serializeAws_restJson1LogPublishingOptions = (
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce(
-    (acc: { [key: string]: LogPublishingOption }, [key, value]: [LogType | string, any]) => ({
-      ...acc,
-      [key]: serializeAws_restJson1LogPublishingOption(value, context),
-    }),
+    (acc: { [key: string]: LogPublishingOption }, [key, value]: [LogType | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: serializeAws_restJson1LogPublishingOption(value, context),
+      };
+    },
     {}
   );
 };
 
 const serializeAws_restJson1MasterUserOptions = (input: MasterUserOptions, context: __SerdeContext): any => {
   return {
-    ...(input.MasterUserARN !== undefined && { MasterUserARN: input.MasterUserARN }),
-    ...(input.MasterUserName !== undefined && { MasterUserName: input.MasterUserName }),
-    ...(input.MasterUserPassword !== undefined && { MasterUserPassword: input.MasterUserPassword }),
+    ...(input.MasterUserARN !== undefined && input.MasterUserARN !== null && { MasterUserARN: input.MasterUserARN }),
+    ...(input.MasterUserName !== undefined &&
+      input.MasterUserName !== null && { MasterUserName: input.MasterUserName }),
+    ...(input.MasterUserPassword !== undefined &&
+      input.MasterUserPassword !== null && { MasterUserPassword: input.MasterUserPassword }),
   };
 };
 
@@ -5086,75 +5120,102 @@ const serializeAws_restJson1NodeToNodeEncryptionOptions = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
+    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
   };
 };
 
 const serializeAws_restJson1PackageSource = (input: PackageSource, context: __SerdeContext): any => {
   return {
-    ...(input.S3BucketName !== undefined && { S3BucketName: input.S3BucketName }),
-    ...(input.S3Key !== undefined && { S3Key: input.S3Key }),
+    ...(input.S3BucketName !== undefined && input.S3BucketName !== null && { S3BucketName: input.S3BucketName }),
+    ...(input.S3Key !== undefined && input.S3Key !== null && { S3Key: input.S3Key }),
   };
 };
 
 const serializeAws_restJson1SAMLIdp = (input: SAMLIdp, context: __SerdeContext): any => {
   return {
-    ...(input.EntityId !== undefined && { EntityId: input.EntityId }),
-    ...(input.MetadataContent !== undefined && { MetadataContent: input.MetadataContent }),
+    ...(input.EntityId !== undefined && input.EntityId !== null && { EntityId: input.EntityId }),
+    ...(input.MetadataContent !== undefined &&
+      input.MetadataContent !== null && { MetadataContent: input.MetadataContent }),
   };
 };
 
 const serializeAws_restJson1SAMLOptionsInput = (input: SAMLOptionsInput, context: __SerdeContext): any => {
   return {
-    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
-    ...(input.Idp !== undefined && { Idp: serializeAws_restJson1SAMLIdp(input.Idp, context) }),
-    ...(input.MasterBackendRole !== undefined && { MasterBackendRole: input.MasterBackendRole }),
-    ...(input.MasterUserName !== undefined && { MasterUserName: input.MasterUserName }),
-    ...(input.RolesKey !== undefined && { RolesKey: input.RolesKey }),
-    ...(input.SessionTimeoutMinutes !== undefined && { SessionTimeoutMinutes: input.SessionTimeoutMinutes }),
-    ...(input.SubjectKey !== undefined && { SubjectKey: input.SubjectKey }),
+    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
+    ...(input.Idp !== undefined && input.Idp !== null && { Idp: serializeAws_restJson1SAMLIdp(input.Idp, context) }),
+    ...(input.MasterBackendRole !== undefined &&
+      input.MasterBackendRole !== null && { MasterBackendRole: input.MasterBackendRole }),
+    ...(input.MasterUserName !== undefined &&
+      input.MasterUserName !== null && { MasterUserName: input.MasterUserName }),
+    ...(input.RolesKey !== undefined && input.RolesKey !== null && { RolesKey: input.RolesKey }),
+    ...(input.SessionTimeoutMinutes !== undefined &&
+      input.SessionTimeoutMinutes !== null && { SessionTimeoutMinutes: input.SessionTimeoutMinutes }),
+    ...(input.SubjectKey !== undefined && input.SubjectKey !== null && { SubjectKey: input.SubjectKey }),
   };
 };
 
 const serializeAws_restJson1SnapshotOptions = (input: SnapshotOptions, context: __SerdeContext): any => {
   return {
-    ...(input.AutomatedSnapshotStartHour !== undefined && {
-      AutomatedSnapshotStartHour: input.AutomatedSnapshotStartHour,
-    }),
+    ...(input.AutomatedSnapshotStartHour !== undefined &&
+      input.AutomatedSnapshotStartHour !== null && { AutomatedSnapshotStartHour: input.AutomatedSnapshotStartHour }),
   };
 };
 
 const serializeAws_restJson1StringList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Tag(entry, context);
+    });
 };
 
 const serializeAws_restJson1ValueStringList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1VPCOptions = (input: VPCOptions, context: __SerdeContext): any => {
   return {
-    ...(input.SecurityGroupIds !== undefined && {
-      SecurityGroupIds: serializeAws_restJson1StringList(input.SecurityGroupIds, context),
-    }),
-    ...(input.SubnetIds !== undefined && { SubnetIds: serializeAws_restJson1StringList(input.SubnetIds, context) }),
+    ...(input.SecurityGroupIds !== undefined &&
+      input.SecurityGroupIds !== null && {
+        SecurityGroupIds: serializeAws_restJson1StringList(input.SecurityGroupIds, context),
+      }),
+    ...(input.SubnetIds !== undefined &&
+      input.SubnetIds !== null && { SubnetIds: serializeAws_restJson1StringList(input.SubnetIds, context) }),
   };
 };
 
 const serializeAws_restJson1ZoneAwarenessConfig = (input: ZoneAwarenessConfig, context: __SerdeContext): any => {
   return {
-    ...(input.AvailabilityZoneCount !== undefined && { AvailabilityZoneCount: input.AvailabilityZoneCount }),
+    ...(input.AvailabilityZoneCount !== undefined &&
+      input.AvailabilityZoneCount !== null && { AvailabilityZoneCount: input.AvailabilityZoneCount }),
   };
 };
 
@@ -5179,17 +5240,26 @@ const deserializeAws_restJson1AdditionalLimit = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1AdditionalLimitList = (output: any, context: __SerdeContext): AdditionalLimit[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1AdditionalLimit(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AdditionalLimit(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AdvancedOptions = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1AdvancedOptionsStatus = (output: any, context: __SerdeContext): AdvancedOptionsStatus => {
@@ -5265,7 +5335,14 @@ const deserializeAws_restJson1CompatibleElasticsearchVersionsList = (
   output: any,
   context: __SerdeContext
 ): CompatibleVersionsMap[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1CompatibleVersionsMap(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CompatibleVersionsMap(entry, context);
+    });
 };
 
 const deserializeAws_restJson1CompatibleVersionsMap = (output: any, context: __SerdeContext): CompatibleVersionsMap => {
@@ -5322,7 +5399,14 @@ const deserializeAws_restJson1DomainInfo = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restJson1DomainInfoList = (output: any, context: __SerdeContext): DomainInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1DomainInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DomainInfo(entry, context);
+    });
 };
 
 const deserializeAws_restJson1DomainInformation = (output: any, context: __SerdeContext): DomainInformation => {
@@ -5362,7 +5446,14 @@ const deserializeAws_restJson1DomainPackageDetailsList = (
   output: any,
   context: __SerdeContext
 ): DomainPackageDetails[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1DomainPackageDetails(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DomainPackageDetails(entry, context);
+    });
 };
 
 const deserializeAws_restJson1EBSOptions = (output: any, context: __SerdeContext): EBSOptions => {
@@ -5578,18 +5669,39 @@ const deserializeAws_restJson1ElasticsearchDomainStatusList = (
   output: any,
   context: __SerdeContext
 ): ElasticsearchDomainStatus[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1ElasticsearchDomainStatus(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ElasticsearchDomainStatus(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ElasticsearchInstanceTypeList = (
   output: any,
   context: __SerdeContext
 ): (ESPartitionInstanceType | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1ElasticsearchVersionList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1ElasticsearchVersionStatus = (
@@ -5632,13 +5744,15 @@ const deserializeAws_restJson1EncryptionAtRestOptionsStatus = (
 };
 
 const deserializeAws_restJson1EndpointsMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1ErrorDetails = (output: any, context: __SerdeContext): ErrorDetails => {
@@ -5676,9 +5790,14 @@ const deserializeAws_restJson1InboundCrossClusterSearchConnections = (
   output: any,
   context: __SerdeContext
 ): InboundCrossClusterSearchConnection[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1InboundCrossClusterSearchConnection(entry, context)
-  );
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1InboundCrossClusterSearchConnection(entry, context);
+    });
 };
 
 const deserializeAws_restJson1InboundCrossClusterSearchConnectionStatus = (
@@ -5714,7 +5833,14 @@ const deserializeAws_restJson1InstanceLimits = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1Issues = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1Limits = (output: any, context: __SerdeContext): Limits => {
@@ -5735,17 +5861,26 @@ const deserializeAws_restJson1Limits = (output: any, context: __SerdeContext): L
 };
 
 const deserializeAws_restJson1LimitsByRole = (output: any, context: __SerdeContext): { [key: string]: Limits } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: Limits }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: Limits }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: deserializeAws_restJson1Limits(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1LimitValueList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1LogPublishingOption = (output: any, context: __SerdeContext): LogPublishingOption => {
@@ -5763,10 +5898,15 @@ const deserializeAws_restJson1LogPublishingOptions = (
   context: __SerdeContext
 ): { [key: string]: LogPublishingOption } => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: LogPublishingOption }, [key, value]: [LogType | string, any]) => ({
-      ...acc,
-      [key]: deserializeAws_restJson1LogPublishingOption(value, context),
-    }),
+    (acc: { [key: string]: LogPublishingOption }, [key, value]: [LogType | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: deserializeAws_restJson1LogPublishingOption(value, context),
+      };
+    },
     {}
   );
 };
@@ -5860,9 +6000,14 @@ const deserializeAws_restJson1OutboundCrossClusterSearchConnections = (
   output: any,
   context: __SerdeContext
 ): OutboundCrossClusterSearchConnection[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1OutboundCrossClusterSearchConnection(entry, context)
-  );
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1OutboundCrossClusterSearchConnection(entry, context);
+    });
 };
 
 const deserializeAws_restJson1OutboundCrossClusterSearchConnectionStatus = (
@@ -5906,7 +6051,14 @@ const deserializeAws_restJson1PackageDetails = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1PackageDetailsList = (output: any, context: __SerdeContext): PackageDetails[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1PackageDetails(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1PackageDetails(entry, context);
+    });
 };
 
 const deserializeAws_restJson1PackageVersionHistory = (output: any, context: __SerdeContext): PackageVersionHistory => {
@@ -5926,7 +6078,14 @@ const deserializeAws_restJson1PackageVersionHistoryList = (
   output: any,
   context: __SerdeContext
 ): PackageVersionHistory[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1PackageVersionHistory(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1PackageVersionHistory(entry, context);
+    });
 };
 
 const deserializeAws_restJson1RecurringCharge = (output: any, context: __SerdeContext): RecurringCharge => {
@@ -5943,7 +6102,14 @@ const deserializeAws_restJson1RecurringCharge = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1RecurringChargeList = (output: any, context: __SerdeContext): RecurringCharge[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1RecurringCharge(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RecurringCharge(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ReservedElasticsearchInstance = (
@@ -5992,7 +6158,14 @@ const deserializeAws_restJson1ReservedElasticsearchInstanceList = (
   output: any,
   context: __SerdeContext
 ): ReservedElasticsearchInstance[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1ReservedElasticsearchInstance(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ReservedElasticsearchInstance(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ReservedElasticsearchInstanceOffering = (
@@ -6026,9 +6199,14 @@ const deserializeAws_restJson1ReservedElasticsearchInstanceOfferingList = (
   output: any,
   context: __SerdeContext
 ): ReservedElasticsearchInstanceOffering[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1ReservedElasticsearchInstanceOffering(entry, context)
-  );
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ReservedElasticsearchInstanceOffering(entry, context);
+    });
 };
 
 const deserializeAws_restJson1SAMLIdp = (output: any, context: __SerdeContext): SAMLIdp => {
@@ -6127,15 +6305,36 @@ const deserializeAws_restJson1StorageTypeLimit = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1StorageTypeLimitList = (output: any, context: __SerdeContext): StorageTypeLimit[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1StorageTypeLimit(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1StorageTypeLimit(entry, context);
+    });
 };
 
 const deserializeAws_restJson1StorageTypeList = (output: any, context: __SerdeContext): StorageType[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1StorageType(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1StorageType(entry, context);
+    });
 };
 
 const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -6146,7 +6345,14 @@ const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag 
 };
 
 const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Tag(entry, context);
+    });
 };
 
 const deserializeAws_restJson1UpgradeHistory = (output: any, context: __SerdeContext): UpgradeHistory => {
@@ -6166,7 +6372,14 @@ const deserializeAws_restJson1UpgradeHistory = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1UpgradeHistoryList = (output: any, context: __SerdeContext): UpgradeHistory[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1UpgradeHistory(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1UpgradeHistory(entry, context);
+    });
 };
 
 const deserializeAws_restJson1UpgradeStepItem = (output: any, context: __SerdeContext): UpgradeStepItem => {
@@ -6186,7 +6399,14 @@ const deserializeAws_restJson1UpgradeStepItem = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1UpgradeStepsList = (output: any, context: __SerdeContext): UpgradeStepItem[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1UpgradeStepItem(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1UpgradeStepItem(entry, context);
+    });
 };
 
 const deserializeAws_restJson1VPCDerivedInfo = (output: any, context: __SerdeContext): VPCDerivedInfo => {
@@ -6249,6 +6469,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

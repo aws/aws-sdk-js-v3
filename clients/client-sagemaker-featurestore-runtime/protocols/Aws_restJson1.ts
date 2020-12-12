@@ -25,9 +25,7 @@ export const serializeAws_restJson1DeleteRecordCommand = async (
   input: DeleteRecordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/FeatureGroup/{FeatureGroupName}";
   if (input.FeatureGroupName !== undefined) {
     const labelValue: string = input.FeatureGroupName;
@@ -62,9 +60,7 @@ export const serializeAws_restJson1GetRecordCommand = async (
   input: GetRecordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/FeatureGroup/{FeatureGroupName}";
   if (input.FeatureGroupName !== undefined) {
     const labelValue: string = input.FeatureGroupName;
@@ -100,7 +96,7 @@ export const serializeAws_restJson1PutRecordCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/FeatureGroup/{FeatureGroupName}";
   if (input.FeatureGroupName !== undefined) {
@@ -114,7 +110,8 @@ export const serializeAws_restJson1PutRecordCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Record !== undefined && { Record: serializeAws_restJson1Record(input.Record, context) }),
+    ...(input.Record !== undefined &&
+      input.Record !== null && { Record: serializeAws_restJson1Record(input.Record, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -452,13 +449,20 @@ const deserializeAws_restJson1ValidationErrorResponse = async (
 
 const serializeAws_restJson1FeatureValue = (input: FeatureValue, context: __SerdeContext): any => {
   return {
-    ...(input.FeatureName !== undefined && { FeatureName: input.FeatureName }),
-    ...(input.ValueAsString !== undefined && { ValueAsString: input.ValueAsString }),
+    ...(input.FeatureName !== undefined && input.FeatureName !== null && { FeatureName: input.FeatureName }),
+    ...(input.ValueAsString !== undefined && input.ValueAsString !== null && { ValueAsString: input.ValueAsString }),
   };
 };
 
 const serializeAws_restJson1Record = (input: FeatureValue[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1FeatureValue(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1FeatureValue(entry, context);
+    });
 };
 
 const deserializeAws_restJson1FeatureValue = (output: any, context: __SerdeContext): FeatureValue => {
@@ -470,7 +474,14 @@ const deserializeAws_restJson1FeatureValue = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restJson1Record = (output: any, context: __SerdeContext): FeatureValue[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1FeatureValue(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1FeatureValue(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -493,6 +504,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

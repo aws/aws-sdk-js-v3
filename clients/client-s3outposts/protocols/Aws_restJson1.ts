@@ -27,14 +27,15 @@ export const serializeAws_restJson1CreateEndpointCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/S3Outposts/CreateEndpoint";
   let body: any;
   body = JSON.stringify({
-    ...(input.OutpostId !== undefined && { OutpostId: input.OutpostId }),
-    ...(input.SecurityGroupId !== undefined && { SecurityGroupId: input.SecurityGroupId }),
-    ...(input.SubnetId !== undefined && { SubnetId: input.SubnetId }),
+    ...(input.OutpostId !== undefined && input.OutpostId !== null && { OutpostId: input.OutpostId }),
+    ...(input.SecurityGroupId !== undefined &&
+      input.SecurityGroupId !== null && { SecurityGroupId: input.SecurityGroupId }),
+    ...(input.SubnetId !== undefined && input.SubnetId !== null && { SubnetId: input.SubnetId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -52,9 +53,7 @@ export const serializeAws_restJson1DeleteEndpointCommand = async (
   input: DeleteEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/S3Outposts/DeleteEndpoint";
   const query: any = {
     ...(input.EndpointId !== undefined && { endpointId: input.EndpointId }),
@@ -78,9 +77,7 @@ export const serializeAws_restJson1ListEndpointsCommand = async (
   input: ListEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/S3Outposts/ListEndpoints";
   const query: any = {
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
@@ -448,7 +445,14 @@ const deserializeAws_restJson1Endpoint = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restJson1Endpoints = (output: any, context: __SerdeContext): Endpoint[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Endpoint(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Endpoint(entry, context);
+    });
 };
 
 const deserializeAws_restJson1NetworkInterface = (output: any, context: __SerdeContext): NetworkInterface => {
@@ -461,7 +465,14 @@ const deserializeAws_restJson1NetworkInterface = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1NetworkInterfaces = (output: any, context: __SerdeContext): NetworkInterface[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1NetworkInterface(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1NetworkInterface(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -484,6 +495,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

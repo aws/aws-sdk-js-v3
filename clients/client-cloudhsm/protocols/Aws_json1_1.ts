@@ -85,7 +85,7 @@ export const serializeAws_json1_1AddTagsToResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudHsmFrontendService.AddTagsToResource",
   };
   let body: any;
@@ -98,7 +98,7 @@ export const serializeAws_json1_1CreateHapgCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudHsmFrontendService.CreateHapg",
   };
   let body: any;
@@ -111,7 +111,7 @@ export const serializeAws_json1_1CreateHsmCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudHsmFrontendService.CreateHsm",
   };
   let body: any;
@@ -124,7 +124,7 @@ export const serializeAws_json1_1CreateLunaClientCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudHsmFrontendService.CreateLunaClient",
   };
   let body: any;
@@ -137,7 +137,7 @@ export const serializeAws_json1_1DeleteHapgCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudHsmFrontendService.DeleteHapg",
   };
   let body: any;
@@ -150,7 +150,7 @@ export const serializeAws_json1_1DeleteHsmCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudHsmFrontendService.DeleteHsm",
   };
   let body: any;
@@ -163,7 +163,7 @@ export const serializeAws_json1_1DeleteLunaClientCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudHsmFrontendService.DeleteLunaClient",
   };
   let body: any;
@@ -176,7 +176,7 @@ export const serializeAws_json1_1DescribeHapgCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudHsmFrontendService.DescribeHapg",
   };
   let body: any;
@@ -189,7 +189,7 @@ export const serializeAws_json1_1DescribeHsmCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudHsmFrontendService.DescribeHsm",
   };
   let body: any;
@@ -202,7 +202,7 @@ export const serializeAws_json1_1DescribeLunaClientCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudHsmFrontendService.DescribeLunaClient",
   };
   let body: any;
@@ -215,7 +215,7 @@ export const serializeAws_json1_1GetConfigCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudHsmFrontendService.GetConfig",
   };
   let body: any;
@@ -228,7 +228,7 @@ export const serializeAws_json1_1ListAvailableZonesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudHsmFrontendService.ListAvailableZones",
   };
   let body: any;
@@ -241,7 +241,7 @@ export const serializeAws_json1_1ListHapgsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudHsmFrontendService.ListHapgs",
   };
   let body: any;
@@ -254,7 +254,7 @@ export const serializeAws_json1_1ListHsmsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudHsmFrontendService.ListHsms",
   };
   let body: any;
@@ -267,7 +267,7 @@ export const serializeAws_json1_1ListLunaClientsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudHsmFrontendService.ListLunaClients",
   };
   let body: any;
@@ -280,7 +280,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudHsmFrontendService.ListTagsForResource",
   };
   let body: any;
@@ -293,7 +293,7 @@ export const serializeAws_json1_1ModifyHapgCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudHsmFrontendService.ModifyHapg",
   };
   let body: any;
@@ -306,7 +306,7 @@ export const serializeAws_json1_1ModifyHsmCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudHsmFrontendService.ModifyHsm",
   };
   let body: any;
@@ -319,7 +319,7 @@ export const serializeAws_json1_1ModifyLunaClientCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudHsmFrontendService.ModifyLunaClient",
   };
   let body: any;
@@ -332,7 +332,7 @@ export const serializeAws_json1_1RemoveTagsFromResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "CloudHsmFrontendService.RemoveTagsFromResource",
   };
   let body: any;
@@ -367,8 +367,7 @@ const deserializeAws_json1_1AddTagsToResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -438,8 +437,7 @@ const deserializeAws_json1_1CreateHapgCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -509,8 +507,7 @@ const deserializeAws_json1_1CreateHsmCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -580,8 +577,7 @@ const deserializeAws_json1_1CreateLunaClientCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -651,8 +647,7 @@ const deserializeAws_json1_1DeleteHapgCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -722,8 +717,7 @@ const deserializeAws_json1_1DeleteHsmCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -793,8 +787,7 @@ const deserializeAws_json1_1DeleteLunaClientCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -864,8 +857,7 @@ const deserializeAws_json1_1DescribeHapgCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -935,8 +927,7 @@ const deserializeAws_json1_1DescribeHsmCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -1006,8 +997,7 @@ const deserializeAws_json1_1DescribeLunaClientCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -1077,8 +1067,7 @@ const deserializeAws_json1_1GetConfigCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -1148,8 +1137,7 @@ const deserializeAws_json1_1ListAvailableZonesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -1219,8 +1207,7 @@ const deserializeAws_json1_1ListHapgsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -1290,8 +1277,7 @@ const deserializeAws_json1_1ListHsmsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -1361,8 +1347,7 @@ const deserializeAws_json1_1ListLunaClientsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -1432,8 +1417,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -1503,8 +1487,7 @@ const deserializeAws_json1_1ModifyHapgCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -1574,8 +1557,7 @@ const deserializeAws_json1_1ModifyHsmCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -1645,8 +1627,7 @@ const deserializeAws_json1_1ModifyLunaClientCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm#CloudHsmServiceException":
@@ -1700,8 +1681,7 @@ const deserializeAws_json1_1RemoveTagsFromResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -1794,65 +1774,68 @@ const serializeAws_json1_1AddTagsToResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagList !== undefined && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.TagList !== undefined &&
+      input.TagList !== null && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
   };
 };
 
 const serializeAws_json1_1CreateHapgRequest = (input: CreateHapgRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Label !== undefined && { Label: input.Label }),
+    ...(input.Label !== undefined && input.Label !== null && { Label: input.Label }),
   };
 };
 
 const serializeAws_json1_1CreateHsmRequest = (input: CreateHsmRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClientToken !== undefined && { ClientToken: input.ClientToken }),
-    ...(input.EniIp !== undefined && { EniIp: input.EniIp }),
-    ...(input.ExternalId !== undefined && { ExternalId: input.ExternalId }),
-    ...(input.IamRoleArn !== undefined && { IamRoleArn: input.IamRoleArn }),
-    ...(input.SshKey !== undefined && { SshKey: input.SshKey }),
-    ...(input.SubnetId !== undefined && { SubnetId: input.SubnetId }),
-    ...(input.SubscriptionType !== undefined && { SubscriptionType: input.SubscriptionType }),
-    ...(input.SyslogIp !== undefined && { SyslogIp: input.SyslogIp }),
+    ...(input.ClientToken !== undefined && input.ClientToken !== null && { ClientToken: input.ClientToken }),
+    ...(input.EniIp !== undefined && input.EniIp !== null && { EniIp: input.EniIp }),
+    ...(input.ExternalId !== undefined && input.ExternalId !== null && { ExternalId: input.ExternalId }),
+    ...(input.IamRoleArn !== undefined && input.IamRoleArn !== null && { IamRoleArn: input.IamRoleArn }),
+    ...(input.SshKey !== undefined && input.SshKey !== null && { SshKey: input.SshKey }),
+    ...(input.SubnetId !== undefined && input.SubnetId !== null && { SubnetId: input.SubnetId }),
+    ...(input.SubscriptionType !== undefined &&
+      input.SubscriptionType !== null && { SubscriptionType: input.SubscriptionType }),
+    ...(input.SyslogIp !== undefined && input.SyslogIp !== null && { SyslogIp: input.SyslogIp }),
   };
 };
 
 const serializeAws_json1_1CreateLunaClientRequest = (input: CreateLunaClientRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Certificate !== undefined && { Certificate: input.Certificate }),
-    ...(input.Label !== undefined && { Label: input.Label }),
+    ...(input.Certificate !== undefined && input.Certificate !== null && { Certificate: input.Certificate }),
+    ...(input.Label !== undefined && input.Label !== null && { Label: input.Label }),
   };
 };
 
 const serializeAws_json1_1DeleteHapgRequest = (input: DeleteHapgRequest, context: __SerdeContext): any => {
   return {
-    ...(input.HapgArn !== undefined && { HapgArn: input.HapgArn }),
+    ...(input.HapgArn !== undefined && input.HapgArn !== null && { HapgArn: input.HapgArn }),
   };
 };
 
 const serializeAws_json1_1DeleteHsmRequest = (input: DeleteHsmRequest, context: __SerdeContext): any => {
   return {
-    ...(input.HsmArn !== undefined && { HsmArn: input.HsmArn }),
+    ...(input.HsmArn !== undefined && input.HsmArn !== null && { HsmArn: input.HsmArn }),
   };
 };
 
 const serializeAws_json1_1DeleteLunaClientRequest = (input: DeleteLunaClientRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClientArn !== undefined && { ClientArn: input.ClientArn }),
+    ...(input.ClientArn !== undefined && input.ClientArn !== null && { ClientArn: input.ClientArn }),
   };
 };
 
 const serializeAws_json1_1DescribeHapgRequest = (input: DescribeHapgRequest, context: __SerdeContext): any => {
   return {
-    ...(input.HapgArn !== undefined && { HapgArn: input.HapgArn }),
+    ...(input.HapgArn !== undefined && input.HapgArn !== null && { HapgArn: input.HapgArn }),
   };
 };
 
 const serializeAws_json1_1DescribeHsmRequest = (input: DescribeHsmRequest, context: __SerdeContext): any => {
   return {
-    ...(input.HsmArn !== undefined && { HsmArn: input.HsmArn }),
-    ...(input.HsmSerialNumber !== undefined && { HsmSerialNumber: input.HsmSerialNumber }),
+    ...(input.HsmArn !== undefined && input.HsmArn !== null && { HsmArn: input.HsmArn }),
+    ...(input.HsmSerialNumber !== undefined &&
+      input.HsmSerialNumber !== null && { HsmSerialNumber: input.HsmSerialNumber }),
   };
 };
 
@@ -1861,21 +1844,30 @@ const serializeAws_json1_1DescribeLunaClientRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CertificateFingerprint !== undefined && { CertificateFingerprint: input.CertificateFingerprint }),
-    ...(input.ClientArn !== undefined && { ClientArn: input.ClientArn }),
+    ...(input.CertificateFingerprint !== undefined &&
+      input.CertificateFingerprint !== null && { CertificateFingerprint: input.CertificateFingerprint }),
+    ...(input.ClientArn !== undefined && input.ClientArn !== null && { ClientArn: input.ClientArn }),
   };
 };
 
 const serializeAws_json1_1GetConfigRequest = (input: GetConfigRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClientArn !== undefined && { ClientArn: input.ClientArn }),
-    ...(input.ClientVersion !== undefined && { ClientVersion: input.ClientVersion }),
-    ...(input.HapgList !== undefined && { HapgList: serializeAws_json1_1HapgList(input.HapgList, context) }),
+    ...(input.ClientArn !== undefined && input.ClientArn !== null && { ClientArn: input.ClientArn }),
+    ...(input.ClientVersion !== undefined && input.ClientVersion !== null && { ClientVersion: input.ClientVersion }),
+    ...(input.HapgList !== undefined &&
+      input.HapgList !== null && { HapgList: serializeAws_json1_1HapgList(input.HapgList, context) }),
   };
 };
 
 const serializeAws_json1_1HapgList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ListAvailableZonesRequest = (
@@ -1887,19 +1879,19 @@ const serializeAws_json1_1ListAvailableZonesRequest = (
 
 const serializeAws_json1_1ListHapgsRequest = (input: ListHapgsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListHsmsRequest = (input: ListHsmsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListLunaClientsRequest = (input: ListLunaClientsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -1908,40 +1900,48 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
   };
 };
 
 const serializeAws_json1_1ModifyHapgRequest = (input: ModifyHapgRequest, context: __SerdeContext): any => {
   return {
-    ...(input.HapgArn !== undefined && { HapgArn: input.HapgArn }),
-    ...(input.Label !== undefined && { Label: input.Label }),
-    ...(input.PartitionSerialList !== undefined && {
-      PartitionSerialList: serializeAws_json1_1PartitionSerialList(input.PartitionSerialList, context),
-    }),
+    ...(input.HapgArn !== undefined && input.HapgArn !== null && { HapgArn: input.HapgArn }),
+    ...(input.Label !== undefined && input.Label !== null && { Label: input.Label }),
+    ...(input.PartitionSerialList !== undefined &&
+      input.PartitionSerialList !== null && {
+        PartitionSerialList: serializeAws_json1_1PartitionSerialList(input.PartitionSerialList, context),
+      }),
   };
 };
 
 const serializeAws_json1_1ModifyHsmRequest = (input: ModifyHsmRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EniIp !== undefined && { EniIp: input.EniIp }),
-    ...(input.ExternalId !== undefined && { ExternalId: input.ExternalId }),
-    ...(input.HsmArn !== undefined && { HsmArn: input.HsmArn }),
-    ...(input.IamRoleArn !== undefined && { IamRoleArn: input.IamRoleArn }),
-    ...(input.SubnetId !== undefined && { SubnetId: input.SubnetId }),
-    ...(input.SyslogIp !== undefined && { SyslogIp: input.SyslogIp }),
+    ...(input.EniIp !== undefined && input.EniIp !== null && { EniIp: input.EniIp }),
+    ...(input.ExternalId !== undefined && input.ExternalId !== null && { ExternalId: input.ExternalId }),
+    ...(input.HsmArn !== undefined && input.HsmArn !== null && { HsmArn: input.HsmArn }),
+    ...(input.IamRoleArn !== undefined && input.IamRoleArn !== null && { IamRoleArn: input.IamRoleArn }),
+    ...(input.SubnetId !== undefined && input.SubnetId !== null && { SubnetId: input.SubnetId }),
+    ...(input.SyslogIp !== undefined && input.SyslogIp !== null && { SyslogIp: input.SyslogIp }),
   };
 };
 
 const serializeAws_json1_1ModifyLunaClientRequest = (input: ModifyLunaClientRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Certificate !== undefined && { Certificate: input.Certificate }),
-    ...(input.ClientArn !== undefined && { ClientArn: input.ClientArn }),
+    ...(input.Certificate !== undefined && input.Certificate !== null && { Certificate: input.Certificate }),
+    ...(input.ClientArn !== undefined && input.ClientArn !== null && { ClientArn: input.ClientArn }),
   };
 };
 
 const serializeAws_json1_1PartitionSerialList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1RemoveTagsFromResourceRequest = (
@@ -1949,24 +1949,39 @@ const serializeAws_json1_1RemoveTagsFromResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeyList !== undefined && { TagKeyList: serializeAws_json1_1TagKeyList(input.TagKeyList, context) }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeyList !== undefined &&
+      input.TagKeyList !== null && { TagKeyList: serializeAws_json1_1TagKeyList(input.TagKeyList, context) }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1AddTagsToResourceResponse = (
@@ -1979,11 +1994,25 @@ const deserializeAws_json1_1AddTagsToResourceResponse = (
 };
 
 const deserializeAws_json1_1AZList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ClientList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1CloudHsmInternalException = (
@@ -2151,11 +2180,25 @@ const deserializeAws_json1_1GetConfigResponse = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1HapgList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1HsmList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1InvalidRequestException = (
@@ -2247,11 +2290,25 @@ const deserializeAws_json1_1ModifyLunaClientResponse = (
 };
 
 const deserializeAws_json1_1PartitionList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1PartitionSerialList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1RemoveTagsFromResourceResponse = (
@@ -2271,7 +2328,14 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -2324,3 +2388,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

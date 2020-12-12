@@ -18,13 +18,14 @@ export const serializeAws_restJson1GetDeviceRegistrationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/GetDeviceRegistration";
   let body: any;
   body = JSON.stringify({
-    ...(input.DeviceFleetName !== undefined && { DeviceFleetName: input.DeviceFleetName }),
-    ...(input.DeviceName !== undefined && { DeviceName: input.DeviceName }),
+    ...(input.DeviceFleetName !== undefined &&
+      input.DeviceFleetName !== null && { DeviceFleetName: input.DeviceFleetName }),
+    ...(input.DeviceName !== undefined && input.DeviceName !== null && { DeviceName: input.DeviceName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -43,18 +44,19 @@ export const serializeAws_restJson1SendHeartbeatCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/SendHeartbeat";
   let body: any;
   body = JSON.stringify({
-    ...(input.AgentMetrics !== undefined && {
-      AgentMetrics: serializeAws_restJson1EdgeMetrics(input.AgentMetrics, context),
-    }),
-    ...(input.AgentVersion !== undefined && { AgentVersion: input.AgentVersion }),
-    ...(input.DeviceFleetName !== undefined && { DeviceFleetName: input.DeviceFleetName }),
-    ...(input.DeviceName !== undefined && { DeviceName: input.DeviceName }),
-    ...(input.Models !== undefined && { Models: serializeAws_restJson1Models(input.Models, context) }),
+    ...(input.AgentMetrics !== undefined &&
+      input.AgentMetrics !== null && { AgentMetrics: serializeAws_restJson1EdgeMetrics(input.AgentMetrics, context) }),
+    ...(input.AgentVersion !== undefined && input.AgentVersion !== null && { AgentVersion: input.AgentVersion }),
+    ...(input.DeviceFleetName !== undefined &&
+      input.DeviceFleetName !== null && { DeviceFleetName: input.DeviceFleetName }),
+    ...(input.DeviceName !== undefined && input.DeviceName !== null && { DeviceName: input.DeviceName }),
+    ...(input.Models !== undefined &&
+      input.Models !== null && { Models: serializeAws_restJson1Models(input.Models, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -197,33 +199,47 @@ const deserializeAws_restJson1InternalServiceExceptionResponse = async (
 
 const serializeAws_restJson1EdgeMetric = (input: EdgeMetric, context: __SerdeContext): any => {
   return {
-    ...(input.Dimension !== undefined && { Dimension: input.Dimension }),
-    ...(input.MetricName !== undefined && { MetricName: input.MetricName }),
-    ...(input.Timestamp !== undefined && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Dimension !== undefined && input.Dimension !== null && { Dimension: input.Dimension }),
+    ...(input.MetricName !== undefined && input.MetricName !== null && { MetricName: input.MetricName }),
+    ...(input.Timestamp !== undefined &&
+      input.Timestamp !== null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_restJson1EdgeMetrics = (input: EdgeMetric[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1EdgeMetric(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1EdgeMetric(entry, context);
+    });
 };
 
 const serializeAws_restJson1Model = (input: Model, context: __SerdeContext): any => {
   return {
-    ...(input.LatestInference !== undefined && { LatestInference: Math.round(input.LatestInference.getTime() / 1000) }),
-    ...(input.LatestSampleTime !== undefined && {
-      LatestSampleTime: Math.round(input.LatestSampleTime.getTime() / 1000),
-    }),
-    ...(input.ModelMetrics !== undefined && {
-      ModelMetrics: serializeAws_restJson1EdgeMetrics(input.ModelMetrics, context),
-    }),
-    ...(input.ModelName !== undefined && { ModelName: input.ModelName }),
-    ...(input.ModelVersion !== undefined && { ModelVersion: input.ModelVersion }),
+    ...(input.LatestInference !== undefined &&
+      input.LatestInference !== null && { LatestInference: Math.round(input.LatestInference.getTime() / 1000) }),
+    ...(input.LatestSampleTime !== undefined &&
+      input.LatestSampleTime !== null && { LatestSampleTime: Math.round(input.LatestSampleTime.getTime() / 1000) }),
+    ...(input.ModelMetrics !== undefined &&
+      input.ModelMetrics !== null && { ModelMetrics: serializeAws_restJson1EdgeMetrics(input.ModelMetrics, context) }),
+    ...(input.ModelName !== undefined && input.ModelName !== null && { ModelName: input.ModelName }),
+    ...(input.ModelVersion !== undefined && input.ModelVersion !== null && { ModelVersion: input.ModelVersion }),
   };
 };
 
 const serializeAws_restJson1Models = (input: Model[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1Model(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Model(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -246,6 +262,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

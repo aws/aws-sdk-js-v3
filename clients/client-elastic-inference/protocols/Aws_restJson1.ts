@@ -45,15 +45,16 @@ export const serializeAws_restJson1DescribeAcceleratorOfferingsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/describe-accelerator-offerings";
   let body: any;
   body = JSON.stringify({
-    ...(input.acceleratorTypes !== undefined && {
-      acceleratorTypes: serializeAws_restJson1AcceleratorTypeNameList(input.acceleratorTypes, context),
-    }),
-    ...(input.locationType !== undefined && { locationType: input.locationType }),
+    ...(input.acceleratorTypes !== undefined &&
+      input.acceleratorTypes !== null && {
+        acceleratorTypes: serializeAws_restJson1AcceleratorTypeNameList(input.acceleratorTypes, context),
+      }),
+    ...(input.locationType !== undefined && input.locationType !== null && { locationType: input.locationType }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -72,17 +73,19 @@ export const serializeAws_restJson1DescribeAcceleratorsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/describe-accelerators";
   let body: any;
   body = JSON.stringify({
-    ...(input.acceleratorIds !== undefined && {
-      acceleratorIds: serializeAws_restJson1AcceleratorIdList(input.acceleratorIds, context),
-    }),
-    ...(input.filters !== undefined && { filters: serializeAws_restJson1FilterList(input.filters, context) }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.acceleratorIds !== undefined &&
+      input.acceleratorIds !== null && {
+        acceleratorIds: serializeAws_restJson1AcceleratorIdList(input.acceleratorIds, context),
+      }),
+    ...(input.filters !== undefined &&
+      input.filters !== null && { filters: serializeAws_restJson1FilterList(input.filters, context) }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -100,12 +103,10 @@ export const serializeAws_restJson1DescribeAcceleratorTypesCommand = async (
   input: DescribeAcceleratorTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/describe-accelerator-types";
   let body: any;
-  body = "{}";
+  body = "";
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -122,9 +123,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -153,7 +152,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
@@ -167,7 +166,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -185,9 +184,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -676,36 +673,67 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
 };
 
 const serializeAws_restJson1AcceleratorIdList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1AcceleratorTypeNameList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1Filter = (input: Filter, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.values !== undefined && { values: serializeAws_restJson1ValueStringList(input.values, context) }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.values !== undefined &&
+      input.values !== null && { values: serializeAws_restJson1ValueStringList(input.values, context) }),
   };
 };
 
 const serializeAws_restJson1FilterList = (input: Filter[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1Filter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Filter(entry, context);
+    });
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_restJson1ValueStringList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1AcceleratorType = (output: any, context: __SerdeContext): AcceleratorType => {
@@ -726,7 +754,14 @@ const deserializeAws_restJson1AcceleratorType = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1AcceleratorTypeList = (output: any, context: __SerdeContext): AcceleratorType[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1AcceleratorType(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AcceleratorType(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AcceleratorTypeOffering = (
@@ -745,7 +780,14 @@ const deserializeAws_restJson1AcceleratorTypeOfferingList = (
   output: any,
   context: __SerdeContext
 ): AcceleratorTypeOffering[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1AcceleratorTypeOffering(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AcceleratorTypeOffering(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ElasticInferenceAccelerator = (
@@ -781,7 +823,14 @@ const deserializeAws_restJson1ElasticInferenceAcceleratorSet = (
   output: any,
   context: __SerdeContext
 ): ElasticInferenceAccelerator[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1ElasticInferenceAccelerator(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ElasticInferenceAccelerator(entry, context);
+    });
 };
 
 const deserializeAws_restJson1KeyValuePair = (output: any, context: __SerdeContext): KeyValuePair => {
@@ -798,17 +847,26 @@ const deserializeAws_restJson1MemoryInfo = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1ThroughputInfoList = (output: any, context: __SerdeContext): KeyValuePair[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1KeyValuePair(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1KeyValuePair(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -831,6 +889,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

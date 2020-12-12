@@ -84,14 +84,15 @@ export const serializeAws_restJson1AssociateRepositoryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/associations";
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Repository !== undefined && { Repository: serializeAws_restJson1Repository(input.Repository, context) }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Repository !== undefined &&
+      input.Repository !== null && { Repository: serializeAws_restJson1Repository(input.Repository, context) }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -110,15 +111,17 @@ export const serializeAws_restJson1CreateCodeReviewCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/codereviews";
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.RepositoryAssociationArn !== undefined && { RepositoryAssociationArn: input.RepositoryAssociationArn }),
-    ...(input.Type !== undefined && { Type: serializeAws_restJson1CodeReviewType(input.Type, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.RepositoryAssociationArn !== undefined &&
+      input.RepositoryAssociationArn !== null && { RepositoryAssociationArn: input.RepositoryAssociationArn }),
+    ...(input.Type !== undefined &&
+      input.Type !== null && { Type: serializeAws_restJson1CodeReviewType(input.Type, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -136,9 +139,7 @@ export const serializeAws_restJson1DescribeCodeReviewCommand = async (
   input: DescribeCodeReviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/codereviews/{CodeReviewArn}";
   if (input.CodeReviewArn !== undefined) {
     const labelValue: string = input.CodeReviewArn;
@@ -166,9 +167,7 @@ export const serializeAws_restJson1DescribeRecommendationFeedbackCommand = async
   input: DescribeRecommendationFeedbackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/feedback/{CodeReviewArn}";
   if (input.CodeReviewArn !== undefined) {
     const labelValue: string = input.CodeReviewArn;
@@ -201,9 +200,7 @@ export const serializeAws_restJson1DescribeRepositoryAssociationCommand = async 
   input: DescribeRepositoryAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/associations/{AssociationArn}";
   if (input.AssociationArn !== undefined) {
     const labelValue: string = input.AssociationArn;
@@ -231,9 +228,7 @@ export const serializeAws_restJson1DisassociateRepositoryCommand = async (
   input: DisassociateRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/associations/{AssociationArn}";
   if (input.AssociationArn !== undefined) {
     const labelValue: string = input.AssociationArn;
@@ -261,9 +256,7 @@ export const serializeAws_restJson1ListCodeReviewsCommand = async (
   input: ListCodeReviewsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/codereviews";
   const query: any = {
     ...(input.ProviderTypes !== undefined && { ProviderTypes: (input.ProviderTypes || []).map((_entry) => _entry) }),
@@ -293,9 +286,7 @@ export const serializeAws_restJson1ListRecommendationFeedbackCommand = async (
   input: ListRecommendationFeedbackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/feedback/{CodeReviewArn}/RecommendationFeedback";
   if (input.CodeReviewArn !== undefined) {
     const labelValue: string = input.CodeReviewArn;
@@ -332,9 +323,7 @@ export const serializeAws_restJson1ListRecommendationsCommand = async (
   input: ListRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/codereviews/{CodeReviewArn}/Recommendations";
   if (input.CodeReviewArn !== undefined) {
     const labelValue: string = input.CodeReviewArn;
@@ -367,9 +356,7 @@ export const serializeAws_restJson1ListRepositoryAssociationsCommand = async (
   input: ListRepositoryAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/associations";
   const query: any = {
     ...(input.ProviderTypes !== undefined && { ProviderType: (input.ProviderTypes || []).map((_entry) => _entry) }),
@@ -397,9 +384,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -428,14 +413,16 @@ export const serializeAws_restJson1PutRecommendationFeedbackCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/feedback";
   let body: any;
   body = JSON.stringify({
-    ...(input.CodeReviewArn !== undefined && { CodeReviewArn: input.CodeReviewArn }),
-    ...(input.Reactions !== undefined && { Reactions: serializeAws_restJson1Reactions(input.Reactions, context) }),
-    ...(input.RecommendationId !== undefined && { RecommendationId: input.RecommendationId }),
+    ...(input.CodeReviewArn !== undefined && input.CodeReviewArn !== null && { CodeReviewArn: input.CodeReviewArn }),
+    ...(input.Reactions !== undefined &&
+      input.Reactions !== null && { Reactions: serializeAws_restJson1Reactions(input.Reactions, context) }),
+    ...(input.RecommendationId !== undefined &&
+      input.RecommendationId !== null && { RecommendationId: input.RecommendationId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -454,7 +441,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
@@ -468,7 +455,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -486,9 +473,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -1827,41 +1812,53 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1CodeCommitRepository = (input: CodeCommitRepository, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   };
 };
 
 const serializeAws_restJson1CodeReviewType = (input: CodeReviewType, context: __SerdeContext): any => {
   return {
-    ...(input.RepositoryAnalysis !== undefined && {
-      RepositoryAnalysis: serializeAws_restJson1RepositoryAnalysis(input.RepositoryAnalysis, context),
-    }),
+    ...(input.RepositoryAnalysis !== undefined &&
+      input.RepositoryAnalysis !== null && {
+        RepositoryAnalysis: serializeAws_restJson1RepositoryAnalysis(input.RepositoryAnalysis, context),
+      }),
   };
 };
 
 const serializeAws_restJson1Reactions = (input: (Reaction | string)[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1Repository = (input: Repository, context: __SerdeContext): any => {
   return {
-    ...(input.Bitbucket !== undefined && {
-      Bitbucket: serializeAws_restJson1ThirdPartySourceRepository(input.Bitbucket, context),
-    }),
-    ...(input.CodeCommit !== undefined && {
-      CodeCommit: serializeAws_restJson1CodeCommitRepository(input.CodeCommit, context),
-    }),
-    ...(input.GitHubEnterpriseServer !== undefined && {
-      GitHubEnterpriseServer: serializeAws_restJson1ThirdPartySourceRepository(input.GitHubEnterpriseServer, context),
-    }),
+    ...(input.Bitbucket !== undefined &&
+      input.Bitbucket !== null && {
+        Bitbucket: serializeAws_restJson1ThirdPartySourceRepository(input.Bitbucket, context),
+      }),
+    ...(input.CodeCommit !== undefined &&
+      input.CodeCommit !== null && {
+        CodeCommit: serializeAws_restJson1CodeCommitRepository(input.CodeCommit, context),
+      }),
+    ...(input.GitHubEnterpriseServer !== undefined &&
+      input.GitHubEnterpriseServer !== null && {
+        GitHubEnterpriseServer: serializeAws_restJson1ThirdPartySourceRepository(input.GitHubEnterpriseServer, context),
+      }),
   };
 };
 
 const serializeAws_restJson1RepositoryAnalysis = (input: RepositoryAnalysis, context: __SerdeContext): any => {
   return {
-    ...(input.RepositoryHead !== undefined && {
-      RepositoryHead: serializeAws_restJson1RepositoryHeadSourceCodeType(input.RepositoryHead, context),
-    }),
+    ...(input.RepositoryHead !== undefined &&
+      input.RepositoryHead !== null && {
+        RepositoryHead: serializeAws_restJson1RepositoryHeadSourceCodeType(input.RepositoryHead, context),
+      }),
   };
 };
 
@@ -1870,18 +1867,20 @@ const serializeAws_restJson1RepositoryHeadSourceCodeType = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BranchName !== undefined && { BranchName: input.BranchName }),
+    ...(input.BranchName !== undefined && input.BranchName !== null && { BranchName: input.BranchName }),
   };
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_restJson1ThirdPartySourceRepository = (
@@ -1889,9 +1888,9 @@ const serializeAws_restJson1ThirdPartySourceRepository = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConnectionArn !== undefined && { ConnectionArn: input.ConnectionArn }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Owner !== undefined && { Owner: input.Owner }),
+    ...(input.ConnectionArn !== undefined && input.ConnectionArn !== null && { ConnectionArn: input.ConnectionArn }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Owner !== undefined && input.Owner !== null && { Owner: input.Owner }),
   };
 };
 
@@ -1931,7 +1930,14 @@ const deserializeAws_restJson1CodeReview = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restJson1CodeReviewSummaries = (output: any, context: __SerdeContext): CodeReviewSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1CodeReviewSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CodeReviewSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1CodeReviewSummary = (output: any, context: __SerdeContext): CodeReviewSummary => {
@@ -1998,7 +2004,14 @@ const deserializeAws_restJson1MetricsSummary = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1Reactions = (output: any, context: __SerdeContext): (Reaction | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1RecommendationFeedback = (
@@ -2030,7 +2043,14 @@ const deserializeAws_restJson1RecommendationFeedbackSummaries = (
   output: any,
   context: __SerdeContext
 ): RecommendationFeedbackSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1RecommendationFeedbackSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RecommendationFeedbackSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1RecommendationFeedbackSummary = (
@@ -2052,7 +2072,14 @@ const deserializeAws_restJson1RecommendationSummaries = (
   output: any,
   context: __SerdeContext
 ): RecommendationSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1RecommendationSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RecommendationSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1RecommendationSummary = (output: any, context: __SerdeContext): RecommendationSummary => {
@@ -2094,7 +2121,14 @@ const deserializeAws_restJson1RepositoryAssociationSummaries = (
   output: any,
   context: __SerdeContext
 ): RepositoryAssociationSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1RepositoryAssociationSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RepositoryAssociationSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1RepositoryAssociationSummary = (
@@ -2142,13 +2176,15 @@ const deserializeAws_restJson1SourceCodeType = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -2171,6 +2207,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

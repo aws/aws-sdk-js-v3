@@ -101,7 +101,7 @@ export const serializeAws_json1_1CancelRotateSecretCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "secretsmanager.CancelRotateSecret",
   };
   let body: any;
@@ -114,7 +114,7 @@ export const serializeAws_json1_1CreateSecretCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "secretsmanager.CreateSecret",
   };
   let body: any;
@@ -127,7 +127,7 @@ export const serializeAws_json1_1DeleteResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "secretsmanager.DeleteResourcePolicy",
   };
   let body: any;
@@ -140,7 +140,7 @@ export const serializeAws_json1_1DeleteSecretCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "secretsmanager.DeleteSecret",
   };
   let body: any;
@@ -153,7 +153,7 @@ export const serializeAws_json1_1DescribeSecretCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "secretsmanager.DescribeSecret",
   };
   let body: any;
@@ -166,7 +166,7 @@ export const serializeAws_json1_1GetRandomPasswordCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "secretsmanager.GetRandomPassword",
   };
   let body: any;
@@ -179,7 +179,7 @@ export const serializeAws_json1_1GetResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "secretsmanager.GetResourcePolicy",
   };
   let body: any;
@@ -192,7 +192,7 @@ export const serializeAws_json1_1GetSecretValueCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "secretsmanager.GetSecretValue",
   };
   let body: any;
@@ -205,7 +205,7 @@ export const serializeAws_json1_1ListSecretsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "secretsmanager.ListSecrets",
   };
   let body: any;
@@ -218,7 +218,7 @@ export const serializeAws_json1_1ListSecretVersionIdsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "secretsmanager.ListSecretVersionIds",
   };
   let body: any;
@@ -231,7 +231,7 @@ export const serializeAws_json1_1PutResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "secretsmanager.PutResourcePolicy",
   };
   let body: any;
@@ -244,7 +244,7 @@ export const serializeAws_json1_1PutSecretValueCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "secretsmanager.PutSecretValue",
   };
   let body: any;
@@ -257,7 +257,7 @@ export const serializeAws_json1_1RestoreSecretCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "secretsmanager.RestoreSecret",
   };
   let body: any;
@@ -270,7 +270,7 @@ export const serializeAws_json1_1RotateSecretCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "secretsmanager.RotateSecret",
   };
   let body: any;
@@ -283,7 +283,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "secretsmanager.TagResource",
   };
   let body: any;
@@ -296,7 +296,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "secretsmanager.UntagResource",
   };
   let body: any;
@@ -309,7 +309,7 @@ export const serializeAws_json1_1UpdateSecretCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "secretsmanager.UpdateSecret",
   };
   let body: any;
@@ -322,7 +322,7 @@ export const serializeAws_json1_1UpdateSecretVersionStageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "secretsmanager.UpdateSecretVersionStage",
   };
   let body: any;
@@ -335,7 +335,7 @@ export const serializeAws_json1_1ValidateResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "secretsmanager.ValidateResourcePolicy",
   };
   let body: any;
@@ -370,8 +370,7 @@ const deserializeAws_json1_1CancelRotateSecretCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
@@ -449,8 +448,7 @@ const deserializeAws_json1_1CreateSecretCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EncryptionFailure":
     case "com.amazonaws.secretsmanager#EncryptionFailure":
@@ -568,8 +566,7 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
@@ -639,8 +636,7 @@ const deserializeAws_json1_1DeleteSecretCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
@@ -718,8 +714,7 @@ const deserializeAws_json1_1DescribeSecretCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
@@ -781,8 +776,7 @@ const deserializeAws_json1_1GetRandomPasswordCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
@@ -852,8 +846,7 @@ const deserializeAws_json1_1GetResourcePolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
@@ -923,8 +916,7 @@ const deserializeAws_json1_1GetSecretValueCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DecryptionFailure":
     case "com.amazonaws.secretsmanager#DecryptionFailure":
@@ -1010,8 +1002,7 @@ const deserializeAws_json1_1ListSecretsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
@@ -1081,8 +1072,7 @@ const deserializeAws_json1_1ListSecretVersionIdsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
@@ -1152,8 +1142,7 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
@@ -1247,8 +1236,7 @@ const deserializeAws_json1_1PutSecretValueCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EncryptionFailure":
     case "com.amazonaws.secretsmanager#EncryptionFailure":
@@ -1350,8 +1338,7 @@ const deserializeAws_json1_1RestoreSecretCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
@@ -1429,8 +1416,7 @@ const deserializeAws_json1_1RotateSecretCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
@@ -1505,8 +1491,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
@@ -1581,8 +1566,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
@@ -1660,8 +1644,7 @@ const deserializeAws_json1_1UpdateSecretCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EncryptionFailure":
     case "com.amazonaws.secretsmanager#EncryptionFailure":
@@ -1779,8 +1762,7 @@ const deserializeAws_json1_1UpdateSecretVersionStageCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
@@ -1866,8 +1848,7 @@ const deserializeAws_json1_1ValidateResourcePolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
@@ -2111,19 +2092,21 @@ const serializeAws_json1_1CancelRotateSecretRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
+    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
   };
 };
 
 const serializeAws_json1_1CreateSecretRequest = (input: CreateSecretRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.SecretBinary !== undefined && { SecretBinary: context.base64Encoder(input.SecretBinary) }),
-    ...(input.SecretString !== undefined && { SecretString: input.SecretString }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagListType(input.Tags, context) }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.SecretBinary !== undefined &&
+      input.SecretBinary !== null && { SecretBinary: context.base64Encoder(input.SecretBinary) }),
+    ...(input.SecretString !== undefined && input.SecretString !== null && { SecretString: input.SecretString }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_json1_1TagListType(input.Tags, context) }),
   };
 };
 
@@ -2132,39 +2115,54 @@ const serializeAws_json1_1DeleteResourcePolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
+    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
   };
 };
 
 const serializeAws_json1_1DeleteSecretRequest = (input: DeleteSecretRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ForceDeleteWithoutRecovery !== undefined && {
-      ForceDeleteWithoutRecovery: input.ForceDeleteWithoutRecovery,
-    }),
-    ...(input.RecoveryWindowInDays !== undefined && { RecoveryWindowInDays: input.RecoveryWindowInDays }),
-    ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
+    ...(input.ForceDeleteWithoutRecovery !== undefined &&
+      input.ForceDeleteWithoutRecovery !== null && { ForceDeleteWithoutRecovery: input.ForceDeleteWithoutRecovery }),
+    ...(input.RecoveryWindowInDays !== undefined &&
+      input.RecoveryWindowInDays !== null && { RecoveryWindowInDays: input.RecoveryWindowInDays }),
+    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
   };
 };
 
 const serializeAws_json1_1DescribeSecretRequest = (input: DescribeSecretRequest, context: __SerdeContext): any => {
   return {
-    ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
+    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
   };
 };
 
 const serializeAws_json1_1Filter = (input: Filter, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Values !== undefined && { Values: serializeAws_json1_1FilterValuesStringList(input.Values, context) }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Values !== undefined &&
+      input.Values !== null && { Values: serializeAws_json1_1FilterValuesStringList(input.Values, context) }),
   };
 };
 
 const serializeAws_json1_1FiltersListType = (input: Filter[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Filter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Filter(entry, context);
+    });
 };
 
 const serializeAws_json1_1FilterValuesStringList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1GetRandomPasswordRequest = (
@@ -2172,14 +2170,21 @@ const serializeAws_json1_1GetRandomPasswordRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ExcludeCharacters !== undefined && { ExcludeCharacters: input.ExcludeCharacters }),
-    ...(input.ExcludeLowercase !== undefined && { ExcludeLowercase: input.ExcludeLowercase }),
-    ...(input.ExcludeNumbers !== undefined && { ExcludeNumbers: input.ExcludeNumbers }),
-    ...(input.ExcludePunctuation !== undefined && { ExcludePunctuation: input.ExcludePunctuation }),
-    ...(input.ExcludeUppercase !== undefined && { ExcludeUppercase: input.ExcludeUppercase }),
-    ...(input.IncludeSpace !== undefined && { IncludeSpace: input.IncludeSpace }),
-    ...(input.PasswordLength !== undefined && { PasswordLength: input.PasswordLength }),
-    ...(input.RequireEachIncludedType !== undefined && { RequireEachIncludedType: input.RequireEachIncludedType }),
+    ...(input.ExcludeCharacters !== undefined &&
+      input.ExcludeCharacters !== null && { ExcludeCharacters: input.ExcludeCharacters }),
+    ...(input.ExcludeLowercase !== undefined &&
+      input.ExcludeLowercase !== null && { ExcludeLowercase: input.ExcludeLowercase }),
+    ...(input.ExcludeNumbers !== undefined &&
+      input.ExcludeNumbers !== null && { ExcludeNumbers: input.ExcludeNumbers }),
+    ...(input.ExcludePunctuation !== undefined &&
+      input.ExcludePunctuation !== null && { ExcludePunctuation: input.ExcludePunctuation }),
+    ...(input.ExcludeUppercase !== undefined &&
+      input.ExcludeUppercase !== null && { ExcludeUppercase: input.ExcludeUppercase }),
+    ...(input.IncludeSpace !== undefined && input.IncludeSpace !== null && { IncludeSpace: input.IncludeSpace }),
+    ...(input.PasswordLength !== undefined &&
+      input.PasswordLength !== null && { PasswordLength: input.PasswordLength }),
+    ...(input.RequireEachIncludedType !== undefined &&
+      input.RequireEachIncludedType !== null && { RequireEachIncludedType: input.RequireEachIncludedType }),
   };
 };
 
@@ -2188,24 +2193,25 @@ const serializeAws_json1_1GetResourcePolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
+    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
   };
 };
 
 const serializeAws_json1_1GetSecretValueRequest = (input: GetSecretValueRequest, context: __SerdeContext): any => {
   return {
-    ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
-    ...(input.VersionId !== undefined && { VersionId: input.VersionId }),
-    ...(input.VersionStage !== undefined && { VersionStage: input.VersionStage }),
+    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
+    ...(input.VersionId !== undefined && input.VersionId !== null && { VersionId: input.VersionId }),
+    ...(input.VersionStage !== undefined && input.VersionStage !== null && { VersionStage: input.VersionStage }),
   };
 };
 
 const serializeAws_json1_1ListSecretsRequest = (input: ListSecretsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1FiltersListType(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1FiltersListType(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.SortOrder !== undefined && input.SortOrder !== null && { SortOrder: input.SortOrder }),
   };
 };
 
@@ -2214,10 +2220,11 @@ const serializeAws_json1_1ListSecretVersionIdsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IncludeDeprecated !== undefined && { IncludeDeprecated: input.IncludeDeprecated }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
+    ...(input.IncludeDeprecated !== undefined &&
+      input.IncludeDeprecated !== null && { IncludeDeprecated: input.IncludeDeprecated }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
   };
 };
 
@@ -2226,88 +2233,119 @@ const serializeAws_json1_1PutResourcePolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BlockPublicPolicy !== undefined && { BlockPublicPolicy: input.BlockPublicPolicy }),
-    ...(input.ResourcePolicy !== undefined && { ResourcePolicy: input.ResourcePolicy }),
-    ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
+    ...(input.BlockPublicPolicy !== undefined &&
+      input.BlockPublicPolicy !== null && { BlockPublicPolicy: input.BlockPublicPolicy }),
+    ...(input.ResourcePolicy !== undefined &&
+      input.ResourcePolicy !== null && { ResourcePolicy: input.ResourcePolicy }),
+    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
   };
 };
 
 const serializeAws_json1_1PutSecretValueRequest = (input: PutSecretValueRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.SecretBinary !== undefined && { SecretBinary: context.base64Encoder(input.SecretBinary) }),
-    ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
-    ...(input.SecretString !== undefined && { SecretString: input.SecretString }),
-    ...(input.VersionStages !== undefined && {
-      VersionStages: serializeAws_json1_1SecretVersionStagesType(input.VersionStages, context),
-    }),
+    ...(input.SecretBinary !== undefined &&
+      input.SecretBinary !== null && { SecretBinary: context.base64Encoder(input.SecretBinary) }),
+    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
+    ...(input.SecretString !== undefined && input.SecretString !== null && { SecretString: input.SecretString }),
+    ...(input.VersionStages !== undefined &&
+      input.VersionStages !== null && {
+        VersionStages: serializeAws_json1_1SecretVersionStagesType(input.VersionStages, context),
+      }),
   };
 };
 
 const serializeAws_json1_1RestoreSecretRequest = (input: RestoreSecretRequest, context: __SerdeContext): any => {
   return {
-    ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
+    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
   };
 };
 
 const serializeAws_json1_1RotateSecretRequest = (input: RotateSecretRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.RotationLambdaARN !== undefined && { RotationLambdaARN: input.RotationLambdaARN }),
-    ...(input.RotationRules !== undefined && {
-      RotationRules: serializeAws_json1_1RotationRulesType(input.RotationRules, context),
-    }),
-    ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
+    ...(input.RotationLambdaARN !== undefined &&
+      input.RotationLambdaARN !== null && { RotationLambdaARN: input.RotationLambdaARN }),
+    ...(input.RotationRules !== undefined &&
+      input.RotationRules !== null && {
+        RotationRules: serializeAws_json1_1RotationRulesType(input.RotationRules, context),
+      }),
+    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
   };
 };
 
 const serializeAws_json1_1RotationRulesType = (input: RotationRulesType, context: __SerdeContext): any => {
   return {
-    ...(input.AutomaticallyAfterDays !== undefined && { AutomaticallyAfterDays: input.AutomaticallyAfterDays }),
+    ...(input.AutomaticallyAfterDays !== undefined &&
+      input.AutomaticallyAfterDays !== null && { AutomaticallyAfterDays: input.AutomaticallyAfterDays }),
   };
 };
 
 const serializeAws_json1_1SecretVersionStagesType = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1TagKeyListType = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TagListType = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagListType(input.Tags, context) }),
+    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_json1_1TagListType(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyListType(input.TagKeys, context) }),
+    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeyListType(input.TagKeys, context) }),
   };
 };
 
 const serializeAws_json1_1UpdateSecretRequest = (input: UpdateSecretRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId }),
-    ...(input.SecretBinary !== undefined && { SecretBinary: context.base64Encoder(input.SecretBinary) }),
-    ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
-    ...(input.SecretString !== undefined && { SecretString: input.SecretString }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.SecretBinary !== undefined &&
+      input.SecretBinary !== null && { SecretBinary: context.base64Encoder(input.SecretBinary) }),
+    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
+    ...(input.SecretString !== undefined && input.SecretString !== null && { SecretString: input.SecretString }),
   };
 };
 
@@ -2316,10 +2354,12 @@ const serializeAws_json1_1UpdateSecretVersionStageRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MoveToVersionId !== undefined && { MoveToVersionId: input.MoveToVersionId }),
-    ...(input.RemoveFromVersionId !== undefined && { RemoveFromVersionId: input.RemoveFromVersionId }),
-    ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
-    ...(input.VersionStage !== undefined && { VersionStage: input.VersionStage }),
+    ...(input.MoveToVersionId !== undefined &&
+      input.MoveToVersionId !== null && { MoveToVersionId: input.MoveToVersionId }),
+    ...(input.RemoveFromVersionId !== undefined &&
+      input.RemoveFromVersionId !== null && { RemoveFromVersionId: input.RemoveFromVersionId }),
+    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
+    ...(input.VersionStage !== undefined && input.VersionStage !== null && { VersionStage: input.VersionStage }),
   };
 };
 
@@ -2328,8 +2368,9 @@ const serializeAws_json1_1ValidateResourcePolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourcePolicy !== undefined && { ResourcePolicy: input.ResourcePolicy }),
-    ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
+    ...(input.ResourcePolicy !== undefined &&
+      input.ResourcePolicy !== null && { ResourcePolicy: input.ResourcePolicy }),
+    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
   };
 };
 
@@ -2679,7 +2720,14 @@ const deserializeAws_json1_1SecretListEntry = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1SecretListType = (output: any, context: __SerdeContext): SecretListEntry[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1SecretListEntry(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1SecretListEntry(entry, context);
+    });
 };
 
 const deserializeAws_json1_1SecretVersionsListEntry = (
@@ -2707,24 +2755,40 @@ const deserializeAws_json1_1SecretVersionsListType = (
   output: any,
   context: __SerdeContext
 ): SecretVersionsListEntry[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1SecretVersionsListEntry(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1SecretVersionsListEntry(entry, context);
+    });
 };
 
 const deserializeAws_json1_1SecretVersionStagesType = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1SecretVersionsToStagesMapType = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string[] } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string[] }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: deserializeAws_json1_1SecretVersionStagesType(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -2735,7 +2799,14 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagListType = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1UpdateSecretResponse = (output: any, context: __SerdeContext): UpdateSecretResponse => {
@@ -2780,7 +2851,14 @@ const deserializeAws_json1_1ValidationErrorsEntry = (output: any, context: __Ser
 };
 
 const deserializeAws_json1_1ValidationErrorsType = (output: any, context: __SerdeContext): ValidationErrorsEntry[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ValidationErrorsEntry(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ValidationErrorsEntry(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -2833,3 +2911,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

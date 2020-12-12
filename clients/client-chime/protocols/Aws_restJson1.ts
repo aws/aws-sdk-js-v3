@@ -612,7 +612,7 @@ export const serializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorComman
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}";
   if (input.VoiceConnectorId !== undefined) {
@@ -629,10 +629,12 @@ export const serializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorComman
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.E164PhoneNumbers !== undefined && {
-      E164PhoneNumbers: serializeAws_restJson1E164PhoneNumberList(input.E164PhoneNumbers, context),
-    }),
-    ...(input.ForceAssociate !== undefined && { ForceAssociate: input.ForceAssociate }),
+    ...(input.E164PhoneNumbers !== undefined &&
+      input.E164PhoneNumbers !== null && {
+        E164PhoneNumbers: serializeAws_restJson1E164PhoneNumberList(input.E164PhoneNumbers, context),
+      }),
+    ...(input.ForceAssociate !== undefined &&
+      input.ForceAssociate !== null && { ForceAssociate: input.ForceAssociate }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -652,7 +654,7 @@ export const serializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorGroupC
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/voice-connector-groups/{VoiceConnectorGroupId}";
   if (input.VoiceConnectorGroupId !== undefined) {
@@ -669,10 +671,12 @@ export const serializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorGroupC
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.E164PhoneNumbers !== undefined && {
-      E164PhoneNumbers: serializeAws_restJson1E164PhoneNumberList(input.E164PhoneNumbers, context),
-    }),
-    ...(input.ForceAssociate !== undefined && { ForceAssociate: input.ForceAssociate }),
+    ...(input.E164PhoneNumbers !== undefined &&
+      input.E164PhoneNumbers !== null && {
+        E164PhoneNumbers: serializeAws_restJson1E164PhoneNumberList(input.E164PhoneNumbers, context),
+      }),
+    ...(input.ForceAssociate !== undefined &&
+      input.ForceAssociate !== null && { ForceAssociate: input.ForceAssociate }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -692,7 +696,7 @@ export const serializeAws_restJson1AssociatePhoneNumberWithUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/accounts/{AccountId}/users/{UserId}";
   if (input.AccountId !== undefined) {
@@ -718,7 +722,8 @@ export const serializeAws_restJson1AssociatePhoneNumberWithUserCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.E164PhoneNumber !== undefined && { E164PhoneNumber: input.E164PhoneNumber }),
+    ...(input.E164PhoneNumber !== undefined &&
+      input.E164PhoneNumber !== null && { E164PhoneNumber: input.E164PhoneNumber }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -738,7 +743,7 @@ export const serializeAws_restJson1AssociateSigninDelegateGroupsWithAccountComma
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/accounts/{AccountId}";
   if (input.AccountId !== undefined) {
@@ -755,9 +760,10 @@ export const serializeAws_restJson1AssociateSigninDelegateGroupsWithAccountComma
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.SigninDelegateGroups !== undefined && {
-      SigninDelegateGroups: serializeAws_restJson1SigninDelegateGroupList(input.SigninDelegateGroups, context),
-    }),
+    ...(input.SigninDelegateGroups !== undefined &&
+      input.SigninDelegateGroups !== null && {
+        SigninDelegateGroups: serializeAws_restJson1SigninDelegateGroupList(input.SigninDelegateGroups, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -777,7 +783,7 @@ export const serializeAws_restJson1BatchCreateAttendeeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/meetings/{MeetingId}/attendees";
   if (input.MeetingId !== undefined) {
@@ -794,9 +800,10 @@ export const serializeAws_restJson1BatchCreateAttendeeCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.Attendees !== undefined && {
-      Attendees: serializeAws_restJson1CreateAttendeeRequestItemList(input.Attendees, context),
-    }),
+    ...(input.Attendees !== undefined &&
+      input.Attendees !== null && {
+        Attendees: serializeAws_restJson1CreateAttendeeRequestItemList(input.Attendees, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -816,7 +823,7 @@ export const serializeAws_restJson1BatchCreateRoomMembershipCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/accounts/{AccountId}/rooms/{RoomId}/memberships";
   if (input.AccountId !== undefined) {
@@ -842,9 +849,10 @@ export const serializeAws_restJson1BatchCreateRoomMembershipCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.MembershipItemList !== undefined && {
-      MembershipItemList: serializeAws_restJson1MembershipItemList(input.MembershipItemList, context),
-    }),
+    ...(input.MembershipItemList !== undefined &&
+      input.MembershipItemList !== null && {
+        MembershipItemList: serializeAws_restJson1MembershipItemList(input.MembershipItemList, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -864,7 +872,7 @@ export const serializeAws_restJson1BatchDeletePhoneNumberCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/phone-numbers";
   const query: any = {
@@ -872,9 +880,10 @@ export const serializeAws_restJson1BatchDeletePhoneNumberCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.PhoneNumberIds !== undefined && {
-      PhoneNumberIds: serializeAws_restJson1NonEmptyStringList(input.PhoneNumberIds, context),
-    }),
+    ...(input.PhoneNumberIds !== undefined &&
+      input.PhoneNumberIds !== null && {
+        PhoneNumberIds: serializeAws_restJson1NonEmptyStringList(input.PhoneNumberIds, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -894,7 +903,7 @@ export const serializeAws_restJson1BatchSuspendUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/accounts/{AccountId}/users";
   if (input.AccountId !== undefined) {
@@ -911,7 +920,8 @@ export const serializeAws_restJson1BatchSuspendUserCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.UserIdList !== undefined && { UserIdList: serializeAws_restJson1UserIdList(input.UserIdList, context) }),
+    ...(input.UserIdList !== undefined &&
+      input.UserIdList !== null && { UserIdList: serializeAws_restJson1UserIdList(input.UserIdList, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -931,7 +941,7 @@ export const serializeAws_restJson1BatchUnsuspendUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/accounts/{AccountId}/users";
   if (input.AccountId !== undefined) {
@@ -948,7 +958,8 @@ export const serializeAws_restJson1BatchUnsuspendUserCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.UserIdList !== undefined && { UserIdList: serializeAws_restJson1UserIdList(input.UserIdList, context) }),
+    ...(input.UserIdList !== undefined &&
+      input.UserIdList !== null && { UserIdList: serializeAws_restJson1UserIdList(input.UserIdList, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -968,7 +979,7 @@ export const serializeAws_restJson1BatchUpdatePhoneNumberCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/phone-numbers";
   const query: any = {
@@ -976,12 +987,13 @@ export const serializeAws_restJson1BatchUpdatePhoneNumberCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.UpdatePhoneNumberRequestItems !== undefined && {
-      UpdatePhoneNumberRequestItems: serializeAws_restJson1UpdatePhoneNumberRequestItemList(
-        input.UpdatePhoneNumberRequestItems,
-        context
-      ),
-    }),
+    ...(input.UpdatePhoneNumberRequestItems !== undefined &&
+      input.UpdatePhoneNumberRequestItems !== null && {
+        UpdatePhoneNumberRequestItems: serializeAws_restJson1UpdatePhoneNumberRequestItemList(
+          input.UpdatePhoneNumberRequestItems,
+          context
+        ),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1001,7 +1013,7 @@ export const serializeAws_restJson1BatchUpdateUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/accounts/{AccountId}/users";
   if (input.AccountId !== undefined) {
@@ -1015,9 +1027,10 @@ export const serializeAws_restJson1BatchUpdateUserCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.UpdateUserRequestItems !== undefined && {
-      UpdateUserRequestItems: serializeAws_restJson1UpdateUserRequestItemList(input.UpdateUserRequestItems, context),
-    }),
+    ...(input.UpdateUserRequestItems !== undefined &&
+      input.UpdateUserRequestItems !== null && {
+        UpdateUserRequestItems: serializeAws_restJson1UpdateUserRequestItemList(input.UpdateUserRequestItems, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1036,12 +1049,12 @@ export const serializeAws_restJson1CreateAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/accounts";
   let body: any;
   body = JSON.stringify({
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1060,14 +1073,14 @@ export const serializeAws_restJson1CreateAppInstanceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/app-instances";
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Metadata !== undefined && { Metadata: input.Metadata }),
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Metadata !== undefined && input.Metadata !== null && { Metadata: input.Metadata }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1093,7 +1106,7 @@ export const serializeAws_restJson1CreateAppInstanceAdminCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/app-instances/{AppInstanceArn}/admins";
   if (input.AppInstanceArn !== undefined) {
@@ -1107,7 +1120,8 @@ export const serializeAws_restJson1CreateAppInstanceAdminCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.AppInstanceAdminArn !== undefined && { AppInstanceAdminArn: input.AppInstanceAdminArn }),
+    ...(input.AppInstanceAdminArn !== undefined &&
+      input.AppInstanceAdminArn !== null && { AppInstanceAdminArn: input.AppInstanceAdminArn }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1133,16 +1147,18 @@ export const serializeAws_restJson1CreateAppInstanceUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/app-instance-users";
   let body: any;
   body = JSON.stringify({
-    ...(input.AppInstanceArn !== undefined && { AppInstanceArn: input.AppInstanceArn }),
-    ...(input.AppInstanceUserId !== undefined && { AppInstanceUserId: input.AppInstanceUserId }),
+    ...(input.AppInstanceArn !== undefined &&
+      input.AppInstanceArn !== null && { AppInstanceArn: input.AppInstanceArn }),
+    ...(input.AppInstanceUserId !== undefined &&
+      input.AppInstanceUserId !== null && { AppInstanceUserId: input.AppInstanceUserId }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Metadata !== undefined && { Metadata: input.Metadata }),
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Metadata !== undefined && input.Metadata !== null && { Metadata: input.Metadata }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1168,7 +1184,7 @@ export const serializeAws_restJson1CreateAttendeeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/meetings/{MeetingId}/attendees";
   if (input.MeetingId !== undefined) {
@@ -1182,8 +1198,10 @@ export const serializeAws_restJson1CreateAttendeeCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ExternalUserId !== undefined && { ExternalUserId: input.ExternalUserId }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1AttendeeTagList(input.Tags, context) }),
+    ...(input.ExternalUserId !== undefined &&
+      input.ExternalUserId !== null && { ExternalUserId: input.ExternalUserId }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1AttendeeTagList(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1202,7 +1220,7 @@ export const serializeAws_restJson1CreateBotCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/accounts/{AccountId}/bots";
   if (input.AccountId !== undefined) {
@@ -1216,8 +1234,8 @@ export const serializeAws_restJson1CreateBotCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.DisplayName !== undefined && { DisplayName: input.DisplayName }),
-    ...(input.Domain !== undefined && { Domain: input.Domain }),
+    ...(input.DisplayName !== undefined && input.DisplayName !== null && { DisplayName: input.DisplayName }),
+    ...(input.Domain !== undefined && input.Domain !== null && { Domain: input.Domain }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1236,18 +1254,20 @@ export const serializeAws_restJson1CreateChannelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/channels";
   let body: any;
   body = JSON.stringify({
-    ...(input.AppInstanceArn !== undefined && { AppInstanceArn: input.AppInstanceArn }),
+    ...(input.AppInstanceArn !== undefined &&
+      input.AppInstanceArn !== null && { AppInstanceArn: input.AppInstanceArn }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Metadata !== undefined && { Metadata: input.Metadata }),
-    ...(input.Mode !== undefined && { Mode: input.Mode }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Privacy !== undefined && { Privacy: input.Privacy }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Metadata !== undefined && input.Metadata !== null && { Metadata: input.Metadata }),
+    ...(input.Mode !== undefined && input.Mode !== null && { Mode: input.Mode }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Privacy !== undefined && input.Privacy !== null && { Privacy: input.Privacy }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1273,7 +1293,7 @@ export const serializeAws_restJson1CreateChannelBanCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/channels/{ChannelArn}/bans";
   if (input.ChannelArn !== undefined) {
@@ -1287,7 +1307,7 @@ export const serializeAws_restJson1CreateChannelBanCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.MemberArn !== undefined && { MemberArn: input.MemberArn }),
+    ...(input.MemberArn !== undefined && input.MemberArn !== null && { MemberArn: input.MemberArn }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1313,7 +1333,7 @@ export const serializeAws_restJson1CreateChannelMembershipCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/channels/{ChannelArn}/memberships";
   if (input.ChannelArn !== undefined) {
@@ -1327,8 +1347,8 @@ export const serializeAws_restJson1CreateChannelMembershipCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.MemberArn !== undefined && { MemberArn: input.MemberArn }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.MemberArn !== undefined && input.MemberArn !== null && { MemberArn: input.MemberArn }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1354,7 +1374,7 @@ export const serializeAws_restJson1CreateChannelModeratorCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/channels/{ChannelArn}/moderators";
   if (input.ChannelArn !== undefined) {
@@ -1368,7 +1388,8 @@ export const serializeAws_restJson1CreateChannelModeratorCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ChannelModeratorArn !== undefined && { ChannelModeratorArn: input.ChannelModeratorArn }),
+    ...(input.ChannelModeratorArn !== undefined &&
+      input.ChannelModeratorArn !== null && { ChannelModeratorArn: input.ChannelModeratorArn }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1394,22 +1415,25 @@ export const serializeAws_restJson1CreateMeetingCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/meetings";
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.ExternalMeetingId !== undefined && { ExternalMeetingId: input.ExternalMeetingId }),
-    ...(input.MediaRegion !== undefined && { MediaRegion: input.MediaRegion }),
-    ...(input.MeetingHostId !== undefined && { MeetingHostId: input.MeetingHostId }),
-    ...(input.NotificationsConfiguration !== undefined && {
-      NotificationsConfiguration: serializeAws_restJson1MeetingNotificationConfiguration(
-        input.NotificationsConfiguration,
-        context
-      ),
-    }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1MeetingTagList(input.Tags, context) }),
+    ...(input.ExternalMeetingId !== undefined &&
+      input.ExternalMeetingId !== null && { ExternalMeetingId: input.ExternalMeetingId }),
+    ...(input.MediaRegion !== undefined && input.MediaRegion !== null && { MediaRegion: input.MediaRegion }),
+    ...(input.MeetingHostId !== undefined && input.MeetingHostId !== null && { MeetingHostId: input.MeetingHostId }),
+    ...(input.NotificationsConfiguration !== undefined &&
+      input.NotificationsConfiguration !== null && {
+        NotificationsConfiguration: serializeAws_restJson1MeetingNotificationConfiguration(
+          input.NotificationsConfiguration,
+          context
+        ),
+      }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1MeetingTagList(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1428,7 +1452,7 @@ export const serializeAws_restJson1CreateMeetingDialOutCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/meetings/{MeetingId}/dial-outs";
   if (input.MeetingId !== undefined) {
@@ -1442,9 +1466,10 @@ export const serializeAws_restJson1CreateMeetingDialOutCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.FromPhoneNumber !== undefined && { FromPhoneNumber: input.FromPhoneNumber }),
-    ...(input.JoinToken !== undefined && { JoinToken: input.JoinToken }),
-    ...(input.ToPhoneNumber !== undefined && { ToPhoneNumber: input.ToPhoneNumber }),
+    ...(input.FromPhoneNumber !== undefined &&
+      input.FromPhoneNumber !== null && { FromPhoneNumber: input.FromPhoneNumber }),
+    ...(input.JoinToken !== undefined && input.JoinToken !== null && { JoinToken: input.JoinToken }),
+    ...(input.ToPhoneNumber !== undefined && input.ToPhoneNumber !== null && { ToPhoneNumber: input.ToPhoneNumber }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1463,7 +1488,7 @@ export const serializeAws_restJson1CreateMeetingWithAttendeesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/meetings";
   const query: any = {
@@ -1471,20 +1496,24 @@ export const serializeAws_restJson1CreateMeetingWithAttendeesCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.Attendees !== undefined && {
-      Attendees: serializeAws_restJson1CreateMeetingWithAttendeesRequestItemList(input.Attendees, context),
-    }),
+    ...(input.Attendees !== undefined &&
+      input.Attendees !== null && {
+        Attendees: serializeAws_restJson1CreateMeetingWithAttendeesRequestItemList(input.Attendees, context),
+      }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.ExternalMeetingId !== undefined && { ExternalMeetingId: input.ExternalMeetingId }),
-    ...(input.MediaRegion !== undefined && { MediaRegion: input.MediaRegion }),
-    ...(input.MeetingHostId !== undefined && { MeetingHostId: input.MeetingHostId }),
-    ...(input.NotificationsConfiguration !== undefined && {
-      NotificationsConfiguration: serializeAws_restJson1MeetingNotificationConfiguration(
-        input.NotificationsConfiguration,
-        context
-      ),
-    }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1MeetingTagList(input.Tags, context) }),
+    ...(input.ExternalMeetingId !== undefined &&
+      input.ExternalMeetingId !== null && { ExternalMeetingId: input.ExternalMeetingId }),
+    ...(input.MediaRegion !== undefined && input.MediaRegion !== null && { MediaRegion: input.MediaRegion }),
+    ...(input.MeetingHostId !== undefined && input.MeetingHostId !== null && { MeetingHostId: input.MeetingHostId }),
+    ...(input.NotificationsConfiguration !== undefined &&
+      input.NotificationsConfiguration !== null && {
+        NotificationsConfiguration: serializeAws_restJson1MeetingNotificationConfiguration(
+          input.NotificationsConfiguration,
+          context
+        ),
+      }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1MeetingTagList(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1504,15 +1533,16 @@ export const serializeAws_restJson1CreatePhoneNumberOrderCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/phone-number-orders";
   let body: any;
   body = JSON.stringify({
-    ...(input.E164PhoneNumbers !== undefined && {
-      E164PhoneNumbers: serializeAws_restJson1E164PhoneNumberList(input.E164PhoneNumbers, context),
-    }),
-    ...(input.ProductType !== undefined && { ProductType: input.ProductType }),
+    ...(input.E164PhoneNumbers !== undefined &&
+      input.E164PhoneNumbers !== null && {
+        E164PhoneNumbers: serializeAws_restJson1E164PhoneNumberList(input.E164PhoneNumbers, context),
+      }),
+    ...(input.ProductType !== undefined && input.ProductType !== null && { ProductType: input.ProductType }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1531,7 +1561,7 @@ export const serializeAws_restJson1CreateProxySessionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/proxy-sessions";
   if (input.VoiceConnectorId !== undefined) {
@@ -1545,19 +1575,26 @@ export const serializeAws_restJson1CreateProxySessionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Capabilities !== undefined && {
-      Capabilities: serializeAws_restJson1CapabilityList(input.Capabilities, context),
-    }),
-    ...(input.ExpiryMinutes !== undefined && { ExpiryMinutes: input.ExpiryMinutes }),
-    ...(input.GeoMatchLevel !== undefined && { GeoMatchLevel: input.GeoMatchLevel }),
-    ...(input.GeoMatchParams !== undefined && {
-      GeoMatchParams: serializeAws_restJson1GeoMatchParams(input.GeoMatchParams, context),
-    }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.NumberSelectionBehavior !== undefined && { NumberSelectionBehavior: input.NumberSelectionBehavior }),
-    ...(input.ParticipantPhoneNumbers !== undefined && {
-      ParticipantPhoneNumbers: serializeAws_restJson1ParticipantPhoneNumberList(input.ParticipantPhoneNumbers, context),
-    }),
+    ...(input.Capabilities !== undefined &&
+      input.Capabilities !== null && {
+        Capabilities: serializeAws_restJson1CapabilityList(input.Capabilities, context),
+      }),
+    ...(input.ExpiryMinutes !== undefined && input.ExpiryMinutes !== null && { ExpiryMinutes: input.ExpiryMinutes }),
+    ...(input.GeoMatchLevel !== undefined && input.GeoMatchLevel !== null && { GeoMatchLevel: input.GeoMatchLevel }),
+    ...(input.GeoMatchParams !== undefined &&
+      input.GeoMatchParams !== null && {
+        GeoMatchParams: serializeAws_restJson1GeoMatchParams(input.GeoMatchParams, context),
+      }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.NumberSelectionBehavior !== undefined &&
+      input.NumberSelectionBehavior !== null && { NumberSelectionBehavior: input.NumberSelectionBehavior }),
+    ...(input.ParticipantPhoneNumbers !== undefined &&
+      input.ParticipantPhoneNumbers !== null && {
+        ParticipantPhoneNumbers: serializeAws_restJson1ParticipantPhoneNumberList(
+          input.ParticipantPhoneNumbers,
+          context
+        ),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1576,7 +1613,7 @@ export const serializeAws_restJson1CreateRoomCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/accounts/{AccountId}/rooms";
   if (input.AccountId !== undefined) {
@@ -1591,7 +1628,7 @@ export const serializeAws_restJson1CreateRoomCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1610,7 +1647,7 @@ export const serializeAws_restJson1CreateRoomMembershipCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/accounts/{AccountId}/rooms/{RoomId}/memberships";
   if (input.AccountId !== undefined) {
@@ -1633,8 +1670,8 @@ export const serializeAws_restJson1CreateRoomMembershipCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.MemberId !== undefined && { MemberId: input.MemberId }),
-    ...(input.Role !== undefined && { Role: input.Role }),
+    ...(input.MemberId !== undefined && input.MemberId !== null && { MemberId: input.MemberId }),
+    ...(input.Role !== undefined && input.Role !== null && { Role: input.Role }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1653,16 +1690,17 @@ export const serializeAws_restJson1CreateSipMediaApplicationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/sip-media-applications";
   let body: any;
   body = JSON.stringify({
-    ...(input.AwsRegion !== undefined && { AwsRegion: input.AwsRegion }),
-    ...(input.Endpoints !== undefined && {
-      Endpoints: serializeAws_restJson1SipMediaApplicationEndpointList(input.Endpoints, context),
-    }),
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.AwsRegion !== undefined && input.AwsRegion !== null && { AwsRegion: input.AwsRegion }),
+    ...(input.Endpoints !== undefined &&
+      input.Endpoints !== null && {
+        Endpoints: serializeAws_restJson1SipMediaApplicationEndpointList(input.Endpoints, context),
+      }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1681,7 +1719,7 @@ export const serializeAws_restJson1CreateSipMediaApplicationCallCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/sip-media-applications/{SipMediaApplicationId}/calls";
   if (input.SipMediaApplicationId !== undefined) {
@@ -1695,8 +1733,9 @@ export const serializeAws_restJson1CreateSipMediaApplicationCallCommand = async 
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.FromPhoneNumber !== undefined && { FromPhoneNumber: input.FromPhoneNumber }),
-    ...(input.ToPhoneNumber !== undefined && { ToPhoneNumber: input.ToPhoneNumber }),
+    ...(input.FromPhoneNumber !== undefined &&
+      input.FromPhoneNumber !== null && { FromPhoneNumber: input.FromPhoneNumber }),
+    ...(input.ToPhoneNumber !== undefined && input.ToPhoneNumber !== null && { ToPhoneNumber: input.ToPhoneNumber }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1715,18 +1754,19 @@ export const serializeAws_restJson1CreateSipRuleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/sip-rules";
   let body: any;
   body = JSON.stringify({
-    ...(input.Disabled !== undefined && { Disabled: input.Disabled }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.TargetApplications !== undefined && {
-      TargetApplications: serializeAws_restJson1SipRuleTargetApplicationList(input.TargetApplications, context),
-    }),
-    ...(input.TriggerType !== undefined && { TriggerType: input.TriggerType }),
-    ...(input.TriggerValue !== undefined && { TriggerValue: input.TriggerValue }),
+    ...(input.Disabled !== undefined && input.Disabled !== null && { Disabled: input.Disabled }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.TargetApplications !== undefined &&
+      input.TargetApplications !== null && {
+        TargetApplications: serializeAws_restJson1SipRuleTargetApplicationList(input.TargetApplications, context),
+      }),
+    ...(input.TriggerType !== undefined && input.TriggerType !== null && { TriggerType: input.TriggerType }),
+    ...(input.TriggerValue !== undefined && input.TriggerValue !== null && { TriggerValue: input.TriggerValue }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1745,7 +1785,7 @@ export const serializeAws_restJson1CreateUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/accounts/{AccountId}/users";
   if (input.AccountId !== undefined) {
@@ -1762,9 +1802,9 @@ export const serializeAws_restJson1CreateUserCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.Email !== undefined && { Email: input.Email }),
-    ...(input.UserType !== undefined && { UserType: input.UserType }),
-    ...(input.Username !== undefined && { Username: input.Username }),
+    ...(input.Email !== undefined && input.Email !== null && { Email: input.Email }),
+    ...(input.UserType !== undefined && input.UserType !== null && { UserType: input.UserType }),
+    ...(input.Username !== undefined && input.Username !== null && { Username: input.Username }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1784,14 +1824,15 @@ export const serializeAws_restJson1CreateVoiceConnectorCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/voice-connectors";
   let body: any;
   body = JSON.stringify({
-    ...(input.AwsRegion !== undefined && { AwsRegion: input.AwsRegion }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.RequireEncryption !== undefined && { RequireEncryption: input.RequireEncryption }),
+    ...(input.AwsRegion !== undefined && input.AwsRegion !== null && { AwsRegion: input.AwsRegion }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.RequireEncryption !== undefined &&
+      input.RequireEncryption !== null && { RequireEncryption: input.RequireEncryption }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1810,15 +1851,16 @@ export const serializeAws_restJson1CreateVoiceConnectorGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/voice-connector-groups";
   let body: any;
   body = JSON.stringify({
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.VoiceConnectorItems !== undefined && {
-      VoiceConnectorItems: serializeAws_restJson1VoiceConnectorItemList(input.VoiceConnectorItems, context),
-    }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.VoiceConnectorItems !== undefined &&
+      input.VoiceConnectorItems !== null && {
+        VoiceConnectorItems: serializeAws_restJson1VoiceConnectorItemList(input.VoiceConnectorItems, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1836,9 +1878,7 @@ export const serializeAws_restJson1DeleteAccountCommand = async (
   input: DeleteAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/accounts/{AccountId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -1866,9 +1906,7 @@ export const serializeAws_restJson1DeleteAppInstanceCommand = async (
   input: DeleteAppInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/app-instances/{AppInstanceArn}";
   if (input.AppInstanceArn !== undefined) {
     const labelValue: string = input.AppInstanceArn;
@@ -1903,9 +1941,7 @@ export const serializeAws_restJson1DeleteAppInstanceAdminCommand = async (
   input: DeleteAppInstanceAdminCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/app-instances/{AppInstanceArn}/admins/{AppInstanceAdminArn}";
   if (input.AppInstanceAdminArn !== undefined) {
     const labelValue: string = input.AppInstanceAdminArn;
@@ -1949,9 +1985,7 @@ export const serializeAws_restJson1DeleteAppInstanceStreamingConfigurationsComma
   input: DeleteAppInstanceStreamingConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/app-instances/{AppInstanceArn}/streaming-configurations";
   if (input.AppInstanceArn !== undefined) {
     const labelValue: string = input.AppInstanceArn;
@@ -1979,9 +2013,7 @@ export const serializeAws_restJson1DeleteAppInstanceUserCommand = async (
   input: DeleteAppInstanceUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/app-instance-users/{AppInstanceUserArn}";
   if (input.AppInstanceUserArn !== undefined) {
     const labelValue: string = input.AppInstanceUserArn;
@@ -2016,9 +2048,7 @@ export const serializeAws_restJson1DeleteAttendeeCommand = async (
   input: DeleteAttendeeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/meetings/{MeetingId}/attendees/{AttendeeId}";
   if (input.MeetingId !== undefined) {
     const labelValue: string = input.MeetingId;
@@ -2055,9 +2085,7 @@ export const serializeAws_restJson1DeleteChannelCommand = async (
   input: DeleteChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/channels/{ChannelArn}";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -2092,9 +2120,7 @@ export const serializeAws_restJson1DeleteChannelBanCommand = async (
   input: DeleteChannelBanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/channels/{ChannelArn}/bans/{MemberArn}";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -2138,9 +2164,7 @@ export const serializeAws_restJson1DeleteChannelMembershipCommand = async (
   input: DeleteChannelMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/channels/{ChannelArn}/memberships/{MemberArn}";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -2184,9 +2208,7 @@ export const serializeAws_restJson1DeleteChannelMessageCommand = async (
   input: DeleteChannelMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/channels/{ChannelArn}/messages/{MessageId}";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -2230,9 +2252,7 @@ export const serializeAws_restJson1DeleteChannelModeratorCommand = async (
   input: DeleteChannelModeratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/channels/{ChannelArn}/moderators/{ChannelModeratorArn}";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -2276,9 +2296,7 @@ export const serializeAws_restJson1DeleteEventsConfigurationCommand = async (
   input: DeleteEventsConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/accounts/{AccountId}/bots/{BotId}/events-configuration";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -2315,9 +2333,7 @@ export const serializeAws_restJson1DeleteMeetingCommand = async (
   input: DeleteMeetingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/meetings/{MeetingId}";
   if (input.MeetingId !== undefined) {
     const labelValue: string = input.MeetingId;
@@ -2345,9 +2361,7 @@ export const serializeAws_restJson1DeletePhoneNumberCommand = async (
   input: DeletePhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/phone-numbers/{PhoneNumberId}";
   if (input.PhoneNumberId !== undefined) {
     const labelValue: string = input.PhoneNumberId;
@@ -2375,9 +2389,7 @@ export const serializeAws_restJson1DeleteProxySessionCommand = async (
   input: DeleteProxySessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/proxy-sessions/{ProxySessionId}";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -2414,9 +2426,7 @@ export const serializeAws_restJson1DeleteRoomCommand = async (
   input: DeleteRoomCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/accounts/{AccountId}/rooms/{RoomId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -2453,9 +2463,7 @@ export const serializeAws_restJson1DeleteRoomMembershipCommand = async (
   input: DeleteRoomMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/accounts/{AccountId}/rooms/{RoomId}/memberships/{MemberId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -2501,9 +2509,7 @@ export const serializeAws_restJson1DeleteSipMediaApplicationCommand = async (
   input: DeleteSipMediaApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/sip-media-applications/{SipMediaApplicationId}";
   if (input.SipMediaApplicationId !== undefined) {
     const labelValue: string = input.SipMediaApplicationId;
@@ -2531,9 +2537,7 @@ export const serializeAws_restJson1DeleteSipRuleCommand = async (
   input: DeleteSipRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/sip-rules/{SipRuleId}";
   if (input.SipRuleId !== undefined) {
     const labelValue: string = input.SipRuleId;
@@ -2561,9 +2565,7 @@ export const serializeAws_restJson1DeleteVoiceConnectorCommand = async (
   input: DeleteVoiceConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -2591,9 +2593,7 @@ export const serializeAws_restJson1DeleteVoiceConnectorEmergencyCallingConfigura
   input: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/emergency-calling-configuration";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -2621,9 +2621,7 @@ export const serializeAws_restJson1DeleteVoiceConnectorGroupCommand = async (
   input: DeleteVoiceConnectorGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/voice-connector-groups/{VoiceConnectorGroupId}";
   if (input.VoiceConnectorGroupId !== undefined) {
     const labelValue: string = input.VoiceConnectorGroupId;
@@ -2651,9 +2649,7 @@ export const serializeAws_restJson1DeleteVoiceConnectorOriginationCommand = asyn
   input: DeleteVoiceConnectorOriginationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/origination";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -2681,9 +2677,7 @@ export const serializeAws_restJson1DeleteVoiceConnectorProxyCommand = async (
   input: DeleteVoiceConnectorProxyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/programmable-numbers/proxy";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -2711,9 +2705,7 @@ export const serializeAws_restJson1DeleteVoiceConnectorStreamingConfigurationCom
   input: DeleteVoiceConnectorStreamingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/streaming-configuration";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -2741,9 +2733,7 @@ export const serializeAws_restJson1DeleteVoiceConnectorTerminationCommand = asyn
   input: DeleteVoiceConnectorTerminationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/termination";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -2772,7 +2762,7 @@ export const serializeAws_restJson1DeleteVoiceConnectorTerminationCredentialsCom
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/termination/credentials";
   if (input.VoiceConnectorId !== undefined) {
@@ -2789,9 +2779,8 @@ export const serializeAws_restJson1DeleteVoiceConnectorTerminationCredentialsCom
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.Usernames !== undefined && {
-      Usernames: serializeAws_restJson1SensitiveStringList(input.Usernames, context),
-    }),
+    ...(input.Usernames !== undefined &&
+      input.Usernames !== null && { Usernames: serializeAws_restJson1SensitiveStringList(input.Usernames, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2810,9 +2799,7 @@ export const serializeAws_restJson1DescribeAppInstanceCommand = async (
   input: DescribeAppInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/app-instances/{AppInstanceArn}";
   if (input.AppInstanceArn !== undefined) {
     const labelValue: string = input.AppInstanceArn;
@@ -2847,9 +2834,7 @@ export const serializeAws_restJson1DescribeAppInstanceAdminCommand = async (
   input: DescribeAppInstanceAdminCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/app-instances/{AppInstanceArn}/admins/{AppInstanceAdminArn}";
   if (input.AppInstanceAdminArn !== undefined) {
     const labelValue: string = input.AppInstanceAdminArn;
@@ -2893,9 +2878,7 @@ export const serializeAws_restJson1DescribeAppInstanceUserCommand = async (
   input: DescribeAppInstanceUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/app-instance-users/{AppInstanceUserArn}";
   if (input.AppInstanceUserArn !== undefined) {
     const labelValue: string = input.AppInstanceUserArn;
@@ -2930,9 +2913,7 @@ export const serializeAws_restJson1DescribeChannelCommand = async (
   input: DescribeChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/channels/{ChannelArn}";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -2967,9 +2948,7 @@ export const serializeAws_restJson1DescribeChannelBanCommand = async (
   input: DescribeChannelBanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/channels/{ChannelArn}/bans/{MemberArn}";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -3013,9 +2992,7 @@ export const serializeAws_restJson1DescribeChannelMembershipCommand = async (
   input: DescribeChannelMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/channels/{ChannelArn}/memberships/{MemberArn}";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -3059,9 +3036,7 @@ export const serializeAws_restJson1DescribeChannelMembershipForAppInstanceUserCo
   input: DescribeChannelMembershipForAppInstanceUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/channels/{ChannelArn}";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -3101,9 +3076,7 @@ export const serializeAws_restJson1DescribeChannelModeratedByAppInstanceUserComm
   input: DescribeChannelModeratedByAppInstanceUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/channels/{ChannelArn}";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -3143,9 +3116,7 @@ export const serializeAws_restJson1DescribeChannelModeratorCommand = async (
   input: DescribeChannelModeratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/channels/{ChannelArn}/moderators/{ChannelModeratorArn}";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -3189,9 +3160,7 @@ export const serializeAws_restJson1DisassociatePhoneNumberFromUserCommand = asyn
   input: DisassociatePhoneNumberFromUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/accounts/{AccountId}/users/{UserId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -3233,7 +3202,7 @@ export const serializeAws_restJson1DisassociatePhoneNumbersFromVoiceConnectorCom
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}";
   if (input.VoiceConnectorId !== undefined) {
@@ -3250,9 +3219,10 @@ export const serializeAws_restJson1DisassociatePhoneNumbersFromVoiceConnectorCom
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.E164PhoneNumbers !== undefined && {
-      E164PhoneNumbers: serializeAws_restJson1E164PhoneNumberList(input.E164PhoneNumbers, context),
-    }),
+    ...(input.E164PhoneNumbers !== undefined &&
+      input.E164PhoneNumbers !== null && {
+        E164PhoneNumbers: serializeAws_restJson1E164PhoneNumberList(input.E164PhoneNumbers, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3272,7 +3242,7 @@ export const serializeAws_restJson1DisassociatePhoneNumbersFromVoiceConnectorGro
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/voice-connector-groups/{VoiceConnectorGroupId}";
   if (input.VoiceConnectorGroupId !== undefined) {
@@ -3289,9 +3259,10 @@ export const serializeAws_restJson1DisassociatePhoneNumbersFromVoiceConnectorGro
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.E164PhoneNumbers !== undefined && {
-      E164PhoneNumbers: serializeAws_restJson1E164PhoneNumberList(input.E164PhoneNumbers, context),
-    }),
+    ...(input.E164PhoneNumbers !== undefined &&
+      input.E164PhoneNumbers !== null && {
+        E164PhoneNumbers: serializeAws_restJson1E164PhoneNumberList(input.E164PhoneNumbers, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3311,7 +3282,7 @@ export const serializeAws_restJson1DisassociateSigninDelegateGroupsFromAccountCo
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/accounts/{AccountId}";
   if (input.AccountId !== undefined) {
@@ -3328,9 +3299,8 @@ export const serializeAws_restJson1DisassociateSigninDelegateGroupsFromAccountCo
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.GroupNames !== undefined && {
-      GroupNames: serializeAws_restJson1NonEmptyStringList(input.GroupNames, context),
-    }),
+    ...(input.GroupNames !== undefined &&
+      input.GroupNames !== null && { GroupNames: serializeAws_restJson1NonEmptyStringList(input.GroupNames, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3349,9 +3319,7 @@ export const serializeAws_restJson1GetAccountCommand = async (
   input: GetAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/accounts/{AccountId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -3379,9 +3347,7 @@ export const serializeAws_restJson1GetAccountSettingsCommand = async (
   input: GetAccountSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/accounts/{AccountId}/settings";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -3409,9 +3375,7 @@ export const serializeAws_restJson1GetAppInstanceRetentionSettingsCommand = asyn
   input: GetAppInstanceRetentionSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/app-instances/{AppInstanceArn}/retention-settings";
   if (input.AppInstanceArn !== undefined) {
     const labelValue: string = input.AppInstanceArn;
@@ -3446,9 +3410,7 @@ export const serializeAws_restJson1GetAppInstanceStreamingConfigurationsCommand 
   input: GetAppInstanceStreamingConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/app-instances/{AppInstanceArn}/streaming-configurations";
   if (input.AppInstanceArn !== undefined) {
     const labelValue: string = input.AppInstanceArn;
@@ -3476,9 +3438,7 @@ export const serializeAws_restJson1GetAttendeeCommand = async (
   input: GetAttendeeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/meetings/{MeetingId}/attendees/{AttendeeId}";
   if (input.MeetingId !== undefined) {
     const labelValue: string = input.MeetingId;
@@ -3515,9 +3475,7 @@ export const serializeAws_restJson1GetBotCommand = async (
   input: GetBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/accounts/{AccountId}/bots/{BotId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -3554,9 +3512,7 @@ export const serializeAws_restJson1GetChannelMessageCommand = async (
   input: GetChannelMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/channels/{ChannelArn}/messages/{MessageId}";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -3600,9 +3556,7 @@ export const serializeAws_restJson1GetEventsConfigurationCommand = async (
   input: GetEventsConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/accounts/{AccountId}/bots/{BotId}/events-configuration";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -3639,12 +3593,10 @@ export const serializeAws_restJson1GetGlobalSettingsCommand = async (
   input: GetGlobalSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/settings";
   let body: any;
-  body = "{}";
+  body = "";
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3661,9 +3613,7 @@ export const serializeAws_restJson1GetMeetingCommand = async (
   input: GetMeetingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/meetings/{MeetingId}";
   if (input.MeetingId !== undefined) {
     const labelValue: string = input.MeetingId;
@@ -3691,12 +3641,10 @@ export const serializeAws_restJson1GetMessagingSessionEndpointCommand = async (
   input: GetMessagingSessionEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/endpoints/messaging-session";
   let body: any;
-  body = "{}";
+  body = "";
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "messaging-" + resolvedHostname;
@@ -3720,9 +3668,7 @@ export const serializeAws_restJson1GetPhoneNumberCommand = async (
   input: GetPhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/phone-numbers/{PhoneNumberId}";
   if (input.PhoneNumberId !== undefined) {
     const labelValue: string = input.PhoneNumberId;
@@ -3750,9 +3696,7 @@ export const serializeAws_restJson1GetPhoneNumberOrderCommand = async (
   input: GetPhoneNumberOrderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/phone-number-orders/{PhoneNumberOrderId}";
   if (input.PhoneNumberOrderId !== undefined) {
     const labelValue: string = input.PhoneNumberOrderId;
@@ -3780,12 +3724,10 @@ export const serializeAws_restJson1GetPhoneNumberSettingsCommand = async (
   input: GetPhoneNumberSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/settings/phone-number";
   let body: any;
-  body = "{}";
+  body = "";
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3802,9 +3744,7 @@ export const serializeAws_restJson1GetProxySessionCommand = async (
   input: GetProxySessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/proxy-sessions/{ProxySessionId}";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -3841,9 +3781,7 @@ export const serializeAws_restJson1GetRetentionSettingsCommand = async (
   input: GetRetentionSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/accounts/{AccountId}/retention-settings";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -3871,9 +3809,7 @@ export const serializeAws_restJson1GetRoomCommand = async (
   input: GetRoomCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/accounts/{AccountId}/rooms/{RoomId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -3910,9 +3846,7 @@ export const serializeAws_restJson1GetSipMediaApplicationCommand = async (
   input: GetSipMediaApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/sip-media-applications/{SipMediaApplicationId}";
   if (input.SipMediaApplicationId !== undefined) {
     const labelValue: string = input.SipMediaApplicationId;
@@ -3940,9 +3874,7 @@ export const serializeAws_restJson1GetSipMediaApplicationLoggingConfigurationCom
   input: GetSipMediaApplicationLoggingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/sip-media-applications/{SipMediaApplicationId}/logging-configuration";
   if (input.SipMediaApplicationId !== undefined) {
     const labelValue: string = input.SipMediaApplicationId;
@@ -3970,9 +3902,7 @@ export const serializeAws_restJson1GetSipRuleCommand = async (
   input: GetSipRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/sip-rules/{SipRuleId}";
   if (input.SipRuleId !== undefined) {
     const labelValue: string = input.SipRuleId;
@@ -4000,9 +3930,7 @@ export const serializeAws_restJson1GetUserCommand = async (
   input: GetUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/accounts/{AccountId}/users/{UserId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -4039,9 +3967,7 @@ export const serializeAws_restJson1GetUserSettingsCommand = async (
   input: GetUserSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/accounts/{AccountId}/users/{UserId}/settings";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -4078,9 +4004,7 @@ export const serializeAws_restJson1GetVoiceConnectorCommand = async (
   input: GetVoiceConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -4108,9 +4032,7 @@ export const serializeAws_restJson1GetVoiceConnectorEmergencyCallingConfiguratio
   input: GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/emergency-calling-configuration";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -4138,9 +4060,7 @@ export const serializeAws_restJson1GetVoiceConnectorGroupCommand = async (
   input: GetVoiceConnectorGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/voice-connector-groups/{VoiceConnectorGroupId}";
   if (input.VoiceConnectorGroupId !== undefined) {
     const labelValue: string = input.VoiceConnectorGroupId;
@@ -4168,9 +4088,7 @@ export const serializeAws_restJson1GetVoiceConnectorLoggingConfigurationCommand 
   input: GetVoiceConnectorLoggingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/logging-configuration";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -4198,9 +4116,7 @@ export const serializeAws_restJson1GetVoiceConnectorOriginationCommand = async (
   input: GetVoiceConnectorOriginationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/origination";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -4228,9 +4144,7 @@ export const serializeAws_restJson1GetVoiceConnectorProxyCommand = async (
   input: GetVoiceConnectorProxyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/programmable-numbers/proxy";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -4258,9 +4172,7 @@ export const serializeAws_restJson1GetVoiceConnectorStreamingConfigurationComman
   input: GetVoiceConnectorStreamingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/streaming-configuration";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -4288,9 +4200,7 @@ export const serializeAws_restJson1GetVoiceConnectorTerminationCommand = async (
   input: GetVoiceConnectorTerminationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/termination";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -4318,9 +4228,7 @@ export const serializeAws_restJson1GetVoiceConnectorTerminationHealthCommand = a
   input: GetVoiceConnectorTerminationHealthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/termination/health";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -4349,7 +4257,7 @@ export const serializeAws_restJson1InviteUsersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/accounts/{AccountId}/users";
   if (input.AccountId !== undefined) {
@@ -4366,10 +4274,11 @@ export const serializeAws_restJson1InviteUsersCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.UserEmailList !== undefined && {
-      UserEmailList: serializeAws_restJson1UserEmailList(input.UserEmailList, context),
-    }),
-    ...(input.UserType !== undefined && { UserType: input.UserType }),
+    ...(input.UserEmailList !== undefined &&
+      input.UserEmailList !== null && {
+        UserEmailList: serializeAws_restJson1UserEmailList(input.UserEmailList, context),
+      }),
+    ...(input.UserType !== undefined && input.UserType !== null && { UserType: input.UserType }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -4388,9 +4297,7 @@ export const serializeAws_restJson1ListAccountsCommand = async (
   input: ListAccountsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/accounts";
   const query: any = {
     ...(input.Name !== undefined && { name: input.Name }),
@@ -4416,9 +4323,7 @@ export const serializeAws_restJson1ListAppInstanceAdminsCommand = async (
   input: ListAppInstanceAdminsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/app-instances/{AppInstanceArn}/admins";
   if (input.AppInstanceArn !== undefined) {
     const labelValue: string = input.AppInstanceArn;
@@ -4458,9 +4363,7 @@ export const serializeAws_restJson1ListAppInstancesCommand = async (
   input: ListAppInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/app-instances";
   const query: any = {
     ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
@@ -4491,9 +4394,7 @@ export const serializeAws_restJson1ListAppInstanceUsersCommand = async (
   input: ListAppInstanceUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/app-instance-users";
   const query: any = {
     ...(input.AppInstanceArn !== undefined && { "app-instance-arn": input.AppInstanceArn }),
@@ -4525,9 +4426,7 @@ export const serializeAws_restJson1ListAttendeesCommand = async (
   input: ListAttendeesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/meetings/{MeetingId}/attendees";
   if (input.MeetingId !== undefined) {
     const labelValue: string = input.MeetingId;
@@ -4560,9 +4459,7 @@ export const serializeAws_restJson1ListAttendeeTagsCommand = async (
   input: ListAttendeeTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/meetings/{MeetingId}/attendees/{AttendeeId}/tags";
   if (input.MeetingId !== undefined) {
     const labelValue: string = input.MeetingId;
@@ -4599,9 +4496,7 @@ export const serializeAws_restJson1ListBotsCommand = async (
   input: ListBotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/accounts/{AccountId}/bots";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -4634,9 +4529,7 @@ export const serializeAws_restJson1ListChannelBansCommand = async (
   input: ListChannelBansCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/channels/{ChannelArn}/bans";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -4676,9 +4569,7 @@ export const serializeAws_restJson1ListChannelMembershipsCommand = async (
   input: ListChannelMembershipsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/channels/{ChannelArn}/memberships";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -4719,9 +4610,7 @@ export const serializeAws_restJson1ListChannelMembershipsForAppInstanceUserComma
   input: ListChannelMembershipsForAppInstanceUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/channels";
   const query: any = {
     scope: "app-instance-user-memberships",
@@ -4754,9 +4643,7 @@ export const serializeAws_restJson1ListChannelMessagesCommand = async (
   input: ListChannelMessagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/channels/{ChannelArn}/messages";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -4801,9 +4688,7 @@ export const serializeAws_restJson1ListChannelModeratorsCommand = async (
   input: ListChannelModeratorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/channels/{ChannelArn}/moderators";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -4843,9 +4728,7 @@ export const serializeAws_restJson1ListChannelsCommand = async (
   input: ListChannelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/channels";
   const query: any = {
     ...(input.AppInstanceArn !== undefined && { "app-instance-arn": input.AppInstanceArn }),
@@ -4878,9 +4761,7 @@ export const serializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommand
   input: ListChannelsModeratedByAppInstanceUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/channels";
   const query: any = {
     scope: "app-instance-user-moderated-channels",
@@ -4913,9 +4794,7 @@ export const serializeAws_restJson1ListMeetingsCommand = async (
   input: ListMeetingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/meetings";
   const query: any = {
     ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
@@ -4939,9 +4818,7 @@ export const serializeAws_restJson1ListMeetingTagsCommand = async (
   input: ListMeetingTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/meetings/{MeetingId}/tags";
   if (input.MeetingId !== undefined) {
     const labelValue: string = input.MeetingId;
@@ -4969,9 +4846,7 @@ export const serializeAws_restJson1ListPhoneNumberOrdersCommand = async (
   input: ListPhoneNumberOrdersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/phone-number-orders";
   const query: any = {
     ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
@@ -4995,9 +4870,7 @@ export const serializeAws_restJson1ListPhoneNumbersCommand = async (
   input: ListPhoneNumbersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/phone-numbers";
   const query: any = {
     ...(input.Status !== undefined && { status: input.Status }),
@@ -5025,9 +4898,7 @@ export const serializeAws_restJson1ListProxySessionsCommand = async (
   input: ListProxySessionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/proxy-sessions";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -5061,9 +4932,7 @@ export const serializeAws_restJson1ListRoomMembershipsCommand = async (
   input: ListRoomMembershipsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/accounts/{AccountId}/rooms/{RoomId}/memberships";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -5105,9 +4974,7 @@ export const serializeAws_restJson1ListRoomsCommand = async (
   input: ListRoomsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/accounts/{AccountId}/rooms";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -5141,9 +5008,7 @@ export const serializeAws_restJson1ListSipMediaApplicationsCommand = async (
   input: ListSipMediaApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/sip-media-applications";
   const query: any = {
     ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
@@ -5167,9 +5032,7 @@ export const serializeAws_restJson1ListSipRulesCommand = async (
   input: ListSipRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/sip-rules";
   const query: any = {
     ...(input.SipMediaApplicationId !== undefined && { "sip-media-application": input.SipMediaApplicationId }),
@@ -5194,9 +5057,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/tags";
   const query: any = {
     ...(input.ResourceARN !== undefined && { arn: input.ResourceARN }),
@@ -5219,9 +5080,7 @@ export const serializeAws_restJson1ListUsersCommand = async (
   input: ListUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/accounts/{AccountId}/users";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -5256,9 +5115,7 @@ export const serializeAws_restJson1ListVoiceConnectorGroupsCommand = async (
   input: ListVoiceConnectorGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/voice-connector-groups";
   const query: any = {
     ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
@@ -5282,9 +5139,7 @@ export const serializeAws_restJson1ListVoiceConnectorsCommand = async (
   input: ListVoiceConnectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/voice-connectors";
   const query: any = {
     ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
@@ -5308,9 +5163,7 @@ export const serializeAws_restJson1ListVoiceConnectorTerminationCredentialsComma
   input: ListVoiceConnectorTerminationCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/termination/credentials";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -5338,9 +5191,7 @@ export const serializeAws_restJson1LogoutUserCommand = async (
   input: LogoutUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/accounts/{AccountId}/users/{UserId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -5382,7 +5233,7 @@ export const serializeAws_restJson1PutAppInstanceRetentionSettingsCommand = asyn
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/app-instances/{AppInstanceArn}/retention-settings";
   if (input.AppInstanceArn !== undefined) {
@@ -5396,12 +5247,13 @@ export const serializeAws_restJson1PutAppInstanceRetentionSettingsCommand = asyn
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.AppInstanceRetentionSettings !== undefined && {
-      AppInstanceRetentionSettings: serializeAws_restJson1AppInstanceRetentionSettings(
-        input.AppInstanceRetentionSettings,
-        context
-      ),
-    }),
+    ...(input.AppInstanceRetentionSettings !== undefined &&
+      input.AppInstanceRetentionSettings !== null && {
+        AppInstanceRetentionSettings: serializeAws_restJson1AppInstanceRetentionSettings(
+          input.AppInstanceRetentionSettings,
+          context
+        ),
+      }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -5427,7 +5279,7 @@ export const serializeAws_restJson1PutAppInstanceStreamingConfigurationsCommand 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/app-instances/{AppInstanceArn}/streaming-configurations";
   if (input.AppInstanceArn !== undefined) {
@@ -5441,12 +5293,13 @@ export const serializeAws_restJson1PutAppInstanceStreamingConfigurationsCommand 
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.AppInstanceStreamingConfigurations !== undefined && {
-      AppInstanceStreamingConfigurations: serializeAws_restJson1AppInstanceStreamingConfigurationList(
-        input.AppInstanceStreamingConfigurations,
-        context
-      ),
-    }),
+    ...(input.AppInstanceStreamingConfigurations !== undefined &&
+      input.AppInstanceStreamingConfigurations !== null && {
+        AppInstanceStreamingConfigurations: serializeAws_restJson1AppInstanceStreamingConfigurationList(
+          input.AppInstanceStreamingConfigurations,
+          context
+        ),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5465,7 +5318,7 @@ export const serializeAws_restJson1PutEventsConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/accounts/{AccountId}/bots/{BotId}/events-configuration";
   if (input.AccountId !== undefined) {
@@ -5488,10 +5341,10 @@ export const serializeAws_restJson1PutEventsConfigurationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.LambdaFunctionArn !== undefined && { LambdaFunctionArn: input.LambdaFunctionArn }),
-    ...(input.OutboundEventsHTTPSEndpoint !== undefined && {
-      OutboundEventsHTTPSEndpoint: input.OutboundEventsHTTPSEndpoint,
-    }),
+    ...(input.LambdaFunctionArn !== undefined &&
+      input.LambdaFunctionArn !== null && { LambdaFunctionArn: input.LambdaFunctionArn }),
+    ...(input.OutboundEventsHTTPSEndpoint !== undefined &&
+      input.OutboundEventsHTTPSEndpoint !== null && { OutboundEventsHTTPSEndpoint: input.OutboundEventsHTTPSEndpoint }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5510,7 +5363,7 @@ export const serializeAws_restJson1PutRetentionSettingsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/accounts/{AccountId}/retention-settings";
   if (input.AccountId !== undefined) {
@@ -5524,9 +5377,10 @@ export const serializeAws_restJson1PutRetentionSettingsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.RetentionSettings !== undefined && {
-      RetentionSettings: serializeAws_restJson1RetentionSettings(input.RetentionSettings, context),
-    }),
+    ...(input.RetentionSettings !== undefined &&
+      input.RetentionSettings !== null && {
+        RetentionSettings: serializeAws_restJson1RetentionSettings(input.RetentionSettings, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5545,7 +5399,7 @@ export const serializeAws_restJson1PutSipMediaApplicationLoggingConfigurationCom
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/sip-media-applications/{SipMediaApplicationId}/logging-configuration";
   if (input.SipMediaApplicationId !== undefined) {
@@ -5559,12 +5413,13 @@ export const serializeAws_restJson1PutSipMediaApplicationLoggingConfigurationCom
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.SipMediaApplicationLoggingConfiguration !== undefined && {
-      SipMediaApplicationLoggingConfiguration: serializeAws_restJson1SipMediaApplicationLoggingConfiguration(
-        input.SipMediaApplicationLoggingConfiguration,
-        context
-      ),
-    }),
+    ...(input.SipMediaApplicationLoggingConfiguration !== undefined &&
+      input.SipMediaApplicationLoggingConfiguration !== null && {
+        SipMediaApplicationLoggingConfiguration: serializeAws_restJson1SipMediaApplicationLoggingConfiguration(
+          input.SipMediaApplicationLoggingConfiguration,
+          context
+        ),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5583,7 +5438,7 @@ export const serializeAws_restJson1PutVoiceConnectorEmergencyCallingConfiguratio
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/emergency-calling-configuration";
   if (input.VoiceConnectorId !== undefined) {
@@ -5597,12 +5452,13 @@ export const serializeAws_restJson1PutVoiceConnectorEmergencyCallingConfiguratio
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.EmergencyCallingConfiguration !== undefined && {
-      EmergencyCallingConfiguration: serializeAws_restJson1EmergencyCallingConfiguration(
-        input.EmergencyCallingConfiguration,
-        context
-      ),
-    }),
+    ...(input.EmergencyCallingConfiguration !== undefined &&
+      input.EmergencyCallingConfiguration !== null && {
+        EmergencyCallingConfiguration: serializeAws_restJson1EmergencyCallingConfiguration(
+          input.EmergencyCallingConfiguration,
+          context
+        ),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5621,7 +5477,7 @@ export const serializeAws_restJson1PutVoiceConnectorLoggingConfigurationCommand 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/logging-configuration";
   if (input.VoiceConnectorId !== undefined) {
@@ -5635,9 +5491,10 @@ export const serializeAws_restJson1PutVoiceConnectorLoggingConfigurationCommand 
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.LoggingConfiguration !== undefined && {
-      LoggingConfiguration: serializeAws_restJson1LoggingConfiguration(input.LoggingConfiguration, context),
-    }),
+    ...(input.LoggingConfiguration !== undefined &&
+      input.LoggingConfiguration !== null && {
+        LoggingConfiguration: serializeAws_restJson1LoggingConfiguration(input.LoggingConfiguration, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5656,7 +5513,7 @@ export const serializeAws_restJson1PutVoiceConnectorOriginationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/origination";
   if (input.VoiceConnectorId !== undefined) {
@@ -5670,9 +5527,8 @@ export const serializeAws_restJson1PutVoiceConnectorOriginationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Origination !== undefined && {
-      Origination: serializeAws_restJson1Origination(input.Origination, context),
-    }),
+    ...(input.Origination !== undefined &&
+      input.Origination !== null && { Origination: serializeAws_restJson1Origination(input.Origination, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5691,7 +5547,7 @@ export const serializeAws_restJson1PutVoiceConnectorProxyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/programmable-numbers/proxy";
   if (input.VoiceConnectorId !== undefined) {
@@ -5705,14 +5561,15 @@ export const serializeAws_restJson1PutVoiceConnectorProxyCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.DefaultSessionExpiryMinutes !== undefined && {
-      DefaultSessionExpiryMinutes: input.DefaultSessionExpiryMinutes,
-    }),
-    ...(input.Disabled !== undefined && { Disabled: input.Disabled }),
-    ...(input.FallBackPhoneNumber !== undefined && { FallBackPhoneNumber: input.FallBackPhoneNumber }),
-    ...(input.PhoneNumberPoolCountries !== undefined && {
-      PhoneNumberPoolCountries: serializeAws_restJson1CountryList(input.PhoneNumberPoolCountries, context),
-    }),
+    ...(input.DefaultSessionExpiryMinutes !== undefined &&
+      input.DefaultSessionExpiryMinutes !== null && { DefaultSessionExpiryMinutes: input.DefaultSessionExpiryMinutes }),
+    ...(input.Disabled !== undefined && input.Disabled !== null && { Disabled: input.Disabled }),
+    ...(input.FallBackPhoneNumber !== undefined &&
+      input.FallBackPhoneNumber !== null && { FallBackPhoneNumber: input.FallBackPhoneNumber }),
+    ...(input.PhoneNumberPoolCountries !== undefined &&
+      input.PhoneNumberPoolCountries !== null && {
+        PhoneNumberPoolCountries: serializeAws_restJson1CountryList(input.PhoneNumberPoolCountries, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5731,7 +5588,7 @@ export const serializeAws_restJson1PutVoiceConnectorStreamingConfigurationComman
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/streaming-configuration";
   if (input.VoiceConnectorId !== undefined) {
@@ -5745,9 +5602,10 @@ export const serializeAws_restJson1PutVoiceConnectorStreamingConfigurationComman
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.StreamingConfiguration !== undefined && {
-      StreamingConfiguration: serializeAws_restJson1StreamingConfiguration(input.StreamingConfiguration, context),
-    }),
+    ...(input.StreamingConfiguration !== undefined &&
+      input.StreamingConfiguration !== null && {
+        StreamingConfiguration: serializeAws_restJson1StreamingConfiguration(input.StreamingConfiguration, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5766,7 +5624,7 @@ export const serializeAws_restJson1PutVoiceConnectorTerminationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/termination";
   if (input.VoiceConnectorId !== undefined) {
@@ -5780,9 +5638,8 @@ export const serializeAws_restJson1PutVoiceConnectorTerminationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Termination !== undefined && {
-      Termination: serializeAws_restJson1Termination(input.Termination, context),
-    }),
+    ...(input.Termination !== undefined &&
+      input.Termination !== null && { Termination: serializeAws_restJson1Termination(input.Termination, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5801,7 +5658,7 @@ export const serializeAws_restJson1PutVoiceConnectorTerminationCredentialsComman
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/termination/credentials";
   if (input.VoiceConnectorId !== undefined) {
@@ -5818,9 +5675,8 @@ export const serializeAws_restJson1PutVoiceConnectorTerminationCredentialsComman
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.Credentials !== undefined && {
-      Credentials: serializeAws_restJson1CredentialList(input.Credentials, context),
-    }),
+    ...(input.Credentials !== undefined &&
+      input.Credentials !== null && { Credentials: serializeAws_restJson1CredentialList(input.Credentials, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5839,9 +5695,7 @@ export const serializeAws_restJson1RedactChannelMessageCommand = async (
   input: RedactChannelMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/channels/{ChannelArn}/messages/{MessageId}";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -5889,9 +5743,7 @@ export const serializeAws_restJson1RedactConversationMessageCommand = async (
   input: RedactConversationMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/accounts/{AccountId}/conversations/{ConversationId}/messages/{MessageId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -5941,9 +5793,7 @@ export const serializeAws_restJson1RedactRoomMessageCommand = async (
   input: RedactRoomMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/accounts/{AccountId}/rooms/{RoomId}/messages/{MessageId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -5993,9 +5843,7 @@ export const serializeAws_restJson1RegenerateSecurityTokenCommand = async (
   input: RegenerateSecurityTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/accounts/{AccountId}/bots/{BotId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -6036,9 +5884,7 @@ export const serializeAws_restJson1ResetPersonalPINCommand = async (
   input: ResetPersonalPINCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/accounts/{AccountId}/users/{UserId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -6079,9 +5925,7 @@ export const serializeAws_restJson1RestorePhoneNumberCommand = async (
   input: RestorePhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/phone-numbers/{PhoneNumberId}";
   if (input.PhoneNumberId !== undefined) {
     const labelValue: string = input.PhoneNumberId;
@@ -6113,9 +5957,7 @@ export const serializeAws_restJson1SearchAvailablePhoneNumbersCommand = async (
   input: SearchAvailablePhoneNumbersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/search";
   const query: any = {
     type: "phone-numbers",
@@ -6146,7 +5988,7 @@ export const serializeAws_restJson1SendChannelMessageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/channels/{ChannelArn}/messages";
   if (input.ChannelArn !== undefined) {
@@ -6161,10 +6003,10 @@ export const serializeAws_restJson1SendChannelMessageCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Content !== undefined && { Content: input.Content }),
-    ...(input.Metadata !== undefined && { Metadata: input.Metadata }),
-    ...(input.Persistence !== undefined && { Persistence: input.Persistence }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.Content !== undefined && input.Content !== null && { Content: input.Content }),
+    ...(input.Metadata !== undefined && input.Metadata !== null && { Metadata: input.Metadata }),
+    ...(input.Persistence !== undefined && input.Persistence !== null && { Persistence: input.Persistence }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -6190,7 +6032,7 @@ export const serializeAws_restJson1TagAttendeeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/meetings/{MeetingId}/attendees/{AttendeeId}/tags";
   if (input.MeetingId !== undefined) {
@@ -6216,7 +6058,8 @@ export const serializeAws_restJson1TagAttendeeCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1AttendeeTagList(input.Tags, context) }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1AttendeeTagList(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -6236,7 +6079,7 @@ export const serializeAws_restJson1TagMeetingCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/meetings/{MeetingId}/tags";
   if (input.MeetingId !== undefined) {
@@ -6253,7 +6096,8 @@ export const serializeAws_restJson1TagMeetingCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1MeetingTagList(input.Tags, context) }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1MeetingTagList(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -6273,7 +6117,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/tags";
   const query: any = {
@@ -6281,8 +6125,9 @@ export const serializeAws_restJson1TagResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -6302,7 +6147,7 @@ export const serializeAws_restJson1UntagAttendeeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/meetings/{MeetingId}/attendees/{AttendeeId}/tags";
   if (input.MeetingId !== undefined) {
@@ -6328,7 +6173,8 @@ export const serializeAws_restJson1UntagAttendeeCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_restJson1AttendeeTagKeyList(input.TagKeys, context) }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_restJson1AttendeeTagKeyList(input.TagKeys, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -6348,7 +6194,7 @@ export const serializeAws_restJson1UntagMeetingCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/meetings/{MeetingId}/tags";
   if (input.MeetingId !== undefined) {
@@ -6365,7 +6211,8 @@ export const serializeAws_restJson1UntagMeetingCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_restJson1MeetingTagKeyList(input.TagKeys, context) }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_restJson1MeetingTagKeyList(input.TagKeys, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -6385,7 +6232,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/tags";
   const query: any = {
@@ -6393,8 +6240,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_restJson1TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_restJson1TagKeyList(input.TagKeys, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -6414,7 +6262,7 @@ export const serializeAws_restJson1UpdateAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/accounts/{AccountId}";
   if (input.AccountId !== undefined) {
@@ -6428,7 +6276,7 @@ export const serializeAws_restJson1UpdateAccountCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -6447,7 +6295,7 @@ export const serializeAws_restJson1UpdateAccountSettingsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/accounts/{AccountId}/settings";
   if (input.AccountId !== undefined) {
@@ -6461,9 +6309,10 @@ export const serializeAws_restJson1UpdateAccountSettingsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.AccountSettings !== undefined && {
-      AccountSettings: serializeAws_restJson1AccountSettings(input.AccountSettings, context),
-    }),
+    ...(input.AccountSettings !== undefined &&
+      input.AccountSettings !== null && {
+        AccountSettings: serializeAws_restJson1AccountSettings(input.AccountSettings, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -6482,7 +6331,7 @@ export const serializeAws_restJson1UpdateAppInstanceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/app-instances/{AppInstanceArn}";
   if (input.AppInstanceArn !== undefined) {
@@ -6496,8 +6345,8 @@ export const serializeAws_restJson1UpdateAppInstanceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Metadata !== undefined && { Metadata: input.Metadata }),
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Metadata !== undefined && input.Metadata !== null && { Metadata: input.Metadata }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -6523,7 +6372,7 @@ export const serializeAws_restJson1UpdateAppInstanceUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/app-instance-users/{AppInstanceUserArn}";
   if (input.AppInstanceUserArn !== undefined) {
@@ -6537,8 +6386,8 @@ export const serializeAws_restJson1UpdateAppInstanceUserCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Metadata !== undefined && { Metadata: input.Metadata }),
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Metadata !== undefined && input.Metadata !== null && { Metadata: input.Metadata }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -6564,7 +6413,7 @@ export const serializeAws_restJson1UpdateBotCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/accounts/{AccountId}/bots/{BotId}";
   if (input.AccountId !== undefined) {
@@ -6587,7 +6436,7 @@ export const serializeAws_restJson1UpdateBotCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Disabled !== undefined && { Disabled: input.Disabled }),
+    ...(input.Disabled !== undefined && input.Disabled !== null && { Disabled: input.Disabled }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -6606,7 +6455,7 @@ export const serializeAws_restJson1UpdateChannelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/channels/{ChannelArn}";
   if (input.ChannelArn !== undefined) {
@@ -6620,9 +6469,9 @@ export const serializeAws_restJson1UpdateChannelCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Metadata !== undefined && { Metadata: input.Metadata }),
-    ...(input.Mode !== undefined && { Mode: input.Mode }),
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Metadata !== undefined && input.Metadata !== null && { Metadata: input.Metadata }),
+    ...(input.Mode !== undefined && input.Mode !== null && { Mode: input.Mode }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -6648,7 +6497,7 @@ export const serializeAws_restJson1UpdateChannelMessageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/channels/{ChannelArn}/messages/{MessageId}";
   if (input.ChannelArn !== undefined) {
@@ -6671,8 +6520,8 @@ export const serializeAws_restJson1UpdateChannelMessageCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Content !== undefined && { Content: input.Content }),
-    ...(input.Metadata !== undefined && { Metadata: input.Metadata }),
+    ...(input.Content !== undefined && input.Content !== null && { Content: input.Content }),
+    ...(input.Metadata !== undefined && input.Metadata !== null && { Metadata: input.Metadata }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -6697,9 +6546,7 @@ export const serializeAws_restJson1UpdateChannelReadMarkerCommand = async (
   input: UpdateChannelReadMarkerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/channels/{ChannelArn}/readMarker";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -6735,17 +6582,19 @@ export const serializeAws_restJson1UpdateGlobalSettingsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/settings";
   let body: any;
   body = JSON.stringify({
-    ...(input.BusinessCalling !== undefined && {
-      BusinessCalling: serializeAws_restJson1BusinessCallingSettings(input.BusinessCalling, context),
-    }),
-    ...(input.VoiceConnector !== undefined && {
-      VoiceConnector: serializeAws_restJson1VoiceConnectorSettings(input.VoiceConnector, context),
-    }),
+    ...(input.BusinessCalling !== undefined &&
+      input.BusinessCalling !== null && {
+        BusinessCalling: serializeAws_restJson1BusinessCallingSettings(input.BusinessCalling, context),
+      }),
+    ...(input.VoiceConnector !== undefined &&
+      input.VoiceConnector !== null && {
+        VoiceConnector: serializeAws_restJson1VoiceConnectorSettings(input.VoiceConnector, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -6764,7 +6613,7 @@ export const serializeAws_restJson1UpdatePhoneNumberCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/phone-numbers/{PhoneNumberId}";
   if (input.PhoneNumberId !== undefined) {
@@ -6778,8 +6627,8 @@ export const serializeAws_restJson1UpdatePhoneNumberCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.CallingName !== undefined && { CallingName: input.CallingName }),
-    ...(input.ProductType !== undefined && { ProductType: input.ProductType }),
+    ...(input.CallingName !== undefined && input.CallingName !== null && { CallingName: input.CallingName }),
+    ...(input.ProductType !== undefined && input.ProductType !== null && { ProductType: input.ProductType }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -6798,12 +6647,12 @@ export const serializeAws_restJson1UpdatePhoneNumberSettingsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/settings/phone-number";
   let body: any;
   body = JSON.stringify({
-    ...(input.CallingName !== undefined && { CallingName: input.CallingName }),
+    ...(input.CallingName !== undefined && input.CallingName !== null && { CallingName: input.CallingName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -6822,7 +6671,7 @@ export const serializeAws_restJson1UpdateProxySessionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/proxy-sessions/{ProxySessionId}";
   if (input.VoiceConnectorId !== undefined) {
@@ -6845,10 +6694,11 @@ export const serializeAws_restJson1UpdateProxySessionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Capabilities !== undefined && {
-      Capabilities: serializeAws_restJson1CapabilityList(input.Capabilities, context),
-    }),
-    ...(input.ExpiryMinutes !== undefined && { ExpiryMinutes: input.ExpiryMinutes }),
+    ...(input.Capabilities !== undefined &&
+      input.Capabilities !== null && {
+        Capabilities: serializeAws_restJson1CapabilityList(input.Capabilities, context),
+      }),
+    ...(input.ExpiryMinutes !== undefined && input.ExpiryMinutes !== null && { ExpiryMinutes: input.ExpiryMinutes }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -6867,7 +6717,7 @@ export const serializeAws_restJson1UpdateRoomCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/accounts/{AccountId}/rooms/{RoomId}";
   if (input.AccountId !== undefined) {
@@ -6890,7 +6740,7 @@ export const serializeAws_restJson1UpdateRoomCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -6909,7 +6759,7 @@ export const serializeAws_restJson1UpdateRoomMembershipCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/accounts/{AccountId}/rooms/{RoomId}/memberships/{MemberId}";
   if (input.AccountId !== undefined) {
@@ -6941,7 +6791,7 @@ export const serializeAws_restJson1UpdateRoomMembershipCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Role !== undefined && { Role: input.Role }),
+    ...(input.Role !== undefined && input.Role !== null && { Role: input.Role }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -6960,7 +6810,7 @@ export const serializeAws_restJson1UpdateSipMediaApplicationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/sip-media-applications/{SipMediaApplicationId}";
   if (input.SipMediaApplicationId !== undefined) {
@@ -6974,10 +6824,11 @@ export const serializeAws_restJson1UpdateSipMediaApplicationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Endpoints !== undefined && {
-      Endpoints: serializeAws_restJson1SipMediaApplicationEndpointList(input.Endpoints, context),
-    }),
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Endpoints !== undefined &&
+      input.Endpoints !== null && {
+        Endpoints: serializeAws_restJson1SipMediaApplicationEndpointList(input.Endpoints, context),
+      }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -6996,7 +6847,7 @@ export const serializeAws_restJson1UpdateSipRuleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/sip-rules/{SipRuleId}";
   if (input.SipRuleId !== undefined) {
@@ -7010,11 +6861,12 @@ export const serializeAws_restJson1UpdateSipRuleCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Disabled !== undefined && { Disabled: input.Disabled }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.TargetApplications !== undefined && {
-      TargetApplications: serializeAws_restJson1SipRuleTargetApplicationList(input.TargetApplications, context),
-    }),
+    ...(input.Disabled !== undefined && input.Disabled !== null && { Disabled: input.Disabled }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.TargetApplications !== undefined &&
+      input.TargetApplications !== null && {
+        TargetApplications: serializeAws_restJson1SipRuleTargetApplicationList(input.TargetApplications, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -7033,7 +6885,7 @@ export const serializeAws_restJson1UpdateUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/accounts/{AccountId}/users/{UserId}";
   if (input.AccountId !== undefined) {
@@ -7056,11 +6908,15 @@ export const serializeAws_restJson1UpdateUserCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.AlexaForBusinessMetadata !== undefined && {
-      AlexaForBusinessMetadata: serializeAws_restJson1AlexaForBusinessMetadata(input.AlexaForBusinessMetadata, context),
-    }),
-    ...(input.LicenseType !== undefined && { LicenseType: input.LicenseType }),
-    ...(input.UserType !== undefined && { UserType: input.UserType }),
+    ...(input.AlexaForBusinessMetadata !== undefined &&
+      input.AlexaForBusinessMetadata !== null && {
+        AlexaForBusinessMetadata: serializeAws_restJson1AlexaForBusinessMetadata(
+          input.AlexaForBusinessMetadata,
+          context
+        ),
+      }),
+    ...(input.LicenseType !== undefined && input.LicenseType !== null && { LicenseType: input.LicenseType }),
+    ...(input.UserType !== undefined && input.UserType !== null && { UserType: input.UserType }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -7079,7 +6935,7 @@ export const serializeAws_restJson1UpdateUserSettingsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/accounts/{AccountId}/users/{UserId}/settings";
   if (input.AccountId !== undefined) {
@@ -7102,9 +6958,8 @@ export const serializeAws_restJson1UpdateUserSettingsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.UserSettings !== undefined && {
-      UserSettings: serializeAws_restJson1UserSettings(input.UserSettings, context),
-    }),
+    ...(input.UserSettings !== undefined &&
+      input.UserSettings !== null && { UserSettings: serializeAws_restJson1UserSettings(input.UserSettings, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -7123,7 +6978,7 @@ export const serializeAws_restJson1UpdateVoiceConnectorCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}";
   if (input.VoiceConnectorId !== undefined) {
@@ -7137,8 +6992,9 @@ export const serializeAws_restJson1UpdateVoiceConnectorCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.RequireEncryption !== undefined && { RequireEncryption: input.RequireEncryption }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.RequireEncryption !== undefined &&
+      input.RequireEncryption !== null && { RequireEncryption: input.RequireEncryption }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -7157,7 +7013,7 @@ export const serializeAws_restJson1UpdateVoiceConnectorGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/voice-connector-groups/{VoiceConnectorGroupId}";
   if (input.VoiceConnectorGroupId !== undefined) {
@@ -7171,10 +7027,11 @@ export const serializeAws_restJson1UpdateVoiceConnectorGroupCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.VoiceConnectorItems !== undefined && {
-      VoiceConnectorItems: serializeAws_restJson1VoiceConnectorItemList(input.VoiceConnectorItems, context),
-    }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.VoiceConnectorItems !== undefined &&
+      input.VoiceConnectorItems !== null && {
+        VoiceConnectorItems: serializeAws_restJson1VoiceConnectorItemList(input.VoiceConnectorItems, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -26132,8 +25989,9 @@ const deserializeAws_restJson1UnprocessableEntityExceptionResponse = async (
 
 const serializeAws_restJson1AccountSettings = (input: AccountSettings, context: __SerdeContext): any => {
   return {
-    ...(input.DisableRemoteControl !== undefined && { DisableRemoteControl: input.DisableRemoteControl }),
-    ...(input.EnableDialOut !== undefined && { EnableDialOut: input.EnableDialOut }),
+    ...(input.DisableRemoteControl !== undefined &&
+      input.DisableRemoteControl !== null && { DisableRemoteControl: input.DisableRemoteControl }),
+    ...(input.EnableDialOut !== undefined && input.EnableDialOut !== null && { EnableDialOut: input.EnableDialOut }),
   };
 };
 
@@ -26142,10 +26000,10 @@ const serializeAws_restJson1AlexaForBusinessMetadata = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AlexaForBusinessRoomArn !== undefined && { AlexaForBusinessRoomArn: input.AlexaForBusinessRoomArn }),
-    ...(input.IsAlexaForBusinessEnabled !== undefined && {
-      IsAlexaForBusinessEnabled: input.IsAlexaForBusinessEnabled,
-    }),
+    ...(input.AlexaForBusinessRoomArn !== undefined &&
+      input.AlexaForBusinessRoomArn !== null && { AlexaForBusinessRoomArn: input.AlexaForBusinessRoomArn }),
+    ...(input.IsAlexaForBusinessEnabled !== undefined &&
+      input.IsAlexaForBusinessEnabled !== null && { IsAlexaForBusinessEnabled: input.IsAlexaForBusinessEnabled }),
   };
 };
 
@@ -26154,9 +26012,13 @@ const serializeAws_restJson1AppInstanceRetentionSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ChannelRetentionSettings !== undefined && {
-      ChannelRetentionSettings: serializeAws_restJson1ChannelRetentionSettings(input.ChannelRetentionSettings, context),
-    }),
+    ...(input.ChannelRetentionSettings !== undefined &&
+      input.ChannelRetentionSettings !== null && {
+        ChannelRetentionSettings: serializeAws_restJson1ChannelRetentionSettings(
+          input.ChannelRetentionSettings,
+          context
+        ),
+      }),
   };
 };
 
@@ -26165,8 +26027,9 @@ const serializeAws_restJson1AppInstanceStreamingConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AppInstanceDataType !== undefined && { AppInstanceDataType: input.AppInstanceDataType }),
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.AppInstanceDataType !== undefined &&
+      input.AppInstanceDataType !== null && { AppInstanceDataType: input.AppInstanceDataType }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
   };
 };
 
@@ -26174,15 +26037,36 @@ const serializeAws_restJson1AppInstanceStreamingConfigurationList = (
   input: AppInstanceStreamingConfiguration[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_restJson1AppInstanceStreamingConfiguration(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1AppInstanceStreamingConfiguration(entry, context);
+    });
 };
 
 const serializeAws_restJson1AttendeeTagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1AttendeeTagList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Tag(entry, context);
+    });
 };
 
 const serializeAws_restJson1BusinessCallingSettings = (
@@ -26190,16 +26074,30 @@ const serializeAws_restJson1BusinessCallingSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CdrBucket !== undefined && { CdrBucket: input.CdrBucket }),
+    ...(input.CdrBucket !== undefined && input.CdrBucket !== null && { CdrBucket: input.CdrBucket }),
   };
 };
 
 const serializeAws_restJson1CallingRegionList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1CapabilityList = (input: (Capability | string)[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1ChannelRetentionSettings = (
@@ -26207,7 +26105,7 @@ const serializeAws_restJson1ChannelRetentionSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.RetentionDays !== undefined && { RetentionDays: input.RetentionDays }),
+    ...(input.RetentionDays !== undefined && input.RetentionDays !== null && { RetentionDays: input.RetentionDays }),
   };
 };
 
@@ -26216,12 +26114,19 @@ const serializeAws_restJson1ConversationRetentionSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.RetentionDays !== undefined && { RetentionDays: input.RetentionDays }),
+    ...(input.RetentionDays !== undefined && input.RetentionDays !== null && { RetentionDays: input.RetentionDays }),
   };
 };
 
 const serializeAws_restJson1CountryList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1CreateAttendeeRequestItem = (
@@ -26229,8 +26134,10 @@ const serializeAws_restJson1CreateAttendeeRequestItem = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ExternalUserId !== undefined && { ExternalUserId: input.ExternalUserId }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1AttendeeTagList(input.Tags, context) }),
+    ...(input.ExternalUserId !== undefined &&
+      input.ExternalUserId !== null && { ExternalUserId: input.ExternalUserId }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1AttendeeTagList(input.Tags, context) }),
   };
 };
 
@@ -26238,25 +26145,46 @@ const serializeAws_restJson1CreateAttendeeRequestItemList = (
   input: CreateAttendeeRequestItem[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_restJson1CreateAttendeeRequestItem(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1CreateAttendeeRequestItem(entry, context);
+    });
 };
 
 const serializeAws_restJson1CreateMeetingWithAttendeesRequestItemList = (
   input: CreateAttendeeRequestItem[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_restJson1CreateAttendeeRequestItem(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1CreateAttendeeRequestItem(entry, context);
+    });
 };
 
 const serializeAws_restJson1Credential = (input: Credential, context: __SerdeContext): any => {
   return {
-    ...(input.Password !== undefined && { Password: input.Password }),
-    ...(input.Username !== undefined && { Username: input.Username }),
+    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
+    ...(input.Username !== undefined && input.Username !== null && { Username: input.Username }),
   };
 };
 
 const serializeAws_restJson1CredentialList = (input: Credential[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1Credential(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Credential(entry, context);
+    });
 };
 
 const serializeAws_restJson1DNISEmergencyCallingConfiguration = (
@@ -26264,9 +26192,12 @@ const serializeAws_restJson1DNISEmergencyCallingConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CallingCountry !== undefined && { CallingCountry: input.CallingCountry }),
-    ...(input.EmergencyPhoneNumber !== undefined && { EmergencyPhoneNumber: input.EmergencyPhoneNumber }),
-    ...(input.TestPhoneNumber !== undefined && { TestPhoneNumber: input.TestPhoneNumber }),
+    ...(input.CallingCountry !== undefined &&
+      input.CallingCountry !== null && { CallingCountry: input.CallingCountry }),
+    ...(input.EmergencyPhoneNumber !== undefined &&
+      input.EmergencyPhoneNumber !== null && { EmergencyPhoneNumber: input.EmergencyPhoneNumber }),
+    ...(input.TestPhoneNumber !== undefined &&
+      input.TestPhoneNumber !== null && { TestPhoneNumber: input.TestPhoneNumber }),
   };
 };
 
@@ -26274,11 +26205,25 @@ const serializeAws_restJson1DNISEmergencyCallingConfigurationList = (
   input: DNISEmergencyCallingConfiguration[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_restJson1DNISEmergencyCallingConfiguration(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1DNISEmergencyCallingConfiguration(entry, context);
+    });
 };
 
 const serializeAws_restJson1E164PhoneNumberList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1EmergencyCallingConfiguration = (
@@ -26286,22 +26231,23 @@ const serializeAws_restJson1EmergencyCallingConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DNIS !== undefined && {
-      DNIS: serializeAws_restJson1DNISEmergencyCallingConfigurationList(input.DNIS, context),
-    }),
+    ...(input.DNIS !== undefined &&
+      input.DNIS !== null && {
+        DNIS: serializeAws_restJson1DNISEmergencyCallingConfigurationList(input.DNIS, context),
+      }),
   };
 };
 
 const serializeAws_restJson1GeoMatchParams = (input: GeoMatchParams, context: __SerdeContext): any => {
   return {
-    ...(input.AreaCode !== undefined && { AreaCode: input.AreaCode }),
-    ...(input.Country !== undefined && { Country: input.Country }),
+    ...(input.AreaCode !== undefined && input.AreaCode !== null && { AreaCode: input.AreaCode }),
+    ...(input.Country !== undefined && input.Country !== null && { Country: input.Country }),
   };
 };
 
 const serializeAws_restJson1LoggingConfiguration = (input: LoggingConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.EnableSIPLogs !== undefined && { EnableSIPLogs: input.EnableSIPLogs }),
+    ...(input.EnableSIPLogs !== undefined && input.EnableSIPLogs !== null && { EnableSIPLogs: input.EnableSIPLogs }),
   };
 };
 
@@ -26310,91 +26256,150 @@ const serializeAws_restJson1MeetingNotificationConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SnsTopicArn !== undefined && { SnsTopicArn: input.SnsTopicArn }),
-    ...(input.SqsQueueArn !== undefined && { SqsQueueArn: input.SqsQueueArn }),
+    ...(input.SnsTopicArn !== undefined && input.SnsTopicArn !== null && { SnsTopicArn: input.SnsTopicArn }),
+    ...(input.SqsQueueArn !== undefined && input.SqsQueueArn !== null && { SqsQueueArn: input.SqsQueueArn }),
   };
 };
 
 const serializeAws_restJson1MeetingTagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1MeetingTagList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Tag(entry, context);
+    });
 };
 
 const serializeAws_restJson1MembershipItem = (input: MembershipItem, context: __SerdeContext): any => {
   return {
-    ...(input.MemberId !== undefined && { MemberId: input.MemberId }),
-    ...(input.Role !== undefined && { Role: input.Role }),
+    ...(input.MemberId !== undefined && input.MemberId !== null && { MemberId: input.MemberId }),
+    ...(input.Role !== undefined && input.Role !== null && { Role: input.Role }),
   };
 };
 
 const serializeAws_restJson1MembershipItemList = (input: MembershipItem[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1MembershipItem(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1MembershipItem(entry, context);
+    });
 };
 
 const serializeAws_restJson1NonEmptyStringList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1Origination = (input: Origination, context: __SerdeContext): any => {
   return {
-    ...(input.Disabled !== undefined && { Disabled: input.Disabled }),
-    ...(input.Routes !== undefined && { Routes: serializeAws_restJson1OriginationRouteList(input.Routes, context) }),
+    ...(input.Disabled !== undefined && input.Disabled !== null && { Disabled: input.Disabled }),
+    ...(input.Routes !== undefined &&
+      input.Routes !== null && { Routes: serializeAws_restJson1OriginationRouteList(input.Routes, context) }),
   };
 };
 
 const serializeAws_restJson1OriginationRoute = (input: OriginationRoute, context: __SerdeContext): any => {
   return {
-    ...(input.Host !== undefined && { Host: input.Host }),
-    ...(input.Port !== undefined && { Port: input.Port }),
-    ...(input.Priority !== undefined && { Priority: input.Priority }),
-    ...(input.Protocol !== undefined && { Protocol: input.Protocol }),
-    ...(input.Weight !== undefined && { Weight: input.Weight }),
+    ...(input.Host !== undefined && input.Host !== null && { Host: input.Host }),
+    ...(input.Port !== undefined && input.Port !== null && { Port: input.Port }),
+    ...(input.Priority !== undefined && input.Priority !== null && { Priority: input.Priority }),
+    ...(input.Protocol !== undefined && input.Protocol !== null && { Protocol: input.Protocol }),
+    ...(input.Weight !== undefined && input.Weight !== null && { Weight: input.Weight }),
   };
 };
 
 const serializeAws_restJson1OriginationRouteList = (input: OriginationRoute[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1OriginationRoute(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1OriginationRoute(entry, context);
+    });
 };
 
 const serializeAws_restJson1ParticipantPhoneNumberList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1RetentionSettings = (input: RetentionSettings, context: __SerdeContext): any => {
   return {
-    ...(input.ConversationRetentionSettings !== undefined && {
-      ConversationRetentionSettings: serializeAws_restJson1ConversationRetentionSettings(
-        input.ConversationRetentionSettings,
-        context
-      ),
-    }),
-    ...(input.RoomRetentionSettings !== undefined && {
-      RoomRetentionSettings: serializeAws_restJson1RoomRetentionSettings(input.RoomRetentionSettings, context),
-    }),
+    ...(input.ConversationRetentionSettings !== undefined &&
+      input.ConversationRetentionSettings !== null && {
+        ConversationRetentionSettings: serializeAws_restJson1ConversationRetentionSettings(
+          input.ConversationRetentionSettings,
+          context
+        ),
+      }),
+    ...(input.RoomRetentionSettings !== undefined &&
+      input.RoomRetentionSettings !== null && {
+        RoomRetentionSettings: serializeAws_restJson1RoomRetentionSettings(input.RoomRetentionSettings, context),
+      }),
   };
 };
 
 const serializeAws_restJson1RoomRetentionSettings = (input: RoomRetentionSettings, context: __SerdeContext): any => {
   return {
-    ...(input.RetentionDays !== undefined && { RetentionDays: input.RetentionDays }),
+    ...(input.RetentionDays !== undefined && input.RetentionDays !== null && { RetentionDays: input.RetentionDays }),
   };
 };
 
 const serializeAws_restJson1SensitiveStringList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1SigninDelegateGroup = (input: SigninDelegateGroup, context: __SerdeContext): any => {
   return {
-    ...(input.GroupName !== undefined && { GroupName: input.GroupName }),
+    ...(input.GroupName !== undefined && input.GroupName !== null && { GroupName: input.GroupName }),
   };
 };
 
 const serializeAws_restJson1SigninDelegateGroupList = (input: SigninDelegateGroup[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1SigninDelegateGroup(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1SigninDelegateGroup(entry, context);
+    });
 };
 
 const serializeAws_restJson1SipMediaApplicationEndpoint = (
@@ -26402,7 +26407,7 @@ const serializeAws_restJson1SipMediaApplicationEndpoint = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LambdaArn !== undefined && { LambdaArn: input.LambdaArn }),
+    ...(input.LambdaArn !== undefined && input.LambdaArn !== null && { LambdaArn: input.LambdaArn }),
   };
 };
 
@@ -26410,7 +26415,14 @@ const serializeAws_restJson1SipMediaApplicationEndpointList = (
   input: SipMediaApplicationEndpoint[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_restJson1SipMediaApplicationEndpoint(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1SipMediaApplicationEndpoint(entry, context);
+    });
 };
 
 const serializeAws_restJson1SipMediaApplicationLoggingConfiguration = (
@@ -26418,9 +26430,10 @@ const serializeAws_restJson1SipMediaApplicationLoggingConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EnableSipMediaApplicationMessageLogs !== undefined && {
-      EnableSipMediaApplicationMessageLogs: input.EnableSipMediaApplicationMessageLogs,
-    }),
+    ...(input.EnableSipMediaApplicationMessageLogs !== undefined &&
+      input.EnableSipMediaApplicationMessageLogs !== null && {
+        EnableSipMediaApplicationMessageLogs: input.EnableSipMediaApplicationMessageLogs,
+      }),
   };
 };
 
@@ -26429,9 +26442,10 @@ const serializeAws_restJson1SipRuleTargetApplication = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AwsRegion !== undefined && { AwsRegion: input.AwsRegion }),
-    ...(input.Priority !== undefined && { Priority: input.Priority }),
-    ...(input.SipMediaApplicationId !== undefined && { SipMediaApplicationId: input.SipMediaApplicationId }),
+    ...(input.AwsRegion !== undefined && input.AwsRegion !== null && { AwsRegion: input.AwsRegion }),
+    ...(input.Priority !== undefined && input.Priority !== null && { Priority: input.Priority }),
+    ...(input.SipMediaApplicationId !== undefined &&
+      input.SipMediaApplicationId !== null && { SipMediaApplicationId: input.SipMediaApplicationId }),
   };
 };
 
@@ -26439,19 +26453,28 @@ const serializeAws_restJson1SipRuleTargetApplicationList = (
   input: SipRuleTargetApplication[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_restJson1SipRuleTargetApplication(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1SipRuleTargetApplication(entry, context);
+    });
 };
 
 const serializeAws_restJson1StreamingConfiguration = (input: StreamingConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.DataRetentionInHours !== undefined && { DataRetentionInHours: input.DataRetentionInHours }),
-    ...(input.Disabled !== undefined && { Disabled: input.Disabled }),
-    ...(input.StreamingNotificationTargets !== undefined && {
-      StreamingNotificationTargets: serializeAws_restJson1StreamingNotificationTargetList(
-        input.StreamingNotificationTargets,
-        context
-      ),
-    }),
+    ...(input.DataRetentionInHours !== undefined &&
+      input.DataRetentionInHours !== null && { DataRetentionInHours: input.DataRetentionInHours }),
+    ...(input.Disabled !== undefined && input.Disabled !== null && { Disabled: input.Disabled }),
+    ...(input.StreamingNotificationTargets !== undefined &&
+      input.StreamingNotificationTargets !== null && {
+        StreamingNotificationTargets: serializeAws_restJson1StreamingNotificationTargetList(
+          input.StreamingNotificationTargets,
+          context
+        ),
+      }),
   };
 };
 
@@ -26460,7 +26483,8 @@ const serializeAws_restJson1StreamingNotificationTarget = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.NotificationTarget !== undefined && { NotificationTarget: input.NotificationTarget }),
+    ...(input.NotificationTarget !== undefined &&
+      input.NotificationTarget !== null && { NotificationTarget: input.NotificationTarget }),
   };
 };
 
@@ -26468,47 +26492,80 @@ const serializeAws_restJson1StreamingNotificationTargetList = (
   input: StreamingNotificationTarget[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_restJson1StreamingNotificationTarget(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1StreamingNotificationTarget(entry, context);
+    });
 };
 
 const serializeAws_restJson1StringList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Tag(entry, context);
+    });
 };
 
 const serializeAws_restJson1TelephonySettings = (input: TelephonySettings, context: __SerdeContext): any => {
   return {
-    ...(input.InboundCalling !== undefined && { InboundCalling: input.InboundCalling }),
-    ...(input.OutboundCalling !== undefined && { OutboundCalling: input.OutboundCalling }),
-    ...(input.SMS !== undefined && { SMS: input.SMS }),
+    ...(input.InboundCalling !== undefined &&
+      input.InboundCalling !== null && { InboundCalling: input.InboundCalling }),
+    ...(input.OutboundCalling !== undefined &&
+      input.OutboundCalling !== null && { OutboundCalling: input.OutboundCalling }),
+    ...(input.SMS !== undefined && input.SMS !== null && { SMS: input.SMS }),
   };
 };
 
 const serializeAws_restJson1Termination = (input: Termination, context: __SerdeContext): any => {
   return {
-    ...(input.CallingRegions !== undefined && {
-      CallingRegions: serializeAws_restJson1CallingRegionList(input.CallingRegions, context),
-    }),
-    ...(input.CidrAllowedList !== undefined && {
-      CidrAllowedList: serializeAws_restJson1StringList(input.CidrAllowedList, context),
-    }),
-    ...(input.CpsLimit !== undefined && { CpsLimit: input.CpsLimit }),
-    ...(input.DefaultPhoneNumber !== undefined && { DefaultPhoneNumber: input.DefaultPhoneNumber }),
-    ...(input.Disabled !== undefined && { Disabled: input.Disabled }),
+    ...(input.CallingRegions !== undefined &&
+      input.CallingRegions !== null && {
+        CallingRegions: serializeAws_restJson1CallingRegionList(input.CallingRegions, context),
+      }),
+    ...(input.CidrAllowedList !== undefined &&
+      input.CidrAllowedList !== null && {
+        CidrAllowedList: serializeAws_restJson1StringList(input.CidrAllowedList, context),
+      }),
+    ...(input.CpsLimit !== undefined && input.CpsLimit !== null && { CpsLimit: input.CpsLimit }),
+    ...(input.DefaultPhoneNumber !== undefined &&
+      input.DefaultPhoneNumber !== null && { DefaultPhoneNumber: input.DefaultPhoneNumber }),
+    ...(input.Disabled !== undefined && input.Disabled !== null && { Disabled: input.Disabled }),
   };
 };
 
@@ -26517,9 +26574,9 @@ const serializeAws_restJson1UpdatePhoneNumberRequestItem = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CallingName !== undefined && { CallingName: input.CallingName }),
-    ...(input.PhoneNumberId !== undefined && { PhoneNumberId: input.PhoneNumberId }),
-    ...(input.ProductType !== undefined && { ProductType: input.ProductType }),
+    ...(input.CallingName !== undefined && input.CallingName !== null && { CallingName: input.CallingName }),
+    ...(input.PhoneNumberId !== undefined && input.PhoneNumberId !== null && { PhoneNumberId: input.PhoneNumberId }),
+    ...(input.ProductType !== undefined && input.ProductType !== null && { ProductType: input.ProductType }),
   };
 };
 
@@ -26527,17 +26584,28 @@ const serializeAws_restJson1UpdatePhoneNumberRequestItemList = (
   input: UpdatePhoneNumberRequestItem[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_restJson1UpdatePhoneNumberRequestItem(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1UpdatePhoneNumberRequestItem(entry, context);
+    });
 };
 
 const serializeAws_restJson1UpdateUserRequestItem = (input: UpdateUserRequestItem, context: __SerdeContext): any => {
   return {
-    ...(input.AlexaForBusinessMetadata !== undefined && {
-      AlexaForBusinessMetadata: serializeAws_restJson1AlexaForBusinessMetadata(input.AlexaForBusinessMetadata, context),
-    }),
-    ...(input.LicenseType !== undefined && { LicenseType: input.LicenseType }),
-    ...(input.UserId !== undefined && { UserId: input.UserId }),
-    ...(input.UserType !== undefined && { UserType: input.UserType }),
+    ...(input.AlexaForBusinessMetadata !== undefined &&
+      input.AlexaForBusinessMetadata !== null && {
+        AlexaForBusinessMetadata: serializeAws_restJson1AlexaForBusinessMetadata(
+          input.AlexaForBusinessMetadata,
+          context
+        ),
+      }),
+    ...(input.LicenseType !== undefined && input.LicenseType !== null && { LicenseType: input.LicenseType }),
+    ...(input.UserId !== undefined && input.UserId !== null && { UserId: input.UserId }),
+    ...(input.UserType !== undefined && input.UserType !== null && { UserType: input.UserType }),
   };
 };
 
@@ -26545,39 +26613,67 @@ const serializeAws_restJson1UpdateUserRequestItemList = (
   input: UpdateUserRequestItem[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_restJson1UpdateUserRequestItem(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1UpdateUserRequestItem(entry, context);
+    });
 };
 
 const serializeAws_restJson1UserEmailList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1UserIdList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1UserSettings = (input: UserSettings, context: __SerdeContext): any => {
   return {
-    ...(input.Telephony !== undefined && {
-      Telephony: serializeAws_restJson1TelephonySettings(input.Telephony, context),
-    }),
+    ...(input.Telephony !== undefined &&
+      input.Telephony !== null && { Telephony: serializeAws_restJson1TelephonySettings(input.Telephony, context) }),
   };
 };
 
 const serializeAws_restJson1VoiceConnectorItem = (input: VoiceConnectorItem, context: __SerdeContext): any => {
   return {
-    ...(input.Priority !== undefined && { Priority: input.Priority }),
-    ...(input.VoiceConnectorId !== undefined && { VoiceConnectorId: input.VoiceConnectorId }),
+    ...(input.Priority !== undefined && input.Priority !== null && { Priority: input.Priority }),
+    ...(input.VoiceConnectorId !== undefined &&
+      input.VoiceConnectorId !== null && { VoiceConnectorId: input.VoiceConnectorId }),
   };
 };
 
 const serializeAws_restJson1VoiceConnectorItemList = (input: VoiceConnectorItem[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1VoiceConnectorItem(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1VoiceConnectorItem(entry, context);
+    });
 };
 
 const serializeAws_restJson1VoiceConnectorSettings = (input: VoiceConnectorSettings, context: __SerdeContext): any => {
   return {
-    ...(input.CdrBucket !== undefined && { CdrBucket: input.CdrBucket }),
+    ...(input.CdrBucket !== undefined && input.CdrBucket !== null && { CdrBucket: input.CdrBucket }),
   };
 };
 
@@ -26605,7 +26701,14 @@ const deserializeAws_restJson1Account = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_restJson1AccountList = (output: any, context: __SerdeContext): Account[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Account(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Account(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AccountSettings = (output: any, context: __SerdeContext): AccountSettings => {
@@ -26671,7 +26774,14 @@ const deserializeAws_restJson1AppInstanceAdminList = (
   output: any,
   context: __SerdeContext
 ): AppInstanceAdminSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1AppInstanceAdminSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AppInstanceAdminSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AppInstanceAdminSummary = (
@@ -26687,7 +26797,14 @@ const deserializeAws_restJson1AppInstanceAdminSummary = (
 };
 
 const deserializeAws_restJson1AppInstanceList = (output: any, context: __SerdeContext): AppInstanceSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1AppInstanceSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AppInstanceSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AppInstanceRetentionSettings = (
@@ -26719,7 +26836,14 @@ const deserializeAws_restJson1AppInstanceStreamingConfigurationList = (
   output: any,
   context: __SerdeContext
 ): AppInstanceStreamingConfiguration[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1AppInstanceStreamingConfiguration(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AppInstanceStreamingConfiguration(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AppInstanceSummary = (output: any, context: __SerdeContext): AppInstanceSummary => {
@@ -26754,7 +26878,14 @@ const deserializeAws_restJson1AppInstanceUserList = (
   output: any,
   context: __SerdeContext
 ): AppInstanceUserSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1AppInstanceUserSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AppInstanceUserSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AppInstanceUserMembershipSummary = (
@@ -26794,14 +26925,28 @@ const deserializeAws_restJson1Attendee = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restJson1AttendeeList = (output: any, context: __SerdeContext): Attendee[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Attendee(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Attendee(entry, context);
+    });
 };
 
 const deserializeAws_restJson1BatchCreateAttendeeErrorList = (
   output: any,
   context: __SerdeContext
 ): CreateAttendeeError[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1CreateAttendeeError(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CreateAttendeeError(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Bot = (output: any, context: __SerdeContext): Bot => {
@@ -26826,7 +26971,14 @@ const deserializeAws_restJson1Bot = (output: any, context: __SerdeContext): Bot 
 };
 
 const deserializeAws_restJson1BotList = (output: any, context: __SerdeContext): Bot[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Bot(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Bot(entry, context);
+    });
 };
 
 const deserializeAws_restJson1BusinessCallingSettings = (
@@ -26839,11 +26991,25 @@ const deserializeAws_restJson1BusinessCallingSettings = (
 };
 
 const deserializeAws_restJson1CallingRegionList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1CapabilityList = (output: any, context: __SerdeContext): (Capability | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): Channel => {
@@ -26900,7 +27066,14 @@ const deserializeAws_restJson1ChannelBanSummary = (output: any, context: __Serde
 };
 
 const deserializeAws_restJson1ChannelBanSummaryList = (output: any, context: __SerdeContext): ChannelBanSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1ChannelBanSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ChannelBanSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ChannelMembership = (output: any, context: __SerdeContext): ChannelMembership => {
@@ -26946,9 +27119,14 @@ const deserializeAws_restJson1ChannelMembershipForAppInstanceUserSummaryList = (
   output: any,
   context: __SerdeContext
 ): ChannelMembershipForAppInstanceUserSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1ChannelMembershipForAppInstanceUserSummary(entry, context)
-  );
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ChannelMembershipForAppInstanceUserSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ChannelMembershipSummary = (
@@ -26967,7 +27145,14 @@ const deserializeAws_restJson1ChannelMembershipSummaryList = (
   output: any,
   context: __SerdeContext
 ): ChannelMembershipSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1ChannelMembershipSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ChannelMembershipSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ChannelMessage = (output: any, context: __SerdeContext): ChannelMessage => {
@@ -27028,7 +27213,14 @@ const deserializeAws_restJson1ChannelMessageSummaryList = (
   output: any,
   context: __SerdeContext
 ): ChannelMessageSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1ChannelMessageSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ChannelMessageSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ChannelModeratedByAppInstanceUserSummary = (
@@ -27047,9 +27239,14 @@ const deserializeAws_restJson1ChannelModeratedByAppInstanceUserSummaryList = (
   output: any,
   context: __SerdeContext
 ): ChannelModeratedByAppInstanceUserSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1ChannelModeratedByAppInstanceUserSummary(entry, context)
-  );
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ChannelModeratedByAppInstanceUserSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ChannelModerator = (output: any, context: __SerdeContext): ChannelModerator => {
@@ -27086,7 +27283,14 @@ const deserializeAws_restJson1ChannelModeratorSummaryList = (
   output: any,
   context: __SerdeContext
 ): ChannelModeratorSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1ChannelModeratorSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ChannelModeratorSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ChannelRetentionSettings = (
@@ -27114,7 +27318,14 @@ const deserializeAws_restJson1ChannelSummary = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1ChannelSummaryList = (output: any, context: __SerdeContext): ChannelSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1ChannelSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ChannelSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ConversationRetentionSettings = (
@@ -27156,11 +27367,25 @@ const deserializeAws_restJson1DNISEmergencyCallingConfigurationList = (
   output: any,
   context: __SerdeContext
 ): DNISEmergencyCallingConfiguration[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1DNISEmergencyCallingConfiguration(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DNISEmergencyCallingConfiguration(entry, context);
+    });
 };
 
 const deserializeAws_restJson1E164PhoneNumberList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1EmergencyCallingConfiguration = (
@@ -27213,11 +27438,25 @@ const deserializeAws_restJson1Invite = (output: any, context: __SerdeContext): I
 };
 
 const deserializeAws_restJson1InviteList = (output: any, context: __SerdeContext): Invite[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Invite(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Invite(entry, context);
+    });
 };
 
 const deserializeAws_restJson1LicenseList = (output: any, context: __SerdeContext): (License | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1LoggingConfiguration = (output: any, context: __SerdeContext): LoggingConfiguration => {
@@ -27260,7 +27499,14 @@ const deserializeAws_restJson1Meeting = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_restJson1MeetingList = (output: any, context: __SerdeContext): Meeting[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Meeting(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Meeting(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Member = (output: any, context: __SerdeContext): Member => {
@@ -27282,7 +27528,14 @@ const deserializeAws_restJson1MemberError = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1MemberErrorList = (output: any, context: __SerdeContext): MemberError[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1MemberError(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MemberError(entry, context);
+    });
 };
 
 const deserializeAws_restJson1MessagingSessionEndpoint = (
@@ -27303,7 +27556,14 @@ const deserializeAws_restJson1OrderedPhoneNumber = (output: any, context: __Serd
 };
 
 const deserializeAws_restJson1OrderedPhoneNumberList = (output: any, context: __SerdeContext): OrderedPhoneNumber[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1OrderedPhoneNumber(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1OrderedPhoneNumber(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Origination = (output: any, context: __SerdeContext): Origination => {
@@ -27327,7 +27587,14 @@ const deserializeAws_restJson1OriginationRoute = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1OriginationRouteList = (output: any, context: __SerdeContext): OriginationRoute[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1OriginationRoute(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1OriginationRoute(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Participant = (output: any, context: __SerdeContext): Participant => {
@@ -27339,7 +27606,14 @@ const deserializeAws_restJson1Participant = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1Participants = (output: any, context: __SerdeContext): Participant[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Participant(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Participant(entry, context);
+    });
 };
 
 const deserializeAws_restJson1PhoneNumber = (output: any, context: __SerdeContext): PhoneNumber => {
@@ -27397,7 +27671,14 @@ const deserializeAws_restJson1PhoneNumberAssociationList = (
   output: any,
   context: __SerdeContext
 ): PhoneNumberAssociation[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1PhoneNumberAssociation(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1PhoneNumberAssociation(entry, context);
+    });
 };
 
 const deserializeAws_restJson1PhoneNumberCapabilities = (
@@ -27424,11 +27705,25 @@ const deserializeAws_restJson1PhoneNumberError = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1PhoneNumberErrorList = (output: any, context: __SerdeContext): PhoneNumberError[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1PhoneNumberError(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1PhoneNumberError(entry, context);
+    });
 };
 
 const deserializeAws_restJson1PhoneNumberList = (output: any, context: __SerdeContext): PhoneNumber[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1PhoneNumber(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1PhoneNumber(entry, context);
+    });
 };
 
 const deserializeAws_restJson1PhoneNumberOrder = (output: any, context: __SerdeContext): PhoneNumberOrder => {
@@ -27455,7 +27750,14 @@ const deserializeAws_restJson1PhoneNumberOrder = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1PhoneNumberOrderList = (output: any, context: __SerdeContext): PhoneNumberOrder[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1PhoneNumberOrder(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1PhoneNumberOrder(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Proxy = (output: any, context: __SerdeContext): Proxy => {
@@ -27520,7 +27822,14 @@ const deserializeAws_restJson1ProxySession = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restJson1ProxySessions = (output: any, context: __SerdeContext): ProxySession[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1ProxySession(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ProxySession(entry, context);
+    });
 };
 
 const deserializeAws_restJson1RetentionSettings = (output: any, context: __SerdeContext): RetentionSettings => {
@@ -27554,7 +27863,14 @@ const deserializeAws_restJson1Room = (output: any, context: __SerdeContext): Roo
 };
 
 const deserializeAws_restJson1RoomList = (output: any, context: __SerdeContext): Room[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Room(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Room(entry, context);
+    });
 };
 
 const deserializeAws_restJson1RoomMembership = (output: any, context: __SerdeContext): RoomMembership => {
@@ -27574,7 +27890,14 @@ const deserializeAws_restJson1RoomMembership = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1RoomMembershipList = (output: any, context: __SerdeContext): RoomMembership[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1RoomMembership(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RoomMembership(entry, context);
+    });
 };
 
 const deserializeAws_restJson1RoomRetentionSettings = (output: any, context: __SerdeContext): RoomRetentionSettings => {
@@ -27585,7 +27908,14 @@ const deserializeAws_restJson1RoomRetentionSettings = (output: any, context: __S
 };
 
 const deserializeAws_restJson1SensitiveStringList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1SigninDelegateGroup = (output: any, context: __SerdeContext): SigninDelegateGroup => {
@@ -27598,7 +27928,14 @@ const deserializeAws_restJson1SigninDelegateGroupList = (
   output: any,
   context: __SerdeContext
 ): SigninDelegateGroup[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1SigninDelegateGroup(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SigninDelegateGroup(entry, context);
+    });
 };
 
 const deserializeAws_restJson1SipMediaApplication = (output: any, context: __SerdeContext): SipMediaApplication => {
@@ -27647,14 +27984,28 @@ const deserializeAws_restJson1SipMediaApplicationEndpointList = (
   output: any,
   context: __SerdeContext
 ): SipMediaApplicationEndpoint[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1SipMediaApplicationEndpoint(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SipMediaApplicationEndpoint(entry, context);
+    });
 };
 
 const deserializeAws_restJson1SipMediaApplicationList = (
   output: any,
   context: __SerdeContext
 ): SipMediaApplication[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1SipMediaApplication(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SipMediaApplication(entry, context);
+    });
 };
 
 const deserializeAws_restJson1SipMediaApplicationLoggingConfiguration = (
@@ -27692,7 +28043,14 @@ const deserializeAws_restJson1SipRule = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_restJson1SipRuleList = (output: any, context: __SerdeContext): SipRule[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1SipRule(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SipRule(entry, context);
+    });
 };
 
 const deserializeAws_restJson1SipRuleTargetApplication = (
@@ -27713,7 +28071,14 @@ const deserializeAws_restJson1SipRuleTargetApplicationList = (
   output: any,
   context: __SerdeContext
 ): SipRuleTargetApplication[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1SipRuleTargetApplication(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SipRuleTargetApplication(entry, context);
+    });
 };
 
 const deserializeAws_restJson1StreamingConfiguration = (
@@ -27749,11 +28114,25 @@ const deserializeAws_restJson1StreamingNotificationTargetList = (
   output: any,
   context: __SerdeContext
 ): StreamingNotificationTarget[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1StreamingNotificationTarget(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1StreamingNotificationTarget(entry, context);
+    });
 };
 
 const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -27764,7 +28143,14 @@ const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag 
 };
 
 const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Tag(entry, context);
+    });
 };
 
 const deserializeAws_restJson1TelephonySettings = (output: any, context: __SerdeContext): TelephonySettings => {
@@ -27843,11 +28229,25 @@ const deserializeAws_restJson1UserError = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restJson1UserErrorList = (output: any, context: __SerdeContext): UserError[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1UserError(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1UserError(entry, context);
+    });
 };
 
 const deserializeAws_restJson1UserList = (output: any, context: __SerdeContext): User[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1User(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1User(entry, context);
+    });
 };
 
 const deserializeAws_restJson1UserSettings = (output: any, context: __SerdeContext): UserSettings => {
@@ -27908,7 +28308,14 @@ const deserializeAws_restJson1VoiceConnectorGroupList = (
   output: any,
   context: __SerdeContext
 ): VoiceConnectorGroup[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1VoiceConnectorGroup(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1VoiceConnectorGroup(entry, context);
+    });
 };
 
 const deserializeAws_restJson1VoiceConnectorItem = (output: any, context: __SerdeContext): VoiceConnectorItem => {
@@ -27920,11 +28327,25 @@ const deserializeAws_restJson1VoiceConnectorItem = (output: any, context: __Serd
 };
 
 const deserializeAws_restJson1VoiceConnectorItemList = (output: any, context: __SerdeContext): VoiceConnectorItem[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1VoiceConnectorItem(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1VoiceConnectorItem(entry, context);
+    });
 };
 
 const deserializeAws_restJson1VoiceConnectorList = (output: any, context: __SerdeContext): VoiceConnector[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1VoiceConnector(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1VoiceConnector(entry, context);
+    });
 };
 
 const deserializeAws_restJson1VoiceConnectorSettings = (
@@ -27956,6 +28377,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

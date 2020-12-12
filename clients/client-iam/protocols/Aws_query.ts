@@ -653,7 +653,7 @@ export const serializeAws_queryAddClientIDToOpenIDConnectProviderCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -669,7 +669,7 @@ export const serializeAws_queryAddRoleToInstanceProfileCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -685,7 +685,7 @@ export const serializeAws_queryAddUserToGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -701,7 +701,7 @@ export const serializeAws_queryAttachGroupPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -717,7 +717,7 @@ export const serializeAws_queryAttachRolePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -733,7 +733,7 @@ export const serializeAws_queryAttachUserPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -749,7 +749,7 @@ export const serializeAws_queryChangePasswordCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -765,7 +765,7 @@ export const serializeAws_queryCreateAccessKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -781,7 +781,7 @@ export const serializeAws_queryCreateAccountAliasCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -797,7 +797,7 @@ export const serializeAws_queryCreateGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -813,7 +813,7 @@ export const serializeAws_queryCreateInstanceProfileCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -829,7 +829,7 @@ export const serializeAws_queryCreateLoginProfileCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -845,7 +845,7 @@ export const serializeAws_queryCreateOpenIDConnectProviderCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -861,7 +861,7 @@ export const serializeAws_queryCreatePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -877,7 +877,7 @@ export const serializeAws_queryCreatePolicyVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -893,7 +893,7 @@ export const serializeAws_queryCreateRoleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -909,7 +909,7 @@ export const serializeAws_queryCreateSAMLProviderCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -925,7 +925,7 @@ export const serializeAws_queryCreateServiceLinkedRoleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -941,7 +941,7 @@ export const serializeAws_queryCreateServiceSpecificCredentialCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -957,7 +957,7 @@ export const serializeAws_queryCreateUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -973,7 +973,7 @@ export const serializeAws_queryCreateVirtualMFADeviceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -989,7 +989,7 @@ export const serializeAws_queryDeactivateMFADeviceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1005,7 +1005,7 @@ export const serializeAws_queryDeleteAccessKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1021,7 +1021,7 @@ export const serializeAws_queryDeleteAccountAliasCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1037,7 +1037,7 @@ export const serializeAws_queryDeleteAccountPasswordPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "DeleteAccountPasswordPolicy",
@@ -1051,7 +1051,7 @@ export const serializeAws_queryDeleteGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1067,7 +1067,7 @@ export const serializeAws_queryDeleteGroupPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1083,7 +1083,7 @@ export const serializeAws_queryDeleteInstanceProfileCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1099,7 +1099,7 @@ export const serializeAws_queryDeleteLoginProfileCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1115,7 +1115,7 @@ export const serializeAws_queryDeleteOpenIDConnectProviderCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1131,7 +1131,7 @@ export const serializeAws_queryDeletePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1147,7 +1147,7 @@ export const serializeAws_queryDeletePolicyVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1163,7 +1163,7 @@ export const serializeAws_queryDeleteRoleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1179,7 +1179,7 @@ export const serializeAws_queryDeleteRolePermissionsBoundaryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1195,7 +1195,7 @@ export const serializeAws_queryDeleteRolePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1211,7 +1211,7 @@ export const serializeAws_queryDeleteSAMLProviderCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1227,7 +1227,7 @@ export const serializeAws_queryDeleteServerCertificateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1243,7 +1243,7 @@ export const serializeAws_queryDeleteServiceLinkedRoleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1259,7 +1259,7 @@ export const serializeAws_queryDeleteServiceSpecificCredentialCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1275,7 +1275,7 @@ export const serializeAws_queryDeleteSigningCertificateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1291,7 +1291,7 @@ export const serializeAws_queryDeleteSSHPublicKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1307,7 +1307,7 @@ export const serializeAws_queryDeleteUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1323,7 +1323,7 @@ export const serializeAws_queryDeleteUserPermissionsBoundaryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1339,7 +1339,7 @@ export const serializeAws_queryDeleteUserPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1355,7 +1355,7 @@ export const serializeAws_queryDeleteVirtualMFADeviceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1371,7 +1371,7 @@ export const serializeAws_queryDetachGroupPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1387,7 +1387,7 @@ export const serializeAws_queryDetachRolePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1403,7 +1403,7 @@ export const serializeAws_queryDetachUserPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1419,7 +1419,7 @@ export const serializeAws_queryEnableMFADeviceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1435,7 +1435,7 @@ export const serializeAws_queryGenerateCredentialReportCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "GenerateCredentialReport",
@@ -1449,7 +1449,7 @@ export const serializeAws_queryGenerateOrganizationsAccessReportCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1465,7 +1465,7 @@ export const serializeAws_queryGenerateServiceLastAccessedDetailsCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1481,7 +1481,7 @@ export const serializeAws_queryGetAccessKeyLastUsedCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1497,7 +1497,7 @@ export const serializeAws_queryGetAccountAuthorizationDetailsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1513,7 +1513,7 @@ export const serializeAws_queryGetAccountPasswordPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "GetAccountPasswordPolicy",
@@ -1527,7 +1527,7 @@ export const serializeAws_queryGetAccountSummaryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "GetAccountSummary",
@@ -1541,7 +1541,7 @@ export const serializeAws_queryGetContextKeysForCustomPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1557,7 +1557,7 @@ export const serializeAws_queryGetContextKeysForPrincipalPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1573,7 +1573,7 @@ export const serializeAws_queryGetCredentialReportCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "GetCredentialReport",
@@ -1587,7 +1587,7 @@ export const serializeAws_queryGetGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1603,7 +1603,7 @@ export const serializeAws_queryGetGroupPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1619,7 +1619,7 @@ export const serializeAws_queryGetInstanceProfileCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1635,7 +1635,7 @@ export const serializeAws_queryGetLoginProfileCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1651,7 +1651,7 @@ export const serializeAws_queryGetOpenIDConnectProviderCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1667,7 +1667,7 @@ export const serializeAws_queryGetOrganizationsAccessReportCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1683,7 +1683,7 @@ export const serializeAws_queryGetPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1699,7 +1699,7 @@ export const serializeAws_queryGetPolicyVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1715,7 +1715,7 @@ export const serializeAws_queryGetRoleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1731,7 +1731,7 @@ export const serializeAws_queryGetRolePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1747,7 +1747,7 @@ export const serializeAws_queryGetSAMLProviderCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1763,7 +1763,7 @@ export const serializeAws_queryGetServerCertificateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1779,7 +1779,7 @@ export const serializeAws_queryGetServiceLastAccessedDetailsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1795,7 +1795,7 @@ export const serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1811,7 +1811,7 @@ export const serializeAws_queryGetServiceLinkedRoleDeletionStatusCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1827,7 +1827,7 @@ export const serializeAws_queryGetSSHPublicKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1843,7 +1843,7 @@ export const serializeAws_queryGetUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1859,7 +1859,7 @@ export const serializeAws_queryGetUserPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1875,7 +1875,7 @@ export const serializeAws_queryListAccessKeysCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1891,7 +1891,7 @@ export const serializeAws_queryListAccountAliasesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1907,7 +1907,7 @@ export const serializeAws_queryListAttachedGroupPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1923,7 +1923,7 @@ export const serializeAws_queryListAttachedRolePoliciesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1939,7 +1939,7 @@ export const serializeAws_queryListAttachedUserPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1955,7 +1955,7 @@ export const serializeAws_queryListEntitiesForPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1971,7 +1971,7 @@ export const serializeAws_queryListGroupPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1987,7 +1987,7 @@ export const serializeAws_queryListGroupsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2003,7 +2003,7 @@ export const serializeAws_queryListGroupsForUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2019,7 +2019,7 @@ export const serializeAws_queryListInstanceProfilesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2035,7 +2035,7 @@ export const serializeAws_queryListInstanceProfilesForRoleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2051,7 +2051,7 @@ export const serializeAws_queryListMFADevicesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2067,7 +2067,7 @@ export const serializeAws_queryListOpenIDConnectProvidersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2083,7 +2083,7 @@ export const serializeAws_queryListPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2099,7 +2099,7 @@ export const serializeAws_queryListPoliciesGrantingServiceAccessCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2115,7 +2115,7 @@ export const serializeAws_queryListPolicyVersionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2131,7 +2131,7 @@ export const serializeAws_queryListRolePoliciesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2147,7 +2147,7 @@ export const serializeAws_queryListRolesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2163,7 +2163,7 @@ export const serializeAws_queryListRoleTagsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2179,7 +2179,7 @@ export const serializeAws_queryListSAMLProvidersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2195,7 +2195,7 @@ export const serializeAws_queryListServerCertificatesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2211,7 +2211,7 @@ export const serializeAws_queryListServiceSpecificCredentialsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2227,7 +2227,7 @@ export const serializeAws_queryListSigningCertificatesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2243,7 +2243,7 @@ export const serializeAws_queryListSSHPublicKeysCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2259,7 +2259,7 @@ export const serializeAws_queryListUserPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2275,7 +2275,7 @@ export const serializeAws_queryListUsersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2291,7 +2291,7 @@ export const serializeAws_queryListUserTagsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2307,7 +2307,7 @@ export const serializeAws_queryListVirtualMFADevicesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2323,7 +2323,7 @@ export const serializeAws_queryPutGroupPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2339,7 +2339,7 @@ export const serializeAws_queryPutRolePermissionsBoundaryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2355,7 +2355,7 @@ export const serializeAws_queryPutRolePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2371,7 +2371,7 @@ export const serializeAws_queryPutUserPermissionsBoundaryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2387,7 +2387,7 @@ export const serializeAws_queryPutUserPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2403,7 +2403,7 @@ export const serializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand = 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2419,7 +2419,7 @@ export const serializeAws_queryRemoveRoleFromInstanceProfileCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2435,7 +2435,7 @@ export const serializeAws_queryRemoveUserFromGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2451,7 +2451,7 @@ export const serializeAws_queryResetServiceSpecificCredentialCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2467,7 +2467,7 @@ export const serializeAws_queryResyncMFADeviceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2483,7 +2483,7 @@ export const serializeAws_querySetDefaultPolicyVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2499,7 +2499,7 @@ export const serializeAws_querySetSecurityTokenServicePreferencesCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2515,7 +2515,7 @@ export const serializeAws_querySimulateCustomPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2531,7 +2531,7 @@ export const serializeAws_querySimulatePrincipalPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2547,7 +2547,7 @@ export const serializeAws_queryTagRoleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2563,7 +2563,7 @@ export const serializeAws_queryTagUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2579,7 +2579,7 @@ export const serializeAws_queryUntagRoleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2595,7 +2595,7 @@ export const serializeAws_queryUntagUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2611,7 +2611,7 @@ export const serializeAws_queryUpdateAccessKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2627,7 +2627,7 @@ export const serializeAws_queryUpdateAccountPasswordPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2643,7 +2643,7 @@ export const serializeAws_queryUpdateAssumeRolePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2659,7 +2659,7 @@ export const serializeAws_queryUpdateGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2675,7 +2675,7 @@ export const serializeAws_queryUpdateLoginProfileCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2691,7 +2691,7 @@ export const serializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand = as
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2707,7 +2707,7 @@ export const serializeAws_queryUpdateRoleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2723,7 +2723,7 @@ export const serializeAws_queryUpdateRoleDescriptionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2739,7 +2739,7 @@ export const serializeAws_queryUpdateSAMLProviderCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2755,7 +2755,7 @@ export const serializeAws_queryUpdateServerCertificateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2771,7 +2771,7 @@ export const serializeAws_queryUpdateServiceSpecificCredentialCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2787,7 +2787,7 @@ export const serializeAws_queryUpdateSigningCertificateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2803,7 +2803,7 @@ export const serializeAws_queryUpdateSSHPublicKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2819,7 +2819,7 @@ export const serializeAws_queryUpdateUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2835,7 +2835,7 @@ export const serializeAws_queryUploadServerCertificateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2851,7 +2851,7 @@ export const serializeAws_queryUploadSigningCertificateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2867,7 +2867,7 @@ export const serializeAws_queryUploadSSHPublicKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -13006,6 +13006,9 @@ const serializeAws_queryActionNameListType = (input: string[], context: __SerdeC
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -13017,10 +13020,10 @@ const serializeAws_queryAddClientIDToOpenIDConnectProviderRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.OpenIDConnectProviderArn !== undefined) {
+  if (input.OpenIDConnectProviderArn !== undefined && input.OpenIDConnectProviderArn !== null) {
     entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
   }
-  if (input.ClientID !== undefined) {
+  if (input.ClientID !== undefined && input.ClientID !== null) {
     entries["ClientID"] = input.ClientID;
   }
   return entries;
@@ -13031,10 +13034,10 @@ const serializeAws_queryAddRoleToInstanceProfileRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.InstanceProfileName !== undefined) {
+  if (input.InstanceProfileName !== undefined && input.InstanceProfileName !== null) {
     entries["InstanceProfileName"] = input.InstanceProfileName;
   }
-  if (input.RoleName !== undefined) {
+  if (input.RoleName !== undefined && input.RoleName !== null) {
     entries["RoleName"] = input.RoleName;
   }
   return entries;
@@ -13042,10 +13045,10 @@ const serializeAws_queryAddRoleToInstanceProfileRequest = (
 
 const serializeAws_queryAddUserToGroupRequest = (input: AddUserToGroupRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName !== undefined) {
+  if (input.GroupName !== undefined && input.GroupName !== null) {
     entries["GroupName"] = input.GroupName;
   }
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
   return entries;
@@ -13053,10 +13056,10 @@ const serializeAws_queryAddUserToGroupRequest = (input: AddUserToGroupRequest, c
 
 const serializeAws_queryAttachGroupPolicyRequest = (input: AttachGroupPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName !== undefined) {
+  if (input.GroupName !== undefined && input.GroupName !== null) {
     entries["GroupName"] = input.GroupName;
   }
-  if (input.PolicyArn !== undefined) {
+  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
   return entries;
@@ -13064,10 +13067,10 @@ const serializeAws_queryAttachGroupPolicyRequest = (input: AttachGroupPolicyRequ
 
 const serializeAws_queryAttachRolePolicyRequest = (input: AttachRolePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyArn !== undefined) {
+  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
-  if (input.RoleName !== undefined) {
+  if (input.RoleName !== undefined && input.RoleName !== null) {
     entries["RoleName"] = input.RoleName;
   }
   return entries;
@@ -13075,10 +13078,10 @@ const serializeAws_queryAttachRolePolicyRequest = (input: AttachRolePolicyReques
 
 const serializeAws_queryAttachUserPolicyRequest = (input: AttachUserPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.PolicyArn !== undefined) {
+  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
   return entries;
@@ -13086,10 +13089,10 @@ const serializeAws_queryAttachUserPolicyRequest = (input: AttachUserPolicyReques
 
 const serializeAws_queryChangePasswordRequest = (input: ChangePasswordRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NewPassword !== undefined) {
+  if (input.NewPassword !== undefined && input.NewPassword !== null) {
     entries["NewPassword"] = input.NewPassword;
   }
-  if (input.OldPassword !== undefined) {
+  if (input.OldPassword !== undefined && input.OldPassword !== null) {
     entries["OldPassword"] = input.OldPassword;
   }
   return entries;
@@ -13099,6 +13102,9 @@ const serializeAws_queryclientIDListType = (input: string[], context: __SerdeCon
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -13107,13 +13113,13 @@ const serializeAws_queryclientIDListType = (input: string[], context: __SerdeCon
 
 const serializeAws_queryContextEntry = (input: ContextEntry, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ContextKeyName !== undefined) {
+  if (input.ContextKeyName !== undefined && input.ContextKeyName !== null) {
     entries["ContextKeyName"] = input.ContextKeyName;
   }
-  if (input.ContextKeyType !== undefined) {
+  if (input.ContextKeyType !== undefined && input.ContextKeyType !== null) {
     entries["ContextKeyType"] = input.ContextKeyType;
   }
-  if (input.ContextKeyValues !== undefined) {
+  if (input.ContextKeyValues !== undefined && input.ContextKeyValues !== null) {
     const memberEntries = serializeAws_queryContextKeyValueListType(input.ContextKeyValues, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ContextKeyValues.${key}`;
@@ -13127,6 +13133,9 @@ const serializeAws_queryContextEntryListType = (input: ContextEntry[], context: 
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryContextEntry(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
@@ -13140,6 +13149,9 @@ const serializeAws_queryContextKeyValueListType = (input: string[], context: __S
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -13148,7 +13160,7 @@ const serializeAws_queryContextKeyValueListType = (input: string[], context: __S
 
 const serializeAws_queryCreateAccessKeyRequest = (input: CreateAccessKeyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
   return entries;
@@ -13159,7 +13171,7 @@ const serializeAws_queryCreateAccountAliasRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.AccountAlias !== undefined) {
+  if (input.AccountAlias !== undefined && input.AccountAlias !== null) {
     entries["AccountAlias"] = input.AccountAlias;
   }
   return entries;
@@ -13167,10 +13179,10 @@ const serializeAws_queryCreateAccountAliasRequest = (
 
 const serializeAws_queryCreateGroupRequest = (input: CreateGroupRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Path !== undefined) {
+  if (input.Path !== undefined && input.Path !== null) {
     entries["Path"] = input.Path;
   }
-  if (input.GroupName !== undefined) {
+  if (input.GroupName !== undefined && input.GroupName !== null) {
     entries["GroupName"] = input.GroupName;
   }
   return entries;
@@ -13181,10 +13193,10 @@ const serializeAws_queryCreateInstanceProfileRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Path !== undefined) {
+  if (input.Path !== undefined && input.Path !== null) {
     entries["Path"] = input.Path;
   }
-  if (input.InstanceProfileName !== undefined) {
+  if (input.InstanceProfileName !== undefined && input.InstanceProfileName !== null) {
     entries["InstanceProfileName"] = input.InstanceProfileName;
   }
   return entries;
@@ -13195,13 +13207,13 @@ const serializeAws_queryCreateLoginProfileRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Password !== undefined) {
+  if (input.Password !== undefined && input.Password !== null) {
     entries["Password"] = input.Password;
   }
-  if (input.PasswordResetRequired !== undefined) {
+  if (input.PasswordResetRequired !== undefined && input.PasswordResetRequired !== null) {
     entries["PasswordResetRequired"] = input.PasswordResetRequired;
   }
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
   return entries;
@@ -13212,17 +13224,17 @@ const serializeAws_queryCreateOpenIDConnectProviderRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Url !== undefined) {
+  if (input.Url !== undefined && input.Url !== null) {
     entries["Url"] = input.Url;
   }
-  if (input.ClientIDList !== undefined) {
+  if (input.ClientIDList !== undefined && input.ClientIDList !== null) {
     const memberEntries = serializeAws_queryclientIDListType(input.ClientIDList, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ClientIDList.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ThumbprintList !== undefined) {
+  if (input.ThumbprintList !== undefined && input.ThumbprintList !== null) {
     const memberEntries = serializeAws_querythumbprintListType(input.ThumbprintList, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ThumbprintList.${key}`;
@@ -13234,16 +13246,16 @@ const serializeAws_queryCreateOpenIDConnectProviderRequest = (
 
 const serializeAws_queryCreatePolicyRequest = (input: CreatePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyDocument !== undefined) {
+  if (input.PolicyDocument !== undefined && input.PolicyDocument !== null) {
     entries["PolicyDocument"] = input.PolicyDocument;
   }
-  if (input.PolicyName !== undefined) {
+  if (input.PolicyName !== undefined && input.PolicyName !== null) {
     entries["PolicyName"] = input.PolicyName;
   }
-  if (input.Description !== undefined) {
+  if (input.Description !== undefined && input.Description !== null) {
     entries["Description"] = input.Description;
   }
-  if (input.Path !== undefined) {
+  if (input.Path !== undefined && input.Path !== null) {
     entries["Path"] = input.Path;
   }
   return entries;
@@ -13254,13 +13266,13 @@ const serializeAws_queryCreatePolicyVersionRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PolicyDocument !== undefined) {
+  if (input.PolicyDocument !== undefined && input.PolicyDocument !== null) {
     entries["PolicyDocument"] = input.PolicyDocument;
   }
-  if (input.PolicyArn !== undefined) {
+  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
-  if (input.SetAsDefault !== undefined) {
+  if (input.SetAsDefault !== undefined && input.SetAsDefault !== null) {
     entries["SetAsDefault"] = input.SetAsDefault;
   }
   return entries;
@@ -13268,29 +13280,29 @@ const serializeAws_queryCreatePolicyVersionRequest = (
 
 const serializeAws_queryCreateRoleRequest = (input: CreateRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PermissionsBoundary !== undefined) {
+  if (input.PermissionsBoundary !== undefined && input.PermissionsBoundary !== null) {
     entries["PermissionsBoundary"] = input.PermissionsBoundary;
   }
-  if (input.Description !== undefined) {
+  if (input.Description !== undefined && input.Description !== null) {
     entries["Description"] = input.Description;
   }
-  if (input.Path !== undefined) {
+  if (input.Path !== undefined && input.Path !== null) {
     entries["Path"] = input.Path;
   }
-  if (input.MaxSessionDuration !== undefined) {
+  if (input.MaxSessionDuration !== undefined && input.MaxSessionDuration !== null) {
     entries["MaxSessionDuration"] = input.MaxSessionDuration;
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.AssumeRolePolicyDocument !== undefined) {
+  if (input.AssumeRolePolicyDocument !== undefined && input.AssumeRolePolicyDocument !== null) {
     entries["AssumeRolePolicyDocument"] = input.AssumeRolePolicyDocument;
   }
-  if (input.RoleName !== undefined) {
+  if (input.RoleName !== undefined && input.RoleName !== null) {
     entries["RoleName"] = input.RoleName;
   }
   return entries;
@@ -13301,10 +13313,10 @@ const serializeAws_queryCreateSAMLProviderRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SAMLMetadataDocument !== undefined) {
+  if (input.SAMLMetadataDocument !== undefined && input.SAMLMetadataDocument !== null) {
     entries["SAMLMetadataDocument"] = input.SAMLMetadataDocument;
   }
-  if (input.Name !== undefined) {
+  if (input.Name !== undefined && input.Name !== null) {
     entries["Name"] = input.Name;
   }
   return entries;
@@ -13315,13 +13327,13 @@ const serializeAws_queryCreateServiceLinkedRoleRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.CustomSuffix !== undefined) {
+  if (input.CustomSuffix !== undefined && input.CustomSuffix !== null) {
     entries["CustomSuffix"] = input.CustomSuffix;
   }
-  if (input.AWSServiceName !== undefined) {
+  if (input.AWSServiceName !== undefined && input.AWSServiceName !== null) {
     entries["AWSServiceName"] = input.AWSServiceName;
   }
-  if (input.Description !== undefined) {
+  if (input.Description !== undefined && input.Description !== null) {
     entries["Description"] = input.Description;
   }
   return entries;
@@ -13332,10 +13344,10 @@ const serializeAws_queryCreateServiceSpecificCredentialRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.ServiceName !== undefined) {
+  if (input.ServiceName !== undefined && input.ServiceName !== null) {
     entries["ServiceName"] = input.ServiceName;
   }
   return entries;
@@ -13343,20 +13355,20 @@ const serializeAws_queryCreateServiceSpecificCredentialRequest = (
 
 const serializeAws_queryCreateUserRequest = (input: CreateUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.Path !== undefined) {
+  if (input.Path !== undefined && input.Path !== null) {
     entries["Path"] = input.Path;
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.PermissionsBoundary !== undefined) {
+  if (input.PermissionsBoundary !== undefined && input.PermissionsBoundary !== null) {
     entries["PermissionsBoundary"] = input.PermissionsBoundary;
   }
   return entries;
@@ -13367,10 +13379,10 @@ const serializeAws_queryCreateVirtualMFADeviceRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.VirtualMFADeviceName !== undefined) {
+  if (input.VirtualMFADeviceName !== undefined && input.VirtualMFADeviceName !== null) {
     entries["VirtualMFADeviceName"] = input.VirtualMFADeviceName;
   }
-  if (input.Path !== undefined) {
+  if (input.Path !== undefined && input.Path !== null) {
     entries["Path"] = input.Path;
   }
   return entries;
@@ -13381,10 +13393,10 @@ const serializeAws_queryDeactivateMFADeviceRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.SerialNumber !== undefined) {
+  if (input.SerialNumber !== undefined && input.SerialNumber !== null) {
     entries["SerialNumber"] = input.SerialNumber;
   }
   return entries;
@@ -13392,10 +13404,10 @@ const serializeAws_queryDeactivateMFADeviceRequest = (
 
 const serializeAws_queryDeleteAccessKeyRequest = (input: DeleteAccessKeyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AccessKeyId !== undefined) {
+  if (input.AccessKeyId !== undefined && input.AccessKeyId !== null) {
     entries["AccessKeyId"] = input.AccessKeyId;
   }
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
   return entries;
@@ -13406,7 +13418,7 @@ const serializeAws_queryDeleteAccountAliasRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.AccountAlias !== undefined) {
+  if (input.AccountAlias !== undefined && input.AccountAlias !== null) {
     entries["AccountAlias"] = input.AccountAlias;
   }
   return entries;
@@ -13414,10 +13426,10 @@ const serializeAws_queryDeleteAccountAliasRequest = (
 
 const serializeAws_queryDeleteGroupPolicyRequest = (input: DeleteGroupPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName !== undefined) {
+  if (input.GroupName !== undefined && input.GroupName !== null) {
     entries["GroupName"] = input.GroupName;
   }
-  if (input.PolicyName !== undefined) {
+  if (input.PolicyName !== undefined && input.PolicyName !== null) {
     entries["PolicyName"] = input.PolicyName;
   }
   return entries;
@@ -13425,7 +13437,7 @@ const serializeAws_queryDeleteGroupPolicyRequest = (input: DeleteGroupPolicyRequ
 
 const serializeAws_queryDeleteGroupRequest = (input: DeleteGroupRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName !== undefined) {
+  if (input.GroupName !== undefined && input.GroupName !== null) {
     entries["GroupName"] = input.GroupName;
   }
   return entries;
@@ -13436,7 +13448,7 @@ const serializeAws_queryDeleteInstanceProfileRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.InstanceProfileName !== undefined) {
+  if (input.InstanceProfileName !== undefined && input.InstanceProfileName !== null) {
     entries["InstanceProfileName"] = input.InstanceProfileName;
   }
   return entries;
@@ -13447,7 +13459,7 @@ const serializeAws_queryDeleteLoginProfileRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
   return entries;
@@ -13458,7 +13470,7 @@ const serializeAws_queryDeleteOpenIDConnectProviderRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.OpenIDConnectProviderArn !== undefined) {
+  if (input.OpenIDConnectProviderArn !== undefined && input.OpenIDConnectProviderArn !== null) {
     entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
   }
   return entries;
@@ -13466,7 +13478,7 @@ const serializeAws_queryDeleteOpenIDConnectProviderRequest = (
 
 const serializeAws_queryDeletePolicyRequest = (input: DeletePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyArn !== undefined) {
+  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
   return entries;
@@ -13477,10 +13489,10 @@ const serializeAws_queryDeletePolicyVersionRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.VersionId !== undefined) {
+  if (input.VersionId !== undefined && input.VersionId !== null) {
     entries["VersionId"] = input.VersionId;
   }
-  if (input.PolicyArn !== undefined) {
+  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
   return entries;
@@ -13491,7 +13503,7 @@ const serializeAws_queryDeleteRolePermissionsBoundaryRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined) {
+  if (input.RoleName !== undefined && input.RoleName !== null) {
     entries["RoleName"] = input.RoleName;
   }
   return entries;
@@ -13499,10 +13511,10 @@ const serializeAws_queryDeleteRolePermissionsBoundaryRequest = (
 
 const serializeAws_queryDeleteRolePolicyRequest = (input: DeleteRolePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined) {
+  if (input.RoleName !== undefined && input.RoleName !== null) {
     entries["RoleName"] = input.RoleName;
   }
-  if (input.PolicyName !== undefined) {
+  if (input.PolicyName !== undefined && input.PolicyName !== null) {
     entries["PolicyName"] = input.PolicyName;
   }
   return entries;
@@ -13510,7 +13522,7 @@ const serializeAws_queryDeleteRolePolicyRequest = (input: DeleteRolePolicyReques
 
 const serializeAws_queryDeleteRoleRequest = (input: DeleteRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined) {
+  if (input.RoleName !== undefined && input.RoleName !== null) {
     entries["RoleName"] = input.RoleName;
   }
   return entries;
@@ -13521,7 +13533,7 @@ const serializeAws_queryDeleteSAMLProviderRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SAMLProviderArn !== undefined) {
+  if (input.SAMLProviderArn !== undefined && input.SAMLProviderArn !== null) {
     entries["SAMLProviderArn"] = input.SAMLProviderArn;
   }
   return entries;
@@ -13532,7 +13544,7 @@ const serializeAws_queryDeleteServerCertificateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ServerCertificateName !== undefined) {
+  if (input.ServerCertificateName !== undefined && input.ServerCertificateName !== null) {
     entries["ServerCertificateName"] = input.ServerCertificateName;
   }
   return entries;
@@ -13543,7 +13555,7 @@ const serializeAws_queryDeleteServiceLinkedRoleRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined) {
+  if (input.RoleName !== undefined && input.RoleName !== null) {
     entries["RoleName"] = input.RoleName;
   }
   return entries;
@@ -13554,10 +13566,10 @@ const serializeAws_queryDeleteServiceSpecificCredentialRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.ServiceSpecificCredentialId !== undefined) {
+  if (input.ServiceSpecificCredentialId !== undefined && input.ServiceSpecificCredentialId !== null) {
     entries["ServiceSpecificCredentialId"] = input.ServiceSpecificCredentialId;
   }
   return entries;
@@ -13568,10 +13580,10 @@ const serializeAws_queryDeleteSigningCertificateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.CertificateId !== undefined) {
+  if (input.CertificateId !== undefined && input.CertificateId !== null) {
     entries["CertificateId"] = input.CertificateId;
   }
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
   return entries;
@@ -13582,10 +13594,10 @@ const serializeAws_queryDeleteSSHPublicKeyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.SSHPublicKeyId !== undefined) {
+  if (input.SSHPublicKeyId !== undefined && input.SSHPublicKeyId !== null) {
     entries["SSHPublicKeyId"] = input.SSHPublicKeyId;
   }
   return entries;
@@ -13596,7 +13608,7 @@ const serializeAws_queryDeleteUserPermissionsBoundaryRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
   return entries;
@@ -13604,10 +13616,10 @@ const serializeAws_queryDeleteUserPermissionsBoundaryRequest = (
 
 const serializeAws_queryDeleteUserPolicyRequest = (input: DeleteUserPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.PolicyName !== undefined) {
+  if (input.PolicyName !== undefined && input.PolicyName !== null) {
     entries["PolicyName"] = input.PolicyName;
   }
   return entries;
@@ -13615,7 +13627,7 @@ const serializeAws_queryDeleteUserPolicyRequest = (input: DeleteUserPolicyReques
 
 const serializeAws_queryDeleteUserRequest = (input: DeleteUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
   return entries;
@@ -13626,7 +13638,7 @@ const serializeAws_queryDeleteVirtualMFADeviceRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SerialNumber !== undefined) {
+  if (input.SerialNumber !== undefined && input.SerialNumber !== null) {
     entries["SerialNumber"] = input.SerialNumber;
   }
   return entries;
@@ -13634,10 +13646,10 @@ const serializeAws_queryDeleteVirtualMFADeviceRequest = (
 
 const serializeAws_queryDetachGroupPolicyRequest = (input: DetachGroupPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyArn !== undefined) {
+  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
-  if (input.GroupName !== undefined) {
+  if (input.GroupName !== undefined && input.GroupName !== null) {
     entries["GroupName"] = input.GroupName;
   }
   return entries;
@@ -13645,10 +13657,10 @@ const serializeAws_queryDetachGroupPolicyRequest = (input: DetachGroupPolicyRequ
 
 const serializeAws_queryDetachRolePolicyRequest = (input: DetachRolePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyArn !== undefined) {
+  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
-  if (input.RoleName !== undefined) {
+  if (input.RoleName !== undefined && input.RoleName !== null) {
     entries["RoleName"] = input.RoleName;
   }
   return entries;
@@ -13656,10 +13668,10 @@ const serializeAws_queryDetachRolePolicyRequest = (input: DetachRolePolicyReques
 
 const serializeAws_queryDetachUserPolicyRequest = (input: DetachUserPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyArn !== undefined) {
+  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
   return entries;
@@ -13667,16 +13679,16 @@ const serializeAws_queryDetachUserPolicyRequest = (input: DetachUserPolicyReques
 
 const serializeAws_queryEnableMFADeviceRequest = (input: EnableMFADeviceRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.SerialNumber !== undefined) {
+  if (input.SerialNumber !== undefined && input.SerialNumber !== null) {
     entries["SerialNumber"] = input.SerialNumber;
   }
-  if (input.AuthenticationCode2 !== undefined) {
+  if (input.AuthenticationCode2 !== undefined && input.AuthenticationCode2 !== null) {
     entries["AuthenticationCode2"] = input.AuthenticationCode2;
   }
-  if (input.AuthenticationCode1 !== undefined) {
+  if (input.AuthenticationCode1 !== undefined && input.AuthenticationCode1 !== null) {
     entries["AuthenticationCode1"] = input.AuthenticationCode1;
   }
   return entries;
@@ -13686,6 +13698,9 @@ const serializeAws_queryentityListType = (input: (EntityType | string)[], contex
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -13697,10 +13712,10 @@ const serializeAws_queryGenerateOrganizationsAccessReportRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.OrganizationsPolicyId !== undefined) {
+  if (input.OrganizationsPolicyId !== undefined && input.OrganizationsPolicyId !== null) {
     entries["OrganizationsPolicyId"] = input.OrganizationsPolicyId;
   }
-  if (input.EntityPath !== undefined) {
+  if (input.EntityPath !== undefined && input.EntityPath !== null) {
     entries["EntityPath"] = input.EntityPath;
   }
   return entries;
@@ -13711,10 +13726,10 @@ const serializeAws_queryGenerateServiceLastAccessedDetailsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Granularity !== undefined) {
+  if (input.Granularity !== undefined && input.Granularity !== null) {
     entries["Granularity"] = input.Granularity;
   }
-  if (input.Arn !== undefined) {
+  if (input.Arn !== undefined && input.Arn !== null) {
     entries["Arn"] = input.Arn;
   }
   return entries;
@@ -13725,7 +13740,7 @@ const serializeAws_queryGetAccessKeyLastUsedRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.AccessKeyId !== undefined) {
+  if (input.AccessKeyId !== undefined && input.AccessKeyId !== null) {
     entries["AccessKeyId"] = input.AccessKeyId;
   }
   return entries;
@@ -13736,17 +13751,17 @@ const serializeAws_queryGetAccountAuthorizationDetailsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Filter !== undefined) {
+  if (input.Filter !== undefined && input.Filter !== null) {
     const memberEntries = serializeAws_queryentityListType(input.Filter, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -13757,7 +13772,7 @@ const serializeAws_queryGetContextKeysForCustomPolicyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PolicyInputList !== undefined) {
+  if (input.PolicyInputList !== undefined && input.PolicyInputList !== null) {
     const memberEntries = serializeAws_querySimulationPolicyListType(input.PolicyInputList, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyInputList.${key}`;
@@ -13772,14 +13787,14 @@ const serializeAws_queryGetContextKeysForPrincipalPolicyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PolicyInputList !== undefined) {
+  if (input.PolicyInputList !== undefined && input.PolicyInputList !== null) {
     const memberEntries = serializeAws_querySimulationPolicyListType(input.PolicyInputList, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyInputList.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.PolicySourceArn !== undefined) {
+  if (input.PolicySourceArn !== undefined && input.PolicySourceArn !== null) {
     entries["PolicySourceArn"] = input.PolicySourceArn;
   }
   return entries;
@@ -13787,10 +13802,10 @@ const serializeAws_queryGetContextKeysForPrincipalPolicyRequest = (
 
 const serializeAws_queryGetGroupPolicyRequest = (input: GetGroupPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName !== undefined) {
+  if (input.GroupName !== undefined && input.GroupName !== null) {
     entries["GroupName"] = input.GroupName;
   }
-  if (input.PolicyName !== undefined) {
+  if (input.PolicyName !== undefined && input.PolicyName !== null) {
     entries["PolicyName"] = input.PolicyName;
   }
   return entries;
@@ -13798,13 +13813,13 @@ const serializeAws_queryGetGroupPolicyRequest = (input: GetGroupPolicyRequest, c
 
 const serializeAws_queryGetGroupRequest = (input: GetGroupRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName !== undefined) {
+  if (input.GroupName !== undefined && input.GroupName !== null) {
     entries["GroupName"] = input.GroupName;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -13815,7 +13830,7 @@ const serializeAws_queryGetInstanceProfileRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.InstanceProfileName !== undefined) {
+  if (input.InstanceProfileName !== undefined && input.InstanceProfileName !== null) {
     entries["InstanceProfileName"] = input.InstanceProfileName;
   }
   return entries;
@@ -13823,7 +13838,7 @@ const serializeAws_queryGetInstanceProfileRequest = (
 
 const serializeAws_queryGetLoginProfileRequest = (input: GetLoginProfileRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
   return entries;
@@ -13834,7 +13849,7 @@ const serializeAws_queryGetOpenIDConnectProviderRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.OpenIDConnectProviderArn !== undefined) {
+  if (input.OpenIDConnectProviderArn !== undefined && input.OpenIDConnectProviderArn !== null) {
     entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
   }
   return entries;
@@ -13845,16 +13860,16 @@ const serializeAws_queryGetOrganizationsAccessReportRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SortKey !== undefined) {
+  if (input.SortKey !== undefined && input.SortKey !== null) {
     entries["SortKey"] = input.SortKey;
   }
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
-  if (input.JobId !== undefined) {
+  if (input.JobId !== undefined && input.JobId !== null) {
     entries["JobId"] = input.JobId;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
@@ -13862,7 +13877,7 @@ const serializeAws_queryGetOrganizationsAccessReportRequest = (
 
 const serializeAws_queryGetPolicyRequest = (input: GetPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyArn !== undefined) {
+  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
   return entries;
@@ -13870,10 +13885,10 @@ const serializeAws_queryGetPolicyRequest = (input: GetPolicyRequest, context: __
 
 const serializeAws_queryGetPolicyVersionRequest = (input: GetPolicyVersionRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyArn !== undefined) {
+  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
-  if (input.VersionId !== undefined) {
+  if (input.VersionId !== undefined && input.VersionId !== null) {
     entries["VersionId"] = input.VersionId;
   }
   return entries;
@@ -13881,10 +13896,10 @@ const serializeAws_queryGetPolicyVersionRequest = (input: GetPolicyVersionReques
 
 const serializeAws_queryGetRolePolicyRequest = (input: GetRolePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined) {
+  if (input.RoleName !== undefined && input.RoleName !== null) {
     entries["RoleName"] = input.RoleName;
   }
-  if (input.PolicyName !== undefined) {
+  if (input.PolicyName !== undefined && input.PolicyName !== null) {
     entries["PolicyName"] = input.PolicyName;
   }
   return entries;
@@ -13892,7 +13907,7 @@ const serializeAws_queryGetRolePolicyRequest = (input: GetRolePolicyRequest, con
 
 const serializeAws_queryGetRoleRequest = (input: GetRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined) {
+  if (input.RoleName !== undefined && input.RoleName !== null) {
     entries["RoleName"] = input.RoleName;
   }
   return entries;
@@ -13900,7 +13915,7 @@ const serializeAws_queryGetRoleRequest = (input: GetRoleRequest, context: __Serd
 
 const serializeAws_queryGetSAMLProviderRequest = (input: GetSAMLProviderRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SAMLProviderArn !== undefined) {
+  if (input.SAMLProviderArn !== undefined && input.SAMLProviderArn !== null) {
     entries["SAMLProviderArn"] = input.SAMLProviderArn;
   }
   return entries;
@@ -13911,7 +13926,7 @@ const serializeAws_queryGetServerCertificateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ServerCertificateName !== undefined) {
+  if (input.ServerCertificateName !== undefined && input.ServerCertificateName !== null) {
     entries["ServerCertificateName"] = input.ServerCertificateName;
   }
   return entries;
@@ -13922,13 +13937,13 @@ const serializeAws_queryGetServiceLastAccessedDetailsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.JobId !== undefined) {
+  if (input.JobId !== undefined && input.JobId !== null) {
     entries["JobId"] = input.JobId;
   }
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -13939,16 +13954,16 @@ const serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.ServiceNamespace !== undefined) {
+  if (input.ServiceNamespace !== undefined && input.ServiceNamespace !== null) {
     entries["ServiceNamespace"] = input.ServiceNamespace;
   }
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
-  if (input.JobId !== undefined) {
+  if (input.JobId !== undefined && input.JobId !== null) {
     entries["JobId"] = input.JobId;
   }
   return entries;
@@ -13959,7 +13974,7 @@ const serializeAws_queryGetServiceLinkedRoleDeletionStatusRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DeletionTaskId !== undefined) {
+  if (input.DeletionTaskId !== undefined && input.DeletionTaskId !== null) {
     entries["DeletionTaskId"] = input.DeletionTaskId;
   }
   return entries;
@@ -13967,13 +13982,13 @@ const serializeAws_queryGetServiceLinkedRoleDeletionStatusRequest = (
 
 const serializeAws_queryGetSSHPublicKeyRequest = (input: GetSSHPublicKeyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SSHPublicKeyId !== undefined) {
+  if (input.SSHPublicKeyId !== undefined && input.SSHPublicKeyId !== null) {
     entries["SSHPublicKeyId"] = input.SSHPublicKeyId;
   }
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.Encoding !== undefined) {
+  if (input.Encoding !== undefined && input.Encoding !== null) {
     entries["Encoding"] = input.Encoding;
   }
   return entries;
@@ -13981,10 +13996,10 @@ const serializeAws_queryGetSSHPublicKeyRequest = (input: GetSSHPublicKeyRequest,
 
 const serializeAws_queryGetUserPolicyRequest = (input: GetUserPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyName !== undefined) {
+  if (input.PolicyName !== undefined && input.PolicyName !== null) {
     entries["PolicyName"] = input.PolicyName;
   }
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
   return entries;
@@ -13992,7 +14007,7 @@ const serializeAws_queryGetUserPolicyRequest = (input: GetUserPolicyRequest, con
 
 const serializeAws_queryGetUserRequest = (input: GetUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
   return entries;
@@ -14000,13 +14015,13 @@ const serializeAws_queryGetUserRequest = (input: GetUserRequest, context: __Serd
 
 const serializeAws_queryListAccessKeysRequest = (input: ListAccessKeysRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -14017,10 +14032,10 @@ const serializeAws_queryListAccountAliasesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -14031,16 +14046,16 @@ const serializeAws_queryListAttachedGroupPoliciesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.GroupName !== undefined) {
+  if (input.GroupName !== undefined && input.GroupName !== null) {
     entries["GroupName"] = input.GroupName;
   }
-  if (input.PathPrefix !== undefined) {
+  if (input.PathPrefix !== undefined && input.PathPrefix !== null) {
     entries["PathPrefix"] = input.PathPrefix;
   }
   return entries;
@@ -14051,16 +14066,16 @@ const serializeAws_queryListAttachedRolePoliciesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.RoleName !== undefined) {
+  if (input.RoleName !== undefined && input.RoleName !== null) {
     entries["RoleName"] = input.RoleName;
   }
-  if (input.PathPrefix !== undefined) {
+  if (input.PathPrefix !== undefined && input.PathPrefix !== null) {
     entries["PathPrefix"] = input.PathPrefix;
   }
   return entries;
@@ -14071,16 +14086,16 @@ const serializeAws_queryListAttachedUserPoliciesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.PathPrefix !== undefined) {
+  if (input.PathPrefix !== undefined && input.PathPrefix !== null) {
     entries["PathPrefix"] = input.PathPrefix;
   }
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -14091,22 +14106,22 @@ const serializeAws_queryListEntitiesForPolicyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.EntityFilter !== undefined) {
+  if (input.EntityFilter !== undefined && input.EntityFilter !== null) {
     entries["EntityFilter"] = input.EntityFilter;
   }
-  if (input.PolicyArn !== undefined) {
+  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
-  if (input.PathPrefix !== undefined) {
+  if (input.PathPrefix !== undefined && input.PathPrefix !== null) {
     entries["PathPrefix"] = input.PathPrefix;
   }
-  if (input.PolicyUsageFilter !== undefined) {
+  if (input.PolicyUsageFilter !== undefined && input.PolicyUsageFilter !== null) {
     entries["PolicyUsageFilter"] = input.PolicyUsageFilter;
   }
   return entries;
@@ -14114,13 +14129,13 @@ const serializeAws_queryListEntitiesForPolicyRequest = (
 
 const serializeAws_queryListGroupPoliciesRequest = (input: ListGroupPoliciesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
-  if (input.GroupName !== undefined) {
+  if (input.GroupName !== undefined && input.GroupName !== null) {
     entries["GroupName"] = input.GroupName;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
@@ -14128,13 +14143,13 @@ const serializeAws_queryListGroupPoliciesRequest = (input: ListGroupPoliciesRequ
 
 const serializeAws_queryListGroupsForUserRequest = (input: ListGroupsForUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -14142,13 +14157,13 @@ const serializeAws_queryListGroupsForUserRequest = (input: ListGroupsForUserRequ
 
 const serializeAws_queryListGroupsRequest = (input: ListGroupsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PathPrefix !== undefined) {
+  if (input.PathPrefix !== undefined && input.PathPrefix !== null) {
     entries["PathPrefix"] = input.PathPrefix;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -14159,13 +14174,13 @@ const serializeAws_queryListInstanceProfilesForRoleRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
-  if (input.RoleName !== undefined) {
+  if (input.RoleName !== undefined && input.RoleName !== null) {
     entries["RoleName"] = input.RoleName;
   }
   return entries;
@@ -14176,13 +14191,13 @@ const serializeAws_queryListInstanceProfilesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.PathPrefix !== undefined) {
+  if (input.PathPrefix !== undefined && input.PathPrefix !== null) {
     entries["PathPrefix"] = input.PathPrefix;
   }
   return entries;
@@ -14190,13 +14205,13 @@ const serializeAws_queryListInstanceProfilesRequest = (
 
 const serializeAws_queryListMFADevicesRequest = (input: ListMFADevicesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
@@ -14215,17 +14230,17 @@ const serializeAws_queryListPoliciesGrantingServiceAccessRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ServiceNamespaces !== undefined) {
+  if (input.ServiceNamespaces !== undefined && input.ServiceNamespaces !== null) {
     const memberEntries = serializeAws_queryserviceNamespaceListType(input.ServiceNamespaces, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ServiceNamespaces.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.Arn !== undefined) {
+  if (input.Arn !== undefined && input.Arn !== null) {
     entries["Arn"] = input.Arn;
   }
   return entries;
@@ -14233,22 +14248,22 @@ const serializeAws_queryListPoliciesGrantingServiceAccessRequest = (
 
 const serializeAws_queryListPoliciesRequest = (input: ListPoliciesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyUsageFilter !== undefined) {
+  if (input.PolicyUsageFilter !== undefined && input.PolicyUsageFilter !== null) {
     entries["PolicyUsageFilter"] = input.PolicyUsageFilter;
   }
-  if (input.Scope !== undefined) {
+  if (input.Scope !== undefined && input.Scope !== null) {
     entries["Scope"] = input.Scope;
   }
-  if (input.PathPrefix !== undefined) {
+  if (input.PathPrefix !== undefined && input.PathPrefix !== null) {
     entries["PathPrefix"] = input.PathPrefix;
   }
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
-  if (input.OnlyAttached !== undefined) {
+  if (input.OnlyAttached !== undefined && input.OnlyAttached !== null) {
     entries["OnlyAttached"] = input.OnlyAttached;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
@@ -14259,13 +14274,13 @@ const serializeAws_queryListPolicyVersionsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
-  if (input.PolicyArn !== undefined) {
+  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
@@ -14273,13 +14288,13 @@ const serializeAws_queryListPolicyVersionsRequest = (
 
 const serializeAws_queryListRolePoliciesRequest = (input: ListRolePoliciesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined) {
+  if (input.RoleName !== undefined && input.RoleName !== null) {
     entries["RoleName"] = input.RoleName;
   }
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
@@ -14287,13 +14302,13 @@ const serializeAws_queryListRolePoliciesRequest = (input: ListRolePoliciesReques
 
 const serializeAws_queryListRolesRequest = (input: ListRolesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PathPrefix !== undefined) {
+  if (input.PathPrefix !== undefined && input.PathPrefix !== null) {
     entries["PathPrefix"] = input.PathPrefix;
   }
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
@@ -14301,13 +14316,13 @@ const serializeAws_queryListRolesRequest = (input: ListRolesRequest, context: __
 
 const serializeAws_queryListRoleTagsRequest = (input: ListRoleTagsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
-  if (input.RoleName !== undefined) {
+  if (input.RoleName !== undefined && input.RoleName !== null) {
     entries["RoleName"] = input.RoleName;
   }
   return entries;
@@ -14323,13 +14338,13 @@ const serializeAws_queryListServerCertificatesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PathPrefix !== undefined) {
+  if (input.PathPrefix !== undefined && input.PathPrefix !== null) {
     entries["PathPrefix"] = input.PathPrefix;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -14340,10 +14355,10 @@ const serializeAws_queryListServiceSpecificCredentialsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ServiceName !== undefined) {
+  if (input.ServiceName !== undefined && input.ServiceName !== null) {
     entries["ServiceName"] = input.ServiceName;
   }
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
   return entries;
@@ -14354,13 +14369,13 @@ const serializeAws_queryListSigningCertificatesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -14368,13 +14383,13 @@ const serializeAws_queryListSigningCertificatesRequest = (
 
 const serializeAws_queryListSSHPublicKeysRequest = (input: ListSSHPublicKeysRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -14382,13 +14397,13 @@ const serializeAws_queryListSSHPublicKeysRequest = (input: ListSSHPublicKeysRequ
 
 const serializeAws_queryListUserPoliciesRequest = (input: ListUserPoliciesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -14396,13 +14411,13 @@ const serializeAws_queryListUserPoliciesRequest = (input: ListUserPoliciesReques
 
 const serializeAws_queryListUsersRequest = (input: ListUsersRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.PathPrefix !== undefined) {
+  if (input.PathPrefix !== undefined && input.PathPrefix !== null) {
     entries["PathPrefix"] = input.PathPrefix;
   }
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -14410,13 +14425,13 @@ const serializeAws_queryListUsersRequest = (input: ListUsersRequest, context: __
 
 const serializeAws_queryListUserTagsRequest = (input: ListUserTagsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -14427,13 +14442,13 @@ const serializeAws_queryListVirtualMFADevicesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
-  if (input.AssignmentStatus !== undefined) {
+  if (input.AssignmentStatus !== undefined && input.AssignmentStatus !== null) {
     entries["AssignmentStatus"] = input.AssignmentStatus;
   }
   return entries;
@@ -14441,13 +14456,13 @@ const serializeAws_queryListVirtualMFADevicesRequest = (
 
 const serializeAws_queryPutGroupPolicyRequest = (input: PutGroupPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyName !== undefined) {
+  if (input.PolicyName !== undefined && input.PolicyName !== null) {
     entries["PolicyName"] = input.PolicyName;
   }
-  if (input.PolicyDocument !== undefined) {
+  if (input.PolicyDocument !== undefined && input.PolicyDocument !== null) {
     entries["PolicyDocument"] = input.PolicyDocument;
   }
-  if (input.GroupName !== undefined) {
+  if (input.GroupName !== undefined && input.GroupName !== null) {
     entries["GroupName"] = input.GroupName;
   }
   return entries;
@@ -14458,10 +14473,10 @@ const serializeAws_queryPutRolePermissionsBoundaryRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined) {
+  if (input.RoleName !== undefined && input.RoleName !== null) {
     entries["RoleName"] = input.RoleName;
   }
-  if (input.PermissionsBoundary !== undefined) {
+  if (input.PermissionsBoundary !== undefined && input.PermissionsBoundary !== null) {
     entries["PermissionsBoundary"] = input.PermissionsBoundary;
   }
   return entries;
@@ -14469,13 +14484,13 @@ const serializeAws_queryPutRolePermissionsBoundaryRequest = (
 
 const serializeAws_queryPutRolePolicyRequest = (input: PutRolePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined) {
+  if (input.RoleName !== undefined && input.RoleName !== null) {
     entries["RoleName"] = input.RoleName;
   }
-  if (input.PolicyName !== undefined) {
+  if (input.PolicyName !== undefined && input.PolicyName !== null) {
     entries["PolicyName"] = input.PolicyName;
   }
-  if (input.PolicyDocument !== undefined) {
+  if (input.PolicyDocument !== undefined && input.PolicyDocument !== null) {
     entries["PolicyDocument"] = input.PolicyDocument;
   }
   return entries;
@@ -14486,10 +14501,10 @@ const serializeAws_queryPutUserPermissionsBoundaryRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PermissionsBoundary !== undefined) {
+  if (input.PermissionsBoundary !== undefined && input.PermissionsBoundary !== null) {
     entries["PermissionsBoundary"] = input.PermissionsBoundary;
   }
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
   return entries;
@@ -14497,13 +14512,13 @@ const serializeAws_queryPutUserPermissionsBoundaryRequest = (
 
 const serializeAws_queryPutUserPolicyRequest = (input: PutUserPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.PolicyDocument !== undefined) {
+  if (input.PolicyDocument !== undefined && input.PolicyDocument !== null) {
     entries["PolicyDocument"] = input.PolicyDocument;
   }
-  if (input.PolicyName !== undefined) {
+  if (input.PolicyName !== undefined && input.PolicyName !== null) {
     entries["PolicyName"] = input.PolicyName;
   }
   return entries;
@@ -14514,10 +14529,10 @@ const serializeAws_queryRemoveClientIDFromOpenIDConnectProviderRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.OpenIDConnectProviderArn !== undefined) {
+  if (input.OpenIDConnectProviderArn !== undefined && input.OpenIDConnectProviderArn !== null) {
     entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
   }
-  if (input.ClientID !== undefined) {
+  if (input.ClientID !== undefined && input.ClientID !== null) {
     entries["ClientID"] = input.ClientID;
   }
   return entries;
@@ -14528,10 +14543,10 @@ const serializeAws_queryRemoveRoleFromInstanceProfileRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.InstanceProfileName !== undefined) {
+  if (input.InstanceProfileName !== undefined && input.InstanceProfileName !== null) {
     entries["InstanceProfileName"] = input.InstanceProfileName;
   }
-  if (input.RoleName !== undefined) {
+  if (input.RoleName !== undefined && input.RoleName !== null) {
     entries["RoleName"] = input.RoleName;
   }
   return entries;
@@ -14542,10 +14557,10 @@ const serializeAws_queryRemoveUserFromGroupRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.GroupName !== undefined) {
+  if (input.GroupName !== undefined && input.GroupName !== null) {
     entries["GroupName"] = input.GroupName;
   }
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
   return entries;
@@ -14556,10 +14571,10 @@ const serializeAws_queryResetServiceSpecificCredentialRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.ServiceSpecificCredentialId !== undefined) {
+  if (input.ServiceSpecificCredentialId !== undefined && input.ServiceSpecificCredentialId !== null) {
     entries["ServiceSpecificCredentialId"] = input.ServiceSpecificCredentialId;
   }
   return entries;
@@ -14569,6 +14584,9 @@ const serializeAws_queryResourceNameListType = (input: string[], context: __Serd
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -14577,16 +14595,16 @@ const serializeAws_queryResourceNameListType = (input: string[], context: __Serd
 
 const serializeAws_queryResyncMFADeviceRequest = (input: ResyncMFADeviceRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AuthenticationCode2 !== undefined) {
+  if (input.AuthenticationCode2 !== undefined && input.AuthenticationCode2 !== null) {
     entries["AuthenticationCode2"] = input.AuthenticationCode2;
   }
-  if (input.AuthenticationCode1 !== undefined) {
+  if (input.AuthenticationCode1 !== undefined && input.AuthenticationCode1 !== null) {
     entries["AuthenticationCode1"] = input.AuthenticationCode1;
   }
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.SerialNumber !== undefined) {
+  if (input.SerialNumber !== undefined && input.SerialNumber !== null) {
     entries["SerialNumber"] = input.SerialNumber;
   }
   return entries;
@@ -14596,6 +14614,9 @@ const serializeAws_queryserviceNamespaceListType = (input: string[], context: __
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -14607,10 +14628,10 @@ const serializeAws_querySetDefaultPolicyVersionRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.VersionId !== undefined) {
+  if (input.VersionId !== undefined && input.VersionId !== null) {
     entries["VersionId"] = input.VersionId;
   }
-  if (input.PolicyArn !== undefined) {
+  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
   return entries;
@@ -14621,7 +14642,7 @@ const serializeAws_querySetSecurityTokenServicePreferencesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.GlobalEndpointTokenVersion !== undefined) {
+  if (input.GlobalEndpointTokenVersion !== undefined && input.GlobalEndpointTokenVersion !== null) {
     entries["GlobalEndpointTokenVersion"] = input.GlobalEndpointTokenVersion;
   }
   return entries;
@@ -14632,57 +14653,57 @@ const serializeAws_querySimulateCustomPolicyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ResourcePolicy !== undefined) {
+  if (input.ResourcePolicy !== undefined && input.ResourcePolicy !== null) {
     entries["ResourcePolicy"] = input.ResourcePolicy;
   }
-  if (input.CallerArn !== undefined) {
+  if (input.CallerArn !== undefined && input.CallerArn !== null) {
     entries["CallerArn"] = input.CallerArn;
   }
-  if (input.ResourceHandlingOption !== undefined) {
+  if (input.ResourceHandlingOption !== undefined && input.ResourceHandlingOption !== null) {
     entries["ResourceHandlingOption"] = input.ResourceHandlingOption;
   }
-  if (input.ResourceArns !== undefined) {
+  if (input.ResourceArns !== undefined && input.ResourceArns !== null) {
     const memberEntries = serializeAws_queryResourceNameListType(input.ResourceArns, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceArns.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ActionNames !== undefined) {
+  if (input.ActionNames !== undefined && input.ActionNames !== null) {
     const memberEntries = serializeAws_queryActionNameListType(input.ActionNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ActionNames.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.PolicyInputList !== undefined) {
+  if (input.PolicyInputList !== undefined && input.PolicyInputList !== null) {
     const memberEntries = serializeAws_querySimulationPolicyListType(input.PolicyInputList, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyInputList.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.PermissionsBoundaryPolicyInputList !== undefined) {
+  if (input.PermissionsBoundaryPolicyInputList !== undefined && input.PermissionsBoundaryPolicyInputList !== null) {
     const memberEntries = serializeAws_querySimulationPolicyListType(input.PermissionsBoundaryPolicyInputList, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PermissionsBoundaryPolicyInputList.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ResourceOwner !== undefined) {
+  if (input.ResourceOwner !== undefined && input.ResourceOwner !== null) {
     entries["ResourceOwner"] = input.ResourceOwner;
   }
-  if (input.ContextEntries !== undefined) {
+  if (input.ContextEntries !== undefined && input.ContextEntries !== null) {
     const memberEntries = serializeAws_queryContextEntryListType(input.ContextEntries, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ContextEntries.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -14693,60 +14714,60 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.ResourceHandlingOption !== undefined) {
+  if (input.ResourceHandlingOption !== undefined && input.ResourceHandlingOption !== null) {
     entries["ResourceHandlingOption"] = input.ResourceHandlingOption;
   }
-  if (input.ActionNames !== undefined) {
+  if (input.ActionNames !== undefined && input.ActionNames !== null) {
     const memberEntries = serializeAws_queryActionNameListType(input.ActionNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ActionNames.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ResourcePolicy !== undefined) {
+  if (input.ResourcePolicy !== undefined && input.ResourcePolicy !== null) {
     entries["ResourcePolicy"] = input.ResourcePolicy;
   }
-  if (input.MaxItems !== undefined) {
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
     entries["MaxItems"] = input.MaxItems;
   }
-  if (input.ContextEntries !== undefined) {
+  if (input.ContextEntries !== undefined && input.ContextEntries !== null) {
     const memberEntries = serializeAws_queryContextEntryListType(input.ContextEntries, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ContextEntries.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.PermissionsBoundaryPolicyInputList !== undefined) {
+  if (input.PermissionsBoundaryPolicyInputList !== undefined && input.PermissionsBoundaryPolicyInputList !== null) {
     const memberEntries = serializeAws_querySimulationPolicyListType(input.PermissionsBoundaryPolicyInputList, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PermissionsBoundaryPolicyInputList.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.PolicyInputList !== undefined) {
+  if (input.PolicyInputList !== undefined && input.PolicyInputList !== null) {
     const memberEntries = serializeAws_querySimulationPolicyListType(input.PolicyInputList, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyInputList.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ResourceOwner !== undefined) {
+  if (input.ResourceOwner !== undefined && input.ResourceOwner !== null) {
     entries["ResourceOwner"] = input.ResourceOwner;
   }
-  if (input.PolicySourceArn !== undefined) {
+  if (input.PolicySourceArn !== undefined && input.PolicySourceArn !== null) {
     entries["PolicySourceArn"] = input.PolicySourceArn;
   }
-  if (input.ResourceArns !== undefined) {
+  if (input.ResourceArns !== undefined && input.ResourceArns !== null) {
     const memberEntries = serializeAws_queryResourceNameListType(input.ResourceArns, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceArns.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.CallerArn !== undefined) {
+  if (input.CallerArn !== undefined && input.CallerArn !== null) {
     entries["CallerArn"] = input.CallerArn;
   }
   return entries;
@@ -14756,6 +14777,9 @@ const serializeAws_querySimulationPolicyListType = (input: string[], context: __
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -14764,10 +14788,10 @@ const serializeAws_querySimulationPolicyListType = (input: string[], context: __
 
 const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Value !== undefined) {
+  if (input.Value !== undefined && input.Value !== null) {
     entries["Value"] = input.Value;
   }
-  if (input.Key !== undefined) {
+  if (input.Key !== undefined && input.Key !== null) {
     entries["Key"] = input.Key;
   }
   return entries;
@@ -14777,6 +14801,9 @@ const serializeAws_querytagKeyListType = (input: string[], context: __SerdeConte
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -14787,6 +14814,9 @@ const serializeAws_querytagListType = (input: Tag[], context: __SerdeContext): a
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryTag(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
@@ -14798,14 +14828,14 @@ const serializeAws_querytagListType = (input: Tag[], context: __SerdeContext): a
 
 const serializeAws_queryTagRoleRequest = (input: TagRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.RoleName !== undefined) {
+  if (input.RoleName !== undefined && input.RoleName !== null) {
     entries["RoleName"] = input.RoleName;
   }
   return entries;
@@ -14813,14 +14843,14 @@ const serializeAws_queryTagRoleRequest = (input: TagRoleRequest, context: __Serd
 
 const serializeAws_queryTagUserRequest = (input: TagUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
   return entries;
@@ -14830,6 +14860,9 @@ const serializeAws_querythumbprintListType = (input: string[], context: __SerdeC
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -14838,14 +14871,14 @@ const serializeAws_querythumbprintListType = (input: string[], context: __SerdeC
 
 const serializeAws_queryUntagRoleRequest = (input: UntagRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TagKeys !== undefined) {
+  if (input.TagKeys !== undefined && input.TagKeys !== null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.RoleName !== undefined) {
+  if (input.RoleName !== undefined && input.RoleName !== null) {
     entries["RoleName"] = input.RoleName;
   }
   return entries;
@@ -14853,14 +14886,14 @@ const serializeAws_queryUntagRoleRequest = (input: UntagRoleRequest, context: __
 
 const serializeAws_queryUntagUserRequest = (input: UntagUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TagKeys !== undefined) {
+  if (input.TagKeys !== undefined && input.TagKeys !== null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
   return entries;
@@ -14868,13 +14901,13 @@ const serializeAws_queryUntagUserRequest = (input: UntagUserRequest, context: __
 
 const serializeAws_queryUpdateAccessKeyRequest = (input: UpdateAccessKeyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.AccessKeyId !== undefined) {
+  if (input.AccessKeyId !== undefined && input.AccessKeyId !== null) {
     entries["AccessKeyId"] = input.AccessKeyId;
   }
-  if (input.Status !== undefined) {
+  if (input.Status !== undefined && input.Status !== null) {
     entries["Status"] = input.Status;
   }
   return entries;
@@ -14885,31 +14918,31 @@ const serializeAws_queryUpdateAccountPasswordPolicyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RequireLowercaseCharacters !== undefined) {
+  if (input.RequireLowercaseCharacters !== undefined && input.RequireLowercaseCharacters !== null) {
     entries["RequireLowercaseCharacters"] = input.RequireLowercaseCharacters;
   }
-  if (input.PasswordReusePrevention !== undefined) {
+  if (input.PasswordReusePrevention !== undefined && input.PasswordReusePrevention !== null) {
     entries["PasswordReusePrevention"] = input.PasswordReusePrevention;
   }
-  if (input.HardExpiry !== undefined) {
+  if (input.HardExpiry !== undefined && input.HardExpiry !== null) {
     entries["HardExpiry"] = input.HardExpiry;
   }
-  if (input.MaxPasswordAge !== undefined) {
+  if (input.MaxPasswordAge !== undefined && input.MaxPasswordAge !== null) {
     entries["MaxPasswordAge"] = input.MaxPasswordAge;
   }
-  if (input.RequireUppercaseCharacters !== undefined) {
+  if (input.RequireUppercaseCharacters !== undefined && input.RequireUppercaseCharacters !== null) {
     entries["RequireUppercaseCharacters"] = input.RequireUppercaseCharacters;
   }
-  if (input.RequireSymbols !== undefined) {
+  if (input.RequireSymbols !== undefined && input.RequireSymbols !== null) {
     entries["RequireSymbols"] = input.RequireSymbols;
   }
-  if (input.AllowUsersToChangePassword !== undefined) {
+  if (input.AllowUsersToChangePassword !== undefined && input.AllowUsersToChangePassword !== null) {
     entries["AllowUsersToChangePassword"] = input.AllowUsersToChangePassword;
   }
-  if (input.RequireNumbers !== undefined) {
+  if (input.RequireNumbers !== undefined && input.RequireNumbers !== null) {
     entries["RequireNumbers"] = input.RequireNumbers;
   }
-  if (input.MinimumPasswordLength !== undefined) {
+  if (input.MinimumPasswordLength !== undefined && input.MinimumPasswordLength !== null) {
     entries["MinimumPasswordLength"] = input.MinimumPasswordLength;
   }
   return entries;
@@ -14920,10 +14953,10 @@ const serializeAws_queryUpdateAssumeRolePolicyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined) {
+  if (input.RoleName !== undefined && input.RoleName !== null) {
     entries["RoleName"] = input.RoleName;
   }
-  if (input.PolicyDocument !== undefined) {
+  if (input.PolicyDocument !== undefined && input.PolicyDocument !== null) {
     entries["PolicyDocument"] = input.PolicyDocument;
   }
   return entries;
@@ -14931,13 +14964,13 @@ const serializeAws_queryUpdateAssumeRolePolicyRequest = (
 
 const serializeAws_queryUpdateGroupRequest = (input: UpdateGroupRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NewGroupName !== undefined) {
+  if (input.NewGroupName !== undefined && input.NewGroupName !== null) {
     entries["NewGroupName"] = input.NewGroupName;
   }
-  if (input.GroupName !== undefined) {
+  if (input.GroupName !== undefined && input.GroupName !== null) {
     entries["GroupName"] = input.GroupName;
   }
-  if (input.NewPath !== undefined) {
+  if (input.NewPath !== undefined && input.NewPath !== null) {
     entries["NewPath"] = input.NewPath;
   }
   return entries;
@@ -14948,13 +14981,13 @@ const serializeAws_queryUpdateLoginProfileRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Password !== undefined) {
+  if (input.Password !== undefined && input.Password !== null) {
     entries["Password"] = input.Password;
   }
-  if (input.PasswordResetRequired !== undefined) {
+  if (input.PasswordResetRequired !== undefined && input.PasswordResetRequired !== null) {
     entries["PasswordResetRequired"] = input.PasswordResetRequired;
   }
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
   return entries;
@@ -14965,14 +14998,14 @@ const serializeAws_queryUpdateOpenIDConnectProviderThumbprintRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ThumbprintList !== undefined) {
+  if (input.ThumbprintList !== undefined && input.ThumbprintList !== null) {
     const memberEntries = serializeAws_querythumbprintListType(input.ThumbprintList, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ThumbprintList.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.OpenIDConnectProviderArn !== undefined) {
+  if (input.OpenIDConnectProviderArn !== undefined && input.OpenIDConnectProviderArn !== null) {
     entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
   }
   return entries;
@@ -14983,10 +15016,10 @@ const serializeAws_queryUpdateRoleDescriptionRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Description !== undefined) {
+  if (input.Description !== undefined && input.Description !== null) {
     entries["Description"] = input.Description;
   }
-  if (input.RoleName !== undefined) {
+  if (input.RoleName !== undefined && input.RoleName !== null) {
     entries["RoleName"] = input.RoleName;
   }
   return entries;
@@ -14994,13 +15027,13 @@ const serializeAws_queryUpdateRoleDescriptionRequest = (
 
 const serializeAws_queryUpdateRoleRequest = (input: UpdateRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MaxSessionDuration !== undefined) {
+  if (input.MaxSessionDuration !== undefined && input.MaxSessionDuration !== null) {
     entries["MaxSessionDuration"] = input.MaxSessionDuration;
   }
-  if (input.RoleName !== undefined) {
+  if (input.RoleName !== undefined && input.RoleName !== null) {
     entries["RoleName"] = input.RoleName;
   }
-  if (input.Description !== undefined) {
+  if (input.Description !== undefined && input.Description !== null) {
     entries["Description"] = input.Description;
   }
   return entries;
@@ -15011,10 +15044,10 @@ const serializeAws_queryUpdateSAMLProviderRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SAMLMetadataDocument !== undefined) {
+  if (input.SAMLMetadataDocument !== undefined && input.SAMLMetadataDocument !== null) {
     entries["SAMLMetadataDocument"] = input.SAMLMetadataDocument;
   }
-  if (input.SAMLProviderArn !== undefined) {
+  if (input.SAMLProviderArn !== undefined && input.SAMLProviderArn !== null) {
     entries["SAMLProviderArn"] = input.SAMLProviderArn;
   }
   return entries;
@@ -15025,13 +15058,13 @@ const serializeAws_queryUpdateServerCertificateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.NewPath !== undefined) {
+  if (input.NewPath !== undefined && input.NewPath !== null) {
     entries["NewPath"] = input.NewPath;
   }
-  if (input.NewServerCertificateName !== undefined) {
+  if (input.NewServerCertificateName !== undefined && input.NewServerCertificateName !== null) {
     entries["NewServerCertificateName"] = input.NewServerCertificateName;
   }
-  if (input.ServerCertificateName !== undefined) {
+  if (input.ServerCertificateName !== undefined && input.ServerCertificateName !== null) {
     entries["ServerCertificateName"] = input.ServerCertificateName;
   }
   return entries;
@@ -15042,13 +15075,13 @@ const serializeAws_queryUpdateServiceSpecificCredentialRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ServiceSpecificCredentialId !== undefined) {
+  if (input.ServiceSpecificCredentialId !== undefined && input.ServiceSpecificCredentialId !== null) {
     entries["ServiceSpecificCredentialId"] = input.ServiceSpecificCredentialId;
   }
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.Status !== undefined) {
+  if (input.Status !== undefined && input.Status !== null) {
     entries["Status"] = input.Status;
   }
   return entries;
@@ -15059,13 +15092,13 @@ const serializeAws_queryUpdateSigningCertificateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.CertificateId !== undefined) {
+  if (input.CertificateId !== undefined && input.CertificateId !== null) {
     entries["CertificateId"] = input.CertificateId;
   }
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.Status !== undefined) {
+  if (input.Status !== undefined && input.Status !== null) {
     entries["Status"] = input.Status;
   }
   return entries;
@@ -15076,13 +15109,13 @@ const serializeAws_queryUpdateSSHPublicKeyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SSHPublicKeyId !== undefined) {
+  if (input.SSHPublicKeyId !== undefined && input.SSHPublicKeyId !== null) {
     entries["SSHPublicKeyId"] = input.SSHPublicKeyId;
   }
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.Status !== undefined) {
+  if (input.Status !== undefined && input.Status !== null) {
     entries["Status"] = input.Status;
   }
   return entries;
@@ -15090,13 +15123,13 @@ const serializeAws_queryUpdateSSHPublicKeyRequest = (
 
 const serializeAws_queryUpdateUserRequest = (input: UpdateUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.NewUserName !== undefined) {
+  if (input.NewUserName !== undefined && input.NewUserName !== null) {
     entries["NewUserName"] = input.NewUserName;
   }
-  if (input.NewPath !== undefined) {
+  if (input.NewPath !== undefined && input.NewPath !== null) {
     entries["NewPath"] = input.NewPath;
   }
   return entries;
@@ -15107,19 +15140,19 @@ const serializeAws_queryUploadServerCertificateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.CertificateChain !== undefined) {
+  if (input.CertificateChain !== undefined && input.CertificateChain !== null) {
     entries["CertificateChain"] = input.CertificateChain;
   }
-  if (input.ServerCertificateName !== undefined) {
+  if (input.ServerCertificateName !== undefined && input.ServerCertificateName !== null) {
     entries["ServerCertificateName"] = input.ServerCertificateName;
   }
-  if (input.CertificateBody !== undefined) {
+  if (input.CertificateBody !== undefined && input.CertificateBody !== null) {
     entries["CertificateBody"] = input.CertificateBody;
   }
-  if (input.PrivateKey !== undefined) {
+  if (input.PrivateKey !== undefined && input.PrivateKey !== null) {
     entries["PrivateKey"] = input.PrivateKey;
   }
-  if (input.Path !== undefined) {
+  if (input.Path !== undefined && input.Path !== null) {
     entries["Path"] = input.Path;
   }
   return entries;
@@ -15130,10 +15163,10 @@ const serializeAws_queryUploadSigningCertificateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.CertificateBody !== undefined) {
+  if (input.CertificateBody !== undefined && input.CertificateBody !== null) {
     entries["CertificateBody"] = input.CertificateBody;
   }
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
   return entries;
@@ -15144,10 +15177,10 @@ const serializeAws_queryUploadSSHPublicKeyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
+  if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.SSHPublicKeyBody !== undefined) {
+  if (input.SSHPublicKeyBody !== undefined && input.SSHPublicKeyBody !== null) {
     entries["SSHPublicKeyBody"] = input.SSHPublicKeyBody;
   }
   return entries;
@@ -15184,7 +15217,14 @@ const deserializeAws_queryAccessDetail = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_queryAccessDetails = (output: any, context: __SerdeContext): AccessDetail[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryAccessDetail(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryAccessDetail(entry, context);
+    });
 };
 
 const deserializeAws_queryAccessKey = (output: any, context: __SerdeContext): AccessKey => {
@@ -15254,15 +15294,36 @@ const deserializeAws_queryAccessKeyMetadata = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryaccessKeyMetadataListType = (output: any, context: __SerdeContext): AccessKeyMetadata[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryAccessKeyMetadata(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryAccessKeyMetadata(entry, context);
+    });
 };
 
 const deserializeAws_queryaccountAliasListType = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryArnListType = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryAttachedPermissionsBoundary = (
@@ -15283,7 +15344,14 @@ const deserializeAws_queryAttachedPermissionsBoundary = (
 };
 
 const deserializeAws_queryattachedPoliciesListType = (output: any, context: __SerdeContext): AttachedPolicy[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryAttachedPolicy(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryAttachedPolicy(entry, context);
+    });
 };
 
 const deserializeAws_queryAttachedPolicy = (output: any, context: __SerdeContext): AttachedPolicy => {
@@ -15301,11 +15369,25 @@ const deserializeAws_queryAttachedPolicy = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_querycertificateListType = (output: any, context: __SerdeContext): SigningCertificate[] => {
-  return (output || []).map((entry: any) => deserializeAws_querySigningCertificate(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_querySigningCertificate(entry, context);
+    });
 };
 
 const deserializeAws_queryclientIDListType = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryConcurrentModificationException = (
@@ -15322,7 +15404,14 @@ const deserializeAws_queryConcurrentModificationException = (
 };
 
 const deserializeAws_queryContextKeyNamesResultListType = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryCreateAccessKeyResponse = (output: any, context: __SerdeContext): CreateAccessKeyResponse => {
@@ -15621,7 +15710,14 @@ const deserializeAws_queryEntityDetails = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryentityDetailsListType = (output: any, context: __SerdeContext): EntityDetails[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryEntityDetails(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryEntityDetails(entry, context);
+    });
 };
 
 const deserializeAws_queryEntityInfo = (output: any, context: __SerdeContext): EntityInfo => {
@@ -15681,13 +15777,15 @@ const deserializeAws_queryEvalDecisionDetailsType = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: PolicyEvaluationDecisionType | string } => {
-  return output.reduce(
-    (acc: any, pair: any) => ({
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["value"] === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [pair["key"]]: pair["value"],
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_queryEvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
@@ -15763,7 +15861,14 @@ const deserializeAws_queryEvaluationResult = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryEvaluationResultsListType = (output: any, context: __SerdeContext): EvaluationResult[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryEvaluationResult(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryEvaluationResult(entry, context);
+    });
 };
 
 const deserializeAws_queryGenerateCredentialReportResponse = (
@@ -16409,15 +16514,36 @@ const deserializeAws_queryGroupDetail = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_querygroupDetailListType = (output: any, context: __SerdeContext): GroupDetail[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryGroupDetail(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryGroupDetail(entry, context);
+    });
 };
 
 const deserializeAws_querygroupListType = (output: any, context: __SerdeContext): Group[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryGroup(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryGroup(entry, context);
+    });
 };
 
 const deserializeAws_querygroupNameListType = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryInstanceProfile = (output: any, context: __SerdeContext): InstanceProfile => {
@@ -16454,7 +16580,14 @@ const deserializeAws_queryInstanceProfile = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_queryinstanceProfileListType = (output: any, context: __SerdeContext): InstanceProfile[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryInstanceProfile(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryInstanceProfile(entry, context);
+    });
 };
 
 const deserializeAws_queryInvalidAuthenticationCodeException = (
@@ -16974,7 +17107,14 @@ const deserializeAws_querylistPolicyGrantingServiceAccessResponseListType = (
   output: any,
   context: __SerdeContext
 ): ListPoliciesGrantingServiceAccessEntry[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryListPoliciesGrantingServiceAccessEntry(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryListPoliciesGrantingServiceAccessEntry(entry, context);
+    });
 };
 
 const deserializeAws_queryListPolicyVersionsResponse = (
@@ -17402,7 +17542,14 @@ const deserializeAws_queryManagedPolicyDetailListType = (
   output: any,
   context: __SerdeContext
 ): ManagedPolicyDetail[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryManagedPolicyDetail(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryManagedPolicyDetail(entry, context);
+    });
 };
 
 const deserializeAws_queryMFADevice = (output: any, context: __SerdeContext): MFADevice => {
@@ -17424,7 +17571,14 @@ const deserializeAws_queryMFADevice = (output: any, context: __SerdeContext): MF
 };
 
 const deserializeAws_querymfaDeviceListType = (output: any, context: __SerdeContext): MFADevice[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryMFADevice(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryMFADevice(entry, context);
+    });
 };
 
 const deserializeAws_queryNoSuchEntityException = (output: any, context: __SerdeContext): NoSuchEntityException => {
@@ -17454,7 +17608,14 @@ const deserializeAws_queryOpenIDConnectProviderListType = (
   output: any,
   context: __SerdeContext
 ): OpenIDConnectProviderListEntry[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryOpenIDConnectProviderListEntry(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryOpenIDConnectProviderListEntry(entry, context);
+    });
 };
 
 const deserializeAws_queryOrganizationsDecisionDetail = (
@@ -17607,11 +17768,25 @@ const deserializeAws_queryPolicyDetail = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_querypolicyDetailListType = (output: any, context: __SerdeContext): PolicyDetail[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryPolicyDetail(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryPolicyDetail(entry, context);
+    });
 };
 
 const deserializeAws_querypolicyDocumentVersionListType = (output: any, context: __SerdeContext): PolicyVersion[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryPolicyVersion(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryPolicyVersion(entry, context);
+    });
 };
 
 const deserializeAws_queryPolicyEvaluationException = (
@@ -17660,7 +17835,14 @@ const deserializeAws_querypolicyGrantingServiceAccessListType = (
   output: any,
   context: __SerdeContext
 ): PolicyGrantingServiceAccess[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryPolicyGrantingServiceAccess(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryPolicyGrantingServiceAccess(entry, context);
+    });
 };
 
 const deserializeAws_queryPolicyGroup = (output: any, context: __SerdeContext): PolicyGroup => {
@@ -17678,15 +17860,36 @@ const deserializeAws_queryPolicyGroup = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_queryPolicyGroupListType = (output: any, context: __SerdeContext): PolicyGroup[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryPolicyGroup(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryPolicyGroup(entry, context);
+    });
 };
 
 const deserializeAws_querypolicyListType = (output: any, context: __SerdeContext): Policy[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryPolicy(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryPolicy(entry, context);
+    });
 };
 
 const deserializeAws_querypolicyNameListType = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryPolicyNotAttachableException = (
@@ -17717,7 +17920,14 @@ const deserializeAws_queryPolicyRole = (output: any, context: __SerdeContext): P
 };
 
 const deserializeAws_queryPolicyRoleListType = (output: any, context: __SerdeContext): PolicyRole[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryPolicyRole(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryPolicyRole(entry, context);
+    });
 };
 
 const deserializeAws_queryPolicyUser = (output: any, context: __SerdeContext): PolicyUser => {
@@ -17735,7 +17945,14 @@ const deserializeAws_queryPolicyUser = (output: any, context: __SerdeContext): P
 };
 
 const deserializeAws_queryPolicyUserListType = (output: any, context: __SerdeContext): PolicyUser[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryPolicyUser(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryPolicyUser(entry, context);
+    });
 };
 
 const deserializeAws_queryPolicyVersion = (output: any, context: __SerdeContext): PolicyVersion => {
@@ -17858,7 +18075,14 @@ const deserializeAws_queryResourceSpecificResultListType = (
   output: any,
   context: __SerdeContext
 ): ResourceSpecificResult[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryResourceSpecificResult(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryResourceSpecificResult(entry, context);
+    });
 };
 
 const deserializeAws_queryRole = (output: any, context: __SerdeContext): Role => {
@@ -17996,7 +18220,14 @@ const deserializeAws_queryRoleDetail = (output: any, context: __SerdeContext): R
 };
 
 const deserializeAws_queryroleDetailListType = (output: any, context: __SerdeContext): RoleDetail[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryRoleDetail(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryRoleDetail(entry, context);
+    });
 };
 
 const deserializeAws_queryRoleLastUsed = (output: any, context: __SerdeContext): RoleLastUsed => {
@@ -18014,11 +18245,25 @@ const deserializeAws_queryRoleLastUsed = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_queryroleListType = (output: any, context: __SerdeContext): Role[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryRole(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryRole(entry, context);
+    });
 };
 
 const deserializeAws_queryRoleUsageListType = (output: any, context: __SerdeContext): RoleUsageType[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryRoleUsageType(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryRoleUsageType(entry, context);
+    });
 };
 
 const deserializeAws_queryRoleUsageType = (output: any, context: __SerdeContext): RoleUsageType => {
@@ -18060,7 +18305,14 @@ const deserializeAws_querySAMLProviderListEntry = (output: any, context: __Serde
 };
 
 const deserializeAws_querySAMLProviderListType = (output: any, context: __SerdeContext): SAMLProviderListEntry[] => {
-  return (output || []).map((entry: any) => deserializeAws_querySAMLProviderListEntry(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_querySAMLProviderListEntry(entry, context);
+    });
 };
 
 const deserializeAws_queryServerCertificate = (output: any, context: __SerdeContext): ServerCertificate => {
@@ -18121,7 +18373,14 @@ const deserializeAws_queryserverCertificateMetadataListType = (
   output: any,
   context: __SerdeContext
 ): ServerCertificateMetadata[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryServerCertificateMetadata(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryServerCertificateMetadata(entry, context);
+    });
 };
 
 const deserializeAws_queryServiceFailureException = (output: any, context: __SerdeContext): ServiceFailureException => {
@@ -18191,7 +18450,14 @@ const deserializeAws_queryServiceNotSupportedException = (
 };
 
 const deserializeAws_queryServicesLastAccessed = (output: any, context: __SerdeContext): ServiceLastAccessed[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryServiceLastAccessed(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryServiceLastAccessed(entry, context);
+    });
 };
 
 const deserializeAws_queryServiceSpecificCredential = (
@@ -18268,7 +18534,14 @@ const deserializeAws_queryServiceSpecificCredentialsListType = (
   output: any,
   context: __SerdeContext
 ): ServiceSpecificCredentialMetadata[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryServiceSpecificCredentialMetadata(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryServiceSpecificCredentialMetadata(entry, context);
+    });
 };
 
 const deserializeAws_querySigningCertificate = (output: any, context: __SerdeContext): SigningCertificate => {
@@ -18352,7 +18625,14 @@ const deserializeAws_querySSHPublicKey = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_querySSHPublicKeyListType = (output: any, context: __SerdeContext): SSHPublicKeyMetadata[] => {
-  return (output || []).map((entry: any) => deserializeAws_querySSHPublicKeyMetadata(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_querySSHPublicKeyMetadata(entry, context);
+    });
 };
 
 const deserializeAws_querySSHPublicKeyMetadata = (output: any, context: __SerdeContext): SSHPublicKeyMetadata => {
@@ -18400,17 +18680,26 @@ const deserializeAws_queryStatement = (output: any, context: __SerdeContext): St
 };
 
 const deserializeAws_queryStatementListType = (output: any, context: __SerdeContext): Statement[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryStatement(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryStatement(entry, context);
+    });
 };
 
 const deserializeAws_querysummaryMapType = (output: any, context: __SerdeContext): { [key: string]: number } => {
-  return output.reduce(
-    (acc: any, pair: any) => ({
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["value"] === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [pair["key"]]: parseInt(pair["value"]),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
@@ -18428,11 +18717,25 @@ const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
 };
 
 const deserializeAws_querytagListType = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryTag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryTag(entry, context);
+    });
 };
 
 const deserializeAws_querythumbprintListType = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryTrackedActionLastAccessed = (
@@ -18464,7 +18767,14 @@ const deserializeAws_queryTrackedActionsLastAccessed = (
   output: any,
   context: __SerdeContext
 ): TrackedActionLastAccessed[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryTrackedActionLastAccessed(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryTrackedActionLastAccessed(entry, context);
+    });
 };
 
 const deserializeAws_queryUnmodifiableEntityException = (
@@ -18681,11 +18991,25 @@ const deserializeAws_queryUserDetail = (output: any, context: __SerdeContext): U
 };
 
 const deserializeAws_queryuserDetailListType = (output: any, context: __SerdeContext): UserDetail[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryUserDetail(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryUserDetail(entry, context);
+    });
 };
 
 const deserializeAws_queryuserListType = (output: any, context: __SerdeContext): User[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryUser(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryUser(entry, context);
+    });
 };
 
 const deserializeAws_queryVirtualMFADevice = (output: any, context: __SerdeContext): VirtualMFADevice => {
@@ -18715,7 +19039,14 @@ const deserializeAws_queryVirtualMFADevice = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryvirtualMFADeviceListType = (output: any, context: __SerdeContext): VirtualMFADevice[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryVirtualMFADevice(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryVirtualMFADevice(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

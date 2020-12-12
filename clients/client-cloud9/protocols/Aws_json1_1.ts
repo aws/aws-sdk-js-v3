@@ -91,7 +91,7 @@ export const serializeAws_json1_1CreateEnvironmentEC2Command = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSCloud9WorkspaceManagementService.CreateEnvironmentEC2",
   };
   let body: any;
@@ -104,7 +104,7 @@ export const serializeAws_json1_1CreateEnvironmentMembershipCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSCloud9WorkspaceManagementService.CreateEnvironmentMembership",
   };
   let body: any;
@@ -117,7 +117,7 @@ export const serializeAws_json1_1DeleteEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSCloud9WorkspaceManagementService.DeleteEnvironment",
   };
   let body: any;
@@ -130,7 +130,7 @@ export const serializeAws_json1_1DeleteEnvironmentMembershipCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSCloud9WorkspaceManagementService.DeleteEnvironmentMembership",
   };
   let body: any;
@@ -143,7 +143,7 @@ export const serializeAws_json1_1DescribeEnvironmentMembershipsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSCloud9WorkspaceManagementService.DescribeEnvironmentMemberships",
   };
   let body: any;
@@ -156,7 +156,7 @@ export const serializeAws_json1_1DescribeEnvironmentsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSCloud9WorkspaceManagementService.DescribeEnvironments",
   };
   let body: any;
@@ -169,7 +169,7 @@ export const serializeAws_json1_1DescribeEnvironmentStatusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSCloud9WorkspaceManagementService.DescribeEnvironmentStatus",
   };
   let body: any;
@@ -182,7 +182,7 @@ export const serializeAws_json1_1ListEnvironmentsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSCloud9WorkspaceManagementService.ListEnvironments",
   };
   let body: any;
@@ -195,7 +195,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSCloud9WorkspaceManagementService.ListTagsForResource",
   };
   let body: any;
@@ -208,7 +208,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSCloud9WorkspaceManagementService.TagResource",
   };
   let body: any;
@@ -221,7 +221,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSCloud9WorkspaceManagementService.UntagResource",
   };
   let body: any;
@@ -234,7 +234,7 @@ export const serializeAws_json1_1UpdateEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSCloud9WorkspaceManagementService.UpdateEnvironment",
   };
   let body: any;
@@ -247,7 +247,7 @@ export const serializeAws_json1_1UpdateEnvironmentMembershipCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSCloud9WorkspaceManagementService.UpdateEnvironmentMembership",
   };
   let body: any;
@@ -282,8 +282,7 @@ const deserializeAws_json1_1CreateEnvironmentEC2CommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.cloud9#BadRequestException":
@@ -385,8 +384,7 @@ const deserializeAws_json1_1CreateEnvironmentMembershipCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.cloud9#BadRequestException":
@@ -488,8 +486,7 @@ const deserializeAws_json1_1DeleteEnvironmentCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.cloud9#BadRequestException":
@@ -591,8 +588,7 @@ const deserializeAws_json1_1DeleteEnvironmentMembershipCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.cloud9#BadRequestException":
@@ -694,8 +690,7 @@ const deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.cloud9#BadRequestException":
@@ -797,8 +792,7 @@ const deserializeAws_json1_1DescribeEnvironmentsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.cloud9#BadRequestException":
@@ -900,8 +894,7 @@ const deserializeAws_json1_1DescribeEnvironmentStatusCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.cloud9#BadRequestException":
@@ -1003,8 +996,7 @@ const deserializeAws_json1_1ListEnvironmentsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.cloud9#BadRequestException":
@@ -1106,8 +1098,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.cloud9#BadRequestException":
@@ -1177,8 +1168,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.cloud9#BadRequestException":
@@ -1256,8 +1246,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.cloud9#BadRequestException":
@@ -1335,8 +1324,7 @@ const deserializeAws_json1_1UpdateEnvironmentCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.cloud9#BadRequestException":
@@ -1438,8 +1426,7 @@ const deserializeAws_json1_1UpdateEnvironmentMembershipCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.cloud9#BadRequestException":
@@ -1635,7 +1622,14 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
 };
 
 const serializeAws_json1_1BoundedEnvironmentIdList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1CreateEnvironmentEC2Request = (
@@ -1643,15 +1637,18 @@ const serializeAws_json1_1CreateEnvironmentEC2Request = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.automaticStopTimeMinutes !== undefined && { automaticStopTimeMinutes: input.automaticStopTimeMinutes }),
-    ...(input.clientRequestToken !== undefined && { clientRequestToken: input.clientRequestToken }),
-    ...(input.connectionType !== undefined && { connectionType: input.connectionType }),
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.instanceType !== undefined && { instanceType: input.instanceType }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.ownerArn !== undefined && { ownerArn: input.ownerArn }),
-    ...(input.subnetId !== undefined && { subnetId: input.subnetId }),
-    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.automaticStopTimeMinutes !== undefined &&
+      input.automaticStopTimeMinutes !== null && { automaticStopTimeMinutes: input.automaticStopTimeMinutes }),
+    ...(input.clientRequestToken !== undefined &&
+      input.clientRequestToken !== null && { clientRequestToken: input.clientRequestToken }),
+    ...(input.connectionType !== undefined &&
+      input.connectionType !== null && { connectionType: input.connectionType }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.instanceType !== undefined && input.instanceType !== null && { instanceType: input.instanceType }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.ownerArn !== undefined && input.ownerArn !== null && { ownerArn: input.ownerArn }),
+    ...(input.subnetId !== undefined && input.subnetId !== null && { subnetId: input.subnetId }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
@@ -1660,9 +1657,9 @@ const serializeAws_json1_1CreateEnvironmentMembershipRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.environmentId !== undefined && { environmentId: input.environmentId }),
-    ...(input.permissions !== undefined && { permissions: input.permissions }),
-    ...(input.userArn !== undefined && { userArn: input.userArn }),
+    ...(input.environmentId !== undefined && input.environmentId !== null && { environmentId: input.environmentId }),
+    ...(input.permissions !== undefined && input.permissions !== null && { permissions: input.permissions }),
+    ...(input.userArn !== undefined && input.userArn !== null && { userArn: input.userArn }),
   };
 };
 
@@ -1671,8 +1668,8 @@ const serializeAws_json1_1DeleteEnvironmentMembershipRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.environmentId !== undefined && { environmentId: input.environmentId }),
-    ...(input.userArn !== undefined && { userArn: input.userArn }),
+    ...(input.environmentId !== undefined && input.environmentId !== null && { environmentId: input.environmentId }),
+    ...(input.userArn !== undefined && input.userArn !== null && { userArn: input.userArn }),
   };
 };
 
@@ -1681,7 +1678,7 @@ const serializeAws_json1_1DeleteEnvironmentRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.environmentId !== undefined && { environmentId: input.environmentId }),
+    ...(input.environmentId !== undefined && input.environmentId !== null && { environmentId: input.environmentId }),
   };
 };
 
@@ -1690,13 +1687,12 @@ const serializeAws_json1_1DescribeEnvironmentMembershipsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.environmentId !== undefined && { environmentId: input.environmentId }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.permissions !== undefined && {
-      permissions: serializeAws_json1_1PermissionsList(input.permissions, context),
-    }),
-    ...(input.userArn !== undefined && { userArn: input.userArn }),
+    ...(input.environmentId !== undefined && input.environmentId !== null && { environmentId: input.environmentId }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.permissions !== undefined &&
+      input.permissions !== null && { permissions: serializeAws_json1_1PermissionsList(input.permissions, context) }),
+    ...(input.userArn !== undefined && input.userArn !== null && { userArn: input.userArn }),
   };
 };
 
@@ -1705,9 +1701,10 @@ const serializeAws_json1_1DescribeEnvironmentsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.environmentIds !== undefined && {
-      environmentIds: serializeAws_json1_1BoundedEnvironmentIdList(input.environmentIds, context),
-    }),
+    ...(input.environmentIds !== undefined &&
+      input.environmentIds !== null && {
+        environmentIds: serializeAws_json1_1BoundedEnvironmentIdList(input.environmentIds, context),
+      }),
   };
 };
 
@@ -1716,14 +1713,14 @@ const serializeAws_json1_1DescribeEnvironmentStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.environmentId !== undefined && { environmentId: input.environmentId }),
+    ...(input.environmentId !== undefined && input.environmentId !== null && { environmentId: input.environmentId }),
   };
 };
 
 const serializeAws_json1_1ListEnvironmentsRequest = (input: ListEnvironmentsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
@@ -1732,40 +1729,62 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
   };
 };
 
 const serializeAws_json1_1PermissionsList = (input: (Permissions | string)[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -1774,9 +1793,9 @@ const serializeAws_json1_1UpdateEnvironmentMembershipRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.environmentId !== undefined && { environmentId: input.environmentId }),
-    ...(input.permissions !== undefined && { permissions: input.permissions }),
-    ...(input.userArn !== undefined && { userArn: input.userArn }),
+    ...(input.environmentId !== undefined && input.environmentId !== null && { environmentId: input.environmentId }),
+    ...(input.permissions !== undefined && input.permissions !== null && { permissions: input.permissions }),
+    ...(input.userArn !== undefined && input.userArn !== null && { userArn: input.userArn }),
   };
 };
 
@@ -1785,9 +1804,9 @@ const serializeAws_json1_1UpdateEnvironmentRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.environmentId !== undefined && { environmentId: input.environmentId }),
-    ...(input.name !== undefined && { name: input.name }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.environmentId !== undefined && input.environmentId !== null && { environmentId: input.environmentId }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
   };
 };
 
@@ -1907,7 +1926,14 @@ const deserializeAws_json1_1Environment = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1EnvironmentIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1EnvironmentLifecycle = (output: any, context: __SerdeContext): EnvironmentLifecycle => {
@@ -1920,7 +1946,14 @@ const deserializeAws_json1_1EnvironmentLifecycle = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1EnvironmentList = (output: any, context: __SerdeContext): Environment[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Environment(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Environment(entry, context);
+    });
 };
 
 const deserializeAws_json1_1EnvironmentMember = (output: any, context: __SerdeContext): EnvironmentMember => {
@@ -1938,7 +1971,14 @@ const deserializeAws_json1_1EnvironmentMember = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1EnvironmentMembersList = (output: any, context: __SerdeContext): EnvironmentMember[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1EnvironmentMember(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EnvironmentMember(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ForbiddenException = (output: any, context: __SerdeContext): ForbiddenException => {
@@ -2006,7 +2046,14 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
@@ -2097,3 +2144,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

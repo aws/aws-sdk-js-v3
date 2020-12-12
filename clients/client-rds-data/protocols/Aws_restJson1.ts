@@ -44,20 +44,21 @@ export const serializeAws_restJson1BatchExecuteStatementCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/BatchExecute";
   let body: any;
   body = JSON.stringify({
-    ...(input.database !== undefined && { database: input.database }),
-    ...(input.parameterSets !== undefined && {
-      parameterSets: serializeAws_restJson1SqlParameterSets(input.parameterSets, context),
-    }),
-    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
-    ...(input.schema !== undefined && { schema: input.schema }),
-    ...(input.secretArn !== undefined && { secretArn: input.secretArn }),
-    ...(input.sql !== undefined && { sql: input.sql }),
-    ...(input.transactionId !== undefined && { transactionId: input.transactionId }),
+    ...(input.database !== undefined && input.database !== null && { database: input.database }),
+    ...(input.parameterSets !== undefined &&
+      input.parameterSets !== null && {
+        parameterSets: serializeAws_restJson1SqlParameterSets(input.parameterSets, context),
+      }),
+    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
+    ...(input.schema !== undefined && input.schema !== null && { schema: input.schema }),
+    ...(input.secretArn !== undefined && input.secretArn !== null && { secretArn: input.secretArn }),
+    ...(input.sql !== undefined && input.sql !== null && { sql: input.sql }),
+    ...(input.transactionId !== undefined && input.transactionId !== null && { transactionId: input.transactionId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -76,15 +77,15 @@ export const serializeAws_restJson1BeginTransactionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/BeginTransaction";
   let body: any;
   body = JSON.stringify({
-    ...(input.database !== undefined && { database: input.database }),
-    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
-    ...(input.schema !== undefined && { schema: input.schema }),
-    ...(input.secretArn !== undefined && { secretArn: input.secretArn }),
+    ...(input.database !== undefined && input.database !== null && { database: input.database }),
+    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
+    ...(input.schema !== undefined && input.schema !== null && { schema: input.schema }),
+    ...(input.secretArn !== undefined && input.secretArn !== null && { secretArn: input.secretArn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -103,14 +104,14 @@ export const serializeAws_restJson1CommitTransactionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/CommitTransaction";
   let body: any;
   body = JSON.stringify({
-    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
-    ...(input.secretArn !== undefined && { secretArn: input.secretArn }),
-    ...(input.transactionId !== undefined && { transactionId: input.transactionId }),
+    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
+    ...(input.secretArn !== undefined && input.secretArn !== null && { secretArn: input.secretArn }),
+    ...(input.transactionId !== undefined && input.transactionId !== null && { transactionId: input.transactionId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -129,16 +130,18 @@ export const serializeAws_restJson1ExecuteSqlCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/ExecuteSql";
   let body: any;
   body = JSON.stringify({
-    ...(input.awsSecretStoreArn !== undefined && { awsSecretStoreArn: input.awsSecretStoreArn }),
-    ...(input.database !== undefined && { database: input.database }),
-    ...(input.dbClusterOrInstanceArn !== undefined && { dbClusterOrInstanceArn: input.dbClusterOrInstanceArn }),
-    ...(input.schema !== undefined && { schema: input.schema }),
-    ...(input.sqlStatements !== undefined && { sqlStatements: input.sqlStatements }),
+    ...(input.awsSecretStoreArn !== undefined &&
+      input.awsSecretStoreArn !== null && { awsSecretStoreArn: input.awsSecretStoreArn }),
+    ...(input.database !== undefined && input.database !== null && { database: input.database }),
+    ...(input.dbClusterOrInstanceArn !== undefined &&
+      input.dbClusterOrInstanceArn !== null && { dbClusterOrInstanceArn: input.dbClusterOrInstanceArn }),
+    ...(input.schema !== undefined && input.schema !== null && { schema: input.schema }),
+    ...(input.sqlStatements !== undefined && input.sqlStatements !== null && { sqlStatements: input.sqlStatements }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -157,25 +160,27 @@ export const serializeAws_restJson1ExecuteStatementCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/Execute";
   let body: any;
   body = JSON.stringify({
-    ...(input.continueAfterTimeout !== undefined && { continueAfterTimeout: input.continueAfterTimeout }),
-    ...(input.database !== undefined && { database: input.database }),
-    ...(input.includeResultMetadata !== undefined && { includeResultMetadata: input.includeResultMetadata }),
-    ...(input.parameters !== undefined && {
-      parameters: serializeAws_restJson1SqlParametersList(input.parameters, context),
-    }),
-    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
-    ...(input.resultSetOptions !== undefined && {
-      resultSetOptions: serializeAws_restJson1ResultSetOptions(input.resultSetOptions, context),
-    }),
-    ...(input.schema !== undefined && { schema: input.schema }),
-    ...(input.secretArn !== undefined && { secretArn: input.secretArn }),
-    ...(input.sql !== undefined && { sql: input.sql }),
-    ...(input.transactionId !== undefined && { transactionId: input.transactionId }),
+    ...(input.continueAfterTimeout !== undefined &&
+      input.continueAfterTimeout !== null && { continueAfterTimeout: input.continueAfterTimeout }),
+    ...(input.database !== undefined && input.database !== null && { database: input.database }),
+    ...(input.includeResultMetadata !== undefined &&
+      input.includeResultMetadata !== null && { includeResultMetadata: input.includeResultMetadata }),
+    ...(input.parameters !== undefined &&
+      input.parameters !== null && { parameters: serializeAws_restJson1SqlParametersList(input.parameters, context) }),
+    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
+    ...(input.resultSetOptions !== undefined &&
+      input.resultSetOptions !== null && {
+        resultSetOptions: serializeAws_restJson1ResultSetOptions(input.resultSetOptions, context),
+      }),
+    ...(input.schema !== undefined && input.schema !== null && { schema: input.schema }),
+    ...(input.secretArn !== undefined && input.secretArn !== null && { secretArn: input.secretArn }),
+    ...(input.sql !== undefined && input.sql !== null && { sql: input.sql }),
+    ...(input.transactionId !== undefined && input.transactionId !== null && { transactionId: input.transactionId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -194,14 +199,14 @@ export const serializeAws_restJson1RollbackTransactionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/RollbackTransaction";
   let body: any;
   body = JSON.stringify({
-    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
-    ...(input.secretArn !== undefined && { secretArn: input.secretArn }),
-    ...(input.transactionId !== undefined && { transactionId: input.transactionId }),
+    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
+    ...(input.secretArn !== undefined && input.secretArn !== null && { secretArn: input.secretArn }),
+    ...(input.transactionId !== undefined && input.transactionId !== null && { transactionId: input.transactionId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -856,7 +861,14 @@ const deserializeAws_restJson1StatementTimeoutExceptionResponse = async (
 };
 
 const serializeAws_restJson1ArrayOfArray = (input: ArrayValue[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1ArrayValue(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1ArrayValue(entry, context);
+    });
 };
 
 const serializeAws_restJson1ArrayValue = (input: ArrayValue, context: __SerdeContext): any => {
@@ -871,11 +883,25 @@ const serializeAws_restJson1ArrayValue = (input: ArrayValue, context: __SerdeCon
 };
 
 const serializeAws_restJson1BooleanArray = (input: boolean[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1DoubleArray = (input: number[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1Field = (input: Field, context: __SerdeContext): any => {
@@ -892,37 +918,74 @@ const serializeAws_restJson1Field = (input: Field, context: __SerdeContext): any
 };
 
 const serializeAws_restJson1LongArray = (input: number[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1ResultSetOptions = (input: ResultSetOptions, context: __SerdeContext): any => {
   return {
-    ...(input.decimalReturnType !== undefined && { decimalReturnType: input.decimalReturnType }),
+    ...(input.decimalReturnType !== undefined &&
+      input.decimalReturnType !== null && { decimalReturnType: input.decimalReturnType }),
   };
 };
 
 const serializeAws_restJson1SqlParameter = (input: SqlParameter, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.typeHint !== undefined && { typeHint: input.typeHint }),
-    ...(input.value !== undefined && { value: serializeAws_restJson1Field(input.value, context) }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.typeHint !== undefined && input.typeHint !== null && { typeHint: input.typeHint }),
+    ...(input.value !== undefined &&
+      input.value !== null && { value: serializeAws_restJson1Field(input.value, context) }),
   };
 };
 
 const serializeAws_restJson1SqlParameterSets = (input: SqlParameter[][], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1SqlParametersList(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1SqlParametersList(entry, context);
+    });
 };
 
 const serializeAws_restJson1SqlParametersList = (input: SqlParameter[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1SqlParameter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1SqlParameter(entry, context);
+    });
 };
 
 const serializeAws_restJson1StringArray = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1ArrayOfArray = (output: any, context: __SerdeContext): ArrayValue[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1ArrayValue(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ArrayValue(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ArrayValue = (output: any, context: __SerdeContext): ArrayValue => {
@@ -955,11 +1018,25 @@ const deserializeAws_restJson1ArrayValue = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restJson1ArrayValueList = (output: any, context: __SerdeContext): Value[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Value(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Value(entry, context);
+    });
 };
 
 const deserializeAws_restJson1BooleanArray = (output: any, context: __SerdeContext): boolean[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1ColumnMetadata = (output: any, context: __SerdeContext): ColumnMetadata => {
@@ -987,7 +1064,14 @@ const deserializeAws_restJson1ColumnMetadata = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1DoubleArray = (output: any, context: __SerdeContext): number[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1Field = (output: any, context: __SerdeContext): Field => {
@@ -1030,15 +1114,36 @@ const deserializeAws_restJson1Field = (output: any, context: __SerdeContext): Fi
 };
 
 const deserializeAws_restJson1FieldList = (output: any, context: __SerdeContext): Field[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Field(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Field(entry, context);
+    });
 };
 
 const deserializeAws_restJson1LongArray = (output: any, context: __SerdeContext): number[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1Metadata = (output: any, context: __SerdeContext): ColumnMetadata[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1ColumnMetadata(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ColumnMetadata(entry, context);
+    });
 };
 
 const deserializeAws_restJson1_Record = (output: any, context: __SerdeContext): _Record => {
@@ -1051,7 +1156,14 @@ const deserializeAws_restJson1_Record = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_restJson1Records = (output: any, context: __SerdeContext): _Record[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1_Record(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1_Record(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ResultFrame = (output: any, context: __SerdeContext): ResultFrame => {
@@ -1078,11 +1190,25 @@ const deserializeAws_restJson1ResultSetMetadata = (output: any, context: __Serde
 };
 
 const deserializeAws_restJson1Row = (output: any, context: __SerdeContext): Value[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Value(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Value(entry, context);
+    });
 };
 
 const deserializeAws_restJson1SqlRecords = (output: any, context: __SerdeContext): Field[][] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1FieldList(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1FieldList(entry, context);
+    });
 };
 
 const deserializeAws_restJson1SqlStatementResult = (output: any, context: __SerdeContext): SqlStatementResult => {
@@ -1099,11 +1225,25 @@ const deserializeAws_restJson1SqlStatementResult = (output: any, context: __Serd
 };
 
 const deserializeAws_restJson1SqlStatementResults = (output: any, context: __SerdeContext): SqlStatementResult[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1SqlStatementResult(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SqlStatementResult(entry, context);
+    });
 };
 
 const deserializeAws_restJson1StringArray = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1StructValue = (output: any, context: __SerdeContext): StructValue => {
@@ -1125,7 +1265,14 @@ const deserializeAws_restJson1UpdateResult = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restJson1UpdateResults = (output: any, context: __SerdeContext): UpdateResult[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1UpdateResult(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1UpdateResult(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Value = (output: any, context: __SerdeContext): Value => {
@@ -1202,6 +1349,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

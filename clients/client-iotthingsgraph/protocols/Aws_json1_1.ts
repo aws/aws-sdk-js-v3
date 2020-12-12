@@ -209,7 +209,7 @@ export const serializeAws_json1_1AssociateEntityToThingCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.AssociateEntityToThing",
   };
   let body: any;
@@ -222,7 +222,7 @@ export const serializeAws_json1_1CreateFlowTemplateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.CreateFlowTemplate",
   };
   let body: any;
@@ -235,7 +235,7 @@ export const serializeAws_json1_1CreateSystemInstanceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.CreateSystemInstance",
   };
   let body: any;
@@ -248,7 +248,7 @@ export const serializeAws_json1_1CreateSystemTemplateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.CreateSystemTemplate",
   };
   let body: any;
@@ -261,7 +261,7 @@ export const serializeAws_json1_1DeleteFlowTemplateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.DeleteFlowTemplate",
   };
   let body: any;
@@ -274,7 +274,7 @@ export const serializeAws_json1_1DeleteNamespaceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.DeleteNamespace",
   };
   let body: any;
@@ -287,7 +287,7 @@ export const serializeAws_json1_1DeleteSystemInstanceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.DeleteSystemInstance",
   };
   let body: any;
@@ -300,7 +300,7 @@ export const serializeAws_json1_1DeleteSystemTemplateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.DeleteSystemTemplate",
   };
   let body: any;
@@ -313,7 +313,7 @@ export const serializeAws_json1_1DeploySystemInstanceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.DeploySystemInstance",
   };
   let body: any;
@@ -326,7 +326,7 @@ export const serializeAws_json1_1DeprecateFlowTemplateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.DeprecateFlowTemplate",
   };
   let body: any;
@@ -339,7 +339,7 @@ export const serializeAws_json1_1DeprecateSystemTemplateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.DeprecateSystemTemplate",
   };
   let body: any;
@@ -352,7 +352,7 @@ export const serializeAws_json1_1DescribeNamespaceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.DescribeNamespace",
   };
   let body: any;
@@ -365,7 +365,7 @@ export const serializeAws_json1_1DissociateEntityFromThingCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.DissociateEntityFromThing",
   };
   let body: any;
@@ -378,7 +378,7 @@ export const serializeAws_json1_1GetEntitiesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.GetEntities",
   };
   let body: any;
@@ -391,7 +391,7 @@ export const serializeAws_json1_1GetFlowTemplateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.GetFlowTemplate",
   };
   let body: any;
@@ -404,7 +404,7 @@ export const serializeAws_json1_1GetFlowTemplateRevisionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.GetFlowTemplateRevisions",
   };
   let body: any;
@@ -417,7 +417,7 @@ export const serializeAws_json1_1GetNamespaceDeletionStatusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.GetNamespaceDeletionStatus",
   };
   let body: any;
@@ -430,7 +430,7 @@ export const serializeAws_json1_1GetSystemInstanceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.GetSystemInstance",
   };
   let body: any;
@@ -443,7 +443,7 @@ export const serializeAws_json1_1GetSystemTemplateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.GetSystemTemplate",
   };
   let body: any;
@@ -456,7 +456,7 @@ export const serializeAws_json1_1GetSystemTemplateRevisionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.GetSystemTemplateRevisions",
   };
   let body: any;
@@ -469,7 +469,7 @@ export const serializeAws_json1_1GetUploadStatusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.GetUploadStatus",
   };
   let body: any;
@@ -482,7 +482,7 @@ export const serializeAws_json1_1ListFlowExecutionMessagesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.ListFlowExecutionMessages",
   };
   let body: any;
@@ -495,7 +495,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.ListTagsForResource",
   };
   let body: any;
@@ -508,7 +508,7 @@ export const serializeAws_json1_1SearchEntitiesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.SearchEntities",
   };
   let body: any;
@@ -521,7 +521,7 @@ export const serializeAws_json1_1SearchFlowExecutionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.SearchFlowExecutions",
   };
   let body: any;
@@ -534,7 +534,7 @@ export const serializeAws_json1_1SearchFlowTemplatesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.SearchFlowTemplates",
   };
   let body: any;
@@ -547,7 +547,7 @@ export const serializeAws_json1_1SearchSystemInstancesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.SearchSystemInstances",
   };
   let body: any;
@@ -560,7 +560,7 @@ export const serializeAws_json1_1SearchSystemTemplatesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.SearchSystemTemplates",
   };
   let body: any;
@@ -573,7 +573,7 @@ export const serializeAws_json1_1SearchThingsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.SearchThings",
   };
   let body: any;
@@ -586,7 +586,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.TagResource",
   };
   let body: any;
@@ -599,7 +599,7 @@ export const serializeAws_json1_1UndeploySystemInstanceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.UndeploySystemInstance",
   };
   let body: any;
@@ -612,7 +612,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.UntagResource",
   };
   let body: any;
@@ -625,7 +625,7 @@ export const serializeAws_json1_1UpdateFlowTemplateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.UpdateFlowTemplate",
   };
   let body: any;
@@ -638,7 +638,7 @@ export const serializeAws_json1_1UpdateSystemTemplateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.UpdateSystemTemplate",
   };
   let body: any;
@@ -651,7 +651,7 @@ export const serializeAws_json1_1UploadEntityDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "IotThingsGraphFrontEndService.UploadEntityDefinitions",
   };
   let body: any;
@@ -686,8 +686,7 @@ const deserializeAws_json1_1AssociateEntityToThingCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -765,8 +764,7 @@ const deserializeAws_json1_1CreateFlowTemplateCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -852,8 +850,7 @@ const deserializeAws_json1_1CreateSystemInstanceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -939,8 +936,7 @@ const deserializeAws_json1_1CreateSystemTemplateCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -1018,8 +1014,7 @@ const deserializeAws_json1_1DeleteFlowTemplateCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -1097,8 +1092,7 @@ const deserializeAws_json1_1DeleteNamespaceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -1160,8 +1154,7 @@ const deserializeAws_json1_1DeleteSystemInstanceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -1239,8 +1232,7 @@ const deserializeAws_json1_1DeleteSystemTemplateCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -1318,8 +1310,7 @@ const deserializeAws_json1_1DeploySystemInstanceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -1405,8 +1396,7 @@ const deserializeAws_json1_1DeprecateFlowTemplateCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -1484,8 +1474,7 @@ const deserializeAws_json1_1DeprecateSystemTemplateCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -1563,8 +1552,7 @@ const deserializeAws_json1_1DescribeNamespaceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -1642,8 +1630,7 @@ const deserializeAws_json1_1DissociateEntityFromThingCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -1721,8 +1708,7 @@ const deserializeAws_json1_1GetEntitiesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -1800,8 +1786,7 @@ const deserializeAws_json1_1GetFlowTemplateCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -1879,8 +1864,7 @@ const deserializeAws_json1_1GetFlowTemplateRevisionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -1958,8 +1942,7 @@ const deserializeAws_json1_1GetNamespaceDeletionStatusCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -2029,8 +2012,7 @@ const deserializeAws_json1_1GetSystemInstanceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -2108,8 +2090,7 @@ const deserializeAws_json1_1GetSystemTemplateCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -2187,8 +2168,7 @@ const deserializeAws_json1_1GetSystemTemplateRevisionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -2266,8 +2246,7 @@ const deserializeAws_json1_1GetUploadStatusCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -2345,8 +2324,7 @@ const deserializeAws_json1_1ListFlowExecutionMessagesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -2424,8 +2402,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -2503,8 +2480,7 @@ const deserializeAws_json1_1SearchEntitiesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -2574,8 +2550,7 @@ const deserializeAws_json1_1SearchFlowExecutionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -2653,8 +2628,7 @@ const deserializeAws_json1_1SearchFlowTemplatesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -2724,8 +2698,7 @@ const deserializeAws_json1_1SearchSystemInstancesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -2795,8 +2768,7 @@ const deserializeAws_json1_1SearchSystemTemplatesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -2866,8 +2838,7 @@ const deserializeAws_json1_1SearchThingsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -2945,8 +2916,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -3024,8 +2994,7 @@ const deserializeAws_json1_1UndeploySystemInstanceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -3111,8 +3080,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -3190,8 +3158,7 @@ const deserializeAws_json1_1UpdateFlowTemplateCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -3269,8 +3236,7 @@ const deserializeAws_json1_1UpdateSystemTemplateCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -3348,8 +3314,7 @@ const deserializeAws_json1_1UploadEntityDefinitionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iotthingsgraph#InternalFailureException":
@@ -3502,9 +3467,10 @@ const serializeAws_json1_1AssociateEntityToThingRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.entityId !== undefined && { entityId: input.entityId }),
-    ...(input.namespaceVersion !== undefined && { namespaceVersion: input.namespaceVersion }),
-    ...(input.thingName !== undefined && { thingName: input.thingName }),
+    ...(input.entityId !== undefined && input.entityId !== null && { entityId: input.entityId }),
+    ...(input.namespaceVersion !== undefined &&
+      input.namespaceVersion !== null && { namespaceVersion: input.namespaceVersion }),
+    ...(input.thingName !== undefined && input.thingName !== null && { thingName: input.thingName }),
   };
 };
 
@@ -3513,12 +3479,10 @@ const serializeAws_json1_1CreateFlowTemplateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.compatibleNamespaceVersion !== undefined && {
-      compatibleNamespaceVersion: input.compatibleNamespaceVersion,
-    }),
-    ...(input.definition !== undefined && {
-      definition: serializeAws_json1_1DefinitionDocument(input.definition, context),
-    }),
+    ...(input.compatibleNamespaceVersion !== undefined &&
+      input.compatibleNamespaceVersion !== null && { compatibleNamespaceVersion: input.compatibleNamespaceVersion }),
+    ...(input.definition !== undefined &&
+      input.definition !== null && { definition: serializeAws_json1_1DefinitionDocument(input.definition, context) }),
   };
 };
 
@@ -3527,17 +3491,19 @@ const serializeAws_json1_1CreateSystemInstanceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.definition !== undefined && {
-      definition: serializeAws_json1_1DefinitionDocument(input.definition, context),
-    }),
-    ...(input.flowActionsRoleArn !== undefined && { flowActionsRoleArn: input.flowActionsRoleArn }),
-    ...(input.greengrassGroupName !== undefined && { greengrassGroupName: input.greengrassGroupName }),
-    ...(input.metricsConfiguration !== undefined && {
-      metricsConfiguration: serializeAws_json1_1MetricsConfiguration(input.metricsConfiguration, context),
-    }),
-    ...(input.s3BucketName !== undefined && { s3BucketName: input.s3BucketName }),
-    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
-    ...(input.target !== undefined && { target: input.target }),
+    ...(input.definition !== undefined &&
+      input.definition !== null && { definition: serializeAws_json1_1DefinitionDocument(input.definition, context) }),
+    ...(input.flowActionsRoleArn !== undefined &&
+      input.flowActionsRoleArn !== null && { flowActionsRoleArn: input.flowActionsRoleArn }),
+    ...(input.greengrassGroupName !== undefined &&
+      input.greengrassGroupName !== null && { greengrassGroupName: input.greengrassGroupName }),
+    ...(input.metricsConfiguration !== undefined &&
+      input.metricsConfiguration !== null && {
+        metricsConfiguration: serializeAws_json1_1MetricsConfiguration(input.metricsConfiguration, context),
+      }),
+    ...(input.s3BucketName !== undefined && input.s3BucketName !== null && { s3BucketName: input.s3BucketName }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.target !== undefined && input.target !== null && { target: input.target }),
   };
 };
 
@@ -3546,19 +3512,17 @@ const serializeAws_json1_1CreateSystemTemplateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.compatibleNamespaceVersion !== undefined && {
-      compatibleNamespaceVersion: input.compatibleNamespaceVersion,
-    }),
-    ...(input.definition !== undefined && {
-      definition: serializeAws_json1_1DefinitionDocument(input.definition, context),
-    }),
+    ...(input.compatibleNamespaceVersion !== undefined &&
+      input.compatibleNamespaceVersion !== null && { compatibleNamespaceVersion: input.compatibleNamespaceVersion }),
+    ...(input.definition !== undefined &&
+      input.definition !== null && { definition: serializeAws_json1_1DefinitionDocument(input.definition, context) }),
   };
 };
 
 const serializeAws_json1_1DefinitionDocument = (input: DefinitionDocument, context: __SerdeContext): any => {
   return {
-    ...(input.language !== undefined && { language: input.language }),
-    ...(input.text !== undefined && { text: input.text }),
+    ...(input.language !== undefined && input.language !== null && { language: input.language }),
+    ...(input.text !== undefined && input.text !== null && { text: input.text }),
   };
 };
 
@@ -3567,7 +3531,7 @@ const serializeAws_json1_1DeleteFlowTemplateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.id !== undefined && { id: input.id }),
+    ...(input.id !== undefined && input.id !== null && { id: input.id }),
   };
 };
 
@@ -3580,7 +3544,7 @@ const serializeAws_json1_1DeleteSystemInstanceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.id !== undefined && { id: input.id }),
+    ...(input.id !== undefined && input.id !== null && { id: input.id }),
   };
 };
 
@@ -3589,7 +3553,7 @@ const serializeAws_json1_1DeleteSystemTemplateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.id !== undefined && { id: input.id }),
+    ...(input.id !== undefined && input.id !== null && { id: input.id }),
   };
 };
 
@@ -3598,7 +3562,7 @@ const serializeAws_json1_1DeploySystemInstanceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.id !== undefined && { id: input.id }),
+    ...(input.id !== undefined && input.id !== null && { id: input.id }),
   };
 };
 
@@ -3607,7 +3571,7 @@ const serializeAws_json1_1DeprecateFlowTemplateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.id !== undefined && { id: input.id }),
+    ...(input.id !== undefined && input.id !== null && { id: input.id }),
   };
 };
 
@@ -3616,7 +3580,7 @@ const serializeAws_json1_1DeprecateSystemTemplateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.id !== undefined && { id: input.id }),
+    ...(input.id !== undefined && input.id !== null && { id: input.id }),
   };
 };
 
@@ -3625,7 +3589,7 @@ const serializeAws_json1_1DescribeNamespaceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.namespaceName !== undefined && { namespaceName: input.namespaceName }),
+    ...(input.namespaceName !== undefined && input.namespaceName !== null && { namespaceName: input.namespaceName }),
   };
 };
 
@@ -3634,56 +3598,95 @@ const serializeAws_json1_1DissociateEntityFromThingRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.entityType !== undefined && { entityType: input.entityType }),
-    ...(input.thingName !== undefined && { thingName: input.thingName }),
+    ...(input.entityType !== undefined && input.entityType !== null && { entityType: input.entityType }),
+    ...(input.thingName !== undefined && input.thingName !== null && { thingName: input.thingName }),
   };
 };
 
 const serializeAws_json1_1EntityFilter = (input: EntityFilter, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.value !== undefined && { value: serializeAws_json1_1EntityFilterValues(input.value, context) }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.value !== undefined &&
+      input.value !== null && { value: serializeAws_json1_1EntityFilterValues(input.value, context) }),
   };
 };
 
 const serializeAws_json1_1EntityFilters = (input: EntityFilter[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1EntityFilter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1EntityFilter(entry, context);
+    });
 };
 
 const serializeAws_json1_1EntityFilterValues = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1EntityTypes = (input: (EntityType | string)[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1FlowTemplateFilter = (input: FlowTemplateFilter, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.value !== undefined && { value: serializeAws_json1_1FlowTemplateFilterValues(input.value, context) }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.value !== undefined &&
+      input.value !== null && { value: serializeAws_json1_1FlowTemplateFilterValues(input.value, context) }),
   };
 };
 
 const serializeAws_json1_1FlowTemplateFilters = (input: FlowTemplateFilter[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1FlowTemplateFilter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1FlowTemplateFilter(entry, context);
+    });
 };
 
 const serializeAws_json1_1FlowTemplateFilterValues = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1GetEntitiesRequest = (input: GetEntitiesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ids !== undefined && { ids: serializeAws_json1_1Urns(input.ids, context) }),
-    ...(input.namespaceVersion !== undefined && { namespaceVersion: input.namespaceVersion }),
+    ...(input.ids !== undefined && input.ids !== null && { ids: serializeAws_json1_1Urns(input.ids, context) }),
+    ...(input.namespaceVersion !== undefined &&
+      input.namespaceVersion !== null && { namespaceVersion: input.namespaceVersion }),
   };
 };
 
 const serializeAws_json1_1GetFlowTemplateRequest = (input: GetFlowTemplateRequest, context: __SerdeContext): any => {
   return {
-    ...(input.id !== undefined && { id: input.id }),
-    ...(input.revisionNumber !== undefined && { revisionNumber: input.revisionNumber }),
+    ...(input.id !== undefined && input.id !== null && { id: input.id }),
+    ...(input.revisionNumber !== undefined &&
+      input.revisionNumber !== null && { revisionNumber: input.revisionNumber }),
   };
 };
 
@@ -3692,9 +3695,9 @@ const serializeAws_json1_1GetFlowTemplateRevisionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.id !== undefined && { id: input.id }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.id !== undefined && input.id !== null && { id: input.id }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
@@ -3710,7 +3713,7 @@ const serializeAws_json1_1GetSystemInstanceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.id !== undefined && { id: input.id }),
+    ...(input.id !== undefined && input.id !== null && { id: input.id }),
   };
 };
 
@@ -3719,8 +3722,9 @@ const serializeAws_json1_1GetSystemTemplateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.id !== undefined && { id: input.id }),
-    ...(input.revisionNumber !== undefined && { revisionNumber: input.revisionNumber }),
+    ...(input.id !== undefined && input.id !== null && { id: input.id }),
+    ...(input.revisionNumber !== undefined &&
+      input.revisionNumber !== null && { revisionNumber: input.revisionNumber }),
   };
 };
 
@@ -3729,15 +3733,15 @@ const serializeAws_json1_1GetSystemTemplateRevisionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.id !== undefined && { id: input.id }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.id !== undefined && input.id !== null && { id: input.id }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1GetUploadStatusRequest = (input: GetUploadStatusRequest, context: __SerdeContext): any => {
   return {
-    ...(input.uploadId !== undefined && { uploadId: input.uploadId }),
+    ...(input.uploadId !== undefined && input.uploadId !== null && { uploadId: input.uploadId }),
   };
 };
 
@@ -3746,9 +3750,10 @@ const serializeAws_json1_1ListFlowExecutionMessagesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.flowExecutionId !== undefined && { flowExecutionId: input.flowExecutionId }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.flowExecutionId !== undefined &&
+      input.flowExecutionId !== null && { flowExecutionId: input.flowExecutionId }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
@@ -3757,28 +3762,31 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
   };
 };
 
 const serializeAws_json1_1MetricsConfiguration = (input: MetricsConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.cloudMetricEnabled !== undefined && { cloudMetricEnabled: input.cloudMetricEnabled }),
-    ...(input.metricRuleRoleArn !== undefined && { metricRuleRoleArn: input.metricRuleRoleArn }),
+    ...(input.cloudMetricEnabled !== undefined &&
+      input.cloudMetricEnabled !== null && { cloudMetricEnabled: input.cloudMetricEnabled }),
+    ...(input.metricRuleRoleArn !== undefined &&
+      input.metricRuleRoleArn !== null && { metricRuleRoleArn: input.metricRuleRoleArn }),
   };
 };
 
 const serializeAws_json1_1SearchEntitiesRequest = (input: SearchEntitiesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.entityTypes !== undefined && {
-      entityTypes: serializeAws_json1_1EntityTypes(input.entityTypes, context),
-    }),
-    ...(input.filters !== undefined && { filters: serializeAws_json1_1EntityFilters(input.filters, context) }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.namespaceVersion !== undefined && { namespaceVersion: input.namespaceVersion }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.entityTypes !== undefined &&
+      input.entityTypes !== null && { entityTypes: serializeAws_json1_1EntityTypes(input.entityTypes, context) }),
+    ...(input.filters !== undefined &&
+      input.filters !== null && { filters: serializeAws_json1_1EntityFilters(input.filters, context) }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.namespaceVersion !== undefined &&
+      input.namespaceVersion !== null && { namespaceVersion: input.namespaceVersion }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
@@ -3787,12 +3795,16 @@ const serializeAws_json1_1SearchFlowExecutionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.endTime !== undefined && { endTime: Math.round(input.endTime.getTime() / 1000) }),
-    ...(input.flowExecutionId !== undefined && { flowExecutionId: input.flowExecutionId }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.startTime !== undefined && { startTime: Math.round(input.startTime.getTime() / 1000) }),
-    ...(input.systemInstanceId !== undefined && { systemInstanceId: input.systemInstanceId }),
+    ...(input.endTime !== undefined &&
+      input.endTime !== null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.flowExecutionId !== undefined &&
+      input.flowExecutionId !== null && { flowExecutionId: input.flowExecutionId }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.startTime !== undefined &&
+      input.startTime !== null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+    ...(input.systemInstanceId !== undefined &&
+      input.systemInstanceId !== null && { systemInstanceId: input.systemInstanceId }),
   };
 };
 
@@ -3801,9 +3813,10 @@ const serializeAws_json1_1SearchFlowTemplatesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filters !== undefined && { filters: serializeAws_json1_1FlowTemplateFilters(input.filters, context) }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.filters !== undefined &&
+      input.filters !== null && { filters: serializeAws_json1_1FlowTemplateFilters(input.filters, context) }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
@@ -3812,9 +3825,10 @@ const serializeAws_json1_1SearchSystemInstancesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filters !== undefined && { filters: serializeAws_json1_1SystemInstanceFilters(input.filters, context) }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.filters !== undefined &&
+      input.filters !== null && { filters: serializeAws_json1_1SystemInstanceFilters(input.filters, context) }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
@@ -3823,70 +3837,116 @@ const serializeAws_json1_1SearchSystemTemplatesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filters !== undefined && { filters: serializeAws_json1_1SystemTemplateFilters(input.filters, context) }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.filters !== undefined &&
+      input.filters !== null && { filters: serializeAws_json1_1SystemTemplateFilters(input.filters, context) }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1SearchThingsRequest = (input: SearchThingsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.entityId !== undefined && { entityId: input.entityId }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.namespaceVersion !== undefined && { namespaceVersion: input.namespaceVersion }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.entityId !== undefined && input.entityId !== null && { entityId: input.entityId }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.namespaceVersion !== undefined &&
+      input.namespaceVersion !== null && { namespaceVersion: input.namespaceVersion }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1SystemInstanceFilter = (input: SystemInstanceFilter, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.value !== undefined && { value: serializeAws_json1_1SystemInstanceFilterValues(input.value, context) }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.value !== undefined &&
+      input.value !== null && { value: serializeAws_json1_1SystemInstanceFilterValues(input.value, context) }),
   };
 };
 
 const serializeAws_json1_1SystemInstanceFilters = (input: SystemInstanceFilter[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1SystemInstanceFilter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1SystemInstanceFilter(entry, context);
+    });
 };
 
 const serializeAws_json1_1SystemInstanceFilterValues = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1SystemTemplateFilter = (input: SystemTemplateFilter, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.value !== undefined && { value: serializeAws_json1_1SystemTemplateFilterValues(input.value, context) }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.value !== undefined &&
+      input.value !== null && { value: serializeAws_json1_1SystemTemplateFilterValues(input.value, context) }),
   };
 };
 
 const serializeAws_json1_1SystemTemplateFilters = (input: SystemTemplateFilter[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1SystemTemplateFilter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1SystemTemplateFilter(entry, context);
+    });
 };
 
 const serializeAws_json1_1SystemTemplateFilterValues = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.key !== undefined && { key: input.key }),
-    ...(input.value !== undefined && { value: input.value }),
+    ...(input.key !== undefined && input.key !== null && { key: input.key }),
+    ...(input.value !== undefined && input.value !== null && { value: input.value }),
   };
 };
 
 const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
-    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
@@ -3895,14 +3955,15 @@ const serializeAws_json1_1UndeploySystemInstanceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.id !== undefined && { id: input.id }),
+    ...(input.id !== undefined && input.id !== null && { id: input.id }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys !== undefined && { tagKeys: serializeAws_json1_1TagKeyList(input.tagKeys, context) }),
+    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
+    ...(input.tagKeys !== undefined &&
+      input.tagKeys !== null && { tagKeys: serializeAws_json1_1TagKeyList(input.tagKeys, context) }),
   };
 };
 
@@ -3911,13 +3972,11 @@ const serializeAws_json1_1UpdateFlowTemplateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.compatibleNamespaceVersion !== undefined && {
-      compatibleNamespaceVersion: input.compatibleNamespaceVersion,
-    }),
-    ...(input.definition !== undefined && {
-      definition: serializeAws_json1_1DefinitionDocument(input.definition, context),
-    }),
-    ...(input.id !== undefined && { id: input.id }),
+    ...(input.compatibleNamespaceVersion !== undefined &&
+      input.compatibleNamespaceVersion !== null && { compatibleNamespaceVersion: input.compatibleNamespaceVersion }),
+    ...(input.definition !== undefined &&
+      input.definition !== null && { definition: serializeAws_json1_1DefinitionDocument(input.definition, context) }),
+    ...(input.id !== undefined && input.id !== null && { id: input.id }),
   };
 };
 
@@ -3926,13 +3985,11 @@ const serializeAws_json1_1UpdateSystemTemplateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.compatibleNamespaceVersion !== undefined && {
-      compatibleNamespaceVersion: input.compatibleNamespaceVersion,
-    }),
-    ...(input.definition !== undefined && {
-      definition: serializeAws_json1_1DefinitionDocument(input.definition, context),
-    }),
-    ...(input.id !== undefined && { id: input.id }),
+    ...(input.compatibleNamespaceVersion !== undefined &&
+      input.compatibleNamespaceVersion !== null && { compatibleNamespaceVersion: input.compatibleNamespaceVersion }),
+    ...(input.definition !== undefined &&
+      input.definition !== null && { definition: serializeAws_json1_1DefinitionDocument(input.definition, context) }),
+    ...(input.id !== undefined && input.id !== null && { id: input.id }),
   };
 };
 
@@ -3941,16 +3998,24 @@ const serializeAws_json1_1UploadEntityDefinitionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deprecateExistingEntities !== undefined && {
-      deprecateExistingEntities: input.deprecateExistingEntities,
-    }),
-    ...(input.document !== undefined && { document: serializeAws_json1_1DefinitionDocument(input.document, context) }),
-    ...(input.syncWithPublicNamespace !== undefined && { syncWithPublicNamespace: input.syncWithPublicNamespace }),
+    ...(input.deprecateExistingEntities !== undefined &&
+      input.deprecateExistingEntities !== null && { deprecateExistingEntities: input.deprecateExistingEntities }),
+    ...(input.document !== undefined &&
+      input.document !== null && { document: serializeAws_json1_1DefinitionDocument(input.document, context) }),
+    ...(input.syncWithPublicNamespace !== undefined &&
+      input.syncWithPublicNamespace !== null && { syncWithPublicNamespace: input.syncWithPublicNamespace }),
   };
 };
 
 const serializeAws_json1_1Urns = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1AssociateEntityToThingResponse = (
@@ -4044,7 +4109,14 @@ const deserializeAws_json1_1DependencyRevision = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1DependencyRevisions = (output: any, context: __SerdeContext): DependencyRevision[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DependencyRevision(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DependencyRevision(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DeploySystemInstanceResponse = (
@@ -4122,7 +4194,14 @@ const deserializeAws_json1_1EntityDescription = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1EntityDescriptions = (output: any, context: __SerdeContext): EntityDescription[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1EntityDescription(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EntityDescription(entry, context);
+    });
 };
 
 const deserializeAws_json1_1FlowExecutionMessage = (output: any, context: __SerdeContext): FlowExecutionMessage => {
@@ -4138,11 +4217,25 @@ const deserializeAws_json1_1FlowExecutionMessage = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1FlowExecutionMessages = (output: any, context: __SerdeContext): FlowExecutionMessage[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1FlowExecutionMessage(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FlowExecutionMessage(entry, context);
+    });
 };
 
 const deserializeAws_json1_1FlowExecutionSummaries = (output: any, context: __SerdeContext): FlowExecutionSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1FlowExecutionSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FlowExecutionSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1FlowExecutionSummary = (output: any, context: __SerdeContext): FlowExecutionSummary => {
@@ -4186,7 +4279,14 @@ const deserializeAws_json1_1FlowTemplateDescription = (
 };
 
 const deserializeAws_json1_1FlowTemplateSummaries = (output: any, context: __SerdeContext): FlowTemplateSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1FlowTemplateSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FlowTemplateSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1FlowTemplateSummary = (output: any, context: __SerdeContext): FlowTemplateSummary => {
@@ -4470,7 +4570,14 @@ const deserializeAws_json1_1SearchThingsResponse = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1SystemInstanceDescription = (
@@ -4510,7 +4617,14 @@ const deserializeAws_json1_1SystemInstanceSummaries = (
   output: any,
   context: __SerdeContext
 ): SystemInstanceSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1SystemInstanceSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1SystemInstanceSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1SystemInstanceSummary = (output: any, context: __SerdeContext): SystemInstanceSummary => {
@@ -4566,7 +4680,14 @@ const deserializeAws_json1_1SystemTemplateSummaries = (
   output: any,
   context: __SerdeContext
 ): SystemTemplateSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1SystemTemplateSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1SystemTemplateSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1SystemTemplateSummary = (output: any, context: __SerdeContext): SystemTemplateSummary => {
@@ -4590,7 +4711,14 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
@@ -4605,7 +4733,14 @@ const deserializeAws_json1_1Thing = (output: any, context: __SerdeContext): Thin
 };
 
 const deserializeAws_json1_1Things = (output: any, context: __SerdeContext): Thing[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Thing(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Thing(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
@@ -4713,3 +4848,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

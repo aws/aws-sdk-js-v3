@@ -213,7 +213,7 @@ export const serializeAws_json1_1AssociateResolverEndpointIpAddressCommand = asy
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.AssociateResolverEndpointIpAddress",
   };
   let body: any;
@@ -226,7 +226,7 @@ export const serializeAws_json1_1AssociateResolverQueryLogConfigCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.AssociateResolverQueryLogConfig",
   };
   let body: any;
@@ -239,7 +239,7 @@ export const serializeAws_json1_1AssociateResolverRuleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.AssociateResolverRule",
   };
   let body: any;
@@ -252,7 +252,7 @@ export const serializeAws_json1_1CreateResolverEndpointCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.CreateResolverEndpoint",
   };
   let body: any;
@@ -265,7 +265,7 @@ export const serializeAws_json1_1CreateResolverQueryLogConfigCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.CreateResolverQueryLogConfig",
   };
   let body: any;
@@ -278,7 +278,7 @@ export const serializeAws_json1_1CreateResolverRuleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.CreateResolverRule",
   };
   let body: any;
@@ -291,7 +291,7 @@ export const serializeAws_json1_1DeleteResolverEndpointCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.DeleteResolverEndpoint",
   };
   let body: any;
@@ -304,7 +304,7 @@ export const serializeAws_json1_1DeleteResolverQueryLogConfigCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.DeleteResolverQueryLogConfig",
   };
   let body: any;
@@ -317,7 +317,7 @@ export const serializeAws_json1_1DeleteResolverRuleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.DeleteResolverRule",
   };
   let body: any;
@@ -330,7 +330,7 @@ export const serializeAws_json1_1DisassociateResolverEndpointIpAddressCommand = 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.DisassociateResolverEndpointIpAddress",
   };
   let body: any;
@@ -343,7 +343,7 @@ export const serializeAws_json1_1DisassociateResolverQueryLogConfigCommand = asy
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.DisassociateResolverQueryLogConfig",
   };
   let body: any;
@@ -356,7 +356,7 @@ export const serializeAws_json1_1DisassociateResolverRuleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.DisassociateResolverRule",
   };
   let body: any;
@@ -369,7 +369,7 @@ export const serializeAws_json1_1GetResolverEndpointCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.GetResolverEndpoint",
   };
   let body: any;
@@ -382,7 +382,7 @@ export const serializeAws_json1_1GetResolverQueryLogConfigCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.GetResolverQueryLogConfig",
   };
   let body: any;
@@ -395,7 +395,7 @@ export const serializeAws_json1_1GetResolverQueryLogConfigAssociationCommand = a
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.GetResolverQueryLogConfigAssociation",
   };
   let body: any;
@@ -408,7 +408,7 @@ export const serializeAws_json1_1GetResolverQueryLogConfigPolicyCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.GetResolverQueryLogConfigPolicy",
   };
   let body: any;
@@ -421,7 +421,7 @@ export const serializeAws_json1_1GetResolverRuleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.GetResolverRule",
   };
   let body: any;
@@ -434,7 +434,7 @@ export const serializeAws_json1_1GetResolverRuleAssociationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.GetResolverRuleAssociation",
   };
   let body: any;
@@ -447,7 +447,7 @@ export const serializeAws_json1_1GetResolverRulePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.GetResolverRulePolicy",
   };
   let body: any;
@@ -460,7 +460,7 @@ export const serializeAws_json1_1ListResolverEndpointIpAddressesCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.ListResolverEndpointIpAddresses",
   };
   let body: any;
@@ -473,7 +473,7 @@ export const serializeAws_json1_1ListResolverEndpointsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.ListResolverEndpoints",
   };
   let body: any;
@@ -486,7 +486,7 @@ export const serializeAws_json1_1ListResolverQueryLogConfigAssociationsCommand =
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.ListResolverQueryLogConfigAssociations",
   };
   let body: any;
@@ -499,7 +499,7 @@ export const serializeAws_json1_1ListResolverQueryLogConfigsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.ListResolverQueryLogConfigs",
   };
   let body: any;
@@ -512,7 +512,7 @@ export const serializeAws_json1_1ListResolverRuleAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.ListResolverRuleAssociations",
   };
   let body: any;
@@ -525,7 +525,7 @@ export const serializeAws_json1_1ListResolverRulesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.ListResolverRules",
   };
   let body: any;
@@ -538,7 +538,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.ListTagsForResource",
   };
   let body: any;
@@ -551,7 +551,7 @@ export const serializeAws_json1_1PutResolverQueryLogConfigPolicyCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.PutResolverQueryLogConfigPolicy",
   };
   let body: any;
@@ -564,7 +564,7 @@ export const serializeAws_json1_1PutResolverRulePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.PutResolverRulePolicy",
   };
   let body: any;
@@ -577,7 +577,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.TagResource",
   };
   let body: any;
@@ -590,7 +590,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.UntagResource",
   };
   let body: any;
@@ -603,7 +603,7 @@ export const serializeAws_json1_1UpdateResolverEndpointCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.UpdateResolverEndpoint",
   };
   let body: any;
@@ -616,7 +616,7 @@ export const serializeAws_json1_1UpdateResolverRuleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Route53Resolver.UpdateResolverRule",
   };
   let body: any;
@@ -651,8 +651,7 @@ const deserializeAws_json1_1AssociateResolverEndpointIpAddressCommandError = asy
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
@@ -754,8 +753,7 @@ const deserializeAws_json1_1AssociateResolverQueryLogConfigCommandError = async 
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
@@ -865,8 +863,7 @@ const deserializeAws_json1_1AssociateResolverRuleCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
@@ -976,8 +973,7 @@ const deserializeAws_json1_1CreateResolverEndpointCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
@@ -1079,8 +1075,7 @@ const deserializeAws_json1_1CreateResolverQueryLogConfigCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
@@ -1190,8 +1185,7 @@ const deserializeAws_json1_1CreateResolverRuleCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
@@ -1301,8 +1295,7 @@ const deserializeAws_json1_1DeleteResolverEndpointCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
@@ -1388,8 +1381,7 @@ const deserializeAws_json1_1DeleteResolverQueryLogConfigCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
@@ -1483,8 +1475,7 @@ const deserializeAws_json1_1DeleteResolverRuleCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
@@ -1570,8 +1561,7 @@ const deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommandError = 
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
@@ -1665,8 +1655,7 @@ const deserializeAws_json1_1DisassociateResolverQueryLogConfigCommandError = asy
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
@@ -1760,8 +1749,7 @@ const deserializeAws_json1_1DisassociateResolverRuleCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
@@ -1839,8 +1827,7 @@ const deserializeAws_json1_1GetResolverEndpointCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
@@ -1918,8 +1905,7 @@ const deserializeAws_json1_1GetResolverQueryLogConfigCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
@@ -2013,8 +1999,7 @@ const deserializeAws_json1_1GetResolverQueryLogConfigAssociationCommandError = a
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
@@ -2108,8 +2093,7 @@ const deserializeAws_json1_1GetResolverQueryLogConfigPolicyCommandError = async 
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
@@ -2195,8 +2179,7 @@ const deserializeAws_json1_1GetResolverRuleCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
@@ -2274,8 +2257,7 @@ const deserializeAws_json1_1GetResolverRuleAssociationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
@@ -2353,8 +2335,7 @@ const deserializeAws_json1_1GetResolverRulePolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
@@ -2424,8 +2405,7 @@ const deserializeAws_json1_1ListResolverEndpointIpAddressesCommandError = async 
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
@@ -2511,8 +2491,7 @@ const deserializeAws_json1_1ListResolverEndpointsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
@@ -2598,8 +2577,7 @@ const deserializeAws_json1_1ListResolverQueryLogConfigAssociationsCommandError =
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
@@ -2693,8 +2671,7 @@ const deserializeAws_json1_1ListResolverQueryLogConfigsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
@@ -2788,8 +2765,7 @@ const deserializeAws_json1_1ListResolverRuleAssociationsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
@@ -2875,8 +2851,7 @@ const deserializeAws_json1_1ListResolverRulesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
@@ -2962,8 +2937,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
@@ -3057,8 +3031,7 @@ const deserializeAws_json1_1PutResolverQueryLogConfigPolicyCommandError = async 
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53resolver#AccessDeniedException":
@@ -3152,8 +3125,7 @@ const deserializeAws_json1_1PutResolverRulePolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
@@ -3231,8 +3203,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
@@ -3334,8 +3305,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
@@ -3421,8 +3391,7 @@ const deserializeAws_json1_1UpdateResolverEndpointCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
@@ -3508,8 +3477,7 @@ const deserializeAws_json1_1UpdateResolverRuleCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
@@ -3799,8 +3767,10 @@ const serializeAws_json1_1AssociateResolverEndpointIpAddressRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IpAddress !== undefined && { IpAddress: serializeAws_json1_1IpAddressUpdate(input.IpAddress, context) }),
-    ...(input.ResolverEndpointId !== undefined && { ResolverEndpointId: input.ResolverEndpointId }),
+    ...(input.IpAddress !== undefined &&
+      input.IpAddress !== null && { IpAddress: serializeAws_json1_1IpAddressUpdate(input.IpAddress, context) }),
+    ...(input.ResolverEndpointId !== undefined &&
+      input.ResolverEndpointId !== null && { ResolverEndpointId: input.ResolverEndpointId }),
   };
 };
 
@@ -3809,8 +3779,9 @@ const serializeAws_json1_1AssociateResolverQueryLogConfigRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResolverQueryLogConfigId !== undefined && { ResolverQueryLogConfigId: input.ResolverQueryLogConfigId }),
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
+    ...(input.ResolverQueryLogConfigId !== undefined &&
+      input.ResolverQueryLogConfigId !== null && { ResolverQueryLogConfigId: input.ResolverQueryLogConfigId }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -3819,9 +3790,10 @@ const serializeAws_json1_1AssociateResolverRuleRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.ResolverRuleId !== undefined && { ResolverRuleId: input.ResolverRuleId }),
-    ...(input.VPCId !== undefined && { VPCId: input.VPCId }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.ResolverRuleId !== undefined &&
+      input.ResolverRuleId !== null && { ResolverRuleId: input.ResolverRuleId }),
+    ...(input.VPCId !== undefined && input.VPCId !== null && { VPCId: input.VPCId }),
   };
 };
 
@@ -3830,16 +3802,19 @@ const serializeAws_json1_1CreateResolverEndpointRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CreatorRequestId !== undefined && { CreatorRequestId: input.CreatorRequestId }),
-    ...(input.Direction !== undefined && { Direction: input.Direction }),
-    ...(input.IpAddresses !== undefined && {
-      IpAddresses: serializeAws_json1_1IpAddressesRequest(input.IpAddresses, context),
-    }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.SecurityGroupIds !== undefined && {
-      SecurityGroupIds: serializeAws_json1_1SecurityGroupIds(input.SecurityGroupIds, context),
-    }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.CreatorRequestId !== undefined &&
+      input.CreatorRequestId !== null && { CreatorRequestId: input.CreatorRequestId }),
+    ...(input.Direction !== undefined && input.Direction !== null && { Direction: input.Direction }),
+    ...(input.IpAddresses !== undefined &&
+      input.IpAddresses !== null && {
+        IpAddresses: serializeAws_json1_1IpAddressesRequest(input.IpAddresses, context),
+      }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.SecurityGroupIds !== undefined &&
+      input.SecurityGroupIds !== null && {
+        SecurityGroupIds: serializeAws_json1_1SecurityGroupIds(input.SecurityGroupIds, context),
+      }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -3849,9 +3824,10 @@ const serializeAws_json1_1CreateResolverQueryLogConfigRequest = (
 ): any => {
   return {
     CreatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
-    ...(input.DestinationArn !== undefined && { DestinationArn: input.DestinationArn }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.DestinationArn !== undefined &&
+      input.DestinationArn !== null && { DestinationArn: input.DestinationArn }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -3860,13 +3836,16 @@ const serializeAws_json1_1CreateResolverRuleRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CreatorRequestId !== undefined && { CreatorRequestId: input.CreatorRequestId }),
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.ResolverEndpointId !== undefined && { ResolverEndpointId: input.ResolverEndpointId }),
-    ...(input.RuleType !== undefined && { RuleType: input.RuleType }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.TargetIps !== undefined && { TargetIps: serializeAws_json1_1TargetList(input.TargetIps, context) }),
+    ...(input.CreatorRequestId !== undefined &&
+      input.CreatorRequestId !== null && { CreatorRequestId: input.CreatorRequestId }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.ResolverEndpointId !== undefined &&
+      input.ResolverEndpointId !== null && { ResolverEndpointId: input.ResolverEndpointId }),
+    ...(input.RuleType !== undefined && input.RuleType !== null && { RuleType: input.RuleType }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.TargetIps !== undefined &&
+      input.TargetIps !== null && { TargetIps: serializeAws_json1_1TargetList(input.TargetIps, context) }),
   };
 };
 
@@ -3875,7 +3854,8 @@ const serializeAws_json1_1DeleteResolverEndpointRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResolverEndpointId !== undefined && { ResolverEndpointId: input.ResolverEndpointId }),
+    ...(input.ResolverEndpointId !== undefined &&
+      input.ResolverEndpointId !== null && { ResolverEndpointId: input.ResolverEndpointId }),
   };
 };
 
@@ -3884,7 +3864,8 @@ const serializeAws_json1_1DeleteResolverQueryLogConfigRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResolverQueryLogConfigId !== undefined && { ResolverQueryLogConfigId: input.ResolverQueryLogConfigId }),
+    ...(input.ResolverQueryLogConfigId !== undefined &&
+      input.ResolverQueryLogConfigId !== null && { ResolverQueryLogConfigId: input.ResolverQueryLogConfigId }),
   };
 };
 
@@ -3893,7 +3874,8 @@ const serializeAws_json1_1DeleteResolverRuleRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResolverRuleId !== undefined && { ResolverRuleId: input.ResolverRuleId }),
+    ...(input.ResolverRuleId !== undefined &&
+      input.ResolverRuleId !== null && { ResolverRuleId: input.ResolverRuleId }),
   };
 };
 
@@ -3902,8 +3884,10 @@ const serializeAws_json1_1DisassociateResolverEndpointIpAddressRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IpAddress !== undefined && { IpAddress: serializeAws_json1_1IpAddressUpdate(input.IpAddress, context) }),
-    ...(input.ResolverEndpointId !== undefined && { ResolverEndpointId: input.ResolverEndpointId }),
+    ...(input.IpAddress !== undefined &&
+      input.IpAddress !== null && { IpAddress: serializeAws_json1_1IpAddressUpdate(input.IpAddress, context) }),
+    ...(input.ResolverEndpointId !== undefined &&
+      input.ResolverEndpointId !== null && { ResolverEndpointId: input.ResolverEndpointId }),
   };
 };
 
@@ -3912,8 +3896,9 @@ const serializeAws_json1_1DisassociateResolverQueryLogConfigRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResolverQueryLogConfigId !== undefined && { ResolverQueryLogConfigId: input.ResolverQueryLogConfigId }),
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
+    ...(input.ResolverQueryLogConfigId !== undefined &&
+      input.ResolverQueryLogConfigId !== null && { ResolverQueryLogConfigId: input.ResolverQueryLogConfigId }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -3922,24 +3907,40 @@ const serializeAws_json1_1DisassociateResolverRuleRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResolverRuleId !== undefined && { ResolverRuleId: input.ResolverRuleId }),
-    ...(input.VPCId !== undefined && { VPCId: input.VPCId }),
+    ...(input.ResolverRuleId !== undefined &&
+      input.ResolverRuleId !== null && { ResolverRuleId: input.ResolverRuleId }),
+    ...(input.VPCId !== undefined && input.VPCId !== null && { VPCId: input.VPCId }),
   };
 };
 
 const serializeAws_json1_1Filter = (input: Filter, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Values !== undefined && { Values: serializeAws_json1_1FilterValues(input.Values, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Values !== undefined &&
+      input.Values !== null && { Values: serializeAws_json1_1FilterValues(input.Values, context) }),
   };
 };
 
 const serializeAws_json1_1Filters = (input: Filter[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Filter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Filter(entry, context);
+    });
 };
 
 const serializeAws_json1_1FilterValues = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1GetResolverEndpointRequest = (
@@ -3947,7 +3948,8 @@ const serializeAws_json1_1GetResolverEndpointRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResolverEndpointId !== undefined && { ResolverEndpointId: input.ResolverEndpointId }),
+    ...(input.ResolverEndpointId !== undefined &&
+      input.ResolverEndpointId !== null && { ResolverEndpointId: input.ResolverEndpointId }),
   };
 };
 
@@ -3956,9 +3958,10 @@ const serializeAws_json1_1GetResolverQueryLogConfigAssociationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResolverQueryLogConfigAssociationId !== undefined && {
-      ResolverQueryLogConfigAssociationId: input.ResolverQueryLogConfigAssociationId,
-    }),
+    ...(input.ResolverQueryLogConfigAssociationId !== undefined &&
+      input.ResolverQueryLogConfigAssociationId !== null && {
+        ResolverQueryLogConfigAssociationId: input.ResolverQueryLogConfigAssociationId,
+      }),
   };
 };
 
@@ -3967,7 +3970,7 @@ const serializeAws_json1_1GetResolverQueryLogConfigPolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Arn !== undefined && { Arn: input.Arn }),
+    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
   };
 };
 
@@ -3976,7 +3979,8 @@ const serializeAws_json1_1GetResolverQueryLogConfigRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResolverQueryLogConfigId !== undefined && { ResolverQueryLogConfigId: input.ResolverQueryLogConfigId }),
+    ...(input.ResolverQueryLogConfigId !== undefined &&
+      input.ResolverQueryLogConfigId !== null && { ResolverQueryLogConfigId: input.ResolverQueryLogConfigId }),
   };
 };
 
@@ -3985,9 +3989,8 @@ const serializeAws_json1_1GetResolverRuleAssociationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResolverRuleAssociationId !== undefined && {
-      ResolverRuleAssociationId: input.ResolverRuleAssociationId,
-    }),
+    ...(input.ResolverRuleAssociationId !== undefined &&
+      input.ResolverRuleAssociationId !== null && { ResolverRuleAssociationId: input.ResolverRuleAssociationId }),
   };
 };
 
@@ -3996,32 +3999,40 @@ const serializeAws_json1_1GetResolverRulePolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Arn !== undefined && { Arn: input.Arn }),
+    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
   };
 };
 
 const serializeAws_json1_1GetResolverRuleRequest = (input: GetResolverRuleRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResolverRuleId !== undefined && { ResolverRuleId: input.ResolverRuleId }),
+    ...(input.ResolverRuleId !== undefined &&
+      input.ResolverRuleId !== null && { ResolverRuleId: input.ResolverRuleId }),
   };
 };
 
 const serializeAws_json1_1IpAddressesRequest = (input: IpAddressRequest[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1IpAddressRequest(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1IpAddressRequest(entry, context);
+    });
 };
 
 const serializeAws_json1_1IpAddressRequest = (input: IpAddressRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Ip !== undefined && { Ip: input.Ip }),
-    ...(input.SubnetId !== undefined && { SubnetId: input.SubnetId }),
+    ...(input.Ip !== undefined && input.Ip !== null && { Ip: input.Ip }),
+    ...(input.SubnetId !== undefined && input.SubnetId !== null && { SubnetId: input.SubnetId }),
   };
 };
 
 const serializeAws_json1_1IpAddressUpdate = (input: IpAddressUpdate, context: __SerdeContext): any => {
   return {
-    ...(input.Ip !== undefined && { Ip: input.Ip }),
-    ...(input.IpId !== undefined && { IpId: input.IpId }),
-    ...(input.SubnetId !== undefined && { SubnetId: input.SubnetId }),
+    ...(input.Ip !== undefined && input.Ip !== null && { Ip: input.Ip }),
+    ...(input.IpId !== undefined && input.IpId !== null && { IpId: input.IpId }),
+    ...(input.SubnetId !== undefined && input.SubnetId !== null && { SubnetId: input.SubnetId }),
   };
 };
 
@@ -4030,9 +4041,10 @@ const serializeAws_json1_1ListResolverEndpointIpAddressesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ResolverEndpointId !== undefined && { ResolverEndpointId: input.ResolverEndpointId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ResolverEndpointId !== undefined &&
+      input.ResolverEndpointId !== null && { ResolverEndpointId: input.ResolverEndpointId }),
   };
 };
 
@@ -4041,9 +4053,10 @@ const serializeAws_json1_1ListResolverEndpointsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4052,11 +4065,12 @@ const serializeAws_json1_1ListResolverQueryLogConfigAssociationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.SortBy !== undefined && { SortBy: input.SortBy }),
-    ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.SortBy !== undefined && input.SortBy !== null && { SortBy: input.SortBy }),
+    ...(input.SortOrder !== undefined && input.SortOrder !== null && { SortOrder: input.SortOrder }),
   };
 };
 
@@ -4065,11 +4079,12 @@ const serializeAws_json1_1ListResolverQueryLogConfigsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.SortBy !== undefined && { SortBy: input.SortBy }),
-    ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.SortBy !== undefined && input.SortBy !== null && { SortBy: input.SortBy }),
+    ...(input.SortOrder !== undefined && input.SortOrder !== null && { SortOrder: input.SortOrder }),
   };
 };
 
@@ -4078,9 +4093,10 @@ const serializeAws_json1_1ListResolverRuleAssociationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4089,9 +4105,10 @@ const serializeAws_json1_1ListResolverRulesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4100,9 +4117,9 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
   };
 };
 
@@ -4111,10 +4128,11 @@ const serializeAws_json1_1PutResolverQueryLogConfigPolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Arn !== undefined && { Arn: input.Arn }),
-    ...(input.ResolverQueryLogConfigPolicy !== undefined && {
-      ResolverQueryLogConfigPolicy: input.ResolverQueryLogConfigPolicy,
-    }),
+    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
+    ...(input.ResolverQueryLogConfigPolicy !== undefined &&
+      input.ResolverQueryLogConfigPolicy !== null && {
+        ResolverQueryLogConfigPolicy: input.ResolverQueryLogConfigPolicy,
+      }),
   };
 };
 
@@ -4123,60 +4141,92 @@ const serializeAws_json1_1PutResolverRulePolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Arn !== undefined && { Arn: input.Arn }),
-    ...(input.ResolverRulePolicy !== undefined && { ResolverRulePolicy: input.ResolverRulePolicy }),
+    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
+    ...(input.ResolverRulePolicy !== undefined &&
+      input.ResolverRulePolicy !== null && { ResolverRulePolicy: input.ResolverRulePolicy }),
   };
 };
 
 const serializeAws_json1_1ResolverRuleConfig = (input: ResolverRuleConfig, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.ResolverEndpointId !== undefined && { ResolverEndpointId: input.ResolverEndpointId }),
-    ...(input.TargetIps !== undefined && { TargetIps: serializeAws_json1_1TargetList(input.TargetIps, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.ResolverEndpointId !== undefined &&
+      input.ResolverEndpointId !== null && { ResolverEndpointId: input.ResolverEndpointId }),
+    ...(input.TargetIps !== undefined &&
+      input.TargetIps !== null && { TargetIps: serializeAws_json1_1TargetList(input.TargetIps, context) }),
   };
 };
 
 const serializeAws_json1_1SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1TargetAddress = (input: TargetAddress, context: __SerdeContext): any => {
   return {
-    ...(input.Ip !== undefined && { Ip: input.Ip }),
-    ...(input.Port !== undefined && { Port: input.Port }),
+    ...(input.Ip !== undefined && input.Ip !== null && { Ip: input.Ip }),
+    ...(input.Port !== undefined && input.Port !== null && { Port: input.Port }),
   };
 };
 
 const serializeAws_json1_1TargetList = (input: TargetAddress[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1TargetAddress(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1TargetAddress(entry, context);
+    });
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -4185,8 +4235,9 @@ const serializeAws_json1_1UpdateResolverEndpointRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.ResolverEndpointId !== undefined && { ResolverEndpointId: input.ResolverEndpointId }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.ResolverEndpointId !== undefined &&
+      input.ResolverEndpointId !== null && { ResolverEndpointId: input.ResolverEndpointId }),
   };
 };
 
@@ -4195,8 +4246,10 @@ const serializeAws_json1_1UpdateResolverRuleRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Config !== undefined && { Config: serializeAws_json1_1ResolverRuleConfig(input.Config, context) }),
-    ...(input.ResolverRuleId !== undefined && { ResolverRuleId: input.ResolverRuleId }),
+    ...(input.Config !== undefined &&
+      input.Config !== null && { Config: serializeAws_json1_1ResolverRuleConfig(input.Config, context) }),
+    ...(input.ResolverRuleId !== undefined &&
+      input.ResolverRuleId !== null && { ResolverRuleId: input.ResolverRuleId }),
   };
 };
 
@@ -4484,7 +4537,14 @@ const deserializeAws_json1_1InvalidTagException = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1IpAddressesResponse = (output: any, context: __SerdeContext): IpAddressResponse[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1IpAddressResponse(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1IpAddressResponse(entry, context);
+    });
 };
 
 const deserializeAws_json1_1IpAddressResponse = (output: any, context: __SerdeContext): IpAddressResponse => {
@@ -4659,7 +4719,14 @@ const deserializeAws_json1_1ResolverEndpoint = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1ResolverEndpoints = (output: any, context: __SerdeContext): ResolverEndpoint[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ResolverEndpoint(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ResolverEndpoint(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ResolverQueryLogConfig = (output: any, context: __SerdeContext): ResolverQueryLogConfig => {
@@ -4702,14 +4769,28 @@ const deserializeAws_json1_1ResolverQueryLogConfigAssociationList = (
   output: any,
   context: __SerdeContext
 ): ResolverQueryLogConfigAssociation[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ResolverQueryLogConfigAssociation(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ResolverQueryLogConfigAssociation(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ResolverQueryLogConfigList = (
   output: any,
   context: __SerdeContext
 ): ResolverQueryLogConfig[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ResolverQueryLogConfig(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ResolverQueryLogConfig(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ResolverRule = (output: any, context: __SerdeContext): ResolverRule => {
@@ -4760,11 +4841,25 @@ const deserializeAws_json1_1ResolverRuleAssociations = (
   output: any,
   context: __SerdeContext
 ): ResolverRuleAssociation[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ResolverRuleAssociation(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ResolverRuleAssociation(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ResolverRules = (output: any, context: __SerdeContext): ResolverRule[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ResolverRule(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ResolverRule(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ResourceExistsException = (
@@ -4805,7 +4900,14 @@ const deserializeAws_json1_1ResourceUnavailableException = (
 };
 
 const deserializeAws_json1_1SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -4816,7 +4918,14 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
@@ -4831,7 +4940,14 @@ const deserializeAws_json1_1TargetAddress = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1TargetList = (output: any, context: __SerdeContext): TargetAddress[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1TargetAddress(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TargetAddress(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
@@ -4927,3 +5043,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};
