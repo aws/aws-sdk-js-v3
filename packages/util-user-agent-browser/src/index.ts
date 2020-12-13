@@ -1,20 +1,22 @@
 import { Provider, UserAgent } from "@aws-sdk/types";
 import { parse } from "bowser";
 
+import { DefaultUserAgentOptions } from "./configurations";
+
 /**
  * Default provider to the user agent in browsers. It's a best effort to infer
  * the device information. It uses bowser library to detect the browser and virsion
  */
-export const defaultUserAgent = (packageName: string, packageVersion: string): Provider<UserAgent> => {
+export const defaultUserAgent = ({
+  serviceId,
+  clientVersion,
+}: DefaultUserAgentOptions): Provider<UserAgent> => async () => {
   // TODO: remove this post GA and version changed to 3.x.x
-  const version = packageVersion.replace(/^1\./, "3.");
+  clientVersion = clientVersion.replace(/^1\./, "3.");
   const parsedUA = window?.navigator?.userAgent ? parse(window.navigator.userAgent) : undefined;
-  return async () => [
+  const sections: UserAgent = [
     // sdk-metadata
-    ["aws-sdk-js", version],
-    // api-metadata
-    // TODO: use api name instead of package name
-    [`api/${packageName}`, version],
+    ["aws-sdk-js", clientVersion],
     // os-metadata
     [`os/${parsedUA?.os?.name || "other"}`, parsedUA?.os?.version],
     // language-metadata
@@ -23,4 +25,12 @@ export const defaultUserAgent = (packageName: string, packageVersion: string): P
     // browser vendor and version.
     ["md/browser", `${parsedUA?.browser?.name ?? "unknown"}_${parsedUA?.browser?.version ?? "unknown"}`],
   ];
+
+  if (serviceId) {
+    // api-metadata
+    // service Id may not appear in non-AWS clients
+    sections.push([`api/${serviceId}`, clientVersion]);
+  }
+
+  return sections;
 };

@@ -6,15 +6,23 @@ import { env, versions } from "process";
 export const UA_APP_ID_ENV_NAME = "AWS_SDK_UA_APP_ID";
 export const UA_APP_ID_INI_NAME = "sdk-ua-app-id";
 
-export const defaultUserAgent = (packageName: string, packageVersion: string): Provider<UserAgent> => {
+interface DefaultUserAgentOptions {
+  serviceId?: string;
+  clientVersion: string;
+}
+
+/**
+ * Collect metrics from runtime to put into user agent.
+ */
+export const defaultUserAgent = ({
+  serviceId,
+  clientVersion,
+}: DefaultUserAgentOptions): Provider<UserAgent> => async () => {
   // TODO: remove this post GA and version changed to 3.x.x
-  const version = packageVersion.replace(/^1\./, "3.");
+  clientVersion = clientVersion.replace(/^1\./, "3.");
   const sections: UserAgent = [
     // sdk-metadata
-    ["aws-sdk-js", version],
-    // api-metadata
-    // TODO: use api name instead of package name
-    [`api/${packageName}`, version],
+    ["aws-sdk-js", clientVersion],
     // os-metadata
     [`os/${platform()}`, release()],
     // language-metadata
@@ -22,19 +30,26 @@ export const defaultUserAgent = (packageName: string, packageVersion: string): P
     ["lang/js"],
     ["md/nodejs", `${versions.node}`],
   ];
+
+  if (serviceId) {
+    // api-metadata
+    // service Id may not appear in non-AWS clients
+    sections.push([`api/${serviceId}`, clientVersion]);
+  }
+
   if (env.AWS_EXECUTION_ENV) {
     // env-metadata
     sections.push([`exec-env/${env.AWS_EXECUTION_ENV}`]);
   }
-  return async () => {
-    const appId = await loadConfig<string | undefined>({
-      environmentVariableSelector: (env) => env[UA_APP_ID_ENV_NAME],
-      configFileSelector: (profile) => profile[UA_APP_ID_INI_NAME],
-      default: undefined,
-    })();
-    if (appId) {
-      sections.push([`app/${appId}`]);
-    }
-    return sections;
-  };
+
+  const appId = await loadConfig<string | undefined>({
+    environmentVariableSelector: (env) => env[UA_APP_ID_ENV_NAME],
+    configFileSelector: (profile) => profile[UA_APP_ID_INI_NAME],
+    default: undefined,
+  })();
+  if (appId) {
+    sections.push([`app/${appId}`]);
+  }
+
+  return sections;
 };
