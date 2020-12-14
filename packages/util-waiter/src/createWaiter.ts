@@ -35,7 +35,7 @@ export const createWaiter = async <Client extends SmithyClient, Input>(
   };
   validateWaiterOptions(params);
 
-  const exitConditions = [waiterTimeout(params.maxWaitTime), runPolling<Client, Input>(params, input, acceptorChecks)];
+  const exitConditions = [runPolling<Client, Input>(params, input, acceptorChecks)];
   if (options.abortController) {
     exitConditions.push(abortTimeout(options.abortController.signal));
   }

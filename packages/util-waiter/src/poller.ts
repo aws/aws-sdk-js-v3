@@ -30,15 +30,15 @@ export const runPolling = async <T extends SmithyClient, S>(
   // Pre-compute this number to avoid Number type overflow.
   const attemptCeiling = Math.log(maxDelay / minDelay) / Math.log(2) + 1;
   while (true) {
-    // Resolve the promise explicitly at timeout or aborted. Otherwise this while loop will keep making API call until
-    // `acceptorCheck` returns non-retry status, even with the Promise.race() outside.
-    if (Date.now() > waitUntil) {
-      return { state: WaiterState.TIMEOUT };
-    }
     if (abortController?.signal?.aborted) {
       return { state: WaiterState.ABORTED };
     }
     const delay = exponentialBackoffWithJitter(minDelay, maxDelay, attemptCeiling, currentAttempt);
+    // Resolve the promise explicitly at timeout or aborted. Otherwise this while loop will keep making API call until
+    // `acceptorCheck` returns non-retry status, even with the Promise.race() outside.
+    if (Date.now() + delay * 1000 > waitUntil) {
+      return { state: WaiterState.TIMEOUT };
+    }
     await sleep(delay);
     const { state } = await acceptorChecks(client, input);
     if (state !== WaiterState.RETRY) {

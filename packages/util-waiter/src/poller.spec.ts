@@ -87,7 +87,7 @@ describe(runPolling.name, () => {
     expect(sleep).toHaveBeenNthCalledWith(7, 30); // max delay
   });
 
-  it("resolves when maxWaitTime is reached", async () => {
+  it("resolves after the last attempt before reaching maxWaitTime ", async () => {
     let now = Date.now();
     const delay = 2;
     const nowMock = jest
@@ -108,7 +108,7 @@ describe(runPolling.name, () => {
     mockAcceptorChecks = jest.fn().mockResolvedValue(retryState);
     await expect(runPolling(localConfig, input, mockAcceptorChecks)).resolves.toStrictEqual(timeoutState);
     expect(sleep).toHaveBeenCalled();
-    expect(sleep).toHaveBeenCalledTimes(3);
+    expect(sleep).toHaveBeenCalledTimes(2);
     nowMock.mockReset();
   });
 

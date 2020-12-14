@@ -37,23 +37,6 @@ describe("createWaiter", () => {
   const successState = {
     state: WaiterState.SUCCESS,
   };
-  const timeoutState = {
-    state: WaiterState.TIMEOUT,
-  };
-
-  it("should timeout when maxTimeout is reached", async () => {
-    const mockAcceptorChecks = jest.fn().mockResolvedValue(retryState);
-    const statusPromise = createWaiter(
-      {
-        ...minimalWaiterConfig,
-        maxWaitTime: 20,
-      },
-      input,
-      mockAcceptorChecks
-    );
-    jest.advanceTimersByTime(20 * 1000);
-    expect(await statusPromise).toEqual(timeoutState);
-  });
 
   it("should abort when abortController is signalled", async () => {
     const abortController = new AbortController();
