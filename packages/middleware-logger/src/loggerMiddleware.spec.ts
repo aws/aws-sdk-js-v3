@@ -35,6 +35,8 @@ describe("loggerMiddleware", () => {
     $metadata: {
       statusCode: 200,
       requestId: "requestId",
+      attempts: 2,
+      totalRetryDelay: 350,
     },
     outputKey: "outputValue",
   };
@@ -108,6 +110,10 @@ describe("loggerMiddleware", () => {
         commandName,
         input: mockInputLog,
         output: mockOutputLog,
+        retry: {
+          attempts: $metadata.attempts,
+          totalDelay: $metadata.totalRetryDelay,
+        },
         metadata: {
           statusCode: mockResponse.response.statusCode,
           requestId: mockResponse.response.headers["x-amzn-requestid"],
@@ -148,6 +154,10 @@ describe("loggerMiddleware", () => {
       expect(logger.info).toHaveBeenCalledWith({
         input: mockArgs.input,
         output: outputWithoutMetadata,
+        retry: {
+          attempts: $metadata.attempts,
+          totalDelay: $metadata.totalRetryDelay,
+        },
         metadata: {
           statusCode: customResponse.response.statusCode,
           requestId: requestIdBackup,
