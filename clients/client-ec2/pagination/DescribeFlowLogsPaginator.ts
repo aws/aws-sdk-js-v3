@@ -35,7 +35,7 @@ export async function* paginateDescribeFlowLogs(
   input: DescribeFlowLogsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeFlowLogsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeFlowLogsCommandOutput;
   while (hasNext) {

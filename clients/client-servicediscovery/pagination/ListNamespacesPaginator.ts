@@ -35,7 +35,7 @@ export async function* paginateListNamespaces(
   input: ListNamespacesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListNamespacesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListNamespacesCommandOutput;
   while (hasNext) {

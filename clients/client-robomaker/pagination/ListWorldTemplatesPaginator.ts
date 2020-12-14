@@ -35,7 +35,7 @@ export async function* paginateListWorldTemplates(
   input: ListWorldTemplatesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListWorldTemplatesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListWorldTemplatesCommandOutput;
   while (hasNext) {

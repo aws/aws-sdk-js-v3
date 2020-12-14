@@ -35,7 +35,7 @@ export async function* paginateDescribeClusterParameters(
   input: DescribeClusterParametersCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeClusterParametersCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeClusterParametersCommandOutput;
   while (hasNext) {

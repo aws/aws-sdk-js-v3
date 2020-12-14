@@ -35,7 +35,7 @@ export async function* paginateListNotificationChannels(
   input: ListNotificationChannelsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListNotificationChannelsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListNotificationChannelsCommandOutput;
   while (hasNext) {

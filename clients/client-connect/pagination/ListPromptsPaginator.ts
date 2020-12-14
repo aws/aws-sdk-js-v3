@@ -31,7 +31,7 @@ export async function* paginateListPrompts(
   input: ListPromptsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListPromptsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListPromptsCommandOutput;
   while (hasNext) {

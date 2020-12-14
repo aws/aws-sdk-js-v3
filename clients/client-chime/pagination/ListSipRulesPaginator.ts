@@ -35,7 +35,7 @@ export async function* paginateListSipRules(
   input: ListSipRulesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSipRulesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSipRulesCommandOutput;
   while (hasNext) {

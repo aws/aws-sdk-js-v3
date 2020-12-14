@@ -35,7 +35,7 @@ export async function* paginateListComplianceItems(
   input: ListComplianceItemsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListComplianceItemsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListComplianceItemsCommandOutput;
   while (hasNext) {

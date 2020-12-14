@@ -35,7 +35,7 @@ export async function* paginateListAssociatedAttributeGroups(
   input: ListAssociatedAttributeGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAssociatedAttributeGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAssociatedAttributeGroupsCommandOutput;
   while (hasNext) {

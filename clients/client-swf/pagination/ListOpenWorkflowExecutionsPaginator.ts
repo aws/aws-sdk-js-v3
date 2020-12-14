@@ -35,7 +35,7 @@ export async function* paginateListOpenWorkflowExecutions(
   input: ListOpenWorkflowExecutionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListOpenWorkflowExecutionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextPageToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListOpenWorkflowExecutionsCommandOutput;
   while (hasNext) {

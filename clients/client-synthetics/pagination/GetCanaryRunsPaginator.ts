@@ -35,7 +35,7 @@ export async function* paginateGetCanaryRuns(
   input: GetCanaryRunsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetCanaryRunsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetCanaryRunsCommandOutput;
   while (hasNext) {

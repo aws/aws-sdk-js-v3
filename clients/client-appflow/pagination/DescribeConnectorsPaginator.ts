@@ -35,7 +35,7 @@ export async function* paginateDescribeConnectors(
   input: DescribeConnectorsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeConnectorsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeConnectorsCommandOutput;
   while (hasNext) {

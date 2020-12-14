@@ -35,7 +35,7 @@ export async function* paginateGetDelegations(
   input: GetDelegationsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetDelegationsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetDelegationsCommandOutput;
   while (hasNext) {

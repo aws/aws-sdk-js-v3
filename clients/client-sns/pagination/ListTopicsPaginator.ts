@@ -31,7 +31,7 @@ export async function* paginateListTopics(
   input: ListTopicsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTopicsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTopicsCommandOutput;
   while (hasNext) {

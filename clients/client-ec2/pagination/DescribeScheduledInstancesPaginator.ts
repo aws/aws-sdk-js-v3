@@ -35,7 +35,7 @@ export async function* paginateDescribeScheduledInstances(
   input: DescribeScheduledInstancesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeScheduledInstancesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeScheduledInstancesCommandOutput;
   while (hasNext) {

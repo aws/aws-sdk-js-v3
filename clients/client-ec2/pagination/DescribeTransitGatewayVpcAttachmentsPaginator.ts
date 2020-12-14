@@ -35,7 +35,7 @@ export async function* paginateDescribeTransitGatewayVpcAttachments(
   input: DescribeTransitGatewayVpcAttachmentsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeTransitGatewayVpcAttachmentsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeTransitGatewayVpcAttachmentsCommandOutput;
   while (hasNext) {

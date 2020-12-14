@@ -35,7 +35,7 @@ export async function* paginateDescribeNetworkInterfaces(
   input: DescribeNetworkInterfacesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeNetworkInterfacesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeNetworkInterfacesCommandOutput;
   while (hasNext) {

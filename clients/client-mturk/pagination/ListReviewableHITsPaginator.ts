@@ -35,7 +35,7 @@ export async function* paginateListReviewableHITs(
   input: ListReviewableHITsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListReviewableHITsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListReviewableHITsCommandOutput;
   while (hasNext) {

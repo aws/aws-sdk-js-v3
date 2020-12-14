@@ -35,7 +35,7 @@ export async function* paginateListControls(
   input: ListControlsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListControlsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListControlsCommandOutput;
   while (hasNext) {

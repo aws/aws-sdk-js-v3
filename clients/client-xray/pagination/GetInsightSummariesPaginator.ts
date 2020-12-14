@@ -35,7 +35,7 @@ export async function* paginateGetInsightSummaries(
   input: GetInsightSummariesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetInsightSummariesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetInsightSummariesCommandOutput;
   while (hasNext) {

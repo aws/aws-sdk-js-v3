@@ -31,7 +31,7 @@ export async function* paginateListTags(
   input: ListTagsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTagsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTagsCommandOutput;
   while (hasNext) {

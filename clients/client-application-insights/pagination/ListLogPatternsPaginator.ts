@@ -35,7 +35,7 @@ export async function* paginateListLogPatterns(
   input: ListLogPatternsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListLogPatternsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListLogPatternsCommandOutput;
   while (hasNext) {

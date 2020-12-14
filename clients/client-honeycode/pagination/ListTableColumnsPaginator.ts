@@ -35,7 +35,7 @@ export async function* paginateListTableColumns(
   input: ListTableColumnsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTableColumnsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTableColumnsCommandOutput;
   while (hasNext) {

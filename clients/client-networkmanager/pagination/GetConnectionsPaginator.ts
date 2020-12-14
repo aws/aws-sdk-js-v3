@@ -35,7 +35,7 @@ export async function* paginateGetConnections(
   input: GetConnectionsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetConnectionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetConnectionsCommandOutput;
   while (hasNext) {

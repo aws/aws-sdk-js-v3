@@ -35,7 +35,7 @@ export async function* paginateQueryTableRows(
   input: QueryTableRowsCommandInput,
   ...additionalArguments: any
 ): Paginator<QueryTableRowsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: QueryTableRowsCommandOutput;
   while (hasNext) {

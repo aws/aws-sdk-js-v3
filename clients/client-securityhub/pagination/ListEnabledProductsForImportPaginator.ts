@@ -35,7 +35,7 @@ export async function* paginateListEnabledProductsForImport(
   input: ListEnabledProductsForImportCommandInput,
   ...additionalArguments: any
 ): Paginator<ListEnabledProductsForImportCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListEnabledProductsForImportCommandOutput;
   while (hasNext) {

@@ -35,7 +35,7 @@ export async function* paginateDescribeServers(
   input: DescribeServersCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeServersCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeServersCommandOutput;
   while (hasNext) {

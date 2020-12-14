@@ -35,7 +35,7 @@ export async function* paginateListRoutingProfiles(
   input: ListRoutingProfilesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListRoutingProfilesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListRoutingProfilesCommandOutput;
   while (hasNext) {

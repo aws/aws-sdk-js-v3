@@ -35,7 +35,7 @@ export async function* paginateDescribePendingMaintenanceActions(
   input: DescribePendingMaintenanceActionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribePendingMaintenanceActionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribePendingMaintenanceActionsCommandOutput;
   while (hasNext) {

@@ -35,7 +35,7 @@ export async function* paginateListProfileTimes(
   input: ListProfileTimesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListProfileTimesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListProfileTimesCommandOutput;
   while (hasNext) {

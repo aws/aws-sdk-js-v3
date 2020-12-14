@@ -35,7 +35,7 @@ export async function* paginateListPackageVersions(
   input: ListPackageVersionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListPackageVersionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListPackageVersionsCommandOutput;
   while (hasNext) {

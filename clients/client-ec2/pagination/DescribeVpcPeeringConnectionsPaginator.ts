@@ -35,7 +35,7 @@ export async function* paginateDescribeVpcPeeringConnections(
   input: DescribeVpcPeeringConnectionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeVpcPeeringConnectionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeVpcPeeringConnectionsCommandOutput;
   while (hasNext) {

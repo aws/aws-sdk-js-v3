@@ -35,7 +35,7 @@ export async function* paginateDescribeMaintenanceWindowTasks(
   input: DescribeMaintenanceWindowTasksCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeMaintenanceWindowTasksCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeMaintenanceWindowTasksCommandOutput;
   while (hasNext) {

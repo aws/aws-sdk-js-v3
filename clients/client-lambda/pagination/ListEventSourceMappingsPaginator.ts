@@ -35,7 +35,7 @@ export async function* paginateListEventSourceMappings(
   input: ListEventSourceMappingsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListEventSourceMappingsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListEventSourceMappingsCommandOutput;
   while (hasNext) {

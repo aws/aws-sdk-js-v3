@@ -35,7 +35,7 @@ export async function* paginateGetSlotTypes(
   input: GetSlotTypesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetSlotTypesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetSlotTypesCommandOutput;
   while (hasNext) {

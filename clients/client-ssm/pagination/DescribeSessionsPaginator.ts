@@ -35,7 +35,7 @@ export async function* paginateDescribeSessions(
   input: DescribeSessionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeSessionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeSessionsCommandOutput;
   while (hasNext) {

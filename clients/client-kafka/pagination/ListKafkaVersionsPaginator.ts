@@ -35,7 +35,7 @@ export async function* paginateListKafkaVersions(
   input: ListKafkaVersionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListKafkaVersionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListKafkaVersionsCommandOutput;
   while (hasNext) {

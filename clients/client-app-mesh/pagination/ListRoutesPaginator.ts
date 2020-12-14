@@ -31,7 +31,7 @@ export async function* paginateListRoutes(
   input: ListRoutesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListRoutesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListRoutesCommandOutput;
   while (hasNext) {

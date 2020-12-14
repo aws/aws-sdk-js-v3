@@ -35,7 +35,7 @@ export async function* paginateListThreatIntelSets(
   input: ListThreatIntelSetsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListThreatIntelSetsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListThreatIntelSetsCommandOutput;
   while (hasNext) {

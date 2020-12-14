@@ -35,7 +35,7 @@ export async function* paginateListFindings(
   input: ListFindingsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListFindingsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListFindingsCommandOutput;
   while (hasNext) {

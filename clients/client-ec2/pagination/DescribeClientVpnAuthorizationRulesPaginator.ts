@@ -35,7 +35,7 @@ export async function* paginateDescribeClientVpnAuthorizationRules(
   input: DescribeClientVpnAuthorizationRulesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeClientVpnAuthorizationRulesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeClientVpnAuthorizationRulesCommandOutput;
   while (hasNext) {

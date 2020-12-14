@@ -35,7 +35,7 @@ export async function* paginateListReportGroups(
   input: ListReportGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListReportGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListReportGroupsCommandOutput;
   while (hasNext) {

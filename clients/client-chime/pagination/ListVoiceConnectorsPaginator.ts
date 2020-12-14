@@ -35,7 +35,7 @@ export async function* paginateListVoiceConnectors(
   input: ListVoiceConnectorsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListVoiceConnectorsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListVoiceConnectorsCommandOutput;
   while (hasNext) {

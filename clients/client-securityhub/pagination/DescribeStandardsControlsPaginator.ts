@@ -35,7 +35,7 @@ export async function* paginateDescribeStandardsControls(
   input: DescribeStandardsControlsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeStandardsControlsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeStandardsControlsCommandOutput;
   while (hasNext) {

@@ -35,7 +35,7 @@ export async function* paginateDescribeSpotFleetRequests(
   input: DescribeSpotFleetRequestsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeSpotFleetRequestsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeSpotFleetRequestsCommandOutput;
   while (hasNext) {

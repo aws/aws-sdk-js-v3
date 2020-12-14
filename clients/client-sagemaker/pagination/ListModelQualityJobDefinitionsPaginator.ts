@@ -35,7 +35,7 @@ export async function* paginateListModelQualityJobDefinitions(
   input: ListModelQualityJobDefinitionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListModelQualityJobDefinitionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListModelQualityJobDefinitionsCommandOutput;
   while (hasNext) {

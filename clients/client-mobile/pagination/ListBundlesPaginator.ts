@@ -31,7 +31,7 @@ export async function* paginateListBundles(
   input: ListBundlesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListBundlesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListBundlesCommandOutput;
   while (hasNext) {

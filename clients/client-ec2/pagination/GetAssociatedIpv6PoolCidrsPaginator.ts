@@ -35,7 +35,7 @@ export async function* paginateGetAssociatedIpv6PoolCidrs(
   input: GetAssociatedIpv6PoolCidrsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetAssociatedIpv6PoolCidrsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetAssociatedIpv6PoolCidrsCommandOutput;
   while (hasNext) {

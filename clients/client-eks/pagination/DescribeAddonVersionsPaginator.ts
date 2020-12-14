@@ -35,7 +35,7 @@ export async function* paginateDescribeAddonVersions(
   input: DescribeAddonVersionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeAddonVersionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeAddonVersionsCommandOutput;
   while (hasNext) {

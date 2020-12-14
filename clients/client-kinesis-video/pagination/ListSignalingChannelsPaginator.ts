@@ -35,7 +35,7 @@ export async function* paginateListSignalingChannels(
   input: ListSignalingChannelsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSignalingChannelsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSignalingChannelsCommandOutput;
   while (hasNext) {

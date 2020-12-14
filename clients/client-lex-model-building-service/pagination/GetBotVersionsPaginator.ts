@@ -35,7 +35,7 @@ export async function* paginateGetBotVersions(
   input: GetBotVersionsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetBotVersionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetBotVersionsCommandOutput;
   while (hasNext) {

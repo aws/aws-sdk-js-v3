@@ -35,7 +35,7 @@ export async function* paginateListResolverEndpoints(
   input: ListResolverEndpointsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListResolverEndpointsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListResolverEndpointsCommandOutput;
   while (hasNext) {

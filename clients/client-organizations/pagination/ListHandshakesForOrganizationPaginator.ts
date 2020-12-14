@@ -35,7 +35,7 @@ export async function* paginateListHandshakesForOrganization(
   input: ListHandshakesForOrganizationCommandInput,
   ...additionalArguments: any
 ): Paginator<ListHandshakesForOrganizationCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListHandshakesForOrganizationCommandOutput;
   while (hasNext) {

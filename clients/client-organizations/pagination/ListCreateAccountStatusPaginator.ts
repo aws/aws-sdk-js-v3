@@ -35,7 +35,7 @@ export async function* paginateListCreateAccountStatus(
   input: ListCreateAccountStatusCommandInput,
   ...additionalArguments: any
 ): Paginator<ListCreateAccountStatusCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListCreateAccountStatusCommandOutput;
   while (hasNext) {

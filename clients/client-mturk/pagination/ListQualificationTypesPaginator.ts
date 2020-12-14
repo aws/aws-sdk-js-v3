@@ -35,7 +35,7 @@ export async function* paginateListQualificationTypes(
   input: ListQualificationTypesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListQualificationTypesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListQualificationTypesCommandOutput;
   while (hasNext) {

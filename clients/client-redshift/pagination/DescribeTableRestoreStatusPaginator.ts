@@ -35,7 +35,7 @@ export async function* paginateDescribeTableRestoreStatus(
   input: DescribeTableRestoreStatusCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeTableRestoreStatusCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeTableRestoreStatusCommandOutput;
   while (hasNext) {

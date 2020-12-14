@@ -35,7 +35,7 @@ export async function* paginateDescribeGlobalReplicationGroups(
   input: DescribeGlobalReplicationGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeGlobalReplicationGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeGlobalReplicationGroupsCommandOutput;
   while (hasNext) {

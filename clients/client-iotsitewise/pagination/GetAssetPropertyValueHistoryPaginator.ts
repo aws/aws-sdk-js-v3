@@ -35,7 +35,7 @@ export async function* paginateGetAssetPropertyValueHistory(
   input: GetAssetPropertyValueHistoryCommandInput,
   ...additionalArguments: any
 ): Paginator<GetAssetPropertyValueHistoryCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetAssetPropertyValueHistoryCommandOutput;
   while (hasNext) {

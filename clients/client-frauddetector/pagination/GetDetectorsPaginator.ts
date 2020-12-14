@@ -35,7 +35,7 @@ export async function* paginateGetDetectors(
   input: GetDetectorsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetDetectorsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetDetectorsCommandOutput;
   while (hasNext) {

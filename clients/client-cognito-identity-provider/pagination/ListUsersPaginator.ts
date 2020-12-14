@@ -31,7 +31,7 @@ export async function* paginateListUsers(
   input: ListUsersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListUsersCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.PaginationToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListUsersCommandOutput;
   while (hasNext) {

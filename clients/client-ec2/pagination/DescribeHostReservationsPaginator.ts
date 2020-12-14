@@ -35,7 +35,7 @@ export async function* paginateDescribeHostReservations(
   input: DescribeHostReservationsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeHostReservationsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeHostReservationsCommandOutput;
   while (hasNext) {

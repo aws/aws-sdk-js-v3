@@ -35,7 +35,7 @@ export async function* paginateGetEvidenceFoldersByAssessmentControl(
   input: GetEvidenceFoldersByAssessmentControlCommandInput,
   ...additionalArguments: any
 ): Paginator<GetEvidenceFoldersByAssessmentControlCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetEvidenceFoldersByAssessmentControlCommandOutput;
   while (hasNext) {

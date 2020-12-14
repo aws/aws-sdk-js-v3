@@ -35,7 +35,7 @@ export async function* paginateDescribeLocalGateways(
   input: DescribeLocalGatewaysCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeLocalGatewaysCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeLocalGatewaysCommandOutput;
   while (hasNext) {

@@ -35,7 +35,7 @@ export async function* paginateListBranches(
   input: ListBranchesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListBranchesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListBranchesCommandOutput;
   while (hasNext) {

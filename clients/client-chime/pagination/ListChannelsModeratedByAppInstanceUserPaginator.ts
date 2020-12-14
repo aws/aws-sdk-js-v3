@@ -35,7 +35,7 @@ export async function* paginateListChannelsModeratedByAppInstanceUser(
   input: ListChannelsModeratedByAppInstanceUserCommandInput,
   ...additionalArguments: any
 ): Paginator<ListChannelsModeratedByAppInstanceUserCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListChannelsModeratedByAppInstanceUserCommandOutput;
   while (hasNext) {

@@ -35,7 +35,7 @@ export async function* paginateListSharedReportGroups(
   input: ListSharedReportGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSharedReportGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSharedReportGroupsCommandOutput;
   while (hasNext) {

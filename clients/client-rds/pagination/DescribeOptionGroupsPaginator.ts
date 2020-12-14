@@ -35,7 +35,7 @@ export async function* paginateDescribeOptionGroups(
   input: DescribeOptionGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeOptionGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeOptionGroupsCommandOutput;
   while (hasNext) {

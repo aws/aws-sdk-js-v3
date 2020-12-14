@@ -35,7 +35,7 @@ export async function* paginateGetExclusionsPreview(
   input: GetExclusionsPreviewCommandInput,
   ...additionalArguments: any
 ): Paginator<GetExclusionsPreviewCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetExclusionsPreviewCommandOutput;
   while (hasNext) {

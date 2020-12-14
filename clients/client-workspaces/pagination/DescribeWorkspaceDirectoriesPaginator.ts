@@ -35,7 +35,7 @@ export async function* paginateDescribeWorkspaceDirectories(
   input: DescribeWorkspaceDirectoriesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeWorkspaceDirectoriesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeWorkspaceDirectoriesCommandOutput;
   while (hasNext) {

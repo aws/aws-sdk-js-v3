@@ -35,7 +35,7 @@ export async function* paginateListOrganizationPortfolioAccess(
   input: ListOrganizationPortfolioAccessCommandInput,
   ...additionalArguments: any
 ): Paginator<ListOrganizationPortfolioAccessCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.PageToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListOrganizationPortfolioAccessCommandOutput;
   while (hasNext) {

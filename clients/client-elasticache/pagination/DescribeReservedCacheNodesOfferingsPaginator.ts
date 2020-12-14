@@ -35,7 +35,7 @@ export async function* paginateDescribeReservedCacheNodesOfferings(
   input: DescribeReservedCacheNodesOfferingsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeReservedCacheNodesOfferingsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeReservedCacheNodesOfferingsCommandOutput;
   while (hasNext) {

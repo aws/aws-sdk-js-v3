@@ -31,7 +31,7 @@ export async function* paginateGetUsage(
   input: GetUsageCommandInput,
   ...additionalArguments: any
 ): Paginator<GetUsageCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.position | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetUsageCommandOutput;
   while (hasNext) {

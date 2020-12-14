@@ -35,7 +35,7 @@ export async function* paginateGetParametersByPath(
   input: GetParametersByPathCommandInput,
   ...additionalArguments: any
 ): Paginator<GetParametersByPathCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetParametersByPathCommandOutput;
   while (hasNext) {

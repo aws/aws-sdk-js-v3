@@ -35,7 +35,7 @@ export async function* paginateDescribeDBSubnetGroups(
   input: DescribeDBSubnetGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeDBSubnetGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeDBSubnetGroupsCommandOutput;
   while (hasNext) {

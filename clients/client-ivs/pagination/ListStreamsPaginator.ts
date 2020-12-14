@@ -31,7 +31,7 @@ export async function* paginateListStreams(
   input: ListStreamsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListStreamsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListStreamsCommandOutput;
   while (hasNext) {

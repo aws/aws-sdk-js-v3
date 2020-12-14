@@ -31,7 +31,7 @@ export async function* paginateListUploads(
   input: ListUploadsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListUploadsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListUploadsCommandOutput;
   while (hasNext) {

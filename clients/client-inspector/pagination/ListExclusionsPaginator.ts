@@ -35,7 +35,7 @@ export async function* paginateListExclusions(
   input: ListExclusionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListExclusionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListExclusionsCommandOutput;
   while (hasNext) {

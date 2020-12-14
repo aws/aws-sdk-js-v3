@@ -35,7 +35,7 @@ export async function* paginateListWorkteams(
   input: ListWorkteamsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListWorkteamsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListWorkteamsCommandOutput;
   while (hasNext) {

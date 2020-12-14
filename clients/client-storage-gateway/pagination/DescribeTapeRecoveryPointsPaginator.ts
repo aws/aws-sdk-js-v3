@@ -35,7 +35,7 @@ export async function* paginateDescribeTapeRecoveryPoints(
   input: DescribeTapeRecoveryPointsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeTapeRecoveryPointsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeTapeRecoveryPointsCommandOutput;
   while (hasNext) {

@@ -31,7 +31,7 @@ export async function* paginateGetIntents(
   input: GetIntentsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetIntentsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetIntentsCommandOutput;
   while (hasNext) {

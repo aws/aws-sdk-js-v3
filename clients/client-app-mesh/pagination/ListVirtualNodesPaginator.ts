@@ -35,7 +35,7 @@ export async function* paginateListVirtualNodes(
   input: ListVirtualNodesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListVirtualNodesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListVirtualNodesCommandOutput;
   while (hasNext) {

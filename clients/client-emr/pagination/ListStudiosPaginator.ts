@@ -31,7 +31,7 @@ export async function* paginateListStudios(
   input: ListStudiosCommandInput,
   ...additionalArguments: any
 ): Paginator<ListStudiosCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListStudiosCommandOutput;
   while (hasNext) {

@@ -35,7 +35,7 @@ export async function* paginateListCertificatesByCA(
   input: ListCertificatesByCACommandInput,
   ...additionalArguments: any
 ): Paginator<ListCertificatesByCACommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListCertificatesByCACommandOutput;
   while (hasNext) {

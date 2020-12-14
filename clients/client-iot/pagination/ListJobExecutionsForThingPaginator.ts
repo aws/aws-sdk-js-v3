@@ -35,7 +35,7 @@ export async function* paginateListJobExecutionsForThing(
   input: ListJobExecutionsForThingCommandInput,
   ...additionalArguments: any
 ): Paginator<ListJobExecutionsForThingCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListJobExecutionsForThingCommandOutput;
   while (hasNext) {

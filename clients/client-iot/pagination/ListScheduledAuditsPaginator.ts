@@ -35,7 +35,7 @@ export async function* paginateListScheduledAudits(
   input: ListScheduledAuditsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListScheduledAuditsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListScheduledAuditsCommandOutput;
   while (hasNext) {

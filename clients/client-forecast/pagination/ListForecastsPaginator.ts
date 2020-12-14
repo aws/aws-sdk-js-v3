@@ -35,7 +35,7 @@ export async function* paginateListForecasts(
   input: ListForecastsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListForecastsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListForecastsCommandOutput;
   while (hasNext) {

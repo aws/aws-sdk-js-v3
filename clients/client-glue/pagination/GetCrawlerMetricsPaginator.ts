@@ -35,7 +35,7 @@ export async function* paginateGetCrawlerMetrics(
   input: GetCrawlerMetricsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetCrawlerMetricsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetCrawlerMetricsCommandOutput;
   while (hasNext) {

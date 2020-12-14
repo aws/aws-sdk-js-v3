@@ -35,7 +35,7 @@ export async function* paginatePollForDecisionTask(
   input: PollForDecisionTaskCommandInput,
   ...additionalArguments: any
 ): Paginator<PollForDecisionTaskCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextPageToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: PollForDecisionTaskCommandOutput;
   while (hasNext) {

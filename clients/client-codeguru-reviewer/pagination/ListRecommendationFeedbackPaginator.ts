@@ -35,7 +35,7 @@ export async function* paginateListRecommendationFeedback(
   input: ListRecommendationFeedbackCommandInput,
   ...additionalArguments: any
 ): Paginator<ListRecommendationFeedbackCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListRecommendationFeedbackCommandOutput;
   while (hasNext) {

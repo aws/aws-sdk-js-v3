@@ -35,7 +35,7 @@ export async function* paginateDescribeTrafficMirrorTargets(
   input: DescribeTrafficMirrorTargetsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeTrafficMirrorTargetsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeTrafficMirrorTargetsCommandOutput;
   while (hasNext) {

@@ -35,7 +35,7 @@ export async function* paginateDescribeSchedule(
   input: DescribeScheduleCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeScheduleCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeScheduleCommandOutput;
   while (hasNext) {

@@ -35,7 +35,7 @@ export async function* paginateListInstanceFleets(
   input: ListInstanceFleetsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListInstanceFleetsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListInstanceFleetsCommandOutput;
   while (hasNext) {

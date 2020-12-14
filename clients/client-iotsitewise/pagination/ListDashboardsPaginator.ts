@@ -35,7 +35,7 @@ export async function* paginateListDashboards(
   input: ListDashboardsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDashboardsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDashboardsCommandOutput;
   while (hasNext) {

@@ -35,7 +35,7 @@ export async function* paginateGetReservedNodeExchangeOfferings(
   input: GetReservedNodeExchangeOfferingsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetReservedNodeExchangeOfferingsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetReservedNodeExchangeOfferingsCommandOutput;
   while (hasNext) {

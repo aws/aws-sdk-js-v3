@@ -35,7 +35,7 @@ export async function* paginateDescribeDataRepositoryTasks(
   input: DescribeDataRepositoryTasksCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeDataRepositoryTasksCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeDataRepositoryTasksCommandOutput;
   while (hasNext) {

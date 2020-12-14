@@ -31,7 +31,7 @@ export async function* paginateListStacks(
   input: ListStacksCommandInput,
   ...additionalArguments: any
 ): Paginator<ListStacksCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListStacksCommandOutput;
   while (hasNext) {

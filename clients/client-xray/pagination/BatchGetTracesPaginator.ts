@@ -35,7 +35,7 @@ export async function* paginateBatchGetTraces(
   input: BatchGetTracesCommandInput,
   ...additionalArguments: any
 ): Paginator<BatchGetTracesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: BatchGetTracesCommandOutput;
   while (hasNext) {

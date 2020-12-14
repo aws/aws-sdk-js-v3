@@ -35,7 +35,7 @@ export async function* paginateListInsights(
   input: ListInsightsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListInsightsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListInsightsCommandOutput;
   while (hasNext) {

@@ -35,7 +35,7 @@ export async function* paginateDescribeMergeConflicts(
   input: DescribeMergeConflictsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeMergeConflictsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeMergeConflictsCommandOutput;
   while (hasNext) {

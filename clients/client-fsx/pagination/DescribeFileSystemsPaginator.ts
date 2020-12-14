@@ -35,7 +35,7 @@ export async function* paginateDescribeFileSystems(
   input: DescribeFileSystemsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeFileSystemsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeFileSystemsCommandOutput;
   while (hasNext) {

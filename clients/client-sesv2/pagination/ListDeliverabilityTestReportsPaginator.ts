@@ -35,7 +35,7 @@ export async function* paginateListDeliverabilityTestReports(
   input: ListDeliverabilityTestReportsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDeliverabilityTestReportsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDeliverabilityTestReportsCommandOutput;
   while (hasNext) {

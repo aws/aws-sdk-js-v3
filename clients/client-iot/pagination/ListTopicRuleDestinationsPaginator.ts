@@ -35,7 +35,7 @@ export async function* paginateListTopicRuleDestinations(
   input: ListTopicRuleDestinationsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTopicRuleDestinationsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTopicRuleDestinationsCommandOutput;
   while (hasNext) {

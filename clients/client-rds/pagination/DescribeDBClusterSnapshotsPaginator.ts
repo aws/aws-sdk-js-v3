@@ -35,7 +35,7 @@ export async function* paginateDescribeDBClusterSnapshots(
   input: DescribeDBClusterSnapshotsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeDBClusterSnapshotsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeDBClusterSnapshotsCommandOutput;
   while (hasNext) {

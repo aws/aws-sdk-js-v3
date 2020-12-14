@@ -35,7 +35,7 @@ export async function* paginateListDiscoverers(
   input: ListDiscoverersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDiscoverersCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDiscoverersCommandOutput;
   while (hasNext) {

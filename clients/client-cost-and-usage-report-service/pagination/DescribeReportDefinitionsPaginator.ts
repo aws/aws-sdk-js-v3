@@ -35,7 +35,7 @@ export async function* paginateDescribeReportDefinitions(
   input: DescribeReportDefinitionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeReportDefinitionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeReportDefinitionsCommandOutput;
   while (hasNext) {

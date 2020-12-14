@@ -35,7 +35,7 @@ export async function* paginateDescribeSubscriptionFilters(
   input: DescribeSubscriptionFiltersCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeSubscriptionFiltersCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeSubscriptionFiltersCommandOutput;
   while (hasNext) {

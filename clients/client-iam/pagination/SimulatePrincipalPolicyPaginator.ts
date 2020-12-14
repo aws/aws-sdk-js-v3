@@ -35,7 +35,7 @@ export async function* paginateSimulatePrincipalPolicy(
   input: SimulatePrincipalPolicyCommandInput,
   ...additionalArguments: any
 ): Paginator<SimulatePrincipalPolicyCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: SimulatePrincipalPolicyCommandOutput;
   while (hasNext) {

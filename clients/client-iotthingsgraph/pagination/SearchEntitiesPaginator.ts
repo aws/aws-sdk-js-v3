@@ -35,7 +35,7 @@ export async function* paginateSearchEntities(
   input: SearchEntitiesCommandInput,
   ...additionalArguments: any
 ): Paginator<SearchEntitiesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: SearchEntitiesCommandOutput;
   while (hasNext) {

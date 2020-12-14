@@ -35,7 +35,7 @@ export async function* paginateListRequestedServiceQuotaChangeHistoryByQuota(
   input: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
   ...additionalArguments: any
 ): Paginator<ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput;
   while (hasNext) {

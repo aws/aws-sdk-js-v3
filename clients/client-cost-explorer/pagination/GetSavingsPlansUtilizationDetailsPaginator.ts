@@ -35,7 +35,7 @@ export async function* paginateGetSavingsPlansUtilizationDetails(
   input: GetSavingsPlansUtilizationDetailsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetSavingsPlansUtilizationDetailsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetSavingsPlansUtilizationDetailsCommandOutput;
   while (hasNext) {

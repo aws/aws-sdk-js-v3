@@ -35,7 +35,7 @@ export async function* paginateDescribeOpsItems(
   input: DescribeOpsItemsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeOpsItemsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeOpsItemsCommandOutput;
   while (hasNext) {

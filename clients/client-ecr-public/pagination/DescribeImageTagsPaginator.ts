@@ -35,7 +35,7 @@ export async function* paginateDescribeImageTags(
   input: DescribeImageTagsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeImageTagsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeImageTagsCommandOutput;
   while (hasNext) {

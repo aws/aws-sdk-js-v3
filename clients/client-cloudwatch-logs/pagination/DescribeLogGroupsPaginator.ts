@@ -35,7 +35,7 @@ export async function* paginateDescribeLogGroups(
   input: DescribeLogGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeLogGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeLogGroupsCommandOutput;
   while (hasNext) {

@@ -35,7 +35,7 @@ export async function* paginateListConstraintsForPortfolio(
   input: ListConstraintsForPortfolioCommandInput,
   ...additionalArguments: any
 ): Paginator<ListConstraintsForPortfolioCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.PageToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListConstraintsForPortfolioCommandOutput;
   while (hasNext) {

@@ -35,7 +35,7 @@ export async function* paginateListClusterOperations(
   input: ListClusterOperationsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListClusterOperationsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListClusterOperationsCommandOutput;
   while (hasNext) {

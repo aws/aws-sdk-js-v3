@@ -35,7 +35,7 @@ export async function* paginateListBusinessReportSchedules(
   input: ListBusinessReportSchedulesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListBusinessReportSchedulesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListBusinessReportSchedulesCommandOutput;
   while (hasNext) {

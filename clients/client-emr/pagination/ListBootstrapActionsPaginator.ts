@@ -35,7 +35,7 @@ export async function* paginateListBootstrapActions(
   input: ListBootstrapActionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListBootstrapActionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListBootstrapActionsCommandOutput;
   while (hasNext) {

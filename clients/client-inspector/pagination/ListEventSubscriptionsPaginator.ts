@@ -35,7 +35,7 @@ export async function* paginateListEventSubscriptions(
   input: ListEventSubscriptionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListEventSubscriptionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListEventSubscriptionsCommandOutput;
   while (hasNext) {

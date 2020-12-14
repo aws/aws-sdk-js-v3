@@ -35,7 +35,7 @@ export async function* paginateDescribeRouteTables(
   input: DescribeRouteTablesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeRouteTablesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeRouteTablesCommandOutput;
   while (hasNext) {

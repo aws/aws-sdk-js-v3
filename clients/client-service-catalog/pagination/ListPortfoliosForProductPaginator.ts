@@ -35,7 +35,7 @@ export async function* paginateListPortfoliosForProduct(
   input: ListPortfoliosForProductCommandInput,
   ...additionalArguments: any
 ): Paginator<ListPortfoliosForProductCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.PageToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListPortfoliosForProductCommandOutput;
   while (hasNext) {

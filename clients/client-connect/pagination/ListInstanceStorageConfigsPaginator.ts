@@ -35,7 +35,7 @@ export async function* paginateListInstanceStorageConfigs(
   input: ListInstanceStorageConfigsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListInstanceStorageConfigsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListInstanceStorageConfigsCommandOutput;
   while (hasNext) {

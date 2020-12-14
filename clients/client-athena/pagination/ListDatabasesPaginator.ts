@@ -35,7 +35,7 @@ export async function* paginateListDatabases(
   input: ListDatabasesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDatabasesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDatabasesCommandOutput;
   while (hasNext) {

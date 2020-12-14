@@ -35,7 +35,7 @@ export async function* paginateListCustomRoutingEndpointGroups(
   input: ListCustomRoutingEndpointGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListCustomRoutingEndpointGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListCustomRoutingEndpointGroupsCommandOutput;
   while (hasNext) {

@@ -35,7 +35,7 @@ export async function* paginateListProxySessions(
   input: ListProxySessionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListProxySessionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListProxySessionsCommandOutput;
   while (hasNext) {

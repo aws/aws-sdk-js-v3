@@ -31,7 +31,7 @@ export async function* paginateListMeshes(
   input: ListMeshesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListMeshesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListMeshesCommandOutput;
   while (hasNext) {

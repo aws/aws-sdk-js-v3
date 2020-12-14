@@ -35,7 +35,7 @@ export async function* paginateGetTagValues(
   input: GetTagValuesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetTagValuesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.PaginationToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetTagValuesCommandOutput;
   while (hasNext) {

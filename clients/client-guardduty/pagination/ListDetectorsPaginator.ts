@@ -35,7 +35,7 @@ export async function* paginateListDetectors(
   input: ListDetectorsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDetectorsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDetectorsCommandOutput;
   while (hasNext) {

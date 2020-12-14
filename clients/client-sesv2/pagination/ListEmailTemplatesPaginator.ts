@@ -35,7 +35,7 @@ export async function* paginateListEmailTemplates(
   input: ListEmailTemplatesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListEmailTemplatesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListEmailTemplatesCommandOutput;
   while (hasNext) {

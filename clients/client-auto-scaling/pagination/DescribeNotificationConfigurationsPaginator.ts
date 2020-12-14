@@ -35,7 +35,7 @@ export async function* paginateDescribeNotificationConfigurations(
   input: DescribeNotificationConfigurationsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeNotificationConfigurationsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeNotificationConfigurationsCommandOutput;
   while (hasNext) {

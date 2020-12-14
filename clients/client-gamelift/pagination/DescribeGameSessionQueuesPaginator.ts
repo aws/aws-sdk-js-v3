@@ -35,7 +35,7 @@ export async function* paginateDescribeGameSessionQueues(
   input: DescribeGameSessionQueuesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeGameSessionQueuesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeGameSessionQueuesCommandOutput;
   while (hasNext) {

@@ -31,7 +31,7 @@ export async function* paginateListQueues(
   input: ListQueuesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListQueuesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListQueuesCommandOutput;
   while (hasNext) {

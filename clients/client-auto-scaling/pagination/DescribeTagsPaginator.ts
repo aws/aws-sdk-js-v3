@@ -35,7 +35,7 @@ export async function* paginateDescribeTags(
   input: DescribeTagsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeTagsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeTagsCommandOutput;
   while (hasNext) {

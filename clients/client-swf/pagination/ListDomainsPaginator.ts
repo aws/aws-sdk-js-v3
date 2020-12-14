@@ -31,7 +31,7 @@ export async function* paginateListDomains(
   input: ListDomainsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDomainsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextPageToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDomainsCommandOutput;
   while (hasNext) {

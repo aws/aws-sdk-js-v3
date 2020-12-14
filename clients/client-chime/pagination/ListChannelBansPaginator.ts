@@ -35,7 +35,7 @@ export async function* paginateListChannelBans(
   input: ListChannelBansCommandInput,
   ...additionalArguments: any
 ): Paginator<ListChannelBansCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListChannelBansCommandOutput;
   while (hasNext) {

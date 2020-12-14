@@ -35,7 +35,7 @@ export async function* paginateListUseCases(
   input: ListUseCasesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListUseCasesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListUseCasesCommandOutput;
   while (hasNext) {

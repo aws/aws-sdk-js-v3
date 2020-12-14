@@ -31,7 +31,7 @@ export async function* paginateListFilters(
   input: ListFiltersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListFiltersCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListFiltersCommandOutput;
   while (hasNext) {

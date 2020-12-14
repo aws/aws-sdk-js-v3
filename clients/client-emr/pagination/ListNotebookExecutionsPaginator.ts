@@ -35,7 +35,7 @@ export async function* paginateListNotebookExecutions(
   input: ListNotebookExecutionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListNotebookExecutionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListNotebookExecutionsCommandOutput;
   while (hasNext) {

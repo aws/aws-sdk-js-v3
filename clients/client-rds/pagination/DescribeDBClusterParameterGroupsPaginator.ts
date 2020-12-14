@@ -35,7 +35,7 @@ export async function* paginateDescribeDBClusterParameterGroups(
   input: DescribeDBClusterParameterGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeDBClusterParameterGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeDBClusterParameterGroupsCommandOutput;
   while (hasNext) {

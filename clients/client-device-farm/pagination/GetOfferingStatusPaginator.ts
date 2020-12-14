@@ -35,7 +35,7 @@ export async function* paginateGetOfferingStatus(
   input: GetOfferingStatusCommandInput,
   ...additionalArguments: any
 ): Paginator<GetOfferingStatusCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetOfferingStatusCommandOutput;
   while (hasNext) {

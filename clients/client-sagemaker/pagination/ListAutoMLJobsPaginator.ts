@@ -35,7 +35,7 @@ export async function* paginateListAutoMLJobs(
   input: ListAutoMLJobsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAutoMLJobsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAutoMLJobsCommandOutput;
   while (hasNext) {

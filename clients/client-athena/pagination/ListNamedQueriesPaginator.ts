@@ -35,7 +35,7 @@ export async function* paginateListNamedQueries(
   input: ListNamedQueriesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListNamedQueriesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListNamedQueriesCommandOutput;
   while (hasNext) {

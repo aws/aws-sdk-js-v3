@@ -35,7 +35,7 @@ export async function* paginateGetTimeSeriesServiceStatistics(
   input: GetTimeSeriesServiceStatisticsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetTimeSeriesServiceStatisticsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetTimeSeriesServiceStatisticsCommandOutput;
   while (hasNext) {

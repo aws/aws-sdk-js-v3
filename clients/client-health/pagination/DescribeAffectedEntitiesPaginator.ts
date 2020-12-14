@@ -35,7 +35,7 @@ export async function* paginateDescribeAffectedEntities(
   input: DescribeAffectedEntitiesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeAffectedEntitiesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeAffectedEntitiesCommandOutput;
   while (hasNext) {

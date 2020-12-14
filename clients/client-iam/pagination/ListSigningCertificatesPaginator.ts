@@ -35,7 +35,7 @@ export async function* paginateListSigningCertificates(
   input: ListSigningCertificatesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSigningCertificatesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSigningCertificatesCommandOutput;
   while (hasNext) {

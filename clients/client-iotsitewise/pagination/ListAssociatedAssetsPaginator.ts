@@ -35,7 +35,7 @@ export async function* paginateListAssociatedAssets(
   input: ListAssociatedAssetsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAssociatedAssetsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAssociatedAssetsCommandOutput;
   while (hasNext) {

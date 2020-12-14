@@ -35,7 +35,7 @@ export async function* paginateGetResourceShareAssociations(
   input: GetResourceShareAssociationsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetResourceShareAssociationsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetResourceShareAssociationsCommandOutput;
   while (hasNext) {

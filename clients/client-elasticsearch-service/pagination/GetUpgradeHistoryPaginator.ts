@@ -35,7 +35,7 @@ export async function* paginateGetUpgradeHistory(
   input: GetUpgradeHistoryCommandInput,
   ...additionalArguments: any
 ): Paginator<GetUpgradeHistoryCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetUpgradeHistoryCommandOutput;
   while (hasNext) {

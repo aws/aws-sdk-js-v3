@@ -35,7 +35,7 @@ export async function* paginateGetManagedPrefixListEntries(
   input: GetManagedPrefixListEntriesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetManagedPrefixListEntriesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetManagedPrefixListEntriesCommandOutput;
   while (hasNext) {

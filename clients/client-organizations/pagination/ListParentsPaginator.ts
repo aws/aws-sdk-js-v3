@@ -31,7 +31,7 @@ export async function* paginateListParents(
   input: ListParentsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListParentsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListParentsCommandOutput;
   while (hasNext) {

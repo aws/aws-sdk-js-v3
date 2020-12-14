@@ -35,7 +35,7 @@ export async function* paginateGetBuiltinIntents(
   input: GetBuiltinIntentsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetBuiltinIntentsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetBuiltinIntentsCommandOutput;
   while (hasNext) {

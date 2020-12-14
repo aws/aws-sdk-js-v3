@@ -35,7 +35,7 @@ export async function* paginateGetOpsSummary(
   input: GetOpsSummaryCommandInput,
   ...additionalArguments: any
 ): Paginator<GetOpsSummaryCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetOpsSummaryCommandOutput;
   while (hasNext) {

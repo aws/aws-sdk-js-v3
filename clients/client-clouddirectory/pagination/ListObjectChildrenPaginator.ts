@@ -35,7 +35,7 @@ export async function* paginateListObjectChildren(
   input: ListObjectChildrenCommandInput,
   ...additionalArguments: any
 ): Paginator<ListObjectChildrenCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListObjectChildrenCommandOutput;
   while (hasNext) {

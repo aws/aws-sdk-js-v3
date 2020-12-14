@@ -35,7 +35,7 @@ export async function* paginateListEntitlements(
   input: ListEntitlementsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListEntitlementsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListEntitlementsCommandOutput;
   while (hasNext) {

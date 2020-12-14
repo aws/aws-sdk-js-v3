@@ -31,7 +31,7 @@ export async function* paginateListHITs(
   input: ListHITsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListHITsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListHITsCommandOutput;
   while (hasNext) {

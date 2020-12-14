@@ -35,7 +35,7 @@ export async function* paginateListActivityTypes(
   input: ListActivityTypesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListActivityTypesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextPageToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListActivityTypesCommandOutput;
   while (hasNext) {

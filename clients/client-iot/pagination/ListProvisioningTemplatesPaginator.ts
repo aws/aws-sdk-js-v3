@@ -35,7 +35,7 @@ export async function* paginateListProvisioningTemplates(
   input: ListProvisioningTemplatesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListProvisioningTemplatesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListProvisioningTemplatesCommandOutput;
   while (hasNext) {

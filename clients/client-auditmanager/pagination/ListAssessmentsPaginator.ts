@@ -35,7 +35,7 @@ export async function* paginateListAssessments(
   input: ListAssessmentsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAssessmentsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAssessmentsCommandOutput;
   while (hasNext) {

@@ -35,7 +35,7 @@ export async function* paginateListMemberAccounts(
   input: ListMemberAccountsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListMemberAccountsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListMemberAccountsCommandOutput;
   while (hasNext) {

@@ -35,7 +35,7 @@ export async function* paginateListProtections(
   input: ListProtectionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListProtectionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListProtectionsCommandOutput;
   while (hasNext) {

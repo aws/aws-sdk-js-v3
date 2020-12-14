@@ -31,7 +31,7 @@ export async function* paginateListVaults(
   input: ListVaultsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListVaultsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListVaultsCommandOutput;
   while (hasNext) {

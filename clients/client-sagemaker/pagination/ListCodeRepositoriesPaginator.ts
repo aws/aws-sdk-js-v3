@@ -35,7 +35,7 @@ export async function* paginateListCodeRepositories(
   input: ListCodeRepositoriesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListCodeRepositoriesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListCodeRepositoriesCommandOutput;
   while (hasNext) {

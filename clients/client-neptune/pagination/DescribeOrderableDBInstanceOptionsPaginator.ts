@@ -35,7 +35,7 @@ export async function* paginateDescribeOrderableDBInstanceOptions(
   input: DescribeOrderableDBInstanceOptionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeOrderableDBInstanceOptionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeOrderableDBInstanceOptionsCommandOutput;
   while (hasNext) {

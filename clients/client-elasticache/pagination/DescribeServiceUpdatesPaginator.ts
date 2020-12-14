@@ -35,7 +35,7 @@ export async function* paginateDescribeServiceUpdates(
   input: DescribeServiceUpdatesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeServiceUpdatesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeServiceUpdatesCommandOutput;
   while (hasNext) {

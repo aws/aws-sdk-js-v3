@@ -35,7 +35,7 @@ export async function* paginateListEventTypes(
   input: ListEventTypesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListEventTypesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListEventTypesCommandOutput;
   while (hasNext) {

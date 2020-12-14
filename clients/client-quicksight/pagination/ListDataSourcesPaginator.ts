@@ -35,7 +35,7 @@ export async function* paginateListDataSources(
   input: ListDataSourcesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDataSourcesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDataSourcesCommandOutput;
   while (hasNext) {

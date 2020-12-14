@@ -35,7 +35,7 @@ export async function* paginateListQueryLoggingConfigs(
   input: ListQueryLoggingConfigsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListQueryLoggingConfigsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListQueryLoggingConfigsCommandOutput;
   while (hasNext) {

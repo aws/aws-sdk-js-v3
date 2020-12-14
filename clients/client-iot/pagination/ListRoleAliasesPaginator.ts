@@ -35,7 +35,7 @@ export async function* paginateListRoleAliases(
   input: ListRoleAliasesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListRoleAliasesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListRoleAliasesCommandOutput;
   while (hasNext) {

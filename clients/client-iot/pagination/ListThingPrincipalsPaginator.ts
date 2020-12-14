@@ -35,7 +35,7 @@ export async function* paginateListThingPrincipals(
   input: ListThingPrincipalsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListThingPrincipalsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListThingPrincipalsCommandOutput;
   while (hasNext) {

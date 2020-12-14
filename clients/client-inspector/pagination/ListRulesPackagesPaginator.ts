@@ -35,7 +35,7 @@ export async function* paginateListRulesPackages(
   input: ListRulesPackagesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListRulesPackagesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListRulesPackagesCommandOutput;
   while (hasNext) {

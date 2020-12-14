@@ -35,7 +35,7 @@ export async function* paginateListTerminologies(
   input: ListTerminologiesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTerminologiesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTerminologiesCommandOutput;
   while (hasNext) {

@@ -35,7 +35,7 @@ export async function* paginateListVirtualServices(
   input: ListVirtualServicesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListVirtualServicesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListVirtualServicesCommandOutput;
   while (hasNext) {

@@ -35,7 +35,7 @@ export async function* paginateListProvisionedConcurrencyConfigs(
   input: ListProvisionedConcurrencyConfigsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListProvisionedConcurrencyConfigsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListProvisionedConcurrencyConfigsCommandOutput;
   while (hasNext) {

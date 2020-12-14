@@ -35,7 +35,7 @@ export async function* paginateGetDomainNames(
   input: GetDomainNamesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetDomainNamesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.position | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetDomainNamesCommandOutput;
   while (hasNext) {

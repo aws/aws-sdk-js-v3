@@ -35,7 +35,7 @@ export async function* paginateDescribeUserGroups(
   input: DescribeUserGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeUserGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeUserGroupsCommandOutput;
   while (hasNext) {

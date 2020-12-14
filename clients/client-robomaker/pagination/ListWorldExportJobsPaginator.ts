@@ -35,7 +35,7 @@ export async function* paginateListWorldExportJobs(
   input: ListWorldExportJobsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListWorldExportJobsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListWorldExportJobsCommandOutput;
   while (hasNext) {

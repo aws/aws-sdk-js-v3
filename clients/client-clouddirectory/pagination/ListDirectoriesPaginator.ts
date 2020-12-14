@@ -35,7 +35,7 @@ export async function* paginateListDirectories(
   input: ListDirectoriesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDirectoriesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDirectoriesCommandOutput;
   while (hasNext) {

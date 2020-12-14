@@ -35,7 +35,7 @@ export async function* paginateGetReplicationJobs(
   input: GetReplicationJobsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetReplicationJobsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetReplicationJobsCommandOutput;
   while (hasNext) {

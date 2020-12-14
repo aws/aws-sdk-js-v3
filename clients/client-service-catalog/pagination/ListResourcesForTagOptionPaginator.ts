@@ -35,7 +35,7 @@ export async function* paginateListResourcesForTagOption(
   input: ListResourcesForTagOptionCommandInput,
   ...additionalArguments: any
 ): Paginator<ListResourcesForTagOptionCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.PageToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListResourcesForTagOptionCommandOutput;
   while (hasNext) {

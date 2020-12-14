@@ -31,7 +31,7 @@ export async function* paginateListRecipes(
   input: ListRecipesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListRecipesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListRecipesCommandOutput;
   while (hasNext) {

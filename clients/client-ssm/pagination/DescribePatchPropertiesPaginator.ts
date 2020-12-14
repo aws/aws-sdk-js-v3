@@ -35,7 +35,7 @@ export async function* paginateDescribePatchProperties(
   input: DescribePatchPropertiesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribePatchPropertiesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribePatchPropertiesCommandOutput;
   while (hasNext) {

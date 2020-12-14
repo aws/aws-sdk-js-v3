@@ -35,7 +35,7 @@ export async function* paginateListUserPools(
   input: ListUserPoolsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListUserPoolsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListUserPoolsCommandOutput;
   while (hasNext) {

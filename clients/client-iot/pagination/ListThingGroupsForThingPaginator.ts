@@ -35,7 +35,7 @@ export async function* paginateListThingGroupsForThing(
   input: ListThingGroupsForThingCommandInput,
   ...additionalArguments: any
 ): Paginator<ListThingGroupsForThingCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListThingGroupsForThingCommandOutput;
   while (hasNext) {

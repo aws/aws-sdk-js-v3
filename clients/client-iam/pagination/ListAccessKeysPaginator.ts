@@ -35,7 +35,7 @@ export async function* paginateListAccessKeys(
   input: ListAccessKeysCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAccessKeysCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAccessKeysCommandOutput;
   while (hasNext) {

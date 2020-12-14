@@ -35,7 +35,7 @@ export async function* paginateGetCommentsForPullRequest(
   input: GetCommentsForPullRequestCommandInput,
   ...additionalArguments: any
 ): Paginator<GetCommentsForPullRequestCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetCommentsForPullRequestCommandOutput;
   while (hasNext) {

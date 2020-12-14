@@ -35,7 +35,7 @@ export async function* paginateDescribeStackEvents(
   input: DescribeStackEventsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeStackEventsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeStackEventsCommandOutput;
   while (hasNext) {

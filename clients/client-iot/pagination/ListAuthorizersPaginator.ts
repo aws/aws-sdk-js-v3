@@ -35,7 +35,7 @@ export async function* paginateListAuthorizers(
   input: ListAuthorizersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAuthorizersCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAuthorizersCommandOutput;
   while (hasNext) {

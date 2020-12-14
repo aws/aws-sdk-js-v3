@@ -35,7 +35,7 @@ export async function* paginateDescribeNetworkInsightsPaths(
   input: DescribeNetworkInsightsPathsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeNetworkInsightsPathsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeNetworkInsightsPathsCommandOutput;
   while (hasNext) {

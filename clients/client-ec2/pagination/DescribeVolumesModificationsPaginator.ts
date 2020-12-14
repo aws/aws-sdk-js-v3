@@ -35,7 +35,7 @@ export async function* paginateDescribeVolumesModifications(
   input: DescribeVolumesModificationsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeVolumesModificationsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeVolumesModificationsCommandOutput;
   while (hasNext) {

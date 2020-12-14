@@ -35,7 +35,7 @@ export async function* paginateListSigningProfiles(
   input: ListSigningProfilesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSigningProfilesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSigningProfilesCommandOutput;
   while (hasNext) {

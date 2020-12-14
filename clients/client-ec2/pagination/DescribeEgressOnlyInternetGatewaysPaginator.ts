@@ -35,7 +35,7 @@ export async function* paginateDescribeEgressOnlyInternetGateways(
   input: DescribeEgressOnlyInternetGatewaysCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeEgressOnlyInternetGatewaysCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeEgressOnlyInternetGatewaysCommandOutput;
   while (hasNext) {

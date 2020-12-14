@@ -35,7 +35,7 @@ export async function* paginateListJournalS3ExportsForLedger(
   input: ListJournalS3ExportsForLedgerCommandInput,
   ...additionalArguments: any
 ): Paginator<ListJournalS3ExportsForLedgerCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListJournalS3ExportsForLedgerCommandOutput;
   while (hasNext) {

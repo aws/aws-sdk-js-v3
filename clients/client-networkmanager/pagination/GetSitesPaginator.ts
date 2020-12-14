@@ -31,7 +31,7 @@ export async function* paginateGetSites(
   input: GetSitesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetSitesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetSitesCommandOutput;
   while (hasNext) {

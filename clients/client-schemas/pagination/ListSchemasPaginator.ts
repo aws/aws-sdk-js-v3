@@ -31,7 +31,7 @@ export async function* paginateListSchemas(
   input: ListSchemasCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSchemasCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSchemasCommandOutput;
   while (hasNext) {

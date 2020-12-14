@@ -35,7 +35,7 @@ export async function* paginateListBuildBatchesForProject(
   input: ListBuildBatchesForProjectCommandInput,
   ...additionalArguments: any
 ): Paginator<ListBuildBatchesForProjectCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListBuildBatchesForProjectCommandOutput;
   while (hasNext) {

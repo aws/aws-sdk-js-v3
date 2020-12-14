@@ -35,7 +35,7 @@ export async function* paginateListModelBiasJobDefinitions(
   input: ListModelBiasJobDefinitionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListModelBiasJobDefinitionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListModelBiasJobDefinitionsCommandOutput;
   while (hasNext) {

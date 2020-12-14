@@ -35,7 +35,7 @@ export async function* paginateDescribeCacheEngineVersions(
   input: DescribeCacheEngineVersionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeCacheEngineVersionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeCacheEngineVersionsCommandOutput;
   while (hasNext) {

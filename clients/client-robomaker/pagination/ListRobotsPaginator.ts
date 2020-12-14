@@ -31,7 +31,7 @@ export async function* paginateListRobots(
   input: ListRobotsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListRobotsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListRobotsCommandOutput;
   while (hasNext) {

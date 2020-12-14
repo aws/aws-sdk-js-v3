@@ -35,7 +35,7 @@ export async function* paginateListContexts(
   input: ListContextsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListContextsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListContextsCommandOutput;
   while (hasNext) {

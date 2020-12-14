@@ -35,7 +35,7 @@ export async function* paginateSearchSystemTemplates(
   input: SearchSystemTemplatesCommandInput,
   ...additionalArguments: any
 ): Paginator<SearchSystemTemplatesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: SearchSystemTemplatesCommandOutput;
   while (hasNext) {

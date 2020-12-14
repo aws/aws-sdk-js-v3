@@ -35,7 +35,7 @@ export async function* paginateListManagedSchemaArns(
   input: ListManagedSchemaArnsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListManagedSchemaArnsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListManagedSchemaArnsCommandOutput;
   while (hasNext) {

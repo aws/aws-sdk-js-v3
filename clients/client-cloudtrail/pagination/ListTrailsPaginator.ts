@@ -31,7 +31,7 @@ export async function* paginateListTrails(
   input: ListTrailsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTrailsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTrailsCommandOutput;
   while (hasNext) {

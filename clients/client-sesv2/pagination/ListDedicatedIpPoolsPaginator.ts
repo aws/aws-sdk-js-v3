@@ -35,7 +35,7 @@ export async function* paginateListDedicatedIpPools(
   input: ListDedicatedIpPoolsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDedicatedIpPoolsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDedicatedIpPoolsCommandOutput;
   while (hasNext) {

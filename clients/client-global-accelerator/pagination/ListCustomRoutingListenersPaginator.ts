@@ -35,7 +35,7 @@ export async function* paginateListCustomRoutingListeners(
   input: ListCustomRoutingListenersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListCustomRoutingListenersCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListCustomRoutingListenersCommandOutput;
   while (hasNext) {

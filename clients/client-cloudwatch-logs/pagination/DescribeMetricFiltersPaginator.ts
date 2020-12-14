@@ -35,7 +35,7 @@ export async function* paginateDescribeMetricFilters(
   input: DescribeMetricFiltersCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeMetricFiltersCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeMetricFiltersCommandOutput;
   while (hasNext) {

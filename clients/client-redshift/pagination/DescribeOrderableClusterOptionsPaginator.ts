@@ -35,7 +35,7 @@ export async function* paginateDescribeOrderableClusterOptions(
   input: DescribeOrderableClusterOptionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeOrderableClusterOptionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeOrderableClusterOptionsCommandOutput;
   while (hasNext) {

@@ -35,7 +35,7 @@ export async function* paginateListContacts(
   input: ListContactsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListContactsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListContactsCommandOutput;
   while (hasNext) {

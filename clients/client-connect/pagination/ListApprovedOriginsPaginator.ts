@@ -35,7 +35,7 @@ export async function* paginateListApprovedOrigins(
   input: ListApprovedOriginsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListApprovedOriginsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListApprovedOriginsCommandOutput;
   while (hasNext) {

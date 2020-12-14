@@ -35,7 +35,7 @@ export async function* paginateGetCommentReactions(
   input: GetCommentReactionsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetCommentReactionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetCommentReactionsCommandOutput;
   while (hasNext) {

@@ -35,7 +35,7 @@ export async function* paginateGetComplianceSummary(
   input: GetComplianceSummaryCommandInput,
   ...additionalArguments: any
 ): Paginator<GetComplianceSummaryCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.PaginationToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetComplianceSummaryCommandOutput;
   while (hasNext) {

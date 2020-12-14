@@ -35,7 +35,7 @@ export async function* paginateDescribeClassicLinkInstances(
   input: DescribeClassicLinkInstancesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeClassicLinkInstancesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeClassicLinkInstancesCommandOutput;
   while (hasNext) {

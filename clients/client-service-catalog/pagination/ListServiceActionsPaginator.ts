@@ -35,7 +35,7 @@ export async function* paginateListServiceActions(
   input: ListServiceActionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListServiceActionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.PageToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListServiceActionsCommandOutput;
   while (hasNext) {

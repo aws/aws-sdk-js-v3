@@ -35,7 +35,7 @@ export async function* paginateListMedicalTranscriptionJobs(
   input: ListMedicalTranscriptionJobsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListMedicalTranscriptionJobsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListMedicalTranscriptionJobsCommandOutput;
   while (hasNext) {

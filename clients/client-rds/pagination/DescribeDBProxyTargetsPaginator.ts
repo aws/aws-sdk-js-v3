@@ -35,7 +35,7 @@ export async function* paginateDescribeDBProxyTargets(
   input: DescribeDBProxyTargetsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeDBProxyTargetsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeDBProxyTargetsCommandOutput;
   while (hasNext) {

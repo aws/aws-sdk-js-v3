@@ -35,7 +35,7 @@ export async function* paginateListSolutionVersions(
   input: ListSolutionVersionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSolutionVersionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSolutionVersionsCommandOutput;
   while (hasNext) {

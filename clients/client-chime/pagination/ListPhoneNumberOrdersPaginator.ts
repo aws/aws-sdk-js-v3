@@ -35,7 +35,7 @@ export async function* paginateListPhoneNumberOrders(
   input: ListPhoneNumberOrdersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListPhoneNumberOrdersCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListPhoneNumberOrdersCommandOutput;
   while (hasNext) {

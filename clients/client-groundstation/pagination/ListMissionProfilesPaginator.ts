@@ -35,7 +35,7 @@ export async function* paginateListMissionProfiles(
   input: ListMissionProfilesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListMissionProfilesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListMissionProfilesCommandOutput;
   while (hasNext) {

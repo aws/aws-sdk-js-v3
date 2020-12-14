@@ -35,7 +35,7 @@ export async function* paginateListHITsForQualificationType(
   input: ListHITsForQualificationTypeCommandInput,
   ...additionalArguments: any
 ): Paginator<ListHITsForQualificationTypeCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListHITsForQualificationTypeCommandOutput;
   while (hasNext) {

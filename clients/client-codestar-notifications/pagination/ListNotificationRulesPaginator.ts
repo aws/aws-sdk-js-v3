@@ -35,7 +35,7 @@ export async function* paginateListNotificationRules(
   input: ListNotificationRulesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListNotificationRulesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListNotificationRulesCommandOutput;
   while (hasNext) {

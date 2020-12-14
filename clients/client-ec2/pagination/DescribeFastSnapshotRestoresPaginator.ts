@@ -35,7 +35,7 @@ export async function* paginateDescribeFastSnapshotRestores(
   input: DescribeFastSnapshotRestoresCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeFastSnapshotRestoresCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeFastSnapshotRestoresCommandOutput;
   while (hasNext) {

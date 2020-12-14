@@ -35,7 +35,7 @@ export async function* paginateListLocations(
   input: ListLocationsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListLocationsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListLocationsCommandOutput;
   while (hasNext) {

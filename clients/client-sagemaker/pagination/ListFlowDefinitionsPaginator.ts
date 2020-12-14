@@ -35,7 +35,7 @@ export async function* paginateListFlowDefinitions(
   input: ListFlowDefinitionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListFlowDefinitionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListFlowDefinitionsCommandOutput;
   while (hasNext) {

@@ -35,7 +35,7 @@ export async function* paginateGetEntityTypes(
   input: GetEntityTypesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetEntityTypesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetEntityTypesCommandOutput;
   while (hasNext) {

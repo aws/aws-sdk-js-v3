@@ -35,7 +35,7 @@ export async function* paginateFilterLogEvents(
   input: FilterLogEventsCommandInput,
   ...additionalArguments: any
 ): Paginator<FilterLogEventsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: FilterLogEventsCommandOutput;
   while (hasNext) {

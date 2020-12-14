@@ -35,7 +35,7 @@ export async function* paginateListLanguageModels(
   input: ListLanguageModelsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListLanguageModelsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListLanguageModelsCommandOutput;
   while (hasNext) {

@@ -35,7 +35,7 @@ export async function* paginateGetGroupsForCapacityReservation(
   input: GetGroupsForCapacityReservationCommandInput,
   ...additionalArguments: any
 ): Paginator<GetGroupsForCapacityReservationCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetGroupsForCapacityReservationCommandOutput;
   while (hasNext) {

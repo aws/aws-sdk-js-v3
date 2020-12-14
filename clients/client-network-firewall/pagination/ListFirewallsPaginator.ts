@@ -35,7 +35,7 @@ export async function* paginateListFirewalls(
   input: ListFirewallsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListFirewallsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListFirewallsCommandOutput;
   while (hasNext) {

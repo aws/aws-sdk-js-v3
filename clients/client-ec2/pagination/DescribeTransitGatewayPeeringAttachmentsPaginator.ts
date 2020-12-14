@@ -35,7 +35,7 @@ export async function* paginateDescribeTransitGatewayPeeringAttachments(
   input: DescribeTransitGatewayPeeringAttachmentsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeTransitGatewayPeeringAttachmentsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeTransitGatewayPeeringAttachmentsCommandOutput;
   while (hasNext) {

@@ -35,7 +35,7 @@ export async function* paginateSearchLocalGatewayRoutes(
   input: SearchLocalGatewayRoutesCommandInput,
   ...additionalArguments: any
 ): Paginator<SearchLocalGatewayRoutesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: SearchLocalGatewayRoutesCommandOutput;
   while (hasNext) {

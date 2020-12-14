@@ -35,7 +35,7 @@ export async function* paginateGetWorkflowExecutionHistory(
   input: GetWorkflowExecutionHistoryCommandInput,
   ...additionalArguments: any
 ): Paginator<GetWorkflowExecutionHistoryCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextPageToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetWorkflowExecutionHistoryCommandOutput;
   while (hasNext) {

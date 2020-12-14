@@ -35,7 +35,7 @@ export async function* paginateDescribeAlarms(
   input: DescribeAlarmsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeAlarmsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeAlarmsCommandOutput;
   while (hasNext) {

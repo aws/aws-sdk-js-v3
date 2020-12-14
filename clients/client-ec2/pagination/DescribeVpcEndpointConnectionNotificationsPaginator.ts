@@ -35,7 +35,7 @@ export async function* paginateDescribeVpcEndpointConnectionNotifications(
   input: DescribeVpcEndpointConnectionNotificationsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeVpcEndpointConnectionNotificationsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeVpcEndpointConnectionNotificationsCommandOutput;
   while (hasNext) {

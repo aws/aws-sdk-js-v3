@@ -35,7 +35,7 @@ export async function* paginateDescribeTableStatistics(
   input: DescribeTableStatisticsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeTableStatisticsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeTableStatisticsCommandOutput;
   while (hasNext) {

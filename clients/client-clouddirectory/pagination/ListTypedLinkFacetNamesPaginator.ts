@@ -35,7 +35,7 @@ export async function* paginateListTypedLinkFacetNames(
   input: ListTypedLinkFacetNamesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTypedLinkFacetNamesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTypedLinkFacetNamesCommandOutput;
   while (hasNext) {

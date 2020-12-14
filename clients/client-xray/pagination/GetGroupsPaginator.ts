@@ -31,7 +31,7 @@ export async function* paginateGetGroups(
   input: GetGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetGroupsCommandOutput;
   while (hasNext) {

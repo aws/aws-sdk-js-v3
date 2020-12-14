@@ -35,7 +35,7 @@ export async function* paginateListExperiments(
   input: ListExperimentsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListExperimentsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListExperimentsCommandOutput;
   while (hasNext) {

@@ -35,7 +35,7 @@ export async function* paginateDescribeEventAggregates(
   input: DescribeEventAggregatesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeEventAggregatesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeEventAggregatesCommandOutput;
   while (hasNext) {

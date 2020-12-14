@@ -35,7 +35,7 @@ export async function* paginateListCopyJobs(
   input: ListCopyJobsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListCopyJobsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListCopyJobsCommandOutput;
   while (hasNext) {

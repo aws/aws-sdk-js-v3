@@ -35,7 +35,7 @@ export async function* paginateListCrawlers(
   input: ListCrawlersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListCrawlersCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListCrawlersCommandOutput;
   while (hasNext) {

@@ -35,7 +35,7 @@ export async function* paginateDescribeModelVersions(
   input: DescribeModelVersionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeModelVersionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeModelVersionsCommandOutput;
   while (hasNext) {

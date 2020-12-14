@@ -35,7 +35,7 @@ export async function* paginateListActionExecutions(
   input: ListActionExecutionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListActionExecutionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListActionExecutionsCommandOutput;
   while (hasNext) {

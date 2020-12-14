@@ -35,7 +35,7 @@ export async function* paginateDescribeClusterSecurityGroups(
   input: DescribeClusterSecurityGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeClusterSecurityGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeClusterSecurityGroupsCommandOutput;
   while (hasNext) {

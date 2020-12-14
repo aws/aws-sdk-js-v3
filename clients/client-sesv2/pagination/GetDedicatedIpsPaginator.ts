@@ -35,7 +35,7 @@ export async function* paginateGetDedicatedIps(
   input: GetDedicatedIpsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetDedicatedIpsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetDedicatedIpsCommandOutput;
   while (hasNext) {

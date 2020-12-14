@@ -35,7 +35,7 @@ export async function* paginateDescribeDhcpOptions(
   input: DescribeDhcpOptionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeDhcpOptionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeDhcpOptionsCommandOutput;
   while (hasNext) {

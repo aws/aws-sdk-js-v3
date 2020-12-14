@@ -35,7 +35,7 @@ export async function* paginateDescribeReservedDBInstancesOfferings(
   input: DescribeReservedDBInstancesOfferingsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeReservedDBInstancesOfferingsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeReservedDBInstancesOfferingsCommandOutput;
   while (hasNext) {

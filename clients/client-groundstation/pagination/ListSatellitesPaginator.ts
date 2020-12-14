@@ -35,7 +35,7 @@ export async function* paginateListSatellites(
   input: ListSatellitesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSatellitesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSatellitesCommandOutput;
   while (hasNext) {

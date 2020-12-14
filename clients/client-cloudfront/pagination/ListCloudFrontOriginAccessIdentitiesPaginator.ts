@@ -35,7 +35,7 @@ export async function* paginateListCloudFrontOriginAccessIdentities(
   input: ListCloudFrontOriginAccessIdentitiesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListCloudFrontOriginAccessIdentitiesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListCloudFrontOriginAccessIdentitiesCommandOutput;
   while (hasNext) {

@@ -31,7 +31,7 @@ export async function* paginateListParts(
   input: ListPartsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListPartsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListPartsCommandOutput;
   while (hasNext) {

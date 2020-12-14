@@ -35,7 +35,7 @@ export async function* paginateListPipelineExecutionSteps(
   input: ListPipelineExecutionStepsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListPipelineExecutionStepsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListPipelineExecutionStepsCommandOutput;
   while (hasNext) {

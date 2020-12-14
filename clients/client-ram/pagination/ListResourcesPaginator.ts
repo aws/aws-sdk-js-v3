@@ -35,7 +35,7 @@ export async function* paginateListResources(
   input: ListResourcesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListResourcesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListResourcesCommandOutput;
   while (hasNext) {

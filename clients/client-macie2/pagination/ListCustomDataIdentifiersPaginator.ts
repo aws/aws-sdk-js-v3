@@ -35,7 +35,7 @@ export async function* paginateListCustomDataIdentifiers(
   input: ListCustomDataIdentifiersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListCustomDataIdentifiersCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListCustomDataIdentifiersCommandOutput;
   while (hasNext) {

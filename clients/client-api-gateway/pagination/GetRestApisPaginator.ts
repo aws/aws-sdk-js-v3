@@ -31,7 +31,7 @@ export async function* paginateGetRestApis(
   input: GetRestApisCommandInput,
   ...additionalArguments: any
 ): Paginator<GetRestApisCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.position | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetRestApisCommandOutput;
   while (hasNext) {

@@ -35,7 +35,7 @@ export async function* paginateGetInventory(
   input: GetInventoryCommandInput,
   ...additionalArguments: any
 ): Paginator<GetInventoryCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetInventoryCommandOutput;
   while (hasNext) {

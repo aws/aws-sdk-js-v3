@@ -35,7 +35,7 @@ export async function* paginateListVirtualClusters(
   input: ListVirtualClustersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListVirtualClustersCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListVirtualClustersCommandOutput;
   while (hasNext) {

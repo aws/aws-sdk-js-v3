@@ -31,7 +31,7 @@ export async function* paginateListPresets(
   input: ListPresetsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListPresetsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListPresetsCommandOutput;
   while (hasNext) {

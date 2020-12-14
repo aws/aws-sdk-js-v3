@@ -31,7 +31,7 @@ export async function* paginateGetDevices(
   input: GetDevicesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetDevicesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetDevicesCommandOutput;
   while (hasNext) {

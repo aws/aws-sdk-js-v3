@@ -35,7 +35,7 @@ export async function* paginateListAttachedRolePolicies(
   input: ListAttachedRolePoliciesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAttachedRolePoliciesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAttachedRolePoliciesCommandOutput;
   while (hasNext) {

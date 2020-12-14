@@ -35,7 +35,7 @@ export async function* paginateGetVariables(
   input: GetVariablesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetVariablesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetVariablesCommandOutput;
   while (hasNext) {

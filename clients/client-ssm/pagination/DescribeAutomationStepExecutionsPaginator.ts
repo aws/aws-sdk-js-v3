@@ -35,7 +35,7 @@ export async function* paginateDescribeAutomationStepExecutions(
   input: DescribeAutomationStepExecutionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeAutomationStepExecutionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeAutomationStepExecutionsCommandOutput;
   while (hasNext) {

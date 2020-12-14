@@ -31,7 +31,7 @@ export async function* paginateListFlows(
   input: ListFlowsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListFlowsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListFlowsCommandOutput;
   while (hasNext) {

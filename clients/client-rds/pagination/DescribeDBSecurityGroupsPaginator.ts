@@ -35,7 +35,7 @@ export async function* paginateDescribeDBSecurityGroups(
   input: DescribeDBSecurityGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeDBSecurityGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeDBSecurityGroupsCommandOutput;
   while (hasNext) {

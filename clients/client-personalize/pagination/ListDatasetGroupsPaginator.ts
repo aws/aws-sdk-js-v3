@@ -35,7 +35,7 @@ export async function* paginateListDatasetGroups(
   input: ListDatasetGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDatasetGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDatasetGroupsCommandOutput;
   while (hasNext) {

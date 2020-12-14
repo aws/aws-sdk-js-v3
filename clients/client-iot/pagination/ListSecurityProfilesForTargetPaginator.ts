@@ -35,7 +35,7 @@ export async function* paginateListSecurityProfilesForTarget(
   input: ListSecurityProfilesForTargetCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSecurityProfilesForTargetCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSecurityProfilesForTargetCommandOutput;
   while (hasNext) {

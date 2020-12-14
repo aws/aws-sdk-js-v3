@@ -35,7 +35,7 @@ export async function* paginateGetLabelDetection(
   input: GetLabelDetectionCommandInput,
   ...additionalArguments: any
 ): Paginator<GetLabelDetectionCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetLabelDetectionCommandOutput;
   while (hasNext) {

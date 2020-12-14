@@ -35,7 +35,7 @@ export async function* paginateDescribeRemediationExecutionStatus(
   input: DescribeRemediationExecutionStatusCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeRemediationExecutionStatusCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeRemediationExecutionStatusCommandOutput;
   while (hasNext) {

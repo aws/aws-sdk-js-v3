@@ -35,7 +35,7 @@ export async function* paginateListHostedConfigurationVersions(
   input: ListHostedConfigurationVersionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListHostedConfigurationVersionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListHostedConfigurationVersionsCommandOutput;
   while (hasNext) {

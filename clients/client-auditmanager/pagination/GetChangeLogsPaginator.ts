@@ -35,7 +35,7 @@ export async function* paginateGetChangeLogs(
   input: GetChangeLogsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetChangeLogsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetChangeLogsCommandOutput;
   while (hasNext) {

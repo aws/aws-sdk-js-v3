@@ -31,7 +31,7 @@ export async function* paginateListGraphs(
   input: ListGraphsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListGraphsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListGraphsCommandOutput;
   while (hasNext) {

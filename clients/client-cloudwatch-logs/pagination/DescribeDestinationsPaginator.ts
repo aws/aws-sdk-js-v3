@@ -35,7 +35,7 @@ export async function* paginateDescribeDestinations(
   input: DescribeDestinationsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeDestinationsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeDestinationsCommandOutput;
   while (hasNext) {

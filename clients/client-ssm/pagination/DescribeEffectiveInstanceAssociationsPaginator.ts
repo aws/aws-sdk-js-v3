@@ -35,7 +35,7 @@ export async function* paginateDescribeEffectiveInstanceAssociations(
   input: DescribeEffectiveInstanceAssociationsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeEffectiveInstanceAssociationsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeEffectiveInstanceAssociationsCommandOutput;
   while (hasNext) {

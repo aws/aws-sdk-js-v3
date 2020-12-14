@@ -35,7 +35,7 @@ export async function* paginateListDeploymentInstances(
   input: ListDeploymentInstancesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDeploymentInstancesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDeploymentInstancesCommandOutput;
   while (hasNext) {

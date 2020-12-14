@@ -35,7 +35,7 @@ export async function* paginateListServiceQuotas(
   input: ListServiceQuotasCommandInput,
   ...additionalArguments: any
 ): Paginator<ListServiceQuotasCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListServiceQuotasCommandOutput;
   while (hasNext) {

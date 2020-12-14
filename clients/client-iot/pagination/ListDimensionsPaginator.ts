@@ -35,7 +35,7 @@ export async function* paginateListDimensions(
   input: ListDimensionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDimensionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDimensionsCommandOutput;
   while (hasNext) {

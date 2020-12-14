@@ -35,7 +35,7 @@ export async function* paginateListStreamKeys(
   input: ListStreamKeysCommandInput,
   ...additionalArguments: any
 ): Paginator<ListStreamKeysCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListStreamKeysCommandOutput;
   while (hasNext) {

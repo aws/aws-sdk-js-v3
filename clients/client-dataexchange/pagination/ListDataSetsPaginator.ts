@@ -35,7 +35,7 @@ export async function* paginateListDataSets(
   input: ListDataSetsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDataSetsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDataSetsCommandOutput;
   while (hasNext) {

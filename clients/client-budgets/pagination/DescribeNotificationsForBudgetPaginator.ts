@@ -35,7 +35,7 @@ export async function* paginateDescribeNotificationsForBudget(
   input: DescribeNotificationsForBudgetCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeNotificationsForBudgetCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeNotificationsForBudgetCommandOutput;
   while (hasNext) {

@@ -35,7 +35,7 @@ export async function* paginateDescribeScalingActivities(
   input: DescribeScalingActivitiesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeScalingActivitiesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeScalingActivitiesCommandOutput;
   while (hasNext) {

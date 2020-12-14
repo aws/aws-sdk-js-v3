@@ -35,7 +35,7 @@ export async function* paginateDescribeResourceCollectionHealth(
   input: DescribeResourceCollectionHealthCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeResourceCollectionHealthCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeResourceCollectionHealthCommandOutput;
   while (hasNext) {

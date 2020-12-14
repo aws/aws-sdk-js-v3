@@ -35,7 +35,7 @@ export async function* paginateGetTransitGatewayMulticastDomainAssociations(
   input: GetTransitGatewayMulticastDomainAssociationsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetTransitGatewayMulticastDomainAssociationsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetTransitGatewayMulticastDomainAssociationsCommandOutput;
   while (hasNext) {

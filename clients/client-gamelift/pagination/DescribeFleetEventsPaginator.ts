@@ -35,7 +35,7 @@ export async function* paginateDescribeFleetEvents(
   input: DescribeFleetEventsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeFleetEventsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeFleetEventsCommandOutput;
   while (hasNext) {

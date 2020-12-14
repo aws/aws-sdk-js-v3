@@ -31,7 +31,7 @@ export async function* paginateListBuilds(
   input: ListBuildsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListBuildsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListBuildsCommandOutput;
   while (hasNext) {

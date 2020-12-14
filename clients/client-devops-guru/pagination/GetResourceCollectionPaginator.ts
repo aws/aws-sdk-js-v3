@@ -35,7 +35,7 @@ export async function* paginateGetResourceCollection(
   input: GetResourceCollectionCommandInput,
   ...additionalArguments: any
 ): Paginator<GetResourceCollectionCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetResourceCollectionCommandOutput;
   while (hasNext) {

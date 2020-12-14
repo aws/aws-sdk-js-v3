@@ -35,7 +35,7 @@ export async function* paginateListGateways(
   input: ListGatewaysCommandInput,
   ...additionalArguments: any
 ): Paginator<ListGatewaysCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListGatewaysCommandOutput;
   while (hasNext) {

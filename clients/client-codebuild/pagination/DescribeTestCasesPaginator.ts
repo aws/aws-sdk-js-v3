@@ -35,7 +35,7 @@ export async function* paginateDescribeTestCases(
   input: DescribeTestCasesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeTestCasesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeTestCasesCommandOutput;
   while (hasNext) {

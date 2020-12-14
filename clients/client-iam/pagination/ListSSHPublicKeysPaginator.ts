@@ -35,7 +35,7 @@ export async function* paginateListSSHPublicKeys(
   input: ListSSHPublicKeysCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSSHPublicKeysCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSSHPublicKeysCommandOutput;
   while (hasNext) {

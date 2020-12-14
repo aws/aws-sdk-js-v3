@@ -35,7 +35,7 @@ export async function* paginateListNotebookInstances(
   input: ListNotebookInstancesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListNotebookInstancesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListNotebookInstancesCommandOutput;
   while (hasNext) {

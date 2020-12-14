@@ -35,7 +35,7 @@ export async function* paginateDescribeReservedElasticsearchInstances(
   input: DescribeReservedElasticsearchInstancesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeReservedElasticsearchInstancesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeReservedElasticsearchInstancesCommandOutput;
   while (hasNext) {

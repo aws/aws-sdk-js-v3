@@ -35,7 +35,7 @@ export async function* paginateListProtectedResources(
   input: ListProtectedResourcesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListProtectedResourcesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListProtectedResourcesCommandOutput;
   while (hasNext) {

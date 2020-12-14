@@ -35,7 +35,7 @@ export async function* paginateDescribeBuckets(
   input: DescribeBucketsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeBucketsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeBucketsCommandOutput;
   while (hasNext) {

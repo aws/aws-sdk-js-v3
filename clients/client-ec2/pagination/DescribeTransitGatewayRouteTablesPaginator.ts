@@ -35,7 +35,7 @@ export async function* paginateDescribeTransitGatewayRouteTables(
   input: DescribeTransitGatewayRouteTablesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeTransitGatewayRouteTablesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeTransitGatewayRouteTablesCommandOutput;
   while (hasNext) {

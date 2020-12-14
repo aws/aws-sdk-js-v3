@@ -31,7 +31,7 @@ export async function* paginateListSamples(
   input: ListSamplesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSamplesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSamplesCommandOutput;
   while (hasNext) {

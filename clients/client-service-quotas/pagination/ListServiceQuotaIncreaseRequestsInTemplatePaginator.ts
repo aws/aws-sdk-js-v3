@@ -35,7 +35,7 @@ export async function* paginateListServiceQuotaIncreaseRequestsInTemplate(
   input: ListServiceQuotaIncreaseRequestsInTemplateCommandInput,
   ...additionalArguments: any
 ): Paginator<ListServiceQuotaIncreaseRequestsInTemplateCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListServiceQuotaIncreaseRequestsInTemplateCommandOutput;
   while (hasNext) {

@@ -35,7 +35,7 @@ export async function* paginateListOrganizationalUnitsForParent(
   input: ListOrganizationalUnitsForParentCommandInput,
   ...additionalArguments: any
 ): Paginator<ListOrganizationalUnitsForParentCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListOrganizationalUnitsForParentCommandOutput;
   while (hasNext) {

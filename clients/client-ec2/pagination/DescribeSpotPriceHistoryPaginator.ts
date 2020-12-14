@@ -35,7 +35,7 @@ export async function* paginateDescribeSpotPriceHistory(
   input: DescribeSpotPriceHistoryCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeSpotPriceHistoryCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeSpotPriceHistoryCommandOutput;
   while (hasNext) {

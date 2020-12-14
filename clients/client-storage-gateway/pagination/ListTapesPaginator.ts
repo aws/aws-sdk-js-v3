@@ -31,7 +31,7 @@ export async function* paginateListTapes(
   input: ListTapesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTapesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTapesCommandOutput;
   while (hasNext) {

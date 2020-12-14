@@ -35,7 +35,7 @@ export async function* paginateListRegionalBuckets(
   input: ListRegionalBucketsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListRegionalBucketsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListRegionalBucketsCommandOutput;
   while (hasNext) {

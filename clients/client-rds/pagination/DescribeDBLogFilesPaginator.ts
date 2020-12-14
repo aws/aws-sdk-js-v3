@@ -35,7 +35,7 @@ export async function* paginateDescribeDBLogFiles(
   input: DescribeDBLogFilesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeDBLogFilesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeDBLogFilesCommandOutput;
   while (hasNext) {

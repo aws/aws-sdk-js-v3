@@ -35,7 +35,7 @@ export async function* paginateDescribeDocumentVersions(
   input: DescribeDocumentVersionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeDocumentVersionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeDocumentVersionsCommandOutput;
   while (hasNext) {
