@@ -73,9 +73,6 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .withConventions(TypeScriptDependency.MIDDLEWARE_RETRY.dependency, "Retry")
                         .build(),
                 RuntimeClientPlugin.builder()
-                        .withConventions(TypeScriptDependency.MIDDLEWARE_USER_AGENT.dependency, "UserAgent")
-                        .build(),
-                RuntimeClientPlugin.builder()
                         .withConventions(TypeScriptDependency.MIDDLEWARE_CONTENT_LENGTH.dependency, "ContentLength",
                                          HAS_MIDDLEWARE)
                         .build(),

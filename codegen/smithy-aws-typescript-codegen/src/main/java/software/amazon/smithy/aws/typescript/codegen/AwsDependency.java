@@ -62,6 +62,7 @@ public enum AwsDependency implements SymbolDependencyContainer {
     RETRY_CONFIG_PROVIDER(NORMAL_DEPENDENCY, "@aws-sdk/retry-config-provider", "^1.0.0-rc.1"),
     NODE_CONFIG_PROVIDER(NORMAL_DEPENDENCY, "@aws-sdk/node-config-provider", "^1.0.0-rc.1"),
     MIDDLEWARE_LOGGER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-logger", "^1.0.0-rc.1"),
+    MIDDLEWARE_USER_AGENT("dependencies", "@aws-sdk/middleware-user-agent", "1.0.0-rc.1"),
     AWS_SDK_UTIL_USER_AGENT_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/util-user-agent-browser", "1.0.0-rc.1"),
     AWS_SDK_UTIL_USER_AGENT_NODE(NORMAL_DEPENDENCY, "@aws-sdk/util-user-agent-node", "1.0.0-rc.1");
 
