@@ -59,14 +59,6 @@ export class ListGroundStationsCommand extends $Command<
       inputFilterSensitiveLog: ListGroundStationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListGroundStationsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

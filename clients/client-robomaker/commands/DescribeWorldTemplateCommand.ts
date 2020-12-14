@@ -59,14 +59,6 @@ export class DescribeWorldTemplateCommand extends $Command<
       inputFilterSensitiveLog: DescribeWorldTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeWorldTemplateResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

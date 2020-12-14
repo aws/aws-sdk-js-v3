@@ -87,14 +87,6 @@ export class GetResourcesCommand extends $Command<
       inputFilterSensitiveLog: GetResourcesInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetResourcesOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

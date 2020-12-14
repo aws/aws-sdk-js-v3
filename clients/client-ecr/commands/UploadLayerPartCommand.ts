@@ -66,14 +66,6 @@ export class UploadLayerPartCommand extends $Command<
       inputFilterSensitiveLog: UploadLayerPartRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UploadLayerPartResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

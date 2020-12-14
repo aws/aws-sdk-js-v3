@@ -69,14 +69,6 @@ export class CreateTrialCommand extends $Command<
       inputFilterSensitiveLog: CreateTrialRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateTrialResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

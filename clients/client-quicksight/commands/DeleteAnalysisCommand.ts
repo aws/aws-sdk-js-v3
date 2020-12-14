@@ -70,14 +70,6 @@ export class DeleteAnalysisCommand extends $Command<
       inputFilterSensitiveLog: DeleteAnalysisRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteAnalysisResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

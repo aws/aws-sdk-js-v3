@@ -59,14 +59,6 @@ export class DeleteOTAUpdateCommand extends $Command<
       inputFilterSensitiveLog: DeleteOTAUpdateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteOTAUpdateResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

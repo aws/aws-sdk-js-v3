@@ -67,14 +67,6 @@ export class ListGroupPoliciesCommand extends $Command<
       inputFilterSensitiveLog: ListGroupPoliciesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListGroupPoliciesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

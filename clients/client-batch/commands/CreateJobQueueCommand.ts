@@ -64,14 +64,6 @@ export class CreateJobQueueCommand extends $Command<
       inputFilterSensitiveLog: CreateJobQueueRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateJobQueueResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

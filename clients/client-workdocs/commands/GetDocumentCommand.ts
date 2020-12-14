@@ -59,14 +59,6 @@ export class GetDocumentCommand extends $Command<
       inputFilterSensitiveLog: GetDocumentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDocumentResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

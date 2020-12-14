@@ -64,14 +64,6 @@ export class PutLexiconCommand extends $Command<
       inputFilterSensitiveLog: PutLexiconInput.filterSensitiveLog,
       outputFilterSensitiveLog: PutLexiconOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -60,14 +60,6 @@ export class DescribeEngineDefaultParametersCommand extends $Command<
       inputFilterSensitiveLog: DescribeEngineDefaultParametersMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeEngineDefaultParametersResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

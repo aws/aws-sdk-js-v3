@@ -69,14 +69,6 @@ export class DescribeHsmClientCertificatesCommand extends $Command<
       inputFilterSensitiveLog: DescribeHsmClientCertificatesMessage.filterSensitiveLog,
       outputFilterSensitiveLog: HsmClientCertificateMessage.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

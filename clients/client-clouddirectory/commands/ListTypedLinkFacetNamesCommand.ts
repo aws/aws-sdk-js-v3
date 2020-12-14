@@ -60,14 +60,6 @@ export class ListTypedLinkFacetNamesCommand extends $Command<
       inputFilterSensitiveLog: ListTypedLinkFacetNamesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTypedLinkFacetNamesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

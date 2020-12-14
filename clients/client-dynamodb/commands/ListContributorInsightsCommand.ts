@@ -59,14 +59,6 @@ export class ListContributorInsightsCommand extends $Command<
       inputFilterSensitiveLog: ListContributorInsightsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListContributorInsightsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

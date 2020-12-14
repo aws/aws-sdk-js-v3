@@ -69,14 +69,6 @@ export class CreateLBCookieStickinessPolicyCommand extends $Command<
       inputFilterSensitiveLog: CreateLBCookieStickinessPolicyInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateLBCookieStickinessPolicyOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -63,14 +63,6 @@ export class ListTagsForResourceCommand extends $Command<
       inputFilterSensitiveLog: ListTagsForResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTagsForResourceResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

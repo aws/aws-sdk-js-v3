@@ -60,14 +60,6 @@ export class DeleteStreamProcessorCommand extends $Command<
       inputFilterSensitiveLog: DeleteStreamProcessorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteStreamProcessorResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -68,14 +68,6 @@ export class RegisterInstanceEventNotificationAttributesCommand extends $Command
       inputFilterSensitiveLog: RegisterInstanceEventNotificationAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterInstanceEventNotificationAttributesResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

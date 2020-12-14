@@ -60,14 +60,6 @@ export class ListArchivesCommand extends $Command<
       inputFilterSensitiveLog: ListArchivesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListArchivesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

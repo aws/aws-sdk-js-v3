@@ -61,14 +61,6 @@ export class PutAccountSettingDefaultCommand extends $Command<
       inputFilterSensitiveLog: PutAccountSettingDefaultRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutAccountSettingDefaultResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

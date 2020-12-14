@@ -59,14 +59,6 @@ export class CreateVirtualClusterCommand extends $Command<
       inputFilterSensitiveLog: CreateVirtualClusterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateVirtualClusterResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

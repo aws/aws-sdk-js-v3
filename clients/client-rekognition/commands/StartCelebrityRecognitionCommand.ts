@@ -70,14 +70,6 @@ export class StartCelebrityRecognitionCommand extends $Command<
       inputFilterSensitiveLog: StartCelebrityRecognitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartCelebrityRecognitionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -64,14 +64,6 @@ export class AuthorizeSnapshotAccessCommand extends $Command<
       inputFilterSensitiveLog: AuthorizeSnapshotAccessMessage.filterSensitiveLog,
       outputFilterSensitiveLog: AuthorizeSnapshotAccessResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

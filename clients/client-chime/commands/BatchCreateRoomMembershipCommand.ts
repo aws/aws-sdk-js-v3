@@ -59,14 +59,6 @@ export class BatchCreateRoomMembershipCommand extends $Command<
       inputFilterSensitiveLog: BatchCreateRoomMembershipRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchCreateRoomMembershipResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -66,14 +66,6 @@ export class CancelChangeSetCommand extends $Command<
       inputFilterSensitiveLog: CancelChangeSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelChangeSetResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class CreateStackCommand extends $Command<
       inputFilterSensitiveLog: CreateStackRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateStackResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class ListPlaybackConfigurationsCommand extends $Command<
       inputFilterSensitiveLog: ListPlaybackConfigurationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPlaybackConfigurationsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

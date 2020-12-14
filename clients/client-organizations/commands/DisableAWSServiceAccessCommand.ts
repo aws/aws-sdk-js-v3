@@ -83,14 +83,6 @@ export class DisableAWSServiceAccessCommand extends $Command<
       inputFilterSensitiveLog: DisableAWSServiceAccessRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

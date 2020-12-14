@@ -81,14 +81,6 @@ export class CreateOpenIDConnectProviderCommand extends $Command<
       inputFilterSensitiveLog: CreateOpenIDConnectProviderRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateOpenIDConnectProviderResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

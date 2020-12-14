@@ -59,14 +59,6 @@ export class DescribeNetworkInsightsPathsCommand extends $Command<
       inputFilterSensitiveLog: DescribeNetworkInsightsPathsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeNetworkInsightsPathsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -204,14 +204,6 @@ export class PutTargetsCommand extends $Command<
       inputFilterSensitiveLog: PutTargetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutTargetsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

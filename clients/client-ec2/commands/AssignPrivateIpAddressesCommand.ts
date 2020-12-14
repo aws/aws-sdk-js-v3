@@ -70,14 +70,6 @@ export class AssignPrivateIpAddressesCommand extends $Command<
       inputFilterSensitiveLog: AssignPrivateIpAddressesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssignPrivateIpAddressesResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

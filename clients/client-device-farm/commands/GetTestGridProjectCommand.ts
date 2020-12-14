@@ -59,14 +59,6 @@ export class GetTestGridProjectCommand extends $Command<
       inputFilterSensitiveLog: GetTestGridProjectRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetTestGridProjectResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

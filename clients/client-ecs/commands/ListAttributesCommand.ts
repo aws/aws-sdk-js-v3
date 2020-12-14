@@ -65,14 +65,6 @@ export class ListAttributesCommand extends $Command<
       inputFilterSensitiveLog: ListAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAttributesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class ListResolversByFunctionCommand extends $Command<
       inputFilterSensitiveLog: ListResolversByFunctionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListResolversByFunctionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -63,14 +63,6 @@ export class BatchUpdatePhoneNumberCommand extends $Command<
       inputFilterSensitiveLog: BatchUpdatePhoneNumberRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchUpdatePhoneNumberResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

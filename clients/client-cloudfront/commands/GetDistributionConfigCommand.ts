@@ -59,14 +59,6 @@ export class GetDistributionConfigCommand extends $Command<
       inputFilterSensitiveLog: GetDistributionConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDistributionConfigResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class UpdateBaiduChannelCommand extends $Command<
       inputFilterSensitiveLog: UpdateBaiduChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateBaiduChannelResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

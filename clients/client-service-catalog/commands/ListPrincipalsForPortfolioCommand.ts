@@ -59,14 +59,6 @@ export class ListPrincipalsForPortfolioCommand extends $Command<
       inputFilterSensitiveLog: ListPrincipalsForPortfolioInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListPrincipalsForPortfolioOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

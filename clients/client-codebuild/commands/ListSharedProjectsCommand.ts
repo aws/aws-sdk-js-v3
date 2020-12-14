@@ -59,14 +59,6 @@ export class ListSharedProjectsCommand extends $Command<
       inputFilterSensitiveLog: ListSharedProjectsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListSharedProjectsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

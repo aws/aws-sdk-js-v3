@@ -64,14 +64,6 @@ export class ReleaseHostsCommand extends $Command<
       inputFilterSensitiveLog: ReleaseHostsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ReleaseHostsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

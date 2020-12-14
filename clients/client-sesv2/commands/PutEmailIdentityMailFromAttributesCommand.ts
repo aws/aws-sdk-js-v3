@@ -64,14 +64,6 @@ export class PutEmailIdentityMailFromAttributesCommand extends $Command<
       inputFilterSensitiveLog: PutEmailIdentityMailFromAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutEmailIdentityMailFromAttributesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

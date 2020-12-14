@@ -76,14 +76,6 @@ export class AddApplicationReferenceDataSourceCommand extends $Command<
       inputFilterSensitiveLog: AddApplicationReferenceDataSourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AddApplicationReferenceDataSourceResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

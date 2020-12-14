@@ -67,14 +67,6 @@ export class AdminGetUserCommand extends $Command<
       inputFilterSensitiveLog: AdminGetUserRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AdminGetUserResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

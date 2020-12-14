@@ -71,14 +71,6 @@ export class DeregisterContainerInstanceCommand extends $Command<
       inputFilterSensitiveLog: DeregisterContainerInstanceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeregisterContainerInstanceResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

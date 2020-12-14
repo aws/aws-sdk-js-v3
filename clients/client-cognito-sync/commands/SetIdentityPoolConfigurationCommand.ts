@@ -60,14 +60,6 @@ export class SetIdentityPoolConfigurationCommand extends $Command<
       inputFilterSensitiveLog: SetIdentityPoolConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SetIdentityPoolConfigurationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

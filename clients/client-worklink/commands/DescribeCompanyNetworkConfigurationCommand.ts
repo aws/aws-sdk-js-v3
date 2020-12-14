@@ -64,14 +64,6 @@ export class DescribeCompanyNetworkConfigurationCommand extends $Command<
       inputFilterSensitiveLog: DescribeCompanyNetworkConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeCompanyNetworkConfigurationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

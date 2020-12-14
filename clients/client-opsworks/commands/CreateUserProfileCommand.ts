@@ -63,14 +63,6 @@ export class CreateUserProfileCommand extends $Command<
       inputFilterSensitiveLog: CreateUserProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateUserProfileResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

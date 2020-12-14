@@ -80,14 +80,6 @@ export class SetLoadBalancerPoliciesForBackendServerCommand extends $Command<
       inputFilterSensitiveLog: SetLoadBalancerPoliciesForBackendServerInput.filterSensitiveLog,
       outputFilterSensitiveLog: SetLoadBalancerPoliciesForBackendServerOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

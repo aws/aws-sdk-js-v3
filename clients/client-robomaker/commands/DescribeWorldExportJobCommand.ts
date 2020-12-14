@@ -59,14 +59,6 @@ export class DescribeWorldExportJobCommand extends $Command<
       inputFilterSensitiveLog: DescribeWorldExportJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeWorldExportJobResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

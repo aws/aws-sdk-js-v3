@@ -63,14 +63,6 @@ export class UpdateDatabaseCommand extends $Command<
       inputFilterSensitiveLog: UpdateDatabaseRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDatabaseResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

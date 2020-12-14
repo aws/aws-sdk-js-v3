@@ -69,14 +69,6 @@ export class StopApplicationCommand extends $Command<
       inputFilterSensitiveLog: StopApplicationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopApplicationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

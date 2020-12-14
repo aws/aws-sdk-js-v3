@@ -62,14 +62,6 @@ export class ListWebACLsCommand extends $Command<
       inputFilterSensitiveLog: ListWebACLsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListWebACLsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -62,14 +62,6 @@ export class ListMemberAccountsCommand extends $Command<
       inputFilterSensitiveLog: ListMemberAccountsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListMemberAccountsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

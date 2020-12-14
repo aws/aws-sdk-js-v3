@@ -64,14 +64,6 @@ export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
       inputFilterSensitiveLog: EnableSagemakerServicecatalogPortfolioInput.filterSensitiveLog,
       outputFilterSensitiveLog: EnableSagemakerServicecatalogPortfolioOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

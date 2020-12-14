@@ -59,14 +59,6 @@ export class DeletePipelineCommand extends $Command<
       inputFilterSensitiveLog: DeletePipelineRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeletePipelineResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -67,14 +67,6 @@ export class CreateConfigurationSetTrackingOptionsCommand extends $Command<
       inputFilterSensitiveLog: CreateConfigurationSetTrackingOptionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateConfigurationSetTrackingOptionsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

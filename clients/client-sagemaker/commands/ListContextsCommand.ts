@@ -59,14 +59,6 @@ export class ListContextsCommand extends $Command<
       inputFilterSensitiveLog: ListContextsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListContextsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

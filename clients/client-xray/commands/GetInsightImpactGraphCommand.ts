@@ -60,14 +60,6 @@ export class GetInsightImpactGraphCommand extends $Command<
       inputFilterSensitiveLog: GetInsightImpactGraphRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetInsightImpactGraphResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

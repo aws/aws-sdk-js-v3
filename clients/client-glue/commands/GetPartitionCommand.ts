@@ -59,14 +59,6 @@ export class GetPartitionCommand extends $Command<
       inputFilterSensitiveLog: GetPartitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetPartitionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

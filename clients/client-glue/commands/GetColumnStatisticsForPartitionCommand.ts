@@ -61,14 +61,6 @@ export class GetColumnStatisticsForPartitionCommand extends $Command<
       inputFilterSensitiveLog: GetColumnStatisticsForPartitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetColumnStatisticsForPartitionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

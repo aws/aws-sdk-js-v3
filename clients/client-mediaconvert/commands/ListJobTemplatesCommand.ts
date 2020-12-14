@@ -59,14 +59,6 @@ export class ListJobTemplatesCommand extends $Command<
       inputFilterSensitiveLog: ListJobTemplatesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListJobTemplatesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

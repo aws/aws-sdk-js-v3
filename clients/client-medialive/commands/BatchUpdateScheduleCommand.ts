@@ -59,14 +59,6 @@ export class BatchUpdateScheduleCommand extends $Command<
       inputFilterSensitiveLog: BatchUpdateScheduleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchUpdateScheduleResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class CreateTransitGatewayRouteCommand extends $Command<
       inputFilterSensitiveLog: CreateTransitGatewayRouteRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateTransitGatewayRouteResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

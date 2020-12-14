@@ -60,14 +60,6 @@ export class GetSamplingTargetsCommand extends $Command<
       inputFilterSensitiveLog: GetSamplingTargetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSamplingTargetsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

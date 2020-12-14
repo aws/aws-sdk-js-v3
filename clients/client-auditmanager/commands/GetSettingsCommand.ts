@@ -61,14 +61,6 @@ export class GetSettingsCommand extends $Command<
       inputFilterSensitiveLog: GetSettingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSettingsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

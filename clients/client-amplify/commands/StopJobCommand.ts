@@ -55,14 +55,6 @@ export class StopJobCommand extends $Command<StopJobCommandInput, StopJobCommand
       inputFilterSensitiveLog: StopJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopJobResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

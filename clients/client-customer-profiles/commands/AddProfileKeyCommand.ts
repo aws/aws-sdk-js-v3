@@ -62,14 +62,6 @@ export class AddProfileKeyCommand extends $Command<
       inputFilterSensitiveLog: AddProfileKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AddProfileKeyResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

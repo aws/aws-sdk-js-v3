@@ -64,14 +64,6 @@ export class CloneStackCommand extends $Command<
       inputFilterSensitiveLog: CloneStackRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CloneStackResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

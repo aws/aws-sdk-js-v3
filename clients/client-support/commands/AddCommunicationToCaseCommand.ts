@@ -78,14 +78,6 @@ export class AddCommunicationToCaseCommand extends $Command<
       inputFilterSensitiveLog: AddCommunicationToCaseRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AddCommunicationToCaseResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

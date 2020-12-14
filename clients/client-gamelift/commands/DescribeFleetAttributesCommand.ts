@@ -145,14 +145,6 @@ export class DescribeFleetAttributesCommand extends $Command<
       inputFilterSensitiveLog: DescribeFleetAttributesInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeFleetAttributesOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

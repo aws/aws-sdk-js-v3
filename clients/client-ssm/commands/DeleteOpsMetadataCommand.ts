@@ -59,14 +59,6 @@ export class DeleteOpsMetadataCommand extends $Command<
       inputFilterSensitiveLog: DeleteOpsMetadataRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteOpsMetadataResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

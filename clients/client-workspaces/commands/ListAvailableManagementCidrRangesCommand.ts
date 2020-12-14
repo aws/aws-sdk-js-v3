@@ -67,14 +67,6 @@ export class ListAvailableManagementCidrRangesCommand extends $Command<
       inputFilterSensitiveLog: ListAvailableManagementCidrRangesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAvailableManagementCidrRangesResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

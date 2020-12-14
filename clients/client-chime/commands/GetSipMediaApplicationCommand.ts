@@ -60,14 +60,6 @@ export class GetSipMediaApplicationCommand extends $Command<
       inputFilterSensitiveLog: GetSipMediaApplicationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSipMediaApplicationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

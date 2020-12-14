@@ -101,14 +101,6 @@ export class UpdateFileSystemCommand extends $Command<
       inputFilterSensitiveLog: UpdateFileSystemRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateFileSystemResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

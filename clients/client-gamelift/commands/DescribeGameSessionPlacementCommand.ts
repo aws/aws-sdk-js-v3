@@ -112,14 +112,6 @@ export class DescribeGameSessionPlacementCommand extends $Command<
       inputFilterSensitiveLog: DescribeGameSessionPlacementInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeGameSessionPlacementOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

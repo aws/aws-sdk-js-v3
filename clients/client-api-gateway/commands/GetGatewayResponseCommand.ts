@@ -59,14 +59,6 @@ export class GetGatewayResponseCommand extends $Command<
       inputFilterSensitiveLog: GetGatewayResponseRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GatewayResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -68,14 +68,6 @@ export class CreatePlacementGroupCommand extends $Command<
       inputFilterSensitiveLog: CreatePlacementGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreatePlacementGroupResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

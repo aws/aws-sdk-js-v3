@@ -62,14 +62,6 @@ export class ListAvailableManagedRuleGroupsCommand extends $Command<
       inputFilterSensitiveLog: ListAvailableManagedRuleGroupsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAvailableManagedRuleGroupsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

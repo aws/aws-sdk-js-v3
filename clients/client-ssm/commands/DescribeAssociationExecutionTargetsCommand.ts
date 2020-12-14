@@ -64,14 +64,6 @@ export class DescribeAssociationExecutionTargetsCommand extends $Command<
       inputFilterSensitiveLog: DescribeAssociationExecutionTargetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAssociationExecutionTargetsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

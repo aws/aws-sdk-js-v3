@@ -63,14 +63,6 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
       inputFilterSensitiveLog: RemoveSourceIdentifierFromSubscriptionMessage.filterSensitiveLog,
       outputFilterSensitiveLog: RemoveSourceIdentifierFromSubscriptionResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class RunPipelineActivityCommand extends $Command<
       inputFilterSensitiveLog: RunPipelineActivityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RunPipelineActivityResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

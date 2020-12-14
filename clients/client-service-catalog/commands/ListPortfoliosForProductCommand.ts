@@ -59,14 +59,6 @@ export class ListPortfoliosForProductCommand extends $Command<
       inputFilterSensitiveLog: ListPortfoliosForProductInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListPortfoliosForProductOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

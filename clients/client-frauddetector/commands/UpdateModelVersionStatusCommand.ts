@@ -68,14 +68,6 @@ export class UpdateModelVersionStatusCommand extends $Command<
       inputFilterSensitiveLog: UpdateModelVersionStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateModelVersionStatusResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

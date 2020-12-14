@@ -61,14 +61,6 @@ export class ListIncomingTypedLinksCommand extends $Command<
       inputFilterSensitiveLog: ListIncomingTypedLinksRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListIncomingTypedLinksResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

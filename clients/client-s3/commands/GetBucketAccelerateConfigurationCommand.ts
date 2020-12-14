@@ -87,14 +87,6 @@ export class GetBucketAccelerateConfigurationCommand extends $Command<
       inputFilterSensitiveLog: GetBucketAccelerateConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBucketAccelerateConfigurationOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

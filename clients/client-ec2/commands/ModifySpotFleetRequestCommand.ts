@@ -82,14 +82,6 @@ export class ModifySpotFleetRequestCommand extends $Command<
       inputFilterSensitiveLog: ModifySpotFleetRequestRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ModifySpotFleetRequestResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

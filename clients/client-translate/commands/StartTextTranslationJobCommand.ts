@@ -66,14 +66,6 @@ export class StartTextTranslationJobCommand extends $Command<
       inputFilterSensitiveLog: StartTextTranslationJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartTextTranslationJobResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

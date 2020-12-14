@@ -75,14 +75,6 @@ export class StartDocumentTextDetectionCommand extends $Command<
       inputFilterSensitiveLog: StartDocumentTextDetectionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartDocumentTextDetectionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

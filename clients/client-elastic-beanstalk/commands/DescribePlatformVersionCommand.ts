@@ -62,14 +62,6 @@ export class DescribePlatformVersionCommand extends $Command<
       inputFilterSensitiveLog: DescribePlatformVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePlatformVersionResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

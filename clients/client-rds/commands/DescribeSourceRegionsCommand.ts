@@ -60,14 +60,6 @@ export class DescribeSourceRegionsCommand extends $Command<
       inputFilterSensitiveLog: DescribeSourceRegionsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: SourceRegionMessage.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

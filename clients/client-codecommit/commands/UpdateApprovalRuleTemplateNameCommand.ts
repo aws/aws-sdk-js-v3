@@ -59,14 +59,6 @@ export class UpdateApprovalRuleTemplateNameCommand extends $Command<
       inputFilterSensitiveLog: UpdateApprovalRuleTemplateNameInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateApprovalRuleTemplateNameOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

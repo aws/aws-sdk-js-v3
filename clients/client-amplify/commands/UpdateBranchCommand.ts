@@ -59,14 +59,6 @@ export class UpdateBranchCommand extends $Command<
       inputFilterSensitiveLog: UpdateBranchRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateBranchResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

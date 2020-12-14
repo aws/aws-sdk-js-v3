@@ -60,14 +60,6 @@ export class CreateLocationObjectStorageCommand extends $Command<
       inputFilterSensitiveLog: CreateLocationObjectStorageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateLocationObjectStorageResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -69,14 +69,6 @@ export class ListOrganizationalUnitsForParentCommand extends $Command<
       inputFilterSensitiveLog: ListOrganizationalUnitsForParentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListOrganizationalUnitsForParentResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

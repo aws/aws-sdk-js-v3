@@ -60,14 +60,6 @@ export class PutPartnerEventsCommand extends $Command<
       inputFilterSensitiveLog: PutPartnerEventsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutPartnerEventsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

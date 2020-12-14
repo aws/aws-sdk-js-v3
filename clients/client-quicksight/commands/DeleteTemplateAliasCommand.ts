@@ -60,14 +60,6 @@ export class DeleteTemplateAliasCommand extends $Command<
       inputFilterSensitiveLog: DeleteTemplateAliasRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTemplateAliasResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

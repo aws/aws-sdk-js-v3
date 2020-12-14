@@ -60,14 +60,6 @@ export class ListProvisionedCapacityCommand extends $Command<
       inputFilterSensitiveLog: ListProvisionedCapacityInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListProvisionedCapacityOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

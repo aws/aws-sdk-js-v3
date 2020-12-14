@@ -59,14 +59,6 @@ export class PublishSchemaCommand extends $Command<
       inputFilterSensitiveLog: PublishSchemaRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PublishSchemaResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

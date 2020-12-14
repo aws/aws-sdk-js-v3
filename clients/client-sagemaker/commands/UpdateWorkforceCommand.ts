@@ -80,14 +80,6 @@ export class UpdateWorkforceCommand extends $Command<
       inputFilterSensitiveLog: UpdateWorkforceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateWorkforceResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class DescribeTrafficMirrorSessionsCommand extends $Command<
       inputFilterSensitiveLog: DescribeTrafficMirrorSessionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTrafficMirrorSessionsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

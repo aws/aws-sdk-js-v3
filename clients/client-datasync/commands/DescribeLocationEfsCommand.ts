@@ -59,14 +59,6 @@ export class DescribeLocationEfsCommand extends $Command<
       inputFilterSensitiveLog: DescribeLocationEfsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeLocationEfsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

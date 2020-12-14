@@ -60,14 +60,6 @@ export class ListAssessmentTemplatesCommand extends $Command<
       inputFilterSensitiveLog: ListAssessmentTemplatesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAssessmentTemplatesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

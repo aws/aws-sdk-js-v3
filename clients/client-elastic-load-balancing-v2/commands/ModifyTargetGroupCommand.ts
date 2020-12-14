@@ -64,14 +64,6 @@ export class ModifyTargetGroupCommand extends $Command<
       inputFilterSensitiveLog: ModifyTargetGroupInput.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyTargetGroupOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

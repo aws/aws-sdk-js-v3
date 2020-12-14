@@ -59,14 +59,6 @@ export class UpdateObjectAttributesCommand extends $Command<
       inputFilterSensitiveLog: UpdateObjectAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateObjectAttributesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

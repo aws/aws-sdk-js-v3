@@ -71,14 +71,6 @@ export class AddWorkingStorageCommand extends $Command<
       inputFilterSensitiveLog: AddWorkingStorageInput.filterSensitiveLog,
       outputFilterSensitiveLog: AddWorkingStorageOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

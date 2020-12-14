@@ -64,14 +64,6 @@ export class CreateTagsCommand extends $Command<
       inputFilterSensitiveLog: CreateTagsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateTagsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

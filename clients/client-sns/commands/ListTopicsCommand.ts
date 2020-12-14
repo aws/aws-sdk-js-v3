@@ -60,14 +60,6 @@ export class ListTopicsCommand extends $Command<
       inputFilterSensitiveLog: ListTopicsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListTopicsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -63,14 +63,6 @@ export class ListInstanceFleetsCommand extends $Command<
       inputFilterSensitiveLog: ListInstanceFleetsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListInstanceFleetsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

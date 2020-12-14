@@ -59,14 +59,6 @@ export class DeleteApnsVoipChannelCommand extends $Command<
       inputFilterSensitiveLog: DeleteApnsVoipChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteApnsVoipChannelResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

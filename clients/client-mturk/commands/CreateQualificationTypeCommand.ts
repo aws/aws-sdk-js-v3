@@ -65,14 +65,6 @@ export class CreateQualificationTypeCommand extends $Command<
       inputFilterSensitiveLog: CreateQualificationTypeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateQualificationTypeResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

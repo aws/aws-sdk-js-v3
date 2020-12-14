@@ -59,14 +59,6 @@ export class DeleteProfilingGroupCommand extends $Command<
       inputFilterSensitiveLog: DeleteProfilingGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteProfilingGroupResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

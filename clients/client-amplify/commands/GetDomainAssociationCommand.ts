@@ -59,14 +59,6 @@ export class GetDomainAssociationCommand extends $Command<
       inputFilterSensitiveLog: GetDomainAssociationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDomainAssociationResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

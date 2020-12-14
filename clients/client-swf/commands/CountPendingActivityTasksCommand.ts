@@ -86,14 +86,6 @@ export class CountPendingActivityTasksCommand extends $Command<
       inputFilterSensitiveLog: CountPendingActivityTasksInput.filterSensitiveLog,
       outputFilterSensitiveLog: PendingTaskCount.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

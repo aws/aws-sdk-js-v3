@@ -60,14 +60,6 @@ export class DescribePatchGroupStateCommand extends $Command<
       inputFilterSensitiveLog: DescribePatchGroupStateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePatchGroupStateResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

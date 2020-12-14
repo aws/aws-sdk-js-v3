@@ -63,14 +63,6 @@ export class ListLicenseSpecificationsForResourceCommand extends $Command<
       inputFilterSensitiveLog: ListLicenseSpecificationsForResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListLicenseSpecificationsForResourceResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

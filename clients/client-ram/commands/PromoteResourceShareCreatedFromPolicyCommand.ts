@@ -75,14 +75,6 @@ export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
       inputFilterSensitiveLog: PromoteResourceShareCreatedFromPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PromoteResourceShareCreatedFromPolicyResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

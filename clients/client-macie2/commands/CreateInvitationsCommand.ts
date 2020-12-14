@@ -59,14 +59,6 @@ export class CreateInvitationsCommand extends $Command<
       inputFilterSensitiveLog: CreateInvitationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateInvitationsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

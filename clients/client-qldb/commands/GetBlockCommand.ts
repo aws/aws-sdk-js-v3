@@ -64,14 +64,6 @@ export class GetBlockCommand extends $Command<GetBlockCommandInput, GetBlockComm
       inputFilterSensitiveLog: GetBlockRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBlockResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

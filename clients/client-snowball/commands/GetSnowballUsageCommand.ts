@@ -63,14 +63,6 @@ export class GetSnowballUsageCommand extends $Command<
       inputFilterSensitiveLog: GetSnowballUsageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSnowballUsageResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -78,14 +78,6 @@ export class ListTrialComponentsCommand extends $Command<
       inputFilterSensitiveLog: ListTrialComponentsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTrialComponentsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -67,14 +67,6 @@ export class GetSizeConstraintSetCommand extends $Command<
       inputFilterSensitiveLog: GetSizeConstraintSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSizeConstraintSetResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -64,14 +64,6 @@ export class DescribeTableRestoreStatusCommand extends $Command<
       inputFilterSensitiveLog: DescribeTableRestoreStatusMessage.filterSensitiveLog,
       outputFilterSensitiveLog: TableRestoreStatusMessage.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

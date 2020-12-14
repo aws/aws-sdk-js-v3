@@ -59,14 +59,6 @@ export class DescribeThingRegistrationTaskCommand extends $Command<
       inputFilterSensitiveLog: DescribeThingRegistrationTaskRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeThingRegistrationTaskResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

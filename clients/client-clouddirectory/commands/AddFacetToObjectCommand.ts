@@ -59,14 +59,6 @@ export class AddFacetToObjectCommand extends $Command<
       inputFilterSensitiveLog: AddFacetToObjectRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AddFacetToObjectResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

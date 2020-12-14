@@ -59,14 +59,6 @@ export class UpdatePushTemplateCommand extends $Command<
       inputFilterSensitiveLog: UpdatePushTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdatePushTemplateResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

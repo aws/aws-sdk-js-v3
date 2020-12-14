@@ -66,14 +66,6 @@ export class PutRepositoryPermissionsPolicyCommand extends $Command<
       inputFilterSensitiveLog: PutRepositoryPermissionsPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutRepositoryPermissionsPolicyResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

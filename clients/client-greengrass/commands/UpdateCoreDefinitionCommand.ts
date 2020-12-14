@@ -59,14 +59,6 @@ export class UpdateCoreDefinitionCommand extends $Command<
       inputFilterSensitiveLog: UpdateCoreDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateCoreDefinitionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class DescribeAddonVersionsCommand extends $Command<
       inputFilterSensitiveLog: DescribeAddonVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAddonVersionsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

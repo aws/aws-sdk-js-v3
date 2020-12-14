@@ -59,14 +59,6 @@ export class CreateRecipeCommand extends $Command<
       inputFilterSensitiveLog: CreateRecipeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateRecipeResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

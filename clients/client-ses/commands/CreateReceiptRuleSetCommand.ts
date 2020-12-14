@@ -62,14 +62,6 @@ export class CreateReceiptRuleSetCommand extends $Command<
       inputFilterSensitiveLog: CreateReceiptRuleSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateReceiptRuleSetResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

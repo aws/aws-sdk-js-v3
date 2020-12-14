@@ -61,14 +61,6 @@ export class DescribeSignalingChannelCommand extends $Command<
       inputFilterSensitiveLog: DescribeSignalingChannelInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSignalingChannelOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

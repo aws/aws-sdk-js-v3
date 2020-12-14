@@ -59,14 +59,6 @@ export class DeleteDistributionCommand extends $Command<
       inputFilterSensitiveLog: DeleteDistributionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDistributionResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

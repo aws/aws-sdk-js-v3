@@ -69,14 +69,6 @@ export class StartDBInstanceAutomatedBackupsReplicationCommand extends $Command<
       inputFilterSensitiveLog: StartDBInstanceAutomatedBackupsReplicationMessage.filterSensitiveLog,
       outputFilterSensitiveLog: StartDBInstanceAutomatedBackupsReplicationResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

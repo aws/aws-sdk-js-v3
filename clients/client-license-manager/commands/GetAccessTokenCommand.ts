@@ -60,14 +60,6 @@ export class GetAccessTokenCommand extends $Command<
       inputFilterSensitiveLog: GetAccessTokenRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAccessTokenResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -66,14 +66,6 @@ export class AssociateSoftwareTokenCommand extends $Command<
       inputFilterSensitiveLog: AssociateSoftwareTokenRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateSoftwareTokenResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

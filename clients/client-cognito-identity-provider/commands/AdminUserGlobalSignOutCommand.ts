@@ -68,14 +68,6 @@ export class AdminUserGlobalSignOutCommand extends $Command<
       inputFilterSensitiveLog: AdminUserGlobalSignOutRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AdminUserGlobalSignOutResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

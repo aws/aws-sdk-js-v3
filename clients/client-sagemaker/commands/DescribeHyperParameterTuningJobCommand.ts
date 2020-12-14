@@ -60,14 +60,6 @@ export class DescribeHyperParameterTuningJobCommand extends $Command<
       inputFilterSensitiveLog: DescribeHyperParameterTuningJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeHyperParameterTuningJobResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

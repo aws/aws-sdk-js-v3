@@ -61,14 +61,6 @@ export class DescribeInstancesHealthCommand extends $Command<
       inputFilterSensitiveLog: DescribeInstancesHealthRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeInstancesHealthResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

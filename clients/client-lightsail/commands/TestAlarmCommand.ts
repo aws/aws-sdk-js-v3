@@ -63,14 +63,6 @@ export class TestAlarmCommand extends $Command<
       inputFilterSensitiveLog: TestAlarmRequest.filterSensitiveLog,
       outputFilterSensitiveLog: TestAlarmResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

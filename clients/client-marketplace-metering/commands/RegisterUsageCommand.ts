@@ -101,14 +101,6 @@ export class RegisterUsageCommand extends $Command<
       inputFilterSensitiveLog: RegisterUsageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterUsageResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

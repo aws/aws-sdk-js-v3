@@ -61,14 +61,6 @@ export class GetEnrollmentStatusCommand extends $Command<
       inputFilterSensitiveLog: GetEnrollmentStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetEnrollmentStatusResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

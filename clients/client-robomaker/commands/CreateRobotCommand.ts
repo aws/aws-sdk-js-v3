@@ -59,14 +59,6 @@ export class CreateRobotCommand extends $Command<
       inputFilterSensitiveLog: CreateRobotRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateRobotResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

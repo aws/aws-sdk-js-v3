@@ -59,14 +59,6 @@ export class GetBackendAuthCommand extends $Command<
       inputFilterSensitiveLog: GetBackendAuthRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBackendAuthResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

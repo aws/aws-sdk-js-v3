@@ -80,14 +80,6 @@ export class RunTaskCommand extends $Command<RunTaskCommandInput, RunTaskCommand
       inputFilterSensitiveLog: RunTaskRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RunTaskResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

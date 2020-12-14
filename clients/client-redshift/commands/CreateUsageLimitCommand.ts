@@ -60,14 +60,6 @@ export class CreateUsageLimitCommand extends $Command<
       inputFilterSensitiveLog: CreateUsageLimitMessage.filterSensitiveLog,
       outputFilterSensitiveLog: UsageLimit.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

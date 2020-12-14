@@ -60,14 +60,6 @@ export class DescribeTopicsDetectionJobCommand extends $Command<
       inputFilterSensitiveLog: DescribeTopicsDetectionJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTopicsDetectionJobResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

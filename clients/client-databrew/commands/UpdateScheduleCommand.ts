@@ -60,14 +60,6 @@ export class UpdateScheduleCommand extends $Command<
       inputFilterSensitiveLog: UpdateScheduleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateScheduleResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

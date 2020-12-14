@@ -59,14 +59,6 @@ export class UpdateMethodResponseCommand extends $Command<
       inputFilterSensitiveLog: UpdateMethodResponseRequest.filterSensitiveLog,
       outputFilterSensitiveLog: MethodResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

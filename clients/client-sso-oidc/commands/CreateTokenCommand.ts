@@ -61,14 +61,6 @@ export class CreateTokenCommand extends $Command<
       inputFilterSensitiveLog: CreateTokenRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateTokenResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

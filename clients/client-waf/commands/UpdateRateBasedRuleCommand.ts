@@ -113,14 +113,6 @@ export class UpdateRateBasedRuleCommand extends $Command<
       inputFilterSensitiveLog: UpdateRateBasedRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateRateBasedRuleResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

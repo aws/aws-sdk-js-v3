@@ -59,14 +59,6 @@ export class RestartSimulationJobCommand extends $Command<
       inputFilterSensitiveLog: RestartSimulationJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RestartSimulationJobResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

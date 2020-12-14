@@ -59,14 +59,6 @@ export class UpdateIndexingConfigurationCommand extends $Command<
       inputFilterSensitiveLog: UpdateIndexingConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateIndexingConfigurationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

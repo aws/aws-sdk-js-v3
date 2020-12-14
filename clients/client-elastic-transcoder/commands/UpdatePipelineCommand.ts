@@ -68,14 +68,6 @@ export class UpdatePipelineCommand extends $Command<
       inputFilterSensitiveLog: UpdatePipelineRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdatePipelineResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

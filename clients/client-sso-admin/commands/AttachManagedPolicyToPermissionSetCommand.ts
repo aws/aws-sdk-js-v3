@@ -68,14 +68,6 @@ export class AttachManagedPolicyToPermissionSetCommand extends $Command<
       inputFilterSensitiveLog: AttachManagedPolicyToPermissionSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AttachManagedPolicyToPermissionSetResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

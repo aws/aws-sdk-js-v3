@@ -64,14 +64,6 @@ export class LookupPolicyCommand extends $Command<
       inputFilterSensitiveLog: LookupPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: LookupPolicyResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

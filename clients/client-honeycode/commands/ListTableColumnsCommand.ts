@@ -61,14 +61,6 @@ export class ListTableColumnsCommand extends $Command<
       inputFilterSensitiveLog: ListTableColumnsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTableColumnsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

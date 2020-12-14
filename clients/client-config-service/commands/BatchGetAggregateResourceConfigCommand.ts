@@ -71,14 +71,6 @@ export class BatchGetAggregateResourceConfigCommand extends $Command<
       inputFilterSensitiveLog: BatchGetAggregateResourceConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchGetAggregateResourceConfigResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -62,14 +62,6 @@ export class BatchDisableStandardsCommand extends $Command<
       inputFilterSensitiveLog: BatchDisableStandardsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchDisableStandardsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

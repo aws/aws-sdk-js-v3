@@ -62,14 +62,6 @@ export class DeleteNamedQueryCommand extends $Command<
       inputFilterSensitiveLog: DeleteNamedQueryInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteNamedQueryOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

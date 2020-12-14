@@ -60,14 +60,6 @@ export class RegisterClientCommand extends $Command<
       inputFilterSensitiveLog: RegisterClientRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterClientResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

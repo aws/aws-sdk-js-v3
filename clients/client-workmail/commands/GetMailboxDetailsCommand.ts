@@ -59,14 +59,6 @@ export class GetMailboxDetailsCommand extends $Command<
       inputFilterSensitiveLog: GetMailboxDetailsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetMailboxDetailsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

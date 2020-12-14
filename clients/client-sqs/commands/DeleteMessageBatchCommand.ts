@@ -70,14 +70,6 @@ export class DeleteMessageBatchCommand extends $Command<
       inputFilterSensitiveLog: DeleteMessageBatchRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteMessageBatchResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

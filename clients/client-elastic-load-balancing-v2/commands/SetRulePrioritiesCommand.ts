@@ -65,14 +65,6 @@ export class SetRulePrioritiesCommand extends $Command<
       inputFilterSensitiveLog: SetRulePrioritiesInput.filterSensitiveLog,
       outputFilterSensitiveLog: SetRulePrioritiesOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

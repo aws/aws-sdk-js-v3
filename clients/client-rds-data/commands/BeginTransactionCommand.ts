@@ -70,14 +70,6 @@ export class BeginTransactionCommand extends $Command<
       inputFilterSensitiveLog: BeginTransactionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BeginTransactionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

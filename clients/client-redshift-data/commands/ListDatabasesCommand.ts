@@ -73,14 +73,6 @@ export class ListDatabasesCommand extends $Command<
       inputFilterSensitiveLog: ListDatabasesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDatabasesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

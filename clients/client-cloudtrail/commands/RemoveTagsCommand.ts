@@ -59,14 +59,6 @@ export class RemoveTagsCommand extends $Command<
       inputFilterSensitiveLog: RemoveTagsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RemoveTagsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

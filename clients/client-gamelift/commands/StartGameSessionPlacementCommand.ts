@@ -150,14 +150,6 @@ export class StartGameSessionPlacementCommand extends $Command<
       inputFilterSensitiveLog: StartGameSessionPlacementInput.filterSensitiveLog,
       outputFilterSensitiveLog: StartGameSessionPlacementOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

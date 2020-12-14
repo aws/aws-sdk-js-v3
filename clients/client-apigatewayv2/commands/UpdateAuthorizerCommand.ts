@@ -59,14 +59,6 @@ export class UpdateAuthorizerCommand extends $Command<
       inputFilterSensitiveLog: UpdateAuthorizerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateAuthorizerResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

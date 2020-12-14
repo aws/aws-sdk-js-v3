@@ -59,14 +59,6 @@ export class GetCodeBindingSourceCommand extends $Command<
       inputFilterSensitiveLog: GetCodeBindingSourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCodeBindingSourceResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

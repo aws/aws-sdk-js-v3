@@ -82,14 +82,6 @@ export class DeleteByteMatchSetCommand extends $Command<
       inputFilterSensitiveLog: DeleteByteMatchSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteByteMatchSetResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

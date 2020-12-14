@@ -60,14 +60,6 @@ export class DeleteTriggerCommand extends $Command<
       inputFilterSensitiveLog: DeleteTriggerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTriggerResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

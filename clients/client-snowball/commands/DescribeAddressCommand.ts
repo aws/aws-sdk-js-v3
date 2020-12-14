@@ -60,14 +60,6 @@ export class DescribeAddressCommand extends $Command<
       inputFilterSensitiveLog: DescribeAddressRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAddressResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

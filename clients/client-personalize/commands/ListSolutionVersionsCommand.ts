@@ -62,14 +62,6 @@ export class ListSolutionVersionsCommand extends $Command<
       inputFilterSensitiveLog: ListSolutionVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListSolutionVersionsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

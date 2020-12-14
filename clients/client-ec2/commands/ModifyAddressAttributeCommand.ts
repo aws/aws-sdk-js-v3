@@ -56,14 +56,6 @@ export class ModifyAddressAttributeCommand extends $Command<
       inputFilterSensitiveLog: ModifyAddressAttributeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyAddressAttributeResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

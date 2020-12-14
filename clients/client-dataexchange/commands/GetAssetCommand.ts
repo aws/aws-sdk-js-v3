@@ -59,14 +59,6 @@ export class GetAssetCommand extends $Command<
       inputFilterSensitiveLog: GetAssetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAssetResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

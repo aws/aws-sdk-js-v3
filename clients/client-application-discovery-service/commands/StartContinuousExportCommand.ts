@@ -63,14 +63,6 @@ export class StartContinuousExportCommand extends $Command<
       inputFilterSensitiveLog: StartContinuousExportRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartContinuousExportResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -63,14 +63,6 @@ export class CancelStepsCommand extends $Command<
       inputFilterSensitiveLog: CancelStepsInput.filterSensitiveLog,
       outputFilterSensitiveLog: CancelStepsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

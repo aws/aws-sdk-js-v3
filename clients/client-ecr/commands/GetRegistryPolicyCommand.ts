@@ -59,14 +59,6 @@ export class GetRegistryPolicyCommand extends $Command<
       inputFilterSensitiveLog: GetRegistryPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRegistryPolicyResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

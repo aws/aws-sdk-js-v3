@@ -73,14 +73,6 @@ export class GetSlotTypeVersionsCommand extends $Command<
       inputFilterSensitiveLog: GetSlotTypeVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSlotTypeVersionsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

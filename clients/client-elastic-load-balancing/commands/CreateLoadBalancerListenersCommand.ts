@@ -65,14 +65,6 @@ export class CreateLoadBalancerListenersCommand extends $Command<
       inputFilterSensitiveLog: CreateLoadBalancerListenerInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateLoadBalancerListenerOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

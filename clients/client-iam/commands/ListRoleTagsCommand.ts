@@ -58,14 +58,6 @@ export class ListRoleTagsCommand extends $Command<
       inputFilterSensitiveLog: ListRoleTagsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListRoleTagsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

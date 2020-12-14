@@ -77,14 +77,6 @@ export class GetRecommendationsCommand extends $Command<
       inputFilterSensitiveLog: GetRecommendationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRecommendationsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

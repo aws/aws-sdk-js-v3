@@ -64,14 +64,6 @@ export class InitiateDocumentVersionUploadCommand extends $Command<
       inputFilterSensitiveLog: InitiateDocumentVersionUploadRequest.filterSensitiveLog,
       outputFilterSensitiveLog: InitiateDocumentVersionUploadResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

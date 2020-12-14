@@ -70,14 +70,6 @@ export class DetectStackResourceDriftCommand extends $Command<
       inputFilterSensitiveLog: DetectStackResourceDriftInput.filterSensitiveLog,
       outputFilterSensitiveLog: DetectStackResourceDriftOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

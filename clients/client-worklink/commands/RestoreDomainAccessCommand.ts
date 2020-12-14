@@ -59,14 +59,6 @@ export class RestoreDomainAccessCommand extends $Command<
       inputFilterSensitiveLog: RestoreDomainAccessRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RestoreDomainAccessResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

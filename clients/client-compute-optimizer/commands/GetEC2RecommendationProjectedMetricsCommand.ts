@@ -71,14 +71,6 @@ export class GetEC2RecommendationProjectedMetricsCommand extends $Command<
       inputFilterSensitiveLog: GetEC2RecommendationProjectedMetricsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetEC2RecommendationProjectedMetricsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -191,14 +191,6 @@ export class CreateGovCloudAccountCommand extends $Command<
       inputFilterSensitiveLog: CreateGovCloudAccountRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateGovCloudAccountResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

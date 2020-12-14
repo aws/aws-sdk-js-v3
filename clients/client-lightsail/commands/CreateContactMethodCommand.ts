@@ -63,14 +63,6 @@ export class CreateContactMethodCommand extends $Command<
       inputFilterSensitiveLog: CreateContactMethodRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateContactMethodResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

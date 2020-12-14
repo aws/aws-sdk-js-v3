@@ -61,14 +61,6 @@ export class DeleteMembersCommand extends $Command<
       inputFilterSensitiveLog: DeleteMembersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteMembersResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

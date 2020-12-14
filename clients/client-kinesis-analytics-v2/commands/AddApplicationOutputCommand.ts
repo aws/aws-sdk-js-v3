@@ -75,14 +75,6 @@ export class AddApplicationOutputCommand extends $Command<
       inputFilterSensitiveLog: AddApplicationOutputRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AddApplicationOutputResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

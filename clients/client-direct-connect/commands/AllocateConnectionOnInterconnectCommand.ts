@@ -64,14 +64,6 @@ export class AllocateConnectionOnInterconnectCommand extends $Command<
       inputFilterSensitiveLog: AllocateConnectionOnInterconnectRequest.filterSensitiveLog,
       outputFilterSensitiveLog: Connection.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

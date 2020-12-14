@@ -65,14 +65,6 @@ export class DescribeEventBusCommand extends $Command<
       inputFilterSensitiveLog: DescribeEventBusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeEventBusResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

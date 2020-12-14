@@ -74,14 +74,6 @@ export class AdminSetUserPasswordCommand extends $Command<
       inputFilterSensitiveLog: AdminSetUserPasswordRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AdminSetUserPasswordResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

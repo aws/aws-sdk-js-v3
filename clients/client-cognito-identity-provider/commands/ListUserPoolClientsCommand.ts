@@ -65,14 +65,6 @@ export class ListUserPoolClientsCommand extends $Command<
       inputFilterSensitiveLog: ListUserPoolClientsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListUserPoolClientsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -135,14 +135,6 @@ export class CreateMatchmakingConfigurationCommand extends $Command<
       inputFilterSensitiveLog: CreateMatchmakingConfigurationInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateMatchmakingConfigurationOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -70,14 +70,6 @@ export class AssociateConfigurationItemsToApplicationCommand extends $Command<
       inputFilterSensitiveLog: AssociateConfigurationItemsToApplicationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateConfigurationItemsToApplicationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

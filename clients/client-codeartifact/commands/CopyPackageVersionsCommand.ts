@@ -66,14 +66,6 @@ export class CopyPackageVersionsCommand extends $Command<
       inputFilterSensitiveLog: CopyPackageVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CopyPackageVersionsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

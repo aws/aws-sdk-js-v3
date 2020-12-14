@@ -59,14 +59,6 @@ export class GetAccountBalanceCommand extends $Command<
       inputFilterSensitiveLog: GetAccountBalanceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAccountBalanceResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class GetOpsMetadataCommand extends $Command<
       inputFilterSensitiveLog: GetOpsMetadataRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetOpsMetadataResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

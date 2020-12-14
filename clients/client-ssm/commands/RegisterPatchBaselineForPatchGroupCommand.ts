@@ -63,14 +63,6 @@ export class RegisterPatchBaselineForPatchGroupCommand extends $Command<
       inputFilterSensitiveLog: RegisterPatchBaselineForPatchGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterPatchBaselineForPatchGroupResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

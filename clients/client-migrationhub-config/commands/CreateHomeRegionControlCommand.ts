@@ -63,14 +63,6 @@ export class CreateHomeRegionControlCommand extends $Command<
       inputFilterSensitiveLog: CreateHomeRegionControlRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateHomeRegionControlResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

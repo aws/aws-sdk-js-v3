@@ -105,14 +105,6 @@ export class DescribePatchPropertiesCommand extends $Command<
       inputFilterSensitiveLog: DescribePatchPropertiesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePatchPropertiesResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -68,14 +68,6 @@ export class CreateIpGroupCommand extends $Command<
       inputFilterSensitiveLog: CreateIpGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateIpGroupResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

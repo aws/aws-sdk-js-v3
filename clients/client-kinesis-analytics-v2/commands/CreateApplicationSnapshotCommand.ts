@@ -63,14 +63,6 @@ export class CreateApplicationSnapshotCommand extends $Command<
       inputFilterSensitiveLog: CreateApplicationSnapshotRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateApplicationSnapshotResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

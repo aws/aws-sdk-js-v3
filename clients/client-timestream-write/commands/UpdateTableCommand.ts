@@ -65,14 +65,6 @@ export class UpdateTableCommand extends $Command<
       inputFilterSensitiveLog: UpdateTableRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateTableResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

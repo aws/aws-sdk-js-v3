@@ -76,14 +76,6 @@ export class GetIceServerConfigCommand extends $Command<
       inputFilterSensitiveLog: GetIceServerConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetIceServerConfigResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

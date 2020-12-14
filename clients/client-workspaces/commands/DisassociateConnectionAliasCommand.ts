@@ -67,14 +67,6 @@ export class DisassociateConnectionAliasCommand extends $Command<
       inputFilterSensitiveLog: DisassociateConnectionAliasRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateConnectionAliasResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

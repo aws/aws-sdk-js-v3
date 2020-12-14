@@ -63,14 +63,6 @@ export class DescribeInterconnectLoaCommand extends $Command<
       inputFilterSensitiveLog: DescribeInterconnectLoaRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeInterconnectLoaResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -61,14 +61,6 @@ export class GetAssessmentFrameworkCommand extends $Command<
       inputFilterSensitiveLog: GetAssessmentFrameworkRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAssessmentFrameworkResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

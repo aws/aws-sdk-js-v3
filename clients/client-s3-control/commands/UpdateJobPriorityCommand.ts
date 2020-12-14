@@ -86,14 +86,6 @@ export class UpdateJobPriorityCommand extends $Command<
       inputFilterSensitiveLog: UpdateJobPriorityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateJobPriorityResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class GetCanaryRunsCommand extends $Command<
       inputFilterSensitiveLog: GetCanaryRunsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCanaryRunsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

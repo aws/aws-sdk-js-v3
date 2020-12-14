@@ -59,14 +59,6 @@ export class UpdateBrokerStorageCommand extends $Command<
       inputFilterSensitiveLog: UpdateBrokerStorageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateBrokerStorageResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

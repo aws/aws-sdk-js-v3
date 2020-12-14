@@ -59,14 +59,6 @@ export class RemoveFlowSourceCommand extends $Command<
       inputFilterSensitiveLog: RemoveFlowSourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RemoveFlowSourceResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

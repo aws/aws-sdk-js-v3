@@ -59,14 +59,6 @@ export class CreateCommitCommand extends $Command<
       inputFilterSensitiveLog: CreateCommitInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateCommitOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

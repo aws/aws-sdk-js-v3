@@ -103,14 +103,6 @@ export class DetectStackSetDriftCommand extends $Command<
       inputFilterSensitiveLog: DetectStackSetDriftInput.filterSensitiveLog,
       outputFilterSensitiveLog: DetectStackSetDriftOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

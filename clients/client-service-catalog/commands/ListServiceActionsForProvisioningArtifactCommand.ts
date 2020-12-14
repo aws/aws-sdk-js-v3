@@ -66,14 +66,6 @@ export class ListServiceActionsForProvisioningArtifactCommand extends $Command<
       inputFilterSensitiveLog: ListServiceActionsForProvisioningArtifactInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListServiceActionsForProvisioningArtifactOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

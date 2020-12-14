@@ -59,14 +59,6 @@ export class CreateDeviceDefinitionCommand extends $Command<
       inputFilterSensitiveLog: CreateDeviceDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDeviceDefinitionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

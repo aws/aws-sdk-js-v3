@@ -57,14 +57,6 @@ export class SearchCommand extends $Command<SearchCommandInput, SearchCommandOut
       inputFilterSensitiveLog: SearchRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SearchResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

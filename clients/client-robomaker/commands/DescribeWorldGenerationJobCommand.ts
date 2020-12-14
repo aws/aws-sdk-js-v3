@@ -59,14 +59,6 @@ export class DescribeWorldGenerationJobCommand extends $Command<
       inputFilterSensitiveLog: DescribeWorldGenerationJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeWorldGenerationJobResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

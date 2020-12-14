@@ -70,14 +70,6 @@ export class GetCallerIdentityCommand extends $Command<
       inputFilterSensitiveLog: GetCallerIdentityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCallerIdentityResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

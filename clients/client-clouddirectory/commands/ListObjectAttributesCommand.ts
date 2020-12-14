@@ -60,14 +60,6 @@ export class ListObjectAttributesCommand extends $Command<
       inputFilterSensitiveLog: ListObjectAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListObjectAttributesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

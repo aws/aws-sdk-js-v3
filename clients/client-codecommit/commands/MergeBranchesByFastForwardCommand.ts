@@ -59,14 +59,6 @@ export class MergeBranchesByFastForwardCommand extends $Command<
       inputFilterSensitiveLog: MergeBranchesByFastForwardInput.filterSensitiveLog,
       outputFilterSensitiveLog: MergeBranchesByFastForwardOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

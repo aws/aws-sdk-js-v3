@@ -59,14 +59,6 @@ export class DescribeMaintenanceWindowScheduleCommand extends $Command<
       inputFilterSensitiveLog: DescribeMaintenanceWindowScheduleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeMaintenanceWindowScheduleResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

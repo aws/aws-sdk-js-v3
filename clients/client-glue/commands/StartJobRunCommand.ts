@@ -59,14 +59,6 @@ export class StartJobRunCommand extends $Command<
       inputFilterSensitiveLog: StartJobRunRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartJobRunResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -60,14 +60,6 @@ export class UpdateRulesOfIpGroupCommand extends $Command<
       inputFilterSensitiveLog: UpdateRulesOfIpGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateRulesOfIpGroupResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

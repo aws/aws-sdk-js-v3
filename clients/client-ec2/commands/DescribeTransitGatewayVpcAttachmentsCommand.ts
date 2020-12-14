@@ -64,14 +64,6 @@ export class DescribeTransitGatewayVpcAttachmentsCommand extends $Command<
       inputFilterSensitiveLog: DescribeTransitGatewayVpcAttachmentsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTransitGatewayVpcAttachmentsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

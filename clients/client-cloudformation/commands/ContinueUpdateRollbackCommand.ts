@@ -69,14 +69,6 @@ export class ContinueUpdateRollbackCommand extends $Command<
       inputFilterSensitiveLog: ContinueUpdateRollbackInput.filterSensitiveLog,
       outputFilterSensitiveLog: ContinueUpdateRollbackOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class GetDatabaseCommand extends $Command<
       inputFilterSensitiveLog: GetDatabaseInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetDatabaseOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

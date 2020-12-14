@@ -65,14 +65,6 @@ export class ListImagesCommand extends $Command<
       inputFilterSensitiveLog: ListImagesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListImagesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

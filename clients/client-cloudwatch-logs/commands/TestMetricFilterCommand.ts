@@ -60,14 +60,6 @@ export class TestMetricFilterCommand extends $Command<
       inputFilterSensitiveLog: TestMetricFilterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: TestMetricFilterResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

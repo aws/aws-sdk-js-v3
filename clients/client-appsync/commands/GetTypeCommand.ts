@@ -55,14 +55,6 @@ export class GetTypeCommand extends $Command<GetTypeCommandInput, GetTypeCommand
       inputFilterSensitiveLog: GetTypeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetTypeResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

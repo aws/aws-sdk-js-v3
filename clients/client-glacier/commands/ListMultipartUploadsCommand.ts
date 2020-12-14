@@ -84,14 +84,6 @@ export class ListMultipartUploadsCommand extends $Command<
       inputFilterSensitiveLog: ListMultipartUploadsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListMultipartUploadsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

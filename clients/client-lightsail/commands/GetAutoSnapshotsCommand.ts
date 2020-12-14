@@ -60,14 +60,6 @@ export class GetAutoSnapshotsCommand extends $Command<
       inputFilterSensitiveLog: GetAutoSnapshotsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAutoSnapshotsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

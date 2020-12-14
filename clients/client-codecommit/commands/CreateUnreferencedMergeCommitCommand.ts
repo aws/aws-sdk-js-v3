@@ -66,14 +66,6 @@ export class CreateUnreferencedMergeCommitCommand extends $Command<
       inputFilterSensitiveLog: CreateUnreferencedMergeCommitInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateUnreferencedMergeCommitOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

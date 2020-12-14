@@ -60,14 +60,6 @@ export class ListSecurityProfilesCommand extends $Command<
       inputFilterSensitiveLog: ListSecurityProfilesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListSecurityProfilesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

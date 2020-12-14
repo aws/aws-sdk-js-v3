@@ -65,14 +65,6 @@ export class UnsubscribeCommand extends $Command<
       inputFilterSensitiveLog: UnsubscribeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UnsubscribeResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

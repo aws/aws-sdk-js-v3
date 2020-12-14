@@ -59,14 +59,6 @@ export class GetIntegrationCommand extends $Command<
       inputFilterSensitiveLog: GetIntegrationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetIntegrationResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

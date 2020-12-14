@@ -59,14 +59,6 @@ export class ListOriginEndpointsCommand extends $Command<
       inputFilterSensitiveLog: ListOriginEndpointsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListOriginEndpointsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

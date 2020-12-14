@@ -71,14 +71,6 @@ export class ListAWSServiceAccessForOrganizationCommand extends $Command<
       inputFilterSensitiveLog: ListAWSServiceAccessForOrganizationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAWSServiceAccessForOrganizationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -60,14 +60,6 @@ export class GetContactListCommand extends $Command<
       inputFilterSensitiveLog: GetContactListRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetContactListResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

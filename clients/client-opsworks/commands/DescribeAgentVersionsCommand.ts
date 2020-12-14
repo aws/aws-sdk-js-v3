@@ -61,14 +61,6 @@ export class DescribeAgentVersionsCommand extends $Command<
       inputFilterSensitiveLog: DescribeAgentVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAgentVersionsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

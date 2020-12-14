@@ -72,14 +72,6 @@ export class PutClusterCapacityProvidersCommand extends $Command<
       inputFilterSensitiveLog: PutClusterCapacityProvidersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutClusterCapacityProvidersResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

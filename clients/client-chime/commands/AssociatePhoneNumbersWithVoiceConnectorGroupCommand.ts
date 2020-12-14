@@ -66,14 +66,6 @@ export class AssociatePhoneNumbersWithVoiceConnectorGroupCommand extends $Comman
       inputFilterSensitiveLog: AssociatePhoneNumbersWithVoiceConnectorGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociatePhoneNumbersWithVoiceConnectorGroupResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

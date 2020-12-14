@@ -74,14 +74,6 @@ export class DisassociateServiceQuotaTemplateCommand extends $Command<
       inputFilterSensitiveLog: DisassociateServiceQuotaTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateServiceQuotaTemplateResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

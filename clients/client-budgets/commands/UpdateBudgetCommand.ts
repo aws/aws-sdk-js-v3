@@ -62,14 +62,6 @@ export class UpdateBudgetCommand extends $Command<
       inputFilterSensitiveLog: UpdateBudgetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateBudgetResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

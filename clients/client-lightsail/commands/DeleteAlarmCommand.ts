@@ -63,14 +63,6 @@ export class DeleteAlarmCommand extends $Command<
       inputFilterSensitiveLog: DeleteAlarmRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteAlarmResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

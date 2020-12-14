@@ -66,14 +66,6 @@ export class GetQueryLoggingConfigCommand extends $Command<
       inputFilterSensitiveLog: GetQueryLoggingConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetQueryLoggingConfigResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

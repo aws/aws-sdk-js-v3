@@ -101,14 +101,6 @@ export class UpdateRegexMatchSetCommand extends $Command<
       inputFilterSensitiveLog: UpdateRegexMatchSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateRegexMatchSetResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

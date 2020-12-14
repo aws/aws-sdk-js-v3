@@ -59,14 +59,6 @@ export class GetResourcePolicyCommand extends $Command<
       inputFilterSensitiveLog: GetResourcePolicyInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetResourcePolicyOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

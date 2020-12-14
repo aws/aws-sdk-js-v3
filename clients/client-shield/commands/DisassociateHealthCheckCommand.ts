@@ -60,14 +60,6 @@ export class DisassociateHealthCheckCommand extends $Command<
       inputFilterSensitiveLog: DisassociateHealthCheckRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateHealthCheckResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class StartSyncExecutionCommand extends $Command<
       inputFilterSensitiveLog: StartSyncExecutionInput.filterSensitiveLog,
       outputFilterSensitiveLog: StartSyncExecutionOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

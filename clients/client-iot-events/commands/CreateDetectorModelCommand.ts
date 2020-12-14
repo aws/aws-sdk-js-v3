@@ -59,14 +59,6 @@ export class CreateDetectorModelCommand extends $Command<
       inputFilterSensitiveLog: CreateDetectorModelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDetectorModelResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

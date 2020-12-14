@@ -65,14 +65,6 @@ export class ModifyDBSnapshotCommand extends $Command<
       inputFilterSensitiveLog: ModifyDBSnapshotMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyDBSnapshotResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

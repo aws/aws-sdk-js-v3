@@ -59,14 +59,6 @@ export class GetOutpostCommand extends $Command<
       inputFilterSensitiveLog: GetOutpostInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetOutpostOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

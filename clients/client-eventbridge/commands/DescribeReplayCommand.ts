@@ -67,14 +67,6 @@ export class DescribeReplayCommand extends $Command<
       inputFilterSensitiveLog: DescribeReplayRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeReplayResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

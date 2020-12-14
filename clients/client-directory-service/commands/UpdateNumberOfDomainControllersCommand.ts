@@ -59,14 +59,6 @@ export class UpdateNumberOfDomainControllersCommand extends $Command<
       inputFilterSensitiveLog: UpdateNumberOfDomainControllersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateNumberOfDomainControllersResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -65,14 +65,6 @@ export class ListDeploymentInstancesCommand extends $Command<
       inputFilterSensitiveLog: ListDeploymentInstancesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListDeploymentInstancesOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

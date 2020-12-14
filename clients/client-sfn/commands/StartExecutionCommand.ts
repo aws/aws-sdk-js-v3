@@ -67,14 +67,6 @@ export class StartExecutionCommand extends $Command<
       inputFilterSensitiveLog: StartExecutionInput.filterSensitiveLog,
       outputFilterSensitiveLog: StartExecutionOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

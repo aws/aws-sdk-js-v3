@@ -63,14 +63,6 @@ export class DeleteClusterCommand extends $Command<
       inputFilterSensitiveLog: DeleteClusterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteClusterResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

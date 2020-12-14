@@ -83,14 +83,6 @@ export class ModifyCertificatesCommand extends $Command<
       inputFilterSensitiveLog: ModifyCertificatesMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyCertificatesResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

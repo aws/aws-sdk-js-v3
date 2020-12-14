@@ -59,14 +59,6 @@ export class GetApnsVoipSandboxChannelCommand extends $Command<
       inputFilterSensitiveLog: GetApnsVoipSandboxChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetApnsVoipSandboxChannelResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

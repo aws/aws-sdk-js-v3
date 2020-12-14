@@ -59,14 +59,6 @@ export class UpdateRuleMetadataCommand extends $Command<
       inputFilterSensitiveLog: UpdateRuleMetadataRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateRuleMetadataResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

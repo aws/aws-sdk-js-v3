@@ -65,14 +65,6 @@ export class AttachClassicLinkVpcCommand extends $Command<
       inputFilterSensitiveLog: AttachClassicLinkVpcRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AttachClassicLinkVpcResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

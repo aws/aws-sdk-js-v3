@@ -60,14 +60,6 @@ export class GetInvitationsCountCommand extends $Command<
       inputFilterSensitiveLog: GetInvitationsCountRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetInvitationsCountResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

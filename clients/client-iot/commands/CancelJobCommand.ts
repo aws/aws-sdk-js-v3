@@ -55,14 +55,6 @@ export class CancelJobCommand extends $Command<CancelJobCommandInput, CancelJobC
       inputFilterSensitiveLog: CancelJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelJobResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

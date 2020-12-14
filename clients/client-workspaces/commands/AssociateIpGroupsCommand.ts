@@ -59,14 +59,6 @@ export class AssociateIpGroupsCommand extends $Command<
       inputFilterSensitiveLog: AssociateIpGroupsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateIpGroupsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

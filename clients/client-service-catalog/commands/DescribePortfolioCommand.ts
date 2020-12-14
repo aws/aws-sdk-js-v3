@@ -60,14 +60,6 @@ export class DescribePortfolioCommand extends $Command<
       inputFilterSensitiveLog: DescribePortfolioInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePortfolioOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

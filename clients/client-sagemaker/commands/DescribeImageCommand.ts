@@ -59,14 +59,6 @@ export class DescribeImageCommand extends $Command<
       inputFilterSensitiveLog: DescribeImageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeImageResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

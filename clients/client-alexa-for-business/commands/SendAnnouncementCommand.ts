@@ -60,14 +60,6 @@ export class SendAnnouncementCommand extends $Command<
       inputFilterSensitiveLog: SendAnnouncementRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SendAnnouncementResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

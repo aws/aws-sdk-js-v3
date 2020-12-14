@@ -63,14 +63,6 @@ export class DeleteNodeCommand extends $Command<
       inputFilterSensitiveLog: DeleteNodeInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteNodeOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

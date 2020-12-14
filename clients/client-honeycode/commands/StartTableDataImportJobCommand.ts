@@ -63,14 +63,6 @@ export class StartTableDataImportJobCommand extends $Command<
       inputFilterSensitiveLog: StartTableDataImportJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartTableDataImportJobResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

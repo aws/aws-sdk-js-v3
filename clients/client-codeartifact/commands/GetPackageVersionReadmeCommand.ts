@@ -66,14 +66,6 @@ export class GetPackageVersionReadmeCommand extends $Command<
       inputFilterSensitiveLog: GetPackageVersionReadmeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetPackageVersionReadmeResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -63,14 +63,6 @@ export class DeleteApplicationSnapshotCommand extends $Command<
       inputFilterSensitiveLog: DeleteApplicationSnapshotRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteApplicationSnapshotResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

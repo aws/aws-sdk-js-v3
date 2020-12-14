@@ -117,14 +117,6 @@ export class GenerateDataKeyCommand extends $Command<
       inputFilterSensitiveLog: GenerateDataKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GenerateDataKeyResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class CreateUsageReportSubscriptionCommand extends $Command<
       inputFilterSensitiveLog: CreateUsageReportSubscriptionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateUsageReportSubscriptionResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

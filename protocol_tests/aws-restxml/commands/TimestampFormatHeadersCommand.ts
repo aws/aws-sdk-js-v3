@@ -59,14 +59,6 @@ export class TimestampFormatHeadersCommand extends $Command<
       inputFilterSensitiveLog: TimestampFormatHeadersIO.filterSensitiveLog,
       outputFilterSensitiveLog: TimestampFormatHeadersIO.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

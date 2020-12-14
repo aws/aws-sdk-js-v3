@@ -59,14 +59,6 @@ export class UnassignIpv6AddressesCommand extends $Command<
       inputFilterSensitiveLog: UnassignIpv6AddressesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UnassignIpv6AddressesResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

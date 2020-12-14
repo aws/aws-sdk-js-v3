@@ -59,14 +59,6 @@ export class BatchGetTriggersCommand extends $Command<
       inputFilterSensitiveLog: BatchGetTriggersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchGetTriggersResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

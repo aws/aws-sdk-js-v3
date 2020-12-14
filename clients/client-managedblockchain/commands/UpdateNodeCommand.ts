@@ -63,14 +63,6 @@ export class UpdateNodeCommand extends $Command<
       inputFilterSensitiveLog: UpdateNodeInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateNodeOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

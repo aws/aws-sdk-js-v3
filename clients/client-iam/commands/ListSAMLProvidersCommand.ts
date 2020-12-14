@@ -62,14 +62,6 @@ export class ListSAMLProvidersCommand extends $Command<
       inputFilterSensitiveLog: ListSAMLProvidersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListSAMLProvidersResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

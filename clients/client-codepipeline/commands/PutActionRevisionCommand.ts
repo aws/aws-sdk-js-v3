@@ -59,14 +59,6 @@ export class PutActionRevisionCommand extends $Command<
       inputFilterSensitiveLog: PutActionRevisionInput.filterSensitiveLog,
       outputFilterSensitiveLog: PutActionRevisionOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

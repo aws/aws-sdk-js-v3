@@ -60,14 +60,6 @@ export class CreateFacetCommand extends $Command<
       inputFilterSensitiveLog: CreateFacetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateFacetResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

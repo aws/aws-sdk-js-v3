@@ -59,14 +59,6 @@ export class UpdateUsageCommand extends $Command<
       inputFilterSensitiveLog: UpdateUsageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: Usage.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

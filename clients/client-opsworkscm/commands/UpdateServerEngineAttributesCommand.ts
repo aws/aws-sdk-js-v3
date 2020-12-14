@@ -72,14 +72,6 @@ export class UpdateServerEngineAttributesCommand extends $Command<
       inputFilterSensitiveLog: UpdateServerEngineAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateServerEngineAttributesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

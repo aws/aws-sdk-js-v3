@@ -60,14 +60,6 @@ export class ListLambdaFunctionsCommand extends $Command<
       inputFilterSensitiveLog: ListLambdaFunctionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListLambdaFunctionsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

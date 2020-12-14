@@ -60,14 +60,6 @@ export class CreatePortfolioCommand extends $Command<
       inputFilterSensitiveLog: CreatePortfolioInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreatePortfolioOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

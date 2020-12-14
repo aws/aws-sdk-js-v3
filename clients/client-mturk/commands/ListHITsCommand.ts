@@ -58,14 +58,6 @@ export class ListHITsCommand extends $Command<ListHITsCommandInput, ListHITsComm
       inputFilterSensitiveLog: ListHITsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListHITsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -61,14 +61,6 @@ export class DescribeTableDataImportJobCommand extends $Command<
       inputFilterSensitiveLog: DescribeTableDataImportJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTableDataImportJobResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

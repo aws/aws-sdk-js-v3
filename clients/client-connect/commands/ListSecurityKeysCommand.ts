@@ -59,14 +59,6 @@ export class ListSecurityKeysCommand extends $Command<
       inputFilterSensitiveLog: ListSecurityKeysRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListSecurityKeysResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

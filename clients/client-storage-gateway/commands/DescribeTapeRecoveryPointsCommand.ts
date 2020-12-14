@@ -65,14 +65,6 @@ export class DescribeTapeRecoveryPointsCommand extends $Command<
       inputFilterSensitiveLog: DescribeTapeRecoveryPointsInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTapeRecoveryPointsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

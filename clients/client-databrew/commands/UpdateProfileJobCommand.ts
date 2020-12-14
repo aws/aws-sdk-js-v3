@@ -60,14 +60,6 @@ export class UpdateProfileJobCommand extends $Command<
       inputFilterSensitiveLog: UpdateProfileJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateProfileJobResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

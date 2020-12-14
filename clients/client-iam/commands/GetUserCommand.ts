@@ -55,14 +55,6 @@ export class GetUserCommand extends $Command<GetUserCommandInput, GetUserCommand
       inputFilterSensitiveLog: GetUserRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetUserResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

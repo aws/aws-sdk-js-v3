@@ -61,14 +61,6 @@ export class DeleteDashboardsCommand extends $Command<
       inputFilterSensitiveLog: DeleteDashboardsInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDashboardsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

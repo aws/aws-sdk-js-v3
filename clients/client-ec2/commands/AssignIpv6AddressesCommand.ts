@@ -65,14 +65,6 @@ export class AssignIpv6AddressesCommand extends $Command<
       inputFilterSensitiveLog: AssignIpv6AddressesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssignIpv6AddressesResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

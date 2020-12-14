@@ -59,14 +59,6 @@ export class DeleteExpressionCommand extends $Command<
       inputFilterSensitiveLog: DeleteExpressionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteExpressionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

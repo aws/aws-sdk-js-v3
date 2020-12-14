@@ -83,14 +83,6 @@ export class GetObjectTaggingCommand extends $Command<
       inputFilterSensitiveLog: GetObjectTaggingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetObjectTaggingOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

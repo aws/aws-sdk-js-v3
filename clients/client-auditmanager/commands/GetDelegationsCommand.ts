@@ -61,14 +61,6 @@ export class GetDelegationsCommand extends $Command<
       inputFilterSensitiveLog: GetDelegationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDelegationsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

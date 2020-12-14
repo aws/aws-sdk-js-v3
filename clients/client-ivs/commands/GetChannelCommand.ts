@@ -59,14 +59,6 @@ export class GetChannelCommand extends $Command<
       inputFilterSensitiveLog: GetChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetChannelResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

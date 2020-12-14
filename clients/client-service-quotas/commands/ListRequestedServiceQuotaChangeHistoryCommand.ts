@@ -63,14 +63,6 @@ export class ListRequestedServiceQuotaChangeHistoryCommand extends $Command<
       inputFilterSensitiveLog: ListRequestedServiceQuotaChangeHistoryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListRequestedServiceQuotaChangeHistoryResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class UpdateInputSecurityGroupCommand extends $Command<
       inputFilterSensitiveLog: UpdateInputSecurityGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateInputSecurityGroupResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

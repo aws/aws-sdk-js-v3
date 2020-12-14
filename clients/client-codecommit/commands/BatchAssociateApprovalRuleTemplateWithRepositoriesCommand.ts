@@ -66,14 +66,6 @@ export class BatchAssociateApprovalRuleTemplateWithRepositoriesCommand extends $
       inputFilterSensitiveLog: BatchAssociateApprovalRuleTemplateWithRepositoriesInput.filterSensitiveLog,
       outputFilterSensitiveLog: BatchAssociateApprovalRuleTemplateWithRepositoriesOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

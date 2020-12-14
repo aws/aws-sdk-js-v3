@@ -127,14 +127,6 @@ export class CreateSolutionCommand extends $Command<
       inputFilterSensitiveLog: CreateSolutionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateSolutionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

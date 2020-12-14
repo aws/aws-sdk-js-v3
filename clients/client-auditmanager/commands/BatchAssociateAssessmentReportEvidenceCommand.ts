@@ -65,14 +65,6 @@ export class BatchAssociateAssessmentReportEvidenceCommand extends $Command<
       inputFilterSensitiveLog: BatchAssociateAssessmentReportEvidenceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchAssociateAssessmentReportEvidenceResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

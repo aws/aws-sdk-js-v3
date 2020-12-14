@@ -63,14 +63,6 @@ export class ListAttributeGroupsCommand extends $Command<
       inputFilterSensitiveLog: ListAttributeGroupsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAttributeGroupsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

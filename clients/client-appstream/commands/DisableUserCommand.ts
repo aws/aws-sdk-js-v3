@@ -59,14 +59,6 @@ export class DisableUserCommand extends $Command<
       inputFilterSensitiveLog: DisableUserRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisableUserResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

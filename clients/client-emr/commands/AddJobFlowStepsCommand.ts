@@ -75,14 +75,6 @@ export class AddJobFlowStepsCommand extends $Command<
       inputFilterSensitiveLog: AddJobFlowStepsInput.filterSensitiveLog,
       outputFilterSensitiveLog: AddJobFlowStepsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

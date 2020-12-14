@@ -85,14 +85,6 @@ export class UpdateDataRetentionCommand extends $Command<
       inputFilterSensitiveLog: UpdateDataRetentionInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDataRetentionOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class ListReceivedGrantsCommand extends $Command<
       inputFilterSensitiveLog: ListReceivedGrantsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListReceivedGrantsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

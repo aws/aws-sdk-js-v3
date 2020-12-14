@@ -60,14 +60,6 @@ export class BulkPublishCommand extends $Command<
       inputFilterSensitiveLog: BulkPublishRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BulkPublishResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class UpdateVocabularyFilterCommand extends $Command<
       inputFilterSensitiveLog: UpdateVocabularyFilterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateVocabularyFilterResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

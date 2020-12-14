@@ -60,14 +60,6 @@ export class DetectSentimentCommand extends $Command<
       inputFilterSensitiveLog: DetectSentimentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DetectSentimentResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

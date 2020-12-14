@@ -59,14 +59,6 @@ export class AttachToIndexCommand extends $Command<
       inputFilterSensitiveLog: AttachToIndexRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AttachToIndexResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

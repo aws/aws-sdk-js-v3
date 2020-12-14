@@ -59,14 +59,6 @@ export class GetThingRuntimeConfigurationCommand extends $Command<
       inputFilterSensitiveLog: GetThingRuntimeConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetThingRuntimeConfigurationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

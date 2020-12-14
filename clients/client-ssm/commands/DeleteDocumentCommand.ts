@@ -60,14 +60,6 @@ export class DeleteDocumentCommand extends $Command<
       inputFilterSensitiveLog: DeleteDocumentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDocumentResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

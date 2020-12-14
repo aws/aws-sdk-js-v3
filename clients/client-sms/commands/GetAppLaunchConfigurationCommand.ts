@@ -59,14 +59,6 @@ export class GetAppLaunchConfigurationCommand extends $Command<
       inputFilterSensitiveLog: GetAppLaunchConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAppLaunchConfigurationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

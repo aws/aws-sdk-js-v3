@@ -63,14 +63,6 @@ export class UpdateHostCommand extends $Command<
       inputFilterSensitiveLog: UpdateHostInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateHostOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

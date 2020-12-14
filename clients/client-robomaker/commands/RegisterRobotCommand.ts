@@ -59,14 +59,6 @@ export class RegisterRobotCommand extends $Command<
       inputFilterSensitiveLog: RegisterRobotRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterRobotResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

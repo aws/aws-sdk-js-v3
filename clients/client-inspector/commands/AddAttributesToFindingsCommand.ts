@@ -60,14 +60,6 @@ export class AddAttributesToFindingsCommand extends $Command<
       inputFilterSensitiveLog: AddAttributesToFindingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AddAttributesToFindingsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class PutRepositoryCatalogDataCommand extends $Command<
       inputFilterSensitiveLog: PutRepositoryCatalogDataRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutRepositoryCatalogDataResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

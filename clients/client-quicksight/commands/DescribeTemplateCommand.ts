@@ -59,14 +59,6 @@ export class DescribeTemplateCommand extends $Command<
       inputFilterSensitiveLog: DescribeTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTemplateResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

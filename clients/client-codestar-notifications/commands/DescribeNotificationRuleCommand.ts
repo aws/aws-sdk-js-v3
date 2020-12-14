@@ -63,14 +63,6 @@ export class DescribeNotificationRuleCommand extends $Command<
       inputFilterSensitiveLog: DescribeNotificationRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeNotificationRuleResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

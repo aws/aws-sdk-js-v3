@@ -69,14 +69,6 @@ export class RemoveTargetsCommand extends $Command<
       inputFilterSensitiveLog: RemoveTargetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RemoveTargetsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

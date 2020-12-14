@@ -60,14 +60,6 @@ export class ListRuleNamesByTargetCommand extends $Command<
       inputFilterSensitiveLog: ListRuleNamesByTargetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListRuleNamesByTargetResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

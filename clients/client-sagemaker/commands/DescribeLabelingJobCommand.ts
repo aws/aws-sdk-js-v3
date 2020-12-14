@@ -59,14 +59,6 @@ export class DescribeLabelingJobCommand extends $Command<
       inputFilterSensitiveLog: DescribeLabelingJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeLabelingJobResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

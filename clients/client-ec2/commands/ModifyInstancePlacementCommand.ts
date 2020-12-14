@@ -86,14 +86,6 @@ export class ModifyInstancePlacementCommand extends $Command<
       inputFilterSensitiveLog: ModifyInstancePlacementRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyInstancePlacementResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

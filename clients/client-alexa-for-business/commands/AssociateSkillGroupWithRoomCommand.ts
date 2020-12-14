@@ -60,14 +60,6 @@ export class AssociateSkillGroupWithRoomCommand extends $Command<
       inputFilterSensitiveLog: AssociateSkillGroupWithRoomRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateSkillGroupWithRoomResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

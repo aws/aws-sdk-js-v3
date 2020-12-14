@@ -62,14 +62,6 @@ export class CreateGatewayRouteCommand extends $Command<
       inputFilterSensitiveLog: CreateGatewayRouteInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateGatewayRouteOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class RemovePermissionCommand extends $Command<
       inputFilterSensitiveLog: RemovePermissionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RemovePermissionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

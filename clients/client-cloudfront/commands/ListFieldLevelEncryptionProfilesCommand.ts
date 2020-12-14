@@ -59,14 +59,6 @@ export class ListFieldLevelEncryptionProfilesCommand extends $Command<
       inputFilterSensitiveLog: ListFieldLevelEncryptionProfilesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListFieldLevelEncryptionProfilesResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

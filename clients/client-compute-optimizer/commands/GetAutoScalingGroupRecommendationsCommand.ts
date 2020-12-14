@@ -67,14 +67,6 @@ export class GetAutoScalingGroupRecommendationsCommand extends $Command<
       inputFilterSensitiveLog: GetAutoScalingGroupRecommendationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAutoScalingGroupRecommendationsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

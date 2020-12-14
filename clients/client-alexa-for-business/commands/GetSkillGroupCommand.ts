@@ -59,14 +59,6 @@ export class GetSkillGroupCommand extends $Command<
       inputFilterSensitiveLog: GetSkillGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSkillGroupResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

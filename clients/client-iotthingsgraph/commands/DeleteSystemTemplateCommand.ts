@@ -60,14 +60,6 @@ export class DeleteSystemTemplateCommand extends $Command<
       inputFilterSensitiveLog: DeleteSystemTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteSystemTemplateResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

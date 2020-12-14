@@ -63,14 +63,6 @@ export class GetProposalCommand extends $Command<
       inputFilterSensitiveLog: GetProposalInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetProposalOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

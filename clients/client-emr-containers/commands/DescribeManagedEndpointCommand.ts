@@ -59,14 +59,6 @@ export class DescribeManagedEndpointCommand extends $Command<
       inputFilterSensitiveLog: DescribeManagedEndpointRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeManagedEndpointResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

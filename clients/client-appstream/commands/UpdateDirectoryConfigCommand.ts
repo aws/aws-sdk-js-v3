@@ -59,14 +59,6 @@ export class UpdateDirectoryConfigCommand extends $Command<
       inputFilterSensitiveLog: UpdateDirectoryConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDirectoryConfigResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

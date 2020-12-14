@@ -60,14 +60,6 @@ export class CreateTapePoolCommand extends $Command<
       inputFilterSensitiveLog: CreateTapePoolInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateTapePoolOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

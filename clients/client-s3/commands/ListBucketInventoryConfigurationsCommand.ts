@@ -99,14 +99,6 @@ export class ListBucketInventoryConfigurationsCommand extends $Command<
       inputFilterSensitiveLog: ListBucketInventoryConfigurationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListBucketInventoryConfigurationsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

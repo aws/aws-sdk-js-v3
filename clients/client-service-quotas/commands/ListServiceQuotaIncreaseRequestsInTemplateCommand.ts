@@ -66,14 +66,6 @@ export class ListServiceQuotaIncreaseRequestsInTemplateCommand extends $Command<
       inputFilterSensitiveLog: ListServiceQuotaIncreaseRequestsInTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListServiceQuotaIncreaseRequestsInTemplateResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

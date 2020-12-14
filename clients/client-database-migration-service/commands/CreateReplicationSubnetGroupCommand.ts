@@ -63,14 +63,6 @@ export class CreateReplicationSubnetGroupCommand extends $Command<
       inputFilterSensitiveLog: CreateReplicationSubnetGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: CreateReplicationSubnetGroupResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

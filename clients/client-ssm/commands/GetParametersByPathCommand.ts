@@ -67,14 +67,6 @@ export class GetParametersByPathCommand extends $Command<
       inputFilterSensitiveLog: GetParametersByPathRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetParametersByPathResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

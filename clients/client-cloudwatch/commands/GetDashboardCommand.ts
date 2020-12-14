@@ -59,14 +59,6 @@ export class GetDashboardCommand extends $Command<
       inputFilterSensitiveLog: GetDashboardInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetDashboardOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

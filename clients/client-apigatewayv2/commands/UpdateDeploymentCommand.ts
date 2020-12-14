@@ -59,14 +59,6 @@ export class UpdateDeploymentCommand extends $Command<
       inputFilterSensitiveLog: UpdateDeploymentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDeploymentResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

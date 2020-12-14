@@ -63,14 +63,6 @@ export class DeleteReplicationTaskCommand extends $Command<
       inputFilterSensitiveLog: DeleteReplicationTaskMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteReplicationTaskResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

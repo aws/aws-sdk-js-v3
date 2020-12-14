@@ -59,14 +59,6 @@ export class CreateReturnShippingLabelCommand extends $Command<
       inputFilterSensitiveLog: CreateReturnShippingLabelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateReturnShippingLabelResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

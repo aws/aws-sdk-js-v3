@@ -59,14 +59,6 @@ export class GetViolationDetailsCommand extends $Command<
       inputFilterSensitiveLog: GetViolationDetailsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetViolationDetailsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

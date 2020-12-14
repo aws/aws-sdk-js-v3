@@ -63,14 +63,6 @@ export class CreateInfrastructureConfigurationCommand extends $Command<
       inputFilterSensitiveLog: CreateInfrastructureConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateInfrastructureConfigurationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class UpdateProjectCommand extends $Command<
       inputFilterSensitiveLog: UpdateProjectInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateProjectOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

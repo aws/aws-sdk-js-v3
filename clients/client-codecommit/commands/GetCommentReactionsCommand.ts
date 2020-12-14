@@ -59,14 +59,6 @@ export class GetCommentReactionsCommand extends $Command<
       inputFilterSensitiveLog: GetCommentReactionsInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetCommentReactionsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

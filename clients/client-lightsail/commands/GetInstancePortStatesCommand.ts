@@ -60,14 +60,6 @@ export class GetInstancePortStatesCommand extends $Command<
       inputFilterSensitiveLog: GetInstancePortStatesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetInstancePortStatesResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

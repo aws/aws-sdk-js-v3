@@ -59,14 +59,6 @@ export class CancelIngestionCommand extends $Command<
       inputFilterSensitiveLog: CancelIngestionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelIngestionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

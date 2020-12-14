@@ -59,14 +59,6 @@ export class EnableProactiveEngagementCommand extends $Command<
       inputFilterSensitiveLog: EnableProactiveEngagementRequest.filterSensitiveLog,
       outputFilterSensitiveLog: EnableProactiveEngagementResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

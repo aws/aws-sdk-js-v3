@@ -59,14 +59,6 @@ export class UpdateGlobalTableSettingsCommand extends $Command<
       inputFilterSensitiveLog: UpdateGlobalTableSettingsInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateGlobalTableSettingsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

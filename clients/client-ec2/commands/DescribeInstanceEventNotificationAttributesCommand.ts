@@ -67,14 +67,6 @@ export class DescribeInstanceEventNotificationAttributesCommand extends $Command
       inputFilterSensitiveLog: DescribeInstanceEventNotificationAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeInstanceEventNotificationAttributesResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

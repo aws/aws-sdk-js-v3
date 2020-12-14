@@ -60,14 +60,6 @@ export class CreateDataQualityJobDefinitionCommand extends $Command<
       inputFilterSensitiveLog: CreateDataQualityJobDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDataQualityJobDefinitionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -60,14 +60,6 @@ export class DetachObjectCommand extends $Command<
       inputFilterSensitiveLog: DetachObjectRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DetachObjectResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

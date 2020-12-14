@@ -59,14 +59,6 @@ export class StopStackSetOperationCommand extends $Command<
       inputFilterSensitiveLog: StopStackSetOperationInput.filterSensitiveLog,
       outputFilterSensitiveLog: StopStackSetOperationOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

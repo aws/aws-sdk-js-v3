@@ -59,14 +59,6 @@ export class UpdateLifecyclePolicyCommand extends $Command<
       inputFilterSensitiveLog: UpdateLifecyclePolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateLifecyclePolicyResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

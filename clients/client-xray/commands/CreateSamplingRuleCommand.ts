@@ -65,14 +65,6 @@ export class CreateSamplingRuleCommand extends $Command<
       inputFilterSensitiveLog: CreateSamplingRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateSamplingRuleResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

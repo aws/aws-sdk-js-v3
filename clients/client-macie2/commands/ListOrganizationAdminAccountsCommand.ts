@@ -59,14 +59,6 @@ export class ListOrganizationAdminAccountsCommand extends $Command<
       inputFilterSensitiveLog: ListOrganizationAdminAccountsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListOrganizationAdminAccountsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

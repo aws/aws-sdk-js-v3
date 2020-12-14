@@ -63,14 +63,6 @@ export class GetMLTaskRunCommand extends $Command<
       inputFilterSensitiveLog: GetMLTaskRunRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetMLTaskRunResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

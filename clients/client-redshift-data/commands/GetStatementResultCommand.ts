@@ -60,14 +60,6 @@ export class GetStatementResultCommand extends $Command<
       inputFilterSensitiveLog: GetStatementResultRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetStatementResultResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

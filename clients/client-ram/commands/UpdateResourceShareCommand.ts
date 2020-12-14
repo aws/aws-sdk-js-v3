@@ -59,14 +59,6 @@ export class UpdateResourceShareCommand extends $Command<
       inputFilterSensitiveLog: UpdateResourceShareRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateResourceShareResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

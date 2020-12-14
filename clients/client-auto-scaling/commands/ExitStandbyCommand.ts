@@ -61,14 +61,6 @@ export class ExitStandbyCommand extends $Command<
       inputFilterSensitiveLog: ExitStandbyQuery.filterSensitiveLog,
       outputFilterSensitiveLog: ExitStandbyAnswer.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

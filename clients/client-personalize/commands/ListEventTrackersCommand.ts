@@ -62,14 +62,6 @@ export class ListEventTrackersCommand extends $Command<
       inputFilterSensitiveLog: ListEventTrackersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListEventTrackersResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

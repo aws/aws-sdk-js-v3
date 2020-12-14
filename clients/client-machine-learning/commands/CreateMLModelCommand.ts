@@ -78,14 +78,6 @@ export class CreateMLModelCommand extends $Command<
       inputFilterSensitiveLog: CreateMLModelInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateMLModelOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

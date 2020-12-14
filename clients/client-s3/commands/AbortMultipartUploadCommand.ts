@@ -99,14 +99,6 @@ export class AbortMultipartUploadCommand extends $Command<
       inputFilterSensitiveLog: AbortMultipartUploadRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AbortMultipartUploadOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

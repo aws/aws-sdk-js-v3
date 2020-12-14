@@ -70,14 +70,6 @@ export class PutQueryDefinitionCommand extends $Command<
       inputFilterSensitiveLog: PutQueryDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutQueryDefinitionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

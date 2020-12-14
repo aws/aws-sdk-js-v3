@@ -60,14 +60,6 @@ export class BatchWriteCommand extends $Command<
       inputFilterSensitiveLog: BatchWriteRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchWriteResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

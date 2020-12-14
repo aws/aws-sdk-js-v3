@@ -60,14 +60,6 @@ export class ListPartnerEventSourcesCommand extends $Command<
       inputFilterSensitiveLog: ListPartnerEventSourcesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPartnerEventSourcesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -73,14 +73,6 @@ export class CreateVPCAssociationAuthorizationCommand extends $Command<
       inputFilterSensitiveLog: CreateVPCAssociationAuthorizationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateVPCAssociationAuthorizationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

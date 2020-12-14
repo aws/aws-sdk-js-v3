@@ -66,14 +66,6 @@ export class RegisterVolumeCommand extends $Command<
       inputFilterSensitiveLog: RegisterVolumeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterVolumeResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

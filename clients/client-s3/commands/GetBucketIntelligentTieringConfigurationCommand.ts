@@ -90,14 +90,6 @@ export class GetBucketIntelligentTieringConfigurationCommand extends $Command<
       inputFilterSensitiveLog: GetBucketIntelligentTieringConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBucketIntelligentTieringConfigurationOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

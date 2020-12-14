@@ -61,14 +61,6 @@ export class GetAssignmentCommand extends $Command<
       inputFilterSensitiveLog: GetAssignmentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAssignmentResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

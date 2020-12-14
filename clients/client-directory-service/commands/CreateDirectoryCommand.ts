@@ -64,14 +64,6 @@ export class CreateDirectoryCommand extends $Command<
       inputFilterSensitiveLog: CreateDirectoryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDirectoryResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

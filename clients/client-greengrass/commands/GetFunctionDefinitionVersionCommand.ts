@@ -59,14 +59,6 @@ export class GetFunctionDefinitionVersionCommand extends $Command<
       inputFilterSensitiveLog: GetFunctionDefinitionVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetFunctionDefinitionVersionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

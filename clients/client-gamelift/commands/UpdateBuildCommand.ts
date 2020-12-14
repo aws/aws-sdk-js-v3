@@ -98,14 +98,6 @@ export class UpdateBuildCommand extends $Command<
       inputFilterSensitiveLog: UpdateBuildInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateBuildOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

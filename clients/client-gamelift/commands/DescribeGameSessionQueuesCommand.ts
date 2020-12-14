@@ -95,14 +95,6 @@ export class DescribeGameSessionQueuesCommand extends $Command<
       inputFilterSensitiveLog: DescribeGameSessionQueuesInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeGameSessionQueuesOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

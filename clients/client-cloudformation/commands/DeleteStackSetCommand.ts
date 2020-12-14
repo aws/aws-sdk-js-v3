@@ -60,14 +60,6 @@ export class DeleteStackSetCommand extends $Command<
       inputFilterSensitiveLog: DeleteStackSetInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteStackSetOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

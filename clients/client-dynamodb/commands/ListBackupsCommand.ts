@@ -65,14 +65,6 @@ export class ListBackupsCommand extends $Command<
       inputFilterSensitiveLog: ListBackupsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListBackupsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

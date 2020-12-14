@@ -59,14 +59,6 @@ export class ListInputDevicesCommand extends $Command<
       inputFilterSensitiveLog: ListInputDevicesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListInputDevicesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -67,14 +67,6 @@ export class DescribeTableStatisticsCommand extends $Command<
       inputFilterSensitiveLog: DescribeTableStatisticsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTableStatisticsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

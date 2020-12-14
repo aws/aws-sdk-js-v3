@@ -59,14 +59,6 @@ export class CreateFunctionDefinitionCommand extends $Command<
       inputFilterSensitiveLog: CreateFunctionDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateFunctionDefinitionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

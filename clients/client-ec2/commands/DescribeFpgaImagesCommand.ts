@@ -61,14 +61,6 @@ export class DescribeFpgaImagesCommand extends $Command<
       inputFilterSensitiveLog: DescribeFpgaImagesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeFpgaImagesResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

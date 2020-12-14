@@ -65,14 +65,6 @@ export class DescribeSecurityGroupsCommand extends $Command<
       inputFilterSensitiveLog: DescribeSecurityGroupsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSecurityGroupsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

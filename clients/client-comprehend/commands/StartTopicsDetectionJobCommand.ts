@@ -60,14 +60,6 @@ export class StartTopicsDetectionJobCommand extends $Command<
       inputFilterSensitiveLog: StartTopicsDetectionJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartTopicsDetectionJobResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

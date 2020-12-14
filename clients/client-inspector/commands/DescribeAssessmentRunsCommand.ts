@@ -60,14 +60,6 @@ export class DescribeAssessmentRunsCommand extends $Command<
       inputFilterSensitiveLog: DescribeAssessmentRunsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAssessmentRunsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

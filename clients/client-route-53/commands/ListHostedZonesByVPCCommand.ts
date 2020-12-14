@@ -71,14 +71,6 @@ export class ListHostedZonesByVPCCommand extends $Command<
       inputFilterSensitiveLog: ListHostedZonesByVPCRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListHostedZonesByVPCResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

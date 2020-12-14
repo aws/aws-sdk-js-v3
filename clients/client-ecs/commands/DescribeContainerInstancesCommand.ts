@@ -60,14 +60,6 @@ export class DescribeContainerInstancesCommand extends $Command<
       inputFilterSensitiveLog: DescribeContainerInstancesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeContainerInstancesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

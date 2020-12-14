@@ -59,14 +59,6 @@ export class DescribeRestoreJobCommand extends $Command<
       inputFilterSensitiveLog: DescribeRestoreJobInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeRestoreJobOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

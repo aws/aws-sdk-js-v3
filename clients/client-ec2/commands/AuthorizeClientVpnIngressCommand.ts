@@ -61,14 +61,6 @@ export class AuthorizeClientVpnIngressCommand extends $Command<
       inputFilterSensitiveLog: AuthorizeClientVpnIngressRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AuthorizeClientVpnIngressResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

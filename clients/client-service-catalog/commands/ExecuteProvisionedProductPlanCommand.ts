@@ -59,14 +59,6 @@ export class ExecuteProvisionedProductPlanCommand extends $Command<
       inputFilterSensitiveLog: ExecuteProvisionedProductPlanInput.filterSensitiveLog,
       outputFilterSensitiveLog: ExecuteProvisionedProductPlanOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

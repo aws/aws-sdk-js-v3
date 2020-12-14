@@ -61,14 +61,6 @@ export class BatchGetReportGroupsCommand extends $Command<
       inputFilterSensitiveLog: BatchGetReportGroupsInput.filterSensitiveLog,
       outputFilterSensitiveLog: BatchGetReportGroupsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

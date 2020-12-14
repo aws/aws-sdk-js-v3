@@ -59,14 +59,6 @@ export class DescribeProjectCommand extends $Command<
       inputFilterSensitiveLog: DescribeProjectInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeProjectOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

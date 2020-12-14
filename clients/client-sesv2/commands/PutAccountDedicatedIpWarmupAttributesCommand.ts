@@ -63,14 +63,6 @@ export class PutAccountDedicatedIpWarmupAttributesCommand extends $Command<
       inputFilterSensitiveLog: PutAccountDedicatedIpWarmupAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutAccountDedicatedIpWarmupAttributesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

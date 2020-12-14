@@ -59,14 +59,6 @@ export class GetTraceGraphCommand extends $Command<
       inputFilterSensitiveLog: GetTraceGraphRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetTraceGraphResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

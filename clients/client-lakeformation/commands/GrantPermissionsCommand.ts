@@ -60,14 +60,6 @@ export class GrantPermissionsCommand extends $Command<
       inputFilterSensitiveLog: GrantPermissionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GrantPermissionsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -88,14 +88,6 @@ export class CreateBackupCommand extends $Command<
       inputFilterSensitiveLog: CreateBackupInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateBackupOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

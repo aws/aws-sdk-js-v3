@@ -82,14 +82,6 @@ export class CreateFargateProfileCommand extends $Command<
       inputFilterSensitiveLog: CreateFargateProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateFargateProfileResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

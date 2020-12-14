@@ -60,14 +60,6 @@ export class PreviewAgentsCommand extends $Command<
       inputFilterSensitiveLog: PreviewAgentsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PreviewAgentsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

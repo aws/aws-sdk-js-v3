@@ -57,14 +57,6 @@ export class CopyImageCommand extends $Command<CopyImageCommandInput, CopyImageC
       inputFilterSensitiveLog: CopyImageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CopyImageResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

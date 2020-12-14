@@ -56,14 +56,6 @@ export class UpdateDocumentationPartCommand extends $Command<
       inputFilterSensitiveLog: UpdateDocumentationPartRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DocumentationPart.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

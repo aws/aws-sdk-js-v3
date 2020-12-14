@@ -60,14 +60,6 @@ export class ListActionTypesCommand extends $Command<
       inputFilterSensitiveLog: ListActionTypesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListActionTypesOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

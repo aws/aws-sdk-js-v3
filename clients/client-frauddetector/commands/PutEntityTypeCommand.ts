@@ -59,14 +59,6 @@ export class PutEntityTypeCommand extends $Command<
       inputFilterSensitiveLog: PutEntityTypeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutEntityTypeResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

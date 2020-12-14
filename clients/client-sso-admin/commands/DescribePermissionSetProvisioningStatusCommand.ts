@@ -66,14 +66,6 @@ export class DescribePermissionSetProvisioningStatusCommand extends $Command<
       inputFilterSensitiveLog: DescribePermissionSetProvisioningStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePermissionSetProvisioningStatusResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

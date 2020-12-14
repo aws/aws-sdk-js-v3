@@ -61,14 +61,6 @@ export class ListOfferingPromotionsCommand extends $Command<
       inputFilterSensitiveLog: ListOfferingPromotionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListOfferingPromotionsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

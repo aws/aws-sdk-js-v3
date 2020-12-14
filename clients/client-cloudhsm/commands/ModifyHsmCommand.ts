@@ -72,14 +72,6 @@ export class ModifyHsmCommand extends $Command<
       inputFilterSensitiveLog: ModifyHsmRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyHsmResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

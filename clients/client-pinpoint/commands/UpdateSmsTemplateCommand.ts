@@ -59,14 +59,6 @@ export class UpdateSmsTemplateCommand extends $Command<
       inputFilterSensitiveLog: UpdateSmsTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateSmsTemplateResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

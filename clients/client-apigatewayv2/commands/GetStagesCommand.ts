@@ -59,14 +59,6 @@ export class GetStagesCommand extends $Command<
       inputFilterSensitiveLog: GetStagesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetStagesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

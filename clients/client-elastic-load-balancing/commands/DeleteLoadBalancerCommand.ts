@@ -66,14 +66,6 @@ export class DeleteLoadBalancerCommand extends $Command<
       inputFilterSensitiveLog: DeleteAccessPointInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteAccessPointOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

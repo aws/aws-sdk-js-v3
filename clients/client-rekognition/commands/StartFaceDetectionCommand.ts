@@ -71,14 +71,6 @@ export class StartFaceDetectionCommand extends $Command<
       inputFilterSensitiveLog: StartFaceDetectionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartFaceDetectionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

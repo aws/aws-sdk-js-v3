@@ -63,14 +63,6 @@ export class DescribeDevicePolicyConfigurationCommand extends $Command<
       inputFilterSensitiveLog: DescribeDevicePolicyConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDevicePolicyConfigurationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

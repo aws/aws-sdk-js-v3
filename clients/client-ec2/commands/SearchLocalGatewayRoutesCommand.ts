@@ -59,14 +59,6 @@ export class SearchLocalGatewayRoutesCommand extends $Command<
       inputFilterSensitiveLog: SearchLocalGatewayRoutesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SearchLocalGatewayRoutesResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

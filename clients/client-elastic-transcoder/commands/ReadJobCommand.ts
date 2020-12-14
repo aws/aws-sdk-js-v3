@@ -63,14 +63,6 @@ export class ReadJobCommand extends $Command<
       inputFilterSensitiveLog: ReadJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ReadJobResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

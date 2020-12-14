@@ -59,14 +59,6 @@ export class CreateRoomMembershipCommand extends $Command<
       inputFilterSensitiveLog: CreateRoomMembershipRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateRoomMembershipResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

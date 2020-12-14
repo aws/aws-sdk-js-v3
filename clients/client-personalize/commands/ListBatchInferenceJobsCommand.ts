@@ -60,14 +60,6 @@ export class ListBatchInferenceJobsCommand extends $Command<
       inputFilterSensitiveLog: ListBatchInferenceJobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListBatchInferenceJobsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

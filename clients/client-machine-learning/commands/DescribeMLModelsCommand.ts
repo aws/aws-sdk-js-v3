@@ -59,14 +59,6 @@ export class DescribeMLModelsCommand extends $Command<
       inputFilterSensitiveLog: DescribeMLModelsInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeMLModelsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

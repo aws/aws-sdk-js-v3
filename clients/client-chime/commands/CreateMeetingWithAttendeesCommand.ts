@@ -63,14 +63,6 @@ export class CreateMeetingWithAttendeesCommand extends $Command<
       inputFilterSensitiveLog: CreateMeetingWithAttendeesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateMeetingWithAttendeesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -98,14 +98,6 @@ export class CreateDatasetImportJobCommand extends $Command<
       inputFilterSensitiveLog: CreateDatasetImportJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDatasetImportJobResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

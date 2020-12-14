@@ -59,14 +59,6 @@ export class ListPublicKeysCommand extends $Command<
       inputFilterSensitiveLog: ListPublicKeysRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPublicKeysResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

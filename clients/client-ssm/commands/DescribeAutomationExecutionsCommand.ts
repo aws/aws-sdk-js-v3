@@ -59,14 +59,6 @@ export class DescribeAutomationExecutionsCommand extends $Command<
       inputFilterSensitiveLog: DescribeAutomationExecutionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAutomationExecutionsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

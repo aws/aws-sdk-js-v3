@@ -66,14 +66,6 @@ export class DescribeScalingPoliciesCommand extends $Command<
       inputFilterSensitiveLog: DescribeScalingPoliciesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeScalingPoliciesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

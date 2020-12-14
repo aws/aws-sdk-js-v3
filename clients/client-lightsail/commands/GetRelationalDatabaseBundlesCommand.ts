@@ -62,14 +62,6 @@ export class GetRelationalDatabaseBundlesCommand extends $Command<
       inputFilterSensitiveLog: GetRelationalDatabaseBundlesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRelationalDatabaseBundlesResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class PutComponentPolicyCommand extends $Command<
       inputFilterSensitiveLog: PutComponentPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutComponentPolicyResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

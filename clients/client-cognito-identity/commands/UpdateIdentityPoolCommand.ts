@@ -62,14 +62,6 @@ export class UpdateIdentityPoolCommand extends $Command<
       inputFilterSensitiveLog: IdentityPool.filterSensitiveLog,
       outputFilterSensitiveLog: IdentityPool.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

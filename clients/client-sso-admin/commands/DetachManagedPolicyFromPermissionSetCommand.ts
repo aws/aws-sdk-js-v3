@@ -63,14 +63,6 @@ export class DetachManagedPolicyFromPermissionSetCommand extends $Command<
       inputFilterSensitiveLog: DetachManagedPolicyFromPermissionSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DetachManagedPolicyFromPermissionSetResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

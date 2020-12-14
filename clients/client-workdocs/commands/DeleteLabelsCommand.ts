@@ -59,14 +59,6 @@ export class DeleteLabelsCommand extends $Command<
       inputFilterSensitiveLog: DeleteLabelsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteLabelsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

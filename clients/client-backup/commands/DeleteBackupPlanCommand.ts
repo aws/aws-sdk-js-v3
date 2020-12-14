@@ -61,14 +61,6 @@ export class DeleteBackupPlanCommand extends $Command<
       inputFilterSensitiveLog: DeleteBackupPlanInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteBackupPlanOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

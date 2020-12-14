@@ -99,14 +99,6 @@ export class DeleteHostedZoneCommand extends $Command<
       inputFilterSensitiveLog: DeleteHostedZoneRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteHostedZoneResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

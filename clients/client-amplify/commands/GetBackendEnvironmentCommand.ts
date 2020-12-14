@@ -59,14 +59,6 @@ export class GetBackendEnvironmentCommand extends $Command<
       inputFilterSensitiveLog: GetBackendEnvironmentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBackendEnvironmentResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

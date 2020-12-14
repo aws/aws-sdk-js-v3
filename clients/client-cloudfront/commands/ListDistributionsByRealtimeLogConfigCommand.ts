@@ -72,14 +72,6 @@ export class ListDistributionsByRealtimeLogConfigCommand extends $Command<
       inputFilterSensitiveLog: ListDistributionsByRealtimeLogConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDistributionsByRealtimeLogConfigResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

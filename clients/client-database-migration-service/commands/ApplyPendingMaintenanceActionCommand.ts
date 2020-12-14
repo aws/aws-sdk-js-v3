@@ -63,14 +63,6 @@ export class ApplyPendingMaintenanceActionCommand extends $Command<
       inputFilterSensitiveLog: ApplyPendingMaintenanceActionMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ApplyPendingMaintenanceActionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

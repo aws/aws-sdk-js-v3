@@ -63,14 +63,6 @@ export class DescribeWebsiteCertificateAuthorityCommand extends $Command<
       inputFilterSensitiveLog: DescribeWebsiteCertificateAuthorityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeWebsiteCertificateAuthorityResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

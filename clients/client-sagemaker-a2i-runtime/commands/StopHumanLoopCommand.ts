@@ -63,14 +63,6 @@ export class StopHumanLoopCommand extends $Command<
       inputFilterSensitiveLog: StopHumanLoopRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopHumanLoopResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

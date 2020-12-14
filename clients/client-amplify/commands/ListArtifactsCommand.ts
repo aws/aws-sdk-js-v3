@@ -59,14 +59,6 @@ export class ListArtifactsCommand extends $Command<
       inputFilterSensitiveLog: ListArtifactsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListArtifactsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

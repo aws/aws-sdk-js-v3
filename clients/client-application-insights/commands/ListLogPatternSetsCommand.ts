@@ -63,14 +63,6 @@ export class ListLogPatternSetsCommand extends $Command<
       inputFilterSensitiveLog: ListLogPatternSetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListLogPatternSetsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

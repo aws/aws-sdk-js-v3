@@ -65,14 +65,6 @@ export class DetachThingPrincipalCommand extends $Command<
       inputFilterSensitiveLog: DetachThingPrincipalRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DetachThingPrincipalResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class DeleteOutpostCommand extends $Command<
       inputFilterSensitiveLog: DeleteOutpostInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteOutpostOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

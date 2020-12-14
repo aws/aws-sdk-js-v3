@@ -59,14 +59,6 @@ export class ListConstraintsForPortfolioCommand extends $Command<
       inputFilterSensitiveLog: ListConstraintsForPortfolioInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListConstraintsForPortfolioOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

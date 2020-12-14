@@ -119,14 +119,6 @@ export class DeleteObjectsCommand extends $Command<
       inputFilterSensitiveLog: DeleteObjectsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteObjectsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

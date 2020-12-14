@@ -59,14 +59,6 @@ export class StartOnDemandAppReplicationCommand extends $Command<
       inputFilterSensitiveLog: StartOnDemandAppReplicationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartOnDemandAppReplicationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

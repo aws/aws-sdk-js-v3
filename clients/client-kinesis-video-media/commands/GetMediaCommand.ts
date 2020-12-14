@@ -108,14 +108,6 @@ export class GetMediaCommand extends $Command<
       inputFilterSensitiveLog: GetMediaInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetMediaOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

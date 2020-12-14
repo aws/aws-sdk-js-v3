@@ -60,14 +60,6 @@ export class SearchRoomsCommand extends $Command<
       inputFilterSensitiveLog: SearchRoomsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SearchRoomsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

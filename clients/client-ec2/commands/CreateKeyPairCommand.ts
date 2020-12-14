@@ -65,14 +65,6 @@ export class CreateKeyPairCommand extends $Command<
       inputFilterSensitiveLog: CreateKeyPairRequest.filterSensitiveLog,
       outputFilterSensitiveLog: KeyPair.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -84,14 +84,6 @@ export class GetRepositoryEndpointCommand extends $Command<
       inputFilterSensitiveLog: GetRepositoryEndpointRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRepositoryEndpointResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

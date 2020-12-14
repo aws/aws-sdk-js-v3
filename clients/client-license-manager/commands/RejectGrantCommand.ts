@@ -59,14 +59,6 @@ export class RejectGrantCommand extends $Command<
       inputFilterSensitiveLog: RejectGrantRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RejectGrantResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

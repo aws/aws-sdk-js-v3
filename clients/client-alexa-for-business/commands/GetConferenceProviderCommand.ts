@@ -59,14 +59,6 @@ export class GetConferenceProviderCommand extends $Command<
       inputFilterSensitiveLog: GetConferenceProviderRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetConferenceProviderResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

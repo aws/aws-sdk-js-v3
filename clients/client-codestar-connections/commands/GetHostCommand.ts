@@ -61,14 +61,6 @@ export class GetHostCommand extends $Command<
       inputFilterSensitiveLog: GetHostInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetHostOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

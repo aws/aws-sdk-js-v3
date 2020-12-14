@@ -59,14 +59,6 @@ export class UpdatePublicKeyCommand extends $Command<
       inputFilterSensitiveLog: UpdatePublicKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdatePublicKeyResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

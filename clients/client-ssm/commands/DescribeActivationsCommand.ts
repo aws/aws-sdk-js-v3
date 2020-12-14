@@ -61,14 +61,6 @@ export class DescribeActivationsCommand extends $Command<
       inputFilterSensitiveLog: DescribeActivationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeActivationsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

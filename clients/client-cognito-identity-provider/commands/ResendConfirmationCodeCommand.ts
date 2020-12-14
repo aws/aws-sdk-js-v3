@@ -64,14 +64,6 @@ export class ResendConfirmationCodeCommand extends $Command<
       inputFilterSensitiveLog: ResendConfirmationCodeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ResendConfirmationCodeResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

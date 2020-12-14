@@ -64,14 +64,6 @@ export class CreateTransitGatewayMulticastDomainCommand extends $Command<
       inputFilterSensitiveLog: CreateTransitGatewayMulticastDomainRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateTransitGatewayMulticastDomainResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

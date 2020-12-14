@@ -61,14 +61,6 @@ export class CreateProtectionCommand extends $Command<
       inputFilterSensitiveLog: CreateProtectionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateProtectionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

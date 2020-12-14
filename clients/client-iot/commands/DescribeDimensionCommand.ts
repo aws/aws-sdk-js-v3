@@ -59,14 +59,6 @@ export class DescribeDimensionCommand extends $Command<
       inputFilterSensitiveLog: DescribeDimensionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDimensionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

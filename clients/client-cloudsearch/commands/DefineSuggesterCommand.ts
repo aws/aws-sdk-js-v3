@@ -59,14 +59,6 @@ export class DefineSuggesterCommand extends $Command<
       inputFilterSensitiveLog: DefineSuggesterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DefineSuggesterResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

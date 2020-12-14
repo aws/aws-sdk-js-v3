@@ -59,14 +59,6 @@ export class DeleteBuildBatchCommand extends $Command<
       inputFilterSensitiveLog: DeleteBuildBatchInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteBuildBatchOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

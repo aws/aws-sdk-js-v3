@@ -59,14 +59,6 @@ export class DescribeFHIRImportJobCommand extends $Command<
       inputFilterSensitiveLog: DescribeFHIRImportJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeFHIRImportJobResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

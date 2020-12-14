@@ -60,14 +60,6 @@ export class AttachPolicyCommand extends $Command<
       inputFilterSensitiveLog: AttachPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AttachPolicyResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

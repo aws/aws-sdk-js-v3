@@ -65,14 +65,6 @@ export class ListJournalS3ExportsCommand extends $Command<
       inputFilterSensitiveLog: ListJournalS3ExportsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListJournalS3ExportsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

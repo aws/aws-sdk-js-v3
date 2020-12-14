@@ -70,14 +70,6 @@ export class GetAssetPropertyValueCommand extends $Command<
       inputFilterSensitiveLog: GetAssetPropertyValueRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAssetPropertyValueResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

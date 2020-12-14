@@ -64,14 +64,6 @@ export class CreateVirtualGatewayCommand extends $Command<
       inputFilterSensitiveLog: CreateVirtualGatewayInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateVirtualGatewayOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

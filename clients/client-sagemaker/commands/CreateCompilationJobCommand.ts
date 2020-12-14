@@ -90,14 +90,6 @@ export class CreateCompilationJobCommand extends $Command<
       inputFilterSensitiveLog: CreateCompilationJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateCompilationJobResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -78,14 +78,6 @@ export class AuthorizeClusterSecurityGroupIngressCommand extends $Command<
       inputFilterSensitiveLog: AuthorizeClusterSecurityGroupIngressMessage.filterSensitiveLog,
       outputFilterSensitiveLog: AuthorizeClusterSecurityGroupIngressResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

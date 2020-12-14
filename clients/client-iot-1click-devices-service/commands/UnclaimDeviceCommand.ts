@@ -63,14 +63,6 @@ export class UnclaimDeviceCommand extends $Command<
       inputFilterSensitiveLog: UnclaimDeviceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UnclaimDeviceResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -64,14 +64,6 @@ export class ListAccountAssignmentCreationStatusCommand extends $Command<
       inputFilterSensitiveLog: ListAccountAssignmentCreationStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAccountAssignmentCreationStatusResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

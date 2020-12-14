@@ -63,14 +63,6 @@ export class DisassociateTransitGatewayRouteTableCommand extends $Command<
       inputFilterSensitiveLog: DisassociateTransitGatewayRouteTableRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateTransitGatewayRouteTableResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

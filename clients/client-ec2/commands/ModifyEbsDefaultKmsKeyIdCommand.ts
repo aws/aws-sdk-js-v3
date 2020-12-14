@@ -66,14 +66,6 @@ export class ModifyEbsDefaultKmsKeyIdCommand extends $Command<
       inputFilterSensitiveLog: ModifyEbsDefaultKmsKeyIdRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyEbsDefaultKmsKeyIdResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

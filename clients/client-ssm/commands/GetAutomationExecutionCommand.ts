@@ -59,14 +59,6 @@ export class GetAutomationExecutionCommand extends $Command<
       inputFilterSensitiveLog: GetAutomationExecutionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAutomationExecutionResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

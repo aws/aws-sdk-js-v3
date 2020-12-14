@@ -66,14 +66,6 @@ export class ListUserPoliciesCommand extends $Command<
       inputFilterSensitiveLog: ListUserPoliciesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListUserPoliciesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

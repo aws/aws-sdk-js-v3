@@ -106,14 +106,6 @@ export class PollForDecisionTaskCommand extends $Command<
       inputFilterSensitiveLog: PollForDecisionTaskInput.filterSensitiveLog,
       outputFilterSensitiveLog: DecisionTask.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

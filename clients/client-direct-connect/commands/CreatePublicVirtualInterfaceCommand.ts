@@ -62,14 +62,6 @@ export class CreatePublicVirtualInterfaceCommand extends $Command<
       inputFilterSensitiveLog: CreatePublicVirtualInterfaceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: VirtualInterface.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -68,14 +68,6 @@ export class DetachInstancesCommand extends $Command<
       inputFilterSensitiveLog: DetachInstancesQuery.filterSensitiveLog,
       outputFilterSensitiveLog: DetachInstancesAnswer.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

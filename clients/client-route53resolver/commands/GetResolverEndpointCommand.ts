@@ -60,14 +60,6 @@ export class GetResolverEndpointCommand extends $Command<
       inputFilterSensitiveLog: GetResolverEndpointRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetResolverEndpointResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

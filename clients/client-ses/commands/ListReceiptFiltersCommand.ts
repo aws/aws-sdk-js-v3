@@ -63,14 +63,6 @@ export class ListReceiptFiltersCommand extends $Command<
       inputFilterSensitiveLog: ListReceiptFiltersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListReceiptFiltersResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

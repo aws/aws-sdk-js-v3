@@ -59,14 +59,6 @@ export class CreateDeploymentCommand extends $Command<
       inputFilterSensitiveLog: CreateDeploymentInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDeploymentOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

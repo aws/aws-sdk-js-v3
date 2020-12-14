@@ -63,14 +63,6 @@ export class DeleteLedgerCommand extends $Command<
       inputFilterSensitiveLog: DeleteLedgerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

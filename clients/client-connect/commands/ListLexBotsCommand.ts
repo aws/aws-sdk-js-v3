@@ -60,14 +60,6 @@ export class ListLexBotsCommand extends $Command<
       inputFilterSensitiveLog: ListLexBotsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListLexBotsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

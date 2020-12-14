@@ -60,14 +60,6 @@ export class GetDomainDetailCommand extends $Command<
       inputFilterSensitiveLog: GetDomainDetailRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDomainDetailResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

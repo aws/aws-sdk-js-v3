@@ -59,14 +59,6 @@ export class DeleteDatasetCommand extends $Command<
       inputFilterSensitiveLog: DeleteDatasetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDatasetResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

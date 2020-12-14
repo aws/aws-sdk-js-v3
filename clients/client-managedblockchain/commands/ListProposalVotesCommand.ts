@@ -63,14 +63,6 @@ export class ListProposalVotesCommand extends $Command<
       inputFilterSensitiveLog: ListProposalVotesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListProposalVotesOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

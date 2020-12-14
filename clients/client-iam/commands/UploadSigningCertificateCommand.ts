@@ -75,14 +75,6 @@ export class UploadSigningCertificateCommand extends $Command<
       inputFilterSensitiveLog: UploadSigningCertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UploadSigningCertificateResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

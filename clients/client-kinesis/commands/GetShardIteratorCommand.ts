@@ -92,14 +92,6 @@ export class GetShardIteratorCommand extends $Command<
       inputFilterSensitiveLog: GetShardIteratorInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetShardIteratorOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

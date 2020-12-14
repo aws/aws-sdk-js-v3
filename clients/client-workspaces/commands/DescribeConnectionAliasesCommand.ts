@@ -61,14 +61,6 @@ export class DescribeConnectionAliasesCommand extends $Command<
       inputFilterSensitiveLog: DescribeConnectionAliasesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeConnectionAliasesResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

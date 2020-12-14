@@ -66,14 +66,6 @@ export class ListFailuresForLicenseConfigurationOperationsCommand extends $Comma
       inputFilterSensitiveLog: ListFailuresForLicenseConfigurationOperationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListFailuresForLicenseConfigurationOperationsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

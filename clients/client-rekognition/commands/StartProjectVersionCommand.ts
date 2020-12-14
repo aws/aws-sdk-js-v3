@@ -68,14 +68,6 @@ export class StartProjectVersionCommand extends $Command<
       inputFilterSensitiveLog: StartProjectVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartProjectVersionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

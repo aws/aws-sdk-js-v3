@@ -59,14 +59,6 @@ export class StopDeploymentCommand extends $Command<
       inputFilterSensitiveLog: StopDeploymentInput.filterSensitiveLog,
       outputFilterSensitiveLog: StopDeploymentOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -66,14 +66,6 @@ export class ExportEC2InstanceRecommendationsCommand extends $Command<
       inputFilterSensitiveLog: ExportEC2InstanceRecommendationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ExportEC2InstanceRecommendationsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

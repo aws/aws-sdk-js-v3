@@ -59,14 +59,6 @@ export class ListConnectorDefinitionVersionsCommand extends $Command<
       inputFilterSensitiveLog: ListConnectorDefinitionVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListConnectorDefinitionVersionsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

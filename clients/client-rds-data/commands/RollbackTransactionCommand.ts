@@ -59,14 +59,6 @@ export class RollbackTransactionCommand extends $Command<
       inputFilterSensitiveLog: RollbackTransactionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RollbackTransactionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

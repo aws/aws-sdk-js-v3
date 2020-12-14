@@ -75,14 +75,6 @@ export class CreateBotVersionCommand extends $Command<
       inputFilterSensitiveLog: CreateBotVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateBotVersionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

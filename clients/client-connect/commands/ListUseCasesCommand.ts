@@ -60,14 +60,6 @@ export class ListUseCasesCommand extends $Command<
       inputFilterSensitiveLog: ListUseCasesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListUseCasesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

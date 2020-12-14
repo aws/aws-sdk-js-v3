@@ -63,14 +63,6 @@ export class DescribeEntityCommand extends $Command<
       inputFilterSensitiveLog: DescribeEntityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeEntityResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

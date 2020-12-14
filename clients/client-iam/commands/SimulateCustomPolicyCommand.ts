@@ -71,14 +71,6 @@ export class SimulateCustomPolicyCommand extends $Command<
       inputFilterSensitiveLog: SimulateCustomPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SimulatePolicyResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

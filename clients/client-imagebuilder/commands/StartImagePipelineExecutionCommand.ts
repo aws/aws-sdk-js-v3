@@ -59,14 +59,6 @@ export class StartImagePipelineExecutionCommand extends $Command<
       inputFilterSensitiveLog: StartImagePipelineExecutionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartImagePipelineExecutionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

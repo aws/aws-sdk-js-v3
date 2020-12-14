@@ -62,14 +62,6 @@ export class UpdateReceiptRuleCommand extends $Command<
       inputFilterSensitiveLog: UpdateReceiptRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateReceiptRuleResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

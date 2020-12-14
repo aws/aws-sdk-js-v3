@@ -62,14 +62,6 @@ export class PutVoiceConnectorTerminationCommand extends $Command<
       inputFilterSensitiveLog: PutVoiceConnectorTerminationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutVoiceConnectorTerminationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

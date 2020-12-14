@@ -59,14 +59,6 @@ export class GetTriggersCommand extends $Command<
       inputFilterSensitiveLog: GetTriggersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetTriggersResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

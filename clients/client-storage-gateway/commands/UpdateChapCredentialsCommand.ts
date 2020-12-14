@@ -67,14 +67,6 @@ export class UpdateChapCredentialsCommand extends $Command<
       inputFilterSensitiveLog: UpdateChapCredentialsInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateChapCredentialsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

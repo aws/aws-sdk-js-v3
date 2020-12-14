@@ -61,14 +61,6 @@ export class DeleteConfigurationSetCommand extends $Command<
       inputFilterSensitiveLog: DeleteConfigurationSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteConfigurationSetResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

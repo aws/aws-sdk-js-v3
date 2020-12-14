@@ -59,14 +59,6 @@ export class CreateFindingsFilterCommand extends $Command<
       inputFilterSensitiveLog: CreateFindingsFilterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateFindingsFilterResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class CheckSchemaVersionValidityCommand extends $Command<
       inputFilterSensitiveLog: CheckSchemaVersionValidityInput.filterSensitiveLog,
       outputFilterSensitiveLog: CheckSchemaVersionValidityResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

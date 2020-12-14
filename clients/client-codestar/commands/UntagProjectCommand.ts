@@ -59,14 +59,6 @@ export class UntagProjectCommand extends $Command<
       inputFilterSensitiveLog: UntagProjectRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UntagProjectResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

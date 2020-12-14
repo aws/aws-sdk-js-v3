@@ -59,14 +59,6 @@ export class ClearDefaultAuthorizerCommand extends $Command<
       inputFilterSensitiveLog: ClearDefaultAuthorizerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ClearDefaultAuthorizerResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

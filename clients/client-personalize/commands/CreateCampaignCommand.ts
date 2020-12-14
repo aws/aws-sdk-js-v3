@@ -122,14 +122,6 @@ export class CreateCampaignCommand extends $Command<
       inputFilterSensitiveLog: CreateCampaignRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateCampaignResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

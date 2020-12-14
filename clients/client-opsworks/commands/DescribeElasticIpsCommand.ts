@@ -67,14 +67,6 @@ export class DescribeElasticIpsCommand extends $Command<
       inputFilterSensitiveLog: DescribeElasticIpsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeElasticIpsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -61,14 +61,6 @@ export class GetBackupPlanCommand extends $Command<
       inputFilterSensitiveLog: GetBackupPlanInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetBackupPlanOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

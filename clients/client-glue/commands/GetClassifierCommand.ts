@@ -59,14 +59,6 @@ export class GetClassifierCommand extends $Command<
       inputFilterSensitiveLog: GetClassifierRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetClassifierResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

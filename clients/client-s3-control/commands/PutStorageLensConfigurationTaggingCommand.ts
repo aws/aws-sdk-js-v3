@@ -73,14 +73,6 @@ export class PutStorageLensConfigurationTaggingCommand extends $Command<
       inputFilterSensitiveLog: PutStorageLensConfigurationTaggingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutStorageLensConfigurationTaggingResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

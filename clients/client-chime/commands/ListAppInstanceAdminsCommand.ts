@@ -59,14 +59,6 @@ export class ListAppInstanceAdminsCommand extends $Command<
       inputFilterSensitiveLog: ListAppInstanceAdminsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAppInstanceAdminsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -60,14 +60,6 @@ export class GetLayerVersionPolicyCommand extends $Command<
       inputFilterSensitiveLog: GetLayerVersionPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetLayerVersionPolicyResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

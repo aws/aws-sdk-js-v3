@@ -60,14 +60,6 @@ export class GetSuppressedDestinationCommand extends $Command<
       inputFilterSensitiveLog: GetSuppressedDestinationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSuppressedDestinationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

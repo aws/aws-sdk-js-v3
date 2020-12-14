@@ -59,14 +59,6 @@ export class UpdateModelVersionCommand extends $Command<
       inputFilterSensitiveLog: UpdateModelVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateModelVersionResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

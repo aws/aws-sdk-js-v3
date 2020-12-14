@@ -60,14 +60,6 @@ export class AssociateEntityToThingCommand extends $Command<
       inputFilterSensitiveLog: AssociateEntityToThingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateEntityToThingResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

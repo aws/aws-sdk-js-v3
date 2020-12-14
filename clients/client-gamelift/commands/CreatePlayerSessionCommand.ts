@@ -108,14 +108,6 @@ export class CreatePlayerSessionCommand extends $Command<
       inputFilterSensitiveLog: CreatePlayerSessionInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreatePlayerSessionOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

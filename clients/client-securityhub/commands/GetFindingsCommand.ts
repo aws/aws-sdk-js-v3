@@ -60,14 +60,6 @@ export class GetFindingsCommand extends $Command<
       inputFilterSensitiveLog: GetFindingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetFindingsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

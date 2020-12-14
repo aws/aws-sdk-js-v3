@@ -59,14 +59,6 @@ export class ListFacetAttributesCommand extends $Command<
       inputFilterSensitiveLog: ListFacetAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListFacetAttributesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

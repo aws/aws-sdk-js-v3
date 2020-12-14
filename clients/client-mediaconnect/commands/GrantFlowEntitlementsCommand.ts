@@ -59,14 +59,6 @@ export class GrantFlowEntitlementsCommand extends $Command<
       inputFilterSensitiveLog: GrantFlowEntitlementsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GrantFlowEntitlementsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

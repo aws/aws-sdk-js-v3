@@ -59,14 +59,6 @@ export class ListPublishedSchemaArnsCommand extends $Command<
       inputFilterSensitiveLog: ListPublishedSchemaArnsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPublishedSchemaArnsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

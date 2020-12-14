@@ -60,14 +60,6 @@ export class ListPullRequestsCommand extends $Command<
       inputFilterSensitiveLog: ListPullRequestsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListPullRequestsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

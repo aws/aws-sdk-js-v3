@@ -59,14 +59,6 @@ export class DescribeScalingPlanResourcesCommand extends $Command<
       inputFilterSensitiveLog: DescribeScalingPlanResourcesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeScalingPlanResourcesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

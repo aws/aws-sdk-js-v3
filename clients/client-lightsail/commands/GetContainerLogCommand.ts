@@ -69,14 +69,6 @@ export class GetContainerLogCommand extends $Command<
       inputFilterSensitiveLog: GetContainerLogRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetContainerLogResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -62,14 +62,6 @@ export class DescribeLoaCommand extends $Command<
       inputFilterSensitiveLog: DescribeLoaRequest.filterSensitiveLog,
       outputFilterSensitiveLog: Loa.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

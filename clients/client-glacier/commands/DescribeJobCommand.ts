@@ -82,14 +82,6 @@ export class DescribeJobCommand extends $Command<
       inputFilterSensitiveLog: DescribeJobInput.filterSensitiveLog,
       outputFilterSensitiveLog: GlacierJobDescription.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

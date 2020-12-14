@@ -66,14 +66,6 @@ export class CreateTransitGatewayPrefixListReferenceCommand extends $Command<
       inputFilterSensitiveLog: CreateTransitGatewayPrefixListReferenceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateTransitGatewayPrefixListReferenceResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

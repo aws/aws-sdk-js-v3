@@ -59,14 +59,6 @@ export class GetDataflowGraphCommand extends $Command<
       inputFilterSensitiveLog: GetDataflowGraphRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDataflowGraphResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

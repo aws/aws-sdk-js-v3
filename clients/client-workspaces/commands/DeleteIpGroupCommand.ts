@@ -60,14 +60,6 @@ export class DeleteIpGroupCommand extends $Command<
       inputFilterSensitiveLog: DeleteIpGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteIpGroupResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

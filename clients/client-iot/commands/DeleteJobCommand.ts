@@ -62,14 +62,6 @@ export class DeleteJobCommand extends $Command<DeleteJobCommandInput, DeleteJobC
       inputFilterSensitiveLog: DeleteJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

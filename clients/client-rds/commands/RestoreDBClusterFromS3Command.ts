@@ -78,14 +78,6 @@ export class RestoreDBClusterFromS3Command extends $Command<
       inputFilterSensitiveLog: RestoreDBClusterFromS3Message.filterSensitiveLog,
       outputFilterSensitiveLog: RestoreDBClusterFromS3Result.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

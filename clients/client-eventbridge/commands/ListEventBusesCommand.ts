@@ -60,14 +60,6 @@ export class ListEventBusesCommand extends $Command<
       inputFilterSensitiveLog: ListEventBusesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListEventBusesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

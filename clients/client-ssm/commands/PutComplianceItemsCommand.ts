@@ -114,14 +114,6 @@ export class PutComplianceItemsCommand extends $Command<
       inputFilterSensitiveLog: PutComplianceItemsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutComplianceItemsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

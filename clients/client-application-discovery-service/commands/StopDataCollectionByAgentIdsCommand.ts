@@ -63,14 +63,6 @@ export class StopDataCollectionByAgentIdsCommand extends $Command<
       inputFilterSensitiveLog: StopDataCollectionByAgentIdsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopDataCollectionByAgentIdsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

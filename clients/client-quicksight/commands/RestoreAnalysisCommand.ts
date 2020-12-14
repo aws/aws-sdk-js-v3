@@ -59,14 +59,6 @@ export class RestoreAnalysisCommand extends $Command<
       inputFilterSensitiveLog: RestoreAnalysisRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RestoreAnalysisResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

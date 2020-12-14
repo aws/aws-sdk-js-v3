@@ -59,14 +59,6 @@ export class DescribeAuthorizerCommand extends $Command<
       inputFilterSensitiveLog: DescribeAuthorizerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAuthorizerResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

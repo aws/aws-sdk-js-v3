@@ -64,14 +64,6 @@ export class PutConfigurationSetSendingOptionsCommand extends $Command<
       inputFilterSensitiveLog: PutConfigurationSetSendingOptionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutConfigurationSetSendingOptionsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

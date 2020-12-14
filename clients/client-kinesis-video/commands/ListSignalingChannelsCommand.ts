@@ -61,14 +61,6 @@ export class ListSignalingChannelsCommand extends $Command<
       inputFilterSensitiveLog: ListSignalingChannelsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListSignalingChannelsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

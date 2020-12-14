@@ -60,14 +60,6 @@ export class DescribeHostReservationsCommand extends $Command<
       inputFilterSensitiveLog: DescribeHostReservationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeHostReservationsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

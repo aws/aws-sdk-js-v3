@@ -63,14 +63,6 @@ export class GetScreenDataCommand extends $Command<
       inputFilterSensitiveLog: GetScreenDataRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetScreenDataResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

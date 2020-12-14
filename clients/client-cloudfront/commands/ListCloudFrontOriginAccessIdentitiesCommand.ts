@@ -63,14 +63,6 @@ export class ListCloudFrontOriginAccessIdentitiesCommand extends $Command<
       inputFilterSensitiveLog: ListCloudFrontOriginAccessIdentitiesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListCloudFrontOriginAccessIdentitiesResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

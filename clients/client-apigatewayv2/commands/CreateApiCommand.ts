@@ -59,14 +59,6 @@ export class CreateApiCommand extends $Command<
       inputFilterSensitiveLog: CreateApiRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateApiResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

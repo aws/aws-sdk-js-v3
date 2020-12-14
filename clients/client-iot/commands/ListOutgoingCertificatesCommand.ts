@@ -59,14 +59,6 @@ export class ListOutgoingCertificatesCommand extends $Command<
       inputFilterSensitiveLog: ListOutgoingCertificatesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListOutgoingCertificatesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

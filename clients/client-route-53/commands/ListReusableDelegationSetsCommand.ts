@@ -59,14 +59,6 @@ export class ListReusableDelegationSetsCommand extends $Command<
       inputFilterSensitiveLog: ListReusableDelegationSetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListReusableDelegationSetsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

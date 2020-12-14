@@ -68,14 +68,6 @@ export class GetBlueprintsCommand extends $Command<
       inputFilterSensitiveLog: GetBlueprintsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBlueprintsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

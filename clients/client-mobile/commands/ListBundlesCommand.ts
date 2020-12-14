@@ -61,14 +61,6 @@ export class ListBundlesCommand extends $Command<
       inputFilterSensitiveLog: ListBundlesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListBundlesResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

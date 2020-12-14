@@ -56,14 +56,6 @@ export class GetReportGroupTrendCommand extends $Command<
       inputFilterSensitiveLog: GetReportGroupTrendInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetReportGroupTrendOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

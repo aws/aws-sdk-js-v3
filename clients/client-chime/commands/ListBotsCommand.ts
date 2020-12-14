@@ -55,14 +55,6 @@ export class ListBotsCommand extends $Command<ListBotsCommandInput, ListBotsComm
       inputFilterSensitiveLog: ListBotsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListBotsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

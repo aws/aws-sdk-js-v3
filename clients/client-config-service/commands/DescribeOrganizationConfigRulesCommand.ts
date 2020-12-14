@@ -67,14 +67,6 @@ export class DescribeOrganizationConfigRulesCommand extends $Command<
       inputFilterSensitiveLog: DescribeOrganizationConfigRulesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeOrganizationConfigRulesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

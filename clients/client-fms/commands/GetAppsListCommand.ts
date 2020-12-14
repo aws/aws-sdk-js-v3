@@ -59,14 +59,6 @@ export class GetAppsListCommand extends $Command<
       inputFilterSensitiveLog: GetAppsListRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAppsListResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

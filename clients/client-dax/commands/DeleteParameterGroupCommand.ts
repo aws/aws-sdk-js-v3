@@ -60,14 +60,6 @@ export class DeleteParameterGroupCommand extends $Command<
       inputFilterSensitiveLog: DeleteParameterGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteParameterGroupResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class RejectPortfolioShareCommand extends $Command<
       inputFilterSensitiveLog: RejectPortfolioShareInput.filterSensitiveLog,
       outputFilterSensitiveLog: RejectPortfolioShareOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

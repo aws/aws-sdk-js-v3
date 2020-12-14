@@ -61,14 +61,6 @@ export class DeleteTrailCommand extends $Command<
       inputFilterSensitiveLog: DeleteTrailRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTrailResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

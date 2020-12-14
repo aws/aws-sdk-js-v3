@@ -59,14 +59,6 @@ export class GetOutpostInstanceTypesCommand extends $Command<
       inputFilterSensitiveLog: GetOutpostInstanceTypesInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetOutpostInstanceTypesOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

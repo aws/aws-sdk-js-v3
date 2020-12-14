@@ -59,14 +59,6 @@ export class UpdateArtifactCommand extends $Command<
       inputFilterSensitiveLog: UpdateArtifactRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateArtifactResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

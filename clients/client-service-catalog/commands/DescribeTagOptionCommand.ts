@@ -59,14 +59,6 @@ export class DescribeTagOptionCommand extends $Command<
       inputFilterSensitiveLog: DescribeTagOptionInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTagOptionOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

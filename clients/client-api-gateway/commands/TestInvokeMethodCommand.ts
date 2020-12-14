@@ -59,14 +59,6 @@ export class TestInvokeMethodCommand extends $Command<
       inputFilterSensitiveLog: TestInvokeMethodRequest.filterSensitiveLog,
       outputFilterSensitiveLog: TestInvokeMethodResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

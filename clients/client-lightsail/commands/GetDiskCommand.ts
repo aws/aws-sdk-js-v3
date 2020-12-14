@@ -52,14 +52,6 @@ export class GetDiskCommand extends $Command<GetDiskCommandInput, GetDiskCommand
       inputFilterSensitiveLog: GetDiskRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDiskResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

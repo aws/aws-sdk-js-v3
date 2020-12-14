@@ -56,14 +56,6 @@ export class GetSchemaCommand extends $Command<
       inputFilterSensitiveLog: GetSchemaInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetSchemaResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

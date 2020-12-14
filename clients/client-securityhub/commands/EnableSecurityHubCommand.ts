@@ -83,14 +83,6 @@ export class EnableSecurityHubCommand extends $Command<
       inputFilterSensitiveLog: EnableSecurityHubRequest.filterSensitiveLog,
       outputFilterSensitiveLog: EnableSecurityHubResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

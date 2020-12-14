@@ -59,14 +59,6 @@ export class ImportApiKeysCommand extends $Command<
       inputFilterSensitiveLog: ImportApiKeysRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ApiKeyIds.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

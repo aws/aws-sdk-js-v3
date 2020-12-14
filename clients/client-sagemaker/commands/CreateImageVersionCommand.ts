@@ -60,14 +60,6 @@ export class CreateImageVersionCommand extends $Command<
       inputFilterSensitiveLog: CreateImageVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateImageVersionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

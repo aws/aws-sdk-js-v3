@@ -70,14 +70,6 @@ export class ListIdentityPoliciesCommand extends $Command<
       inputFilterSensitiveLog: ListIdentityPoliciesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListIdentityPoliciesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

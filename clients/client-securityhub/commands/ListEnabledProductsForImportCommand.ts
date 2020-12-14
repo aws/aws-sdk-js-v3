@@ -60,14 +60,6 @@ export class ListEnabledProductsForImportCommand extends $Command<
       inputFilterSensitiveLog: ListEnabledProductsForImportRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListEnabledProductsForImportResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

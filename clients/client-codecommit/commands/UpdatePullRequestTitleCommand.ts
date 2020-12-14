@@ -59,14 +59,6 @@ export class UpdatePullRequestTitleCommand extends $Command<
       inputFilterSensitiveLog: UpdatePullRequestTitleInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdatePullRequestTitleOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

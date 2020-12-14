@@ -62,14 +62,6 @@ export class BatchGetImageCommand extends $Command<
       inputFilterSensitiveLog: BatchGetImageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchGetImageResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

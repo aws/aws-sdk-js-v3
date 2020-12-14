@@ -80,14 +80,6 @@ export class DetectTextCommand extends $Command<
       inputFilterSensitiveLog: DetectTextRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DetectTextResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

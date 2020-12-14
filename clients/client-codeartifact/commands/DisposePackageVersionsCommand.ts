@@ -78,14 +78,6 @@ export class DisposePackageVersionsCommand extends $Command<
       inputFilterSensitiveLog: DisposePackageVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisposePackageVersionsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

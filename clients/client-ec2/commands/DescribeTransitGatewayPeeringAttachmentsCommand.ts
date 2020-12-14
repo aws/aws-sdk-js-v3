@@ -66,14 +66,6 @@ export class DescribeTransitGatewayPeeringAttachmentsCommand extends $Command<
       inputFilterSensitiveLog: DescribeTransitGatewayPeeringAttachmentsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTransitGatewayPeeringAttachmentsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -68,14 +68,6 @@ export class GetRightsizingRecommendationCommand extends $Command<
       inputFilterSensitiveLog: GetRightsizingRecommendationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRightsizingRecommendationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

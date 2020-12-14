@@ -79,14 +79,6 @@ export class DescribeJobFlowsCommand extends $Command<
       inputFilterSensitiveLog: DescribeJobFlowsInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeJobFlowsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class GetInstanceSnapshotCommand extends $Command<
       inputFilterSensitiveLog: GetInstanceSnapshotRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetInstanceSnapshotResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

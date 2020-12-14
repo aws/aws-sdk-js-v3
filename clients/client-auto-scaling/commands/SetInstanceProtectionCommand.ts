@@ -64,14 +64,6 @@ export class SetInstanceProtectionCommand extends $Command<
       inputFilterSensitiveLog: SetInstanceProtectionQuery.filterSensitiveLog,
       outputFilterSensitiveLog: SetInstanceProtectionAnswer.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

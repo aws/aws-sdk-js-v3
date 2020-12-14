@@ -63,14 +63,6 @@ export class DescribeTargetHealthCommand extends $Command<
       inputFilterSensitiveLog: DescribeTargetHealthInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTargetHealthOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

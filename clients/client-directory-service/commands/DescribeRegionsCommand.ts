@@ -60,14 +60,6 @@ export class DescribeRegionsCommand extends $Command<
       inputFilterSensitiveLog: DescribeRegionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeRegionsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

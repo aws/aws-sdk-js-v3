@@ -59,14 +59,6 @@ export class DisableRadiusCommand extends $Command<
       inputFilterSensitiveLog: DisableRadiusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisableRadiusResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

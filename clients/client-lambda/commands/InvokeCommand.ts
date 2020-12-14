@@ -78,14 +78,6 @@ export class InvokeCommand extends $Command<InvokeCommandInput, InvokeCommandOut
       inputFilterSensitiveLog: InvocationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: InvocationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

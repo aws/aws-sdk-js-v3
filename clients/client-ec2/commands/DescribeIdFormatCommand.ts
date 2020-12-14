@@ -78,14 +78,6 @@ export class DescribeIdFormatCommand extends $Command<
       inputFilterSensitiveLog: DescribeIdFormatRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeIdFormatResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

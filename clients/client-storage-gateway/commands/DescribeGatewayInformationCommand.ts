@@ -61,14 +61,6 @@ export class DescribeGatewayInformationCommand extends $Command<
       inputFilterSensitiveLog: DescribeGatewayInformationInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeGatewayInformationOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

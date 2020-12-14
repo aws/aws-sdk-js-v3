@@ -71,14 +71,6 @@ export class AssociateVPCWithHostedZoneCommand extends $Command<
       inputFilterSensitiveLog: AssociateVPCWithHostedZoneRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateVPCWithHostedZoneResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

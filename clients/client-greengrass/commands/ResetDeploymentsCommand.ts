@@ -59,14 +59,6 @@ export class ResetDeploymentsCommand extends $Command<
       inputFilterSensitiveLog: ResetDeploymentsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ResetDeploymentsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

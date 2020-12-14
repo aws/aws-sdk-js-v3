@@ -60,14 +60,6 @@ export class DescribeTrustsCommand extends $Command<
       inputFilterSensitiveLog: DescribeTrustsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTrustsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -64,14 +64,6 @@ export class DescribeICD10CMInferenceJobCommand extends $Command<
       inputFilterSensitiveLog: DescribeICD10CMInferenceJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeICD10CMInferenceJobResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

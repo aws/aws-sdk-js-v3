@@ -59,14 +59,6 @@ export class DeletePackagingConfigurationCommand extends $Command<
       inputFilterSensitiveLog: DeletePackagingConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeletePackagingConfigurationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

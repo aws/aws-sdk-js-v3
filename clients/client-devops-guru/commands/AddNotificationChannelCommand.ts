@@ -56,14 +56,6 @@ export class AddNotificationChannelCommand extends $Command<
       inputFilterSensitiveLog: AddNotificationChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AddNotificationChannelResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class DescribeDBParametersCommand extends $Command<
       inputFilterSensitiveLog: DescribeDBParametersMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DBParameterGroupDetails.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

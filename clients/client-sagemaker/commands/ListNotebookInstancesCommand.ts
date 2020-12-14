@@ -60,14 +60,6 @@ export class ListNotebookInstancesCommand extends $Command<
       inputFilterSensitiveLog: ListNotebookInstancesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListNotebookInstancesOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

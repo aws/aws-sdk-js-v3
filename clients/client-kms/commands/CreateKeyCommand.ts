@@ -127,14 +127,6 @@ export class CreateKeyCommand extends $Command<CreateKeyCommandInput, CreateKeyC
       inputFilterSensitiveLog: CreateKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateKeyResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

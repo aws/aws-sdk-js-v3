@@ -59,14 +59,6 @@ export class UpdateWorkteamCommand extends $Command<
       inputFilterSensitiveLog: UpdateWorkteamRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateWorkteamResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

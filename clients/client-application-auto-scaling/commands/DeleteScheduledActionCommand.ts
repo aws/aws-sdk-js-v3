@@ -64,14 +64,6 @@ export class DeleteScheduledActionCommand extends $Command<
       inputFilterSensitiveLog: DeleteScheduledActionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteScheduledActionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

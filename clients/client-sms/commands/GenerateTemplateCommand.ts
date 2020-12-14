@@ -60,14 +60,6 @@ export class GenerateTemplateCommand extends $Command<
       inputFilterSensitiveLog: GenerateTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GenerateTemplateResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

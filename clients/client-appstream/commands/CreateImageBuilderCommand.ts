@@ -60,14 +60,6 @@ export class CreateImageBuilderCommand extends $Command<
       inputFilterSensitiveLog: CreateImageBuilderRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateImageBuilderResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

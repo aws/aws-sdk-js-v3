@@ -59,14 +59,6 @@ export class GetConnectivityInfoCommand extends $Command<
       inputFilterSensitiveLog: GetConnectivityInfoRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetConnectivityInfoResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

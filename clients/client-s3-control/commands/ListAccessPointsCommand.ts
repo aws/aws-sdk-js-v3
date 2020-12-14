@@ -85,14 +85,6 @@ export class ListAccessPointsCommand extends $Command<
       inputFilterSensitiveLog: ListAccessPointsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAccessPointsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

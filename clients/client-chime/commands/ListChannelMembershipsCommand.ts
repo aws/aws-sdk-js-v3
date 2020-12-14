@@ -59,14 +59,6 @@ export class ListChannelMembershipsCommand extends $Command<
       inputFilterSensitiveLog: ListChannelMembershipsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListChannelMembershipsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

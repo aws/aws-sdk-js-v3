@@ -59,14 +59,6 @@ export class DescribeDomainEndpointOptionsCommand extends $Command<
       inputFilterSensitiveLog: DescribeDomainEndpointOptionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDomainEndpointOptionsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

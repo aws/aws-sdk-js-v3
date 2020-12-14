@@ -62,14 +62,6 @@ export class DescribeLimitsCommand extends $Command<
       inputFilterSensitiveLog: DescribeLimitsInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeLimitsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

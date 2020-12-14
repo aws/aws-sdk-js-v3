@@ -64,14 +64,6 @@ export class DeregisterTargetsCommand extends $Command<
       inputFilterSensitiveLog: DeregisterTargetsInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeregisterTargetsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

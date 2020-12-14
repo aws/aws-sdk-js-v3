@@ -63,14 +63,6 @@ export class CreateIngestionCommand extends $Command<
       inputFilterSensitiveLog: CreateIngestionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateIngestionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

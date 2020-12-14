@@ -61,14 +61,6 @@ export class ListThreatIntelSetsCommand extends $Command<
       inputFilterSensitiveLog: ListThreatIntelSetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListThreatIntelSetsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

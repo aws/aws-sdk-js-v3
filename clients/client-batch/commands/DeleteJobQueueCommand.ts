@@ -61,14 +61,6 @@ export class DeleteJobQueueCommand extends $Command<
       inputFilterSensitiveLog: DeleteJobQueueRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteJobQueueResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

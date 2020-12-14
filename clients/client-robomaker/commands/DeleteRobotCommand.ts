@@ -59,14 +59,6 @@ export class DeleteRobotCommand extends $Command<
       inputFilterSensitiveLog: DeleteRobotRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteRobotResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

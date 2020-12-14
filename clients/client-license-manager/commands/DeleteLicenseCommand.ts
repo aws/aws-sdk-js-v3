@@ -59,14 +59,6 @@ export class DeleteLicenseCommand extends $Command<
       inputFilterSensitiveLog: DeleteLicenseRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteLicenseResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

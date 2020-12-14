@@ -63,14 +63,6 @@ export class DescribeSpotPriceHistoryCommand extends $Command<
       inputFilterSensitiveLog: DescribeSpotPriceHistoryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSpotPriceHistoryResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

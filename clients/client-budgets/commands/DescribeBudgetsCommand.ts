@@ -62,14 +62,6 @@ export class DescribeBudgetsCommand extends $Command<
       inputFilterSensitiveLog: DescribeBudgetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeBudgetsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

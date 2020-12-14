@@ -59,14 +59,6 @@ export class DeleteDataCatalogCommand extends $Command<
       inputFilterSensitiveLog: DeleteDataCatalogInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDataCatalogOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

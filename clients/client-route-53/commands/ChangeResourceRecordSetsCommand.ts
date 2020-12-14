@@ -143,14 +143,6 @@ export class ChangeResourceRecordSetsCommand extends $Command<
       inputFilterSensitiveLog: ChangeResourceRecordSetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ChangeResourceRecordSetsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

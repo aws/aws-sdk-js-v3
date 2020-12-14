@@ -59,14 +59,6 @@ export class BatchGetCustomDataIdentifiersCommand extends $Command<
       inputFilterSensitiveLog: BatchGetCustomDataIdentifiersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchGetCustomDataIdentifiersResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

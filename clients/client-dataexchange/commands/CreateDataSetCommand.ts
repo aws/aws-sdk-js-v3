@@ -59,14 +59,6 @@ export class CreateDataSetCommand extends $Command<
       inputFilterSensitiveLog: CreateDataSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDataSetResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class UpdateDomainNameCommand extends $Command<
       inputFilterSensitiveLog: UpdateDomainNameRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DomainName.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

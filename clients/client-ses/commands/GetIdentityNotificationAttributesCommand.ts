@@ -68,14 +68,6 @@ export class GetIdentityNotificationAttributesCommand extends $Command<
       inputFilterSensitiveLog: GetIdentityNotificationAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetIdentityNotificationAttributesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -88,14 +88,6 @@ export class CreateXssMatchSetCommand extends $Command<
       inputFilterSensitiveLog: CreateXssMatchSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateXssMatchSetResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

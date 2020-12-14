@@ -73,14 +73,6 @@ export class StartChangeSetCommand extends $Command<
       inputFilterSensitiveLog: StartChangeSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartChangeSetResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

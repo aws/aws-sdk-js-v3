@@ -63,14 +63,6 @@ export class DescribeCustomRoutingListenerCommand extends $Command<
       inputFilterSensitiveLog: DescribeCustomRoutingListenerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeCustomRoutingListenerResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

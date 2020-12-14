@@ -59,14 +59,6 @@ export class DeleteImagePipelineCommand extends $Command<
       inputFilterSensitiveLog: DeleteImagePipelineRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteImagePipelineResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

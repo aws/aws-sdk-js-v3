@@ -59,14 +59,6 @@ export class DescribeSavingsPlansOfferingsCommand extends $Command<
       inputFilterSensitiveLog: DescribeSavingsPlansOfferingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSavingsPlansOfferingsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

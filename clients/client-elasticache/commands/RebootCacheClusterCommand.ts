@@ -71,14 +71,6 @@ export class RebootCacheClusterCommand extends $Command<
       inputFilterSensitiveLog: RebootCacheClusterMessage.filterSensitiveLog,
       outputFilterSensitiveLog: RebootCacheClusterResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

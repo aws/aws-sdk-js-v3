@@ -59,14 +59,6 @@ export class DeleteGrantCommand extends $Command<
       inputFilterSensitiveLog: DeleteGrantRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteGrantResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

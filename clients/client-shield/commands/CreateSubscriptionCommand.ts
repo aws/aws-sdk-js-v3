@@ -61,14 +61,6 @@ export class CreateSubscriptionCommand extends $Command<
       inputFilterSensitiveLog: CreateSubscriptionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateSubscriptionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

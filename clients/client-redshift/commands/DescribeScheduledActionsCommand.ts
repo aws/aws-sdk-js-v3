@@ -60,14 +60,6 @@ export class DescribeScheduledActionsCommand extends $Command<
       inputFilterSensitiveLog: DescribeScheduledActionsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ScheduledActionsMessage.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

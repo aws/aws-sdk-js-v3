@@ -63,14 +63,6 @@ export class ListSubscriptionsByTopicCommand extends $Command<
       inputFilterSensitiveLog: ListSubscriptionsByTopicInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListSubscriptionsByTopicResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

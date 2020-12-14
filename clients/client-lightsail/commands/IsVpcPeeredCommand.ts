@@ -59,14 +59,6 @@ export class IsVpcPeeredCommand extends $Command<
       inputFilterSensitiveLog: IsVpcPeeredRequest.filterSensitiveLog,
       outputFilterSensitiveLog: IsVpcPeeredResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

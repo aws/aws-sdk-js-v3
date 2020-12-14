@@ -64,14 +64,6 @@ export class DescribeReplicationInstancesCommand extends $Command<
       inputFilterSensitiveLog: DescribeReplicationInstancesMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeReplicationInstancesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

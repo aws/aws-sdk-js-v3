@@ -83,14 +83,6 @@ export class DescribeInstanceCreditSpecificationsCommand extends $Command<
       inputFilterSensitiveLog: DescribeInstanceCreditSpecificationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeInstanceCreditSpecificationsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

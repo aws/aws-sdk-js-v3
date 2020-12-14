@@ -60,14 +60,6 @@ export class DescribeElasticGpusCommand extends $Command<
       inputFilterSensitiveLog: DescribeElasticGpusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeElasticGpusResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

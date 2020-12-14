@@ -59,14 +59,6 @@ export class GetUsagePlanCommand extends $Command<
       inputFilterSensitiveLog: GetUsagePlanRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UsagePlan.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

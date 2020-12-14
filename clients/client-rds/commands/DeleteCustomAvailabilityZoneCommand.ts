@@ -65,14 +65,6 @@ export class DeleteCustomAvailabilityZoneCommand extends $Command<
       inputFilterSensitiveLog: DeleteCustomAvailabilityZoneMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteCustomAvailabilityZoneResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

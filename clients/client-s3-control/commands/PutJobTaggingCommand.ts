@@ -124,14 +124,6 @@ export class PutJobTaggingCommand extends $Command<
       inputFilterSensitiveLog: PutJobTaggingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutJobTaggingResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

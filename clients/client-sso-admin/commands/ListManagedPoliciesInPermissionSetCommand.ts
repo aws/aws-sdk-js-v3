@@ -63,14 +63,6 @@ export class ListManagedPoliciesInPermissionSetCommand extends $Command<
       inputFilterSensitiveLog: ListManagedPoliciesInPermissionSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListManagedPoliciesInPermissionSetResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -63,14 +63,6 @@ export class CreateConfigurationSetCommand extends $Command<
       inputFilterSensitiveLog: CreateConfigurationSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateConfigurationSetResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

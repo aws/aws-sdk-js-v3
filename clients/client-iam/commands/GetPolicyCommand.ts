@@ -61,14 +61,6 @@ export class GetPolicyCommand extends $Command<GetPolicyCommandInput, GetPolicyC
       inputFilterSensitiveLog: GetPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetPolicyResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

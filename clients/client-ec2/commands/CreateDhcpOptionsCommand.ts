@@ -111,14 +111,6 @@ export class CreateDhcpOptionsCommand extends $Command<
       inputFilterSensitiveLog: CreateDhcpOptionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDhcpOptionsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

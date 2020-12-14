@@ -69,14 +69,6 @@ export class BatchDeleteTableCommand extends $Command<
       inputFilterSensitiveLog: BatchDeleteTableRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchDeleteTableResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

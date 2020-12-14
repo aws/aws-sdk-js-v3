@@ -60,14 +60,6 @@ export class DeletePlaybackKeyPairCommand extends $Command<
       inputFilterSensitiveLog: DeletePlaybackKeyPairRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeletePlaybackKeyPairResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

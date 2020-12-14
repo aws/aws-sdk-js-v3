@@ -60,14 +60,6 @@ export class DescribeWorkspaceImagesCommand extends $Command<
       inputFilterSensitiveLog: DescribeWorkspaceImagesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeWorkspaceImagesResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

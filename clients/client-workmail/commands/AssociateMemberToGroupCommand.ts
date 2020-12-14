@@ -59,14 +59,6 @@ export class AssociateMemberToGroupCommand extends $Command<
       inputFilterSensitiveLog: AssociateMemberToGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateMemberToGroupResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -65,14 +65,6 @@ export class ListDistributionsByKeyGroupCommand extends $Command<
       inputFilterSensitiveLog: ListDistributionsByKeyGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDistributionsByKeyGroupResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -56,14 +56,6 @@ export class PutLabelCommand extends $Command<
       inputFilterSensitiveLog: PutLabelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutLabelResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

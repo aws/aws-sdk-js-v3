@@ -113,14 +113,6 @@ export class BatchImportFindingsCommand extends $Command<
       inputFilterSensitiveLog: BatchImportFindingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchImportFindingsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

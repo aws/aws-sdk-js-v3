@@ -56,14 +56,6 @@ export class PutFileCommand extends $Command<
       inputFilterSensitiveLog: PutFileInput.filterSensitiveLog,
       outputFilterSensitiveLog: PutFileOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

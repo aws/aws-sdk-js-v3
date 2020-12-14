@@ -59,14 +59,6 @@ export class ListSnapshotBlocksCommand extends $Command<
       inputFilterSensitiveLog: ListSnapshotBlocksRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListSnapshotBlocksResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

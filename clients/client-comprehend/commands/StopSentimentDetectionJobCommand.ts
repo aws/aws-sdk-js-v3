@@ -68,14 +68,6 @@ export class StopSentimentDetectionJobCommand extends $Command<
       inputFilterSensitiveLog: StopSentimentDetectionJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopSentimentDetectionJobResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

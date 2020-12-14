@@ -59,14 +59,6 @@ export class UpdateVpcLinkCommand extends $Command<
       inputFilterSensitiveLog: UpdateVpcLinkRequest.filterSensitiveLog,
       outputFilterSensitiveLog: VpcLink.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

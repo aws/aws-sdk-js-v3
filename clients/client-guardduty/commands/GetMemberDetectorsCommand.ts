@@ -59,14 +59,6 @@ export class GetMemberDetectorsCommand extends $Command<
       inputFilterSensitiveLog: GetMemberDetectorsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetMemberDetectorsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

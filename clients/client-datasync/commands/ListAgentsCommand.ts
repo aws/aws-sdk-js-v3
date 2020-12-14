@@ -66,14 +66,6 @@ export class ListAgentsCommand extends $Command<
       inputFilterSensitiveLog: ListAgentsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAgentsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

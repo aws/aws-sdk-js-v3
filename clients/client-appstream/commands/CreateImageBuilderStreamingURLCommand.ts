@@ -59,14 +59,6 @@ export class CreateImageBuilderStreamingURLCommand extends $Command<
       inputFilterSensitiveLog: CreateImageBuilderStreamingURLRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateImageBuilderStreamingURLResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

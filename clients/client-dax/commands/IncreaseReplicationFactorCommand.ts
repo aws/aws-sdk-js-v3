@@ -59,14 +59,6 @@ export class IncreaseReplicationFactorCommand extends $Command<
       inputFilterSensitiveLog: IncreaseReplicationFactorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: IncreaseReplicationFactorResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

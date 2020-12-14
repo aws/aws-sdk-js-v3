@@ -65,14 +65,6 @@ export class CreateResourceServerCommand extends $Command<
       inputFilterSensitiveLog: CreateResourceServerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateResourceServerResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

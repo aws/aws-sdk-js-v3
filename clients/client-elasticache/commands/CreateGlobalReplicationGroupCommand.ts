@@ -72,14 +72,6 @@ export class CreateGlobalReplicationGroupCommand extends $Command<
       inputFilterSensitiveLog: CreateGlobalReplicationGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: CreateGlobalReplicationGroupResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

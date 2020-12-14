@@ -61,14 +61,6 @@ export class DiscoverInstancesCommand extends $Command<
       inputFilterSensitiveLog: DiscoverInstancesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DiscoverInstancesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

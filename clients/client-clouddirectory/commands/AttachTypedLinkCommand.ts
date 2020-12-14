@@ -59,14 +59,6 @@ export class AttachTypedLinkCommand extends $Command<
       inputFilterSensitiveLog: AttachTypedLinkRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AttachTypedLinkResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

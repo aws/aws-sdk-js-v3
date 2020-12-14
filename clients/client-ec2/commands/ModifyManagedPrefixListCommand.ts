@@ -63,14 +63,6 @@ export class ModifyManagedPrefixListCommand extends $Command<
       inputFilterSensitiveLog: ModifyManagedPrefixListRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyManagedPrefixListResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -63,14 +63,6 @@ export class CreatePredictorBacktestExportJobCommand extends $Command<
       inputFilterSensitiveLog: CreatePredictorBacktestExportJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreatePredictorBacktestExportJobResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

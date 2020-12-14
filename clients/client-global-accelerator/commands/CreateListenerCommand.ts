@@ -64,14 +64,6 @@ export class CreateListenerCommand extends $Command<
       inputFilterSensitiveLog: CreateListenerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateListenerResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

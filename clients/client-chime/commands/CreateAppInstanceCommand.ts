@@ -60,14 +60,6 @@ export class CreateAppInstanceCommand extends $Command<
       inputFilterSensitiveLog: CreateAppInstanceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateAppInstanceResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class CheckoutBorrowLicenseCommand extends $Command<
       inputFilterSensitiveLog: CheckoutBorrowLicenseRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CheckoutBorrowLicenseResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

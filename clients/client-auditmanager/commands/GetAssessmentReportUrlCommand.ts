@@ -61,14 +61,6 @@ export class GetAssessmentReportUrlCommand extends $Command<
       inputFilterSensitiveLog: GetAssessmentReportUrlRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAssessmentReportUrlResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

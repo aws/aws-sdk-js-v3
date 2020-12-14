@@ -65,14 +65,6 @@ export class BatchDeleteDelegationByAssessmentCommand extends $Command<
       inputFilterSensitiveLog: BatchDeleteDelegationByAssessmentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchDeleteDelegationByAssessmentResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

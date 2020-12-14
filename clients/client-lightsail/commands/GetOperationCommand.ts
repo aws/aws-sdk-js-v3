@@ -60,14 +60,6 @@ export class GetOperationCommand extends $Command<
       inputFilterSensitiveLog: GetOperationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetOperationResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

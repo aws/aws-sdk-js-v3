@@ -60,14 +60,6 @@ export class DeleteCodeSigningConfigCommand extends $Command<
       inputFilterSensitiveLog: DeleteCodeSigningConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteCodeSigningConfigResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

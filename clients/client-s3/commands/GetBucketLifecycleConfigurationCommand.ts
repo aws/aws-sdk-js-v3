@@ -116,14 +116,6 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
       inputFilterSensitiveLog: GetBucketLifecycleConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBucketLifecycleConfigurationOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

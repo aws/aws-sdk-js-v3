@@ -59,14 +59,6 @@ export class UpdateTrustCommand extends $Command<
       inputFilterSensitiveLog: UpdateTrustRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateTrustResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

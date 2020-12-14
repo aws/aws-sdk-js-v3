@@ -65,14 +65,6 @@ export class DeclineHandshakeCommand extends $Command<
       inputFilterSensitiveLog: DeclineHandshakeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeclineHandshakeResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

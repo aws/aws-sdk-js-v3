@@ -60,14 +60,6 @@ export class UpdateAccessPolicyCommand extends $Command<
       inputFilterSensitiveLog: UpdateAccessPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateAccessPolicyResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class GetCampaignVersionsCommand extends $Command<
       inputFilterSensitiveLog: GetCampaignVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCampaignVersionsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

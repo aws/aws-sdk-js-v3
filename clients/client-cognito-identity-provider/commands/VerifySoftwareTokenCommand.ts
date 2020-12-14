@@ -67,14 +67,6 @@ export class VerifySoftwareTokenCommand extends $Command<
       inputFilterSensitiveLog: VerifySoftwareTokenRequest.filterSensitiveLog,
       outputFilterSensitiveLog: VerifySoftwareTokenResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

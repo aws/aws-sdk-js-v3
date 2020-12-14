@@ -72,14 +72,6 @@ export class RegisterStreamConsumerCommand extends $Command<
       inputFilterSensitiveLog: RegisterStreamConsumerInput.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterStreamConsumerOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

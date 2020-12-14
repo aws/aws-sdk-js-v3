@@ -60,14 +60,6 @@ export class StartNetworkInsightsAnalysisCommand extends $Command<
       inputFilterSensitiveLog: StartNetworkInsightsAnalysisRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartNetworkInsightsAnalysisResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

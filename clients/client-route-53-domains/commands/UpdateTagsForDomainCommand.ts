@@ -60,14 +60,6 @@ export class UpdateTagsForDomainCommand extends $Command<
       inputFilterSensitiveLog: UpdateTagsForDomainRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateTagsForDomainResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

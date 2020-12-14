@@ -60,14 +60,6 @@ export class GetRuleCommand extends $Command<GetRuleCommandInput, GetRuleCommand
       inputFilterSensitiveLog: GetRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRuleResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

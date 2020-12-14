@@ -60,14 +60,6 @@ export class DescribeExportTasksCommand extends $Command<
       inputFilterSensitiveLog: DescribeExportTasksMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ExportTasksMessage.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -61,14 +61,6 @@ export class CreateControlCommand extends $Command<
       inputFilterSensitiveLog: CreateControlRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateControlResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
