@@ -43,6 +43,7 @@ final class EndpointGenerator implements Runnable {
 
     private final TypeScriptWriter writer;
     private final ObjectNode endpointData;
+    private final ServiceTrait serviceTrait;
     private final String endpointPrefix;
     private final Map<String, Partition> partitions = new TreeMap<>();
     private final Map<String, ObjectNode> endpoints = new TreeMap<>();
@@ -50,7 +51,9 @@ final class EndpointGenerator implements Runnable {
 
     EndpointGenerator(ServiceShape service, TypeScriptWriter writer) {
         this.writer = writer;
-        endpointPrefix = getEndpointPrefix(service);
+        serviceTrait = service.getTrait(ServiceTrait.class)
+                .orElseThrow(() -> new CodegenException("No service trait found on " + service.getId()));
+        endpointPrefix = getEndpointPrefix(serviceTrait);
         endpointData = Node.parse(IoUtils.readUtf8Resource(getClass(), "endpoints.json")).expectObjectNode();
         validateVersion();
         loadPartitions();
@@ -65,11 +68,9 @@ final class EndpointGenerator implements Runnable {
     }
 
     // Get service's endpoint prefix from a known list. If not found, fallback to ArnNamespace
-    private String getEndpointPrefix(ServiceShape service) {
+    private String getEndpointPrefix(ServiceTrait serviceTrait) {
         ObjectNode endpointPrefixData = Node.parse(IoUtils.readUtf8Resource(getClass(), "endpoint-prefix.json"))
                 .expectObjectNode();
-        ServiceTrait serviceTrait = service.getTrait(ServiceTrait.class)
-                .orElseThrow(() -> new CodegenException("No service trait found on " + service.getId()));
         return endpointPrefixData.getStringMemberOrDefault(serviceTrait.getSdkId(), serviceTrait.getArnNamespace());
     }
 
@@ -160,7 +161,7 @@ final class EndpointGenerator implements Runnable {
                     writePartitionEndpointResolver(partitions.get("aws")); });
                 writer.dedent();
             });
-            writer.write("return Promise.resolve(regionInfo);");
+            writer.write("return Promise.resolve({ signingService: $S, ...regionInfo });", serviceTrait.getArnNamespace());
         });
     }
 
