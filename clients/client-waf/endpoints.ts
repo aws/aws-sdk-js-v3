@@ -78,5 +78,5 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         return defaultRegionInfoProvider("aws-global");
       }
   }
-  return Promise.resolve(regionInfo);
+  return Promise.resolve({ signingService: "waf", ...regionInfo });
 };

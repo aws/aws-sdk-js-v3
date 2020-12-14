@@ -9,5 +9,5 @@ export const ClientSharedValues = {
   disableHostPrefix: false,
   logger: {} as __Logger,
   regionInfoProvider: defaultRegionInfoProvider,
-  serviceId: "lex",
+  serviceId: "Lex Model Building Service",
 };

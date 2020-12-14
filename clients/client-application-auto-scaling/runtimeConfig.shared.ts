@@ -9,5 +9,5 @@ export const ClientSharedValues = {
   disableHostPrefix: false,
   logger: {} as __Logger,
   regionInfoProvider: defaultRegionInfoProvider,
-  serviceId: "application-autoscaling",
+  serviceId: "Application Auto Scaling",
 };

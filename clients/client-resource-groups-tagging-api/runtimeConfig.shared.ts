@@ -9,5 +9,5 @@ export const ClientSharedValues = {
   disableHostPrefix: false,
   logger: {} as __Logger,
   regionInfoProvider: defaultRegionInfoProvider,
-  serviceId: "tagging",
+  serviceId: "Resource Groups Tagging API",
 };

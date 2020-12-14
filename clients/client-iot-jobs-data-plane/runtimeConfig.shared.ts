@@ -9,5 +9,5 @@ export const ClientSharedValues = {
   disableHostPrefix: false,
   logger: {} as __Logger,
   regionInfoProvider: defaultRegionInfoProvider,
-  serviceId: "iot-jobs-data",
+  serviceId: "IoT Jobs Data Plane",
 };

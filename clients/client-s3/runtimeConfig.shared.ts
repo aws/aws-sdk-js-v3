@@ -9,7 +9,7 @@ export const ClientSharedValues = {
   disableHostPrefix: false,
   logger: {} as __Logger,
   regionInfoProvider: defaultRegionInfoProvider,
-  serviceId: "s3",
+  serviceId: "S3",
   signingEscapePath: false,
   useArnRegion: false,
 };
