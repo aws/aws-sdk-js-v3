@@ -48,24 +48,24 @@ export namespace InvalidArgsException {
 
 export interface SendSSHPublicKeyRequest {
   /**
-   * <p>The public key to be published to the instance.  To use it after publication you must have the matching private key.</p>
-   */
-  SSHPublicKey: string | undefined;
-
-  /**
    * <p>The EC2 instance you wish to publish the SSH key to.</p>
    */
   InstanceId: string | undefined;
 
   /**
-   * <p>The availability zone the EC2 instance was launched in.</p>
-   */
-  AvailabilityZone: string | undefined;
-
-  /**
    * <p>The OS user on the EC2 instance whom the key may be used to authenticate as.</p>
    */
   InstanceOSUser: string | undefined;
+
+  /**
+   * <p>The public key to be published to the instance.  To use it after publication you must have the matching private key.</p>
+   */
+  SSHPublicKey: string | undefined;
+
+  /**
+   * <p>The availability zone the EC2 instance was launched in.</p>
+   */
+  AvailabilityZone: string | undefined;
 }
 
 export namespace SendSSHPublicKeyRequest {
@@ -76,14 +76,14 @@ export namespace SendSSHPublicKeyRequest {
 
 export interface SendSSHPublicKeyResponse {
   /**
-   * <p>Indicates request success.</p>
-   */
-  Success?: boolean;
-
-  /**
    * <p>The request ID as logged by EC2 Connect.  Please provide this when contacting AWS Support.</p>
    */
   RequestId?: string;
+
+  /**
+   * <p>Indicates request success.</p>
+   */
+  Success?: boolean;
 }
 
 export namespace SendSSHPublicKeyResponse {

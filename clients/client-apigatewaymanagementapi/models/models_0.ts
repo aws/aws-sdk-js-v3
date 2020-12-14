@@ -65,14 +65,14 @@ export namespace GetConnectionRequest {
 
 export interface Identity {
   /**
-   * <p>The User Agent of the API caller.</p>
-   */
-  UserAgent: string | undefined;
-
-  /**
    * <p>The source IP address of the TCP connection making the request to API Gateway.</p>
    */
   SourceIp: string | undefined;
+
+  /**
+   * <p>The User Agent of the API caller.</p>
+   */
+  UserAgent: string | undefined;
 }
 
 export namespace Identity {
@@ -82,16 +82,16 @@ export namespace Identity {
 }
 
 export interface GetConnectionResponse {
+  /**
+   * <p>The time in ISO 8601 format for when the connection was established.</p>
+   */
+  ConnectedAt?: Date;
+
   Identity?: Identity;
   /**
    * <p>The time in ISO 8601 format for when the connection was last active.</p>
    */
   LastActiveAt?: Date;
-
-  /**
-   * <p>The time in ISO 8601 format for when the connection was established.</p>
-   */
-  ConnectedAt?: Date;
 }
 
 export namespace GetConnectionResponse {
@@ -117,14 +117,14 @@ export namespace PayloadTooLargeException {
 
 export interface PostToConnectionRequest {
   /**
-   * <p>The identifier of the connection that a specific client is using.</p>
-   */
-  ConnectionId: string | undefined;
-
-  /**
    * <p>The data to be sent to the client specified by its connection id.</p>
    */
   Data: Uint8Array | undefined;
+
+  /**
+   * <p>The identifier of the connection that a specific client is using.</p>
+   */
+  ConnectionId: string | undefined;
 }
 
 export namespace PostToConnectionRequest {

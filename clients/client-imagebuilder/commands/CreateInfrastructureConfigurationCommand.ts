@@ -25,8 +25,7 @@ export type CreateInfrastructureConfigurationCommandOutput = CreateInfrastructur
   __MetadataBearer;
 
 /**
- * <p> Creates a new infrastructure configuration. An infrastructure configuration defines the
- *       environment in which your image will be built and tested. </p>
+ * <p> Creates a new infrastructure configuration. An infrastructure configuration defines the environment in which your image will be built and tested. </p>
  */
 export class CreateInfrastructureConfigurationCommand extends $Command<
   CreateInfrastructureConfigurationCommandInput,

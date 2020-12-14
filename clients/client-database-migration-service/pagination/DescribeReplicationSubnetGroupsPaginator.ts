@@ -35,7 +35,8 @@ export async function* paginateDescribeReplicationSubnetGroups(
   input: DescribeReplicationSubnetGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeReplicationSubnetGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.Marker
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeReplicationSubnetGroupsCommandOutput;
   while (hasNext) {

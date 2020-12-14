@@ -136,7 +136,8 @@
           "sdkId": "EKS",
           "arnNamespace": "eks",
           "cloudFormationName": "EKS",
-          "cloudTrailEventSource": "eks.amazonaws.com"
+          "cloudTrailEventSource": "eks.amazonaws.com",
+          "endpointPrefix": "eks"
         },
         "aws.auth#sigv4": {
           "name": "eks"
@@ -1411,6 +1412,54 @@
           "method": "GET",
           "uri": "/clusters/{clusterName}/addons/{addonName}",
           "code": 200
+        },
+        "smithy.waiters#waitable": {
+          "AddonActive": {
+            "acceptors": [
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "addon.status",
+                    "expected": "CREATE_FAILED",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "addon.status",
+                    "expected": "ACTIVE",
+                    "comparator": "stringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 10
+          },
+          "AddonDeleted": {
+            "acceptors": [
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "addon.status",
+                    "expected": "DELETE_FAILED",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "success",
+                "matcher": {
+                  "errorType": "ResourceNotFoundException"
+                }
+              }
+            ],
+            "minDelay": 10
+          }
         }
       }
     },
@@ -1565,6 +1614,74 @@
           "method": "GET",
           "uri": "/clusters/{name}",
           "code": 200
+        },
+        "smithy.waiters#waitable": {
+          "ClusterActive": {
+            "acceptors": [
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "cluster.status",
+                    "expected": "DELETING",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "cluster.status",
+                    "expected": "FAILED",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "cluster.status",
+                    "expected": "ACTIVE",
+                    "comparator": "stringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 30
+          },
+          "ClusterDeleted": {
+            "acceptors": [
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "cluster.status",
+                    "expected": "ACTIVE",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "cluster.status",
+                    "expected": "CREATING",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "success",
+                "matcher": {
+                  "errorType": "ResourceNotFoundException"
+                }
+              }
+            ],
+            "minDelay": 30
+          }
         }
       }
     },
@@ -1686,6 +1803,54 @@
           "method": "GET",
           "uri": "/clusters/{clusterName}/node-groups/{nodegroupName}",
           "code": 200
+        },
+        "smithy.waiters#waitable": {
+          "NodegroupActive": {
+            "acceptors": [
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "nodegroup.status",
+                    "expected": "CREATE_FAILED",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "nodegroup.status",
+                    "expected": "ACTIVE",
+                    "comparator": "stringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 30
+          },
+          "NodegroupDeleted": {
+            "acceptors": [
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "nodegroup.status",
+                    "expected": "DELETE_FAILED",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "success",
+                "matcher": {
+                  "errorType": "ResourceNotFoundException"
+                }
+              }
+            ],
+            "minDelay": 30
+          }
         }
       }
     },

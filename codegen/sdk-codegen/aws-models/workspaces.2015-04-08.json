@@ -5280,7 +5280,8 @@
           "sdkId": "WorkSpaces",
           "arnNamespace": "workspaces",
           "cloudFormationName": "WorkSpaces",
-          "cloudTrailEventSource": "workspaces.amazonaws.com"
+          "cloudTrailEventSource": "workspaces.amazonaws.com",
+          "endpointPrefix": "workspaces"
         },
         "aws.auth#sigv4": {
           "name": "workspaces"

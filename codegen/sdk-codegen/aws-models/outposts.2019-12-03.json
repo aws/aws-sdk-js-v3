@@ -682,7 +682,8 @@
           "sdkId": "Outposts",
           "arnNamespace": "outposts",
           "cloudFormationName": "Outposts",
-          "cloudTrailEventSource": "outposts.amazonaws.com"
+          "cloudTrailEventSource": "outposts.amazonaws.com",
+          "endpointPrefix": "outposts"
         },
         "aws.auth#sigv4": {
           "name": "outposts"

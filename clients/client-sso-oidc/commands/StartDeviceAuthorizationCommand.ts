@@ -20,6 +20,9 @@ import {
 export type StartDeviceAuthorizationCommandInput = StartDeviceAuthorizationRequest;
 export type StartDeviceAuthorizationCommandOutput = StartDeviceAuthorizationResponse & __MetadataBearer;
 
+/**
+ * <p>Initiates device authorization by requesting a pair of verification codes from the authorization service.</p>
+ */
 export class StartDeviceAuthorizationCommand extends $Command<
   StartDeviceAuthorizationCommandInput,
   StartDeviceAuthorizationCommandOutput,

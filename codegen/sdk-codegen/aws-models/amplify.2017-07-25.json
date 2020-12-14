@@ -169,7 +169,8 @@
           "sdkId": "Amplify",
           "arnNamespace": "amplify",
           "cloudFormationName": "Amplify",
-          "cloudTrailEventSource": "amplify.amazonaws.com"
+          "cloudTrailEventSource": "amplify.amazonaws.com",
+          "endpointPrefix": "amplify"
         },
         "aws.auth#sigv4": {
           "name": "amplify"

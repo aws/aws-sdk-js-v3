@@ -960,6 +960,33 @@ export namespace Address {
   });
 }
 
+export interface PtrUpdateStatus {
+  Value?: string;
+  Status?: string;
+  Reason?: string;
+}
+
+export namespace PtrUpdateStatus {
+  export const filterSensitiveLog = (obj: PtrUpdateStatus): any => ({
+    ...obj,
+  });
+}
+
+export interface AddressAttribute {
+  PublicIp?: string;
+  AllocationId?: string;
+  PtrRecord?: string;
+  PtrRecordUpdate?: PtrUpdateStatus;
+}
+
+export namespace AddressAttribute {
+  export const filterSensitiveLog = (obj: AddressAttribute): any => ({
+    ...obj,
+  });
+}
+
+export type AddressAttributeName = "domain-name";
+
 export interface AdvertiseByoipCidrRequest {
   /**
    * <p>The address range, in CIDR notation. This must be the exact range that you provisioned.
@@ -5497,6 +5524,7 @@ export type _InstanceType =
   | "c5n.4xlarge"
   | "c5n.9xlarge"
   | "c5n.large"
+  | "c5n.metal"
   | "c5n.xlarge"
   | "c6g.12xlarge"
   | "c6g.16xlarge"
@@ -5516,6 +5544,15 @@ export type _InstanceType =
   | "c6gd.medium"
   | "c6gd.metal"
   | "c6gd.xlarge"
+  | "c6gn.12xlarge"
+  | "c6gn.16xlarge"
+  | "c6gn.2xlarge"
+  | "c6gn.4xlarge"
+  | "c6gn.8xlarge"
+  | "c6gn.large"
+  | "c6gn.medium"
+  | "c6gn.metal"
+  | "c6gn.xlarge"
   | "cc1.4xlarge"
   | "cc2.8xlarge"
   | "cg1.4xlarge"
@@ -5527,12 +5564,15 @@ export type _InstanceType =
   | "d3.2xlarge"
   | "d3.4xlarge"
   | "d3.8xlarge"
+  | "d3.metal"
   | "d3.xlarge"
   | "d3en.12xlarge"
   | "d3en.2xlarge"
   | "d3en.4xlarge"
   | "d3en.6xlarge"
   | "d3en.8xlarge"
+  | "d3en.large"
+  | "d3en.metal"
   | "d3en.xlarge"
   | "f1.16xlarge"
   | "f1.2xlarge"
@@ -5544,8 +5584,10 @@ export type _InstanceType =
   | "g3.8xlarge"
   | "g3s.xlarge"
   | "g4ad.16xlarge"
+  | "g4ad.2xlarge"
   | "g4ad.4xlarge"
   | "g4ad.8xlarge"
+  | "g4ad.xlarge"
   | "g4dn.12xlarge"
   | "g4dn.16xlarge"
   | "g4dn.2xlarge"
@@ -5558,6 +5600,7 @@ export type _InstanceType =
   | "h1.4xlarge"
   | "h1.8xlarge"
   | "hi1.4xlarge"
+  | "hpc5a.48xlarge"
   | "hs1.8xlarge"
   | "i2.2xlarge"
   | "i2.4xlarge"
@@ -7676,79 +7719,3 @@ export type MarketType = "spot";
 export type InstanceInterruptionBehavior = "hibernate" | "stop" | "terminate";
 
 export type SpotInstanceType = "one-time" | "persistent";
-
-/**
- * <p>The options for Spot Instances.</p>
- */
-export interface LaunchTemplateSpotMarketOptionsRequest {
-  /**
-   * <p>The maximum hourly price you're willing to pay for the Spot Instances.</p>
-   */
-  MaxPrice?: string;
-
-  /**
-   * <p>The Spot Instance request type.</p>
-   */
-  SpotInstanceType?: SpotInstanceType | string;
-
-  /**
-   * <p>The required duration for the Spot Instances (also known as Spot blocks), in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).</p>
-   */
-  BlockDurationMinutes?: number;
-
-  /**
-   * <p>The end date of the request.
-   *             For a one-time request, the request remains active until all instances launch, the request is canceled, or this date is reached.
-   *             If the request is persistent, it remains active until it is canceled or this date and time is reached.
-   *             The default end date is 7 days from the current date.</p>
-   */
-  ValidUntil?: Date;
-
-  /**
-   * <p>The behavior when a Spot Instance is interrupted. The default is <code>terminate</code>.</p>
-   */
-  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
-}
-
-export namespace LaunchTemplateSpotMarketOptionsRequest {
-  export const filterSensitiveLog = (obj: LaunchTemplateSpotMarketOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The market (purchasing) option for the instances.</p>
- */
-export interface LaunchTemplateInstanceMarketOptionsRequest {
-  /**
-   * <p>The market type.</p>
-   */
-  MarketType?: MarketType | string;
-
-  /**
-   * <p>The options for Spot Instances.</p>
-   */
-  SpotOptions?: LaunchTemplateSpotMarketOptionsRequest;
-}
-
-export namespace LaunchTemplateInstanceMarketOptionsRequest {
-  export const filterSensitiveLog = (obj: LaunchTemplateInstanceMarketOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a license configuration.</p>
- */
-export interface LaunchTemplateLicenseConfigurationRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the license configuration.</p>
-   */
-  LicenseConfigurationArn?: string;
-}
-
-export namespace LaunchTemplateLicenseConfigurationRequest {
-  export const filterSensitiveLog = (obj: LaunchTemplateLicenseConfigurationRequest): any => ({
-    ...obj,
-  });
-}

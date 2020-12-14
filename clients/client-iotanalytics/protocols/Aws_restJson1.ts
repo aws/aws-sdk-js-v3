@@ -4536,16 +4536,15 @@ const serializeAws_restJson1DatastoreActivity = (input: DatastoreActivity, conte
 };
 
 const serializeAws_restJson1DatastoreStorage = (input: DatastoreStorage, context: __SerdeContext): any => {
-  return {
-    ...(input.customerManagedS3 !== undefined &&
-      input.customerManagedS3 !== null && {
-        customerManagedS3: serializeAws_restJson1CustomerManagedDatastoreS3Storage(input.customerManagedS3, context),
-      }),
-    ...(input.serviceManagedS3 !== undefined &&
-      input.serviceManagedS3 !== null && {
-        serviceManagedS3: serializeAws_restJson1ServiceManagedDatastoreS3Storage(input.serviceManagedS3, context),
-      }),
-  };
+  return DatastoreStorage.visit(input, {
+    customerManagedS3: (value) => ({
+      customerManagedS3: serializeAws_restJson1CustomerManagedDatastoreS3Storage(value, context),
+    }),
+    serviceManagedS3: (value) => ({
+      serviceManagedS3: serializeAws_restJson1ServiceManagedDatastoreS3Storage(value, context),
+    }),
+    _: (name, value) => ({ name: value } as any),
+  });
 };
 
 const serializeAws_restJson1DeltaTime = (input: DeltaTime, context: __SerdeContext): any => {
@@ -5457,16 +5456,17 @@ const deserializeAws_restJson1DatastoreStatistics = (output: any, context: __Ser
 };
 
 const deserializeAws_restJson1DatastoreStorage = (output: any, context: __SerdeContext): DatastoreStorage => {
-  return {
-    customerManagedS3:
-      output.customerManagedS3 !== undefined && output.customerManagedS3 !== null
-        ? deserializeAws_restJson1CustomerManagedDatastoreS3Storage(output.customerManagedS3, context)
-        : undefined,
-    serviceManagedS3:
-      output.serviceManagedS3 !== undefined && output.serviceManagedS3 !== null
-        ? deserializeAws_restJson1ServiceManagedDatastoreS3Storage(output.serviceManagedS3, context)
-        : undefined,
-  } as any;
+  if (output.customerManagedS3 !== undefined && output.customerManagedS3 !== null) {
+    return {
+      customerManagedS3: deserializeAws_restJson1CustomerManagedDatastoreS3Storage(output.customerManagedS3, context),
+    };
+  }
+  if (output.serviceManagedS3 !== undefined && output.serviceManagedS3 !== null) {
+    return {
+      serviceManagedS3: deserializeAws_restJson1ServiceManagedDatastoreS3Storage(output.serviceManagedS3, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restJson1DatastoreStorageSummary = (

@@ -678,7 +678,8 @@
           "sdkId": "SSM",
           "arnNamespace": "ssm",
           "cloudFormationName": "SSM",
-          "cloudTrailEventSource": "ssm.amazonaws.com"
+          "cloudTrailEventSource": "ssm.amazonaws.com",
+          "endpointPrefix": "ssm"
         },
         "aws.auth#sigv4": {
           "name": "ssm"
@@ -8921,7 +8922,94 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns detailed information about command execution for an invocation or plugin. </p>"
+        "smithy.api#documentation": "<p>Returns detailed information about command execution for an invocation or plugin. </p>",
+        "smithy.waiters#waitable": {
+          "CommandExecuted": {
+            "acceptors": [
+              {
+                "state": "retry",
+                "matcher": {
+                  "output": {
+                    "path": "Status",
+                    "expected": "Pending",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "output": {
+                    "path": "Status",
+                    "expected": "InProgress",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "output": {
+                    "path": "Status",
+                    "expected": "Delayed",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "Status",
+                    "expected": "Success",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "Status",
+                    "expected": "Cancelled",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "Status",
+                    "expected": "TimedOut",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "Status",
+                    "expected": "Failed",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "Status",
+                    "expected": "Cancelling",
+                    "comparator": "stringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 5
+          }
+        }
       }
     },
     "com.amazonaws.ssm#GetCommandInvocationRequest": {

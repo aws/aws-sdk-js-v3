@@ -4303,6 +4303,146 @@
           "method": "GET",
           "uri": "/prod/channels/{ChannelId}",
           "code": 200
+        },
+        "smithy.waiters#waitable": {
+          "ChannelCreated": {
+            "documentation": "Wait until a channel has been created",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "IDLE",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "CREATING",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "errorType": "InternalServerErrorException"
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "CREATE_FAILED",
+                    "comparator": "stringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 3
+          },
+          "ChannelDeleted": {
+            "documentation": "Wait until a channel has been deleted",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "DELETED",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "DELETING",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "errorType": "InternalServerErrorException"
+                }
+              }
+            ],
+            "minDelay": 5
+          },
+          "ChannelRunning": {
+            "documentation": "Wait until a channel is running",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "RUNNING",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "STARTING",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "errorType": "InternalServerErrorException"
+                }
+              }
+            ],
+            "minDelay": 5
+          },
+          "ChannelStopped": {
+            "documentation": "Wait until a channel has is stopped",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "IDLE",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "STOPPING",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "errorType": "InternalServerErrorException"
+                }
+              }
+            ],
+            "minDelay": 5
+          }
         }
       }
     },
@@ -4477,6 +4617,114 @@
           "method": "GET",
           "uri": "/prod/inputs/{InputId}",
           "code": 200
+        },
+        "smithy.waiters#waitable": {
+          "InputAttached": {
+            "documentation": "Wait until an input has been attached",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "ATTACHED",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "DETACHED",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "errorType": "InternalServerErrorException"
+                }
+              }
+            ],
+            "minDelay": 5
+          },
+          "InputDeleted": {
+            "documentation": "Wait until an input has been deleted",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "DELETED",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "DELETING",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "errorType": "InternalServerErrorException"
+                }
+              }
+            ],
+            "minDelay": 5
+          },
+          "InputDetached": {
+            "documentation": "Wait until an input has been detached",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "DETACHED",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "CREATING",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "ATTACHED",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "errorType": "InternalServerErrorException"
+                }
+              }
+            ],
+            "minDelay": 5
+          }
         }
       }
     },
@@ -5006,6 +5254,146 @@
           "method": "GET",
           "uri": "/prod/multiplexes/{MultiplexId}",
           "code": 200
+        },
+        "smithy.waiters#waitable": {
+          "MultiplexCreated": {
+            "documentation": "Wait until a multiplex has been created",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "IDLE",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "CREATING",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "errorType": "InternalServerErrorException"
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "CREATE_FAILED",
+                    "comparator": "stringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 3
+          },
+          "MultiplexDeleted": {
+            "documentation": "Wait until a multiplex has been deleted",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "DELETED",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "DELETING",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "errorType": "InternalServerErrorException"
+                }
+              }
+            ],
+            "minDelay": 5
+          },
+          "MultiplexRunning": {
+            "documentation": "Wait until a multiplex is running",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "RUNNING",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "STARTING",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "errorType": "InternalServerErrorException"
+                }
+              }
+            ],
+            "minDelay": 5
+          },
+          "MultiplexStopped": {
+            "documentation": "Wait until a multiplex has is stopped",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "IDLE",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "STOPPING",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "errorType": "InternalServerErrorException"
+                }
+              }
+            ],
+            "minDelay": 5
+          }
         }
       }
     },
@@ -13261,7 +13649,8 @@
           "sdkId": "MediaLive",
           "arnNamespace": "medialive",
           "cloudFormationName": "MediaLive",
-          "cloudTrailEventSource": "medialive.amazonaws.com"
+          "cloudTrailEventSource": "medialive.amazonaws.com",
+          "endpointPrefix": "medialive"
         },
         "aws.auth#sigv4": {
           "name": "medialive"

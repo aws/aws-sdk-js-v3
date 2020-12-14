@@ -950,7 +950,8 @@
           "sdkId": "Polly",
           "arnNamespace": "polly",
           "cloudFormationName": "Polly",
-          "cloudTrailEventSource": "polly.amazonaws.com"
+          "cloudTrailEventSource": "polly.amazonaws.com",
+          "endpointPrefix": "polly"
         },
         "aws.auth#sigv4": {
           "name": "polly"

@@ -58,16 +58,16 @@ export namespace SSESpecification {
  */
 export interface Tag {
   /**
-   * <p>The value of the tag. Tag values are case-sensitive and can be null. </p>
-   */
-  Value?: string;
-
-  /**
    * <p>The key for the tag.  Tag keys are case sensitive. Every DAX cluster can only have
    *             one tag with the same key. If you try to add an existing tag (same key), the
    *             existing tag value will be updated to the new value.</p>
    */
   Key?: string;
+
+  /**
+   * <p>The value of the tag. Tag values are case-sensitive and can be null. </p>
+   */
+  Value?: string;
 }
 
 export namespace Tag {
@@ -77,16 +77,6 @@ export namespace Tag {
 }
 
 export interface CreateClusterRequest {
-  /**
-   * <p>A set of tags to associate with the DAX cluster.  </p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The compute and memory capacity of the nodes in the cluster.</p>
-   */
-  NodeType: string | undefined;
-
   /**
    * <p>The cluster identifier. This parameter is stored as a lowercase
    *             string.</p>
@@ -110,9 +100,14 @@ export interface CreateClusterRequest {
   ClusterName: string | undefined;
 
   /**
-   * <p>Represents the settings used to enable server-side encryption on the cluster.</p>
+   * <p>The compute and memory capacity of the nodes in the cluster.</p>
    */
-  SSESpecification?: SSESpecification;
+  NodeType: string | undefined;
+
+  /**
+   * <p>A description of the cluster.</p>
+   */
+  Description?: string;
 
   /**
    * <p>The number of nodes in the DAX cluster. A replication factor of 1 will
@@ -127,16 +122,11 @@ export interface CreateClusterRequest {
   ReplicationFactor: number | undefined;
 
   /**
-   * <p>A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX
-   *             will assume this role and use the role's permissions to access DynamoDB on your
-   *             behalf.</p>
+   * <p>The Availability Zones (AZs) in which the cluster nodes will reside after the cluster
+   *          has been created or updated. If provided, the length of this list must equal the <code>ReplicationFactor</code> parameter.
+   *          If you omit this parameter, DAX will spread the nodes across Availability Zones for the highest availability.</p>
    */
-  IamRoleArn: string | undefined;
-
-  /**
-   * <p>A description of the cluster.</p>
-   */
-  Description?: string;
+  AvailabilityZones?: string[];
 
   /**
    * <p>The name of the subnet group to be used for the replication group.</p>
@@ -146,27 +136,6 @@ export interface CreateClusterRequest {
    *         </important>
    */
   SubnetGroupName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications will
-   *             be sent.</p>
-   *         <note>
-   *             <p>The Amazon SNS topic owner must be same as the DAX cluster owner.</p>
-   *         </note>
-   */
-  NotificationTopicArn?: string;
-
-  /**
-   * <p>The Availability Zones (AZs) in which the cluster nodes will reside after the cluster
-   *          has been created or updated. If provided, the length of this list must equal the <code>ReplicationFactor</code> parameter.
-   *          If you omit this parameter, DAX will spread the nodes across Availability Zones for the highest availability.</p>
-   */
-  AvailabilityZones?: string[];
-
-  /**
-   * <p>The parameter group to be associated with the DAX cluster.</p>
-   */
-  ParameterGroupName?: string;
 
   /**
    * <p>A list of security group IDs to be assigned to each node in the DAX cluster. (Each of the
@@ -227,6 +196,37 @@ export interface CreateClusterRequest {
    *          </note>
    */
   PreferredMaintenanceWindow?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications will
+   *             be sent.</p>
+   *         <note>
+   *             <p>The Amazon SNS topic owner must be same as the DAX cluster owner.</p>
+   *         </note>
+   */
+  NotificationTopicArn?: string;
+
+  /**
+   * <p>A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX
+   *             will assume this role and use the role's permissions to access DynamoDB on your
+   *             behalf.</p>
+   */
+  IamRoleArn: string | undefined;
+
+  /**
+   * <p>The parameter group to be associated with the DAX cluster.</p>
+   */
+  ParameterGroupName?: string;
+
+  /**
+   * <p>A set of tags to associate with the DAX cluster.  </p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>Represents the settings used to enable server-side encryption on the cluster.</p>
+   */
+  SSESpecification?: SSESpecification;
 }
 
 export namespace CreateClusterRequest {
@@ -263,6 +263,11 @@ export namespace Endpoint {
  */
 export interface Node {
   /**
+   * <p>A system-generated identifier for the node.</p>
+   */
+  NodeId?: string;
+
+  /**
    * <p>The endpoint for the node, consisting of a DNS name and a port number. Client
    *             applications can connect directly to a node endpoint, if desired (as an alternative to
    *             allowing DAX client software to intelligently route requests and responses to nodes in
@@ -271,9 +276,9 @@ export interface Node {
   Endpoint?: Endpoint;
 
   /**
-   * <p>A system-generated identifier for the node.</p>
+   * <p>The date and time (in UNIX epoch format) when the node was launched.</p>
    */
-  NodeId?: string;
+  NodeCreateTime?: Date;
 
   /**
    * <p>The Availability Zone (AZ) in which the node has been deployed.</p>
@@ -290,11 +295,6 @@ export interface Node {
    *                 <code>in-sync</code>.</p>
    */
   ParameterGroupStatus?: string;
-
-  /**
-   * <p>The date and time (in UNIX epoch format) when the node was launched.</p>
-   */
-  NodeCreateTime?: Date;
 }
 
 export namespace Node {
@@ -331,11 +331,6 @@ export namespace NotificationConfiguration {
  */
 export interface ParameterGroupStatus {
   /**
-   * <p>The node IDs of one or more nodes to be rebooted.</p>
-   */
-  NodeIdsToReboot?: string[];
-
-  /**
    * <p>The name of the parameter group.</p>
    */
   ParameterGroupName?: string;
@@ -344,6 +339,11 @@ export interface ParameterGroupStatus {
    * <p>The status of parameter updates. </p>
    */
   ParameterApplyStatus?: string;
+
+  /**
+   * <p>The node IDs of one or more nodes to be rebooted.</p>
+   */
+  NodeIdsToReboot?: string[];
 }
 
 export namespace ParameterGroupStatus {
@@ -414,39 +414,9 @@ export namespace SSEDescription {
  */
 export interface Cluster {
   /**
-   * <p>The subnet group where the DAX cluster is running.</p>
+   * <p>The name of the DAX cluster.</p>
    */
-  SubnetGroup?: string;
-
-  /**
-   * <p>The node type for the nodes in the cluster. (All nodes in a DAX cluster are of
-   *             the same type.)</p>
-   */
-  NodeType?: string;
-
-  /**
-   * <p>A list of nodes that are currently in the cluster.</p>
-   */
-  Nodes?: Node[];
-
-  /**
-   * <p>Describes a notification topic and its status. Notification topics are used for
-   *             publishing DAX events to subscribers using Amazon Simple Notification Service
-   *             (SNS).</p>
-   */
-  NotificationConfiguration?: NotificationConfiguration;
-
-  /**
-   * <p>A range of time when maintenance of DAX cluster software will be performed. For
-   *             example: <code>sun:01:00-sun:09:00</code>. Cluster maintenance normally takes less than
-   *             30 minutes, and is performed automatically within the maintenance window.</p>
-   */
-  PreferredMaintenanceWindow?: string;
-
-  /**
-   * <p>A list of security groups, and the status of each, for the nodes in the cluster.</p>
-   */
-  SecurityGroups?: SecurityGroupMembership[];
+  ClusterName?: string;
 
   /**
    * <p>The description of the cluster.</p>
@@ -460,9 +430,9 @@ export interface Cluster {
   ClusterArn?: string;
 
   /**
-   * <p>A list of nodes to be removed from the cluster.</p>
+   * <p>The total number of nodes in the cluster.</p>
    */
-  NodeIdsToRemove?: string[];
+  TotalNodes?: number;
 
   /**
    * <p>The number of nodes in the cluster that are active (i.e., capable of serving
@@ -471,24 +441,57 @@ export interface Cluster {
   ActiveNodes?: number;
 
   /**
+   * <p>The node type for the nodes in the cluster. (All nodes in a DAX cluster are of
+   *             the same type.)</p>
+   */
+  NodeType?: string;
+
+  /**
    * <p>The current status of the cluster.</p>
    */
   Status?: string;
 
   /**
-   * <p>The parameter group being used by nodes in the cluster.</p>
+   * <p>The configuration endpoint for this DAX cluster, consisting of a DNS name and a
+   *             port number. Client applications can specify this endpoint, rather than an individual
+   *             node endpoint, and allow the DAX client software to intelligently route requests and
+   *             responses to nodes in the DAX cluster.</p>
    */
-  ParameterGroup?: ParameterGroupStatus;
+  ClusterDiscoveryEndpoint?: Endpoint;
 
   /**
-   * <p>The name of the DAX cluster.</p>
+   * <p>A list of nodes to be removed from the cluster.</p>
    */
-  ClusterName?: string;
+  NodeIdsToRemove?: string[];
 
   /**
-   * <p>The total number of nodes in the cluster.</p>
+   * <p>A list of nodes that are currently in the cluster.</p>
    */
-  TotalNodes?: number;
+  Nodes?: Node[];
+
+  /**
+   * <p>A range of time when maintenance of DAX cluster software will be performed. For
+   *             example: <code>sun:01:00-sun:09:00</code>. Cluster maintenance normally takes less than
+   *             30 minutes, and is performed automatically within the maintenance window.</p>
+   */
+  PreferredMaintenanceWindow?: string;
+
+  /**
+   * <p>Describes a notification topic and its status. Notification topics are used for
+   *             publishing DAX events to subscribers using Amazon Simple Notification Service
+   *             (SNS).</p>
+   */
+  NotificationConfiguration?: NotificationConfiguration;
+
+  /**
+   * <p>The subnet group where the DAX cluster is running.</p>
+   */
+  SubnetGroup?: string;
+
+  /**
+   * <p>A list of security groups, and the status of each, for the nodes in the cluster.</p>
+   */
+  SecurityGroups?: SecurityGroupMembership[];
 
   /**
    * <p>A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX
@@ -498,17 +501,14 @@ export interface Cluster {
   IamRoleArn?: string;
 
   /**
+   * <p>The parameter group being used by nodes in the cluster.</p>
+   */
+  ParameterGroup?: ParameterGroupStatus;
+
+  /**
    * <p>The description of the server-side encryption status on the specified DAX cluster.</p>
    */
   SSEDescription?: SSEDescription;
-
-  /**
-   * <p>The configuration endpoint for this DAX cluster, consisting of a DNS name and a
-   *             port number. Client applications can specify this endpoint, rather than an individual
-   *             node endpoint, and allow the DAX client software to intelligently route requests and
-   *             responses to nodes in the DAX cluster.</p>
-   */
-  ClusterDiscoveryEndpoint?: Endpoint;
 }
 
 export namespace Cluster {
@@ -717,15 +717,15 @@ export namespace TagQuotaPerResourceExceeded {
 
 export interface CreateParameterGroupRequest {
   /**
-   * <p>A description of the parameter group.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>The name of the parameter group to apply to all of the clusters in this replication
    *             group.</p>
    */
   ParameterGroupName: string | undefined;
+
+  /**
+   * <p>A description of the parameter group.</p>
+   */
+  Description?: string;
 }
 
 export namespace CreateParameterGroupRequest {
@@ -802,14 +802,14 @@ export namespace ParameterGroupQuotaExceededFault {
 
 export interface CreateSubnetGroupRequest {
   /**
-   * <p>A description for the subnet group</p>
-   */
-  Description?: string;
-
-  /**
    * <p>A name for the subnet group. This value is stored as a lowercase string. </p>
    */
   SubnetGroupName: string | undefined;
+
+  /**
+   * <p>A description for the subnet group</p>
+   */
+  Description?: string;
 
   /**
    * <p>A list of VPC subnet IDs for the subnet group.</p>
@@ -830,14 +830,14 @@ export namespace CreateSubnetGroupRequest {
  */
 export interface Subnet {
   /**
-   * <p>The Availability Zone (AZ) for the subnet.</p>
-   */
-  SubnetAvailabilityZone?: string;
-
-  /**
    * <p>The system-assigned identifier for the subnet.</p>
    */
   SubnetIdentifier?: string;
+
+  /**
+   * <p>The Availability Zone (AZ) for the subnet.</p>
+   */
+  SubnetAvailabilityZone?: string;
 }
 
 export namespace Subnet {
@@ -863,9 +863,9 @@ export namespace Subnet {
  */
 export interface SubnetGroup {
   /**
-   * <p>A list of subnets associated with the subnet group. </p>
+   * <p>The name of the subnet group.</p>
    */
-  Subnets?: Subnet[];
+  SubnetGroupName?: string;
 
   /**
    * <p>The description of the subnet group.</p>
@@ -873,14 +873,14 @@ export interface SubnetGroup {
   Description?: string;
 
   /**
-   * <p>The name of the subnet group.</p>
-   */
-  SubnetGroupName?: string;
-
-  /**
    * <p>The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet group.</p>
    */
   VpcId?: string;
+
+  /**
+   * <p>A list of subnets associated with the subnet group. </p>
+   */
+  Subnets?: Subnet[];
 }
 
 export namespace SubnetGroup {
@@ -982,9 +982,9 @@ export namespace ClusterNotFoundFault {
 
 export interface DecreaseReplicationFactorRequest {
   /**
-   * <p>The unique identifiers of the nodes to be removed from the cluster.</p>
+   * <p>The name of the DAX cluster from which you want to remove nodes.</p>
    */
-  NodeIdsToRemove?: string[];
+  ClusterName: string | undefined;
 
   /**
    * <p>The new number of nodes for the DAX cluster.</p>
@@ -997,9 +997,9 @@ export interface DecreaseReplicationFactorRequest {
   AvailabilityZones?: string[];
 
   /**
-   * <p>The name of the DAX cluster from which you want to remove nodes.</p>
+   * <p>The unique identifiers of the nodes to be removed from the cluster.</p>
    */
-  ClusterName: string | undefined;
+  NodeIdsToRemove?: string[];
 }
 
 export namespace DecreaseReplicationFactorRequest {
@@ -1139,20 +1139,20 @@ export interface DescribeClustersRequest {
   ClusterNames?: string[];
 
   /**
-   * <p>An optional token returned from a prior request. Use this token for pagination of
-   *             results from this action. If this parameter is specified, the response includes only
-   *             results beyond the token, up to the value specified by
-   *             <code>MaxResults</code>.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of results to include in the response. If more results exist
    *             than the specified <code>MaxResults</code> value, a token is included in the response so
    *             that the remaining results can be retrieved.</p>
    *         <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>An optional token returned from a prior request. Use this token for pagination of
+   *             results from this action. If this parameter is specified, the response includes only
+   *             results beyond the token, up to the value specified by
+   *             <code>MaxResults</code>.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeClustersRequest {
@@ -1163,15 +1163,15 @@ export namespace DescribeClustersRequest {
 
 export interface DescribeClustersResponse {
   /**
+   * <p>Provides an identifier to allow retrieval of paginated results.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The descriptions of your DAX clusters, in response to a
    *             <i>DescribeClusters</i> request.</p>
    */
   Clusters?: Cluster[];
-
-  /**
-   * <p>Provides an identifier to allow retrieval of paginated results.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace DescribeClustersResponse {
@@ -1182,20 +1182,20 @@ export namespace DescribeClustersResponse {
 
 export interface DescribeDefaultParametersRequest {
   /**
-   * <p>An optional token returned from a prior request. Use this token for pagination of
-   *             results from this action. If this parameter is specified, the response includes only
-   *             results beyond the token, up to the value specified by
-   *             <code>MaxResults</code>.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of results to include in the response. If more results exist
    *             than the specified <code>MaxResults</code> value, a token is included in the response so
    *             that the remaining results can be retrieved.</p>
    *         <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>An optional token returned from a prior request. Use this token for pagination of
+   *             results from this action. If this parameter is specified, the response includes only
+   *             results beyond the token, up to the value specified by
+   *             <code>MaxResults</code>.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeDefaultParametersRequest {
@@ -1214,14 +1214,14 @@ export type IsModifiable = "CONDITIONAL" | "FALSE" | "TRUE";
  */
 export interface NodeTypeSpecificValue {
   /**
-   * <p>The parameter value for this node type.</p>
-   */
-  Value?: string;
-
-  /**
    * <p>A node type to which the parameter value applies.</p>
    */
   NodeType?: string;
+
+  /**
+   * <p>The parameter value for this node type.</p>
+   */
+  Value?: string;
 }
 
 export namespace NodeTypeSpecificValue {
@@ -1238,36 +1238,9 @@ export type ParameterType = "DEFAULT" | "NODE_TYPE_SPECIFIC";
  */
 export interface Parameter {
   /**
-   * <p>Whether the customer is allowed to modify the parameter.</p>
+   * <p>The name of the parameter.</p>
    */
-  IsModifiable?: IsModifiable | string;
-
-  /**
-   * <p>A list of node types, and specific parameter values for each node.</p>
-   */
-  NodeTypeSpecificValues?: NodeTypeSpecificValue[];
-
-  /**
-   * <p>A range of values within which the parameter can be set.</p>
-   */
-  AllowedValues?: string;
-
-  /**
-   * <p>A description of the parameter</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The conditions under which changes to this parameter can be applied. For example,
-   *                 <code>requires-reboot</code> indicates that a new value for this parameter will only
-   *             take effect if a node is rebooted.</p>
-   */
-  ChangeType?: ChangeType | string;
-
-  /**
-   * <p>The value for the parameter.</p>
-   */
-  ParameterValue?: string;
+  ParameterName?: string;
 
   /**
    * <p>Determines whether the parameter can be applied to any nodes, or only nodes of a
@@ -1276,9 +1249,19 @@ export interface Parameter {
   ParameterType?: ParameterType | string;
 
   /**
-   * <p>The data type of the parameter. For example, <code>integer</code>:</p>
+   * <p>The value for the parameter.</p>
    */
-  DataType?: string;
+  ParameterValue?: string;
+
+  /**
+   * <p>A list of node types, and specific parameter values for each node.</p>
+   */
+  NodeTypeSpecificValues?: NodeTypeSpecificValue[];
+
+  /**
+   * <p>A description of the parameter</p>
+   */
+  Description?: string;
 
   /**
    * <p>How the parameter is defined. For example, <code>system</code> denotes a
@@ -1287,9 +1270,26 @@ export interface Parameter {
   Source?: string;
 
   /**
-   * <p>The name of the parameter.</p>
+   * <p>The data type of the parameter. For example, <code>integer</code>:</p>
    */
-  ParameterName?: string;
+  DataType?: string;
+
+  /**
+   * <p>A range of values within which the parameter can be set.</p>
+   */
+  AllowedValues?: string;
+
+  /**
+   * <p>Whether the customer is allowed to modify the parameter.</p>
+   */
+  IsModifiable?: IsModifiable | string;
+
+  /**
+   * <p>The conditions under which changes to this parameter can be applied. For example,
+   *                 <code>requires-reboot</code> indicates that a new value for this parameter will only
+   *             take effect if a node is rebooted.</p>
+   */
+  ChangeType?: ChangeType | string;
 }
 
 export namespace Parameter {
@@ -1320,24 +1320,10 @@ export type SourceType = "CLUSTER" | "PARAMETER_GROUP" | "SUBNET_GROUP";
 
 export interface DescribeEventsRequest {
   /**
-   * <p>The beginning of the time interval to retrieve events for, specified in ISO 8601
-   *             format.</p>
-   */
-  StartTime?: Date;
-
-  /**
    * <p>The identifier of the event source for which events will be returned. If not
    *             specified, then all sources are included in the response.</p>
    */
   SourceName?: string;
-
-  /**
-   * <p>The maximum number of results to include in the response. If more results exist
-   *             than the specified <code>MaxResults</code> value, a token is included in the response so
-   *             that the remaining results can be retrieved.</p>
-   *         <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>
-   */
-  MaxResults?: number;
 
   /**
    * <p>The event source to retrieve events for. If no value is specified, all events are
@@ -1346,12 +1332,10 @@ export interface DescribeEventsRequest {
   SourceType?: SourceType | string;
 
   /**
-   * <p>An optional token returned from a prior request. Use this token for pagination of
-   *             results from this action. If this parameter is specified, the response includes only
-   *             results beyond the token, up to the value specified by
-   *             <code>MaxResults</code>.</p>
+   * <p>The beginning of the time interval to retrieve events for, specified in ISO 8601
+   *             format.</p>
    */
-  NextToken?: string;
+  StartTime?: Date;
 
   /**
    * <p>The end of the time interval for which to retrieve events, specified in ISO 8601
@@ -1363,6 +1347,22 @@ export interface DescribeEventsRequest {
    * <p>The number of minutes' worth of events to retrieve.</p>
    */
   Duration?: number;
+
+  /**
+   * <p>The maximum number of results to include in the response. If more results exist
+   *             than the specified <code>MaxResults</code> value, a token is included in the response so
+   *             that the remaining results can be retrieved.</p>
+   *         <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>An optional token returned from a prior request. Use this token for pagination of
+   *             results from this action. If this parameter is specified, the response includes only
+   *             results beyond the token, up to the value specified by
+   *             <code>MaxResults</code>.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeEventsRequest {
@@ -1478,6 +1478,12 @@ export interface DescribeParametersRequest {
   ParameterGroupName: string | undefined;
 
   /**
+   * <p>How the parameter is defined. For example, <code>system</code> denotes a
+   *             system-defined parameter.</p>
+   */
+  Source?: string;
+
+  /**
    * <p>The maximum number of results to include in the response. If more results exist
    *             than the specified <code>MaxResults</code> value, a token is included in the response so
    *             that the remaining results can be retrieved.</p>
@@ -1492,12 +1498,6 @@ export interface DescribeParametersRequest {
    *             <code>MaxResults</code>.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>How the parameter is defined. For example, <code>system</code> denotes a
-   *             system-defined parameter.</p>
-   */
-  Source?: string;
 }
 
 export namespace DescribeParametersRequest {
@@ -1508,14 +1508,14 @@ export namespace DescribeParametersRequest {
 
 export interface DescribeParametersResponse {
   /**
-   * <p>A list of parameters within a parameter group.  Each element in the list represents one parameter.</p>
-   */
-  Parameters?: Parameter[];
-
-  /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of parameters within a parameter group.  Each element in the list represents one parameter.</p>
+   */
+  Parameters?: Parameter[];
 }
 
 export namespace DescribeParametersResponse {
@@ -1525,6 +1525,11 @@ export namespace DescribeParametersResponse {
 }
 
 export interface DescribeSubnetGroupsRequest {
+  /**
+   * <p>The name of the subnet group.</p>
+   */
+  SubnetGroupNames?: string[];
+
   /**
    * <p>The maximum number of results to include in the response. If more results exist
    *             than the specified <code>MaxResults</code> value, a token is included in the response so
@@ -1540,11 +1545,6 @@ export interface DescribeSubnetGroupsRequest {
    *             <code>MaxResults</code>.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The name of the subnet group.</p>
-   */
-  SubnetGroupNames?: string[];
 }
 
 export namespace DescribeSubnetGroupsRequest {
@@ -1696,14 +1696,14 @@ export namespace RebootNodeResponse {
 
 export interface TagResourceRequest {
   /**
-   * <p>The tags to be assigned to the DAX resource. </p>
-   */
-  Tags: Tag[] | undefined;
-
-  /**
    * <p>The name of the DAX resource to which tags should be added.</p>
    */
   ResourceName: string | undefined;
+
+  /**
+   * <p>The tags to be assigned to the DAX resource. </p>
+   */
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1742,14 +1742,14 @@ export namespace TagNotFoundFault {
 
 export interface UntagResourceRequest {
   /**
-   * <p>A list of tag keys. If the DAX cluster has any tags with these keys, then the tags are removed from the cluster.</p>
-   */
-  TagKeys: string[] | undefined;
-
-  /**
    * <p>The name of the DAX resource from which the tags should be removed.</p>
    */
   ResourceName: string | undefined;
+
+  /**
+   * <p>A list of tag keys. If the DAX cluster has any tags with these keys, then the tags are removed from the cluster.</p>
+   */
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -1773,26 +1773,9 @@ export namespace UntagResourceResponse {
 
 export interface UpdateClusterRequest {
   /**
-   * <p>A range of time when maintenance of DAX cluster software will be performed. For
-   *             example: <code>sun:01:00-sun:09:00</code>. Cluster maintenance normally takes less than
-   *             30 minutes, and is performed automatically within the maintenance window.</p>
-   */
-  PreferredMaintenanceWindow?: string;
-
-  /**
    * <p>The name of the DAX cluster to be modified.</p>
    */
   ClusterName: string | undefined;
-
-  /**
-   * <p>The name of a parameter group for this cluster.</p>
-   */
-  ParameterGroupName?: string;
-
-  /**
-   * <p>The current state of the topic.</p>
-   */
-  NotificationTopicStatus?: string;
 
   /**
    * <p>A description of the changes being made to the cluster.</p>
@@ -1800,15 +1783,32 @@ export interface UpdateClusterRequest {
   Description?: string;
 
   /**
-   * <p>A list of user-specified security group IDs to be assigned to each node in the DAX cluster.  If this parameter is not
-   *             specified, DAX assigns the default VPC security group to each node.</p>
+   * <p>A range of time when maintenance of DAX cluster software will be performed. For
+   *             example: <code>sun:01:00-sun:09:00</code>. Cluster maintenance normally takes less than
+   *             30 minutes, and is performed automatically within the maintenance window.</p>
    */
-  SecurityGroupIds?: string[];
+  PreferredMaintenanceWindow?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the topic.</p>
    */
   NotificationTopicArn?: string;
+
+  /**
+   * <p>The current state of the topic.</p>
+   */
+  NotificationTopicStatus?: string;
+
+  /**
+   * <p>The name of a parameter group for this cluster.</p>
+   */
+  ParameterGroupName?: string;
+
+  /**
+   * <p>A list of user-specified security group IDs to be assigned to each node in the DAX cluster.  If this parameter is not
+   *             specified, DAX assigns the default VPC security group to each node.</p>
+   */
+  SecurityGroupIds?: string[];
 }
 
 export namespace UpdateClusterRequest {
@@ -1900,11 +1900,6 @@ export namespace SubnetInUse {
 
 export interface UpdateSubnetGroupRequest {
   /**
-   * <p>A list of subnet IDs in the subnet group.</p>
-   */
-  SubnetIds?: string[];
-
-  /**
    * <p>The name of the subnet group.</p>
    */
   SubnetGroupName: string | undefined;
@@ -1913,6 +1908,11 @@ export interface UpdateSubnetGroupRequest {
    * <p>A description of the subnet group.</p>
    */
   Description?: string;
+
+  /**
+   * <p>A list of subnet IDs in the subnet group.</p>
+   */
+  SubnetIds?: string[];
 }
 
 export namespace UpdateSubnetGroupRequest {

@@ -10,10 +10,14 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  */
 export interface Address {
   /**
-   * <p>The phone number associated with an address that a Snow device is to be delivered
-   *       to.</p>
+   * <p>The unique ID for an address.</p>
    */
-  PhoneNumber?: string;
+  AddressId?: string;
+
+  /**
+   * <p>The name of a person to receive a Snow device at an address.</p>
+   */
+  Name?: string;
 
   /**
    * <p>The name of the company to receive a Snow device at an address.</p>
@@ -21,20 +25,10 @@ export interface Address {
   Company?: string;
 
   /**
-   * <p>The unique ID for an address.</p>
+   * <p>The first line in a street address that a Snow device is to be delivered
+   *       to.</p>
    */
-  AddressId?: string;
-
-  /**
-   * <p>If the address you are creating is a primary address, then set this option to
-   *       true. This field is not supported in most regions.</p>
-   */
-  IsRestricted?: boolean;
-
-  /**
-   * <p>This field is no longer used and the value is ignored.</p>
-   */
-  PrefectureOrDistrict?: string;
+  Street1?: string;
 
   /**
    * <p>The second line in a street address that a Snow device is to be delivered
@@ -49,20 +43,9 @@ export interface Address {
   Street3?: string;
 
   /**
-   * <p>The first line in a street address that a Snow device is to be delivered
-   *       to.</p>
+   * <p>The city in an address that a Snow device is to be delivered to.</p>
    */
-  Street1?: string;
-
-  /**
-   * <p>The postal code in an address that a Snow device is to be delivered to.</p>
-   */
-  PostalCode?: string;
-
-  /**
-   * <p>The country in an address that a Snow device is to be delivered to.</p>
-   */
-  Country?: string;
+  City?: string;
 
   /**
    * <p>The state or province in an address that a Snow device is to be delivered to.</p>
@@ -72,17 +55,34 @@ export interface Address {
   /**
    * <p>This field is no longer used and the value is ignored.</p>
    */
+  PrefectureOrDistrict?: string;
+
+  /**
+   * <p>This field is no longer used and the value is ignored.</p>
+   */
   Landmark?: string;
 
   /**
-   * <p>The city in an address that a Snow device is to be delivered to.</p>
+   * <p>The country in an address that a Snow device is to be delivered to.</p>
    */
-  City?: string;
+  Country?: string;
 
   /**
-   * <p>The name of a person to receive a Snow device at an address.</p>
+   * <p>The postal code in an address that a Snow device is to be delivered to.</p>
    */
-  Name?: string;
+  PostalCode?: string;
+
+  /**
+   * <p>The phone number associated with an address that a Snow device is to be delivered
+   *       to.</p>
+   */
+  PhoneNumber?: string;
+
+  /**
+   * <p>If the address you are creating is a primary address, then set this option to
+   *       true. This field is not supported in most regions.</p>
+   */
+  IsRestricted?: boolean;
 }
 
 export namespace Address {
@@ -315,14 +315,14 @@ export namespace Notification {
  */
 export interface Ec2AmiResource {
   /**
-   * <p>The ID of the AMI on the Snow device.</p>
-   */
-  SnowballAmiId?: string;
-
-  /**
    * <p>The ID of the AMI in Amazon EC2.</p>
    */
   AmiId: string | undefined;
+
+  /**
+   * <p>The ID of the AMI on the Snow device.</p>
+   */
+  SnowballAmiId?: string;
 }
 
 export namespace Ec2AmiResource {
@@ -353,15 +353,15 @@ export namespace EventTriggerDefinition {
  */
 export interface LambdaResource {
   /**
-   * <p>The array of ARNs for <a>S3Resource</a> objects to trigger the <a>LambdaResource</a> objects associated with this job.</p>
-   */
-  EventTriggers?: EventTriggerDefinition[];
-
-  /**
    * <p>An Amazon Resource Name (ARN) that represents an AWS Lambda function to be triggered by
    *       PUT object actions on the associated local Amazon S3 resource.</p>
    */
   LambdaArn?: string;
+
+  /**
+   * <p>The array of ARNs for <a>S3Resource</a> objects to trigger the <a>LambdaResource</a> objects associated with this job.</p>
+   */
+  EventTriggers?: EventTriggerDefinition[];
 }
 
 export namespace LambdaResource {
@@ -405,17 +405,17 @@ export namespace KeyRange {
  */
 export interface S3Resource {
   /**
+   * <p>The Amazon Resource Name (ARN) of an Amazon S3 bucket.</p>
+   */
+  BucketArn?: string;
+
+  /**
    * <p>For export jobs, you can provide an optional <code>KeyRange</code> within a specific
    *       Amazon S3 bucket. The length of the range is defined at job creation, and has either an
    *       inclusive <code>BeginMarker</code>, an inclusive <code>EndMarker</code>, or both. Ranges are
    *       UTF-8 binary sorted.</p>
    */
   KeyRange?: KeyRange;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an Amazon S3 bucket.</p>
-   */
-  BucketArn?: string;
 }
 
 export namespace S3Resource {
@@ -431,6 +431,11 @@ export namespace S3Resource {
  */
 export interface JobResource {
   /**
+   * <p>An array of <code>S3Resource</code> objects.</p>
+   */
+  S3Resources?: S3Resource[];
+
+  /**
    * <p>The Python-language Lambda functions for this job.</p>
    */
   LambdaResources?: LambdaResource[];
@@ -439,11 +444,6 @@ export interface JobResource {
    * <p>The Amazon Machine Images (AMIs) associated with this job.</p>
    */
   Ec2AmiResources?: Ec2AmiResource[];
-
-  /**
-   * <p>An array of <code>S3Resource</code> objects.</p>
-   */
-  S3Resources?: S3Resource[];
 }
 
 export namespace JobResource {
@@ -502,9 +502,34 @@ export namespace TaxDocuments {
 
 export interface CreateClusterRequest {
   /**
+   * <p>The type of job for this cluster. Currently, the only job type supported for clusters
+   *       is <code>LOCAL_USE</code>.</p>
+   */
+  JobType: JobType | string | undefined;
+
+  /**
+   * <p>The resources associated with the cluster job. These resources include Amazon S3
+   *       buckets and optional AWS Lambda functions written in the Python language. </p>
+   */
+  Resources: JobResource | undefined;
+
+  /**
+   * <p>An optional description of this specific cluster, for example <code>Environmental Data
+   *         Cluster-01</code>.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>The ID for the address that you want the cluster shipped to.</p>
    */
   AddressId: string | undefined;
+
+  /**
+   * <p>The <code>KmsKeyARN</code> value that you want to associate with this cluster.
+   *         <code>KmsKeyARN</code> values are created by using the <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a> API action in AWS Key
+   *       Management Service (AWS KMS). </p>
+   */
+  KmsKeyARN?: string;
 
   /**
    * <p>The <code>RoleARN</code> that you want to associate with this cluster.
@@ -514,10 +539,14 @@ export interface CreateClusterRequest {
   RoleARN: string | undefined;
 
   /**
-   * <p>The resources associated with the cluster job. These resources include Amazon S3
-   *       buckets and optional AWS Lambda functions written in the Python language. </p>
+   * <p>The type of AWS Snow Family device to use for this cluster.
+   *
+   *     </p>
+   *          <note>
+   *             <p>For cluster jobs, AWS Snow Family currently supports only the <code>EDGE</code> device type.</p>
+   *          </note>
    */
-  Resources: JobResource | undefined;
+  SnowballType?: SnowballType | string;
 
   /**
    * <p>The shipping speed for each node in this cluster. This speed doesn't dictate how soon
@@ -566,50 +595,21 @@ export interface CreateClusterRequest {
   ShippingOption: ShippingOption | string | undefined;
 
   /**
-   * <p>The forwarding address ID for a cluster. This field is not supported in most
-   *       regions.</p>
-   */
-  ForwardingAddressId?: string;
-
-  /**
-   * <p>The type of AWS Snow Family device to use for this cluster.
-   *
-   *     </p>
-   *          <note>
-   *             <p>For cluster jobs, AWS Snow Family currently supports only the <code>EDGE</code> device type.</p>
-   *          </note>
-   */
-  SnowballType?: SnowballType | string;
-
-  /**
-   * <p>The type of job for this cluster. Currently, the only job type supported for clusters
-   *       is <code>LOCAL_USE</code>.</p>
-   */
-  JobType: JobType | string | undefined;
-
-  /**
-   * <p>The <code>KmsKeyARN</code> value that you want to associate with this cluster.
-   *         <code>KmsKeyARN</code> values are created by using the <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a> API action in AWS Key
-   *       Management Service (AWS KMS). </p>
-   */
-  KmsKeyARN?: string;
-
-  /**
    * <p>The Amazon Simple Notification Service (Amazon SNS) notification settings for this
    *       cluster.</p>
    */
   Notification?: Notification;
 
   /**
+   * <p>The forwarding address ID for a cluster. This field is not supported in most
+   *       regions.</p>
+   */
+  ForwardingAddressId?: string;
+
+  /**
    * <p>The tax documents required in your AWS Region.</p>
    */
   TaxDocuments?: TaxDocuments;
-
-  /**
-   * <p>An optional description of this specific cluster, for example <code>Environmental Data
-   *         Cluster-01</code>.</p>
-   */
-  Description?: string;
 }
 
 export namespace CreateClusterRequest {
@@ -740,49 +740,6 @@ export enum SnowballCapacity {
 
 export interface CreateJobRequest {
   /**
-   * <p>The <code>RoleARN</code> that you want to associate with this job.
-   *       <code>RoleArn</code>s are created using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a> AWS Identity and
-   *       Access Management (IAM) API action.</p>
-   */
-  RoleARN?: string;
-
-  /**
-   * <p>The ID for the address that you want the Snow device shipped to.</p>
-   */
-  AddressId?: string;
-
-  /**
-   * <p>The tax documents required in your AWS Region.</p>
-   */
-  TaxDocuments?: TaxDocuments;
-
-  /**
-   * <p>Defines an optional description of this specific job, for example <code>Important
-   *         Photos 2016-08-11</code>.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The type of AWS Snow Family device to use for this job.
-   *       </p>
-   *          <note>
-   *             <p>For cluster jobs, AWS Snow Family currently supports only the <code>EDGE</code> device type.</p>
-   *          </note>
-   *          <p>The type of AWS Snow device to use for this job. Currently, the only supported
-   *       device type for cluster jobs is <code>EDGE</code>.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/snowball/latest/developer-guide/device-differences.html">Snowball Edge Device
-   *       Options</a> in the Snowball Edge Developer Guide.</p>
-   */
-  SnowballType?: SnowballType | string;
-
-  /**
-   * <p>The ID of a cluster. If you're creating a job for a node in a cluster, you need to
-   *       provide only this <code>clusterId</code> value. The other job attributes are inherited from
-   *       the cluster.</p>
-   */
-  ClusterId?: string;
-
-  /**
    * <p>Defines the type of job that you're creating.
    *       </p>
    */
@@ -803,9 +760,29 @@ export interface CreateJobRequest {
   Resources?: JobResource;
 
   /**
-   * <p>Defines the device configuration for an AWS Snowcone job.</p>
+   * <p>Defines an optional description of this specific job, for example <code>Important
+   *         Photos 2016-08-11</code>.</p>
    */
-  DeviceConfiguration?: DeviceConfiguration;
+  Description?: string;
+
+  /**
+   * <p>The ID for the address that you want the Snow device shipped to.</p>
+   */
+  AddressId?: string;
+
+  /**
+   * <p>The <code>KmsKeyARN</code> that you want to associate with this job.
+   *         <code>KmsKeyARN</code>s are created using the <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a> AWS Key Management
+   *       Service (KMS) API action.</p>
+   */
+  KmsKeyARN?: string;
+
+  /**
+   * <p>The <code>RoleARN</code> that you want to associate with this job.
+   *       <code>RoleArn</code>s are created using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a> AWS Identity and
+   *       Access Management (IAM) API action.</p>
+   */
+  RoleARN?: string;
 
   /**
    * <p>If your job is being created in one of the US regions, you have the option of
@@ -813,12 +790,6 @@ export interface CreateJobRequest {
    *       with 80 TB in storage capacity.</p>
    */
   SnowballCapacityPreference?: SnowballCapacity | string;
-
-  /**
-   * <p>The forwarding address ID for a job. This field is not supported in most
-   *       regions.</p>
-   */
-  ForwardingAddressId?: string;
 
   /**
    * <p>The shipping speed for this job. This speed doesn't dictate how soon you'll get the
@@ -853,11 +824,40 @@ export interface CreateJobRequest {
   Notification?: Notification;
 
   /**
-   * <p>The <code>KmsKeyARN</code> that you want to associate with this job.
-   *         <code>KmsKeyARN</code>s are created using the <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a> AWS Key Management
-   *       Service (KMS) API action.</p>
+   * <p>The ID of a cluster. If you're creating a job for a node in a cluster, you need to
+   *       provide only this <code>clusterId</code> value. The other job attributes are inherited from
+   *       the cluster.</p>
    */
-  KmsKeyARN?: string;
+  ClusterId?: string;
+
+  /**
+   * <p>The type of AWS Snow Family device to use for this job.
+   *       </p>
+   *          <note>
+   *             <p>For cluster jobs, AWS Snow Family currently supports only the <code>EDGE</code> device type.</p>
+   *          </note>
+   *          <p>The type of AWS Snow device to use for this job. Currently, the only supported
+   *       device type for cluster jobs is <code>EDGE</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/snowball/latest/developer-guide/device-differences.html">Snowball Edge Device
+   *       Options</a> in the Snowball Edge Developer Guide.</p>
+   */
+  SnowballType?: SnowballType | string;
+
+  /**
+   * <p>The forwarding address ID for a job. This field is not supported in most
+   *       regions.</p>
+   */
+  ForwardingAddressId?: string;
+
+  /**
+   * <p>The tax documents required in your AWS Region.</p>
+   */
+  TaxDocuments?: TaxDocuments;
+
+  /**
+   * <p>Defines the device configuration for an AWS Snowcone job.</p>
+   */
+  DeviceConfiguration?: DeviceConfiguration;
 }
 
 export namespace CreateJobRequest {
@@ -1064,10 +1064,14 @@ export enum ClusterState {
  */
 export interface ClusterMetadata {
   /**
-   * <p>The type of job for this cluster. Currently, the only job type supported for clusters
-   *       is <code>LOCAL_USE</code>.</p>
+   * <p>The automatically generated ID for a cluster.</p>
    */
-  JobType?: JobType | string;
+  ClusterId?: string;
+
+  /**
+   * <p>The optional description of the cluster.</p>
+   */
+  Description?: string;
 
   /**
    * <p>The <code>KmsKeyARN</code> Amazon Resource Name (ARN) associated with this cluster.
@@ -1081,6 +1085,41 @@ export interface ClusterMetadata {
    *       API action in AWS Identity and Access Management (IAM).</p>
    */
   RoleARN?: string;
+
+  /**
+   * <p>The current status of the cluster.</p>
+   */
+  ClusterState?: ClusterState | string;
+
+  /**
+   * <p>The type of job for this cluster. Currently, the only job type supported for clusters
+   *       is <code>LOCAL_USE</code>.</p>
+   */
+  JobType?: JobType | string;
+
+  /**
+   * <p>The type of AWS Snow device to use for this cluster.
+   *       </p>
+   *          <note>
+   *             <p>For cluster jobs, AWS Snow Family currently supports only the <code>EDGE</code> device type.</p>
+   *          </note>
+   */
+  SnowballType?: SnowballType | string;
+
+  /**
+   * <p>The creation date for this cluster.</p>
+   */
+  CreationDate?: Date;
+
+  /**
+   * <p>The arrays of <a>JobResource</a> objects that can include updated <a>S3Resource</a> objects or <a>LambdaResource</a> objects.</p>
+   */
+  Resources?: JobResource;
+
+  /**
+   * <p>The automatically generated ID for a specific address.</p>
+   */
+  AddressId?: string;
 
   /**
    * <p>The shipping speed for each node in this cluster. This speed doesn't dictate how soon
@@ -1109,60 +1148,21 @@ export interface ClusterMetadata {
   ShippingOption?: ShippingOption | string;
 
   /**
-   * <p>The ID of the address that you want a cluster shipped to, after it will be
-   *       shipped to its primary address. This field is not supported in most regions.</p>
-   */
-  ForwardingAddressId?: string;
-
-  /**
-   * <p>The type of AWS Snow device to use for this cluster.
-   *       </p>
-   *          <note>
-   *             <p>For cluster jobs, AWS Snow Family currently supports only the <code>EDGE</code> device type.</p>
-   *          </note>
-   */
-  SnowballType?: SnowballType | string;
-
-  /**
-   * <p>The creation date for this cluster.</p>
-   */
-  CreationDate?: Date;
-
-  /**
    * <p>The Amazon Simple Notification Service (Amazon SNS) notification settings for this
    *       cluster.</p>
    */
   Notification?: Notification;
 
   /**
+   * <p>The ID of the address that you want a cluster shipped to, after it will be
+   *       shipped to its primary address. This field is not supported in most regions.</p>
+   */
+  ForwardingAddressId?: string;
+
+  /**
    * <p>The tax documents required in your AWS Region.</p>
    */
   TaxDocuments?: TaxDocuments;
-
-  /**
-   * <p>The optional description of the cluster.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The current status of the cluster.</p>
-   */
-  ClusterState?: ClusterState | string;
-
-  /**
-   * <p>The automatically generated ID for a specific address.</p>
-   */
-  AddressId?: string;
-
-  /**
-   * <p>The automatically generated ID for a cluster.</p>
-   */
-  ClusterId?: string;
-
-  /**
-   * <p>The arrays of <a>JobResource</a> objects that can include updated <a>S3Resource</a> objects or <a>LambdaResource</a> objects.</p>
-   */
-  Resources?: JobResource;
 }
 
 export namespace ClusterMetadata {
@@ -1216,16 +1216,16 @@ export interface DataTransfer {
   ObjectsTransferred?: number;
 
   /**
-   * <p>The total number of objects for a transfer between a Snow device and Amazon S3. This value
-   *       is set to 0 (zero) until all the keys that will be transferred have been listed.</p>
-   */
-  TotalObjects?: number;
-
-  /**
    * <p>The total bytes of data for a transfer between a Snow device and Amazon S3. This value is
    *       set to 0 (zero) until all the keys that will be transferred have been listed.</p>
    */
   TotalBytes?: number;
+
+  /**
+   * <p>The total number of objects for a transfer between a Snow device and Amazon S3. This value
+   *       is set to 0 (zero) until all the keys that will be transferred have been listed.</p>
+   */
+  TotalObjects?: number;
 }
 
 export namespace DataTransfer {
@@ -1262,14 +1262,14 @@ export interface JobLogs {
   JobCompletionReportURI?: string;
 
   /**
-   * <p>A link to an Amazon S3 presigned URL where the job failure log is located.</p>
-   */
-  JobFailureLogURI?: string;
-
-  /**
    * <p>A link to an Amazon S3 presigned URL where the job success log is located.</p>
    */
   JobSuccessLogURI?: string;
+
+  /**
+   * <p>A link to an Amazon S3 presigned URL where the job failure log is located.</p>
+   */
+  JobFailureLogURI?: string;
 }
 
 export namespace JobLogs {
@@ -1284,17 +1284,17 @@ export namespace JobLogs {
  */
 export interface Shipment {
   /**
+   * <p>Status information for a shipment.</p>
+   */
+  Status?: string;
+
+  /**
    * <p>The tracking number for this job. Using this tracking number with your region's
    *       carrier's website, you can track a Snow device as the carrier transports it.</p>
    *          <p>For India, the carrier is Amazon Logistics. For all other regions, UPS is the
    *       carrier.</p>
    */
   TrackingNumber?: string;
-
-  /**
-   * <p>Status information for a shipment.</p>
-   */
-  Status?: string;
 }
 
 export namespace Shipment {
@@ -1308,18 +1308,6 @@ export namespace Shipment {
  *       shipping speed options.</p>
  */
 export interface ShippingDetails {
-  /**
-   * <p>The <code>Status</code> and <code>TrackingNumber</code> values for a Snow device being
-   *       returned to AWS for a particular job.</p>
-   */
-  InboundShipment?: Shipment;
-
-  /**
-   * <p>The <code>Status</code> and <code>TrackingNumber</code> values for a Snow device being
-   *       delivered to the address that you specified for a particular job.</p>
-   */
-  OutboundShipment?: Shipment;
-
   /**
    * <p>The shipping speed for a particular job. This speed doesn't dictate how soon you'll get
    *       the Snow device from the job's creation date. This speed represents how quickly it moves to its
@@ -1346,6 +1334,18 @@ export interface ShippingDetails {
    *          </ul>
    */
   ShippingOption?: ShippingOption | string;
+
+  /**
+   * <p>The <code>Status</code> and <code>TrackingNumber</code> values for a Snow device being
+   *       returned to AWS for a particular job.</p>
+   */
+  InboundShipment?: Shipment;
+
+  /**
+   * <p>The <code>Status</code> and <code>TrackingNumber</code> values for a Snow device being
+   *       delivered to the address that you specified for a particular job.</p>
+   */
+  OutboundShipment?: Shipment;
 }
 
 export namespace ShippingDetails {
@@ -1361,37 +1361,10 @@ export namespace ShippingDetails {
  */
 export interface JobMetadata {
   /**
-   * <p>The ID of the address that you want a job shipped to, after it will be
-   *       shipped to its primary address. This field is not supported in most regions.</p>
+   * <p>The automatically generated ID for a job, for example
+   *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
    */
-  ForwardingAddressId?: string;
-
-  /**
-   * <p>The role ARN associated with this job. This ARN was created using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
-   *       API action in AWS Identity and Access Management (IAM).</p>
-   */
-  RoleARN?: string;
-
-  /**
-   * <p>A job's shipping information, including inbound and outbound tracking numbers and
-   *       shipping speed options.</p>
-   */
-  ShippingDetails?: ShippingDetails;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS KMS) key
-   *       associated with this job. This ARN was created using the <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a> API action in AWS
-   *       KMS.</p>
-   */
-  KmsKeyARN?: string;
-
-  /**
-   * <p>The Amazon Simple Notification Service (Amazon SNS) notification settings associated
-   *       with a specific job. The <code>Notification</code> object is returned as a part of the
-   *       response syntax of the <code>DescribeJob</code> action in the <code>JobMetadata</code> data
-   *       type.</p>
-   */
-  Notification?: Notification;
+  JobId?: string;
 
   /**
    * <p>The current status of the jobs.</p>
@@ -1399,23 +1372,19 @@ export interface JobMetadata {
   JobState?: JobState | string;
 
   /**
-   * <p>The 39-character ID for the cluster, for example
-   *         <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+   * <p>The type of job.</p>
    */
-  ClusterId?: string;
-
-  /**
-   * <p>Links to Amazon S3 presigned URLs for the job report and logs. For import jobs, the PDF
-   *       job report becomes available at the end of the import process. For export jobs, your job
-   *       report typically becomes available while the Snow device for your job part is being delivered to
-   *       you.</p>
-   */
-  JobLogInfo?: JobLogs;
+  JobType?: JobType | string;
 
   /**
    * <p>The type of device used with this job.</p>
    */
   SnowballType?: SnowballType | string;
+
+  /**
+   * <p>The creation date for this job.</p>
+   */
+  CreationDate?: Date;
 
   /**
    * <p>An array of <code>S3Resource</code> objects. Each <code>S3Resource</code> object
@@ -1430,9 +1399,28 @@ export interface JobMetadata {
   Description?: string;
 
   /**
+   * <p>The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS KMS) key
+   *       associated with this job. This ARN was created using the <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a> API action in AWS
+   *       KMS.</p>
+   */
+  KmsKeyARN?: string;
+
+  /**
+   * <p>The role ARN associated with this job. This ARN was created using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
+   *       API action in AWS Identity and Access Management (IAM).</p>
+   */
+  RoleARN?: string;
+
+  /**
    * <p>The ID for the address that you want the Snow device shipped to.</p>
    */
   AddressId?: string;
+
+  /**
+   * <p>A job's shipping information, including inbound and outbound tracking numbers and
+   *       shipping speed options.</p>
+   */
+  ShippingDetails?: ShippingDetails;
 
   /**
    * <p>The Snow device capacity preference for this job, specified at job creation. In US
@@ -1442,25 +1430,12 @@ export interface JobMetadata {
   SnowballCapacityPreference?: SnowballCapacity | string;
 
   /**
-   * <p>The automatically generated ID for a job, for example
-   *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+   * <p>The Amazon Simple Notification Service (Amazon SNS) notification settings associated
+   *       with a specific job. The <code>Notification</code> object is returned as a part of the
+   *       response syntax of the <code>DescribeJob</code> action in the <code>JobMetadata</code> data
+   *       type.</p>
    */
-  JobId?: string;
-
-  /**
-   * <p>The container for <code>SnowconeDeviceConfiguration</code>. </p>
-   */
-  DeviceConfiguration?: DeviceConfiguration;
-
-  /**
-   * <p>The creation date for this job.</p>
-   */
-  CreationDate?: Date;
-
-  /**
-   * <p>The type of job.</p>
-   */
-  JobType?: JobType | string;
+  Notification?: Notification;
 
   /**
    * <p>A value that defines the real-time status of a Snow device's data transfer while the
@@ -1470,9 +1445,34 @@ export interface JobMetadata {
   DataTransferProgress?: DataTransfer;
 
   /**
+   * <p>Links to Amazon S3 presigned URLs for the job report and logs. For import jobs, the PDF
+   *       job report becomes available at the end of the import process. For export jobs, your job
+   *       report typically becomes available while the Snow device for your job part is being delivered to
+   *       you.</p>
+   */
+  JobLogInfo?: JobLogs;
+
+  /**
+   * <p>The 39-character ID for the cluster, for example
+   *         <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+   */
+  ClusterId?: string;
+
+  /**
+   * <p>The ID of the address that you want a job shipped to, after it will be
+   *       shipped to its primary address. This field is not supported in most regions.</p>
+   */
+  ForwardingAddressId?: string;
+
+  /**
    * <p>The metadata associated with the tax documents required in your AWS Region.</p>
    */
   TaxDocuments?: TaxDocuments;
+
+  /**
+   * <p>The container for <code>SnowconeDeviceConfiguration</code>. </p>
+   */
+  DeviceConfiguration?: DeviceConfiguration;
 }
 
 export namespace JobMetadata {
@@ -1653,16 +1653,16 @@ export interface ListClusterJobsRequest {
   ClusterId: string | undefined;
 
   /**
+   * <p>The number of <code>JobListEntry</code> objects to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>HTTP requests are stateless. To identify what object comes "next" in the list of
    *         <code>JobListEntry</code> objects, you have the option of specifying <code>NextToken</code>
    *       as the starting point for your returned list.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The number of <code>JobListEntry</code> objects to return.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListClusterJobsRequest {
@@ -1677,14 +1677,15 @@ export namespace ListClusterJobsRequest {
  */
 export interface JobListEntry {
   /**
+   * <p>The automatically generated ID for a job, for example
+   *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+   */
+  JobId?: string;
+
+  /**
    * <p>The current state of this job.</p>
    */
   JobState?: JobState | string;
-
-  /**
-   * <p>The type of job.</p>
-   */
-  JobType?: JobType | string;
 
   /**
    * <p>A value that indicates that this job is a main job. A main job represents a
@@ -1696,16 +1697,14 @@ export interface JobListEntry {
   IsMaster?: boolean;
 
   /**
-   * <p>The automatically generated ID for a job, for example
-   *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+   * <p>The type of job.</p>
    */
-  JobId?: string;
+  JobType?: JobType | string;
 
   /**
-   * <p>The optional description of this specific job, for example <code>Important Photos
-   *         2016-08-11</code>.</p>
+   * <p>The type of device used with this job.</p>
    */
-  Description?: string;
+  SnowballType?: SnowballType | string;
 
   /**
    * <p>The creation date for this job.</p>
@@ -1713,9 +1712,10 @@ export interface JobListEntry {
   CreationDate?: Date;
 
   /**
-   * <p>The type of device used with this job.</p>
+   * <p>The optional description of this specific job, for example <code>Important Photos
+   *         2016-08-11</code>.</p>
    */
-  SnowballType?: SnowballType | string;
+  Description?: string;
 }
 
 export namespace JobListEntry {
@@ -1776,6 +1776,12 @@ export interface ClusterListEntry {
   ClusterId?: string;
 
   /**
+   * <p>The current state of this cluster. For information about the state of a specific node,
+   *       see <a>JobListEntry$JobState</a>.</p>
+   */
+  ClusterState?: ClusterState | string;
+
+  /**
    * <p>The creation date for this cluster.</p>
    */
   CreationDate?: Date;
@@ -1785,12 +1791,6 @@ export interface ClusterListEntry {
    *         Cluster-01</code>.</p>
    */
   Description?: string;
-
-  /**
-   * <p>The current state of this cluster. For information about the state of a specific node,
-   *       see <a>JobListEntry$JobState</a>.</p>
-   */
-  ClusterState?: ClusterState | string;
 }
 
 export namespace ClusterListEntry {
@@ -1801,17 +1801,17 @@ export namespace ClusterListEntry {
 
 export interface ListClustersResult {
   /**
+   * <p>Each <code>ClusterListEntry</code> object contains a cluster's state, a cluster's ID,
+   *       and other important status information.</p>
+   */
+  ClusterListEntries?: ClusterListEntry[];
+
+  /**
    * <p>HTTP requests are stateless. If you use the automatically generated
    *         <code>NextToken</code> value in your next <code>ClusterListEntry</code> call, your list of
    *       returned clusters will start from this point in the array.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Each <code>ClusterListEntry</code> object contains a cluster's state, a cluster's ID,
-   *       and other important status information.</p>
-   */
-  ClusterListEntries?: ClusterListEntry[];
 }
 
 export namespace ListClustersResult {
@@ -1849,14 +1849,14 @@ export namespace ListCompatibleImagesRequest {
  */
 export interface CompatibleImage {
   /**
-   * <p>The optional name of a compatible image.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The unique identifier for an individual Snow device AMI.</p>
    */
   AmiId?: string;
+
+  /**
+   * <p>The optional name of a compatible image.</p>
+   */
+  Name?: string;
 }
 
 export namespace CompatibleImage {
@@ -1867,16 +1867,16 @@ export namespace CompatibleImage {
 
 export interface ListCompatibleImagesResult {
   /**
-   * <p>Because HTTP requests are stateless, this is the starting point for your next list of
-   *       returned images.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A JSON-formatted object that describes a compatible AMI, including the ID and name for
    *       a Snow device AMI.</p>
    */
   CompatibleImages?: CompatibleImage[];
+
+  /**
+   * <p>Because HTTP requests are stateless, this is the starting point for your next list of
+   *       returned images.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListCompatibleImagesResult {
@@ -1887,16 +1887,16 @@ export namespace ListCompatibleImagesResult {
 
 export interface ListJobsRequest {
   /**
+   * <p>The number of <code>JobListEntry</code> objects to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>HTTP requests are stateless. To identify what object comes "next" in the list of
    *         <code>JobListEntry</code> objects, you have the option of specifying <code>NextToken</code>
    *       as the starting point for your returned list.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The number of <code>JobListEntry</code> objects to return.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListJobsRequest {
@@ -1907,17 +1907,17 @@ export namespace ListJobsRequest {
 
 export interface ListJobsResult {
   /**
+   * <p>Each <code>JobListEntry</code> object contains a job's state, a job's ID, and a value
+   *       that indicates whether the job is a job part, in the case of export jobs. </p>
+   */
+  JobListEntries?: JobListEntry[];
+
+  /**
    * <p>HTTP requests are stateless. If you use this automatically generated
    *         <code>NextToken</code> value in your next <code>ListJobs</code> call, your returned
    *         <code>JobListEntry</code> objects will start from this point in the array.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Each <code>JobListEntry</code> object contains a job's state, a job's ID, and a value
-   *       that indicates whether the job is a job part, in the case of export jobs. </p>
-   */
-  JobListEntries?: JobListEntry[];
 }
 
 export namespace ListJobsResult {
@@ -1928,6 +1928,12 @@ export namespace ListJobsResult {
 
 export interface UpdateClusterRequest {
   /**
+   * <p>The cluster ID of the cluster that you want to update, for example
+   *         <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+   */
+  ClusterId: string | undefined;
+
+  /**
    * <p>The new role Amazon Resource Name (ARN) that you want to associate with this cluster.
    *       To create a role ARN, use the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a> API action in AWS
    *       Identity and Access Management (IAM).</p>
@@ -1935,32 +1941,9 @@ export interface UpdateClusterRequest {
   RoleARN?: string;
 
   /**
-   * <p>The updated ID for the forwarding address for a cluster. This field is not
-   *       supported in most regions.</p>
-   */
-  ForwardingAddressId?: string;
-
-  /**
    * <p>The updated description of this cluster.</p>
    */
   Description?: string;
-
-  /**
-   * <p>The ID of the updated <a>Address</a> object.</p>
-   */
-  AddressId?: string;
-
-  /**
-   * <p>The cluster ID of the cluster that you want to update, for example
-   *         <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>
-   */
-  ClusterId: string | undefined;
-
-  /**
-   * <p>The updated shipping option value of this cluster's <a>ShippingDetails</a>
-   *       object.</p>
-   */
-  ShippingOption?: ShippingOption | string;
 
   /**
    * <p>The updated arrays of <a>JobResource</a> objects that can include updated
@@ -1969,9 +1952,26 @@ export interface UpdateClusterRequest {
   Resources?: JobResource;
 
   /**
+   * <p>The ID of the updated <a>Address</a> object.</p>
+   */
+  AddressId?: string;
+
+  /**
+   * <p>The updated shipping option value of this cluster's <a>ShippingDetails</a>
+   *       object.</p>
+   */
+  ShippingOption?: ShippingOption | string;
+
+  /**
    * <p>The new or updated <a>Notification</a> object.</p>
    */
   Notification?: Notification;
+
+  /**
+   * <p>The updated ID for the forwarding address for a cluster. This field is not
+   *       supported in most regions.</p>
+   */
+  ForwardingAddressId?: string;
 }
 
 export namespace UpdateClusterRequest {
@@ -1990,11 +1990,38 @@ export namespace UpdateClusterResult {
 
 export interface UpdateJobRequest {
   /**
+   * <p>The job ID of the job that you want to update, for example
+   *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+   */
+  JobId: string | undefined;
+
+  /**
    * <p>The new role Amazon Resource Name (ARN) that you want to associate with this job. To
    *       create a role ARN, use the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>AWS Identity and Access
    *       Management (IAM) API action.</p>
    */
   RoleARN?: string;
+
+  /**
+   * <p>The new or updated <a>Notification</a> object.</p>
+   */
+  Notification?: Notification;
+
+  /**
+   * <p>The updated <code>JobResource</code> object, or the updated <a>JobResource</a> object. </p>
+   */
+  Resources?: JobResource;
+
+  /**
+   * <p>The ID of the updated <a>Address</a> object.</p>
+   */
+  AddressId?: string;
+
+  /**
+   * <p>The updated shipping option value of this job's <a>ShippingDetails</a>
+   *       object.</p>
+   */
+  ShippingOption?: ShippingOption | string;
 
   /**
    * <p>The updated description of this job's <a>JobMetadata</a> object.</p>
@@ -2008,37 +2035,10 @@ export interface UpdateJobRequest {
   SnowballCapacityPreference?: SnowballCapacity | string;
 
   /**
-   * <p>The ID of the updated <a>Address</a> object.</p>
-   */
-  AddressId?: string;
-
-  /**
-   * <p>The job ID of the job that you want to update, for example
-   *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
-   */
-  JobId: string | undefined;
-
-  /**
-   * <p>The new or updated <a>Notification</a> object.</p>
-   */
-  Notification?: Notification;
-
-  /**
-   * <p>The updated <code>JobResource</code> object, or the updated <a>JobResource</a> object. </p>
-   */
-  Resources?: JobResource;
-
-  /**
    * <p>The updated ID for the forwarding address for a job. This field is not
    *       supported in most regions.</p>
    */
   ForwardingAddressId?: string;
-
-  /**
-   * <p>The updated shipping option value of this job's <a>ShippingDetails</a>
-   *       object.</p>
-   */
-  ShippingOption?: ShippingOption | string;
 }
 
 export namespace UpdateJobRequest {

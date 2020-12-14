@@ -1035,7 +1035,8 @@
           "sdkId": "Transcribe Streaming",
           "arnNamespace": "transcribe",
           "cloudFormationName": "TranscribeStreaming",
-          "cloudTrailEventSource": "transcribestreaming.amazonaws.com"
+          "cloudTrailEventSource": "transcribestreaming.amazonaws.com",
+          "endpointPrefix": "transcribestreaming"
         },
         "aws.auth#sigv4": {
           "name": "transcribe"

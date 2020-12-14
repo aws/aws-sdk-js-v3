@@ -35,7 +35,8 @@ export async function* paginateGetConnectors(
   input: GetConnectorsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetConnectorsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.nextToken
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetConnectorsCommandOutput;
   while (hasNext) {

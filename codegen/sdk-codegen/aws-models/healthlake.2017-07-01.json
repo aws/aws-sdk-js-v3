@@ -531,7 +531,8 @@
           "sdkId": "HealthLake",
           "arnNamespace": "healthlake",
           "cloudFormationName": "HealthLake",
-          "cloudTrailEventSource": "healthlake.amazonaws.com"
+          "cloudTrailEventSource": "healthlake.amazonaws.com",
+          "endpointPrefix": "healthlake"
         },
         "aws.auth#sigv4": {
           "name": "healthlake"

@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DisassociateSubnetCidrBlockRequest, DisassociateSubnetCidrBlockResult } from "../models/models_3";
+import { DisassociateSubnetCidrBlockRequest, DisassociateSubnetCidrBlockResult } from "../models/models_4";
 import {
   deserializeAws_ec2DisassociateSubnetCidrBlockCommand,
   serializeAws_ec2DisassociateSubnetCidrBlockCommand,

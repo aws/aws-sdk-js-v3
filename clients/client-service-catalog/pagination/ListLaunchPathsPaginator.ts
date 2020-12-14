@@ -35,7 +35,8 @@ export async function* paginateListLaunchPaths(
   input: ListLaunchPathsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListLaunchPathsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.PageToken
+  let token: typeof input.PageToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListLaunchPathsCommandOutput;
   while (hasNext) {

@@ -31,7 +31,8 @@ export async function* paginateListApps(
   input: ListAppsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAppsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.NextToken
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAppsCommandOutput;
   while (hasNext) {

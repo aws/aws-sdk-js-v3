@@ -309,7 +309,8 @@
           "sdkId": "CloudTrail",
           "arnNamespace": "cloudtrail",
           "cloudFormationName": "CloudTrail",
-          "cloudTrailEventSource": "cloudtrail.amazonaws.com"
+          "cloudTrailEventSource": "cloudtrail.amazonaws.com",
+          "endpointPrefix": "cloudtrail"
         },
         "aws.auth#sigv4": {
           "name": "cloudtrail"

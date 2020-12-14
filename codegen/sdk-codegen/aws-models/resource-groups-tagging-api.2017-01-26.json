@@ -42,10 +42,10 @@
     "com.amazonaws.resourcegroupstaggingapi#ComplianceDetails": {
       "type": "structure",
       "members": {
-        "ComplianceStatus": {
-          "target": "com.amazonaws.resourcegroupstaggingapi#ComplianceStatus",
+        "NoncompliantKeys": {
+          "target": "com.amazonaws.resourcegroupstaggingapi#TagKeyList",
           "traits": {
-            "smithy.api#documentation": "<p>Whether a resource is compliant with the effective tag policy.</p>"
+            "smithy.api#documentation": "<p>These tag keys on the resource are noncompliant with the effective tag policy.</p>"
           }
         },
         "KeysWithNoncompliantValues": {
@@ -54,10 +54,10 @@
             "smithy.api#documentation": "<p>These are keys defined in the effective policy that are on the resource with either\n            incorrect case treatment or noncompliant values. </p>"
           }
         },
-        "NoncompliantKeys": {
-          "target": "com.amazonaws.resourcegroupstaggingapi#TagKeyList",
+        "ComplianceStatus": {
+          "target": "com.amazonaws.resourcegroupstaggingapi#ComplianceStatus",
           "traits": {
-            "smithy.api#documentation": "<p>These tag keys on the resource are noncompliant with the effective tag policy.</p>"
+            "smithy.api#documentation": "<p>Whether a resource is compliant with the effective tag policy.</p>"
           }
         }
       },
@@ -128,28 +128,28 @@
     "com.amazonaws.resourcegroupstaggingapi#DescribeReportCreationOutput": {
       "type": "structure",
       "members": {
-        "StartDate": {
-          "target": "com.amazonaws.resourcegroupstaggingapi#StartDate",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time that the report was started. </p>"
-          }
-        },
         "Status": {
           "target": "com.amazonaws.resourcegroupstaggingapi#Status",
           "traits": {
             "smithy.api#documentation": "<p>Reports the status of the operation.</p>\n        <p>The operation status can be one of the following:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>RUNNING</code> - Report creation is in progress.</p>\n            </li>\n            <li>\n                <p>\n                  <code>SUCCEEDED</code> - Report creation is complete. You can open the report\n                    from the Amazon S3 bucket that you specified when you ran\n                        <code>StartReportCreation</code>.</p>\n            </li>\n            <li>\n                <p>\n                  <code>FAILED</code> - Report creation timed out or the Amazon S3 bucket is not\n                    accessible. </p>\n            </li>\n            <li>\n                <p>\n                  <code>NO REPORT</code> - No report was generated in the last 90 days.</p>\n            </li>\n         </ul>"
           }
         },
-        "ErrorMessage": {
-          "target": "com.amazonaws.resourcegroupstaggingapi#ErrorMessage",
-          "traits": {
-            "smithy.api#documentation": "<p>Details of the common errors that all operations return.</p>"
-          }
-        },
         "S3Location": {
           "target": "com.amazonaws.resourcegroupstaggingapi#S3Location",
           "traits": {
             "smithy.api#documentation": "<p>The path to the Amazon S3 bucket where the report was stored on creation.</p>"
+          }
+        },
+        "StartDate": {
+          "target": "com.amazonaws.resourcegroupstaggingapi#StartDate",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time that the report was started. </p>"
+          }
+        },
+        "ErrorMessage": {
+          "target": "com.amazonaws.resourcegroupstaggingapi#ErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>Details of the common errors that all operations return.</p>"
           }
         }
       }
@@ -199,12 +199,6 @@
     "com.amazonaws.resourcegroupstaggingapi#FailureInfo": {
       "type": "structure",
       "members": {
-        "ErrorMessage": {
-          "target": "com.amazonaws.resourcegroupstaggingapi#ErrorMessage",
-          "traits": {
-            "smithy.api#documentation": "<p>The message of the common error.</p>"
-          }
-        },
         "StatusCode": {
           "target": "com.amazonaws.resourcegroupstaggingapi#StatusCode",
           "traits": {
@@ -215,6 +209,12 @@
           "target": "com.amazonaws.resourcegroupstaggingapi#ErrorCode",
           "traits": {
             "smithy.api#documentation": "<p>The code of the common error. Valid values include\n                <code>InternalServiceException</code>, <code>InvalidParameterException</code>, and\n            any valid error code returned by the AWS service that hosts the resource that you want\n            to tag.</p>"
+          }
+        },
+        "ErrorMessage": {
+          "target": "com.amazonaws.resourcegroupstaggingapi#ErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The message of the common error.</p>"
           }
         }
       },
@@ -257,28 +257,10 @@
     "com.amazonaws.resourcegroupstaggingapi#GetComplianceSummaryInput": {
       "type": "structure",
       "members": {
-        "TagKeyFilters": {
-          "target": "com.amazonaws.resourcegroupstaggingapi#TagKeyFilterList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of tag keys to limit the output by. If you use this parameter, the count of\n            returned noncompliant resources includes only resources that have the specified tag\n            keys.</p>"
-          }
-        },
-        "ResourceTypeFilters": {
-          "target": "com.amazonaws.resourcegroupstaggingapi#ResourceTypeFilterList",
-          "traits": {
-            "smithy.api#documentation": "<p>The constraints on the resources that you want returned. The format of each resource\n            type is <code>service[:resourceType]</code>. For example, specifying a resource type of\n                <code>ec2</code> returns all Amazon EC2 resources (which includes EC2 instances).\n            Specifying a resource type of <code>ec2:instance</code> returns only EC2 instances. </p>\n        <p>The string for each service name and resource type is the same as that embedded in a\n            resource's Amazon Resource Name (ARN). Consult the <i>AWS General\n                Reference</i> for the following:</p>\n        <ul>\n            <li>\n                <p>For a list of service name strings, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces\">AWS Service Namespaces</a>.</p>\n            </li>\n            <li>\n                <p>For resource type strings, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arns-syntax\">Example ARNs</a>.</p>\n            </li>\n            <li>\n                <p>For more information about ARNs, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon\n                        Resource Names (ARNs) and AWS Service Namespaces</a>.</p>\n            </li>\n         </ul>\n        <p>You can specify multiple resource types by using an array. The array can include up to\n            100 items. Note that the length constraint requirement applies to each resource type\n            filter. </p>"
-          }
-        },
         "TargetIdFilters": {
           "target": "com.amazonaws.resourcegroupstaggingapi#TargetIdFilterList",
           "traits": {
             "smithy.api#documentation": "<p>The target identifiers (usually, specific account IDs) to limit the output by. If you\n            use this parameter, the count of returned noncompliant resources includes only resources\n            with the specified target IDs.</p>"
-          }
-        },
-        "GroupBy": {
-          "target": "com.amazonaws.resourcegroupstaggingapi#GroupBy",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of attributes to group the counts of noncompliant resources by. If supplied,\n            the counts are sorted by those attributes.</p>"
           }
         },
         "RegionFilters": {
@@ -287,16 +269,34 @@
             "smithy.api#documentation": "<p>A list of Regions to limit the output by. If you use this parameter, the count of\n            returned noncompliant resources includes only resources in the specified Regions.</p>"
           }
         },
-        "PaginationToken": {
-          "target": "com.amazonaws.resourcegroupstaggingapi#PaginationToken",
+        "ResourceTypeFilters": {
+          "target": "com.amazonaws.resourcegroupstaggingapi#ResourceTypeFilterList",
           "traits": {
-            "smithy.api#documentation": "<p>A string that indicates that additional data is available. Leave this value empty for\n            your initial request. If the response includes a <code>PaginationToken</code>, use that\n            string for this value to request an additional page of data.</p>"
+            "smithy.api#documentation": "<p>The constraints on the resources that you want returned. The format of each resource\n            type is <code>service[:resourceType]</code>. For example, specifying a resource type of\n                <code>ec2</code> returns all Amazon EC2 resources (which includes EC2 instances).\n            Specifying a resource type of <code>ec2:instance</code> returns only EC2 instances. </p>\n        <p>The string for each service name and resource type is the same as that embedded in a\n            resource's Amazon Resource Name (ARN). Consult the <i>AWS General\n                Reference</i> for the following:</p>\n        <ul>\n            <li>\n                <p>For a list of service name strings, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces\">AWS Service Namespaces</a>.</p>\n            </li>\n            <li>\n                <p>For resource type strings, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arns-syntax\">Example ARNs</a>.</p>\n            </li>\n            <li>\n                <p>For more information about ARNs, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon\n                        Resource Names (ARNs) and AWS Service Namespaces</a>.</p>\n            </li>\n         </ul>\n        <p>You can specify multiple resource types by using an array. The array can include up to\n            100 items. Note that the length constraint requirement applies to each resource type\n            filter. </p>"
+          }
+        },
+        "TagKeyFilters": {
+          "target": "com.amazonaws.resourcegroupstaggingapi#TagKeyFilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of tag keys to limit the output by. If you use this parameter, the count of\n            returned noncompliant resources includes only resources that have the specified tag\n            keys.</p>"
+          }
+        },
+        "GroupBy": {
+          "target": "com.amazonaws.resourcegroupstaggingapi#GroupBy",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of attributes to group the counts of noncompliant resources by. If supplied,\n            the counts are sorted by those attributes.</p>"
           }
         },
         "MaxResults": {
           "target": "com.amazonaws.resourcegroupstaggingapi#MaxResultsGetComplianceSummary",
           "traits": {
             "smithy.api#documentation": "<p>A limit that restricts the number of results that are returned per page.</p>"
+          }
+        },
+        "PaginationToken": {
+          "target": "com.amazonaws.resourcegroupstaggingapi#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A string that indicates that additional data is available. Leave this value empty for\n            your initial request. If the response includes a <code>PaginationToken</code>, use that\n            string for this value to request an additional page of data.</p>"
           }
         }
       }
@@ -353,16 +353,34 @@
     "com.amazonaws.resourcegroupstaggingapi#GetResourcesInput": {
       "type": "structure",
       "members": {
-        "TagsPerPage": {
-          "target": "com.amazonaws.resourcegroupstaggingapi#TagsPerPage",
+        "PaginationToken": {
+          "target": "com.amazonaws.resourcegroupstaggingapi#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>AWS recommends using <code>ResourcesPerPage</code> instead of this parameter.</p>\n        <p>A limit that restricts the number of tags (key and value pairs) returned by\n            GetResources in paginated output. A resource with no tags is counted as having one tag\n            (one key and value pair).</p>\n        <p>\n            <code>GetResources</code> does not split a resource and its associated tags across\n            pages. If the specified <code>TagsPerPage</code> would cause such a break, a\n                <code>PaginationToken</code> is returned in place of the affected resource and its\n            tags. Use that token in another request to get the remaining data. For example, if you\n            specify a <code>TagsPerPage</code> of <code>100</code> and the account has 22 resources\n            with 10 tags each (meaning that each resource has 10 key and value pairs), the output\n            will consist of three pages. The first page displays the first 10 resources, each with\n            its 10 tags. The second page displays the next 10 resources, each with its 10 tags. The\n            third page displays the remaining 2 resources, each with its 10 tags.</p>\n        <p>You can set <code>TagsPerPage</code> to a minimum of 100 items and the maximum of 500\n            items.</p>"
+            "smithy.api#documentation": "<p>A string that indicates that additional data is available. Leave this value empty for\n            your initial request. If the response includes a <code>PaginationToken</code>, use that\n            string for this value to request an additional page of data.</p>"
           }
         },
         "TagFilters": {
           "target": "com.amazonaws.resourcegroupstaggingapi#TagFilterList",
           "traits": {
             "smithy.api#documentation": "<p>A list of TagFilters (keys and values). Each TagFilter specified must contain a key\n            with values as optional. A request can include up to 50 keys, and each key can include\n            up to 20 values. </p>\n        <p>Note the following when deciding how to use TagFilters:</p>\n        <ul>\n            <li>\n                <p>If you <i>do</i> specify a TagFilter, the response returns only\n                    those resources that are currently associated with the specified tag. </p>\n            </li>\n            <li>\n                <p>If you <i>don't</i> specify a TagFilter, the response includes\n                    all resources that were ever associated with tags. Resources that currently\n                    don't have associated tags are shown with an empty tag set, like this:\n                        <code>\"Tags\": []</code>.</p>\n            </li>\n            <li>\n                <p>If you specify more than one filter in a single request, the response returns\n                    only those resources that satisfy all specified filters.</p>\n            </li>\n            <li>\n                <p>If you specify a filter that contains more than one value for a key, the\n                    response returns resources that match any of the specified values for that\n                    key.</p>\n            </li>\n            <li>\n                <p>If you don't specify any values for a key, the response returns resources that\n                    are tagged with that key irrespective of the value.</p>\n                <p>For example, for filters: filter1 = {key1, {value1}}, filter2 = {key2,\n                    {value2,value3,value4}} , filter3 = {key3}:</p>\n                <ul>\n                  <li>\n                        <p>GetResources( {filter1} ) returns resources tagged with\n                            key1=value1</p>\n                    </li>\n                  <li>\n                        <p>GetResources( {filter2} ) returns resources tagged with key2=value2 or\n                            key2=value3 or key2=value4</p>\n                    </li>\n                  <li>\n                        <p>GetResources( {filter3} ) returns resources tagged with any tag\n                            containing key3 as its tag key, irrespective of its value</p>\n                    </li>\n                  <li>\n                        <p>GetResources( {filter1,filter2,filter3} ) returns resources tagged\n                            with ( key1=value1) and ( key2=value2 or key2=value3 or key2=value4) and\n                            (key3, irrespective of the value)</p>\n                    </li>\n               </ul>\n            </li>\n         </ul>"
+          }
+        },
+        "ResourcesPerPage": {
+          "target": "com.amazonaws.resourcegroupstaggingapi#ResourcesPerPage",
+          "traits": {
+            "smithy.api#documentation": "<p>A limit that restricts the number of resources returned by GetResources in paginated\n            output. You can set ResourcesPerPage to a minimum of 1 item and the maximum of 100\n            items. </p>"
+          }
+        },
+        "TagsPerPage": {
+          "target": "com.amazonaws.resourcegroupstaggingapi#TagsPerPage",
+          "traits": {
+            "smithy.api#documentation": "<p>AWS recommends using <code>ResourcesPerPage</code> instead of this parameter.</p>\n        <p>A limit that restricts the number of tags (key and value pairs) returned by\n            GetResources in paginated output. A resource with no tags is counted as having one tag\n            (one key and value pair).</p>\n        <p>\n            <code>GetResources</code> does not split a resource and its associated tags across\n            pages. If the specified <code>TagsPerPage</code> would cause such a break, a\n                <code>PaginationToken</code> is returned in place of the affected resource and its\n            tags. Use that token in another request to get the remaining data. For example, if you\n            specify a <code>TagsPerPage</code> of <code>100</code> and the account has 22 resources\n            with 10 tags each (meaning that each resource has 10 key and value pairs), the output\n            will consist of three pages. The first page displays the first 10 resources, each with\n            its 10 tags. The second page displays the next 10 resources, each with its 10 tags. The\n            third page displays the remaining 2 resources, each with its 10 tags.</p>\n        <p>You can set <code>TagsPerPage</code> to a minimum of 100 items and the maximum of 500\n            items.</p>"
+          }
+        },
+        "ResourceTypeFilters": {
+          "target": "com.amazonaws.resourcegroupstaggingapi#ResourceTypeFilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>The constraints on the resources that you want returned. The format of each resource\n            type is <code>service[:resourceType]</code>. For example, specifying a resource type of\n                <code>ec2</code> returns all Amazon EC2 resources (which includes EC2 instances).\n            Specifying a resource type of <code>ec2:instance</code> returns only EC2 instances. </p>\n        <p>The string for each service name and resource type is the same as that embedded in a\n            resource's Amazon Resource Name (ARN). Consult the <i>AWS General\n                Reference</i> for the following:</p>\n        <ul>\n            <li>\n                <p>For a list of service name strings, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces\">AWS Service Namespaces</a>.</p>\n            </li>\n            <li>\n                <p>For resource type strings, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arns-syntax\">Example ARNs</a>.</p>\n            </li>\n            <li>\n                <p>For more information about ARNs, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon\n                        Resource Names (ARNs) and AWS Service Namespaces</a>.</p>\n            </li>\n         </ul>\n        <p>You can specify multiple resource types by using an array. The array can include up to\n            100 items. Note that the length constraint requirement applies to each resource type\n            filter. </p>"
           }
         },
         "IncludeComplianceDetails": {
@@ -376,40 +394,22 @@
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether to exclude resources that are compliant with the tag policy. Set\n            this to <code>true</code> if you are interested in retrieving information on\n            noncompliant resources only.</p>\n        <p>You can use this parameter only if the <code>IncludeComplianceDetails</code> parameter\n            is also set to <code>true</code>.</p>"
           }
-        },
-        "ResourcesPerPage": {
-          "target": "com.amazonaws.resourcegroupstaggingapi#ResourcesPerPage",
-          "traits": {
-            "smithy.api#documentation": "<p>A limit that restricts the number of resources returned by GetResources in paginated\n            output. You can set ResourcesPerPage to a minimum of 1 item and the maximum of 100\n            items. </p>"
-          }
-        },
-        "ResourceTypeFilters": {
-          "target": "com.amazonaws.resourcegroupstaggingapi#ResourceTypeFilterList",
-          "traits": {
-            "smithy.api#documentation": "<p>The constraints on the resources that you want returned. The format of each resource\n            type is <code>service[:resourceType]</code>. For example, specifying a resource type of\n                <code>ec2</code> returns all Amazon EC2 resources (which includes EC2 instances).\n            Specifying a resource type of <code>ec2:instance</code> returns only EC2 instances. </p>\n        <p>The string for each service name and resource type is the same as that embedded in a\n            resource's Amazon Resource Name (ARN). Consult the <i>AWS General\n                Reference</i> for the following:</p>\n        <ul>\n            <li>\n                <p>For a list of service name strings, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces\">AWS Service Namespaces</a>.</p>\n            </li>\n            <li>\n                <p>For resource type strings, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arns-syntax\">Example ARNs</a>.</p>\n            </li>\n            <li>\n                <p>For more information about ARNs, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon\n                        Resource Names (ARNs) and AWS Service Namespaces</a>.</p>\n            </li>\n         </ul>\n        <p>You can specify multiple resource types by using an array. The array can include up to\n            100 items. Note that the length constraint requirement applies to each resource type\n            filter. </p>"
-          }
-        },
-        "PaginationToken": {
-          "target": "com.amazonaws.resourcegroupstaggingapi#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A string that indicates that additional data is available. Leave this value empty for\n            your initial request. If the response includes a <code>PaginationToken</code>, use that\n            string for this value to request an additional page of data.</p>"
-          }
         }
       }
     },
     "com.amazonaws.resourcegroupstaggingapi#GetResourcesOutput": {
       "type": "structure",
       "members": {
-        "ResourceTagMappingList": {
-          "target": "com.amazonaws.resourcegroupstaggingapi#ResourceTagMappingList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of resource ARNs and the tags (keys and values) associated with each.</p>"
-          }
-        },
         "PaginationToken": {
           "target": "com.amazonaws.resourcegroupstaggingapi#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>A string that indicates that the response contains more data than can be returned in a\n            single response. To receive additional data, specify this string for the\n                <code>PaginationToken</code> value in a subsequent request.</p>"
+          }
+        },
+        "ResourceTagMappingList": {
+          "target": "com.amazonaws.resourcegroupstaggingapi#ResourceTagMappingList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of resource ARNs and the tags (keys and values) associated with each.</p>"
           }
         }
       }
@@ -462,16 +462,16 @@
     "com.amazonaws.resourcegroupstaggingapi#GetTagKeysOutput": {
       "type": "structure",
       "members": {
-        "TagKeys": {
-          "target": "com.amazonaws.resourcegroupstaggingapi#TagKeyList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of all tag keys in the AWS account.</p>"
-          }
-        },
         "PaginationToken": {
           "target": "com.amazonaws.resourcegroupstaggingapi#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>A string that indicates that the response contains more data than can be returned in a\n            single response. To receive additional data, specify this string for the\n                <code>PaginationToken</code> value in a subsequent request.</p>"
+          }
+        },
+        "TagKeys": {
+          "target": "com.amazonaws.resourcegroupstaggingapi#TagKeyList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of all tag keys in the AWS account.</p>"
           }
         }
       }
@@ -510,8 +510,11 @@
     "com.amazonaws.resourcegroupstaggingapi#GetTagValuesInput": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.resourcegroupstaggingapi#MaxResultTagsDS1"
+        "PaginationToken": {
+          "target": "com.amazonaws.resourcegroupstaggingapi#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A string that indicates that additional data is available. Leave this value empty for\n            your initial request. If the response includes a <code>PaginationToken</code>, use that\n            string for this value to request an additional page of data.</p>"
+          }
         },
         "Key": {
           "target": "com.amazonaws.resourcegroupstaggingapi#TagKey",
@@ -520,27 +523,24 @@
             "smithy.api#required": {}
           }
         },
-        "PaginationToken": {
-          "target": "com.amazonaws.resourcegroupstaggingapi#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A string that indicates that additional data is available. Leave this value empty for\n            your initial request. If the response includes a <code>PaginationToken</code>, use that\n            string for this value to request an additional page of data.</p>"
-          }
+        "MaxResults": {
+          "target": "com.amazonaws.resourcegroupstaggingapi#MaxResultTagsDS1"
         }
       }
     },
     "com.amazonaws.resourcegroupstaggingapi#GetTagValuesOutput": {
       "type": "structure",
       "members": {
-        "TagValues": {
-          "target": "com.amazonaws.resourcegroupstaggingapi#TagValuesOutputList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of all tag values for the specified key in the AWS account.</p>"
-          }
-        },
         "PaginationToken": {
           "target": "com.amazonaws.resourcegroupstaggingapi#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>A string that indicates that the response contains more data than can be returned in a\n            single response. To receive additional data, specify this string for the\n                <code>PaginationToken</code> value in a subsequent request.</p>"
+          }
+        },
+        "TagValues": {
+          "target": "com.amazonaws.resourcegroupstaggingapi#TagValuesOutputList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of all tag values for the specified key in the AWS account.</p>"
           }
         }
       }
@@ -726,7 +726,8 @@
           "sdkId": "Resource Groups Tagging API",
           "arnNamespace": "tagging",
           "cloudFormationName": "ResourceGroupsTaggingAPI",
-          "cloudTrailEventSource": "v20170126.model.service.router.tagging.amazonaws.com"
+          "cloudTrailEventSource": "resourcegroupstaggingapi.amazonaws.com",
+          "endpointPrefix": "tagging"
         },
         "aws.auth#sigv4": {
           "name": "tagging"
@@ -850,16 +851,16 @@
     "com.amazonaws.resourcegroupstaggingapi#Summary": {
       "type": "structure",
       "members": {
+        "LastUpdated": {
+          "target": "com.amazonaws.resourcegroupstaggingapi#LastUpdated",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp that shows when this summary was generated in this Region. </p>"
+          }
+        },
         "TargetId": {
           "target": "com.amazonaws.resourcegroupstaggingapi#TargetId",
           "traits": {
             "smithy.api#documentation": "<p>The account identifier or the root identifier of the organization. If you don't know\n            the root ID, you can call the AWS Organizations <a href=\"http://docs.aws.amazon.com/organizations/latest/APIReference/API_ListRoots.html\">ListRoots</a> API.</p>"
-          }
-        },
-        "ResourceType": {
-          "target": "com.amazonaws.resourcegroupstaggingapi#AmazonResourceType",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS resource type.</p>"
           }
         },
         "TargetIdType": {
@@ -868,22 +869,22 @@
             "smithy.api#documentation": "<p>Whether the target is an account, an OU, or the organization root.</p>"
           }
         },
-        "NonCompliantResources": {
-          "target": "com.amazonaws.resourcegroupstaggingapi#NonCompliantResources",
-          "traits": {
-            "smithy.api#documentation": "<p>The count of noncompliant resources.</p>"
-          }
-        },
-        "LastUpdated": {
-          "target": "com.amazonaws.resourcegroupstaggingapi#LastUpdated",
-          "traits": {
-            "smithy.api#documentation": "<p>The timestamp that shows when this summary was generated in this Region. </p>"
-          }
-        },
         "Region": {
           "target": "com.amazonaws.resourcegroupstaggingapi#Region",
           "traits": {
             "smithy.api#documentation": "<p>The AWS Region that the summary applies to.</p>"
+          }
+        },
+        "ResourceType": {
+          "target": "com.amazonaws.resourcegroupstaggingapi#AmazonResourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS resource type.</p>"
+          }
+        },
+        "NonCompliantResources": {
+          "target": "com.amazonaws.resourcegroupstaggingapi#NonCompliantResources",
+          "traits": {
+            "smithy.api#documentation": "<p>The count of noncompliant resources.</p>"
           }
         }
       },
@@ -922,16 +923,16 @@
     "com.amazonaws.resourcegroupstaggingapi#TagFilter": {
       "type": "structure",
       "members": {
-        "Values": {
-          "target": "com.amazonaws.resourcegroupstaggingapi#TagValueList",
-          "traits": {
-            "smithy.api#documentation": "<p>One part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key). The value can be empty or null.</p>"
-          }
-        },
         "Key": {
           "target": "com.amazonaws.resourcegroupstaggingapi#TagKey",
           "traits": {
             "smithy.api#documentation": "<p>One part of a key-value pair that makes up a tag. A key is a general label that acts like a category for more specific tag values.</p>"
+          }
+        },
+        "Values": {
+          "target": "com.amazonaws.resourcegroupstaggingapi#TagValueList",
+          "traits": {
+            "smithy.api#documentation": "<p>One part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key). The value can be empty or null.</p>"
           }
         }
       },
@@ -1038,17 +1039,17 @@
     "com.amazonaws.resourcegroupstaggingapi#TagResourcesInput": {
       "type": "structure",
       "members": {
-        "Tags": {
-          "target": "com.amazonaws.resourcegroupstaggingapi#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags that you want to add to the specified resources. A tag consists of a key and\n            a value that you define.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ResourceARNList": {
           "target": "com.amazonaws.resourcegroupstaggingapi#ResourceARNList",
           "traits": {
             "smithy.api#documentation": "<p>A list of ARNs. An ARN (Amazon Resource Name) uniquely identifies a resource. For more\n            information, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource\n                Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General\n                Reference</i>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.resourcegroupstaggingapi#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags that you want to add to the specified resources. A tag consists of a key and\n            a value that you define.</p>",
             "smithy.api#required": {}
           }
         }

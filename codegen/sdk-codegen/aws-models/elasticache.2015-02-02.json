@@ -346,7 +346,8 @@
           "sdkId": "ElastiCache",
           "arnNamespace": "elasticache",
           "cloudFormationName": "ElastiCache",
-          "cloudTrailEventSource": "elasticache.amazonaws.com"
+          "cloudTrailEventSource": "elasticache.amazonaws.com",
+          "endpointPrefix": "elasticache"
         },
         "aws.auth#sigv4": {
           "name": "elasticache"
@@ -3479,6 +3480,64 @@
           "outputToken": "Marker",
           "items": "CacheClusters",
           "pageSize": "MaxRecords"
+        },
+        "smithy.waiters#waitable": {
+          "CacheClusterAvailable": {
+            "documentation": "Wait until ElastiCache cluster is available.",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "CacheClusters[].CacheClusterStatus",
+                    "expected": "available",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "CacheClusters[].CacheClusterStatus",
+                    "expected": "deleted",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "CacheClusters[].CacheClusterStatus",
+                    "expected": "deleting",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "CacheClusters[].CacheClusterStatus",
+                    "expected": "incompatible-network",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "CacheClusters[].CacheClusterStatus",
+                    "expected": "restore-failed",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 15
+          }
         }
       }
     },
@@ -4041,6 +4100,66 @@
           "outputToken": "Marker",
           "items": "ReplicationGroups",
           "pageSize": "MaxRecords"
+        },
+        "smithy.waiters#waitable": {
+          "ReplicationGroupAvailable": {
+            "documentation": "Wait until ElastiCache replication group is available.",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationGroups[].Status",
+                    "expected": "available",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationGroups[].Status",
+                    "expected": "deleted",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 15
+          },
+          "ReplicationGroupDeleted": {
+            "documentation": "Wait until ElastiCache replication group is deleted.",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationGroups[].Status",
+                    "expected": "deleted",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationGroups[].Status",
+                    "expected": "available",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "success",
+                "matcher": {
+                  "errorType": "ReplicationGroupNotFoundFault"
+                }
+              }
+            ],
+            "minDelay": 15
+          }
         }
       }
     },

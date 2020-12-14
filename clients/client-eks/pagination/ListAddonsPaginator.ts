@@ -31,7 +31,8 @@ export async function* paginateListAddons(
   input: ListAddonsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAddonsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.nextToken
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAddonsCommandOutput;
   while (hasNext) {

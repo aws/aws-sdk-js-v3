@@ -118,11 +118,11 @@ export const serializeAws_restJson1GetLifecyclePoliciesCommand = async (
   const headers: any = {};
   let resolvedPath = "/policies";
   const query: any = {
-    ...(input.State !== undefined && { state: input.State }),
-    ...(input.TagsToAdd !== undefined && { tagsToAdd: (input.TagsToAdd || []).map((_entry) => _entry) }),
     ...(input.PolicyIds !== undefined && { policyIds: (input.PolicyIds || []).map((_entry) => _entry) }),
+    ...(input.State !== undefined && { state: input.State }),
     ...(input.ResourceTypes !== undefined && { resourceTypes: (input.ResourceTypes || []).map((_entry) => _entry) }),
     ...(input.TargetTags !== undefined && { targetTags: (input.TargetTags || []).map((_entry) => _entry) }),
+    ...(input.TagsToAdd !== undefined && { tagsToAdd: (input.TagsToAdd || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1260,13 +1260,9 @@ const deserializeAws_restJson1FastRestoreRule = (output: any, context: __SerdeCo
 const deserializeAws_restJson1LifecyclePolicy = (output: any, context: __SerdeContext): LifecyclePolicy => {
   return {
     DateCreated:
-      output.DateCreated !== undefined && output.DateCreated !== null
-        ? new Date(Math.round(output.DateCreated * 1000))
-        : undefined,
+      output.DateCreated !== undefined && output.DateCreated !== null ? new Date(output.DateCreated) : undefined,
     DateModified:
-      output.DateModified !== undefined && output.DateModified !== null
-        ? new Date(Math.round(output.DateModified * 1000))
-        : undefined,
+      output.DateModified !== undefined && output.DateModified !== null ? new Date(output.DateModified) : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     ExecutionRoleArn:
       output.ExecutionRoleArn !== undefined && output.ExecutionRoleArn !== null ? output.ExecutionRoleArn : undefined,

@@ -428,8 +428,8 @@ export const serializeAws_restJson1ListJournalKinesisStreamsForLedgerCommand = a
     throw new Error("No value provided for input HTTP label: LedgerName.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { next_token: input.NextToken }),
     ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { next_token: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -485,8 +485,8 @@ export const serializeAws_restJson1ListJournalS3ExportsForLedgerCommand = async 
     throw new Error("No value provided for input HTTP label: Name.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { next_token: input.NextToken }),
     ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { next_token: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -509,8 +509,8 @@ export const serializeAws_restJson1ListLedgersCommand = async (
   const headers: any = {};
   let resolvedPath = "/ledgers";
   const query: any = {
-    ...(input.NextToken !== undefined && { next_token: input.NextToken }),
     ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { next_token: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2169,7 +2169,7 @@ const serializeAws_restJson1S3ExportConfiguration = (input: S3ExportConfiguratio
 const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
     if (value === null) {
-      return acc;
+      return { ...acc, [key]: null as any };
     }
     return {
       ...acc,
@@ -2330,7 +2330,7 @@ const deserializeAws_restJson1S3ExportConfiguration = (output: any, context: __S
 const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
     if (value === null) {
-      return acc;
+      return { ...acc, [key]: null as any };
     }
     return {
       ...acc,

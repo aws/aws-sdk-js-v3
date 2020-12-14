@@ -3,15 +3,15 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AssociateKmsKeyRequest {
   /**
+   * <p>The name of the log group.</p>
+   */
+  logGroupName: string | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. This must be a symmetric CMK.
    *       For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms">Amazon Resource Names - AWS Key Management Service (AWS KMS)</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric Keys</a>.</p>
    */
   kmsKeyId: string | undefined;
-
-  /**
-   * <p>The name of the log group.</p>
-   */
-  logGroupName: string | undefined;
 }
 
 export namespace AssociateKmsKeyRequest {
@@ -115,9 +115,15 @@ export interface CreateExportTaskRequest {
   taskName?: string;
 
   /**
-   * <p>The name of S3 bucket for the exported log data. The bucket must be in the same AWS region.</p>
+   * <p>The name of the log group.</p>
    */
-  destination: string | undefined;
+  logGroupName: string | undefined;
+
+  /**
+   * <p>Export only log streams that match the provided prefix. If you don't
+   *       specify a value, no prefix filter is applied.</p>
+   */
+  logStreamNamePrefix?: string;
 
   /**
    * <p>The start time of the range for the request, expressed as the number of milliseconds
@@ -134,21 +140,15 @@ export interface CreateExportTaskRequest {
   to: number | undefined;
 
   /**
-   * <p>The name of the log group.</p>
+   * <p>The name of S3 bucket for the exported log data. The bucket must be in the same AWS region.</p>
    */
-  logGroupName: string | undefined;
+  destination: string | undefined;
 
   /**
    * <p>The prefix used as the start of the key for every object exported. If you don't
    *       specify a value, the default is <code>exportedlogs</code>.</p>
    */
   destinationPrefix?: string;
-
-  /**
-   * <p>Export only log streams that match the provided prefix. If you don't
-   *       specify a value, no prefix filter is applied.</p>
-   */
-  logStreamNamePrefix?: string;
 }
 
 export namespace CreateExportTaskRequest {
@@ -202,9 +202,9 @@ export namespace ResourceAlreadyExistsException {
 
 export interface CreateLogGroupRequest {
   /**
-   * <p>The key-value pairs to use for the tags.</p>
+   * <p>The name of the log group.</p>
    */
-  tags?: { [key: string]: string };
+  logGroupName: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
@@ -213,9 +213,9 @@ export interface CreateLogGroupRequest {
   kmsKeyId?: string;
 
   /**
-   * <p>The name of the log group.</p>
+   * <p>The key-value pairs to use for the tags.</p>
    */
-  logGroupName: string | undefined;
+  tags?: { [key: string]: string };
 }
 
 export namespace CreateLogGroupRequest {
@@ -226,14 +226,14 @@ export namespace CreateLogGroupRequest {
 
 export interface CreateLogStreamRequest {
   /**
-   * <p>The name of the log stream.</p>
-   */
-  logStreamName: string | undefined;
-
-  /**
    * <p>The name of the log group.</p>
    */
   logGroupName: string | undefined;
+
+  /**
+   * <p>The name of the log stream.</p>
+   */
+  logStreamName: string | undefined;
 }
 
 export namespace CreateLogStreamRequest {
@@ -248,8 +248,8 @@ export namespace CreateLogStreamRequest {
 export interface DataAlreadyAcceptedException extends __SmithyException, $MetadataBearer {
   name: "DataAlreadyAcceptedException";
   $fault: "client";
-  message?: string;
   expectedSequenceToken?: string;
+  message?: string;
 }
 
 export namespace DataAlreadyAcceptedException {
@@ -286,14 +286,14 @@ export namespace DeleteLogGroupRequest {
 
 export interface DeleteLogStreamRequest {
   /**
-   * <p>The name of the log stream.</p>
-   */
-  logStreamName: string | undefined;
-
-  /**
    * <p>The name of the log group.</p>
    */
   logGroupName: string | undefined;
+
+  /**
+   * <p>The name of the log stream.</p>
+   */
+  logStreamName: string | undefined;
 }
 
 export namespace DeleteLogStreamRequest {
@@ -304,14 +304,14 @@ export namespace DeleteLogStreamRequest {
 
 export interface DeleteMetricFilterRequest {
   /**
-   * <p>The name of the metric filter.</p>
-   */
-  filterName: string | undefined;
-
-  /**
    * <p>The name of the log group.</p>
    */
   logGroupName: string | undefined;
+
+  /**
+   * <p>The name of the metric filter.</p>
+   */
+  filterName: string | undefined;
 }
 
 export namespace DeleteMetricFilterRequest {
@@ -394,6 +394,11 @@ export namespace DeleteSubscriptionFilterRequest {
 
 export interface DescribeDestinationsRequest {
   /**
+   * <p>The prefix to match. If you don't specify a value, no prefix filter is applied.</p>
+   */
+  DestinationNamePrefix?: string;
+
+  /**
    * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
    */
   nextToken?: string;
@@ -402,11 +407,6 @@ export interface DescribeDestinationsRequest {
    * <p>The maximum number of items returned. If you don't specify a value, the default is up to 50 items.</p>
    */
   limit?: number;
-
-  /**
-   * <p>The prefix to match. If you don't specify a value, no prefix filter is applied.</p>
-   */
-  DestinationNamePrefix?: string;
 }
 
 export namespace DescribeDestinationsRequest {
@@ -425,6 +425,12 @@ export interface Destination {
   destinationName?: string;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the physical target where the log events are
+   *       delivered (for example, a Kinesis stream).</p>
+   */
+  targetArn?: string;
+
+  /**
    * <p>A role for impersonation, used when delivering log events to the target.</p>
    */
   roleArn?: string;
@@ -436,21 +442,15 @@ export interface Destination {
   accessPolicy?: string;
 
   /**
+   * <p>The ARN of this destination.</p>
+   */
+  arn?: string;
+
+  /**
    * <p>The creation time of the destination, expressed as the number of milliseconds after Jan
    *       1, 1970 00:00:00 UTC.</p>
    */
   creationTime?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the physical target where the log events are
-   *       delivered (for example, a Kinesis stream).</p>
-   */
-  targetArn?: string;
-
-  /**
-   * <p>The ARN of this destination.</p>
-   */
-  arn?: string;
 }
 
 export namespace Destination {
@@ -461,14 +461,14 @@ export namespace Destination {
 
 export interface DescribeDestinationsResponse {
   /**
-   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The destinations.</p>
    */
   destinations?: Destination[];
+
+  /**
+   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace DescribeDestinationsResponse {
@@ -498,14 +498,14 @@ export interface DescribeExportTasksRequest {
   statusCode?: ExportTaskStatusCode | string;
 
   /**
-   * <p>The maximum number of items returned. If you don't specify a value, the default is up to 50 items.</p>
-   */
-  limit?: number;
-
-  /**
    * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum number of items returned. If you don't specify a value, the default is up to 50 items.</p>
+   */
+  limit?: number;
 }
 
 export namespace DescribeExportTasksRequest {
@@ -563,6 +563,21 @@ export namespace ExportTaskStatus {
  */
 export interface ExportTask {
   /**
+   * <p>The ID of the export task.</p>
+   */
+  taskId?: string;
+
+  /**
+   * <p>The name of the export task.</p>
+   */
+  taskName?: string;
+
+  /**
+   * <p>The name of the log group from which logs data was exported.</p>
+   */
+  logGroupName?: string;
+
+  /**
    * <p>The start time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
    *       Events with a timestamp before this time are not exported.</p>
    */
@@ -585,29 +600,14 @@ export interface ExportTask {
   destinationPrefix?: string;
 
   /**
-   * <p>Execution information about the export task.</p>
-   */
-  executionInfo?: ExportTaskExecutionInfo;
-
-  /**
-   * <p>The name of the export task.</p>
-   */
-  taskName?: string;
-
-  /**
-   * <p>The name of the log group from which logs data was exported.</p>
-   */
-  logGroupName?: string;
-
-  /**
-   * <p>The ID of the export task.</p>
-   */
-  taskId?: string;
-
-  /**
    * <p>The status of the export task.</p>
    */
   status?: ExportTaskStatus;
+
+  /**
+   * <p>Execution information about the export task.</p>
+   */
+  executionInfo?: ExportTaskExecutionInfo;
 }
 
 export namespace ExportTask {
@@ -618,14 +618,14 @@ export namespace ExportTask {
 
 export interface DescribeExportTasksResponse {
   /**
-   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The export tasks.</p>
    */
   exportTasks?: ExportTask[];
+
+  /**
+   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace DescribeExportTasksResponse {
@@ -662,9 +662,9 @@ export namespace DescribeLogGroupsRequest {
  */
 export interface LogGroup {
   /**
-   * <p>The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.</p>
+   * <p>The name of the log group.</p>
    */
-  kmsKeyId?: string;
+  logGroupName?: string;
 
   /**
    * <p>The creation time of the log group, expressed as the number of milliseconds after Jan
@@ -673,9 +673,12 @@ export interface LogGroup {
   creationTime?: number;
 
   /**
-   * <p>The name of the log group.</p>
+   * <p>The number of days to retain the log events in the specified log group.
+   *       Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.</p>
+   *          <p>If you omit <code>retentionInDays</code> in a <code>PutRetentionPolicy</code> operation,
+   *   the events in the log group are always retained and never expire.</p>
    */
-  logGroupName?: string;
+  retentionInDays?: number;
 
   /**
    * <p>The number of metric filters.</p>
@@ -683,22 +686,19 @@ export interface LogGroup {
   metricFilterCount?: number;
 
   /**
-   * <p>The number of bytes stored.</p>
-   */
-  storedBytes?: number;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the log group.</p>
    */
   arn?: string;
 
   /**
-   * <p>The number of days to retain the log events in the specified log group.
-   *       Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.</p>
-   *          <p>If you omit <code>retentionInDays</code> in a <code>PutRetentionPolicy</code> operation,
-   *   the events in the log group are always retained and never expire.</p>
+   * <p>The number of bytes stored.</p>
    */
-  retentionInDays?: number;
+  storedBytes?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.</p>
+   */
+  kmsKeyId?: string;
 }
 
 export namespace LogGroup {
@@ -709,16 +709,16 @@ export namespace LogGroup {
 
 export interface DescribeLogGroupsResponse {
   /**
-   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The log groups.</p>
    *          <p>If the <code>retentionInDays</code> value if not included for a log group, then that log group
    *     is set to have its events never expire.</p>
    */
   logGroups?: LogGroup[];
+
+  /**
+   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace DescribeLogGroupsResponse {
@@ -734,19 +734,16 @@ export enum OrderBy {
 
 export interface DescribeLogStreamsRequest {
   /**
-   * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The name of the log group.</p>
    */
   logGroupName: string | undefined;
 
   /**
-   * <p>The maximum number of items returned. If you don't specify a value, the default is up to 50 items.</p>
+   * <p>The prefix to match.</p>
+   *          <p>If <code>orderBy</code> is <code>LastEventTime</code>, you cannot specify this
+   *       parameter.</p>
    */
-  limit?: number;
+  logStreamNamePrefix?: string;
 
   /**
    * <p>If the value is <code>LogStreamName</code>, the results are ordered by log stream name.
@@ -763,18 +760,21 @@ export interface DescribeLogStreamsRequest {
   orderBy?: OrderBy | string;
 
   /**
-   * <p>The prefix to match.</p>
-   *          <p>If <code>orderBy</code> is <code>LastEventTime</code>, you cannot specify this
-   *       parameter.</p>
-   */
-  logStreamNamePrefix?: string;
-
-  /**
    * <p>If the value is true, results are returned in descending order.
    *       If the value is to false, results are returned in ascending order.
    *       The default value is false.</p>
    */
   descending?: boolean;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of items returned. If you don't specify a value, the default is up to 50 items.</p>
+   */
+  limit?: number;
 }
 
 export namespace DescribeLogStreamsRequest {
@@ -789,6 +789,11 @@ export namespace DescribeLogStreamsRequest {
  */
 export interface LogStream {
   /**
+   * <p>The name of the log stream.</p>
+   */
+  logStreamName?: string;
+
+  /**
    * <p>The creation time of the stream, expressed as the number of milliseconds after Jan 1,
    *       1970 00:00:00 UTC.</p>
    */
@@ -801,11 +806,6 @@ export interface LogStream {
   firstEventTimestamp?: number;
 
   /**
-   * <p>The name of the log stream.</p>
-   */
-  logStreamName?: string;
-
-  /**
    * <p>The time of the most recent log event in the log stream in CloudWatch Logs. This number
    *       is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. The
    *         <code>lastEventTime</code> value updates on an eventual consistency basis. It typically
@@ -813,6 +813,12 @@ export interface LogStream {
    *       longer.</p>
    */
   lastEventTimestamp?: number;
+
+  /**
+   * <p>The ingestion time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00
+   *       UTC.</p>
+   */
+  lastIngestionTime?: number;
 
   /**
    * <p>The sequence token.</p>
@@ -823,12 +829,6 @@ export interface LogStream {
    * <p>The Amazon Resource Name (ARN) of the log stream.</p>
    */
   arn?: string;
-
-  /**
-   * <p>The ingestion time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00
-   *       UTC.</p>
-   */
-  lastIngestionTime?: number;
 
   /**
    * <p>The number of bytes stored.</p>
@@ -871,15 +871,15 @@ export interface DescribeMetricFiltersRequest {
   logGroupName?: string;
 
   /**
+   * <p>The prefix to match. CloudWatch Logs uses the value you set here
+   *     only if you also include the <code>logGroupName</code> parameter in your request.</p>
+   */
+  filterNamePrefix?: string;
+
+  /**
    * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>Filters results to include only those with the specified metric name. If you include this parameter in your request, you
-   *     must also include the <code>metricNamespace</code> parameter.</p>
-   */
-  metricName?: string;
 
   /**
    * <p>The maximum number of items returned. If you don't specify a value, the default is up to 50 items.</p>
@@ -887,10 +887,10 @@ export interface DescribeMetricFiltersRequest {
   limit?: number;
 
   /**
-   * <p>The prefix to match. CloudWatch Logs uses the value you set here
-   *     only if you also include the <code>logGroupName</code> parameter in your request.</p>
+   * <p>Filters results to include only those with the specified metric name. If you include this parameter in your request, you
+   *     must also include the <code>metricNamespace</code> parameter.</p>
    */
-  filterNamePrefix?: string;
+  metricName?: string;
 
   /**
    * <p>Filters results to include only those in the specified namespace. If you include this parameter in your request, you
@@ -911,15 +911,9 @@ export namespace DescribeMetricFiltersRequest {
  */
 export interface MetricTransformation {
   /**
-   * <p>(Optional) The value to emit when a filter pattern does not match a log event.
-   *       This value can be null.</p>
+   * <p>The name of the CloudWatch metric.</p>
    */
-  defaultValue?: number;
-
-  /**
-   * <p>The value to publish to the CloudWatch metric when a filter pattern matches a log event.</p>
-   */
-  metricValue: string | undefined;
+  metricName: string | undefined;
 
   /**
    * <p>A custom namespace to contain your metric in CloudWatch. Use namespaces to group together metrics
@@ -928,9 +922,15 @@ export interface MetricTransformation {
   metricNamespace: string | undefined;
 
   /**
-   * <p>The name of the CloudWatch metric.</p>
+   * <p>The value to publish to the CloudWatch metric when a filter pattern matches a log event.</p>
    */
-  metricName: string | undefined;
+  metricValue: string | undefined;
+
+  /**
+   * <p>(Optional) The value to emit when a filter pattern does not match a log event.
+   *       This value can be null.</p>
+   */
+  defaultValue?: number;
 }
 
 export namespace MetricTransformation {
@@ -945,15 +945,9 @@ export namespace MetricTransformation {
  */
 export interface MetricFilter {
   /**
-   * <p>The creation time of the metric filter, expressed as the number of milliseconds after
-   *       Jan 1, 1970 00:00:00 UTC.</p>
+   * <p>The name of the metric filter.</p>
    */
-  creationTime?: number;
-
-  /**
-   * <p>The metric transformations.</p>
-   */
-  metricTransformations?: MetricTransformation[];
+  filterName?: string;
 
   /**
    * <p>A symbolic description of how CloudWatch Logs should interpret the data in each log
@@ -963,9 +957,15 @@ export interface MetricFilter {
   filterPattern?: string;
 
   /**
-   * <p>The name of the metric filter.</p>
+   * <p>The metric transformations.</p>
    */
-  filterName?: string;
+  metricTransformations?: MetricTransformation[];
+
+  /**
+   * <p>The creation time of the metric filter, expressed as the number of milliseconds after
+   *       Jan 1, 1970 00:00:00 UTC.</p>
+   */
+  creationTime?: number;
 
   /**
    * <p>The name of the log group.</p>
@@ -981,14 +981,14 @@ export namespace MetricFilter {
 
 export interface DescribeMetricFiltersResponse {
   /**
-   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The metric filters.</p>
    */
   metricFilters?: MetricFilter[];
+
+  /**
+   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace DescribeMetricFiltersResponse {
@@ -1007,16 +1007,6 @@ export enum QueryStatus {
 
 export interface DescribeQueriesRequest {
   /**
-   * <p>Limits the number of returned queries to the specified number.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>Limits the returned queries to only those for the specified log group.</p>
    */
   logGroupName?: string;
@@ -1026,6 +1016,16 @@ export interface DescribeQueriesRequest {
    *       <code>Complete</code>, <code>Failed</code>, <code>Running</code>, and <code>Scheduled</code>.</p>
    */
   status?: QueryStatus | string;
+
+  /**
+   * <p>Limits the number of returned queries to the specified number.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace DescribeQueriesRequest {
@@ -1039,10 +1039,9 @@ export namespace DescribeQueriesRequest {
  */
 export interface QueryInfo {
   /**
-   * <p>The status of this query. Possible values are <code>Cancelled</code>,
-   *       <code>Complete</code>, <code>Failed</code>, <code>Running</code>, <code>Scheduled</code>, and <code>Unknown</code>.</p>
+   * <p>The unique ID number of this query.</p>
    */
-  status?: QueryStatus | string;
+  queryId?: string;
 
   /**
    * <p>The query string used in this query.</p>
@@ -1050,19 +1049,20 @@ export interface QueryInfo {
   queryString?: string;
 
   /**
-   * <p>The unique ID number of this query.</p>
+   * <p>The status of this query. Possible values are <code>Cancelled</code>,
+   *       <code>Complete</code>, <code>Failed</code>, <code>Running</code>, <code>Scheduled</code>, and <code>Unknown</code>.</p>
    */
-  queryId?: string;
-
-  /**
-   * <p>The name of the log group scanned by this query.</p>
-   */
-  logGroupName?: string;
+  status?: QueryStatus | string;
 
   /**
    * <p>The date and time that this query was created.</p>
    */
   createTime?: number;
+
+  /**
+   * <p>The name of the log group scanned by this query.</p>
+   */
+  logGroupName?: string;
 }
 
 export namespace QueryInfo {
@@ -1117,16 +1117,6 @@ export namespace DescribeQueryDefinitionsRequest {
  */
 export interface QueryDefinition {
   /**
-   * <p>If this query definition contains a list of log groups that it is limited to, that list appears here.</p>
-   */
-  logGroupNames?: string[];
-
-  /**
-   * <p>The date that the query definition was most recently modified.</p>
-   */
-  lastModified?: number;
-
-  /**
    * <p>The unique ID of the query definition.</p>
    */
   queryDefinitionId?: string;
@@ -1141,6 +1131,16 @@ export interface QueryDefinition {
    *       For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p>
    */
   queryString?: string;
+
+  /**
+   * <p>The date that the query definition was most recently modified.</p>
+   */
+  lastModified?: number;
+
+  /**
+   * <p>If this query definition contains a list of log groups that it is limited to, that list appears here.</p>
+   */
+  logGroupNames?: string[];
 }
 
 export namespace QueryDefinition {
@@ -1190,14 +1190,14 @@ export namespace DescribeResourcePoliciesRequest {
  */
 export interface ResourcePolicy {
   /**
-   * <p>The details of the policy.</p>
-   */
-  policyDocument?: string;
-
-  /**
    * <p>The name of the resource policy.</p>
    */
   policyName?: string;
+
+  /**
+   * <p>The details of the policy.</p>
+   */
+  policyDocument?: string;
 
   /**
    * <p>Timestamp showing when this policy was last updated, expressed as the number of
@@ -1214,14 +1214,14 @@ export namespace ResourcePolicy {
 
 export interface DescribeResourcePoliciesResponse {
   /**
-   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The resource policies that exist in this account.</p>
    */
   resourcePolicies?: ResourcePolicy[];
+
+  /**
+   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace DescribeResourcePoliciesResponse {
@@ -1232,11 +1232,6 @@ export namespace DescribeResourcePoliciesResponse {
 
 export interface DescribeSubscriptionFiltersRequest {
   /**
-   * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The name of the log group.</p>
    */
   logGroupName: string | undefined;
@@ -1245,6 +1240,11 @@ export interface DescribeSubscriptionFiltersRequest {
    * <p>The prefix to match. If you don't specify a value, no prefix filter is applied.</p>
    */
   filterNamePrefix?: string;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+   */
+  nextToken?: string;
 
   /**
    * <p>The maximum number of items returned. If you don't specify a value, the default is up to 50 items.</p>
@@ -1268,19 +1268,6 @@ export enum Distribution {
  */
 export interface SubscriptionFilter {
   /**
-   * <p>The method used to distribute log data to the destination, which can be either
-   *       random or grouped by log stream.</p>
-   */
-  distribution?: Distribution | string;
-
-  /**
-   * <p>A symbolic description of how CloudWatch Logs should interpret the data in each log
-   *       event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You
-   *       use the filter pattern to specify what to look for in the log event message.</p>
-   */
-  filterPattern?: string;
-
-  /**
    * <p>The name of the subscription filter.</p>
    */
   filterName?: string;
@@ -1291,10 +1278,11 @@ export interface SubscriptionFilter {
   logGroupName?: string;
 
   /**
-   * <p>The creation time of the subscription filter, expressed as the number of milliseconds
-   *       after Jan 1, 1970 00:00:00 UTC.</p>
+   * <p>A symbolic description of how CloudWatch Logs should interpret the data in each log
+   *       event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You
+   *       use the filter pattern to specify what to look for in the log event message.</p>
    */
-  creationTime?: number;
+  filterPattern?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the destination.</p>
@@ -1305,6 +1293,18 @@ export interface SubscriptionFilter {
    * <p></p>
    */
   roleArn?: string;
+
+  /**
+   * <p>The method used to distribute log data to the destination, which can be either
+   *       random or grouped by log stream.</p>
+   */
+  distribution?: Distribution | string;
+
+  /**
+   * <p>The creation time of the subscription filter, expressed as the number of milliseconds
+   *       after Jan 1, 1970 00:00:00 UTC.</p>
+   */
+  creationTime?: number;
 }
 
 export namespace SubscriptionFilter {
@@ -1315,14 +1315,14 @@ export namespace SubscriptionFilter {
 
 export interface DescribeSubscriptionFiltersResponse {
   /**
-   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The subscription filters.</p>
    */
   subscriptionFilters?: SubscriptionFilter[];
+
+  /**
+   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace DescribeSubscriptionFiltersResponse {
@@ -1384,37 +1384,16 @@ export namespace FilteredLogEvent {
 
 export interface FilterLogEventsRequest {
   /**
-   * <p>If the value is true, the operation makes a best effort to provide responses that
-   *       contain events from multiple log streams within the log group, interleaved in a single
-   *       response. If the value is false, all the matched log events in the first log stream are
-   *       searched first, then those in the next log stream, and so on. The default is false.</p>
-   *          <p>
-   *             <b>Important:</b> Starting on June 17, 2019, this parameter
-   *       is ignored and the value is assumed to be true. The response from this operation always
-   *       interleaves events from multiple log streams within a log group.</p>
-   */
-  interleaved?: boolean;
-
-  /**
-   * <p>The end of the time range, expressed as the number of milliseconds after Jan 1, 1970
-   *       00:00:00 UTC. Events with a timestamp later than this time are not returned.</p>
-   */
-  endTime?: number;
-
-  /**
    * <p>The name of the log group to search.</p>
    */
   logGroupName: string | undefined;
 
   /**
-   * <p>The maximum number of events to return. The default is 10,000 events.</p>
+   * <p>Filters the results to only logs from the log streams in this list.</p>
+   *          <p>If you specify a value for both <code>logStreamNamePrefix</code> and <code>logStreamNames</code>, the action
+   *       returns an <code>InvalidParameterException</code> error.</p>
    */
-  limit?: number;
-
-  /**
-   * <p>The token for the next set of events to return. (You received this token from a previous call.)</p>
-   */
-  nextToken?: string;
+  logStreamNames?: string[];
 
   /**
    * <p>Filters the results to include only events from log streams that have names starting with this prefix.</p>
@@ -1425,12 +1404,6 @@ export interface FilterLogEventsRequest {
   logStreamNamePrefix?: string;
 
   /**
-   * <p>The filter pattern to use. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p>
-   *          <p>If not provided, all the events are matched.</p>
-   */
-  filterPattern?: string;
-
-  /**
    * <p>The start of the time range, expressed as the number of milliseconds after Jan 1, 1970
    *       00:00:00 UTC. Events with a timestamp before this time are not returned.</p>
    *          <p>If you omit <code>startTime</code> and <code>endTime</code> the most recent log events
@@ -1439,11 +1412,38 @@ export interface FilterLogEventsRequest {
   startTime?: number;
 
   /**
-   * <p>Filters the results to only logs from the log streams in this list.</p>
-   *          <p>If you specify a value for both <code>logStreamNamePrefix</code> and <code>logStreamNames</code>, the action
-   *       returns an <code>InvalidParameterException</code> error.</p>
+   * <p>The end of the time range, expressed as the number of milliseconds after Jan 1, 1970
+   *       00:00:00 UTC. Events with a timestamp later than this time are not returned.</p>
    */
-  logStreamNames?: string[];
+  endTime?: number;
+
+  /**
+   * <p>The filter pattern to use. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p>
+   *          <p>If not provided, all the events are matched.</p>
+   */
+  filterPattern?: string;
+
+  /**
+   * <p>The token for the next set of events to return. (You received this token from a previous call.)</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of events to return. The default is 10,000 events.</p>
+   */
+  limit?: number;
+
+  /**
+   * <p>If the value is true, the operation makes a best effort to provide responses that
+   *       contain events from multiple log streams within the log group, interleaved in a single
+   *       response. If the value is false, all the matched log events in the first log stream are
+   *       searched first, then those in the next log stream, and so on. The default is false.</p>
+   *          <p>
+   *             <b>Important:</b> Starting on June 17, 2019, this parameter
+   *       is ignored and the value is assumed to be true. The response from this operation always
+   *       interleaves events from multiple log streams within a log group.</p>
+   */
+  interleaved?: boolean;
 }
 
 export namespace FilterLogEventsRequest {
@@ -1475,11 +1475,6 @@ export namespace SearchedLogStream {
 
 export interface FilterLogEventsResponse {
   /**
-   * <p>The token to use when requesting the next set of items. The token expires after 24 hours.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The matched events.</p>
    */
   events?: FilteredLogEvent[];
@@ -1492,6 +1487,11 @@ export interface FilterLogEventsResponse {
    *          <p>Indicates which log streams have been searched and whether each has been searched completely.</p>
    */
   searchedLogStreams?: SearchedLogStream[];
+
+  /**
+   * <p>The token to use when requesting the next set of items. The token expires after 24 hours.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace FilterLogEventsResponse {
@@ -1502,28 +1502,21 @@ export namespace FilterLogEventsResponse {
 
 export interface GetLogEventsRequest {
   /**
-   * <p>The start of the time range, expressed as the number of milliseconds after Jan 1, 1970
-   *       00:00:00 UTC. Events with a timestamp equal to this time or later than this time are included.
-   *       Events with a timestamp earlier than this time are not included.</p>
+   * <p>The name of the log group.</p>
    */
-  startTime?: number;
-
-  /**
-   * <p>The maximum number of log events returned. If you don't specify a value, the maximum is
-   *       as many log events as can fit in a response size of 1 MB, up to 10,000 log events.</p>
-   */
-  limit?: number;
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
-   *          <p>Using this token works only when you specify <code>true</code> for <code>startFromHead</code>.</p>
-   */
-  nextToken?: string;
+  logGroupName: string | undefined;
 
   /**
    * <p>The name of the log stream.</p>
    */
   logStreamName: string | undefined;
+
+  /**
+   * <p>The start of the time range, expressed as the number of milliseconds after Jan 1, 1970
+   *       00:00:00 UTC. Events with a timestamp equal to this time or later than this time are included.
+   *       Events with a timestamp earlier than this time are not included.</p>
+   */
+  startTime?: number;
 
   /**
    * <p>The end of the time range, expressed as the number of milliseconds after Jan 1, 1970
@@ -1533,9 +1526,16 @@ export interface GetLogEventsRequest {
   endTime?: number;
 
   /**
-   * <p>The name of the log group.</p>
+   * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+   *          <p>Using this token works only when you specify <code>true</code> for <code>startFromHead</code>.</p>
    */
-  logGroupName: string | undefined;
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of log events returned. If you don't specify a value, the maximum is
+   *       as many log events as can fit in a response size of 1 MB, up to 10,000 log events.</p>
+   */
+  limit?: number;
 
   /**
    * <p>If the value is true, the earliest log events are returned first.
@@ -1557,6 +1557,12 @@ export namespace GetLogEventsRequest {
  */
 export interface OutputLogEvent {
   /**
+   * <p>The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970
+   *       00:00:00 UTC.</p>
+   */
+  timestamp?: number;
+
+  /**
    * <p>The data contained in the log event.</p>
    */
   message?: string;
@@ -1566,12 +1572,6 @@ export interface OutputLogEvent {
    *       1970 00:00:00 UTC.</p>
    */
   ingestionTime?: number;
-
-  /**
-   * <p>The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970
-   *       00:00:00 UTC.</p>
-   */
-  timestamp?: number;
 }
 
 export namespace OutputLogEvent {
@@ -1582,11 +1582,9 @@ export namespace OutputLogEvent {
 
 export interface GetLogEventsResponse {
   /**
-   * <p>The token for the next set of items in the backward direction. The token expires after
-   *       24 hours. This token is never null. If you have reached the end of the stream, it returns the
-   *       same token you passed in.</p>
+   * <p>The events.</p>
    */
-  nextBackwardToken?: string;
+  events?: OutputLogEvent[];
 
   /**
    * <p>The token for the next set of items in the forward direction. The token expires after
@@ -1596,9 +1594,11 @@ export interface GetLogEventsResponse {
   nextForwardToken?: string;
 
   /**
-   * <p>The events.</p>
+   * <p>The token for the next set of items in the backward direction. The token expires after
+   *       24 hours. This token is never null. If you have reached the end of the stream, it returns the
+   *       same token you passed in.</p>
    */
-  events?: OutputLogEvent[];
+  nextBackwardToken?: string;
 }
 
 export namespace GetLogEventsResponse {
@@ -1635,14 +1635,14 @@ export namespace GetLogGroupFieldsRequest {
  */
 export interface LogGroupField {
   /**
-   * <p>The percentage of log events queried that contained the field.</p>
-   */
-  percent?: number;
-
-  /**
    * <p>The name of a log field.</p>
    */
   name?: string;
+
+  /**
+   * <p>The percentage of log events queried that contained the field.</p>
+   */
+  percent?: number;
 }
 
 export namespace LogGroupField {
@@ -1742,14 +1742,14 @@ export interface QueryStatistics {
   recordsMatched?: number;
 
   /**
-   * <p>The total number of bytes in the log events scanned during the query.</p>
-   */
-  bytesScanned?: number;
-
-  /**
    * <p>The total number of log events scanned during the query.</p>
    */
   recordsScanned?: number;
+
+  /**
+   * <p>The total number of bytes in the log events scanned during the query.</p>
+   */
+  bytesScanned?: number;
 }
 
 export namespace QueryStatistics {
@@ -1821,8 +1821,8 @@ export namespace InputLogEvent {
 export interface InvalidSequenceTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidSequenceTokenException";
   $fault: "client";
-  message?: string;
   expectedSequenceToken?: string;
+  message?: string;
 }
 
 export namespace InvalidSequenceTokenException {
@@ -1859,10 +1859,9 @@ export namespace ListTagsLogGroupResponse {
 
 export interface PutDestinationRequest {
   /**
-   * <p>The ARN of an IAM role that grants CloudWatch Logs permissions to call the Amazon
-   *       Kinesis <code>PutRecord</code> operation on the destination stream.</p>
+   * <p>A name for the destination.</p>
    */
-  roleArn: string | undefined;
+  destinationName: string | undefined;
 
   /**
    * <p>The ARN of an Amazon Kinesis stream to which to deliver matching log events.</p>
@@ -1870,9 +1869,10 @@ export interface PutDestinationRequest {
   targetArn: string | undefined;
 
   /**
-   * <p>A name for the destination.</p>
+   * <p>The ARN of an IAM role that grants CloudWatch Logs permissions to call the Amazon
+   *       Kinesis <code>PutRecord</code> operation on the destination stream.</p>
    */
-  destinationName: string | undefined;
+  roleArn: string | undefined;
 }
 
 export namespace PutDestinationRequest {
@@ -1915,14 +1915,14 @@ export namespace PutDestinationPolicyRequest {
 
 export interface PutLogEventsRequest {
   /**
-   * <p>The name of the log stream.</p>
-   */
-  logStreamName: string | undefined;
-
-  /**
    * <p>The name of the log group.</p>
    */
   logGroupName: string | undefined;
+
+  /**
+   * <p>The name of the log stream.</p>
+   */
+  logStreamName: string | undefined;
 
   /**
    * <p>The log events.</p>
@@ -1950,9 +1950,9 @@ export namespace PutLogEventsRequest {
  */
 export interface RejectedLogEventsInfo {
   /**
-   * <p>The expired log events.</p>
+   * <p>The log events that are too new.</p>
    */
-  expiredLogEventEndIndex?: number;
+  tooNewLogEventStartIndex?: number;
 
   /**
    * <p>The log events that are too old.</p>
@@ -1960,9 +1960,9 @@ export interface RejectedLogEventsInfo {
   tooOldLogEventEndIndex?: number;
 
   /**
-   * <p>The log events that are too new.</p>
+   * <p>The expired log events.</p>
    */
-  tooNewLogEventStartIndex?: number;
+  expiredLogEventEndIndex?: number;
 }
 
 export namespace RejectedLogEventsInfo {
@@ -2006,24 +2006,24 @@ export namespace UnrecognizedClientException {
 
 export interface PutMetricFilterRequest {
   /**
-   * <p>A name for the metric filter.</p>
-   */
-  filterName: string | undefined;
-
-  /**
    * <p>The name of the log group.</p>
    */
   logGroupName: string | undefined;
 
   /**
-   * <p>A collection of information that defines how metric data gets emitted.</p>
+   * <p>A name for the metric filter.</p>
    */
-  metricTransformations: MetricTransformation[] | undefined;
+  filterName: string | undefined;
 
   /**
    * <p>A filter pattern for extracting metric data out of ingested log events.</p>
    */
   filterPattern: string | undefined;
+
+  /**
+   * <p>A collection of information that defines how metric data gets emitted.</p>
+   */
+  metricTransformations: MetricTransformation[] | undefined;
 }
 
 export namespace PutMetricFilterRequest {
@@ -2033,6 +2033,13 @@ export namespace PutMetricFilterRequest {
 }
 
 export interface PutQueryDefinitionRequest {
+  /**
+   * <p>A name for the query definition. If you are saving a lot of query definitions, we
+   *       recommend that you name them so that you can easily find the ones you want by using the first
+   *       part of the name as a filter in the <code>queryDefinitionNamePrefix</code> parameter of <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html">DescribeQueryDefinitions</a>.</p>
+   */
+  name: string | undefined;
+
   /**
    * <p>If you are updating a query definition, use this parameter to specify the ID of the query
    *       definition that you want to update. You can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html">DescribeQueryDefinitions</a> to retrieve the IDs of your saved query
@@ -2055,13 +2062,6 @@ export interface PutQueryDefinitionRequest {
    *       For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p>
    */
   queryString: string | undefined;
-
-  /**
-   * <p>A name for the query definition. If you are saving a lot of query definitions, we
-   *       recommend that you name them so that you can easily find the ones you want by using the first
-   *       part of the name as a filter in the <code>queryDefinitionNamePrefix</code> parameter of <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html">DescribeQueryDefinitions</a>.</p>
-   */
-  name: string | undefined;
 }
 
 export namespace PutQueryDefinitionRequest {
@@ -2084,6 +2084,11 @@ export namespace PutQueryDefinitionResponse {
 }
 
 export interface PutResourcePolicyRequest {
+  /**
+   * <p>Name of the new policy. This parameter is required.</p>
+   */
+  policyName?: string;
+
   /**
    * <p>Details of the new policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string.
    *     This parameter is required.</p>
@@ -2110,11 +2115,6 @@ export interface PutResourcePolicyRequest {
    *          </p>
    */
   policyDocument?: string;
-
-  /**
-   * <p>Name of the new policy. This parameter is required.</p>
-   */
-  policyName?: string;
 }
 
 export namespace PutResourcePolicyRequest {
@@ -2159,6 +2159,24 @@ export namespace PutRetentionPolicyRequest {
 
 export interface PutSubscriptionFilterRequest {
   /**
+   * <p>The name of the log group.</p>
+   */
+  logGroupName: string | undefined;
+
+  /**
+   * <p>A name for the subscription filter. If you are updating an existing filter, you must
+   *       specify the correct name in <code>filterName</code>. Otherwise, the call fails because you
+   *       cannot associate a second filter with a log group. To find the name of the filter currently
+   *       associated with a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeSubscriptionFilters.html">DescribeSubscriptionFilters</a>.</p>
+   */
+  filterName: string | undefined;
+
+  /**
+   * <p>A filter pattern for subscribing to a filtered stream of log events.</p>
+   */
+  filterPattern: string | undefined;
+
+  /**
    * <p>The ARN of the destination to deliver matching log events to. Currently, the supported
    *       destinations are:</p>
    *          <ul>
@@ -2183,21 +2201,6 @@ export interface PutSubscriptionFilterRequest {
   destinationArn: string | undefined;
 
   /**
-   * <p>The method used to distribute log data to the destination. By default, log data is
-   *       grouped by log stream, but the grouping can be set to random for a more even distribution.
-   *       This property is only applicable when the destination is an Amazon Kinesis stream. </p>
-   */
-  distribution?: Distribution | string;
-
-  /**
-   * <p>A name for the subscription filter. If you are updating an existing filter, you must
-   *       specify the correct name in <code>filterName</code>. Otherwise, the call fails because you
-   *       cannot associate a second filter with a log group. To find the name of the filter currently
-   *       associated with a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeSubscriptionFilters.html">DescribeSubscriptionFilters</a>.</p>
-   */
-  filterName: string | undefined;
-
-  /**
    * <p>The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log
    *       events to the destination stream. You don't need to provide the ARN when you are working with
    *       a logical destination for cross-account delivery.</p>
@@ -2205,14 +2208,11 @@ export interface PutSubscriptionFilterRequest {
   roleArn?: string;
 
   /**
-   * <p>The name of the log group.</p>
+   * <p>The method used to distribute log data to the destination. By default, log data is
+   *       grouped by log stream, but the grouping can be set to random for a more even distribution.
+   *       This property is only applicable when the destination is an Amazon Kinesis stream. </p>
    */
-  logGroupName: string | undefined;
-
-  /**
-   * <p>A filter pattern for subscribing to a filtered stream of log events.</p>
-   */
-  filterPattern: string | undefined;
+  distribution?: Distribution | string;
 }
 
 export namespace PutSubscriptionFilterRequest {
@@ -2228,12 +2228,12 @@ export interface QueryCompileErrorLocation {
   /**
    * <p>Reserved.</p>
    */
-  endCharOffset?: number;
+  startCharOffset?: number;
 
   /**
    * <p>Reserved.</p>
    */
-  startCharOffset?: number;
+  endCharOffset?: number;
 }
 
 export namespace QueryCompileErrorLocation {
@@ -2289,6 +2289,34 @@ export namespace MalformedQueryException {
 
 export interface StartQueryRequest {
   /**
+   * <p>The log group on which to perform the query.</p>
+   *          <p>A <code>StartQuery</code> operation must include a <code>logGroupNames</code> or a <code>logGroupName</code> parameter, but
+   *       not both.</p>
+   */
+  logGroupName?: string;
+
+  /**
+   * <p>The list of log groups to be queried. You can include up to 20 log groups.</p>
+   *          <p>A <code>StartQuery</code> operation must include a <code>logGroupNames</code> or a <code>logGroupName</code> parameter, but
+   *     not both.</p>
+   */
+  logGroupNames?: string[];
+
+  /**
+   * <p>The beginning of the time range to query. The range is inclusive, so the specified
+   *       start time is included in the query. Specified as epoch time, the
+   *       number of seconds since January 1, 1970, 00:00:00 UTC.</p>
+   */
+  startTime: number | undefined;
+
+  /**
+   * <p>The end of the time range to query. The range is inclusive, so the specified
+   *       end time is included in the query. Specified as epoch
+   *       time, the number of seconds since January 1, 1970, 00:00:00 UTC.</p>
+   */
+  endTime: number | undefined;
+
+  /**
    * <p>The query string to use.
    *       For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p>
    */
@@ -2299,34 +2327,6 @@ export interface StartQueryRequest {
    *     only the specified fields and their values are returned. The default is 1000.</p>
    */
   limit?: number;
-
-  /**
-   * <p>The beginning of the time range to query. The range is inclusive, so the specified
-   *       start time is included in the query. Specified as epoch time, the
-   *       number of seconds since January 1, 1970, 00:00:00 UTC.</p>
-   */
-  startTime: number | undefined;
-
-  /**
-   * <p>The log group on which to perform the query.</p>
-   *          <p>A <code>StartQuery</code> operation must include a <code>logGroupNames</code> or a <code>logGroupName</code> parameter, but
-   *       not both.</p>
-   */
-  logGroupName?: string;
-
-  /**
-   * <p>The end of the time range to query. The range is inclusive, so the specified
-   *       end time is included in the query. Specified as epoch
-   *       time, the number of seconds since January 1, 1970, 00:00:00 UTC.</p>
-   */
-  endTime: number | undefined;
-
-  /**
-   * <p>The list of log groups to be queried. You can include up to 20 log groups.</p>
-   *          <p>A <code>StartQuery</code> operation must include a <code>logGroupNames</code> or a <code>logGroupName</code> parameter, but
-   *     not both.</p>
-   */
-  logGroupNames?: string[];
 }
 
 export namespace StartQueryRequest {
@@ -2418,11 +2418,6 @@ export namespace TestMetricFilterRequest {
  */
 export interface MetricFilterMatchRecord {
   /**
-   * <p>The values extracted from the event data by the filter.</p>
-   */
-  extractedValues?: { [key: string]: string };
-
-  /**
    * <p>The event number.</p>
    */
   eventNumber?: number;
@@ -2431,6 +2426,11 @@ export interface MetricFilterMatchRecord {
    * <p>The raw event data.</p>
    */
   eventMessage?: string;
+
+  /**
+   * <p>The values extracted from the event data by the filter.</p>
+   */
+  extractedValues?: { [key: string]: string };
 }
 
 export namespace MetricFilterMatchRecord {

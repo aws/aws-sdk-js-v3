@@ -21,8 +21,7 @@ export type CreateImageRecipeCommandInput = CreateImageRecipeRequest;
 export type CreateImageRecipeCommandOutput = CreateImageRecipeResponse & __MetadataBearer;
 
 /**
- * <p> Creates a new image recipe. Image recipes define how images are configured, tested, and
- *       assessed. </p>
+ * <p> Creates a new image recipe. Image recipes define how images are configured, tested, and assessed. </p>
  */
 export class CreateImageRecipeCommand extends $Command<
   CreateImageRecipeCommandInput,

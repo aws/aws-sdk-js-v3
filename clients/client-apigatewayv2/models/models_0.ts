@@ -6,21 +6,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  */
 export interface Cors {
   /**
-   * <p>The number of seconds that the browser should cache preflight request results. Supported only for HTTP APIs.</p>
-   */
-  MaxAge?: number;
-
-  /**
-   * <p>Represents a collection of allowed origins. Supported only for HTTP APIs.</p>
-   */
-  AllowOrigins?: string[];
-
-  /**
-   * <p>Represents a collection of exposed headers. Supported only for HTTP APIs.</p>
-   */
-  ExposeHeaders?: string[];
-
-  /**
    * <p>Specifies whether credentials are included in the CORS request. Supported only for HTTP APIs.</p>
    */
   AllowCredentials?: boolean;
@@ -34,6 +19,21 @@ export interface Cors {
    * <p>Represents a collection of allowed HTTP methods. Supported only for HTTP APIs.</p>
    */
   AllowMethods?: string[];
+
+  /**
+   * <p>Represents a collection of allowed origins. Supported only for HTTP APIs.</p>
+   */
+  AllowOrigins?: string[];
+
+  /**
+   * <p>Represents a collection of exposed headers. Supported only for HTTP APIs.</p>
+   */
+  ExposeHeaders?: string[];
+
+  /**
+   * <p>The number of seconds that the browser should cache preflight request results. Supported only for HTTP APIs.</p>
+   */
+  MaxAge?: number;
 }
 
 export namespace Cors {
@@ -52,34 +52,9 @@ export enum ProtocolType {
  */
 export interface Api {
   /**
-   * <p>A version identifier for the API.</p>
-   */
-  Version?: string;
-
-  /**
    * <p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
    */
   ApiEndpoint?: string;
-
-  /**
-   * <p>The warning messages reported when failonwarnings is turned on during API import.</p>
-   */
-  Warnings?: string[];
-
-  /**
-   * <p>The name of the API.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The API ID.</p>
-   */
-  ApiId?: string;
-
-  /**
-   * <p>A collection of tags associated with the API.</p>
-   */
-  Tags?: { [key: string]: string };
 
   /**
    * <p>Specifies whether an API is managed by API Gateway. You can't update or delete a managed API by using API Gateway. A managed API can be deleted only through the tooling or service that created it.</p>
@@ -87,29 +62,9 @@ export interface Api {
   ApiGatewayManaged?: boolean;
 
   /**
-   * <p>The timestamp when the API was created.</p>
+   * <p>The API ID.</p>
    */
-  CreatedDate?: Date;
-
-  /**
-   * <p>A CORS configuration. Supported only for HTTP APIs.</p>
-   */
-  CorsConfiguration?: Cors;
-
-  /**
-   * <p>The validation information during API import. This may include particular properties of your OpenAPI definition which are ignored during import. Supported only for HTTP APIs.</p>
-   */
-  ImportInfo?: string[];
-
-  /**
-   * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
-   */
-  DisableExecuteApiEndpoint?: boolean;
-
-  /**
-   * <p>The description of the API.</p>
-   */
-  Description?: string;
+  ApiId?: string;
 
   /**
    * <p>An API key selection expression. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions">API Key Selection Expressions</a>.</p>
@@ -117,9 +72,44 @@ export interface Api {
   ApiKeySelectionExpression?: string;
 
   /**
+   * <p>A CORS configuration. Supported only for HTTP APIs.</p>
+   */
+  CorsConfiguration?: Cors;
+
+  /**
+   * <p>The timestamp when the API was created.</p>
+   */
+  CreatedDate?: Date;
+
+  /**
+   * <p>The description of the API.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
    */
   DisableSchemaValidation?: boolean;
+
+  /**
+   * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
+   */
+  DisableExecuteApiEndpoint?: boolean;
+
+  /**
+   * <p>The validation information during API import. This may include particular properties of your OpenAPI definition which are ignored during import. Supported only for HTTP APIs.</p>
+   */
+  ImportInfo?: string[];
+
+  /**
+   * <p>The name of the API.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The API protocol.</p>
+   */
+  ProtocolType: ProtocolType | string | undefined;
 
   /**
    * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be ${request.method} ${request.path}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
@@ -127,9 +117,19 @@ export interface Api {
   RouteSelectionExpression: string | undefined;
 
   /**
-   * <p>The API protocol.</p>
+   * <p>A collection of tags associated with the API.</p>
    */
-  ProtocolType: ProtocolType | string | undefined;
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>A version identifier for the API.</p>
+   */
+  Version?: string;
+
+  /**
+   * <p>The warning messages reported when failonwarnings is turned on during API import.</p>
+   */
+  Warnings?: string[];
 }
 
 export namespace Api {
@@ -143,14 +143,14 @@ export namespace Api {
  */
 export interface ApiMapping {
   /**
-   * <p>The API mapping identifier.</p>
-   */
-  ApiMappingId?: string;
-
-  /**
    * <p>The API identifier.</p>
    */
   ApiId: string | undefined;
+
+  /**
+   * <p>The API mapping identifier.</p>
+   */
+  ApiMappingId?: string;
 
   /**
    * <p>The API mapping key.</p>
@@ -179,15 +179,15 @@ export enum AuthorizerType {
  */
 export interface JWTConfiguration {
   /**
+   * <p>A list of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list. See <a href="https://tools.ietf.org/html/rfc7519#section-4.1.3">RFC 7519</a>. Supported only for HTTP APIs.</p>
+   */
+  Audience?: string[];
+
+  /**
    * <p>The base domain of the identity provider that issues JSON Web Tokens. For example, an Amazon Cognito user pool has the following format: https://cognito-idp.<replaceable>{region}</replaceable>.amazonaws.com/<replaceable>{userPoolId}</replaceable>
    *                . Required for the JWT authorizer type. Supported only for HTTP APIs.</p>
    */
   Issuer?: string;
-
-  /**
-   * <p>A list of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list. See <a href="https://tools.ietf.org/html/rfc7519#section-4.1.3">RFC 7519</a>. Supported only for HTTP APIs.</p>
-   */
-  Audience?: string[];
 }
 
 export namespace JWTConfiguration {
@@ -201,19 +201,14 @@ export namespace JWTConfiguration {
  */
 export interface Authorizer {
   /**
-   * <p>The name of the authorizer.</p>
+   * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, don't specify this parameter. Supported only for REQUEST authorizers.</p>
    */
-  Name: string | undefined;
+  AuthorizerCredentialsArn?: string;
 
   /**
-   * <p>Represents the configuration of a JWT authorizer. Required for the JWT authorizer type. Supported only for HTTP APIs.</p>
+   * <p>The authorizer identifier.</p>
    */
-  JwtConfiguration?: JWTConfiguration;
-
-  /**
-   * <p>The identity source for which authorization is requested.</p> <p>For a REQUEST authorizer, this is optional. The value is a set of one or more mapping expressions of the specified request parameters. The identity source can be headers, query string parameters, stage variables, and context parameters. For example, if an Auth header and a Name query string parameter are defined as identity sources, this value is route.request.header.Auth, route.request.querystring.Name for WebSocket APIs. For HTTP APIs, use selection expressions prefixed with $, for example, $request.header.Auth, $request.querystring.Name. These parameters are used to perform runtime validation for Lambda-based authorizers by verifying all of the identity-related request parameters are present in the request, not null, and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function. Otherwise, it returns a 401 Unauthorized response without calling the Lambda function. For HTTP APIs, identity sources are also used as the cache key when caching is enabled. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a>.</p> <p>For JWT, a single entry that specifies where to extract the JSON Web Token (JWT) from inbound requests. Currently only header-based and query parameter-based selections are supported, for example $request.header.Authorization.</p>
-   */
-  IdentitySource?: string[];
+  AuthorizerId?: string;
 
   /**
    * <p>Specifies the format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers. Supported values are 1.0 and 2.0. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a>.</p>
@@ -226,9 +221,9 @@ export interface Authorizer {
   AuthorizerResultTtlInSeconds?: number;
 
   /**
-   * <p>The authorizer identifier.</p>
+   * <p>The authorizer type. Specify REQUEST for a Lambda function using incoming request parameters. Specify JWT to use JSON Web Tokens (supported only for HTTP APIs).</p>
    */
-  AuthorizerId?: string;
+  AuthorizerType?: AuthorizerType | string;
 
   /**
    * <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>{account_id}</replaceable>:function:<replaceable>{lambda_function_name}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>{region}</replaceable>:lambda:path/<replaceable>{service_api}</replaceable>
@@ -237,24 +232,29 @@ export interface Authorizer {
   AuthorizerUri?: string;
 
   /**
-   * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, don't specify this parameter. Supported only for REQUEST authorizers.</p>
-   */
-  AuthorizerCredentialsArn?: string;
-
-  /**
-   * <p>The authorizer type. Specify REQUEST for a Lambda function using incoming request parameters. Specify JWT to use JSON Web Tokens (supported only for HTTP APIs).</p>
-   */
-  AuthorizerType?: AuthorizerType | string;
-
-  /**
    * <p>Specifies whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy. Supported only for HTTP APIs. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a></p>
    */
   EnableSimpleResponses?: boolean;
 
   /**
+   * <p>The identity source for which authorization is requested.</p> <p>For a REQUEST authorizer, this is optional. The value is a set of one or more mapping expressions of the specified request parameters. The identity source can be headers, query string parameters, stage variables, and context parameters. For example, if an Auth header and a Name query string parameter are defined as identity sources, this value is route.request.header.Auth, route.request.querystring.Name for WebSocket APIs. For HTTP APIs, use selection expressions prefixed with $, for example, $request.header.Auth, $request.querystring.Name. These parameters are used to perform runtime validation for Lambda-based authorizers by verifying all of the identity-related request parameters are present in the request, not null, and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function. Otherwise, it returns a 401 Unauthorized response without calling the Lambda function. For HTTP APIs, identity sources are also used as the cache key when caching is enabled. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a>.</p> <p>For JWT, a single entry that specifies where to extract the JSON Web Token (JWT) from inbound requests. Currently only header-based and query parameter-based selections are supported, for example $request.header.Authorization.</p>
+   */
+  IdentitySource?: string[];
+
+  /**
    * <p>The validation expression does not apply to the REQUEST authorizer.</p>
    */
   IdentityValidationExpression?: string;
+
+  /**
+   * <p>Represents the configuration of a JWT authorizer. Required for the JWT authorizer type. Supported only for HTTP APIs.</p>
+   */
+  JwtConfiguration?: JWTConfiguration;
+
+  /**
+   * <p>The name of the authorizer.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace Authorizer {
@@ -279,9 +279,9 @@ export interface Deployment {
   AutoDeployed?: boolean;
 
   /**
-   * <p>The status of the deployment: PENDING, FAILED, or SUCCEEDED.</p>
+   * <p>The date and time when the Deployment resource was created.</p>
    */
-  DeploymentStatus?: DeploymentStatus | string;
+  CreatedDate?: Date;
 
   /**
    * <p>The identifier for the deployment.</p>
@@ -289,19 +289,19 @@ export interface Deployment {
   DeploymentId?: string;
 
   /**
-   * <p>The description for the deployment.</p>
+   * <p>The status of the deployment: PENDING, FAILED, or SUCCEEDED.</p>
    */
-  Description?: string;
-
-  /**
-   * <p>The date and time when the Deployment resource was created.</p>
-   */
-  CreatedDate?: Date;
+  DeploymentStatus?: DeploymentStatus | string;
 
   /**
    * <p>May contain additional feedback on the status of an API deployment.</p>
    */
   DeploymentStatusMessage?: string;
+
+  /**
+   * <p>The description for the deployment.</p>
+   */
+  Description?: string;
 }
 
 export namespace Deployment {
@@ -330,14 +330,9 @@ export enum SecurityPolicy {
  */
 export interface DomainNameConfiguration {
   /**
-   * <p>An optional text message containing detailed information about status of the domain name migration.</p>
+   * <p>A domain name for the API.</p>
    */
-  DomainNameStatusMessage?: string;
-
-  /**
-   * <p>The Transport Layer Security (TLS) version of the security policy for this domain name. The valid values are TLS_1_0 and TLS_1_2.</p>
-   */
-  SecurityPolicy?: SecurityPolicy | string;
+  ApiGatewayDomainName?: string;
 
   /**
    * <p>An AWS-managed certificate that will be used by the edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.</p>
@@ -345,24 +340,9 @@ export interface DomainNameConfiguration {
   CertificateArn?: string;
 
   /**
-   * <p>The endpoint type.</p>
-   */
-  EndpointType?: EndpointType | string;
-
-  /**
    * <p>The user-friendly name of the certificate that will be used by the edge-optimized endpoint for this domain name.</p>
    */
   CertificateName?: string;
-
-  /**
-   * <p>The Amazon Route 53 Hosted Zone ID of the endpoint.</p>
-   */
-  HostedZoneId?: string;
-
-  /**
-   * <p>The status of the domain name migration. The valid values are AVAILABLE and UPDATING. If the status is UPDATING, the domain cannot be modified further until the existing operation is complete. If it is AVAILABLE, the domain can be updated.</p>
-   */
-  DomainNameStatus?: DomainNameStatus | string;
 
   /**
    * <p>The timestamp when the certificate that was used by edge-optimized endpoint for this domain name was uploaded.</p>
@@ -370,9 +350,29 @@ export interface DomainNameConfiguration {
   CertificateUploadDate?: Date;
 
   /**
-   * <p>A domain name for the API.</p>
+   * <p>The status of the domain name migration. The valid values are AVAILABLE and UPDATING. If the status is UPDATING, the domain cannot be modified further until the existing operation is complete. If it is AVAILABLE, the domain can be updated.</p>
    */
-  ApiGatewayDomainName?: string;
+  DomainNameStatus?: DomainNameStatus | string;
+
+  /**
+   * <p>An optional text message containing detailed information about status of the domain name migration.</p>
+   */
+  DomainNameStatusMessage?: string;
+
+  /**
+   * <p>The endpoint type.</p>
+   */
+  EndpointType?: EndpointType | string;
+
+  /**
+   * <p>The Amazon Route 53 Hosted Zone ID of the endpoint.</p>
+   */
+  HostedZoneId?: string;
+
+  /**
+   * <p>The Transport Layer Security (TLS) version of the security policy for this domain name. The valid values are TLS_1_0 and TLS_1_2.</p>
+   */
+  SecurityPolicy?: SecurityPolicy | string;
 }
 
 export namespace DomainNameConfiguration {
@@ -383,11 +383,6 @@ export namespace DomainNameConfiguration {
 
 export interface MutualTlsAuthentication {
   /**
-   * <p>A list of warnings that API Gateway returns while processing your truststore. Invalid certificates produce warnings. Mutual TLS is still enabled, but some clients might not be able to access your API. To resolve warnings, upload a new truststore to S3, and then update you domain name to use the new version.</p>
-   */
-  TruststoreWarnings?: string[];
-
-  /**
    * <p>An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, s3://<replaceable>bucket-name</replaceable>/<replaceable>key-name</replaceable>. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.</p>
    */
   TruststoreUri?: string;
@@ -396,6 +391,11 @@ export interface MutualTlsAuthentication {
    * <p>The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.</p>
    */
   TruststoreVersion?: string;
+
+  /**
+   * <p>A list of warnings that API Gateway returns while processing your truststore. Invalid certificates produce warnings. Mutual TLS is still enabled, but some clients might not be able to access your API. To resolve warnings, upload a new truststore to S3, and then update you domain name to use the new version.</p>
+   */
+  TruststoreWarnings?: string[];
 }
 
 export namespace MutualTlsAuthentication {
@@ -409,9 +409,9 @@ export namespace MutualTlsAuthentication {
  */
 export interface DomainName {
   /**
-   * <p>The domain name configurations.</p>
+   * <p>The API mapping selection expression.</p>
    */
-  DomainNameConfigurations?: DomainNameConfiguration[];
+  ApiMappingSelectionExpression?: string;
 
   /**
    * <p>The name of the DomainName resource.</p>
@@ -419,19 +419,19 @@ export interface DomainName {
   DomainName: string | undefined;
 
   /**
-   * <p>The collection of tags associated with a domain name.</p>
+   * <p>The domain name configurations.</p>
    */
-  Tags?: { [key: string]: string };
-
-  /**
-   * <p>The API mapping selection expression.</p>
-   */
-  ApiMappingSelectionExpression?: string;
+  DomainNameConfigurations?: DomainNameConfiguration[];
 
   /**
    * <p>The mutual TLS authentication configuration for a custom domain name.</p>
    */
   MutualTlsAuthentication?: MutualTlsAuthentication;
+
+  /**
+   * <p>The collection of tags associated with a domain name.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace DomainName {
@@ -485,39 +485,9 @@ export namespace TlsConfig {
  */
 export interface Integration {
   /**
-   * <p>The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.</p>
-   */
-  TlsConfig?: TlsConfig;
-
-  /**
-   * <p>Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.</p>
-   */
-  TimeoutInMillis?: number;
-
-  /**
-   * <p>Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER. Supported only for WebSocket APIs.</p> <p>WHEN_NO_MATCH passes the request body for unmapped content types through to the integration backend without transformation.</p> <p>NEVER rejects unmapped content types with an HTTP 415 Unsupported Media Type response.</p> <p>WHEN_NO_TEMPLATES allows pass-through when the integration has no content types mapped to templates. However, if there is at least one content type defined, unmapped content types will be rejected with the same HTTP 415 Unsupported Media Type response.</p>
-   */
-  PassthroughBehavior?: PassthroughBehavior | string;
-
-  /**
-   * <p>The integration type of an integration. One of the following:</p> <p>AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration. Supported only for WebSocket APIs.</p> <p>AWS_PROXY: for integrating the route or method request with a Lambda function or other AWS service action. This integration is also referred to as a Lambda proxy integration.</p> <p>HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration. Supported only for WebSocket APIs.</p> <p>HTTP_PROXY: for integrating the route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration.</p> <p>MOCK: for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend. Supported only for WebSocket APIs.</p>
-   */
-  IntegrationType?: IntegrationType | string;
-
-  /**
-   * <p>Specifies the integration's HTTP method type.</p>
-   */
-  IntegrationMethod?: string;
-
-  /**
    * <p>Specifies whether an integration is managed by API Gateway. If you created an API using using quick create, the resulting integration is managed by API Gateway. You can update a managed integration, but you can't delete it.</p>
    */
   ApiGatewayManaged?: boolean;
-
-  /**
-   * <p>For a Lambda integration, specify the URI of a Lambda function.</p> <p>For an HTTP integration, specify a fully-qualified URL.</p> <p>For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service. If you specify the ARN of an AWS Cloud Map service, API Gateway uses DiscoverInstances to identify resources. You can use query parameters to target specific resources. To learn more, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html">DiscoverInstances</a>. For private integrations, all resources must be owned by the same AWS account.</p>
-   */
-  IntegrationUri?: string;
 
   /**
    * <p>The ID of the VPC link for a private integration. Supported only for HTTP APIs.</p>
@@ -525,9 +495,34 @@ export interface Integration {
   ConnectionId?: string;
 
   /**
-   * <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value. Supported only for WebSocket APIs.</p>
+   * <p>The type of the network connection to the integration endpoint. Specify INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and resources in a VPC. The default value is INTERNET.</p>
    */
-  RequestTemplates?: { [key: string]: string };
+  ConnectionType?: ConnectionType | string;
+
+  /**
+   * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
+   */
+  ContentHandlingStrategy?: ContentHandlingStrategy | string;
+
+  /**
+   * <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, specify null.</p>
+   */
+  CredentialsArn?: string;
+
+  /**
+   * <p>Represents the description of an integration.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Represents the identifier of an integration.</p>
+   */
+  IntegrationId?: string;
+
+  /**
+   * <p>Specifies the integration's HTTP method type.</p>
+   */
+  IntegrationMethod?: string;
 
   /**
    * <p>The integration response selection expression for the integration. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions">Integration Response Selection Expressions</a>.</p>
@@ -535,9 +530,29 @@ export interface Integration {
   IntegrationResponseSelectionExpression?: string;
 
   /**
-   * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
+   * <p>Supported only for HTTP API AWS_PROXY integrations. Specifies the AWS service action to invoke. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html">Integration subtype reference</a>.</p>
    */
-  ContentHandlingStrategy?: ContentHandlingStrategy | string;
+  IntegrationSubtype?: string;
+
+  /**
+   * <p>The integration type of an integration. One of the following:</p> <p>AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration. Supported only for WebSocket APIs.</p> <p>AWS_PROXY: for integrating the route or method request with a Lambda function or other AWS service action. This integration is also referred to as a Lambda proxy integration.</p> <p>HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration. Supported only for WebSocket APIs.</p> <p>HTTP_PROXY: for integrating the route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration.</p> <p>MOCK: for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend. Supported only for WebSocket APIs.</p>
+   */
+  IntegrationType?: IntegrationType | string;
+
+  /**
+   * <p>For a Lambda integration, specify the URI of a Lambda function.</p> <p>For an HTTP integration, specify a fully-qualified URL.</p> <p>For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service. If you specify the ARN of an AWS Cloud Map service, API Gateway uses DiscoverInstances to identify resources. You can use query parameters to target specific resources. To learn more, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html">DiscoverInstances</a>. For private integrations, all resources must be owned by the same AWS account.</p>
+   */
+  IntegrationUri?: string;
+
+  /**
+   * <p>Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER. Supported only for WebSocket APIs.</p> <p>WHEN_NO_MATCH passes the request body for unmapped content types through to the integration backend without transformation.</p> <p>NEVER rejects unmapped content types with an HTTP 415 Unsupported Media Type response.</p> <p>WHEN_NO_TEMPLATES allows pass-through when the integration has no content types mapped to templates. However, if there is at least one content type defined, unmapped content types will be rejected with the same HTTP 415 Unsupported Media Type response.</p>
+   */
+  PassthroughBehavior?: PassthroughBehavior | string;
+
+  /**
+   * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
+   */
+  PayloadFormatVersion?: string;
 
   /**
    * <p>For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the backend. The method request parameter value must match the pattern of method.request.<replaceable>{location}</replaceable>.<replaceable>{name}</replaceable>
@@ -546,9 +561,9 @@ export interface Integration {
   RequestParameters?: { [key: string]: string };
 
   /**
-   * <p>Supported only for HTTP API AWS_PROXY integrations. Specifies the AWS service action to invoke. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html">Integration subtype reference</a>.</p>
+   * <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value. Supported only for WebSocket APIs.</p>
    */
-  IntegrationSubtype?: string;
+  RequestTemplates?: { [key: string]: string };
 
   /**
    * <p>The template selection expression for the integration. Supported only for WebSocket APIs.</p>
@@ -556,29 +571,14 @@ export interface Integration {
   TemplateSelectionExpression?: string;
 
   /**
-   * <p>Represents the description of an integration.</p>
+   * <p>Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.</p>
    */
-  Description?: string;
+  TimeoutInMillis?: number;
 
   /**
-   * <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, specify null.</p>
+   * <p>The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.</p>
    */
-  CredentialsArn?: string;
-
-  /**
-   * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
-   */
-  PayloadFormatVersion?: string;
-
-  /**
-   * <p>The type of the network connection to the integration endpoint. Specify INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and resources in a VPC. The default value is INTERNET.</p>
-   */
-  ConnectionType?: ConnectionType | string;
-
-  /**
-   * <p>Represents the identifier of an integration.</p>
-   */
-  IntegrationId?: string;
+  TlsConfig?: TlsConfig;
 }
 
 export namespace Integration {
@@ -592,19 +592,9 @@ export namespace Integration {
  */
 export interface IntegrationResponse {
   /**
-   * <p>The template selection expressions for the integration response.</p>
+   * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
    */
-  TemplateSelectionExpression?: string;
-
-  /**
-   * <p>The integration response key.</p>
-   */
-  IntegrationResponseKey: string | undefined;
-
-  /**
-   * <p>The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.</p>
-   */
-  ResponseTemplates?: { [key: string]: string };
+  ContentHandlingStrategy?: ContentHandlingStrategy | string;
 
   /**
    * <p>The integration response ID.</p>
@@ -612,14 +602,24 @@ export interface IntegrationResponse {
   IntegrationResponseId?: string;
 
   /**
+   * <p>The integration response key.</p>
+   */
+  IntegrationResponseKey: string | undefined;
+
+  /**
    * <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.{name}, where name is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.{name} or integration.response.body.{JSON-expression}, where name is a valid and unique response header name and JSON-expression is a valid JSON expression without the $ prefix.</p>
    */
   ResponseParameters?: { [key: string]: string };
 
   /**
-   * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
+   * <p>The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.</p>
    */
-  ContentHandlingStrategy?: ContentHandlingStrategy | string;
+  ResponseTemplates?: { [key: string]: string };
+
+  /**
+   * <p>The template selection expressions for the integration response.</p>
+   */
+  TemplateSelectionExpression?: string;
 }
 
 export namespace IntegrationResponse {
@@ -692,9 +692,9 @@ export namespace ParameterConstraints {
  */
 export interface Route {
   /**
-   * <p>The target for the route.</p>
+   * <p>Specifies whether a route is managed by API Gateway. If you created an API using quick create, the $default route is managed by API Gateway. You can't modify the $default route key.</p>
    */
-  Target?: string;
+  ApiGatewayManaged?: boolean;
 
   /**
    * <p>Specifies whether an API key is required for this route. Supported only for WebSocket APIs.</p>
@@ -702,44 +702,14 @@ export interface Route {
   ApiKeyRequired?: boolean;
 
   /**
-   * <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer.</p>
-   */
-  AuthorizationType?: AuthorizationType | string;
-
-  /**
    * <p>A list of authorization scopes configured on a route. The scopes are used with a JWT authorizer to authorize the method invocation. The authorization works by matching the route scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any route scope matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the route scope is configured, the client must provide an access token instead of an identity token for authorization purposes.</p>
    */
   AuthorizationScopes?: string[];
 
   /**
-   * <p>The model selection expression for the route. Supported only for WebSocket APIs.</p>
+   * <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer.</p>
    */
-  ModelSelectionExpression?: string;
-
-  /**
-   * <p>The route response selection expression for the route. Supported only for WebSocket APIs.</p>
-   */
-  RouteResponseSelectionExpression?: string;
-
-  /**
-   * <p>The route key for the route.</p>
-   */
-  RouteKey: string | undefined;
-
-  /**
-   * <p>Specifies whether a route is managed by API Gateway. If you created an API using quick create, the $default route is managed by API Gateway. You can't modify the $default route key.</p>
-   */
-  ApiGatewayManaged?: boolean;
-
-  /**
-   * <p>The operation name for the route.</p>
-   */
-  OperationName?: string;
-
-  /**
-   * <p>The request parameters for the route. Supported only for WebSocket APIs.</p>
-   */
-  RequestParameters?: { [key: string]: ParameterConstraints };
+  AuthorizationType?: AuthorizationType | string;
 
   /**
    * <p>The identifier of the Authorizer resource to be associated with this route. The authorizer identifier is generated by API Gateway when you created the authorizer.</p>
@@ -747,14 +717,44 @@ export interface Route {
   AuthorizerId?: string;
 
   /**
-   * <p>The route ID.</p>
+   * <p>The model selection expression for the route. Supported only for WebSocket APIs.</p>
    */
-  RouteId?: string;
+  ModelSelectionExpression?: string;
+
+  /**
+   * <p>The operation name for the route.</p>
+   */
+  OperationName?: string;
 
   /**
    * <p>The request models for the route. Supported only for WebSocket APIs.</p>
    */
   RequestModels?: { [key: string]: string };
+
+  /**
+   * <p>The request parameters for the route. Supported only for WebSocket APIs.</p>
+   */
+  RequestParameters?: { [key: string]: ParameterConstraints };
+
+  /**
+   * <p>The route ID.</p>
+   */
+  RouteId?: string;
+
+  /**
+   * <p>The route key for the route.</p>
+   */
+  RouteKey: string | undefined;
+
+  /**
+   * <p>The route response selection expression for the route. Supported only for WebSocket APIs.</p>
+   */
+  RouteResponseSelectionExpression?: string;
+
+  /**
+   * <p>The target for the route.</p>
+   */
+  Target?: string;
 }
 
 export namespace Route {
@@ -768,19 +768,14 @@ export namespace Route {
  */
 export interface RouteResponse {
   /**
-   * <p>Represents the response models of a route response.</p>
-   */
-  ResponseModels?: { [key: string]: string };
-
-  /**
    * <p>Represents the model selection expression of a route response. Supported only for WebSocket APIs.</p>
    */
   ModelSelectionExpression?: string;
 
   /**
-   * <p>Represents the route response key of a route response.</p>
+   * <p>Represents the response models of a route response.</p>
    */
-  RouteResponseKey: string | undefined;
+  ResponseModels?: { [key: string]: string };
 
   /**
    * <p>Represents the response parameters of a route response.</p>
@@ -791,6 +786,11 @@ export interface RouteResponse {
    * <p>Represents the identifier of a route response.</p>
    */
   RouteResponseId?: string;
+
+  /**
+   * <p>Represents the route response key of a route response.</p>
+   */
+  RouteResponseKey: string | undefined;
 }
 
 export namespace RouteResponse {
@@ -804,14 +804,14 @@ export namespace RouteResponse {
  */
 export interface AccessLogSettings {
   /**
-   * <p>A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId.</p>
-   */
-  Format?: string;
-
-  /**
    * <p>The ARN of the CloudWatch Logs log group to receive access logs.</p>
    */
   DestinationArn?: string;
+
+  /**
+   * <p>A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId.</p>
+   */
+  Format?: string;
 }
 
 export namespace AccessLogSettings {
@@ -831,21 +831,6 @@ export enum LoggingLevel {
  */
 export interface RouteSettings {
   /**
-   * <p>Specifies the throttling burst limit.</p>
-   */
-  ThrottlingBurstLimit?: number;
-
-  /**
-   * <p>Specifies the throttling rate limit.</p>
-   */
-  ThrottlingRateLimit?: number;
-
-  /**
-   * <p>Specifies the logging level for this route: INFO, ERROR, or OFF. This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.</p>
-   */
-  LoggingLevel?: LoggingLevel | string;
-
-  /**
    * <p>Specifies whether (true) or not (false) data trace logging is enabled for this route. This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.</p>
    */
   DataTraceEnabled?: boolean;
@@ -854,6 +839,21 @@ export interface RouteSettings {
    * <p>Specifies whether detailed metrics are enabled.</p>
    */
   DetailedMetricsEnabled?: boolean;
+
+  /**
+   * <p>Specifies the logging level for this route: INFO, ERROR, or OFF. This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.</p>
+   */
+  LoggingLevel?: LoggingLevel | string;
+
+  /**
+   * <p>Specifies the throttling burst limit.</p>
+   */
+  ThrottlingBurstLimit?: number;
+
+  /**
+   * <p>Specifies the throttling rate limit.</p>
+   */
+  ThrottlingRateLimit?: number;
 }
 
 export namespace RouteSettings {
@@ -867,39 +867,9 @@ export namespace RouteSettings {
  */
 export interface Stage {
   /**
-   * <p>The identifier of the Deployment that the Stage is associated with. Can't be updated if autoDeploy is enabled.</p>
-   */
-  DeploymentId?: string;
-
-  /**
-   * <p>The description of the stage.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The name of the stage.</p>
-   */
-  StageName: string | undefined;
-
-  /**
-   * <p>A map that defines the stage variables for a stage resource. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.</p>
-   */
-  StageVariables?: { [key: string]: string };
-
-  /**
-   * <p>The timestamp when the stage was last updated.</p>
-   */
-  LastUpdatedDate?: Date;
-
-  /**
    * <p>Settings for logging access in this stage.</p>
    */
   AccessLogSettings?: AccessLogSettings;
-
-  /**
-   * <p>Route settings for the stage, by routeKey.</p>
-   */
-  RouteSettings?: { [key: string]: RouteSettings };
 
   /**
    * <p>Specifies whether a stage is managed by API Gateway. If you created an API using quick create, the $default stage is managed by API Gateway. You can't modify the $default stage.</p>
@@ -912,19 +882,14 @@ export interface Stage {
   AutoDeploy?: boolean;
 
   /**
+   * <p>The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.</p>
+   */
+  ClientCertificateId?: string;
+
+  /**
    * <p>The timestamp when the stage was created.</p>
    */
   CreatedDate?: Date;
-
-  /**
-   * <p>Describes the status of the last deployment of a stage. Supported only for stages with autoDeploy enabled.</p>
-   */
-  LastDeploymentStatusMessage?: string;
-
-  /**
-   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
-   */
-  Tags?: { [key: string]: string };
 
   /**
    * <p>Default route settings for the stage.</p>
@@ -932,9 +897,44 @@ export interface Stage {
   DefaultRouteSettings?: RouteSettings;
 
   /**
-   * <p>The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.</p>
+   * <p>The identifier of the Deployment that the Stage is associated with. Can't be updated if autoDeploy is enabled.</p>
    */
-  ClientCertificateId?: string;
+  DeploymentId?: string;
+
+  /**
+   * <p>The description of the stage.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Describes the status of the last deployment of a stage. Supported only for stages with autoDeploy enabled.</p>
+   */
+  LastDeploymentStatusMessage?: string;
+
+  /**
+   * <p>The timestamp when the stage was last updated.</p>
+   */
+  LastUpdatedDate?: Date;
+
+  /**
+   * <p>Route settings for the stage, by routeKey.</p>
+   */
+  RouteSettings?: { [key: string]: RouteSettings };
+
+  /**
+   * <p>The name of the stage.</p>
+   */
+  StageName: string | undefined;
+
+  /**
+   * <p>A map that defines the stage variables for a stage resource. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.</p>
+   */
+  StageVariables?: { [key: string]: string };
+
+  /**
+   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace Stage {
@@ -960,9 +960,14 @@ export enum VpcLinkVersion {
  */
 export interface VpcLink {
   /**
-   * <p>A message summarizing the cause of the status of the VPC link.</p>
+   * <p>The timestamp when the VPC link was created.</p>
    */
-  VpcLinkStatusMessage?: string;
+  CreatedDate?: Date;
+
+  /**
+   * <p>The name of the VPC link.</p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>A list of security group IDs for the VPC link.</p>
@@ -975,14 +980,9 @@ export interface VpcLink {
   SubnetIds: string[] | undefined;
 
   /**
-   * <p>The version of the VPC link.</p>
+   * <p>Tags for the VPC link.</p>
    */
-  VpcLinkVersion?: VpcLinkVersion | string;
-
-  /**
-   * <p>The name of the VPC link.</p>
-   */
-  Name: string | undefined;
+  Tags?: { [key: string]: string };
 
   /**
    * <p>The ID of the VPC link.</p>
@@ -990,19 +990,19 @@ export interface VpcLink {
   VpcLinkId: string | undefined;
 
   /**
-   * <p>Tags for the VPC link.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   * <p>The timestamp when the VPC link was created.</p>
-   */
-  CreatedDate?: Date;
-
-  /**
    * <p>The status of the VPC link.</p>
    */
   VpcLinkStatus?: VpcLinkStatus | string;
+
+  /**
+   * <p>A message summarizing the cause of the status of the VPC link.</p>
+   */
+  VpcLinkStatusMessage?: string;
+
+  /**
+   * <p>The version of the VPC link.</p>
+   */
+  VpcLinkVersion?: VpcLinkVersion | string;
 }
 
 export namespace VpcLink {
@@ -1069,49 +1069,9 @@ export interface CreateApiRequest {
   ApiKeySelectionExpression?: string;
 
   /**
-   * <p>The description of the API.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
-   */
-  DisableExecuteApiEndpoint?: boolean;
-
-  /**
-   * <p>A version identifier for the API.</p>
-   */
-  Version?: string;
-
-  /**
-   * <p>This property is part of quick create. If you don't specify a routeKey, a default route of $default is created. The $default route acts as a catch-all for any request made to your API, for a particular stage. The $default route key can't be modified. You can add routes after creating the API, and you can update the route keys of additional routes. Supported only for HTTP APIs.</p>
-   */
-  RouteKey?: string;
-
-  /**
    * <p>A CORS configuration. Supported only for HTTP APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html">Configuring CORS</a> for more information.</p>
    */
   CorsConfiguration?: Cors;
-
-  /**
-   * <p>The API protocol.</p>
-   */
-  ProtocolType: ProtocolType | string | undefined;
-
-  /**
-   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   * <p>The name of the API.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
-   */
-  DisableSchemaValidation?: boolean;
 
   /**
    * <p>This property is part of quick create. It specifies the credentials required for the integration, if any. For a Lambda integration, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, specify null. Currently, this property is not used for HTTP integrations. Supported only for HTTP APIs.</p>
@@ -1119,14 +1079,54 @@ export interface CreateApiRequest {
   CredentialsArn?: string;
 
   /**
+   * <p>The description of the API.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
+   */
+  DisableSchemaValidation?: boolean;
+
+  /**
+   * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
+   */
+  DisableExecuteApiEndpoint?: boolean;
+
+  /**
+   * <p>The name of the API.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The API protocol.</p>
+   */
+  ProtocolType: ProtocolType | string | undefined;
+
+  /**
+   * <p>This property is part of quick create. If you don't specify a routeKey, a default route of $default is created. The $default route acts as a catch-all for any request made to your API, for a particular stage. The $default route key can't be modified. You can add routes after creating the API, and you can update the route keys of additional routes. Supported only for HTTP APIs.</p>
+   */
+  RouteKey?: string;
+
+  /**
    * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be ${request.method} ${request.path}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
    */
   RouteSelectionExpression?: string;
 
   /**
+   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
    * <p>This property is part of quick create. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively. Supported only for HTTP APIs.</p>
    */
   Target?: string;
+
+  /**
+   * <p>A version identifier for the API.</p>
+   */
+  Version?: string;
 }
 
 export namespace CreateApiRequest {
@@ -1137,44 +1137,14 @@ export namespace CreateApiRequest {
 
 export interface CreateApiResponse {
   /**
-   * <p>The timestamp when the API was created.</p>
-   */
-  CreatedDate?: Date;
-
-  /**
    * <p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
    */
   ApiEndpoint?: string;
 
   /**
-   * <p>A version identifier for the API.</p>
+   * <p>Specifies whether an API is managed by API Gateway. You can't update or delete a managed API by using API Gateway. A managed API can be deleted only through the tooling or service that created it.</p>
    */
-  Version?: string;
-
-  /**
-   * <p>The API protocol.</p>
-   */
-  ProtocolType?: ProtocolType | string;
-
-  /**
-   * <p>A CORS configuration. Supported only for HTTP APIs.</p>
-   */
-  CorsConfiguration?: Cors;
-
-  /**
-   * <p>A collection of tags associated with the API.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   * <p>The description of the API.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The warning messages reported when failonwarnings is turned on during API import.</p>
-   */
-  Warnings?: string[];
+  ApiGatewayManaged?: boolean;
 
   /**
    * <p>The API ID.</p>
@@ -1187,9 +1157,24 @@ export interface CreateApiResponse {
   ApiKeySelectionExpression?: string;
 
   /**
-   * <p>The validation information during API import. This may include particular properties of your OpenAPI definition which are ignored during import. Supported only for HTTP APIs.</p>
+   * <p>A CORS configuration. Supported only for HTTP APIs.</p>
    */
-  ImportInfo?: string[];
+  CorsConfiguration?: Cors;
+
+  /**
+   * <p>The timestamp when the API was created.</p>
+   */
+  CreatedDate?: Date;
+
+  /**
+   * <p>The description of the API.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
+   */
+  DisableSchemaValidation?: boolean;
 
   /**
    * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
@@ -1197,14 +1182,9 @@ export interface CreateApiResponse {
   DisableExecuteApiEndpoint?: boolean;
 
   /**
-   * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be ${request.method} ${request.path}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
+   * <p>The validation information during API import. This may include particular properties of your OpenAPI definition which are ignored during import. Supported only for HTTP APIs.</p>
    */
-  RouteSelectionExpression?: string;
-
-  /**
-   * <p>Specifies whether an API is managed by API Gateway. You can't update or delete a managed API by using API Gateway. A managed API can be deleted only through the tooling or service that created it.</p>
-   */
-  ApiGatewayManaged?: boolean;
+  ImportInfo?: string[];
 
   /**
    * <p>The name of the API.</p>
@@ -1212,9 +1192,29 @@ export interface CreateApiResponse {
   Name?: string;
 
   /**
-   * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
+   * <p>The API protocol.</p>
    */
-  DisableSchemaValidation?: boolean;
+  ProtocolType?: ProtocolType | string;
+
+  /**
+   * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be ${request.method} ${request.path}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
+   */
+  RouteSelectionExpression?: string;
+
+  /**
+   * <p>A collection of tags associated with the API.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>A version identifier for the API.</p>
+   */
+  Version?: string;
+
+  /**
+   * <p>The warning messages reported when failonwarnings is turned on during API import.</p>
+   */
+  Warnings?: string[];
 }
 
 export namespace CreateApiResponse {
@@ -1274,14 +1274,9 @@ export namespace TooManyRequestsException {
  */
 export interface CreateApiMappingRequest {
   /**
-   * <p>The API stage.</p>
+   * <p>The API identifier.</p>
    */
-  Stage: string | undefined;
-
-  /**
-   * <p>The domain name.</p>
-   */
-  DomainName: string | undefined;
+  ApiId: string | undefined;
 
   /**
    * The API mapping key.
@@ -1289,9 +1284,14 @@ export interface CreateApiMappingRequest {
   ApiMappingKey?: string;
 
   /**
-   * <p>The API identifier.</p>
+   * <p>The domain name.</p>
    */
-  ApiId: string | undefined;
+  DomainName: string | undefined;
+
+  /**
+   * <p>The API stage.</p>
+   */
+  Stage: string | undefined;
 }
 
 export namespace CreateApiMappingRequest {
@@ -1307,9 +1307,9 @@ export interface CreateApiMappingResponse {
   ApiId?: string;
 
   /**
-   * <p>The API stage.</p>
+   * <p>The API mapping identifier.</p>
    */
-  Stage?: string;
+  ApiMappingId?: string;
 
   /**
    * <p>The API mapping key.</p>
@@ -1317,9 +1317,9 @@ export interface CreateApiMappingResponse {
   ApiMappingKey?: string;
 
   /**
-   * <p>The API mapping identifier.</p>
+   * <p>The API stage.</p>
    */
-  ApiMappingId?: string;
+  Stage?: string;
 }
 
 export namespace CreateApiMappingResponse {
@@ -1333,9 +1333,9 @@ export namespace CreateApiMappingResponse {
  */
 export interface CreateAuthorizerRequest {
   /**
-   * <p>This parameter is not used.</p>
+   * <p>The API identifier.</p>
    */
-  IdentityValidationExpression?: string;
+  ApiId: string | undefined;
 
   /**
    * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, don't specify this parameter. Supported only for REQUEST authorizers.</p>
@@ -1343,9 +1343,19 @@ export interface CreateAuthorizerRequest {
   AuthorizerCredentialsArn?: string;
 
   /**
+   * <p>Specifies the format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers. Supported values are 1.0 and 2.0. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a>.</p>
+   */
+  AuthorizerPayloadFormatVersion?: string;
+
+  /**
    * <p>The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Supported only for HTTP API Lambda authorizers.</p>
    */
   AuthorizerResultTtlInSeconds?: number;
+
+  /**
+   * <p>The authorizer type. Specify REQUEST for a Lambda function using incoming request parameters. Specify JWT to use JSON Web Tokens (supported only for HTTP APIs).</p>
+   */
+  AuthorizerType: AuthorizerType | string | undefined;
 
   /**
    * <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>{account_id}</replaceable>:function:<replaceable>{lambda_function_name}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>{region}</replaceable>:lambda:path/<replaceable>{service_api}</replaceable>
@@ -1354,14 +1364,9 @@ export interface CreateAuthorizerRequest {
   AuthorizerUri?: string;
 
   /**
-   * <p>Represents the configuration of a JWT authorizer. Required for the JWT authorizer type. Supported only for HTTP APIs.</p>
+   * <p>Specifies whether a Lambda authorizer returns a response in a simple format. By default, a Lambda authorizer must return an IAM policy. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy. Supported only for HTTP APIs. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a></p>
    */
-  JwtConfiguration?: JWTConfiguration;
-
-  /**
-   * <p>The authorizer type. Specify REQUEST for a Lambda function using incoming request parameters. Specify JWT to use JSON Web Tokens (supported only for HTTP APIs).</p>
-   */
-  AuthorizerType: AuthorizerType | string | undefined;
+  EnableSimpleResponses?: boolean;
 
   /**
    * <p>The identity source for which authorization is requested.</p> <p>For a REQUEST authorizer, this is optional. The value is a set of one or more mapping expressions of the specified request parameters. The identity source can be headers, query string parameters, stage variables, and context parameters. For example, if an Auth header and a Name query string parameter are defined as identity sources, this value is route.request.header.Auth, route.request.querystring.Name for WebSocket APIs. For HTTP APIs, use selection expressions prefixed with $, for example, $request.header.Auth, $request.querystring.Name. These parameters are used to perform runtime validation for Lambda-based authorizers by verifying all of the identity-related request parameters are present in the request, not null, and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function. Otherwise, it returns a 401 Unauthorized response without calling the Lambda function. For HTTP APIs, identity sources are also used as the cache key when caching is enabled. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a>.</p> <p>For JWT, a single entry that specifies where to extract the JSON Web Token (JWT) from inbound requests. Currently only header-based and query parameter-based selections are supported, for example $request.header.Authorization.</p>
@@ -1369,19 +1374,14 @@ export interface CreateAuthorizerRequest {
   IdentitySource: string[] | undefined;
 
   /**
-   * <p>The API identifier.</p>
+   * <p>This parameter is not used.</p>
    */
-  ApiId: string | undefined;
+  IdentityValidationExpression?: string;
 
   /**
-   * <p>Specifies whether a Lambda authorizer returns a response in a simple format. By default, a Lambda authorizer must return an IAM policy. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy. Supported only for HTTP APIs. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a></p>
+   * <p>Represents the configuration of a JWT authorizer. Required for the JWT authorizer type. Supported only for HTTP APIs.</p>
    */
-  EnableSimpleResponses?: boolean;
-
-  /**
-   * <p>Specifies the format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers. Supported values are 1.0 and 2.0. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a>.</p>
-   */
-  AuthorizerPayloadFormatVersion?: string;
+  JwtConfiguration?: JWTConfiguration;
 
   /**
    * <p>The name of the authorizer.</p>
@@ -1397,10 +1397,9 @@ export namespace CreateAuthorizerRequest {
 
 export interface CreateAuthorizerResponse {
   /**
-   * <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>{account_id}</replaceable>:function:<replaceable>{lambda_function_name}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>{region}</replaceable>:lambda:path/<replaceable>{service_api}</replaceable>
-   *                , where <replaceable></replaceable>{region} is the same as the region hosting the Lambda function, path indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial /. For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations. Supported only for REQUEST authorizers.</p>
+   * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, don't specify this parameter. Supported only for REQUEST authorizers.</p>
    */
-  AuthorizerUri?: string;
+  AuthorizerCredentialsArn?: string;
 
   /**
    * <p>The authorizer identifier.</p>
@@ -1408,34 +1407,14 @@ export interface CreateAuthorizerResponse {
   AuthorizerId?: string;
 
   /**
-   * <p>Represents the configuration of a JWT authorizer. Required for the JWT authorizer type. Supported only for HTTP APIs.</p>
-   */
-  JwtConfiguration?: JWTConfiguration;
-
-  /**
-   * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, don't specify this parameter. Supported only for REQUEST authorizers.</p>
-   */
-  AuthorizerCredentialsArn?: string;
-
-  /**
    * <p>Specifies the format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers. Supported values are 1.0 and 2.0. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a>.</p>
    */
   AuthorizerPayloadFormatVersion?: string;
 
   /**
-   * <p>The name of the authorizer.</p>
+   * <p>The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Supported only for HTTP API Lambda authorizers.</p>
    */
-  Name?: string;
-
-  /**
-   * <p>The validation expression does not apply to the REQUEST authorizer.</p>
-   */
-  IdentityValidationExpression?: string;
-
-  /**
-   * <p>Specifies whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy. Supported only for HTTP APIs. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a></p>
-   */
-  EnableSimpleResponses?: boolean;
+  AuthorizerResultTtlInSeconds?: number;
 
   /**
    * <p>The authorizer type. Specify REQUEST for a Lambda function using incoming request parameters. Specify JWT to use JSON Web Tokens (supported only for HTTP APIs).</p>
@@ -1443,14 +1422,35 @@ export interface CreateAuthorizerResponse {
   AuthorizerType?: AuthorizerType | string;
 
   /**
+   * <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>{account_id}</replaceable>:function:<replaceable>{lambda_function_name}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>{region}</replaceable>:lambda:path/<replaceable>{service_api}</replaceable>
+   *                , where <replaceable></replaceable>{region} is the same as the region hosting the Lambda function, path indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial /. For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations. Supported only for REQUEST authorizers.</p>
+   */
+  AuthorizerUri?: string;
+
+  /**
+   * <p>Specifies whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy. Supported only for HTTP APIs. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a></p>
+   */
+  EnableSimpleResponses?: boolean;
+
+  /**
    * <p>The identity source for which authorization is requested.</p> <p>For a REQUEST authorizer, this is optional. The value is a set of one or more mapping expressions of the specified request parameters. The identity source can be headers, query string parameters, stage variables, and context parameters. For example, if an Auth header and a Name query string parameter are defined as identity sources, this value is route.request.header.Auth, route.request.querystring.Name for WebSocket APIs. For HTTP APIs, use selection expressions prefixed with $, for example, $request.header.Auth, $request.querystring.Name. These parameters are used to perform runtime validation for Lambda-based authorizers by verifying all of the identity-related request parameters are present in the request, not null, and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function. Otherwise, it returns a 401 Unauthorized response without calling the Lambda function. For HTTP APIs, identity sources are also used as the cache key when caching is enabled. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a>.</p> <p>For JWT, a single entry that specifies where to extract the JSON Web Token (JWT) from inbound requests. Currently only header-based and query parameter-based selections are supported, for example $request.header.Authorization.</p>
    */
   IdentitySource?: string[];
 
   /**
-   * <p>The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Supported only for HTTP API Lambda authorizers.</p>
+   * <p>The validation expression does not apply to the REQUEST authorizer.</p>
    */
-  AuthorizerResultTtlInSeconds?: number;
+  IdentityValidationExpression?: string;
+
+  /**
+   * <p>Represents the configuration of a JWT authorizer. Required for the JWT authorizer type. Supported only for HTTP APIs.</p>
+   */
+  JwtConfiguration?: JWTConfiguration;
+
+  /**
+   * <p>The name of the authorizer.</p>
+   */
+  Name?: string;
 }
 
 export namespace CreateAuthorizerResponse {
@@ -1469,14 +1469,14 @@ export interface CreateDeploymentRequest {
   ApiId: string | undefined;
 
   /**
-   * <p>The name of the Stage resource for the Deployment resource to create.</p>
-   */
-  StageName?: string;
-
-  /**
    * <p>The description for the deployment resource.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The name of the Stage resource for the Deployment resource to create.</p>
+   */
+  StageName?: string;
 }
 
 export namespace CreateDeploymentRequest {
@@ -1492,9 +1492,9 @@ export interface CreateDeploymentResponse {
   AutoDeployed?: boolean;
 
   /**
-   * <p>The description for the deployment.</p>
+   * <p>The date and time when the Deployment resource was created.</p>
    */
-  Description?: string;
+  CreatedDate?: Date;
 
   /**
    * <p>The identifier for the deployment.</p>
@@ -1507,14 +1507,14 @@ export interface CreateDeploymentResponse {
   DeploymentStatus?: DeploymentStatus | string;
 
   /**
-   * <p>The date and time when the Deployment resource was created.</p>
-   */
-  CreatedDate?: Date;
-
-  /**
    * <p>May contain additional feedback on the status of an API deployment.</p>
    */
   DeploymentStatusMessage?: string;
+
+  /**
+   * <p>The description for the deployment.</p>
+   */
+  Description?: string;
 }
 
 export namespace CreateDeploymentResponse {
@@ -1546,14 +1546,9 @@ export namespace MutualTlsAuthenticationInput {
  */
 export interface CreateDomainNameRequest {
   /**
-   * <p>The collection of tags associated with a domain name.</p>
+   * <p>The domain name.</p>
    */
-  Tags?: { [key: string]: string };
-
-  /**
-   * <p>The mutual TLS authentication configuration for a custom domain name.</p>
-   */
-  MutualTlsAuthentication?: MutualTlsAuthenticationInput;
+  DomainName: string | undefined;
 
   /**
    * <p>The domain name configurations.</p>
@@ -1561,9 +1556,14 @@ export interface CreateDomainNameRequest {
   DomainNameConfigurations?: DomainNameConfiguration[];
 
   /**
-   * <p>The domain name.</p>
+   * <p>The mutual TLS authentication configuration for a custom domain name.</p>
    */
-  DomainName: string | undefined;
+  MutualTlsAuthentication?: MutualTlsAuthenticationInput;
+
+  /**
+   * <p>The collection of tags associated with a domain name.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateDomainNameRequest {
@@ -1574,9 +1574,9 @@ export namespace CreateDomainNameRequest {
 
 export interface CreateDomainNameResponse {
   /**
-   * <p>The domain name configurations.</p>
+   * <p>The API mapping selection expression.</p>
    */
-  DomainNameConfigurations?: DomainNameConfiguration[];
+  ApiMappingSelectionExpression?: string;
 
   /**
    * <p>The name of the DomainName resource.</p>
@@ -1584,19 +1584,19 @@ export interface CreateDomainNameResponse {
   DomainName?: string;
 
   /**
-   * <p>The API mapping selection expression.</p>
+   * <p>The domain name configurations.</p>
    */
-  ApiMappingSelectionExpression?: string;
-
-  /**
-   * <p>The collection of tags associated with a domain name.</p>
-   */
-  Tags?: { [key: string]: string };
+  DomainNameConfigurations?: DomainNameConfiguration[];
 
   /**
    * <p>The mutual TLS authentication configuration for a custom domain name.</p>
    */
   MutualTlsAuthentication?: MutualTlsAuthentication;
+
+  /**
+   * <p>The collection of tags associated with a domain name.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateDomainNameResponse {
@@ -1626,34 +1626,9 @@ export namespace TlsConfigInput {
  */
 export interface CreateIntegrationRequest {
   /**
-   * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
-   */
-  PayloadFormatVersion?: string;
-
-  /**
-   * <p>Supported only for HTTP API AWS_PROXY integrations. Specifies the AWS service action to invoke. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html">Integration subtype reference</a>.</p>
-   */
-  IntegrationSubtype?: string;
-
-  /**
    * <p>The API identifier.</p>
    */
   ApiId: string | undefined;
-
-  /**
-   * <p>The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.</p>
-   */
-  TlsConfig?: TlsConfigInput;
-
-  /**
-   * <p>Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.</p>
-   */
-  TimeoutInMillis?: number;
-
-  /**
-   * <p>For a Lambda integration, specify the URI of a Lambda function.</p> <p>For an HTTP integration, specify a fully-qualified URL.</p> <p>For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service. If you specify the ARN of an AWS Cloud Map service, API Gateway uses DiscoverInstances to identify resources. You can use query parameters to target specific resources. To learn more, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html">DiscoverInstances</a>. For private integrations, all resources must be owned by the same AWS account.</p>
-   */
-  IntegrationUri?: string;
 
   /**
    * <p>The ID of the VPC link for a private integration. Supported only for HTTP APIs.</p>
@@ -1661,14 +1636,19 @@ export interface CreateIntegrationRequest {
   ConnectionId?: string;
 
   /**
-   * <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value. Supported only for WebSocket APIs.</p>
+   * <p>The type of the network connection to the integration endpoint. Specify INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and resources in a VPC. The default value is INTERNET.</p>
    */
-  RequestTemplates?: { [key: string]: string };
+  ConnectionType?: ConnectionType | string;
 
   /**
-   * <p>The template selection expression for the integration.</p>
+   * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
    */
-  TemplateSelectionExpression?: string;
+  ContentHandlingStrategy?: ContentHandlingStrategy | string;
+
+  /**
+   * <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, specify null.</p>
+   */
+  CredentialsArn?: string;
 
   /**
    * <p>The description of the integration.</p>
@@ -1681,14 +1661,29 @@ export interface CreateIntegrationRequest {
   IntegrationMethod?: string;
 
   /**
+   * <p>Supported only for HTTP API AWS_PROXY integrations. Specifies the AWS service action to invoke. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html">Integration subtype reference</a>.</p>
+   */
+  IntegrationSubtype?: string;
+
+  /**
    * <p>The integration type of an integration. One of the following:</p> <p>AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration. Supported only for WebSocket APIs.</p> <p>AWS_PROXY: for integrating the route or method request with a Lambda function or other AWS service action. This integration is also referred to as a Lambda proxy integration.</p> <p>HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration. Supported only for WebSocket APIs.</p> <p>HTTP_PROXY: for integrating the route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration. For HTTP API private integrations, use an HTTP_PROXY integration.</p> <p>MOCK: for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend. Supported only for WebSocket APIs.</p>
    */
   IntegrationType: IntegrationType | string | undefined;
 
   /**
+   * <p>For a Lambda integration, specify the URI of a Lambda function.</p> <p>For an HTTP integration, specify a fully-qualified URL.</p> <p>For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service. If you specify the ARN of an AWS Cloud Map service, API Gateway uses DiscoverInstances to identify resources. You can use query parameters to target specific resources. To learn more, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html">DiscoverInstances</a>. For private integrations, all resources must be owned by the same AWS account.</p>
+   */
+  IntegrationUri?: string;
+
+  /**
    * <p>Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER. Supported only for WebSocket APIs.</p> <p>WHEN_NO_MATCH passes the request body for unmapped content types through to the integration backend without transformation.</p> <p>NEVER rejects unmapped content types with an HTTP 415 Unsupported Media Type response.</p> <p>WHEN_NO_TEMPLATES allows pass-through when the integration has no content types mapped to templates. However, if there is at least one content type defined, unmapped content types will be rejected with the same HTTP 415 Unsupported Media Type response.</p>
    */
   PassthroughBehavior?: PassthroughBehavior | string;
+
+  /**
+   * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
+   */
+  PayloadFormatVersion?: string;
 
   /**
    * <p>For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the backend. The method request parameter value must match the pattern of method.request.<replaceable>{location}</replaceable>.<replaceable>{name}</replaceable>
@@ -1697,19 +1692,24 @@ export interface CreateIntegrationRequest {
   RequestParameters?: { [key: string]: string };
 
   /**
-   * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
+   * <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value. Supported only for WebSocket APIs.</p>
    */
-  ContentHandlingStrategy?: ContentHandlingStrategy | string;
+  RequestTemplates?: { [key: string]: string };
 
   /**
-   * <p>The type of the network connection to the integration endpoint. Specify INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and resources in a VPC. The default value is INTERNET.</p>
+   * <p>The template selection expression for the integration.</p>
    */
-  ConnectionType?: ConnectionType | string;
+  TemplateSelectionExpression?: string;
 
   /**
-   * <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, specify null.</p>
+   * <p>Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.</p>
    */
-  CredentialsArn?: string;
+  TimeoutInMillis?: number;
+
+  /**
+   * <p>The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.</p>
+   */
+  TlsConfig?: TlsConfigInput;
 }
 
 export namespace CreateIntegrationRequest {
@@ -1720,9 +1720,9 @@ export namespace CreateIntegrationRequest {
 
 export interface CreateIntegrationResult {
   /**
-   * <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value. Supported only for WebSocket APIs.</p>
+   * <p>Specifies whether an integration is managed by API Gateway. If you created an API using using quick create, the resulting integration is managed by API Gateway. You can update a managed integration, but you can't delete it.</p>
    */
-  RequestTemplates?: { [key: string]: string };
+  ApiGatewayManaged?: boolean;
 
   /**
    * <p>The ID of the VPC link for a private integration. Supported only for HTTP APIs.</p>
@@ -1730,14 +1730,24 @@ export interface CreateIntegrationResult {
   ConnectionId?: string;
 
   /**
-   * <p>For a Lambda integration, specify the URI of a Lambda function.</p> <p>For an HTTP integration, specify a fully-qualified URL.</p> <p>For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service. If you specify the ARN of an AWS Cloud Map service, API Gateway uses DiscoverInstances to identify resources. You can use query parameters to target specific resources. To learn more, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html">DiscoverInstances</a>. For private integrations, all resources must be owned by the same AWS account.</p>
+   * <p>The type of the network connection to the integration endpoint. Specify INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and resources in a VPC. The default value is INTERNET.</p>
    */
-  IntegrationUri?: string;
+  ConnectionType?: ConnectionType | string;
 
   /**
-   * <p>Supported only for HTTP API AWS_PROXY integrations. Specifies the AWS service action to invoke. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html">Integration subtype reference</a>.</p>
+   * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
    */
-  IntegrationSubtype?: string;
+  ContentHandlingStrategy?: ContentHandlingStrategy | string;
+
+  /**
+   * <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, specify null.</p>
+   */
+  CredentialsArn?: string;
+
+  /**
+   * <p>Represents the description of an integration.</p>
+   */
+  Description?: string;
 
   /**
    * <p>Represents the identifier of an integration.</p>
@@ -1745,9 +1755,34 @@ export interface CreateIntegrationResult {
   IntegrationId?: string;
 
   /**
-   * <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, specify null.</p>
+   * <p>Specifies the integration's HTTP method type.</p>
    */
-  CredentialsArn?: string;
+  IntegrationMethod?: string;
+
+  /**
+   * <p>The integration response selection expression for the integration. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions">Integration Response Selection Expressions</a>.</p>
+   */
+  IntegrationResponseSelectionExpression?: string;
+
+  /**
+   * <p>Supported only for HTTP API AWS_PROXY integrations. Specifies the AWS service action to invoke. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html">Integration subtype reference</a>.</p>
+   */
+  IntegrationSubtype?: string;
+
+  /**
+   * <p>The integration type of an integration. One of the following:</p> <p>AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration. Supported only for WebSocket APIs.</p> <p>AWS_PROXY: for integrating the route or method request with a Lambda function or other AWS service action. This integration is also referred to as a Lambda proxy integration.</p> <p>HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration. Supported only for WebSocket APIs.</p> <p>HTTP_PROXY: for integrating the route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration.</p> <p>MOCK: for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend. Supported only for WebSocket APIs.</p>
+   */
+  IntegrationType?: IntegrationType | string;
+
+  /**
+   * <p>For a Lambda integration, specify the URI of a Lambda function.</p> <p>For an HTTP integration, specify a fully-qualified URL.</p> <p>For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service. If you specify the ARN of an AWS Cloud Map service, API Gateway uses DiscoverInstances to identify resources. You can use query parameters to target specific resources. To learn more, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html">DiscoverInstances</a>. For private integrations, all resources must be owned by the same AWS account.</p>
+   */
+  IntegrationUri?: string;
+
+  /**
+   * <p>Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER. Supported only for WebSocket APIs.</p> <p>WHEN_NO_MATCH passes the request body for unmapped content types through to the integration backend without transformation.</p> <p>NEVER rejects unmapped content types with an HTTP 415 Unsupported Media Type response.</p> <p>WHEN_NO_TEMPLATES allows pass-through when the integration has no content types mapped to templates. However, if there is at least one content type defined, unmapped content types will be rejected with the same HTTP 415 Unsupported Media Type response.</p>
+   */
+  PassthroughBehavior?: PassthroughBehavior | string;
 
   /**
    * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
@@ -1761,44 +1796,14 @@ export interface CreateIntegrationResult {
   RequestParameters?: { [key: string]: string };
 
   /**
-   * <p>Specifies the integration's HTTP method type.</p>
+   * <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value. Supported only for WebSocket APIs.</p>
    */
-  IntegrationMethod?: string;
-
-  /**
-   * <p>Represents the description of an integration.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER. Supported only for WebSocket APIs.</p> <p>WHEN_NO_MATCH passes the request body for unmapped content types through to the integration backend without transformation.</p> <p>NEVER rejects unmapped content types with an HTTP 415 Unsupported Media Type response.</p> <p>WHEN_NO_TEMPLATES allows pass-through when the integration has no content types mapped to templates. However, if there is at least one content type defined, unmapped content types will be rejected with the same HTTP 415 Unsupported Media Type response.</p>
-   */
-  PassthroughBehavior?: PassthroughBehavior | string;
-
-  /**
-   * <p>Specifies whether an integration is managed by API Gateway. If you created an API using using quick create, the resulting integration is managed by API Gateway. You can update a managed integration, but you can't delete it.</p>
-   */
-  ApiGatewayManaged?: boolean;
+  RequestTemplates?: { [key: string]: string };
 
   /**
    * <p>The template selection expression for the integration. Supported only for WebSocket APIs.</p>
    */
   TemplateSelectionExpression?: string;
-
-  /**
-   * <p>The type of the network connection to the integration endpoint. Specify INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and resources in a VPC. The default value is INTERNET.</p>
-   */
-  ConnectionType?: ConnectionType | string;
-
-  /**
-   * <p>The integration response selection expression for the integration. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions">Integration Response Selection Expressions</a>.</p>
-   */
-  IntegrationResponseSelectionExpression?: string;
-
-  /**
-   * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
-   */
-  ContentHandlingStrategy?: ContentHandlingStrategy | string;
 
   /**
    * <p>Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.</p>
@@ -1809,11 +1814,6 @@ export interface CreateIntegrationResult {
    * <p>The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.</p>
    */
   TlsConfig?: TlsConfig;
-
-  /**
-   * <p>The integration type of an integration. One of the following:</p> <p>AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration. Supported only for WebSocket APIs.</p> <p>AWS_PROXY: for integrating the route or method request with a Lambda function or other AWS service action. This integration is also referred to as a Lambda proxy integration.</p> <p>HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration. Supported only for WebSocket APIs.</p> <p>HTTP_PROXY: for integrating the route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration.</p> <p>MOCK: for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend. Supported only for WebSocket APIs.</p>
-   */
-  IntegrationType?: IntegrationType | string;
 }
 
 export namespace CreateIntegrationResult {
@@ -1827,9 +1827,9 @@ export namespace CreateIntegrationResult {
  */
 export interface CreateIntegrationResponseRequest {
   /**
-   * <p>The integration response key.</p>
+   * <p>The API identifier.</p>
    */
-  IntegrationResponseKey: string | undefined;
+  ApiId: string | undefined;
 
   /**
    * <p>Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
@@ -1837,9 +1837,14 @@ export interface CreateIntegrationResponseRequest {
   ContentHandlingStrategy?: ContentHandlingStrategy | string;
 
   /**
-   * <p>The API identifier.</p>
+   * <p>The integration ID.</p>
    */
-  ApiId: string | undefined;
+  IntegrationId: string | undefined;
+
+  /**
+   * <p>The integration response key.</p>
+   */
+  IntegrationResponseKey: string | undefined;
 
   /**
    * <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.{name}, where {name} is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.{name} or integration.response.body.{JSON-expression}, where {name} is a valid and unique response header name and {JSON-expression} is a valid JSON expression without the $ prefix.</p>
@@ -1855,11 +1860,6 @@ export interface CreateIntegrationResponseRequest {
    * <p>The template selection expression for the integration response. Supported only for WebSocket APIs.</p>
    */
   TemplateSelectionExpression?: string;
-
-  /**
-   * <p>The integration ID.</p>
-   */
-  IntegrationId: string | undefined;
 }
 
 export namespace CreateIntegrationResponseRequest {
@@ -1885,9 +1885,9 @@ export interface CreateIntegrationResponseResponse {
   IntegrationResponseKey?: string;
 
   /**
-   * <p>The template selection expressions for the integration response.</p>
+   * <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.{name}, where name is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.{name} or integration.response.body.{JSON-expression}, where name is a valid and unique response header name and JSON-expression is a valid JSON expression without the $ prefix.</p>
    */
-  TemplateSelectionExpression?: string;
+  ResponseParameters?: { [key: string]: string };
 
   /**
    * <p>The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.</p>
@@ -1895,9 +1895,9 @@ export interface CreateIntegrationResponseResponse {
   ResponseTemplates?: { [key: string]: string };
 
   /**
-   * <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.{name}, where name is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.{name} or integration.response.body.{JSON-expression}, where name is a valid and unique response header name and JSON-expression is a valid JSON expression without the $ prefix.</p>
+   * <p>The template selection expressions for the integration response.</p>
    */
-  ResponseParameters?: { [key: string]: string };
+  TemplateSelectionExpression?: string;
 }
 
 export namespace CreateIntegrationResponseResponse {
@@ -1911,14 +1911,14 @@ export namespace CreateIntegrationResponseResponse {
  */
 export interface CreateModelRequest {
   /**
+   * <p>The API identifier.</p>
+   */
+  ApiId: string | undefined;
+
+  /**
    * <p>The content-type for the model, for example, "application/json".</p>
    */
   ContentType?: string;
-
-  /**
-   * <p>The schema for the model. For application/json models, this should be JSON schema draft 4 model.</p>
-   */
-  Schema: string | undefined;
 
   /**
    * <p>The description of the model.</p>
@@ -1931,9 +1931,9 @@ export interface CreateModelRequest {
   Name: string | undefined;
 
   /**
-   * <p>The API identifier.</p>
+   * <p>The schema for the model. For application/json models, this should be JSON schema draft 4 model.</p>
    */
-  ApiId: string | undefined;
+  Schema: string | undefined;
 }
 
 export namespace CreateModelRequest {
@@ -1944,9 +1944,9 @@ export namespace CreateModelRequest {
 
 export interface CreateModelResponse {
   /**
-   * <p>The model identifier.</p>
+   * <p>The content-type for the model, for example, "application/json".</p>
    */
-  ModelId?: string;
+  ContentType?: string;
 
   /**
    * <p>The description of the model.</p>
@@ -1954,19 +1954,19 @@ export interface CreateModelResponse {
   Description?: string;
 
   /**
-   * <p>The content-type for the model, for example, "application/json".</p>
+   * <p>The model identifier.</p>
    */
-  ContentType?: string;
-
-  /**
-   * <p>The schema for the model. For application/json models, this should be JSON schema draft 4 model.</p>
-   */
-  Schema?: string;
+  ModelId?: string;
 
   /**
    * <p>The name of the model. Must be alphanumeric.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The schema for the model. For application/json models, this should be JSON schema draft 4 model.</p>
+   */
+  Schema?: string;
 }
 
 export namespace CreateModelResponse {
@@ -1980,24 +1980,9 @@ export namespace CreateModelResponse {
  */
 export interface CreateRouteRequest {
   /**
-   * <p>The target for the route.</p>
-   */
-  Target?: string;
-
-  /**
-   * <p>The request models for the route. Supported only for WebSocket APIs.</p>
-   */
-  RequestModels?: { [key: string]: string };
-
-  /**
    * <p>The API identifier.</p>
    */
   ApiId: string | undefined;
-
-  /**
-   * <p>The operation name for the route.</p>
-   */
-  OperationName?: string;
 
   /**
    * <p>Specifies whether an API key is required for the route. Supported only for WebSocket APIs.</p>
@@ -2010,9 +1995,9 @@ export interface CreateRouteRequest {
   AuthorizationScopes?: string[];
 
   /**
-   * <p>The request parameters for the route. Supported only for WebSocket APIs.</p>
+   * <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer.</p>
    */
-  RequestParameters?: { [key: string]: ParameterConstraints };
+  AuthorizationType?: AuthorizationType | string;
 
   /**
    * <p>The identifier of the Authorizer resource to be associated with this route. The authorizer identifier is generated by API Gateway when you created the authorizer.</p>
@@ -2020,14 +2005,24 @@ export interface CreateRouteRequest {
   AuthorizerId?: string;
 
   /**
-   * <p>The route response selection expression for the route. Supported only for WebSocket APIs.</p>
+   * <p>The model selection expression for the route. Supported only for WebSocket APIs.</p>
    */
-  RouteResponseSelectionExpression?: string;
+  ModelSelectionExpression?: string;
 
   /**
-   * <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer.</p>
+   * <p>The operation name for the route.</p>
    */
-  AuthorizationType?: AuthorizationType | string;
+  OperationName?: string;
+
+  /**
+   * <p>The request models for the route. Supported only for WebSocket APIs.</p>
+   */
+  RequestModels?: { [key: string]: string };
+
+  /**
+   * <p>The request parameters for the route. Supported only for WebSocket APIs.</p>
+   */
+  RequestParameters?: { [key: string]: ParameterConstraints };
 
   /**
    * <p>The route key for the route.</p>
@@ -2035,9 +2030,14 @@ export interface CreateRouteRequest {
   RouteKey: string | undefined;
 
   /**
-   * <p>The model selection expression for the route. Supported only for WebSocket APIs.</p>
+   * <p>The route response selection expression for the route. Supported only for WebSocket APIs.</p>
    */
-  ModelSelectionExpression?: string;
+  RouteResponseSelectionExpression?: string;
+
+  /**
+   * <p>The target for the route.</p>
+   */
+  Target?: string;
 }
 
 export namespace CreateRouteRequest {
@@ -2048,9 +2048,24 @@ export namespace CreateRouteRequest {
 
 export interface CreateRouteResult {
   /**
-   * <p>The route response selection expression for the route. Supported only for WebSocket APIs.</p>
+   * <p>Specifies whether a route is managed by API Gateway. If you created an API using quick create, the $default route is managed by API Gateway. You can't modify the $default route key.</p>
    */
-  RouteResponseSelectionExpression?: string;
+  ApiGatewayManaged?: boolean;
+
+  /**
+   * <p>Specifies whether an API key is required for this route. Supported only for WebSocket APIs.</p>
+   */
+  ApiKeyRequired?: boolean;
+
+  /**
+   * <p>A list of authorization scopes configured on a route. The scopes are used with a JWT authorizer to authorize the method invocation. The authorization works by matching the route scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any route scope matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the route scope is configured, the client must provide an access token instead of an identity token for authorization purposes.</p>
+   */
+  AuthorizationScopes?: string[];
+
+  /**
+   * <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer.</p>
+   */
+  AuthorizationType?: AuthorizationType | string;
 
   /**
    * <p>The identifier of the Authorizer resource to be associated with this route. The authorizer identifier is generated by API Gateway when you created the authorizer.</p>
@@ -2063,34 +2078,9 @@ export interface CreateRouteResult {
   ModelSelectionExpression?: string;
 
   /**
-   * <p>The route ID.</p>
+   * <p>The operation name for the route.</p>
    */
-  RouteId?: string;
-
-  /**
-   * <p>The target for the route.</p>
-   */
-  Target?: string;
-
-  /**
-   * <p>The route key for the route.</p>
-   */
-  RouteKey?: string;
-
-  /**
-   * <p>Specifies whether an API key is required for this route. Supported only for WebSocket APIs.</p>
-   */
-  ApiKeyRequired?: boolean;
-
-  /**
-   * <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer.</p>
-   */
-  AuthorizationType?: AuthorizationType | string;
-
-  /**
-   * <p>Specifies whether a route is managed by API Gateway. If you created an API using quick create, the $default route is managed by API Gateway. You can't modify the $default route key.</p>
-   */
-  ApiGatewayManaged?: boolean;
+  OperationName?: string;
 
   /**
    * <p>The request models for the route. Supported only for WebSocket APIs.</p>
@@ -2098,19 +2088,29 @@ export interface CreateRouteResult {
   RequestModels?: { [key: string]: string };
 
   /**
-   * <p>A list of authorization scopes configured on a route. The scopes are used with a JWT authorizer to authorize the method invocation. The authorization works by matching the route scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any route scope matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the route scope is configured, the client must provide an access token instead of an identity token for authorization purposes.</p>
-   */
-  AuthorizationScopes?: string[];
-
-  /**
-   * <p>The operation name for the route.</p>
-   */
-  OperationName?: string;
-
-  /**
    * <p>The request parameters for the route. Supported only for WebSocket APIs.</p>
    */
   RequestParameters?: { [key: string]: ParameterConstraints };
+
+  /**
+   * <p>The route ID.</p>
+   */
+  RouteId?: string;
+
+  /**
+   * <p>The route key for the route.</p>
+   */
+  RouteKey?: string;
+
+  /**
+   * <p>The route response selection expression for the route. Supported only for WebSocket APIs.</p>
+   */
+  RouteResponseSelectionExpression?: string;
+
+  /**
+   * <p>The target for the route.</p>
+   */
+  Target?: string;
 }
 
 export namespace CreateRouteResult {
@@ -2124,19 +2124,14 @@ export namespace CreateRouteResult {
  */
 export interface CreateRouteResponseRequest {
   /**
-   * <p>The route response parameters.</p>
-   */
-  ResponseParameters?: { [key: string]: ParameterConstraints };
-
-  /**
    * <p>The API identifier.</p>
    */
   ApiId: string | undefined;
 
   /**
-   * <p>The route response key.</p>
+   * <p>The model selection expression for the route response. Supported only for WebSocket APIs.</p>
    */
-  RouteResponseKey: string | undefined;
+  ModelSelectionExpression?: string;
 
   /**
    * <p>The response models for the route response.</p>
@@ -2144,14 +2139,19 @@ export interface CreateRouteResponseRequest {
   ResponseModels?: { [key: string]: string };
 
   /**
+   * <p>The route response parameters.</p>
+   */
+  ResponseParameters?: { [key: string]: ParameterConstraints };
+
+  /**
    * <p>The route ID.</p>
    */
   RouteId: string | undefined;
 
   /**
-   * <p>The model selection expression for the route response. Supported only for WebSocket APIs.</p>
+   * <p>The route response key.</p>
    */
-  ModelSelectionExpression?: string;
+  RouteResponseKey: string | undefined;
 }
 
 export namespace CreateRouteResponseRequest {
@@ -2161,6 +2161,16 @@ export namespace CreateRouteResponseRequest {
 }
 
 export interface CreateRouteResponseResponse {
+  /**
+   * <p>Represents the model selection expression of a route response. Supported only for WebSocket APIs.</p>
+   */
+  ModelSelectionExpression?: string;
+
+  /**
+   * <p>Represents the response models of a route response.</p>
+   */
+  ResponseModels?: { [key: string]: string };
+
   /**
    * <p>Represents the response parameters of a route response.</p>
    */
@@ -2172,19 +2182,9 @@ export interface CreateRouteResponseResponse {
   RouteResponseId?: string;
 
   /**
-   * <p>Represents the model selection expression of a route response. Supported only for WebSocket APIs.</p>
-   */
-  ModelSelectionExpression?: string;
-
-  /**
    * <p>Represents the route response key of a route response.</p>
    */
   RouteResponseKey?: string;
-
-  /**
-   * <p>Represents the response models of a route response.</p>
-   */
-  ResponseModels?: { [key: string]: string };
 }
 
 export namespace CreateRouteResponseResponse {
@@ -2198,49 +2198,9 @@ export namespace CreateRouteResponseResponse {
  */
 export interface CreateStageRequest {
   /**
-   * <p>Specifies whether updates to an API automatically trigger a new deployment. The default value is false.</p>
-   */
-  AutoDeploy?: boolean;
-
-  /**
-   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   * <p>The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.</p>
-   */
-  ClientCertificateId?: string;
-
-  /**
-   * <p>The name of the stage.</p>
-   */
-  StageName: string | undefined;
-
-  /**
-   * <p>The default route settings for the stage.</p>
-   */
-  DefaultRouteSettings?: RouteSettings;
-
-  /**
-   * <p>A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.</p>
-   */
-  StageVariables?: { [key: string]: string };
-
-  /**
-   * <p>Route settings for the stage, by routeKey.</p>
-   */
-  RouteSettings?: { [key: string]: RouteSettings };
-
-  /**
    * <p>Settings for logging access in this stage.</p>
    */
   AccessLogSettings?: AccessLogSettings;
-
-  /**
-   * <p>The deployment identifier of the API stage.</p>
-   */
-  DeploymentId?: string;
 
   /**
    * <p>The API identifier.</p>
@@ -2248,9 +2208,49 @@ export interface CreateStageRequest {
   ApiId: string | undefined;
 
   /**
+   * <p>Specifies whether updates to an API automatically trigger a new deployment. The default value is false.</p>
+   */
+  AutoDeploy?: boolean;
+
+  /**
+   * <p>The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.</p>
+   */
+  ClientCertificateId?: string;
+
+  /**
+   * <p>The default route settings for the stage.</p>
+   */
+  DefaultRouteSettings?: RouteSettings;
+
+  /**
+   * <p>The deployment identifier of the API stage.</p>
+   */
+  DeploymentId?: string;
+
+  /**
    * <p>The description for the API stage.</p>
    */
   Description?: string;
+
+  /**
+   * <p>Route settings for the stage, by routeKey.</p>
+   */
+  RouteSettings?: { [key: string]: RouteSettings };
+
+  /**
+   * <p>The name of the stage.</p>
+   */
+  StageName: string | undefined;
+
+  /**
+   * <p>A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.</p>
+   */
+  StageVariables?: { [key: string]: string };
+
+  /**
+   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateStageRequest {
@@ -2261,59 +2261,9 @@ export namespace CreateStageRequest {
 
 export interface CreateStageResponse {
   /**
-   * <p>The timestamp when the stage was created.</p>
-   */
-  CreatedDate?: Date;
-
-  /**
-   * <p>The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.</p>
-   */
-  ClientCertificateId?: string;
-
-  /**
-   * <p>The description of the stage.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A map that defines the stage variables for a stage resource. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.</p>
-   */
-  StageVariables?: { [key: string]: string };
-
-  /**
-   * <p>The name of the stage.</p>
-   */
-  StageName?: string;
-
-  /**
    * <p>Settings for logging access in this stage.</p>
    */
   AccessLogSettings?: AccessLogSettings;
-
-  /**
-   * <p>Route settings for the stage, by routeKey.</p>
-   */
-  RouteSettings?: { [key: string]: RouteSettings };
-
-  /**
-   * <p>Describes the status of the last deployment of a stage. Supported only for stages with autoDeploy enabled.</p>
-   */
-  LastDeploymentStatusMessage?: string;
-
-  /**
-   * <p>Default route settings for the stage.</p>
-   */
-  DefaultRouteSettings?: RouteSettings;
-
-  /**
-   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   * <p>The timestamp when the stage was last updated.</p>
-   */
-  LastUpdatedDate?: Date;
 
   /**
    * <p>Specifies whether a stage is managed by API Gateway. If you created an API using quick create, the $default stage is managed by API Gateway. You can't modify the $default stage.</p>
@@ -2321,14 +2271,64 @@ export interface CreateStageResponse {
   ApiGatewayManaged?: boolean;
 
   /**
+   * <p>Specifies whether updates to an API automatically trigger a new deployment. The default value is false.</p>
+   */
+  AutoDeploy?: boolean;
+
+  /**
+   * <p>The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.</p>
+   */
+  ClientCertificateId?: string;
+
+  /**
+   * <p>The timestamp when the stage was created.</p>
+   */
+  CreatedDate?: Date;
+
+  /**
+   * <p>Default route settings for the stage.</p>
+   */
+  DefaultRouteSettings?: RouteSettings;
+
+  /**
    * <p>The identifier of the Deployment that the Stage is associated with. Can't be updated if autoDeploy is enabled.</p>
    */
   DeploymentId?: string;
 
   /**
-   * <p>Specifies whether updates to an API automatically trigger a new deployment. The default value is false.</p>
+   * <p>The description of the stage.</p>
    */
-  AutoDeploy?: boolean;
+  Description?: string;
+
+  /**
+   * <p>Describes the status of the last deployment of a stage. Supported only for stages with autoDeploy enabled.</p>
+   */
+  LastDeploymentStatusMessage?: string;
+
+  /**
+   * <p>The timestamp when the stage was last updated.</p>
+   */
+  LastUpdatedDate?: Date;
+
+  /**
+   * <p>Route settings for the stage, by routeKey.</p>
+   */
+  RouteSettings?: { [key: string]: RouteSettings };
+
+  /**
+   * <p>The name of the stage.</p>
+   */
+  StageName?: string;
+
+  /**
+   * <p>A map that defines the stage variables for a stage resource. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.</p>
+   */
+  StageVariables?: { [key: string]: string };
+
+  /**
+   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateStageResponse {
@@ -2347,6 +2347,11 @@ export interface CreateVpcLinkRequest {
   Name: string | undefined;
 
   /**
+   * <p>A list of security group IDs for the VPC link.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
    * <p>A list of subnet IDs to include in the VPC link.</p>
    */
   SubnetIds: string[] | undefined;
@@ -2355,11 +2360,6 @@ export interface CreateVpcLinkRequest {
    * <p>A list of tags.</p>
    */
   Tags?: { [key: string]: string };
-
-  /**
-   * <p>A list of security group IDs for the VPC link.</p>
-   */
-  SecurityGroupIds?: string[];
 }
 
 export namespace CreateVpcLinkRequest {
@@ -2370,19 +2370,9 @@ export namespace CreateVpcLinkRequest {
 
 export interface CreateVpcLinkResponse {
   /**
-   * <p>Tags for the VPC link.</p>
+   * <p>The timestamp when the VPC link was created.</p>
    */
-  Tags?: { [key: string]: string };
-
-  /**
-   * <p>The status of the VPC link.</p>
-   */
-  VpcLinkStatus?: VpcLinkStatus | string;
-
-  /**
-   * <p>The version of the VPC link.</p>
-   */
-  VpcLinkVersion?: VpcLinkVersion | string;
+  CreatedDate?: Date;
 
   /**
    * <p>The name of the VPC link.</p>
@@ -2395,14 +2385,24 @@ export interface CreateVpcLinkResponse {
   SecurityGroupIds?: string[];
 
   /**
-   * <p>The timestamp when the VPC link was created.</p>
-   */
-  CreatedDate?: Date;
-
-  /**
    * <p>A list of subnet IDs to include in the VPC link.</p>
    */
   SubnetIds?: string[];
+
+  /**
+   * <p>Tags for the VPC link.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>The ID of the VPC link.</p>
+   */
+  VpcLinkId?: string;
+
+  /**
+   * <p>The status of the VPC link.</p>
+   */
+  VpcLinkStatus?: VpcLinkStatus | string;
 
   /**
    * <p>A message summarizing the cause of the status of the VPC link.</p>
@@ -2410,9 +2410,9 @@ export interface CreateVpcLinkResponse {
   VpcLinkStatusMessage?: string;
 
   /**
-   * <p>The ID of the VPC link.</p>
+   * <p>The version of the VPC link.</p>
    */
-  VpcLinkId?: string;
+  VpcLinkVersion?: VpcLinkVersion | string;
 }
 
 export namespace CreateVpcLinkResponse {
@@ -2454,14 +2454,14 @@ export namespace DeleteApiRequest {
 
 export interface DeleteApiMappingRequest {
   /**
-   * <p>The domain name.</p>
-   */
-  DomainName: string | undefined;
-
-  /**
    * <p>The API mapping identifier.</p>
    */
   ApiMappingId: string | undefined;
+
+  /**
+   * <p>The domain name.</p>
+   */
+  DomainName: string | undefined;
 }
 
 export namespace DeleteApiMappingRequest {
@@ -2472,14 +2472,14 @@ export namespace DeleteApiMappingRequest {
 
 export interface DeleteAuthorizerRequest {
   /**
-   * <p>The authorizer identifier.</p>
-   */
-  AuthorizerId: string | undefined;
-
-  /**
    * <p>The API identifier.</p>
    */
   ApiId: string | undefined;
+
+  /**
+   * <p>The authorizer identifier.</p>
+   */
+  AuthorizerId: string | undefined;
 }
 
 export namespace DeleteAuthorizerRequest {
@@ -2503,14 +2503,14 @@ export namespace DeleteCorsConfigurationRequest {
 
 export interface DeleteDeploymentRequest {
   /**
-   * <p>The deployment ID.</p>
-   */
-  DeploymentId: string | undefined;
-
-  /**
    * <p>The API identifier.</p>
    */
   ApiId: string | undefined;
+
+  /**
+   * <p>The deployment ID.</p>
+   */
+  DeploymentId: string | undefined;
 }
 
 export namespace DeleteDeploymentRequest {
@@ -2552,6 +2552,11 @@ export namespace DeleteIntegrationRequest {
 
 export interface DeleteIntegrationResponseRequest {
   /**
+   * <p>The API identifier.</p>
+   */
+  ApiId: string | undefined;
+
+  /**
    * <p>The integration ID.</p>
    */
   IntegrationId: string | undefined;
@@ -2560,11 +2565,6 @@ export interface DeleteIntegrationResponseRequest {
    * <p>The integration response ID.</p>
    */
   IntegrationResponseId: string | undefined;
-
-  /**
-   * <p>The API identifier.</p>
-   */
-  ApiId: string | undefined;
 }
 
 export namespace DeleteIntegrationResponseRequest {
@@ -2575,14 +2575,14 @@ export namespace DeleteIntegrationResponseRequest {
 
 export interface DeleteModelRequest {
   /**
-   * <p>The model ID.</p>
-   */
-  ModelId: string | undefined;
-
-  /**
    * <p>The API identifier.</p>
    */
   ApiId: string | undefined;
+
+  /**
+   * <p>The model ID.</p>
+   */
+  ModelId: string | undefined;
 }
 
 export namespace DeleteModelRequest {
@@ -2616,14 +2616,14 @@ export interface DeleteRouteRequestParameterRequest {
   ApiId: string | undefined;
 
   /**
-   * <p>The route ID.</p>
-   */
-  RouteId: string | undefined;
-
-  /**
    * <p>The route request parameter key.</p>
    */
   RequestParameterKey: string | undefined;
+
+  /**
+   * <p>The route ID.</p>
+   */
+  RouteId: string | undefined;
 }
 
 export namespace DeleteRouteRequestParameterRequest {
@@ -2634,6 +2634,11 @@ export namespace DeleteRouteRequestParameterRequest {
 
 export interface DeleteRouteResponseRequest {
   /**
+   * <p>The API identifier.</p>
+   */
+  ApiId: string | undefined;
+
+  /**
    * <p>The route ID.</p>
    */
   RouteId: string | undefined;
@@ -2642,11 +2647,6 @@ export interface DeleteRouteResponseRequest {
    * <p>The route response ID.</p>
    */
   RouteResponseId: string | undefined;
-
-  /**
-   * <p>The API identifier.</p>
-   */
-  ApiId: string | undefined;
 }
 
 export namespace DeleteRouteResponseRequest {
@@ -2657,6 +2657,11 @@ export namespace DeleteRouteResponseRequest {
 
 export interface DeleteRouteSettingsRequest {
   /**
+   * <p>The API identifier.</p>
+   */
+  ApiId: string | undefined;
+
+  /**
    * <p>The route key.</p>
    */
   RouteKey: string | undefined;
@@ -2665,11 +2670,6 @@ export interface DeleteRouteSettingsRequest {
    * <p>The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>
    */
   StageName: string | undefined;
-
-  /**
-   * <p>The API identifier.</p>
-   */
-  ApiId: string | undefined;
 }
 
 export namespace DeleteRouteSettingsRequest {
@@ -2680,14 +2680,14 @@ export namespace DeleteRouteSettingsRequest {
 
 export interface DeleteStageRequest {
   /**
-   * <p>The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>
-   */
-  StageName: string | undefined;
-
-  /**
    * <p>The API identifier.</p>
    */
   ApiId: string | undefined;
+
+  /**
+   * <p>The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>
+   */
+  StageName: string | undefined;
 }
 
 export namespace DeleteStageRequest {
@@ -2719,24 +2719,19 @@ export namespace DeleteVpcLinkResponse {
 
 export interface ExportApiRequest {
   /**
-   * <p>Specifies whether to include <a href="https://docs.aws.amazon.com//apigateway/latest/developerguide/api-gateway-swagger-extensions.html">API Gateway extensions</a> in the exported API definition. API Gateway extensions are included by default.</p>
-   */
-  IncludeExtensions?: boolean;
-
-  /**
-   * <p>The name of the API stage to export. If you don't specify this property, a representation of the latest API configuration is exported.</p>
-   */
-  StageName?: string;
-
-  /**
    * <p>The API identifier.</p>
    */
   ApiId: string | undefined;
 
   /**
-   * <p>The version of the API specification to use. OAS30, for OpenAPI 3.0, is the only supported value.</p>
+   * <p>The version of the API Gateway export algorithm. API Gateway uses the latest version by default. Currently, the only supported version is 1.0.</p>
    */
-  Specification: string | undefined;
+  ExportVersion?: string;
+
+  /**
+   * <p>Specifies whether to include <a href="https://docs.aws.amazon.com//apigateway/latest/developerguide/api-gateway-swagger-extensions.html">API Gateway extensions</a> in the exported API definition. API Gateway extensions are included by default.</p>
+   */
+  IncludeExtensions?: boolean;
 
   /**
    * <p>The output type of the exported definition file. Valid values are JSON and YAML.</p>
@@ -2744,9 +2739,14 @@ export interface ExportApiRequest {
   OutputType: string | undefined;
 
   /**
-   * <p>The version of the API Gateway export algorithm. API Gateway uses the latest version by default. Currently, the only supported version is 1.0.</p>
+   * <p>The version of the API specification to use. OAS30, for OpenAPI 3.0, is the only supported value.</p>
    */
-  ExportVersion?: string;
+  Specification: string | undefined;
+
+  /**
+   * <p>The name of the API stage to export. If you don't specify this property, a representation of the latest API configuration is exported.</p>
+   */
+  StageName?: string;
 }
 
 export namespace ExportApiRequest {
@@ -2783,14 +2783,9 @@ export namespace GetApiRequest {
 
 export interface GetApiResponse {
   /**
-   * <p>The description of the API.</p>
+   * <p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
    */
-  Description?: string;
-
-  /**
-   * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be ${request.method} ${request.path}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
-   */
-  RouteSelectionExpression?: string;
+  ApiEndpoint?: string;
 
   /**
    * <p>Specifies whether an API is managed by API Gateway. You can't update or delete a managed API by using API Gateway. A managed API can be deleted only through the tooling or service that created it.</p>
@@ -2798,9 +2793,9 @@ export interface GetApiResponse {
   ApiGatewayManaged?: boolean;
 
   /**
-   * <p>A collection of tags associated with the API.</p>
+   * <p>The API ID.</p>
    */
-  Tags?: { [key: string]: string };
+  ApiId?: string;
 
   /**
    * <p>An API key selection expression. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions">API Key Selection Expressions</a>.</p>
@@ -2808,14 +2803,9 @@ export interface GetApiResponse {
   ApiKeySelectionExpression?: string;
 
   /**
-   * <p>The API ID.</p>
+   * <p>A CORS configuration. Supported only for HTTP APIs.</p>
    */
-  ApiId?: string;
-
-  /**
-   * <p>The warning messages reported when failonwarnings is turned on during API import.</p>
-   */
-  Warnings?: string[];
+  CorsConfiguration?: Cors;
 
   /**
    * <p>The timestamp when the API was created.</p>
@@ -2823,24 +2813,14 @@ export interface GetApiResponse {
   CreatedDate?: Date;
 
   /**
-   * <p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
+   * <p>The description of the API.</p>
    */
-  ApiEndpoint?: string;
+  Description?: string;
 
   /**
-   * <p>A version identifier for the API.</p>
+   * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
    */
-  Version?: string;
-
-  /**
-   * <p>The API protocol.</p>
-   */
-  ProtocolType?: ProtocolType | string;
-
-  /**
-   * <p>A CORS configuration. Supported only for HTTP APIs.</p>
-   */
-  CorsConfiguration?: Cors;
+  DisableSchemaValidation?: boolean;
 
   /**
    * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
@@ -2858,9 +2838,29 @@ export interface GetApiResponse {
   Name?: string;
 
   /**
-   * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
+   * <p>The API protocol.</p>
    */
-  DisableSchemaValidation?: boolean;
+  ProtocolType?: ProtocolType | string;
+
+  /**
+   * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be ${request.method} ${request.path}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
+   */
+  RouteSelectionExpression?: string;
+
+  /**
+   * <p>A collection of tags associated with the API.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>A version identifier for the API.</p>
+   */
+  Version?: string;
+
+  /**
+   * <p>The warning messages reported when failonwarnings is turned on during API import.</p>
+   */
+  Warnings?: string[];
 }
 
 export namespace GetApiResponse {
@@ -2894,11 +2894,6 @@ export interface GetApiMappingResponse {
   ApiId?: string;
 
   /**
-   * <p>The API stage.</p>
-   */
-  Stage?: string;
-
-  /**
    * <p>The API mapping identifier.</p>
    */
   ApiMappingId?: string;
@@ -2907,6 +2902,11 @@ export interface GetApiMappingResponse {
    * <p>The API mapping key.</p>
    */
   ApiMappingKey?: string;
+
+  /**
+   * <p>The API stage.</p>
+   */
+  Stage?: string;
 }
 
 export namespace GetApiMappingResponse {
@@ -2917,11 +2917,6 @@ export namespace GetApiMappingResponse {
 
 export interface GetApiMappingsRequest {
   /**
-   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The domain name.</p>
    */
   DomainName: string | undefined;
@@ -2930,6 +2925,11 @@ export interface GetApiMappingsRequest {
    * <p>The maximum number of elements to be returned for this resource.</p>
    */
   MaxResults?: string;
+
+  /**
+   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetApiMappingsRequest {
@@ -2958,14 +2958,14 @@ export namespace GetApiMappingsResponse {
 
 export interface GetApisRequest {
   /**
-   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of elements to be returned for this resource.</p>
    */
   MaxResults?: string;
+
+  /**
+   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetApisRequest {
@@ -2976,14 +2976,14 @@ export namespace GetApisRequest {
 
 export interface GetApisResponse {
   /**
-   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The elements from this collection.</p>
    */
   Items?: Api[];
+
+  /**
+   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetApisResponse {
@@ -2994,14 +2994,14 @@ export namespace GetApisResponse {
 
 export interface GetAuthorizerRequest {
   /**
-   * <p>The authorizer identifier.</p>
-   */
-  AuthorizerId: string | undefined;
-
-  /**
    * <p>The API identifier.</p>
    */
   ApiId: string | undefined;
+
+  /**
+   * <p>The authorizer identifier.</p>
+   */
+  AuthorizerId: string | undefined;
 }
 
 export namespace GetAuthorizerRequest {
@@ -3012,39 +3012,29 @@ export namespace GetAuthorizerRequest {
 
 export interface GetAuthorizerResponse {
   /**
-   * <p>The authorizer type. Specify REQUEST for a Lambda function using incoming request parameters. Specify JWT to use JSON Web Tokens (supported only for HTTP APIs).</p>
-   */
-  AuthorizerType?: AuthorizerType | string;
-
-  /**
    * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, don't specify this parameter. Supported only for REQUEST authorizers.</p>
    */
   AuthorizerCredentialsArn?: string;
 
   /**
-   * <p>The validation expression does not apply to the REQUEST authorizer.</p>
+   * <p>The authorizer identifier.</p>
    */
-  IdentityValidationExpression?: string;
-
-  /**
-   * <p>Specifies whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy. Supported only for HTTP APIs. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a></p>
-   */
-  EnableSimpleResponses?: boolean;
-
-  /**
-   * <p>The name of the authorizer.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>Represents the configuration of a JWT authorizer. Required for the JWT authorizer type. Supported only for HTTP APIs.</p>
-   */
-  JwtConfiguration?: JWTConfiguration;
+  AuthorizerId?: string;
 
   /**
    * <p>Specifies the format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers. Supported values are 1.0 and 2.0. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a>.</p>
    */
   AuthorizerPayloadFormatVersion?: string;
+
+  /**
+   * <p>The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Supported only for HTTP API Lambda authorizers.</p>
+   */
+  AuthorizerResultTtlInSeconds?: number;
+
+  /**
+   * <p>The authorizer type. Specify REQUEST for a Lambda function using incoming request parameters. Specify JWT to use JSON Web Tokens (supported only for HTTP APIs).</p>
+   */
+  AuthorizerType?: AuthorizerType | string;
 
   /**
    * <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>{account_id}</replaceable>:function:<replaceable>{lambda_function_name}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>{region}</replaceable>:lambda:path/<replaceable>{service_api}</replaceable>
@@ -3053,9 +3043,9 @@ export interface GetAuthorizerResponse {
   AuthorizerUri?: string;
 
   /**
-   * <p>The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Supported only for HTTP API Lambda authorizers.</p>
+   * <p>Specifies whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy. Supported only for HTTP APIs. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a></p>
    */
-  AuthorizerResultTtlInSeconds?: number;
+  EnableSimpleResponses?: boolean;
 
   /**
    * <p>The identity source for which authorization is requested.</p> <p>For a REQUEST authorizer, this is optional. The value is a set of one or more mapping expressions of the specified request parameters. The identity source can be headers, query string parameters, stage variables, and context parameters. For example, if an Auth header and a Name query string parameter are defined as identity sources, this value is route.request.header.Auth, route.request.querystring.Name for WebSocket APIs. For HTTP APIs, use selection expressions prefixed with $, for example, $request.header.Auth, $request.querystring.Name. These parameters are used to perform runtime validation for Lambda-based authorizers by verifying all of the identity-related request parameters are present in the request, not null, and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function. Otherwise, it returns a 401 Unauthorized response without calling the Lambda function. For HTTP APIs, identity sources are also used as the cache key when caching is enabled. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a>.</p> <p>For JWT, a single entry that specifies where to extract the JSON Web Token (JWT) from inbound requests. Currently only header-based and query parameter-based selections are supported, for example $request.header.Authorization.</p>
@@ -3063,9 +3053,19 @@ export interface GetAuthorizerResponse {
   IdentitySource?: string[];
 
   /**
-   * <p>The authorizer identifier.</p>
+   * <p>The validation expression does not apply to the REQUEST authorizer.</p>
    */
-  AuthorizerId?: string;
+  IdentityValidationExpression?: string;
+
+  /**
+   * <p>Represents the configuration of a JWT authorizer. Required for the JWT authorizer type. Supported only for HTTP APIs.</p>
+   */
+  JwtConfiguration?: JWTConfiguration;
+
+  /**
+   * <p>The name of the authorizer.</p>
+   */
+  Name?: string;
 }
 
 export namespace GetAuthorizerResponse {
@@ -3076,9 +3076,9 @@ export namespace GetAuthorizerResponse {
 
 export interface GetAuthorizersRequest {
   /**
-   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+   * <p>The API identifier.</p>
    */
-  NextToken?: string;
+  ApiId: string | undefined;
 
   /**
    * <p>The maximum number of elements to be returned for this resource.</p>
@@ -3086,9 +3086,9 @@ export interface GetAuthorizersRequest {
   MaxResults?: string;
 
   /**
-   * <p>The API identifier.</p>
+   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
    */
-  ApiId: string | undefined;
+  NextToken?: string;
 }
 
 export namespace GetAuthorizersRequest {
@@ -3099,14 +3099,14 @@ export namespace GetAuthorizersRequest {
 
 export interface GetAuthorizersResponse {
   /**
-   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The elements from this collection.</p>
    */
   Items?: Authorizer[];
+
+  /**
+   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetAuthorizersResponse {
@@ -3117,14 +3117,14 @@ export namespace GetAuthorizersResponse {
 
 export interface GetDeploymentRequest {
   /**
-   * <p>The deployment ID.</p>
-   */
-  DeploymentId: string | undefined;
-
-  /**
    * <p>The API identifier.</p>
    */
   ApiId: string | undefined;
+
+  /**
+   * <p>The deployment ID.</p>
+   */
+  DeploymentId: string | undefined;
 }
 
 export namespace GetDeploymentRequest {
@@ -3135,14 +3135,14 @@ export namespace GetDeploymentRequest {
 
 export interface GetDeploymentResponse {
   /**
-   * <p>The date and time when the Deployment resource was created.</p>
-   */
-  CreatedDate?: Date;
-
-  /**
    * <p>Specifies whether a deployment was automatically released.</p>
    */
   AutoDeployed?: boolean;
+
+  /**
+   * <p>The date and time when the Deployment resource was created.</p>
+   */
+  CreatedDate?: Date;
 
   /**
    * <p>The identifier for the deployment.</p>
@@ -3155,14 +3155,14 @@ export interface GetDeploymentResponse {
   DeploymentStatus?: DeploymentStatus | string;
 
   /**
-   * <p>The description for the deployment.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>May contain additional feedback on the status of an API deployment.</p>
    */
   DeploymentStatusMessage?: string;
+
+  /**
+   * <p>The description for the deployment.</p>
+   */
+  Description?: string;
 }
 
 export namespace GetDeploymentResponse {
@@ -3196,14 +3196,14 @@ export namespace GetDeploymentsRequest {
 
 export interface GetDeploymentsResponse {
   /**
-   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The elements from this collection.</p>
    */
   Items?: Deployment[];
+
+  /**
+   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetDeploymentsResponse {
@@ -3227,9 +3227,14 @@ export namespace GetDomainNameRequest {
 
 export interface GetDomainNameResponse {
   /**
-   * <p>The collection of tags associated with a domain name.</p>
+   * <p>The API mapping selection expression.</p>
    */
-  Tags?: { [key: string]: string };
+  ApiMappingSelectionExpression?: string;
+
+  /**
+   * <p>The name of the DomainName resource.</p>
+   */
+  DomainName?: string;
 
   /**
    * <p>The domain name configurations.</p>
@@ -3242,14 +3247,9 @@ export interface GetDomainNameResponse {
   MutualTlsAuthentication?: MutualTlsAuthentication;
 
   /**
-   * <p>The API mapping selection expression.</p>
+   * <p>The collection of tags associated with a domain name.</p>
    */
-  ApiMappingSelectionExpression?: string;
-
-  /**
-   * <p>The name of the DomainName resource.</p>
-   */
-  DomainName?: string;
+  Tags?: { [key: string]: string };
 }
 
 export namespace GetDomainNameResponse {
@@ -3260,14 +3260,14 @@ export namespace GetDomainNameResponse {
 
 export interface GetDomainNamesRequest {
   /**
-   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of elements to be returned for this resource.</p>
    */
   MaxResults?: string;
+
+  /**
+   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetDomainNamesRequest {
@@ -3278,14 +3278,14 @@ export namespace GetDomainNamesRequest {
 
 export interface GetDomainNamesResponse {
   /**
-   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The elements from this collection.</p>
    */
   Items?: DomainName[];
+
+  /**
+   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetDomainNamesResponse {
@@ -3314,50 +3314,9 @@ export namespace GetIntegrationRequest {
 
 export interface GetIntegrationResult {
   /**
-   * <p>For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the backend. The method request parameter value must match the pattern of method.request.<replaceable>{location}</replaceable>.<replaceable>{name}</replaceable>
-   *               , where  <replaceable>{location}</replaceable>  is querystring, path, or header; and <replaceable>{name}</replaceable> must be a valid and unique method request parameter name.</p> <p>For HTTP APIs, request parameters are a key-value map specifying parameters that are passed to AWS_PROXY integrations with a specified integrationSubtype. You can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html">Working with AWS service integrations for HTTP APIs</a>.</p>
-   */
-  RequestParameters?: { [key: string]: string };
-
-  /**
    * <p>Specifies whether an integration is managed by API Gateway. If you created an API using using quick create, the resulting integration is managed by API Gateway. You can update a managed integration, but you can't delete it.</p>
    */
   ApiGatewayManaged?: boolean;
-
-  /**
-   * <p>The integration response selection expression for the integration. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions">Integration Response Selection Expressions</a>.</p>
-   */
-  IntegrationResponseSelectionExpression?: string;
-
-  /**
-   * <p>The template selection expression for the integration. Supported only for WebSocket APIs.</p>
-   */
-  TemplateSelectionExpression?: string;
-
-  /**
-   * <p>The type of the network connection to the integration endpoint. Specify INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and resources in a VPC. The default value is INTERNET.</p>
-   */
-  ConnectionType?: ConnectionType | string;
-
-  /**
-   * <p>Represents the identifier of an integration.</p>
-   */
-  IntegrationId?: string;
-
-  /**
-   * <p>Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER. Supported only for WebSocket APIs.</p> <p>WHEN_NO_MATCH passes the request body for unmapped content types through to the integration backend without transformation.</p> <p>NEVER rejects unmapped content types with an HTTP 415 Unsupported Media Type response.</p> <p>WHEN_NO_TEMPLATES allows pass-through when the integration has no content types mapped to templates. However, if there is at least one content type defined, unmapped content types will be rejected with the same HTTP 415 Unsupported Media Type response.</p>
-   */
-  PassthroughBehavior?: PassthroughBehavior | string;
-
-  /**
-   * <p>Specifies the integration's HTTP method type.</p>
-   */
-  IntegrationMethod?: string;
-
-  /**
-   * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
-   */
-  PayloadFormatVersion?: string;
 
   /**
    * <p>The ID of the VPC link for a private integration. Supported only for HTTP APIs.</p>
@@ -3365,39 +3324,9 @@ export interface GetIntegrationResult {
   ConnectionId?: string;
 
   /**
-   * <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value. Supported only for WebSocket APIs.</p>
+   * <p>The type of the network connection to the integration endpoint. Specify INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and resources in a VPC. The default value is INTERNET.</p>
    */
-  RequestTemplates?: { [key: string]: string };
-
-  /**
-   * <p>Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.</p>
-   */
-  TimeoutInMillis?: number;
-
-  /**
-   * <p>For a Lambda integration, specify the URI of a Lambda function.</p> <p>For an HTTP integration, specify a fully-qualified URL.</p> <p>For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service. If you specify the ARN of an AWS Cloud Map service, API Gateway uses DiscoverInstances to identify resources. You can use query parameters to target specific resources. To learn more, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html">DiscoverInstances</a>. For private integrations, all resources must be owned by the same AWS account.</p>
-   */
-  IntegrationUri?: string;
-
-  /**
-   * <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, specify null.</p>
-   */
-  CredentialsArn?: string;
-
-  /**
-   * <p>Supported only for HTTP API AWS_PROXY integrations. Specifies the AWS service action to invoke. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html">Integration subtype reference</a>.</p>
-   */
-  IntegrationSubtype?: string;
-
-  /**
-   * <p>The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.</p>
-   */
-  TlsConfig?: TlsConfig;
-
-  /**
-   * <p>The integration type of an integration. One of the following:</p> <p>AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration. Supported only for WebSocket APIs.</p> <p>AWS_PROXY: for integrating the route or method request with a Lambda function or other AWS service action. This integration is also referred to as a Lambda proxy integration.</p> <p>HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration. Supported only for WebSocket APIs.</p> <p>HTTP_PROXY: for integrating the route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration.</p> <p>MOCK: for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend. Supported only for WebSocket APIs.</p>
-   */
-  IntegrationType?: IntegrationType | string;
+  ConnectionType?: ConnectionType | string;
 
   /**
    * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
@@ -3405,9 +3334,80 @@ export interface GetIntegrationResult {
   ContentHandlingStrategy?: ContentHandlingStrategy | string;
 
   /**
+   * <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, specify null.</p>
+   */
+  CredentialsArn?: string;
+
+  /**
    * <p>Represents the description of an integration.</p>
    */
   Description?: string;
+
+  /**
+   * <p>Represents the identifier of an integration.</p>
+   */
+  IntegrationId?: string;
+
+  /**
+   * <p>Specifies the integration's HTTP method type.</p>
+   */
+  IntegrationMethod?: string;
+
+  /**
+   * <p>The integration response selection expression for the integration. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions">Integration Response Selection Expressions</a>.</p>
+   */
+  IntegrationResponseSelectionExpression?: string;
+
+  /**
+   * <p>Supported only for HTTP API AWS_PROXY integrations. Specifies the AWS service action to invoke. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html">Integration subtype reference</a>.</p>
+   */
+  IntegrationSubtype?: string;
+
+  /**
+   * <p>The integration type of an integration. One of the following:</p> <p>AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration. Supported only for WebSocket APIs.</p> <p>AWS_PROXY: for integrating the route or method request with a Lambda function or other AWS service action. This integration is also referred to as a Lambda proxy integration.</p> <p>HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration. Supported only for WebSocket APIs.</p> <p>HTTP_PROXY: for integrating the route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration.</p> <p>MOCK: for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend. Supported only for WebSocket APIs.</p>
+   */
+  IntegrationType?: IntegrationType | string;
+
+  /**
+   * <p>For a Lambda integration, specify the URI of a Lambda function.</p> <p>For an HTTP integration, specify a fully-qualified URL.</p> <p>For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service. If you specify the ARN of an AWS Cloud Map service, API Gateway uses DiscoverInstances to identify resources. You can use query parameters to target specific resources. To learn more, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html">DiscoverInstances</a>. For private integrations, all resources must be owned by the same AWS account.</p>
+   */
+  IntegrationUri?: string;
+
+  /**
+   * <p>Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER. Supported only for WebSocket APIs.</p> <p>WHEN_NO_MATCH passes the request body for unmapped content types through to the integration backend without transformation.</p> <p>NEVER rejects unmapped content types with an HTTP 415 Unsupported Media Type response.</p> <p>WHEN_NO_TEMPLATES allows pass-through when the integration has no content types mapped to templates. However, if there is at least one content type defined, unmapped content types will be rejected with the same HTTP 415 Unsupported Media Type response.</p>
+   */
+  PassthroughBehavior?: PassthroughBehavior | string;
+
+  /**
+   * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
+   */
+  PayloadFormatVersion?: string;
+
+  /**
+   * <p>For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the backend. The method request parameter value must match the pattern of method.request.<replaceable>{location}</replaceable>.<replaceable>{name}</replaceable>
+   *               , where  <replaceable>{location}</replaceable>  is querystring, path, or header; and <replaceable>{name}</replaceable> must be a valid and unique method request parameter name.</p> <p>For HTTP APIs, request parameters are a key-value map specifying parameters that are passed to AWS_PROXY integrations with a specified integrationSubtype. You can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html">Working with AWS service integrations for HTTP APIs</a>.</p>
+   */
+  RequestParameters?: { [key: string]: string };
+
+  /**
+   * <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value. Supported only for WebSocket APIs.</p>
+   */
+  RequestTemplates?: { [key: string]: string };
+
+  /**
+   * <p>The template selection expression for the integration. Supported only for WebSocket APIs.</p>
+   */
+  TemplateSelectionExpression?: string;
+
+  /**
+   * <p>Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.</p>
+   */
+  TimeoutInMillis?: number;
+
+  /**
+   * <p>The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.</p>
+   */
+  TlsConfig?: TlsConfig;
 }
 
 export namespace GetIntegrationResult {
@@ -3423,14 +3423,14 @@ export interface GetIntegrationResponseRequest {
   ApiId: string | undefined;
 
   /**
-   * <p>The integration response ID.</p>
-   */
-  IntegrationResponseId: string | undefined;
-
-  /**
    * <p>The integration ID.</p>
    */
   IntegrationId: string | undefined;
+
+  /**
+   * <p>The integration response ID.</p>
+   */
+  IntegrationResponseId: string | undefined;
 }
 
 export namespace GetIntegrationResponseRequest {
@@ -3440,21 +3440,6 @@ export namespace GetIntegrationResponseRequest {
 }
 
 export interface GetIntegrationResponseResponse {
-  /**
-   * <p>The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.</p>
-   */
-  ResponseTemplates?: { [key: string]: string };
-
-  /**
-   * <p>The template selection expressions for the integration response.</p>
-   */
-  TemplateSelectionExpression?: string;
-
-  /**
-   * <p>The integration response key.</p>
-   */
-  IntegrationResponseKey?: string;
-
   /**
    * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
    */
@@ -3466,9 +3451,24 @@ export interface GetIntegrationResponseResponse {
   IntegrationResponseId?: string;
 
   /**
+   * <p>The integration response key.</p>
+   */
+  IntegrationResponseKey?: string;
+
+  /**
    * <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.{name}, where name is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.{name} or integration.response.body.{JSON-expression}, where name is a valid and unique response header name and JSON-expression is a valid JSON expression without the $ prefix.</p>
    */
   ResponseParameters?: { [key: string]: string };
+
+  /**
+   * <p>The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.</p>
+   */
+  ResponseTemplates?: { [key: string]: string };
+
+  /**
+   * <p>The template selection expressions for the integration response.</p>
+   */
+  TemplateSelectionExpression?: string;
 }
 
 export namespace GetIntegrationResponseResponse {
@@ -3479,9 +3479,9 @@ export namespace GetIntegrationResponseResponse {
 
 export interface GetIntegrationResponsesRequest {
   /**
-   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+   * <p>The API identifier.</p>
    */
-  NextToken?: string;
+  ApiId: string | undefined;
 
   /**
    * <p>The integration ID.</p>
@@ -3489,14 +3489,14 @@ export interface GetIntegrationResponsesRequest {
   IntegrationId: string | undefined;
 
   /**
-   * <p>The API identifier.</p>
-   */
-  ApiId: string | undefined;
-
-  /**
    * <p>The maximum number of elements to be returned for this resource.</p>
    */
   MaxResults?: string;
+
+  /**
+   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetIntegrationResponsesRequest {
@@ -3507,14 +3507,14 @@ export namespace GetIntegrationResponsesRequest {
 
 export interface GetIntegrationResponsesResponse {
   /**
-   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The elements from this collection.</p>
    */
   Items?: IntegrationResponse[];
+
+  /**
+   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetIntegrationResponsesResponse {
@@ -3548,14 +3548,14 @@ export namespace GetIntegrationsRequest {
 
 export interface GetIntegrationsResponse {
   /**
-   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The elements from this collection.</p>
    */
   Items?: Integration[];
+
+  /**
+   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetIntegrationsResponse {
@@ -3584,14 +3584,14 @@ export namespace GetModelRequest {
 
 export interface GetModelResponse {
   /**
-   * <p>The name of the model. Must be alphanumeric.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The content-type for the model, for example, "application/json".</p>
    */
   ContentType?: string;
+
+  /**
+   * <p>The description of the model.</p>
+   */
+  Description?: string;
 
   /**
    * <p>The model identifier.</p>
@@ -3599,9 +3599,9 @@ export interface GetModelResponse {
   ModelId?: string;
 
   /**
-   * <p>The description of the model.</p>
+   * <p>The name of the model. Must be alphanumeric.</p>
    */
-  Description?: string;
+  Name?: string;
 
   /**
    * <p>The schema for the model. For application/json models, this should be JSON schema draft 4 model.</p>
@@ -3707,19 +3707,14 @@ export namespace GetRouteRequest {
 
 export interface GetRouteResult {
   /**
-   * <p>Specifies whether an API key is required for this route. Supported only for WebSocket APIs.</p>
-   */
-  ApiKeyRequired?: boolean;
-
-  /**
-   * <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer.</p>
-   */
-  AuthorizationType?: AuthorizationType | string;
-
-  /**
    * <p>Specifies whether a route is managed by API Gateway. If you created an API using quick create, the $default route is managed by API Gateway. You can't modify the $default route key.</p>
    */
   ApiGatewayManaged?: boolean;
+
+  /**
+   * <p>Specifies whether an API key is required for this route. Supported only for WebSocket APIs.</p>
+   */
+  ApiKeyRequired?: boolean;
 
   /**
    * <p>A list of authorization scopes configured on a route. The scopes are used with a JWT authorizer to authorize the method invocation. The authorization works by matching the route scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any route scope matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the route scope is configured, the client must provide an access token instead of an identity token for authorization purposes.</p>
@@ -3727,14 +3722,9 @@ export interface GetRouteResult {
   AuthorizationScopes?: string[];
 
   /**
-   * <p>The route response selection expression for the route. Supported only for WebSocket APIs.</p>
+   * <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer.</p>
    */
-  RouteResponseSelectionExpression?: string;
-
-  /**
-   * <p>The route key for the route.</p>
-   */
-  RouteKey?: string;
+  AuthorizationType?: AuthorizationType | string;
 
   /**
    * <p>The identifier of the Authorizer resource to be associated with this route. The authorizer identifier is generated by API Gateway when you created the authorizer.</p>
@@ -3747,11 +3737,6 @@ export interface GetRouteResult {
   ModelSelectionExpression?: string;
 
   /**
-   * <p>The route ID.</p>
-   */
-  RouteId?: string;
-
-  /**
    * <p>The operation name for the route.</p>
    */
   OperationName?: string;
@@ -3762,14 +3747,29 @@ export interface GetRouteResult {
   RequestModels?: { [key: string]: string };
 
   /**
-   * <p>The target for the route.</p>
-   */
-  Target?: string;
-
-  /**
    * <p>The request parameters for the route. Supported only for WebSocket APIs.</p>
    */
   RequestParameters?: { [key: string]: ParameterConstraints };
+
+  /**
+   * <p>The route ID.</p>
+   */
+  RouteId?: string;
+
+  /**
+   * <p>The route key for the route.</p>
+   */
+  RouteKey?: string;
+
+  /**
+   * <p>The route response selection expression for the route. Supported only for WebSocket APIs.</p>
+   */
+  RouteResponseSelectionExpression?: string;
+
+  /**
+   * <p>The target for the route.</p>
+   */
+  Target?: string;
 }
 
 export namespace GetRouteResult {
@@ -3780,14 +3780,14 @@ export namespace GetRouteResult {
 
 export interface GetRouteResponseRequest {
   /**
-   * <p>The route ID.</p>
-   */
-  RouteId: string | undefined;
-
-  /**
    * <p>The API identifier.</p>
    */
   ApiId: string | undefined;
+
+  /**
+   * <p>The route ID.</p>
+   */
+  RouteId: string | undefined;
 
   /**
    * <p>The route response ID.</p>
@@ -3803,14 +3803,14 @@ export namespace GetRouteResponseRequest {
 
 export interface GetRouteResponseResponse {
   /**
+   * <p>Represents the model selection expression of a route response. Supported only for WebSocket APIs.</p>
+   */
+  ModelSelectionExpression?: string;
+
+  /**
    * <p>Represents the response models of a route response.</p>
    */
   ResponseModels?: { [key: string]: string };
-
-  /**
-   * <p>Represents the route response key of a route response.</p>
-   */
-  RouteResponseKey?: string;
 
   /**
    * <p>Represents the response parameters of a route response.</p>
@@ -3823,9 +3823,9 @@ export interface GetRouteResponseResponse {
   RouteResponseId?: string;
 
   /**
-   * <p>Represents the model selection expression of a route response. Supported only for WebSocket APIs.</p>
+   * <p>Represents the route response key of a route response.</p>
    */
-  ModelSelectionExpression?: string;
+  RouteResponseKey?: string;
 }
 
 export namespace GetRouteResponseResponse {
@@ -3841,9 +3841,9 @@ export interface GetRouteResponsesRequest {
   ApiId: string | undefined;
 
   /**
-   * <p>The route ID.</p>
+   * <p>The maximum number of elements to be returned for this resource.</p>
    */
-  RouteId: string | undefined;
+  MaxResults?: string;
 
   /**
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
@@ -3851,9 +3851,9 @@ export interface GetRouteResponsesRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of elements to be returned for this resource.</p>
+   * <p>The route ID.</p>
    */
-  MaxResults?: string;
+  RouteId: string | undefined;
 }
 
 export namespace GetRouteResponsesRequest {
@@ -3864,14 +3864,14 @@ export namespace GetRouteResponsesRequest {
 
 export interface GetRouteResponsesResponse {
   /**
-   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The elements from this collection.</p>
    */
   Items?: RouteResponse[];
+
+  /**
+   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetRouteResponsesResponse {
@@ -3882,9 +3882,9 @@ export namespace GetRouteResponsesResponse {
 
 export interface GetRoutesRequest {
   /**
-   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+   * <p>The API identifier.</p>
    */
-  NextToken?: string;
+  ApiId: string | undefined;
 
   /**
    * <p>The maximum number of elements to be returned for this resource.</p>
@@ -3892,9 +3892,9 @@ export interface GetRoutesRequest {
   MaxResults?: string;
 
   /**
-   * <p>The API identifier.</p>
+   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
    */
-  ApiId: string | undefined;
+  NextToken?: string;
 }
 
 export namespace GetRoutesRequest {
@@ -3905,14 +3905,14 @@ export namespace GetRoutesRequest {
 
 export interface GetRoutesResponse {
   /**
-   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The elements from this collection.</p>
    */
   Items?: Route[];
+
+  /**
+   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetRoutesResponse {
@@ -3941,9 +3941,9 @@ export namespace GetStageRequest {
 
 export interface GetStageResponse {
   /**
-   * <p>Route settings for the stage, by routeKey.</p>
+   * <p>Settings for logging access in this stage.</p>
    */
-  RouteSettings?: { [key: string]: RouteSettings };
+  AccessLogSettings?: AccessLogSettings;
 
   /**
    * <p>Specifies whether a stage is managed by API Gateway. If you created an API using quick create, the $default stage is managed by API Gateway. You can't modify the $default stage.</p>
@@ -3951,14 +3951,49 @@ export interface GetStageResponse {
   ApiGatewayManaged?: boolean;
 
   /**
+   * <p>Specifies whether updates to an API automatically trigger a new deployment. The default value is false.</p>
+   */
+  AutoDeploy?: boolean;
+
+  /**
+   * <p>The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.</p>
+   */
+  ClientCertificateId?: string;
+
+  /**
    * <p>The timestamp when the stage was created.</p>
    */
   CreatedDate?: Date;
 
   /**
+   * <p>Default route settings for the stage.</p>
+   */
+  DefaultRouteSettings?: RouteSettings;
+
+  /**
+   * <p>The identifier of the Deployment that the Stage is associated with. Can't be updated if autoDeploy is enabled.</p>
+   */
+  DeploymentId?: string;
+
+  /**
+   * <p>The description of the stage.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Describes the status of the last deployment of a stage. Supported only for stages with autoDeploy enabled.</p>
+   */
+  LastDeploymentStatusMessage?: string;
+
+  /**
    * <p>The timestamp when the stage was last updated.</p>
    */
   LastUpdatedDate?: Date;
+
+  /**
+   * <p>Route settings for the stage, by routeKey.</p>
+   */
+  RouteSettings?: { [key: string]: RouteSettings };
 
   /**
    * <p>The name of the stage.</p>
@@ -3969,41 +4004,6 @@ export interface GetStageResponse {
    * <p>A map that defines the stage variables for a stage resource. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.</p>
    */
   StageVariables?: { [key: string]: string };
-
-  /**
-   * <p>Specifies whether updates to an API automatically trigger a new deployment. The default value is false.</p>
-   */
-  AutoDeploy?: boolean;
-
-  /**
-   * <p>Default route settings for the stage.</p>
-   */
-  DefaultRouteSettings?: RouteSettings;
-
-  /**
-   * <p>Settings for logging access in this stage.</p>
-   */
-  AccessLogSettings?: AccessLogSettings;
-
-  /**
-   * <p>Describes the status of the last deployment of a stage. Supported only for stages with autoDeploy enabled.</p>
-   */
-  LastDeploymentStatusMessage?: string;
-
-  /**
-   * <p>The description of the stage.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The identifier of the Deployment that the Stage is associated with. Can't be updated if autoDeploy is enabled.</p>
-   */
-  DeploymentId?: string;
-
-  /**
-   * <p>The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.</p>
-   */
-  ClientCertificateId?: string;
 
   /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
@@ -4019,14 +4019,14 @@ export namespace GetStageResponse {
 
 export interface GetStagesRequest {
   /**
-   * <p>The maximum number of elements to be returned for this resource.</p>
-   */
-  MaxResults?: string;
-
-  /**
    * <p>The API identifier.</p>
    */
   ApiId: string | undefined;
+
+  /**
+   * <p>The maximum number of elements to be returned for this resource.</p>
+   */
+  MaxResults?: string;
 
   /**
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
@@ -4042,14 +4042,14 @@ export namespace GetStagesRequest {
 
 export interface GetStagesResponse {
   /**
-   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The elements from this collection.</p>
    */
   Items?: Stage[];
+
+  /**
+   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetStagesResponse {
@@ -4099,24 +4099,14 @@ export namespace GetVpcLinkRequest {
 
 export interface GetVpcLinkResponse {
   /**
-   * <p>The ID of the VPC link.</p>
-   */
-  VpcLinkId?: string;
-
-  /**
-   * <p>The version of the VPC link.</p>
-   */
-  VpcLinkVersion?: VpcLinkVersion | string;
-
-  /**
    * <p>The timestamp when the VPC link was created.</p>
    */
   CreatedDate?: Date;
 
   /**
-   * <p>A message summarizing the cause of the status of the VPC link.</p>
+   * <p>The name of the VPC link.</p>
    */
-  VpcLinkStatusMessage?: string;
+  Name?: string;
 
   /**
    * <p>A list of security group IDs for the VPC link.</p>
@@ -4129,19 +4119,29 @@ export interface GetVpcLinkResponse {
   SubnetIds?: string[];
 
   /**
-   * <p>The name of the VPC link.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>Tags for the VPC link.</p>
    */
   Tags?: { [key: string]: string };
 
   /**
+   * <p>The ID of the VPC link.</p>
+   */
+  VpcLinkId?: string;
+
+  /**
    * <p>The status of the VPC link.</p>
    */
   VpcLinkStatus?: VpcLinkStatus | string;
+
+  /**
+   * <p>A message summarizing the cause of the status of the VPC link.</p>
+   */
+  VpcLinkStatusMessage?: string;
+
+  /**
+   * <p>The version of the VPC link.</p>
+   */
+  VpcLinkVersion?: VpcLinkVersion | string;
 }
 
 export namespace GetVpcLinkResponse {
@@ -4170,14 +4170,14 @@ export namespace GetVpcLinksRequest {
 
 export interface GetVpcLinksResponse {
   /**
-   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A collection of VPC links.</p>
    */
   Items?: VpcLink[];
+
+  /**
+   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetVpcLinksResponse {
@@ -4191,6 +4191,11 @@ export namespace GetVpcLinksResponse {
  */
 export interface ImportApiRequest {
   /**
+   * <p>Specifies how to interpret the base path of the API during import. Valid values are ignore, prepend, and split. The default value is ignore. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api-basePath.html">Set the OpenAPI basePath Property</a>. Supported only for HTTP APIs.</p>
+   */
+  Basepath?: string;
+
+  /**
    * <p>The OpenAPI definition. Supported only for HTTP APIs.</p>
    */
   Body: string | undefined;
@@ -4199,11 +4204,6 @@ export interface ImportApiRequest {
    * <p>Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.</p>
    */
   FailOnWarnings?: boolean;
-
-  /**
-   * <p>Specifies how to interpret the base path of the API during import. Valid values are ignore, prepend, and split. The default value is ignore. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api-basePath.html">Set the OpenAPI basePath Property</a>. Supported only for HTTP APIs.</p>
-   */
-  Basepath?: string;
 }
 
 export namespace ImportApiRequest {
@@ -4214,9 +4214,29 @@ export namespace ImportApiRequest {
 
 export interface ImportApiResponse {
   /**
-   * <p>The name of the API.</p>
+   * <p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
    */
-  Name?: string;
+  ApiEndpoint?: string;
+
+  /**
+   * <p>Specifies whether an API is managed by API Gateway. You can't update or delete a managed API by using API Gateway. A managed API can be deleted only through the tooling or service that created it.</p>
+   */
+  ApiGatewayManaged?: boolean;
+
+  /**
+   * <p>The API ID.</p>
+   */
+  ApiId?: string;
+
+  /**
+   * <p>An API key selection expression. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions">API Key Selection Expressions</a>.</p>
+   */
+  ApiKeySelectionExpression?: string;
+
+  /**
+   * <p>A CORS configuration. Supported only for HTTP APIs.</p>
+   */
+  CorsConfiguration?: Cors;
 
   /**
    * <p>The timestamp when the API was created.</p>
@@ -4224,9 +4244,29 @@ export interface ImportApiResponse {
   CreatedDate?: Date;
 
   /**
-   * <p>Specifies whether an API is managed by API Gateway. You can't update or delete a managed API by using API Gateway. A managed API can be deleted only through the tooling or service that created it.</p>
+   * <p>The description of the API.</p>
    */
-  ApiGatewayManaged?: boolean;
+  Description?: string;
+
+  /**
+   * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
+   */
+  DisableSchemaValidation?: boolean;
+
+  /**
+   * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
+   */
+  DisableExecuteApiEndpoint?: boolean;
+
+  /**
+   * <p>The validation information during API import. This may include particular properties of your OpenAPI definition which are ignored during import. Supported only for HTTP APIs.</p>
+   */
+  ImportInfo?: string[];
+
+  /**
+   * <p>The name of the API.</p>
+   */
+  Name?: string;
 
   /**
    * <p>The API protocol.</p>
@@ -4239,51 +4279,6 @@ export interface ImportApiResponse {
   RouteSelectionExpression?: string;
 
   /**
-   * <p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
-   */
-  ApiEndpoint?: string;
-
-  /**
-   * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
-   */
-  DisableSchemaValidation?: boolean;
-
-  /**
-   * <p>The validation information during API import. This may include particular properties of your OpenAPI definition which are ignored during import. Supported only for HTTP APIs.</p>
-   */
-  ImportInfo?: string[];
-
-  /**
-   * <p>The description of the API.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
-   */
-  DisableExecuteApiEndpoint?: boolean;
-
-  /**
-   * <p>An API key selection expression. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions">API Key Selection Expressions</a>.</p>
-   */
-  ApiKeySelectionExpression?: string;
-
-  /**
-   * <p>The warning messages reported when failonwarnings is turned on during API import.</p>
-   */
-  Warnings?: string[];
-
-  /**
-   * <p>The API ID.</p>
-   */
-  ApiId?: string;
-
-  /**
-   * <p>A CORS configuration. Supported only for HTTP APIs.</p>
-   */
-  CorsConfiguration?: Cors;
-
-  /**
    * <p>A collection of tags associated with the API.</p>
    */
   Tags?: { [key: string]: string };
@@ -4292,6 +4287,11 @@ export interface ImportApiResponse {
    * <p>A version identifier for the API.</p>
    */
   Version?: string;
+
+  /**
+   * <p>The warning messages reported when failonwarnings is turned on during API import.</p>
+   */
+  Warnings?: string[];
 }
 
 export namespace ImportApiResponse {
@@ -4304,11 +4304,6 @@ export namespace ImportApiResponse {
  * <p></p>
  */
 export interface ReimportApiRequest {
-  /**
-   * <p>Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.</p>
-   */
-  FailOnWarnings?: boolean;
-
   /**
    * <p>The API identifier.</p>
    */
@@ -4323,6 +4318,11 @@ export interface ReimportApiRequest {
    * <p>The OpenAPI definition. Supported only for HTTP APIs.</p>
    */
   Body: string | undefined;
+
+  /**
+   * <p>Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.</p>
+   */
+  FailOnWarnings?: boolean;
 }
 
 export namespace ReimportApiRequest {
@@ -4333,19 +4333,44 @@ export namespace ReimportApiRequest {
 
 export interface ReimportApiResponse {
   /**
+   * <p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
+   */
+  ApiEndpoint?: string;
+
+  /**
+   * <p>Specifies whether an API is managed by API Gateway. You can't update or delete a managed API by using API Gateway. A managed API can be deleted only through the tooling or service that created it.</p>
+   */
+  ApiGatewayManaged?: boolean;
+
+  /**
+   * <p>The API ID.</p>
+   */
+  ApiId?: string;
+
+  /**
    * <p>An API key selection expression. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions">API Key Selection Expressions</a>.</p>
    */
   ApiKeySelectionExpression?: string;
 
   /**
-   * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
+   * <p>A CORS configuration. Supported only for HTTP APIs.</p>
    */
-  DisableSchemaValidation?: boolean;
+  CorsConfiguration?: Cors;
+
+  /**
+   * <p>The timestamp when the API was created.</p>
+   */
+  CreatedDate?: Date;
 
   /**
    * <p>The description of the API.</p>
    */
   Description?: string;
+
+  /**
+   * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
+   */
+  DisableSchemaValidation?: boolean;
 
   /**
    * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
@@ -4358,44 +4383,9 @@ export interface ReimportApiResponse {
   ImportInfo?: string[];
 
   /**
-   * <p>Specifies whether an API is managed by API Gateway. You can't update or delete a managed API by using API Gateway. A managed API can be deleted only through the tooling or service that created it.</p>
-   */
-  ApiGatewayManaged?: boolean;
-
-  /**
-   * <p>A collection of tags associated with the API.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   * <p>The timestamp when the API was created.</p>
-   */
-  CreatedDate?: Date;
-
-  /**
-   * <p>A version identifier for the API.</p>
-   */
-  Version?: string;
-
-  /**
-   * <p>A CORS configuration. Supported only for HTTP APIs.</p>
-   */
-  CorsConfiguration?: Cors;
-
-  /**
-   * <p>The warning messages reported when failonwarnings is turned on during API import.</p>
-   */
-  Warnings?: string[];
-
-  /**
    * <p>The name of the API.</p>
    */
   Name?: string;
-
-  /**
-   * <p>The API ID.</p>
-   */
-  ApiId?: string;
 
   /**
    * <p>The API protocol.</p>
@@ -4408,9 +4398,19 @@ export interface ReimportApiResponse {
   RouteSelectionExpression?: string;
 
   /**
-   * <p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
+   * <p>A collection of tags associated with the API.</p>
    */
-  ApiEndpoint?: string;
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>A version identifier for the API.</p>
+   */
+  Version?: string;
+
+  /**
+   * <p>The warning messages reported when failonwarnings is turned on during API import.</p>
+   */
+  Warnings?: string[];
 }
 
 export namespace ReimportApiResponse {
@@ -4442,14 +4442,14 @@ export namespace ResetAuthorizersCacheRequest {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
    * <p>The resource ARN for the tag.</p>
    */
   ResourceArn: string | undefined;
+
+  /**
+   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace TagResourceRequest {
@@ -4468,14 +4468,14 @@ export namespace TagResourceResponse {
 
 export interface UntagResourceRequest {
   /**
-   * <p>The Tag keys to delete</p>
-   */
-  TagKeys: string[] | undefined;
-
-  /**
    * <p>The resource ARN for the tag.</p>
    */
   ResourceArn: string | undefined;
+
+  /**
+   * <p>The Tag keys to delete</p>
+   */
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -4489,24 +4489,14 @@ export namespace UntagResourceRequest {
  */
 export interface UpdateApiRequest {
   /**
-   * <p>An API key selection expression. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions">API Key Selection Expressions</a>.</p>
-   */
-  ApiKeySelectionExpression?: string;
-
-  /**
-   * <p>This property is part of quick create. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively. The value provided updates the integration URI and integration type. You can update a quick-created target, but you can't remove it from an API. Supported only for HTTP APIs.</p>
-   */
-  Target?: string;
-
-  /**
-   * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be ${request.method} ${request.path}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
-   */
-  RouteSelectionExpression?: string;
-
-  /**
    * <p>The API identifier.</p>
    */
   ApiId: string | undefined;
+
+  /**
+   * <p>An API key selection expression. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions">API Key Selection Expressions</a>.</p>
+   */
+  ApiKeySelectionExpression?: string;
 
   /**
    * <p>A CORS configuration. Supported only for HTTP APIs.</p>
@@ -4519,19 +4509,9 @@ export interface UpdateApiRequest {
   CredentialsArn?: string;
 
   /**
-   * <p>A version identifier for the API.</p>
+   * <p>The description of the API.</p>
    */
-  Version?: string;
-
-  /**
-   * <p>This property is part of quick create. If not specified, the route created using quick create is kept. Otherwise, this value replaces the route key of the quick create route. Additional routes may still be added after the API is updated. Supported only for HTTP APIs.</p>
-   */
-  RouteKey?: string;
-
-  /**
-   * <p>The name of the API.</p>
-   */
-  Name?: string;
+  Description?: string;
 
   /**
    * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
@@ -4544,9 +4524,29 @@ export interface UpdateApiRequest {
   DisableExecuteApiEndpoint?: boolean;
 
   /**
-   * <p>The description of the API.</p>
+   * <p>The name of the API.</p>
    */
-  Description?: string;
+  Name?: string;
+
+  /**
+   * <p>This property is part of quick create. If not specified, the route created using quick create is kept. Otherwise, this value replaces the route key of the quick create route. Additional routes may still be added after the API is updated. Supported only for HTTP APIs.</p>
+   */
+  RouteKey?: string;
+
+  /**
+   * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be ${request.method} ${request.path}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
+   */
+  RouteSelectionExpression?: string;
+
+  /**
+   * <p>This property is part of quick create. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively. The value provided updates the integration URI and integration type. You can update a quick-created target, but you can't remove it from an API. Supported only for HTTP APIs.</p>
+   */
+  Target?: string;
+
+  /**
+   * <p>A version identifier for the API.</p>
+   */
+  Version?: string;
 }
 
 export namespace UpdateApiRequest {
@@ -4557,14 +4557,9 @@ export namespace UpdateApiRequest {
 
 export interface UpdateApiResponse {
   /**
-   * <p>An API key selection expression. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions">API Key Selection Expressions</a>.</p>
+   * <p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
    */
-  ApiKeySelectionExpression?: string;
-
-  /**
-   * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be ${request.method} ${request.path}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
-   */
-  RouteSelectionExpression?: string;
+  ApiEndpoint?: string;
 
   /**
    * <p>Specifies whether an API is managed by API Gateway. You can't update or delete a managed API by using API Gateway. A managed API can be deleted only through the tooling or service that created it.</p>
@@ -4572,44 +4567,14 @@ export interface UpdateApiResponse {
   ApiGatewayManaged?: boolean;
 
   /**
-   * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
-   */
-  DisableExecuteApiEndpoint?: boolean;
-
-  /**
-   * <p>The description of the API.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The timestamp when the API was created.</p>
-   */
-  CreatedDate?: Date;
-
-  /**
-   * <p>A version identifier for the API.</p>
-   */
-  Version?: string;
-
-  /**
-   * <p>A collection of tags associated with the API.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   * <p>The warning messages reported when failonwarnings is turned on during API import.</p>
-   */
-  Warnings?: string[];
-
-  /**
    * <p>The API ID.</p>
    */
   ApiId?: string;
 
   /**
-   * <p>The API protocol.</p>
+   * <p>An API key selection expression. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions">API Key Selection Expressions</a>.</p>
    */
-  ProtocolType?: ProtocolType | string;
+  ApiKeySelectionExpression?: string;
 
   /**
    * <p>A CORS configuration. Supported only for HTTP APIs.</p>
@@ -4617,14 +4582,14 @@ export interface UpdateApiResponse {
   CorsConfiguration?: Cors;
 
   /**
-   * <p>The name of the API.</p>
+   * <p>The timestamp when the API was created.</p>
    */
-  Name?: string;
+  CreatedDate?: Date;
 
   /**
-   * <p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
+   * <p>The description of the API.</p>
    */
-  ApiEndpoint?: string;
+  Description?: string;
 
   /**
    * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
@@ -4632,9 +4597,44 @@ export interface UpdateApiResponse {
   DisableSchemaValidation?: boolean;
 
   /**
+   * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
+   */
+  DisableExecuteApiEndpoint?: boolean;
+
+  /**
    * <p>The validation information during API import. This may include particular properties of your OpenAPI definition which are ignored during import. Supported only for HTTP APIs.</p>
    */
   ImportInfo?: string[];
+
+  /**
+   * <p>The name of the API.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The API protocol.</p>
+   */
+  ProtocolType?: ProtocolType | string;
+
+  /**
+   * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be ${request.method} ${request.path}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
+   */
+  RouteSelectionExpression?: string;
+
+  /**
+   * <p>A collection of tags associated with the API.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>A version identifier for the API.</p>
+   */
+  Version?: string;
+
+  /**
+   * <p>The warning messages reported when failonwarnings is turned on during API import.</p>
+   */
+  Warnings?: string[];
 }
 
 export namespace UpdateApiResponse {
@@ -4648,19 +4648,9 @@ export namespace UpdateApiResponse {
  */
 export interface UpdateApiMappingRequest {
   /**
-   * <p>The domain name.</p>
+   * <p>The API identifier.</p>
    */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The API mapping key.</p>
-   */
-  ApiMappingKey?: string;
-
-  /**
-   * <p>The API stage.</p>
-   */
-  Stage?: string;
+  ApiId: string | undefined;
 
   /**
    * <p>The API mapping identifier.</p>
@@ -4668,9 +4658,19 @@ export interface UpdateApiMappingRequest {
   ApiMappingId: string | undefined;
 
   /**
-   * <p>The API identifier.</p>
+   * <p>The API mapping key.</p>
    */
-  ApiId: string | undefined;
+  ApiMappingKey?: string;
+
+  /**
+   * <p>The domain name.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The API stage.</p>
+   */
+  Stage?: string;
 }
 
 export namespace UpdateApiMappingRequest {
@@ -4681,14 +4681,14 @@ export namespace UpdateApiMappingRequest {
 
 export interface UpdateApiMappingResponse {
   /**
+   * <p>The API identifier.</p>
+   */
+  ApiId?: string;
+
+  /**
    * <p>The API mapping identifier.</p>
    */
   ApiMappingId?: string;
-
-  /**
-   * <p>The API stage.</p>
-   */
-  Stage?: string;
 
   /**
    * <p>The API mapping key.</p>
@@ -4696,9 +4696,9 @@ export interface UpdateApiMappingResponse {
   ApiMappingKey?: string;
 
   /**
-   * <p>The API identifier.</p>
+   * <p>The API stage.</p>
    */
-  ApiId?: string;
+  Stage?: string;
 }
 
 export namespace UpdateApiMappingResponse {
@@ -4712,19 +4712,14 @@ export namespace UpdateApiMappingResponse {
  */
 export interface UpdateAuthorizerRequest {
   /**
-   * <p>The authorizer type. Specify REQUEST for a Lambda function using incoming request parameters. Specify JWT to use JSON Web Tokens (supported only for HTTP APIs).</p>
-   */
-  AuthorizerType?: AuthorizerType | string;
-
-  /**
    * <p>The API identifier.</p>
    */
   ApiId: string | undefined;
 
   /**
-   * <p>The identity source for which authorization is requested.</p> <p>For a REQUEST authorizer, this is optional. The value is a set of one or more mapping expressions of the specified request parameters. The identity source can be headers, query string parameters, stage variables, and context parameters. For example, if an Auth header and a Name query string parameter are defined as identity sources, this value is route.request.header.Auth, route.request.querystring.Name for WebSocket APIs. For HTTP APIs, use selection expressions prefixed with $, for example, $request.header.Auth, $request.querystring.Name. These parameters are used to perform runtime validation for Lambda-based authorizers by verifying all of the identity-related request parameters are present in the request, not null, and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function. Otherwise, it returns a 401 Unauthorized response without calling the Lambda function. For HTTP APIs, identity sources are also used as the cache key when caching is enabled. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a>.</p> <p>For JWT, a single entry that specifies where to extract the JSON Web Token (JWT) from inbound requests. Currently only header-based and query parameter-based selections are supported, for example $request.header.Authorization.</p>
+   * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, don't specify this parameter.</p>
    */
-  IdentitySource?: string[];
+  AuthorizerCredentialsArn?: string;
 
   /**
    * <p>The authorizer identifier.</p>
@@ -4732,19 +4727,19 @@ export interface UpdateAuthorizerRequest {
   AuthorizerId: string | undefined;
 
   /**
+   * <p>Specifies the format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers. Supported values are 1.0 and 2.0. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a>.</p>
+   */
+  AuthorizerPayloadFormatVersion?: string;
+
+  /**
    * <p>The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Supported only for HTTP API Lambda authorizers.</p>
    */
   AuthorizerResultTtlInSeconds?: number;
 
   /**
-   * <p>Represents the configuration of a JWT authorizer. Required for the JWT authorizer type. Supported only for HTTP APIs.</p>
+   * <p>The authorizer type. Specify REQUEST for a Lambda function using incoming request parameters. Specify JWT to use JSON Web Tokens (supported only for HTTP APIs).</p>
    */
-  JwtConfiguration?: JWTConfiguration;
-
-  /**
-   * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, don't specify this parameter.</p>
-   */
-  AuthorizerCredentialsArn?: string;
+  AuthorizerType?: AuthorizerType | string;
 
   /**
    * <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>{account_id}</replaceable>:function:<replaceable>{lambda_function_name}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>{region}</replaceable>:lambda:path/<replaceable>{service_api}</replaceable>
@@ -4753,9 +4748,14 @@ export interface UpdateAuthorizerRequest {
   AuthorizerUri?: string;
 
   /**
-   * <p>Specifies the format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers. Supported values are 1.0 and 2.0. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a>.</p>
+   * <p>Specifies whether a Lambda authorizer returns a response in a simple format. By default, a Lambda authorizer must return an IAM policy. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy. Supported only for HTTP APIs. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a></p>
    */
-  AuthorizerPayloadFormatVersion?: string;
+  EnableSimpleResponses?: boolean;
+
+  /**
+   * <p>The identity source for which authorization is requested.</p> <p>For a REQUEST authorizer, this is optional. The value is a set of one or more mapping expressions of the specified request parameters. The identity source can be headers, query string parameters, stage variables, and context parameters. For example, if an Auth header and a Name query string parameter are defined as identity sources, this value is route.request.header.Auth, route.request.querystring.Name for WebSocket APIs. For HTTP APIs, use selection expressions prefixed with $, for example, $request.header.Auth, $request.querystring.Name. These parameters are used to perform runtime validation for Lambda-based authorizers by verifying all of the identity-related request parameters are present in the request, not null, and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function. Otherwise, it returns a 401 Unauthorized response without calling the Lambda function. For HTTP APIs, identity sources are also used as the cache key when caching is enabled. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a>.</p> <p>For JWT, a single entry that specifies where to extract the JSON Web Token (JWT) from inbound requests. Currently only header-based and query parameter-based selections are supported, for example $request.header.Authorization.</p>
+   */
+  IdentitySource?: string[];
 
   /**
    * <p>This parameter is not used.</p>
@@ -4763,14 +4763,14 @@ export interface UpdateAuthorizerRequest {
   IdentityValidationExpression?: string;
 
   /**
+   * <p>Represents the configuration of a JWT authorizer. Required for the JWT authorizer type. Supported only for HTTP APIs.</p>
+   */
+  JwtConfiguration?: JWTConfiguration;
+
+  /**
    * <p>The name of the authorizer.</p>
    */
   Name?: string;
-
-  /**
-   * <p>Specifies whether a Lambda authorizer returns a response in a simple format. By default, a Lambda authorizer must return an IAM policy. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy. Supported only for HTTP APIs. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a></p>
-   */
-  EnableSimpleResponses?: boolean;
 }
 
 export namespace UpdateAuthorizerRequest {
@@ -4780,6 +4780,37 @@ export namespace UpdateAuthorizerRequest {
 }
 
 export interface UpdateAuthorizerResponse {
+  /**
+   * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, don't specify this parameter. Supported only for REQUEST authorizers.</p>
+   */
+  AuthorizerCredentialsArn?: string;
+
+  /**
+   * <p>The authorizer identifier.</p>
+   */
+  AuthorizerId?: string;
+
+  /**
+   * <p>Specifies the format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers. Supported values are 1.0 and 2.0. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a>.</p>
+   */
+  AuthorizerPayloadFormatVersion?: string;
+
+  /**
+   * <p>The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Supported only for HTTP API Lambda authorizers.</p>
+   */
+  AuthorizerResultTtlInSeconds?: number;
+
+  /**
+   * <p>The authorizer type. Specify REQUEST for a Lambda function using incoming request parameters. Specify JWT to use JSON Web Tokens (supported only for HTTP APIs).</p>
+   */
+  AuthorizerType?: AuthorizerType | string;
+
+  /**
+   * <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>{account_id}</replaceable>:function:<replaceable>{lambda_function_name}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>{region}</replaceable>:lambda:path/<replaceable>{service_api}</replaceable>
+   *                , where <replaceable></replaceable>{region} is the same as the region hosting the Lambda function, path indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial /. For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations. Supported only for REQUEST authorizers.</p>
+   */
+  AuthorizerUri?: string;
+
   /**
    * <p>Specifies whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy. Supported only for HTTP APIs. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a></p>
    */
@@ -4791,35 +4822,9 @@ export interface UpdateAuthorizerResponse {
   IdentitySource?: string[];
 
   /**
-   * <p>The authorizer type. Specify REQUEST for a Lambda function using incoming request parameters. Specify JWT to use JSON Web Tokens (supported only for HTTP APIs).</p>
-   */
-  AuthorizerType?: AuthorizerType | string;
-
-  /**
-   * <p>The name of the authorizer.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The validation expression does not apply to the REQUEST authorizer.</p>
    */
   IdentityValidationExpression?: string;
-
-  /**
-   * <p>The authorizer identifier.</p>
-   */
-  AuthorizerId?: string;
-
-  /**
-   * <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>{account_id}</replaceable>:function:<replaceable>{lambda_function_name}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>{region}</replaceable>:lambda:path/<replaceable>{service_api}</replaceable>
-   *                , where <replaceable></replaceable>{region} is the same as the region hosting the Lambda function, path indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial /. For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations. Supported only for REQUEST authorizers.</p>
-   */
-  AuthorizerUri?: string;
-
-  /**
-   * <p>The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Supported only for HTTP API Lambda authorizers.</p>
-   */
-  AuthorizerResultTtlInSeconds?: number;
 
   /**
    * <p>Represents the configuration of a JWT authorizer. Required for the JWT authorizer type. Supported only for HTTP APIs.</p>
@@ -4827,14 +4832,9 @@ export interface UpdateAuthorizerResponse {
   JwtConfiguration?: JWTConfiguration;
 
   /**
-   * <p>Specifies the format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers. Supported values are 1.0 and 2.0. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working with AWS Lambda authorizers for HTTP APIs</a>.</p>
+   * <p>The name of the authorizer.</p>
    */
-  AuthorizerPayloadFormatVersion?: string;
-
-  /**
-   * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, don't specify this parameter. Supported only for REQUEST authorizers.</p>
-   */
-  AuthorizerCredentialsArn?: string;
+  Name?: string;
 }
 
 export namespace UpdateAuthorizerResponse {
@@ -4871,26 +4871,6 @@ export namespace UpdateDeploymentRequest {
 
 export interface UpdateDeploymentResponse {
   /**
-   * <p>The description for the deployment.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>May contain additional feedback on the status of an API deployment.</p>
-   */
-  DeploymentStatusMessage?: string;
-
-  /**
-   * <p>The status of the deployment: PENDING, FAILED, or SUCCEEDED.</p>
-   */
-  DeploymentStatus?: DeploymentStatus | string;
-
-  /**
-   * <p>The identifier for the deployment.</p>
-   */
-  DeploymentId?: string;
-
-  /**
    * <p>Specifies whether a deployment was automatically released.</p>
    */
   AutoDeployed?: boolean;
@@ -4899,6 +4879,26 @@ export interface UpdateDeploymentResponse {
    * <p>The date and time when the Deployment resource was created.</p>
    */
   CreatedDate?: Date;
+
+  /**
+   * <p>The identifier for the deployment.</p>
+   */
+  DeploymentId?: string;
+
+  /**
+   * <p>The status of the deployment: PENDING, FAILED, or SUCCEEDED.</p>
+   */
+  DeploymentStatus?: DeploymentStatus | string;
+
+  /**
+   * <p>May contain additional feedback on the status of an API deployment.</p>
+   */
+  DeploymentStatusMessage?: string;
+
+  /**
+   * <p>The description for the deployment.</p>
+   */
+  Description?: string;
 }
 
 export namespace UpdateDeploymentResponse {
@@ -4912,9 +4912,9 @@ export namespace UpdateDeploymentResponse {
  */
 export interface UpdateDomainNameRequest {
   /**
-   * <p>The mutual TLS authentication configuration for a custom domain name.</p>
+   * <p>The domain name.</p>
    */
-  MutualTlsAuthentication?: MutualTlsAuthenticationInput;
+  DomainName: string | undefined;
 
   /**
    * <p>The domain name configurations.</p>
@@ -4922,9 +4922,9 @@ export interface UpdateDomainNameRequest {
   DomainNameConfigurations?: DomainNameConfiguration[];
 
   /**
-   * <p>The domain name.</p>
+   * <p>The mutual TLS authentication configuration for a custom domain name.</p>
    */
-  DomainName: string | undefined;
+  MutualTlsAuthentication?: MutualTlsAuthenticationInput;
 }
 
 export namespace UpdateDomainNameRequest {
@@ -4935,21 +4935,6 @@ export namespace UpdateDomainNameRequest {
 
 export interface UpdateDomainNameResponse {
   /**
-   * <p>The collection of tags associated with a domain name.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   * <p>The mutual TLS authentication configuration for a custom domain name.</p>
-   */
-  MutualTlsAuthentication?: MutualTlsAuthentication;
-
-  /**
-   * <p>The domain name configurations.</p>
-   */
-  DomainNameConfigurations?: DomainNameConfiguration[];
-
-  /**
    * <p>The API mapping selection expression.</p>
    */
   ApiMappingSelectionExpression?: string;
@@ -4958,6 +4943,21 @@ export interface UpdateDomainNameResponse {
    * <p>The name of the DomainName resource.</p>
    */
   DomainName?: string;
+
+  /**
+   * <p>The domain name configurations.</p>
+   */
+  DomainNameConfigurations?: DomainNameConfiguration[];
+
+  /**
+   * <p>The mutual TLS authentication configuration for a custom domain name.</p>
+   */
+  MutualTlsAuthentication?: MutualTlsAuthentication;
+
+  /**
+   * <p>The collection of tags associated with a domain name.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace UpdateDomainNameResponse {
@@ -4971,19 +4971,29 @@ export namespace UpdateDomainNameResponse {
  */
 export interface UpdateIntegrationRequest {
   /**
-   * <p>Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.</p>
+   * <p>The API identifier.</p>
    */
-  TimeoutInMillis?: number;
+  ApiId: string | undefined;
 
   /**
-   * <p>The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.</p>
+   * <p>The ID of the VPC link for a private integration. Supported only for HTTP APIs.</p>
    */
-  TlsConfig?: TlsConfigInput;
+  ConnectionId?: string;
 
   /**
-   * <p>Specifies the integration's HTTP method type.</p>
+   * <p>The type of the network connection to the integration endpoint. Specify INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and resources in a VPC. The default value is INTERNET.</p>
    */
-  IntegrationMethod?: string;
+  ConnectionType?: ConnectionType | string;
+
+  /**
+   * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
+   */
+  ContentHandlingStrategy?: ContentHandlingStrategy | string;
+
+  /**
+   * <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, specify null.</p>
+   */
+  CredentialsArn?: string;
 
   /**
    * <p>The description of the integration</p>
@@ -4991,9 +5001,19 @@ export interface UpdateIntegrationRequest {
   Description?: string;
 
   /**
-   * <p>Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER. Supported only for WebSocket APIs.</p> <p>WHEN_NO_MATCH passes the request body for unmapped content types through to the integration backend without transformation.</p> <p>NEVER rejects unmapped content types with an HTTP 415 Unsupported Media Type response.</p> <p>WHEN_NO_TEMPLATES allows pass-through when the integration has no content types mapped to templates. However, if there is at least one content type defined, unmapped content types will be rejected with the same HTTP 415 Unsupported Media Type response.</p>
+   * <p>The integration ID.</p>
    */
-  PassthroughBehavior?: PassthroughBehavior | string;
+  IntegrationId: string | undefined;
+
+  /**
+   * <p>Specifies the integration's HTTP method type.</p>
+   */
+  IntegrationMethod?: string;
+
+  /**
+   * <p>Supported only for HTTP API AWS_PROXY integrations. Specifies the AWS service action to invoke. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html">Integration subtype reference</a>.</p>
+   */
+  IntegrationSubtype?: string;
 
   /**
    * <p>The integration type of an integration. One of the following:</p> <p>AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration. Supported only for WebSocket APIs.</p> <p>AWS_PROXY: for integrating the route or method request with a Lambda function or other AWS service action. This integration is also referred to as a Lambda proxy integration.</p> <p>HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration. Supported only for WebSocket APIs.</p> <p>HTTP_PROXY: for integrating the route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration. For HTTP API private integrations, use an HTTP_PROXY integration.</p> <p>MOCK: for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend. Supported only for WebSocket APIs.</p>
@@ -5006,19 +5026,14 @@ export interface UpdateIntegrationRequest {
   IntegrationUri?: string;
 
   /**
-   * <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value. Supported only for WebSocket APIs.</p>
+   * <p>Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER. Supported only for WebSocket APIs.</p> <p>WHEN_NO_MATCH passes the request body for unmapped content types through to the integration backend without transformation.</p> <p>NEVER rejects unmapped content types with an HTTP 415 Unsupported Media Type response.</p> <p>WHEN_NO_TEMPLATES allows pass-through when the integration has no content types mapped to templates. However, if there is at least one content type defined, unmapped content types will be rejected with the same HTTP 415 Unsupported Media Type response.</p>
    */
-  RequestTemplates?: { [key: string]: string };
+  PassthroughBehavior?: PassthroughBehavior | string;
 
   /**
-   * <p>The ID of the VPC link for a private integration. Supported only for HTTP APIs.</p>
+   * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
    */
-  ConnectionId?: string;
-
-  /**
-   * <p>Supported only for HTTP API AWS_PROXY integrations. Specifies the AWS service action to invoke. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html">Integration subtype reference</a>.</p>
-   */
-  IntegrationSubtype?: string;
+  PayloadFormatVersion?: string;
 
   /**
    * <p>For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the backend. The method request parameter value must match the pattern of method.request.<replaceable>{location}</replaceable>.<replaceable>{name}</replaceable>
@@ -5027,14 +5042,9 @@ export interface UpdateIntegrationRequest {
   RequestParameters?: { [key: string]: string };
 
   /**
-   * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
+   * <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value. Supported only for WebSocket APIs.</p>
    */
-  ContentHandlingStrategy?: ContentHandlingStrategy | string;
-
-  /**
-   * <p>The API identifier.</p>
-   */
-  ApiId: string | undefined;
+  RequestTemplates?: { [key: string]: string };
 
   /**
    * <p>The template selection expression for the integration.</p>
@@ -5042,24 +5052,14 @@ export interface UpdateIntegrationRequest {
   TemplateSelectionExpression?: string;
 
   /**
-   * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
+   * <p>Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.</p>
    */
-  PayloadFormatVersion?: string;
+  TimeoutInMillis?: number;
 
   /**
-   * <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, specify null.</p>
+   * <p>The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.</p>
    */
-  CredentialsArn?: string;
-
-  /**
-   * <p>The integration ID.</p>
-   */
-  IntegrationId: string | undefined;
-
-  /**
-   * <p>The type of the network connection to the integration endpoint. Specify INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and resources in a VPC. The default value is INTERNET.</p>
-   */
-  ConnectionType?: ConnectionType | string;
+  TlsConfig?: TlsConfigInput;
 }
 
 export namespace UpdateIntegrationRequest {
@@ -5069,6 +5069,46 @@ export namespace UpdateIntegrationRequest {
 }
 
 export interface UpdateIntegrationResult {
+  /**
+   * <p>Specifies whether an integration is managed by API Gateway. If you created an API using using quick create, the resulting integration is managed by API Gateway. You can update a managed integration, but you can't delete it.</p>
+   */
+  ApiGatewayManaged?: boolean;
+
+  /**
+   * <p>The ID of the VPC link for a private integration. Supported only for HTTP APIs.</p>
+   */
+  ConnectionId?: string;
+
+  /**
+   * <p>The type of the network connection to the integration endpoint. Specify INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and resources in a VPC. The default value is INTERNET.</p>
+   */
+  ConnectionType?: ConnectionType | string;
+
+  /**
+   * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
+   */
+  ContentHandlingStrategy?: ContentHandlingStrategy | string;
+
+  /**
+   * <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, specify null.</p>
+   */
+  CredentialsArn?: string;
+
+  /**
+   * <p>Represents the description of an integration.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Represents the identifier of an integration.</p>
+   */
+  IntegrationId?: string;
+
+  /**
+   * <p>Specifies the integration's HTTP method type.</p>
+   */
+  IntegrationMethod?: string;
+
   /**
    * <p>The integration response selection expression for the integration. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions">Integration Response Selection Expressions</a>.</p>
    */
@@ -5080,49 +5120,24 @@ export interface UpdateIntegrationResult {
   IntegrationSubtype?: string;
 
   /**
+   * <p>The integration type of an integration. One of the following:</p> <p>AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration. Supported only for WebSocket APIs.</p> <p>AWS_PROXY: for integrating the route or method request with a Lambda function or other AWS service action. This integration is also referred to as a Lambda proxy integration.</p> <p>HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration. Supported only for WebSocket APIs.</p> <p>HTTP_PROXY: for integrating the route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration.</p> <p>MOCK: for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend. Supported only for WebSocket APIs.</p>
+   */
+  IntegrationType?: IntegrationType | string;
+
+  /**
    * <p>For a Lambda integration, specify the URI of a Lambda function.</p> <p>For an HTTP integration, specify a fully-qualified URL.</p> <p>For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service. If you specify the ARN of an AWS Cloud Map service, API Gateway uses DiscoverInstances to identify resources. You can use query parameters to target specific resources. To learn more, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html">DiscoverInstances</a>. For private integrations, all resources must be owned by the same AWS account.</p>
    */
   IntegrationUri?: string;
 
   /**
-   * <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, specify null.</p>
-   */
-  CredentialsArn?: string;
-
-  /**
-   * <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value. Supported only for WebSocket APIs.</p>
-   */
-  RequestTemplates?: { [key: string]: string };
-
-  /**
-   * <p>Represents the identifier of an integration.</p>
-   */
-  IntegrationId?: string;
-
-  /**
-   * <p>The ID of the VPC link for a private integration. Supported only for HTTP APIs.</p>
-   */
-  ConnectionId?: string;
-
-  /**
-   * <p>The template selection expression for the integration. Supported only for WebSocket APIs.</p>
-   */
-  TemplateSelectionExpression?: string;
-
-  /**
-   * <p>Specifies whether an integration is managed by API Gateway. If you created an API using using quick create, the resulting integration is managed by API Gateway. You can update a managed integration, but you can't delete it.</p>
-   */
-  ApiGatewayManaged?: boolean;
-
-  /**
-   * <p>Specifies the integration's HTTP method type.</p>
-   */
-  IntegrationMethod?: string;
-
-  /**
    * <p>Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER. Supported only for WebSocket APIs.</p> <p>WHEN_NO_MATCH passes the request body for unmapped content types through to the integration backend without transformation.</p> <p>NEVER rejects unmapped content types with an HTTP 415 Unsupported Media Type response.</p> <p>WHEN_NO_TEMPLATES allows pass-through when the integration has no content types mapped to templates. However, if there is at least one content type defined, unmapped content types will be rejected with the same HTTP 415 Unsupported Media Type response.</p>
    */
   PassthroughBehavior?: PassthroughBehavior | string;
+
+  /**
+   * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
+   */
+  PayloadFormatVersion?: string;
 
   /**
    * <p>For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the backend. The method request parameter value must match the pattern of method.request.<replaceable>{location}</replaceable>.<replaceable>{name}</replaceable>
@@ -5131,9 +5146,14 @@ export interface UpdateIntegrationResult {
   RequestParameters?: { [key: string]: string };
 
   /**
-   * <p>The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.</p>
+   * <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value. Supported only for WebSocket APIs.</p>
    */
-  TlsConfig?: TlsConfig;
+  RequestTemplates?: { [key: string]: string };
+
+  /**
+   * <p>The template selection expression for the integration. Supported only for WebSocket APIs.</p>
+   */
+  TemplateSelectionExpression?: string;
 
   /**
    * <p>Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.</p>
@@ -5141,29 +5161,9 @@ export interface UpdateIntegrationResult {
   TimeoutInMillis?: number;
 
   /**
-   * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
+   * <p>The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.</p>
    */
-  PayloadFormatVersion?: string;
-
-  /**
-   * <p>The type of the network connection to the integration endpoint. Specify INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and resources in a VPC. The default value is INTERNET.</p>
-   */
-  ConnectionType?: ConnectionType | string;
-
-  /**
-   * <p>Represents the description of an integration.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The integration type of an integration. One of the following:</p> <p>AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration. Supported only for WebSocket APIs.</p> <p>AWS_PROXY: for integrating the route or method request with a Lambda function or other AWS service action. This integration is also referred to as a Lambda proxy integration.</p> <p>HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration. Supported only for WebSocket APIs.</p> <p>HTTP_PROXY: for integrating the route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration.</p> <p>MOCK: for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend. Supported only for WebSocket APIs.</p>
-   */
-  IntegrationType?: IntegrationType | string;
-
-  /**
-   * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
-   */
-  ContentHandlingStrategy?: ContentHandlingStrategy | string;
+  TlsConfig?: TlsConfig;
 }
 
 export namespace UpdateIntegrationResult {
@@ -5177,19 +5177,29 @@ export namespace UpdateIntegrationResult {
  */
 export interface UpdateIntegrationResponseRequest {
   /**
-   * <p>The template selection expression for the integration response. Supported only for WebSocket APIs.</p>
+   * <p>The API identifier.</p>
    */
-  TemplateSelectionExpression?: string;
+  ApiId: string | undefined;
+
+  /**
+   * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
+   */
+  ContentHandlingStrategy?: ContentHandlingStrategy | string;
+
+  /**
+   * <p>The integration ID.</p>
+   */
+  IntegrationId: string | undefined;
+
+  /**
+   * <p>The integration response ID.</p>
+   */
+  IntegrationResponseId: string | undefined;
 
   /**
    * <p>The integration response key.</p>
    */
   IntegrationResponseKey?: string;
-
-  /**
-   * <p>The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.</p>
-   */
-  ResponseTemplates?: { [key: string]: string };
 
   /**
    * <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.<replaceable>{name}</replaceable>
@@ -5204,24 +5214,14 @@ export interface UpdateIntegrationResponseRequest {
   ResponseParameters?: { [key: string]: string };
 
   /**
-   * <p>The integration ID.</p>
+   * <p>The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.</p>
    */
-  IntegrationId: string | undefined;
+  ResponseTemplates?: { [key: string]: string };
 
   /**
-   * <p>The integration response ID.</p>
+   * <p>The template selection expression for the integration response. Supported only for WebSocket APIs.</p>
    */
-  IntegrationResponseId: string | undefined;
-
-  /**
-   * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
-   */
-  ContentHandlingStrategy?: ContentHandlingStrategy | string;
-
-  /**
-   * <p>The API identifier.</p>
-   */
-  ApiId: string | undefined;
+  TemplateSelectionExpression?: string;
 }
 
 export namespace UpdateIntegrationResponseRequest {
@@ -5232,14 +5232,24 @@ export namespace UpdateIntegrationResponseRequest {
 
 export interface UpdateIntegrationResponseResponse {
   /**
+   * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
+   */
+  ContentHandlingStrategy?: ContentHandlingStrategy | string;
+
+  /**
+   * <p>The integration response ID.</p>
+   */
+  IntegrationResponseId?: string;
+
+  /**
    * <p>The integration response key.</p>
    */
   IntegrationResponseKey?: string;
 
   /**
-   * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
+   * <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.{name}, where name is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.{name} or integration.response.body.{JSON-expression}, where name is a valid and unique response header name and JSON-expression is a valid JSON expression without the $ prefix.</p>
    */
-  ContentHandlingStrategy?: ContentHandlingStrategy | string;
+  ResponseParameters?: { [key: string]: string };
 
   /**
    * <p>The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.</p>
@@ -5250,16 +5260,6 @@ export interface UpdateIntegrationResponseResponse {
    * <p>The template selection expressions for the integration response.</p>
    */
   TemplateSelectionExpression?: string;
-
-  /**
-   * <p>The integration response ID.</p>
-   */
-  IntegrationResponseId?: string;
-
-  /**
-   * <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.{name}, where name is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.{name} or integration.response.body.{JSON-expression}, where name is a valid and unique response header name and JSON-expression is a valid JSON expression without the $ prefix.</p>
-   */
-  ResponseParameters?: { [key: string]: string };
 }
 
 export namespace UpdateIntegrationResponseResponse {
@@ -5276,6 +5276,11 @@ export interface UpdateModelRequest {
    * <p>The API identifier.</p>
    */
   ApiId: string | undefined;
+
+  /**
+   * <p>The content-type for the model, for example, "application/json".</p>
+   */
+  ContentType?: string;
 
   /**
    * <p>The description of the model.</p>
@@ -5296,11 +5301,6 @@ export interface UpdateModelRequest {
    * <p>The schema for the model. For application/json models, this should be JSON schema draft 4 model.</p>
    */
   Schema?: string;
-
-  /**
-   * <p>The content-type for the model, for example, "application/json".</p>
-   */
-  ContentType?: string;
 }
 
 export namespace UpdateModelRequest {
@@ -5311,21 +5311,6 @@ export namespace UpdateModelRequest {
 
 export interface UpdateModelResponse {
   /**
-   * <p>The name of the model. Must be alphanumeric.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The model identifier.</p>
-   */
-  ModelId?: string;
-
-  /**
-   * <p>The schema for the model. For application/json models, this should be JSON schema draft 4 model.</p>
-   */
-  Schema?: string;
-
-  /**
    * <p>The content-type for the model, for example, "application/json".</p>
    */
   ContentType?: string;
@@ -5334,6 +5319,21 @@ export interface UpdateModelResponse {
    * <p>The description of the model.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The model identifier.</p>
+   */
+  ModelId?: string;
+
+  /**
+   * <p>The name of the model. Must be alphanumeric.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The schema for the model. For application/json models, this should be JSON schema draft 4 model.</p>
+   */
+  Schema?: string;
 }
 
 export namespace UpdateModelResponse {
@@ -5347,29 +5347,9 @@ export namespace UpdateModelResponse {
  */
 export interface UpdateRouteRequest {
   /**
-   * <p>The request parameters for the route. Supported only for WebSocket APIs.</p>
+   * <p>The API identifier.</p>
    */
-  RequestParameters?: { [key: string]: ParameterConstraints };
-
-  /**
-   * <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer.</p>
-   */
-  AuthorizationType?: AuthorizationType | string;
-
-  /**
-   * <p>The operation name for the route.</p>
-   */
-  OperationName?: string;
-
-  /**
-   * <p>The route key for the route.</p>
-   */
-  RouteKey?: string;
-
-  /**
-   * <p>The authorization scopes supported by this route.</p>
-   */
-  AuthorizationScopes?: string[];
+  ApiId: string | undefined;
 
   /**
    * <p>Specifies whether an API key is required for the route. Supported only for WebSocket APIs.</p>
@@ -5377,14 +5357,19 @@ export interface UpdateRouteRequest {
   ApiKeyRequired?: boolean;
 
   /**
+   * <p>The authorization scopes supported by this route.</p>
+   */
+  AuthorizationScopes?: string[];
+
+  /**
+   * <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer.</p>
+   */
+  AuthorizationType?: AuthorizationType | string;
+
+  /**
    * <p>The identifier of the Authorizer resource to be associated with this route. The authorizer identifier is generated by API Gateway when you created the authorizer.</p>
    */
   AuthorizerId?: string;
-
-  /**
-   * <p>The route response selection expression for the route. Supported only for WebSocket APIs.</p>
-   */
-  RouteResponseSelectionExpression?: string;
 
   /**
    * <p>The model selection expression for the route. Supported only for WebSocket APIs.</p>
@@ -5392,9 +5377,19 @@ export interface UpdateRouteRequest {
   ModelSelectionExpression?: string;
 
   /**
-   * <p>The API identifier.</p>
+   * <p>The operation name for the route.</p>
    */
-  ApiId: string | undefined;
+  OperationName?: string;
+
+  /**
+   * <p>The request models for the route. Supported only for WebSocket APIs.</p>
+   */
+  RequestModels?: { [key: string]: string };
+
+  /**
+   * <p>The request parameters for the route. Supported only for WebSocket APIs.</p>
+   */
+  RequestParameters?: { [key: string]: ParameterConstraints };
 
   /**
    * <p>The route ID.</p>
@@ -5402,14 +5397,19 @@ export interface UpdateRouteRequest {
   RouteId: string | undefined;
 
   /**
+   * <p>The route key for the route.</p>
+   */
+  RouteKey?: string;
+
+  /**
+   * <p>The route response selection expression for the route. Supported only for WebSocket APIs.</p>
+   */
+  RouteResponseSelectionExpression?: string;
+
+  /**
    * <p>The target for the route.</p>
    */
   Target?: string;
-
-  /**
-   * <p>The request models for the route. Supported only for WebSocket APIs.</p>
-   */
-  RequestModels?: { [key: string]: string };
 }
 
 export namespace UpdateRouteRequest {
@@ -5420,24 +5420,9 @@ export namespace UpdateRouteRequest {
 
 export interface UpdateRouteResult {
   /**
-   * <p>A list of authorization scopes configured on a route. The scopes are used with a JWT authorizer to authorize the method invocation. The authorization works by matching the route scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any route scope matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the route scope is configured, the client must provide an access token instead of an identity token for authorization purposes.</p>
-   */
-  AuthorizationScopes?: string[];
-
-  /**
    * <p>Specifies whether a route is managed by API Gateway. If you created an API using quick create, the $default route is managed by API Gateway. You can't modify the $default route key.</p>
    */
   ApiGatewayManaged?: boolean;
-
-  /**
-   * <p>The model selection expression for the route. Supported only for WebSocket APIs.</p>
-   */
-  ModelSelectionExpression?: string;
-
-  /**
-   * <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer.</p>
-   */
-  AuthorizationType?: AuthorizationType | string;
 
   /**
    * <p>Specifies whether an API key is required for this route. Supported only for WebSocket APIs.</p>
@@ -5445,19 +5430,34 @@ export interface UpdateRouteResult {
   ApiKeyRequired?: boolean;
 
   /**
-   * <p>The route key for the route.</p>
+   * <p>A list of authorization scopes configured on a route. The scopes are used with a JWT authorizer to authorize the method invocation. The authorization works by matching the route scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any route scope matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the route scope is configured, the client must provide an access token instead of an identity token for authorization purposes.</p>
    */
-  RouteKey?: string;
+  AuthorizationScopes?: string[];
 
   /**
-   * <p>The route response selection expression for the route. Supported only for WebSocket APIs.</p>
+   * <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer.</p>
    */
-  RouteResponseSelectionExpression?: string;
+  AuthorizationType?: AuthorizationType | string;
+
+  /**
+   * <p>The identifier of the Authorizer resource to be associated with this route. The authorizer identifier is generated by API Gateway when you created the authorizer.</p>
+   */
+  AuthorizerId?: string;
+
+  /**
+   * <p>The model selection expression for the route. Supported only for WebSocket APIs.</p>
+   */
+  ModelSelectionExpression?: string;
 
   /**
    * <p>The operation name for the route.</p>
    */
   OperationName?: string;
+
+  /**
+   * <p>The request models for the route. Supported only for WebSocket APIs.</p>
+   */
+  RequestModels?: { [key: string]: string };
 
   /**
    * <p>The request parameters for the route. Supported only for WebSocket APIs.</p>
@@ -5470,14 +5470,14 @@ export interface UpdateRouteResult {
   RouteId?: string;
 
   /**
-   * <p>The request models for the route. Supported only for WebSocket APIs.</p>
+   * <p>The route key for the route.</p>
    */
-  RequestModels?: { [key: string]: string };
+  RouteKey?: string;
 
   /**
-   * <p>The identifier of the Authorizer resource to be associated with this route. The authorizer identifier is generated by API Gateway when you created the authorizer.</p>
+   * <p>The route response selection expression for the route. Supported only for WebSocket APIs.</p>
    */
-  AuthorizerId?: string;
+  RouteResponseSelectionExpression?: string;
 
   /**
    * <p>The target for the route.</p>
@@ -5496,9 +5496,9 @@ export namespace UpdateRouteResult {
  */
 export interface UpdateRouteResponseRequest {
   /**
-   * <p>The route ID.</p>
+   * <p>The API identifier.</p>
    */
-  RouteId: string | undefined;
+  ApiId: string | undefined;
 
   /**
    * <p>The model selection expression for the route response. Supported only for WebSocket APIs.</p>
@@ -5511,6 +5511,16 @@ export interface UpdateRouteResponseRequest {
   ResponseModels?: { [key: string]: string };
 
   /**
+   * <p>The route response parameters.</p>
+   */
+  ResponseParameters?: { [key: string]: ParameterConstraints };
+
+  /**
+   * <p>The route ID.</p>
+   */
+  RouteId: string | undefined;
+
+  /**
    * <p>The route response ID.</p>
    */
   RouteResponseId: string | undefined;
@@ -5519,16 +5529,6 @@ export interface UpdateRouteResponseRequest {
    * <p>The route response key.</p>
    */
   RouteResponseKey?: string;
-
-  /**
-   * <p>The API identifier.</p>
-   */
-  ApiId: string | undefined;
-
-  /**
-   * <p>The route response parameters.</p>
-   */
-  ResponseParameters?: { [key: string]: ParameterConstraints };
 }
 
 export namespace UpdateRouteResponseRequest {
@@ -5539,19 +5539,19 @@ export namespace UpdateRouteResponseRequest {
 
 export interface UpdateRouteResponseResponse {
   /**
+   * <p>Represents the model selection expression of a route response. Supported only for WebSocket APIs.</p>
+   */
+  ModelSelectionExpression?: string;
+
+  /**
    * <p>Represents the response models of a route response.</p>
    */
   ResponseModels?: { [key: string]: string };
 
   /**
-   * <p>Represents the route response key of a route response.</p>
+   * <p>Represents the response parameters of a route response.</p>
    */
-  RouteResponseKey?: string;
-
-  /**
-   * <p>Represents the model selection expression of a route response. Supported only for WebSocket APIs.</p>
-   */
-  ModelSelectionExpression?: string;
+  ResponseParameters?: { [key: string]: ParameterConstraints };
 
   /**
    * <p>Represents the identifier of a route response.</p>
@@ -5559,9 +5559,9 @@ export interface UpdateRouteResponseResponse {
   RouteResponseId?: string;
 
   /**
-   * <p>Represents the response parameters of a route response.</p>
+   * <p>Represents the route response key of a route response.</p>
    */
-  ResponseParameters?: { [key: string]: ParameterConstraints };
+  RouteResponseKey?: string;
 }
 
 export namespace UpdateRouteResponseResponse {
@@ -5575,16 +5575,6 @@ export namespace UpdateRouteResponseResponse {
  */
 export interface UpdateStageRequest {
   /**
-   * <p>The default route settings for the stage.</p>
-   */
-  DefaultRouteSettings?: RouteSettings;
-
-  /**
-   * <p>Route settings for the stage.</p>
-   */
-  RouteSettings?: { [key: string]: RouteSettings };
-
-  /**
    * <p>Settings for logging access in this stage.</p>
    */
   AccessLogSettings?: AccessLogSettings;
@@ -5595,26 +5585,6 @@ export interface UpdateStageRequest {
   ApiId: string | undefined;
 
   /**
-   * <p>The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>
-   */
-  StageName: string | undefined;
-
-  /**
-   * <p>A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.</p>
-   */
-  StageVariables?: { [key: string]: string };
-
-  /**
-   * <p>The description for the API stage.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The deployment identifier for the API stage. Can't be updated if autoDeploy is enabled.</p>
-   */
-  DeploymentId?: string;
-
-  /**
    * <p>Specifies whether updates to an API automatically trigger a new deployment. The default value is false.</p>
    */
   AutoDeploy?: boolean;
@@ -5623,6 +5593,36 @@ export interface UpdateStageRequest {
    * <p>The identifier of a client certificate for a Stage.</p>
    */
   ClientCertificateId?: string;
+
+  /**
+   * <p>The default route settings for the stage.</p>
+   */
+  DefaultRouteSettings?: RouteSettings;
+
+  /**
+   * <p>The deployment identifier for the API stage. Can't be updated if autoDeploy is enabled.</p>
+   */
+  DeploymentId?: string;
+
+  /**
+   * <p>The description for the API stage.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Route settings for the stage.</p>
+   */
+  RouteSettings?: { [key: string]: RouteSettings };
+
+  /**
+   * <p>The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>
+   */
+  StageName: string | undefined;
+
+  /**
+   * <p>A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.</p>
+   */
+  StageVariables?: { [key: string]: string };
 }
 
 export namespace UpdateStageRequest {
@@ -5632,6 +5632,11 @@ export namespace UpdateStageRequest {
 }
 
 export interface UpdateStageResponse {
+  /**
+   * <p>Settings for logging access in this stage.</p>
+   */
+  AccessLogSettings?: AccessLogSettings;
+
   /**
    * <p>Specifies whether a stage is managed by API Gateway. If you created an API using quick create, the $default stage is managed by API Gateway. You can't modify the $default stage.</p>
    */
@@ -5643,29 +5648,14 @@ export interface UpdateStageResponse {
   AutoDeploy?: boolean;
 
   /**
-   * <p>A map that defines the stage variables for a stage resource. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.</p>
+   * <p>The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.</p>
    */
-  StageVariables?: { [key: string]: string };
+  ClientCertificateId?: string;
 
   /**
-   * <p>The description of the stage.</p>
+   * <p>The timestamp when the stage was created.</p>
    */
-  Description?: string;
-
-  /**
-   * <p>The name of the stage.</p>
-   */
-  StageName?: string;
-
-  /**
-   * <p>Route settings for the stage, by routeKey.</p>
-   */
-  RouteSettings?: { [key: string]: RouteSettings };
-
-  /**
-   * <p>Settings for logging access in this stage.</p>
-   */
-  AccessLogSettings?: AccessLogSettings;
+  CreatedDate?: Date;
 
   /**
    * <p>Default route settings for the stage.</p>
@@ -5673,24 +5663,14 @@ export interface UpdateStageResponse {
   DefaultRouteSettings?: RouteSettings;
 
   /**
-   * <p>The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.</p>
-   */
-  ClientCertificateId?: string;
-
-  /**
    * <p>The identifier of the Deployment that the Stage is associated with. Can't be updated if autoDeploy is enabled.</p>
    */
   DeploymentId?: string;
 
   /**
-   * <p>The timestamp when the stage was last updated.</p>
+   * <p>The description of the stage.</p>
    */
-  LastUpdatedDate?: Date;
-
-  /**
-   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
-   */
-  Tags?: { [key: string]: string };
+  Description?: string;
 
   /**
    * <p>Describes the status of the last deployment of a stage. Supported only for stages with autoDeploy enabled.</p>
@@ -5698,9 +5678,29 @@ export interface UpdateStageResponse {
   LastDeploymentStatusMessage?: string;
 
   /**
-   * <p>The timestamp when the stage was created.</p>
+   * <p>The timestamp when the stage was last updated.</p>
    */
-  CreatedDate?: Date;
+  LastUpdatedDate?: Date;
+
+  /**
+   * <p>Route settings for the stage, by routeKey.</p>
+   */
+  RouteSettings?: { [key: string]: RouteSettings };
+
+  /**
+   * <p>The name of the stage.</p>
+   */
+  StageName?: string;
+
+  /**
+   * <p>A map that defines the stage variables for a stage resource. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.</p>
+   */
+  StageVariables?: { [key: string]: string };
+
+  /**
+   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace UpdateStageResponse {
@@ -5714,14 +5714,14 @@ export namespace UpdateStageResponse {
  */
 export interface UpdateVpcLinkRequest {
   /**
-   * <p>The ID of the VPC link.</p>
-   */
-  VpcLinkId: string | undefined;
-
-  /**
    * <p>The name of the VPC link.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The ID of the VPC link.</p>
+   */
+  VpcLinkId: string | undefined;
 }
 
 export namespace UpdateVpcLinkRequest {
@@ -5732,39 +5732,9 @@ export namespace UpdateVpcLinkRequest {
 
 export interface UpdateVpcLinkResponse {
   /**
-   * <p>Tags for the VPC link.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   * <p>A list of subnet IDs to include in the VPC link.</p>
-   */
-  SubnetIds?: string[];
-
-  /**
-   * <p>The version of the VPC link.</p>
-   */
-  VpcLinkVersion?: VpcLinkVersion | string;
-
-  /**
    * <p>The timestamp when the VPC link was created.</p>
    */
   CreatedDate?: Date;
-
-  /**
-   * <p>The status of the VPC link.</p>
-   */
-  VpcLinkStatus?: VpcLinkStatus | string;
-
-  /**
-   * <p>The ID of the VPC link.</p>
-   */
-  VpcLinkId?: string;
-
-  /**
-   * <p>A list of security group IDs for the VPC link.</p>
-   */
-  SecurityGroupIds?: string[];
 
   /**
    * <p>The name of the VPC link.</p>
@@ -5772,9 +5742,39 @@ export interface UpdateVpcLinkResponse {
   Name?: string;
 
   /**
+   * <p>A list of security group IDs for the VPC link.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>A list of subnet IDs to include in the VPC link.</p>
+   */
+  SubnetIds?: string[];
+
+  /**
+   * <p>Tags for the VPC link.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>The ID of the VPC link.</p>
+   */
+  VpcLinkId?: string;
+
+  /**
+   * <p>The status of the VPC link.</p>
+   */
+  VpcLinkStatus?: VpcLinkStatus | string;
+
+  /**
    * <p>A message summarizing the cause of the status of the VPC link.</p>
    */
   VpcLinkStatusMessage?: string;
+
+  /**
+   * <p>The version of the VPC link.</p>
+   */
+  VpcLinkVersion?: VpcLinkVersion | string;
 }
 
 export namespace UpdateVpcLinkResponse {

@@ -38,14 +38,14 @@ export interface CreateEndpointRequest {
   OutpostId: string | undefined;
 
   /**
-   * <p>The ID of the security group to use with the endpoint.</p>
-   */
-  SecurityGroupId: string | undefined;
-
-  /**
    * <p>The ID of the subnet in the selected VPC.</p>
    */
   SubnetId: string | undefined;
+
+  /**
+   * <p>The ID of the security group to use with the endpoint.</p>
+   */
+  SecurityGroupId: string | undefined;
 }
 
 export namespace CreateEndpointRequest {
@@ -158,19 +158,14 @@ export enum EndpointStatus {
  */
 export interface Endpoint {
   /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
+   */
+  EndpointArn?: string;
+
+  /**
    * <p>The ID of the AWS Outpost.</p>
    */
   OutpostsId?: string;
-
-  /**
-   * <p>The network interface of the endpoint.</p>
-   */
-  NetworkInterfaces?: NetworkInterface[];
-
-  /**
-   * <p>The status of the endpoint.</p>
-   */
-  Status?: EndpointStatus | string;
 
   /**
    * <p>The VPC CIDR committed by this endpoint.</p>
@@ -178,14 +173,19 @@ export interface Endpoint {
   CidrBlock?: string;
 
   /**
+   * <p>The status of the endpoint.</p>
+   */
+  Status?: EndpointStatus | string;
+
+  /**
    * <p>The time the endpoint was created.</p>
    */
   CreationTime?: Date;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
+   * <p>The network interface of the endpoint.</p>
    */
-  EndpointArn?: string;
+  NetworkInterfaces?: NetworkInterface[];
 }
 
 export namespace Endpoint {
@@ -196,14 +196,14 @@ export namespace Endpoint {
 
 export interface ListEndpointsRequest {
   /**
-   * <p>The max number of endpoints that can be returned on the request.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The next endpoint requested in the list.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The max number of endpoints that can be returned on the request.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListEndpointsRequest {

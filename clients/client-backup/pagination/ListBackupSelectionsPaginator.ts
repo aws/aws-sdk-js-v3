@@ -35,7 +35,8 @@ export async function* paginateListBackupSelections(
   input: ListBackupSelectionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListBackupSelectionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.NextToken
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListBackupSelectionsCommandOutput;
   while (hasNext) {

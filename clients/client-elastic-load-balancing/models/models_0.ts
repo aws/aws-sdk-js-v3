@@ -6,10 +6,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  */
 export interface AccessLog {
   /**
-   * <p>The logical hierarchy you created for your Amazon S3 bucket, for example <code>my-bucket-prefix/prod</code>.
-   *             If the prefix is not provided, the log is placed at the root level of the bucket.</p>
+   * <p>Specifies whether access logs are enabled for the load balancer.</p>
    */
-  S3BucketPrefix?: string;
+  Enabled: boolean | undefined;
 
   /**
    * <p>The name of the Amazon S3 bucket where the access logs are stored.</p>
@@ -23,9 +22,10 @@ export interface AccessLog {
   EmitInterval?: number;
 
   /**
-   * <p>Specifies whether access logs are enabled for the load balancer.</p>
+   * <p>The logical hierarchy you created for your Amazon S3 bucket, for example <code>my-bucket-prefix/prod</code>.
+   *             If the prefix is not provided, the log is placed at the root level of the bucket.</p>
    */
-  Enabled: boolean | undefined;
+  S3BucketPrefix?: string;
 }
 
 export namespace AccessLog {
@@ -292,14 +292,14 @@ export namespace InvalidSecurityGroupException {
  */
 export interface AttachLoadBalancerToSubnetsInput {
   /**
-   * <p>The IDs of the subnets to add. You can add only one subnet per Availability Zone.</p>
-   */
-  Subnets: string[] | undefined;
-
-  /**
    * <p>The name of the load balancer.</p>
    */
   LoadBalancerName: string | undefined;
+
+  /**
+   * <p>The IDs of the subnets to add. You can add only one subnet per Availability Zone.</p>
+   */
+  Subnets: string[] | undefined;
 }
 
 export namespace AttachLoadBalancerToSubnetsInput {
@@ -359,14 +359,14 @@ export namespace SubnetNotFoundException {
  */
 export interface BackendServerDescription {
   /**
-   * <p>The names of the policies enabled for the EC2 instance.</p>
-   */
-  PolicyNames?: string[];
-
-  /**
    * <p>The port on which the EC2 instance is listening.</p>
    */
   InstancePort?: number;
+
+  /**
+   * <p>The names of the policies enabled for the EC2 instance.</p>
+   */
+  PolicyNames?: string[];
 }
 
 export namespace BackendServerDescription {
@@ -397,16 +397,6 @@ export namespace CertificateNotFoundException {
  */
 export interface HealthCheck {
   /**
-   * <p>The number of consecutive health checks successes required before moving the instance to the <code>Healthy</code> state.</p>
-   */
-  HealthyThreshold: number | undefined;
-
-  /**
-   * <p>The number of consecutive health check failures required before moving the instance to the <code>Unhealthy</code> state.</p>
-   */
-  UnhealthyThreshold: number | undefined;
-
-  /**
    * <p>The instance being checked. The protocol is either TCP, HTTP, HTTPS, or SSL. The range of valid ports is one (1) through 65535.</p>
    *         <p>TCP is the default, specified as a TCP: port pair, for example "TCP:5000". In this case, a health check simply attempts to open a TCP connection to the instance on the specified port. Failure to connect within the configured timeout is considered unhealthy.</p>
    *         <p>SSL is also specified as SSL: port pair, for example, SSL:5000.</p>
@@ -425,6 +415,16 @@ export interface HealthCheck {
    *         <p>This value must be less than the <code>Interval</code> value.</p>
    */
   Timeout: number | undefined;
+
+  /**
+   * <p>The number of consecutive health check failures required before moving the instance to the <code>Unhealthy</code> state.</p>
+   */
+  UnhealthyThreshold: number | undefined;
+
+  /**
+   * <p>The number of consecutive health checks successes required before moving the instance to the <code>Healthy</code> state.</p>
+   */
+  HealthyThreshold: number | undefined;
 }
 
 export namespace HealthCheck {
@@ -438,14 +438,14 @@ export namespace HealthCheck {
  */
 export interface ConfigureHealthCheckInput {
   /**
-   * <p>The configuration information.</p>
-   */
-  HealthCheck: HealthCheck | undefined;
-
-  /**
    * <p>The name of the load balancer.</p>
    */
   LoadBalancerName: string | undefined;
+
+  /**
+   * <p>The configuration information.</p>
+   */
+  HealthCheck: HealthCheck | undefined;
 }
 
 export namespace ConfigureHealthCheckInput {
@@ -475,14 +475,14 @@ export namespace ConfigureHealthCheckOutput {
  */
 export interface ConnectionDraining {
   /**
-   * <p>The maximum time, in seconds, to keep the existing connections open before deregistering the instances.</p>
-   */
-  Timeout?: number;
-
-  /**
    * <p>Specifies whether connection draining is enabled for the load balancer.</p>
    */
   Enabled: boolean | undefined;
+
+  /**
+   * <p>The maximum time, in seconds, to keep the existing connections open before deregistering the instances.</p>
+   */
+  Timeout?: number;
 }
 
 export namespace ConnectionDraining {
@@ -514,14 +514,14 @@ export namespace ConnectionSettings {
  */
 export interface Listener {
   /**
+   * <p>The load balancer transport protocol to use for routing: HTTP, HTTPS, TCP, or SSL.</p>
+   */
+  Protocol: string | undefined;
+
+  /**
    * <p>The port on which the load balancer is listening. On EC2-VPC, you can specify any port from the range 1-65535. On EC2-Classic, you can specify any port from the following list: 25, 80, 443, 465, 587, 1024-65535.</p>
    */
   LoadBalancerPort: number | undefined;
-
-  /**
-   * <p>The port on which the instance is listening.</p>
-   */
-  InstancePort: number | undefined;
 
   /**
    * <p>The protocol to use for routing traffic to instances: HTTP, HTTPS, TCP, or SSL.</p>
@@ -535,14 +535,14 @@ export interface Listener {
   InstanceProtocol?: string;
 
   /**
+   * <p>The port on which the instance is listening.</p>
+   */
+  InstancePort: number | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the server certificate.</p>
    */
   SSLCertificateId?: string;
-
-  /**
-   * <p>The load balancer transport protocol to use for routing: HTTP, HTTPS, TCP, or SSL.</p>
-   */
-  Protocol: string | undefined;
 }
 
 export namespace Listener {
@@ -555,6 +555,19 @@ export namespace Listener {
  * <p>Contains the parameters for CreateLoadBalancer.</p>
  */
 export interface CreateAccessPointInput {
+  /**
+   * <p>The name of the load balancer.</p>
+   *         <p>This name must be unique within your set of load balancers for the region, must have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and cannot begin or end with a hyphen.</p>
+   */
+  LoadBalancerName: string | undefined;
+
+  /**
+   * <p>The listeners.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners for Your Classic Load Balancer</a>
+   *             in the <i>Classic Load Balancers Guide</i>.</p>
+   */
+  Listeners: Listener[] | undefined;
+
   /**
    * <p>One or more Availability Zones from the same region as the load balancer.</p>
    *         <p>You must specify at least one Availability Zone.</p>
@@ -589,19 +602,6 @@ export interface CreateAccessPointInput {
    *             in the <i>Classic Load Balancers Guide</i>.</p>
    */
   Tags?: Tag[];
-
-  /**
-   * <p>The listeners.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners for Your Classic Load Balancer</a>
-   *             in the <i>Classic Load Balancers Guide</i>.</p>
-   */
-  Listeners: Listener[] | undefined;
-
-  /**
-   * <p>The name of the load balancer.</p>
-   *         <p>This name must be unique within your set of load balancers for the region, must have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and cannot begin or end with a hyphen.</p>
-   */
-  LoadBalancerName: string | undefined;
 }
 
 export namespace CreateAccessPointInput {
@@ -631,14 +631,14 @@ export namespace CreateAccessPointOutput {
  */
 export interface CreateAppCookieStickinessPolicyInput {
   /**
-   * <p>The name of the policy being created. Policy names must consist of alphanumeric characters and dashes (-). This name must be unique within the set of policies for this load balancer.</p>
-   */
-  PolicyName: string | undefined;
-
-  /**
    * <p>The name of the load balancer.</p>
    */
   LoadBalancerName: string | undefined;
+
+  /**
+   * <p>The name of the policy being created. Policy names must consist of alphanumeric characters and dashes (-). This name must be unique within the set of policies for this load balancer.</p>
+   */
+  PolicyName: string | undefined;
 
   /**
    * <p>The name of the application cookie used for stickiness.</p>
@@ -810,14 +810,14 @@ export namespace UnsupportedProtocolException {
  */
 export interface CreateLoadBalancerListenerInput {
   /**
-   * <p>The listeners.</p>
-   */
-  Listeners: Listener[] | undefined;
-
-  /**
    * <p>The name of the load balancer.</p>
    */
   LoadBalancerName: string | undefined;
+
+  /**
+   * <p>The listeners.</p>
+   */
+  Listeners: Listener[] | undefined;
 }
 
 export namespace CreateLoadBalancerListenerInput {
@@ -857,14 +857,14 @@ export namespace DuplicateListenerException {
  */
 export interface PolicyAttribute {
   /**
-   * <p>The value of the attribute.</p>
-   */
-  AttributeValue?: string;
-
-  /**
    * <p>The name of the attribute.</p>
    */
   AttributeName?: string;
+
+  /**
+   * <p>The value of the attribute.</p>
+   */
+  AttributeValue?: string;
 }
 
 export namespace PolicyAttribute {
@@ -878,25 +878,25 @@ export namespace PolicyAttribute {
  */
 export interface CreateLoadBalancerPolicyInput {
   /**
-   * <p>The name of the load balancer policy to be created. This name must be unique within the set of policies for this load balancer.</p>
-   */
-  PolicyName: string | undefined;
-
-  /**
    * <p>The name of the load balancer.</p>
    */
   LoadBalancerName: string | undefined;
 
   /**
-   * <p>The policy attributes.</p>
+   * <p>The name of the load balancer policy to be created. This name must be unique within the set of policies for this load balancer.</p>
    */
-  PolicyAttributes?: PolicyAttribute[];
+  PolicyName: string | undefined;
 
   /**
    * <p>The name of the base policy type.
    *    	   To get the list of policy types, use <a>DescribeLoadBalancerPolicyTypes</a>.</p>
    */
   PolicyTypeName: string | undefined;
+
+  /**
+   * <p>The policy attributes.</p>
+   */
+  PolicyAttributes?: PolicyAttribute[];
 }
 
 export namespace CreateLoadBalancerPolicyInput {
@@ -979,14 +979,14 @@ export namespace DeleteAccessPointOutput {
  */
 export interface DeleteLoadBalancerListenerInput {
   /**
-   * <p>The client port numbers of the listeners.</p>
-   */
-  LoadBalancerPorts: number[] | undefined;
-
-  /**
    * <p>The name of the load balancer.</p>
    */
   LoadBalancerName: string | undefined;
+
+  /**
+   * <p>The client port numbers of the listeners.</p>
+   */
+  LoadBalancerPorts: number[] | undefined;
 }
 
 export namespace DeleteLoadBalancerListenerInput {
@@ -1011,14 +1011,14 @@ export namespace DeleteLoadBalancerListenerOutput {
  */
 export interface DeleteLoadBalancerPolicyInput {
   /**
-   * <p>The name of the policy.</p>
-   */
-  PolicyName: string | undefined;
-
-  /**
    * <p>The name of the load balancer.</p>
    */
   LoadBalancerName: string | undefined;
+
+  /**
+   * <p>The name of the policy.</p>
+   */
+  PolicyName: string | undefined;
 }
 
 export namespace DeleteLoadBalancerPolicyInput {
@@ -1074,14 +1074,14 @@ export namespace Instance {
  */
 export interface DeregisterEndPointsInput {
   /**
-   * <p>The IDs of the instances.</p>
-   */
-  Instances: Instance[] | undefined;
-
-  /**
    * <p>The name of the load balancer.</p>
    */
   LoadBalancerName: string | undefined;
+
+  /**
+   * <p>The IDs of the instances.</p>
+   */
+  Instances: Instance[] | undefined;
 }
 
 export namespace DeregisterEndPointsInput {
@@ -1126,14 +1126,14 @@ export namespace InvalidEndPointException {
  */
 export interface DescribeAccessPointsInput {
   /**
-   * <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
-   */
-  Marker?: string;
-
-  /**
    * <p>The names of the load balancers.</p>
    */
   LoadBalancerNames?: string[];
+
+  /**
+   * <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
+   */
+  Marker?: string;
 
   /**
    * <p>The maximum number of results to return with this call (a number from 1 to 400). The default is 400.</p>
@@ -1152,14 +1152,14 @@ export namespace DescribeAccessPointsInput {
  */
 export interface ListenerDescription {
   /**
-   * <p>The policies. If there are no policies enabled, the list is empty.</p>
-   */
-  PolicyNames?: string[];
-
-  /**
    * <p>The listener.</p>
    */
   Listener?: Listener;
+
+  /**
+   * <p>The policies. If there are no policies enabled, the list is empty.</p>
+   */
+  PolicyNames?: string[];
 }
 
 export namespace ListenerDescription {
@@ -1173,14 +1173,14 @@ export namespace ListenerDescription {
  */
 export interface LBCookieStickinessPolicy {
   /**
-   * <p>The time period, in seconds, after which the cookie should be considered stale. If this parameter is not specified, the stickiness session lasts for the duration of the browser session.</p>
-   */
-  CookieExpirationPeriod?: number;
-
-  /**
    * <p>The name of the policy. This name must be unique within the set of policies for this load balancer.</p>
    */
   PolicyName?: string;
+
+  /**
+   * <p>The time period, in seconds, after which the cookie should be considered stale. If this parameter is not specified, the stickiness session lasts for the duration of the browser session.</p>
+   */
+  CookieExpirationPeriod?: number;
 }
 
 export namespace LBCookieStickinessPolicy {
@@ -1194,6 +1194,11 @@ export namespace LBCookieStickinessPolicy {
  */
 export interface Policies {
   /**
+   * <p>The stickiness policies created using <a>CreateAppCookieStickinessPolicy</a>.</p>
+   */
+  AppCookieStickinessPolicies?: AppCookieStickinessPolicy[];
+
+  /**
    * <p>The stickiness policies created using <a>CreateLBCookieStickinessPolicy</a>.</p>
    */
   LBCookieStickinessPolicies?: LBCookieStickinessPolicy[];
@@ -1202,11 +1207,6 @@ export interface Policies {
    * <p>The policies other than the stickiness policies.</p>
    */
   OtherPolicies?: string[];
-
-  /**
-   * <p>The stickiness policies created using <a>CreateAppCookieStickinessPolicy</a>.</p>
-   */
-  AppCookieStickinessPolicies?: AppCookieStickinessPolicy[];
 }
 
 export namespace Policies {
@@ -1220,14 +1220,14 @@ export namespace Policies {
  */
 export interface SourceSecurityGroup {
   /**
-   * <p>The name of the security group.</p>
-   */
-  GroupName?: string;
-
-  /**
    * <p>The owner of the security group.</p>
    */
   OwnerAlias?: string;
+
+  /**
+   * <p>The name of the security group.</p>
+   */
+  GroupName?: string;
 }
 
 export namespace SourceSecurityGroup {
@@ -1241,34 +1241,14 @@ export namespace SourceSecurityGroup {
  */
 export interface LoadBalancerDescription {
   /**
-   * <p>The ID of the Amazon Route 53 hosted zone for the load balancer.</p>
-   */
-  CanonicalHostedZoneNameID?: string;
-
-  /**
    * <p>The name of the load balancer.</p>
    */
   LoadBalancerName?: string;
 
   /**
-   * <p>The ID of the VPC for the load balancer.</p>
-   */
-  VPCId?: string;
-
-  /**
-   * <p>The IDs of the subnets for the load balancer.</p>
-   */
-  Subnets?: string[];
-
-  /**
    * <p>The DNS name of the load balancer.</p>
    */
   DNSName?: string;
-
-  /**
-   * <p>The policies defined for the load balancer.</p>
-   */
-  Policies?: Policies;
 
   /**
    * <p>The DNS name of the load balancer.</p>
@@ -1278,14 +1258,49 @@ export interface LoadBalancerDescription {
   CanonicalHostedZoneName?: string;
 
   /**
+   * <p>The ID of the Amazon Route 53 hosted zone for the load balancer.</p>
+   */
+  CanonicalHostedZoneNameID?: string;
+
+  /**
+   * <p>The listeners for the load balancer.</p>
+   */
+  ListenerDescriptions?: ListenerDescription[];
+
+  /**
+   * <p>The policies defined for the load balancer.</p>
+   */
+  Policies?: Policies;
+
+  /**
    * <p>Information about your EC2 instances.</p>
    */
   BackendServerDescriptions?: BackendServerDescription[];
 
   /**
-   * <p>The security groups for the load balancer. Valid only for load balancers in a VPC.</p>
+   * <p>The Availability Zones for the load balancer.</p>
    */
-  SecurityGroups?: string[];
+  AvailabilityZones?: string[];
+
+  /**
+   * <p>The IDs of the subnets for the load balancer.</p>
+   */
+  Subnets?: string[];
+
+  /**
+   * <p>The ID of the VPC for the load balancer.</p>
+   */
+  VPCId?: string;
+
+  /**
+   * <p>The IDs of the instances for the load balancer.</p>
+   */
+  Instances?: Instance[];
+
+  /**
+   * <p>Information about the health checks conducted on the load balancer.</p>
+   */
+  HealthCheck?: HealthCheck;
 
   /**
    * <p>The security group for the load balancer, which you can use as part of your inbound rules for your registered instances.
@@ -1294,14 +1309,14 @@ export interface LoadBalancerDescription {
   SourceSecurityGroup?: SourceSecurityGroup;
 
   /**
-   * <p>The Availability Zones for the load balancer.</p>
+   * <p>The security groups for the load balancer. Valid only for load balancers in a VPC.</p>
    */
-  AvailabilityZones?: string[];
+  SecurityGroups?: string[];
 
   /**
-   * <p>The IDs of the instances for the load balancer.</p>
+   * <p>The date and time the load balancer was created.</p>
    */
-  Instances?: Instance[];
+  CreatedTime?: Date;
 
   /**
    * <p>The type of load balancer. Valid only for load balancers in a VPC.</p>
@@ -1311,21 +1326,6 @@ export interface LoadBalancerDescription {
    *            DNS name that resolves to a private IP address.</p>
    */
   Scheme?: string;
-
-  /**
-   * <p>The date and time the load balancer was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * <p>Information about the health checks conducted on the load balancer.</p>
-   */
-  HealthCheck?: HealthCheck;
-
-  /**
-   * <p>The listeners for the load balancer.</p>
-   */
-  ListenerDescriptions?: ListenerDescription[];
 }
 
 export namespace LoadBalancerDescription {
@@ -1357,14 +1357,14 @@ export namespace DescribeAccessPointsOutput {
 
 export interface DescribeAccountLimitsInput {
   /**
-   * <p>The maximum number of results to return with this call.</p>
-   */
-  PageSize?: number;
-
-  /**
    * <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
    */
   Marker?: string;
+
+  /**
+   * <p>The maximum number of results to return with this call.</p>
+   */
+  PageSize?: number;
 }
 
 export namespace DescribeAccountLimitsInput {
@@ -1407,14 +1407,14 @@ export namespace Limit {
 
 export interface DescribeAccountLimitsOutput {
   /**
-   * <p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>
-   */
-  NextMarker?: string;
-
-  /**
    * <p>Information about the limits.</p>
    */
   Limits?: Limit[];
+
+  /**
+   * <p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>
+   */
+  NextMarker?: string;
 }
 
 export namespace DescribeAccountLimitsOutput {
@@ -1459,6 +1459,14 @@ export interface InstanceState {
    *          </p>
    */
   State?: string;
+
+  /**
+   * <p>Information about the cause of <code>OutOfService</code> instances.
+   *          Specifically, whether the cause is Elastic Load Balancing or the instance.</p>
+   *         <p>Valid values: <code>ELB</code> | <code>Instance</code> | <code>N/A</code>
+   *          </p>
+   */
+  ReasonCode?: string;
 
   /**
    * <p>A description of the instance state. This string can contain one or more of the following messages.</p>
@@ -1526,14 +1534,6 @@ export interface InstanceState {
    *          </ul>
    */
   Description?: string;
-
-  /**
-   * <p>Information about the cause of <code>OutOfService</code> instances.
-   *          Specifically, whether the cause is Elastic Load Balancing or the instance.</p>
-   *         <p>Valid values: <code>ELB</code> | <code>Instance</code> | <code>N/A</code>
-   *          </p>
-   */
-  ReasonCode?: string;
 }
 
 export namespace InstanceState {
@@ -1579,11 +1579,25 @@ export namespace DescribeLoadBalancerAttributesInput {
  */
 export interface LoadBalancerAttributes {
   /**
+   * <p>If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html">Configure Cross-Zone Load Balancing</a>
+   *             in the <i>Classic Load Balancers Guide</i>.</p>
+   */
+  CrossZoneLoadBalancing?: CrossZoneLoadBalancing;
+
+  /**
    * <p>If enabled, the load balancer captures detailed information of all requests and delivers the information to the Amazon S3 bucket that you specify.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html">Enable Access Logs</a>
    *             in the <i>Classic Load Balancers Guide</i>.</p>
    */
   AccessLog?: AccessLog;
+
+  /**
+   * <p>If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html">Configure Connection Draining</a>
+   *             in the <i>Classic Load Balancers Guide</i>.</p>
+   */
+  ConnectionDraining?: ConnectionDraining;
 
   /**
    * <p>If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.</p>
@@ -1597,20 +1611,6 @@ export interface LoadBalancerAttributes {
    * <p>Any additional attributes.</p>
    */
   AdditionalAttributes?: AdditionalAttribute[];
-
-  /**
-   * <p>If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html">Configure Cross-Zone Load Balancing</a>
-   *             in the <i>Classic Load Balancers Guide</i>.</p>
-   */
-  CrossZoneLoadBalancing?: CrossZoneLoadBalancing;
-
-  /**
-   * <p>If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html">Configure Connection Draining</a>
-   *             in the <i>Classic Load Balancers Guide</i>.</p>
-   */
-  ConnectionDraining?: ConnectionDraining;
 }
 
 export namespace LoadBalancerAttributes {
@@ -1655,14 +1655,14 @@ export namespace LoadBalancerAttributeNotFoundException {
  */
 export interface DescribeLoadBalancerPoliciesInput {
   /**
-   * <p>The names of the policies.</p>
-   */
-  PolicyNames?: string[];
-
-  /**
    * <p>The name of the load balancer.</p>
    */
   LoadBalancerName?: string;
+
+  /**
+   * <p>The names of the policies.</p>
+   */
+  PolicyNames?: string[];
 }
 
 export namespace DescribeLoadBalancerPoliciesInput {
@@ -1770,16 +1770,6 @@ export namespace DescribeLoadBalancerPolicyTypesInput {
  */
 export interface PolicyAttributeTypeDescription {
   /**
-   * <p>A description of the attribute.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The default value of the attribute, if applicable.</p>
-   */
-  DefaultValue?: string;
-
-  /**
    * <p>The name of the attribute.</p>
    */
   AttributeName?: string;
@@ -1788,6 +1778,16 @@ export interface PolicyAttributeTypeDescription {
    * <p>The type of the attribute. For example, <code>Boolean</code> or <code>Integer</code>.</p>
    */
   AttributeType?: string;
+
+  /**
+   * <p>A description of the attribute.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The default value of the attribute, if applicable.</p>
+   */
+  DefaultValue?: string;
 
   /**
    * <p>The cardinality of the attribute.</p>
@@ -1821,9 +1821,9 @@ export namespace PolicyAttributeTypeDescription {
  */
 export interface PolicyTypeDescription {
   /**
-   * <p>The description of the policy attributes associated with the policies defined by Elastic Load Balancing.</p>
+   * <p>The name of the policy type.</p>
    */
-  PolicyAttributeTypeDescriptions?: PolicyAttributeTypeDescription[];
+  PolicyTypeName?: string;
 
   /**
    * <p>A description of the policy type.</p>
@@ -1831,9 +1831,9 @@ export interface PolicyTypeDescription {
   Description?: string;
 
   /**
-   * <p>The name of the policy type.</p>
+   * <p>The description of the policy attributes associated with the policies defined by Elastic Load Balancing.</p>
    */
-  PolicyTypeName?: string;
+  PolicyAttributeTypeDescriptions?: PolicyAttributeTypeDescription[];
 }
 
 export namespace PolicyTypeDescription {
@@ -1879,14 +1879,14 @@ export namespace DescribeTagsInput {
  */
 export interface TagDescription {
   /**
-   * <p>The tags.</p>
-   */
-  Tags?: Tag[];
-
-  /**
    * <p>The name of the load balancer.</p>
    */
   LoadBalancerName?: string;
+
+  /**
+   * <p>The tags.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace TagDescription {
@@ -2011,14 +2011,14 @@ export namespace ModifyLoadBalancerAttributesInput {
  */
 export interface ModifyLoadBalancerAttributesOutput {
   /**
-   * <p>Information about the load balancer attributes.</p>
-   */
-  LoadBalancerAttributes?: LoadBalancerAttributes;
-
-  /**
    * <p>The name of the load balancer.</p>
    */
   LoadBalancerName?: string;
+
+  /**
+   * <p>Information about the load balancer attributes.</p>
+   */
+  LoadBalancerAttributes?: LoadBalancerAttributes;
 }
 
 export namespace ModifyLoadBalancerAttributesOutput {
@@ -2032,14 +2032,14 @@ export namespace ModifyLoadBalancerAttributesOutput {
  */
 export interface RegisterEndPointsInput {
   /**
-   * <p>The IDs of the instances.</p>
-   */
-  Instances: Instance[] | undefined;
-
-  /**
    * <p>The name of the load balancer.</p>
    */
   LoadBalancerName: string | undefined;
+
+  /**
+   * <p>The IDs of the instances.</p>
+   */
+  Instances: Instance[] | undefined;
 }
 
 export namespace RegisterEndPointsInput {
@@ -2132,6 +2132,11 @@ export namespace ListenerNotFoundException {
  */
 export interface SetLoadBalancerListenerSSLCertificateInput {
   /**
+   * <p>The name of the load balancer.</p>
+   */
+  LoadBalancerName: string | undefined;
+
+  /**
    * <p>The port that uses the specified SSL certificate.</p>
    */
   LoadBalancerPort: number | undefined;
@@ -2140,11 +2145,6 @@ export interface SetLoadBalancerListenerSSLCertificateInput {
    * <p>The Amazon Resource Name (ARN) of the SSL certificate.</p>
    */
   SSLCertificateId: string | undefined;
-
-  /**
-   * <p>The name of the load balancer.</p>
-   */
-  LoadBalancerName: string | undefined;
 }
 
 export namespace SetLoadBalancerListenerSSLCertificateInput {
@@ -2169,9 +2169,9 @@ export namespace SetLoadBalancerListenerSSLCertificateOutput {
  */
 export interface SetLoadBalancerPoliciesForBackendServerInput {
   /**
-   * <p>The names of the policies. If the list is empty, then all current polices are removed from the EC2 instance.</p>
+   * <p>The name of the load balancer.</p>
    */
-  PolicyNames: string[] | undefined;
+  LoadBalancerName: string | undefined;
 
   /**
    * <p>The port number associated with the EC2 instance.</p>
@@ -2179,9 +2179,9 @@ export interface SetLoadBalancerPoliciesForBackendServerInput {
   InstancePort: number | undefined;
 
   /**
-   * <p>The name of the load balancer.</p>
+   * <p>The names of the policies. If the list is empty, then all current polices are removed from the EC2 instance.</p>
    */
-  LoadBalancerName: string | undefined;
+  PolicyNames: string[] | undefined;
 }
 
 export namespace SetLoadBalancerPoliciesForBackendServerInput {
@@ -2206,11 +2206,6 @@ export namespace SetLoadBalancerPoliciesForBackendServerOutput {
  */
 export interface SetLoadBalancerPoliciesOfListenerInput {
   /**
-   * <p>The names of the policies. This list must include all policies to be enabled. If you omit a policy that is currently enabled, it is disabled. If the list is empty, all current policies are disabled.</p>
-   */
-  PolicyNames: string[] | undefined;
-
-  /**
    * <p>The name of the load balancer.</p>
    */
   LoadBalancerName: string | undefined;
@@ -2219,6 +2214,11 @@ export interface SetLoadBalancerPoliciesOfListenerInput {
    * <p>The external port of the load balancer.</p>
    */
   LoadBalancerPort: number | undefined;
+
+  /**
+   * <p>The names of the policies. This list must include all policies to be enabled. If you omit a policy that is currently enabled, it is disabled. If the list is empty, all current policies are disabled.</p>
+   */
+  PolicyNames: string[] | undefined;
 }
 
 export namespace SetLoadBalancerPoliciesOfListenerInput {

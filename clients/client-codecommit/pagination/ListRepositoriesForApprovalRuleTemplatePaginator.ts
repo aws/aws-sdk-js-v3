@@ -35,7 +35,8 @@ export async function* paginateListRepositoriesForApprovalRuleTemplate(
   input: ListRepositoriesForApprovalRuleTemplateCommandInput,
   ...additionalArguments: any
 ): Paginator<ListRepositoriesForApprovalRuleTemplateCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.nextToken
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListRepositoriesForApprovalRuleTemplateCommandOutput;
   while (hasNext) {

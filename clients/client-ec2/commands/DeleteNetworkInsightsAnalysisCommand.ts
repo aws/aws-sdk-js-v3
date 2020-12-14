@@ -1,5 +1,6 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteNetworkInsightsAnalysisRequest, DeleteNetworkInsightsAnalysisResult } from "../models/models_1";
+import { DeleteNetworkInsightsAnalysisRequest } from "../models/models_1";
+import { DeleteNetworkInsightsAnalysisResult } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteNetworkInsightsAnalysisCommand,
   serializeAws_ec2DeleteNetworkInsightsAnalysisCommand,

@@ -85,14 +85,19 @@ export namespace DescribeObjectRequest {
 
 export interface DescribeObjectResponse {
   /**
-   * <p>The date and time that the object was last modified.</p>
+   * <p>The ETag that represents a unique instance of the object.</p>
    */
-  LastModified?: Date;
+  ETag?: string;
 
   /**
    * <p>The content type of the object.</p>
    */
   ContentType?: string;
+
+  /**
+   * <p>The length of the object in bytes.</p>
+   */
+  ContentLength?: number;
 
   /**
    * <p>An optional <code>CacheControl</code> header that allows the caller to control the
@@ -102,14 +107,9 @@ export interface DescribeObjectResponse {
   CacheControl?: string;
 
   /**
-   * <p>The ETag that represents a unique instance of the object.</p>
+   * <p>The date and time that the object was last modified.</p>
    */
-  ETag?: string;
-
-  /**
-   * <p>The length of the object in bytes.</p>
-   */
-  ContentLength?: number;
+  LastModified?: Date;
 }
 
 export namespace DescribeObjectResponse {
@@ -156,11 +156,21 @@ export namespace GetObjectRequest {
 
 export interface GetObjectResponse {
   /**
+   * <p>The bytes of the object. </p>
+   */
+  Body?: Readable | ReadableStream | Blob;
+
+  /**
    * <p>An optional <code>CacheControl</code> header that allows the caller to control the
    *          object's cache behavior. Headers can be passed in as specified in the HTTP spec at <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</p>
    *          <p>Headers with a custom user-defined value are also accepted.</p>
    */
   CacheControl?: string;
+
+  /**
+   * <p>The range of bytes to retrieve.</p>
+   */
+  ContentRange?: string;
 
   /**
    * <p>The length of the object in bytes.</p>
@@ -173,9 +183,9 @@ export interface GetObjectResponse {
   ContentType?: string;
 
   /**
-   * <p>The range of bytes to retrieve.</p>
+   * <p>The ETag that represents a unique instance of the object.</p>
    */
-  ContentRange?: string;
+  ETag?: string;
 
   /**
    * <p>The date and time that the object was last modified.</p>
@@ -183,20 +193,10 @@ export interface GetObjectResponse {
   LastModified?: Date;
 
   /**
-   * <p>The ETag that represents a unique instance of the object.</p>
-   */
-  ETag?: string;
-
-  /**
    * <p>The HTML status code of the request. Status codes ranging from 200 to 299 indicate
    *          success. All other status codes indicate the type of error that occurred.</p>
    */
   StatusCode: number | undefined;
-
-  /**
-   * <p>The bytes of the object. </p>
-   */
-  Body?: Readable | ReadableStream | Blob;
 }
 
 export namespace GetObjectResponse {
@@ -230,11 +230,6 @@ export enum ItemType {
  */
 export interface Item {
   /**
-   * <p>The ETag that represents a unique instance of the item.</p>
-   */
-  ETag?: string;
-
-  /**
    * <p>The name of the item.</p>
    */
   Name?: string;
@@ -245,9 +240,14 @@ export interface Item {
   Type?: ItemType | string;
 
   /**
-   * <p>The length of the item in bytes.</p>
+   * <p>The ETag that represents a unique instance of the item.</p>
    */
-  ContentLength?: number;
+  ETag?: string;
+
+  /**
+   * <p>The date and time that the item was last modified.</p>
+   */
+  LastModified?: Date;
 
   /**
    * <p>The content type of the item.</p>
@@ -255,9 +255,9 @@ export interface Item {
   ContentType?: string;
 
   /**
-   * <p>The date and time that the item was last modified.</p>
+   * <p>The length of the item in bytes.</p>
    */
-  LastModified?: Date;
+  ContentLength?: number;
 }
 
 export namespace Item {
@@ -274,16 +274,6 @@ export interface ListItemsRequest {
   Path?: string;
 
   /**
-   * <p>The token that identifies which batch of results that you want to see. For example,
-   *          you submit a <code>ListItems</code> request with <code>MaxResults</code> set at 500. The
-   *          service returns the first batch of results (up to 500) and a <code>NextToken</code> value.
-   *          To see the next batch of results, you can submit the <code>ListItems</code> request a
-   *          second time and specify the <code>NextToken</code> value.</p>
-   *          <p>Tokens expire after 15 minutes.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of results to return per API request. For example, you submit a
    *             <code>ListItems</code> request with <code>MaxResults</code> set at 500. Although 2,000
    *          items match your request, the service returns no more than the first 500 items. (The
@@ -294,6 +284,16 @@ export interface ListItemsRequest {
    *          pagination with a maximum of 1,000 results per page.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The token that identifies which batch of results that you want to see. For example,
+   *          you submit a <code>ListItems</code> request with <code>MaxResults</code> set at 500. The
+   *          service returns the first batch of results (up to 500) and a <code>NextToken</code> value.
+   *          To see the next batch of results, you can submit the <code>ListItems</code> request a
+   *          second time and specify the <code>NextToken</code> value.</p>
+   *          <p>Tokens expire after 15 minutes.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListItemsRequest {
@@ -330,6 +330,11 @@ export enum StorageClass {
 
 export interface PutObjectRequest {
   /**
+   * <p>The bytes to be stored. </p>
+   */
+  Body: Readable | ReadableStream | Blob | undefined;
+
+  /**
    * <p>The path (including the file name) where the object is stored in the container.
    *          Format: <folder name>/<folder name>/<file name></p>
    *          <p>For example, to upload the file <code>mlaw.avi</code> to the folder path
@@ -352,13 +357,6 @@ export interface PutObjectRequest {
   Path: string | undefined;
 
   /**
-   * <p>Indicates the storage class of a <code>Put</code> request. Defaults to
-   *          high-performance temporal storage class, and objects are persisted into durable storage
-   *          shortly after being received.</p>
-   */
-  StorageClass?: StorageClass | string;
-
-  /**
    * <p>The content type of the object.</p>
    */
   ContentType?: string;
@@ -371,9 +369,11 @@ export interface PutObjectRequest {
   CacheControl?: string;
 
   /**
-   * <p>The bytes to be stored. </p>
+   * <p>Indicates the storage class of a <code>Put</code> request. Defaults to
+   *          high-performance temporal storage class, and objects are persisted into durable storage
+   *          shortly after being received.</p>
    */
-  Body: Readable | ReadableStream | Blob | undefined;
+  StorageClass?: StorageClass | string;
 }
 
 export namespace PutObjectRequest {
@@ -384,12 +384,6 @@ export namespace PutObjectRequest {
 
 export interface PutObjectResponse {
   /**
-   * <p>The storage class where the object was persisted. The class should be
-   *          “Temporal”.</p>
-   */
-  StorageClass?: StorageClass | string;
-
-  /**
    * <p>The SHA256 digest of the object that is persisted.</p>
    */
   ContentSHA256?: string;
@@ -398,6 +392,12 @@ export interface PutObjectResponse {
    * <p>Unique identifier of the object in the container.</p>
    */
   ETag?: string;
+
+  /**
+   * <p>The storage class where the object was persisted. The class should be
+   *          “Temporal”.</p>
+   */
+  StorageClass?: StorageClass | string;
 }
 
 export namespace PutObjectResponse {

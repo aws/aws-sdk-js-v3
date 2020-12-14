@@ -45,15 +45,15 @@ export namespace GetInsightResultsRequest {
  */
 export interface InsightResultValue {
   /**
-   * <p>The number of findings returned for each <code>GroupByAttributeValue</code>.</p>
-   */
-  Count: number | undefined;
-
-  /**
    * <p>The value of the attribute that the findings are grouped by for the insight whose
    *          results are returned by the <code>GetInsightResults</code> operation.</p>
    */
   GroupByAttributeValue: string | undefined;
+
+  /**
+   * <p>The number of findings returned for each <code>GroupByAttributeValue</code>.</p>
+   */
+  Count: number | undefined;
 }
 
 export namespace InsightResultValue {
@@ -113,11 +113,6 @@ export interface GetInsightsRequest {
   InsightArns?: string[];
 
   /**
-   * <p>The maximum number of items to return in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The token that is required for pagination. On your first call to the
    *             <code>GetInsights</code> operation, set the value of this parameter to
    *          <code>NULL</code>.</p>
@@ -125,6 +120,11 @@ export interface GetInsightsRequest {
    *          parameter to the value returned from the previous response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return in the response.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace GetInsightsRequest {
@@ -170,14 +170,14 @@ export namespace Insight {
 
 export interface GetInsightsResponse {
   /**
-   * <p>The pagination token to use to request the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The insights returned by the operation.</p>
    */
   Insights: Insight[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetInsightsResponse {
@@ -221,9 +221,9 @@ export namespace GetMasterAccountRequest {
  */
 export interface Invitation {
   /**
-   * <p>The timestamp of when the invitation was sent.</p>
+   * <p>The account ID of the Security Hub master account that the invitation was sent from.</p>
    */
-  InvitedAt?: Date;
+  AccountId?: string;
 
   /**
    * <p>The ID of the invitation sent to the member account.</p>
@@ -231,14 +231,14 @@ export interface Invitation {
   InvitationId?: string;
 
   /**
+   * <p>The timestamp of when the invitation was sent.</p>
+   */
+  InvitedAt?: Date;
+
+  /**
    * <p>The current status of the association between the member and master accounts.</p>
    */
   MemberStatus?: string;
-
-  /**
-   * <p>The account ID of the Security Hub master account that the invitation was sent from.</p>
-   */
-  AccountId?: string;
 }
 
 export namespace Invitation {
@@ -284,20 +284,14 @@ export interface Member {
   AccountId?: string;
 
   /**
+   * <p>The email address of the member account.</p>
+   */
+  Email?: string;
+
+  /**
    * <p>The AWS account ID of the Security Hub master account associated with this member account.</p>
    */
   MasterId?: string;
-
-  /**
-   * <p>A timestamp for the date and time when the invitation was sent to the member
-   *          account.</p>
-   */
-  InvitedAt?: Date;
-
-  /**
-   * <p>The timestamp for the date and time when the member account was updated.</p>
-   */
-  UpdatedAt?: Date;
 
   /**
    * <p>The status of the relationship between the member account and its master account.
@@ -340,9 +334,15 @@ export interface Member {
   MemberStatus?: string;
 
   /**
-   * <p>The email address of the member account.</p>
+   * <p>A timestamp for the date and time when the invitation was sent to the member
+   *          account.</p>
    */
-  Email?: string;
+  InvitedAt?: Date;
+
+  /**
+   * <p>The timestamp for the date and time when the member account was updated.</p>
+   */
+  UpdatedAt?: Date;
 }
 
 export namespace Member {
@@ -399,11 +399,6 @@ export namespace InviteMembersResponse {
 
 export interface ListEnabledProductsForImportRequest {
   /**
-   * <p>The maximum number of items to return in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The token that is required for pagination. On your first call to the
    *             <code>ListEnabledProductsForImport</code> operation, set the value of this parameter to
    *             <code>NULL</code>.</p>
@@ -411,6 +406,11 @@ export interface ListEnabledProductsForImportRequest {
    *          parameter to the value returned from the previous response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return in the response.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListEnabledProductsForImportRequest {
@@ -461,14 +461,14 @@ export namespace ListInvitationsRequest {
 
 export interface ListInvitationsResponse {
   /**
-   * <p>The pagination token to use to request the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The details of the invitations returned by the operation.</p>
    */
   Invitations?: Invitation[];
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListInvitationsResponse {
@@ -478,6 +478,16 @@ export namespace ListInvitationsResponse {
 }
 
 export interface ListMembersRequest {
+  /**
+   * <p>Specifies which member accounts to include in the response based on their relationship
+   *          status with the master account. The default value is <code>TRUE</code>.</p>
+   *          <p>If <code>OnlyAssociated</code> is set to <code>TRUE</code>, the response includes member
+   *          accounts whose relationship status with the master is set to <code>ENABLED</code>.</p>
+   *          <p>If <code>OnlyAssociated</code> is set to <code>FALSE</code>, the response includes all
+   *          existing member accounts. </p>
+   */
+  OnlyAssociated?: boolean;
+
   /**
    * <p>The maximum number of items to return in the response. </p>
    */
@@ -491,16 +501,6 @@ export interface ListMembersRequest {
    *          parameter to the value returned from the previous response.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Specifies which member accounts to include in the response based on their relationship
-   *          status with the master account. The default value is <code>TRUE</code>.</p>
-   *          <p>If <code>OnlyAssociated</code> is set to <code>TRUE</code>, the response includes member
-   *          accounts whose relationship status with the master is set to <code>ENABLED</code>.</p>
-   *          <p>If <code>OnlyAssociated</code> is set to <code>FALSE</code>, the response includes all
-   *          existing member accounts. </p>
-   */
-  OnlyAssociated?: boolean;
 }
 
 export namespace ListMembersRequest {
@@ -511,14 +511,14 @@ export namespace ListMembersRequest {
 
 export interface ListMembersResponse {
   /**
-   * <p>The pagination token to use to request the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Member details returned by the operation.</p>
    */
   Members?: Member[];
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListMembersResponse {
@@ -550,14 +550,14 @@ export namespace ListOrganizationAdminAccountsRequest {
 
 export interface ListOrganizationAdminAccountsResponse {
   /**
-   * <p>The pagination token to use to request the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The list of Security Hub administrator accounts.</p>
    */
   AdminAccounts?: AdminAccount[];
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListOrganizationAdminAccountsResponse {
@@ -620,14 +620,14 @@ export namespace TagResourceResponse {
 
 export interface UntagResourceRequest {
   /**
-   * <p>The tag keys associated with the tags to remove from the resource.</p>
-   */
-  TagKeys: string[] | undefined;
-
-  /**
    * <p>The ARN of the resource to remove the tags from.</p>
    */
   ResourceArn: string | undefined;
+
+  /**
+   * <p>The tag keys associated with the tags to remove from the resource.</p>
+   */
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -651,14 +651,14 @@ export interface UpdateActionTargetRequest {
   ActionTargetArn: string | undefined;
 
   /**
-   * <p>The updated description for the custom action target.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>The updated name of the custom action target.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The updated description for the custom action target.</p>
+   */
+  Description?: string;
 }
 
 export namespace UpdateActionTargetRequest {
@@ -677,6 +677,11 @@ export namespace UpdateActionTargetResponse {
 
 export interface UpdateFindingsRequest {
   /**
+   * <p>A collection of attributes that specify which findings you want to update.</p>
+   */
+  Filters: AwsSecurityFindingFilters | undefined;
+
+  /**
    * <p>The updated note for the finding.</p>
    */
   Note?: NoteUpdate;
@@ -685,11 +690,6 @@ export interface UpdateFindingsRequest {
    * <p>The updated record state for the finding.</p>
    */
   RecordState?: RecordState | string;
-
-  /**
-   * <p>A collection of attributes that specify which findings you want to update.</p>
-   */
-  Filters: AwsSecurityFindingFilters | undefined;
 }
 
 export namespace UpdateFindingsRequest {
@@ -708,14 +708,14 @@ export namespace UpdateFindingsResponse {
 
 export interface UpdateInsightRequest {
   /**
+   * <p>The ARN of the insight that you want to update.</p>
+   */
+  InsightArn: string | undefined;
+
+  /**
    * <p>The updated name for the insight.</p>
    */
   Name?: string;
-
-  /**
-   * <p>The updated <code>GroupBy</code> attribute that defines this insight.</p>
-   */
-  GroupByAttribute?: string;
 
   /**
    * <p>The updated filters that define this insight.</p>
@@ -723,9 +723,9 @@ export interface UpdateInsightRequest {
   Filters?: AwsSecurityFindingFilters;
 
   /**
-   * <p>The ARN of the insight that you want to update.</p>
+   * <p>The updated <code>GroupBy</code> attribute that defines this insight.</p>
    */
-  InsightArn: string | undefined;
+  GroupByAttribute?: string;
 }
 
 export namespace UpdateInsightRequest {

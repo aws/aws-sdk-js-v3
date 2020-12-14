@@ -45,7 +45,8 @@
           "sdkId": "Personalize Runtime",
           "arnNamespace": "personalize",
           "cloudFormationName": "PersonalizeRuntime",
-          "cloudTrailEventSource": "personalizeruntime.amazonaws.com"
+          "cloudTrailEventSource": "personalizeruntime.amazonaws.com",
+          "endpointPrefix": "personalize-runtime"
         },
         "aws.auth#sigv4": {
           "name": "personalize"

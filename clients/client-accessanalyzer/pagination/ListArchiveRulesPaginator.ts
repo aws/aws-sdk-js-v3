@@ -35,7 +35,8 @@ export async function* paginateListArchiveRules(
   input: ListArchiveRulesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListArchiveRulesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.nextToken
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListArchiveRulesCommandOutput;
   while (hasNext) {

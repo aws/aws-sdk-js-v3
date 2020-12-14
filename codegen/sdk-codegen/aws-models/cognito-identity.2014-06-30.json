@@ -111,7 +111,8 @@
           "sdkId": "Cognito Identity",
           "arnNamespace": "cognito-identity",
           "cloudFormationName": "Cognito",
-          "cloudTrailEventSource": "cognitoidentity.amazonaws.com"
+          "cloudTrailEventSource": "cognitoidentity.amazonaws.com",
+          "endpointPrefix": "cognito-identity"
         },
         "aws.auth#sigv4": {
           "name": "cognito-identity"
@@ -1460,7 +1461,13 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists all of the Cognito identity pools registered for your account.</p>\n         <p>You must use AWS Developer credentials to call this API.</p>"
+        "smithy.api#documentation": "<p>Lists all of the Cognito identity pools registered for your account.</p>\n         <p>You must use AWS Developer credentials to call this API.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "IdentityPools",
+          "pageSize": "MaxResults"
+        }
       }
     },
     "com.amazonaws.cognitoidentity#ListIdentityPoolsInput": {

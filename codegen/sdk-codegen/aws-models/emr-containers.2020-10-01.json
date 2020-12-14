@@ -94,7 +94,8 @@
           "sdkId": "EMR containers",
           "arnNamespace": "emr-containers",
           "cloudFormationName": "EMRcontainers",
-          "cloudTrailEventSource": "emrcontainers.amazonaws.com"
+          "cloudTrailEventSource": "emrcontainers.amazonaws.com",
+          "endpointPrefix": "emr-containers"
         },
         "aws.auth#sigv4": {
           "name": "emr-containers"

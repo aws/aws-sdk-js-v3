@@ -1685,7 +1685,8 @@
           "sdkId": "AuditManager",
           "arnNamespace": "auditmanager",
           "cloudFormationName": "AuditManager",
-          "cloudTrailEventSource": "auditmanager.amazonaws.com"
+          "cloudTrailEventSource": "auditmanager.amazonaws.com",
+          "endpointPrefix": "auditmanager"
         },
         "aws.auth#sigv4": {
           "name": "auditmanager"

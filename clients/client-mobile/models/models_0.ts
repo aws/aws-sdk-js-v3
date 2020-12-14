@@ -54,6 +54,20 @@ export namespace BadRequestException {
 export interface CreateProjectRequest {
   /**
    * <p>
+   *             Name of the project.
+   *         </p>
+   */
+  name?: string;
+
+  /**
+   * <p>
+   *             Default region where project resources should be created.
+   *         </p>
+   */
+  region?: string;
+
+  /**
+   * <p>
    *             ZIP or YAML file which contains configuration settings to be used when creating
    *             the project. This may be the contents of the file downloaded from the URL provided
    *             in an export project operation.
@@ -63,25 +77,11 @@ export interface CreateProjectRequest {
 
   /**
    * <p>
-   *             Name of the project.
-   *         </p>
-   */
-  name?: string;
-
-  /**
-   * <p>
    *             Unique identifier for an exported snapshot of project configuration. This
    *             snapshot identifier is included in the share URL when a project is exported.
    *         </p>
    */
   snapshotId?: string;
-
-  /**
-   * <p>
-   *             Default region where project resources should be created.
-   *         </p>
-   */
-  region?: string;
 }
 
 export namespace CreateProjectRequest {
@@ -98,17 +98,10 @@ export namespace CreateProjectRequest {
 export interface Resource {
   /**
    * <p>
-   *             Identifies which feature in AWS Mobile Hub is associated with this AWS resource.
+   *             Simplified name for type of AWS resource (e.g., bucket is an Amazon S3 bucket).
    *         </p>
    */
-  feature?: string;
-
-  /**
-   * <p>
-   *             Key-value attribute pairs.
-   *         </p>
-   */
-  attributes?: { [key: string]: string };
+  type?: string;
 
   /**
    * <p>
@@ -126,10 +119,17 @@ export interface Resource {
 
   /**
    * <p>
-   *             Simplified name for type of AWS resource (e.g., bucket is an Amazon S3 bucket).
+   *             Identifies which feature in AWS Mobile Hub is associated with this AWS resource.
    *         </p>
    */
-  type?: string;
+  feature?: string;
+
+  /**
+   * <p>
+   *             Key-value attribute pairs.
+   *         </p>
+   */
+  attributes?: { [key: string]: string };
 }
 
 export namespace Resource {
@@ -152,24 +152,17 @@ export enum ProjectState {
 export interface ProjectDetails {
   /**
    * <p>
-   *             Unique project identifier.
-   *         </p>
-   */
-  projectId?: string;
-
-  /**
-   * <p>
-   *             Website URL for this project in the AWS Mobile Hub console.
-   *         </p>
-   */
-  consoleUrl?: string;
-
-  /**
-   * <p>
    *             Name of the project.
    *         </p>
    */
   name?: string;
+
+  /**
+   * <p>
+   *             Unique project identifier.
+   *         </p>
+   */
+  projectId?: string;
 
   /**
    * <p>
@@ -187,6 +180,13 @@ export interface ProjectDetails {
 
   /**
    * <p>
+   *             Date the project was created.
+   *         </p>
+   */
+  createdDate?: Date;
+
+  /**
+   * <p>
    *             Date of the last modification of the project.
    *         </p>
    */
@@ -194,10 +194,10 @@ export interface ProjectDetails {
 
   /**
    * <p>
-   *             Date the project was created.
+   *             Website URL for this project in the AWS Mobile Hub console.
    *         </p>
    */
-  createdDate?: Date;
+  consoleUrl?: string;
 
   /**
    * <p>
@@ -272,14 +272,14 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
    *             The Exception Error Message.
    *         </p>
    */
-  message?: string;
+  retryAfterSeconds?: string;
 
   /**
    * <p>
    *             The Exception Error Message.
    *         </p>
    */
-  retryAfterSeconds?: string;
+  message?: string;
 }
 
 export namespace LimitExceededException {
@@ -478,13 +478,6 @@ export enum Platform {
 export interface BundleDetails {
   /**
    * <p>
-   *             Icon for the download bundle.
-   *         </p>
-   */
-  iconUrl?: string;
-
-  /**
-   * <p>
    *             Unique bundle identifier.
    *         </p>
    */
@@ -492,10 +485,10 @@ export interface BundleDetails {
 
   /**
    * <p>
-   *             Description of the download bundle.
+   *             Title of the download bundle.
    *         </p>
    */
-  description?: string;
+  title?: string;
 
   /**
    * <p>
@@ -506,10 +499,17 @@ export interface BundleDetails {
 
   /**
    * <p>
-   *             Title of the download bundle.
+   *             Description of the download bundle.
    *         </p>
    */
-  title?: string;
+  description?: string;
+
+  /**
+   * <p>
+   *             Icon for the download bundle.
+   *         </p>
+   */
+  iconUrl?: string;
 
   /**
    * <p>
@@ -608,17 +608,17 @@ export interface ExportBundleRequest {
 
   /**
    * <p>
-   *             Developer desktop or target application platform.
-   *         </p>
-   */
-  platform?: Platform | string;
-
-  /**
-   * <p>
    *             Unique project identifier.
    *         </p>
    */
   projectId?: string;
+
+  /**
+   * <p>
+   *             Developer desktop or target application platform.
+   *         </p>
+   */
+  platform?: Platform | string;
 }
 
 export namespace ExportBundleRequest {
@@ -679,11 +679,10 @@ export namespace ExportProjectRequest {
 export interface ExportProjectResult {
   /**
    * <p>
-   *             Unique identifier for the exported snapshot of the project configuration. This
-   *             snapshot identifier is included in the share URL.
+   *             URL which can be used to download the exported project configuation file(s).
    *         </p>
    */
-  snapshotId?: string;
+  downloadUrl?: string;
 
   /**
    * <p>
@@ -699,10 +698,11 @@ export interface ExportProjectResult {
 
   /**
    * <p>
-   *             URL which can be used to download the exported project configuation file(s).
+   *             Unique identifier for the exported snapshot of the project configuration. This
+   *             snapshot identifier is included in the share URL.
    *         </p>
    */
-  downloadUrl?: string;
+  snapshotId?: string;
 }
 
 export namespace ExportProjectResult {
@@ -776,19 +776,19 @@ export namespace ListBundlesResult {
 export interface ListProjectsRequest {
   /**
    * <p>
+   *             Maximum number of records to list in a single response.
+   *         </p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>
    *             Pagination token. Set to null to start listing projects from start.
    *             If non-null pagination token is returned in a result, then pass its
    *             value in here in another request to list more projects.
    *         </p>
    */
   nextToken?: string;
-
-  /**
-   * <p>
-   *             Maximum number of records to list in a single response.
-   *         </p>
-   */
-  maxResults?: number;
 }
 
 export namespace ListProjectsRequest {
@@ -805,17 +805,17 @@ export namespace ListProjectsRequest {
 export interface ProjectSummary {
   /**
    * <p>
-   *             Unique project identifier.
-   *         </p>
-   */
-  projectId?: string;
-
-  /**
-   * <p>
    *             Name of the project.
    *         </p>
    */
   name?: string;
+
+  /**
+   * <p>
+   *             Unique project identifier.
+   *         </p>
+   */
+  projectId?: string;
 }
 
 export namespace ProjectSummary {
@@ -832,19 +832,19 @@ export namespace ProjectSummary {
 export interface ListProjectsResult {
   /**
    * <p>
+   *             List of projects.
+   *         </p>
+   */
+  projects?: ProjectSummary[];
+
+  /**
+   * <p>
    *             Pagination token. Set to null to start listing records from start.
    *             If non-null pagination token is returned in a result, then pass its
    *             value in here in another request to list more entries.
    *         </p>
    */
   nextToken?: string;
-
-  /**
-   * <p>
-   *             List of projects.
-   *         </p>
-   */
-  projects?: ProjectSummary[];
 }
 
 export namespace ListProjectsResult {

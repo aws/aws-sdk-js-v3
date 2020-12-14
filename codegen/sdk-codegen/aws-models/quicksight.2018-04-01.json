@@ -12075,7 +12075,8 @@
           "sdkId": "QuickSight",
           "arnNamespace": "quicksight",
           "cloudFormationName": "QuickSight",
-          "cloudTrailEventSource": "quicksight.amazonaws.com"
+          "cloudTrailEventSource": "quicksight.amazonaws.com",
+          "endpointPrefix": "quicksight"
         },
         "aws.auth#sigv4": {
           "name": "quicksight"

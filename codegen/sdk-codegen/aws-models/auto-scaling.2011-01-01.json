@@ -888,7 +888,8 @@
           "sdkId": "Auto Scaling",
           "arnNamespace": "autoscaling",
           "cloudFormationName": "AutoScaling",
-          "cloudTrailEventSource": "autoscaling.amazonaws.com"
+          "cloudTrailEventSource": "autoscaling.amazonaws.com",
+          "endpointPrefix": "autoscaling"
         },
         "aws.auth#sigv4": {
           "name": "autoscaling"
@@ -1911,6 +1912,83 @@
           "outputToken": "NextToken",
           "items": "AutoScalingGroups",
           "pageSize": "MaxRecords"
+        },
+        "smithy.waiters#waitable": {
+          "GroupExists": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "length(AutoScalingGroups) > `0`",
+                    "expected": "true",
+                    "comparator": "booleanEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "output": {
+                    "path": "length(AutoScalingGroups) > `0`",
+                    "expected": "false",
+                    "comparator": "booleanEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 5
+          },
+          "GroupInService": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "contains(AutoScalingGroups[].[length(Instances[?LifecycleState=='InService']) >= MinSize][], `false`)",
+                    "expected": "false",
+                    "comparator": "booleanEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "output": {
+                    "path": "contains(AutoScalingGroups[].[length(Instances[?LifecycleState=='InService']) >= MinSize][], `false`)",
+                    "expected": "true",
+                    "comparator": "booleanEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 15
+          },
+          "GroupNotExists": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "length(AutoScalingGroups) > `0`",
+                    "expected": "false",
+                    "comparator": "booleanEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "output": {
+                    "path": "length(AutoScalingGroups) > `0`",
+                    "expected": "true",
+                    "comparator": "booleanEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 15
+          }
         }
       }
     },

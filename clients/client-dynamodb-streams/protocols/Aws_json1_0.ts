@@ -495,33 +495,57 @@ const deserializeAws_json1_0AttributeMap = (
 };
 
 const deserializeAws_json1_0AttributeValue = (output: any, context: __SerdeContext): AttributeValue => {
-  return {
-    B: output.B !== undefined && output.B !== null ? context.base64Decoder(output.B) : undefined,
-    BOOL: output.BOOL !== undefined && output.BOOL !== null ? output.BOOL : undefined,
-    BS:
-      output.BS !== undefined && output.BS !== null
-        ? deserializeAws_json1_0BinarySetAttributeValue(output.BS, context)
-        : undefined,
-    L:
-      output.L !== undefined && output.L !== null
-        ? deserializeAws_json1_0ListAttributeValue(output.L, context)
-        : undefined,
-    M:
-      output.M !== undefined && output.M !== null
-        ? deserializeAws_json1_0MapAttributeValue(output.M, context)
-        : undefined,
-    N: output.N !== undefined && output.N !== null ? output.N : undefined,
-    NS:
-      output.NS !== undefined && output.NS !== null
-        ? deserializeAws_json1_0NumberSetAttributeValue(output.NS, context)
-        : undefined,
-    NULL: output.NULL !== undefined && output.NULL !== null ? output.NULL : undefined,
-    S: output.S !== undefined && output.S !== null ? output.S : undefined,
-    SS:
-      output.SS !== undefined && output.SS !== null
-        ? deserializeAws_json1_0StringSetAttributeValue(output.SS, context)
-        : undefined,
-  } as any;
+  if (output.B !== undefined && output.B !== null) {
+    return {
+      B: context.base64Decoder(output.B),
+    };
+  }
+  if (output.BOOL !== undefined && output.BOOL !== null) {
+    return {
+      BOOL: output.BOOL,
+    };
+  }
+  if (output.BS !== undefined && output.BS !== null) {
+    return {
+      BS: deserializeAws_json1_0BinarySetAttributeValue(output.BS, context),
+    };
+  }
+  if (output.L !== undefined && output.L !== null) {
+    return {
+      L: deserializeAws_json1_0ListAttributeValue(output.L, context),
+    };
+  }
+  if (output.M !== undefined && output.M !== null) {
+    return {
+      M: deserializeAws_json1_0MapAttributeValue(output.M, context),
+    };
+  }
+  if (output.N !== undefined && output.N !== null) {
+    return {
+      N: output.N,
+    };
+  }
+  if (output.NS !== undefined && output.NS !== null) {
+    return {
+      NS: deserializeAws_json1_0NumberSetAttributeValue(output.NS, context),
+    };
+  }
+  if (output.NULL !== undefined && output.NULL !== null) {
+    return {
+      NULL: output.NULL,
+    };
+  }
+  if (output.S !== undefined && output.S !== null) {
+    return {
+      S: output.S,
+    };
+  }
+  if (output.SS !== undefined && output.SS !== null) {
+    return {
+      SS: deserializeAws_json1_0StringSetAttributeValue(output.SS, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_json1_0BinarySetAttributeValue = (output: any, context: __SerdeContext): Uint8Array[] => {

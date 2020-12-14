@@ -35,7 +35,8 @@ export async function* paginateListObjectsV2(
   input: ListObjectsV2CommandInput,
   ...additionalArguments: any
 ): Paginator<ListObjectsV2CommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.ContinuationToken
+  let token: typeof input.ContinuationToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListObjectsV2CommandOutput;
   while (hasNext) {

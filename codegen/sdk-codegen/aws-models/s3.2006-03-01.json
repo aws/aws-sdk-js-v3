@@ -493,7 +493,8 @@
           "sdkId": "S3",
           "arnNamespace": "s3",
           "cloudFormationName": "S3",
-          "cloudTrailEventSource": "s3.amazonaws.com"
+          "cloudTrailEventSource": "s3.amazonaws.com",
+          "endpointPrefix": "s3"
         },
         "aws.auth#sigv4": {
           "name": "s3"
@@ -5556,6 +5557,36 @@
           "method": "HEAD",
           "uri": "/{Bucket}",
           "code": 200
+        },
+        "smithy.waiters#waitable": {
+          "BucketExists": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "success": true
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "errorType": "NoSuchBucket"
+                }
+              }
+            ],
+            "minDelay": 5
+          },
+          "BucketNotExists": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "errorType": "NoSuchBucket"
+                }
+              }
+            ],
+            "minDelay": 5
+          }
         }
       }
     },
@@ -5598,6 +5629,36 @@
           "method": "HEAD",
           "uri": "/{Bucket}/{Key+}",
           "code": 200
+        },
+        "smithy.waiters#waitable": {
+          "ObjectExists": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "success": true
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "errorType": "NoSuchKey"
+                }
+              }
+            ],
+            "minDelay": 5
+          },
+          "ObjectNotExists": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "errorType": "NoSuchKey"
+                }
+              }
+            ],
+            "minDelay": 5
+          }
         }
       }
     },

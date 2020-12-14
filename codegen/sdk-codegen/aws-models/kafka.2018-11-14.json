@@ -2113,7 +2113,8 @@
           "sdkId": "Kafka",
           "arnNamespace": "kafka",
           "cloudFormationName": "MSK",
-          "cloudTrailEventSource": "kafka.amazonaws.com"
+          "cloudTrailEventSource": "kafka.amazonaws.com",
+          "endpointPrefix": "kafka"
         },
         "aws.auth#sigv4": {
           "name": "kafka"

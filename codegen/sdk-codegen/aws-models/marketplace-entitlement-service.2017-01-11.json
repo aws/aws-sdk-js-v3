@@ -42,7 +42,8 @@
           "sdkId": "Marketplace Entitlement Service",
           "arnNamespace": "aws-marketplace",
           "cloudFormationName": "MarketplaceEntitlementService",
-          "cloudTrailEventSource": "marketplaceentitlementservice.amazonaws.com"
+          "cloudTrailEventSource": "marketplaceentitlementservice.amazonaws.com",
+          "endpointPrefix": "entitlement.marketplace"
         },
         "aws.auth#sigv4": {
           "name": "aws-marketplace"
@@ -67,22 +68,16 @@
     "com.amazonaws.marketplaceentitlementservice#Entitlement": {
       "type": "structure",
       "members": {
-        "Dimension": {
-          "target": "com.amazonaws.marketplaceentitlementservice#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The dimension for which the given entitlement applies. Dimensions represent categories of\n      capacity in a product and are specified when the product is listed in AWS\n      Marketplace.</p>"
-          }
-        },
         "ProductCode": {
           "target": "com.amazonaws.marketplaceentitlementservice#ProductCode",
           "traits": {
             "smithy.api#documentation": "<p>The product code for which the given entitlement applies. Product codes are provided by\n   AWS Marketplace when the product listing is created.</p>"
           }
         },
-        "ExpirationDate": {
-          "target": "com.amazonaws.marketplaceentitlementservice#Timestamp",
+        "Dimension": {
+          "target": "com.amazonaws.marketplaceentitlementservice#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>The expiration date represents the minimum date through which this entitlement is\n   expected to remain valid. For contractual products listed on AWS Marketplace, the expiration date\n   is the date at which the customer will renew or cancel their contract. Customers who are opting\n   to renew their contract will still have entitlements with an expiration date.</p>"
+            "smithy.api#documentation": "<p>The dimension for which the given entitlement applies. Dimensions represent categories of\n      capacity in a product and are specified when the product is listed in AWS\n      Marketplace.</p>"
           }
         },
         "CustomerIdentifier": {
@@ -95,6 +90,12 @@
           "target": "com.amazonaws.marketplaceentitlementservice#EntitlementValue",
           "traits": {
             "smithy.api#documentation": "<p>The EntitlementValue represents the amount of capacity that the customer is entitled to\n   for the product.</p>"
+          }
+        },
+        "ExpirationDate": {
+          "target": "com.amazonaws.marketplaceentitlementservice#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The expiration date represents the minimum date through which this entitlement is\n   expected to remain valid. For contractual products listed on AWS Marketplace, the expiration date\n   is the date at which the customer will renew or cancel their contract. Customers who are opting\n   to renew their contract will still have entitlements with an expiration date.</p>"
           }
         }
       },
@@ -114,8 +115,14 @@
       }
     },
     "com.amazonaws.marketplaceentitlementservice#EntitlementValue": {
-      "type": "structure",
+      "type": "union",
       "members": {
+        "IntegerValue": {
+          "target": "com.amazonaws.marketplaceentitlementservice#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The IntegerValue field will be populated with an integer value when the entitlement is an\n   integer type. Otherwise, the field will not be set.</p>"
+          }
+        },
         "DoubleValue": {
           "target": "com.amazonaws.marketplaceentitlementservice#Double",
           "traits": {
@@ -126,12 +133,6 @@
           "target": "com.amazonaws.marketplaceentitlementservice#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>The BooleanValue field will be populated with a boolean value when the entitlement is a\n      boolean type. Otherwise, the field will not be set.</p>"
-          }
-        },
-        "IntegerValue": {
-          "target": "com.amazonaws.marketplaceentitlementservice#Integer",
-          "traits": {
-            "smithy.api#documentation": "<p>The IntegerValue field will be populated with an integer value when the entitlement is an\n   integer type. Otherwise, the field will not be set.</p>"
           }
         },
         "StringValue": {
@@ -212,18 +213,6 @@
     "com.amazonaws.marketplaceentitlementservice#GetEntitlementsRequest": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.marketplaceentitlementservice#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>For paginated calls to GetEntitlements, pass the NextToken from the previous\n   GetEntitlementsResult.</p>"
-          }
-        },
-        "MaxResults": {
-          "target": "com.amazonaws.marketplaceentitlementservice#Integer",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of items to retrieve from the GetEntitlements operation. For\n   pagination, use the NextToken field in subsequent calls to GetEntitlements.</p>"
-          }
-        },
         "ProductCode": {
           "target": "com.amazonaws.marketplaceentitlementservice#ProductCode",
           "traits": {
@@ -235,6 +224,18 @@
           "target": "com.amazonaws.marketplaceentitlementservice#GetEntitlementFilters",
           "traits": {
             "smithy.api#documentation": "<p>Filter is used to return entitlements for a specific customer or for a specific\n      dimension. Filters are described as keys mapped to a lists of values. Filtered requests are\n        <i>unioned</i> for each value in the value list, and then\n        <i>intersected</i> for each filter key.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.marketplaceentitlementservice#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>For paginated calls to GetEntitlements, pass the NextToken from the previous\n   GetEntitlementsResult.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.marketplaceentitlementservice#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of items to retrieve from the GetEntitlements operation. For\n   pagination, use the NextToken field in subsequent calls to GetEntitlements.</p>"
           }
         }
       },

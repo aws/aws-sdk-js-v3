@@ -77,18 +77,18 @@
     "com.amazonaws.iot1clickdevicesservice#ClaimDevicesByClaimCodeResponse": {
       "type": "structure",
       "members": {
-        "Total": {
-          "target": "com.amazonaws.iot1clickdevicesservice#__integer",
-          "traits": {
-            "smithy.api#documentation": "<p>The total number of devices associated with the claim code that has been processed in\n the claim request.</p>",
-            "smithy.api#jsonName": "total"
-          }
-        },
         "ClaimCode": {
           "target": "com.amazonaws.iot1clickdevicesservice#__stringMin12Max40",
           "traits": {
             "smithy.api#documentation": "<p>The claim code provided by the device manufacturer.</p>",
             "smithy.api#jsonName": "claimCode"
+          }
+        },
+        "Total": {
+          "target": "com.amazonaws.iot1clickdevicesservice#__integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The total number of devices associated with the claim code that has been processed in\n the claim request.</p>",
+            "smithy.api#jsonName": "total"
           }
         }
       }
@@ -149,18 +149,18 @@
     "com.amazonaws.iot1clickdevicesservice#Device": {
       "type": "structure",
       "members": {
-        "DeviceId": {
-          "target": "com.amazonaws.iot1clickdevicesservice#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the device.</p>",
-            "smithy.api#jsonName": "deviceId"
-          }
-        },
         "Attributes": {
           "target": "com.amazonaws.iot1clickdevicesservice#Attributes",
           "traits": {
             "smithy.api#documentation": "<p>The user specified attributes associated with the device for an event.</p>",
             "smithy.api#jsonName": "attributes"
+          }
+        },
+        "DeviceId": {
+          "target": "com.amazonaws.iot1clickdevicesservice#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the device.</p>",
+            "smithy.api#jsonName": "deviceId"
           }
         },
         "Type": {
@@ -187,11 +187,18 @@
     "com.amazonaws.iot1clickdevicesservice#DeviceDescription": {
       "type": "structure",
       "members": {
-        "Enabled": {
-          "target": "com.amazonaws.iot1clickdevicesservice#__boolean",
+        "Arn": {
+          "target": "com.amazonaws.iot1clickdevicesservice#__string",
           "traits": {
-            "smithy.api#documentation": "<p>A Boolean value indicating whether or not the device is enabled.</p>",
-            "smithy.api#jsonName": "enabled"
+            "smithy.api#documentation": "<p>The ARN of the device.</p>",
+            "smithy.api#jsonName": "arn"
+          }
+        },
+        "Attributes": {
+          "target": "com.amazonaws.iot1clickdevicesservice#DeviceAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of zero or more elements of DeviceAttribute objects providing\n user specified device attributes.</p>",
+            "smithy.api#jsonName": "attributes"
           }
         },
         "DeviceId": {
@@ -201,11 +208,18 @@
             "smithy.api#jsonName": "deviceId"
           }
         },
-        "Attributes": {
-          "target": "com.amazonaws.iot1clickdevicesservice#DeviceAttributes",
+        "Enabled": {
+          "target": "com.amazonaws.iot1clickdevicesservice#__boolean",
           "traits": {
-            "smithy.api#documentation": "<p>An array of zero or more elements of DeviceAttribute objects providing\n user specified device attributes.</p>",
-            "smithy.api#jsonName": "attributes"
+            "smithy.api#documentation": "<p>A Boolean value indicating whether or not the device is enabled.</p>",
+            "smithy.api#jsonName": "enabled"
+          }
+        },
+        "RemainingLife": {
+          "target": "com.amazonaws.iot1clickdevicesservice#__doubleMin0Max100",
+          "traits": {
+            "smithy.api#documentation": "<p>A value between 0 and 1 inclusive, representing the fraction of life remaining for the\n device.</p>",
+            "smithy.api#jsonName": "remainingLife"
           }
         },
         "Type": {
@@ -221,38 +235,24 @@
             "smithy.api#documentation": "<p>The tags currently associated with the AWS IoT 1-Click device.</p>",
             "smithy.api#jsonName": "tags"
           }
-        },
-        "Arn": {
-          "target": "com.amazonaws.iot1clickdevicesservice#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the device.</p>",
-            "smithy.api#jsonName": "arn"
-          }
-        },
-        "RemainingLife": {
-          "target": "com.amazonaws.iot1clickdevicesservice#__doubleMin0Max100",
-          "traits": {
-            "smithy.api#documentation": "<p>A value between 0 and 1 inclusive, representing the fraction of life remaining for the\n device.</p>",
-            "smithy.api#jsonName": "remainingLife"
-          }
         }
       }
     },
     "com.amazonaws.iot1clickdevicesservice#DeviceEvent": {
       "type": "structure",
       "members": {
-        "StdEvent": {
-          "target": "com.amazonaws.iot1clickdevicesservice#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A serialized JSON object representing the device-type specific event.</p>",
-            "smithy.api#jsonName": "stdEvent"
-          }
-        },
         "Device": {
           "target": "com.amazonaws.iot1clickdevicesservice#Device",
           "traits": {
             "smithy.api#documentation": "<p>An object representing the device associated with the event.</p>",
             "smithy.api#jsonName": "device"
+          }
+        },
+        "StdEvent": {
+          "target": "com.amazonaws.iot1clickdevicesservice#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A serialized JSON object representing the device-type specific event.</p>",
+            "smithy.api#jsonName": "stdEvent"
           }
         }
       }
@@ -260,18 +260,18 @@
     "com.amazonaws.iot1clickdevicesservice#DeviceMethod": {
       "type": "structure",
       "members": {
-        "MethodName": {
-          "target": "com.amazonaws.iot1clickdevicesservice#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the method applicable to the deviceType.</p>",
-            "smithy.api#jsonName": "methodName"
-          }
-        },
         "DeviceType": {
           "target": "com.amazonaws.iot1clickdevicesservice#__string",
           "traits": {
             "smithy.api#documentation": "<p>The type of the device, such as \"button\".</p>",
             "smithy.api#jsonName": "deviceType"
+          }
+        },
+        "MethodName": {
+          "target": "com.amazonaws.iot1clickdevicesservice#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the method applicable to the deviceType.</p>",
+            "smithy.api#jsonName": "methodName"
           }
         }
       }
@@ -313,19 +313,19 @@
     "com.amazonaws.iot1clickdevicesservice#FinalizeDeviceClaimRequest": {
       "type": "structure",
       "members": {
-        "Tags": {
-          "target": "com.amazonaws.iot1clickdevicesservice#__mapOf__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A collection of key/value pairs defining the resource tags. For example, {\n \"tags\": {\"key1\": \"value1\", \"key2\": \"value2\"} }. For more information, see <a href=\"https://aws.amazon.com/answers/account-management/aws-tagging-strategies/\">AWS\n Tagging Strategies</a>.</p><p>\n \n </p>",
-            "smithy.api#jsonName": "tags"
-          }
-        },
         "DeviceId": {
           "target": "com.amazonaws.iot1clickdevicesservice#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the device.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.iot1clickdevicesservice#__mapOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A collection of key/value pairs defining the resource tags. For example, {\n \"tags\": {\"key1\": \"value1\", \"key2\": \"value2\"} }. For more information, see <a href=\"https://aws.amazon.com/answers/account-management/aws-tagging-strategies/\">AWS\n Tagging Strategies</a>.</p><p>\n \n </p>",
+            "smithy.api#jsonName": "tags"
           }
         }
       }
@@ -477,18 +477,18 @@
     "com.amazonaws.iot1clickdevicesservice#InternalFailureException": {
       "type": "structure",
       "members": {
-        "Message": {
-          "target": "com.amazonaws.iot1clickdevicesservice#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The 500 error message returned by the web server.</p>",
-            "smithy.api#jsonName": "message"
-          }
-        },
         "Code": {
           "target": "com.amazonaws.iot1clickdevicesservice#__string",
           "traits": {
             "smithy.api#documentation": "<p>500</p>",
             "smithy.api#jsonName": "code"
+          }
+        },
+        "Message": {
+          "target": "com.amazonaws.iot1clickdevicesservice#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The 500 error message returned by the web server.</p>",
+            "smithy.api#jsonName": "message"
           }
         }
       },
@@ -560,19 +560,19 @@
     "com.amazonaws.iot1clickdevicesservice#InvokeDeviceMethodRequest": {
       "type": "structure",
       "members": {
-        "DeviceMethod": {
-          "target": "com.amazonaws.iot1clickdevicesservice#DeviceMethod",
-          "traits": {
-            "smithy.api#documentation": "<p>The device method to invoke.</p>",
-            "smithy.api#jsonName": "deviceMethod"
-          }
-        },
         "DeviceId": {
           "target": "com.amazonaws.iot1clickdevicesservice#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the device.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "DeviceMethod": {
+          "target": "com.amazonaws.iot1clickdevicesservice#DeviceMethod",
+          "traits": {
+            "smithy.api#documentation": "<p>The device method to invoke.</p>",
+            "smithy.api#jsonName": "deviceMethod"
           }
         },
         "DeviceMethodParameters": {
@@ -645,7 +645,8 @@
           "sdkId": "IoT 1Click Devices Service",
           "arnNamespace": "iot1click",
           "cloudFormationName": "IoT1ClickDevicesService",
-          "cloudTrailEventSource": "iot1clickdevicesservice.amazonaws.com"
+          "cloudTrailEventSource": "iot1clickdevicesservice.amazonaws.com",
+          "endpointPrefix": "devices.iot1click"
         },
         "aws.auth#sigv4": {
           "name": "iot1click"
@@ -689,19 +690,20 @@
     "com.amazonaws.iot1clickdevicesservice#ListDeviceEventsRequest": {
       "type": "structure",
       "members": {
+        "DeviceId": {
+          "target": "com.amazonaws.iot1clickdevicesservice#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the device.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
         "FromTimeStamp": {
           "target": "com.amazonaws.iot1clickdevicesservice#__timestampIso8601",
           "traits": {
             "smithy.api#documentation": "<p>The start date for the device event query, in ISO8061 format. For example,\n 2018-03-28T15:45:12.880Z\n </p>",
             "smithy.api#httpQuery": "fromTimeStamp",
             "smithy.api#required": {}
-          }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.iot1clickdevicesservice#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The token to retrieve the next set of results.</p>",
-            "smithy.api#httpQuery": "nextToken"
           }
         },
         "MaxResults": {
@@ -711,12 +713,11 @@
             "smithy.api#httpQuery": "maxResults"
           }
         },
-        "DeviceId": {
+        "NextToken": {
           "target": "com.amazonaws.iot1clickdevicesservice#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the device.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The token to retrieve the next set of results.</p>",
+            "smithy.api#httpQuery": "nextToken"
           }
         },
         "ToTimeStamp": {
@@ -732,18 +733,18 @@
     "com.amazonaws.iot1clickdevicesservice#ListDeviceEventsResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.iot1clickdevicesservice#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The token to retrieve the next set of results.</p>",
-            "smithy.api#jsonName": "nextToken"
-          }
-        },
         "Events": {
           "target": "com.amazonaws.iot1clickdevicesservice#__listOfDeviceEvent",
           "traits": {
             "smithy.api#documentation": "<p>An array of zero or more elements describing the event(s) associated with the\n device.</p>",
             "smithy.api#jsonName": "events"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.iot1clickdevicesservice#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to retrieve the next set of results.</p>",
+            "smithy.api#jsonName": "nextToken"
           }
         }
       }
@@ -779,13 +780,6 @@
     "com.amazonaws.iot1clickdevicesservice#ListDevicesRequest": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.iot1clickdevicesservice#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The token to retrieve the next set of results.</p>",
-            "smithy.api#httpQuery": "nextToken"
-          }
-        },
         "DeviceType": {
           "target": "com.amazonaws.iot1clickdevicesservice#__string",
           "traits": {
@@ -798,6 +792,13 @@
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return per request. If not set, a default value of\n 100 is used.</p>",
             "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.iot1clickdevicesservice#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to retrieve the next set of results.</p>",
+            "smithy.api#httpQuery": "nextToken"
           }
         }
       }
@@ -883,18 +884,18 @@
     "com.amazonaws.iot1clickdevicesservice#PreconditionFailedException": {
       "type": "structure",
       "members": {
-        "Message": {
-          "target": "com.amazonaws.iot1clickdevicesservice#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>An error message explaining the error or its remedy.</p>",
-            "smithy.api#jsonName": "message"
-          }
-        },
         "Code": {
           "target": "com.amazonaws.iot1clickdevicesservice#__string",
           "traits": {
             "smithy.api#documentation": "<p>412</p>",
             "smithy.api#jsonName": "code"
+          }
+        },
+        "Message": {
+          "target": "com.amazonaws.iot1clickdevicesservice#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>An error message explaining the error or its remedy.</p>",
+            "smithy.api#jsonName": "message"
           }
         }
       },
@@ -1000,19 +1001,19 @@
     "com.amazonaws.iot1clickdevicesservice#TagResourceRequest": {
       "type": "structure",
       "members": {
-        "Tags": {
-          "target": "com.amazonaws.iot1clickdevicesservice#__mapOf__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A collection of key/value pairs defining the resource tags. For example, {\n \"tags\": {\"key1\": \"value1\", \"key2\": \"value2\"} }. For more information, see <a href=\"https://aws.amazon.com/answers/account-management/aws-tagging-strategies/\">AWS\n Tagging Strategies</a>.</p><p>\n \n </p>",
-            "smithy.api#jsonName": "tags",
-            "smithy.api#required": {}
-          }
-        },
         "ResourceArn": {
           "target": "com.amazonaws.iot1clickdevicesservice#__string",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the resource.</p>",
             "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.iot1clickdevicesservice#__mapOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A collection of key/value pairs defining the resource tags. For example, {\n \"tags\": {\"key1\": \"value1\", \"key2\": \"value2\"} }. For more information, see <a href=\"https://aws.amazon.com/answers/account-management/aws-tagging-strategies/\">AWS\n Tagging Strategies</a>.</p><p>\n \n </p>",
+            "smithy.api#jsonName": "tags",
             "smithy.api#required": {}
           }
         }
@@ -1099,19 +1100,19 @@
     "com.amazonaws.iot1clickdevicesservice#UntagResourceRequest": {
       "type": "structure",
       "members": {
-        "TagKeys": {
-          "target": "com.amazonaws.iot1clickdevicesservice#__listOf__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A collections of tag keys. For example, {\"key1\",\"key2\"}</p>",
-            "smithy.api#httpQuery": "tagKeys",
-            "smithy.api#required": {}
-          }
-        },
         "ResourceArn": {
           "target": "com.amazonaws.iot1clickdevicesservice#__string",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the resource.</p>",
             "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "TagKeys": {
+          "target": "com.amazonaws.iot1clickdevicesservice#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A collections of tag keys. For example, {\"key1\",\"key2\"}</p>",
+            "smithy.api#httpQuery": "tagKeys",
             "smithy.api#required": {}
           }
         }

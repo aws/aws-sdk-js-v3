@@ -4292,7 +4292,8 @@
           "sdkId": "Appflow",
           "arnNamespace": "appflow",
           "cloudFormationName": "Appflow",
-          "cloudTrailEventSource": "appflow.amazonaws.com"
+          "cloudTrailEventSource": "appflow.amazonaws.com",
+          "endpointPrefix": "appflow"
         },
         "aws.auth#sigv4": {
           "name": "appflow"

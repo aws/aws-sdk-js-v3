@@ -29,11 +29,6 @@ export namespace AlgorithmImage {
  */
 export interface DefaultCategoricalHyperParameterRange {
   /**
-   * <p>Whether the hyperparameter is tunable.</p>
-   */
-  isTunable?: boolean;
-
-  /**
    * <p>The name of the hyperparameter.</p>
    */
   name?: string;
@@ -42,6 +37,11 @@ export interface DefaultCategoricalHyperParameterRange {
    * <p>A list of the categories for the hyperparameter.</p>
    */
   values?: string[];
+
+  /**
+   * <p>Whether the hyperparameter is tunable.</p>
+   */
+  isTunable?: boolean;
 }
 
 export namespace DefaultCategoricalHyperParameterRange {
@@ -62,14 +62,14 @@ export interface DefaultContinuousHyperParameterRange {
   name?: string;
 
   /**
-   * <p>The maximum allowable value for the hyperparameter.</p>
-   */
-  maxValue?: number;
-
-  /**
    * <p>The minimum allowable value for the hyperparameter.</p>
    */
   minValue?: number;
+
+  /**
+   * <p>The maximum allowable value for the hyperparameter.</p>
+   */
+  maxValue?: number;
 
   /**
    * <p>Whether the hyperparameter is tunable.</p>
@@ -90,9 +90,9 @@ export namespace DefaultContinuousHyperParameterRange {
  */
 export interface DefaultIntegerHyperParameterRange {
   /**
-   * <p>The maximum allowable value for the hyperparameter.</p>
+   * <p>The name of the hyperparameter.</p>
    */
-  maxValue?: number;
+  name?: string;
 
   /**
    * <p>The minimum allowable value for the hyperparameter.</p>
@@ -100,9 +100,9 @@ export interface DefaultIntegerHyperParameterRange {
   minValue?: number;
 
   /**
-   * <p>The name of the hyperparameter.</p>
+   * <p>The maximum allowable value for the hyperparameter.</p>
    */
-  name?: string;
+  maxValue?: number;
 
   /**
    * <p>Indicates whether the hyperparameter is tunable.</p>
@@ -122,14 +122,14 @@ export namespace DefaultIntegerHyperParameterRange {
  */
 export interface DefaultHyperParameterRanges {
   /**
-   * <p>The continuous hyperparameters and their default ranges.</p>
-   */
-  continuousHyperParameterRanges?: DefaultContinuousHyperParameterRange[];
-
-  /**
    * <p>The integer-valued hyperparameters and their default ranges.</p>
    */
   integerHyperParameterRanges?: DefaultIntegerHyperParameterRange[];
+
+  /**
+   * <p>The continuous hyperparameters and their default ranges.</p>
+   */
+  continuousHyperParameterRanges?: DefaultContinuousHyperParameterRange[];
 
   /**
    * <p>The categorical hyperparameters and their default ranges.</p>
@@ -148,9 +148,19 @@ export namespace DefaultHyperParameterRanges {
  */
 export interface Algorithm {
   /**
-   * <p>The training input mode.</p>
+   * <p>The name of the algorithm.</p>
    */
-  trainingInputMode?: string;
+  name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the algorithm.</p>
+   */
+  algorithmArn?: string;
+
+  /**
+   * <p>The URI of the Docker container for the algorithm image.</p>
+   */
+  algorithmImage?: AlgorithmImage;
 
   /**
    * <p>Specifies the default hyperparameters.</p>
@@ -165,14 +175,14 @@ export interface Algorithm {
   defaultHyperParameterRanges?: DefaultHyperParameterRanges;
 
   /**
-   * <p>The date and time (in Unix time) that the algorithm was last updated.</p>
+   * <p>Specifies the default maximum number of training jobs and parallel training jobs.</p>
    */
-  lastUpdatedDateTime?: Date;
+  defaultResourceConfig?: { [key: string]: string };
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the algorithm.</p>
+   * <p>The training input mode.</p>
    */
-  algorithmArn?: string;
+  trainingInputMode?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the role.</p>
@@ -180,24 +190,14 @@ export interface Algorithm {
   roleArn?: string;
 
   /**
-   * <p>Specifies the default maximum number of training jobs and parallel training jobs.</p>
-   */
-  defaultResourceConfig?: { [key: string]: string };
-
-  /**
-   * <p>The URI of the Docker container for the algorithm image.</p>
-   */
-  algorithmImage?: AlgorithmImage;
-
-  /**
    * <p>The date and time (in Unix time) that the algorithm was created.</p>
    */
   creationDateTime?: Date;
 
   /**
-   * <p>The name of the algorithm.</p>
+   * <p>The date and time (in Unix time) that the algorithm was last updated.</p>
    */
-  name?: string;
+  lastUpdatedDateTime?: Date;
 }
 
 export namespace Algorithm {
@@ -279,9 +279,37 @@ export namespace BatchInferenceJobOutput {
 
 export interface CreateBatchInferenceJobRequest {
   /**
+   * <p>The name of the batch inference job to create.</p>
+   */
+  jobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the solution version that will be used to generate the
+   *       batch inference recommendations.</p>
+   */
+  solutionVersionArn: string | undefined;
+
+  /**
+   * <p>The ARN of the filter to apply to the batch inference job. For more information on using
+   *       filters, see Using Filters with Amazon Personalize.</p>
+   */
+  filterArn?: string;
+
+  /**
    * <p>The number of recommendations to retreive.</p>
    */
   numResults?: number;
+
+  /**
+   * <p>The Amazon S3 path that leads to the input file to base your recommendations on. The input
+   *       material must be in JSON format.</p>
+   */
+  jobInput: BatchInferenceJobInput | undefined;
+
+  /**
+   * <p>The path to the Amazon S3 bucket where the job's output will be stored.</p>
+   */
+  jobOutput: BatchInferenceJobOutput | undefined;
 
   /**
    * <p>The ARN of the Amazon Identity and Access Management role that has permissions to read and write to your input and out
@@ -293,34 +321,6 @@ export interface CreateBatchInferenceJobRequest {
    * <p>The configuration details of a batch inference job.</p>
    */
   batchInferenceJobConfig?: BatchInferenceJobConfig;
-
-  /**
-   * <p>The path to the Amazon S3 bucket where the job's output will be stored.</p>
-   */
-  jobOutput: BatchInferenceJobOutput | undefined;
-
-  /**
-   * <p>The ARN of the filter to apply to the batch inference job. For more information on using
-   *       filters, see Using Filters with Amazon Personalize.</p>
-   */
-  filterArn?: string;
-
-  /**
-   * <p>The Amazon S3 path that leads to the input file to base your recommendations on. The input
-   *       material must be in JSON format.</p>
-   */
-  jobInput: BatchInferenceJobInput | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the solution version that will be used to generate the
-   *       batch inference recommendations.</p>
-   */
-  solutionVersionArn: string | undefined;
-
-  /**
-   * <p>The name of the batch inference job to create.</p>
-   */
-  jobName: string | undefined;
 }
 
 export namespace CreateBatchInferenceJobRequest {
@@ -435,10 +435,9 @@ export namespace CampaignConfig {
 
 export interface CreateCampaignRequest {
   /**
-   * <p>Specifies the requested minimum provisioned transactions (recommendations) per second that
-   *       Amazon Personalize will support.</p>
+   * <p>A name for the new campaign. The campaign name must be unique within your account.</p>
    */
-  minProvisionedTPS: number | undefined;
+  name: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the solution version to deploy.</p>
@@ -446,14 +445,15 @@ export interface CreateCampaignRequest {
   solutionVersionArn: string | undefined;
 
   /**
+   * <p>Specifies the requested minimum provisioned transactions (recommendations) per second that
+   *       Amazon Personalize will support.</p>
+   */
+  minProvisionedTPS: number | undefined;
+
+  /**
    * <p>The configuration details of a campaign.</p>
    */
   campaignConfig?: CampaignConfig;
-
-  /**
-   * <p>A name for the new campaign. The campaign name must be unique within your account.</p>
-   */
-  name: string | undefined;
 }
 
 export namespace CreateCampaignRequest {
@@ -476,6 +476,11 @@ export namespace CreateCampaignResponse {
 }
 
 export interface CreateDatasetRequest {
+  /**
+   * <p>The name for the dataset.</p>
+   */
+  name: string | undefined;
+
   /**
    * <p>The ARN of the schema to associate with the dataset. The schema defines the dataset
    *       fields.</p>
@@ -503,11 +508,6 @@ export interface CreateDatasetRequest {
    *          </ul>
    */
   datasetType: string | undefined;
-
-  /**
-   * <p>The name for the dataset.</p>
-   */
-  name: string | undefined;
 }
 
 export namespace CreateDatasetRequest {
@@ -531,6 +531,11 @@ export namespace CreateDatasetResponse {
 
 export interface CreateDatasetGroupRequest {
   /**
+   * <p>The name for the new dataset group.</p>
+   */
+  name: string | undefined;
+
+  /**
    * <p>The ARN of the IAM role that has permissions to access the KMS key. Supplying an IAM
    *       role is only valid when also specifying a KMS key.</p>
    */
@@ -540,11 +545,6 @@ export interface CreateDatasetGroupRequest {
    * <p>The Amazon Resource Name (ARN) of a KMS key used to encrypt the datasets.</p>
    */
   kmsKeyArn?: string;
-
-  /**
-   * <p>The name for the new dataset group.</p>
-   */
-  name: string | undefined;
 }
 
 export namespace CreateDatasetGroupRequest {
@@ -588,14 +588,14 @@ export namespace DataSource {
 
 export interface CreateDatasetImportJobRequest {
   /**
-   * <p>The ARN of the dataset that receives the imported data.</p>
-   */
-  datasetArn: string | undefined;
-
-  /**
    * <p>The name for the dataset import job.</p>
    */
   jobName: string | undefined;
+
+  /**
+   * <p>The ARN of the dataset that receives the imported data.</p>
+   */
+  datasetArn: string | undefined;
 
   /**
    * <p>The Amazon S3 bucket that contains the training data to import.</p>
@@ -711,14 +711,14 @@ export namespace CreateFilterResponse {
 
 export interface CreateSchemaRequest {
   /**
-   * <p>A schema in Avro JSON format.</p>
-   */
-  schema: string | undefined;
-
-  /**
    * <p>The name for the schema.</p>
    */
   name: string | undefined;
+
+  /**
+   * <p>A schema in Avro JSON format.</p>
+   */
+  schema: string | undefined;
 }
 
 export namespace CreateSchemaRequest {
@@ -769,14 +769,14 @@ export namespace AutoMLConfig {
  */
 export interface CategoricalHyperParameterRange {
   /**
-   * <p>A list of the categories for the hyperparameter.</p>
-   */
-  values?: string[];
-
-  /**
    * <p>The name of the hyperparameter.</p>
    */
   name?: string;
+
+  /**
+   * <p>A list of the categories for the hyperparameter.</p>
+   */
+  values?: string[];
 }
 
 export namespace CategoricalHyperParameterRange {
@@ -790,9 +790,9 @@ export namespace CategoricalHyperParameterRange {
  */
 export interface ContinuousHyperParameterRange {
   /**
-   * <p>The maximum allowable value for the hyperparameter.</p>
+   * <p>The name of the hyperparameter.</p>
    */
-  maxValue?: number;
+  name?: string;
 
   /**
    * <p>The minimum allowable value for the hyperparameter.</p>
@@ -800,9 +800,9 @@ export interface ContinuousHyperParameterRange {
   minValue?: number;
 
   /**
-   * <p>The name of the hyperparameter.</p>
+   * <p>The maximum allowable value for the hyperparameter.</p>
    */
-  name?: string;
+  maxValue?: number;
 }
 
 export namespace ContinuousHyperParameterRange {
@@ -816,11 +816,6 @@ export namespace ContinuousHyperParameterRange {
  */
 export interface IntegerHyperParameterRange {
   /**
-   * <p>The maximum allowable value for the hyperparameter.</p>
-   */
-  maxValue?: number;
-
-  /**
    * <p>The name of the hyperparameter.</p>
    */
   name?: string;
@@ -829,6 +824,11 @@ export interface IntegerHyperParameterRange {
    * <p>The minimum allowable value for the hyperparameter.</p>
    */
   minValue?: number;
+
+  /**
+   * <p>The maximum allowable value for the hyperparameter.</p>
+   */
+  maxValue?: number;
 }
 
 export namespace IntegerHyperParameterRange {
@@ -869,6 +869,11 @@ export namespace HyperParameterRanges {
  */
 export interface HPOObjective {
   /**
+   * <p>The type of the metric. Valid values are <code>Maximize</code> and <code>Minimize</code>.</p>
+   */
+  type?: string;
+
+  /**
    * <p>The name of the metric.</p>
    */
   metricName?: string;
@@ -877,11 +882,6 @@ export interface HPOObjective {
    * <p>A regular expression for finding the metric in the training job logs.</p>
    */
   metricRegex?: string;
-
-  /**
-   * <p>The type of the metric. Valid values are <code>Maximize</code> and <code>Minimize</code>.</p>
-   */
-  type?: string;
 }
 
 export namespace HPOObjective {
@@ -927,14 +927,14 @@ export namespace HPOResourceConfig {
  */
 export interface HPOConfig {
   /**
-   * <p>Describes the resource configuration for HPO.</p>
-   */
-  hpoResourceConfig?: HPOResourceConfig;
-
-  /**
    * <p>The metric to optimize during HPO.</p>
    */
   hpoObjective?: HPOObjective;
+
+  /**
+   * <p>Describes the resource configuration for HPO.</p>
+   */
+  hpoResourceConfig?: HPOResourceConfig;
 
   /**
    * <p>The hyperparameters and their allowable ranges.</p>
@@ -953,9 +953,20 @@ export namespace HPOConfig {
  */
 export interface SolutionConfig {
   /**
+   * <p>Only events with a value greater than or equal to this threshold are
+   *       used for training a model.</p>
+   */
+  eventValueThreshold?: string;
+
+  /**
    * <p>Describes the properties for hyperparameter optimization (HPO).</p>
    */
   hpoConfig?: HPOConfig;
+
+  /**
+   * <p>Lists the hyperparameter names and ranges.</p>
+   */
+  algorithmHyperParameters?: { [key: string]: string };
 
   /**
    * <p>Lists the feature transformation parameters.</p>
@@ -963,21 +974,10 @@ export interface SolutionConfig {
   featureTransformationParameters?: { [key: string]: string };
 
   /**
-   * <p>Only events with a value greater than or equal to this threshold are
-   *       used for training a model.</p>
-   */
-  eventValueThreshold?: string;
-
-  /**
    * <p>The <a>AutoMLConfig</a> object containing a list of recipes to search
    *       when AutoML is performed.</p>
    */
   autoMLConfig?: AutoMLConfig;
-
-  /**
-   * <p>Lists the hyperparameter names and ranges.</p>
-   */
-  algorithmHyperParameters?: { [key: string]: string };
 }
 
 export namespace SolutionConfig {
@@ -988,22 +988,9 @@ export namespace SolutionConfig {
 
 export interface CreateSolutionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the dataset group that provides the training data.</p>
+   * <p>The name for the solution.</p>
    */
-  datasetGroupArn: string | undefined;
-
-  /**
-   * <p>When your have multiple event types (using an <code>EVENT_TYPE</code> schema field),
-   *       this parameter specifies which event type (for example, 'click' or 'like') is used for
-   *       training the model.</p>
-   */
-  eventType?: string;
-
-  /**
-   * <p>The ARN of the recipe to use for model training. Only specified when
-   *       <code>performAutoML</code> is false.</p>
-   */
-  recipeArn?: string;
+  name: string | undefined;
 
   /**
    * <p>Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe.
@@ -1025,9 +1012,22 @@ export interface CreateSolutionRequest {
   performAutoML?: boolean;
 
   /**
-   * <p>The name for the solution.</p>
+   * <p>The ARN of the recipe to use for model training. Only specified when
+   *       <code>performAutoML</code> is false.</p>
    */
-  name: string | undefined;
+  recipeArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset group that provides the training data.</p>
+   */
+  datasetGroupArn: string | undefined;
+
+  /**
+   * <p>When your have multiple event types (using an <code>EVENT_TYPE</code> schema field),
+   *       this parameter specifies which event type (for example, 'click' or 'like') is used for
+   *       training the model.</p>
+   */
+  eventType?: string;
 
   /**
    * <p>The configuration to use with the solution. When <code>performAutoML</code> is set to
@@ -1063,6 +1063,12 @@ export enum TrainingMode {
 
 export interface CreateSolutionVersionRequest {
   /**
+   * <p>The Amazon Resource Name (ARN) of the solution containing the training configuration
+   *       information.</p>
+   */
+  solutionArn: string | undefined;
+
+  /**
    * <p>The scope of training to be performed when creating the solution version. The
    *         <code>FULL</code> option trains the solution version based on the entirety of the input
    *       solution's training data, while the <code>UPDATE</code> option processes only the data that
@@ -1075,12 +1081,6 @@ export interface CreateSolutionVersionRequest {
    *          </important>
    */
   trainingMode?: TrainingMode | string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the solution containing the training configuration
-   *       information.</p>
-   */
-  solutionArn: string | undefined;
 }
 
 export namespace CreateSolutionVersionRequest {
@@ -1237,10 +1237,47 @@ export namespace DescribeBatchInferenceJobRequest {
  */
 export interface BatchInferenceJob {
   /**
+   * <p>The name of the batch inference job.</p>
+   */
+  jobName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the batch inference job.</p>
+   */
+  batchInferenceJobArn?: string;
+
+  /**
+   * <p>The ARN of the filter used on the batch inference job.</p>
+   */
+  filterArn?: string;
+
+  /**
+   * <p>If the batch inference job failed, the reason for the failure.</p>
+   */
+  failureReason?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the solution version from which the batch inference job
+   *       was created.</p>
+   */
+  solutionVersionArn?: string;
+
+  /**
+   * <p>The number of recommendations generated by the batch inference job. This number includes
+   *       the error messages generated for failed input records.</p>
+   */
+  numResults?: number;
+
+  /**
    * <p>The Amazon S3 path that leads to the input data used to generate the batch inference
    *       job.</p>
    */
   jobInput?: BatchInferenceJobInput;
+
+  /**
+   * <p>The Amazon S3 bucket that contains the output data generated by the batch inference job.</p>
+   */
+  jobOutput?: BatchInferenceJobOutput;
 
   /**
    * <p>A string to string map of the configuration details of a batch inference job.</p>
@@ -1248,9 +1285,9 @@ export interface BatchInferenceJob {
   batchInferenceJobConfig?: BatchInferenceJobConfig;
 
   /**
-   * <p>The Amazon S3 bucket that contains the output data generated by the batch inference job.</p>
+   * <p>The ARN of the Amazon Identity and Access Management (IAM) role that requested the batch inference job.</p>
    */
-  jobOutput?: BatchInferenceJobOutput;
+  roleArn?: string;
 
   /**
    * <p>The status of the batch inference job. The status is one of the following values:</p>
@@ -1272,51 +1309,14 @@ export interface BatchInferenceJob {
   status?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the batch inference job.</p>
-   */
-  batchInferenceJobArn?: string;
-
-  /**
-   * <p>If the batch inference job failed, the reason for the failure.</p>
-   */
-  failureReason?: string;
-
-  /**
-   * <p>The number of recommendations generated by the batch inference job. This number includes
-   *       the error messages generated for failed input records.</p>
-   */
-  numResults?: number;
-
-  /**
    * <p>The time at which the batch inference job was created.</p>
    */
   creationDateTime?: Date;
 
   /**
-   * <p>The name of the batch inference job.</p>
-   */
-  jobName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the solution version from which the batch inference job
-   *       was created.</p>
-   */
-  solutionVersionArn?: string;
-
-  /**
-   * <p>The ARN of the Amazon Identity and Access Management (IAM) role that requested the batch inference job.</p>
-   */
-  roleArn?: string;
-
-  /**
    * <p>The time at which the batch inference job was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>The ARN of the filter used on the batch inference job.</p>
-   */
-  filterArn?: string;
 }
 
 export namespace BatchInferenceJob {
@@ -1357,20 +1357,20 @@ export namespace DescribeCampaignRequest {
  */
 export interface CampaignUpdateSummary {
   /**
+   * <p>The Amazon Resource Name (ARN) of the deployed solution version.</p>
+   */
+  solutionVersionArn?: string;
+
+  /**
    * <p>Specifies the requested minimum provisioned transactions (recommendations) per second that
    *       Amazon Personalize will support.</p>
    */
   minProvisionedTPS?: number;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the deployed solution version.</p>
+   * <p>The configuration details of a campaign.</p>
    */
-  solutionVersionArn?: string;
-
-  /**
-   * <p>The date and time (in Unix time) that the campaign update was created.</p>
-   */
-  creationDateTime?: Date;
+  campaignConfig?: CampaignConfig;
 
   /**
    * <p>The status of the campaign update.</p>
@@ -1387,19 +1387,19 @@ export interface CampaignUpdateSummary {
   status?: string;
 
   /**
-   * <p>The configuration details of a campaign.</p>
+   * <p>If a campaign update fails, the reason behind the failure.</p>
    */
-  campaignConfig?: CampaignConfig;
+  failureReason?: string;
+
+  /**
+   * <p>The date and time (in Unix time) that the campaign update was created.</p>
+   */
+  creationDateTime?: Date;
 
   /**
    * <p>The date and time (in Unix time) that the campaign update was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>If a campaign update fails, the reason behind the failure.</p>
-   */
-  failureReason?: string;
 }
 
 export namespace CampaignUpdateSummary {
@@ -1414,9 +1414,9 @@ export namespace CampaignUpdateSummary {
  */
 export interface Campaign {
   /**
-   * <p>The Amazon Resource Name (ARN) of a specific version of the solution.</p>
+   * <p>The name of the campaign.</p>
    */
-  solutionVersionArn?: string;
+  name?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the campaign. </p>
@@ -1424,14 +1424,9 @@ export interface Campaign {
   campaignArn?: string;
 
   /**
-   * <p>The name of the campaign.</p>
+   * <p>The Amazon Resource Name (ARN) of a specific version of the solution.</p>
    */
-  name?: string;
-
-  /**
-   * <p>The configuration details of a campaign.</p>
-   */
-  campaignConfig?: CampaignConfig;
+  solutionVersionArn?: string;
 
   /**
    * <p>Specifies the requested minimum provisioned transactions (recommendations) per second.</p>
@@ -1439,20 +1434,9 @@ export interface Campaign {
   minProvisionedTPS?: number;
 
   /**
-   * <p>Provides a summary of the properties of a campaign update. For a complete listing, call the
-   *       <a>DescribeCampaign</a> API.</p>
+   * <p>The configuration details of a campaign.</p>
    */
-  latestCampaignUpdate?: CampaignUpdateSummary;
-
-  /**
-   * <p>The date and time (in Unix format) that the campaign was last updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>The date and time (in Unix format) that the campaign was created.</p>
-   */
-  creationDateTime?: Date;
+  campaignConfig?: CampaignConfig;
 
   /**
    * <p>The status of the campaign.</p>
@@ -1472,6 +1456,22 @@ export interface Campaign {
    * <p>If a campaign fails, the reason behind the failure.</p>
    */
   failureReason?: string;
+
+  /**
+   * <p>The date and time (in Unix format) that the campaign was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The date and time (in Unix format) that the campaign was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>Provides a summary of the properties of a campaign update. For a complete listing, call the
+   *       <a>DescribeCampaign</a> API.</p>
+   */
+  latestCampaignUpdate?: CampaignUpdateSummary;
 }
 
 export namespace Campaign {
@@ -1511,9 +1511,9 @@ export namespace DescribeDatasetRequest {
  */
 export interface Dataset {
   /**
-   * <p>The ARN of the associated schema.</p>
+   * <p>The name of the dataset.</p>
    */
-  schemaArn?: string;
+  name?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset that you want metadata for.</p>
@@ -1521,28 +1521,9 @@ export interface Dataset {
   datasetArn?: string;
 
   /**
-   * <p>The status of the dataset.</p>
-   *          <p>A dataset can be in one of the following states:</p>
-   *          <ul>
-   *             <li>
-   *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
-   *             </li>
-   *             <li>
-   *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
-   *             </li>
-   *          </ul>
+   * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
    */
-  status?: string;
-
-  /**
-   * <p>A time stamp that shows when the dataset was updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>The creation date and time (in Unix time) of the dataset.</p>
-   */
-  creationDateTime?: Date;
+  datasetGroupArn?: string;
 
   /**
    * <p>One of the following values:</p>
@@ -1561,14 +1542,33 @@ export interface Dataset {
   datasetType?: string;
 
   /**
-   * <p>The name of the dataset.</p>
+   * <p>The ARN of the associated schema.</p>
    */
-  name?: string;
+  schemaArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
+   * <p>The status of the dataset.</p>
+   *          <p>A dataset can be in one of the following states:</p>
+   *          <ul>
+   *             <li>
+   *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+   *             </li>
+   *             <li>
+   *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
+   *             </li>
+   *          </ul>
    */
-  datasetGroupArn?: string;
+  status?: string;
+
+  /**
+   * <p>The creation date and time (in Unix time) of the dataset.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>A time stamp that shows when the dataset was updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
 }
 
 export namespace Dataset {
@@ -1613,29 +1613,9 @@ export namespace DescribeDatasetGroupRequest {
  */
 export interface DatasetGroup {
   /**
-   * <p>If creating a dataset group fails, provides the reason why.</p>
-   */
-  failureReason?: string;
-
-  /**
-   * <p>The last update date and time (in Unix time) of the dataset group.</p>
-   */
-  lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the datasets.</p>
-   */
-  kmsKeyArn?: string;
-
-  /**
    * <p>The name of the dataset group.</p>
    */
   name?: string;
-
-  /**
-   * <p>The ARN of the IAM role that has permissions to create the dataset group.</p>
-   */
-  roleArn?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
@@ -1657,9 +1637,29 @@ export interface DatasetGroup {
   status?: string;
 
   /**
+   * <p>The ARN of the IAM role that has permissions to create the dataset group.</p>
+   */
+  roleArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the datasets.</p>
+   */
+  kmsKeyArn?: string;
+
+  /**
    * <p>The creation date and time (in Unix time) of the dataset group.</p>
    */
   creationDateTime?: Date;
+
+  /**
+   * <p>The last update date and time (in Unix time) of the dataset group.</p>
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>If creating a dataset group fails, provides the reason why.</p>
+   */
+  failureReason?: string;
 }
 
 export namespace DatasetGroup {
@@ -1706,9 +1706,9 @@ export namespace DescribeDatasetImportJobRequest {
  */
 export interface DatasetImportJob {
   /**
-   * <p>The Amazon S3 bucket that contains the training data to import.</p>
+   * <p>The name of the import job.</p>
    */
-  dataSource?: DataSource;
+  jobName?: string;
 
   /**
    * <p>The ARN of the dataset import job.</p>
@@ -1721,19 +1721,15 @@ export interface DatasetImportJob {
   datasetArn?: string;
 
   /**
-   * <p>The date and time (in Unix time) the dataset was last updated.</p>
+   * <p>The Amazon S3 bucket that contains the training data to import.</p>
    */
-  lastUpdatedDateTime?: Date;
+  dataSource?: DataSource;
 
   /**
-   * <p>The creation date and time (in Unix time) of the dataset import job.</p>
+   * <p>The ARN of the AWS Identity and Access Management (IAM) role that has permissions to read from the Amazon S3 data
+   *       source.</p>
    */
-  creationDateTime?: Date;
-
-  /**
-   * <p>If a dataset import job fails, provides the reason why.</p>
-   */
-  failureReason?: string;
+  roleArn?: string;
 
   /**
    * <p>The status of the dataset import job.</p>
@@ -1747,15 +1743,19 @@ export interface DatasetImportJob {
   status?: string;
 
   /**
-   * <p>The ARN of the AWS Identity and Access Management (IAM) role that has permissions to read from the Amazon S3 data
-   *       source.</p>
+   * <p>The creation date and time (in Unix time) of the dataset import job.</p>
    */
-  roleArn?: string;
+  creationDateTime?: Date;
 
   /**
-   * <p>The name of the import job.</p>
+   * <p>The date and time (in Unix time) the dataset was last updated.</p>
    */
-  jobName?: string;
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>If a dataset import job fails, provides the reason why.</p>
+   */
+  failureReason?: string;
 }
 
 export namespace DatasetImportJob {
@@ -1810,29 +1810,30 @@ export namespace DescribeEventTrackerRequest {
  */
 export interface EventTracker {
   /**
-   * <p>The ARN of the event tracker.</p>
-   */
-  eventTrackerArn?: string;
-
-  /**
-   * <p>The date and time (in Unix time) that the event tracker was last updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset group that receives the event data.</p>
-   */
-  datasetGroupArn?: string;
-
-  /**
    * <p>The name of the event tracker.</p>
    */
   name?: string;
 
   /**
+   * <p>The ARN of the event tracker.</p>
+   */
+  eventTrackerArn?: string;
+
+  /**
    * <p>The Amazon AWS account that owns the event tracker.</p>
    */
   accountId?: string;
+
+  /**
+   * <p>The ID of the event tracker. Include this ID in requests to the
+   *     <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html">PutEvents</a> API.</p>
+   */
+  trackingId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset group that receives the event data.</p>
+   */
+  datasetGroupArn?: string;
 
   /**
    * <p>The status of the event tracker.</p>
@@ -1849,15 +1850,14 @@ export interface EventTracker {
   status?: string;
 
   /**
-   * <p>The ID of the event tracker. Include this ID in requests to the
-   *     <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html">PutEvents</a> API.</p>
-   */
-  trackingId?: string;
-
-  /**
    * <p>The date and time (in Unix format) that the event tracker was created.</p>
    */
   creationDateTime?: Date;
+
+  /**
+   * <p>The date and time (in Unix time) that the event tracker was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
 }
 
 export namespace EventTracker {
@@ -1898,16 +1898,6 @@ export namespace DescribeFeatureTransformationRequest {
  */
 export interface FeatureTransformation {
   /**
-   * <p>Provides the default parameters for feature transformation.</p>
-   */
-  defaultParameters?: { [key: string]: string };
-
-  /**
-   * <p>The last update date and time (in Unix time) of the feature transformation.</p>
-   */
-  lastUpdatedDateTime?: Date;
-
-  /**
    * <p>The name of the feature transformation.</p>
    */
   name?: string;
@@ -1918,9 +1908,19 @@ export interface FeatureTransformation {
   featureTransformationArn?: string;
 
   /**
+   * <p>Provides the default parameters for feature transformation.</p>
+   */
+  defaultParameters?: { [key: string]: string };
+
+  /**
    * <p>The creation date and time (in Unix time) of the feature transformation.</p>
    */
   creationDateTime?: Date;
+
+  /**
+   * <p>The last update date and time (in Unix time) of the feature transformation.</p>
+   */
+  lastUpdatedDateTime?: Date;
 
   /**
    * <p>The status of the feature transformation.</p>
@@ -1972,24 +1972,34 @@ export namespace DescribeFilterRequest {
  */
 export interface Filter {
   /**
+   * <p>The name of the filter.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The ARN of the filter.</p>
+   */
+  filterArn?: string;
+
+  /**
    * <p>The time at which the filter was created.</p>
    */
   creationDateTime?: Date;
 
   /**
-   * <p>The status of the filter.</p>
+   * <p>The time at which the filter was last updated.</p>
    */
-  status?: string;
-
-  /**
-   * <p>If the filter failed, the reason for its failure.</p>
-   */
-  failureReason?: string;
+  lastUpdatedDateTime?: Date;
 
   /**
    * <p>The ARN of the dataset group to which the filter belongs.</p>
    */
   datasetGroupArn?: string;
+
+  /**
+   * <p>If the filter failed, the reason for its failure.</p>
+   */
+  failureReason?: string;
 
   /**
    * <p>Specifies the type of item interactions to filter out of recommendation results. The
@@ -2004,19 +2014,9 @@ export interface Filter {
   filterExpression?: string;
 
   /**
-   * <p>The ARN of the filter.</p>
+   * <p>The status of the filter.</p>
    */
-  filterArn?: string;
-
-  /**
-   * <p>The name of the filter.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The time at which the filter was last updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
+  status?: string;
 }
 
 export namespace Filter {
@@ -2060,14 +2060,40 @@ export namespace DescribeRecipeRequest {
  */
 export interface Recipe {
   /**
-   * <p>The date and time (in Unix format) that the recipe was last updated.</p>
+   * <p>The name of the recipe.</p>
    */
-  lastUpdatedDateTime?: Date;
+  name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the recipe.</p>
+   */
+  recipeArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the algorithm that Amazon Personalize uses to train
+   *       the model.</p>
+   */
+  algorithmArn?: string;
 
   /**
    * <p>The ARN of the FeatureTransformation object.</p>
    */
   featureTransformationArn?: string;
+
+  /**
+   * <p>The status of the recipe.</p>
+   */
+  status?: string;
+
+  /**
+   * <p>The description of the recipe.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The date and time (in Unix format) that the recipe was created.</p>
+   */
+  creationDateTime?: Date;
 
   /**
    * <p>One of the following values:</p>
@@ -2086,35 +2112,9 @@ export interface Recipe {
   recipeType?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the algorithm that Amazon Personalize uses to train
-   *       the model.</p>
+   * <p>The date and time (in Unix format) that the recipe was last updated.</p>
    */
-  algorithmArn?: string;
-
-  /**
-   * <p>The description of the recipe.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the recipe.</p>
-   */
-  recipeArn?: string;
-
-  /**
-   * <p>The name of the recipe.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The status of the recipe.</p>
-   */
-  status?: string;
-
-  /**
-   * <p>The date and time (in Unix format) that the recipe was created.</p>
-   */
-  creationDateTime?: Date;
+  lastUpdatedDateTime?: Date;
 }
 
 export namespace Recipe {
@@ -2155,9 +2155,14 @@ export namespace DescribeSchemaRequest {
  */
 export interface DatasetSchema {
   /**
-   * <p>The date and time (in Unix time) that the schema was last updated.</p>
+   * <p>The name of the schema.</p>
    */
-  lastUpdatedDateTime?: Date;
+  name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the schema.</p>
+   */
+  schemaArn?: string;
 
   /**
    * <p>The schema.</p>
@@ -2165,19 +2170,14 @@ export interface DatasetSchema {
   schema?: string;
 
   /**
-   * <p>The name of the schema.</p>
-   */
-  name?: string;
-
-  /**
    * <p>The date and time (in Unix time) that the schema was created.</p>
    */
   creationDateTime?: Date;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the schema.</p>
+   * <p>The date and time (in Unix time) that the schema was last updated.</p>
    */
-  schemaArn?: string;
+  lastUpdatedDateTime?: Date;
 }
 
 export namespace DatasetSchema {
@@ -2236,14 +2236,9 @@ export namespace AutoMLResult {
  */
 export interface SolutionVersionSummary {
   /**
-   * <p>The date and time (in Unix time) that the solution version was last updated.</p>
+   * <p>The Amazon Resource Name (ARN) of the solution version.</p>
    */
-  lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>The date and time (in Unix time) that this version of a solution was created.</p>
-   */
-  creationDateTime?: Date;
+  solutionVersionArn?: string;
 
   /**
    * <p>The status of the solution version.</p>
@@ -2257,14 +2252,19 @@ export interface SolutionVersionSummary {
   status?: string;
 
   /**
+   * <p>The date and time (in Unix time) that this version of a solution was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The date and time (in Unix time) that the solution version was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
    * <p>If a solution version fails, the reason behind the failure.</p>
    */
   failureReason?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the solution version.</p>
-   */
-  solutionVersionArn?: string;
 }
 
 export namespace SolutionVersionSummary {
@@ -2279,9 +2279,14 @@ export namespace SolutionVersionSummary {
  */
 export interface Solution {
   /**
-   * <p>When <code>performAutoML</code> is true, specifies the best recipe found.</p>
+   * <p>The name of the solution.</p>
    */
-  autoMLResult?: AutoMLResult;
+  name?: string;
+
+  /**
+   * <p>The ARN of the solution.</p>
+   */
+  solutionArn?: string;
 
   /**
    * <p>Whether to perform hyperparameter optimization (HPO) on the chosen recipe. The
@@ -2290,19 +2295,36 @@ export interface Solution {
   performHPO?: boolean;
 
   /**
-   * <p>The date and time (in Unix time) that the solution was last updated.</p>
+   * <p>When true, Amazon Personalize performs a search for the best USER_PERSONALIZATION recipe from
+   *       the list specified in the solution configuration (<code>recipeArn</code> must not be specified).
+   *       When false (the default), Amazon Personalize uses <code>recipeArn</code> for training.</p>
    */
-  lastUpdatedDateTime?: Date;
+  performAutoML?: boolean;
 
   /**
-   * <p>Describes the latest version of the solution, including the status and the ARN.</p>
+   * <p>The ARN of the recipe used to create the solution.</p>
    */
-  latestSolutionVersion?: SolutionVersionSummary;
+  recipeArn?: string;
 
   /**
-   * <p>The creation date and time (in Unix time) of the solution.</p>
+   * <p>The Amazon Resource Name (ARN) of the dataset group that provides the training data.</p>
    */
-  creationDateTime?: Date;
+  datasetGroupArn?: string;
+
+  /**
+   * <p>The event type (for example, 'click' or 'like') that is used for training the model.</p>
+   */
+  eventType?: string;
+
+  /**
+   * <p>Describes the configuration properties for the solution.</p>
+   */
+  solutionConfig?: SolutionConfig;
+
+  /**
+   * <p>When <code>performAutoML</code> is true, specifies the best recipe found.</p>
+   */
+  autoMLResult?: AutoMLResult;
 
   /**
    * <p>The status of the solution.</p>
@@ -2319,41 +2341,19 @@ export interface Solution {
   status?: string;
 
   /**
-   * <p>When true, Amazon Personalize performs a search for the best USER_PERSONALIZATION recipe from
-   *       the list specified in the solution configuration (<code>recipeArn</code> must not be specified).
-   *       When false (the default), Amazon Personalize uses <code>recipeArn</code> for training.</p>
+   * <p>The creation date and time (in Unix time) of the solution.</p>
    */
-  performAutoML?: boolean;
+  creationDateTime?: Date;
 
   /**
-   * <p>The name of the solution.</p>
+   * <p>The date and time (in Unix time) that the solution was last updated.</p>
    */
-  name?: string;
+  lastUpdatedDateTime?: Date;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the dataset group that provides the training data.</p>
+   * <p>Describes the latest version of the solution, including the status and the ARN.</p>
    */
-  datasetGroupArn?: string;
-
-  /**
-   * <p>The event type (for example, 'click' or 'like') that is used for training the model.</p>
-   */
-  eventType?: string;
-
-  /**
-   * <p>The ARN of the recipe used to create the solution.</p>
-   */
-  recipeArn?: string;
-
-  /**
-   * <p>The ARN of the solution.</p>
-   */
-  solutionArn?: string;
-
-  /**
-   * <p>Describes the configuration properties for the solution.</p>
-   */
-  solutionConfig?: SolutionConfig;
+  latestSolutionVersion?: SolutionVersionSummary;
 }
 
 export namespace Solution {
@@ -2410,17 +2410,14 @@ export namespace TunedHPOParams {
  */
 export interface SolutionVersion {
   /**
-   * <p>When true, Amazon Personalize searches for the most optimal recipe according to the solution
-   *       configuration. When false (the default), Amazon Personalize uses <code>recipeArn</code>.</p>
+   * <p>The ARN of the solution version.</p>
    */
-  performAutoML?: boolean;
+  solutionVersionArn?: string;
 
   /**
-   * <p>The date and time (in
-   *       Unix
-   *       time) that the solution was last updated.</p>
+   * <p>The ARN of the solution.</p>
    */
-  lastUpdatedDateTime?: Date;
+  solutionArn?: string;
 
   /**
    * <p>Whether to perform hyperparameter optimization (HPO) on the chosen recipe. The default is
@@ -2429,26 +2426,37 @@ export interface SolutionVersion {
   performHPO?: boolean;
 
   /**
-   * <p>Describes the configuration properties for the solution.</p>
+   * <p>When true, Amazon Personalize searches for the most optimal recipe according to the solution
+   *       configuration. When false (the default), Amazon Personalize uses <code>recipeArn</code>.</p>
    */
-  solutionConfig?: SolutionConfig;
+  performAutoML?: boolean;
 
   /**
-   * <p>The ARN of the solution.</p>
+   * <p>The ARN of the recipe used in the solution.</p>
    */
-  solutionArn?: string;
-
-  /**
-   * <p>The time used to train the model. You are billed for the time it takes to train a model.
-   *       This field is visible only after Amazon Personalize successfully trains a model.</p>
-   */
-  trainingHours?: number;
+  recipeArn?: string;
 
   /**
    * <p>The event type (for example, 'click' or 'like') that is used for training the
    *       model.</p>
    */
   eventType?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset group providing the training data.</p>
+   */
+  datasetGroupArn?: string;
+
+  /**
+   * <p>Describes the configuration properties for the solution.</p>
+   */
+  solutionConfig?: SolutionConfig;
+
+  /**
+   * <p>The time used to train the model. You are billed for the time it takes to train a model.
+   *       This field is visible only after Amazon Personalize successfully trains a model.</p>
+   */
+  trainingHours?: number;
 
   /**
    * <p>The scope of training used to create the solution version. The <code>FULL</code> option
@@ -2464,22 +2472,10 @@ export interface SolutionVersion {
   trainingMode?: TrainingMode | string;
 
   /**
-   * <p>The ARN of the recipe used in the solution.</p>
-   */
-  recipeArn?: string;
-
-  /**
    * <p>If hyperparameter optimization was performed, contains the hyperparameter values of the
    *       best performing model.</p>
    */
   tunedHPOParams?: TunedHPOParams;
-
-  /**
-   * <p>The date and
-   *       time
-   *       (in Unix time) that this version of the solution was created.</p>
-   */
-  creationDateTime?: Date;
 
   /**
    * <p>The status of the solution version.</p>
@@ -2507,14 +2503,18 @@ export interface SolutionVersion {
   failureReason?: string;
 
   /**
-   * <p>The ARN of the solution version.</p>
+   * <p>The date and
+   *       time
+   *       (in Unix time) that this version of the solution was created.</p>
    */
-  solutionVersionArn?: string;
+  creationDateTime?: Date;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the dataset group providing the training data.</p>
+   * <p>The date and time (in
+   *       Unix
+   *       time) that the solution was last updated.</p>
    */
-  datasetGroupArn?: string;
+  lastUpdatedDateTime?: Date;
 }
 
 export namespace SolutionVersion {
@@ -2642,6 +2642,16 @@ export interface BatchInferenceJobSummary {
   status?: string;
 
   /**
+   * <p>The time at which the batch inference job was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The time at which the batch inference job was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
    * <p>If the batch inference job failed, the reason for the failure.</p>
    */
   failureReason?: string;
@@ -2650,16 +2660,6 @@ export interface BatchInferenceJobSummary {
    * <p>The ARN of the solution version used by the batch inference job.</p>
    */
   solutionVersionArn?: string;
-
-  /**
-   * <p>The time at which the batch inference job was last updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>The time at which the batch inference job was created.</p>
-   */
-  creationDateTime?: Date;
 }
 
 export namespace BatchInferenceJobSummary {
@@ -2718,14 +2718,14 @@ export namespace ListCampaignsRequest {
  */
 export interface CampaignSummary {
   /**
-   * <p>The date and time (in Unix time) that the campaign was last updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-
-  /**
    * <p>The name of the campaign.</p>
    */
   name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the campaign.</p>
+   */
+  campaignArn?: string;
 
   /**
    * <p>The status of the campaign.</p>
@@ -2742,19 +2742,19 @@ export interface CampaignSummary {
   status?: string;
 
   /**
-   * <p>If a campaign fails, the reason behind the failure.</p>
-   */
-  failureReason?: string;
-
-  /**
    * <p>The date and time (in Unix time) that the campaign was created.</p>
    */
   creationDateTime?: Date;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the campaign.</p>
+   * <p>The date and time (in Unix time) that the campaign was last updated.</p>
    */
-  campaignArn?: string;
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>If a campaign fails, the reason behind the failure.</p>
+   */
+  failureReason?: string;
 }
 
 export namespace CampaignSummary {
@@ -2806,24 +2806,14 @@ export namespace ListDatasetGroupsRequest {
  */
 export interface DatasetGroupSummary {
   /**
-   * <p>The date and time (in Unix time) that the dataset group was last updated.</p>
+   * <p>The name of the dataset group.</p>
    */
-  lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>If creating a dataset group fails, the reason behind the failure.</p>
-   */
-  failureReason?: string;
+  name?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
    */
   datasetGroupArn?: string;
-
-  /**
-   * <p>The name of the dataset group.</p>
-   */
-  name?: string;
 
   /**
    * <p>The status of the dataset group.</p>
@@ -2843,6 +2833,16 @@ export interface DatasetGroupSummary {
    * <p>The date and time (in Unix time) that the dataset group was created.</p>
    */
   creationDateTime?: Date;
+
+  /**
+   * <p>The date and time (in Unix time) that the dataset group was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>If creating a dataset group fails, the reason behind the failure.</p>
+   */
+  failureReason?: string;
 }
 
 export namespace DatasetGroupSummary {
@@ -2853,14 +2853,14 @@ export namespace DatasetGroupSummary {
 
 export interface ListDatasetGroupsResponse {
   /**
-   * <p>A token for getting the next set of dataset groups (if they exist).</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The list of your dataset groups.</p>
    */
   datasetGroups?: DatasetGroupSummary[];
+
+  /**
+   * <p>A token for getting the next set of dataset groups (if they exist).</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListDatasetGroupsResponse {
@@ -2876,15 +2876,15 @@ export interface ListDatasetImportJobsRequest {
   datasetArn?: string;
 
   /**
-   * <p>The maximum number of dataset import jobs to return.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>A token returned from the previous call to <code>ListDatasetImportJobs</code> for getting
    *       the next set of dataset import jobs (if they exist).</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum number of dataset import jobs to return.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListDatasetImportJobsRequest {
@@ -2904,9 +2904,9 @@ export interface DatasetImportJobSummary {
   datasetImportJobArn?: string;
 
   /**
-   * <p>The date and time (in Unix time) that the dataset import job was created.</p>
+   * <p>The name of the dataset import job.</p>
    */
-  creationDateTime?: Date;
+  jobName?: string;
 
   /**
    * <p>The status of the dataset import job.</p>
@@ -2920,9 +2920,9 @@ export interface DatasetImportJobSummary {
   status?: string;
 
   /**
-   * <p>The name of the dataset import job.</p>
+   * <p>The date and time (in Unix time) that the dataset import job was created.</p>
    */
-  jobName?: string;
+  creationDateTime?: Date;
 
   /**
    * <p>The date and time (in Unix time) that the dataset was last updated.</p>
@@ -2943,14 +2943,14 @@ export namespace DatasetImportJobSummary {
 
 export interface ListDatasetImportJobsResponse {
   /**
-   * <p>A token for getting the next set of dataset import jobs (if they exist).</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The list of dataset import jobs.</p>
    */
   datasetImportJobs?: DatasetImportJobSummary[];
+
+  /**
+   * <p>A token for getting the next set of dataset import jobs (if they exist).</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListDatasetImportJobsResponse {
@@ -2990,38 +2990,14 @@ export namespace ListDatasetsRequest {
  */
 export interface DatasetSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   */
-  datasetArn?: string;
-
-  /**
    * <p>The name of the dataset.</p>
    */
   name?: string;
 
   /**
-   * <p>The status of the dataset.</p>
-   *          <p>A dataset can be in one of the following states:</p>
-   *          <ul>
-   *             <li>
-   *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
-   *             </li>
-   *             <li>
-   *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
-   *             </li>
-   *          </ul>
+   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
    */
-  status?: string;
-
-  /**
-   * <p>The date and time (in Unix time) that the dataset was last updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>The date and time (in Unix time) that the dataset was created.</p>
-   */
-  creationDateTime?: Date;
+  datasetArn?: string;
 
   /**
    * <p>The dataset type. One of the following values:</p>
@@ -3041,6 +3017,30 @@ export interface DatasetSummary {
    *          </ul>
    */
   datasetType?: string;
+
+  /**
+   * <p>The status of the dataset.</p>
+   *          <p>A dataset can be in one of the following states:</p>
+   *          <ul>
+   *             <li>
+   *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+   *             </li>
+   *             <li>
+   *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
+   *             </li>
+   *          </ul>
+   */
+  status?: string;
+
+  /**
+   * <p>The date and time (in Unix time) that the dataset was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The date and time (in Unix time) that the dataset was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
 }
 
 export namespace DatasetSummary {
@@ -3070,15 +3070,15 @@ export namespace ListDatasetsResponse {
 
 export interface ListEventTrackersRequest {
   /**
+   * <p>The ARN of a dataset group used to filter the response.</p>
+   */
+  datasetGroupArn?: string;
+
+  /**
    * <p>A token returned from the previous call to <code>ListEventTrackers</code> for getting
    *       the next set of event trackers (if they exist).</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>The ARN of a dataset group used to filter the response.</p>
-   */
-  datasetGroupArn?: string;
 
   /**
    * <p>The maximum number of event trackers to return.</p>
@@ -3098,19 +3098,14 @@ export namespace ListEventTrackersRequest {
  */
 export interface EventTrackerSummary {
   /**
-   * <p>The date and time (in Unix time) that the event tracker was last updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>The date and time (in Unix time) that the event tracker was created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
    * <p>The name of the event tracker.</p>
    */
   name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the event tracker.</p>
+   */
+  eventTrackerArn?: string;
 
   /**
    * <p>The status of the event tracker.</p>
@@ -3127,9 +3122,14 @@ export interface EventTrackerSummary {
   status?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the event tracker.</p>
+   * <p>The date and time (in Unix time) that the event tracker was created.</p>
    */
-  eventTrackerArn?: string;
+  creationDateTime?: Date;
+
+  /**
+   * <p>The date and time (in Unix time) that the event tracker was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
 }
 
 export namespace EventTrackerSummary {
@@ -3140,14 +3140,14 @@ export namespace EventTrackerSummary {
 
 export interface ListEventTrackersResponse {
   /**
-   * <p>A token for getting the next set of event trackers (if they exist).</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>A list of event trackers.</p>
    */
   eventTrackers?: EventTrackerSummary[];
+
+  /**
+   * <p>A token for getting the next set of event trackers (if they exist).</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListEventTrackersResponse {
@@ -3185,14 +3185,9 @@ export namespace ListFiltersRequest {
  */
 export interface FilterSummary {
   /**
-   * <p>If the filter failed, the reason for the failure.</p>
+   * <p>The name of the filter.</p>
    */
-  failureReason?: string;
-
-  /**
-   * <p>The time at which the filter was last updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
+  name?: string;
 
   /**
    * <p>The ARN of the filter.</p>
@@ -3200,24 +3195,29 @@ export interface FilterSummary {
   filterArn?: string;
 
   /**
+   * <p>The time at which the filter was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The time at which the filter was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
    * <p>The ARN of the dataset group to which the filter belongs.</p>
    */
   datasetGroupArn?: string;
 
   /**
-   * <p>The name of the filter.</p>
+   * <p>If the filter failed, the reason for the failure.</p>
    */
-  name?: string;
+  failureReason?: string;
 
   /**
    * <p>The status of the filter.</p>
    */
   status?: string;
-
-  /**
-   * <p>The time at which the filter was created.</p>
-   */
-  creationDateTime?: Date;
 }
 
 export namespace FilterSummary {
@@ -3255,15 +3255,15 @@ export interface ListRecipesRequest {
   recipeProvider?: RecipeProvider | string;
 
   /**
-   * <p>The maximum number of recipes to return.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>A token returned from the previous call to <code>ListRecipes</code> for getting
    *       the next set of recipes (if they exist).</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum number of recipes to return.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListRecipesRequest {
@@ -3278,6 +3278,16 @@ export namespace ListRecipesRequest {
  */
 export interface RecipeSummary {
   /**
+   * <p>The name of the recipe.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the recipe.</p>
+   */
+  recipeArn?: string;
+
+  /**
    * <p>The status of the recipe.</p>
    */
   status?: string;
@@ -3291,16 +3301,6 @@ export interface RecipeSummary {
    * <p>The date and time (in Unix time) that the recipe was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>The name of the recipe.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the recipe.</p>
-   */
-  recipeArn?: string;
 }
 
 export namespace RecipeSummary {
@@ -3311,14 +3311,14 @@ export namespace RecipeSummary {
 
 export interface ListRecipesResponse {
   /**
-   * <p>A token for getting the next set of recipes.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The list of available recipes.</p>
    */
   recipes?: RecipeSummary[];
+
+  /**
+   * <p>A token for getting the next set of recipes.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListRecipesResponse {
@@ -3357,6 +3357,11 @@ export interface DatasetSchemaSummary {
   name?: string;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the schema.</p>
+   */
+  schemaArn?: string;
+
+  /**
    * <p>The date and time (in Unix time) that the schema was created.</p>
    */
   creationDateTime?: Date;
@@ -3365,11 +3370,6 @@ export interface DatasetSchemaSummary {
    * <p>The date and time (in Unix time) that the schema was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the schema.</p>
-   */
-  schemaArn?: string;
 }
 
 export namespace DatasetSchemaSummary {
@@ -3380,14 +3380,14 @@ export namespace DatasetSchemaSummary {
 
 export interface ListSchemasResponse {
   /**
-   * <p>A token used to get the next set of schemas (if they exist).</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>A list of schemas.</p>
    */
   schemas?: DatasetSchemaSummary[];
+
+  /**
+   * <p>A token used to get the next set of schemas (if they exist).</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListSchemasResponse {
@@ -3403,15 +3403,15 @@ export interface ListSolutionsRequest {
   datasetGroupArn?: string;
 
   /**
-   * <p>The maximum number of solutions to return.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>A token returned from the previous call to <code>ListSolutions</code> for getting
    *       the next set of solutions (if they exist).</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum number of solutions to return.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListSolutionsRequest {
@@ -3426,19 +3426,14 @@ export namespace ListSolutionsRequest {
  */
 export interface SolutionSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the solution.</p>
-   */
-  solutionArn?: string;
-
-  /**
    * <p>The name of the solution.</p>
    */
   name?: string;
 
   /**
-   * <p>The date and time (in Unix time) that the solution was created.</p>
+   * <p>The Amazon Resource Name (ARN) of the solution.</p>
    */
-  creationDateTime?: Date;
+  solutionArn?: string;
 
   /**
    * <p>The status of the solution.</p>
@@ -3455,6 +3450,11 @@ export interface SolutionSummary {
   status?: string;
 
   /**
+   * <p>The date and time (in Unix time) that the solution was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
    * <p>The date and time (in Unix time) that the solution was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
@@ -3468,14 +3468,14 @@ export namespace SolutionSummary {
 
 export interface ListSolutionsResponse {
   /**
-   * <p>A token for getting the next set of solutions (if they exist).</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>A list of the current solutions.</p>
    */
   solutions?: SolutionSummary[];
+
+  /**
+   * <p>A token for getting the next set of solutions (if they exist).</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListSolutionsResponse {
@@ -3486,11 +3486,6 @@ export namespace ListSolutionsResponse {
 
 export interface ListSolutionVersionsRequest {
   /**
-   * <p>The maximum number of solution versions to return.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the solution.</p>
    */
   solutionArn?: string;
@@ -3500,6 +3495,11 @@ export interface ListSolutionVersionsRequest {
    *       the next set of solution versions (if they exist).</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum number of solution versions to return.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListSolutionVersionsRequest {
@@ -3528,25 +3528,25 @@ export namespace ListSolutionVersionsResponse {
 
 export interface UpdateCampaignRequest {
   /**
+   * <p>The Amazon Resource Name (ARN) of the campaign.</p>
+   */
+  campaignArn: string | undefined;
+
+  /**
+   * <p>The ARN of a new solution version to deploy.</p>
+   */
+  solutionVersionArn?: string;
+
+  /**
    * <p>Specifies the requested minimum provisioned transactions (recommendations) per second that
    *       Amazon Personalize will support.</p>
    */
   minProvisionedTPS?: number;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the campaign.</p>
-   */
-  campaignArn: string | undefined;
-
-  /**
    * <p>The configuration details of a campaign.</p>
    */
   campaignConfig?: CampaignConfig;
-
-  /**
-   * <p>The ARN of a new solution version to deploy.</p>
-   */
-  solutionVersionArn?: string;
 }
 
 export namespace UpdateCampaignRequest {

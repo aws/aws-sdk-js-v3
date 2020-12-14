@@ -3,6 +3,11 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface Application {
   /**
+   * <p>The application ID.</p>
+   */
+  Id?: string;
+
+  /**
    * <p>The application name.</p>
    */
   Name?: string;
@@ -11,11 +16,6 @@ export interface Application {
    * <p>The description of the application.</p>
    */
   Description?: string;
-
-  /**
-   * <p>The application ID.</p>
-   */
-  Id?: string;
 }
 
 export namespace Application {
@@ -93,17 +93,17 @@ export enum ValidatorType {
  */
 export interface Validator {
   /**
-   * <p>Either the JSON Schema content or the Amazon Resource Name (ARN) of an AWS Lambda
-   *          function.</p>
-   */
-  Content: string | undefined;
-
-  /**
    * <p>AppConfig supports validators of type <code>JSON_SCHEMA</code> and
    *          <code>LAMBDA</code>
    *          </p>
    */
   Type: ValidatorType | string | undefined;
+
+  /**
+   * <p>Either the JSON Schema content or the Amazon Resource Name (ARN) of an AWS Lambda
+   *          function.</p>
+   */
+  Content: string | undefined;
 }
 
 export namespace Validator {
@@ -120,15 +120,9 @@ export interface ConfigurationProfile {
   ApplicationId?: string;
 
   /**
-   * <p>The URI location of the configuration.</p>
+   * <p>The configuration profile ID.</p>
    */
-  LocationUri?: string;
-
-  /**
-   * <p>The ARN of an IAM role with permission to access the configuration at the specified
-   *          LocationUri.</p>
-   */
-  RetrievalRoleArn?: string;
+  Id?: string;
 
   /**
    * <p>The name of the configuration profile.</p>
@@ -141,9 +135,15 @@ export interface ConfigurationProfile {
   Description?: string;
 
   /**
-   * <p>The configuration profile ID.</p>
+   * <p>The URI location of the configuration.</p>
    */
-  Id?: string;
+  LocationUri?: string;
+
+  /**
+   * <p>The ARN of an IAM role with permission to access the configuration at the specified
+   *          LocationUri.</p>
+   */
+  RetrievalRoleArn?: string;
 
   /**
    * <p>A list of methods for validating the configuration.</p>
@@ -160,10 +160,9 @@ export namespace ConfigurationProfile {
 
 export interface CreateConfigurationProfileRequest {
   /**
-   * <p>The ARN of an IAM role with permission to access the configuration at the specified
-   *          LocationUri.</p>
+   * <p>The application ID.</p>
    */
-  RetrievalRoleArn?: string;
+  ApplicationId: string | undefined;
 
   /**
    * <p>A name for the configuration profile.</p>
@@ -171,16 +170,9 @@ export interface CreateConfigurationProfileRequest {
   Name: string | undefined;
 
   /**
-   * <p>The application ID.</p>
+   * <p>A description of the configuration profile.</p>
    */
-  ApplicationId: string | undefined;
-
-  /**
-   * <p>Metadata to assign to the configuration profile. Tags help organize and categorize your
-   *          AppConfig resources. Each tag consists of a key and an optional value, both of which you
-   *          define.</p>
-   */
-  Tags?: { [key: string]: string };
+  Description?: string;
 
   /**
    * <p>A URI to locate the configuration. You can specify a Systems Manager (SSM) document, an SSM
@@ -194,14 +186,22 @@ export interface CreateConfigurationProfileRequest {
   LocationUri: string | undefined;
 
   /**
-   * <p>A description of the configuration profile.</p>
+   * <p>The ARN of an IAM role with permission to access the configuration at the specified
+   *          LocationUri.</p>
    */
-  Description?: string;
+  RetrievalRoleArn?: string;
 
   /**
    * <p>A list of methods for validating the configuration.</p>
    */
   Validators?: Validator[];
+
+  /**
+   * <p>Metadata to assign to the configuration profile. Tags help organize and categorize your
+   *          AppConfig resources. Each tag consists of a key and an optional value, both of which you
+   *          define.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateConfigurationProfileRequest {
@@ -217,8 +217,8 @@ export namespace CreateConfigurationProfileRequest {
 export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
-  ResourceName?: string;
   Message?: string;
+  ResourceName?: string;
 }
 
 export namespace ResourceNotFoundException {
@@ -239,18 +239,6 @@ export enum ReplicateTo {
 
 export interface CreateDeploymentStrategyRequest {
   /**
-   * <p>The percentage of targets to receive a deployed configuration during each
-   *          interval.</p>
-   */
-  GrowthFactor: number | undefined;
-
-  /**
-   * <p>The amount of time AppConfig monitors for alarms before considering the deployment to be
-   *          complete and no longer eligible for automatic roll back.</p>
-   */
-  FinalBakeTimeInMinutes?: number;
-
-  /**
    * <p>A name for the deployment strategy.</p>
    */
   Name: string | undefined;
@@ -261,16 +249,21 @@ export interface CreateDeploymentStrategyRequest {
   Description?: string;
 
   /**
-   * <p>Save the deployment strategy to a Systems Manager (SSM) document.</p>
+   * <p>Total amount of time for a deployment to last.</p>
    */
-  ReplicateTo: ReplicateTo | string | undefined;
+  DeploymentDurationInMinutes: number | undefined;
 
   /**
-   * <p>Metadata to assign to the deployment strategy. Tags help organize and categorize your
-   *          AppConfig resources. Each tag consists of a key and an optional value, both of which you
-   *          define.</p>
+   * <p>The amount of time AppConfig monitors for alarms before considering the deployment to be
+   *          complete and no longer eligible for automatic roll back.</p>
    */
-  Tags?: { [key: string]: string };
+  FinalBakeTimeInMinutes?: number;
+
+  /**
+   * <p>The percentage of targets to receive a deployed configuration during each
+   *          interval.</p>
+   */
+  GrowthFactor: number | undefined;
 
   /**
    * <p>The algorithm used to define how percentage grows over time. AWS AppConfig supports the
@@ -307,9 +300,16 @@ export interface CreateDeploymentStrategyRequest {
   GrowthType?: GrowthType | string;
 
   /**
-   * <p>Total amount of time for a deployment to last.</p>
+   * <p>Save the deployment strategy to a Systems Manager (SSM) document.</p>
    */
-  DeploymentDurationInMinutes: number | undefined;
+  ReplicateTo: ReplicateTo | string | undefined;
+
+  /**
+   * <p>Metadata to assign to the deployment strategy. Tags help organize and categorize your
+   *          AppConfig resources. Each tag consists of a key and an optional value, both of which you
+   *          define.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateDeploymentStrategyRequest {
@@ -320,19 +320,9 @@ export namespace CreateDeploymentStrategyRequest {
 
 export interface DeploymentStrategy {
   /**
-   * <p>Save the deployment strategy to a Systems Manager (SSM) document.</p>
-   */
-  ReplicateTo?: ReplicateTo | string;
-
-  /**
    * <p>The deployment strategy ID.</p>
    */
   Id?: string;
-
-  /**
-   * <p>The description of the deployment strategy.</p>
-   */
-  Description?: string;
 
   /**
    * <p>The name of the deployment strategy.</p>
@@ -340,15 +330,19 @@ export interface DeploymentStrategy {
   Name?: string;
 
   /**
-   * <p>The amount of time AppConfig monitored for alarms before considering the deployment to be
-   *          complete and no longer eligible for automatic roll back.</p>
+   * <p>The description of the deployment strategy.</p>
    */
-  FinalBakeTimeInMinutes?: number;
+  Description?: string;
 
   /**
    * <p>Total amount of time the deployment lasted.</p>
    */
   DeploymentDurationInMinutes?: number;
+
+  /**
+   * <p>The algorithm used to define how percentage grew over time.</p>
+   */
+  GrowthType?: GrowthType | string;
 
   /**
    * <p>The percentage of targets that received a deployed configuration during each
@@ -357,9 +351,15 @@ export interface DeploymentStrategy {
   GrowthFactor?: number;
 
   /**
-   * <p>The algorithm used to define how percentage grew over time.</p>
+   * <p>The amount of time AppConfig monitored for alarms before considering the deployment to be
+   *          complete and no longer eligible for automatic roll back.</p>
    */
-  GrowthType?: GrowthType | string;
+  FinalBakeTimeInMinutes?: number;
+
+  /**
+   * <p>Save the deployment strategy to a Systems Manager (SSM) document.</p>
+   */
+  ReplicateTo?: ReplicateTo | string;
 }
 
 export namespace DeploymentStrategy {
@@ -373,14 +373,14 @@ export namespace DeploymentStrategy {
  */
 export interface Monitor {
   /**
-   * <p>ARN of an IAM role for AppConfig to monitor <code>AlarmArn</code>.</p>
-   */
-  AlarmRoleArn?: string;
-
-  /**
    * <p>ARN of the Amazon CloudWatch alarm.</p>
    */
   AlarmArn?: string;
+
+  /**
+   * <p>ARN of an IAM role for AppConfig to monitor <code>AlarmArn</code>.</p>
+   */
+  AlarmRoleArn?: string;
 }
 
 export namespace Monitor {
@@ -396,9 +396,9 @@ export interface CreateEnvironmentRequest {
   ApplicationId: string | undefined;
 
   /**
-   * <p>Amazon CloudWatch alarms to monitor during the deployment process.</p>
+   * <p>A name for the environment.</p>
    */
-  Monitors?: Monitor[];
+  Name: string | undefined;
 
   /**
    * <p>A description of the environment.</p>
@@ -406,16 +406,16 @@ export interface CreateEnvironmentRequest {
   Description?: string;
 
   /**
+   * <p>Amazon CloudWatch alarms to monitor during the deployment process.</p>
+   */
+  Monitors?: Monitor[];
+
+  /**
    * <p>Metadata to assign to the environment. Tags help organize and categorize your AppConfig
    *          resources. Each tag consists of a key and an optional value, both of which you
    *          define.</p>
    */
   Tags?: { [key: string]: string };
-
-  /**
-   * <p>A name for the environment.</p>
-   */
-  Name: string | undefined;
 }
 
 export namespace CreateEnvironmentRequest {
@@ -433,24 +433,19 @@ export enum EnvironmentState {
 
 export interface Environment {
   /**
-   * <p>The name of the environment.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The application ID.</p>
    */
   ApplicationId?: string;
 
   /**
-   * <p>Amazon CloudWatch alarms monitored during the deployment.</p>
-   */
-  Monitors?: Monitor[];
-
-  /**
    * <p>The environment ID.</p>
    */
   Id?: string;
+
+  /**
+   * <p>The name of the environment.</p>
+   */
+  Name?: string;
 
   /**
    * <p>The description of the environment.</p>
@@ -464,6 +459,11 @@ export interface Environment {
    *          </p>
    */
   State?: EnvironmentState | string;
+
+  /**
+   * <p>Amazon CloudWatch alarms monitored during the deployment.</p>
+   */
+  Monitors?: Monitor[];
 }
 
 export namespace Environment {
@@ -490,9 +490,9 @@ export namespace ConflictException {
 
 export interface CreateHostedConfigurationVersionRequest {
   /**
-   * <p>The content of the configuration or the configuration data.</p>
+   * <p>The application ID.</p>
    */
-  Content: Uint8Array | undefined;
+  ApplicationId: string | undefined;
 
   /**
    * <p>The configuration profile ID.</p>
@@ -500,17 +500,14 @@ export interface CreateHostedConfigurationVersionRequest {
   ConfigurationProfileId: string | undefined;
 
   /**
-   * <p>An optional locking token used to prevent race conditions from overwriting configuration
-   *          updates when creating a new version. To ensure your data is not overwritten when creating
-   *          multiple hosted configuration versions in rapid succession, specify the version of the
-   *          latest hosted configuration version.</p>
-   */
-  LatestVersionNumber?: number;
-
-  /**
    * <p>A description of the configuration.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The content of the configuration or the configuration data.</p>
+   */
+  Content: Uint8Array | undefined;
 
   /**
    * <p>A standard MIME type describing the format of the configuration content. For more
@@ -519,9 +516,12 @@ export interface CreateHostedConfigurationVersionRequest {
   ContentType: string | undefined;
 
   /**
-   * <p>The application ID.</p>
+   * <p>An optional locking token used to prevent race conditions from overwriting configuration
+   *          updates when creating a new version. To ensure your data is not overwritten when creating
+   *          multiple hosted configuration versions in rapid succession, specify the version of the
+   *          latest hosted configuration version.</p>
    */
-  ApplicationId: string | undefined;
+  LatestVersionNumber?: number;
 }
 
 export namespace CreateHostedConfigurationVersionRequest {
@@ -533,14 +533,24 @@ export namespace CreateHostedConfigurationVersionRequest {
 
 export interface HostedConfigurationVersion {
   /**
-   * <p>A description of the configuration.</p>
+   * <p>The application ID.</p>
    */
-  Description?: string;
+  ApplicationId?: string;
 
   /**
    * <p>The configuration profile ID.</p>
    */
   ConfigurationProfileId?: string;
+
+  /**
+   * <p>The configuration version.</p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * <p>A description of the configuration.</p>
+   */
+  Description?: string;
 
   /**
    * <p>The content of the configuration or the configuration data.</p>
@@ -552,16 +562,6 @@ export interface HostedConfigurationVersion {
    *          information, see <a href="https://docs.aws.amazon.com/https:/www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
    */
   ContentType?: string;
-
-  /**
-   * <p>The application ID.</p>
-   */
-  ApplicationId?: string;
-
-  /**
-   * <p>The configuration version.</p>
-   */
-  VersionNumber?: number;
 }
 
 export namespace HostedConfigurationVersion {
@@ -582,9 +582,9 @@ export interface PayloadTooLargeException extends __SmithyException, $MetadataBe
   name: "PayloadTooLargeException";
   $fault: "client";
   Message?: string;
-  Size?: number;
   Measure?: BytesMeasure | string;
   Limit?: number;
+  Size?: number;
 }
 
 export namespace PayloadTooLargeException {
@@ -673,6 +673,11 @@ export namespace DeleteEnvironmentRequest {
 
 export interface DeleteHostedConfigurationVersionRequest {
   /**
+   * <p>The application ID.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
    * <p>The configuration profile ID.</p>
    */
   ConfigurationProfileId: string | undefined;
@@ -681,11 +686,6 @@ export interface DeleteHostedConfigurationVersionRequest {
    * <p>The versions number to delete.</p>
    */
   VersionNumber: number | undefined;
-
-  /**
-   * <p>The application ID.</p>
-   */
-  ApplicationId: string | undefined;
 }
 
 export namespace DeleteHostedConfigurationVersionRequest {
@@ -709,12 +709,6 @@ export namespace GetApplicationRequest {
 
 export interface Configuration {
   /**
-   * <p>A standard MIME type describing the format of the configuration content. For more
-   *          information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
-   */
-  ContentType?: string;
-
-  /**
    * <p>The content of the configuration or the configuration data.</p>
    */
   Content?: Uint8Array;
@@ -723,6 +717,12 @@ export interface Configuration {
    * <p>The configuration version.</p>
    */
   ConfigurationVersion?: string;
+
+  /**
+   * <p>A standard MIME type describing the format of the configuration content. For more
+   *          information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
+   */
+  ContentType?: string;
 }
 
 export namespace Configuration {
@@ -734,10 +734,28 @@ export namespace Configuration {
 
 export interface GetConfigurationRequest {
   /**
+   * <p>The application to get. Specify either the application name or the application
+   *          ID.</p>
+   */
+  Application: string | undefined;
+
+  /**
    * <p>The environment to get. Specify either the environment name or the environment
    *          ID.</p>
    */
   Environment: string | undefined;
+
+  /**
+   * <p>The configuration to get. Specify either the configuration name or the configuration
+   *          ID.</p>
+   */
+  Configuration: string | undefined;
+
+  /**
+   * <p>A unique ID to identify the client for the configuration. This ID enables AppConfig to
+   *          deploy the configuration in intervals, as defined in the deployment strategy.</p>
+   */
+  ClientId: string | undefined;
 
   /**
    * <p>The configuration version returned in the most recent <code>GetConfiguration</code>
@@ -758,24 +776,6 @@ export interface GetConfigurationRequest {
    *          <i>AWS AppConfig User Guide</i>.</p>
    */
   ClientConfigurationVersion?: string;
-
-  /**
-   * <p>A unique ID to identify the client for the configuration. This ID enables AppConfig to
-   *          deploy the configuration in intervals, as defined in the deployment strategy.</p>
-   */
-  ClientId: string | undefined;
-
-  /**
-   * <p>The application to get. Specify either the application name or the application
-   *          ID.</p>
-   */
-  Application: string | undefined;
-
-  /**
-   * <p>The configuration to get. Specify either the configuration name or the configuration
-   *          ID.</p>
-   */
-  Configuration: string | undefined;
 }
 
 export namespace GetConfigurationRequest {
@@ -824,6 +824,19 @@ export enum TriggeredBy {
  */
 export interface DeploymentEvent {
   /**
+   * <p>The type of deployment event. Deployment event types include the start, stop, or
+   *          completion of a deployment; a percentage update; the start or stop of a bake period; the
+   *          start or completion of a rollback.</p>
+   */
+  EventType?: DeploymentEventType | string;
+
+  /**
+   * <p>The entity that triggered the deployment event. Events can be triggered by a user, AWS
+   *          AppConfig, an Amazon CloudWatch alarm, or an internal error.</p>
+   */
+  TriggeredBy?: TriggeredBy | string;
+
+  /**
    * <p>A description of the deployment event. Descriptions include, but are not limited to, the
    *          user account or the CloudWatch alarm ARN that initiated a rollback, the percentage of hosts
    *          that received the deployment, or in the case of an internal error, a recommendation to
@@ -832,22 +845,9 @@ export interface DeploymentEvent {
   Description?: string;
 
   /**
-   * <p>The type of deployment event. Deployment event types include the start, stop, or
-   *          completion of a deployment; a percentage update; the start or stop of a bake period; the
-   *          start or completion of a rollback.</p>
-   */
-  EventType?: DeploymentEventType | string;
-
-  /**
    * <p>The date and time the event occurred.</p>
    */
   OccurredAt?: Date;
-
-  /**
-   * <p>The entity that triggered the deployment event. Events can be triggered by a user, AWS
-   *          AppConfig, an Amazon CloudWatch alarm, or an internal error.</p>
-   */
-  TriggeredBy?: TriggeredBy | string;
 }
 
 export namespace DeploymentEvent {
@@ -867,55 +867,9 @@ export enum DeploymentState {
 
 export interface Deployment {
   /**
-   * <p>The time the deployment started.</p>
+   * <p>The ID of the application that was deployed.</p>
    */
-  StartedAt?: Date;
-
-  /**
-   * <p>The ID of the configuration profile that was deployed.</p>
-   */
-  ConfigurationProfileId?: string;
-
-  /**
-   * <p>The percentage of targets for which the deployment is available.</p>
-   */
-  PercentageComplete?: number;
-
-  /**
-   * <p>The state of the deployment.</p>
-   */
-  State?: DeploymentState | string;
-
-  /**
-   * <p>The description of the deployment.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The algorithm used to define how percentage grew over time.</p>
-   */
-  GrowthType?: GrowthType | string;
-
-  /**
-   * <p>Information about the source location of the configuration.</p>
-   */
-  ConfigurationLocationUri?: string;
-
-  /**
-   * <p>The ID of the deployment strategy that was deployed.</p>
-   */
-  DeploymentStrategyId?: string;
-
-  /**
-   * <p>The configuration version that was deployed.</p>
-   */
-  ConfigurationVersion?: string;
-
-  /**
-   * <p>A list containing all events related to a deployment. The most recent events are
-   *          displayed first.</p>
-   */
-  EventLog?: DeploymentEvent[];
+  ApplicationId?: string;
 
   /**
    * <p>The ID of the environment that was deployed.</p>
@@ -923,14 +877,14 @@ export interface Deployment {
   EnvironmentId?: string;
 
   /**
-   * <p>The ID of the application that was deployed.</p>
+   * <p>The ID of the deployment strategy that was deployed.</p>
    */
-  ApplicationId?: string;
+  DeploymentStrategyId?: string;
 
   /**
-   * <p>The name of the configuration.</p>
+   * <p>The ID of the configuration profile that was deployed.</p>
    */
-  ConfigurationName?: string;
+  ConfigurationProfileId?: string;
 
   /**
    * <p>The sequence number of the deployment.</p>
@@ -938,15 +892,34 @@ export interface Deployment {
   DeploymentNumber?: number;
 
   /**
-   * <p>The amount of time AppConfig monitored for alarms before considering the deployment to be
-   *          complete and no longer eligible for automatic roll back.</p>
+   * <p>The name of the configuration.</p>
    */
-  FinalBakeTimeInMinutes?: number;
+  ConfigurationName?: string;
 
   /**
-   * <p>The time the deployment completed. </p>
+   * <p>Information about the source location of the configuration.</p>
    */
-  CompletedAt?: Date;
+  ConfigurationLocationUri?: string;
+
+  /**
+   * <p>The configuration version that was deployed.</p>
+   */
+  ConfigurationVersion?: string;
+
+  /**
+   * <p>The description of the deployment.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Total amount of time the deployment lasted.</p>
+   */
+  DeploymentDurationInMinutes?: number;
+
+  /**
+   * <p>The algorithm used to define how percentage grew over time.</p>
+   */
+  GrowthType?: GrowthType | string;
 
   /**
    * <p>The percentage of targets to receive a deployed configuration during each
@@ -955,9 +928,36 @@ export interface Deployment {
   GrowthFactor?: number;
 
   /**
-   * <p>Total amount of time the deployment lasted.</p>
+   * <p>The amount of time AppConfig monitored for alarms before considering the deployment to be
+   *          complete and no longer eligible for automatic roll back.</p>
    */
-  DeploymentDurationInMinutes?: number;
+  FinalBakeTimeInMinutes?: number;
+
+  /**
+   * <p>The state of the deployment.</p>
+   */
+  State?: DeploymentState | string;
+
+  /**
+   * <p>A list containing all events related to a deployment. The most recent events are
+   *          displayed first.</p>
+   */
+  EventLog?: DeploymentEvent[];
+
+  /**
+   * <p>The percentage of targets for which the deployment is available.</p>
+   */
+  PercentageComplete?: number;
+
+  /**
+   * <p>The time the deployment started.</p>
+   */
+  StartedAt?: Date;
+
+  /**
+   * <p>The time the deployment completed. </p>
+   */
+  CompletedAt?: Date;
 }
 
 export namespace Deployment {
@@ -968,14 +968,14 @@ export namespace Deployment {
 
 export interface GetDeploymentRequest {
   /**
-   * <p>The ID of the environment that includes the deployment you want to get. </p>
-   */
-  EnvironmentId: string | undefined;
-
-  /**
    * <p>The ID of the application that includes the deployment you want to get. </p>
    */
   ApplicationId: string | undefined;
+
+  /**
+   * <p>The ID of the environment that includes the deployment you want to get. </p>
+   */
+  EnvironmentId: string | undefined;
 
   /**
    * <p>The sequence number of the deployment.</p>
@@ -1004,14 +1004,14 @@ export namespace GetDeploymentStrategyRequest {
 
 export interface GetEnvironmentRequest {
   /**
-   * <p>The ID of the environment you wnat to get.</p>
-   */
-  EnvironmentId: string | undefined;
-
-  /**
    * <p>The ID of the application that includes the environment you want to get.</p>
    */
   ApplicationId: string | undefined;
+
+  /**
+   * <p>The ID of the environment you wnat to get.</p>
+   */
+  EnvironmentId: string | undefined;
 }
 
 export namespace GetEnvironmentRequest {
@@ -1022,6 +1022,11 @@ export namespace GetEnvironmentRequest {
 
 export interface GetHostedConfigurationVersionRequest {
   /**
+   * <p>The application ID.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
    * <p>The configuration profile ID.</p>
    */
   ConfigurationProfileId: string | undefined;
@@ -1030,11 +1035,6 @@ export interface GetHostedConfigurationVersionRequest {
    * <p>The version.</p>
    */
   VersionNumber: number | undefined;
-
-  /**
-   * <p>The application ID.</p>
-   */
-  ApplicationId: string | undefined;
 }
 
 export namespace GetHostedConfigurationVersionRequest {
@@ -1064,15 +1064,15 @@ export namespace Applications {
 
 export interface ListApplicationsRequest {
   /**
-   * <p>A token to start the list. Use this token to get the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of items to return for this call. The call also returns a token that
    *          you can specify in a subsequent call to get the next set of results.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>A token to start the list. Use this token to get the next set of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListApplicationsRequest {
@@ -1086,19 +1086,14 @@ export namespace ListApplicationsRequest {
  */
 export interface ConfigurationProfileSummary {
   /**
-   * <p>The types of validators in the configuration profile.</p>
-   */
-  ValidatorTypes?: (ValidatorType | string)[];
-
-  /**
    * <p>The application ID.</p>
    */
   ApplicationId?: string;
 
   /**
-   * <p>The URI location of the configuration.</p>
+   * <p>The ID of the configuration profile.</p>
    */
-  LocationUri?: string;
+  Id?: string;
 
   /**
    * <p>The name of the configuration profile.</p>
@@ -1106,9 +1101,14 @@ export interface ConfigurationProfileSummary {
   Name?: string;
 
   /**
-   * <p>The ID of the configuration profile.</p>
+   * <p>The URI location of the configuration.</p>
    */
-  Id?: string;
+  LocationUri?: string;
+
+  /**
+   * <p>The types of validators in the configuration profile.</p>
+   */
+  ValidatorTypes?: (ValidatorType | string)[];
 }
 
 export namespace ConfigurationProfileSummary {
@@ -1138,15 +1138,15 @@ export namespace ConfigurationProfiles {
 
 export interface ListConfigurationProfilesRequest {
   /**
+   * <p>The application ID.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
    * <p>The maximum number of items to return for this call. The call also returns a token that
    *          you can specify in a subsequent call to get the next set of results.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>The application ID.</p>
-   */
-  ApplicationId: string | undefined;
 
   /**
    * <p>A token to start the list. Use this token to get the next set of results.</p>
@@ -1165,30 +1165,9 @@ export namespace ListConfigurationProfilesRequest {
  */
 export interface DeploymentSummary {
   /**
-   * <p>The version of the configuration.</p>
-   */
-  ConfigurationVersion?: string;
-
-  /**
    * <p>The sequence number of the deployment.</p>
    */
   DeploymentNumber?: number;
-
-  /**
-   * <p>The state of the deployment.</p>
-   */
-  State?: DeploymentState | string;
-
-  /**
-   * <p>The amount of time AppConfig monitors for alarms before considering the deployment to be
-   *          complete and no longer eligible for automatic roll back.</p>
-   */
-  FinalBakeTimeInMinutes?: number;
-
-  /**
-   * <p>The percentage of targets for which the deployment is available.</p>
-   */
-  PercentageComplete?: number;
 
   /**
    * <p>The name of the configuration.</p>
@@ -1196,20 +1175,9 @@ export interface DeploymentSummary {
   ConfigurationName?: string;
 
   /**
-   * <p>Time the deployment started.</p>
+   * <p>The version of the configuration.</p>
    */
-  StartedAt?: Date;
-
-  /**
-   * <p>Time the deployment completed.</p>
-   */
-  CompletedAt?: Date;
-
-  /**
-   * <p>The percentage of targets to receive a deployed configuration during each
-   *          interval.</p>
-   */
-  GrowthFactor?: number;
+  ConfigurationVersion?: string;
 
   /**
    * <p>Total amount of time the deployment lasted.</p>
@@ -1220,6 +1188,38 @@ export interface DeploymentSummary {
    * <p>The algorithm used to define how percentage grows over time.</p>
    */
   GrowthType?: GrowthType | string;
+
+  /**
+   * <p>The percentage of targets to receive a deployed configuration during each
+   *          interval.</p>
+   */
+  GrowthFactor?: number;
+
+  /**
+   * <p>The amount of time AppConfig monitors for alarms before considering the deployment to be
+   *          complete and no longer eligible for automatic roll back.</p>
+   */
+  FinalBakeTimeInMinutes?: number;
+
+  /**
+   * <p>The state of the deployment.</p>
+   */
+  State?: DeploymentState | string;
+
+  /**
+   * <p>The percentage of targets for which the deployment is available.</p>
+   */
+  PercentageComplete?: number;
+
+  /**
+   * <p>Time the deployment started.</p>
+   */
+  StartedAt?: Date;
+
+  /**
+   * <p>Time the deployment completed.</p>
+   */
+  CompletedAt?: Date;
 }
 
 export namespace DeploymentSummary {
@@ -1249,12 +1249,6 @@ export namespace Deployments {
 
 export interface ListDeploymentsRequest {
   /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that
-   *          you can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The application ID.</p>
    */
   ApplicationId: string | undefined;
@@ -1263,6 +1257,12 @@ export interface ListDeploymentsRequest {
    * <p>The environment ID.</p>
    */
   EnvironmentId: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that
+   *          you can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>A token to start the list. Use this token to get the next set of results.</p>
@@ -1278,15 +1278,15 @@ export namespace ListDeploymentsRequest {
 
 export interface DeploymentStrategies {
   /**
+   * <p>The elements from this collection.</p>
+   */
+  Items?: DeploymentStrategy[];
+
+  /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *          results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The elements from this collection.</p>
-   */
-  Items?: DeploymentStrategy[];
 }
 
 export namespace DeploymentStrategies {
@@ -1316,15 +1316,15 @@ export namespace ListDeploymentStrategiesRequest {
 
 export interface Environments {
   /**
+   * <p>The elements from this collection.</p>
+   */
+  Items?: Environment[];
+
+  /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *          results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The elements from this collection.</p>
-   */
-  Items?: Environment[];
 }
 
 export namespace Environments {
@@ -1340,15 +1340,15 @@ export interface ListEnvironmentsRequest {
   ApplicationId: string | undefined;
 
   /**
-   * <p>A token to start the list. Use this token to get the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of items to return for this call. The call also returns a token that
    *          you can specify in a subsequent call to get the next set of results.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>A token to start the list. Use this token to get the next set of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListEnvironmentsRequest {
@@ -1362,6 +1362,11 @@ export namespace ListEnvironmentsRequest {
  */
 export interface HostedConfigurationVersionSummary {
   /**
+   * <p>The application ID.</p>
+   */
+  ApplicationId?: string;
+
+  /**
    * <p>The configuration profile ID.</p>
    */
   ConfigurationProfileId?: string;
@@ -1372,20 +1377,15 @@ export interface HostedConfigurationVersionSummary {
   VersionNumber?: number;
 
   /**
-   * <p>The application ID.</p>
+   * <p>A description of the configuration.</p>
    */
-  ApplicationId?: string;
+  Description?: string;
 
   /**
    * <p>A standard MIME type describing the format of the configuration content. For more
    *          information, see <a href="https://docs.aws.amazon.com/https:/www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
    */
   ContentType?: string;
-
-  /**
-   * <p>A description of the configuration.</p>
-   */
-  Description?: string;
 }
 
 export namespace HostedConfigurationVersionSummary {
@@ -1425,15 +1425,15 @@ export interface ListHostedConfigurationVersionsRequest {
   ConfigurationProfileId: string | undefined;
 
   /**
-   * <p>A token to start the list. Use this token to get the next set of results. </p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of items to return for this call. The call also returns a token that
    *          you can specify in a subsequent call to get the next set of results.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>A token to start the list. Use this token to get the next set of results. </p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListHostedConfigurationVersionsRequest {
@@ -1477,6 +1477,11 @@ export interface StartDeploymentRequest {
   ApplicationId: string | undefined;
 
   /**
+   * <p>The environment ID.</p>
+   */
+  EnvironmentId: string | undefined;
+
+  /**
    * <p>The deployment strategy ID.</p>
    */
   DeploymentStrategyId: string | undefined;
@@ -1487,26 +1492,21 @@ export interface StartDeploymentRequest {
   ConfigurationProfileId: string | undefined;
 
   /**
-   * <p>Metadata to assign to the deployment. Tags help organize and categorize your AppConfig
-   *          resources. Each tag consists of a key and an optional value, both of which you
-   *          define.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
    * <p>The configuration version to deploy.</p>
    */
   ConfigurationVersion: string | undefined;
 
   /**
-   * <p>The environment ID.</p>
-   */
-  EnvironmentId: string | undefined;
-
-  /**
    * <p>A description of the deployment.</p>
    */
   Description?: string;
+
+  /**
+   * <p>Metadata to assign to the deployment. Tags help organize and categorize your AppConfig
+   *          resources. Each tag consists of a key and an optional value, both of which you
+   *          define.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace StartDeploymentRequest {
@@ -1517,6 +1517,11 @@ export namespace StartDeploymentRequest {
 
 export interface StopDeploymentRequest {
   /**
+   * <p>The application ID.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
    * <p>The environment ID.</p>
    */
   EnvironmentId: string | undefined;
@@ -1525,11 +1530,6 @@ export interface StopDeploymentRequest {
    * <p>The sequence number of the deployment.</p>
    */
   DeploymentNumber: number | undefined;
-
-  /**
-   * <p>The application ID.</p>
-   */
-  ApplicationId: string | undefined;
 }
 
 export namespace StopDeploymentRequest {
@@ -1578,9 +1578,9 @@ export namespace UntagResourceRequest {
 
 export interface UpdateApplicationRequest {
   /**
-   * <p>A description of the application.</p>
+   * <p>The application ID.</p>
    */
-  Description?: string;
+  ApplicationId: string | undefined;
 
   /**
    * <p>The name of the application.</p>
@@ -1588,9 +1588,9 @@ export interface UpdateApplicationRequest {
   Name?: string;
 
   /**
-   * <p>The application ID.</p>
+   * <p>A description of the application.</p>
    */
-  ApplicationId: string | undefined;
+  Description?: string;
 }
 
 export namespace UpdateApplicationRequest {
@@ -1601,9 +1601,14 @@ export namespace UpdateApplicationRequest {
 
 export interface UpdateConfigurationProfileRequest {
   /**
-   * <p>A list of methods for validating the configuration.</p>
+   * <p>The application ID.</p>
    */
-  Validators?: Validator[];
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The ID of the configuration profile.</p>
+   */
+  ConfigurationProfileId: string | undefined;
 
   /**
    * <p>The name of the configuration profile.</p>
@@ -1622,14 +1627,9 @@ export interface UpdateConfigurationProfileRequest {
   RetrievalRoleArn?: string;
 
   /**
-   * <p>The ID of the configuration profile.</p>
+   * <p>A list of methods for validating the configuration.</p>
    */
-  ConfigurationProfileId: string | undefined;
-
-  /**
-   * <p>The application ID.</p>
-   */
-  ApplicationId: string | undefined;
+  Validators?: Validator[];
 }
 
 export namespace UpdateConfigurationProfileRequest {
@@ -1641,6 +1641,21 @@ export namespace UpdateConfigurationProfileRequest {
 
 export interface UpdateDeploymentStrategyRequest {
   /**
+   * <p>The deployment strategy ID.</p>
+   */
+  DeploymentStrategyId: string | undefined;
+
+  /**
+   * <p>A description of the deployment strategy.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Total amount of time for a deployment to last.</p>
+   */
+  DeploymentDurationInMinutes?: number;
+
+  /**
    * <p>The amount of time AppConfig monitors for alarms before considering the deployment to be
    *          complete and no longer eligible for automatic roll back.</p>
    */
@@ -1651,16 +1666,6 @@ export interface UpdateDeploymentStrategyRequest {
    *          interval.</p>
    */
   GrowthFactor?: number;
-
-  /**
-   * <p>Total amount of time for a deployment to last.</p>
-   */
-  DeploymentDurationInMinutes?: number;
-
-  /**
-   * <p>The deployment strategy ID.</p>
-   */
-  DeploymentStrategyId: string | undefined;
 
   /**
    * <p>The algorithm used to define how percentage grows over time. AWS AppConfig supports the
@@ -1694,11 +1699,6 @@ export interface UpdateDeploymentStrategyRequest {
    *          targets.</p>
    */
   GrowthType?: GrowthType | string;
-
-  /**
-   * <p>A description of the deployment strategy.</p>
-   */
-  Description?: string;
 }
 
 export namespace UpdateDeploymentStrategyRequest {
@@ -1708,16 +1708,6 @@ export namespace UpdateDeploymentStrategyRequest {
 }
 
 export interface UpdateEnvironmentRequest {
-  /**
-   * <p>A description of the environment.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Amazon CloudWatch alarms to monitor during the deployment process.</p>
-   */
-  Monitors?: Monitor[];
-
   /**
    * <p>The application ID.</p>
    */
@@ -1732,6 +1722,16 @@ export interface UpdateEnvironmentRequest {
    * <p>The name of the environment.</p>
    */
   Name?: string;
+
+  /**
+   * <p>A description of the environment.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Amazon CloudWatch alarms to monitor during the deployment process.</p>
+   */
+  Monitors?: Monitor[];
 }
 
 export namespace UpdateEnvironmentRequest {
@@ -1742,6 +1742,11 @@ export namespace UpdateEnvironmentRequest {
 
 export interface ValidateConfigurationRequest {
   /**
+   * <p>The application ID.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
    * <p>The configuration profile ID.</p>
    */
   ConfigurationProfileId: string | undefined;
@@ -1750,11 +1755,6 @@ export interface ValidateConfigurationRequest {
    * <p>The version of the configuration to validate.</p>
    */
   ConfigurationVersion: string | undefined;
-
-  /**
-   * <p>The application ID.</p>
-   */
-  ApplicationId: string | undefined;
 }
 
 export namespace ValidateConfigurationRequest {

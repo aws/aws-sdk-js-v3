@@ -294,7 +294,8 @@
           "sdkId": "Service Catalog",
           "arnNamespace": "servicecatalog",
           "cloudFormationName": "ServiceCatalog",
-          "cloudTrailEventSource": "servicecatalog.amazonaws.com"
+          "cloudTrailEventSource": "servicecatalog.amazonaws.com",
+          "endpointPrefix": "servicecatalog"
         },
         "aws.auth#sigv4": {
           "name": "servicecatalog"

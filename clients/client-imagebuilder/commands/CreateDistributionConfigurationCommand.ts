@@ -21,8 +21,7 @@ export type CreateDistributionConfigurationCommandInput = CreateDistributionConf
 export type CreateDistributionConfigurationCommandOutput = CreateDistributionConfigurationResponse & __MetadataBearer;
 
 /**
- * <p>Creates a new distribution configuration. Distribution configurations define and configure
- *       the outputs of your pipeline. </p>
+ * <p>Creates a new distribution configuration. Distribution configurations define and configure the outputs of your pipeline. </p>
  */
 export class CreateDistributionConfigurationCommand extends $Command<
   CreateDistributionConfigurationCommandInput,

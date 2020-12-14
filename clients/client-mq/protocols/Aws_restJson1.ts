@@ -221,15 +221,6 @@ export const serializeAws_restJson1CreateUserCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = "/v1/brokers/{BrokerId}/users/{Username}";
-  if (input.Username !== undefined) {
-    const labelValue: string = input.Username;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Username.");
-    }
-    resolvedPath = resolvedPath.replace("{Username}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Username.");
-  }
   if (input.BrokerId !== undefined) {
     const labelValue: string = input.BrokerId;
     if (labelValue.length <= 0) {
@@ -238,6 +229,15 @@ export const serializeAws_restJson1CreateUserCommand = async (
     resolvedPath = resolvedPath.replace("{BrokerId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
+  }
+  if (input.Username !== undefined) {
+    const labelValue: string = input.Username;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Username.");
+    }
+    resolvedPath = resolvedPath.replace("{Username}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Username.");
   }
   let body: any;
   body = JSON.stringify({
@@ -390,9 +390,9 @@ export const serializeAws_restJson1DescribeBrokerEngineTypesCommand = async (
   const headers: any = {};
   let resolvedPath = "/v1/broker-engine-types";
   const query: any = {
+    ...(input.EngineType !== undefined && { engineType: input.EngineType }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.EngineType !== undefined && { engineType: input.EngineType }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -415,10 +415,10 @@ export const serializeAws_restJson1DescribeBrokerInstanceOptionsCommand = async 
   const headers: any = {};
   let resolvedPath = "/v1/broker-instance-options";
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.EngineType !== undefined && { engineType: input.EngineType }),
     ...(input.HostInstanceType !== undefined && { hostInstanceType: input.HostInstanceType }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.StorageType !== undefined && { storageType: input.StorageType }),
   };
   let body: any;
@@ -506,15 +506,6 @@ export const serializeAws_restJson1DescribeUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {};
   let resolvedPath = "/v1/brokers/{BrokerId}/users/{Username}";
-  if (input.Username !== undefined) {
-    const labelValue: string = input.Username;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Username.");
-    }
-    resolvedPath = resolvedPath.replace("{Username}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Username.");
-  }
   if (input.BrokerId !== undefined) {
     const labelValue: string = input.BrokerId;
     if (labelValue.length <= 0) {
@@ -523,6 +514,15 @@ export const serializeAws_restJson1DescribeUserCommand = async (
     resolvedPath = resolvedPath.replace("{BrokerId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
+  }
+  if (input.Username !== undefined) {
+    const labelValue: string = input.Username;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Username.");
+    }
+    resolvedPath = resolvedPath.replace("{Username}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Username.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -577,8 +577,8 @@ export const serializeAws_restJson1ListConfigurationRevisionsCommand = async (
     throw new Error("No value provided for input HTTP label: ConfigurationId.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -601,8 +601,8 @@ export const serializeAws_restJson1ListConfigurationsCommand = async (
   const headers: any = {};
   let resolvedPath = "/v1/configurations";
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -801,15 +801,6 @@ export const serializeAws_restJson1UpdateUserCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = "/v1/brokers/{BrokerId}/users/{Username}";
-  if (input.Username !== undefined) {
-    const labelValue: string = input.Username;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Username.");
-    }
-    resolvedPath = resolvedPath.replace("{Username}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Username.");
-  }
   if (input.BrokerId !== undefined) {
     const labelValue: string = input.BrokerId;
     if (labelValue.length <= 0) {
@@ -818,6 +809,15 @@ export const serializeAws_restJson1UpdateUserCommand = async (
     resolvedPath = resolvedPath.replace("{BrokerId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
+  }
+  if (input.Username !== undefined) {
+    const labelValue: string = input.Username;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Username.");
+    }
+    resolvedPath = resolvedPath.replace("{Username}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Username.");
   }
   let body: any;
   body = JSON.stringify({

@@ -306,14 +306,13 @@ export namespace ResourceQuery {
 
 export interface CreateGroupInput {
   /**
-   * <p>The resource query that determines which AWS resources are members of this
-   *             group.</p>
-   *         <note>
-   *             <p>You can specify either a <code>ResourceQuery</code> or a
-   *                     <code>Configuration</code>, but not both.</p>
-   *         </note>
+   * <p>The name of the group, which is the identifier of the group in other operations. You
+   *             can't change the name of a resource group after you create it. A resource group name can
+   *             consist of letters, numbers, hyphens, periods, and underscores. The name cannot start
+   *             with <code>AWS</code> or <code>aws</code>; these are reserved. A resource group name
+   *             must be unique within each AWS Region in your AWS account.</p>
    */
-  ResourceQuery?: ResourceQuery;
+  Name: string | undefined;
 
   /**
    * <p>The description of the resource group. Descriptions can consist of letters, numbers,
@@ -322,13 +321,14 @@ export interface CreateGroupInput {
   Description?: string;
 
   /**
-   * <p>The name of the group, which is the identifier of the group in other operations. You
-   *             can't change the name of a resource group after you create it. A resource group name can
-   *             consist of letters, numbers, hyphens, periods, and underscores. The name cannot start
-   *             with <code>AWS</code> or <code>aws</code>; these are reserved. A resource group name
-   *             must be unique within each AWS Region in your AWS account.</p>
+   * <p>The resource query that determines which AWS resources are members of this
+   *             group.</p>
+   *         <note>
+   *             <p>You can specify either a <code>ResourceQuery</code> or a
+   *                     <code>Configuration</code>, but not both.</p>
+   *         </note>
    */
-  Name: string | undefined;
+  ResourceQuery?: ResourceQuery;
 
   /**
    * <p>The tags to add to the group. A tag is key-value pair string.</p>
@@ -375,11 +375,6 @@ export namespace CreateGroupInput {
  */
 export interface Group {
   /**
-   * <p>The description of the resource group.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>The ARN of the resource group.</p>
    */
   GroupArn: string | undefined;
@@ -388,6 +383,11 @@ export interface Group {
    * <p>The name of the resource group.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The description of the resource group.</p>
+   */
+  Description?: string;
 }
 
 export namespace Group {
@@ -411,6 +411,11 @@ export enum GroupConfigurationStatus {
  */
 export interface GroupConfiguration {
   /**
+   * <p>The configuration currently associated with the group and in effect.</p>
+   */
+  Configuration?: GroupConfigurationItem[];
+
+  /**
    * <p>If present, the new configuration that is in the process of being applied to the
    *             group.</p>
    */
@@ -425,11 +430,6 @@ export interface GroupConfiguration {
    * <p>If present, the reason why a request to update the group configuration failed.</p>
    */
   FailureReason?: string;
-
-  /**
-   * <p>The configuration currently associated with the group and in effect.</p>
-   */
-  Configuration?: GroupConfigurationItem[];
 }
 
 export namespace GroupConfiguration {
@@ -439,6 +439,11 @@ export namespace GroupConfiguration {
 }
 
 export interface CreateGroupOutput {
+  /**
+   * <p>The description of the resource group.</p>
+   */
+  Group?: Group;
+
   /**
    * <p>The resource query associated with the group.</p>
    */
@@ -462,11 +467,6 @@ export interface CreateGroupOutput {
    *          </ul>
    */
   GroupConfiguration?: GroupConfiguration;
-
-  /**
-   * <p>The description of the resource group.</p>
-   */
-  Group?: Group;
 }
 
 export namespace CreateGroupOutput {
@@ -538,14 +538,14 @@ export namespace TooManyRequestsException {
 
 export interface DeleteGroupInput {
   /**
-   * <p>The name or the ARN of the resource group to delete.</p>
-   */
-  Group?: string;
-
-  /**
    * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
    */
   GroupName?: string;
+
+  /**
+   * <p>The name or the ARN of the resource group to delete.</p>
+   */
+  Group?: string;
 }
 
 export namespace DeleteGroupInput {
@@ -584,14 +584,14 @@ export namespace NotFoundException {
 
 export interface GetGroupInput {
   /**
-   * <p>The name or the ARN of the resource group to retrieve.</p>
-   */
-  Group?: string;
-
-  /**
    * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
    */
   GroupName?: string;
+
+  /**
+   * <p>The name or the ARN of the resource group to retrieve.</p>
+   */
+  Group?: string;
 }
 
 export namespace GetGroupInput {
@@ -663,16 +663,16 @@ export namespace GetGroupQueryInput {
  */
 export interface GroupQuery {
   /**
-   * <p>The resource query that determines which AWS resources are members of the associated
-   *             resource group.</p>
-   */
-  ResourceQuery: ResourceQuery | undefined;
-
-  /**
    * <p>The name of the resource group that is associated with the specified resource
    *             query.</p>
    */
   GroupName: string | undefined;
+
+  /**
+   * <p>The resource query that determines which AWS resources are members of the associated
+   *             resource group.</p>
+   */
+  ResourceQuery: ResourceQuery | undefined;
 }
 
 export namespace GroupQuery {
@@ -709,14 +709,14 @@ export namespace GetTagsInput {
 
 export interface GetTagsOutput {
   /**
-   * <p>The tags associated with the specified resource group.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
    * <p>The ARN of the tagged resource group.</p>
    */
   Arn?: string;
+
+  /**
+   * <p>The tags associated with the specified resource group.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace GetTagsOutput {
@@ -799,15 +799,15 @@ export enum ResourceFilterName {
  */
 export interface ResourceFilter {
   /**
+   * <p>The name of the filter. Filter names are case-sensitive.</p>
+   */
+  Name: ResourceFilterName | string | undefined;
+
+  /**
    * <p>One or more filter values. Allowed filter values vary by resource filter name, and are
    *             case-sensitive.</p>
    */
   Values: string[] | undefined;
-
-  /**
-   * <p>The name of the filter. Filter names are case-sensitive.</p>
-   */
-  Name: ResourceFilterName | string | undefined;
 }
 
 export namespace ResourceFilter {
@@ -818,29 +818,14 @@ export namespace ResourceFilter {
 
 export interface ListGroupResourcesInput {
   /**
-   * <p>The total number of results that you want included on each page of the
-   * response. If you do not include this parameter, it defaults to a value that is specific to the
-   * operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
-   * response element is present and has a value (is not null). Include that value as the
-   * <code>NextToken</code> request parameter in the next call to the operation to get the next part
-   * of the results. Note that the service might return fewer results than the maximum even when there
-   * are more results available. You should check <code>NextToken</code> after every operation to
-   * ensure that you receive all of the results.</p>
+   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
    */
-  MaxResults?: number;
+  GroupName?: string;
 
   /**
    * <p>The name or the ARN of the resource group</p>
    */
   Group?: string;
-
-  /**
-   * <p>The parameter for receiving additional results if you receive a
-   * <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
-   * indicates that more output is available. Set this parameter to the value provided by a previous
-   * call's <code>NextToken</code> response to indicate where the output should continue from.</p>
-   */
-  NextToken?: string;
 
   /**
    * <p>Filters, formatted as <a>ResourceFilter</a> objects, that you want to apply
@@ -876,9 +861,24 @@ export interface ListGroupResourcesInput {
   Filters?: ResourceFilter[];
 
   /**
-   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
+   * <p>The total number of results that you want included on each page of the
+   * response. If you do not include this parameter, it defaults to a value that is specific to the
+   * operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
+   * response element is present and has a value (is not null). Include that value as the
+   * <code>NextToken</code> request parameter in the next call to the operation to get the next part
+   * of the results. Note that the service might return fewer results than the maximum even when there
+   * are more results available. You should check <code>NextToken</code> after every operation to
+   * ensure that you receive all of the results.</p>
    */
-  GroupName?: string;
+  MaxResults?: number;
+
+  /**
+   * <p>The parameter for receiving additional results if you receive a
+   * <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   * indicates that more output is available. Set this parameter to the value provided by a previous
+   * call's <code>NextToken</code> response to indicate where the output should continue from.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListGroupResourcesInput {
@@ -902,6 +902,12 @@ export enum QueryErrorCode {
  */
 export interface QueryError {
   /**
+   * <p>Possible values are <code>CLOUDFORMATION_STACK_INACTIVE</code> and
+   *                 <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>
+   */
+  ErrorCode?: QueryErrorCode | string;
+
+  /**
    * <p>A message that explains the <code>ErrorCode</code> value. Messages might state that
    *             the specified CloudFormation stack does not exist (or no longer exists). For
    *                 <code>CLOUDFORMATION_STACK_INACTIVE</code>, the message typically states that the
@@ -909,12 +915,6 @@ export interface QueryError {
    *                 <code>CREATE_FAILED</code>.</p>
    */
   Message?: string;
-
-  /**
-   * <p>Possible values are <code>CLOUDFORMATION_STACK_INACTIVE</code> and
-   *                 <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>
-   */
-  ErrorCode?: QueryErrorCode | string;
 }
 
 export namespace QueryError {
@@ -952,20 +952,20 @@ export interface ListGroupResourcesOutput {
   ResourceIdentifiers?: ResourceIdentifier[];
 
   /**
-   * <p>A list of <code>QueryError</code> objects. Each error is an object that contains
-   *                 <code>ErrorCode</code> and <code>Message</code> structures. Possible values for
-   *                 <code>ErrorCode</code> are <code>CLOUDFORMATION_STACK_INACTIVE</code> and
-   *                 <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>
-   */
-  QueryErrors?: QueryError[];
-
-  /**
    * <p>If present, indicates that more output is available than is
    * included in the current response. Use this value in the <code>NextToken</code> request parameter
    * in a subsequent call to the operation to get the next part of the output. You should repeat this
    * until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of <code>QueryError</code> objects. Each error is an object that contains
+   *                 <code>ErrorCode</code> and <code>Message</code> structures. Possible values for
+   *                 <code>ErrorCode</code> are <code>CLOUDFORMATION_STACK_INACTIVE</code> and
+   *                 <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>
+   */
+  QueryErrors?: QueryError[];
 }
 
 export namespace ListGroupResourcesOutput {
@@ -1001,15 +1001,15 @@ export enum GroupFilterName {
  */
 export interface GroupFilter {
   /**
+   * <p>The name of the filter. Filter names are case-sensitive.</p>
+   */
+  Name: GroupFilterName | string | undefined;
+
+  /**
    * <p>One or more filter values. Allowed filter values vary by group filter name, and are
    *             case-sensitive.</p>
    */
   Values: string[] | undefined;
-
-  /**
-   * <p>The name of the filter. Filter names are case-sensitive.</p>
-   */
-  Name: GroupFilterName | string | undefined;
 }
 
 export namespace GroupFilter {
@@ -1019,26 +1019,6 @@ export namespace GroupFilter {
 }
 
 export interface ListGroupsInput {
-  /**
-   * <p>The total number of results that you want included on each page of the
-   * response. If you do not include this parameter, it defaults to a value that is specific to the
-   * operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
-   * response element is present and has a value (is not null). Include that value as the
-   * <code>NextToken</code> request parameter in the next call to the operation to get the next part
-   * of the results. Note that the service might return fewer results than the maximum even when there
-   * are more results available. You should check <code>NextToken</code> after every operation to
-   * ensure that you receive all of the results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The parameter for receiving additional results if you receive a
-   * <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
-   * indicates that more output is available. Set this parameter to the value provided by a previous
-   * call's <code>NextToken</code> response to indicate where the output should continue from.</p>
-   */
-  NextToken?: string;
-
   /**
    * <p>Filters, formatted as <a>GroupFilter</a> objects, that you want to apply to
    *             a <code>ListGroups</code> operation.</p>
@@ -1066,64 +1046,7 @@ export interface ListGroupsInput {
    *          </ul>
    */
   Filters?: GroupFilter[];
-}
 
-export namespace ListGroupsInput {
-  export const filterSensitiveLog = (obj: ListGroupsInput): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The unique identifiers for a resource group.</p>
- */
-export interface GroupIdentifier {
-  /**
-   * <p>The ARN of the resource group.</p>
-   */
-  GroupArn?: string;
-
-  /**
-   * <p>The name of the resource group.</p>
-   */
-  GroupName?: string;
-}
-
-export namespace GroupIdentifier {
-  export const filterSensitiveLog = (obj: GroupIdentifier): any => ({
-    ...obj,
-  });
-}
-
-export interface ListGroupsOutput {
-  /**
-   * <p>If present, indicates that more output is available than is
-   * included in the current response. Use this value in the <code>NextToken</code> request parameter
-   * in a subsequent call to the operation to get the next part of the output. You should repeat this
-   * until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>A list of <a>GroupIdentifier</a> objects. Each identifier is an object that
-   *             contains both the <code>Name</code> and the <code>GroupArn</code>.</p>
-   */
-  GroupIdentifiers?: GroupIdentifier[];
-
-  /**
-   * <p>This output element is deprecated and shouldn't be used. Refer to
-   *                 <code>GroupIdentifiers</code> instead.</p>
-   */
-  Groups?: Group[];
-}
-
-export namespace ListGroupsOutput {
-  export const filterSensitiveLog = (obj: ListGroupsOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface SearchResourcesInput {
   /**
    * <p>The total number of results that you want included on each page of the
    * response. If you do not include this parameter, it defaults to a value that is specific to the
@@ -1137,10 +1060,87 @@ export interface SearchResourcesInput {
   MaxResults?: number;
 
   /**
+   * <p>The parameter for receiving additional results if you receive a
+   * <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   * indicates that more output is available. Set this parameter to the value provided by a previous
+   * call's <code>NextToken</code> response to indicate where the output should continue from.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListGroupsInput {
+  export const filterSensitiveLog = (obj: ListGroupsInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The unique identifiers for a resource group.</p>
+ */
+export interface GroupIdentifier {
+  /**
+   * <p>The name of the resource group.</p>
+   */
+  GroupName?: string;
+
+  /**
+   * <p>The ARN of the resource group.</p>
+   */
+  GroupArn?: string;
+}
+
+export namespace GroupIdentifier {
+  export const filterSensitiveLog = (obj: GroupIdentifier): any => ({
+    ...obj,
+  });
+}
+
+export interface ListGroupsOutput {
+  /**
+   * <p>A list of <a>GroupIdentifier</a> objects. Each identifier is an object that
+   *             contains both the <code>Name</code> and the <code>GroupArn</code>.</p>
+   */
+  GroupIdentifiers?: GroupIdentifier[];
+
+  /**
+   * <p>This output element is deprecated and shouldn't be used. Refer to
+   *                 <code>GroupIdentifiers</code> instead.</p>
+   */
+  Groups?: Group[];
+
+  /**
+   * <p>If present, indicates that more output is available than is
+   * included in the current response. Use this value in the <code>NextToken</code> request parameter
+   * in a subsequent call to the operation to get the next part of the output. You should repeat this
+   * until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListGroupsOutput {
+  export const filterSensitiveLog = (obj: ListGroupsOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchResourcesInput {
+  /**
    * <p>The search query, using the same formats that are supported for resource group
    *             definition. For more information, see <a>CreateGroup</a>.</p>
    */
   ResourceQuery: ResourceQuery | undefined;
+
+  /**
+   * <p>The total number of results that you want included on each page of the
+   * response. If you do not include this parameter, it defaults to a value that is specific to the
+   * operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
+   * response element is present and has a value (is not null). Include that value as the
+   * <code>NextToken</code> request parameter in the next call to the operation to get the next part
+   * of the results. Note that the service might return fewer results than the maximum even when there
+   * are more results available. You should check <code>NextToken</code> after every operation to
+   * ensure that you receive all of the results.</p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>The parameter for receiving additional results if you receive a
@@ -1165,20 +1165,20 @@ export interface SearchResourcesOutput {
   ResourceIdentifiers?: ResourceIdentifier[];
 
   /**
-   * <p>A list of <code>QueryError</code> objects. Each error is an object that contains
-   *                 <code>ErrorCode</code> and <code>Message</code> structures. Possible values for
-   *                 <code>ErrorCode</code> are <code>CLOUDFORMATION_STACK_INACTIVE</code> and
-   *                 <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>
-   */
-  QueryErrors?: QueryError[];
-
-  /**
    * <p>If present, indicates that more output is available than is
    * included in the current response. Use this value in the <code>NextToken</code> request parameter
    * in a subsequent call to the operation to get the next part of the output. You should repeat this
    * until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of <code>QueryError</code> objects. Each error is an object that contains
+   *                 <code>ErrorCode</code> and <code>Message</code> structures. Possible values for
+   *                 <code>ErrorCode</code> are <code>CLOUDFORMATION_STACK_INACTIVE</code> and
+   *                 <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>
+   */
+  QueryErrors?: QueryError[];
 }
 
 export namespace SearchResourcesOutput {
@@ -1244,14 +1244,14 @@ export namespace UngroupResourcesInput {
 
 export interface UngroupResourcesOutput {
   /**
-   * <p>The resources that failed to be removed from the group.</p>
-   */
-  Failed?: FailedResource[];
-
-  /**
    * <p>The ARNs of the resources that were successfully removed from the group.</p>
    */
   Succeeded?: string[];
+
+  /**
+   * <p>The resources that failed to be removed from the group.</p>
+   */
+  Failed?: FailedResource[];
 }
 
 export namespace UngroupResourcesOutput {
@@ -1341,15 +1341,15 @@ export interface UpdateGroupQueryInput {
   GroupName?: string;
 
   /**
+   * <p>The name or the ARN of the resource group to query.</p>
+   */
+  Group?: string;
+
+  /**
    * <p>The resource query to determine which AWS resources are members of this resource
    *             group.</p>
    */
   ResourceQuery: ResourceQuery | undefined;
-
-  /**
-   * <p>The name or the ARN of the resource group to query.</p>
-   */
-  Group?: string;
 }
 
 export namespace UpdateGroupQueryInput {

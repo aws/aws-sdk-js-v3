@@ -3,14 +3,14 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AcceptInvitationRequest {
   /**
-   * <p>The ID of the invitation sent from the Security Hub master account.</p>
-   */
-  InvitationId: string | undefined;
-
-  /**
    * <p>The account ID of the Security Hub master account that sent the invitation.</p>
    */
   MasterId: string | undefined;
+
+  /**
+   * <p>The ID of the invitation sent from the Security Hub master account.</p>
+   */
+  InvitationId: string | undefined;
 }
 
 export namespace AcceptInvitationRequest {
@@ -50,8 +50,8 @@ export namespace InternalException {
 export interface InvalidAccessException extends __SmithyException, $MetadataBearer {
   name: "InvalidAccessException";
   $fault: "client";
-  Code?: string;
   Message?: string;
+  Code?: string;
 }
 
 export namespace InvalidAccessException {
@@ -84,8 +84,8 @@ export namespace InvalidInputException {
 export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
-  Code?: string;
   Message?: string;
+  Code?: string;
 }
 
 export namespace LimitExceededException {
@@ -116,8 +116,8 @@ export namespace ResourceNotFoundException {
 export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
-  Code?: string;
   Message?: string;
+  Code?: string;
 }
 
 export namespace AccessDeniedException {
@@ -152,11 +152,6 @@ export namespace AccountDetails {
  */
 export interface ActionTarget {
   /**
-   * <p>The description of the target action.</p>
-   */
-  Description: string | undefined;
-
-  /**
    * <p>The ARN for the target action.</p>
    */
   ActionTargetArn: string | undefined;
@@ -165,6 +160,11 @@ export interface ActionTarget {
    * <p>The name of the action target.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The description of the target action.</p>
+   */
+  Description: string | undefined;
 }
 
 export namespace ActionTarget {
@@ -184,15 +184,15 @@ export enum AdminStatus {
  */
 export interface AdminAccount {
   /**
+   * <p>The AWS account identifier of the Security Hub administrator account.</p>
+   */
+  AccountId?: string;
+
+  /**
    * <p>The current status of the Security Hub administrator account. Indicates whether the account is
    *          currently enabled as a Security Hub administrator.</p>
    */
   Status?: AdminStatus | string;
-
-  /**
-   * <p>The AWS account identifier of the Security Hub administrator account.</p>
-   */
-  AccountId?: string;
 }
 
 export namespace AdminAccount {
@@ -250,14 +250,14 @@ export namespace AwsApiGatewayAccessLogSettings {
  */
 export interface AwsApiGatewayCanarySettings {
   /**
+   * <p>The percentage of traffic that is diverted to a canary deployment.</p>
+   */
+  PercentTraffic?: number;
+
+  /**
    * <p>The deployment identifier for the canary deployment.</p>
    */
   DeploymentId?: string;
-
-  /**
-   * <p>Indicates whether the canary deployment uses the stage cache.</p>
-   */
-  UseStageCache?: boolean;
 
   /**
    * <p>Stage variables that are overridden in the canary release deployment. The variables
@@ -268,9 +268,9 @@ export interface AwsApiGatewayCanarySettings {
   StageVariableOverrides?: { [key: string]: string };
 
   /**
-   * <p>The percentage of traffic that is diverted to a canary deployment.</p>
+   * <p>Indicates whether the canary deployment uses the stage cache.</p>
    */
-  PercentTraffic?: number;
+  UseStageCache?: boolean;
 }
 
 export namespace AwsApiGatewayCanarySettings {
@@ -303,9 +303,9 @@ export namespace AwsApiGatewayEndpointConfiguration {
  */
 export interface AwsApiGatewayMethodSettings {
   /**
-   * <p>Indicates whether authorization is required for a cache invalidation request.</p>
+   * <p>Indicates whether CloudWatch metrics are enabled for the method. </p>
    */
-  RequireAuthorizationForCacheControl?: boolean;
+  MetricsEnabled?: boolean;
 
   /**
    * <p>The logging level for this method. The logging level affects the log entries that are
@@ -320,12 +320,56 @@ export interface AwsApiGatewayMethodSettings {
   LoggingLevel?: string;
 
   /**
+   * <p>Indicates whether data trace logging is enabled for the method. Data trace logging
+   *          affects the log entries that are pushed to CloudWatch Logs.</p>
+   */
+  DataTraceEnabled?: boolean;
+
+  /**
+   * <p>The throttling burst limit for the method.</p>
+   */
+  ThrottlingBurstLimit?: number;
+
+  /**
+   * <p>The throttling rate limit for the method.</p>
+   */
+  ThrottlingRateLimit?: number;
+
+  /**
+   * <p>Indicates whether responses are cached and returned for requests. For responses to be
+   *          cached, a cache cluster must be enabled on the stage.</p>
+   */
+  CachingEnabled?: boolean;
+
+  /**
+   * <p>Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL,
+   *          the longer the response is cached.</p>
+   */
+  CacheTtlInSeconds?: number;
+
+  /**
+   * <p>Indicates whether the cached responses are encrypted. </p>
+   */
+  CacheDataEncrypted?: boolean;
+
+  /**
+   * <p>Indicates whether authorization is required for a cache invalidation request.</p>
+   */
+  RequireAuthorizationForCacheControl?: boolean;
+
+  /**
    * <p>Indicates how to handle unauthorized requests for cache invalidation.</p>
    *          <p>Valid values: <code>FAIL_WITH_403</code> | <code>SUCCEED_WITH_RESPONSE_HEADER</code> |
    *             <code>SUCCEED_WITHOUT_RESPONSE_HEADER</code>
    *          </p>
    */
   UnauthorizedCacheControlHeaderStrategy?: string;
+
+  /**
+   * <p>The HTTP method. You can use an asterisk (*) as a wildcard to apply method settings to
+   *          multiple methods.</p>
+   */
+  HttpMethod?: string;
 
   /**
    * <p>The resource path for this method. Forward slashes (/) are encoded as ~1 . The initial
@@ -336,50 +380,6 @@ export interface AwsApiGatewayMethodSettings {
    *          wildcard to apply method settings to multiple methods.</p>
    */
   ResourcePath?: string;
-
-  /**
-   * <p>Indicates whether CloudWatch metrics are enabled for the method. </p>
-   */
-  MetricsEnabled?: boolean;
-
-  /**
-   * <p>Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL,
-   *          the longer the response is cached.</p>
-   */
-  CacheTtlInSeconds?: number;
-
-  /**
-   * <p>The HTTP method. You can use an asterisk (*) as a wildcard to apply method settings to
-   *          multiple methods.</p>
-   */
-  HttpMethod?: string;
-
-  /**
-   * <p>The throttling rate limit for the method.</p>
-   */
-  ThrottlingRateLimit?: number;
-
-  /**
-   * <p>Indicates whether the cached responses are encrypted. </p>
-   */
-  CacheDataEncrypted?: boolean;
-
-  /**
-   * <p>Indicates whether responses are cached and returned for requests. For responses to be
-   *          cached, a cache cluster must be enabled on the stage.</p>
-   */
-  CachingEnabled?: boolean;
-
-  /**
-   * <p>The throttling burst limit for the method.</p>
-   */
-  ThrottlingBurstLimit?: number;
-
-  /**
-   * <p>Indicates whether data trace logging is enabled for the method. Data trace logging
-   *          affects the log entries that are pushed to CloudWatch Logs.</p>
-   */
-  DataTraceEnabled?: boolean;
 }
 
 export namespace AwsApiGatewayMethodSettings {
@@ -393,14 +393,44 @@ export namespace AwsApiGatewayMethodSettings {
  */
 export interface AwsApiGatewayRestApiDetails {
   /**
-   * <p>The list of binary media types supported by the REST API.</p>
+   * <p>The identifier of the REST API.</p>
    */
-  BinaryMediaTypes?: string[];
+  Id?: string;
+
+  /**
+   * <p>The name of the REST API.</p>
+   */
+  Name?: string;
 
   /**
    * <p>A description of the REST API.</p>
    */
   Description?: string;
+
+  /**
+   * <p>Indicates when the API was created.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  CreatedDate?: string;
+
+  /**
+   * <p>The version identifier for the REST API.</p>
+   */
+  Version?: string;
+
+  /**
+   * <p>The list of binary media types supported by the REST API.</p>
+   */
+  BinaryMediaTypes?: string[];
+
+  /**
+   * <p>The minimum size in bytes of a payload before compression is enabled.</p>
+   *          <p>If <code>null</code>, then compression is disabled.</p>
+   *          <p>If 0, then all payloads are compressed.</p>
+   */
+  MinimumCompressionSize?: number;
 
   /**
    * <p>The source of the API key for metering requests according to a usage plan.</p>
@@ -412,36 +442,6 @@ export interface AwsApiGatewayRestApiDetails {
    *             <code>UsageIdentifierKey</code> from a custom authorizer.</p>
    */
   ApiKeySource?: string;
-
-  /**
-   * <p>The identifier of the REST API.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The version identifier for the REST API.</p>
-   */
-  Version?: string;
-
-  /**
-   * <p>The minimum size in bytes of a payload before compression is enabled.</p>
-   *          <p>If <code>null</code>, then compression is disabled.</p>
-   *          <p>If 0, then all payloads are compressed.</p>
-   */
-  MinimumCompressionSize?: number;
-
-  /**
-   * <p>Indicates when the API was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreatedDate?: string;
-
-  /**
-   * <p>The name of the REST API.</p>
-   */
-  Name?: string;
 
   /**
    * <p>The endpoint configuration of the REST API.</p>
@@ -460,19 +460,29 @@ export namespace AwsApiGatewayRestApiDetails {
  */
 export interface AwsApiGatewayStageDetails {
   /**
+   * <p>The identifier of the deployment that the stage points to.</p>
+   */
+  DeploymentId?: string;
+
+  /**
+   * <p>The identifier of the client certificate for the stage.</p>
+   */
+  ClientCertificateId?: string;
+
+  /**
+   * <p>The name of the stage.</p>
+   */
+  StageName?: string;
+
+  /**
+   * <p>A description of the stage.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>Indicates whether a cache cluster is enabled for the stage.</p>
    */
   CacheClusterEnabled?: boolean;
-
-  /**
-   * <p>Settings for logging access for the stage.</p>
-   */
-  AccessLogSettings?: AwsApiGatewayAccessLogSettings;
-
-  /**
-   * <p>The version of the API documentation that is associated with the stage.</p>
-   */
-  DocumentationVersion?: string;
 
   /**
    * <p>If a cache cluster is enabled, the size of the cache cluster.</p>
@@ -480,9 +490,14 @@ export interface AwsApiGatewayStageDetails {
   CacheClusterSize?: string;
 
   /**
-   * <p>The identifier of the client certificate for the stage.</p>
+   * <p>If a cache cluster is enabled, the status of the cache cluster.</p>
    */
-  ClientCertificateId?: string;
+  CacheClusterStatus?: string;
+
+  /**
+   * <p>Defines the method settings for the stage.</p>
+   */
+  MethodSettings?: AwsApiGatewayMethodSettings[];
 
   /**
    * <p>A map that defines the stage variables for the stage.</p>
@@ -503,17 +518,19 @@ export interface AwsApiGatewayStageDetails {
   Variables?: { [key: string]: string };
 
   /**
-   * <p>The identifier of the deployment that the stage points to.</p>
+   * <p>The version of the API documentation that is associated with the stage.</p>
    */
-  DeploymentId?: string;
+  DocumentationVersion?: string;
 
   /**
-   * <p>Indicates when the stage was most recently updated.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * <p>Settings for logging access for the stage.</p>
    */
-  LastUpdatedDate?: string;
+  AccessLogSettings?: AwsApiGatewayAccessLogSettings;
+
+  /**
+   * <p>Information about settings for canary deployment in the stage.</p>
+   */
+  CanarySettings?: AwsApiGatewayCanarySettings;
 
   /**
    * <p>Indicates whether active tracing with AWS X-Ray is enabled for the stage.</p>
@@ -529,34 +546,17 @@ export interface AwsApiGatewayStageDetails {
   CreatedDate?: string;
 
   /**
-   * <p>Information about settings for canary deployment in the stage.</p>
+   * <p>Indicates when the stage was most recently updated.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
-  CanarySettings?: AwsApiGatewayCanarySettings;
-
-  /**
-   * <p>Defines the method settings for the stage.</p>
-   */
-  MethodSettings?: AwsApiGatewayMethodSettings[];
-
-  /**
-   * <p>A description of the stage.</p>
-   */
-  Description?: string;
+  LastUpdatedDate?: string;
 
   /**
    * <p>The ARN of the web ACL associated with the stage.</p>
    */
   WebAclArn?: string;
-
-  /**
-   * <p>If a cache cluster is enabled, the status of the cache cluster.</p>
-   */
-  CacheClusterStatus?: string;
-
-  /**
-   * <p>The name of the stage.</p>
-   */
-  StageName?: string;
 }
 
 export namespace AwsApiGatewayStageDetails {
@@ -571,16 +571,6 @@ export namespace AwsApiGatewayStageDetails {
  */
 export interface AwsCorsConfiguration {
   /**
-   * <p>The number of seconds for which the browser caches preflight request results.</p>
-   */
-  MaxAge?: number;
-
-  /**
-   * <p>The allowed headers for CORS requests.</p>
-   */
-  AllowHeaders?: string[];
-
-  /**
    * <p>The allowed origins for CORS requests.</p>
    */
   AllowOrigins?: string[];
@@ -591,14 +581,24 @@ export interface AwsCorsConfiguration {
   AllowCredentials?: boolean;
 
   /**
+   * <p>The exposed headers for CORS requests.</p>
+   */
+  ExposeHeaders?: string[];
+
+  /**
+   * <p>The number of seconds for which the browser caches preflight request results.</p>
+   */
+  MaxAge?: number;
+
+  /**
    * <p>The allowed methods for CORS requests.</p>
    */
   AllowMethods?: string[];
 
   /**
-   * <p>The exposed headers for CORS requests.</p>
+   * <p>The allowed headers for CORS requests.</p>
    */
-  ExposeHeaders?: string[];
+  AllowHeaders?: string[];
 }
 
 export namespace AwsCorsConfiguration {
@@ -612,39 +612,6 @@ export namespace AwsCorsConfiguration {
  */
 export interface AwsApiGatewayV2ApiDetails {
   /**
-   * <p>The name of the API.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The identifier of the API.</p>
-   */
-  ApiId?: string;
-
-  /**
-   * <p>The API protocol for the API.</p>
-   *          <p>Valid values: <code>WEBSOCKET</code> | <code>HTTP</code>
-   *          </p>
-   */
-  ProtocolType?: string;
-
-  /**
-   * <p>A description of the API.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A cross-origin resource sharing (CORS) configuration. Supported only for HTTP
-   *          APIs.</p>
-   */
-  CorsConfiguration?: AwsCorsConfiguration;
-
-  /**
-   * <p>An API key selection expression. Supported only for WebSocket APIs. </p>
-   */
-  ApiKeySelectionExpression?: string;
-
-  /**
    * <p>The URI of the API. </p>
    *          <p>Uses the format
    *                <code>
@@ -656,9 +623,44 @@ export interface AwsApiGatewayV2ApiDetails {
   ApiEndpoint?: string;
 
   /**
+   * <p>The identifier of the API.</p>
+   */
+  ApiId?: string;
+
+  /**
+   * <p>An API key selection expression. Supported only for WebSocket APIs. </p>
+   */
+  ApiKeySelectionExpression?: string;
+
+  /**
+   * <p>Indicates when the API was created.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  CreatedDate?: string;
+
+  /**
+   * <p>A description of the API.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>The version identifier for the API.</p>
    */
   Version?: string;
+
+  /**
+   * <p>The name of the API.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The API protocol for the API.</p>
+   *          <p>Valid values: <code>WEBSOCKET</code> | <code>HTTP</code>
+   *          </p>
+   */
+  ProtocolType?: string;
 
   /**
    * <p>The route selection expression for the API.</p>
@@ -669,12 +671,10 @@ export interface AwsApiGatewayV2ApiDetails {
   RouteSelectionExpression?: string;
 
   /**
-   * <p>Indicates when the API was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * <p>A cross-origin resource sharing (CORS) configuration. Supported only for HTTP
+   *          APIs.</p>
    */
-  CreatedDate?: string;
+  CorsConfiguration?: AwsCorsConfiguration;
 }
 
 export namespace AwsApiGatewayV2ApiDetails {
@@ -688,14 +688,9 @@ export namespace AwsApiGatewayV2ApiDetails {
  */
 export interface AwsApiGatewayV2RouteSettings {
   /**
-   * <p>The throttling burst limit.</p>
+   * <p>Indicates whether detailed metrics are enabled.</p>
    */
-  ThrottlingBurstLimit?: number;
-
-  /**
-   * <p>The throttling rate limit.</p>
-   */
-  ThrottlingRateLimit?: number;
+  DetailedMetricsEnabled?: boolean;
 
   /**
    * <p>The logging level. The logging level affects the log entries that are pushed to
@@ -716,9 +711,14 @@ export interface AwsApiGatewayV2RouteSettings {
   DataTraceEnabled?: boolean;
 
   /**
-   * <p>Indicates whether detailed metrics are enabled.</p>
+   * <p>The throttling burst limit.</p>
    */
-  DetailedMetricsEnabled?: boolean;
+  ThrottlingBurstLimit?: number;
+
+  /**
+   * <p>The throttling rate limit.</p>
+   */
+  ThrottlingRateLimit?: number;
 }
 
 export namespace AwsApiGatewayV2RouteSettings {
@@ -732,9 +732,40 @@ export namespace AwsApiGatewayV2RouteSettings {
  */
 export interface AwsApiGatewayV2StageDetails {
   /**
+   * <p>Indicates when the stage was created.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  CreatedDate?: string;
+
+  /**
+   * <p>The description of the stage.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Default route settings for the stage.</p>
+   */
+  DefaultRouteSettings?: AwsApiGatewayV2RouteSettings;
+
+  /**
    * <p>The identifier of the deployment that the stage is associated with. </p>
    */
   DeploymentId?: string;
+
+  /**
+   * <p>Indicates when the stage was most recently updated.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  LastUpdatedDate?: string;
+
+  /**
+   * <p>The route settings for the stage.</p>
+   */
+  RouteSettings?: AwsApiGatewayV2RouteSettings;
 
   /**
    * <p>The name of the stage.</p>
@@ -760,40 +791,14 @@ export interface AwsApiGatewayV2StageDetails {
   StageVariables?: { [key: string]: string };
 
   /**
-   * <p>Indicates when the stage was most recently updated.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * <p>Information about settings for logging access for the stage.</p>
    */
-  LastUpdatedDate?: string;
-
-  /**
-   * <p>Indicates whether the stage is managed by API Gateway.</p>
-   */
-  ApiGatewayManaged?: boolean;
+  AccessLogSettings?: AwsApiGatewayAccessLogSettings;
 
   /**
    * <p>Indicates whether updates to an API automatically trigger a new deployment.</p>
    */
   AutoDeploy?: boolean;
-
-  /**
-   * <p>The description of the stage.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Indicates when the stage was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreatedDate?: string;
-
-  /**
-   * <p>Default route settings for the stage.</p>
-   */
-  DefaultRouteSettings?: AwsApiGatewayV2RouteSettings;
 
   /**
    * <p>The status of the last deployment of a stage. Supported only if the stage has automatic
@@ -802,14 +807,9 @@ export interface AwsApiGatewayV2StageDetails {
   LastDeploymentStatusMessage?: string;
 
   /**
-   * <p>Information about settings for logging access for the stage.</p>
+   * <p>Indicates whether the stage is managed by API Gateway.</p>
    */
-  AccessLogSettings?: AwsApiGatewayAccessLogSettings;
-
-  /**
-   * <p>The route settings for the stage.</p>
-   */
-  RouteSettings?: AwsApiGatewayV2RouteSettings;
+  ApiGatewayManaged?: boolean;
 }
 
 export namespace AwsApiGatewayV2StageDetails {
@@ -823,10 +823,14 @@ export namespace AwsApiGatewayV2StageDetails {
  */
 export interface AwsAutoScalingAutoScalingGroupDetails {
   /**
-   * <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before it checks the
-   *          health status of an EC2 instance that has come into service.</p>
+   * <p>The name of the launch configuration.</p>
    */
-  HealthCheckGracePeriod?: number;
+  LaunchConfigurationName?: string;
+
+  /**
+   * <p>The list of load balancers associated with the group.</p>
+   */
+  LoadBalancerNames?: string[];
 
   /**
    * <p>The service to use for the health checks.</p>
@@ -834,9 +838,10 @@ export interface AwsAutoScalingAutoScalingGroupDetails {
   HealthCheckType?: string;
 
   /**
-   * <p>The list of load balancers associated with the group.</p>
+   * <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before it checks the
+   *          health status of an EC2 instance that has come into service.</p>
    */
-  LoadBalancerNames?: string[];
+  HealthCheckGracePeriod?: number;
 
   /**
    * <p>Indicates when the auto scaling group was created.</p>
@@ -845,11 +850,6 @@ export interface AwsAutoScalingAutoScalingGroupDetails {
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreatedTime?: string;
-
-  /**
-   * <p>The name of the launch configuration.</p>
-   */
-  LaunchConfigurationName?: string;
 }
 
 export namespace AwsAutoScalingAutoScalingGroupDetails {
@@ -864,6 +864,11 @@ export namespace AwsAutoScalingAutoScalingGroupDetails {
  */
 export interface AwsCertificateManagerCertificateResourceRecord {
   /**
+   * <p>The name of the resource.</p>
+   */
+  Name?: string;
+
+  /**
    * <p>The type of resource.</p>
    */
   Type?: string;
@@ -872,11 +877,6 @@ export interface AwsCertificateManagerCertificateResourceRecord {
    * <p>The value of the resource.</p>
    */
   Value?: string;
-
-  /**
-   * <p>The name of the resource.</p>
-   */
-  Name?: string;
 }
 
 export namespace AwsCertificateManagerCertificateResourceRecord {
@@ -900,19 +900,14 @@ export namespace AwsCertificateManagerCertificateResourceRecord {
  */
 export interface AwsCertificateManagerCertificateDomainValidationOption {
   /**
-   * <p>The validation status of the domain name.</p>
-   */
-  ValidationStatus?: string;
-
-  /**
    * <p>A fully qualified domain name (FQDN) in the certificate.</p>
    */
   DomainName?: string;
 
   /**
-   * <p>The method used to validate the domain name.</p>
+   * <p>The CNAME record that is added to the DNS database for domain validation.</p>
    */
-  ValidationMethod?: string;
+  ResourceRecord?: AwsCertificateManagerCertificateResourceRecord;
 
   /**
    * <p>The domain name that AWS Certificate Manager uses to send domain validation
@@ -927,9 +922,14 @@ export interface AwsCertificateManagerCertificateDomainValidationOption {
   ValidationEmails?: string[];
 
   /**
-   * <p>The CNAME record that is added to the DNS database for domain validation.</p>
+   * <p>The method used to validate the domain name.</p>
    */
-  ResourceRecord?: AwsCertificateManagerCertificateResourceRecord;
+  ValidationMethod?: string;
+
+  /**
+   * <p>The validation status of the domain name.</p>
+   */
+  ValidationStatus?: string;
 }
 
 export namespace AwsCertificateManagerCertificateDomainValidationOption {
@@ -1001,6 +1001,21 @@ export namespace AwsCertificateManagerCertificateOptions {
  */
 export interface AwsCertificateManagerCertificateRenewalSummary {
   /**
+   * <p>Information about the validation of each domain name in the certificate, as it pertains
+   *          to AWS Certificate Manager managed renewal. Provided only when the certificate type is
+   *             <code>AMAZON_ISSUED</code>.</p>
+   */
+  DomainValidationOptions?: AwsCertificateManagerCertificateDomainValidationOption[];
+
+  /**
+   * <p>The status of the AWS Certificate Manager managed renewal of the certificate.</p>
+   *          <p>Valid values: <code>PENDING_AUTO_RENEWAL</code> | <code>PENDING_VALIDATION</code> |
+   *             <code>SUCCESS</code> | <code>FAILED</code>
+   *          </p>
+   */
+  RenewalStatus?: string;
+
+  /**
    * <p>The reason that a renewal request was unsuccessful.</p>
    *          <p>Valid values: <code>NO_AVAILABLE_CONTACTS</code> |
    *             <code>ADDITIONAL_VERIFICATION_REQUIRED</code> | <code>DOMAIN_NOT_ALLOWED</code> |
@@ -1015,27 +1030,12 @@ export interface AwsCertificateManagerCertificateRenewalSummary {
   RenewalStatusReason?: string;
 
   /**
-   * <p>The status of the AWS Certificate Manager managed renewal of the certificate.</p>
-   *          <p>Valid values: <code>PENDING_AUTO_RENEWAL</code> | <code>PENDING_VALIDATION</code> |
-   *             <code>SUCCESS</code> | <code>FAILED</code>
-   *          </p>
-   */
-  RenewalStatus?: string;
-
-  /**
    * <p>Indicates when the renewal summary was last updated.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   UpdatedAt?: string;
-
-  /**
-   * <p>Information about the validation of each domain name in the certificate, as it pertains
-   *          to AWS Certificate Manager managed renewal. Provided only when the certificate type is
-   *             <code>AMAZON_ISSUED</code>.</p>
-   */
-  DomainValidationOptions?: AwsCertificateManagerCertificateDomainValidationOption[];
 }
 
 export namespace AwsCertificateManagerCertificateRenewalSummary {
@@ -1049,28 +1049,10 @@ export namespace AwsCertificateManagerCertificateRenewalSummary {
  */
 export interface AwsCertificateManagerCertificateDetails {
   /**
-   * <p>Provides a value that specifies whether to add the certificate to a transparency
-   *          log.</p>
+   * <p>The ARN of the private certificate authority (CA) that will be used to issue the
+   *          certificate.</p>
    */
-  Options?: AwsCertificateManagerCertificateOptions;
-
-  /**
-   * <p>The status of the certificate.</p>
-   *          <p>Valid values: <code>PENDING_VALIDATION</code> | <code>ISSUED</code> |
-   *             <code>INACTIVE</code> | <code>EXPIRED</code> | <code>VALIDATION_TIMED_OUT</code> |
-   *             <code>REVOKED</code> | <code>FAILED</code>
-   *          </p>
-   */
-  Status?: string;
-
-  /**
-   * <p>Indicates when the certificate was issued. Provided if the certificate type is
-   *             <code>AMAZON_ISSUED</code>.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  IssuedAt?: string;
+  CertificateAuthorityArn?: string;
 
   /**
    * <p>Indicates when the certificate was requested.</p>
@@ -1081,43 +1063,10 @@ export interface AwsCertificateManagerCertificateDetails {
   CreatedAt?: string;
 
   /**
-   * <p>Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies
-   *          a purpose for which the certificate public key can be used and consists of a name and an
-   *          object identifier (OID).</p>
-   */
-  ExtendedKeyUsages?: AwsCertificateManagerCertificateExtendedKeyUsage[];
-
-  /**
-   * <p>The time after which the certificate becomes invalid.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  NotAfter?: string;
-
-  /**
    * <p>The fully qualified domain name (FQDN), such as www.example.com, that is secured by the
    *          certificate.</p>
    */
   DomainName?: string;
-
-  /**
-   * <p>The name of the entity that is associated with the public key contained in the
-   *          certificate.</p>
-   */
-  Subject?: string;
-
-  /**
-   * <p>The list of ARNs for the AWS resources that use the certificate.</p>
-   */
-  InUseBy?: string[];
-
-  /**
-   * <p>Whether the certificate is eligible for renewal.</p>
-   *          <p>Valid values: <code>ELIGIBLE</code> | <code>INELIGIBLE</code>
-   *          </p>
-   */
-  RenewalEligibility?: string;
 
   /**
    * <p>Contains information about the initial validation of each domain name that occurs as a
@@ -1127,63 +1076,11 @@ export interface AwsCertificateManagerCertificateDetails {
   DomainValidationOptions?: AwsCertificateManagerCertificateDomainValidationOption[];
 
   /**
-   * <p>The name of the certificate authority that issued and signed the certificate.</p>
+   * <p>Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies
+   *          a purpose for which the certificate public key can be used and consists of a name and an
+   *          object identifier (OID).</p>
    */
-  Issuer?: string;
-
-  /**
-   * <p>One or more domain names (subject alternative names) included in the certificate. This
-   *          list contains the domain names that are bound to the public key that is contained in the
-   *          certificate.</p>
-   *          <p>The subject alternative names include the canonical domain name (CN) of the certificate
-   *          and additional domain names that can be used to connect to the website.</p>
-   */
-  SubjectAlternativeNames?: string[];
-
-  /**
-   * <p>The algorithm that was used to sign the certificate.</p>
-   */
-  SignatureAlgorithm?: string;
-
-  /**
-   * <p>A list of key usage X.509 v3 extension objects.</p>
-   */
-  KeyUsages?: AwsCertificateManagerCertificateKeyUsage[];
-
-  /**
-   * <p>Indicates when the certificate was imported. Provided if the certificate type is
-   *             <code>IMPORTED</code>.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  ImportedAt?: string;
-
-  /**
-   * <p>The ARN of the private certificate authority (CA) that will be used to issue the
-   *          certificate.</p>
-   */
-  CertificateAuthorityArn?: string;
-
-  /**
-   * <p>The algorithm that was used to generate the public-private key pair.</p>
-   *          <p>Valid values: <code>RSA_2048</code> | <code>RSA_1024</code> |<code> RSA_4096</code> |
-   *             <code>EC_prime256v1</code> | <code>EC_secp384r1</code> |
-   *          <code>EC_secp521r1</code>
-   *          </p>
-   */
-  KeyAlgorithm?: string;
-
-  /**
-   * <p>Information about the status of the AWS Certificate Manager managed renewal for the
-   *          certificate. Provided only when the certificate type is <code>AMAZON_ISSUED</code>.</p>
-   */
-  RenewalSummary?: AwsCertificateManagerCertificateRenewalSummary;
-
-  /**
-   * <p>The serial number of the certificate.</p>
-   */
-  Serial?: string;
+  ExtendedKeyUsages?: AwsCertificateManagerCertificateExtendedKeyUsage[];
 
   /**
    * <p>For a failed certificate request, the reason for the failure.</p>
@@ -1200,12 +1097,115 @@ export interface AwsCertificateManagerCertificateDetails {
   FailureReason?: string;
 
   /**
+   * <p>Indicates when the certificate was imported. Provided if the certificate type is
+   *             <code>IMPORTED</code>.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  ImportedAt?: string;
+
+  /**
+   * <p>The list of ARNs for the AWS resources that use the certificate.</p>
+   */
+  InUseBy?: string[];
+
+  /**
+   * <p>Indicates when the certificate was issued. Provided if the certificate type is
+   *             <code>AMAZON_ISSUED</code>.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  IssuedAt?: string;
+
+  /**
+   * <p>The name of the certificate authority that issued and signed the certificate.</p>
+   */
+  Issuer?: string;
+
+  /**
+   * <p>The algorithm that was used to generate the public-private key pair.</p>
+   *          <p>Valid values: <code>RSA_2048</code> | <code>RSA_1024</code> |<code> RSA_4096</code> |
+   *             <code>EC_prime256v1</code> | <code>EC_secp384r1</code> |
+   *          <code>EC_secp521r1</code>
+   *          </p>
+   */
+  KeyAlgorithm?: string;
+
+  /**
+   * <p>A list of key usage X.509 v3 extension objects.</p>
+   */
+  KeyUsages?: AwsCertificateManagerCertificateKeyUsage[];
+
+  /**
+   * <p>The time after which the certificate becomes invalid.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  NotAfter?: string;
+
+  /**
    * <p>The time before which the certificate is not valid.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   NotBefore?: string;
+
+  /**
+   * <p>Provides a value that specifies whether to add the certificate to a transparency
+   *          log.</p>
+   */
+  Options?: AwsCertificateManagerCertificateOptions;
+
+  /**
+   * <p>Whether the certificate is eligible for renewal.</p>
+   *          <p>Valid values: <code>ELIGIBLE</code> | <code>INELIGIBLE</code>
+   *          </p>
+   */
+  RenewalEligibility?: string;
+
+  /**
+   * <p>Information about the status of the AWS Certificate Manager managed renewal for the
+   *          certificate. Provided only when the certificate type is <code>AMAZON_ISSUED</code>.</p>
+   */
+  RenewalSummary?: AwsCertificateManagerCertificateRenewalSummary;
+
+  /**
+   * <p>The serial number of the certificate.</p>
+   */
+  Serial?: string;
+
+  /**
+   * <p>The algorithm that was used to sign the certificate.</p>
+   */
+  SignatureAlgorithm?: string;
+
+  /**
+   * <p>The status of the certificate.</p>
+   *          <p>Valid values: <code>PENDING_VALIDATION</code> | <code>ISSUED</code> |
+   *             <code>INACTIVE</code> | <code>EXPIRED</code> | <code>VALIDATION_TIMED_OUT</code> |
+   *             <code>REVOKED</code> | <code>FAILED</code>
+   *          </p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The name of the entity that is associated with the public key contained in the
+   *          certificate.</p>
+   */
+  Subject?: string;
+
+  /**
+   * <p>One or more domain names (subject alternative names) included in the certificate. This
+   *          list contains the domain names that are bound to the public key that is contained in the
+   *          certificate.</p>
+   *          <p>The subject alternative names include the canonical domain name (CN) of the certificate
+   *          and additional domain names that can be used to connect to the website.</p>
+   */
+  SubjectAlternativeNames?: string[];
 
   /**
    * <p>The source of the certificate. For certificates that AWS Certificate Manager provides,
@@ -1313,25 +1313,25 @@ export namespace AwsCloudFrontDistributionDefaultCacheBehavior {
  */
 export interface AwsCloudFrontDistributionLogging {
   /**
-   * <p>Specifies whether you want CloudFront to include cookies in access logs.</p>
-   */
-  IncludeCookies?: boolean;
-
-  /**
    * <p>The Amazon S3 bucket to store the access logs in.</p>
    */
   Bucket?: string;
+
+  /**
+   * <p>With this field, you can enable or disable the selected distribution.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>Specifies whether you want CloudFront to include cookies in access logs.</p>
+   */
+  IncludeCookies?: boolean;
 
   /**
    * <p>An optional string that you want CloudFront to use as a prefix to the access log
    *          filenames for this distribution.</p>
    */
   Prefix?: string;
-
-  /**
-   * <p>With this field, you can enable or disable the selected distribution.</p>
-   */
-  Enabled?: boolean;
 }
 
 export namespace AwsCloudFrontDistributionLogging {
@@ -1345,14 +1345,14 @@ export namespace AwsCloudFrontDistributionLogging {
  */
 export interface AwsCloudFrontDistributionOriginGroupFailoverStatusCodes {
   /**
-   * <p>The number of status codes that can cause a failover.</p>
-   */
-  Quantity?: number;
-
-  /**
    * <p>The list of status code values that can cause a failover to the next origin.</p>
    */
   Items?: number[];
+
+  /**
+   * <p>The number of status codes that can cause a failover.</p>
+   */
+  Quantity?: number;
 }
 
 export namespace AwsCloudFrontDistributionOriginGroupFailoverStatusCodes {
@@ -1434,6 +1434,11 @@ export namespace AwsCloudFrontDistributionOriginS3OriginConfig {
  */
 export interface AwsCloudFrontDistributionOriginItem {
   /**
+   * <p>Amazon S3 origins: The DNS name of the Amazon S3 bucket from which you want CloudFront to get objects for this origin.</p>
+   */
+  DomainName?: string;
+
+  /**
    * <p>A unique identifier for the origin or origin group.</p>
    */
   Id?: string;
@@ -1448,11 +1453,6 @@ export interface AwsCloudFrontDistributionOriginItem {
    *          hosting.</p>
    */
   S3OriginConfig?: AwsCloudFrontDistributionOriginS3OriginConfig;
-
-  /**
-   * <p>Amazon S3 origins: The DNS name of the Amazon S3 bucket from which you want CloudFront to get objects for this origin.</p>
-   */
-  DomainName?: string;
 }
 
 export namespace AwsCloudFrontDistributionOriginItem {
@@ -1482,29 +1482,14 @@ export namespace AwsCloudFrontDistributionOrigins {
  */
 export interface AwsCloudFrontDistributionDetails {
   /**
-   * <p>The entity tag is a hash of the object.</p>
+   * <p>Provides information about the cache configuration for the distribution.</p>
    */
-  ETag?: string;
+  CacheBehaviors?: AwsCloudFrontDistributionCacheBehaviors;
 
   /**
-   * <p>The domain name corresponding to the distribution.</p>
+   * <p>The default cache behavior for the configuration.</p>
    */
-  DomainName?: string;
-
-  /**
-   * <p>A unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution.</p>
-   */
-  WebAclId?: string;
-
-  /**
-   * <p>A complex type that contains information about origins for this distribution.</p>
-   */
-  Origins?: AwsCloudFrontDistributionOrigins;
-
-  /**
-   * <p>Provides information about the origin groups in the distribution.</p>
-   */
-  OriginGroups?: AwsCloudFrontDistributionOriginGroups;
+  DefaultCacheBehavior?: AwsCloudFrontDistributionDefaultCacheBehavior;
 
   /**
    * <p>The object that CloudFront sends in response to requests from the origin (for example,
@@ -1515,19 +1500,14 @@ export interface AwsCloudFrontDistributionDetails {
   DefaultRootObject?: string;
 
   /**
-   * <p>The default cache behavior for the configuration.</p>
+   * <p>The domain name corresponding to the distribution.</p>
    */
-  DefaultCacheBehavior?: AwsCloudFrontDistributionDefaultCacheBehavior;
+  DomainName?: string;
 
   /**
-   * <p>Indicates the current status of the distribution.</p>
+   * <p>The entity tag is a hash of the object.</p>
    */
-  Status?: string;
-
-  /**
-   * <p>Provides information about the cache configuration for the distribution.</p>
-   */
-  CacheBehaviors?: AwsCloudFrontDistributionCacheBehaviors;
+  ETag?: string;
 
   /**
    * <p>Indicates when that the distribution was last modified.</p>
@@ -1541,6 +1521,26 @@ export interface AwsCloudFrontDistributionDetails {
    * <p>A complex type that controls whether access logs are written for the distribution.</p>
    */
   Logging?: AwsCloudFrontDistributionLogging;
+
+  /**
+   * <p>A complex type that contains information about origins for this distribution.</p>
+   */
+  Origins?: AwsCloudFrontDistributionOrigins;
+
+  /**
+   * <p>Provides information about the origin groups in the distribution.</p>
+   */
+  OriginGroups?: AwsCloudFrontDistributionOriginGroups;
+
+  /**
+   * <p>Indicates the current status of the distribution.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>A unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution.</p>
+   */
+  WebAclId?: string;
 }
 
 export namespace AwsCloudFrontDistributionDetails {
@@ -1554,34 +1554,25 @@ export namespace AwsCloudFrontDistributionDetails {
  */
 export interface AwsCloudTrailTrailDetails {
   /**
-   * <p>The name of the SNS topic that is used for notifications of log file delivery.</p>
+   * <p>The ARN of the log group that CloudTrail logs are delivered to.</p>
    */
-  SnsTopicName?: string;
+  CloudWatchLogsLogGroupArn?: string;
 
   /**
-   * <p>The ARN of the trail.</p>
+   * <p>The ARN of the role that the CloudWatch Logs endpoint assumes when it writes to the log
+   *          group.</p>
    */
-  TrailArn?: string;
+  CloudWatchLogsRoleArn?: string;
 
   /**
-   * <p>Indicates whether CloudTrail log file validation is enabled.</p>
+   * <p>Indicates whether the trail has custom event selectors.</p>
    */
-  LogFileValidationEnabled?: boolean;
+  HasCustomEventSelectors?: boolean;
 
   /**
    * <p>The Region where the trail was created.</p>
    */
   HomeRegion?: string;
-
-  /**
-   * <p>The ARN of the SNS topic that is used for notifications of log file delivery.</p>
-   */
-  SnsTopicArn?: string;
-
-  /**
-   * <p>The ARN of the log group that CloudTrail logs are delivered to.</p>
-   */
-  CloudWatchLogsLogGroupArn?: string;
 
   /**
    * <p>Indicates whether the trail publishes events from global services such as IAM to the log
@@ -1590,20 +1581,9 @@ export interface AwsCloudTrailTrailDetails {
   IncludeGlobalServiceEvents?: boolean;
 
   /**
-   * <p>The S3 key prefix. The key prefix is added after the name of the S3 bucket where the log
-   *          files are published.</p>
+   * <p>Indicates whether the trail applies only to the current Region or to all Regions.</p>
    */
-  S3KeyPrefix?: string;
-
-  /**
-   * <p>The name of the S3 bucket where the log files are published.</p>
-   */
-  S3BucketName?: string;
-
-  /**
-   * <p>The name of the trail.</p>
-   */
-  Name?: string;
+  IsMultiRegionTrail?: boolean;
 
   /**
    * <p>Whether the trail is created for all accounts in an organization in AWS Organizations,
@@ -1617,20 +1597,40 @@ export interface AwsCloudTrailTrailDetails {
   KmsKeyId?: string;
 
   /**
-   * <p>Indicates whether the trail applies only to the current Region or to all Regions.</p>
+   * <p>Indicates whether CloudTrail log file validation is enabled.</p>
    */
-  IsMultiRegionTrail?: boolean;
+  LogFileValidationEnabled?: boolean;
 
   /**
-   * <p>Indicates whether the trail has custom event selectors.</p>
+   * <p>The name of the trail.</p>
    */
-  HasCustomEventSelectors?: boolean;
+  Name?: string;
 
   /**
-   * <p>The ARN of the role that the CloudWatch Logs endpoint assumes when it writes to the log
-   *          group.</p>
+   * <p>The name of the S3 bucket where the log files are published.</p>
    */
-  CloudWatchLogsRoleArn?: string;
+  S3BucketName?: string;
+
+  /**
+   * <p>The S3 key prefix. The key prefix is added after the name of the S3 bucket where the log
+   *          files are published.</p>
+   */
+  S3KeyPrefix?: string;
+
+  /**
+   * <p>The ARN of the SNS topic that is used for notifications of log file delivery.</p>
+   */
+  SnsTopicArn?: string;
+
+  /**
+   * <p>The name of the SNS topic that is used for notifications of log file delivery.</p>
+   */
+  SnsTopicName?: string;
+
+  /**
+   * <p>The ARN of the trail.</p>
+   */
+  TrailArn?: string;
 }
 
 export namespace AwsCloudTrailTrailDetails {
@@ -1671,35 +1671,9 @@ export namespace AwsCodeBuildProjectEnvironmentRegistryCredential {
  */
 export interface AwsCodeBuildProjectEnvironment {
   /**
-   * <p>The credentials for access to a private registry.</p>
-   */
-  RegistryCredential?: AwsCodeBuildProjectEnvironmentRegistryCredential;
-
-  /**
    * <p>The certificate to use with this build project.</p>
    */
   Certificate?: string;
-
-  /**
-   * <p>The type of build environment to use for related builds.</p>
-   *          <p>The environment type <code>ARM_CONTAINER</code> is available only in Regions US East (N.
-   *          Virginia), US East (Ohio), US West (Oregon), Europe (Ireland), Asia Pacific (Mumbai), Asia
-   *          Pacific (Tokyo), Asia Pacific (Sydney), and Europe (Frankfurt).</p>
-   *          <p>The environment type <code>LINUX_CONTAINER</code> with compute type
-   *          build.general1.2xlarge is available only in Regions US East (N. Virginia), US East (N.
-   *          Virginia), US West (Oregon), Canada (Central), Europe (Ireland), Europe (London), Europe
-   *          (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia
-   *          Pacific (Sydney), China (Beijing), and China (Ningxia).</p>
-   *          <p>The environment type <code>LINUX_GPU_CONTAINER</code> is available only in Regions US
-   *          East (N. Virginia), US East (N. Virginia), US West (Oregon), Canada (Central), Europe
-   *          (Ireland), Europe (London), Europe (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Seoul),
-   *          Asia Pacific (Singapore), Asia Pacific (Sydney), China (Beijing), and China
-   *          (Ningxia).</p>
-   *          <p>Valid values: <code>WINDOWS_CONTAINER</code> | <code>LINUX_CONTAINER</code> |
-   *             <code>LINUX_GPU_CONTAINER</code> | <code>ARM_CONTAINER</code>
-   *          </p>
-   */
-  Type?: string;
 
   /**
    * <p>The type of credentials AWS CodeBuild uses to pull images in your build.</p>
@@ -1722,6 +1696,32 @@ export interface AwsCodeBuildProjectEnvironment {
    *          must use <code>CODEBUILD</code> credentials.</p>
    */
   ImagePullCredentialsType?: string;
+
+  /**
+   * <p>The credentials for access to a private registry.</p>
+   */
+  RegistryCredential?: AwsCodeBuildProjectEnvironmentRegistryCredential;
+
+  /**
+   * <p>The type of build environment to use for related builds.</p>
+   *          <p>The environment type <code>ARM_CONTAINER</code> is available only in Regions US East (N.
+   *          Virginia), US East (Ohio), US West (Oregon), Europe (Ireland), Asia Pacific (Mumbai), Asia
+   *          Pacific (Tokyo), Asia Pacific (Sydney), and Europe (Frankfurt).</p>
+   *          <p>The environment type <code>LINUX_CONTAINER</code> with compute type
+   *          build.general1.2xlarge is available only in Regions US East (N. Virginia), US East (N.
+   *          Virginia), US West (Oregon), Canada (Central), Europe (Ireland), Europe (London), Europe
+   *          (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia
+   *          Pacific (Sydney), China (Beijing), and China (Ningxia).</p>
+   *          <p>The environment type <code>LINUX_GPU_CONTAINER</code> is available only in Regions US
+   *          East (N. Virginia), US East (N. Virginia), US West (Oregon), Canada (Central), Europe
+   *          (Ireland), Europe (London), Europe (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Seoul),
+   *          Asia Pacific (Singapore), Asia Pacific (Sydney), China (Beijing), and China
+   *          (Ningxia).</p>
+   *          <p>Valid values: <code>WINDOWS_CONTAINER</code> | <code>LINUX_CONTAINER</code> |
+   *             <code>LINUX_GPU_CONTAINER</code> | <code>ARM_CONTAINER</code>
+   *          </p>
+   */
+  Type?: string;
 }
 
 export namespace AwsCodeBuildProjectEnvironment {
@@ -1735,14 +1735,43 @@ export namespace AwsCodeBuildProjectEnvironment {
  */
 export interface AwsCodeBuildProjectSource {
   /**
-   * <p>Information about the Git clone depth for the build project.</p>
+   * <p>The type of repository that contains the source code to be built. Valid values
+   *          are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BITBUCKET</code> - The source code is in a Bitbucket repository.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CODECOMMIT</code> - The source code is in an AWS CodeCommit
+   *                repository.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CODEPIPELINE</code> - The source code settings are specified in the source
+   *                action of a pipeline in AWS CodePipeline.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GITHUB</code> - The source code is in a GitHub repository.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GITHUB_ENTERPRISE</code> - The source code is in a GitHub Enterprise
+   *                repository.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NO_SOURCE</code> - The project does not have input source code.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>S3</code> - The source code is in an S3 input bucket. </p>
+   *             </li>
+   *          </ul>
    */
-  GitCloneDepth?: number;
-
-  /**
-   * <p>Whether to ignore SSL warnings while connecting to the project source code.</p>
-   */
-  InsecureSsl?: boolean;
+  Type?: string;
 
   /**
    * <p>Information about the location of the source code to be built.</p>
@@ -1786,43 +1815,14 @@ export interface AwsCodeBuildProjectSource {
   Location?: string;
 
   /**
-   * <p>The type of repository that contains the source code to be built. Valid values
-   *          are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BITBUCKET</code> - The source code is in a Bitbucket repository.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CODECOMMIT</code> - The source code is in an AWS CodeCommit
-   *                repository.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CODEPIPELINE</code> - The source code settings are specified in the source
-   *                action of a pipeline in AWS CodePipeline.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>GITHUB</code> - The source code is in a GitHub repository.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>GITHUB_ENTERPRISE</code> - The source code is in a GitHub Enterprise
-   *                repository.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NO_SOURCE</code> - The project does not have input source code.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>S3</code> - The source code is in an S3 input bucket. </p>
-   *             </li>
-   *          </ul>
+   * <p>Information about the Git clone depth for the build project.</p>
    */
-  Type?: string;
+  GitCloneDepth?: number;
+
+  /**
+   * <p>Whether to ignore SSL warnings while connecting to the project source code.</p>
+   */
+  InsecureSsl?: boolean;
 }
 
 export namespace AwsCodeBuildProjectSource {
@@ -1841,14 +1841,14 @@ export interface AwsCodeBuildProjectVpcConfig {
   VpcId?: string;
 
   /**
-   * <p>A list of one or more security group IDs in your Amazon VPC.</p>
-   */
-  SecurityGroupIds?: string[];
-
-  /**
    * <p>A list of one or more subnet IDs in your Amazon VPC.</p>
    */
   Subnets?: string[];
+
+  /**
+   * <p>A list of one or more security group IDs in your Amazon VPC.</p>
+   */
+  SecurityGroupIds?: string[];
 }
 
 export namespace AwsCodeBuildProjectVpcConfig {
@@ -1861,6 +1861,14 @@ export namespace AwsCodeBuildProjectVpcConfig {
  * <p>Information about an AWS CodeBuild project.</p>
  */
 export interface AwsCodeBuildProjectDetails {
+  /**
+   * <p>The AWS Key Management Service (AWS KMS) customer master key (CMK) used to encrypt the
+   *          build output artifacts.</p>
+   *          <p>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the
+   *          CMK alias (using the format alias/alias-name). </p>
+   */
+  EncryptionKey?: string;
+
   /**
    * <p>Information about the build environment for this build project.</p>
    */
@@ -1875,14 +1883,6 @@ export interface AwsCodeBuildProjectDetails {
    * <p>Information about the build input source code for this build project.</p>
    */
   Source?: AwsCodeBuildProjectSource;
-
-  /**
-   * <p>The AWS Key Management Service (AWS KMS) customer master key (CMK) used to encrypt the
-   *          build output artifacts.</p>
-   *          <p>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the
-   *          CMK alias (using the format alias/alias-name). </p>
-   */
-  EncryptionKey?: string;
 
   /**
    * <p>The ARN of the IAM role that enables AWS CodeBuild to interact with dependent AWS
@@ -1928,6 +1928,11 @@ export namespace AwsDynamoDbTableAttributeDefinition {
  */
 export interface AwsDynamoDbTableBillingModeSummary {
   /**
+   * <p>The method used to charge for read and write throughput and to manage capacity.</p>
+   */
+  BillingMode?: string;
+
+  /**
    * <p>If the billing mode is <code>PAY_PER_REQUEST</code>, indicates when the billing mode was
    *          set to that value.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
@@ -1935,11 +1940,6 @@ export interface AwsDynamoDbTableBillingModeSummary {
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   LastUpdateToPayPerRequestDateTime?: string;
-
-  /**
-   * <p>The method used to charge for read and write throughput and to manage capacity.</p>
-   */
-  BillingMode?: string;
 }
 
 export namespace AwsDynamoDbTableBillingModeSummary {
@@ -1999,10 +1999,12 @@ export namespace AwsDynamoDbTableProjection {
  */
 export interface AwsDynamoDbTableProvisionedThroughput {
   /**
-   * <p>The maximum number of writes consumed per second before DynamoDB returns a
-   *             <code>ThrottlingException</code>.</p>
+   * <p>Indicates when the provisioned throughput was last decreased.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
-  WriteCapacityUnits?: number;
+  LastDecreaseDateTime?: string;
 
   /**
    * <p>Indicates when the provisioned throughput was last increased.</p>
@@ -2011,14 +2013,6 @@ export interface AwsDynamoDbTableProvisionedThroughput {
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   LastIncreaseDateTime?: string;
-
-  /**
-   * <p>Indicates when the provisioned throughput was last decreased.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  LastDecreaseDateTime?: string;
 
   /**
    * <p>The number of times during the current UTC calendar day that the provisioned throughput
@@ -2031,6 +2025,12 @@ export interface AwsDynamoDbTableProvisionedThroughput {
    *          returns a <code>ThrottlingException</code>.</p>
    */
   ReadCapacityUnits?: number;
+
+  /**
+   * <p>The maximum number of writes consumed per second before DynamoDB returns a
+   *             <code>ThrottlingException</code>.</p>
+   */
+  WriteCapacityUnits?: number;
 }
 
 export namespace AwsDynamoDbTableProvisionedThroughput {
@@ -2044,29 +2044,9 @@ export namespace AwsDynamoDbTableProvisionedThroughput {
  */
 export interface AwsDynamoDbTableGlobalSecondaryIndex {
   /**
-   * <p>The key schema for the index.</p>
-   */
-  KeySchema?: AwsDynamoDbTableKeySchema[];
-
-  /**
-   * <p>The number of items in the index.</p>
-   */
-  ItemCount?: number;
-
-  /**
-   * <p>The current status of the index.</p>
-   */
-  IndexStatus?: string;
-
-  /**
    * <p>Whether the index is currently backfilling.</p>
    */
   Backfilling?: boolean;
-
-  /**
-   * <p>The name of the index.</p>
-   */
-  IndexName?: string;
 
   /**
    * <p>The ARN of the index.</p>
@@ -2074,9 +2054,9 @@ export interface AwsDynamoDbTableGlobalSecondaryIndex {
   IndexArn?: string;
 
   /**
-   * <p>Information about the provisioned throughput settings for the indexes.</p>
+   * <p>The name of the index.</p>
    */
-  ProvisionedThroughput?: AwsDynamoDbTableProvisionedThroughput;
+  IndexName?: string;
 
   /**
    * <p>The total size in bytes of the index.</p>
@@ -2084,9 +2064,29 @@ export interface AwsDynamoDbTableGlobalSecondaryIndex {
   IndexSizeBytes?: number;
 
   /**
+   * <p>The current status of the index.</p>
+   */
+  IndexStatus?: string;
+
+  /**
+   * <p>The number of items in the index.</p>
+   */
+  ItemCount?: number;
+
+  /**
+   * <p>The key schema for the index.</p>
+   */
+  KeySchema?: AwsDynamoDbTableKeySchema[];
+
+  /**
    * <p>Attributes that are copied from the table into an index.</p>
    */
   Projection?: AwsDynamoDbTableProjection;
+
+  /**
+   * <p>Information about the provisioned throughput settings for the indexes.</p>
+   */
+  ProvisionedThroughput?: AwsDynamoDbTableProvisionedThroughput;
 }
 
 export namespace AwsDynamoDbTableGlobalSecondaryIndex {
@@ -2100,6 +2100,16 @@ export namespace AwsDynamoDbTableGlobalSecondaryIndex {
  */
 export interface AwsDynamoDbTableLocalSecondaryIndex {
   /**
+   * <p>The ARN of the index.</p>
+   */
+  IndexArn?: string;
+
+  /**
+   * <p>The name of the index.</p>
+   */
+  IndexName?: string;
+
+  /**
    * <p>The complete key schema for the index.</p>
    */
   KeySchema?: AwsDynamoDbTableKeySchema[];
@@ -2109,16 +2119,6 @@ export interface AwsDynamoDbTableLocalSecondaryIndex {
    *          primary key attributes and index key attributes, which are automatically projected.</p>
    */
   Projection?: AwsDynamoDbTableProjection;
-
-  /**
-   * <p>The name of the index.</p>
-   */
-  IndexName?: string;
-
-  /**
-   * <p>The ARN of the index.</p>
-   */
-  IndexArn?: string;
 }
 
 export namespace AwsDynamoDbTableLocalSecondaryIndex {
@@ -2148,14 +2148,14 @@ export namespace AwsDynamoDbTableProvisionedThroughputOverride {
  */
 export interface AwsDynamoDbTableReplicaGlobalSecondaryIndex {
   /**
-   * <p>Replica-specific configuration for the provisioned throughput for the index.</p>
-   */
-  ProvisionedThroughputOverride?: AwsDynamoDbTableProvisionedThroughputOverride;
-
-  /**
    * <p>The name of the index.</p>
    */
   IndexName?: string;
+
+  /**
+   * <p>Replica-specific configuration for the provisioned throughput for the index.</p>
+   */
+  ProvisionedThroughputOverride?: AwsDynamoDbTableProvisionedThroughputOverride;
 }
 
 export namespace AwsDynamoDbTableReplicaGlobalSecondaryIndex {
@@ -2169,9 +2169,9 @@ export namespace AwsDynamoDbTableReplicaGlobalSecondaryIndex {
  */
 export interface AwsDynamoDbTableReplica {
   /**
-   * <p>The name of the Region where the replica is located.</p>
+   * <p>List of global secondary indexes for the replica.</p>
    */
-  RegionName?: string;
+  GlobalSecondaryIndexes?: AwsDynamoDbTableReplicaGlobalSecondaryIndex[];
 
   /**
    * <p>The identifier of the AWS KMS customer master key (CMK) that will be used for AWS KMS
@@ -2180,14 +2180,14 @@ export interface AwsDynamoDbTableReplica {
   KmsMasterKeyId?: string;
 
   /**
-   * <p>List of global secondary indexes for the replica.</p>
+   * <p>Replica-specific configuration for the provisioned throughput.</p>
    */
-  GlobalSecondaryIndexes?: AwsDynamoDbTableReplicaGlobalSecondaryIndex[];
+  ProvisionedThroughputOverride?: AwsDynamoDbTableProvisionedThroughputOverride;
 
   /**
-   * <p>Detailed information about the replica status.</p>
+   * <p>The name of the Region where the replica is located.</p>
    */
-  ReplicaStatusDescription?: string;
+  RegionName?: string;
 
   /**
    * <p>The current status of the replica.</p>
@@ -2195,9 +2195,9 @@ export interface AwsDynamoDbTableReplica {
   ReplicaStatus?: string;
 
   /**
-   * <p>Replica-specific configuration for the provisioned throughput.</p>
+   * <p>Detailed information about the replica status.</p>
    */
-  ProvisionedThroughputOverride?: AwsDynamoDbTableProvisionedThroughputOverride;
+  ReplicaStatusDescription?: string;
 }
 
 export namespace AwsDynamoDbTableReplica {
@@ -2211,6 +2211,16 @@ export namespace AwsDynamoDbTableReplica {
  */
 export interface AwsDynamoDbTableRestoreSummary {
   /**
+   * <p>The ARN of the source backup from which the table was restored.</p>
+   */
+  SourceBackupArn?: string;
+
+  /**
+   * <p>The ARN of the source table for the backup.</p>
+   */
+  SourceTableArn?: string;
+
+  /**
    * <p>Indicates the point in time that the table was restored to.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces. For example,
@@ -2219,19 +2229,9 @@ export interface AwsDynamoDbTableRestoreSummary {
   RestoreDateTime?: string;
 
   /**
-   * <p>The ARN of the source backup from which the table was restored.</p>
-   */
-  SourceBackupArn?: string;
-
-  /**
    * <p>Whether a restore is currently in progress.</p>
    */
   RestoreInProgress?: boolean;
-
-  /**
-   * <p>The ARN of the source table for the backup.</p>
-   */
-  SourceTableArn?: string;
 }
 
 export namespace AwsDynamoDbTableRestoreSummary {
@@ -2245,17 +2245,6 @@ export namespace AwsDynamoDbTableRestoreSummary {
  */
 export interface AwsDynamoDbTableSseDescription {
   /**
-   * <p>The ARN of the AWS KMS customer master key (CMK) that is used for the AWS KMS
-   *          encryption.</p>
-   */
-  KmsMasterKeyArn?: string;
-
-  /**
-   * <p>The status of the server-side encryption.</p>
-   */
-  Status?: string;
-
-  /**
    * <p>If the key is inaccessible, the date and time when DynamoDB detected that the key was
    *          inaccessible.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
@@ -2265,9 +2254,20 @@ export interface AwsDynamoDbTableSseDescription {
   InaccessibleEncryptionDateTime?: string;
 
   /**
+   * <p>The status of the server-side encryption.</p>
+   */
+  Status?: string;
+
+  /**
    * <p>The type of server-side encryption.</p>
    */
   SseType?: string;
+
+  /**
+   * <p>The ARN of the AWS KMS customer master key (CMK) that is used for the AWS KMS
+   *          encryption.</p>
+   */
+  KmsMasterKeyArn?: string;
 }
 
 export namespace AwsDynamoDbTableSseDescription {
@@ -2281,14 +2281,14 @@ export namespace AwsDynamoDbTableSseDescription {
  */
 export interface AwsDynamoDbTableStreamSpecification {
   /**
-   * <p>Determines the information that is written to the table.</p>
-   */
-  StreamViewType?: string;
-
-  /**
    * <p>Indicates whether DynamoDB Streams is enabled on the table.</p>
    */
   StreamEnabled?: boolean;
+
+  /**
+   * <p>Determines the information that is written to the table.</p>
+   */
+  StreamViewType?: string;
 }
 
 export namespace AwsDynamoDbTableStreamSpecification {
@@ -2302,84 +2302,14 @@ export namespace AwsDynamoDbTableStreamSpecification {
  */
 export interface AwsDynamoDbTableDetails {
   /**
-   * <p>Information about the provisioned throughput for the table.</p>
-   */
-  ProvisionedThroughput?: AwsDynamoDbTableProvisionedThroughput;
-
-  /**
-   * <p>Information about the restore for the table.</p>
-   */
-  RestoreSummary?: AwsDynamoDbTableRestoreSummary;
-
-  /**
-   * <p>The current status of the table.</p>
-   */
-  TableStatus?: string;
-
-  /**
-   * <p>The primary key structure for the table.</p>
-   */
-  KeySchema?: AwsDynamoDbTableKeySchema[];
-
-  /**
    * <p>A list of attribute definitions for the table.</p>
    */
   AttributeDefinitions?: AwsDynamoDbTableAttributeDefinition[];
 
   /**
-   * <p>The ARN of the latest stream for the table.</p>
-   */
-  LatestStreamArn?: string;
-
-  /**
-   * <p>The version of global tables being used.</p>
-   */
-  GlobalTableVersion?: string;
-
-  /**
-   * <p>The identifier of the table.</p>
-   */
-  TableId?: string;
-
-  /**
-   * <p>Information about the server-side encryption for the table.</p>
-   */
-  SseDescription?: AwsDynamoDbTableSseDescription;
-
-  /**
-   * <p>The list of replicas of this table.</p>
-   */
-  Replicas?: AwsDynamoDbTableReplica[];
-
-  /**
-   * <p>The total size of the table in bytes.</p>
-   */
-  TableSizeBytes?: number;
-
-  /**
-   * <p>List of global secondary indexes for the table.</p>
-   */
-  GlobalSecondaryIndexes?: AwsDynamoDbTableGlobalSecondaryIndex[];
-
-  /**
-   * <p>The number of items in the table.</p>
-   */
-  ItemCount?: number;
-
-  /**
    * <p>Information about the billing for read/write capacity on the table.</p>
    */
   BillingModeSummary?: AwsDynamoDbTableBillingModeSummary;
-
-  /**
-   * <p>The label of the latest stream. The label is not a unique identifier.</p>
-   */
-  LatestStreamLabel?: string;
-
-  /**
-   * <p>The name of the table.</p>
-   */
-  TableName?: string;
 
   /**
    * <p>Indicates when the table was created.</p>
@@ -2390,14 +2320,84 @@ export interface AwsDynamoDbTableDetails {
   CreationDateTime?: string;
 
   /**
-   * <p>The current DynamoDB Streams configuration for the table.</p>
+   * <p>List of global secondary indexes for the table.</p>
    */
-  StreamSpecification?: AwsDynamoDbTableStreamSpecification;
+  GlobalSecondaryIndexes?: AwsDynamoDbTableGlobalSecondaryIndex[];
+
+  /**
+   * <p>The version of global tables being used.</p>
+   */
+  GlobalTableVersion?: string;
+
+  /**
+   * <p>The number of items in the table.</p>
+   */
+  ItemCount?: number;
+
+  /**
+   * <p>The primary key structure for the table.</p>
+   */
+  KeySchema?: AwsDynamoDbTableKeySchema[];
+
+  /**
+   * <p>The ARN of the latest stream for the table.</p>
+   */
+  LatestStreamArn?: string;
+
+  /**
+   * <p>The label of the latest stream. The label is not a unique identifier.</p>
+   */
+  LatestStreamLabel?: string;
 
   /**
    * <p>The list of local secondary indexes for the table.</p>
    */
   LocalSecondaryIndexes?: AwsDynamoDbTableLocalSecondaryIndex[];
+
+  /**
+   * <p>Information about the provisioned throughput for the table.</p>
+   */
+  ProvisionedThroughput?: AwsDynamoDbTableProvisionedThroughput;
+
+  /**
+   * <p>The list of replicas of this table.</p>
+   */
+  Replicas?: AwsDynamoDbTableReplica[];
+
+  /**
+   * <p>Information about the restore for the table.</p>
+   */
+  RestoreSummary?: AwsDynamoDbTableRestoreSummary;
+
+  /**
+   * <p>Information about the server-side encryption for the table.</p>
+   */
+  SseDescription?: AwsDynamoDbTableSseDescription;
+
+  /**
+   * <p>The current DynamoDB Streams configuration for the table.</p>
+   */
+  StreamSpecification?: AwsDynamoDbTableStreamSpecification;
+
+  /**
+   * <p>The identifier of the table.</p>
+   */
+  TableId?: string;
+
+  /**
+   * <p>The name of the table.</p>
+   */
+  TableName?: string;
+
+  /**
+   * <p>The total size of the table in bytes.</p>
+   */
+  TableSizeBytes?: number;
+
+  /**
+   * <p>The current status of the table.</p>
+   */
+  TableStatus?: string;
 }
 
 export namespace AwsDynamoDbTableDetails {
@@ -2421,14 +2421,16 @@ export interface AwsEc2EipDetails {
   PublicIp?: string;
 
   /**
-   * <p>The AWS account ID of the owner of the network interface.</p>
+   * <p>The identifier that AWS assigns to represent the allocation of the Elastic IP address
+   *          for use with Amazon VPC.</p>
    */
-  NetworkInterfaceOwnerId?: string;
+  AllocationId?: string;
 
   /**
-   * <p>The name of the location from which the Elastic IP address is advertised.</p>
+   * <p>The identifier that represents the association of the Elastic IP address with an EC2
+   *          instance.</p>
    */
-  NetworkBorderGroup?: string;
+  AssociationId?: string;
 
   /**
    * <p>The domain in which to allocate the address.</p>
@@ -2438,32 +2440,30 @@ export interface AwsEc2EipDetails {
   Domain?: string;
 
   /**
+   * <p>The identifier of an IP address pool. This parameter allows Amazon EC2 to select an IP
+   *          address from the address pool.</p>
+   */
+  PublicIpv4Pool?: string;
+
+  /**
+   * <p>The name of the location from which the Elastic IP address is advertised.</p>
+   */
+  NetworkBorderGroup?: string;
+
+  /**
    * <p>The identifier of the network interface.</p>
    */
   NetworkInterfaceId?: string;
 
   /**
-   * <p>The identifier that represents the association of the Elastic IP address with an EC2
-   *          instance.</p>
+   * <p>The AWS account ID of the owner of the network interface.</p>
    */
-  AssociationId?: string;
+  NetworkInterfaceOwnerId?: string;
 
   /**
    * <p>The private IP address that is associated with the Elastic IP address.</p>
    */
   PrivateIpAddress?: string;
-
-  /**
-   * <p>The identifier that AWS assigns to represent the allocation of the Elastic IP address
-   *          for use with Amazon VPC.</p>
-   */
-  AllocationId?: string;
-
-  /**
-   * <p>The identifier of an IP address pool. This parameter allows Amazon EC2 to select an IP
-   *          address from the address pool.</p>
-   */
-  PublicIpv4Pool?: string;
 }
 
 export namespace AwsEc2EipDetails {
@@ -2477,24 +2477,9 @@ export namespace AwsEc2EipDetails {
  */
 export interface AwsEc2InstanceDetails {
   /**
-   * <p>The identifier of the subnet that the instance was launched in.</p>
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>The identifier of the VPC that the instance was launched in.</p>
-   */
-  VpcId?: string;
-
-  /**
    * <p>The instance type of the instance. </p>
    */
   Type?: string;
-
-  /**
-   * <p>The IPv4 addresses associated with the instance.</p>
-   */
-  IpV4Addresses?: string[];
 
   /**
    * <p>The Amazon Machine Image (AMI) ID of the instance.</p>
@@ -2502,9 +2487,9 @@ export interface AwsEc2InstanceDetails {
   ImageId?: string;
 
   /**
-   * <p>The key name associated with the instance.</p>
+   * <p>The IPv4 addresses associated with the instance.</p>
    */
-  KeyName?: string;
+  IpV4Addresses?: string[];
 
   /**
    * <p>The IPv6 addresses associated with the instance.</p>
@@ -2512,9 +2497,24 @@ export interface AwsEc2InstanceDetails {
   IpV6Addresses?: string[];
 
   /**
+   * <p>The key name associated with the instance.</p>
+   */
+  KeyName?: string;
+
+  /**
    * <p>The IAM profile ARN of the instance.</p>
    */
   IamInstanceProfileArn?: string;
+
+  /**
+   * <p>The identifier of the VPC that the instance was launched in.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The identifier of the subnet that the instance was launched in.</p>
+   */
+  SubnetId?: string;
 
   /**
    * <p>Indicates when the instance was launched.</p>
@@ -2536,35 +2536,17 @@ export namespace AwsEc2InstanceDetails {
  */
 export interface AwsEc2NetworkInterfaceAttachment {
   /**
-   * <p>The identifier of the network interface attachment</p>
-   */
-  AttachmentId?: string;
-
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The attachment state.</p>
-   *          <p>Valid values: <code>attaching</code> | <code>attached</code> | <code>detaching</code> |
-   *             <code>detached</code>
-   *          </p>
-   */
-  Status?: string;
-
-  /**
-   * <p>The AWS account ID of the owner of the instance.</p>
-   */
-  InstanceOwnerId?: string;
-
-  /**
    * <p>Indicates when the attachment initiated.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   AttachTime?: string;
+
+  /**
+   * <p>The identifier of the network interface attachment</p>
+   */
+  AttachmentId?: string;
 
   /**
    * <p>Indicates whether the network interface is deleted when the instance is
@@ -2576,6 +2558,24 @@ export interface AwsEc2NetworkInterfaceAttachment {
    * <p>The device index of the network interface attachment on the instance.</p>
    */
   DeviceIndex?: number;
+
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The AWS account ID of the owner of the instance.</p>
+   */
+  InstanceOwnerId?: string;
+
+  /**
+   * <p>The attachment state.</p>
+   *          <p>Valid values: <code>attaching</code> | <code>attached</code> | <code>detaching</code> |
+   *             <code>detached</code>
+   *          </p>
+   */
+  Status?: string;
 }
 
 export namespace AwsEc2NetworkInterfaceAttachment {
@@ -2589,14 +2589,14 @@ export namespace AwsEc2NetworkInterfaceAttachment {
  */
 export interface AwsEc2NetworkInterfaceSecurityGroup {
   /**
-   * <p>The ID of the security group.</p>
-   */
-  GroupId?: string;
-
-  /**
    * <p>The name of the security group.</p>
    */
   GroupName?: string;
+
+  /**
+   * <p>The ID of the security group.</p>
+   */
+  GroupId?: string;
 }
 
 export namespace AwsEc2NetworkInterfaceSecurityGroup {
@@ -2609,6 +2609,11 @@ export namespace AwsEc2NetworkInterfaceSecurityGroup {
  * <p>Details about the network interface</p>
  */
 export interface AwsEc2NetworkInterfaceDetails {
+  /**
+   * <p>The network interface attachment.</p>
+   */
+  Attachment?: AwsEc2NetworkInterfaceAttachment;
+
   /**
    * <p>The ID of the network interface.</p>
    */
@@ -2623,11 +2628,6 @@ export interface AwsEc2NetworkInterfaceDetails {
    * <p>Indicates whether traffic to or from the instance is validated.</p>
    */
   SourceDestCheck?: boolean;
-
-  /**
-   * <p>The network interface attachment.</p>
-   */
-  Attachment?: AwsEc2NetworkInterfaceAttachment;
 }
 
 export namespace AwsEc2NetworkInterfaceDetails {
@@ -2691,29 +2691,19 @@ export namespace AwsEc2SecurityGroupPrefixListId {
  */
 export interface AwsEc2SecurityGroupUserIdGroupPair {
   /**
-   * <p>The name of the security group.</p>
-   */
-  GroupName?: string;
-
-  /**
    * <p>The ID of the security group.</p>
    */
   GroupId?: string;
 
   /**
+   * <p>The name of the security group.</p>
+   */
+  GroupName?: string;
+
+  /**
    * <p>The status of a VPC peering connection, if applicable.</p>
    */
   PeeringStatus?: string;
-
-  /**
-   * <p>The ID of the VPC for the referenced security group, if applicable.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>The ID of the VPC peering connection, if applicable.</p>
-   */
-  VpcPeeringConnectionId?: string;
 
   /**
    * <p>The ID of an AWS account.</p>
@@ -2724,6 +2714,16 @@ export interface AwsEc2SecurityGroupUserIdGroupPair {
    *          another AWS. </p>
    */
   UserId?: string;
+
+  /**
+   * <p>The ID of the VPC for the referenced security group, if applicable.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The ID of the VPC peering connection, if applicable.</p>
+   */
+  VpcPeeringConnectionId?: string;
 }
 
 export namespace AwsEc2SecurityGroupUserIdGroupPair {
@@ -2751,23 +2751,6 @@ export interface AwsEc2SecurityGroupIpPermission {
   IpProtocol?: string;
 
   /**
-   * <p>[VPC only] The prefix list IDs for an AWS service. With outbound rules, this is the AWS
-   *          service to access through a VPC endpoint from instances associated with the security
-   *          group.</p>
-   */
-  PrefixListIds?: AwsEc2SecurityGroupPrefixListId[];
-
-  /**
-   * <p>The IPv6 ranges.</p>
-   */
-  Ipv6Ranges?: AwsEc2SecurityGroupIpv6Range[];
-
-  /**
-   * <p>The security group and AWS account ID pairs.</p>
-   */
-  UserIdGroupPairs?: AwsEc2SecurityGroupUserIdGroupPair[];
-
-  /**
    * <p>The start of the port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type
    *          number.</p>
    *          <p>A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you
@@ -2776,16 +2759,33 @@ export interface AwsEc2SecurityGroupIpPermission {
   FromPort?: number;
 
   /**
-   * <p>The IPv4 ranges.</p>
-   */
-  IpRanges?: AwsEc2SecurityGroupIpRange[];
-
-  /**
    * <p>The end of the port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.</p>
    *          <p>A value of -1 indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you
    *          must specify all codes.</p>
    */
   ToPort?: number;
+
+  /**
+   * <p>The security group and AWS account ID pairs.</p>
+   */
+  UserIdGroupPairs?: AwsEc2SecurityGroupUserIdGroupPair[];
+
+  /**
+   * <p>The IPv4 ranges.</p>
+   */
+  IpRanges?: AwsEc2SecurityGroupIpRange[];
+
+  /**
+   * <p>The IPv6 ranges.</p>
+   */
+  Ipv6Ranges?: AwsEc2SecurityGroupIpv6Range[];
+
+  /**
+   * <p>[VPC only] The prefix list IDs for an AWS service. With outbound rules, this is the AWS
+   *          service to access through a VPC endpoint from instances associated with the security
+   *          group.</p>
+   */
+  PrefixListIds?: AwsEc2SecurityGroupPrefixListId[];
 }
 
 export namespace AwsEc2SecurityGroupIpPermission {
@@ -2799,6 +2799,11 @@ export namespace AwsEc2SecurityGroupIpPermission {
  */
 export interface AwsEc2SecurityGroupDetails {
   /**
+   * <p>The name of the security group.</p>
+   */
+  GroupName?: string;
+
+  /**
    * <p>The ID of the security group.</p>
    */
   GroupId?: string;
@@ -2809,24 +2814,19 @@ export interface AwsEc2SecurityGroupDetails {
   OwnerId?: string;
 
   /**
+   * <p>[VPC only] The ID of the VPC for the security group.</p>
+   */
+  VpcId?: string;
+
+  /**
    * <p>The inbound rules associated with the security group.</p>
    */
   IpPermissions?: AwsEc2SecurityGroupIpPermission[];
 
   /**
-   * <p>The name of the security group.</p>
-   */
-  GroupName?: string;
-
-  /**
    * <p>[VPC only] The outbound rules associated with the security group.</p>
    */
   IpPermissionsEgress?: AwsEc2SecurityGroupIpPermission[];
-
-  /**
-   * <p>[VPC only] The ID of the VPC for the security group.</p>
-   */
-  VpcId?: string;
 }
 
 export namespace AwsEc2SecurityGroupDetails {
@@ -2840,6 +2840,16 @@ export namespace AwsEc2SecurityGroupDetails {
  */
 export interface AwsEc2VolumeAttachment {
   /**
+   * <p>The datetime when the attachment initiated.</p>
+   */
+  AttachTime?: string;
+
+  /**
+   * <p>Whether the EBS volume is deleted when the EC2 instance is terminated.</p>
+   */
+  DeleteOnTermination?: boolean;
+
+  /**
    * <p>The identifier of the EC2 instance.</p>
    */
   InstanceId?: string;
@@ -2848,16 +2858,6 @@ export interface AwsEc2VolumeAttachment {
    * <p>The attachment state of the volume.</p>
    */
   Status?: string;
-
-  /**
-   * <p>Whether the EBS volume is deleted when the EC2 instance is terminated.</p>
-   */
-  DeleteOnTermination?: boolean;
-
-  /**
-   * <p>The datetime when the attachment initiated.</p>
-   */
-  AttachTime?: string;
 }
 
 export namespace AwsEc2VolumeAttachment {
@@ -2871,26 +2871,6 @@ export namespace AwsEc2VolumeAttachment {
  */
 export interface AwsEc2VolumeDetails {
   /**
-   * <p>The volume attachments.</p>
-   */
-  Attachments?: AwsEc2VolumeAttachment[];
-
-  /**
-   * <p>The snapshot from which the volume was created.</p>
-   */
-  SnapshotId?: string;
-
-  /**
-   * <p>Whether the volume is encrypted.</p>
-   */
-  Encrypted?: boolean;
-
-  /**
-   * <p>The volume state.</p>
-   */
-  Status?: string;
-
-  /**
    * <p>Indicates when the volume was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces. For example,
@@ -2899,15 +2879,35 @@ export interface AwsEc2VolumeDetails {
   CreateTime?: string;
 
   /**
+   * <p>Whether the volume is encrypted.</p>
+   */
+  Encrypted?: boolean;
+
+  /**
    * <p>The size of the volume, in GiBs.</p>
    */
   Size?: number;
+
+  /**
+   * <p>The snapshot from which the volume was created.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>The volume state.</p>
+   */
+  Status?: string;
 
   /**
    * <p>The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) that was
    *          used to protect the volume encryption key for the volume.</p>
    */
   KmsKeyId?: string;
+
+  /**
+   * <p>The volume attachments.</p>
+   */
+  Attachments?: AwsEc2VolumeAttachment[];
 }
 
 export namespace AwsEc2VolumeDetails {
@@ -2921,14 +2921,14 @@ export namespace AwsEc2VolumeDetails {
  */
 export interface CidrBlockAssociation {
   /**
-   * <p>The IPv4 CIDR block.</p>
-   */
-  CidrBlock?: string;
-
-  /**
    * <p>The association ID for the IPv4 CIDR block.</p>
    */
   AssociationId?: string;
+
+  /**
+   * <p>The IPv4 CIDR block.</p>
+   */
+  CidrBlock?: string;
 
   /**
    * <p>Information about the state of the IPv4 CIDR block.</p>
@@ -2947,14 +2947,14 @@ export namespace CidrBlockAssociation {
  */
 export interface Ipv6CidrBlockAssociation {
   /**
-   * <p>The IPv6 CIDR block.</p>
-   */
-  Ipv6CidrBlock?: string;
-
-  /**
    * <p>The association ID for the IPv6 CIDR block.</p>
    */
   AssociationId?: string;
+
+  /**
+   * <p>The IPv6 CIDR block.</p>
+   */
+  Ipv6CidrBlock?: string;
 
   /**
    * <p>Information about the state of the CIDR block.</p>
@@ -2973,11 +2973,9 @@ export namespace Ipv6CidrBlockAssociation {
  */
 export interface AwsEc2VpcDetails {
   /**
-   * <p>The identifier of the set of Dynamic Host Configuration Protocol (DHCP) options that are
-   *          associated with the VPC. If the default options are associated with the VPC, then this is
-   *          default.</p>
+   * <p>Information about the IPv4 CIDR blocks associated with the VPC.</p>
    */
-  DhcpOptionsId?: string;
+  CidrBlockAssociationSet?: CidrBlockAssociation[];
 
   /**
    * <p>Information about the IPv6 CIDR blocks associated with the VPC.</p>
@@ -2985,14 +2983,16 @@ export interface AwsEc2VpcDetails {
   Ipv6CidrBlockAssociationSet?: Ipv6CidrBlockAssociation[];
 
   /**
+   * <p>The identifier of the set of Dynamic Host Configuration Protocol (DHCP) options that are
+   *          associated with the VPC. If the default options are associated with the VPC, then this is
+   *          default.</p>
+   */
+  DhcpOptionsId?: string;
+
+  /**
    * <p>The current state of the VPC.</p>
    */
   State?: string;
-
-  /**
-   * <p>Information about the IPv4 CIDR blocks associated with the VPC.</p>
-   */
-  CidrBlockAssociationSet?: CidrBlockAssociation[];
 }
 
 export namespace AwsEc2VpcDetails {
@@ -3040,14 +3040,14 @@ export namespace AwsElasticsearchDomainDomainEndpointOptions {
  */
 export interface AwsElasticsearchDomainEncryptionAtRestOptions {
   /**
-   * <p>The KMS key ID. Takes the form 1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
    * <p>Whether encryption at rest is enabled.</p>
    */
   Enabled?: boolean;
+
+  /**
+   * <p>The KMS key ID. Takes the form 1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a.</p>
+   */
+  KmsKeyId?: string;
 }
 
 export namespace AwsElasticsearchDomainEncryptionAtRestOptions {
@@ -3078,11 +3078,6 @@ export namespace AwsElasticsearchDomainNodeToNodeEncryptionOptions {
  */
 export interface AwsElasticsearchDomainVPCOptions {
   /**
-   * <p>ID for the VPC.</p>
-   */
-  VPCId?: string;
-
-  /**
    * <p>The list of Availability Zones associated with the VPC subnets.</p>
    */
   AvailabilityZones?: string[];
@@ -3096,6 +3091,11 @@ export interface AwsElasticsearchDomainVPCOptions {
    * <p>A list of subnet IDs associated with the VPC endpoints for the domain.</p>
    */
   SubnetIds?: string[];
+
+  /**
+   * <p>ID for the VPC.</p>
+   */
+  VPCId?: string;
 }
 
 export namespace AwsElasticsearchDomainVPCOptions {
@@ -3109,21 +3109,19 @@ export namespace AwsElasticsearchDomainVPCOptions {
  */
 export interface AwsElasticsearchDomainDetails {
   /**
+   * <p>IAM policy document specifying the access policies for the new Amazon ES domain.</p>
+   */
+  AccessPolicies?: string;
+
+  /**
+   * <p>Additional options for the domain endpoint.</p>
+   */
+  DomainEndpointOptions?: AwsElasticsearchDomainDomainEndpointOptions;
+
+  /**
    * <p>Unique identifier for an Amazon ES domain.</p>
    */
   DomainId?: string;
-
-  /**
-   * <p>The key-value pair that exists if the Amazon ES domain uses VPC endpoints.</p>
-   */
-  Endpoints?: { [key: string]: string };
-
-  /**
-   * <p>Domain-specific endpoint used to submit index, search, and data upload requests to an
-   *          Amazon ES domain.</p>
-   *          <p>The endpoint is a service URL. </p>
-   */
-  Endpoint?: string;
 
   /**
    * <p>Name of an Amazon ES domain.</p>
@@ -3136,6 +3134,18 @@ export interface AwsElasticsearchDomainDetails {
   DomainName?: string;
 
   /**
+   * <p>Domain-specific endpoint used to submit index, search, and data upload requests to an
+   *          Amazon ES domain.</p>
+   *          <p>The endpoint is a service URL. </p>
+   */
+  Endpoint?: string;
+
+  /**
+   * <p>The key-value pair that exists if the Amazon ES domain uses VPC endpoints.</p>
+   */
+  Endpoints?: { [key: string]: string };
+
+  /**
    * <p>Elasticsearch version.</p>
    */
   ElasticsearchVersion?: string;
@@ -3144,16 +3154,6 @@ export interface AwsElasticsearchDomainDetails {
    * <p>Details about the configuration for encryption at rest.</p>
    */
   EncryptionAtRestOptions?: AwsElasticsearchDomainEncryptionAtRestOptions;
-
-  /**
-   * <p>IAM policy document specifying the access policies for the new Amazon ES domain.</p>
-   */
-  AccessPolicies?: string;
-
-  /**
-   * <p>Additional options for the domain endpoint.</p>
-   */
-  DomainEndpointOptions?: AwsElasticsearchDomainDomainEndpointOptions;
 
   /**
    * <p>Details about the configuration for node-to-node encryption.</p>
@@ -3226,9 +3226,10 @@ export namespace AwsElbLbCookieStickinessPolicy {
  */
 export interface AwsElbLoadBalancerAccessLog {
   /**
-   * <p>The name of the S3 bucket where the access logs are stored.</p>
+   * <p>The interval in minutes for publishing the access logs.</p>
+   *          <p>You can publish access logs either every 5 minutes or every 60 minutes.</p>
    */
-  S3BucketName?: string;
+  EmitInterval?: number;
 
   /**
    * <p>Indicates whether access logs are enabled for the load balancer.</p>
@@ -3236,16 +3237,15 @@ export interface AwsElbLoadBalancerAccessLog {
   Enabled?: boolean;
 
   /**
+   * <p>The name of the S3 bucket where the access logs are stored.</p>
+   */
+  S3BucketName?: string;
+
+  /**
    * <p>The logical hierarchy that was created for the S3 bucket.</p>
    *          <p>If a prefix is not provided, the log is placed at the root level of the bucket.</p>
    */
   S3BucketPrefix?: string;
-
-  /**
-   * <p>The interval in minutes for publishing the access logs.</p>
-   *          <p>You can publish access logs either every 5 minutes or every 60 minutes.</p>
-   */
-  EmitInterval?: number;
 }
 
 export namespace AwsElbLoadBalancerAccessLog {
@@ -3322,6 +3322,13 @@ export interface AwsElbLoadBalancerAttributes {
   AccessLog?: AwsElbLoadBalancerAccessLog;
 
   /**
+   * <p>Information about the connection draining configuration for the load balancer.</p>
+   *          <p>If connection draining is enabled, the load balancer allows existing requests to
+   *          complete before it shifts traffic away from a deregistered or unhealthy instance.</p>
+   */
+  ConnectionDraining?: AwsElbLoadBalancerConnectionDraining;
+
+  /**
    * <p>Connection settings for the load balancer.</p>
    *          <p>If an idle timeout is configured, the load balancer allows connections to remain idle
    *          for the specified duration. When a connection is idle, no data is sent over the
@@ -3335,13 +3342,6 @@ export interface AwsElbLoadBalancerAttributes {
    *          evenly across all instances regardless of the Availability Zones.</p>
    */
   CrossZoneLoadBalancing?: AwsElbLoadBalancerCrossZoneLoadBalancing;
-
-  /**
-   * <p>Information about the connection draining configuration for the load balancer.</p>
-   *          <p>If connection draining is enabled, the load balancer allows existing requests to
-   *          complete before it shifts traffic away from a deregistered or unhealthy instance.</p>
-   */
-  ConnectionDraining?: AwsElbLoadBalancerConnectionDraining;
 }
 
 export namespace AwsElbLoadBalancerAttributes {
@@ -3356,14 +3356,14 @@ export namespace AwsElbLoadBalancerAttributes {
  */
 export interface AwsElbLoadBalancerBackendServerDescription {
   /**
-   * <p>The names of the policies that are enabled for the EC2 instance.</p>
-   */
-  PolicyNames?: string[];
-
-  /**
    * <p>The port on which the EC2 instance is listening.</p>
    */
   InstancePort?: number;
+
+  /**
+   * <p>The names of the policies that are enabled for the EC2 instance.</p>
+   */
+  PolicyNames?: string[];
 }
 
 export namespace AwsElbLoadBalancerBackendServerDescription {
@@ -3382,18 +3382,6 @@ export interface AwsElbLoadBalancerHealthCheck {
    *          to the Healthy state.</p>
    */
   HealthyThreshold?: number;
-
-  /**
-   * <p>The number of consecutive health check failures that must occur before the instance is
-   *          moved to the Unhealthy state.</p>
-   */
-  UnhealthyThreshold?: number;
-
-  /**
-   * <p>The amount of time, in seconds, during which no response means a failed health
-   *          check.</p>
-   */
-  Timeout?: number;
 
   /**
    * <p>The approximate interval, in seconds, between health checks of an individual
@@ -3419,6 +3407,18 @@ export interface AwsElbLoadBalancerHealthCheck {
    *             </code>.</p>
    */
   Target?: string;
+
+  /**
+   * <p>The amount of time, in seconds, during which no response means a failed health
+   *          check.</p>
+   */
+  Timeout?: number;
+
+  /**
+   * <p>The number of consecutive health check failures that must occur before the instance is
+   *          moved to the Unhealthy state.</p>
+   */
+  UnhealthyThreshold?: number;
 }
 
 export namespace AwsElbLoadBalancerHealthCheck {
@@ -3448,20 +3448,17 @@ export namespace AwsElbLoadBalancerInstance {
  */
 export interface AwsElbLoadBalancerListener {
   /**
+   * <p>The port on which the instance is listening.</p>
+   */
+  InstancePort?: number;
+
+  /**
    * <p>The protocol to use to route traffic to instances.</p>
    *          <p>Valid values: <code>HTTP</code> | <code>HTTPS</code> | <code>TCP</code> |
    *             <code>SSL</code>
    *          </p>
    */
   InstanceProtocol?: string;
-
-  /**
-   * <p>The load balancer transport protocol to use for routing.</p>
-   *          <p>Valid values: <code>HTTP</code> | <code>HTTPS</code> | <code>TCP</code> |
-   *             <code>SSL</code>
-   *          </p>
-   */
-  Protocol?: string;
 
   /**
    * <p>The port on which the load balancer is listening.</p>
@@ -3472,9 +3469,12 @@ export interface AwsElbLoadBalancerListener {
   LoadBalancerPort?: number;
 
   /**
-   * <p>The port on which the instance is listening.</p>
+   * <p>The load balancer transport protocol to use for routing.</p>
+   *          <p>Valid values: <code>HTTP</code> | <code>HTTPS</code> | <code>TCP</code> |
+   *             <code>SSL</code>
+   *          </p>
    */
-  InstancePort?: number;
+  Protocol?: string;
 
   /**
    * <p>The ARN of the server certificate.</p>
@@ -3520,15 +3520,15 @@ export interface AwsElbLoadBalancerPolicies {
   AppCookieStickinessPolicies?: AwsElbAppCookieStickinessPolicy[];
 
   /**
-   * <p>The policies other than the stickiness policies.</p>
-   */
-  OtherPolicies?: string[];
-
-  /**
    * <p>The stickiness policies that are created using
    *             <code>CreateLBCookieStickinessPolicy</code>.</p>
    */
   LbCookieStickinessPolicies?: AwsElbLbCookieStickinessPolicy[];
+
+  /**
+   * <p>The policies other than the stickiness policies.</p>
+   */
+  OtherPolicies?: string[];
 }
 
 export namespace AwsElbLoadBalancerPolicies {
@@ -3542,14 +3542,14 @@ export namespace AwsElbLoadBalancerPolicies {
  */
 export interface AwsElbLoadBalancerSourceSecurityGroup {
   /**
-   * <p>The owner of the security group.</p>
-   */
-  OwnerAlias?: string;
-
-  /**
    * <p>The name of the security group.</p>
    */
   GroupName?: string;
+
+  /**
+   * <p>The owner of the security group.</p>
+   */
+  OwnerAlias?: string;
 }
 
 export namespace AwsElbLoadBalancerSourceSecurityGroup {
@@ -3563,21 +3563,67 @@ export namespace AwsElbLoadBalancerSourceSecurityGroup {
  */
 export interface AwsElbLoadBalancerDetails {
   /**
-   * <p>Information about the security group for the load balancer. This is the security group
-   *          that is used for inbound rules.</p>
+   * <p>The list of Availability Zones for the load balancer.</p>
    */
-  SourceSecurityGroup?: AwsElbLoadBalancerSourceSecurityGroup;
+  AvailabilityZones?: string[];
 
   /**
-   * <p>The security groups for the load balancer. Only provided if the load balancer is in a
-   *          VPC.</p>
+   * <p>Information about the configuration of the EC2 instances.</p>
    */
-  SecurityGroups?: string[];
+  BackendServerDescriptions?: AwsElbLoadBalancerBackendServerDescription[];
+
+  /**
+   * <p>The name of the Amazon Route 53 hosted zone for the load balancer.</p>
+   */
+  CanonicalHostedZoneName?: string;
+
+  /**
+   * <p>The ID of the Amazon Route 53 hosted zone for the load balancer.</p>
+   */
+  CanonicalHostedZoneNameID?: string;
+
+  /**
+   * <p>Indicates when the load balancer was created.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  CreatedTime?: string;
 
   /**
    * <p>The DNS name of the load balancer.</p>
    */
   DnsName?: string;
+
+  /**
+   * <p>Information about the health checks that are conducted on the load balancer.</p>
+   */
+  HealthCheck?: AwsElbLoadBalancerHealthCheck;
+
+  /**
+   * <p>List of EC2 instances for the load balancer.</p>
+   */
+  Instances?: AwsElbLoadBalancerInstance[];
+
+  /**
+   * <p>The policies that are enabled for the load balancer listeners.</p>
+   */
+  ListenerDescriptions?: AwsElbLoadBalancerListenerDescription[];
+
+  /**
+   * <p>The attributes for a load balancer.</p>
+   */
+  LoadBalancerAttributes?: AwsElbLoadBalancerAttributes;
+
+  /**
+   * <p>The name of the load balancer.</p>
+   */
+  LoadBalancerName?: string;
+
+  /**
+   * <p>The policies for a load balancer.</p>
+   */
+  Policies?: AwsElbLoadBalancerPolicies;
 
   /**
    * <p>The type of load balancer. Only provided if the load balancer is in a VPC.</p>
@@ -3589,47 +3635,16 @@ export interface AwsElbLoadBalancerDetails {
   Scheme?: string;
 
   /**
-   * <p>Indicates when the load balancer was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * <p>The security groups for the load balancer. Only provided if the load balancer is in a
+   *          VPC.</p>
    */
-  CreatedTime?: string;
+  SecurityGroups?: string[];
 
   /**
-   * <p>The name of the Amazon Route 53 hosted zone for the load balancer.</p>
+   * <p>Information about the security group for the load balancer. This is the security group
+   *          that is used for inbound rules.</p>
    */
-  CanonicalHostedZoneName?: string;
-
-  /**
-   * <p>Information about the configuration of the EC2 instances.</p>
-   */
-  BackendServerDescriptions?: AwsElbLoadBalancerBackendServerDescription[];
-
-  /**
-   * <p>The attributes for a load balancer.</p>
-   */
-  LoadBalancerAttributes?: AwsElbLoadBalancerAttributes;
-
-  /**
-   * <p>The policies for a load balancer.</p>
-   */
-  Policies?: AwsElbLoadBalancerPolicies;
-
-  /**
-   * <p>The policies that are enabled for the load balancer listeners.</p>
-   */
-  ListenerDescriptions?: AwsElbLoadBalancerListenerDescription[];
-
-  /**
-   * <p>List of EC2 instances for the load balancer.</p>
-   */
-  Instances?: AwsElbLoadBalancerInstance[];
-
-  /**
-   * <p>The name of the load balancer.</p>
-   */
-  LoadBalancerName?: string;
+  SourceSecurityGroup?: AwsElbLoadBalancerSourceSecurityGroup;
 
   /**
    * <p>The list of subnet identifiers for the load balancer.</p>
@@ -3640,21 +3655,6 @@ export interface AwsElbLoadBalancerDetails {
    * <p>The identifier of the VPC for the load balancer.</p>
    */
   VpcId?: string;
-
-  /**
-   * <p>The list of Availability Zones for the load balancer.</p>
-   */
-  AvailabilityZones?: string[];
-
-  /**
-   * <p>The ID of the Amazon Route 53 hosted zone for the load balancer.</p>
-   */
-  CanonicalHostedZoneNameID?: string;
-
-  /**
-   * <p>Information about the health checks that are conducted on the load balancer.</p>
-   */
-  HealthCheck?: AwsElbLoadBalancerHealthCheck;
 }
 
 export namespace AwsElbLoadBalancerDetails {
@@ -3668,17 +3668,17 @@ export namespace AwsElbLoadBalancerDetails {
  */
 export interface LoadBalancerState {
   /**
-   * <p>A description of the state.</p>
-   */
-  Reason?: string;
-
-  /**
    * <p>The state code. The initial state of the load balancer is provisioning.</p>
    *          <p>After the load balancer is fully set up and ready to route traffic, its state is
    *          active.</p>
    *          <p>If the load balancer could not be set up, its state is failed. </p>
    */
   Code?: string;
+
+  /**
+   * <p>A description of the state.</p>
+   */
+  Reason?: string;
 }
 
 export namespace LoadBalancerState {
@@ -3692,11 +3692,6 @@ export namespace LoadBalancerState {
  */
 export interface AwsElbv2LoadBalancerDetails {
   /**
-   * <p>The ID of the VPC for the load balancer.</p>
-   */
-  VpcId?: string;
-
-  /**
    * <p>The Availability Zones for the load balancer.</p>
    */
   AvailabilityZones?: AvailabilityZone[];
@@ -3707,9 +3702,24 @@ export interface AwsElbv2LoadBalancerDetails {
   CanonicalHostedZoneId?: string;
 
   /**
-   * <p>The state of the load balancer.</p>
+   * <p>Indicates when the load balancer was created.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
-  State?: LoadBalancerState;
+  CreatedTime?: string;
+
+  /**
+   * <p>The public DNS name of the load balancer.</p>
+   */
+  DNSName?: string;
+
+  /**
+   * <p>The type of IP addresses used by the subnets for your load balancer. The possible values
+   *          are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6
+   *          addresses).</p>
+   */
+  IpAddressType?: string;
 
   /**
    * <p>The nodes of an Internet-facing load balancer have public IP addresses.</p>
@@ -3722,29 +3732,19 @@ export interface AwsElbv2LoadBalancerDetails {
   SecurityGroups?: string[];
 
   /**
-   * <p>Indicates when the load balancer was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * <p>The state of the load balancer.</p>
    */
-  CreatedTime?: string;
-
-  /**
-   * <p>The type of IP addresses used by the subnets for your load balancer. The possible values
-   *          are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6
-   *          addresses).</p>
-   */
-  IpAddressType?: string;
-
-  /**
-   * <p>The public DNS name of the load balancer.</p>
-   */
-  DNSName?: string;
+  State?: LoadBalancerState;
 
   /**
    * <p>The type of load balancer.</p>
    */
   Type?: string;
+
+  /**
+   * <p>The ID of the VPC for the load balancer.</p>
+   */
+  VpcId?: string;
 }
 
 export namespace AwsElbv2LoadBalancerDetails {
@@ -3782,14 +3782,9 @@ export namespace AwsIamAccessKeySessionContextAttributes {
  */
 export interface AwsIamAccessKeySessionContextSessionIssuer {
   /**
-   * <p>The name of the principal that created the session.</p>
+   * <p>The type of principal (user, role, or group) that created the session.</p>
    */
-  UserName?: string;
-
-  /**
-   * <p>The ARN of the session.</p>
-   */
-  Arn?: string;
+  Type?: string;
 
   /**
    * <p>The principal ID of the principal (user, role, or group) that created the
@@ -3798,14 +3793,19 @@ export interface AwsIamAccessKeySessionContextSessionIssuer {
   PrincipalId?: string;
 
   /**
-   * <p>The type of principal (user, role, or group) that created the session.</p>
+   * <p>The ARN of the session.</p>
    */
-  Type?: string;
+  Arn?: string;
 
   /**
    * <p>The identifier of the AWS account that created the session.</p>
    */
   AccountId?: string;
+
+  /**
+   * <p>The name of the principal that created the session.</p>
+   */
+  UserName?: string;
 }
 
 export namespace AwsIamAccessKeySessionContextSessionIssuer {
@@ -3819,14 +3819,14 @@ export namespace AwsIamAccessKeySessionContextSessionIssuer {
  */
 export interface AwsIamAccessKeySessionContext {
   /**
-   * <p>Information about the entity that created the session.</p>
-   */
-  SessionIssuer?: AwsIamAccessKeySessionContextSessionIssuer;
-
-  /**
    * <p>Attributes of the session that the key was used for.</p>
    */
   Attributes?: AwsIamAccessKeySessionContextAttributes;
+
+  /**
+   * <p>Information about the entity that created the session.</p>
+   */
+  SessionIssuer?: AwsIamAccessKeySessionContextSessionIssuer;
 }
 
 export namespace AwsIamAccessKeySessionContext {
@@ -3845,19 +3845,17 @@ export enum AwsIamAccessKeyStatus {
  */
 export interface AwsIamAccessKeyDetails {
   /**
-   * <p>The name of the principal.</p>
+   * <p>The user associated with the IAM access key related to a finding.</p>
+   *          <p>The <code>UserName</code> parameter has been replaced with the
+   *             <code>PrincipalName</code> parameter because access keys can also be assigned to
+   *          principals that are not IAM users.</p>
    */
-  PrincipalName?: string;
+  UserName?: string;
 
   /**
-   * <p>The identifier of the access key.</p>
+   * <p>The status of the IAM access key related to a finding.</p>
    */
-  AccessKeyId?: string;
-
-  /**
-   * <p>The AWS account ID of the account for the key.</p>
-   */
-  AccountId?: string;
+  Status?: AwsIamAccessKeyStatus | string;
 
   /**
    * <p>Indicates when the IAM access key was created.</p>
@@ -3868,12 +3866,9 @@ export interface AwsIamAccessKeyDetails {
   CreatedAt?: string;
 
   /**
-   * <p>The user associated with the IAM access key related to a finding.</p>
-   *          <p>The <code>UserName</code> parameter has been replaced with the
-   *             <code>PrincipalName</code> parameter because access keys can also be assigned to
-   *          principals that are not IAM users.</p>
+   * <p>The ID of the principal associated with an access key.</p>
    */
-  UserName?: string;
+  PrincipalId?: string;
 
   /**
    * <p>The type of principal associated with an access key.</p>
@@ -3881,14 +3876,19 @@ export interface AwsIamAccessKeyDetails {
   PrincipalType?: string;
 
   /**
-   * <p>The status of the IAM access key related to a finding.</p>
+   * <p>The name of the principal.</p>
    */
-  Status?: AwsIamAccessKeyStatus | string;
+  PrincipalName?: string;
 
   /**
-   * <p>The ID of the principal associated with an access key.</p>
+   * <p>The AWS account ID of the account for the key.</p>
    */
-  PrincipalId?: string;
+  AccountId?: string;
+
+  /**
+   * <p>The identifier of the access key.</p>
+   */
+  AccessKeyId?: string;
 
   /**
    * <p>Information about the session that the key was used for.</p>
@@ -3944,24 +3944,9 @@ export namespace AwsIamGroupPolicy {
  */
 export interface AwsIamGroupDetails {
   /**
-   * <p>The path to the group.</p>
-   */
-  Path?: string;
-
-  /**
-   * <p>The name of the IAM group.</p>
-   */
-  GroupName?: string;
-
-  /**
    * <p>A list of the managed policies that are attached to the IAM group.</p>
    */
   AttachedManagedPolicies?: AwsIamAttachedManagedPolicy[];
-
-  /**
-   * <p>The identifier of the IAM group.</p>
-   */
-  GroupId?: string;
 
   /**
    * <p>Indicates when the IAM group was created.</p>
@@ -3972,9 +3957,24 @@ export interface AwsIamGroupDetails {
   CreateDate?: string;
 
   /**
+   * <p>The identifier of the IAM group.</p>
+   */
+  GroupId?: string;
+
+  /**
+   * <p>The name of the IAM group.</p>
+   */
+  GroupName?: string;
+
+  /**
    * <p>The list of inline policies that are embedded in the group.</p>
    */
   GroupPolicyList?: AwsIamGroupPolicy[];
+
+  /**
+   * <p>The path to the group.</p>
+   */
+  Path?: string;
 }
 
 export namespace AwsIamGroupDetails {
@@ -3988,6 +3988,16 @@ export namespace AwsIamGroupDetails {
  */
 export interface AwsIamInstanceProfileRole {
   /**
+   * <p>The ARN of the role.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The policy that grants an entity permission to assume the role.</p>
+   */
+  AssumeRolePolicyDocument?: string;
+
+  /**
    * <p>Indicates when the role was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces. For example,
@@ -3996,29 +4006,19 @@ export interface AwsIamInstanceProfileRole {
   CreateDate?: string;
 
   /**
-   * <p>The identifier of the role.</p>
-   */
-  RoleId?: string;
-
-  /**
-   * <p>The ARN of the role.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The name of the role.</p>
-   */
-  RoleName?: string;
-
-  /**
    * <p>The path to the role.</p>
    */
   Path?: string;
 
   /**
-   * <p>The policy that grants an entity permission to assume the role.</p>
+   * <p>The identifier of the role.</p>
    */
-  AssumeRolePolicyDocument?: string;
+  RoleId?: string;
+
+  /**
+   * <p>The name of the role.</p>
+   */
+  RoleName?: string;
 }
 
 export namespace AwsIamInstanceProfileRole {
@@ -4031,11 +4031,6 @@ export namespace AwsIamInstanceProfileRole {
  * <p>Information about an instance profile.</p>
  */
 export interface AwsIamInstanceProfile {
-  /**
-   * <p>The path to the instance profile.</p>
-   */
-  Path?: string;
-
   /**
    * <p>The ARN of the instance profile.</p>
    */
@@ -4055,14 +4050,19 @@ export interface AwsIamInstanceProfile {
   InstanceProfileId?: string;
 
   /**
-   * <p>The roles associated with the instance profile.</p>
-   */
-  Roles?: AwsIamInstanceProfileRole[];
-
-  /**
    * <p>The name of the instance profile.</p>
    */
   InstanceProfileName?: string;
+
+  /**
+   * <p>The path to the instance profile.</p>
+   */
+  Path?: string;
+
+  /**
+   * <p>The roles associated with the instance profile.</p>
+   */
+  Roles?: AwsIamInstanceProfileRole[];
 }
 
 export namespace AwsIamInstanceProfile {
@@ -4098,6 +4098,11 @@ export namespace AwsIamPermissionsBoundary {
  */
 export interface AwsIamPolicyVersion {
   /**
+   * <p>The identifier of the policy version.</p>
+   */
+  VersionId?: string;
+
+  /**
    * <p>Whether the version is the default version.</p>
    */
   IsDefaultVersion?: boolean;
@@ -4109,11 +4114,6 @@ export interface AwsIamPolicyVersion {
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreateDate?: string;
-
-  /**
-   * <p>The identifier of the policy version.</p>
-   */
-  VersionId?: string;
 }
 
 export namespace AwsIamPolicyVersion {
@@ -4127,58 +4127,9 @@ export namespace AwsIamPolicyVersion {
  */
 export interface AwsIamPolicyDetails {
   /**
-   * <p>A description of the policy.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The path to the policy.</p>
-   */
-  Path?: string;
-
-  /**
-   * <p>When the policy was most recently updated.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  UpdateDate?: string;
-
-  /**
-   * <p>The number of users and roles that use the policy to set the permissions
-   *          boundary.</p>
-   */
-  PermissionsBoundaryUsageCount?: number;
-
-  /**
-   * <p>List of versions of the policy.</p>
-   */
-  PolicyVersionList?: AwsIamPolicyVersion[];
-
-  /**
-   * <p>The name of the policy.</p>
-   */
-  PolicyName?: string;
-
-  /**
    * <p>The number of users, groups, and roles that the policy is attached to.</p>
    */
   AttachmentCount?: number;
-
-  /**
-   * <p>The identifier of the default version of the policy.</p>
-   */
-  DefaultVersionId?: string;
-
-  /**
-   * <p>The unique identifier of the policy.</p>
-   */
-  PolicyId?: string;
-
-  /**
-   * <p>Whether the policy can be attached to a user, group, or role.</p>
-   */
-  IsAttachable?: boolean;
 
   /**
    * <p>When the policy was created.</p>
@@ -4187,6 +4138,55 @@ export interface AwsIamPolicyDetails {
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreateDate?: string;
+
+  /**
+   * <p>The identifier of the default version of the policy.</p>
+   */
+  DefaultVersionId?: string;
+
+  /**
+   * <p>A description of the policy.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Whether the policy can be attached to a user, group, or role.</p>
+   */
+  IsAttachable?: boolean;
+
+  /**
+   * <p>The path to the policy.</p>
+   */
+  Path?: string;
+
+  /**
+   * <p>The number of users and roles that use the policy to set the permissions
+   *          boundary.</p>
+   */
+  PermissionsBoundaryUsageCount?: number;
+
+  /**
+   * <p>The unique identifier of the policy.</p>
+   */
+  PolicyId?: string;
+
+  /**
+   * <p>The name of the policy.</p>
+   */
+  PolicyName?: string;
+
+  /**
+   * <p>List of versions of the policy.</p>
+   */
+  PolicyVersionList?: AwsIamPolicyVersion[];
+
+  /**
+   * <p>When the policy was most recently updated.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  UpdateDate?: string;
 }
 
 export namespace AwsIamPolicyDetails {
@@ -4216,24 +4216,14 @@ export namespace AwsIamRolePolicy {
  */
 export interface AwsIamRoleDetails {
   /**
-   * <p>The path to the role.</p>
+   * <p>The trust policy that grants permission to assume the role.</p>
    */
-  Path?: string;
-
-  /**
-   * <p>The maximum session duration (in seconds) that you want to set for the specified role.</p>
-   */
-  MaxSessionDuration?: number;
+  AssumeRolePolicyDocument?: string;
 
   /**
    * <p>The list of the managed policies that are attached to the role.</p>
    */
   AttachedManagedPolicies?: AwsIamAttachedManagedPolicy[];
-
-  /**
-   * <p>The friendly name that identifies the role.</p>
-   */
-  RoleName?: string;
 
   /**
    * <p>Indicates when the role was created.</p>
@@ -4244,9 +4234,9 @@ export interface AwsIamRoleDetails {
   CreateDate?: string;
 
   /**
-   * <p>The stable and unique string identifying the role.</p>
+   * <p>The list of instance profiles that contain this role.</p>
    */
-  RoleId?: string;
+  InstanceProfileList?: AwsIamInstanceProfile[];
 
   /**
    * <p>Information about the policy used to set the permissions boundary for an IAM
@@ -4255,9 +4245,14 @@ export interface AwsIamRoleDetails {
   PermissionsBoundary?: AwsIamPermissionsBoundary;
 
   /**
-   * <p>The list of instance profiles that contain this role.</p>
+   * <p>The stable and unique string identifying the role.</p>
    */
-  InstanceProfileList?: AwsIamInstanceProfile[];
+  RoleId?: string;
+
+  /**
+   * <p>The friendly name that identifies the role.</p>
+   */
+  RoleName?: string;
 
   /**
    * <p>The list of inline policies that are embedded in the role.</p>
@@ -4265,9 +4260,14 @@ export interface AwsIamRoleDetails {
   RolePolicyList?: AwsIamRolePolicy[];
 
   /**
-   * <p>The trust policy that grants permission to assume the role.</p>
+   * <p>The maximum session duration (in seconds) that you want to set for the specified role.</p>
    */
-  AssumeRolePolicyDocument?: string;
+  MaxSessionDuration?: number;
+
+  /**
+   * <p>The path to the role.</p>
+   */
+  Path?: string;
 }
 
 export namespace AwsIamRoleDetails {
@@ -4297,9 +4297,9 @@ export namespace AwsIamUserPolicy {
  */
 export interface AwsIamUserDetails {
   /**
-   * <p>The permissions boundary for the user.</p>
+   * <p>A list of the managed policies that are attached to the user.</p>
    */
-  PermissionsBoundary?: AwsIamPermissionsBoundary;
+  AttachedManagedPolicies?: AwsIamAttachedManagedPolicy[];
 
   /**
    * <p>Indicates when the user was created.</p>
@@ -4310,14 +4310,9 @@ export interface AwsIamUserDetails {
   CreateDate?: string;
 
   /**
-   * <p>A list of the managed policies that are attached to the user.</p>
+   * <p>A list of IAM groups that the user belongs to.</p>
    */
-  AttachedManagedPolicies?: AwsIamAttachedManagedPolicy[];
-
-  /**
-   * <p>The name of the user.</p>
-   */
-  UserName?: string;
+  GroupList?: string[];
 
   /**
    * <p>The path to the user.</p>
@@ -4325,9 +4320,9 @@ export interface AwsIamUserDetails {
   Path?: string;
 
   /**
-   * <p>The list of inline policies that are embedded in the user.</p>
+   * <p>The permissions boundary for the user.</p>
    */
-  UserPolicyList?: AwsIamUserPolicy[];
+  PermissionsBoundary?: AwsIamPermissionsBoundary;
 
   /**
    * <p>The unique identifier for the user.</p>
@@ -4335,9 +4330,14 @@ export interface AwsIamUserDetails {
   UserId?: string;
 
   /**
-   * <p>A list of IAM groups that the user belongs to.</p>
+   * <p>The name of the user.</p>
    */
-  GroupList?: string[];
+  UserName?: string;
+
+  /**
+   * <p>The list of inline policies that are embedded in the user.</p>
+   */
+  UserPolicyList?: AwsIamUserPolicy[];
 }
 
 export namespace AwsIamUserDetails {
@@ -4351,14 +4351,9 @@ export namespace AwsIamUserDetails {
  */
 export interface AwsKmsKeyDetails {
   /**
-   * <p>The source of the CMK's key material.</p>
-   *          <p>When this value is <code>AWS_KMS</code>, AWS KMS created the key material.</p>
-   *          <p>When this value is <code>EXTERNAL</code>, the key material was imported from your
-   *          existing key management infrastructure or the CMK lacks key material.</p>
-   *          <p>When this value is <code>AWS_CLOUDHSM</code>, the key material was created in the AWS
-   *          CloudHSM cluster associated with a custom key store.</p>
+   * <p>The twelve-digit account ID of the AWS account that owns the CMK.</p>
    */
-  Origin?: string;
+  AWSAccountId?: string;
 
   /**
    * <p>Indicates when the CMK was created.</p>
@@ -4369,19 +4364,9 @@ export interface AwsKmsKeyDetails {
   CreationDate?: number;
 
   /**
-   * <p>The twelve-digit account ID of the AWS account that owns the CMK.</p>
-   */
-  AWSAccountId?: string;
-
-  /**
    * <p>The globally unique identifier for the CMK.</p>
    */
   KeyId?: string;
-
-  /**
-   * <p>A description of the key.</p>
-   */
-  Description?: string;
 
   /**
    * <p>The manager of the CMK. CMKs in your AWS account are either customer managed or AWS managed.</p>
@@ -4392,6 +4377,21 @@ export interface AwsKmsKeyDetails {
    * <p>The state of the CMK.</p>
    */
   KeyState?: string;
+
+  /**
+   * <p>The source of the CMK's key material.</p>
+   *          <p>When this value is <code>AWS_KMS</code>, AWS KMS created the key material.</p>
+   *          <p>When this value is <code>EXTERNAL</code>, the key material was imported from your
+   *          existing key management infrastructure or the CMK lacks key material.</p>
+   *          <p>When this value is <code>AWS_CLOUDHSM</code>, the key material was created in the AWS
+   *          CloudHSM cluster associated with a custom key store.</p>
+   */
+  Origin?: string;
+
+  /**
+   * <p>A description of the key.</p>
+   */
+  Description?: string;
 }
 
 export namespace AwsKmsKeyDetails {
@@ -4404,6 +4404,11 @@ export namespace AwsKmsKeyDetails {
  * <p>The code for the Lambda function. You can specify either an object in Amazon S3, or upload a deployment package directly.</p>
  */
 export interface AwsLambdaFunctionCode {
+  /**
+   * <p>An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.</p>
+   */
+  S3Bucket?: string;
+
   /**
    * <p>The Amazon S3 key of the deployment package.</p>
    */
@@ -4418,11 +4423,6 @@ export interface AwsLambdaFunctionCode {
    * <p>The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients handle the encoding for you.</p>
    */
   ZipFile?: string;
-
-  /**
-   * <p>An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.</p>
-   */
-  S3Bucket?: string;
 }
 
 export namespace AwsLambdaFunctionCode {
@@ -4452,14 +4452,14 @@ export namespace AwsLambdaFunctionDeadLetterConfig {
  */
 export interface AwsLambdaFunctionEnvironmentError {
   /**
-   * <p>The error message.</p>
-   */
-  Message?: string;
-
-  /**
    * <p>The error code.</p>
    */
   ErrorCode?: string;
+
+  /**
+   * <p>The error message.</p>
+   */
+  Message?: string;
 }
 
 export namespace AwsLambdaFunctionEnvironmentError {
@@ -4494,14 +4494,14 @@ export namespace AwsLambdaFunctionEnvironment {
  */
 export interface AwsLambdaFunctionLayer {
   /**
-   * <p>The size of the layer archive in bytes.</p>
-   */
-  CodeSize?: number;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the function layer.</p>
    */
   Arn?: string;
+
+  /**
+   * <p>The size of the layer archive in bytes.</p>
+   */
+  CodeSize?: number;
 }
 
 export namespace AwsLambdaFunctionLayer {
@@ -4536,14 +4536,14 @@ export interface AwsLambdaFunctionVpcConfig {
   SecurityGroupIds?: string[];
 
   /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId?: string;
-
-  /**
    * <p>A list of VPC subnet IDs.</p>
    */
   SubnetIds?: string[];
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId?: string;
 }
 
 export namespace AwsLambdaFunctionVpcConfig {
@@ -4557,71 +4557,6 @@ export namespace AwsLambdaFunctionVpcConfig {
  */
 export interface AwsLambdaFunctionDetails {
   /**
-   * <p>The function's AWS X-Ray tracing configuration.</p>
-   */
-  TracingConfig?: AwsLambdaFunctionTracingConfig;
-
-  /**
-   * <p>The function's layers.</p>
-   */
-  Layers?: AwsLambdaFunctionLayer[];
-
-  /**
-   * <p>The function's dead letter queue.</p>
-   */
-  DeadLetterConfig?: AwsLambdaFunctionDeadLetterConfig;
-
-  /**
-   * <p>The memory that's allocated to the function.</p>
-   */
-  MemorySize?: number;
-
-  /**
-   * <p>The function's networking configuration.</p>
-   */
-  VpcConfig?: AwsLambdaFunctionVpcConfig;
-
-  /**
-   * <p>The version of the Lambda function.</p>
-   */
-  Version?: string;
-
-  /**
-   * <p>The function's environment variables.</p>
-   */
-  Environment?: AwsLambdaFunctionEnvironment;
-
-  /**
-   * <p>The runtime environment for the Lambda function.</p>
-   */
-  Runtime?: string;
-
-  /**
-   * <p>The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed CMK.</p>
-   */
-  KmsKeyArn?: string;
-
-  /**
-   * <p>For Lambda@Edge functions, the ARN of the master function.</p>
-   */
-  MasterArn?: string;
-
-  /**
-   * <p>The name of the function.</p>
-   */
-  FunctionName?: string;
-
-  /**
-   * <p>The function's execution role.</p>
-   */
-  Role?: string;
-
-  /**
-   * <p>The amount of time that Lambda allows a function to run before stopping it.</p>
-   */
-  Timeout?: number;
-
-  /**
    * <p>An <code>AwsLambdaFunctionCode</code> object.</p>
    */
   Code?: AwsLambdaFunctionCode;
@@ -4632,14 +4567,29 @@ export interface AwsLambdaFunctionDetails {
   CodeSha256?: string;
 
   /**
-   * <p>The latest updated revision of the function or alias.</p>
+   * <p>The function's dead letter queue.</p>
    */
-  RevisionId?: string;
+  DeadLetterConfig?: AwsLambdaFunctionDeadLetterConfig;
+
+  /**
+   * <p>The function's environment variables.</p>
+   */
+  Environment?: AwsLambdaFunctionEnvironment;
+
+  /**
+   * <p>The name of the function.</p>
+   */
+  FunctionName?: string;
 
   /**
    * <p>The function that Lambda calls to begin executing your function.</p>
    */
   Handler?: string;
+
+  /**
+   * <p>The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed CMK.</p>
+   */
+  KmsKeyArn?: string;
 
   /**
    * <p>Indicates when the function was last updated.</p>
@@ -4648,6 +4598,56 @@ export interface AwsLambdaFunctionDetails {
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   LastModified?: string;
+
+  /**
+   * <p>The function's layers.</p>
+   */
+  Layers?: AwsLambdaFunctionLayer[];
+
+  /**
+   * <p>For Lambda@Edge functions, the ARN of the master function.</p>
+   */
+  MasterArn?: string;
+
+  /**
+   * <p>The memory that's allocated to the function.</p>
+   */
+  MemorySize?: number;
+
+  /**
+   * <p>The latest updated revision of the function or alias.</p>
+   */
+  RevisionId?: string;
+
+  /**
+   * <p>The function's execution role.</p>
+   */
+  Role?: string;
+
+  /**
+   * <p>The runtime environment for the Lambda function.</p>
+   */
+  Runtime?: string;
+
+  /**
+   * <p>The amount of time that Lambda allows a function to run before stopping it.</p>
+   */
+  Timeout?: number;
+
+  /**
+   * <p>The function's AWS X-Ray tracing configuration.</p>
+   */
+  TracingConfig?: AwsLambdaFunctionTracingConfig;
+
+  /**
+   * <p>The function's networking configuration.</p>
+   */
+  VpcConfig?: AwsLambdaFunctionVpcConfig;
+
+  /**
+   * <p>The version of the Lambda function.</p>
+   */
+  Version?: string;
 }
 
 export namespace AwsLambdaFunctionDetails {
@@ -4660,14 +4660,6 @@ export namespace AwsLambdaFunctionDetails {
  * <p>Details about a Lambda layer version.</p>
  */
 export interface AwsLambdaLayerVersionDetails {
-  /**
-   * <p>Indicates when the version was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreatedDate?: string;
-
   /**
    * <p>The version number.</p>
    */
@@ -4683,6 +4675,14 @@ export interface AwsLambdaLayerVersionDetails {
    *          </p>
    */
   CompatibleRuntimes?: string[];
+
+  /**
+   * <p>Indicates when the version was created.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  CreatedDate?: string;
 }
 
 export namespace AwsLambdaLayerVersionDetails {
@@ -4717,6 +4717,11 @@ export namespace AwsRdsDbClusterAssociatedRole {
  */
 export interface AwsRdsDbClusterMember {
   /**
+   * <p>Whether the cluster member is the primary instance for the DB cluster.</p>
+   */
+  IsClusterWriter?: boolean;
+
+  /**
    * <p>Specifies the order in which an Aurora replica is promoted to the primary instance when
    *          the existing primary instance fails.</p>
    */
@@ -4731,11 +4736,6 @@ export interface AwsRdsDbClusterMember {
    * <p>The status of the DB cluster parameter group for this member of the DB cluster.</p>
    */
   DbClusterParameterGroupStatus?: string;
-
-  /**
-   * <p>Whether the cluster member is the primary instance for the DB cluster.</p>
-   */
-  IsClusterWriter?: boolean;
 }
 
 export namespace AwsRdsDbClusterMember {
@@ -4749,14 +4749,14 @@ export namespace AwsRdsDbClusterMember {
  */
 export interface AwsRdsDbClusterOptionGroupMembership {
   /**
-   * <p>The status of the DB cluster option group.</p>
-   */
-  Status?: string;
-
-  /**
    * <p>The name of the DB cluster option group.</p>
    */
   DbClusterOptionGroupName?: string;
+
+  /**
+   * <p>The status of the DB cluster option group.</p>
+   */
+  Status?: string;
 }
 
 export namespace AwsRdsDbClusterOptionGroupMembership {
@@ -4771,16 +4771,6 @@ export namespace AwsRdsDbClusterOptionGroupMembership {
  */
 export interface AwsRdsDbDomainMembership {
   /**
-   * <p>The name of the IAM role to use when making API calls to the Directory Service.</p>
-   */
-  IamRoleName?: string;
-
-  /**
-   * <p>The fully qualified domain name of the Active Directory domain.</p>
-   */
-  Fqdn?: string;
-
-  /**
    * <p>The identifier of the Active Directory domain.</p>
    */
   Domain?: string;
@@ -4789,6 +4779,16 @@ export interface AwsRdsDbDomainMembership {
    * <p>The status of the Active Directory Domain membership for the DB instance.</p>
    */
   Status?: string;
+
+  /**
+   * <p>The fully qualified domain name of the Active Directory domain.</p>
+   */
+  Fqdn?: string;
+
+  /**
+   * <p>The name of the IAM role to use when making API calls to the Directory Service.</p>
+   */
+  IamRoleName?: string;
 }
 
 export namespace AwsRdsDbDomainMembership {
@@ -4823,19 +4823,31 @@ export namespace AwsRdsDbInstanceVpcSecurityGroup {
  */
 export interface AwsRdsDbClusterDetails {
   /**
-   * <p>A list of custom endpoints for the DB cluster.</p>
+   * <p>For all database engines except Aurora, specifies the allocated storage size in
+   *          gibibytes (GiB).</p>
    */
-  CustomEndpoints?: string[];
+  AllocatedStorage?: number;
 
   /**
-   * <p>A list of VPC security groups that the DB cluster belongs to.</p>
+   * <p>A list of Availability Zones (AZs) where instances in the DB cluster can be
+   *          created.</p>
    */
-  VpcSecurityGroups?: AwsRdsDbInstanceVpcSecurityGroup[];
+  AvailabilityZones?: string[];
 
   /**
-   * <p>A list of the IAM roles that are associated with the DB cluster.</p>
+   * <p>The number of days for which automated backups are retained.</p>
    */
-  AssociatedRoles?: AwsRdsDbClusterAssociatedRole[];
+  BackupRetentionPeriod?: number;
+
+  /**
+   * <p>The name of the database.</p>
+   */
+  DatabaseName?: string;
+
+  /**
+   * <p>The current status of this DB cluster.</p>
+   */
+  Status?: string;
 
   /**
    * <p>The connection endpoint for the primary instance of the DB cluster.</p>
@@ -4843,9 +4855,29 @@ export interface AwsRdsDbClusterDetails {
   Endpoint?: string;
 
   /**
-   * <p>Whether the DB cluster is encrypted.</p>
+   * <p>The reader endpoint for the DB cluster.</p>
    */
-  StorageEncrypted?: boolean;
+  ReaderEndpoint?: string;
+
+  /**
+   * <p>A list of custom endpoints for the DB cluster.</p>
+   */
+  CustomEndpoints?: string[];
+
+  /**
+   * <p>Whether the DB cluster has instances in multiple Availability Zones.</p>
+   */
+  MultiAz?: boolean;
+
+  /**
+   * <p>The name of the database engine to use for this DB cluster.</p>
+   */
+  Engine?: string;
+
+  /**
+   * <p>The version number of the database engine to use.</p>
+   */
+  EngineVersion?: string;
 
   /**
    * <p>The port number on which the DB instances in the DB cluster accept connections.</p>
@@ -4853,20 +4885,72 @@ export interface AwsRdsDbClusterDetails {
   Port?: number;
 
   /**
-   * <p>For all database engines except Aurora, specifies the allocated storage size in
-   *          gibibytes (GiB).</p>
+   * <p>The name of the master user for the DB cluster.</p>
    */
-  AllocatedStorage?: number;
+  MasterUsername?: string;
 
   /**
-   * <p>Whether the DB cluster has deletion protection enabled.</p>
+   * <p>The range of time each day when automated backups are created, if automated backups are
+   *          enabled.</p>
+   *          <p>Uses the format <code>HH:MM-HH:MM</code>. For example, <code>04:52-05:22</code>.</p>
    */
-  DeletionProtection?: boolean;
+  PreferredBackupWindow?: string;
 
   /**
-   * <p>The name of the database.</p>
+   * <p>The weekly time range during which system maintenance can occur, in Universal
+   *          Coordinated Time (UTC).</p>
+   *          <p>Uses the format <code><day>:HH:MM-<day>:HH:MM</code>.</p>
+   *          <p>For the day values, use
+   *             <code>mon</code>|<code>tue</code>|<code>wed</code>|<code>thu</code>|<code>fri</code>|<code>sat</code>|<code>sun</code>.</p>
+   *          <p>For example, <code>sun:09:32-sun:10:02</code>.</p>
    */
-  DatabaseName?: string;
+  PreferredMaintenanceWindow?: string;
+
+  /**
+   * <p>The identifiers of the read replicas that are associated with this DB cluster.</p>
+   */
+  ReadReplicaIdentifiers?: string[];
+
+  /**
+   * <p>A list of VPC security groups that the DB cluster belongs to.</p>
+   */
+  VpcSecurityGroups?: AwsRdsDbInstanceVpcSecurityGroup[];
+
+  /**
+   * <p>Specifies the identifier that Amazon Route 53 assigns when you create a hosted
+   *          zone.</p>
+   */
+  HostedZoneId?: string;
+
+  /**
+   * <p>Whether the DB cluster is encrypted.</p>
+   */
+  StorageEncrypted?: boolean;
+
+  /**
+   * <p>The ARN of the AWS KMS master key that is used to encrypt the database instances in the
+   *          DB cluster.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The identifier of the DB cluster. The identifier must be unique within each AWS Region
+   *          and is immutable.</p>
+   */
+  DbClusterResourceId?: string;
+
+  /**
+   * <p>A list of the IAM roles that are associated with the DB cluster.</p>
+   */
+  AssociatedRoles?: AwsRdsDbClusterAssociatedRole[];
+
+  /**
+   * <p>Indicates when the DB cluster was created, in Universal Coordinated Time (UTC).</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  ClusterCreateTime?: string;
 
   /**
    * <p>A list of log types that this DB cluster is configured to export to CloudWatch
@@ -4875,10 +4959,29 @@ export interface AwsRdsDbClusterDetails {
   EnabledCloudWatchLogsExports?: string[];
 
   /**
-   * <p>The ARN of the AWS KMS master key that is used to encrypt the database instances in the
-   *          DB cluster.</p>
+   * <p>The database engine mode of the DB cluster.</p>
    */
-  KmsKeyId?: string;
+  EngineMode?: string;
+
+  /**
+   * <p>Whether the DB cluster has deletion protection enabled.</p>
+   */
+  DeletionProtection?: boolean;
+
+  /**
+   * <p>Whether the HTTP endpoint for an Aurora Serverless DB cluster is enabled.</p>
+   */
+  HttpEndpointEnabled?: boolean;
+
+  /**
+   * <p>The status of the database activity stream.</p>
+   */
+  ActivityStreamStatus?: string;
+
+  /**
+   * <p>Whether tags are copied from the DB cluster to snapshots of the DB cluster.</p>
+   */
+  CopyTagsToSnapshot?: boolean;
 
   /**
    * <p>Whether the DB cluster is a clone of a DB cluster owned by a different AWS
@@ -4893,42 +4996,9 @@ export interface AwsRdsDbClusterDetails {
   DomainMemberships?: AwsRdsDbDomainMembership[];
 
   /**
-   * <p>Whether the HTTP endpoint for an Aurora Serverless DB cluster is enabled.</p>
+   * <p>The name of the DB cluster parameter group for the DB cluster.</p>
    */
-  HttpEndpointEnabled?: boolean;
-
-  /**
-   * <p>The name of the master user for the DB cluster.</p>
-   */
-  MasterUsername?: string;
-
-  /**
-   * <p>The database engine mode of the DB cluster.</p>
-   */
-  EngineMode?: string;
-
-  /**
-   * <p>Indicates when the DB cluster was created, in Universal Coordinated Time (UTC).</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  ClusterCreateTime?: string;
-
-  /**
-   * <p>The current status of this DB cluster.</p>
-   */
-  Status?: string;
-
-  /**
-   * <p>The status of the database activity stream.</p>
-   */
-  ActivityStreamStatus?: string;
-
-  /**
-   * <p>The number of days for which automated backups are retained.</p>
-   */
-  BackupRetentionPeriod?: number;
+  DbClusterParameterGroup?: string;
 
   /**
    * <p>The subnet group that is associated with the DB cluster, including the name,
@@ -4937,59 +5007,9 @@ export interface AwsRdsDbClusterDetails {
   DbSubnetGroup?: string;
 
   /**
-   * <p>The name of the DB cluster parameter group for the DB cluster.</p>
+   * <p>The list of option group memberships for this DB cluster.</p>
    */
-  DbClusterParameterGroup?: string;
-
-  /**
-   * <p>The identifiers of the read replicas that are associated with this DB cluster.</p>
-   */
-  ReadReplicaIdentifiers?: string[];
-
-  /**
-   * <p>Whether the DB cluster has instances in multiple Availability Zones.</p>
-   */
-  MultiAz?: boolean;
-
-  /**
-   * <p>The list of instances that make up the DB cluster.</p>
-   */
-  DbClusterMembers?: AwsRdsDbClusterMember[];
-
-  /**
-   * <p>Specifies the identifier that Amazon Route 53 assigns when you create a hosted
-   *          zone.</p>
-   */
-  HostedZoneId?: string;
-
-  /**
-   * <p>A list of Availability Zones (AZs) where instances in the DB cluster can be
-   *          created.</p>
-   */
-  AvailabilityZones?: string[];
-
-  /**
-   * <p>The reader endpoint for the DB cluster.</p>
-   */
-  ReaderEndpoint?: string;
-
-  /**
-   * <p>The version number of the database engine to use.</p>
-   */
-  EngineVersion?: string;
-
-  /**
-   * <p>The identifier of the DB cluster. The identifier must be unique within each AWS Region
-   *          and is immutable.</p>
-   */
-  DbClusterResourceId?: string;
-
-  /**
-   * <p>The range of time each day when automated backups are created, if automated backups are
-   *          enabled.</p>
-   *          <p>Uses the format <code>HH:MM-HH:MM</code>. For example, <code>04:52-05:22</code>.</p>
-   */
-  PreferredBackupWindow?: string;
+  DbClusterOptionGroupMemberships?: AwsRdsDbClusterOptionGroupMembership[];
 
   /**
    * <p>The DB cluster identifier that the user assigned to the cluster. This identifier is the
@@ -4998,34 +5018,14 @@ export interface AwsRdsDbClusterDetails {
   DbClusterIdentifier?: string;
 
   /**
-   * <p>The weekly time range during which system maintenance can occur, in Universal
-   *          Coordinated Time (UTC).</p>
-   *          <p>Uses the format <code><day>:HH:MM-<day>:HH:MM</code>.</p>
-   *          <p>For the day values, use
-   *             <code>mon</code>|<code>tue</code>|<code>wed</code>|<code>thu</code>|<code>fri</code>|<code>sat</code>|<code>sun</code>.</p>
-   *          <p>For example, <code>sun:09:32-sun:10:02</code>.</p>
+   * <p>The list of instances that make up the DB cluster.</p>
    */
-  PreferredMaintenanceWindow?: string;
-
-  /**
-   * <p>The list of option group memberships for this DB cluster.</p>
-   */
-  DbClusterOptionGroupMemberships?: AwsRdsDbClusterOptionGroupMembership[];
+  DbClusterMembers?: AwsRdsDbClusterMember[];
 
   /**
    * <p>Whether the mapping of IAM accounts to database accounts is enabled.</p>
    */
   IamDatabaseAuthenticationEnabled?: boolean;
-
-  /**
-   * <p>Whether tags are copied from the DB cluster to snapshots of the DB cluster.</p>
-   */
-  CopyTagsToSnapshot?: boolean;
-
-  /**
-   * <p>The name of the database engine to use for this DB cluster.</p>
-   */
-  Engine?: string;
 }
 
 export namespace AwsRdsDbClusterDetails {
@@ -5039,30 +5039,9 @@ export namespace AwsRdsDbClusterDetails {
  */
 export interface AwsRdsDbClusterSnapshotDetails {
   /**
-   * <p>The name of the master user for the DB cluster.</p>
+   * <p>A list of Availability Zones where instances in the DB cluster can be created.</p>
    */
-  MasterUsername?: string;
-
-  /**
-   * <p>The port number on which the DB instances in the DB cluster accept connections.</p>
-   */
-  Port?: number;
-
-  /**
-   * <p>The type of DB cluster snapshot.</p>
-   */
-  SnapshotType?: string;
-
-  /**
-   * <p>The VPC ID that is associated with the DB cluster snapshot.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>The ARN of the AWS KMS master key that is used to encrypt the database instances in the
-   *          DB cluster.</p>
-   */
-  KmsKeyId?: string;
+  AvailabilityZones?: string[];
 
   /**
    * <p>Indicates when the snapshot was taken.</p>
@@ -5073,19 +5052,9 @@ export interface AwsRdsDbClusterSnapshotDetails {
   SnapshotCreateTime?: string;
 
   /**
-   * <p>Whether the DB cluster is encrypted.</p>
+   * <p></p>
    */
-  StorageEncrypted?: boolean;
-
-  /**
-   * <p>The license model information for this DB cluster snapshot.</p>
-   */
-  LicenseModel?: string;
-
-  /**
-   * <p>Specifies the percentage of the estimated data that has been transferred.</p>
-   */
-  PercentProgress?: number;
+  Engine?: string;
 
   /**
    * <p>Specifies the allocated storage size in gibibytes (GiB).</p>
@@ -5093,24 +5062,19 @@ export interface AwsRdsDbClusterSnapshotDetails {
   AllocatedStorage?: number;
 
   /**
-   * <p>The version of the database engine to use.</p>
+   * <p>The status of this DB cluster snapshot.</p>
    */
-  EngineVersion?: string;
+  Status?: string;
 
   /**
-   * <p>The DB cluster identifier.</p>
+   * <p>The port number on which the DB instances in the DB cluster accept connections.</p>
    */
-  DbClusterIdentifier?: string;
+  Port?: number;
 
   /**
-   * <p></p>
+   * <p>The VPC ID that is associated with the DB cluster snapshot.</p>
    */
-  Engine?: string;
-
-  /**
-   * <p>A list of Availability Zones where instances in the DB cluster can be created.</p>
-   */
-  AvailabilityZones?: string[];
+  VpcId?: string;
 
   /**
    * <p>Indicates when the DB cluster was created, in Universal Coordinated Time (UTC).</p>
@@ -5121,9 +5085,45 @@ export interface AwsRdsDbClusterSnapshotDetails {
   ClusterCreateTime?: string;
 
   /**
-   * <p>The status of this DB cluster snapshot.</p>
+   * <p>The name of the master user for the DB cluster.</p>
    */
-  Status?: string;
+  MasterUsername?: string;
+
+  /**
+   * <p>The version of the database engine to use.</p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>The license model information for this DB cluster snapshot.</p>
+   */
+  LicenseModel?: string;
+
+  /**
+   * <p>The type of DB cluster snapshot.</p>
+   */
+  SnapshotType?: string;
+
+  /**
+   * <p>Specifies the percentage of the estimated data that has been transferred.</p>
+   */
+  PercentProgress?: number;
+
+  /**
+   * <p>Whether the DB cluster is encrypted.</p>
+   */
+  StorageEncrypted?: boolean;
+
+  /**
+   * <p>The ARN of the AWS KMS master key that is used to encrypt the database instances in the
+   *          DB cluster.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The DB cluster identifier.</p>
+   */
+  DbClusterIdentifier?: string;
 
   /**
    * <p>The identifier of the DB cluster snapshot.</p>
@@ -5147,6 +5147,17 @@ export namespace AwsRdsDbClusterSnapshotDetails {
  */
 export interface AwsRdsDbInstanceAssociatedRole {
   /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that is associated with the DB
+   *          instance.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The name of the feature associated with the IAM)role.</p>
+   */
+  FeatureName?: string;
+
+  /**
    * <p>Describes the state of the association between the IAM role and the DB instance. The
    *             <code>Status</code> property returns one of the following values:</p>
    *          <ul>
@@ -5169,17 +5180,6 @@ export interface AwsRdsDbInstanceAssociatedRole {
    *          </ul>
    */
   Status?: string;
-
-  /**
-   * <p>The name of the feature associated with the IAM)role.</p>
-   */
-  FeatureName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that is associated with the DB
-   *          instance.</p>
-   */
-  RoleArn?: string;
 }
 
 export namespace AwsRdsDbInstanceAssociatedRole {
@@ -5195,12 +5195,12 @@ export interface AwsRdsDbParameterGroup {
   /**
    * <p></p>
    */
-  ParameterApplyStatus?: string;
+  DbParameterGroupName?: string;
 
   /**
    * <p></p>
    */
-  DbParameterGroupName?: string;
+  ParameterApplyStatus?: string;
 }
 
 export namespace AwsRdsDbParameterGroup {
@@ -5230,14 +5230,14 @@ export namespace AwsRdsDbSubnetGroupSubnetAvailabilityZone {
  */
 export interface AwsRdsDbSubnetGroupSubnet {
   /**
-   * <p>Information about the Availability Zone for a subnet in the subnet group.</p>
-   */
-  SubnetAvailabilityZone?: AwsRdsDbSubnetGroupSubnetAvailabilityZone;
-
-  /**
    * <p>The identifier of a subnet in the subnet group.</p>
    */
   SubnetIdentifier?: string;
+
+  /**
+   * <p>Information about the Availability Zone for a subnet in the subnet group.</p>
+   */
+  SubnetAvailabilityZone?: AwsRdsDbSubnetGroupSubnetAvailabilityZone;
 
   /**
    * <p>The status of a subnet in the subnet group.</p>
@@ -5256,24 +5256,9 @@ export namespace AwsRdsDbSubnetGroupSubnet {
  */
 export interface AwsRdsDbSubnetGroup {
   /**
-   * <p>The status of the subnet group.</p>
-   */
-  SubnetGroupStatus?: string;
-
-  /**
    * <p>The name of the subnet group.</p>
    */
   DbSubnetGroupName?: string;
-
-  /**
-   * <p>The ARN of the subnet group.</p>
-   */
-  DbSubnetGroupArn?: string;
-
-  /**
-   * <p>A list of subnets in the subnet group.</p>
-   */
-  Subnets?: AwsRdsDbSubnetGroupSubnet[];
 
   /**
    * <p>The description of the subnet group.</p>
@@ -5284,6 +5269,21 @@ export interface AwsRdsDbSubnetGroup {
    * <p>The VPC ID of the subnet group.</p>
    */
   VpcId?: string;
+
+  /**
+   * <p>The status of the subnet group.</p>
+   */
+  SubnetGroupStatus?: string;
+
+  /**
+   * <p>A list of subnets in the subnet group.</p>
+   */
+  Subnets?: AwsRdsDbSubnetGroupSubnet[];
+
+  /**
+   * <p>The ARN of the subnet group.</p>
+   */
+  DbSubnetGroupArn?: string;
 }
 
 export namespace AwsRdsDbSubnetGroup {
@@ -5297,11 +5297,6 @@ export namespace AwsRdsDbSubnetGroup {
  */
 export interface AwsRdsDbInstanceEndpoint {
   /**
-   * <p>Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.</p>
-   */
-  HostedZoneId?: string;
-
-  /**
    * <p>Specifies the DNS address of the DB instance.</p>
    */
   Address?: string;
@@ -5310,6 +5305,11 @@ export interface AwsRdsDbInstanceEndpoint {
    * <p>Specifies the port that the database engine is listening on.</p>
    */
   Port?: number;
+
+  /**
+   * <p>Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.</p>
+   */
+  HostedZoneId?: string;
 }
 
 export namespace AwsRdsDbInstanceEndpoint {
@@ -5344,14 +5344,14 @@ export namespace AwsRdsDbOptionGroupMembership {
  */
 export interface AwsRdsPendingCloudWatchLogsExports {
   /**
-   * <p>A list of log types that are being disabled.</p>
-   */
-  LogTypesToDisable?: string[];
-
-  /**
    * <p>A list of log types that are being enabled.</p>
    */
   LogTypesToEnable?: string[];
+
+  /**
+   * <p>A list of log types that are being disabled.</p>
+   */
+  LogTypesToDisable?: string[];
 }
 
 export namespace AwsRdsPendingCloudWatchLogsExports {
@@ -5367,12 +5367,12 @@ export interface AwsRdsDbProcessorFeature {
   /**
    * <p></p>
    */
-  Value?: string;
+  Name?: string;
 
   /**
    * <p></p>
    */
-  Name?: string;
+  Value?: string;
 }
 
 export namespace AwsRdsDbProcessorFeature {
@@ -5388,42 +5388,7 @@ export interface AwsRdsDbPendingModifiedValues {
   /**
    * <p></p>
    */
-  StorageType?: string;
-
-  /**
-   * <p></p>
-   */
-  LicenseModel?: string;
-
-  /**
-   * <p></p>
-   */
-  DbInstanceIdentifier?: string;
-
-  /**
-   * <p></p>
-   */
-  EngineVersion?: string;
-
-  /**
-   * <p></p>
-   */
-  Port?: number;
-
-  /**
-   * <p></p>
-   */
-  Iops?: number;
-
-  /**
-   * <p></p>
-   */
-  CaCertificateIdentifier?: string;
-
-  /**
-   * <p></p>
-   */
-  ProcessorFeatures?: AwsRdsDbProcessorFeature[];
+  DbInstanceClass?: string;
 
   /**
    * <p></p>
@@ -5438,6 +5403,51 @@ export interface AwsRdsDbPendingModifiedValues {
   /**
    * <p></p>
    */
+  Port?: number;
+
+  /**
+   * <p></p>
+   */
+  BackupRetentionPeriod?: number;
+
+  /**
+   * <p></p>
+   */
+  MultiAZ?: boolean;
+
+  /**
+   * <p></p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p></p>
+   */
+  LicenseModel?: string;
+
+  /**
+   * <p></p>
+   */
+  Iops?: number;
+
+  /**
+   * <p></p>
+   */
+  DbInstanceIdentifier?: string;
+
+  /**
+   * <p></p>
+   */
+  StorageType?: string;
+
+  /**
+   * <p></p>
+   */
+  CaCertificateIdentifier?: string;
+
+  /**
+   * <p></p>
+   */
   DbSubnetGroupName?: string;
 
   /**
@@ -5448,17 +5458,7 @@ export interface AwsRdsDbPendingModifiedValues {
   /**
    * <p></p>
    */
-  BackupRetentionPeriod?: number;
-
-  /**
-   * <p></p>
-   */
-  DbInstanceClass?: string;
-
-  /**
-   * <p></p>
-   */
-  MultiAZ?: boolean;
+  ProcessorFeatures?: AwsRdsDbProcessorFeature[];
 }
 
 export namespace AwsRdsDbPendingModifiedValues {
@@ -5471,11 +5471,6 @@ export namespace AwsRdsDbPendingModifiedValues {
  * <p>Information about the status of a read replica.</p>
  */
 export interface AwsRdsDbStatusInfo {
-  /**
-   * <p>If the read replica is currently in an error state, provides the error details.</p>
-   */
-  Message?: string;
-
   /**
    * <p>The type of status. For a read replica, the status type is read replication.</p>
    */
@@ -5490,6 +5485,11 @@ export interface AwsRdsDbStatusInfo {
    * <p>The status of the read replica instance.</p>
    */
   Status?: string;
+
+  /**
+   * <p>If the read replica is currently in an error state, provides the error details.</p>
+   */
+  Message?: string;
 }
 
 export namespace AwsRdsDbStatusInfo {
@@ -5503,10 +5503,82 @@ export namespace AwsRdsDbStatusInfo {
  */
 export interface AwsRdsDbInstanceDetails {
   /**
-   * <p>The ARN from the key store with which the instance is associated for TDE
-   *          encryption.</p>
+   * <p>The AWS Identity and Access Management (IAM) roles associated with the DB
+   *          instance.</p>
    */
-  TdeCredentialArn?: string;
+  AssociatedRoles?: AwsRdsDbInstanceAssociatedRole[];
+
+  /**
+   * <p>The identifier of the CA certificate for this DB instance.</p>
+   */
+  CACertificateIdentifier?: string;
+
+  /**
+   * <p>If the DB instance is a member of a DB cluster, contains the name of the DB cluster that
+   *          the DB instance is a member of.</p>
+   */
+  DBClusterIdentifier?: string;
+
+  /**
+   * <p>Contains a user-supplied database identifier. This identifier is the unique key that
+   *          identifies a DB instance.</p>
+   */
+  DBInstanceIdentifier?: string;
+
+  /**
+   * <p>Contains the name of the compute and memory capacity class of the DB instance.</p>
+   */
+  DBInstanceClass?: string;
+
+  /**
+   * <p>Specifies the port that the DB instance listens on. If the DB instance is part of a DB
+   *          cluster, this can be a different port than the DB cluster port.</p>
+   */
+  DbInstancePort?: number;
+
+  /**
+   * <p>The AWS Region-unique, immutable identifier for the DB instance. This identifier is
+   *          found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is
+   *          accessed. </p>
+   */
+  DbiResourceId?: string;
+
+  /**
+   * <p>The meaning of this parameter differs according to the database engine you use.</p>
+   *          <p>
+   *             <b>MySQL, MariaDB, SQL Server, PostgreSQL</b>
+   *          </p>
+   *          <p>Contains the name of the initial database of this instance that was provided at create
+   *          time, if one was specified when the DB instance was created. This same name is returned for
+   *          the life of the DB instance.</p>
+   *          <p>
+   *             <b>Oracle</b>
+   *          </p>
+   *          <p>Contains the Oracle System ID (SID) of the created DB instance. Not shown when the
+   *          returned parameters do not apply to an Oracle DB instance. </p>
+   */
+  DBName?: string;
+
+  /**
+   * <p>Indicates whether the DB instance has deletion protection enabled.</p>
+   *          <p>When deletion protection is enabled, the database cannot be deleted.</p>
+   */
+  DeletionProtection?: boolean;
+
+  /**
+   * <p>Specifies the connection endpoint.</p>
+   */
+  Endpoint?: AwsRdsDbInstanceEndpoint;
+
+  /**
+   * <p>Provides the name of the database engine to use for this DB instance.</p>
+   */
+  Engine?: string;
+
+  /**
+   * <p>Indicates the database engine version.</p>
+   */
+  EngineVersion?: string;
 
   /**
    * <p>True if mapping of AWS Identity and Access Management (IAM) accounts to database
@@ -5527,31 +5599,27 @@ export interface AwsRdsDbInstanceDetails {
   IAMDatabaseAuthenticationEnabled?: boolean;
 
   /**
-   * <p>Changes to the DB instance that are currently pending.</p>
+   * <p>Indicates when the DB instance was created.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
-  PendingModifiedValues?: AwsRdsDbPendingModifiedValues;
+  InstanceCreateTime?: string;
 
   /**
-   * <p>A list of VPC security groups that the DB instance belongs to.</p>
+   * <p>If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the encrypted
+   *          DB instance.</p>
    */
-  VpcSecurityGroups?: AwsRdsDbInstanceVpcSecurityGroup[];
+  KmsKeyId?: string;
 
   /**
-   * <p>For a DB instance with multi-Availability Zone support, the name of the secondary
-   *          Availability Zone.</p>
+   * <p>Specifies the accessibility options for the DB instance.</p>
+   *          <p>A value of true specifies an Internet-facing instance with a publicly resolvable DNS
+   *          name, which resolves to a public IP address.</p>
+   *          <p>A value of false specifies an internal instance with a DNS name that resolves to a
+   *          private IP address. </p>
    */
-  SecondaryAvailabilityZone?: string;
-
-  /**
-   * <p>If the DB instance is a member of a DB cluster, contains the name of the DB cluster that
-   *          the DB instance is a member of.</p>
-   */
-  DBClusterIdentifier?: string;
-
-  /**
-   * <p>The time zone of the DB instance.</p>
-   */
-  Timezone?: string;
+  PubliclyAccessible?: boolean;
 
   /**
    * <p>Specifies whether the DB instance is encrypted.</p>
@@ -5559,27 +5627,73 @@ export interface AwsRdsDbInstanceDetails {
   StorageEncrypted?: boolean;
 
   /**
-   * <p>Specifies the port that the DB instance listens on. If the DB instance is part of a DB
-   *          cluster, this can be a different port than the DB cluster port.</p>
+   * <p>The ARN from the key store with which the instance is associated for TDE
+   *          encryption.</p>
    */
-  DbInstancePort?: number;
+  TdeCredentialArn?: string;
 
   /**
-   * <p>Specifies the connection endpoint.</p>
+   * <p>A list of VPC security groups that the DB instance belongs to.</p>
    */
-  Endpoint?: AwsRdsDbInstanceEndpoint;
+  VpcSecurityGroups?: AwsRdsDbInstanceVpcSecurityGroup[];
 
   /**
-   * <p>The interval, in seconds, between points when enhanced monitoring metrics are collected
-   *          for the DB instance.</p>
+   * <p>Whether the DB instance is a multiple Availability Zone deployment.</p>
    */
-  MonitoringInterval?: number;
+  MultiAz?: boolean;
 
   /**
-   * <p>List of identifiers of Aurora DB clusters to which the RDS DB instance is replicated as
-   *          a read replica.</p>
+   * <p>The ARN of the CloudWatch Logs log stream that receives the enhanced monitoring metrics
+   *          data for the DB instance.</p>
    */
-  ReadReplicaDBClusterIdentifiers?: string[];
+  EnhancedMonitoringResourceArn?: string;
+
+  /**
+   * <p>The current status of the DB instance.</p>
+   */
+  DbInstanceStatus?: string;
+
+  /**
+   * <p>The master user name of the DB instance.</p>
+   */
+  MasterUsername?: string;
+
+  /**
+   * <p>The amount of storage (in gigabytes) to initially allocate for the DB instance.</p>
+   */
+  AllocatedStorage?: number;
+
+  /**
+   * <p>The range of time each day when automated backups are created, if automated backups are
+   *          enabled.</p>
+   *          <p>Uses the format <code>HH:MM-HH:MM</code>. For example, <code>04:52-05:22</code>.</p>
+   */
+  PreferredBackupWindow?: string;
+
+  /**
+   * <p>The number of days for which to retain automated backups.</p>
+   */
+  BackupRetentionPeriod?: number;
+
+  /**
+   * <p>A list of the DB security groups to assign to the DB instance.</p>
+   */
+  DbSecurityGroups?: string[];
+
+  /**
+   * <p>A list of the DB parameter groups to assign to the DB instance.</p>
+   */
+  DbParameterGroups?: AwsRdsDbParameterGroup[];
+
+  /**
+   * <p>The Availability Zone where the DB instance will be created.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>Information about the subnet group that is associated with the DB instance.</p>
+   */
+  DbSubnetGroup?: AwsRdsDbSubnetGroup;
 
   /**
    * <p>The weekly time range during which system maintenance can occur, in Universal
@@ -5592,16 +5706,9 @@ export interface AwsRdsDbInstanceDetails {
   PreferredMaintenanceWindow?: string;
 
   /**
-   * <p>The AWS Region-unique, immutable identifier for the DB instance. This identifier is
-   *          found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is
-   *          accessed. </p>
+   * <p>Changes to the DB instance that are currently pending.</p>
    */
-  DbiResourceId?: string;
-
-  /**
-   * <p>The list of option group memberships for this DB instance.</p>
-   */
-  OptionGroupMemberships?: AwsRdsDbOptionGroupMembership[];
+  PendingModifiedValues?: AwsRdsDbPendingModifiedValues;
 
   /**
    * <p>Specifies the latest time to which a database can be restored with point-in-time
@@ -5613,125 +5720,9 @@ export interface AwsRdsDbInstanceDetails {
   LatestRestorableTime?: string;
 
   /**
-   * <p>Contains the name of the compute and memory capacity class of the DB instance.</p>
+   * <p>Indicates whether minor version patches are applied automatically.</p>
    */
-  DBInstanceClass?: string;
-
-  /**
-   * <p>The status of a read replica. If the instance isn't a read replica, this is
-   *          empty.</p>
-   */
-  StatusInfos?: AwsRdsDbStatusInfo[];
-
-  /**
-   * <p>Specifies the provisioned IOPS (I/O operations per second) for this DB instance.</p>
-   */
-  Iops?: number;
-
-  /**
-   * <p>License model information for this DB instance.</p>
-   */
-  LicenseModel?: string;
-
-  /**
-   * <p>The meaning of this parameter differs according to the database engine you use.</p>
-   *          <p>
-   *             <b>MySQL, MariaDB, SQL Server, PostgreSQL</b>
-   *          </p>
-   *          <p>Contains the name of the initial database of this instance that was provided at create
-   *          time, if one was specified when the DB instance was created. This same name is returned for
-   *          the life of the DB instance.</p>
-   *          <p>
-   *             <b>Oracle</b>
-   *          </p>
-   *          <p>Contains the Oracle System ID (SID) of the created DB instance. Not shown when the
-   *          returned parameters do not apply to an Oracle DB instance. </p>
-   */
-  DBName?: string;
-
-  /**
-   * <p>Indicates whether Performance Insights is enabled for the DB instance.</p>
-   */
-  PerformanceInsightsEnabled?: boolean;
-
-  /**
-   * <p>The number of days for which to retain automated backups.</p>
-   */
-  BackupRetentionPeriod?: number;
-
-  /**
-   * <p>Information about the subnet group that is associated with the DB instance.</p>
-   */
-  DbSubnetGroup?: AwsRdsDbSubnetGroup;
-
-  /**
-   * <p>The AWS Identity and Access Management (IAM) roles associated with the DB
-   *          instance.</p>
-   */
-  AssociatedRoles?: AwsRdsDbInstanceAssociatedRole[];
-
-  /**
-   * <p>Indicates when the DB instance was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  InstanceCreateTime?: string;
-
-  /**
-   * <p>The ARN for the IAM role that permits Amazon RDS to send enhanced monitoring metrics to
-   *          CloudWatch Logs.</p>
-   */
-  MonitoringRoleArn?: string;
-
-  /**
-   * <p>The master user name of the DB instance.</p>
-   */
-  MasterUsername?: string;
-
-  /**
-   * <p>The identifier of the CA certificate for this DB instance.</p>
-   */
-  CACertificateIdentifier?: string;
-
-  /**
-   * <p>A list of the DB parameter groups to assign to the DB instance.</p>
-   */
-  DbParameterGroups?: AwsRdsDbParameterGroup[];
-
-  /**
-   * <p>The number of CPU cores and the number of threads per core for the DB instance class of
-   *          the DB instance.</p>
-   */
-  ProcessorFeatures?: AwsRdsDbProcessorFeature[];
-
-  /**
-   * <p>The range of time each day when automated backups are created, if automated backups are
-   *          enabled.</p>
-   *          <p>Uses the format <code>HH:MM-HH:MM</code>. For example, <code>04:52-05:22</code>.</p>
-   */
-  PreferredBackupWindow?: string;
-
-  /**
-   * <p>Whether to copy resource tags to snapshots of the DB instance.</p>
-   */
-  CopyTagsToSnapshot?: boolean;
-
-  /**
-   * <p>The ARN of the CloudWatch Logs log stream that receives the enhanced monitoring metrics
-   *          data for the DB instance.</p>
-   */
-  EnhancedMonitoringResourceArn?: string;
-
-  /**
-   * <p>Provides the name of the database engine to use for this DB instance.</p>
-   */
-  Engine?: string;
-
-  /**
-   * <p>The identifier of the AWS KMS key used to encrypt the Performance Insights data.</p>
-   */
-  PerformanceInsightsKmsKeyId?: string;
+  AutoMinorVersionUpgrade?: boolean;
 
   /**
    * <p>If this DB instance is a read replica, contains the identifier of the source DB
@@ -5740,88 +5731,30 @@ export interface AwsRdsDbInstanceDetails {
   ReadReplicaSourceDBInstanceIdentifier?: string;
 
   /**
-   * <p>Whether the DB instance is a multiple Availability Zone deployment.</p>
-   */
-  MultiAz?: boolean;
-
-  /**
-   * <p>Indicates the database engine version.</p>
-   */
-  EngineVersion?: string;
-
-  /**
-   * <p>The storage type for the DB instance.</p>
-   */
-  StorageType?: string;
-
-  /**
-   * <p>Indicates whether minor version patches are applied automatically.</p>
-   */
-  AutoMinorVersionUpgrade?: boolean;
-
-  /**
-   * <p>Contains a user-supplied database identifier. This identifier is the unique key that
-   *          identifies a DB instance.</p>
-   */
-  DBInstanceIdentifier?: string;
-
-  /**
-   * <p>If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the encrypted
-   *          DB instance.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>A list of log types that this DB instance is configured to export to CloudWatch
-   *          Logs.</p>
-   */
-  EnabledCloudWatchLogsExports?: string[];
-
-  /**
-   * <p>Indicates whether the DB instance has deletion protection enabled.</p>
-   *          <p>When deletion protection is enabled, the database cannot be deleted.</p>
-   */
-  DeletionProtection?: boolean;
-
-  /**
-   * <p>The Availability Zone where the DB instance will be created.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The current status of the DB instance.</p>
-   */
-  DbInstanceStatus?: string;
-
-  /**
    * <p>List of identifiers of the read replicas associated with this DB instance.</p>
    */
   ReadReplicaDBInstanceIdentifiers?: string[];
 
   /**
-   * <p>Specifies the accessibility options for the DB instance.</p>
-   *          <p>A value of true specifies an Internet-facing instance with a publicly resolvable DNS
-   *          name, which resolves to a public IP address.</p>
-   *          <p>A value of false specifies an internal instance with a DNS name that resolves to a
-   *          private IP address. </p>
+   * <p>List of identifiers of Aurora DB clusters to which the RDS DB instance is replicated as
+   *          a read replica.</p>
    */
-  PubliclyAccessible?: boolean;
+  ReadReplicaDBClusterIdentifiers?: string[];
 
   /**
-   * <p>The upper limit to which Amazon RDS can automatically scale the storage of the DB
-   *          instance.</p>
+   * <p>License model information for this DB instance.</p>
    */
-  MaxAllocatedStorage?: number;
+  LicenseModel?: string;
 
   /**
-   * <p>The amount of storage (in gigabytes) to initially allocate for the DB instance.</p>
+   * <p>Specifies the provisioned IOPS (I/O operations per second) for this DB instance.</p>
    */
-  AllocatedStorage?: number;
+  Iops?: number;
 
   /**
-   * <p>The Active Directory domain membership records associated with the DB instance.</p>
+   * <p>The list of option group memberships for this DB instance.</p>
    */
-  DomainMemberships?: AwsRdsDbDomainMembership[];
+  OptionGroupMemberships?: AwsRdsDbOptionGroupMembership[];
 
   /**
    * <p>The name of the character set that this DB instance is associated with.</p>
@@ -5829,9 +5762,43 @@ export interface AwsRdsDbInstanceDetails {
   CharacterSetName?: string;
 
   /**
-   * <p>The number of days to retain Performance Insights data.</p>
+   * <p>For a DB instance with multi-Availability Zone support, the name of the secondary
+   *          Availability Zone.</p>
    */
-  PerformanceInsightsRetentionPeriod?: number;
+  SecondaryAvailabilityZone?: string;
+
+  /**
+   * <p>The status of a read replica. If the instance isn't a read replica, this is
+   *          empty.</p>
+   */
+  StatusInfos?: AwsRdsDbStatusInfo[];
+
+  /**
+   * <p>The storage type for the DB instance.</p>
+   */
+  StorageType?: string;
+
+  /**
+   * <p>The Active Directory domain membership records associated with the DB instance.</p>
+   */
+  DomainMemberships?: AwsRdsDbDomainMembership[];
+
+  /**
+   * <p>Whether to copy resource tags to snapshots of the DB instance.</p>
+   */
+  CopyTagsToSnapshot?: boolean;
+
+  /**
+   * <p>The interval, in seconds, between points when enhanced monitoring metrics are collected
+   *          for the DB instance.</p>
+   */
+  MonitoringInterval?: number;
+
+  /**
+   * <p>The ARN for the IAM role that permits Amazon RDS to send enhanced monitoring metrics to
+   *          CloudWatch Logs.</p>
+   */
+  MonitoringRoleArn?: string;
 
   /**
    * <p>The order in which to promote an Aurora replica to the primary instance after a failure
@@ -5840,14 +5807,47 @@ export interface AwsRdsDbInstanceDetails {
   PromotionTier?: number;
 
   /**
-   * <p>A list of the DB security groups to assign to the DB instance.</p>
+   * <p>The time zone of the DB instance.</p>
    */
-  DbSecurityGroups?: string[];
+  Timezone?: string;
+
+  /**
+   * <p>Indicates whether Performance Insights is enabled for the DB instance.</p>
+   */
+  PerformanceInsightsEnabled?: boolean;
+
+  /**
+   * <p>The identifier of the AWS KMS key used to encrypt the Performance Insights data.</p>
+   */
+  PerformanceInsightsKmsKeyId?: string;
+
+  /**
+   * <p>The number of days to retain Performance Insights data.</p>
+   */
+  PerformanceInsightsRetentionPeriod?: number;
+
+  /**
+   * <p>A list of log types that this DB instance is configured to export to CloudWatch
+   *          Logs.</p>
+   */
+  EnabledCloudWatchLogsExports?: string[];
+
+  /**
+   * <p>The number of CPU cores and the number of threads per core for the DB instance class of
+   *          the DB instance.</p>
+   */
+  ProcessorFeatures?: AwsRdsDbProcessorFeature[];
 
   /**
    * <p>Specifies the connection endpoint.</p>
    */
   ListenerEndpoint?: AwsRdsDbInstanceEndpoint;
+
+  /**
+   * <p>The upper limit to which Amazon RDS can automatically scale the storage of the DB
+   *          instance.</p>
+   */
+  MaxAllocatedStorage?: number;
 }
 
 export namespace AwsRdsDbInstanceDetails {
@@ -5863,7 +5863,77 @@ export interface AwsRdsDbSnapshotDetails {
   /**
    * <p></p>
    */
+  DbSnapshotIdentifier?: string;
+
+  /**
+   * <p></p>
+   */
+  DbInstanceIdentifier?: string;
+
+  /**
+   * <p></p>
+   */
+  SnapshotCreateTime?: string;
+
+  /**
+   * <p></p>
+   */
+  Engine?: string;
+
+  /**
+   * <p></p>
+   */
+  AllocatedStorage?: number;
+
+  /**
+   * <p></p>
+   */
+  Status?: string;
+
+  /**
+   * <p></p>
+   */
+  Port?: number;
+
+  /**
+   * <p></p>
+   */
   AvailabilityZone?: string;
+
+  /**
+   * <p></p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p></p>
+   */
+  InstanceCreateTime?: string;
+
+  /**
+   * <p></p>
+   */
+  MasterUsername?: string;
+
+  /**
+   * <p></p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p></p>
+   */
+  LicenseModel?: string;
+
+  /**
+   * <p></p>
+   */
+  SnapshotType?: string;
+
+  /**
+   * <p></p>
+   */
+  Iops?: number;
 
   /**
    * <p></p>
@@ -5878,92 +5948,7 @@ export interface AwsRdsDbSnapshotDetails {
   /**
    * <p></p>
    */
-  VpcId?: string;
-
-  /**
-   * <p></p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p></p>
-   */
-  Status?: string;
-
-  /**
-   * <p></p>
-   */
-  IamDatabaseAuthenticationEnabled?: boolean;
-
-  /**
-   * <p></p>
-   */
-  Engine?: string;
-
-  /**
-   * <p></p>
-   */
-  ProcessorFeatures?: AwsRdsDbProcessorFeature[];
-
-  /**
-   * <p></p>
-   */
-  Encrypted?: boolean;
-
-  /**
-   * <p></p>
-   */
-  EngineVersion?: string;
-
-  /**
-   * <p></p>
-   */
-  StorageType?: string;
-
-  /**
-   * <p></p>
-   */
-  AllocatedStorage?: number;
-
-  /**
-   * <p></p>
-   */
-  SnapshotType?: string;
-
-  /**
-   * <p></p>
-   */
-  MasterUsername?: string;
-
-  /**
-   * <p></p>
-   */
-  Port?: number;
-
-  /**
-   * <p></p>
-   */
-  InstanceCreateTime?: string;
-
-  /**
-   * <p></p>
-   */
-  DbInstanceIdentifier?: string;
-
-  /**
-   * <p></p>
-   */
-  TdeCredentialArn?: string;
-
-  /**
-   * <p></p>
-   */
-  DbSnapshotIdentifier?: string;
-
-  /**
-   * <p></p>
-   */
-  Iops?: number;
+  SourceRegion?: string;
 
   /**
    * <p></p>
@@ -5973,7 +5958,22 @@ export interface AwsRdsDbSnapshotDetails {
   /**
    * <p></p>
    */
-  LicenseModel?: string;
+  StorageType?: string;
+
+  /**
+   * <p></p>
+   */
+  TdeCredentialArn?: string;
+
+  /**
+   * <p></p>
+   */
+  Encrypted?: boolean;
+
+  /**
+   * <p></p>
+   */
+  KmsKeyId?: string;
 
   /**
    * <p></p>
@@ -5983,12 +5983,12 @@ export interface AwsRdsDbSnapshotDetails {
   /**
    * <p></p>
    */
-  SourceRegion?: string;
+  IamDatabaseAuthenticationEnabled?: boolean;
 
   /**
    * <p></p>
    */
-  SnapshotCreateTime?: string;
+  ProcessorFeatures?: AwsRdsDbProcessorFeature[];
 
   /**
    * <p></p>
@@ -6007,11 +6007,6 @@ export namespace AwsRdsDbSnapshotDetails {
  */
 export interface AwsRedshiftClusterClusterNode {
   /**
-   * <p>The public IP address of the node.</p>
-   */
-  PublicIpAddress?: string;
-
-  /**
    * <p>The role of the node. A node might be a leader node or a compute node.</p>
    */
   NodeRole?: string;
@@ -6020,6 +6015,11 @@ export interface AwsRedshiftClusterClusterNode {
    * <p>The private IP address of the node.</p>
    */
   PrivateIpAddress?: string;
+
+  /**
+   * <p>The public IP address of the node.</p>
+   */
+  PublicIpAddress?: string;
 }
 
 export namespace AwsRedshiftClusterClusterNode {
@@ -6034,6 +6034,11 @@ export namespace AwsRedshiftClusterClusterNode {
  */
 export interface AwsRedshiftClusterClusterParameterStatus {
   /**
+   * <p>The name of the parameter.</p>
+   */
+  ParameterName?: string;
+
+  /**
    * <p>The status of the parameter. Indicates whether the parameter is in sync with the
    *          database, waiting for a cluster reboot, or encountered an error when it was applied.</p>
    *          <p>Valid values: <code>in-sync</code> | <code>pending-reboot</code> | <code>applying</code>
@@ -6042,11 +6047,6 @@ export interface AwsRedshiftClusterClusterParameterStatus {
    *          </p>
    */
   ParameterApplyStatus?: string;
-
-  /**
-   * <p>The name of the parameter.</p>
-   */
-  ParameterName?: string;
 
   /**
    * <p>The error that prevented the parameter from being applied to the database.</p>
@@ -6065,9 +6065,9 @@ export namespace AwsRedshiftClusterClusterParameterStatus {
  */
 export interface AwsRedshiftClusterClusterParameterGroup {
   /**
-   * <p>The name of the parameter group.</p>
+   * <p>The list of parameter statuses.</p>
    */
-  ParameterGroupName?: string;
+  ClusterParameterStatusList?: AwsRedshiftClusterClusterParameterStatus[];
 
   /**
    * <p>The status of updates to the parameters.</p>
@@ -6075,9 +6075,9 @@ export interface AwsRedshiftClusterClusterParameterGroup {
   ParameterApplyStatus?: string;
 
   /**
-   * <p>The list of parameter statuses.</p>
+   * <p>The name of the parameter group.</p>
    */
-  ClusterParameterStatusList?: AwsRedshiftClusterClusterParameterStatus[];
+  ParameterGroupName?: string;
 }
 
 export namespace AwsRedshiftClusterClusterParameterGroup {
@@ -6091,14 +6091,14 @@ export namespace AwsRedshiftClusterClusterParameterGroup {
  */
 export interface AwsRedshiftClusterClusterSecurityGroup {
   /**
-   * <p>The status of the cluster security group.</p>
-   */
-  Status?: string;
-
-  /**
    * <p>The name of the cluster security group.</p>
    */
   ClusterSecurityGroupName?: string;
+
+  /**
+   * <p>The status of the cluster security group.</p>
+   */
+  Status?: string;
 }
 
 export namespace AwsRedshiftClusterClusterSecurityGroup {
@@ -6112,15 +6112,10 @@ export namespace AwsRedshiftClusterClusterSecurityGroup {
  */
 export interface AwsRedshiftClusterClusterSnapshotCopyStatus {
   /**
-   * <p>The number of days to retain automated snapshots in the destination Region after they
-   *          are copied from a source Region.</p>
+   * <p>The destination Region that snapshots are automatically copied to when cross-Region
+   *          snapshot copy is enabled.</p>
    */
-  RetentionPeriod?: number;
-
-  /**
-   * <p>The name of the snapshot copy grant.</p>
-   */
-  SnapshotCopyGrantName?: string;
+  DestinationRegion?: string;
 
   /**
    * <p>The number of days that manual snapshots are retained in the destination region after
@@ -6131,10 +6126,15 @@ export interface AwsRedshiftClusterClusterSnapshotCopyStatus {
   ManualSnapshotRetentionPeriod?: number;
 
   /**
-   * <p>The destination Region that snapshots are automatically copied to when cross-Region
-   *          snapshot copy is enabled.</p>
+   * <p>The number of days to retain automated snapshots in the destination Region after they
+   *          are copied from a source Region.</p>
    */
-  DestinationRegion?: string;
+  RetentionPeriod?: number;
+
+  /**
+   * <p>The name of the snapshot copy grant.</p>
+   */
+  SnapshotCopyGrantName?: string;
 }
 
 export namespace AwsRedshiftClusterClusterSnapshotCopyStatus {
@@ -6225,6 +6225,12 @@ export namespace AwsRedshiftClusterEndpoint {
  */
 export interface AwsRedshiftClusterHsmStatus {
   /**
+   * <p>The name of the HSM client certificate that the Amazon Redshift cluster uses to retrieve
+   *          the data encryption keys that are stored in an HSM.</p>
+   */
+  HsmClientCertificateIdentifier?: string;
+
+  /**
    * <p>The name of the HSM configuration that contains the information that the Amazon Redshift
    *          cluster can use to retrieve and store keys in an HSM.</p>
    */
@@ -6238,12 +6244,6 @@ export interface AwsRedshiftClusterHsmStatus {
    *          </p>
    */
   Status?: string;
-
-  /**
-   * <p>The name of the HSM client certificate that the Amazon Redshift cluster uses to retrieve
-   *          the data encryption keys that are stored in an HSM.</p>
-   */
-  HsmClientCertificateIdentifier?: string;
 }
 
 export namespace AwsRedshiftClusterHsmStatus {
@@ -6257,16 +6257,16 @@ export namespace AwsRedshiftClusterHsmStatus {
  */
 export interface AwsRedshiftClusterIamRole {
   /**
-   * <p>The ARN of the IAM role.</p>
-   */
-  IamRoleArn?: string;
-
-  /**
    * <p>The status of the IAM role's association with the cluster.</p>
    *          <p>Valid values: <code>in-sync</code> | <code>adding</code> | <code>removing</code>
    *          </p>
    */
   ApplyStatus?: string;
+
+  /**
+   * <p>The ARN of the IAM role.</p>
+   */
+  IamRoleArn?: string;
 }
 
 export namespace AwsRedshiftClusterIamRole {
@@ -6280,14 +6280,9 @@ export namespace AwsRedshiftClusterIamRole {
  */
 export interface AwsRedshiftClusterPendingModifiedValues {
   /**
-   * <p>The pending or in-progress change to the number of nodes in the cluster.</p>
+   * <p>The pending or in-progress change to the automated snapshot retention period.</p>
    */
-  NumberOfNodes?: number;
-
-  /**
-   * <p>The pending or in-progress change to the service version.</p>
-   */
-  ClusterVersion?: string;
+  AutomatedSnapshotRetentionPeriod?: number;
 
   /**
    * <p>The pending or in-progress change to the identifier for the cluster.</p>
@@ -6300,10 +6295,25 @@ export interface AwsRedshiftClusterPendingModifiedValues {
   ClusterType?: string;
 
   /**
-   * <p>The pending or in-progress change to whether the cluster can be connected to from the
-   *          public network.</p>
+   * <p>The pending or in-progress change to the service version.</p>
    */
-  PubliclyAccessible?: boolean;
+  ClusterVersion?: string;
+
+  /**
+   * <p>The encryption type for a cluster.</p>
+   */
+  EncryptionType?: string;
+
+  /**
+   * <p>Indicates whether to create the cluster with enhanced VPC routing enabled.</p>
+   */
+  EnhancedVpcRouting?: boolean;
+
+  /**
+   * <p>The name of the maintenance track that the cluster changes to during the next
+   *          maintenance window.</p>
+   */
+  MaintenanceTrackName?: string;
 
   /**
    * <p>The pending or in-progress change to the master user password for the cluster.</p>
@@ -6316,25 +6326,15 @@ export interface AwsRedshiftClusterPendingModifiedValues {
   NodeType?: string;
 
   /**
-   * <p>The encryption type for a cluster.</p>
+   * <p>The pending or in-progress change to the number of nodes in the cluster.</p>
    */
-  EncryptionType?: string;
+  NumberOfNodes?: number;
 
   /**
-   * <p>The pending or in-progress change to the automated snapshot retention period.</p>
+   * <p>The pending or in-progress change to whether the cluster can be connected to from the
+   *          public network.</p>
    */
-  AutomatedSnapshotRetentionPeriod?: number;
-
-  /**
-   * <p>The name of the maintenance track that the cluster changes to during the next
-   *          maintenance window.</p>
-   */
-  MaintenanceTrackName?: string;
-
-  /**
-   * <p>Indicates whether to create the cluster with enhanced VPC routing enabled.</p>
-   */
-  EnhancedVpcRouting?: boolean;
+  PubliclyAccessible?: boolean;
 }
 
 export namespace AwsRedshiftClusterPendingModifiedValues {
@@ -6372,32 +6372,11 @@ export namespace AwsRedshiftClusterResizeInfo {
  */
 export interface AwsRedshiftClusterRestoreStatus {
   /**
-   * <p>The size of the set of snapshot data that was used to restore the cluster.</p>
-   *          <p>This field is only updated when you restore to DC2 and DS2 node types.</p>
-   */
-  SnapshotSizeInMegaBytes?: number;
-
-  /**
-   * <p>The estimate of the time remaining before the restore is complete. Returns 0 for a
-   *          completed restore.</p>
-   *          <p>This field is only updated when you restore to DC2 and DS2 node types.</p>
-   */
-  EstimatedTimeToCompletionInSeconds?: number;
-
-  /**
    * <p>The number of megabytes per second being transferred from the backup storage. Returns
    *          the average rate for a completed backup.</p>
    *          <p>This field is only updated when you restore to DC2 and DS2 node types.</p>
    */
   CurrentRestoreRateInMegaBytesPerSecond?: number;
-
-  /**
-   * <p>The status of the restore action.</p>
-   *          <p>Valid values: <code>starting</code> | <code>restoring</code> | <code>completed</code> |
-   *             <code>failed</code>
-   *          </p>
-   */
-  Status?: string;
 
   /**
    * <p>The amount of time an in-progress restore has been running, or the amount of time it
@@ -6407,10 +6386,31 @@ export interface AwsRedshiftClusterRestoreStatus {
   ElapsedTimeInSeconds?: number;
 
   /**
+   * <p>The estimate of the time remaining before the restore is complete. Returns 0 for a
+   *          completed restore.</p>
+   *          <p>This field is only updated when you restore to DC2 and DS2 node types.</p>
+   */
+  EstimatedTimeToCompletionInSeconds?: number;
+
+  /**
    * <p>The number of megabytes that were transferred from snapshot storage.</p>
    *          <p>This field is only updated when you restore to DC2 and DS2 node types.</p>
    */
   ProgressInMegaBytes?: number;
+
+  /**
+   * <p>The size of the set of snapshot data that was used to restore the cluster.</p>
+   *          <p>This field is only updated when you restore to DC2 and DS2 node types.</p>
+   */
+  SnapshotSizeInMegaBytes?: number;
+
+  /**
+   * <p>The status of the restore action.</p>
+   *          <p>Valid values: <code>starting</code> | <code>restoring</code> | <code>completed</code> |
+   *             <code>failed</code>
+   *          </p>
+   */
+  Status?: string;
 }
 
 export namespace AwsRedshiftClusterRestoreStatus {
@@ -6424,14 +6424,14 @@ export namespace AwsRedshiftClusterRestoreStatus {
  */
 export interface AwsRedshiftClusterVpcSecurityGroup {
   /**
-   * <p>The identifier of the VPC security group.</p>
-   */
-  VpcSecurityGroupId?: string;
-
-  /**
    * <p>The status of the VPC security group.</p>
    */
   Status?: string;
+
+  /**
+   * <p>The identifier of the VPC security group.</p>
+   */
+  VpcSecurityGroupId?: string;
 }
 
 export namespace AwsRedshiftClusterVpcSecurityGroup {
@@ -6445,206 +6445,20 @@ export namespace AwsRedshiftClusterVpcSecurityGroup {
  */
 export interface AwsRedshiftClusterDetails {
   /**
-   * <p>The name of the subnet group that is associated with the cluster. This parameter is
-   *          valid only when the cluster is in a VPC.</p>
-   */
-  ClusterSubnetGroupName?: string;
-
-  /**
-   * <p>The default number of days to retain a manual snapshot.</p>
-   *          <p>If the value is -1, the snapshot is retained indefinitely.</p>
-   *          <p>This setting doesn't change the retention period of existing snapshots.</p>
-   *          <p>Valid values: Either -1 or an integer between 1 and 3,653</p>
-   */
-  ManualSnapshotRetentionPeriod?: number;
-
-  /**
    * <p>Indicates whether major version upgrades are applied automatically to the cluster during
    *          the maintenance window.</p>
    */
   AllowVersionUpgrade?: boolean;
 
   /**
-   * <p>The list of cluster parameter groups that are associated with this cluster.</p>
+   * <p>The number of days that automatic cluster snapshots are retained.</p>
    */
-  ClusterParameterGroups?: AwsRedshiftClusterClusterParameterGroup[];
-
-  /**
-   * <p>The name of the maintenance track for the cluster.</p>
-   */
-  MaintenanceTrackName?: string;
-
-  /**
-   * <p>The public key for the cluster.</p>
-   */
-  ClusterPublicKey?: string;
-
-  /**
-   * <p>Information about the resize operation for the cluster.</p>
-   */
-  ResizeInfo?: AwsRedshiftClusterResizeInfo;
-
-  /**
-   * <p>The version ID of the Amazon Redshift engine that runs on the cluster.</p>
-   */
-  ClusterVersion?: string;
-
-  /**
-   * <p>Indicates the start of the next maintenance window.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  NextMaintenanceWindowStartTime?: string;
-
-  /**
-   * <p>The number of nodes that you can use the elastic resize method to resize the cluster
-   *          to.</p>
-   */
-  ElasticResizeNumberOfNodeOptions?: string;
-
-  /**
-   * <p>A unique identifier for the cluster snapshot schedule.</p>
-   */
-  SnapshotScheduleIdentifier?: string;
-
-  /**
-   * <p>A list of cluster security groups that are associated with the cluster.</p>
-   */
-  ClusterSecurityGroups?: AwsRedshiftClusterClusterSecurityGroup[];
-
-  /**
-   * <p>The master user name for the cluster. This name is used to connect to the database that
-   *          is specified in as the value of <code>DBName</code>.</p>
-   */
-  MasterUsername?: string;
-
-  /**
-   * <p>The current status of the cluster.</p>
-   *          <p>Valid values: <code>available</code> | <code>available, prep-for-resize</code> |
-   *             <code>available, resize-cleanup</code> |<code> cancelling-resize</code> |
-   *             <code>creating</code> | <code>deleting</code> | <code>final-snapshot</code> |
-   *             <code>hardware-failure</code> | <code>incompatible-hsm</code> |<code>
-   *             incompatible-network</code> | <code>incompatible-parameters</code> |
-   *             <code>incompatible-restore</code> | <code>modifying</code> | <code>paused</code> |
-   *             <code>rebooting</code> | <code>renaming</code> | <code>resizing</code> |
-   *             <code>rotating-keys</code> | <code>storage-full</code> |
-   *          <code>updating-hsm</code>
-   *          </p>
-   */
-  ClusterStatus?: string;
-
-  /**
-   * <p>Whether the cluster can be accessed from a public network.</p>
-   */
-  PubliclyAccessible?: boolean;
-
-  /**
-   * <p>Information about the status of a cluster restore action. Only applies to a cluster that
-   *          was created by restoring a snapshot.</p>
-   */
-  RestoreStatus?: AwsRedshiftClusterRestoreStatus;
-
-  /**
-   * <p>A list of cluster operations that are waiting to start.</p>
-   */
-  PendingActions?: string[];
-
-  /**
-   * <p>Indicates when the cluster was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  ClusterCreateTime?: string;
-
-  /**
-   * <p>Indicates whether the data in the cluster is encrypted at rest.</p>
-   */
-  Encrypted?: boolean;
-
-  /**
-   * <p>The node type for the nodes in the cluster.</p>
-   */
-  NodeType?: string;
-
-  /**
-   * <p>A list of changes to the cluster that are currently pending.</p>
-   */
-  PendingModifiedValues?: AwsRedshiftClusterPendingModifiedValues;
-
-  /**
-   * <p>The list of VPC security groups that the cluster belongs to, if the cluster is in a
-   *          VPC.</p>
-   */
-  VpcSecurityGroups?: AwsRedshiftClusterVpcSecurityGroup[];
-
-  /**
-   * <p>The nodes in the cluster.</p>
-   */
-  ClusterNodes?: AwsRedshiftClusterClusterNode[];
-
-  /**
-   * <p>Information about the status of the Elastic IP (EIP) address.</p>
-   */
-  ElasticIpStatus?: AwsRedshiftClusterElasticIpStatus;
-
-  /**
-   * <p>Information about whether the Amazon Redshift cluster finished applying any changes to
-   *          hardware security module (HSM) settings that were specified in a modify cluster
-   *          command.</p>
-   */
-  HsmStatus?: AwsRedshiftClusterHsmStatus;
-
-  /**
-   * <p>Information about the destination Region and retention period for the cross-Region
-   *          snapshot copy.</p>
-   */
-  ClusterSnapshotCopyStatus?: AwsRedshiftClusterClusterSnapshotCopyStatus;
-
-  /**
-   * <p>The unique identifier of the cluster.</p>
-   */
-  ClusterIdentifier?: string;
-
-  /**
-   * <p>The connection endpoint.</p>
-   */
-  Endpoint?: AwsRedshiftClusterEndpoint;
-
-  /**
-   * <p>The identifier of the VPC that the cluster is in, if the cluster is in a VPC.</p>
-   */
-  VpcId?: string;
+  AutomatedSnapshotRetentionPeriod?: number;
 
   /**
    * <p>The name of the Availability Zone in which the cluster is located.</p>
    */
   AvailabilityZone?: string;
-
-  /**
-   * <p>The name of the initial database that was created when the cluster was created.</p>
-   *          <p>The same name is returned for the life of the cluster.</p>
-   *          <p>If an initial database is not specified, a database named <code>devdev</code> is created
-   *          by default.</p>
-   */
-  DBName?: string;
-
-  /**
-   * <p>The specific revision number of the database in the cluster.</p>
-   */
-  ClusterRevisionNumber?: string;
-
-  /**
-   * <p>The identifier of the AWS KMS encryption key that is used to encrypt data in the
-   *          cluster.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>A list of IAM roles that the cluster can use to access other AWS services.</p>
-   */
-  IamRoles?: AwsRedshiftClusterIamRole[];
 
   /**
    * <p>The availability status of the cluster for queries. Possible values are the
@@ -6677,14 +6491,194 @@ export interface AwsRedshiftClusterDetails {
   ClusterAvailabilityStatus?: string;
 
   /**
-   * <p>The number of days that automatic cluster snapshots are retained.</p>
+   * <p>Indicates when the cluster was created.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
-  AutomatedSnapshotRetentionPeriod?: number;
+  ClusterCreateTime?: string;
+
+  /**
+   * <p>The unique identifier of the cluster.</p>
+   */
+  ClusterIdentifier?: string;
+
+  /**
+   * <p>The nodes in the cluster.</p>
+   */
+  ClusterNodes?: AwsRedshiftClusterClusterNode[];
+
+  /**
+   * <p>The list of cluster parameter groups that are associated with this cluster.</p>
+   */
+  ClusterParameterGroups?: AwsRedshiftClusterClusterParameterGroup[];
+
+  /**
+   * <p>The public key for the cluster.</p>
+   */
+  ClusterPublicKey?: string;
+
+  /**
+   * <p>The specific revision number of the database in the cluster.</p>
+   */
+  ClusterRevisionNumber?: string;
+
+  /**
+   * <p>A list of cluster security groups that are associated with the cluster.</p>
+   */
+  ClusterSecurityGroups?: AwsRedshiftClusterClusterSecurityGroup[];
+
+  /**
+   * <p>Information about the destination Region and retention period for the cross-Region
+   *          snapshot copy.</p>
+   */
+  ClusterSnapshotCopyStatus?: AwsRedshiftClusterClusterSnapshotCopyStatus;
+
+  /**
+   * <p>The current status of the cluster.</p>
+   *          <p>Valid values: <code>available</code> | <code>available, prep-for-resize</code> |
+   *             <code>available, resize-cleanup</code> |<code> cancelling-resize</code> |
+   *             <code>creating</code> | <code>deleting</code> | <code>final-snapshot</code> |
+   *             <code>hardware-failure</code> | <code>incompatible-hsm</code> |<code>
+   *             incompatible-network</code> | <code>incompatible-parameters</code> |
+   *             <code>incompatible-restore</code> | <code>modifying</code> | <code>paused</code> |
+   *             <code>rebooting</code> | <code>renaming</code> | <code>resizing</code> |
+   *             <code>rotating-keys</code> | <code>storage-full</code> |
+   *          <code>updating-hsm</code>
+   *          </p>
+   */
+  ClusterStatus?: string;
+
+  /**
+   * <p>The name of the subnet group that is associated with the cluster. This parameter is
+   *          valid only when the cluster is in a VPC.</p>
+   */
+  ClusterSubnetGroupName?: string;
+
+  /**
+   * <p>The version ID of the Amazon Redshift engine that runs on the cluster.</p>
+   */
+  ClusterVersion?: string;
+
+  /**
+   * <p>The name of the initial database that was created when the cluster was created.</p>
+   *          <p>The same name is returned for the life of the cluster.</p>
+   *          <p>If an initial database is not specified, a database named <code>devdev</code> is created
+   *          by default.</p>
+   */
+  DBName?: string;
+
+  /**
+   * <p>List of time windows during which maintenance was deferred.</p>
+   */
+  DeferredMaintenanceWindows?: AwsRedshiftClusterDeferredMaintenanceWindow[];
+
+  /**
+   * <p>Information about the status of the Elastic IP (EIP) address.</p>
+   */
+  ElasticIpStatus?: AwsRedshiftClusterElasticIpStatus;
+
+  /**
+   * <p>The number of nodes that you can use the elastic resize method to resize the cluster
+   *          to.</p>
+   */
+  ElasticResizeNumberOfNodeOptions?: string;
+
+  /**
+   * <p>Indicates whether the data in the cluster is encrypted at rest.</p>
+   */
+  Encrypted?: boolean;
+
+  /**
+   * <p>The connection endpoint.</p>
+   */
+  Endpoint?: AwsRedshiftClusterEndpoint;
 
   /**
    * <p>Indicates whether to create the cluster with enhanced VPC routing enabled.</p>
    */
   EnhancedVpcRouting?: boolean;
+
+  /**
+   * <p>Indicates when the next snapshot is expected to be taken. The cluster must have a valid
+   *          snapshot schedule and have backups enabled.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  ExpectedNextSnapshotScheduleTime?: string;
+
+  /**
+   * <p>The status of the next expected snapshot.</p>
+   *          <p>Valid values: <code>OnTrack</code> | <code>Pending</code>
+   *          </p>
+   */
+  ExpectedNextSnapshotScheduleTimeStatus?: string;
+
+  /**
+   * <p>Information about whether the Amazon Redshift cluster finished applying any changes to
+   *          hardware security module (HSM) settings that were specified in a modify cluster
+   *          command.</p>
+   */
+  HsmStatus?: AwsRedshiftClusterHsmStatus;
+
+  /**
+   * <p>A list of IAM roles that the cluster can use to access other AWS services.</p>
+   */
+  IamRoles?: AwsRedshiftClusterIamRole[];
+
+  /**
+   * <p>The identifier of the AWS KMS encryption key that is used to encrypt data in the
+   *          cluster.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The name of the maintenance track for the cluster.</p>
+   */
+  MaintenanceTrackName?: string;
+
+  /**
+   * <p>The default number of days to retain a manual snapshot.</p>
+   *          <p>If the value is -1, the snapshot is retained indefinitely.</p>
+   *          <p>This setting doesn't change the retention period of existing snapshots.</p>
+   *          <p>Valid values: Either -1 or an integer between 1 and 3,653</p>
+   */
+  ManualSnapshotRetentionPeriod?: number;
+
+  /**
+   * <p>The master user name for the cluster. This name is used to connect to the database that
+   *          is specified in as the value of <code>DBName</code>.</p>
+   */
+  MasterUsername?: string;
+
+  /**
+   * <p>Indicates the start of the next maintenance window.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  NextMaintenanceWindowStartTime?: string;
+
+  /**
+   * <p>The node type for the nodes in the cluster.</p>
+   */
+  NodeType?: string;
+
+  /**
+   * <p>The number of compute nodes in the cluster.</p>
+   */
+  NumberOfNodes?: number;
+
+  /**
+   * <p>A list of cluster operations that are waiting to start.</p>
+   */
+  PendingActions?: string[];
+
+  /**
+   * <p>A list of changes to the cluster that are currently pending.</p>
+   */
+  PendingModifiedValues?: AwsRedshiftClusterPendingModifiedValues;
 
   /**
    * <p>The weekly time range, in Universal Coordinated Time (UTC), during which system
@@ -6702,13 +6696,25 @@ export interface AwsRedshiftClusterDetails {
   PreferredMaintenanceWindow?: string;
 
   /**
-   * <p>Indicates when the next snapshot is expected to be taken. The cluster must have a valid
-   *          snapshot schedule and have backups enabled.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * <p>Whether the cluster can be accessed from a public network.</p>
    */
-  ExpectedNextSnapshotScheduleTime?: string;
+  PubliclyAccessible?: boolean;
+
+  /**
+   * <p>Information about the resize operation for the cluster.</p>
+   */
+  ResizeInfo?: AwsRedshiftClusterResizeInfo;
+
+  /**
+   * <p>Information about the status of a cluster restore action. Only applies to a cluster that
+   *          was created by restoring a snapshot.</p>
+   */
+  RestoreStatus?: AwsRedshiftClusterRestoreStatus;
+
+  /**
+   * <p>A unique identifier for the cluster snapshot schedule.</p>
+   */
+  SnapshotScheduleIdentifier?: string;
 
   /**
    * <p>The current state of the cluster snapshot schedule.</p>
@@ -6718,21 +6724,15 @@ export interface AwsRedshiftClusterDetails {
   SnapshotScheduleState?: string;
 
   /**
-   * <p>List of time windows during which maintenance was deferred.</p>
+   * <p>The identifier of the VPC that the cluster is in, if the cluster is in a VPC.</p>
    */
-  DeferredMaintenanceWindows?: AwsRedshiftClusterDeferredMaintenanceWindow[];
+  VpcId?: string;
 
   /**
-   * <p>The number of compute nodes in the cluster.</p>
+   * <p>The list of VPC security groups that the cluster belongs to, if the cluster is in a
+   *          VPC.</p>
    */
-  NumberOfNodes?: number;
-
-  /**
-   * <p>The status of the next expected snapshot.</p>
-   *          <p>Valid values: <code>OnTrack</code> | <code>Pending</code>
-   *          </p>
-   */
-  ExpectedNextSnapshotScheduleTimeStatus?: string;
+  VpcSecurityGroups?: AwsRedshiftClusterVpcSecurityGroup[];
 }
 
 export namespace AwsRedshiftClusterDetails {
@@ -6812,17 +6812,17 @@ export interface AwsS3BucketDetails {
   OwnerName?: string;
 
   /**
-   * <p>The encryption rules that are applied to the S3 bucket.</p>
-   */
-  ServerSideEncryptionConfiguration?: AwsS3BucketServerSideEncryptionConfiguration;
-
-  /**
    * <p>Indicates when the S3 bucket was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreatedAt?: string;
+
+  /**
+   * <p>The encryption rules that are applied to the S3 bucket.</p>
+   */
+  ServerSideEncryptionConfiguration?: AwsS3BucketServerSideEncryptionConfiguration;
 }
 
 export namespace AwsS3BucketDetails {
@@ -6836,10 +6836,12 @@ export namespace AwsS3BucketDetails {
  */
 export interface AwsS3ObjectDetails {
   /**
-   * <p>If the object is stored using server-side encryption, the value of the server-side
-   *          encryption algorithm used when storing this object in Amazon S3.</p>
+   * <p>Indicates when the object was last modified.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
-  ServerSideEncryption?: string;
+  LastModified?: string;
 
   /**
    * <p>The opaque identifier assigned by a web server to a specific version of a resource found
@@ -6853,23 +6855,21 @@ export interface AwsS3ObjectDetails {
   VersionId?: string;
 
   /**
-   * <p>Indicates when the object was last modified.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * <p>A standard MIME type describing the format of the object data.</p>
    */
-  LastModified?: string;
+  ContentType?: string;
+
+  /**
+   * <p>If the object is stored using server-side encryption, the value of the server-side
+   *          encryption algorithm used when storing this object in Amazon S3.</p>
+   */
+  ServerSideEncryption?: string;
 
   /**
    * <p>The identifier of the AWS Key Management Service (AWS KMS) symmetric customer managed
    *          customer master key (CMK) that was used for the object.</p>
    */
   SSEKMSKeyId?: string;
-
-  /**
-   * <p>A standard MIME type describing the format of the object data.</p>
-   */
-  ContentType?: string;
 }
 
 export namespace AwsS3ObjectDetails {
@@ -6899,9 +6899,14 @@ export namespace AwsSecretsManagerSecretRotationRules {
  */
 export interface AwsSecretsManagerSecretDetails {
   /**
-   * <p>Whether rotation is enabled.</p>
+   * <p>Defines the rotation schedule for the secret.</p>
    */
-  RotationEnabled?: boolean;
+  RotationRules?: AwsSecretsManagerSecretRotationRules;
+
+  /**
+   * <p>Whether the rotation occurred within the specified rotation frequency.</p>
+   */
+  RotationOccurredWithinFrequency?: boolean;
 
   /**
    * <p>The ARN, Key ID, or alias of the AWS KMS customer master key (CMK) used to encrypt the
@@ -6911,24 +6916,9 @@ export interface AwsSecretsManagerSecretDetails {
   KmsKeyId?: string;
 
   /**
-   * <p>The user-provided description of the secret.</p>
+   * <p>Whether rotation is enabled.</p>
    */
-  Description?: string;
-
-  /**
-   * <p>The name of the secret.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>Whether the rotation occurred within the specified rotation frequency.</p>
-   */
-  RotationOccurredWithinFrequency?: boolean;
-
-  /**
-   * <p>Whether the secret is deleted.</p>
-   */
-  Deleted?: boolean;
+  RotationEnabled?: boolean;
 
   /**
    * <p>The ARN of the Lambda function that rotates the secret.</p>
@@ -6936,9 +6926,19 @@ export interface AwsSecretsManagerSecretDetails {
   RotationLambdaArn?: string;
 
   /**
-   * <p>Defines the rotation schedule for the secret.</p>
+   * <p>Whether the secret is deleted.</p>
    */
-  RotationRules?: AwsSecretsManagerSecretRotationRules;
+  Deleted?: boolean;
+
+  /**
+   * <p>The name of the secret.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The user-provided description of the secret.</p>
+   */
+  Description?: string;
 }
 
 export namespace AwsSecretsManagerSecretDetails {
@@ -6959,16 +6959,16 @@ export enum ComplianceStatus {
  */
 export interface StatusReason {
   /**
-   * <p>The corresponding description for the status reason code.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>A code that represents a reason for the control status. For the list of status reason
    *          codes and their meanings, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-results.html#securityhub-standards-results-asff">Standards-related information in the ASFF</a> in the
    *             <i>AWS Security Hub User Guide</i>. </p>
    */
   ReasonCode: string | undefined;
+
+  /**
+   * <p>The corresponding description for the status reason code.</p>
+   */
+  Description?: string;
 }
 
 export namespace StatusReason {
@@ -6982,19 +6982,6 @@ export namespace StatusReason {
  *          findings generated from controls.</p>
  */
 export interface Compliance {
-  /**
-   * <p>For a control, the industry or regulatory framework requirements that are related to the
-   *          control. The check for that control is aligned with these requirements.</p>
-   */
-  RelatedRequirements?: string[];
-
-  /**
-   * <p>For findings generated from controls, a list of reasons behind the value of
-   *             <code>Status</code>. For the list of status reason codes and their meanings, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-results.html#securityhub-standards-results-asff">Standards-related information in the ASFF</a> in the
-   *             <i>AWS Security Hub User Guide</i>. </p>
-   */
-  StatusReasons?: StatusReason[];
-
   /**
    * <p>The result of a standards check.</p>
    *          <p>The valid values for <code>Status</code> are as follows.</p>
@@ -7029,6 +7016,19 @@ export interface Compliance {
    *          </ul>
    */
   Status?: ComplianceStatus | string;
+
+  /**
+   * <p>For a control, the industry or regulatory framework requirements that are related to the
+   *          control. The check for that control is aligned with these requirements.</p>
+   */
+  RelatedRequirements?: string[];
+
+  /**
+   * <p>For findings generated from controls, a list of reasons behind the value of
+   *             <code>Status</code>. For the list of status reason codes and their meanings, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-results.html#securityhub-standards-results-asff">Standards-related information in the ASFF</a> in the
+   *             <i>AWS Security Hub User Guide</i>. </p>
+   */
+  StatusReasons?: StatusReason[];
 }
 
 export namespace Compliance {
@@ -7066,14 +7066,14 @@ export enum MalwareType {
  */
 export interface Malware {
   /**
-   * <p>The type of the malware that was observed.</p>
-   */
-  Type?: MalwareType | string;
-
-  /**
    * <p>The name of the malware that was observed.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The type of the malware that was observed.</p>
+   */
+  Type?: MalwareType | string;
 
   /**
    * <p>The file system path of the malware that was observed.</p>
@@ -7123,14 +7123,45 @@ export namespace PortRange {
  */
 export interface Network {
   /**
-   * <p>The source IPv6 address of network-related information about a finding.</p>
+   * <p>The direction of network traffic associated with a finding.</p>
    */
-  SourceIpV6?: string;
+  Direction?: NetworkDirection | string;
+
+  /**
+   * <p>The protocol of network-related information about a finding.</p>
+   */
+  Protocol?: string;
 
   /**
    * <p>The range of open ports that is present on the network.</p>
    */
   OpenPortRange?: PortRange;
+
+  /**
+   * <p>The source IPv4 address of network-related information about a finding.</p>
+   */
+  SourceIpV4?: string;
+
+  /**
+   * <p>The source IPv6 address of network-related information about a finding.</p>
+   */
+  SourceIpV6?: string;
+
+  /**
+   * <p>The source port of network-related information about a finding.</p>
+   */
+  SourcePort?: number;
+
+  /**
+   * <p>The source domain of network-related information about a finding.</p>
+   */
+  SourceDomain?: string;
+
+  /**
+   * <p>The source media access control (MAC) address of network-related information about a
+   *          finding.</p>
+   */
+  SourceMac?: string;
 
   /**
    * <p>The destination IPv4 address of network-related information about a finding.</p>
@@ -7143,40 +7174,9 @@ export interface Network {
   DestinationIpV6?: string;
 
   /**
-   * <p>The source media access control (MAC) address of network-related information about a
-   *          finding.</p>
-   */
-  SourceMac?: string;
-
-  /**
-   * <p>The source domain of network-related information about a finding.</p>
-   */
-  SourceDomain?: string;
-
-  /**
-   * <p>The direction of network traffic associated with a finding.</p>
-   */
-  Direction?: NetworkDirection | string;
-
-  /**
    * <p>The destination port of network-related information about a finding.</p>
    */
   DestinationPort?: number;
-
-  /**
-   * <p>The protocol of network-related information about a finding.</p>
-   */
-  Protocol?: string;
-
-  /**
-   * <p>The source port of network-related information about a finding.</p>
-   */
-  SourcePort?: number;
-
-  /**
-   * <p>The source IPv4 address of network-related information about a finding.</p>
-   */
-  SourceIpV4?: string;
 
   /**
    * <p>The destination domain of network-related information about a finding.</p>
@@ -7195,14 +7195,14 @@ export namespace Network {
  */
 export interface NetworkPathComponentDetails {
   /**
-   * <p>A list of port ranges for the destination.</p>
-   */
-  PortRanges?: PortRange[];
-
-  /**
    * <p>The IP addresses of the destination.</p>
    */
   Address?: string[];
+
+  /**
+   * <p>A list of port ranges for the destination.</p>
+   */
+  PortRanges?: PortRange[];
 }
 
 export namespace NetworkPathComponentDetails {
@@ -7217,11 +7217,6 @@ export namespace NetworkPathComponentDetails {
  */
 export interface NetworkHeader {
   /**
-   * <p>Information about the origin of the component.</p>
-   */
-  Source?: NetworkPathComponentDetails;
-
-  /**
    * <p>The protocol used for the component.</p>
    */
   Protocol?: string;
@@ -7230,6 +7225,11 @@ export interface NetworkHeader {
    * <p>Information about the destination of the component.</p>
    */
   Destination?: NetworkPathComponentDetails;
+
+  /**
+   * <p>Information about the origin of the component.</p>
+   */
+  Source?: NetworkPathComponentDetails;
 }
 
 export namespace NetworkHeader {
@@ -7243,6 +7243,16 @@ export namespace NetworkHeader {
  */
 export interface NetworkPathComponent {
   /**
+   * <p>The identifier of a component in the network path.</p>
+   */
+  ComponentId?: string;
+
+  /**
+   * <p>The type of component.</p>
+   */
+  ComponentType?: string;
+
+  /**
    * <p>Information about the component that comes after the current component in the network
    *          path.</p>
    */
@@ -7253,16 +7263,6 @@ export interface NetworkPathComponent {
    *          path.</p>
    */
   Ingress?: NetworkHeader;
-
-  /**
-   * <p>The identifier of a component in the network path.</p>
-   */
-  ComponentId?: string;
-
-  /**
-   * <p>The type of component.</p>
-   */
-  ComponentType?: string;
 }
 
 export namespace NetworkPathComponent {
@@ -7276,14 +7276,14 @@ export namespace NetworkPathComponent {
  */
 export interface Note {
   /**
-   * <p>The principal that created a note.</p>
-   */
-  UpdatedBy: string | undefined;
-
-  /**
    * <p>The text of a note.</p>
    */
   Text: string | undefined;
+
+  /**
+   * <p>The principal that created a note.</p>
+   */
+  UpdatedBy: string | undefined;
 
   /**
    * <p>The timestamp of when the note was updated.</p>
@@ -7306,15 +7306,10 @@ export namespace Note {
  */
 export interface PatchSummary {
   /**
-   * <p>The type of patch operation performed. For Patch Manager, the values are
-   *             <code>SCAN</code> and <code>INSTALL</code>. </p>
+   * <p>The identifier of the compliance standard that was used to determine the patch
+   *          compliance status.</p>
    */
-  Operation?: string;
-
-  /**
-   * <p>The reboot option specified for the instance.</p>
-   */
-  RebootOption?: string;
+  Id: string | undefined;
 
   /**
    * <p>The number of patches from the compliance standard that were installed
@@ -7323,26 +7318,15 @@ export interface PatchSummary {
   InstalledCount?: number;
 
   /**
-   * <p>The identifier of the compliance standard that was used to determine the patch
-   *          compliance status.</p>
+   * <p>The number of patches that are part of the compliance standard but are not installed.
+   *          The count includes patches that failed to install.</p>
    */
-  Id: string | undefined;
+  MissingCount?: number;
 
   /**
-   * <p>Indicates when the operation completed.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * <p>The number of patches from the compliance standard that failed to install.</p>
    */
-  OperationEndTime?: string;
-
-  /**
-   * <p>Indicates when the operation started.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  OperationStartTime?: string;
+  FailedCount?: number;
 
   /**
    * <p>The number of installed patches that are not part of the compliance standard.</p>
@@ -7356,21 +7340,37 @@ export interface PatchSummary {
   InstalledRejectedCount?: number;
 
   /**
-   * <p>The number of patches from the compliance standard that failed to install.</p>
-   */
-  FailedCount?: number;
-
-  /**
    * <p>The number of patches that were applied, but that require the instance to be rebooted in
    *          order to be marked as installed.</p>
    */
   InstalledPendingReboot?: number;
 
   /**
-   * <p>The number of patches that are part of the compliance standard but are not installed.
-   *          The count includes patches that failed to install.</p>
+   * <p>Indicates when the operation started.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
-  MissingCount?: number;
+  OperationStartTime?: string;
+
+  /**
+   * <p>Indicates when the operation completed.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  OperationEndTime?: string;
+
+  /**
+   * <p>The reboot option specified for the instance.</p>
+   */
+  RebootOption?: string;
+
+  /**
+   * <p>The type of patch operation performed. For Patch Manager, the values are
+   *             <code>SCAN</code> and <code>INSTALL</code>. </p>
+   */
+  Operation?: string;
 }
 
 export namespace PatchSummary {
@@ -7384,12 +7384,14 @@ export namespace PatchSummary {
  */
 export interface ProcessDetails {
   /**
-   * <p>Indicates when the process was terminated.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * <p>The name of the process.</p>
    */
-  TerminatedAt?: string;
+  Name?: string;
+
+  /**
+   * <p>The path to the process executable.</p>
+   */
+  Path?: string;
 
   /**
    * <p>The process ID.</p>
@@ -7402,11 +7404,6 @@ export interface ProcessDetails {
   ParentPid?: number;
 
   /**
-   * <p>The path to the process executable.</p>
-   */
-  Path?: string;
-
-  /**
    * <p>Indicates when the process was launched.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces. For example,
@@ -7415,9 +7412,12 @@ export interface ProcessDetails {
   LaunchedAt?: string;
 
   /**
-   * <p>The name of the process.</p>
+   * <p>Indicates when the process was terminated.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
-  Name?: string;
+  TerminatedAt?: string;
 }
 
 export namespace ProcessDetails {
@@ -7436,14 +7436,14 @@ export enum RecordState {
  */
 export interface RelatedFinding {
   /**
-   * <p>The product-generated identifier for a related finding.</p>
-   */
-  Id: string | undefined;
-
-  /**
    * <p>The ARN of the product that generated a related finding.</p>
    */
   ProductArn: string | undefined;
+
+  /**
+   * <p>The product-generated identifier for a related finding.</p>
+   */
+  Id: string | undefined;
 }
 
 export namespace RelatedFinding {
@@ -7515,6 +7515,12 @@ export namespace AwsSnsTopicSubscription {
  */
 export interface AwsSnsTopicDetails {
   /**
+   * <p>The ID of an AWS managed customer master key (CMK) for Amazon SNS or a custom
+   *          CMK.</p>
+   */
+  KmsMasterKeyId?: string;
+
+  /**
    * <p>Subscription is an embedded property that describes the subscription endpoints of an Amazon SNS topic.</p>
    */
   Subscription?: AwsSnsTopicSubscription[];
@@ -7523,12 +7529,6 @@ export interface AwsSnsTopicDetails {
    * <p>The name of the topic.</p>
    */
   TopicName?: string;
-
-  /**
-   * <p>The ID of an AWS managed customer master key (CMK) for Amazon SNS or a custom
-   *          CMK.</p>
-   */
-  KmsMasterKeyId?: string;
 
   /**
    * <p>The subscription's owner.</p>
@@ -7558,15 +7558,15 @@ export interface AwsSqsQueueDetails {
   KmsMasterKeyId?: string;
 
   /**
+   * <p>The name of the new queue.</p>
+   */
+  QueueName?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the dead-letter queue to which Amazon SQS moves
    *          messages after the value of <code>maxReceiveCount</code> is exceeded. </p>
    */
   DeadLetterTargetArn?: string;
-
-  /**
-   * <p>The name of the new queue.</p>
-   */
-  QueueName?: string;
 }
 
 export namespace AwsSqsQueueDetails {
@@ -7651,14 +7651,15 @@ export namespace WafOverrideAction {
  */
 export interface AwsWafWebAclRule {
   /**
+   * <p>Specifies the action that CloudFront or AWS WAF takes when a web request matches the
+   *          conditions in the rule. </p>
+   */
+  Action?: WafAction;
+
+  /**
    * <p>Rules to exclude from a rule group.</p>
    */
   ExcludedRules?: WafExcludedRule[];
-
-  /**
-   * <p>The identifier for a rule.</p>
-   */
-  RuleId?: string;
 
   /**
    * <p>Use the <code>OverrideAction</code> to test your RuleGroup.</p>
@@ -7680,26 +7681,25 @@ export interface AwsWafWebAclRule {
   OverrideAction?: WafOverrideAction;
 
   /**
-   * <p>The rule type.</p>
-   *          <p>Valid values: <code>REGULAR</code> | <code>RATE_BASED</code> | <code>GROUP</code>
-   *          </p>
-   *          <p>The default is <code>REGULAR</code>.</p>
-   */
-  Type?: string;
-
-  /**
-   * <p>Specifies the action that CloudFront or AWS WAF takes when a web request matches the
-   *          conditions in the rule. </p>
-   */
-  Action?: WafAction;
-
-  /**
    * <p>Specifies the order in which the rules in a WebACL are evaluated. Rules with a lower
    *          value for <code>Priority</code> are evaluated before rules with a higher value. The value
    *          must be a unique integer. If you add multiple rules to a WebACL, the values do not need to
    *          be consecutive.</p>
    */
   Priority?: number;
+
+  /**
+   * <p>The identifier for a rule.</p>
+   */
+  RuleId?: string;
+
+  /**
+   * <p>The rule type.</p>
+   *          <p>Valid values: <code>REGULAR</code> | <code>RATE_BASED</code> | <code>GROUP</code>
+   *          </p>
+   *          <p>The default is <code>REGULAR</code>.</p>
+   */
+  Type?: string;
 }
 
 export namespace AwsWafWebAclRule {
@@ -7719,11 +7719,6 @@ export interface AwsWafWebAclDetails {
   Name?: string;
 
   /**
-   * <p>A unique identifier for a WebACL.</p>
-   */
-  WebAclId?: string;
-
-  /**
    * <p>The action to perform if none of the rules contained in the WebACL match.</p>
    */
   DefaultAction?: string;
@@ -7733,6 +7728,11 @@ export interface AwsWafWebAclDetails {
    *          and the ID of the rule.</p>
    */
   Rules?: AwsWafWebAclRule[];
+
+  /**
+   * <p>A unique identifier for a WebACL.</p>
+   */
+  WebAclId?: string;
 }
 
 export namespace AwsWafWebAclDetails {
@@ -7746,14 +7746,19 @@ export namespace AwsWafWebAclDetails {
  */
 export interface ContainerDetails {
   /**
+   * <p>The name of the container related to a finding.</p>
+   */
+  Name?: string;
+
+  /**
    * <p>The identifier of the image related to a finding.</p>
    */
   ImageId?: string;
 
   /**
-   * <p>The name of the container related to a finding.</p>
+   * <p>The name of the image related to a finding.</p>
    */
-  Name?: string;
+  ImageName?: string;
 
   /**
    * <p>Indicates when the container started.</p>
@@ -7762,11 +7767,6 @@ export interface ContainerDetails {
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   LaunchedAt?: string;
-
-  /**
-   * <p>The name of the image related to a finding.</p>
-   */
-  ImageName?: string;
 }
 
 export namespace ContainerDetails {
@@ -7787,14 +7787,104 @@ export namespace ContainerDetails {
  */
 export interface ResourceDetails {
   /**
+   * <p>Details for an autoscaling group.</p>
+   */
+  AwsAutoScalingAutoScalingGroup?: AwsAutoScalingAutoScalingGroupDetails;
+
+  /**
+   * <p>Details for an AWS CodeBuild project.</p>
+   */
+  AwsCodeBuildProject?: AwsCodeBuildProjectDetails;
+
+  /**
+   * <p>Details about a CloudFront distribution.</p>
+   */
+  AwsCloudFrontDistribution?: AwsCloudFrontDistributionDetails;
+
+  /**
+   * <p>Details about an Amazon EC2 instance related to a finding.</p>
+   */
+  AwsEc2Instance?: AwsEc2InstanceDetails;
+
+  /**
+   * <p>Details for an Amazon EC2 network interface.</p>
+   */
+  AwsEc2NetworkInterface?: AwsEc2NetworkInterfaceDetails;
+
+  /**
+   * <p>Details for an EC2 security group.</p>
+   */
+  AwsEc2SecurityGroup?: AwsEc2SecurityGroupDetails;
+
+  /**
+   * <p>Details for an EC2 volume.</p>
+   */
+  AwsEc2Volume?: AwsEc2VolumeDetails;
+
+  /**
+   * <p>Details for an EC2 VPC.</p>
+   */
+  AwsEc2Vpc?: AwsEc2VpcDetails;
+
+  /**
    * <p>Details about an Elastic IP address.</p>
    */
   AwsEc2Eip?: AwsEc2EipDetails;
 
   /**
+   * <p>Details about a load balancer.</p>
+   */
+  AwsElbv2LoadBalancer?: AwsElbv2LoadBalancerDetails;
+
+  /**
+   * <p>Details for an Elasticsearch domain.</p>
+   */
+  AwsElasticsearchDomain?: AwsElasticsearchDomainDetails;
+
+  /**
    * <p>Details about an Amazon S3 bucket related to a finding.</p>
    */
   AwsS3Bucket?: AwsS3BucketDetails;
+
+  /**
+   * <p>Details about an Amazon S3 object related to a finding.</p>
+   */
+  AwsS3Object?: AwsS3ObjectDetails;
+
+  /**
+   * <p>Details about a Secrets Manager secret.</p>
+   */
+  AwsSecretsManagerSecret?: AwsSecretsManagerSecretDetails;
+
+  /**
+   * <p>Details about an IAM access key related to a finding.</p>
+   */
+  AwsIamAccessKey?: AwsIamAccessKeyDetails;
+
+  /**
+   * <p>Details about an IAM user.</p>
+   */
+  AwsIamUser?: AwsIamUserDetails;
+
+  /**
+   * <p>Details about an IAM permissions policy.</p>
+   */
+  AwsIamPolicy?: AwsIamPolicyDetails;
+
+  /**
+   * <p></p>
+   */
+  AwsApiGatewayV2Stage?: AwsApiGatewayV2StageDetails;
+
+  /**
+   * <p></p>
+   */
+  AwsApiGatewayV2Api?: AwsApiGatewayV2ApiDetails;
+
+  /**
+   * <p>Details about a DynamoDB table.</p>
+   */
+  AwsDynamoDbTable?: AwsDynamoDbTableDetails;
 
   /**
    * <p></p>
@@ -7807,89 +7897,9 @@ export interface ResourceDetails {
   AwsApiGatewayRestApi?: AwsApiGatewayRestApiDetails;
 
   /**
-   * <p>Details about an Amazon RDS database instance.</p>
-   */
-  AwsRdsDbInstance?: AwsRdsDbInstanceDetails;
-
-  /**
-   * <p>Details for an Elasticsearch domain.</p>
-   */
-  AwsElasticsearchDomain?: AwsElasticsearchDomainDetails;
-
-  /**
-   * <p>Details for an Amazon EC2 network interface.</p>
-   */
-  AwsEc2NetworkInterface?: AwsEc2NetworkInterfaceDetails;
-
-  /**
-   * <p>Details about an Amazon EC2 instance related to a finding.</p>
-   */
-  AwsEc2Instance?: AwsEc2InstanceDetails;
-
-  /**
-   * <p>Details about an Amazon RDS database cluster snapshot.</p>
-   */
-  AwsRdsDbClusterSnapshot?: AwsRdsDbClusterSnapshotDetails;
-
-  /**
-   * <p>Details about a Lambda function.</p>
-   */
-  AwsLambdaFunction?: AwsLambdaFunctionDetails;
-
-  /**
-   * <p>Details about an Amazon RDS database cluster.</p>
-   */
-  AwsRdsDbCluster?: AwsRdsDbClusterDetails;
-
-  /**
-   * <p>Details about an Amazon RDS database snapshot.</p>
-   */
-  AwsRdsDbSnapshot?: AwsRdsDbSnapshotDetails;
-
-  /**
-   * <p>Details about a KMS key.</p>
-   */
-  AwsKmsKey?: AwsKmsKeyDetails;
-
-  /**
-   * <p>Details for an autoscaling group.</p>
-   */
-  AwsAutoScalingAutoScalingGroup?: AwsAutoScalingAutoScalingGroupDetails;
-
-  /**
-   * <p>Details about an Amazon S3 object related to a finding.</p>
-   */
-  AwsS3Object?: AwsS3ObjectDetails;
-
-  /**
-   * <p></p>
-   */
-  AwsIamGroup?: AwsIamGroupDetails;
-
-  /**
-   * <p>Details for an AWS CodeBuild project.</p>
-   */
-  AwsCodeBuildProject?: AwsCodeBuildProjectDetails;
-
-  /**
-   * <p>Details for a WAF WebACL.</p>
-   */
-  AwsWafWebAcl?: AwsWafWebAclDetails;
-
-  /**
-   * <p>Details for an EC2 volume.</p>
-   */
-  AwsEc2Volume?: AwsEc2VolumeDetails;
-
-  /**
    * <p></p>
    */
   AwsCloudTrailTrail?: AwsCloudTrailTrailDetails;
-
-  /**
-   * <p>Details about a Secrets Manager secret.</p>
-   */
-  AwsSecretsManagerSecret?: AwsSecretsManagerSecretDetails;
 
   /**
    * <p></p>
@@ -7904,12 +7914,27 @@ export interface ResourceDetails {
   /**
    * <p></p>
    */
-  AwsApiGatewayV2Api?: AwsApiGatewayV2ApiDetails;
+  AwsElbLoadBalancer?: AwsElbLoadBalancerDetails;
 
   /**
-   * <p>Details about an IAM access key related to a finding.</p>
+   * <p></p>
    */
-  AwsIamAccessKey?: AwsIamAccessKeyDetails;
+  AwsIamGroup?: AwsIamGroupDetails;
+
+  /**
+   * <p>Details about an IAM role.</p>
+   */
+  AwsIamRole?: AwsIamRoleDetails;
+
+  /**
+   * <p>Details about a KMS key.</p>
+   */
+  AwsKmsKey?: AwsKmsKeyDetails;
+
+  /**
+   * <p>Details about a Lambda function.</p>
+   */
+  AwsLambdaFunction?: AwsLambdaFunctionDetails;
 
   /**
    * <p>Details for a Lambda layer version.</p>
@@ -7917,14 +7942,14 @@ export interface ResourceDetails {
   AwsLambdaLayerVersion?: AwsLambdaLayerVersionDetails;
 
   /**
-   * <p>Details about an IAM permissions policy.</p>
+   * <p>Details about an Amazon RDS database instance.</p>
    */
-  AwsIamPolicy?: AwsIamPolicyDetails;
+  AwsRdsDbInstance?: AwsRdsDbInstanceDetails;
 
   /**
-   * <p>Details for an EC2 security group.</p>
+   * <p>Details about an SNS topic.</p>
    */
-  AwsEc2SecurityGroup?: AwsEc2SecurityGroupDetails;
+  AwsSnsTopic?: AwsSnsTopicDetails;
 
   /**
    * <p>Details about an SQS queue.</p>
@@ -7932,34 +7957,29 @@ export interface ResourceDetails {
   AwsSqsQueue?: AwsSqsQueueDetails;
 
   /**
-   * <p>Details for an EC2 VPC.</p>
+   * <p>Details for a WAF WebACL.</p>
    */
-  AwsEc2Vpc?: AwsEc2VpcDetails;
+  AwsWafWebAcl?: AwsWafWebAclDetails;
 
   /**
-   * <p></p>
+   * <p>Details about an Amazon RDS database snapshot.</p>
    */
-  AwsElbLoadBalancer?: AwsElbLoadBalancerDetails;
+  AwsRdsDbSnapshot?: AwsRdsDbSnapshotDetails;
 
   /**
-   * <p>Details about a CloudFront distribution.</p>
+   * <p>Details about an Amazon RDS database cluster snapshot.</p>
    */
-  AwsCloudFrontDistribution?: AwsCloudFrontDistributionDetails;
+  AwsRdsDbClusterSnapshot?: AwsRdsDbClusterSnapshotDetails;
+
+  /**
+   * <p>Details about an Amazon RDS database cluster.</p>
+   */
+  AwsRdsDbCluster?: AwsRdsDbClusterDetails;
 
   /**
    * <p>Details about a container resource related to a finding.</p>
    */
   Container?: ContainerDetails;
-
-  /**
-   * <p>Details about an IAM user.</p>
-   */
-  AwsIamUser?: AwsIamUserDetails;
-
-  /**
-   * <p></p>
-   */
-  AwsApiGatewayV2Stage?: AwsApiGatewayV2StageDetails;
 
   /**
    * <p>Details about a resource that are not available in a type-specific details object. Use
@@ -7978,26 +7998,6 @@ export interface ResourceDetails {
    *          </ul>
    */
   Other?: { [key: string]: string };
-
-  /**
-   * <p>Details about an SNS topic.</p>
-   */
-  AwsSnsTopic?: AwsSnsTopicDetails;
-
-  /**
-   * <p>Details about a DynamoDB table.</p>
-   */
-  AwsDynamoDbTable?: AwsDynamoDbTableDetails;
-
-  /**
-   * <p>Details about an IAM role.</p>
-   */
-  AwsIamRole?: AwsIamRoleDetails;
-
-  /**
-   * <p>Details about a load balancer.</p>
-   */
-  AwsElbv2LoadBalancer?: AwsElbv2LoadBalancerDetails;
 }
 
 export namespace ResourceDetails {
@@ -8017,6 +8017,25 @@ export enum Partition {
  */
 export interface Resource {
   /**
+   * <p>The type of the resource that details are provided for. If possible, set
+   *             <code>Type</code> to one of the supported resource types. For example, if the resource
+   *          is an EC2 instance, then set <code>Type</code> to <code>AwsEc2Instance</code>.</p>
+   *          <p>If the resource does not match any of the provided types, then set <code>Type</code> to
+   *             <code>Other</code>. </p>
+   */
+  Type: string | undefined;
+
+  /**
+   * <p>The canonical identifier for the given resource type.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The canonical AWS partition name that the Region is assigned to.</p>
+   */
+  Partition?: Partition | string;
+
+  /**
    * <p>The canonical AWS external Region name where this resource is located.</p>
    */
   Region?: string;
@@ -8027,34 +8046,15 @@ export interface Resource {
   ResourceRole?: string;
 
   /**
-   * <p>The type of the resource that details are provided for. If possible, set
-   *             <code>Type</code> to one of the supported resource types. For example, if the resource
-   *          is an EC2 instance, then set <code>Type</code> to <code>AwsEc2Instance</code>.</p>
-   *          <p>If the resource does not match any of the provided types, then set <code>Type</code> to
-   *             <code>Other</code>. </p>
-   */
-  Type: string | undefined;
-
-  /**
-   * <p>Additional details about the resource related to a finding.</p>
-   */
-  Details?: ResourceDetails;
-
-  /**
-   * <p>The canonical AWS partition name that the Region is assigned to.</p>
-   */
-  Partition?: Partition | string;
-
-  /**
    * <p>A list of AWS tags associated with a resource at the time the finding was
    *          processed.</p>
    */
   Tags?: { [key: string]: string };
 
   /**
-   * <p>The canonical identifier for the given resource type.</p>
+   * <p>Additional details about the resource related to a finding.</p>
    */
-  Id: string | undefined;
+  Details?: ResourceDetails;
 }
 
 export namespace Resource {
@@ -8082,6 +8082,14 @@ export enum SeverityLabel {
  *          the preferred attribute.</p>
  */
 export interface Severity {
+  /**
+   * <p>Deprecated. This attribute is being deprecated. Instead of providing
+   *             <code>Product</code>, provide <code>Original</code>.</p>
+   *          <p>The native severity as defined by the AWS service or integrated partner product that
+   *          generated the finding.</p>
+   */
+  Product?: number;
+
   /**
    * <p>The severity value of the finding. The allowed values are the following.</p>
    *          <ul>
@@ -8135,11 +8143,6 @@ export interface Severity {
   Label?: SeverityLabel | string;
 
   /**
-   * <p>The native severity from the finding product that generated the finding.</p>
-   */
-  Original?: string;
-
-  /**
    * <p>Deprecated. The normalized severity of a finding. This attribute is being deprecated.
    *          Instead of providing <code>Normalized</code>, provide <code>Label</code>.</p>
    *          <p>If you provide <code>Label</code> and do not provide <code>Normalized</code>, then
@@ -8170,12 +8173,9 @@ export interface Severity {
   Normalized?: number;
 
   /**
-   * <p>Deprecated. This attribute is being deprecated. Instead of providing
-   *             <code>Product</code>, provide <code>Original</code>.</p>
-   *          <p>The native severity as defined by the AWS service or integrated partner product that
-   *          generated the finding.</p>
+   * <p>The native severity from the finding product that generated the finding.</p>
    */
-  Product?: number;
+  Original?: string;
 }
 
 export namespace Severity {
@@ -8212,9 +8212,19 @@ export enum ThreatIntelIndicatorType {
  */
 export interface ThreatIntelIndicator {
   /**
+   * <p>The type of threat intelligence indicator.</p>
+   */
+  Type?: ThreatIntelIndicatorType | string;
+
+  /**
    * <p>The value of a threat intelligence indicator.</p>
    */
   Value?: string;
+
+  /**
+   * <p>The category of a threat intelligence indicator.</p>
+   */
+  Category?: ThreatIntelIndicatorCategory | string;
 
   /**
    * <p>Indicates when the most recent instance of a threat intelligence indicator was
@@ -8226,25 +8236,15 @@ export interface ThreatIntelIndicator {
   LastObservedAt?: string;
 
   /**
+   * <p>The source of the threat intelligence indicator.</p>
+   */
+  Source?: string;
+
+  /**
    * <p>The URL to the page or site where you can get more information about the threat
    *          intelligence indicator.</p>
    */
   SourceUrl?: string;
-
-  /**
-   * <p>The category of a threat intelligence indicator.</p>
-   */
-  Category?: ThreatIntelIndicatorCategory | string;
-
-  /**
-   * <p>The type of threat intelligence indicator.</p>
-   */
-  Type?: ThreatIntelIndicatorType | string;
-
-  /**
-   * <p>The source of the threat intelligence indicator.</p>
-   */
-  Source?: string;
 }
 
 export namespace ThreatIntelIndicator {
@@ -8291,6 +8291,11 @@ export namespace Cvss {
  */
 export interface VulnerabilityVendor {
   /**
+   * <p>The name of the vendor.</p>
+   */
+  Name: string | undefined;
+
+  /**
    * <p>The URL of the vulnerability advisory.</p>
    */
   Url?: string;
@@ -8301,14 +8306,6 @@ export interface VulnerabilityVendor {
   VendorSeverity?: string;
 
   /**
-   * <p>Indicates when the vulnerability advisory was last updated.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  VendorUpdatedAt?: string;
-
-  /**
    * <p>Indicates when the vulnerability advisory was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces. For example,
@@ -8317,9 +8314,12 @@ export interface VulnerabilityVendor {
   VendorCreatedAt?: string;
 
   /**
-   * <p>The name of the vendor.</p>
+   * <p>Indicates when the vulnerability advisory was last updated.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
-  Name: string | undefined;
+  VendorUpdatedAt?: string;
 }
 
 export namespace VulnerabilityVendor {
@@ -8343,9 +8343,9 @@ export interface SoftwarePackage {
   Version?: string;
 
   /**
-   * <p>The architecture used for the software package.</p>
+   * <p>The epoch of the software package.</p>
    */
-  Architecture?: string;
+  Epoch?: string;
 
   /**
    * <p>The release of the software package.</p>
@@ -8353,9 +8353,9 @@ export interface SoftwarePackage {
   Release?: string;
 
   /**
-   * <p>The epoch of the software package.</p>
+   * <p>The architecture used for the software package.</p>
    */
-  Epoch?: string;
+  Architecture?: string;
 }
 
 export namespace SoftwarePackage {
@@ -8369,11 +8369,6 @@ export namespace SoftwarePackage {
  */
 export interface Vulnerability {
   /**
-   * <p>List of vulnerabilities that are related to this vulnerability.</p>
-   */
-  RelatedVulnerabilities?: string[];
-
-  /**
    * <p>The identifier of the vulnerability.</p>
    */
   Id: string | undefined;
@@ -8384,19 +8379,24 @@ export interface Vulnerability {
   VulnerablePackages?: SoftwarePackage[];
 
   /**
-   * <p>A list of URLs that provide additional information about the vulnerability.</p>
-   */
-  ReferenceUrls?: string[];
-
-  /**
    * <p>CVSS scores from the advisory related to the vulnerability.</p>
    */
   Cvss?: Cvss[];
 
   /**
+   * <p>List of vulnerabilities that are related to this vulnerability.</p>
+   */
+  RelatedVulnerabilities?: string[];
+
+  /**
    * <p>Information about the vendor that generates the vulnerability report.</p>
    */
   Vendor?: VulnerabilityVendor;
+
+  /**
+   * <p>A list of URLs that provide additional information about the vulnerability.</p>
+   */
+  ReferenceUrls?: string[];
 }
 
 export namespace Vulnerability {
@@ -8471,60 +8471,33 @@ export enum WorkflowState {
  */
 export interface AwsSecurityFinding {
   /**
-   * <p>A set of resource data types that describe the resources that the finding refers
-   *          to.</p>
+   * <p>The schema version that a finding is formatted for.</p>
    */
-  Resources: Resource[] | undefined;
+  SchemaVersion: string | undefined;
 
   /**
-   * <p>Provides information about a network path that is relevant to a finding. Each entry
-   *          under <code>NetworkPath</code> represents a component of that path.</p>
+   * <p>The security findings provider-specific identifier for a finding.</p>
    */
-  NetworkPath?: NetworkPathComponent[];
+  Id: string | undefined;
 
   /**
-   * <p>A list of malware related to a finding.</p>
+   * <p>The ARN generated by Security Hub that uniquely identifies a product that generates findings.
+   *          This can be the ARN for a third-party product that is integrated with Security Hub, or the ARN for
+   *          a custom integration.</p>
    */
-  Malware?: Malware[];
+  ProductArn: string | undefined;
 
   /**
-   * <p>Indicates the veracity of a finding. </p>
+   * <p>The identifier for the solution-specific component (a discrete unit of logic) that
+   *          generated a finding. In various security-findings providers' solutions, this generator can
+   *          be called a rule, a check, a detector, a plugin, etc. </p>
    */
-  VerificationState?: VerificationState | string;
+  GeneratorId: string | undefined;
 
   /**
-   * <p>The record state of a finding.</p>
+   * <p>The AWS account ID that a finding is generated in.</p>
    */
-  RecordState?: RecordState | string;
-
-  /**
-   * <p>Indicates when the security-findings provider created the potential security issue that
-   *          a finding captured.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreatedAt: string | undefined;
-
-  /**
-   * <p>A finding's description.</p>
-   *          <note>
-   *             <p>In this release, <code>Description</code> is a required property.</p>
-   *          </note>
-   */
-  Description: string | undefined;
-
-  /**
-   * <p>A URL that links to a page about the current finding in the security-findings provider's
-   *          solution.</p>
-   */
-  SourceUrl?: string;
-
-  /**
-   * <p>A list of name/value string pairs associated with the finding. These are custom,
-   *          user-defined fields added to a finding. </p>
-   */
-  UserDefinedFields?: { [key: string]: string };
+  AwsAccountId: string | undefined;
 
   /**
    * <p>One or more finding types in the format of <code>namespace/category/classifier</code>
@@ -8535,62 +8508,13 @@ export interface AwsSecurityFinding {
   Types: string[] | undefined;
 
   /**
-   * <p>Provides an overview of the patch compliance status for an instance against a selected
-   *          compliance standard.</p>
-   */
-  PatchSummary?: PatchSummary;
-
-  /**
-   * <p>Provides a list of vulnerabilities associated with the findings.</p>
-   */
-  Vulnerabilities?: Vulnerability[];
-
-  /**
-   * <p>The AWS account ID that a finding is generated in.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The identifier for the solution-specific component (a discrete unit of logic) that
-   *          generated a finding. In various security-findings providers' solutions, this generator can
-   *          be called a rule, a check, a detector, a plugin, etc. </p>
-   */
-  GeneratorId: string | undefined;
-
-  /**
-   * <p>Threat intelligence details related to a finding.</p>
-   */
-  ThreatIntelIndicators?: ThreatIntelIndicator[];
-
-  /**
-   * <p>The security findings provider-specific identifier for a finding.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>This data type is exclusive to findings that are generated as the result of a check run
-   *          against a specific rule in a supported security standard, such as CIS AWS Foundations.
-   *          Contains security standard-related finding details.</p>
-   */
-  Compliance?: Compliance;
-
-  /**
-   * <p>The workflow state of a finding. </p>
-   */
-  WorkflowState?: WorkflowState | string;
-
-  /**
-   * <p>A user-defined note added to a finding.</p>
-   */
-  Note?: Note;
-
-  /**
-   * <p>Indicates when the security-findings provider last updated the finding record.</p>
+   * <p>Indicates when the security-findings provider first observed the potential security
+   *          issue that a finding captured.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
-  UpdatedAt: string | undefined;
+  FirstObservedAt?: string;
 
   /**
    * <p>Indicates when the security-findings provider most recently observed the potential
@@ -8602,33 +8526,26 @@ export interface AwsSecurityFinding {
   LastObservedAt?: string;
 
   /**
-   * <p>A data type that describes the remediation options for a finding.</p>
+   * <p>Indicates when the security-findings provider created the potential security issue that
+   *          a finding captured.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
-  Remediation?: Remediation;
+  CreatedAt: string | undefined;
 
   /**
-   * <p>The schema version that a finding is formatted for.</p>
+   * <p>Indicates when the security-findings provider last updated the finding record.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
-  SchemaVersion: string | undefined;
+  UpdatedAt: string | undefined;
 
   /**
-   * <p>The details of network-related information about a finding.</p>
+   * <p>A finding's severity.</p>
    */
-  Network?: Network;
-
-  /**
-   * <p>A data type where security-findings providers can include additional solution-specific
-   *          details that aren't part of the defined <code>AwsSecurityFinding</code> format.</p>
-   */
-  ProductFields?: { [key: string]: string };
-
-  /**
-   * <p>A finding's title.</p>
-   *          <note>
-   *             <p>In this release, <code>Title</code> is a required property.</p>
-   *          </note>
-   */
-  Title: string | undefined;
+  Severity: Severity | undefined;
 
   /**
    * <p>A finding's confidence. Confidence is defined as the likelihood that a finding
@@ -8646,26 +8563,59 @@ export interface AwsSecurityFinding {
   Criticality?: number;
 
   /**
-   * <p>The ARN generated by Security Hub that uniquely identifies a product that generates findings.
-   *          This can be the ARN for a third-party product that is integrated with Security Hub, or the ARN for
-   *          a custom integration.</p>
+   * <p>A finding's title.</p>
+   *          <note>
+   *             <p>In this release, <code>Title</code> is a required property.</p>
+   *          </note>
    */
-  ProductArn: string | undefined;
+  Title: string | undefined;
 
   /**
-   * <p>A list of related findings.</p>
+   * <p>A finding's description.</p>
+   *          <note>
+   *             <p>In this release, <code>Description</code> is a required property.</p>
+   *          </note>
    */
-  RelatedFindings?: RelatedFinding[];
+  Description: string | undefined;
 
   /**
-   * <p>Provides information about the status of the investigation into a finding.</p>
+   * <p>A data type that describes the remediation options for a finding.</p>
    */
-  Workflow?: Workflow;
+  Remediation?: Remediation;
 
   /**
-   * <p>A finding's severity.</p>
+   * <p>A URL that links to a page about the current finding in the security-findings provider's
+   *          solution.</p>
    */
-  Severity: Severity | undefined;
+  SourceUrl?: string;
+
+  /**
+   * <p>A data type where security-findings providers can include additional solution-specific
+   *          details that aren't part of the defined <code>AwsSecurityFinding</code> format.</p>
+   */
+  ProductFields?: { [key: string]: string };
+
+  /**
+   * <p>A list of name/value string pairs associated with the finding. These are custom,
+   *          user-defined fields added to a finding. </p>
+   */
+  UserDefinedFields?: { [key: string]: string };
+
+  /**
+   * <p>A list of malware related to a finding.</p>
+   */
+  Malware?: Malware[];
+
+  /**
+   * <p>The details of network-related information about a finding.</p>
+   */
+  Network?: Network;
+
+  /**
+   * <p>Provides information about a network path that is relevant to a finding. Each entry
+   *          under <code>NetworkPath</code> represents a component of that path.</p>
+   */
+  NetworkPath?: NetworkPathComponent[];
 
   /**
    * <p>The details of process-related information about a finding.</p>
@@ -8673,13 +8623,63 @@ export interface AwsSecurityFinding {
   Process?: ProcessDetails;
 
   /**
-   * <p>Indicates when the security-findings provider first observed the potential security
-   *          issue that a finding captured.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * <p>Threat intelligence details related to a finding.</p>
    */
-  FirstObservedAt?: string;
+  ThreatIntelIndicators?: ThreatIntelIndicator[];
+
+  /**
+   * <p>A set of resource data types that describe the resources that the finding refers
+   *          to.</p>
+   */
+  Resources: Resource[] | undefined;
+
+  /**
+   * <p>This data type is exclusive to findings that are generated as the result of a check run
+   *          against a specific rule in a supported security standard, such as CIS AWS Foundations.
+   *          Contains security standard-related finding details.</p>
+   */
+  Compliance?: Compliance;
+
+  /**
+   * <p>Indicates the veracity of a finding. </p>
+   */
+  VerificationState?: VerificationState | string;
+
+  /**
+   * <p>The workflow state of a finding. </p>
+   */
+  WorkflowState?: WorkflowState | string;
+
+  /**
+   * <p>Provides information about the status of the investigation into a finding.</p>
+   */
+  Workflow?: Workflow;
+
+  /**
+   * <p>The record state of a finding.</p>
+   */
+  RecordState?: RecordState | string;
+
+  /**
+   * <p>A list of related findings.</p>
+   */
+  RelatedFindings?: RelatedFinding[];
+
+  /**
+   * <p>A user-defined note added to a finding.</p>
+   */
+  Note?: Note;
+
+  /**
+   * <p>Provides a list of vulnerabilities associated with the findings.</p>
+   */
+  Vulnerabilities?: Vulnerability[];
+
+  /**
+   * <p>Provides an overview of the patch compliance status for an instance against a selected
+   *          compliance standard.</p>
+   */
+  PatchSummary?: PatchSummary;
 }
 
 export namespace AwsSecurityFinding {
@@ -8801,10 +8801,10 @@ export namespace StringFilter {
  */
 export interface NumberFilter {
   /**
-   * <p>The equal-to condition to be applied to a single field when querying for
-   *          findings.</p>
+   * <p>The greater-than-equal condition to be applied to a single field when querying for
+   *          findings. </p>
    */
-  Eq?: number;
+  Gte?: number;
 
   /**
    * <p>The less-than-equal condition to be applied to a single field when querying for
@@ -8813,10 +8813,10 @@ export interface NumberFilter {
   Lte?: number;
 
   /**
-   * <p>The greater-than-equal condition to be applied to a single field when querying for
-   *          findings. </p>
+   * <p>The equal-to condition to be applied to a single field when querying for
+   *          findings.</p>
    */
-  Gte?: number;
+  Eq?: number;
 }
 
 export namespace NumberFilter {
@@ -8834,14 +8834,14 @@ export enum DateRangeUnit {
  */
 export interface DateRange {
   /**
-   * <p>A date range unit for the date filter.</p>
-   */
-  Unit?: DateRangeUnit | string;
-
-  /**
    * <p>A date range value for the date filter.</p>
    */
   Value?: number;
+
+  /**
+   * <p>A date range unit for the date filter.</p>
+   */
+  Unit?: DateRangeUnit | string;
 }
 
 export namespace DateRange {
@@ -8855,14 +8855,14 @@ export namespace DateRange {
  */
 export interface DateFilter {
   /**
-   * <p>An end date for the date filter.</p>
-   */
-  End?: string;
-
-  /**
    * <p>A start date for the date filter.</p>
    */
   Start?: string;
+
+  /**
+   * <p>An end date for the date filter.</p>
+   */
+  End?: string;
 
   /**
    * <p>A date range for the date filter.</p>
@@ -8919,6 +8919,13 @@ export enum MapFilterComparison {
  */
 export interface MapFilter {
   /**
+   * <p>The key of the map filter. For example, for <code>ResourceTags</code>, <code>Key</code>
+   *          identifies the name of the tag. For <code>UserDefinedFields</code>, <code>Key</code> is the
+   *          name of the field.</p>
+   */
+  Key?: string;
+
+  /**
    * <p>The value for the key in the map filter. Filter values are case sensitive. For example,
    *          one of the values for a tag called <code>Department</code> might be <code>Security</code>.
    *          If you provide <code>security</code> as the filter value, then there is no match.</p>
@@ -8946,13 +8953,6 @@ export interface MapFilter {
    *          on the same field.</p>
    */
   Comparison?: MapFilterComparison | string;
-
-  /**
-   * <p>The key of the map filter. For example, for <code>ResourceTags</code>, <code>Key</code>
-   *          identifies the name of the tag. For <code>UserDefinedFields</code>, <code>Key</code> is the
-   *          name of the field.</p>
-   */
-  Key?: string;
 }
 
 export namespace MapFilter {
@@ -8969,10 +8969,21 @@ export namespace MapFilter {
  */
 export interface AwsSecurityFindingFilters {
   /**
-   * <p>A data type where security-findings providers can include additional solution-specific
-   *          details that aren't part of the defined <code>AwsSecurityFinding</code> format.</p>
+   * <p>The ARN generated by Security Hub that uniquely identifies a third-party company
+   *          (security findings provider) after this provider's product (solution that generates
+   *          findings) is registered with Security Hub.</p>
    */
-  ProductFields?: MapFilter[];
+  ProductArn?: StringFilter[];
+
+  /**
+   * <p>The AWS account ID that a finding is generated in.</p>
+   */
+  AwsAccountId?: StringFilter[];
+
+  /**
+   * <p>The security findings provider-specific identifier for a finding.</p>
+   */
+  Id?: StringFilter[];
 
   /**
    * <p>The identifier for the solution-specific component (a discrete unit of logic) that
@@ -8982,21 +8993,28 @@ export interface AwsSecurityFindingFilters {
   GeneratorId?: StringFilter[];
 
   /**
-   * <p>Exclusive to findings that are generated as the result of a check run against a specific
-   *          rule in a supported standard, such as CIS AWS Foundations. Contains security
-   *          standard-related finding details.</p>
+   * <p>A finding type in the format of <code>namespace/category/classifier</code> that
+   *          classifies a finding.</p>
    */
-  ComplianceStatus?: StringFilter[];
+  Type?: StringFilter[];
 
   /**
-   * <p>The type of the malware that was observed.</p>
+   * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider first
+   *          observed the potential security issue that a finding captured.</p>
    */
-  MalwareType?: StringFilter[];
+  FirstObservedAt?: DateFilter[];
 
   /**
-   * <p>The ARN of the solution that generated a related finding.</p>
+   * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider most
+   *          recently observed the potential security issue that a finding captured.</p>
    */
-  RelatedFindingsProductArn?: StringFilter[];
+  LastObservedAt?: DateFilter[];
+
+  /**
+   * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider
+   *          captured the potential security issue that a finding captured.</p>
+   */
+  CreatedAt?: DateFilter[];
 
   /**
    * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider last
@@ -9005,35 +9023,20 @@ export interface AwsSecurityFindingFilters {
   UpdatedAt?: DateFilter[];
 
   /**
-   * <p>The name of the findings provider (company) that owns the solution (product) that
-   *          generates findings.</p>
+   * <p>The native severity as defined by the security-findings provider's solution that
+   *          generated the finding.</p>
    */
-  CompanyName?: StringFilter[];
+  SeverityProduct?: NumberFilter[];
 
   /**
-   * <p>The Amazon Machine Image (AMI) ID of the instance.</p>
+   * <p>The normalized severity of a finding.</p>
    */
-  ResourceAwsEc2InstanceImageId?: StringFilter[];
+  SeverityNormalized?: NumberFilter[];
 
   /**
    * <p>The label of a finding's severity.</p>
    */
   SeverityLabel?: StringFilter[];
-
-  /**
-   * <p>The identifier of the subnet that the instance was launched in.</p>
-   */
-  ResourceAwsEc2InstanceSubnetId?: StringFilter[];
-
-  /**
-   * <p>The category of a threat intelligence indicator.</p>
-   */
-  ThreatIntelIndicatorCategory?: StringFilter[];
-
-  /**
-   * <p>A finding's title.</p>
-   */
-  Title?: StringFilter[];
 
   /**
    * <p>A finding's confidence. Confidence is defined as the likelihood that a finding
@@ -9044,15 +9047,49 @@ export interface AwsSecurityFindingFilters {
   Confidence?: NumberFilter[];
 
   /**
-   * <p>The AWS account ID that a finding is generated in.</p>
+   * <p>The level of importance assigned to the resources associated with the finding.</p>
+   *          <p>A score of 0 means that the underlying resources have no criticality, and a score of 100
+   *          is reserved for the most critical resources.</p>
    */
-  AwsAccountId?: StringFilter[];
+  Criticality?: NumberFilter[];
 
   /**
-   * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider most
-   *          recently observed the potential security issue that a finding captured.</p>
+   * <p>A finding's title.</p>
    */
-  LastObservedAt?: DateFilter[];
+  Title?: StringFilter[];
+
+  /**
+   * <p>A finding's description.</p>
+   */
+  Description?: StringFilter[];
+
+  /**
+   * <p>The recommendation of what to do about the issue described in a finding.</p>
+   */
+  RecommendationText?: StringFilter[];
+
+  /**
+   * <p>A URL that links to a page about the current finding in the security-findings provider's
+   *          solution.</p>
+   */
+  SourceUrl?: StringFilter[];
+
+  /**
+   * <p>A data type where security-findings providers can include additional solution-specific
+   *          details that aren't part of the defined <code>AwsSecurityFinding</code> format.</p>
+   */
+  ProductFields?: MapFilter[];
+
+  /**
+   * <p>The name of the solution (product) that generates findings.</p>
+   */
+  ProductName?: StringFilter[];
+
+  /**
+   * <p>The name of the findings provider (company) that owns the solution (product) that
+   *          generates findings.</p>
+   */
+  CompanyName?: StringFilter[];
 
   /**
    * <p>A list of name/value string pairs associated with the finding. These are custom,
@@ -9061,72 +9098,14 @@ export interface AwsSecurityFindingFilters {
   UserDefinedFields?: MapFilter[];
 
   /**
-   * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider
-   *          captured the potential security issue that a finding captured.</p>
+   * <p>The name of the malware that was observed.</p>
    */
-  CreatedAt?: DateFilter[];
+  MalwareName?: StringFilter[];
 
   /**
-   * <p>The state of the malware that was observed.</p>
+   * <p>The type of the malware that was observed.</p>
    */
-  MalwareState?: StringFilter[];
-
-  /**
-   * <p>The name of the solution (product) that generates findings.</p>
-   */
-  ProductName?: StringFilter[];
-
-  /**
-   * <p>The canonical user ID of the owner of the S3 bucket.</p>
-   */
-  ResourceAwsS3BucketOwnerId?: StringFilter[];
-
-  /**
-   * <p>The workflow state of a finding.</p>
-   *          <p>Note that this field is deprecated. To search for a finding based on its workflow
-   *          status, use <code>WorkflowStatus</code>.</p>
-   */
-  WorkflowState?: StringFilter[];
-
-  /**
-   * <p>The destination domain of network-related information about a finding.</p>
-   */
-  NetworkDestinationDomain?: StringFilter[];
-
-  /**
-   * <p>The timestamp of when the note was updated.</p>
-   */
-  NoteUpdatedAt?: DateFilter[];
-
-  /**
-   * <p>Indicates the direction of network traffic associated with a finding.</p>
-   */
-  NetworkDirection?: StringFilter[];
-
-  /**
-   * <p>The type of a threat intelligence indicator.</p>
-   */
-  ThreatIntelIndicatorType?: StringFilter[];
-
-  /**
-   * <p>The date and time the instance was launched.</p>
-   */
-  ResourceAwsEc2InstanceLaunchedAt?: DateFilter[];
-
-  /**
-   * <p>The IPv6 addresses associated with the instance.</p>
-   */
-  ResourceAwsEc2InstanceIpV6Addresses?: IpFilter[];
-
-  /**
-   * <p>The canonical identifier for the given resource type.</p>
-   */
-  ResourceId?: StringFilter[];
-
-  /**
-   * <p>The date/time that the process was launched.</p>
-   */
-  ProcessLaunchedAt?: DateFilter[];
+  MalwareType?: StringFilter[];
 
   /**
    * <p>The filesystem path of the malware that was observed.</p>
@@ -9134,14 +9113,70 @@ export interface AwsSecurityFindingFilters {
   MalwarePath?: StringFilter[];
 
   /**
-   * <p>The canonical AWS partition name that the Region is assigned to.</p>
+   * <p>The state of the malware that was observed.</p>
    */
-  ResourcePartition?: StringFilter[];
+  MalwareState?: StringFilter[];
 
   /**
-   * <p>The user associated with the IAM access key related to a finding.</p>
+   * <p>Indicates the direction of network traffic associated with a finding.</p>
    */
-  ResourceAwsIamAccessKeyUserName?: StringFilter[];
+  NetworkDirection?: StringFilter[];
+
+  /**
+   * <p>The protocol of network-related information about a finding.</p>
+   */
+  NetworkProtocol?: StringFilter[];
+
+  /**
+   * <p>The source IPv4 address of network-related information about a finding.</p>
+   */
+  NetworkSourceIpV4?: IpFilter[];
+
+  /**
+   * <p>The source IPv6 address of network-related information about a finding.</p>
+   */
+  NetworkSourceIpV6?: IpFilter[];
+
+  /**
+   * <p>The source port of network-related information about a finding.</p>
+   */
+  NetworkSourcePort?: NumberFilter[];
+
+  /**
+   * <p>The source domain of network-related information about a finding.</p>
+   */
+  NetworkSourceDomain?: StringFilter[];
+
+  /**
+   * <p>The source media access control (MAC) address of network-related information about a
+   *          finding.</p>
+   */
+  NetworkSourceMac?: StringFilter[];
+
+  /**
+   * <p>The destination IPv4 address of network-related information about a finding.</p>
+   */
+  NetworkDestinationIpV4?: IpFilter[];
+
+  /**
+   * <p>The destination IPv6 address of network-related information about a finding.</p>
+   */
+  NetworkDestinationIpV6?: IpFilter[];
+
+  /**
+   * <p>The destination port of network-related information about a finding.</p>
+   */
+  NetworkDestinationPort?: NumberFilter[];
+
+  /**
+   * <p>The destination domain of network-related information about a finding.</p>
+   */
+  NetworkDestinationDomain?: StringFilter[];
+
+  /**
+   * <p>The name of the process.</p>
+   */
+  ProcessName?: StringFilter[];
 
   /**
    * <p>The path to the process executable.</p>
@@ -9149,9 +9184,195 @@ export interface AwsSecurityFindingFilters {
   ProcessPath?: StringFilter[];
 
   /**
+   * <p>The process ID.</p>
+   */
+  ProcessPid?: NumberFilter[];
+
+  /**
+   * <p>The parent process ID.</p>
+   */
+  ProcessParentPid?: NumberFilter[];
+
+  /**
+   * <p>The date/time that the process was launched.</p>
+   */
+  ProcessLaunchedAt?: DateFilter[];
+
+  /**
+   * <p>The date/time that the process was terminated.</p>
+   */
+  ProcessTerminatedAt?: DateFilter[];
+
+  /**
+   * <p>The type of a threat intelligence indicator.</p>
+   */
+  ThreatIntelIndicatorType?: StringFilter[];
+
+  /**
+   * <p>The value of a threat intelligence indicator.</p>
+   */
+  ThreatIntelIndicatorValue?: StringFilter[];
+
+  /**
+   * <p>The category of a threat intelligence indicator.</p>
+   */
+  ThreatIntelIndicatorCategory?: StringFilter[];
+
+  /**
+   * <p>The date/time of the last observation of a threat intelligence indicator.</p>
+   */
+  ThreatIntelIndicatorLastObservedAt?: DateFilter[];
+
+  /**
+   * <p>The source of the threat intelligence.</p>
+   */
+  ThreatIntelIndicatorSource?: StringFilter[];
+
+  /**
    * <p>The URL for more details from the source of the threat intelligence.</p>
    */
   ThreatIntelIndicatorSourceUrl?: StringFilter[];
+
+  /**
+   * <p>Specifies the type of the resource that details are provided for.</p>
+   */
+  ResourceType?: StringFilter[];
+
+  /**
+   * <p>The canonical identifier for the given resource type.</p>
+   */
+  ResourceId?: StringFilter[];
+
+  /**
+   * <p>The canonical AWS partition name that the Region is assigned to.</p>
+   */
+  ResourcePartition?: StringFilter[];
+
+  /**
+   * <p>The canonical AWS external Region name where this resource is located.</p>
+   */
+  ResourceRegion?: StringFilter[];
+
+  /**
+   * <p>A list of AWS tags associated with a resource at the time the finding was
+   *          processed.</p>
+   */
+  ResourceTags?: MapFilter[];
+
+  /**
+   * <p>The instance type of the instance.</p>
+   */
+  ResourceAwsEc2InstanceType?: StringFilter[];
+
+  /**
+   * <p>The Amazon Machine Image (AMI) ID of the instance.</p>
+   */
+  ResourceAwsEc2InstanceImageId?: StringFilter[];
+
+  /**
+   * <p>The IPv4 addresses associated with the instance.</p>
+   */
+  ResourceAwsEc2InstanceIpV4Addresses?: IpFilter[];
+
+  /**
+   * <p>The IPv6 addresses associated with the instance.</p>
+   */
+  ResourceAwsEc2InstanceIpV6Addresses?: IpFilter[];
+
+  /**
+   * <p>The key name associated with the instance.</p>
+   */
+  ResourceAwsEc2InstanceKeyName?: StringFilter[];
+
+  /**
+   * <p>The IAM profile ARN of the instance.</p>
+   */
+  ResourceAwsEc2InstanceIamInstanceProfileArn?: StringFilter[];
+
+  /**
+   * <p>The identifier of the VPC that the instance was launched in.</p>
+   */
+  ResourceAwsEc2InstanceVpcId?: StringFilter[];
+
+  /**
+   * <p>The identifier of the subnet that the instance was launched in.</p>
+   */
+  ResourceAwsEc2InstanceSubnetId?: StringFilter[];
+
+  /**
+   * <p>The date and time the instance was launched.</p>
+   */
+  ResourceAwsEc2InstanceLaunchedAt?: DateFilter[];
+
+  /**
+   * <p>The canonical user ID of the owner of the S3 bucket.</p>
+   */
+  ResourceAwsS3BucketOwnerId?: StringFilter[];
+
+  /**
+   * <p>The display name of the owner of the S3 bucket.</p>
+   */
+  ResourceAwsS3BucketOwnerName?: StringFilter[];
+
+  /**
+   * <p>The user associated with the IAM access key related to a finding.</p>
+   */
+  ResourceAwsIamAccessKeyUserName?: StringFilter[];
+
+  /**
+   * <p>The status of the IAM access key related to a finding.</p>
+   */
+  ResourceAwsIamAccessKeyStatus?: StringFilter[];
+
+  /**
+   * <p>The creation date/time of the IAM access key related to a finding.</p>
+   */
+  ResourceAwsIamAccessKeyCreatedAt?: DateFilter[];
+
+  /**
+   * <p>The name of the container related to a finding.</p>
+   */
+  ResourceContainerName?: StringFilter[];
+
+  /**
+   * <p>The identifier of the image related to a finding.</p>
+   */
+  ResourceContainerImageId?: StringFilter[];
+
+  /**
+   * <p>The name of the image related to a finding.</p>
+   */
+  ResourceContainerImageName?: StringFilter[];
+
+  /**
+   * <p>The date/time that the container was started.</p>
+   */
+  ResourceContainerLaunchedAt?: DateFilter[];
+
+  /**
+   * <p>The details of a resource that doesn't have a specific subfield for the resource type
+   *          defined.</p>
+   */
+  ResourceDetailsOther?: MapFilter[];
+
+  /**
+   * <p>Exclusive to findings that are generated as the result of a check run against a specific
+   *          rule in a supported standard, such as CIS AWS Foundations. Contains security
+   *          standard-related finding details.</p>
+   */
+  ComplianceStatus?: StringFilter[];
+
+  /**
+   * <p>The veracity of a finding.</p>
+   */
+  VerificationState?: StringFilter[];
+
+  /**
+   * <p>The workflow state of a finding.</p>
+   *          <p>Note that this field is deprecated. To search for a finding based on its workflow
+   *          status, use <code>WorkflowStatus</code>.</p>
+   */
+  WorkflowState?: StringFilter[];
 
   /**
    * <p>The status of the investigation into a finding. Allowed values are the following.</p>
@@ -9181,201 +9402,14 @@ export interface AwsSecurityFindingFilters {
   WorkflowStatus?: StringFilter[];
 
   /**
-   * <p>The level of importance assigned to the resources associated with the finding.</p>
-   *          <p>A score of 0 means that the underlying resources have no criticality, and a score of 100
-   *          is reserved for the most critical resources.</p>
+   * <p>The updated record state for the finding.</p>
    */
-  Criticality?: NumberFilter[];
+  RecordState?: StringFilter[];
 
   /**
-   * <p>The canonical AWS external Region name where this resource is located.</p>
+   * <p>The ARN of the solution that generated a related finding.</p>
    */
-  ResourceRegion?: StringFilter[];
-
-  /**
-   * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider first
-   *          observed the potential security issue that a finding captured.</p>
-   */
-  FirstObservedAt?: DateFilter[];
-
-  /**
-   * <p>The parent process ID.</p>
-   */
-  ProcessParentPid?: NumberFilter[];
-
-  /**
-   * <p>The principal that created a note.</p>
-   */
-  NoteUpdatedBy?: StringFilter[];
-
-  /**
-   * <p>The name of the container related to a finding.</p>
-   */
-  ResourceContainerName?: StringFilter[];
-
-  /**
-   * <p>The source of the threat intelligence.</p>
-   */
-  ThreatIntelIndicatorSource?: StringFilter[];
-
-  /**
-   * <p>The key name associated with the instance.</p>
-   */
-  ResourceAwsEc2InstanceKeyName?: StringFilter[];
-
-  /**
-   * <p>Specifies the type of the resource that details are provided for.</p>
-   */
-  ResourceType?: StringFilter[];
-
-  /**
-   * <p>The source media access control (MAC) address of network-related information about a
-   *          finding.</p>
-   */
-  NetworkSourceMac?: StringFilter[];
-
-  /**
-   * <p>The normalized severity of a finding.</p>
-   */
-  SeverityNormalized?: NumberFilter[];
-
-  /**
-   * <p>The protocol of network-related information about a finding.</p>
-   */
-  NetworkProtocol?: StringFilter[];
-
-  /**
-   * <p>The date/time that the container was started.</p>
-   */
-  ResourceContainerLaunchedAt?: DateFilter[];
-
-  /**
-   * <p>The creation date/time of the IAM access key related to a finding.</p>
-   */
-  ResourceAwsIamAccessKeyCreatedAt?: DateFilter[];
-
-  /**
-   * <p>A finding type in the format of <code>namespace/category/classifier</code> that
-   *          classifies a finding.</p>
-   */
-  Type?: StringFilter[];
-
-  /**
-   * <p>The name of the malware that was observed.</p>
-   */
-  MalwareName?: StringFilter[];
-
-  /**
-   * <p>The IPv4 addresses associated with the instance.</p>
-   */
-  ResourceAwsEc2InstanceIpV4Addresses?: IpFilter[];
-
-  /**
-   * <p>The instance type of the instance.</p>
-   */
-  ResourceAwsEc2InstanceType?: StringFilter[];
-
-  /**
-   * <p>The process ID.</p>
-   */
-  ProcessPid?: NumberFilter[];
-
-  /**
-   * <p>The identifier of the image related to a finding.</p>
-   */
-  ResourceContainerImageId?: StringFilter[];
-
-  /**
-   * <p>A keyword for a finding.</p>
-   */
-  Keyword?: KeywordFilter[];
-
-  /**
-   * <p>The date/time that the process was terminated.</p>
-   */
-  ProcessTerminatedAt?: DateFilter[];
-
-  /**
-   * <p>The security findings provider-specific identifier for a finding.</p>
-   */
-  Id?: StringFilter[];
-
-  /**
-   * <p>A finding's description.</p>
-   */
-  Description?: StringFilter[];
-
-  /**
-   * <p>The details of a resource that doesn't have a specific subfield for the resource type
-   *          defined.</p>
-   */
-  ResourceDetailsOther?: MapFilter[];
-
-  /**
-   * <p>The recommendation of what to do about the issue described in a finding.</p>
-   */
-  RecommendationText?: StringFilter[];
-
-  /**
-   * <p>The identifier of the VPC that the instance was launched in.</p>
-   */
-  ResourceAwsEc2InstanceVpcId?: StringFilter[];
-
-  /**
-   * <p>The veracity of a finding.</p>
-   */
-  VerificationState?: StringFilter[];
-
-  /**
-   * <p>The text of a note.</p>
-   */
-  NoteText?: StringFilter[];
-
-  /**
-   * <p>The source IPv4 address of network-related information about a finding.</p>
-   */
-  NetworkSourceIpV4?: IpFilter[];
-
-  /**
-   * <p>The destination IPv6 address of network-related information about a finding.</p>
-   */
-  NetworkDestinationIpV6?: IpFilter[];
-
-  /**
-   * <p>The native severity as defined by the security-findings provider's solution that
-   *          generated the finding.</p>
-   */
-  SeverityProduct?: NumberFilter[];
-
-  /**
-   * <p>The source port of network-related information about a finding.</p>
-   */
-  NetworkSourcePort?: NumberFilter[];
-
-  /**
-   * <p>The source IPv6 address of network-related information about a finding.</p>
-   */
-  NetworkSourceIpV6?: IpFilter[];
-
-  /**
-   * <p>The name of the process.</p>
-   */
-  ProcessName?: StringFilter[];
-
-  /**
-   * <p>The destination IPv4 address of network-related information about a finding.</p>
-   */
-  NetworkDestinationIpV4?: IpFilter[];
-
-  /**
-   * <p>The destination port of network-related information about a finding.</p>
-   */
-  NetworkDestinationPort?: NumberFilter[];
-
-  /**
-   * <p>The IAM profile ARN of the instance.</p>
-   */
-  ResourceAwsEc2InstanceIamInstanceProfileArn?: StringFilter[];
+  RelatedFindingsProductArn?: StringFilter[];
 
   /**
    * <p>The solution-generated identifier for a related finding.</p>
@@ -9383,58 +9417,24 @@ export interface AwsSecurityFindingFilters {
   RelatedFindingsId?: StringFilter[];
 
   /**
-   * <p>A list of AWS tags associated with a resource at the time the finding was
-   *          processed.</p>
+   * <p>The text of a note.</p>
    */
-  ResourceTags?: MapFilter[];
+  NoteText?: StringFilter[];
 
   /**
-   * <p>A URL that links to a page about the current finding in the security-findings provider's
-   *          solution.</p>
+   * <p>The timestamp of when the note was updated.</p>
    */
-  SourceUrl?: StringFilter[];
+  NoteUpdatedAt?: DateFilter[];
 
   /**
-   * <p>The name of the image related to a finding.</p>
+   * <p>The principal that created a note.</p>
    */
-  ResourceContainerImageName?: StringFilter[];
+  NoteUpdatedBy?: StringFilter[];
 
   /**
-   * <p>The updated record state for the finding.</p>
+   * <p>A keyword for a finding.</p>
    */
-  RecordState?: StringFilter[];
-
-  /**
-   * <p>The source domain of network-related information about a finding.</p>
-   */
-  NetworkSourceDomain?: StringFilter[];
-
-  /**
-   * <p>The display name of the owner of the S3 bucket.</p>
-   */
-  ResourceAwsS3BucketOwnerName?: StringFilter[];
-
-  /**
-   * <p>The ARN generated by Security Hub that uniquely identifies a third-party company
-   *          (security findings provider) after this provider's product (solution that generates
-   *          findings) is registered with Security Hub.</p>
-   */
-  ProductArn?: StringFilter[];
-
-  /**
-   * <p>The date/time of the last observation of a threat intelligence indicator.</p>
-   */
-  ThreatIntelIndicatorLastObservedAt?: DateFilter[];
-
-  /**
-   * <p>The status of the IAM access key related to a finding.</p>
-   */
-  ResourceAwsIamAccessKeyStatus?: StringFilter[];
-
-  /**
-   * <p>The value of a threat intelligence indicator.</p>
-   */
-  ThreatIntelIndicatorValue?: StringFilter[];
+  Keyword?: KeywordFilter[];
 }
 
 export namespace AwsSecurityFindingFilters {
@@ -9448,16 +9448,16 @@ export namespace AwsSecurityFindingFilters {
  */
 export interface AwsSecurityFindingIdentifier {
   /**
+   * <p>The identifier of the finding that was specified by the finding provider.</p>
+   */
+  Id: string | undefined;
+
+  /**
    * <p>The ARN generated by Security Hub that uniquely identifies a product that generates findings.
    *          This can be the ARN for a third-party product that is integrated with Security Hub, or the ARN for
    *          a custom integration.</p>
    */
   ProductArn: string | undefined;
-
-  /**
-   * <p>The identifier of the finding that was specified by the finding provider.</p>
-   */
-  Id: string | undefined;
 }
 
 export namespace AwsSecurityFindingIdentifier {
@@ -9492,24 +9492,24 @@ export enum StandardsStatus {
  */
 export interface StandardsSubscription {
   /**
-   * <p>The ARN of a standard.</p>
-   */
-  StandardsArn: string | undefined;
-
-  /**
-   * <p>The status of the standards subscription.</p>
-   */
-  StandardsStatus: StandardsStatus | string | undefined;
-
-  /**
    * <p>The ARN of a resource that represents your subscription to a supported standard.</p>
    */
   StandardsSubscriptionArn: string | undefined;
 
   /**
+   * <p>The ARN of a standard.</p>
+   */
+  StandardsArn: string | undefined;
+
+  /**
    * <p>A key-value pair of input for the standard.</p>
    */
   StandardsInput: { [key: string]: string } | undefined;
+
+  /**
+   * <p>The status of the standards subscription.</p>
+   */
+  StandardsStatus: StandardsStatus | string | undefined;
 }
 
 export namespace StandardsSubscription {
@@ -9601,12 +9601,6 @@ export namespace BatchImportFindingsRequest {
  */
 export interface ImportFindingsError {
   /**
-   * <p>The message of the error returned by the <code>BatchImportFindings</code>
-   *          operation.</p>
-   */
-  ErrorMessage: string | undefined;
-
-  /**
    * <p>The identifier of the finding that could not be updated.</p>
    */
   Id: string | undefined;
@@ -9615,6 +9609,12 @@ export interface ImportFindingsError {
    * <p>The code of the error returned by the <code>BatchImportFindings</code> operation.</p>
    */
   ErrorCode: string | undefined;
+
+  /**
+   * <p>The message of the error returned by the <code>BatchImportFindings</code>
+   *          operation.</p>
+   */
+  ErrorMessage: string | undefined;
 }
 
 export namespace ImportFindingsError {
@@ -9783,46 +9783,12 @@ export namespace WorkflowUpdate {
 
 export interface BatchUpdateFindingsRequest {
   /**
-   * <p>Used to update the finding severity.</p>
+   * <p>The list of findings to update. <code>BatchUpdateFindings</code> can be used to update
+   *          up to 100 findings at a time.</p>
+   *          <p>For each finding, the list provides the finding identifier and the ARN of the finding
+   *          provider.</p>
    */
-  Severity?: SeverityUpdate;
-
-  /**
-   * <p>A list of findings that are related to the updated findings.</p>
-   */
-  RelatedFindings?: RelatedFinding[];
-
-  /**
-   * <p>One or more finding types in the format of namespace/category/classifier that classify a
-   *          finding.</p>
-   *          <p>Valid namespace values are as follows.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Software and Configuration Checks</p>
-   *             </li>
-   *             <li>
-   *                <p>TTPs</p>
-   *             </li>
-   *             <li>
-   *                <p>Effects</p>
-   *             </li>
-   *             <li>
-   *                <p>Unusual Behaviors</p>
-   *             </li>
-   *             <li>
-   *                <p>Sensitive Data Identifications </p>
-   *             </li>
-   *          </ul>
-   */
-  Types?: string[];
-
-  /**
-   * <p>The updated value for the level of importance assigned to the resources associated with
-   *          the findings.</p>
-   *          <p>A score of 0 means that the underlying resources have no criticality, and a score of 100
-   *          is reserved for the most critical resources. </p>
-   */
-  Criticality?: number;
+  FindingIdentifiers: AwsSecurityFindingIdentifier[] | undefined;
 
   /**
    * <p>The updated note.</p>
@@ -9830,33 +9796,9 @@ export interface BatchUpdateFindingsRequest {
   Note?: NoteUpdate;
 
   /**
-   * <p>A list of name/value string pairs associated with the finding. These are custom,
-   *          user-defined fields added to a finding.</p>
+   * <p>Used to update the finding severity.</p>
    */
-  UserDefinedFields?: { [key: string]: string };
-
-  /**
-   * <p>The updated value for the finding confidence. Confidence is defined as the likelihood
-   *          that a finding accurately identifies the behavior or issue that it was intended to
-   *          identify.</p>
-   *          <p>Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent
-   *          confidence and 100 means 100 percent confidence.</p>
-   */
-  Confidence?: number;
-
-  /**
-   * <p>Used to update the workflow status of a finding.</p>
-   *          <p>The workflow status indicates the progress of the investigation into the finding. </p>
-   */
-  Workflow?: WorkflowUpdate;
-
-  /**
-   * <p>The list of findings to update. <code>BatchUpdateFindings</code> can be used to update
-   *          up to 100 findings at a time.</p>
-   *          <p>For each finding, the list provides the finding identifier and the ARN of the finding
-   *          provider.</p>
-   */
-  FindingIdentifiers: AwsSecurityFindingIdentifier[] | undefined;
+  Severity?: SeverityUpdate;
 
   /**
    * <p>Indicates the veracity of a finding.</p>
@@ -9883,6 +9825,64 @@ export interface BatchUpdateFindingsRequest {
    *          </ul>
    */
   VerificationState?: VerificationState | string;
+
+  /**
+   * <p>The updated value for the finding confidence. Confidence is defined as the likelihood
+   *          that a finding accurately identifies the behavior or issue that it was intended to
+   *          identify.</p>
+   *          <p>Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent
+   *          confidence and 100 means 100 percent confidence.</p>
+   */
+  Confidence?: number;
+
+  /**
+   * <p>The updated value for the level of importance assigned to the resources associated with
+   *          the findings.</p>
+   *          <p>A score of 0 means that the underlying resources have no criticality, and a score of 100
+   *          is reserved for the most critical resources. </p>
+   */
+  Criticality?: number;
+
+  /**
+   * <p>One or more finding types in the format of namespace/category/classifier that classify a
+   *          finding.</p>
+   *          <p>Valid namespace values are as follows.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Software and Configuration Checks</p>
+   *             </li>
+   *             <li>
+   *                <p>TTPs</p>
+   *             </li>
+   *             <li>
+   *                <p>Effects</p>
+   *             </li>
+   *             <li>
+   *                <p>Unusual Behaviors</p>
+   *             </li>
+   *             <li>
+   *                <p>Sensitive Data Identifications </p>
+   *             </li>
+   *          </ul>
+   */
+  Types?: string[];
+
+  /**
+   * <p>A list of name/value string pairs associated with the finding. These are custom,
+   *          user-defined fields added to a finding.</p>
+   */
+  UserDefinedFields?: { [key: string]: string };
+
+  /**
+   * <p>Used to update the workflow status of a finding.</p>
+   *          <p>The workflow status indicates the progress of the investigation into the finding. </p>
+   */
+  Workflow?: WorkflowUpdate;
+
+  /**
+   * <p>A list of findings that are related to the updated findings.</p>
+   */
+  RelatedFindings?: RelatedFinding[];
 }
 
 export namespace BatchUpdateFindingsRequest {
@@ -9897,11 +9897,6 @@ export namespace BatchUpdateFindingsRequest {
  */
 export interface BatchUpdateFindingsUnprocessedFinding {
   /**
-   * <p>The message associated with the error.</p>
-   */
-  ErrorMessage: string | undefined;
-
-  /**
    * <p>The identifier of the finding that was not updated.</p>
    */
   FindingIdentifier: AwsSecurityFindingIdentifier | undefined;
@@ -9910,6 +9905,11 @@ export interface BatchUpdateFindingsUnprocessedFinding {
    * <p>The code associated with the error.</p>
    */
   ErrorCode: string | undefined;
+
+  /**
+   * <p>The message associated with the error.</p>
+   */
+  ErrorMessage: string | undefined;
 }
 
 export namespace BatchUpdateFindingsUnprocessedFinding {
@@ -9920,14 +9920,14 @@ export namespace BatchUpdateFindingsUnprocessedFinding {
 
 export interface BatchUpdateFindingsResponse {
   /**
-   * <p>The list of findings that were not updated.</p>
-   */
-  UnprocessedFindings: BatchUpdateFindingsUnprocessedFinding[] | undefined;
-
-  /**
    * <p>The list of findings that were updated successfully.</p>
    */
   ProcessedFindings: AwsSecurityFindingIdentifier[] | undefined;
+
+  /**
+   * <p>The list of findings that were not updated.</p>
+   */
+  UnprocessedFindings: BatchUpdateFindingsUnprocessedFinding[] | undefined;
 }
 
 export namespace BatchUpdateFindingsResponse {
@@ -9948,14 +9948,14 @@ export interface CreateActionTargetRequest {
   Name: string | undefined;
 
   /**
-   * <p>The ID for the custom action target.</p>
-   */
-  Id: string | undefined;
-
-  /**
    * <p>The description for the custom action target.</p>
    */
   Description: string | undefined;
+
+  /**
+   * <p>The ID for the custom action target.</p>
+   */
+  Id: string | undefined;
 }
 
 export namespace CreateActionTargetRequest {
@@ -9983,8 +9983,8 @@ export namespace CreateActionTargetResponse {
 export interface ResourceConflictException extends __SmithyException, $MetadataBearer {
   name: "ResourceConflictException";
   $fault: "client";
-  Code?: string;
   Message?: string;
+  Code?: string;
 }
 
 export namespace ResourceConflictException {
@@ -10000,18 +10000,18 @@ export interface CreateInsightRequest {
   Name: string | undefined;
 
   /**
+   * <p>One or more attributes used to filter the findings included in the insight. The insight
+   *          only includes findings that match the criteria defined in the filters.</p>
+   */
+  Filters: AwsSecurityFindingFilters | undefined;
+
+  /**
    * <p>The attribute used to group the findings for the insight. The grouping attribute
    *          identifies the type of item that the insight applies to. For example, if an insight is
    *          grouped by resource identifier, then the insight produces a list of resource
    *          identifiers.</p>
    */
   GroupByAttribute: string | undefined;
-
-  /**
-   * <p>One or more attributes used to filter the findings included in the insight. The insight
-   *          only includes findings that match the criteria defined in the filters.</p>
-   */
-  Filters: AwsSecurityFindingFilters | undefined;
 }
 
 export namespace CreateInsightRequest {
@@ -10218,11 +10218,6 @@ export namespace DeleteMembersResponse {
 
 export interface DescribeActionTargetsRequest {
   /**
-   * <p>The maximum number of results to return.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>A list of custom action target ARNs for the custom action targets to retrieve.</p>
    */
   ActionTargetArns?: string[];
@@ -10235,6 +10230,11 @@ export interface DescribeActionTargetsRequest {
    *          parameter to the value returned from the previous response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace DescribeActionTargetsRequest {
@@ -10278,12 +10278,9 @@ export namespace DescribeHubRequest {
 
 export interface DescribeHubResponse {
   /**
-   * <p>Whether to automatically enable new controls when they are added to standards that are
-   *          enabled.</p>
-   *          <p>If set to <code>true</code>, then new controls for enabled standards are enabled
-   *          automatically. If set to <code>false</code>, then new controls are not enabled.</p>
+   * <p>The ARN of the Hub resource that was retrieved.</p>
    */
-  AutoEnableControls?: boolean;
+  HubArn?: string;
 
   /**
    * <p>The date and time when Security Hub was enabled in the account.</p>
@@ -10291,9 +10288,12 @@ export interface DescribeHubResponse {
   SubscribedAt?: string;
 
   /**
-   * <p>The ARN of the Hub resource that was retrieved.</p>
+   * <p>Whether to automatically enable new controls when they are added to standards that are
+   *          enabled.</p>
+   *          <p>If set to <code>true</code>, then new controls for enabled standards are enabled
+   *          automatically. If set to <code>false</code>, then new controls are not enabled.</p>
    */
-  HubArn?: string;
+  AutoEnableControls?: boolean;
 }
 
 export namespace DescribeHubResponse {
@@ -10333,11 +10333,6 @@ export namespace DescribeOrganizationConfigurationResponse {
 
 export interface DescribeProductsRequest {
   /**
-   * <p>The maximum number of results to return.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The token that is required for pagination. On your first call to the
    *             <code>DescribeProducts</code> operation, set the value of this parameter to
    *             <code>NULL</code>.</p>
@@ -10345,6 +10340,11 @@ export interface DescribeProductsRequest {
    *          parameter to the value returned from the previous response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace DescribeProductsRequest {
@@ -10363,9 +10363,14 @@ export enum IntegrationType {
  */
 export interface Product {
   /**
-   * <p>A description of the product.</p>
+   * <p>The ARN assigned to the product.</p>
    */
-  Description?: string;
+  ProductArn: string | undefined;
+
+  /**
+   * <p>The name of the product.</p>
+   */
+  ProductName?: string;
 
   /**
    * <p>The name of the company that provides the product.</p>
@@ -10373,9 +10378,9 @@ export interface Product {
   CompanyName?: string;
 
   /**
-   * <p>The URL used to activate the product.</p>
+   * <p>A description of the product.</p>
    */
-  ActivationUrl?: string;
+  Description?: string;
 
   /**
    * <p>The categories assigned to the product.</p>
@@ -10401,24 +10406,19 @@ export interface Product {
   IntegrationTypes?: (IntegrationType | string)[];
 
   /**
-   * <p>The ARN assigned to the product.</p>
-   */
-  ProductArn: string | undefined;
-
-  /**
    * <p>The URL for the page that contains more information about the product.</p>
    */
   MarketplaceUrl?: string;
 
   /**
+   * <p>The URL used to activate the product.</p>
+   */
+  ActivationUrl?: string;
+
+  /**
    * <p>The resource policy associated with the product.</p>
    */
   ProductSubscriptionResourcePolicy?: string;
-
-  /**
-   * <p>The name of the product.</p>
-   */
-  ProductName?: string;
 }
 
 export namespace Product {
@@ -10472,6 +10472,16 @@ export namespace DescribeStandardsRequest {
  */
 export interface Standard {
   /**
+   * <p>The ARN of a standard.</p>
+   */
+  StandardsArn?: string;
+
+  /**
+   * <p>The name of the standard.</p>
+   */
+  Name?: string;
+
+  /**
    * <p>A description of the standard.</p>
    */
   Description?: string;
@@ -10485,16 +10495,6 @@ export interface Standard {
    *             <code>false</code>.</p>
    */
   EnabledByDefault?: boolean;
-
-  /**
-   * <p>The ARN of a standard.</p>
-   */
-  StandardsArn?: string;
-
-  /**
-   * <p>The name of the standard.</p>
-   */
-  Name?: string;
 }
 
 export namespace Standard {
@@ -10531,11 +10531,6 @@ export interface DescribeStandardsControlsRequest {
   StandardsSubscriptionArn: string | undefined;
 
   /**
-   * <p>The maximum number of security standard controls to return.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The token that is required for pagination. On your first call to the
    *             <code>DescribeStandardsControls</code> operation, set the value of this parameter to
    *             <code>NULL</code>.</p>
@@ -10543,6 +10538,11 @@ export interface DescribeStandardsControlsRequest {
    *          parameter to the value returned from the previous response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of security standard controls to return.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace DescribeStandardsControlsRequest {
@@ -10563,10 +10563,36 @@ export enum SeverityRating {
  */
 export interface StandardsControl {
   /**
-   * <p>A link to remediation information for the control in the Security Hub user
-   *          documentation.</p>
+   * <p>The ARN of the security standard control.</p>
    */
-  RemediationUrl?: string;
+  StandardsControlArn?: string;
+
+  /**
+   * <p>The current status of the security standard control. Indicates whether the control is
+   *          enabled or disabled. Security Hub does not check against disabled controls.</p>
+   */
+  ControlStatus?: ControlStatus | string;
+
+  /**
+   * <p>The reason provided for the most recent change in status for the control.</p>
+   */
+  DisabledReason?: string;
+
+  /**
+   * <p>The date and time that the status of the security standard control was most recently
+   *          updated.</p>
+   */
+  ControlStatusUpdatedAt?: Date;
+
+  /**
+   * <p>The identifier of the security standard control.</p>
+   */
+  ControlId?: string;
+
+  /**
+   * <p>The title of the security standard control.</p>
+   */
+  Title?: string;
 
   /**
    * <p>The longer description of the security standard control. Provides information about what
@@ -10575,20 +10601,10 @@ export interface StandardsControl {
   Description?: string;
 
   /**
-   * <p>The ARN of the security standard control.</p>
+   * <p>A link to remediation information for the control in the Security Hub user
+   *          documentation.</p>
    */
-  StandardsControlArn?: string;
-
-  /**
-   * <p>The identifier of the security standard control.</p>
-   */
-  ControlId?: string;
-
-  /**
-   * <p>The current status of the security standard control. Indicates whether the control is
-   *          enabled or disabled. Security Hub does not check against disabled controls.</p>
-   */
-  ControlStatus?: ControlStatus | string;
+  RemediationUrl?: string;
 
   /**
    * <p>The severity of findings generated from this security standard control.</p>
@@ -10598,25 +10614,9 @@ export interface StandardsControl {
   SeverityRating?: SeverityRating | string;
 
   /**
-   * <p>The reason provided for the most recent change in status for the control.</p>
-   */
-  DisabledReason?: string;
-
-  /**
-   * <p>The title of the security standard control.</p>
-   */
-  Title?: string;
-
-  /**
    * <p>The list of requirements that are related to this control.</p>
    */
   RelatedRequirements?: string[];
-
-  /**
-   * <p>The date and time that the status of the security standard control was most recently
-   *          updated.</p>
-   */
-  ControlStatusUpdatedAt?: Date;
 }
 
 export namespace StandardsControl {
@@ -10822,11 +10822,6 @@ export interface GetEnabledStandardsRequest {
   StandardsSubscriptionArns?: string[];
 
   /**
-   * <p>The maximum number of results to return in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The token that is required for pagination. On your first call to the
    *             <code>GetEnabledStandards</code> operation, set the value of this parameter to
    *             <code>NULL</code>.</p>
@@ -10834,6 +10829,11 @@ export interface GetEnabledStandardsRequest {
    *          parameter to the value returned from the previous response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in the response.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace GetEnabledStandardsRequest {
@@ -10899,6 +10899,11 @@ export interface GetFindingsRequest {
   Filters?: AwsSecurityFindingFilters;
 
   /**
+   * <p>The finding attributes used to sort the list of returned findings.</p>
+   */
+  SortCriteria?: SortCriterion[];
+
+  /**
    * <p>The token that is required for pagination. On your first call to the
    *             <code>GetFindings</code> operation, set the value of this parameter to
    *          <code>NULL</code>.</p>
@@ -10911,11 +10916,6 @@ export interface GetFindingsRequest {
    * <p>The maximum number of findings to return.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>The finding attributes used to sort the list of returned findings.</p>
-   */
-  SortCriteria?: SortCriterion[];
 }
 
 export namespace GetFindingsRequest {

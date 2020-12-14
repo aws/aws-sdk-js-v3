@@ -2355,7 +2355,8 @@
           "sdkId": "Network Firewall",
           "arnNamespace": "network-firewall",
           "cloudFormationName": "NetworkFirewall",
-          "cloudTrailEventSource": "networkfirewall.amazonaws.com"
+          "cloudTrailEventSource": "networkfirewall.amazonaws.com",
+          "endpointPrefix": "network-firewall"
         },
         "aws.auth#sigv4": {
           "name": "network-firewall"

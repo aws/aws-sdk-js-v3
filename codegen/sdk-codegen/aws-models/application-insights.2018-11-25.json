@@ -1240,7 +1240,8 @@
           "sdkId": "Application Insights",
           "arnNamespace": "applicationinsights",
           "cloudFormationName": "ApplicationInsights",
-          "cloudTrailEventSource": "applicationinsights.amazonaws.com"
+          "cloudTrailEventSource": "applicationinsights.amazonaws.com",
+          "endpointPrefix": "applicationinsights"
         },
         "aws.auth#sigv4": {
           "name": "applicationinsights"

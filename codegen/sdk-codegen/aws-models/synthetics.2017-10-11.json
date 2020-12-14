@@ -1470,7 +1470,8 @@
           "sdkId": "synthetics",
           "arnNamespace": "synthetics",
           "cloudFormationName": "Synthetics",
-          "cloudTrailEventSource": "synthetics.amazonaws.com"
+          "cloudTrailEventSource": "synthetics.amazonaws.com",
+          "endpointPrefix": "synthetics"
         },
         "aws.auth#sigv4": {
           "name": "synthetics"

@@ -141,7 +141,8 @@
           "sdkId": "ECR",
           "arnNamespace": "ecr",
           "cloudFormationName": "ECR",
-          "cloudTrailEventSource": "ecr.amazonaws.com"
+          "cloudTrailEventSource": "ecr.amazonaws.com",
+          "endpointPrefix": "api.ecr"
         },
         "aws.auth#sigv4": {
           "name": "ecr"
@@ -938,6 +939,34 @@
           "outputToken": "nextToken",
           "items": "imageScanFindings.findings",
           "pageSize": "maxResults"
+        },
+        "smithy.waiters#waitable": {
+          "ImageScanComplete": {
+            "documentation": "Wait until an image scan is complete and findings can be accessed",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "imageScanStatus.status",
+                    "expected": "COMPLETE",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "imageScanStatus.status",
+                    "expected": "FAILED",
+                    "comparator": "stringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 5
+          }
         }
       }
     },
@@ -1531,6 +1560,34 @@
           "outputToken": "nextToken",
           "items": "previewResults",
           "pageSize": "maxResults"
+        },
+        "smithy.waiters#waitable": {
+          "LifecyclePolicyPreviewComplete": {
+            "documentation": "Wait until a lifecycle policy preview request is complete and results can be accessed",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "status",
+                    "expected": "COMPLETE",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "status",
+                    "expected": "FAILED",
+                    "comparator": "stringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 5
+          }
         }
       }
     },

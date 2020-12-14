@@ -205,7 +205,8 @@
           "sdkId": "Organizations",
           "arnNamespace": "organizations",
           "cloudFormationName": "Organizations",
-          "cloudTrailEventSource": "organizations.amazonaws.com"
+          "cloudTrailEventSource": "organizations.amazonaws.com",
+          "endpointPrefix": "organizations"
         },
         "aws.auth#sigv4": {
           "name": "organizations"
@@ -343,12 +344,6 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the account.</p>\n        <p>For more information about ARNs in Organizations, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns\">ARN Formats Supported by\n    Organizations</a> in the <i>AWS Organizations User Guide</i>.</p>"
           }
         },
-        "JoinedTimestamp": {
-          "target": "com.amazonaws.organizations#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date the account became a part of the organization.</p>"
-          }
-        },
         "Email": {
           "target": "com.amazonaws.organizations#Email",
           "traits": {
@@ -371,6 +366,12 @@
           "target": "com.amazonaws.organizations#AccountJoinedMethod",
           "traits": {
             "smithy.api#documentation": "<p>The method by which the account joined the organization.</p>"
+          }
+        },
+        "JoinedTimestamp": {
+          "target": "com.amazonaws.organizations#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date the account became a part of the organization.</p>"
           }
         }
       },
@@ -582,17 +583,17 @@
     "com.amazonaws.organizations#AttachPolicyRequest": {
       "type": "structure",
       "members": {
-        "TargetId": {
-          "target": "com.amazonaws.organizations#PolicyTargetId",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier (ID) of the root, OU, or account that you want to attach the\n            policy to. You can get the ID by calling the <a>ListRoots</a>, <a>ListOrganizationalUnitsForParent</a>, or <a>ListAccounts</a>\n            operations.</p> \n         <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a target ID string requires one of the \n    following:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Root</b> - A string that begins with \"r-\" followed by from 4 to 32 lowercase letters or \n          digits.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Account</b> - A string that consists of exactly 12 digits.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Organizational unit (OU)</b> - A string that begins with \"ou-\" followed by from 4 to 32 \n          lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second \n          \"-\" dash and from 8 to 32 additional lowercase letters or digits.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": {}
-          }
-        },
         "PolicyId": {
           "target": "com.amazonaws.organizations#PolicyId",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier (ID) of the policy that you want to attach to the target. You\n            can get the ID for the policy by calling the <a>ListPolicies</a>\n            operation.</p> \n         <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a policy ID string requires \"p-\" followed \n    by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TargetId": {
+          "target": "com.amazonaws.organizations#PolicyTargetId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier (ID) of the root, OU, or account that you want to attach the\n            policy to. You can get the ID by calling the <a>ListRoots</a>, <a>ListOrganizationalUnitsForParent</a>, or <a>ListAccounts</a>\n            operations.</p> \n         <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a target ID string requires one of the \n    following:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Root</b> - A string that begins with \"r-\" followed by from 4 to 32 lowercase letters or \n          digits.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Account</b> - A string that consists of exactly 12 digits.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Organizational unit (OU)</b> - A string that begins with \"ou-\" followed by from 4 to 32 \n          lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second \n          \"-\" dash and from 8 to 32 additional lowercase letters or digits.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         }
@@ -742,11 +743,11 @@
     "com.amazonaws.organizations#ConstraintViolationException": {
       "type": "structure",
       "members": {
-        "Reason": {
-          "target": "com.amazonaws.organizations#ConstraintViolationExceptionReason"
-        },
         "Message": {
           "target": "com.amazonaws.organizations#ExceptionMessage"
+        },
+        "Reason": {
+          "target": "com.amazonaws.organizations#ConstraintViolationExceptionReason"
         }
       },
       "traits": {
@@ -961,23 +962,11 @@
     "com.amazonaws.organizations#CreateAccountRequest": {
       "type": "structure",
       "members": {
-        "IamUserAccessToBilling": {
-          "target": "com.amazonaws.organizations#IAMUserAccessToBilling",
-          "traits": {
-            "smithy.api#documentation": "<p>If set to <code>ALLOW</code>, the new account enables IAM users to access account\n            billing information <i>if</i> they have the required permissions. If set\n            to <code>DENY</code>, only the root user of the new account can access account billing\n            information. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate\">Activating\n                Access to the Billing and Cost Management Console</a> in the\n                <i>AWS Billing and Cost Management User Guide</i>.</p>\n        <p>If you don't specify this parameter, the value defaults to <code>ALLOW</code>, and\n            IAM users and roles with the required permissions can access billing information for\n            the new account.</p>"
-          }
-        },
         "Email": {
           "target": "com.amazonaws.organizations#Email",
           "traits": {
             "smithy.api#documentation": "<p>The email address of the owner to assign to the new member account. This email address\n            must not already be associated with another AWS account. You must use a valid email\n            address to complete account creation. You can't access the root user of the account or\n            remove an account that was created with an invalid email address.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.organizations#Tags",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of tags that you want to attach to the newly created account. For each tag in\n            the list, you must specify both a tag key and a value. You can set the value to an empty\n            string, but you can't set it to <code>null</code>. For more information about tagging,\n            see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html\">Tagging AWS\n                Organizations resources</a> in the AWS Organizations User Guide.</p>\n        <note>\n            <p>If any one of the tags is invalid or if you exceed the allowed number of tags for\n                an account, then the entire request fails and the account is not created.</p>\n        </note>"
           }
         },
         "AccountName": {
@@ -991,6 +980,18 @@
           "target": "com.amazonaws.organizations#RoleName",
           "traits": {
             "smithy.api#documentation": "<p>(Optional)</p>\n        <p>The name of an IAM role that AWS Organizations automatically preconfigures in the new member\n            account. This role trusts the management account, allowing users in the management account\n            to assume the role, as permitted by the management account administrator. The role has\n            administrator permissions in the new member account.</p>\n        <p>If you don't specify this parameter, the role name defaults to\n                <code>OrganizationAccountAccessRole</code>.</p>\n        <p>For more information about how to use this role to access the member account, see the\n            following links:</p>\n        <ul>\n            <li>\n                <p>\n                  <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html#orgs_manage_accounts_create-cross-account-role\">Accessing and Administering the Member Accounts in Your\n                        Organization</a> in the <i>AWS Organizations User Guide</i>\n               </p>\n            </li>\n            <li>\n                <p>Steps 2 and 3 in <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html\">Tutorial:\n                        Delegate Access Across AWS Accounts Using IAM Roles</a> in the\n                        <i>IAM User Guide</i>\n               </p>\n            </li>\n         </ul>\n        <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> that \n    is used to validate this parameter. The pattern can include uppercase \n    letters, lowercase letters, digits with no spaces, and any of the following characters: =,.@-</p>"
+          }
+        },
+        "IamUserAccessToBilling": {
+          "target": "com.amazonaws.organizations#IAMUserAccessToBilling",
+          "traits": {
+            "smithy.api#documentation": "<p>If set to <code>ALLOW</code>, the new account enables IAM users to access account\n            billing information <i>if</i> they have the required permissions. If set\n            to <code>DENY</code>, only the root user of the new account can access account billing\n            information. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate\">Activating\n                Access to the Billing and Cost Management Console</a> in the\n                <i>AWS Billing and Cost Management User Guide</i>.</p>\n        <p>If you don't specify this parameter, the value defaults to <code>ALLOW</code>, and\n            IAM users and roles with the required permissions can access billing information for\n            the new account.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.organizations#Tags",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of tags that you want to attach to the newly created account. For each tag in\n            the list, you must specify both a tag key and a value. You can set the value to an empty\n            string, but you can't set it to <code>null</code>. For more information about tagging,\n            see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html\">Tagging AWS\n                Organizations resources</a> in the AWS Organizations User Guide.</p>\n        <note>\n            <p>If any one of the tags is invalid or if you exceed the allowed number of tags for\n                an account, then the entire request fails and the account is not created.</p>\n        </note>"
           }
         }
       }
@@ -1050,10 +1051,16 @@
             "smithy.api#documentation": "<p>The unique identifier (ID) that references this request. You get this value from the\n            response of the initial <a>CreateAccount</a> request to create the\n            account.</p> \n         <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a create account request ID string \n    requires \"car-\" followed by from 8 to 32 lowercase letters or digits.</p>"
           }
         },
-        "AccountId": {
-          "target": "com.amazonaws.organizations#AccountId",
+        "AccountName": {
+          "target": "com.amazonaws.organizations#AccountName",
           "traits": {
-            "smithy.api#documentation": "<p>If the account was created successfully, the unique identifier (ID) of the new\n            account.</p> \n         <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for an account ID string requires exactly 12\n    digits.</p>"
+            "smithy.api#documentation": "<p>The account name given to the account when it was created.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.organizations#CreateAccountState",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the request.</p>"
           }
         },
         "RequestedTimestamp": {
@@ -1068,10 +1075,10 @@
             "smithy.api#documentation": "<p>The date and time that the account was created and the request completed.</p>"
           }
         },
-        "AccountName": {
-          "target": "com.amazonaws.organizations#AccountName",
+        "AccountId": {
+          "target": "com.amazonaws.organizations#AccountId",
           "traits": {
-            "smithy.api#documentation": "<p>The account name given to the account when it was created.</p>"
+            "smithy.api#documentation": "<p>If the account was created successfully, the unique identifier (ID) of the new\n            account.</p> \n         <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for an account ID string requires exactly 12\n    digits.</p>"
           }
         },
         "GovCloudAccountId": {
@@ -1084,12 +1091,6 @@
           "target": "com.amazonaws.organizations#CreateAccountFailureReason",
           "traits": {
             "smithy.api#documentation": "<p>If the request failed, a description of the reason for the failure.</p>\n        <ul>\n            <li>\n                <p>ACCOUNT_LIMIT_EXCEEDED: The account could not be created because you have\n                    reached the limit on the number of accounts in your organization.</p>\n            </li>\n            <li>\n                <p>CONCURRENT_ACCOUNT_MODIFICATION: You already submitted a request with the same\n                    information.</p>\n            </li>\n            <li>\n                <p>EMAIL_ALREADY_EXISTS: The account could not be created because another AWS\n                    account with that email address already exists.</p>\n            </li>\n            <li>\n                <p>GOVCLOUD_ACCOUNT_ALREADY_EXISTS: The account in the AWS GovCloud (US) Region\n                    could not be created because this Region already includes an account with that\n                    email address.</p>\n            </li>\n            <li>\n                <p>INVALID_ADDRESS: The account could not be created because the address you\n                    provided is not valid.</p>\n            </li>\n            <li>\n                <p>INVALID_EMAIL: The account could not be created because the email address you\n                    provided is not valid.</p>\n            </li>\n            <li>\n                <p>INTERNAL_FAILURE: The account could not be created because of an internal\n                    failure. Try again later. If the problem persists, contact Customer\n                    Support.</p>\n            </li>\n            <li>\n                <p>MISSING_BUSINESS_VALIDATION: The AWS account that owns your organization has\n                    not received Business Validation.</p>\n            </li>\n            <li>\n                <p> MISSING_PAYMENT_INSTRUMENT: You must configure the management account with a\n                    valid payment method, such as a credit card.</p>\n            </li>\n         </ul>"
-          }
-        },
-        "State": {
-          "target": "com.amazonaws.organizations#CreateAccountState",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the request.</p>"
           }
         }
       },
@@ -1160,17 +1161,18 @@
     "com.amazonaws.organizations#CreateGovCloudAccountRequest": {
       "type": "structure",
       "members": {
+        "Email": {
+          "target": "com.amazonaws.organizations#Email",
+          "traits": {
+            "smithy.api#documentation": "<p>The email address of the owner to assign to the new member account in the commercial\n            Region. This email address must not already be associated with another AWS account.\n            You must use a valid email address to complete account creation. You can't access the\n            root user of the account or remove an account that was created with an invalid email\n            address. Like all request parameters for <code>CreateGovCloudAccount</code>, the request\n            for the email address for the AWS GovCloud (US) account originates from the commercial\n            Region, not from the AWS GovCloud (US) Region.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "AccountName": {
           "target": "com.amazonaws.organizations#AccountName",
           "traits": {
             "smithy.api#documentation": "<p>The friendly name of the member account.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.organizations#Tags",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of tags that you want to attach to the newly created account. These tags are\n            attached to the commercial account associated with the GovCloud account, and not to the\n            GovCloud account itself. To add tags to the actual GovCloud account, call the <a>TagResource</a> operation in the GovCloud region after the new GovCloud\n            account exists.</p>\n        <p>For each tag in the list, you must specify both a tag key and a value. You can set the\n            value to an empty string, but you can't set it to <code>null</code>. For more\n            information about tagging, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html\">Tagging AWS Organizations resources</a>\n            in the AWS Organizations User Guide.</p>\n        <note>\n            <p>If any one of the tags is invalid or if you exceed the allowed number of tags for\n                an account, then the entire request fails and the account is not created.</p>\n        </note>"
           }
         },
         "RoleName": {
@@ -1185,11 +1187,10 @@
             "smithy.api#documentation": "<p>If set to <code>ALLOW</code>, the new linked account in the commercial Region enables\n            IAM users to access account billing information <i>if</i> they have the\n            required permissions. If set to <code>DENY</code>, only the root user of the new account\n            can access account billing information. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate\">Activating\n                Access to the Billing and Cost Management Console</a> in the\n                <i>AWS Billing and Cost Management User Guide.</i>\n         </p>\n        <p>If you don't specify this parameter, the value defaults to <code>ALLOW</code>, and\n            IAM users and roles with the required permissions can access billing information for\n            the new account.</p>"
           }
         },
-        "Email": {
-          "target": "com.amazonaws.organizations#Email",
+        "Tags": {
+          "target": "com.amazonaws.organizations#Tags",
           "traits": {
-            "smithy.api#documentation": "<p>The email address of the owner to assign to the new member account in the commercial\n            Region. This email address must not already be associated with another AWS account.\n            You must use a valid email address to complete account creation. You can't access the\n            root user of the account or remove an account that was created with an invalid email\n            address. Like all request parameters for <code>CreateGovCloudAccount</code>, the request\n            for the email address for the AWS GovCloud (US) account originates from the commercial\n            Region, not from the AWS GovCloud (US) Region.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>A list of tags that you want to attach to the newly created account. These tags are\n            attached to the commercial account associated with the GovCloud account, and not to the\n            GovCloud account itself. To add tags to the actual GovCloud account, call the <a>TagResource</a> operation in the GovCloud region after the new GovCloud\n            account exists.</p>\n        <p>For each tag in the list, you must specify both a tag key and a value. You can set the\n            value to an empty string, but you can't set it to <code>null</code>. For more\n            information about tagging, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html\">Tagging AWS Organizations resources</a>\n            in the AWS Organizations User Guide.</p>\n        <note>\n            <p>If any one of the tags is invalid or if you exceed the allowed number of tags for\n                an account, then the entire request fails and the account is not created.</p>\n        </note>"
           }
         }
       }
@@ -1306,17 +1307,17 @@
     "com.amazonaws.organizations#CreateOrganizationalUnitRequest": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.organizations#OrganizationalUnitName",
-          "traits": {
-            "smithy.api#documentation": "<p>The friendly name to assign to the new OU.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ParentId": {
           "target": "com.amazonaws.organizations#ParentId",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier (ID) of the parent root or OU that you want to create the new OU\n            in.</p> \n         <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a parent ID string requires one of the \n    following:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Root</b> - A string that begins with \"r-\" followed by from 4 to 32 lowercase letters or \n          digits.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Organizational unit (OU)</b> - A string that begins with \"ou-\" followed by from 4 to 32\n          lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second \n          \"-\" dash and from 8 to 32 additional lowercase letters or digits.</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.organizations#OrganizationalUnitName",
+          "traits": {
+            "smithy.api#documentation": "<p>The friendly name to assign to the new OU.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1396,6 +1397,20 @@
             "smithy.api#required": {}
           }
         },
+        "Description": {
+          "target": "com.amazonaws.organizations#PolicyDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional description to assign to the policy.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.organizations#PolicyName",
+          "traits": {
+            "smithy.api#documentation": "<p>The friendly name to assign to the policy.</p>\n        <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> \n    that is used to validate this parameter is a string of any of the characters in the ASCII \n    character range.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "Type": {
           "target": "com.amazonaws.organizations#PolicyType",
           "traits": {
@@ -1407,20 +1422,6 @@
           "target": "com.amazonaws.organizations#Tags",
           "traits": {
             "smithy.api#documentation": "<p>A list of tags that you want to attach to the newly created policy. For each tag in\n            the list, you must specify both a tag key and a value. You can set the value to an empty\n            string, but you can't set it to <code>null</code>. For more information about tagging,\n            see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html\">Tagging AWS\n                Organizations resources</a> in the AWS Organizations User Guide.</p>\n        <note>\n            <p>If any one of the tags is invalid or if you exceed the allowed number of tags for\n                a policy, then the entire request fails and the policy is not created.</p>\n        </note>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.organizations#PolicyName",
-          "traits": {
-            "smithy.api#documentation": "<p>The friendly name to assign to the policy.</p>\n        <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> \n    that is used to validate this parameter is a string of any of the characters in the ASCII \n    character range.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.organizations#PolicyDescription",
-          "traits": {
-            "smithy.api#documentation": "<p>An optional description to assign to the policy.</p>",
-            "smithy.api#required": {}
           }
         }
       }
@@ -1500,16 +1501,16 @@
     "com.amazonaws.organizations#DelegatedAdministrator": {
       "type": "structure",
       "members": {
-        "JoinedMethod": {
-          "target": "com.amazonaws.organizations#AccountJoinedMethod",
+        "Id": {
+          "target": "com.amazonaws.organizations#AccountId",
           "traits": {
-            "smithy.api#documentation": "<p>The method by which the delegated administrator's account joined the\n            organization.</p>"
+            "smithy.api#documentation": "<p>The unique identifier (ID) of the delegated administrator's account.</p>"
           }
         },
-        "Status": {
-          "target": "com.amazonaws.organizations#AccountStatus",
+        "Arn": {
+          "target": "com.amazonaws.organizations#AccountArn",
           "traits": {
-            "smithy.api#documentation": "<p>The status of the delegated administrator's account in the organization.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the delegated administrator's account.</p>"
           }
         },
         "Email": {
@@ -1518,22 +1519,22 @@
             "smithy.api#documentation": "<p>The email address that is associated with the delegated administrator's AWS\n            account.</p>"
           }
         },
-        "DelegationEnabledDate": {
-          "target": "com.amazonaws.organizations#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date when the account was made a delegated administrator.</p>"
-          }
-        },
         "Name": {
           "target": "com.amazonaws.organizations#AccountName",
           "traits": {
             "smithy.api#documentation": "<p>The friendly name of the delegated administrator's account.</p>"
           }
         },
-        "Id": {
-          "target": "com.amazonaws.organizations#AccountId",
+        "Status": {
+          "target": "com.amazonaws.organizations#AccountStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier (ID) of the delegated administrator's account.</p>"
+            "smithy.api#documentation": "<p>The status of the delegated administrator's account in the organization.</p>"
+          }
+        },
+        "JoinedMethod": {
+          "target": "com.amazonaws.organizations#AccountJoinedMethod",
+          "traits": {
+            "smithy.api#documentation": "<p>The method by which the delegated administrator's account joined the\n            organization.</p>"
           }
         },
         "JoinedTimestamp": {
@@ -1542,10 +1543,10 @@
             "smithy.api#documentation": "<p>The date when the delegated administrator's account became a part of the\n            organization.</p>"
           }
         },
-        "Arn": {
-          "target": "com.amazonaws.organizations#AccountArn",
+        "DelegationEnabledDate": {
+          "target": "com.amazonaws.organizations#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the delegated administrator's account.</p>"
+            "smithy.api#documentation": "<p>The date when the account was made a delegated administrator.</p>"
           }
         }
       },
@@ -1928,17 +1929,17 @@
     "com.amazonaws.organizations#DescribeEffectivePolicyRequest": {
       "type": "structure",
       "members": {
-        "TargetId": {
-          "target": "com.amazonaws.organizations#PolicyTargetId",
-          "traits": {
-            "smithy.api#documentation": "<p>When you're signed in as the management account, specify the ID of the account that you\n            want details about. Specifying an organization root or organizational unit (OU) as the\n            target is not supported.</p>"
-          }
-        },
         "PolicyType": {
           "target": "com.amazonaws.organizations#EffectivePolicyType",
           "traits": {
             "smithy.api#documentation": "<p>The type of policy that you want information about. You can specify one of the\n            following values:</p> \n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html\">AISERVICES_OPT_OUT_POLICY</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html\">BACKUP_POLICY</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html\">TAG_POLICY</a>\n               </p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
+          }
+        },
+        "TargetId": {
+          "target": "com.amazonaws.organizations#PolicyTargetId",
+          "traits": {
+            "smithy.api#documentation": "<p>When you're signed in as the management account, specify the ID of the account that you\n            want details about. Specifying an organization root or organizational unit (OU) as the\n            target is not supported.</p>"
           }
         }
       }
@@ -2222,17 +2223,17 @@
     "com.amazonaws.organizations#DetachPolicyRequest": {
       "type": "structure",
       "members": {
-        "TargetId": {
-          "target": "com.amazonaws.organizations#PolicyTargetId",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier (ID) of the root, OU, or account that you want to detach the\n            policy from. You can get the ID from the <a>ListRoots</a>, <a>ListOrganizationalUnitsForParent</a>, or <a>ListAccounts</a>\n            operations.</p> \n         <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a target ID string requires one of the \n    following:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Root</b> - A string that begins with \"r-\" followed by from 4 to 32 lowercase letters or \n          digits.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Account</b> - A string that consists of exactly 12 digits.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Organizational unit (OU)</b> - A string that begins with \"ou-\" followed by from 4 to 32 \n          lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second \n          \"-\" dash and from 8 to 32 additional lowercase letters or digits.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": {}
-          }
-        },
         "PolicyId": {
           "target": "com.amazonaws.organizations#PolicyId",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier (ID) of the policy you want to detach. You can get the ID from\n            the <a>ListPolicies</a> or <a>ListPoliciesForTarget</a>\n            operations.</p> \n         <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a policy ID string requires \"p-\" followed \n    by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TargetId": {
+          "target": "com.amazonaws.organizations#PolicyTargetId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier (ID) of the root, OU, or account that you want to detach the\n            policy from. You can get the ID from the <a>ListRoots</a>, <a>ListOrganizationalUnitsForParent</a>, or <a>ListAccounts</a>\n            operations.</p> \n         <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a target ID string requires one of the \n    following:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Root</b> - A string that begins with \"r-\" followed by from 4 to 32 lowercase letters or \n          digits.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Account</b> - A string that consists of exactly 12 digits.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Organizational unit (OU)</b> - A string that begins with \"ou-\" followed by from 4 to 32 \n          lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second \n          \"-\" dash and from 8 to 32 additional lowercase letters or digits.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         }
@@ -2335,17 +2336,17 @@
     "com.amazonaws.organizations#DisablePolicyTypeRequest": {
       "type": "structure",
       "members": {
-        "PolicyType": {
-          "target": "com.amazonaws.organizations#PolicyType",
-          "traits": {
-            "smithy.api#documentation": "<p>The policy type that you want to disable in this root. You can specify one of the\n            following values:</p> \n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html\">AISERVICES_OPT_OUT_POLICY</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html\">BACKUP_POLICY</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html\">SERVICE_CONTROL_POLICY</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html\">TAG_POLICY</a>\n               </p>\n            </li>\n         </ul>",
-            "smithy.api#required": {}
-          }
-        },
         "RootId": {
           "target": "com.amazonaws.organizations#RootId",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier (ID) of the root in which you want to disable a policy type. You\n            can get the ID from the <a>ListRoots</a> operation.</p> \n         <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a root ID string requires \"r-\" followed by \n    from 4 to 32 lowercase letters or digits.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "PolicyType": {
+          "target": "com.amazonaws.organizations#PolicyType",
+          "traits": {
+            "smithy.api#documentation": "<p>The policy type that you want to disable in this root. You can specify one of the\n            following values:</p> \n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html\">AISERVICES_OPT_OUT_POLICY</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html\">BACKUP_POLICY</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html\">SERVICE_CONTROL_POLICY</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html\">TAG_POLICY</a>\n               </p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         }
@@ -2430,16 +2431,16 @@
     "com.amazonaws.organizations#EffectivePolicy": {
       "type": "structure",
       "members": {
-        "PolicyType": {
-          "target": "com.amazonaws.organizations#EffectivePolicyType",
-          "traits": {
-            "smithy.api#documentation": "<p>The policy type.</p>"
-          }
-        },
         "PolicyContent": {
           "target": "com.amazonaws.organizations#PolicyContent",
           "traits": {
             "smithy.api#documentation": "<p>The text content of the policy.</p>"
+          }
+        },
+        "LastUpdatedTimestamp": {
+          "target": "com.amazonaws.organizations#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time of the last update to this policy.</p>"
           }
         },
         "TargetId": {
@@ -2448,10 +2449,10 @@
             "smithy.api#documentation": "<p>The account ID of the policy target. </p>"
           }
         },
-        "LastUpdatedTimestamp": {
-          "target": "com.amazonaws.organizations#Timestamp",
+        "PolicyType": {
+          "target": "com.amazonaws.organizations#EffectivePolicyType",
           "traits": {
-            "smithy.api#documentation": "<p>The time of the last update to this policy.</p>"
+            "smithy.api#documentation": "<p>The policy type.</p>"
           }
         }
       },
@@ -2732,24 +2733,6 @@
     "com.amazonaws.organizations#Handshake": {
       "type": "structure",
       "members": {
-        "ExpirationTimestamp": {
-          "target": "com.amazonaws.organizations#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time that the handshake expires. If the recipient of the handshake\n            request fails to respond before the specified date and time, the handshake becomes\n            inactive and is no longer valid.</p>"
-          }
-        },
-        "Resources": {
-          "target": "com.amazonaws.organizations#HandshakeResources",
-          "traits": {
-            "smithy.api#documentation": "<p>Additional information that is needed to process the handshake.</p>"
-          }
-        },
-        "Action": {
-          "target": "com.amazonaws.organizations#ActionType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of handshake, indicating what action occurs when the recipient accepts the\n            handshake. The following handshake types are supported:</p>\n        <ul>\n            <li>\n                <p>\n                  <b>INVITE</b>: This type of handshake represents a\n                    request to join an organization. It is always sent from the management account to\n                    only non-member accounts.</p>\n            </li>\n            <li>\n                <p>\n                  <b>ENABLE_ALL_FEATURES</b>: This type of handshake\n                    represents a request to enable all features in an organization. It is always\n                    sent from the management account to only <i>invited</i> member\n                    accounts. Created accounts do not receive this because those accounts were\n                    created by the organization's management account and approval is inferred.</p>\n            </li>\n            <li>\n                <p>\n                  <b>APPROVE_ALL_FEATURES</b>: This type of handshake\n                    is sent from the Organizations service when all member accounts have approved the\n                        <code>ENABLE_ALL_FEATURES</code> invitation. It is sent only to the\n                    management account and signals the master that it can finalize the process to\n                    enable all features.</p>\n            </li>\n         </ul>"
-          }
-        },
         "Id": {
           "target": "com.amazonaws.organizations#HandshakeId",
           "traits": {
@@ -2762,12 +2745,6 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of a handshake.</p>\n        <p>For more information about ARNs in Organizations, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns\">ARN Formats Supported by\n    Organizations</a> in the <i>AWS Organizations User Guide</i>.</p>"
           }
         },
-        "RequestedTimestamp": {
-          "target": "com.amazonaws.organizations#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time that the handshake request was made.</p>"
-          }
-        },
         "Parties": {
           "target": "com.amazonaws.organizations#HandshakeParties",
           "traits": {
@@ -2778,6 +2755,30 @@
           "target": "com.amazonaws.organizations#HandshakeState",
           "traits": {
             "smithy.api#documentation": "<p>The current state of the handshake. Use the state to trace the flow of the handshake\n            through the process from its creation to its acceptance. The meaning of each of the\n            valid values is as follows:</p>\n        <ul>\n            <li>\n                <p>\n                  <b>REQUESTED</b>: This handshake was sent to\n                    multiple recipients (applicable to only some handshake types) and not all\n                    recipients have responded yet. The request stays in this state until all\n                    recipients respond.</p>\n            </li>\n            <li>\n                <p>\n                  <b>OPEN</b>: This handshake was sent to multiple\n                    recipients (applicable to only some policy types) and all recipients have\n                    responded, allowing the originator to complete the handshake action.</p>\n            </li>\n            <li>\n                <p>\n                  <b>CANCELED</b>: This handshake is no longer active\n                    because it was canceled by the originating account.</p>\n            </li>\n            <li>\n                <p>\n                  <b>ACCEPTED</b>: This handshake is complete because\n                    it has been accepted by the recipient.</p>\n            </li>\n            <li>\n                <p>\n                  <b>DECLINED</b>: This handshake is no longer active\n                    because it was declined by the recipient account.</p>\n            </li>\n            <li>\n                <p>\n                  <b>EXPIRED</b>: This handshake is no longer active\n                    because the originator did not receive a response of any kind from the recipient\n                    before the expiration time (15 days).</p>\n            </li>\n         </ul>"
+          }
+        },
+        "RequestedTimestamp": {
+          "target": "com.amazonaws.organizations#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time that the handshake request was made.</p>"
+          }
+        },
+        "ExpirationTimestamp": {
+          "target": "com.amazonaws.organizations#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time that the handshake expires. If the recipient of the handshake\n            request fails to respond before the specified date and time, the handshake becomes\n            inactive and is no longer valid.</p>"
+          }
+        },
+        "Action": {
+          "target": "com.amazonaws.organizations#ActionType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of handshake, indicating what action occurs when the recipient accepts the\n            handshake. The following handshake types are supported:</p>\n        <ul>\n            <li>\n                <p>\n                  <b>INVITE</b>: This type of handshake represents a\n                    request to join an organization. It is always sent from the management account to\n                    only non-member accounts.</p>\n            </li>\n            <li>\n                <p>\n                  <b>ENABLE_ALL_FEATURES</b>: This type of handshake\n                    represents a request to enable all features in an organization. It is always\n                    sent from the management account to only <i>invited</i> member\n                    accounts. Created accounts do not receive this because those accounts were\n                    created by the organization's management account and approval is inferred.</p>\n            </li>\n            <li>\n                <p>\n                  <b>APPROVE_ALL_FEATURES</b>: This type of handshake\n                    is sent from the Organizations service when all member accounts have approved the\n                        <code>ENABLE_ALL_FEATURES</code> invitation. It is sent only to the\n                    management account and signals the master that it can finalize the process to\n                    enable all features.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "Resources": {
+          "target": "com.amazonaws.organizations#HandshakeResources",
+          "traits": {
+            "smithy.api#documentation": "<p>Additional information that is needed to process the handshake.</p>"
           }
         }
       },
@@ -2974,6 +2975,12 @@
     "com.amazonaws.organizations#HandshakeResource": {
       "type": "structure",
       "members": {
+        "Value": {
+          "target": "com.amazonaws.organizations#HandshakeResourceValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The information that is passed to the other party in the handshake. The format of the\n            value string must match the requirements of the specified type.</p>"
+          }
+        },
         "Type": {
           "target": "com.amazonaws.organizations#HandshakeResourceType",
           "traits": {
@@ -2984,12 +2991,6 @@
           "target": "com.amazonaws.organizations#HandshakeResources",
           "traits": {
             "smithy.api#documentation": "<p>When needed, contains an additional array of <code>HandshakeResource</code>\n            objects.</p>"
-          }
-        },
-        "Value": {
-          "target": "com.amazonaws.organizations#HandshakeResourceValue",
-          "traits": {
-            "smithy.api#documentation": "<p>The information that is passed to the other party in the handshake. The format of the\n            value string must match the requirements of the specified type.</p>"
           }
         }
       },
@@ -3278,6 +3279,13 @@
     "com.amazonaws.organizations#InviteAccountToOrganizationRequest": {
       "type": "structure",
       "members": {
+        "Target": {
+          "target": "com.amazonaws.organizations#HandshakeParty",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier (ID) of the AWS account that you want to invite to join your\n            organization. This is a JSON object that contains the following elements:</p>\n        <p>\n            <code>{ \"Type\": \"ACCOUNT\", \"Id\": \"<<i>\n                  <b>account id\n                        number</b>\n               </i>>\" }</code>\n        </p>\n        <p>If you use the AWS CLI, you can submit this as a single string, similar to the\n            following example:</p>\n        <p>\n            <code>--target Id=123456789012,Type=ACCOUNT</code>\n        </p>\n        <p>If you specify <code>\"Type\": \"ACCOUNT\"</code>, you must provide the AWS account ID\n            number as the <code>Id</code>. If you specify <code>\"Type\": \"EMAIL\"</code>, you must\n            specify the email address that is associated with the account.</p>\n        <p>\n            <code>--target Id=diego@example.com,Type=EMAIL</code>\n        </p>",
+            "smithy.api#required": {}
+          }
+        },
         "Notes": {
           "target": "com.amazonaws.organizations#HandshakeNotes",
           "traits": {
@@ -3288,13 +3296,6 @@
           "target": "com.amazonaws.organizations#Tags",
           "traits": {
             "smithy.api#documentation": "<p>A list of tags that you want to attach to the account when it becomes a member of the\n            organization. For each tag in the list, you must specify both a tag key and a value. You\n            can set the value to an empty string, but you can't set it to <code>null</code>. For\n            more information about tagging, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html\">Tagging AWS Organizations resources</a>\n            in the AWS Organizations User Guide.</p>\n        <important>\n            <p>Any tags in the request are checked for compliance with any applicable tag\n                policies when the request is made. The request is rejected if the tags in the\n                request don't match the requirements of the policy at that time. Tag policy\n                compliance is <i>\n                  <b>not</b>\n               </i> checked\n                again when the invitation is accepted and the tags are actually attached to the\n                account. That means that if the tag policy changes between the invitation and the\n                acceptance, then that tags could potentially be non-compliant.</p>\n        </important>\n        <note>\n            <p>If any one of the tags is invalid or if you exceed the allowed number of tags for\n                an account, then the entire request fails and invitations are not sent.</p>\n        </note>"
-          }
-        },
-        "Target": {
-          "target": "com.amazonaws.organizations#HandshakeParty",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier (ID) of the AWS account that you want to invite to join your\n            organization. This is a JSON object that contains the following elements:</p>\n        <p>\n            <code>{ \"Type\": \"ACCOUNT\", \"Id\": \"<<i>\n                  <b>account id\n                        number</b>\n               </i>>\" }</code>\n        </p>\n        <p>If you use the AWS CLI, you can submit this as a single string, similar to the\n            following example:</p>\n        <p>\n            <code>--target Id=123456789012,Type=ACCOUNT</code>\n        </p>\n        <p>If you specify <code>\"Type\": \"ACCOUNT\"</code>, you must provide the AWS account ID\n            number as the <code>Id</code>. If you specify <code>\"Type\": \"EMAIL\"</code>, you must\n            specify the email address that is associated with the account.</p>\n        <p>\n            <code>--target Id=diego@example.com,Type=EMAIL</code>\n        </p>",
-            "smithy.api#required": {}
           }
         }
       }
@@ -3388,16 +3389,16 @@
     "com.amazonaws.organizations#ListAWSServiceAccessForOrganizationRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.organizations#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The total number of results that you want included on each page of the \n    response. If you do not include this parameter, it defaults to a value that is specific to the \n    operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> \n    response element is present and has a value (is not null). Include that value as the \n    <code>NextToken</code> request parameter in the next call to the operation to get the next part \n    of the results. Note that Organizations might return fewer results than the maximum even when there are \n    more results available. You should check <code>NextToken</code> after every operation to ensure \n    that you receive all of the results.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.organizations#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The parameter for receiving additional results if you receive a \n    <code>NextToken</code> response in a previous request. A <code>NextToken</code> response \n    indicates that more output is available. Set this parameter to the value of the previous \n    call's <code>NextToken</code> response to indicate where the output should continue \n    from.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.organizations#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The total number of results that you want included on each page of the \n    response. If you do not include this parameter, it defaults to a value that is specific to the \n    operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> \n    response element is present and has a value (is not null). Include that value as the \n    <code>NextToken</code> request parameter in the next call to the operation to get the next part \n    of the results. Note that Organizations might return fewer results than the maximum even when there are \n    more results available. You should check <code>NextToken</code> after every operation to ensure \n    that you receive all of the results.</p>"
           }
         }
       }
@@ -3405,16 +3406,16 @@
     "com.amazonaws.organizations#ListAWSServiceAccessForOrganizationResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.organizations#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If present, indicates that more output is available than is \n    included in the current response. Use this value in the <code>NextToken</code> request parameter \n    in a subsequent call to the operation to get the next part of the output. You should repeat this \n    until the <code>NextToken</code> response element comes back as <code>null</code>.</p>"
-          }
-        },
         "EnabledServicePrincipals": {
           "target": "com.amazonaws.organizations#EnabledServicePrincipals",
           "traits": {
             "smithy.api#documentation": "<p>A list of the service principals for the services that are enabled to integrate with\n            your organization. Each principal is a structure that includes the name and the date\n            that it was enabled for integration with AWS Organizations.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.organizations#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If present, indicates that more output is available than is \n    included in the current response. Use this value in the <code>NextToken</code> request parameter \n    in a subsequent call to the operation to get the next part of the output. You should repeat this \n    until the <code>NextToken</code> response element comes back as <code>null</code>.</p>"
           }
         }
       }
@@ -3493,10 +3494,11 @@
     "com.amazonaws.organizations#ListAccountsForParentRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.organizations#MaxResults",
+        "ParentId": {
+          "target": "com.amazonaws.organizations#ParentId",
           "traits": {
-            "smithy.api#documentation": "<p>The total number of results that you want included on each page of the \n    response. If you do not include this parameter, it defaults to a value that is specific to the \n    operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> \n    response element is present and has a value (is not null). Include that value as the \n    <code>NextToken</code> request parameter in the next call to the operation to get the next part \n    of the results. Note that Organizations might return fewer results than the maximum even when there are \n    more results available. You should check <code>NextToken</code> after every operation to ensure \n    that you receive all of the results.</p>"
+            "smithy.api#documentation": "<p>The unique identifier (ID) for the parent root or organization unit (OU) whose\n            accounts you want to list.</p>",
+            "smithy.api#required": {}
           }
         },
         "NextToken": {
@@ -3505,11 +3507,10 @@
             "smithy.api#documentation": "<p>The parameter for receiving additional results if you receive a \n    <code>NextToken</code> response in a previous request. A <code>NextToken</code> response \n    indicates that more output is available. Set this parameter to the value of the previous \n    call's <code>NextToken</code> response to indicate where the output should continue \n    from.</p>"
           }
         },
-        "ParentId": {
-          "target": "com.amazonaws.organizations#ParentId",
+        "MaxResults": {
+          "target": "com.amazonaws.organizations#MaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier (ID) for the parent root or organization unit (OU) whose\n            accounts you want to list.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The total number of results that you want included on each page of the \n    response. If you do not include this parameter, it defaults to a value that is specific to the \n    operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> \n    response element is present and has a value (is not null). Include that value as the \n    <code>NextToken</code> request parameter in the next call to the operation to get the next part \n    of the results. Note that Organizations might return fewer results than the maximum even when there are \n    more results available. You should check <code>NextToken</code> after every operation to ensure \n    that you receive all of the results.</p>"
           }
         }
       }
@@ -3517,16 +3518,16 @@
     "com.amazonaws.organizations#ListAccountsForParentResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.organizations#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If present, indicates that more output is available than is \n    included in the current response. Use this value in the <code>NextToken</code> request parameter \n    in a subsequent call to the operation to get the next part of the output. You should repeat this \n    until the <code>NextToken</code> response element comes back as <code>null</code>.</p>"
-          }
-        },
         "Accounts": {
           "target": "com.amazonaws.organizations#Accounts",
           "traits": {
             "smithy.api#documentation": "<p>A list of the accounts in the specified root or OU.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.organizations#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If present, indicates that more output is available than is \n    included in the current response. Use this value in the <code>NextToken</code> request parameter \n    in a subsequent call to the operation to get the next part of the output. You should repeat this \n    until the <code>NextToken</code> response element comes back as <code>null</code>.</p>"
           }
         }
       }
@@ -3534,16 +3535,16 @@
     "com.amazonaws.organizations#ListAccountsRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.organizations#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The total number of results that you want included on each page of the \n    response. If you do not include this parameter, it defaults to a value that is specific to the \n    operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> \n    response element is present and has a value (is not null). Include that value as the \n    <code>NextToken</code> request parameter in the next call to the operation to get the next part \n    of the results. Note that Organizations might return fewer results than the maximum even when there are \n    more results available. You should check <code>NextToken</code> after every operation to ensure \n    that you receive all of the results.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.organizations#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The parameter for receiving additional results if you receive a \n    <code>NextToken</code> response in a previous request. A <code>NextToken</code> response \n    indicates that more output is available. Set this parameter to the value of the previous \n    call's <code>NextToken</code> response to indicate where the output should continue \n    from.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.organizations#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The total number of results that you want included on each page of the \n    response. If you do not include this parameter, it defaults to a value that is specific to the \n    operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> \n    response element is present and has a value (is not null). Include that value as the \n    <code>NextToken</code> request parameter in the next call to the operation to get the next part \n    of the results. Note that Organizations might return fewer results than the maximum even when there are \n    more results available. You should check <code>NextToken</code> after every operation to ensure \n    that you receive all of the results.</p>"
           }
         }
       }
@@ -3605,12 +3606,6 @@
     "com.amazonaws.organizations#ListChildrenRequest": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.organizations#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The parameter for receiving additional results if you receive a \n    <code>NextToken</code> response in a previous request. A <code>NextToken</code> response \n    indicates that more output is available. Set this parameter to the value of the previous \n    call's <code>NextToken</code> response to indicate where the output should continue \n    from.</p>"
-          }
-        },
         "ParentId": {
           "target": "com.amazonaws.organizations#ParentId",
           "traits": {
@@ -3625,6 +3620,12 @@
             "smithy.api#required": {}
           }
         },
+        "NextToken": {
+          "target": "com.amazonaws.organizations#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The parameter for receiving additional results if you receive a \n    <code>NextToken</code> response in a previous request. A <code>NextToken</code> response \n    indicates that more output is available. Set this parameter to the value of the previous \n    call's <code>NextToken</code> response to indicate where the output should continue \n    from.</p>"
+          }
+        },
         "MaxResults": {
           "target": "com.amazonaws.organizations#MaxResults",
           "traits": {
@@ -3636,16 +3637,16 @@
     "com.amazonaws.organizations#ListChildrenResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.organizations#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If present, indicates that more output is available than is \n    included in the current response. Use this value in the <code>NextToken</code> request parameter \n    in a subsequent call to the operation to get the next part of the output. You should repeat this \n    until the <code>NextToken</code> response element comes back as <code>null</code>.</p>"
-          }
-        },
         "Children": {
           "target": "com.amazonaws.organizations#Children",
           "traits": {
             "smithy.api#documentation": "<p>The list of children of the specified parent container.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.organizations#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If present, indicates that more output is available than is \n    included in the current response. Use this value in the <code>NextToken</code> request parameter \n    in a subsequent call to the operation to get the next part of the output. You should repeat this \n    until the <code>NextToken</code> response element comes back as <code>null</code>.</p>"
           }
         }
       }
@@ -3690,10 +3691,10 @@
     "com.amazonaws.organizations#ListCreateAccountStatusRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.organizations#MaxResults",
+        "States": {
+          "target": "com.amazonaws.organizations#CreateAccountStates",
           "traits": {
-            "smithy.api#documentation": "<p>The total number of results that you want included on each page of the \n    response. If you do not include this parameter, it defaults to a value that is specific to the \n    operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> \n    response element is present and has a value (is not null). Include that value as the \n    <code>NextToken</code> request parameter in the next call to the operation to get the next part \n    of the results. Note that Organizations might return fewer results than the maximum even when there are \n    more results available. You should check <code>NextToken</code> after every operation to ensure \n    that you receive all of the results.</p>"
+            "smithy.api#documentation": "<p>A list of one or more states that you want included in the response. If this parameter\n            isn't present, all requests are included in the response.</p>"
           }
         },
         "NextToken": {
@@ -3702,10 +3703,10 @@
             "smithy.api#documentation": "<p>The parameter for receiving additional results if you receive a \n    <code>NextToken</code> response in a previous request. A <code>NextToken</code> response \n    indicates that more output is available. Set this parameter to the value of the previous \n    call's <code>NextToken</code> response to indicate where the output should continue \n    from.</p>"
           }
         },
-        "States": {
-          "target": "com.amazonaws.organizations#CreateAccountStates",
+        "MaxResults": {
+          "target": "com.amazonaws.organizations#MaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>A list of one or more states that you want included in the response. If this parameter\n            isn't present, all requests are included in the response.</p>"
+            "smithy.api#documentation": "<p>The total number of results that you want included on each page of the \n    response. If you do not include this parameter, it defaults to a value that is specific to the \n    operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> \n    response element is present and has a value (is not null). Include that value as the \n    <code>NextToken</code> request parameter in the next call to the operation to get the next part \n    of the results. Note that Organizations might return fewer results than the maximum even when there are \n    more results available. You should check <code>NextToken</code> after every operation to ensure \n    that you receive all of the results.</p>"
           }
         }
       }
@@ -3713,16 +3714,16 @@
     "com.amazonaws.organizations#ListCreateAccountStatusResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.organizations#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If present, indicates that more output is available than is \n    included in the current response. Use this value in the <code>NextToken</code> request parameter \n    in a subsequent call to the operation to get the next part of the output. You should repeat this \n    until the <code>NextToken</code> response element comes back as <code>null</code>.</p>"
-          }
-        },
         "CreateAccountStatuses": {
           "target": "com.amazonaws.organizations#CreateAccountStatuses",
           "traits": {
             "smithy.api#documentation": "<p>A list of objects with details about the requests. Certain elements, such as the\n            accountId number, are present in the output only after the account has been successfully\n            created.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.organizations#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If present, indicates that more output is available than is \n    included in the current response. Use this value in the <code>NextToken</code> request parameter \n    in a subsequent call to the operation to get the next part of the output. You should repeat this \n    until the <code>NextToken</code> response element comes back as <code>null</code>.</p>"
           }
         }
       }
@@ -3771,6 +3772,12 @@
     "com.amazonaws.organizations#ListDelegatedAdministratorsRequest": {
       "type": "structure",
       "members": {
+        "ServicePrincipal": {
+          "target": "com.amazonaws.organizations#ServicePrincipal",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies a service principal name. If specified, then the operation lists the\n            delegated administrators only for the specified service.</p>\n        <p>If you don't specify a service principal, the operation lists all delegated\n            administrators for all services in your organization.</p>"
+          }
+        },
         "NextToken": {
           "target": "com.amazonaws.organizations#NextToken",
           "traits": {
@@ -3781,12 +3788,6 @@
           "target": "com.amazonaws.organizations#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The total number of results that you want included on each page of the \n    response. If you do not include this parameter, it defaults to a value that is specific to the \n    operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> \n    response element is present and has a value (is not null). Include that value as the \n    <code>NextToken</code> request parameter in the next call to the operation to get the next part \n    of the results. Note that Organizations might return fewer results than the maximum even when there are \n    more results available. You should check <code>NextToken</code> after every operation to ensure \n    that you receive all of the results.</p>"
-          }
-        },
-        "ServicePrincipal": {
-          "target": "com.amazonaws.organizations#ServicePrincipal",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies a service principal name. If specified, then the operation lists the\n            delegated administrators only for the specified service.</p>\n        <p>If you don't specify a service principal, the operation lists all delegated\n            administrators for all services in your organization.</p>"
           }
         }
       }
@@ -3858,17 +3859,17 @@
     "com.amazonaws.organizations#ListDelegatedServicesForAccountRequest": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.organizations#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The parameter for receiving additional results if you receive a \n    <code>NextToken</code> response in a previous request. A <code>NextToken</code> response \n    indicates that more output is available. Set this parameter to the value of the previous \n    call's <code>NextToken</code> response to indicate where the output should continue \n    from.</p>"
-          }
-        },
         "AccountId": {
           "target": "com.amazonaws.organizations#AccountId",
           "traits": {
             "smithy.api#documentation": "<p>The account ID number of a delegated administrator account in the organization.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.organizations#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The parameter for receiving additional results if you receive a \n    <code>NextToken</code> response in a previous request. A <code>NextToken</code> response \n    indicates that more output is available. Set this parameter to the value of the previous \n    call's <code>NextToken</code> response to indicate where the output should continue \n    from.</p>"
           }
         },
         "MaxResults": {
@@ -3933,16 +3934,16 @@
     "com.amazonaws.organizations#ListHandshakesForAccountRequest": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.organizations#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The parameter for receiving additional results if you receive a \n    <code>NextToken</code> response in a previous request. A <code>NextToken</code> response \n    indicates that more output is available. Set this parameter to the value of the previous \n    call's <code>NextToken</code> response to indicate where the output should continue \n    from.</p>"
-          }
-        },
         "Filter": {
           "target": "com.amazonaws.organizations#HandshakeFilter",
           "traits": {
             "smithy.api#documentation": "<p>Filters the handshakes that you want included in the response. The default is all\n            types. Use the <code>ActionType</code> element to limit the output to only a specified\n            type, such as <code>INVITE</code>, <code>ENABLE_ALL_FEATURES</code>, or\n                <code>APPROVE_ALL_FEATURES</code>. Alternatively, for the\n                <code>ENABLE_ALL_FEATURES</code> handshake that generates a separate child handshake\n            for each member account, you can specify <code>ParentHandshakeId</code> to see only the\n            handshakes that were generated by that parent request.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.organizations#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The parameter for receiving additional results if you receive a \n    <code>NextToken</code> response in a previous request. A <code>NextToken</code> response \n    indicates that more output is available. Set this parameter to the value of the previous \n    call's <code>NextToken</code> response to indicate where the output should continue \n    from.</p>"
           }
         },
         "MaxResults": {
@@ -4010,6 +4011,12 @@
     "com.amazonaws.organizations#ListHandshakesForOrganizationRequest": {
       "type": "structure",
       "members": {
+        "Filter": {
+          "target": "com.amazonaws.organizations#HandshakeFilter",
+          "traits": {
+            "smithy.api#documentation": "<p>A filter of the handshakes that you want included in the response. The default is all\n            types. Use the <code>ActionType</code> element to limit the output to only a specified\n            type, such as <code>INVITE</code>, <code>ENABLE-ALL-FEATURES</code>, or\n                <code>APPROVE-ALL-FEATURES</code>. Alternatively, for the\n                <code>ENABLE-ALL-FEATURES</code> handshake that generates a separate child handshake\n            for each member account, you can specify the <code>ParentHandshakeId</code> to see only\n            the handshakes that were generated by that parent request.</p>"
+          }
+        },
         "NextToken": {
           "target": "com.amazonaws.organizations#NextToken",
           "traits": {
@@ -4021,28 +4028,22 @@
           "traits": {
             "smithy.api#documentation": "<p>The total number of results that you want included on each page of the \n    response. If you do not include this parameter, it defaults to a value that is specific to the \n    operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> \n    response element is present and has a value (is not null). Include that value as the \n    <code>NextToken</code> request parameter in the next call to the operation to get the next part \n    of the results. Note that Organizations might return fewer results than the maximum even when there are \n    more results available. You should check <code>NextToken</code> after every operation to ensure \n    that you receive all of the results.</p>"
           }
-        },
-        "Filter": {
-          "target": "com.amazonaws.organizations#HandshakeFilter",
-          "traits": {
-            "smithy.api#documentation": "<p>A filter of the handshakes that you want included in the response. The default is all\n            types. Use the <code>ActionType</code> element to limit the output to only a specified\n            type, such as <code>INVITE</code>, <code>ENABLE-ALL-FEATURES</code>, or\n                <code>APPROVE-ALL-FEATURES</code>. Alternatively, for the\n                <code>ENABLE-ALL-FEATURES</code> handshake that generates a separate child handshake\n            for each member account, you can specify the <code>ParentHandshakeId</code> to see only\n            the handshakes that were generated by that parent request.</p>"
-          }
         }
       }
     },
     "com.amazonaws.organizations#ListHandshakesForOrganizationResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.organizations#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If present, indicates that more output is available than is \n    included in the current response. Use this value in the <code>NextToken</code> request parameter \n    in a subsequent call to the operation to get the next part of the output. You should repeat this \n    until the <code>NextToken</code> response element comes back as <code>null</code>.</p>"
-          }
-        },
         "Handshakes": {
           "target": "com.amazonaws.organizations#Handshakes",
           "traits": {
             "smithy.api#documentation": "<p>A list of <a>Handshake</a> objects with details about each of the\n            handshakes that are associated with an organization.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.organizations#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If present, indicates that more output is available than is \n    included in the current response. Use this value in the <code>NextToken</code> request parameter \n    in a subsequent call to the operation to get the next part of the output. You should repeat this \n    until the <code>NextToken</code> response element comes back as <code>null</code>.</p>"
           }
         }
       }
@@ -4094,16 +4095,16 @@
             "smithy.api#required": {}
           }
         },
-        "MaxResults": {
-          "target": "com.amazonaws.organizations#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The total number of results that you want included on each page of the \n    response. If you do not include this parameter, it defaults to a value that is specific to the \n    operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> \n    response element is present and has a value (is not null). Include that value as the \n    <code>NextToken</code> request parameter in the next call to the operation to get the next part \n    of the results. Note that Organizations might return fewer results than the maximum even when there are \n    more results available. You should check <code>NextToken</code> after every operation to ensure \n    that you receive all of the results.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.organizations#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The parameter for receiving additional results if you receive a \n    <code>NextToken</code> response in a previous request. A <code>NextToken</code> response \n    indicates that more output is available. Set this parameter to the value of the previous \n    call's <code>NextToken</code> response to indicate where the output should continue \n    from.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.organizations#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The total number of results that you want included on each page of the \n    response. If you do not include this parameter, it defaults to a value that is specific to the \n    operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> \n    response element is present and has a value (is not null). Include that value as the \n    <code>NextToken</code> request parameter in the next call to the operation to get the next part \n    of the results. Note that Organizations might return fewer results than the maximum even when there are \n    more results available. You should check <code>NextToken</code> after every operation to ensure \n    that you receive all of the results.</p>"
           }
         }
       }
@@ -4172,16 +4173,16 @@
             "smithy.api#required": {}
           }
         },
-        "MaxResults": {
-          "target": "com.amazonaws.organizations#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The total number of results that you want included on each page of the \n    response. If you do not include this parameter, it defaults to a value that is specific to the \n    operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> \n    response element is present and has a value (is not null). Include that value as the \n    <code>NextToken</code> request parameter in the next call to the operation to get the next part \n    of the results. Note that Organizations might return fewer results than the maximum even when there are \n    more results available. You should check <code>NextToken</code> after every operation to ensure \n    that you receive all of the results.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.organizations#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The parameter for receiving additional results if you receive a \n    <code>NextToken</code> response in a previous request. A <code>NextToken</code> response \n    indicates that more output is available. Set this parameter to the value of the previous \n    call's <code>NextToken</code> response to indicate where the output should continue \n    from.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.organizations#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The total number of results that you want included on each page of the \n    response. If you do not include this parameter, it defaults to a value that is specific to the \n    operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> \n    response element is present and has a value (is not null). Include that value as the \n    <code>NextToken</code> request parameter in the next call to the operation to get the next part \n    of the results. Note that Organizations might return fewer results than the maximum even when there are \n    more results available. You should check <code>NextToken</code> after every operation to ensure \n    that you receive all of the results.</p>"
           }
         }
       }
@@ -4189,16 +4190,16 @@
     "com.amazonaws.organizations#ListParentsResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.organizations#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If present, indicates that more output is available than is \n    included in the current response. Use this value in the <code>NextToken</code> request parameter \n    in a subsequent call to the operation to get the next part of the output. You should repeat this \n    until the <code>NextToken</code> response element comes back as <code>null</code>.</p>"
-          }
-        },
         "Parents": {
           "target": "com.amazonaws.organizations#Parents",
           "traits": {
             "smithy.api#documentation": "<p>A list of parents for the specified child account or OU.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.organizations#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If present, indicates that more output is available than is \n    included in the current response. Use this value in the <code>NextToken</code> request parameter \n    in a subsequent call to the operation to get the next part of the output. You should repeat this \n    until the <code>NextToken</code> response element comes back as <code>null</code>.</p>"
           }
         }
       }
@@ -4283,10 +4284,11 @@
     "com.amazonaws.organizations#ListPoliciesForTargetRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.organizations#MaxResults",
+        "TargetId": {
+          "target": "com.amazonaws.organizations#PolicyTargetId",
           "traits": {
-            "smithy.api#documentation": "<p>The total number of results that you want included on each page of the \n    response. If you do not include this parameter, it defaults to a value that is specific to the \n    operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> \n    response element is present and has a value (is not null). Include that value as the \n    <code>NextToken</code> request parameter in the next call to the operation to get the next part \n    of the results. Note that Organizations might return fewer results than the maximum even when there are \n    more results available. You should check <code>NextToken</code> after every operation to ensure \n    that you receive all of the results.</p>"
+            "smithy.api#documentation": "<p>The unique identifier (ID) of the root, organizational unit, or account whose policies\n            you want to list.</p> \n         <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a target ID string requires one of the \n    following:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Root</b> - A string that begins with \"r-\" followed by from 4 to 32 lowercase letters or \n          digits.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Account</b> - A string that consists of exactly 12 digits.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Organizational unit (OU)</b> - A string that begins with \"ou-\" followed by from 4 to 32 \n          lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second \n          \"-\" dash and from 8 to 32 additional lowercase letters or digits.</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
           }
         },
         "Filter": {
@@ -4296,17 +4298,16 @@
             "smithy.api#required": {}
           }
         },
-        "TargetId": {
-          "target": "com.amazonaws.organizations#PolicyTargetId",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier (ID) of the root, organizational unit, or account whose policies\n            you want to list.</p> \n         <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a target ID string requires one of the \n    following:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Root</b> - A string that begins with \"r-\" followed by from 4 to 32 lowercase letters or \n          digits.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Account</b> - A string that consists of exactly 12 digits.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Organizational unit (OU)</b> - A string that begins with \"ou-\" followed by from 4 to 32 \n          lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second \n          \"-\" dash and from 8 to 32 additional lowercase letters or digits.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": {}
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.organizations#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The parameter for receiving additional results if you receive a \n    <code>NextToken</code> response in a previous request. A <code>NextToken</code> response \n    indicates that more output is available. Set this parameter to the value of the previous \n    call's <code>NextToken</code> response to indicate where the output should continue \n    from.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.organizations#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The total number of results that you want included on each page of the \n    response. If you do not include this parameter, it defaults to a value that is specific to the \n    operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> \n    response element is present and has a value (is not null). Include that value as the \n    <code>NextToken</code> request parameter in the next call to the operation to get the next part \n    of the results. Note that Organizations might return fewer results than the maximum even when there are \n    more results available. You should check <code>NextToken</code> after every operation to ensure \n    that you receive all of the results.</p>"
           }
         }
       }
@@ -4314,16 +4315,16 @@
     "com.amazonaws.organizations#ListPoliciesForTargetResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.organizations#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If present, indicates that more output is available than is \n    included in the current response. Use this value in the <code>NextToken</code> request parameter \n    in a subsequent call to the operation to get the next part of the output. You should repeat this \n    until the <code>NextToken</code> response element comes back as <code>null</code>.</p>"
-          }
-        },
         "Policies": {
           "target": "com.amazonaws.organizations#Policies",
           "traits": {
             "smithy.api#documentation": "<p>The list of policies that match the criteria in the request.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.organizations#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If present, indicates that more output is available than is \n    included in the current response. Use this value in the <code>NextToken</code> request parameter \n    in a subsequent call to the operation to get the next part of the output. You should repeat this \n    until the <code>NextToken</code> response element comes back as <code>null</code>.</p>"
           }
         }
       }
@@ -4331,12 +4332,6 @@
     "com.amazonaws.organizations#ListPoliciesRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.organizations#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The total number of results that you want included on each page of the \n    response. If you do not include this parameter, it defaults to a value that is specific to the \n    operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> \n    response element is present and has a value (is not null). Include that value as the \n    <code>NextToken</code> request parameter in the next call to the operation to get the next part \n    of the results. Note that Organizations might return fewer results than the maximum even when there are \n    more results available. You should check <code>NextToken</code> after every operation to ensure \n    that you receive all of the results.</p>"
-          }
-        },
         "Filter": {
           "target": "com.amazonaws.organizations#PolicyType",
           "traits": {
@@ -4348,6 +4343,12 @@
           "target": "com.amazonaws.organizations#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The parameter for receiving additional results if you receive a \n    <code>NextToken</code> response in a previous request. A <code>NextToken</code> response \n    indicates that more output is available. Set this parameter to the value of the previous \n    call's <code>NextToken</code> response to indicate where the output should continue \n    from.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.organizations#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The total number of results that you want included on each page of the \n    response. If you do not include this parameter, it defaults to a value that is specific to the \n    operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> \n    response element is present and has a value (is not null). Include that value as the \n    <code>NextToken</code> request parameter in the next call to the operation to get the next part \n    of the results. Note that Organizations might return fewer results than the maximum even when there are \n    more results available. You should check <code>NextToken</code> after every operation to ensure \n    that you receive all of the results.</p>"
           }
         }
       }
@@ -4406,16 +4407,16 @@
     "com.amazonaws.organizations#ListRootsRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.organizations#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The total number of results that you want included on each page of the \n    response. If you do not include this parameter, it defaults to a value that is specific to the \n    operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> \n    response element is present and has a value (is not null). Include that value as the \n    <code>NextToken</code> request parameter in the next call to the operation to get the next part \n    of the results. Note that Organizations might return fewer results than the maximum even when there are \n    more results available. You should check <code>NextToken</code> after every operation to ensure \n    that you receive all of the results.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.organizations#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The parameter for receiving additional results if you receive a \n    <code>NextToken</code> response in a previous request. A <code>NextToken</code> response \n    indicates that more output is available. Set this parameter to the value of the previous \n    call's <code>NextToken</code> response to indicate where the output should continue \n    from.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.organizations#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The total number of results that you want included on each page of the \n    response. If you do not include this parameter, it defaults to a value that is specific to the \n    operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> \n    response element is present and has a value (is not null). Include that value as the \n    <code>NextToken</code> request parameter in the next call to the operation to get the next part \n    of the results. Note that Organizations might return fewer results than the maximum even when there are \n    more results available. You should check <code>NextToken</code> after every operation to ensure \n    that you receive all of the results.</p>"
           }
         }
       }
@@ -4423,16 +4424,16 @@
     "com.amazonaws.organizations#ListRootsResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.organizations#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If present, indicates that more output is available than is \n    included in the current response. Use this value in the <code>NextToken</code> request parameter \n    in a subsequent call to the operation to get the next part of the output. You should repeat this \n    until the <code>NextToken</code> response element comes back as <code>null</code>.</p>"
-          }
-        },
         "Roots": {
           "target": "com.amazonaws.organizations#Roots",
           "traits": {
             "smithy.api#documentation": "<p>A list of roots that are defined in an organization.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.organizations#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If present, indicates that more output is available than is \n    included in the current response. Use this value in the <code>NextToken</code> request parameter \n    in a subsequent call to the operation to get the next part of the output. You should repeat this \n    until the <code>NextToken</code> response element comes back as <code>null</code>.</p>"
           }
         }
       }
@@ -4495,16 +4496,16 @@
     "com.amazonaws.organizations#ListTagsForResourceResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.organizations#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If present, indicates that more output is available than is \n    included in the current response. Use this value in the <code>NextToken</code> request parameter \n    in a subsequent call to the operation to get the next part of the output. You should repeat this \n    until the <code>NextToken</code> response element comes back as <code>null</code>.</p>"
-          }
-        },
         "Tags": {
           "target": "com.amazonaws.organizations#Tags",
           "traits": {
             "smithy.api#documentation": "<p>The tags that are assigned to the resource.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.organizations#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If present, indicates that more output is available than is \n    included in the current response. Use this value in the <code>NextToken</code> request parameter \n    in a subsequent call to the operation to get the next part of the output. You should repeat this \n    until the <code>NextToken</code> response element comes back as <code>null</code>.</p>"
           }
         }
       }
@@ -4552,12 +4553,6 @@
     "com.amazonaws.organizations#ListTargetsForPolicyRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.organizations#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The total number of results that you want included on each page of the \n    response. If you do not include this parameter, it defaults to a value that is specific to the \n    operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> \n    response element is present and has a value (is not null). Include that value as the \n    <code>NextToken</code> request parameter in the next call to the operation to get the next part \n    of the results. Note that Organizations might return fewer results than the maximum even when there are \n    more results available. You should check <code>NextToken</code> after every operation to ensure \n    that you receive all of the results.</p>"
-          }
-        },
         "PolicyId": {
           "target": "com.amazonaws.organizations#PolicyId",
           "traits": {
@@ -4569,6 +4564,12 @@
           "target": "com.amazonaws.organizations#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The parameter for receiving additional results if you receive a \n    <code>NextToken</code> response in a previous request. A <code>NextToken</code> response \n    indicates that more output is available. Set this parameter to the value of the previous \n    call's <code>NextToken</code> response to indicate where the output should continue \n    from.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.organizations#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The total number of results that you want included on each page of the \n    response. If you do not include this parameter, it defaults to a value that is specific to the \n    operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> \n    response element is present and has a value (is not null). Include that value as the \n    <code>NextToken</code> request parameter in the next call to the operation to get the next part \n    of the results. Note that Organizations might return fewer results than the maximum even when there are \n    more results available. You should check <code>NextToken</code> after every operation to ensure \n    that you receive all of the results.</p>"
           }
         }
       }
@@ -4670,13 +4671,6 @@
     "com.amazonaws.organizations#MoveAccountRequest": {
       "type": "structure",
       "members": {
-        "DestinationParentId": {
-          "target": "com.amazonaws.organizations#ParentId",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier (ID) of the root or organizational unit that you want to move\n            the account to.</p> \n         <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a parent ID string requires one of the \n    following:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Root</b> - A string that begins with \"r-\" followed by from 4 to 32 lowercase letters or \n          digits.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Organizational unit (OU)</b> - A string that begins with \"ou-\" followed by from 4 to 32\n          lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second \n          \"-\" dash and from 8 to 32 additional lowercase letters or digits.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": {}
-          }
-        },
         "AccountId": {
           "target": "com.amazonaws.organizations#AccountId",
           "traits": {
@@ -4688,6 +4682,13 @@
           "target": "com.amazonaws.organizations#ParentId",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier (ID) of the root or organizational unit that you want to move\n            the account from.</p> \n         <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a parent ID string requires one of the \n    following:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Root</b> - A string that begins with \"r-\" followed by from 4 to 32 lowercase letters or \n          digits.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Organizational unit (OU)</b> - A string that begins with \"ou-\" followed by from 4 to 32\n          lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second \n          \"-\" dash and from 8 to 32 additional lowercase letters or digits.</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "DestinationParentId": {
+          "target": "com.amazonaws.organizations#ParentId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier (ID) of the root or organizational unit that you want to move\n            the account to.</p> \n         <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a parent ID string requires one of the \n    following:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Root</b> - A string that begins with \"r-\" followed by from 4 to 32 lowercase letters or \n          digits.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Organizational unit (OU)</b> - A string that begins with \"ou-\" followed by from 4 to 32\n          lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second \n          \"-\" dash and from 8 to 32 additional lowercase letters or digits.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         }
@@ -4706,16 +4707,28 @@
     "com.amazonaws.organizations#Organization": {
       "type": "structure",
       "members": {
+        "Id": {
+          "target": "com.amazonaws.organizations#OrganizationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier (ID) of an organization.</p> \n         <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for an organization ID string requires \"o-\" \n    followed by from 10 to 32 lowercase letters or digits.</p>"
+          }
+        },
         "Arn": {
           "target": "com.amazonaws.organizations#OrganizationArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an organization.</p>\n        <p>For more information about ARNs in Organizations, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns\">ARN Formats Supported by\n    Organizations</a> in the <i>AWS Organizations User Guide</i>.</p>"
           }
         },
-        "Id": {
-          "target": "com.amazonaws.organizations#OrganizationId",
+        "FeatureSet": {
+          "target": "com.amazonaws.organizations#OrganizationFeatureSet",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier (ID) of an organization.</p> \n         <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for an organization ID string requires \"o-\" \n    followed by from 10 to 32 lowercase letters or digits.</p>"
+            "smithy.api#documentation": "<p>Specifies the functionality that currently is available to the organization. If set to\n            \"ALL\", then all features are enabled and policies can be applied to accounts in the\n            organization. If set to \"CONSOLIDATED_BILLING\", then only consolidated billing\n            functionality is available. For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html\">Enabling All Features\n                in Your Organization</a> in the <i>AWS Organizations User Guide</i>.</p>"
+          }
+        },
+        "MasterAccountArn": {
+          "target": "com.amazonaws.organizations#AccountArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the account that is designated as the\n            management account for the organization.</p>\n        <p>For more information about ARNs in Organizations, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns\">ARN Formats Supported by\n    Organizations</a> in the <i>AWS Organizations User Guide</i>.</p>"
           }
         },
         "MasterAccountId": {
@@ -4734,18 +4747,6 @@
           "target": "com.amazonaws.organizations#PolicyTypes",
           "traits": {
             "smithy.api#documentation": "<important>\n            <p>Do not use. This field is deprecated and doesn't provide complete information\n                about the policies in your organization.</p>\n        </important>\n        <p>To determine the policies that are enabled and available for use in your organization,\n            use the <a>ListRoots</a> operation instead.</p>"
-          }
-        },
-        "MasterAccountArn": {
-          "target": "com.amazonaws.organizations#AccountArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the account that is designated as the\n            management account for the organization.</p>\n        <p>For more information about ARNs in Organizations, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns\">ARN Formats Supported by\n    Organizations</a> in the <i>AWS Organizations User Guide</i>.</p>"
-          }
-        },
-        "FeatureSet": {
-          "target": "com.amazonaws.organizations#OrganizationFeatureSet",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the functionality that currently is available to the organization. If set to\n            \"ALL\", then all features are enabled and policies can be applied to accounts in the\n            organization. If set to \"CONSOLIDATED_BILLING\", then only consolidated billing\n            functionality is available. For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html\">Enabling All Features\n                in Your Organization</a> in the <i>AWS Organizations User Guide</i>.</p>"
           }
         }
       },
@@ -4796,10 +4797,10 @@
     "com.amazonaws.organizations#OrganizationalUnit": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.organizations#OrganizationalUnitName",
+        "Id": {
+          "target": "com.amazonaws.organizations#OrganizationalUnitId",
           "traits": {
-            "smithy.api#documentation": "<p>The friendly name of this OU.</p>\n        <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> \n    that is used to validate this parameter is a string of any of the characters in the ASCII \n    character range.</p>"
+            "smithy.api#documentation": "<p>The unique identifier (ID) associated with this OU.</p> \n         <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for an organizational unit ID string requires \n    \"ou-\" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the \n    OU). This string is followed by a second \"-\" dash and from 8 to 32 additional lowercase letters \n    or digits.</p>"
           }
         },
         "Arn": {
@@ -4808,10 +4809,10 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of this OU.</p>\n        <p>For more information about ARNs in Organizations, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns\">ARN Formats Supported by\n    Organizations</a> in the <i>AWS Organizations User Guide</i>.</p>"
           }
         },
-        "Id": {
-          "target": "com.amazonaws.organizations#OrganizationalUnitId",
+        "Name": {
+          "target": "com.amazonaws.organizations#OrganizationalUnitName",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier (ID) associated with this OU.</p> \n         <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for an organizational unit ID string requires \n    \"ou-\" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the \n    OU). This string is followed by a second \"-\" dash and from 8 to 32 additional lowercase letters \n    or digits.</p>"
+            "smithy.api#documentation": "<p>The friendly name of this OU.</p>\n        <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> \n    that is used to validate this parameter is a string of any of the characters in the ASCII \n    character range.</p>"
           }
         }
       },
@@ -4880,16 +4881,16 @@
     "com.amazonaws.organizations#Parent": {
       "type": "structure",
       "members": {
-        "Type": {
-          "target": "com.amazonaws.organizations#ParentType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of the parent entity.</p>"
-          }
-        },
         "Id": {
           "target": "com.amazonaws.organizations#ParentId",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier (ID) of the parent entity.</p> \n         <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a parent ID string requires one of the \n    following:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Root</b> - A string that begins with \"r-\" followed by from 4 to 32 lowercase letters or \n          digits.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Organizational unit (OU)</b> - A string that begins with \"ou-\" followed by from 4 to 32\n          lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second \n          \"-\" dash and from 8 to 32 additional lowercase letters or digits.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.organizations#ParentType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the parent entity.</p>"
           }
         }
       },
@@ -4950,16 +4951,16 @@
     "com.amazonaws.organizations#Policy": {
       "type": "structure",
       "members": {
-        "Content": {
-          "target": "com.amazonaws.organizations#PolicyContent",
-          "traits": {
-            "smithy.api#documentation": "<p>The text content of the policy.</p>"
-          }
-        },
         "PolicySummary": {
           "target": "com.amazonaws.organizations#PolicySummary",
           "traits": {
             "smithy.api#documentation": "<p>A structure that contains additional details about the policy.</p>"
+          }
+        },
+        "Content": {
+          "target": "com.amazonaws.organizations#PolicyContent",
+          "traits": {
+            "smithy.api#documentation": "<p>The text content of the policy.</p>"
           }
         }
       },
@@ -5067,10 +5068,10 @@
     "com.amazonaws.organizations#PolicySummary": {
       "type": "structure",
       "members": {
-        "Description": {
-          "target": "com.amazonaws.organizations#PolicyDescription",
+        "Id": {
+          "target": "com.amazonaws.organizations#PolicyId",
           "traits": {
-            "smithy.api#documentation": "<p>The description of the policy.</p>"
+            "smithy.api#documentation": "<p>The unique identifier (ID) of the policy.</p> \n         <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a policy ID string requires \"p-\" followed \n    by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>"
           }
         },
         "Arn": {
@@ -5079,28 +5080,28 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the policy.</p>\n        <p>For more information about ARNs in Organizations, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns\">ARN Formats Supported by\n    Organizations</a> in the <i>AWS Organizations User Guide</i>.</p>"
           }
         },
-        "Id": {
-          "target": "com.amazonaws.organizations#PolicyId",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier (ID) of the policy.</p> \n         <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a policy ID string requires \"p-\" followed \n    by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>"
-          }
-        },
-        "AwsManaged": {
-          "target": "com.amazonaws.organizations#AwsManagedPolicy",
-          "traits": {
-            "smithy.api#documentation": "<p>A boolean value that indicates whether the specified policy is an AWS managed\n            policy. If true, then you can attach the policy to roots, OUs, or accounts, but you\n            cannot edit it.</p>"
-          }
-        },
         "Name": {
           "target": "com.amazonaws.organizations#PolicyName",
           "traits": {
             "smithy.api#documentation": "<p>The friendly name of the policy.</p>\n        <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> \n    that is used to validate this parameter is a string of any of the characters in the ASCII \n    character range.</p>"
           }
         },
+        "Description": {
+          "target": "com.amazonaws.organizations#PolicyDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the policy.</p>"
+          }
+        },
         "Type": {
           "target": "com.amazonaws.organizations#PolicyType",
           "traits": {
             "smithy.api#documentation": "<p>The type of policy.</p>"
+          }
+        },
+        "AwsManaged": {
+          "target": "com.amazonaws.organizations#AwsManagedPolicy",
+          "traits": {
+            "smithy.api#documentation": "<p>A boolean value that indicates whether the specified policy is an AWS managed\n            policy. If true, then you can attach the policy to roots, OUs, or accounts, but you\n            cannot edit it.</p>"
           }
         }
       },
@@ -5121,16 +5122,16 @@
     "com.amazonaws.organizations#PolicyTargetSummary": {
       "type": "structure",
       "members": {
-        "Arn": {
-          "target": "com.amazonaws.organizations#GenericArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the policy target.</p>\n        <p>For more information about ARNs in Organizations, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns\">ARN Formats Supported by\n    Organizations</a> in the <i>AWS Organizations User Guide</i>.</p>"
-          }
-        },
         "TargetId": {
           "target": "com.amazonaws.organizations#PolicyTargetId",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier (ID) of the policy target.</p> \n         <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a target ID string requires one of the \n    following:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Root</b> - A string that begins with \"r-\" followed by from 4 to 32 lowercase letters or \n          digits.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Account</b> - A string that consists of exactly 12 digits.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Organizational unit (OU)</b> - A string that begins with \"ou-\" followed by from 4 to 32 \n          lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second \n          \"-\" dash and from 8 to 32 additional lowercase letters or digits.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.organizations#GenericArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the policy target.</p>\n        <p>For more information about ARNs in Organizations, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns\">ARN Formats Supported by\n    Organizations</a> in the <i>AWS Organizations User Guide</i>.</p>"
           }
         },
         "Name": {
@@ -5240,16 +5241,16 @@
     "com.amazonaws.organizations#PolicyTypeSummary": {
       "type": "structure",
       "members": {
-        "Status": {
-          "target": "com.amazonaws.organizations#PolicyTypeStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the policy type as it relates to the associated root. To attach a policy\n            of the specified type to a root or to an OU or account in that root, it must be\n            available in the organization and enabled for that root.</p>"
-          }
-        },
         "Type": {
           "target": "com.amazonaws.organizations#PolicyType",
           "traits": {
             "smithy.api#documentation": "<p>The name of the policy type.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.organizations#PolicyTypeStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the policy type as it relates to the associated root. To attach a policy\n            of the specified type to a root or to an OU or account in that root, it must be\n            available in the organization and enabled for that root.</p>"
           }
         }
       },
@@ -5392,12 +5393,6 @@
             "smithy.api#documentation": "<p>The unique identifier (ID) for the root.</p> \n         <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a root ID string requires \"r-\" followed by \n    from 4 to 32 lowercase letters or digits.</p>"
           }
         },
-        "PolicyTypes": {
-          "target": "com.amazonaws.organizations#PolicyTypes",
-          "traits": {
-            "smithy.api#documentation": "<p>The types of policies that are currently enabled for the root and therefore can be\n            attached to the root or to its OUs or accounts.</p>\n        <note>\n            <p>Even if a policy type is shown as available in the organization, you can\n                separately enable and disable them at the root level by using <a>EnablePolicyType</a> and <a>DisablePolicyType</a>. Use <a>DescribeOrganization</a> to see the availability of the policy types in\n                that organization.</p>\n        </note>"
-          }
-        },
         "Arn": {
           "target": "com.amazonaws.organizations#RootArn",
           "traits": {
@@ -5408,6 +5403,12 @@
           "target": "com.amazonaws.organizations#RootName",
           "traits": {
             "smithy.api#documentation": "<p>The friendly name of the root.</p>\n        <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> \n    that is used to validate this parameter is a string of any of the characters in the ASCII \n    character range.</p>"
+          }
+        },
+        "PolicyTypes": {
+          "target": "com.amazonaws.organizations#PolicyTypes",
+          "traits": {
+            "smithy.api#documentation": "<p>The types of policies that are currently enabled for the root and therefore can be\n            attached to the root or to its OUs or accounts.</p>\n        <note>\n            <p>Even if a policy type is shown as available in the organization, you can\n                separately enable and disable them at the root level by using <a>EnablePolicyType</a> and <a>DisablePolicyType</a>. Use <a>DescribeOrganization</a> to see the availability of the policy types in\n                that organization.</p>\n        </note>"
           }
         }
       },
@@ -5498,17 +5499,17 @@
     "com.amazonaws.organizations#Tag": {
       "type": "structure",
       "members": {
-        "Value": {
-          "target": "com.amazonaws.organizations#TagValue",
-          "traits": {
-            "smithy.api#documentation": "<p>The string value that's associated with the key of the tag. You can set the value of a\n            tag to an empty string, but you can't set the value of a tag to null.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Key": {
           "target": "com.amazonaws.organizations#TagKey",
           "traits": {
             "smithy.api#documentation": "<p>The key identifier, or name, of the tag.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.organizations#TagValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The string value that's associated with the key of the tag. You can set the value of a\n            tag to an empty string, but you can't set the value of a tag to null.</p>",
             "smithy.api#required": {}
           }
         }
@@ -5660,11 +5661,11 @@
     "com.amazonaws.organizations#TooManyRequestsException": {
       "type": "structure",
       "members": {
-        "Message": {
-          "target": "com.amazonaws.organizations#ExceptionMessage"
-        },
         "Type": {
           "target": "com.amazonaws.organizations#ExceptionType"
+        },
+        "Message": {
+          "target": "com.amazonaws.organizations#ExceptionMessage"
         }
       },
       "traits": {
@@ -5781,17 +5782,17 @@
     "com.amazonaws.organizations#UpdateOrganizationalUnitRequest": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.organizations#OrganizationalUnitName",
-          "traits": {
-            "smithy.api#documentation": "<p>The new name that you want to assign to the OU.</p>\n        <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> \n    that is used to validate this parameter is a string of any of the characters in the ASCII \n    character range.</p>"
-          }
-        },
         "OrganizationalUnitId": {
           "target": "com.amazonaws.organizations#OrganizationalUnitId",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier (ID) of the OU that you want to rename. You can get the ID from\n            the <a>ListOrganizationalUnitsForParent</a> operation.</p> \n         <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for an organizational unit ID string requires \n    \"ou-\" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the \n    OU). This string is followed by a second \"-\" dash and from 8 to 32 additional lowercase letters \n    or digits.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.organizations#OrganizationalUnitName",
+          "traits": {
+            "smithy.api#documentation": "<p>The new name that you want to assign to the OU.</p>\n        <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> \n    that is used to validate this parameter is a string of any of the characters in the ASCII \n    character range.</p>"
           }
         }
       }
@@ -5860,17 +5861,17 @@
     "com.amazonaws.organizations#UpdatePolicyRequest": {
       "type": "structure",
       "members": {
-        "Content": {
-          "target": "com.amazonaws.organizations#PolicyContent",
-          "traits": {
-            "smithy.api#documentation": "<p>If provided, the new content for the policy. The text must be correctly formatted JSON\n            that complies with the syntax for the policy's type. For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html\">Service\n                Control Policy Syntax</a> in the <i>AWS Organizations User Guide.</i>\n         </p>"
-          }
-        },
         "PolicyId": {
           "target": "com.amazonaws.organizations#PolicyId",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier (ID) of the policy that you want to update.</p>\n        <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a policy ID string requires \"p-\" followed \n    by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>",
             "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.organizations#PolicyName",
+          "traits": {
+            "smithy.api#documentation": "<p>If provided, the new name for the policy.</p>\n        <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> \n    that is used to validate this parameter is a string of any of the characters in the ASCII \n    character range.</p>"
           }
         },
         "Description": {
@@ -5879,10 +5880,10 @@
             "smithy.api#documentation": "<p>If provided, the new description for the policy.</p>"
           }
         },
-        "Name": {
-          "target": "com.amazonaws.organizations#PolicyName",
+        "Content": {
+          "target": "com.amazonaws.organizations#PolicyContent",
           "traits": {
-            "smithy.api#documentation": "<p>If provided, the new name for the policy.</p>\n        <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> \n    that is used to validate this parameter is a string of any of the characters in the ASCII \n    character range.</p>"
+            "smithy.api#documentation": "<p>If provided, the new content for the policy. The text must be correctly formatted JSON\n            that complies with the syntax for the policy's type. For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html\">Service\n                Control Policy Syntax</a> in the <i>AWS Organizations User Guide.</i>\n         </p>"
           }
         }
       }

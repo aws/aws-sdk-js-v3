@@ -51,16 +51,16 @@ export interface CreateHomeRegionControlRequest {
   HomeRegion: string | undefined;
 
   /**
-   * <p>Optional Boolean flag to indicate whether any effect should take place. It tests whether
-   *       the caller has permission to make the call.</p>
-   */
-  DryRun?: boolean;
-
-  /**
    * <p>The account for which this command sets up a home region control. The <code>Target</code>
    *       is always of type <code>ACCOUNT</code>.</p>
    */
   Target: Target | undefined;
+
+  /**
+   * <p>Optional Boolean flag to indicate whether any effect should take place. It tests whether
+   *       the caller has permission to make the call.</p>
+   */
+  DryRun?: boolean;
 }
 
 export namespace CreateHomeRegionControlRequest {
@@ -76,16 +76,16 @@ export namespace CreateHomeRegionControlRequest {
  */
 export interface HomeRegionControl {
   /**
+   * <p>A unique identifier that's generated for each home region control. It's always a string
+   *       that begins with "hrc-" followed by 12 lowercase letters and numbers.</p>
+   */
+  ControlId?: string;
+
+  /**
    * <p>The AWS Region that's been set as home region. For example, "us-west-2" or "eu-central-1"
    *       are valid home regions.</p>
    */
   HomeRegion?: string;
-
-  /**
-   * <p>A timestamp representing the time when the customer called
-   *         <code>CreateHomeregionControl</code> and set the home region for the account.</p>
-   */
-  RequestedTime?: Date;
 
   /**
    * <p>The target parameter specifies the identifier to which the home region is applied, which
@@ -95,10 +95,10 @@ export interface HomeRegionControl {
   Target?: Target;
 
   /**
-   * <p>A unique identifier that's generated for each home region control. It's always a string
-   *       that begins with "hrc-" followed by 12 lowercase letters and numbers.</p>
+   * <p>A timestamp representing the time when the customer called
+   *         <code>CreateHomeregionControl</code> and set the home region for the account.</p>
    */
-  ControlId?: string;
+  RequestedTime?: Date;
 }
 
 export namespace HomeRegionControl {
@@ -191,12 +191,11 @@ export namespace ServiceUnavailableException {
 export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
+  Message: string | undefined;
   /**
    * <p>The number of seconds the caller should wait before retrying.</p>
    */
   RetryAfterSeconds?: number;
-
-  Message: string | undefined;
 }
 
 export namespace ThrottlingException {
@@ -207,9 +206,10 @@ export namespace ThrottlingException {
 
 export interface DescribeHomeRegionControlsRequest {
   /**
-   * <p>The maximum number of filtering results to display per page. </p>
+   * <p>The <code>ControlID</code> is a unique identifier string of your
+   *         <code>HomeRegionControl</code> object.</p>
    */
-  MaxResults?: number;
+  ControlId?: string;
 
   /**
    * <p>The name of the home region you'd like to view.</p>
@@ -217,10 +217,16 @@ export interface DescribeHomeRegionControlsRequest {
   HomeRegion?: string;
 
   /**
-   * <p>The <code>ControlID</code> is a unique identifier string of your
-   *         <code>HomeRegionControl</code> object.</p>
+   * <p>The target parameter specifies the identifier to which the home region is applied, which
+   *       is always of type <code>ACCOUNT</code>. It applies the home region to the current
+   *         <code>ACCOUNT</code>.</p>
    */
-  ControlId?: string;
+  Target?: Target;
+
+  /**
+   * <p>The maximum number of filtering results to display per page. </p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>If a <code>NextToken</code> was returned by a previous call, more results are available.
@@ -228,13 +234,6 @@ export interface DescribeHomeRegionControlsRequest {
    *         <code>NextToken</code>.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The target parameter specifies the identifier to which the home region is applied, which
-   *       is always of type <code>ACCOUNT</code>. It applies the home region to the current
-   *         <code>ACCOUNT</code>.</p>
-   */
-  Target?: Target;
 }
 
 export namespace DescribeHomeRegionControlsRequest {
@@ -245,16 +244,16 @@ export namespace DescribeHomeRegionControlsRequest {
 
 export interface DescribeHomeRegionControlsResult {
   /**
+   * <p>An array that contains your <code>HomeRegionControl</code> objects.</p>
+   */
+  HomeRegionControls?: HomeRegionControl[];
+
+  /**
    * <p>If a <code>NextToken</code> was returned by a previous call, more results are available.
    *       To retrieve the next page of results, make the call again using the returned token in
    *         <code>NextToken</code>.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>An array that contains your <code>HomeRegionControl</code> objects.</p>
-   */
-  HomeRegionControls?: HomeRegionControl[];
 }
 
 export namespace DescribeHomeRegionControlsResult {

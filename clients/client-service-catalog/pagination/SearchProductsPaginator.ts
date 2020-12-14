@@ -35,7 +35,8 @@ export async function* paginateSearchProducts(
   input: SearchProductsCommandInput,
   ...additionalArguments: any
 ): Paginator<SearchProductsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.PageToken
+  let token: typeof input.PageToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: SearchProductsCommandOutput;
   while (hasNext) {

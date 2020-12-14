@@ -270,7 +270,8 @@
           "sdkId": "WAF",
           "arnNamespace": "waf",
           "cloudFormationName": "WAF",
-          "cloudTrailEventSource": "waf.amazonaws.com"
+          "cloudTrailEventSource": "waf.amazonaws.com",
+          "endpointPrefix": "waf"
         },
         "aws.auth#sigv4": {
           "name": "waf"
@@ -289,10 +290,11 @@
     "com.amazonaws.waf#ActivatedRule": {
       "type": "structure",
       "members": {
-        "OverrideAction": {
-          "target": "com.amazonaws.waf#WafOverrideAction",
+        "Priority": {
+          "target": "com.amazonaws.waf#RulePriority",
           "traits": {
-            "smithy.api#documentation": "<p>Use the <code>OverrideAction</code> to test your <code>RuleGroup</code>.</p>\n         <p>Any rule in a <code>RuleGroup</code> can potentially block a request. If you set the <code>OverrideAction</code> to <code>None</code>, the <code>RuleGroup</code> will block a request if any individual rule in the <code>RuleGroup</code> matches the request and is configured to block that request. However if you first want to test the <code>RuleGroup</code>, set the  <code>OverrideAction</code> to <code>Count</code>. The <code>RuleGroup</code> will then override any block action specified by individual rules contained within the group. Instead of blocking matching requests, those requests will be counted. You can view a record of counted requests using  <a>GetSampledRequests</a>. </p>\n\t        <p>\n            <code>ActivatedRule|OverrideAction</code> applies only when updating or adding a <code>RuleGroup</code> to a <code>WebACL</code>. In this case you do not use <code>ActivatedRule|Action</code>.  For all other update requests, <code>ActivatedRule|Action</code> is used instead of <code>ActivatedRule|OverrideAction</code>.</p>"
+            "smithy.api#documentation": "<p>Specifies the order in which the <code>Rules</code> in a <code>WebACL</code> are evaluated. Rules with a lower value for \n\t\t\t<code>Priority</code> are evaluated before <code>Rules</code> with a higher value. The value must be a unique integer. If you add multiple \n\t\t\t<code>Rules</code> to a <code>WebACL</code>, the values don't need to be consecutive.</p>",
+            "smithy.api#required": {}
           }
         },
         "RuleId": {
@@ -302,23 +304,22 @@
             "smithy.api#required": {}
           }
         },
-        "Type": {
-          "target": "com.amazonaws.waf#WafRuleType",
-          "traits": {
-            "smithy.api#documentation": "<p>The rule type, either <code>REGULAR</code>, as defined by <a>Rule</a>, <code>RATE_BASED</code>, as defined by <a>RateBasedRule</a>, or <code>GROUP</code>, as defined by <a>RuleGroup</a>. The default is REGULAR. Although this field is optional, be aware that if you try to add a RATE_BASED rule to a web ACL without setting the type, the  <a>UpdateWebACL</a> request will fail because the request tries to add a REGULAR rule with the specified ID, which does not exist. \t\t\n\t\t\t</p>"
-          }
-        },
         "Action": {
           "target": "com.amazonaws.waf#WafAction",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the <code>Rule</code>.   \n\t\t\tValid values for <code>Action</code> include the following:</p>\n\t\t\t      <ul>\n            <li>\n               <p>\n                  <code>ALLOW</code>: CloudFront responds with the requested object.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BLOCK</code>: CloudFront responds with an HTTP 403 (Forbidden) status code.</p>\n            </li>\n            <li>\n               <p>\n                  <code>COUNT</code>: AWS WAF increments a counter of requests that match the conditions in the rule and then continues to \n\t\t\t\t\tinspect the web request based on the remaining rules in the web ACL. </p>\n            </li>\n         </ul>\n\t        <p>\n            <code>ActivatedRule|OverrideAction</code> applies only when updating or adding a\n            <code>RuleGroup</code> to a <code>WebACL</code>. In this\n         case,\n         you do not use <code>ActivatedRule|Action</code>. For all other update requests,\n            <code>ActivatedRule|Action</code> is used instead of\n            <code>ActivatedRule|OverrideAction</code>.</p>"
           }
         },
-        "Priority": {
-          "target": "com.amazonaws.waf#RulePriority",
+        "OverrideAction": {
+          "target": "com.amazonaws.waf#WafOverrideAction",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the order in which the <code>Rules</code> in a <code>WebACL</code> are evaluated. Rules with a lower value for \n\t\t\t<code>Priority</code> are evaluated before <code>Rules</code> with a higher value. The value must be a unique integer. If you add multiple \n\t\t\t<code>Rules</code> to a <code>WebACL</code>, the values don't need to be consecutive.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Use the <code>OverrideAction</code> to test your <code>RuleGroup</code>.</p>\n         <p>Any rule in a <code>RuleGroup</code> can potentially block a request. If you set the <code>OverrideAction</code> to <code>None</code>, the <code>RuleGroup</code> will block a request if any individual rule in the <code>RuleGroup</code> matches the request and is configured to block that request. However if you first want to test the <code>RuleGroup</code>, set the  <code>OverrideAction</code> to <code>Count</code>. The <code>RuleGroup</code> will then override any block action specified by individual rules contained within the group. Instead of blocking matching requests, those requests will be counted. You can view a record of counted requests using  <a>GetSampledRequests</a>. </p>\n\t        <p>\n            <code>ActivatedRule|OverrideAction</code> applies only when updating or adding a <code>RuleGroup</code> to a <code>WebACL</code>. In this case you do not use <code>ActivatedRule|Action</code>.  For all other update requests, <code>ActivatedRule|Action</code> is used instead of <code>ActivatedRule|OverrideAction</code>.</p>"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.waf#WafRuleType",
+          "traits": {
+            "smithy.api#documentation": "<p>The rule type, either <code>REGULAR</code>, as defined by <a>Rule</a>, <code>RATE_BASED</code>, as defined by <a>RateBasedRule</a>, or <code>GROUP</code>, as defined by <a>RuleGroup</a>. The default is REGULAR. Although this field is optional, be aware that if you try to add a RATE_BASED rule to a web ACL without setting the type, the  <a>UpdateWebACL</a> request will fail because the request tries to add a REGULAR rule with the specified ID, which does not exist. \t\t\n\t\t\t</p>"
           }
         },
         "ExcludedRules": {
@@ -341,10 +342,10 @@
     "com.amazonaws.waf#ByteMatchSet": {
       "type": "structure",
       "members": {
-        "ByteMatchTuples": {
-          "target": "com.amazonaws.waf#ByteMatchTuples",
+        "ByteMatchSetId": {
+          "target": "com.amazonaws.waf#ResourceId",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings.</p>",
+            "smithy.api#documentation": "<p>The <code>ByteMatchSetId</code> for a <code>ByteMatchSet</code>. You use <code>ByteMatchSetId</code> to get information about a \n\t\t\t<code>ByteMatchSet</code> (see <a>GetByteMatchSet</a>), update a <code>ByteMatchSet</code> (see <a>UpdateByteMatchSet</a>), \n\t\t\tinsert a <code>ByteMatchSet</code> into a <code>Rule</code> or delete one from a <code>Rule</code> (see <a>UpdateRule</a>), and  \n\t\t\tdelete a <code>ByteMatchSet</code> from AWS WAF (see <a>DeleteByteMatchSet</a>).</p>\n\t\t       <p>\n            <code>ByteMatchSetId</code> is returned by <a>CreateByteMatchSet</a> and by <a>ListByteMatchSets</a>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -354,10 +355,10 @@
             "smithy.api#documentation": "<p>A friendly name or description of the <a>ByteMatchSet</a>. You can't change <code>Name</code> after you create a <code>ByteMatchSet</code>.</p>"
           }
         },
-        "ByteMatchSetId": {
-          "target": "com.amazonaws.waf#ResourceId",
+        "ByteMatchTuples": {
+          "target": "com.amazonaws.waf#ByteMatchTuples",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>ByteMatchSetId</code> for a <code>ByteMatchSet</code>. You use <code>ByteMatchSetId</code> to get information about a \n\t\t\t<code>ByteMatchSet</code> (see <a>GetByteMatchSet</a>), update a <code>ByteMatchSet</code> (see <a>UpdateByteMatchSet</a>), \n\t\t\tinsert a <code>ByteMatchSet</code> into a <code>Rule</code> or delete one from a <code>Rule</code> (see <a>UpdateRule</a>), and  \n\t\t\tdelete a <code>ByteMatchSet</code> from AWS WAF (see <a>DeleteByteMatchSet</a>).</p>\n\t\t       <p>\n            <code>ByteMatchSetId</code> is returned by <a>CreateByteMatchSet</a> and by <a>ListByteMatchSets</a>.</p>",
+            "smithy.api#documentation": "<p>Specifies the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings.</p>",
             "smithy.api#required": {}
           }
         }
@@ -397,17 +398,17 @@
     "com.amazonaws.waf#ByteMatchSetUpdate": {
       "type": "structure",
       "members": {
-        "ByteMatchTuple": {
-          "target": "com.amazonaws.waf#ByteMatchTuple",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the part of a web request that you want AWS WAF to inspect and the value that you want AWS WAF to search for.\n\t\t\tIf you specify <code>DELETE</code> for the value of <code>Action</code>, the <code>ByteMatchTuple</code> values must \n\t\t\texactly match the values in the <code>ByteMatchTuple</code> that you want to delete from the <code>ByteMatchSet</code>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Action": {
           "target": "com.amazonaws.waf#ChangeAction",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether to insert or delete a <a>ByteMatchTuple</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ByteMatchTuple": {
+          "target": "com.amazonaws.waf#ByteMatchTuple",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the part of a web request that you want AWS WAF to inspect and the value that you want AWS WAF to search for.\n\t\t\tIf you specify <code>DELETE</code> for the value of <code>Action</code>, the <code>ByteMatchTuple</code> values must \n\t\t\texactly match the values in the <code>ByteMatchTuple</code> that you want to delete from the <code>ByteMatchSet</code>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -433,20 +434,6 @@
     "com.amazonaws.waf#ByteMatchTuple": {
       "type": "structure",
       "members": {
-        "PositionalConstraint": {
-          "target": "com.amazonaws.waf#PositionalConstraint",
-          "traits": {
-            "smithy.api#documentation": "<p>Within the portion of a web request that you want to search (for example, in the query string, if any), specify where you want AWS WAF to search. Valid values include the following:</p>\n\t\t       <p>\n            <b>CONTAINS</b>\n         </p>\n\t\t       <p>The specified part of the web request must include the value of <code>TargetString</code>, but the location doesn't matter.</p>\t\t\n\t\t       <p>\n            <b>CONTAINS_WORD</b>\n         </p>\n\t\t       <p>The specified part of the web request must include the value of <code>TargetString</code>, and \n\t\t\t<code>TargetString</code> must contain only alphanumeric characters or underscore (A-Z, a-z, 0-9, or _). In addition, \n\t\t\t<code>TargetString</code> must be a word, which means one of the following:</p>\n\t\t\t      <ul>\n            <li>\n               <p>\n                  <code>TargetString</code> exactly matches the value of the specified part of the web request, such as the value of a \n\t\t\t\t\theader.</p>\n            </li>\n            <li>\n               <p>\n                  <code>TargetString</code> is at the beginning of the specified part of the web request and is followed by a character \n\t\t\t\t\tother than an alphanumeric character or underscore (_), for example, <code>BadBot;</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>TargetString</code> is at the end of the specified part of the web request and is preceded by a character \n\t\t\t\t\tother than an alphanumeric character or underscore (_), for example, <code>;BadBot</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>TargetString</code> is in the middle of the specified part of the web request and is preceded and followed \n\t\t\t\t\tby characters other than alphanumeric characters or underscore (_), for example, <code>-BadBot;</code>.</p>\n            </li>\n         </ul>\n\t\t       <p>\n            <b>EXACTLY</b>\n         </p>\n\t\t       <p>The value of the specified part of the web request must exactly match the value of <code>TargetString</code>.</p>\n\t\t       <p>\n            <b>STARTS_WITH</b>\n         </p>\n\t\t       <p>The value of <code>TargetString</code> must appear at the beginning of the specified part of the web request.</p>\t\t\n\t\t       <p>\n            <b>ENDS_WITH</b>\n         </p>\n\t\t       <p>The value of <code>TargetString</code> must appear at the end of the specified part of the web request.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "TextTransformation": {
-          "target": "com.amazonaws.waf#TextTransformation",
-          "traits": {
-            "smithy.api#documentation": "<p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF. \n\t\t\tIf you specify a transformation, AWS WAF performs the transformation on <code>FieldToMatch</code> before inspecting it for a match.</p>\n         <p>You can only specify a single type of TextTransformation.</p>\t\t\t\n\t\t       <p>\n            <b>CMD_LINE</b>\n         </p>\n\t\t       <p>When you're concerned that attackers are injecting an operating system command line\n         command and using unusual formatting to disguise some or all of the command, use this\n         option to perform the following transformations:</p>\n\t\t       <ul>\n            <li>\n               <p>Delete the following characters: \\ \" ' ^</p>\n            </li>\n            <li>\n               <p>Delete spaces before the following characters: / (</p>\n            </li>\n            <li>\n               <p>Replace the following characters with a space: , ;</p>\n            </li>\n            <li>\n               <p>Replace multiple spaces with one space</p>\n            </li>\n            <li>\n               <p>Convert uppercase letters (A-Z) to lowercase (a-z)</p>\n            </li>\n         </ul>\n\t\t\n\t\t       <p>\n            <b>COMPRESS_WHITE_SPACE</b>\n         </p>\n\t\t       <p>Use this option to replace the following characters with a space character (decimal 32):</p>\n\t\t       <ul>\n            <li>\n               <p>\\f, formfeed, decimal 12</p>\n            </li>\n            <li>\n               <p>\\t, tab, decimal 9</p>\n            </li>\n            <li>\n               <p>\\n, newline, decimal 10</p>\n            </li>\n            <li>\n               <p>\\r, carriage return, decimal 13</p>\n            </li>\n            <li>\n               <p>\\v, vertical tab, decimal 11</p>\n            </li>\n            <li>\n               <p>non-breaking space, decimal 160</p>\n            </li>\n         </ul>\n\t\t       <p>\n            <code>COMPRESS_WHITE_SPACE</code> also replaces multiple spaces with one space.</p>\t\t\n\t\t       <p>\n            <b>HTML_ENTITY_DECODE</b>\n         </p>\n\t\t       <p>Use this option to replace HTML-encoded characters with unencoded characters. <code>HTML_ENTITY_DECODE</code> performs \n\t\t\tthe following operations:</p>\n\t\t       <ul>\n            <li>\n               <p>Replaces <code>(ampersand)quot;</code> with <code>\"</code>\n               </p>\n            </li>\n            <li>\n               <p>Replaces <code>(ampersand)nbsp;</code> with a non-breaking space, decimal 160</p>\n            </li>\n            <li>\n               <p>Replaces <code>(ampersand)lt;</code> with a \"less than\" symbol</p>\n            </li>\n            <li>\n               <p>Replaces <code>(ampersand)gt;</code> with <code>></code>\n               </p>\n            </li>\n            <li>\n               <p>Replaces characters that are represented in hexadecimal format, <code>(ampersand)#xhhhh;</code>, with the corresponding \n\t\t\t\tcharacters</p>\n            </li>\n            <li>\n               <p>Replaces characters that are represented in decimal format, <code>(ampersand)#nnnn;</code>, with the corresponding \n\t\t\t\tcharacters</p>\n            </li>\n         </ul>\t\t\n\t\t       <p>\n            <b>LOWERCASE</b>\n         </p>\n\t\t       <p>Use this option to convert uppercase letters (A-Z) to lowercase (a-z).</p>\t\t\n\t\t       <p>\n            <b>URL_DECODE</b>\n         </p>\n\t\t       <p>Use this option to decode a URL-encoded value.</p>\t\t\n\t\t       <p>\n            <b>NONE</b>\n         </p>\n\t\t       <p>Specify <code>NONE</code> if you don't want to perform any text transformations.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "FieldToMatch": {
           "target": "com.amazonaws.waf#FieldToMatch",
           "traits": {
@@ -458,6 +445,20 @@
           "target": "com.amazonaws.waf#ByteMatchTargetString",
           "traits": {
             "smithy.api#documentation": "<p>The value that you want AWS WAF to search for. AWS WAF searches for the specified string in the part of web requests that you \n\t\t\tspecified in <code>FieldToMatch</code>. The maximum length of the value is 50 bytes.</p>\n\t\t       <p>Valid values depend on the values that you specified for <code>FieldToMatch</code>:</p>\t\t\n\t\t       <ul>\n            <li>\n               <p>\n                  <code>HEADER</code>: The value that you want AWS WAF to search for in the request header that you specified in \n\t\t\t\t<a>FieldToMatch</a>, for example, the value of the <code>User-Agent</code> or <code>Referer</code> header.</p>\n            </li>\n            <li>\n               <p>\n                  <code>METHOD</code>: The HTTP method, which indicates the type of operation specified in the request. \n\t\t\t\tCloudFront supports the following methods: <code>DELETE</code>, <code>GET</code>, <code>HEAD</code>, <code>OPTIONS</code>, \n\t\t\t\t<code>PATCH</code>, <code>POST</code>, and <code>PUT</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>QUERY_STRING</code>: The value that you want AWS WAF to search for in the query string, which is the part \n\t\t\t\tof a URL that appears after a <code>?</code> character.</p>\n            </li>\n            <li>\n               <p>\n                  <code>URI</code>: The value that you want AWS WAF to search for in the part of a URL that identifies a resource, \n\t\t\t\tfor example, <code>/images/daily-ad.jpg</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BODY</code>: The part of a request that contains any additional data that you want to send to your web server \n\t\t\t\tas the HTTP request body, such as data from a form. The request body immediately follows the request headers. \n\t\t\t\tNote that only the first <code>8192</code> bytes of the request body are forwarded to AWS WAF for inspection. \n\t\t\t\tTo allow or block requests based on the length of the body, you can create a size constraint set. \n\t\t\t\tFor more information, see <a>CreateSizeConstraintSet</a>. </p>\n            </li>\n            <li>\n\t\t             <p>\n\t\t                <code>SINGLE_QUERY_ARG</code>: The parameter in the query string that you will inspect, such as <i>UserName</i> or <i>SalesRegion</i>. The maximum length for <code>SINGLE_QUERY_ARG</code> is 30 characters.</p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>ALL_QUERY_ARGS</code>: Similar to <code>SINGLE_QUERY_ARG</code>, but instead of\n               inspecting a single parameter, AWS WAF inspects all parameters within the query\n               string for the value or regex pattern that you specify in\n               <code>TargetString</code>.</p>\n\t\t          </li>\n         </ul>\n\t\t\n\t\t       <p>If <code>TargetString</code> includes alphabetic characters A-Z and a-z, note that the value is case sensitive.</p>\n\t\t       <p>\n            <b>If you're using the AWS WAF API</b>\n         </p>\n\t\t       <p>Specify a base64-encoded version of the value. The maximum length of the value before you base64-encode it is 50 bytes.</p>\n\t\t       <p>For example, suppose the value of <code>Type</code> is <code>HEADER</code> and the\n         value of <code>Data</code> is <code>User-Agent</code>. If you want to search the\n            <code>User-Agent</code> header for the value <code>BadBot</code>, you base64-encode\n            <code>BadBot</code> using MIME\n         base64-encoding\n         and include the resulting value, <code>QmFkQm90</code>, in the value of\n            <code>TargetString</code>.</p>\n\t\t       <p>\n            <b>If you're using the AWS CLI or one of the AWS SDKs</b>\n         </p>\n\t\t       <p>The value that you want AWS WAF to search for. The SDK automatically base64 encodes the value.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TextTransformation": {
+          "target": "com.amazonaws.waf#TextTransformation",
+          "traits": {
+            "smithy.api#documentation": "<p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF. \n\t\t\tIf you specify a transformation, AWS WAF performs the transformation on <code>FieldToMatch</code> before inspecting it for a match.</p>\n         <p>You can only specify a single type of TextTransformation.</p>\t\t\t\n\t\t       <p>\n            <b>CMD_LINE</b>\n         </p>\n\t\t       <p>When you're concerned that attackers are injecting an operating system command line\n         command and using unusual formatting to disguise some or all of the command, use this\n         option to perform the following transformations:</p>\n\t\t       <ul>\n            <li>\n               <p>Delete the following characters: \\ \" ' ^</p>\n            </li>\n            <li>\n               <p>Delete spaces before the following characters: / (</p>\n            </li>\n            <li>\n               <p>Replace the following characters with a space: , ;</p>\n            </li>\n            <li>\n               <p>Replace multiple spaces with one space</p>\n            </li>\n            <li>\n               <p>Convert uppercase letters (A-Z) to lowercase (a-z)</p>\n            </li>\n         </ul>\n\t\t\n\t\t       <p>\n            <b>COMPRESS_WHITE_SPACE</b>\n         </p>\n\t\t       <p>Use this option to replace the following characters with a space character (decimal 32):</p>\n\t\t       <ul>\n            <li>\n               <p>\\f, formfeed, decimal 12</p>\n            </li>\n            <li>\n               <p>\\t, tab, decimal 9</p>\n            </li>\n            <li>\n               <p>\\n, newline, decimal 10</p>\n            </li>\n            <li>\n               <p>\\r, carriage return, decimal 13</p>\n            </li>\n            <li>\n               <p>\\v, vertical tab, decimal 11</p>\n            </li>\n            <li>\n               <p>non-breaking space, decimal 160</p>\n            </li>\n         </ul>\n\t\t       <p>\n            <code>COMPRESS_WHITE_SPACE</code> also replaces multiple spaces with one space.</p>\t\t\n\t\t       <p>\n            <b>HTML_ENTITY_DECODE</b>\n         </p>\n\t\t       <p>Use this option to replace HTML-encoded characters with unencoded characters. <code>HTML_ENTITY_DECODE</code> performs \n\t\t\tthe following operations:</p>\n\t\t       <ul>\n            <li>\n               <p>Replaces <code>(ampersand)quot;</code> with <code>\"</code>\n               </p>\n            </li>\n            <li>\n               <p>Replaces <code>(ampersand)nbsp;</code> with a non-breaking space, decimal 160</p>\n            </li>\n            <li>\n               <p>Replaces <code>(ampersand)lt;</code> with a \"less than\" symbol</p>\n            </li>\n            <li>\n               <p>Replaces <code>(ampersand)gt;</code> with <code>></code>\n               </p>\n            </li>\n            <li>\n               <p>Replaces characters that are represented in hexadecimal format, <code>(ampersand)#xhhhh;</code>, with the corresponding \n\t\t\t\tcharacters</p>\n            </li>\n            <li>\n               <p>Replaces characters that are represented in decimal format, <code>(ampersand)#nnnn;</code>, with the corresponding \n\t\t\t\tcharacters</p>\n            </li>\n         </ul>\t\t\n\t\t       <p>\n            <b>LOWERCASE</b>\n         </p>\n\t\t       <p>Use this option to convert uppercase letters (A-Z) to lowercase (a-z).</p>\t\t\n\t\t       <p>\n            <b>URL_DECODE</b>\n         </p>\n\t\t       <p>Use this option to decode a URL-encoded value.</p>\t\t\n\t\t       <p>\n            <b>NONE</b>\n         </p>\n\t\t       <p>Specify <code>NONE</code> if you don't want to perform any text transformations.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "PositionalConstraint": {
+          "target": "com.amazonaws.waf#PositionalConstraint",
+          "traits": {
+            "smithy.api#documentation": "<p>Within the portion of a web request that you want to search (for example, in the query string, if any), specify where you want AWS WAF to search. Valid values include the following:</p>\n\t\t       <p>\n            <b>CONTAINS</b>\n         </p>\n\t\t       <p>The specified part of the web request must include the value of <code>TargetString</code>, but the location doesn't matter.</p>\t\t\n\t\t       <p>\n            <b>CONTAINS_WORD</b>\n         </p>\n\t\t       <p>The specified part of the web request must include the value of <code>TargetString</code>, and \n\t\t\t<code>TargetString</code> must contain only alphanumeric characters or underscore (A-Z, a-z, 0-9, or _). In addition, \n\t\t\t<code>TargetString</code> must be a word, which means one of the following:</p>\n\t\t\t      <ul>\n            <li>\n               <p>\n                  <code>TargetString</code> exactly matches the value of the specified part of the web request, such as the value of a \n\t\t\t\t\theader.</p>\n            </li>\n            <li>\n               <p>\n                  <code>TargetString</code> is at the beginning of the specified part of the web request and is followed by a character \n\t\t\t\t\tother than an alphanumeric character or underscore (_), for example, <code>BadBot;</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>TargetString</code> is at the end of the specified part of the web request and is preceded by a character \n\t\t\t\t\tother than an alphanumeric character or underscore (_), for example, <code>;BadBot</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>TargetString</code> is in the middle of the specified part of the web request and is preceded and followed \n\t\t\t\t\tby characters other than alphanumeric characters or underscore (_), for example, <code>-BadBot;</code>.</p>\n            </li>\n         </ul>\n\t\t       <p>\n            <b>EXACTLY</b>\n         </p>\n\t\t       <p>The value of the specified part of the web request must exactly match the value of <code>TargetString</code>.</p>\n\t\t       <p>\n            <b>STARTS_WITH</b>\n         </p>\n\t\t       <p>The value of <code>TargetString</code> must appear at the beginning of the specified part of the web request.</p>\t\t\n\t\t       <p>\n            <b>ENDS_WITH</b>\n         </p>\n\t\t       <p>The value of <code>TargetString</code> must appear at the end of the specified part of the web request.</p>",
             "smithy.api#required": {}
           }
         }
@@ -585,17 +586,17 @@
     "com.amazonaws.waf#CreateByteMatchSetRequest": {
       "type": "structure",
       "members": {
-        "ChangeToken": {
-          "target": "com.amazonaws.waf#ChangeToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Name": {
           "target": "com.amazonaws.waf#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>A friendly name or description of the <a>ByteMatchSet</a>. You can't change <code>Name</code> after you create a \n\t\t\t<code>ByteMatchSet</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ChangeToken": {
+          "target": "com.amazonaws.waf#ChangeToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -653,17 +654,17 @@
     "com.amazonaws.waf#CreateGeoMatchSetRequest": {
       "type": "structure",
       "members": {
-        "ChangeToken": {
-          "target": "com.amazonaws.waf#ChangeToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Name": {
           "target": "com.amazonaws.waf#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>A friendly name or description of the <a>GeoMatchSet</a>. You can't change <code>Name</code> after you create the <code>GeoMatchSet</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ChangeToken": {
+          "target": "com.amazonaws.waf#ChangeToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -672,16 +673,16 @@
     "com.amazonaws.waf#CreateGeoMatchSetResponse": {
       "type": "structure",
       "members": {
-        "ChangeToken": {
-          "target": "com.amazonaws.waf#ChangeToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>ChangeToken</code> that you used to submit the <code>CreateGeoMatchSet</code> request. You can also use this value \n\t\t\tto query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>"
-          }
-        },
         "GeoMatchSet": {
           "target": "com.amazonaws.waf#GeoMatchSet",
           "traits": {
             "smithy.api#documentation": "<p>The <a>GeoMatchSet</a> returned in the <code>CreateGeoMatchSet</code> response. The <code>GeoMatchSet</code> contains no <code>GeoMatchConstraints</code>.</p>"
+          }
+        },
+        "ChangeToken": {
+          "target": "com.amazonaws.waf#ChangeToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>ChangeToken</code> that you used to submit the <code>CreateGeoMatchSet</code> request. You can also use this value \n\t\t\tto query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>"
           }
         }
       }
@@ -795,24 +796,10 @@
     "com.amazonaws.waf#CreateRateBasedRuleRequest": {
       "type": "structure",
       "members": {
-        "RateKey": {
-          "target": "com.amazonaws.waf#RateKey",
+        "Name": {
+          "target": "com.amazonaws.waf#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The field that AWS WAF uses to determine if requests are likely arriving from a single\n         source and thus subject to rate monitoring. The only valid value for <code>RateKey</code>\n         is <code>IP</code>. <code>IP</code> indicates that requests that arrive from the same IP\n         address are subject to the <code>RateLimit</code> that is specified in\n         the <code>RateBasedRule</code>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "ChangeToken": {
-          "target": "com.amazonaws.waf#ChangeToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>ChangeToken</code> that you used to submit the\n            <code>CreateRateBasedRule</code> request. You can also use this value to query the\n         status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "RateLimit": {
-          "target": "com.amazonaws.waf#RateLimit",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of requests, which have an identical value in the field that is\n         specified by <code>RateKey</code>, allowed in a five-minute period. If the number of\n         requests exceeds the <code>RateLimit</code> and the other predicates specified in the rule\n         are also met, AWS WAF triggers the action that is specified for this rule.</p>",
+            "smithy.api#documentation": "<p>A friendly name or description of the <a>RateBasedRule</a>. You can't\n         change the name of a <code>RateBasedRule</code> after you create it.</p>",
             "smithy.api#required": {}
           }
         },
@@ -823,10 +810,24 @@
             "smithy.api#required": {}
           }
         },
-        "Name": {
-          "target": "com.amazonaws.waf#ResourceName",
+        "RateKey": {
+          "target": "com.amazonaws.waf#RateKey",
           "traits": {
-            "smithy.api#documentation": "<p>A friendly name or description of the <a>RateBasedRule</a>. You can't\n         change the name of a <code>RateBasedRule</code> after you create it.</p>",
+            "smithy.api#documentation": "<p>The field that AWS WAF uses to determine if requests are likely arriving from a single\n         source and thus subject to rate monitoring. The only valid value for <code>RateKey</code>\n         is <code>IP</code>. <code>IP</code> indicates that requests that arrive from the same IP\n         address are subject to the <code>RateLimit</code> that is specified in\n         the <code>RateBasedRule</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "RateLimit": {
+          "target": "com.amazonaws.waf#RateLimit",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of requests, which have an identical value in the field that is\n         specified by <code>RateKey</code>, allowed in a five-minute period. If the number of\n         requests exceeds the <code>RateLimit</code> and the other predicates specified in the rule\n         are also met, AWS WAF triggers the action that is specified for this rule.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ChangeToken": {
+          "target": "com.amazonaws.waf#ChangeToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>ChangeToken</code> that you used to submit the\n            <code>CreateRateBasedRule</code> request. You can also use this value to query the\n         status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -841,16 +842,16 @@
     "com.amazonaws.waf#CreateRateBasedRuleResponse": {
       "type": "structure",
       "members": {
-        "ChangeToken": {
-          "target": "com.amazonaws.waf#ChangeToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>ChangeToken</code> that you used to submit the\n            <code>CreateRateBasedRule</code> request. You can also use this value to query the\n         status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>"
-          }
-        },
         "Rule": {
           "target": "com.amazonaws.waf#RateBasedRule",
           "traits": {
             "smithy.api#documentation": "<p>The <a>RateBasedRule</a>\n         that is returned in the <code>CreateRateBasedRule</code> response.</p>"
+          }
+        },
+        "ChangeToken": {
+          "target": "com.amazonaws.waf#ChangeToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>ChangeToken</code> that you used to submit the\n            <code>CreateRateBasedRule</code> request. You can also use this value to query the\n         status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>"
           }
         }
       }
@@ -946,17 +947,17 @@
     "com.amazonaws.waf#CreateRegexPatternSetRequest": {
       "type": "structure",
       "members": {
-        "ChangeToken": {
-          "target": "com.amazonaws.waf#ChangeToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Name": {
           "target": "com.amazonaws.waf#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>A friendly name or description of the <a>RegexPatternSet</a>. You can't change <code>Name</code> after you create a \n\t\t\t<code>RegexPatternSet</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ChangeToken": {
+          "target": "com.amazonaws.waf#ChangeToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -965,16 +966,16 @@
     "com.amazonaws.waf#CreateRegexPatternSetResponse": {
       "type": "structure",
       "members": {
-        "ChangeToken": {
-          "target": "com.amazonaws.waf#ChangeToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>ChangeToken</code> that you used to submit the <code>CreateRegexPatternSet</code> request. You can also use this value \n\t\t\tto query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>"
-          }
-        },
         "RegexPatternSet": {
           "target": "com.amazonaws.waf#RegexPatternSet",
           "traits": {
             "smithy.api#documentation": "<p>A <a>RegexPatternSet</a> that contains no objects.</p>"
+          }
+        },
+        "ChangeToken": {
+          "target": "com.amazonaws.waf#ChangeToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>ChangeToken</code> that you used to submit the <code>CreateRegexPatternSet</code> request. You can also use this value \n\t\t\tto query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>"
           }
         }
       }
@@ -1055,10 +1056,24 @@
     "com.amazonaws.waf#CreateRuleGroupRequest": {
       "type": "structure",
       "members": {
+        "Name": {
+          "target": "com.amazonaws.waf#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>A friendly name or description of the <a>RuleGroup</a>. You can't change <code>Name</code> after you create a \n         <code>RuleGroup</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "MetricName": {
           "target": "com.amazonaws.waf#MetricName",
           "traits": {
             "smithy.api#documentation": "<p>A friendly name or description for the metrics for this <code>RuleGroup</code>. The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain\n         whitespace or metric names reserved for AWS WAF, including \"All\" and \"Default_Action.\" You can't change the name of the metric after you create the <code>RuleGroup</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ChangeToken": {
+          "target": "com.amazonaws.waf#ChangeToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1067,36 +1082,22 @@
           "traits": {
             "smithy.api#documentation": "<p></p>"
           }
-        },
-        "Name": {
-          "target": "com.amazonaws.waf#ResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>A friendly name or description of the <a>RuleGroup</a>. You can't change <code>Name</code> after you create a \n         <code>RuleGroup</code>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "ChangeToken": {
-          "target": "com.amazonaws.waf#ChangeToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
-            "smithy.api#required": {}
-          }
         }
       }
     },
     "com.amazonaws.waf#CreateRuleGroupResponse": {
       "type": "structure",
       "members": {
-        "ChangeToken": {
-          "target": "com.amazonaws.waf#ChangeToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>ChangeToken</code> that you used to submit the <code>CreateRuleGroup</code> request. You can also use this value \n         to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>"
-          }
-        },
         "RuleGroup": {
           "target": "com.amazonaws.waf#RuleGroup",
           "traits": {
             "smithy.api#documentation": "<p>An empty  <a>RuleGroup</a>.</p>"
+          }
+        },
+        "ChangeToken": {
+          "target": "com.amazonaws.waf#ChangeToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>ChangeToken</code> that you used to submit the <code>CreateRuleGroup</code> request. You can also use this value \n         to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>"
           }
         }
       }
@@ -1104,10 +1105,10 @@
     "com.amazonaws.waf#CreateRuleRequest": {
       "type": "structure",
       "members": {
-        "ChangeToken": {
-          "target": "com.amazonaws.waf#ChangeToken",
+        "Name": {
+          "target": "com.amazonaws.waf#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
+            "smithy.api#documentation": "<p>A friendly name or description of the <a>Rule</a>. You can't change the name of a <code>Rule</code> after you create it.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1118,17 +1119,17 @@
             "smithy.api#required": {}
           }
         },
+        "ChangeToken": {
+          "target": "com.amazonaws.waf#ChangeToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "Tags": {
           "target": "com.amazonaws.waf#TagList",
           "traits": {
             "smithy.api#documentation": "<p></p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.waf#ResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>A friendly name or description of the <a>Rule</a>. You can't change the name of a <code>Rule</code> after you create it.</p>",
-            "smithy.api#required": {}
           }
         }
       }
@@ -1275,16 +1276,16 @@
     "com.amazonaws.waf#CreateSqlInjectionMatchSetResponse": {
       "type": "structure",
       "members": {
-        "ChangeToken": {
-          "target": "com.amazonaws.waf#ChangeToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>ChangeToken</code> that you used to submit the <code>CreateSqlInjectionMatchSet</code> request. You can also use this value \n\t\t\tto query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>"
-          }
-        },
         "SqlInjectionMatchSet": {
           "target": "com.amazonaws.waf#SqlInjectionMatchSet",
           "traits": {
             "smithy.api#documentation": "<p>A <a>SqlInjectionMatchSet</a>.</p>"
+          }
+        },
+        "ChangeToken": {
+          "target": "com.amazonaws.waf#ChangeToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>ChangeToken</code> that you used to submit the <code>CreateSqlInjectionMatchSet</code> request. You can also use this value \n\t\t\tto query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>"
           }
         }
       },
@@ -1410,17 +1411,18 @@
             "smithy.api#required": {}
           }
         },
+        "MetricName": {
+          "target": "com.amazonaws.waf#MetricName",
+          "traits": {
+            "smithy.api#documentation": "<p>A friendly name or description for the metrics for this <code>WebACL</code>.The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain\n\t        whitespace or metric names reserved for AWS WAF, including \"All\" and \"Default_Action.\" You can't change <code>MetricName</code> after you create the\n            <code>WebACL</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "DefaultAction": {
           "target": "com.amazonaws.waf#WafAction",
           "traits": {
             "smithy.api#documentation": "<p>The action that you want  AWS WAF to take when a request doesn't match the criteria specified in any of the <code>Rule</code> \n\t\t\tobjects that are associated with the <code>WebACL</code>.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.waf#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p></p>"
           }
         },
         "ChangeToken": {
@@ -1430,11 +1432,10 @@
             "smithy.api#required": {}
           }
         },
-        "MetricName": {
-          "target": "com.amazonaws.waf#MetricName",
+        "Tags": {
+          "target": "com.amazonaws.waf#TagList",
           "traits": {
-            "smithy.api#documentation": "<p>A friendly name or description for the metrics for this <code>WebACL</code>.The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain\n\t        whitespace or metric names reserved for AWS WAF, including \"All\" and \"Default_Action.\" You can't change <code>MetricName</code> after you create the\n            <code>WebACL</code>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p></p>"
           }
         }
       }
@@ -1513,16 +1514,16 @@
     "com.amazonaws.waf#CreateXssMatchSetResponse": {
       "type": "structure",
       "members": {
-        "ChangeToken": {
-          "target": "com.amazonaws.waf#ChangeToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>ChangeToken</code> that you used to submit the <code>CreateXssMatchSet</code> request. You can also use this value \n\t\t\tto query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>"
-          }
-        },
         "XssMatchSet": {
           "target": "com.amazonaws.waf#XssMatchSet",
           "traits": {
             "smithy.api#documentation": "<p>An <a>XssMatchSet</a>.</p>"
+          }
+        },
+        "ChangeToken": {
+          "target": "com.amazonaws.waf#ChangeToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>ChangeToken</code> that you used to submit the <code>CreateXssMatchSet</code> request. You can also use this value \n\t\t\tto query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>"
           }
         }
       },
@@ -1835,17 +1836,17 @@
     "com.amazonaws.waf#DeleteRateBasedRuleRequest": {
       "type": "structure",
       "members": {
-        "ChangeToken": {
-          "target": "com.amazonaws.waf#ChangeToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "RuleId": {
           "target": "com.amazonaws.waf#ResourceId",
           "traits": {
             "smithy.api#documentation": "<p>The <code>RuleId</code> of the <a>RateBasedRule</a> that you want to\n         delete. <code>RuleId</code> is returned by <a>CreateRateBasedRule</a> and by\n            <a>ListRateBasedRules</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ChangeToken": {
+          "target": "com.amazonaws.waf#ChangeToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1897,17 +1898,17 @@
     "com.amazonaws.waf#DeleteRegexMatchSetRequest": {
       "type": "structure",
       "members": {
-        "ChangeToken": {
-          "target": "com.amazonaws.waf#ChangeToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "RegexMatchSetId": {
           "target": "com.amazonaws.waf#ResourceId",
           "traits": {
             "smithy.api#documentation": "<p>The <code>RegexMatchSetId</code> of the <a>RegexMatchSet</a> that you want to delete. <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by \n\t\t\t<a>ListRegexMatchSets</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ChangeToken": {
+          "target": "com.amazonaws.waf#ChangeToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2157,17 +2158,17 @@
     "com.amazonaws.waf#DeleteSizeConstraintSetRequest": {
       "type": "structure",
       "members": {
-        "ChangeToken": {
-          "target": "com.amazonaws.waf#ChangeToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "SizeConstraintSetId": {
           "target": "com.amazonaws.waf#ResourceId",
           "traits": {
             "smithy.api#documentation": "<p>The <code>SizeConstraintSetId</code> of the <a>SizeConstraintSet</a> that you want to delete. <code>SizeConstraintSetId</code> \n\t\t\tis returned by <a>CreateSizeConstraintSet</a> and by <a>ListSizeConstraintSets</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ChangeToken": {
+          "target": "com.amazonaws.waf#ChangeToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2293,17 +2294,17 @@
     "com.amazonaws.waf#DeleteWebACLRequest": {
       "type": "structure",
       "members": {
-        "ChangeToken": {
-          "target": "com.amazonaws.waf#ChangeToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "WebACLId": {
           "target": "com.amazonaws.waf#ResourceId",
           "traits": {
             "smithy.api#documentation": "<p>The <code>WebACLId</code> of the <a>WebACL</a> that you want to delete. <code>WebACLId</code> is returned by <a>CreateWebACL</a> and by \n\t\t\t<a>ListWebACLs</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ChangeToken": {
+          "target": "com.amazonaws.waf#ChangeToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2355,17 +2356,17 @@
     "com.amazonaws.waf#DeleteXssMatchSetRequest": {
       "type": "structure",
       "members": {
-        "ChangeToken": {
-          "target": "com.amazonaws.waf#ChangeToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "XssMatchSetId": {
           "target": "com.amazonaws.waf#ResourceId",
           "traits": {
             "smithy.api#documentation": "<p>The <code>XssMatchSetId</code> of the <a>XssMatchSet</a> that you want to delete. \n\t\t\t<code>XssMatchSetId</code> is returned by <a>CreateXssMatchSet</a> and by <a>ListXssMatchSets</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ChangeToken": {
+          "target": "com.amazonaws.waf#ChangeToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3478,17 +3479,17 @@
     "com.amazonaws.waf#GeoMatchSet": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.waf#ResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>A friendly name or description of the <a>GeoMatchSet</a>. You can't change the name of an <code>GeoMatchSet</code> after you create it.</p>"
-          }
-        },
         "GeoMatchSetId": {
           "target": "com.amazonaws.waf#ResourceId",
           "traits": {
             "smithy.api#documentation": "<p>The <code>GeoMatchSetId</code> for an <code>GeoMatchSet</code>. You use <code>GeoMatchSetId</code> to get information about a \n\t\t\t<code>GeoMatchSet</code> (see <a>GeoMatchSet</a>), update a <code>GeoMatchSet</code> (see <a>UpdateGeoMatchSet</a>), insert a <code>GeoMatchSet</code> into a <code>Rule</code> or delete one from a <code>Rule</code> (see <a>UpdateRule</a>), and delete a <code>GeoMatchSet</code> from AWS WAF (see <a>DeleteGeoMatchSet</a>).</p>\n\t\t       <p>\n            <code>GeoMatchSetId</code> is returned by <a>CreateGeoMatchSet</a> and by <a>ListGeoMatchSets</a>.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.waf#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>A friendly name or description of the <a>GeoMatchSet</a>. You can't change the name of an <code>GeoMatchSet</code> after you create it.</p>"
           }
         },
         "GeoMatchConstraints": {
@@ -3534,17 +3535,17 @@
     "com.amazonaws.waf#GeoMatchSetUpdate": {
       "type": "structure",
       "members": {
-        "GeoMatchConstraint": {
-          "target": "com.amazonaws.waf#GeoMatchConstraint",
-          "traits": {
-            "smithy.api#documentation": "<p>The country from which web requests originate that you want AWS WAF to search for.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Action": {
           "target": "com.amazonaws.waf#ChangeAction",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether to insert or delete a country with <a>UpdateGeoMatchSet</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "GeoMatchConstraint": {
+          "target": "com.amazonaws.waf#GeoMatchConstraint",
+          "traits": {
+            "smithy.api#documentation": "<p>The country from which web requests originate that you want AWS WAF to search for.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3933,16 +3934,16 @@
     "com.amazonaws.waf#GetRateBasedRuleManagedKeysResponse": {
       "type": "structure",
       "members": {
-        "NextMarker": {
-          "target": "com.amazonaws.waf#NextMarker",
-          "traits": {
-            "smithy.api#documentation": "<p>A null value and not currently used.</p>"
-          }
-        },
         "ManagedKeys": {
           "target": "com.amazonaws.waf#ManagedKeys",
           "traits": {
             "smithy.api#documentation": "<p>An array of IP addresses that currently are blocked by the specified <a>RateBasedRule</a>. </p>"
+          }
+        },
+        "NextMarker": {
+          "target": "com.amazonaws.waf#NextMarker",
+          "traits": {
+            "smithy.api#documentation": "<p>A null value and not currently used.</p>"
           }
         }
       }
@@ -4197,17 +4198,17 @@
             "smithy.api#required": {}
           }
         },
-        "MaxItems": {
-          "target": "com.amazonaws.waf#GetSampledRequestsMaxItems",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of requests that you want AWS WAF to return from among the first 5,000 requests that your AWS resource received\n\t\t\tduring the time range. If your resource received fewer requests than the value of <code>MaxItems</code>, <code>GetSampledRequests</code> \n\t\t\treturns information about all of them. </p>",
-            "smithy.api#required": {}
-          }
-        },
         "TimeWindow": {
           "target": "com.amazonaws.waf#TimeWindow",
           "traits": {
             "smithy.api#documentation": "<p>The start date and time and the end date and time of the range for which you want <code>GetSampledRequests</code> to return a \n                        sample of requests. You must specify the times in Coordinated Universal Time (UTC) format. UTC format includes the special  \n                        designator, <code>Z</code>. For example, <code>\"2016-09-27T14:50Z\"</code>. You can specify any time range in the previous three hours.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MaxItems": {
+          "target": "com.amazonaws.waf#GetSampledRequestsMaxItems",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of requests that you want AWS WAF to return from among the first 5,000 requests that your AWS resource received\n\t\t\tduring the time range. If your resource received fewer requests than the value of <code>MaxItems</code>, <code>GetSampledRequests</code> \n\t\t\treturns information about all of them. </p>",
             "smithy.api#required": {}
           }
         }
@@ -4216,10 +4217,10 @@
     "com.amazonaws.waf#GetSampledRequestsResponse": {
       "type": "structure",
       "members": {
-        "TimeWindow": {
-          "target": "com.amazonaws.waf#TimeWindow",
+        "SampledRequests": {
+          "target": "com.amazonaws.waf#SampledHTTPRequests",
           "traits": {
-            "smithy.api#documentation": "<p>Usually, <code>TimeWindow</code> is the time range that you specified in the <code>GetSampledRequests</code> request. However, \n\t\t\tif your AWS resource received more than 5,000 requests during the time range that you specified in the request, \n\t\t\t<code>GetSampledRequests</code> returns the time range for the first 5,000 requests. Times are in Coordinated Universal Time (UTC) format.</p>"
+            "smithy.api#documentation": "<p>A complex type that contains detailed information about each of the requests in the sample.</p>"
           }
         },
         "PopulationSize": {
@@ -4228,10 +4229,10 @@
             "smithy.api#documentation": "<p>The total number of requests from which <code>GetSampledRequests</code> got a sample of <code>MaxItems</code> requests. \n\t\t\tIf <code>PopulationSize</code> is less than <code>MaxItems</code>, the sample includes every request that your AWS resource \n\t\t\treceived during the specified time range.</p>"
           }
         },
-        "SampledRequests": {
-          "target": "com.amazonaws.waf#SampledHTTPRequests",
+        "TimeWindow": {
+          "target": "com.amazonaws.waf#TimeWindow",
           "traits": {
-            "smithy.api#documentation": "<p>A complex type that contains detailed information about each of the requests in the sample.</p>"
+            "smithy.api#documentation": "<p>Usually, <code>TimeWindow</code> is the time range that you specified in the <code>GetSampledRequests</code> request. However, \n\t\t\tif your AWS resource received more than 5,000 requests during the time range that you specified in the request, \n\t\t\t<code>GetSampledRequests</code> returns the time range for the first 5,000 requests. Times are in Coordinated Universal Time (UTC) format.</p>"
           }
         }
       }
@@ -4464,22 +4465,22 @@
     "com.amazonaws.waf#HTTPRequest": {
       "type": "structure",
       "members": {
+        "ClientIP": {
+          "target": "com.amazonaws.waf#IPString",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP address that the request originated from. If the <code>WebACL</code> is associated with a CloudFront distribution, \n\t\t\tthis is the value of one of the following fields in CloudFront access logs:</p>\n\t\t       <ul>\n            <li>\n               <p>\n                  <code>c-ip</code>, if the viewer did not use an HTTP proxy or a load balancer to send the request</p>\n            </li>\n            <li>\n               <p>\n                  <code>x-forwarded-for</code>, if the viewer did use an HTTP proxy or a load balancer to send the request</p>\n            </li>\n         </ul>"
+          }
+        },
         "Country": {
           "target": "com.amazonaws.waf#Country",
           "traits": {
             "smithy.api#documentation": "<p>The two-letter country code for the country that the request originated from. For a current list of country codes, \n\t\t\tsee the Wikipedia entry <a href=\"https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2\">ISO 3166-1 alpha-2</a>.</p>"
           }
         },
-        "Headers": {
-          "target": "com.amazonaws.waf#HTTPHeaders",
+        "URI": {
+          "target": "com.amazonaws.waf#URIString",
           "traits": {
-            "smithy.api#documentation": "<p>A complex type that contains two values for each header in the sampled web request: the name of the header and the value of the header.</p>"
-          }
-        },
-        "HTTPVersion": {
-          "target": "com.amazonaws.waf#HTTPVersion",
-          "traits": {
-            "smithy.api#documentation": "<p>The HTTP version specified in the sampled web request, for example, <code>HTTP/1.1</code>.</p>"
+            "smithy.api#documentation": "<p>The part of a web request that identifies the resource, for example, <code>/images/daily-ad.jpg</code>.</p>"
           }
         },
         "Method": {
@@ -4488,16 +4489,16 @@
             "smithy.api#documentation": "<p>The HTTP method specified in the sampled web request. CloudFront supports the following methods: <code>DELETE</code>, \n\t\t\t<code>GET</code>, <code>HEAD</code>, <code>OPTIONS</code>, <code>PATCH</code>, <code>POST</code>, and <code>PUT</code>. </p>"
           }
         },
-        "ClientIP": {
-          "target": "com.amazonaws.waf#IPString",
+        "HTTPVersion": {
+          "target": "com.amazonaws.waf#HTTPVersion",
           "traits": {
-            "smithy.api#documentation": "<p>The IP address that the request originated from. If the <code>WebACL</code> is associated with a CloudFront distribution, \n\t\t\tthis is the value of one of the following fields in CloudFront access logs:</p>\n\t\t       <ul>\n            <li>\n               <p>\n                  <code>c-ip</code>, if the viewer did not use an HTTP proxy or a load balancer to send the request</p>\n            </li>\n            <li>\n               <p>\n                  <code>x-forwarded-for</code>, if the viewer did use an HTTP proxy or a load balancer to send the request</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The HTTP version specified in the sampled web request, for example, <code>HTTP/1.1</code>.</p>"
           }
         },
-        "URI": {
-          "target": "com.amazonaws.waf#URIString",
+        "Headers": {
+          "target": "com.amazonaws.waf#HTTPHeaders",
           "traits": {
-            "smithy.api#documentation": "<p>The part of a web request that identifies the resource, for example, <code>/images/daily-ad.jpg</code>.</p>"
+            "smithy.api#documentation": "<p>A complex type that contains two values for each header in the sampled web request: the name of the header and the value of the header.</p>"
           }
         }
       },
@@ -4517,13 +4518,6 @@
     "com.amazonaws.waf#IPSet": {
       "type": "structure",
       "members": {
-        "IPSetDescriptors": {
-          "target": "com.amazonaws.waf#IPSetDescriptors",
-          "traits": {
-            "smithy.api#documentation": "<p>The IP address type (<code>IPV4</code> or <code>IPV6</code>) and the IP address range (in CIDR notation) that web requests originate from. \n\t\t\tIf the <code>WebACL</code> is associated with a CloudFront distribution and the viewer did not use an HTTP proxy or a load balancer to send the request, this is the value of the c-ip field in the CloudFront access logs.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "IPSetId": {
           "target": "com.amazonaws.waf#ResourceId",
           "traits": {
@@ -4536,6 +4530,13 @@
           "traits": {
             "smithy.api#documentation": "<p>A friendly name or description of the <a>IPSet</a>. You can't change the name of an <code>IPSet</code> after you create it.</p>"
           }
+        },
+        "IPSetDescriptors": {
+          "target": "com.amazonaws.waf#IPSetDescriptors",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP address type (<code>IPV4</code> or <code>IPV6</code>) and the IP address range (in CIDR notation) that web requests originate from. \n\t\t\tIf the <code>WebACL</code> is associated with a CloudFront distribution and the viewer did not use an HTTP proxy or a load balancer to send the request, this is the value of the c-ip field in the CloudFront access logs.</p>",
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {
@@ -4545,17 +4546,17 @@
     "com.amazonaws.waf#IPSetDescriptor": {
       "type": "structure",
       "members": {
-        "Value": {
-          "target": "com.amazonaws.waf#IPSetDescriptorValue",
-          "traits": {
-            "smithy.api#documentation": "<p>Specify an IPv4 address by using CIDR notation. For example:</p>\n\t\t       <ul>\n            <li>\n               <p>To configure AWS WAF to allow, block, or count requests that originated from the IP address 192.0.2.44, specify <code>192.0.2.44/32</code>.</p>\n            </li>\n            <li>\n               <p>To configure AWS WAF to allow, block, or count requests that originated from IP addresses from 192.0.2.0 to 192.0.2.255, specify \n\t\t\t\t<code>192.0.2.0/24</code>.</p>\n            </li>\n         </ul>\n\t\t    \n\t        <p>For more information about CIDR notation, see the Wikipedia entry \n\t      <a href=\"https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing\">Classless Inter-Domain Routing</a>.</p>\n\t        <p>Specify an IPv6 address by using CIDR notation. For example:</p>\n\t        <ul>\n            <li>\n\t              <p>To configure AWS WAF to allow, block, or count requests that originated from the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify <code>1111:0000:0000:0000:0000:0000:0000:0111/128</code>.</p>\n\t           </li>\n            <li>\n\t              <p>To configure AWS WAF to allow, block, or count requests that originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify <code>1111:0000:0000:0000:0000:0000:0000:0000/64</code>.</p>\n\t           </li>\n         </ul>",
-            "smithy.api#required": {}
-          }
-        },
         "Type": {
           "target": "com.amazonaws.waf#IPSetDescriptorType",
           "traits": {
             "smithy.api#documentation": "<p>Specify <code>IPV4</code> or <code>IPV6</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.waf#IPSetDescriptorValue",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify an IPv4 address by using CIDR notation. For example:</p>\n\t\t       <ul>\n            <li>\n               <p>To configure AWS WAF to allow, block, or count requests that originated from the IP address 192.0.2.44, specify <code>192.0.2.44/32</code>.</p>\n            </li>\n            <li>\n               <p>To configure AWS WAF to allow, block, or count requests that originated from IP addresses from 192.0.2.0 to 192.0.2.255, specify \n\t\t\t\t<code>192.0.2.0/24</code>.</p>\n            </li>\n         </ul>\n\t\t    \n\t        <p>For more information about CIDR notation, see the Wikipedia entry \n\t      <a href=\"https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing\">Classless Inter-Domain Routing</a>.</p>\n\t        <p>Specify an IPv6 address by using CIDR notation. For example:</p>\n\t        <ul>\n            <li>\n\t              <p>To configure AWS WAF to allow, block, or count requests that originated from the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify <code>1111:0000:0000:0000:0000:0000:0000:0111/128</code>.</p>\n\t           </li>\n            <li>\n\t              <p>To configure AWS WAF to allow, block, or count requests that originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify <code>1111:0000:0000:0000:0000:0000:0000:0000/64</code>.</p>\n\t           </li>\n         </ul>",
             "smithy.api#required": {}
           }
         }
@@ -4626,17 +4627,17 @@
     "com.amazonaws.waf#IPSetUpdate": {
       "type": "structure",
       "members": {
-        "IPSetDescriptor": {
-          "target": "com.amazonaws.waf#IPSetDescriptor",
-          "traits": {
-            "smithy.api#documentation": "<p>The IP address type (<code>IPV4</code> or <code>IPV6</code>) and the IP address range (in CIDR notation) that web requests originate from.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Action": {
           "target": "com.amazonaws.waf#ChangeAction",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether to insert or delete an IP address with <a>UpdateIPSet</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "IPSetDescriptor": {
+          "target": "com.amazonaws.waf#IPSetDescriptor",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP address type (<code>IPV4</code> or <code>IPV6</code>) and the IP address range (in CIDR notation) that web requests originate from.</p>",
             "smithy.api#required": {}
           }
         }
@@ -4691,6 +4692,12 @@
     "com.amazonaws.waf#ListActivatedRulesInRuleGroupRequest": {
       "type": "structure",
       "members": {
+        "RuleGroupId": {
+          "target": "com.amazonaws.waf#ResourceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>RuleGroupId</code> of the <a>RuleGroup</a> for which you want to get a list of <a>ActivatedRule</a> objects.</p>"
+          }
+        },
         "NextMarker": {
           "target": "com.amazonaws.waf#NextMarker",
           "traits": {
@@ -4702,28 +4709,22 @@
           "traits": {
             "smithy.api#documentation": "<p>Specifies the number of <code>ActivatedRules</code> that you want AWS WAF to return for this request. If you have more <code>ActivatedRules</code> than the number that you specify for <code>Limit</code>, the response includes a \n         <code>NextMarker</code> value that you can use to get another batch of <code>ActivatedRules</code>.</p>"
           }
-        },
-        "RuleGroupId": {
-          "target": "com.amazonaws.waf#ResourceId",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>RuleGroupId</code> of the <a>RuleGroup</a> for which you want to get a list of <a>ActivatedRule</a> objects.</p>"
-          }
         }
       }
     },
     "com.amazonaws.waf#ListActivatedRulesInRuleGroupResponse": {
       "type": "structure",
       "members": {
-        "ActivatedRules": {
-          "target": "com.amazonaws.waf#ActivatedRules",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of <code>ActivatedRules</code> objects.</p>"
-          }
-        },
         "NextMarker": {
           "target": "com.amazonaws.waf#NextMarker",
           "traits": {
             "smithy.api#documentation": "<p>If you have more <code>ActivatedRules</code> than the number that you specified for <code>Limit</code> in the request, the response includes a <code>NextMarker</code> value. To list more <code>ActivatedRules</code>, submit another <code>ListActivatedRulesInRuleGroup</code> request, and specify the <code>NextMarker</code> value from the response in the <code>NextMarker</code> value in the next request.</p>"
+          }
+        },
+        "ActivatedRules": {
+          "target": "com.amazonaws.waf#ActivatedRules",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of <code>ActivatedRules</code> objects.</p>"
           }
         }
       }
@@ -4751,16 +4752,16 @@
     "com.amazonaws.waf#ListByteMatchSetsRequest": {
       "type": "structure",
       "members": {
-        "Limit": {
-          "target": "com.amazonaws.waf#PaginationLimit",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the number of <code>ByteMatchSet</code> objects that you want AWS WAF to return for this request. If you have more \n\t\t\t<code>ByteMatchSets</code> objects than the number you specify for <code>Limit</code>, the response includes a \n\t\t\t<code>NextMarker</code> value that you can use to get another batch of <code>ByteMatchSet</code> objects.</p>"
-          }
-        },
         "NextMarker": {
           "target": "com.amazonaws.waf#NextMarker",
           "traits": {
             "smithy.api#documentation": "<p>If you specify a value for <code>Limit</code> and you have more <code>ByteMatchSets</code> than the value of <code>Limit</code>, \n\t\t\tAWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>ByteMatchSets</code>. \n\t\t\tFor the second and subsequent <code>ListByteMatchSets</code> requests, specify the value of <code>NextMarker</code> \n\t\t\tfrom the previous response to get information about another batch of <code>ByteMatchSets</code>.</p>"
+          }
+        },
+        "Limit": {
+          "target": "com.amazonaws.waf#PaginationLimit",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the number of <code>ByteMatchSet</code> objects that you want AWS WAF to return for this request. If you have more \n\t\t\t<code>ByteMatchSets</code> objects than the number you specify for <code>Limit</code>, the response includes a \n\t\t\t<code>NextMarker</code> value that you can use to get another batch of <code>ByteMatchSet</code> objects.</p>"
           }
         }
       }
@@ -4768,16 +4769,16 @@
     "com.amazonaws.waf#ListByteMatchSetsResponse": {
       "type": "structure",
       "members": {
-        "ByteMatchSets": {
-          "target": "com.amazonaws.waf#ByteMatchSetSummaries",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of <a>ByteMatchSetSummary</a> objects.</p>"
-          }
-        },
         "NextMarker": {
           "target": "com.amazonaws.waf#NextMarker",
           "traits": {
             "smithy.api#documentation": "<p>If you have more <code>ByteMatchSet</code> objects than the number that you specified for <code>Limit</code> in the request, \n\t\t\tthe response includes a <code>NextMarker</code> value. To list more <code>ByteMatchSet</code> objects, submit another \n\t\t\t<code>ListByteMatchSets</code> request, and specify the <code>NextMarker</code> value from the response in the \n\t\t\t<code>NextMarker</code> value in the next request.</p>"
+          }
+        },
+        "ByteMatchSets": {
+          "target": "com.amazonaws.waf#ByteMatchSetSummaries",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of <a>ByteMatchSetSummary</a> objects.</p>"
           }
         }
       }
@@ -4805,16 +4806,16 @@
     "com.amazonaws.waf#ListGeoMatchSetsRequest": {
       "type": "structure",
       "members": {
-        "Limit": {
-          "target": "com.amazonaws.waf#PaginationLimit",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the number of <code>GeoMatchSet</code> objects that you want AWS WAF to return for this request. If you have more \n\t\t\t<code>GeoMatchSet</code> objects than the number you specify for <code>Limit</code>, the response includes a \n\t\t\t<code>NextMarker</code> value that you can use to get another batch of <code>GeoMatchSet</code> objects.</p>"
-          }
-        },
         "NextMarker": {
           "target": "com.amazonaws.waf#NextMarker",
           "traits": {
             "smithy.api#documentation": "<p>If you specify a value for <code>Limit</code> and you have more <code>GeoMatchSet</code>s than the value of <code>Limit</code>, \n\t\t\tAWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>GeoMatchSet</code> objects. \n\t\t\tFor the second and subsequent <code>ListGeoMatchSets</code> requests, specify the value of <code>NextMarker</code> \n\t\t\tfrom the previous response to get information about another batch of <code>GeoMatchSet</code> objects.</p>"
+          }
+        },
+        "Limit": {
+          "target": "com.amazonaws.waf#PaginationLimit",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the number of <code>GeoMatchSet</code> objects that you want AWS WAF to return for this request. If you have more \n\t\t\t<code>GeoMatchSet</code> objects than the number you specify for <code>Limit</code>, the response includes a \n\t\t\t<code>NextMarker</code> value that you can use to get another batch of <code>GeoMatchSet</code> objects.</p>"
           }
         }
       }
@@ -4859,16 +4860,16 @@
     "com.amazonaws.waf#ListIPSetsRequest": {
       "type": "structure",
       "members": {
-        "Limit": {
-          "target": "com.amazonaws.waf#PaginationLimit",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the number of <code>IPSet</code> objects that you want AWS WAF to return for this request. If you have more \n\t\t\t<code>IPSet</code> objects than the number you specify for <code>Limit</code>, the response includes a \n\t\t\t<code>NextMarker</code> value that you can use to get another batch of <code>IPSet</code> objects.</p>"
-          }
-        },
         "NextMarker": {
           "target": "com.amazonaws.waf#NextMarker",
           "traits": {
             "smithy.api#documentation": "<p>AWS WAF returns a <code>NextMarker</code> value in the response that allows you to\n         list another group of <code>IPSets</code>. For the second and subsequent\n            <code>ListIPSets</code> requests, specify the value of <code>NextMarker</code> from the\n         previous response to get information about another batch of <code>IPSets</code>.</p>"
+          }
+        },
+        "Limit": {
+          "target": "com.amazonaws.waf#PaginationLimit",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the number of <code>IPSet</code> objects that you want AWS WAF to return for this request. If you have more \n\t\t\t<code>IPSet</code> objects than the number you specify for <code>Limit</code>, the response includes a \n\t\t\t<code>NextMarker</code> value that you can use to get another batch of <code>IPSet</code> objects.</p>"
           }
         }
       }
@@ -4876,16 +4877,16 @@
     "com.amazonaws.waf#ListIPSetsResponse": {
       "type": "structure",
       "members": {
-        "IPSets": {
-          "target": "com.amazonaws.waf#IPSetSummaries",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of <a>IPSetSummary</a> objects.</p>"
-          }
-        },
         "NextMarker": {
           "target": "com.amazonaws.waf#NextMarker",
           "traits": {
             "smithy.api#documentation": "<p>To list more <code>IPSet</code> objects, submit another <code>ListIPSets</code>\n         request, and in the next request use the <code>NextMarker</code> response value as the\n            <code>NextMarker</code> value.</p>"
+          }
+        },
+        "IPSets": {
+          "target": "com.amazonaws.waf#IPSetSummaries",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of <a>IPSetSummary</a> objects.</p>"
           }
         }
       }
@@ -4933,16 +4934,16 @@
     "com.amazonaws.waf#ListLoggingConfigurationsResponse": {
       "type": "structure",
       "members": {
-        "NextMarker": {
-          "target": "com.amazonaws.waf#NextMarker",
-          "traits": {
-            "smithy.api#documentation": "<p>If you have more <code>LoggingConfigurations</code> than the number that you specified for <code>Limit</code> in the request, the response includes a <code>NextMarker</code> value. To list more <code>LoggingConfigurations</code>, submit another <code>ListLoggingConfigurations</code> request, and specify the <code>NextMarker</code> value from the response in the <code>NextMarker</code> value in the next request.</p>"
-          }
-        },
         "LoggingConfigurations": {
           "target": "com.amazonaws.waf#LoggingConfigurations",
           "traits": {
             "smithy.api#documentation": "<p>An array of <a>LoggingConfiguration</a> objects.</p>"
+          }
+        },
+        "NextMarker": {
+          "target": "com.amazonaws.waf#NextMarker",
+          "traits": {
+            "smithy.api#documentation": "<p>If you have more <code>LoggingConfigurations</code> than the number that you specified for <code>Limit</code> in the request, the response includes a <code>NextMarker</code> value. To list more <code>LoggingConfigurations</code>, submit another <code>ListLoggingConfigurations</code> request, and specify the <code>NextMarker</code> value from the response in the <code>NextMarker</code> value in the next request.</p>"
           }
         }
       }
@@ -4970,16 +4971,16 @@
     "com.amazonaws.waf#ListRateBasedRulesRequest": {
       "type": "structure",
       "members": {
-        "Limit": {
-          "target": "com.amazonaws.waf#PaginationLimit",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the number of <code>Rules</code> that you want AWS WAF to return for this\n         request. If you have more <code>Rules</code> than the number that you specify for\n            <code>Limit</code>, the response includes a <code>NextMarker</code> value that you can\n         use to get another batch of <code>Rules</code>.</p>"
-          }
-        },
         "NextMarker": {
           "target": "com.amazonaws.waf#NextMarker",
           "traits": {
             "smithy.api#documentation": "<p>If you specify a value for <code>Limit</code> and you have more <code>Rules</code>\n         than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the\n         response that allows you to list another group of <code>Rules</code>. For the second and\n         subsequent <code>ListRateBasedRules</code> requests, specify the value of\n            <code>NextMarker</code> from the previous response to get information about another\n         batch of <code>Rules</code>.</p>"
+          }
+        },
+        "Limit": {
+          "target": "com.amazonaws.waf#PaginationLimit",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the number of <code>Rules</code> that you want AWS WAF to return for this\n         request. If you have more <code>Rules</code> than the number that you specify for\n            <code>Limit</code>, the response includes a <code>NextMarker</code> value that you can\n         use to get another batch of <code>Rules</code>.</p>"
           }
         }
       }
@@ -4987,16 +4988,16 @@
     "com.amazonaws.waf#ListRateBasedRulesResponse": {
       "type": "structure",
       "members": {
-        "Rules": {
-          "target": "com.amazonaws.waf#RuleSummaries",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of <a>RuleSummary</a> objects.</p>"
-          }
-        },
         "NextMarker": {
           "target": "com.amazonaws.waf#NextMarker",
           "traits": {
             "smithy.api#documentation": "<p>If you have more <code>Rules</code> than the number that you specified for\n            <code>Limit</code> in the request, the response includes a <code>NextMarker</code>\n         value. To list more <code>Rules</code>, submit another <code>ListRateBasedRules</code>\n         request, and specify the <code>NextMarker</code> value from the response in the\n            <code>NextMarker</code> value in the next request.</p>"
+          }
+        },
+        "Rules": {
+          "target": "com.amazonaws.waf#RuleSummaries",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of <a>RuleSummary</a> objects.</p>"
           }
         }
       }
@@ -5041,16 +5042,16 @@
     "com.amazonaws.waf#ListRegexMatchSetsResponse": {
       "type": "structure",
       "members": {
-        "RegexMatchSets": {
-          "target": "com.amazonaws.waf#RegexMatchSetSummaries",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of <a>RegexMatchSetSummary</a> objects.</p>"
-          }
-        },
         "NextMarker": {
           "target": "com.amazonaws.waf#NextMarker",
           "traits": {
             "smithy.api#documentation": "<p>If you have more <code>RegexMatchSet</code> objects than the number that you specified for <code>Limit</code> in the request, \n\t\t\tthe response includes a <code>NextMarker</code> value. To list more <code>RegexMatchSet</code> objects, submit another \n\t\t\t<code>ListRegexMatchSets</code> request, and specify the <code>NextMarker</code> value from the response in the \n\t\t\t<code>NextMarker</code> value in the next request.</p>"
+          }
+        },
+        "RegexMatchSets": {
+          "target": "com.amazonaws.waf#RegexMatchSetSummaries",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of <a>RegexMatchSetSummary</a> objects.</p>"
           }
         }
       }
@@ -5078,16 +5079,16 @@
     "com.amazonaws.waf#ListRegexPatternSetsRequest": {
       "type": "structure",
       "members": {
-        "Limit": {
-          "target": "com.amazonaws.waf#PaginationLimit",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the number of <code>RegexPatternSet</code> objects that you want AWS WAF to return for this request. If you have more \n\t\t\t<code>RegexPatternSet</code> objects than the number you specify for <code>Limit</code>, the response includes a \n\t\t\t<code>NextMarker</code> value that you can use to get another batch of <code>RegexPatternSet</code> objects.</p>"
-          }
-        },
         "NextMarker": {
           "target": "com.amazonaws.waf#NextMarker",
           "traits": {
             "smithy.api#documentation": "<p>If you specify a value for <code>Limit</code> and you have more <code>RegexPatternSet</code> objects than the value of <code>Limit</code>, \n\t\t\tAWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>RegexPatternSet</code> objects. \n\t\t\tFor the second and subsequent <code>ListRegexPatternSets</code> requests, specify the value of <code>NextMarker</code> \n\t\t\tfrom the previous response to get information about another batch of <code>RegexPatternSet</code> objects.</p>"
+          }
+        },
+        "Limit": {
+          "target": "com.amazonaws.waf#PaginationLimit",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the number of <code>RegexPatternSet</code> objects that you want AWS WAF to return for this request. If you have more \n\t\t\t<code>RegexPatternSet</code> objects than the number you specify for <code>Limit</code>, the response includes a \n\t\t\t<code>NextMarker</code> value that you can use to get another batch of <code>RegexPatternSet</code> objects.</p>"
           }
         }
       }
@@ -5129,16 +5130,16 @@
     "com.amazonaws.waf#ListRuleGroupsRequest": {
       "type": "structure",
       "members": {
-        "Limit": {
-          "target": "com.amazonaws.waf#PaginationLimit",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the number of <code>RuleGroups</code> that you want AWS WAF to return for this request. If you have more <code>RuleGroups</code> than the number that you specify for <code>Limit</code>, the response includes a <code>NextMarker</code> value that you can use to get another batch of <code>RuleGroups</code>.</p>"
-          }
-        },
         "NextMarker": {
           "target": "com.amazonaws.waf#NextMarker",
           "traits": {
             "smithy.api#documentation": "<p>If you specify a value for <code>Limit</code> and you have more <code>RuleGroups</code> than the value of <code>Limit</code>, \n         AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>RuleGroups</code>. \n         For the second and subsequent <code>ListRuleGroups</code> requests, specify the value of <code>NextMarker</code> \n         from the previous response to get information about another batch of <code>RuleGroups</code>.</p>"
+          }
+        },
+        "Limit": {
+          "target": "com.amazonaws.waf#PaginationLimit",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the number of <code>RuleGroups</code> that you want AWS WAF to return for this request. If you have more <code>RuleGroups</code> than the number that you specify for <code>Limit</code>, the response includes a <code>NextMarker</code> value that you can use to get another batch of <code>RuleGroups</code>.</p>"
           }
         }
       }
@@ -5146,16 +5147,16 @@
     "com.amazonaws.waf#ListRuleGroupsResponse": {
       "type": "structure",
       "members": {
-        "RuleGroups": {
-          "target": "com.amazonaws.waf#RuleGroupSummaries",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of <a>RuleGroup</a> objects.</p>"
-          }
-        },
         "NextMarker": {
           "target": "com.amazonaws.waf#NextMarker",
           "traits": {
             "smithy.api#documentation": "<p>If you have more <code>RuleGroups</code> than the number that you specified for <code>Limit</code> in the request, the response includes a <code>NextMarker</code> value. To list more <code>RuleGroups</code>, submit another <code>ListRuleGroups</code> request, and specify the <code>NextMarker</code> value from the response in the <code>NextMarker</code> value in the next request.</p>"
+          }
+        },
+        "RuleGroups": {
+          "target": "com.amazonaws.waf#RuleGroupSummaries",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of <a>RuleGroup</a> objects.</p>"
           }
         }
       }
@@ -5254,16 +5255,16 @@
     "com.amazonaws.waf#ListSizeConstraintSetsResponse": {
       "type": "structure",
       "members": {
-        "SizeConstraintSets": {
-          "target": "com.amazonaws.waf#SizeConstraintSetSummaries",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of <a>SizeConstraintSetSummary</a> objects.</p>"
-          }
-        },
         "NextMarker": {
           "target": "com.amazonaws.waf#NextMarker",
           "traits": {
             "smithy.api#documentation": "<p>If you have more <code>SizeConstraintSet</code> objects than the number that you specified for <code>Limit</code> in the request, \n\t\t\tthe response includes a <code>NextMarker</code> value. To list more <code>SizeConstraintSet</code> objects, submit another \n\t\t\t<code>ListSizeConstraintSets</code> request, and specify the <code>NextMarker</code> value from the response in the \n\t\t\t<code>NextMarker</code> value in the next request.</p>"
+          }
+        },
+        "SizeConstraintSets": {
+          "target": "com.amazonaws.waf#SizeConstraintSetSummaries",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of <a>SizeConstraintSetSummary</a> objects.</p>"
           }
         }
       }
@@ -5417,6 +5418,12 @@
     "com.amazonaws.waf#ListTagsForResourceRequest": {
       "type": "structure",
       "members": {
+        "NextMarker": {
+          "target": "com.amazonaws.waf#NextMarker",
+          "traits": {
+            "smithy.api#documentation": "<p></p>"
+          }
+        },
         "Limit": {
           "target": "com.amazonaws.waf#PaginationLimit",
           "traits": {
@@ -5428,12 +5435,6 @@
           "traits": {
             "smithy.api#documentation": "<p></p>",
             "smithy.api#required": {}
-          }
-        },
-        "NextMarker": {
-          "target": "com.amazonaws.waf#NextMarker",
-          "traits": {
-            "smithy.api#documentation": "<p></p>"
           }
         }
       }
@@ -5478,16 +5479,16 @@
     "com.amazonaws.waf#ListWebACLsRequest": {
       "type": "structure",
       "members": {
-        "Limit": {
-          "target": "com.amazonaws.waf#PaginationLimit",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the number of <code>WebACL</code> objects that you want AWS WAF to return for this request. If you have more \n\t\t\t<code>WebACL</code> objects than the number that you specify for <code>Limit</code>, the response includes a \n\t\t\t<code>NextMarker</code> value that you can use to get another batch of <code>WebACL</code> objects.</p>"
-          }
-        },
         "NextMarker": {
           "target": "com.amazonaws.waf#NextMarker",
           "traits": {
             "smithy.api#documentation": "<p>If you specify a value for <code>Limit</code> and you have more <code>WebACL</code> objects than the number that you specify \n\t\t\tfor <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of \n\t\t\t<code>WebACL</code> objects. For the second and subsequent <code>ListWebACLs</code> requests, specify the value of <code>NextMarker</code> \n\t\t\tfrom the previous response to get information about another batch of <code>WebACL</code> objects.</p>"
+          }
+        },
+        "Limit": {
+          "target": "com.amazonaws.waf#PaginationLimit",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the number of <code>WebACL</code> objects that you want AWS WAF to return for this request. If you have more \n\t\t\t<code>WebACL</code> objects than the number that you specify for <code>Limit</code>, the response includes a \n\t\t\t<code>NextMarker</code> value that you can use to get another batch of <code>WebACL</code> objects.</p>"
           }
         }
       }
@@ -5532,16 +5533,16 @@
     "com.amazonaws.waf#ListXssMatchSetsRequest": {
       "type": "structure",
       "members": {
-        "Limit": {
-          "target": "com.amazonaws.waf#PaginationLimit",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the number of <a>XssMatchSet</a> objects that you want AWS WAF to return for this request. If you have more \n\t\t\t<code>XssMatchSet</code> objects than the number you specify for <code>Limit</code>, the response includes a \n\t\t\t<code>NextMarker</code> value that you can use to get another batch of <code>Rules</code>.</p>"
-          }
-        },
         "NextMarker": {
           "target": "com.amazonaws.waf#NextMarker",
           "traits": {
             "smithy.api#documentation": "<p>If you specify a value for <code>Limit</code> and you have more <a>XssMatchSet</a> objects than the value of \n\t\t\t<code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of \n\t\t\t<code>XssMatchSets</code>. For the second and subsequent <code>ListXssMatchSets</code> requests, specify the \n\t\t\tvalue of <code>NextMarker</code> from the previous response to get information about another batch of <code>XssMatchSets</code>.</p>"
+          }
+        },
+        "Limit": {
+          "target": "com.amazonaws.waf#PaginationLimit",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the number of <a>XssMatchSet</a> objects that you want AWS WAF to return for this request. If you have more \n\t\t\t<code>XssMatchSet</code> objects than the number you specify for <code>Limit</code>, the response includes a \n\t\t\t<code>NextMarker</code> value that you can use to get another batch of <code>Rules</code>.</p>"
           }
         }
       },
@@ -5584,12 +5585,6 @@
     "com.amazonaws.waf#LoggingConfiguration": {
       "type": "structure",
       "members": {
-        "RedactedFields": {
-          "target": "com.amazonaws.waf#RedactedFields",
-          "traits": {
-            "smithy.api#documentation": "<p>The parts of the request that you want redacted from the logs. For\n         example,\n         if you redact the cookie field, the cookie field in the firehose will be\n            <code>xxx</code>. </p>"
-          }
-        },
         "ResourceArn": {
           "target": "com.amazonaws.waf#ResourceArn",
           "traits": {
@@ -5602,6 +5597,12 @@
           "traits": {
             "smithy.api#documentation": "<p>An array of Amazon Kinesis Data Firehose ARNs.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "RedactedFields": {
+          "target": "com.amazonaws.waf#RedactedFields",
+          "traits": {
+            "smithy.api#documentation": "<p>The parts of the request that you want redacted from the logs. For\n         example,\n         if you redact the cookie field, the cookie field in the firehose will be\n            <code>xxx</code>. </p>"
           }
         }
       },
@@ -5892,10 +5893,10 @@
     "com.amazonaws.waf#Predicate": {
       "type": "structure",
       "members": {
-        "DataId": {
-          "target": "com.amazonaws.waf#ResourceId",
+        "Negated": {
+          "target": "com.amazonaws.waf#Negated",
           "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for a predicate in a <code>Rule</code>, such as <code>ByteMatchSetId</code> or <code>IPSetId</code>. \n\t\t\tThe ID is returned by the corresponding <code>Create</code> or <code>List</code> command.</p>",
+            "smithy.api#documentation": "<p>Set <code>Negated</code> to <code>False</code> if you want AWS WAF to allow, block, or count requests based on the settings in the \n\t\t       specified <a>ByteMatchSet</a>, <a>IPSet</a>, <a>SqlInjectionMatchSet</a>, <a>XssMatchSet</a>, <a>RegexMatchSet</a>,  <a>GeoMatchSet</a>,  or <a>SizeConstraintSet</a>.\n\t\t\tFor example, if an <code>IPSet</code> includes the IP address <code>192.0.2.44</code>, AWS WAF will allow or block requests based on that IP address.</p> \n\t\t       <p>Set <code>Negated</code> to <code>True</code> if you want AWS WAF to allow or block a request based on the negation \n\t\t       of the settings in the <a>ByteMatchSet</a>, <a>IPSet</a>, <a>SqlInjectionMatchSet</a>, <a>XssMatchSet</a>, <a>RegexMatchSet</a>,  <a>GeoMatchSet</a>, or <a>SizeConstraintSet</a>.\n\t\t\tFor example, if an <code>IPSet</code> includes the IP address <code>192.0.2.44</code>, AWS WAF will allow, block, or count requests based on \n\t\t\tall IP addresses <i>except</i> \n            <code>192.0.2.44</code>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5906,10 +5907,10 @@
             "smithy.api#required": {}
           }
         },
-        "Negated": {
-          "target": "com.amazonaws.waf#Negated",
+        "DataId": {
+          "target": "com.amazonaws.waf#ResourceId",
           "traits": {
-            "smithy.api#documentation": "<p>Set <code>Negated</code> to <code>False</code> if you want AWS WAF to allow, block, or count requests based on the settings in the \n\t\t       specified <a>ByteMatchSet</a>, <a>IPSet</a>, <a>SqlInjectionMatchSet</a>, <a>XssMatchSet</a>, <a>RegexMatchSet</a>,  <a>GeoMatchSet</a>,  or <a>SizeConstraintSet</a>.\n\t\t\tFor example, if an <code>IPSet</code> includes the IP address <code>192.0.2.44</code>, AWS WAF will allow or block requests based on that IP address.</p> \n\t\t       <p>Set <code>Negated</code> to <code>True</code> if you want AWS WAF to allow or block a request based on the negation \n\t\t       of the settings in the <a>ByteMatchSet</a>, <a>IPSet</a>, <a>SqlInjectionMatchSet</a>, <a>XssMatchSet</a>, <a>RegexMatchSet</a>,  <a>GeoMatchSet</a>, or <a>SizeConstraintSet</a>.\n\t\t\tFor example, if an <code>IPSet</code> includes the IP address <code>192.0.2.44</code>, AWS WAF will allow, block, or count requests based on \n\t\t\tall IP addresses <i>except</i> \n            <code>192.0.2.44</code>.</p>",
+            "smithy.api#documentation": "<p>A unique identifier for a predicate in a <code>Rule</code>, such as <code>ByteMatchSetId</code> or <code>IPSetId</code>. \n\t\t\tThe ID is returned by the corresponding <code>Create</code> or <code>List</code> command.</p>",
             "smithy.api#required": {}
           }
         }
@@ -6060,23 +6061,10 @@
     "com.amazonaws.waf#RateBasedRule": {
       "type": "structure",
       "members": {
-        "MetricName": {
-          "target": "com.amazonaws.waf#MetricName",
+        "RuleId": {
+          "target": "com.amazonaws.waf#ResourceId",
           "traits": {
-            "smithy.api#documentation": "<p>A friendly name or description for the metrics for a <code>RateBasedRule</code>. The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain\n         whitespace or metric names reserved for AWS WAF, including \"All\" and \"Default_Action.\" You can't change the name of the metric after you create the\n            <code>RateBasedRule</code>.</p>"
-          }
-        },
-        "RateLimit": {
-          "target": "com.amazonaws.waf#RateLimit",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of requests, which have an identical value in the field specified\n         by the <code>RateKey</code>, allowed in a five-minute period. If the number of requests\n         exceeds the <code>RateLimit</code> and the other predicates specified in the rule are also\n         met, AWS WAF triggers the action that is specified for this rule.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "MatchPredicates": {
-          "target": "com.amazonaws.waf#Predicates",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>Predicates</code> object contains one <code>Predicate</code> element for\n         each <a>ByteMatchSet</a>, <a>IPSet</a>, or <a>SqlInjectionMatchSet</a> object that you want to include in a\n            <code>RateBasedRule</code>.</p>",
+            "smithy.api#documentation": "<p>A unique identifier for a <code>RateBasedRule</code>. You use <code>RuleId</code> to\n         get more information about a <code>RateBasedRule</code> (see <a>GetRateBasedRule</a>), update a <code>RateBasedRule</code> (see <a>UpdateRateBasedRule</a>), insert a <code>RateBasedRule</code> into a\n            <code>WebACL</code> or delete one from a <code>WebACL</code> (see <a>UpdateWebACL</a>), or delete a <code>RateBasedRule</code> from AWS WAF (see <a>DeleteRateBasedRule</a>).</p>",
             "smithy.api#required": {}
           }
         },
@@ -6086,6 +6074,19 @@
             "smithy.api#documentation": "<p>A friendly name or description for a <code>RateBasedRule</code>. You can't change the\n         name of a <code>RateBasedRule</code> after you create it.</p>"
           }
         },
+        "MetricName": {
+          "target": "com.amazonaws.waf#MetricName",
+          "traits": {
+            "smithy.api#documentation": "<p>A friendly name or description for the metrics for a <code>RateBasedRule</code>. The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain\n         whitespace or metric names reserved for AWS WAF, including \"All\" and \"Default_Action.\" You can't change the name of the metric after you create the\n            <code>RateBasedRule</code>.</p>"
+          }
+        },
+        "MatchPredicates": {
+          "target": "com.amazonaws.waf#Predicates",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>Predicates</code> object contains one <code>Predicate</code> element for\n         each <a>ByteMatchSet</a>, <a>IPSet</a>, or <a>SqlInjectionMatchSet</a> object that you want to include in a\n            <code>RateBasedRule</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "RateKey": {
           "target": "com.amazonaws.waf#RateKey",
           "traits": {
@@ -6093,10 +6094,10 @@
             "smithy.api#required": {}
           }
         },
-        "RuleId": {
-          "target": "com.amazonaws.waf#ResourceId",
+        "RateLimit": {
+          "target": "com.amazonaws.waf#RateLimit",
           "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for a <code>RateBasedRule</code>. You use <code>RuleId</code> to\n         get more information about a <code>RateBasedRule</code> (see <a>GetRateBasedRule</a>), update a <code>RateBasedRule</code> (see <a>UpdateRateBasedRule</a>), insert a <code>RateBasedRule</code> into a\n            <code>WebACL</code> or delete one from a <code>WebACL</code> (see <a>UpdateWebACL</a>), or delete a <code>RateBasedRule</code> from AWS WAF (see <a>DeleteRateBasedRule</a>).</p>",
+            "smithy.api#documentation": "<p>The maximum number of requests, which have an identical value in the field specified\n         by the <code>RateKey</code>, allowed in a five-minute period. If the number of requests\n         exceeds the <code>RateLimit</code> and the other predicates specified in the rule are also\n         met, AWS WAF triggers the action that is specified for this rule.</p>",
             "smithy.api#required": {}
           }
         }
@@ -6140,16 +6141,16 @@
             "smithy.api#documentation": "<p>The <code>RegexMatchSetId</code> for a <code>RegexMatchSet</code>. You use <code>RegexMatchSetId</code> to get information about a \n\t\t\t<code>RegexMatchSet</code> (see <a>GetRegexMatchSet</a>), update a <code>RegexMatchSet</code> (see <a>UpdateRegexMatchSet</a>), \n\t\t\tinsert a <code>RegexMatchSet</code> into a <code>Rule</code> or delete one from a <code>Rule</code> (see <a>UpdateRule</a>), and  \n\t\t\tdelete a <code>RegexMatchSet</code> from AWS WAF (see <a>DeleteRegexMatchSet</a>).</p>\n\t\t       <p>\n            <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by <a>ListRegexMatchSets</a>.</p>"
           }
         },
-        "RegexMatchTuples": {
-          "target": "com.amazonaws.waf#RegexMatchTuples",
-          "traits": {
-            "smithy.api#documentation": "<p>Contains an array of <a>RegexMatchTuple</a> objects. Each <code>RegexMatchTuple</code> \n\t\t\t\tobject contains: </p>\n\t\t       <ul>\n            <li>\n               <p>The part of a web request that you want AWS WAF to inspect, such as a query string or the value of the <code>User-Agent</code> header. </p>\n            </li>\n            <li>\n               <p>The identifier of the pattern (a regular expression) that you want AWS WAF to look for. For more information, see <a>RegexPatternSet</a>.</p>\n            </li>\n            <li>\n               <p>Whether to perform any conversions on the request, such as converting it to lowercase, before inspecting it for the specified string.</p>\n\t\t\t         </li>\n         </ul>"
-          }
-        },
         "Name": {
           "target": "com.amazonaws.waf#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>A friendly name or description of the <a>RegexMatchSet</a>. You can't change <code>Name</code> after you create a \n\t\t\t<code>RegexMatchSet</code>.</p>"
+          }
+        },
+        "RegexMatchTuples": {
+          "target": "com.amazonaws.waf#RegexMatchTuples",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains an array of <a>RegexMatchTuple</a> objects. Each <code>RegexMatchTuple</code> \n\t\t\t\tobject contains: </p>\n\t\t       <ul>\n            <li>\n               <p>The part of a web request that you want AWS WAF to inspect, such as a query string or the value of the <code>User-Agent</code> header. </p>\n            </li>\n            <li>\n               <p>The identifier of the pattern (a regular expression) that you want AWS WAF to look for. For more information, see <a>RegexPatternSet</a>.</p>\n            </li>\n            <li>\n               <p>Whether to perform any conversions on the request, such as converting it to lowercase, before inspecting it for the specified string.</p>\n\t\t\t         </li>\n         </ul>"
           }
         }
       },
@@ -6166,17 +6167,17 @@
     "com.amazonaws.waf#RegexMatchSetSummary": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.waf#ResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>A friendly name or description of the <a>RegexMatchSet</a>. You can't change <code>Name</code> after you create a <code>RegexMatchSet</code>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "RegexMatchSetId": {
           "target": "com.amazonaws.waf#ResourceId",
           "traits": {
             "smithy.api#documentation": "<p>The <code>RegexMatchSetId</code> for a <code>RegexMatchSet</code>. You use <code>RegexMatchSetId</code> to get information about a <code>RegexMatchSet</code>,\n\t\t\tupdate a <code>RegexMatchSet</code>, remove a <code>RegexMatchSet</code> from a <code>Rule</code>, and delete a <code>RegexMatchSet</code> from AWS WAF.</p>\n\t\t       <p>\n            <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by <a>ListRegexMatchSets</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.waf#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>A friendly name or description of the <a>RegexMatchSet</a>. You can't change <code>Name</code> after you create a <code>RegexMatchSet</code>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -6221,17 +6222,17 @@
     "com.amazonaws.waf#RegexMatchTuple": {
       "type": "structure",
       "members": {
-        "TextTransformation": {
-          "target": "com.amazonaws.waf#TextTransformation",
-          "traits": {
-            "smithy.api#documentation": "<p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF. \n\t\t\tIf you specify a transformation, AWS WAF performs the transformation on <code>RegexPatternSet</code> before inspecting a request for a match.</p>\t\n         <p>You can only specify a single type of TextTransformation.</p>\t\t\t\n\t\t       <p>\n            <b>CMD_LINE</b>\n         </p>\n\t\t       <p>When you're concerned that attackers are injecting an operating system commandline command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:</p>\n\t\t       <ul>\n            <li>\n               <p>Delete the following characters: \\ \" ' ^</p>\n            </li>\n            <li>\n               <p>Delete spaces before the following characters: / (</p>\n            </li>\n            <li>\n               <p>Replace the following characters with a space: , ;</p>\n            </li>\n            <li>\n               <p>Replace multiple spaces with one space</p>\n            </li>\n            <li>\n               <p>Convert uppercase letters (A-Z) to lowercase (a-z)</p>\n            </li>\n         </ul>\n\t\t\n\t\t       <p>\n            <b>COMPRESS_WHITE_SPACE</b>\n         </p>\n\t\t       <p>Use this option to replace the following characters with a space character (decimal 32):</p>\n\t\t       <ul>\n            <li>\n               <p>\\f, formfeed, decimal 12</p>\n            </li>\n            <li>\n               <p>\\t, tab, decimal 9</p>\n            </li>\n            <li>\n               <p>\\n, newline, decimal 10</p>\n            </li>\n            <li>\n               <p>\\r, carriage return, decimal 13</p>\n            </li>\n            <li>\n               <p>\\v, vertical tab, decimal 11</p>\n            </li>\n            <li>\n               <p>non-breaking space, decimal 160</p>\n            </li>\n         </ul>\n\t\t       <p>\n            <code>COMPRESS_WHITE_SPACE</code> also replaces multiple spaces with one space.</p>\t\t\n\t\t       <p>\n            <b>HTML_ENTITY_DECODE</b>\n         </p>\n\t\t       <p>Use this option to replace HTML-encoded characters with unencoded characters. <code>HTML_ENTITY_DECODE</code> performs \n\t\t\tthe following operations:</p>\n\t\t       <ul>\n            <li>\n               <p>Replaces <code>(ampersand)quot;</code> with <code>\"</code>\n               </p>\n            </li>\n            <li>\n               <p>Replaces <code>(ampersand)nbsp;</code> with a non-breaking space, decimal 160</p>\n            </li>\n            <li>\n               <p>Replaces <code>(ampersand)lt;</code> with a \"less than\" symbol</p>\n            </li>\n            <li>\n               <p>Replaces <code>(ampersand)gt;</code> with <code>></code>\n               </p>\n            </li>\n            <li>\n               <p>Replaces characters that are represented in hexadecimal format, <code>(ampersand)#xhhhh;</code>, with the corresponding \n\t\t\t\tcharacters</p>\n            </li>\n            <li>\n               <p>Replaces characters that are represented in decimal format, <code>(ampersand)#nnnn;</code>, with the corresponding \n\t\t\t\tcharacters</p>\n            </li>\n         </ul>\t\t\n\t\t       <p>\n            <b>LOWERCASE</b>\n         </p>\n\t\t       <p>Use this option to convert uppercase letters (A-Z) to lowercase (a-z).</p>\t\t\n\t\t       <p>\n            <b>URL_DECODE</b>\n         </p>\n\t\t       <p>Use this option to decode a URL-encoded value.</p>\t\t\n\t\t       <p>\n            <b>NONE</b>\n         </p>\n\t\t       <p>Specify <code>NONE</code> if you don't want to perform any text transformations.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "FieldToMatch": {
           "target": "com.amazonaws.waf#FieldToMatch",
           "traits": {
             "smithy.api#documentation": "<p>Specifies where in a web request to look for the <code>RegexPatternSet</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TextTransformation": {
+          "target": "com.amazonaws.waf#TextTransformation",
+          "traits": {
+            "smithy.api#documentation": "<p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF. \n\t\t\tIf you specify a transformation, AWS WAF performs the transformation on <code>RegexPatternSet</code> before inspecting a request for a match.</p>\t\n         <p>You can only specify a single type of TextTransformation.</p>\t\t\t\n\t\t       <p>\n            <b>CMD_LINE</b>\n         </p>\n\t\t       <p>When you're concerned that attackers are injecting an operating system commandline command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:</p>\n\t\t       <ul>\n            <li>\n               <p>Delete the following characters: \\ \" ' ^</p>\n            </li>\n            <li>\n               <p>Delete spaces before the following characters: / (</p>\n            </li>\n            <li>\n               <p>Replace the following characters with a space: , ;</p>\n            </li>\n            <li>\n               <p>Replace multiple spaces with one space</p>\n            </li>\n            <li>\n               <p>Convert uppercase letters (A-Z) to lowercase (a-z)</p>\n            </li>\n         </ul>\n\t\t\n\t\t       <p>\n            <b>COMPRESS_WHITE_SPACE</b>\n         </p>\n\t\t       <p>Use this option to replace the following characters with a space character (decimal 32):</p>\n\t\t       <ul>\n            <li>\n               <p>\\f, formfeed, decimal 12</p>\n            </li>\n            <li>\n               <p>\\t, tab, decimal 9</p>\n            </li>\n            <li>\n               <p>\\n, newline, decimal 10</p>\n            </li>\n            <li>\n               <p>\\r, carriage return, decimal 13</p>\n            </li>\n            <li>\n               <p>\\v, vertical tab, decimal 11</p>\n            </li>\n            <li>\n               <p>non-breaking space, decimal 160</p>\n            </li>\n         </ul>\n\t\t       <p>\n            <code>COMPRESS_WHITE_SPACE</code> also replaces multiple spaces with one space.</p>\t\t\n\t\t       <p>\n            <b>HTML_ENTITY_DECODE</b>\n         </p>\n\t\t       <p>Use this option to replace HTML-encoded characters with unencoded characters. <code>HTML_ENTITY_DECODE</code> performs \n\t\t\tthe following operations:</p>\n\t\t       <ul>\n            <li>\n               <p>Replaces <code>(ampersand)quot;</code> with <code>\"</code>\n               </p>\n            </li>\n            <li>\n               <p>Replaces <code>(ampersand)nbsp;</code> with a non-breaking space, decimal 160</p>\n            </li>\n            <li>\n               <p>Replaces <code>(ampersand)lt;</code> with a \"less than\" symbol</p>\n            </li>\n            <li>\n               <p>Replaces <code>(ampersand)gt;</code> with <code>></code>\n               </p>\n            </li>\n            <li>\n               <p>Replaces characters that are represented in hexadecimal format, <code>(ampersand)#xhhhh;</code>, with the corresponding \n\t\t\t\tcharacters</p>\n            </li>\n            <li>\n               <p>Replaces characters that are represented in decimal format, <code>(ampersand)#nnnn;</code>, with the corresponding \n\t\t\t\tcharacters</p>\n            </li>\n         </ul>\t\t\n\t\t       <p>\n            <b>LOWERCASE</b>\n         </p>\n\t\t       <p>Use this option to convert uppercase letters (A-Z) to lowercase (a-z).</p>\t\t\n\t\t       <p>\n            <b>URL_DECODE</b>\n         </p>\n\t\t       <p>Use this option to decode a URL-encoded value.</p>\t\t\n\t\t       <p>\n            <b>NONE</b>\n         </p>\n\t\t       <p>Specify <code>NONE</code> if you don't want to perform any text transformations.</p>",
             "smithy.api#required": {}
           }
         },
@@ -6263,17 +6264,17 @@
             "smithy.api#required": {}
           }
         },
+        "Name": {
+          "target": "com.amazonaws.waf#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>A friendly name or description of the <a>RegexPatternSet</a>. You can't change <code>Name</code> after you create a <code>RegexPatternSet</code>.</p>"
+          }
+        },
         "RegexPatternStrings": {
           "target": "com.amazonaws.waf#RegexPatternStrings",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the regular expression (regex) patterns that you want AWS WAF to search for, such as <code>B[a@]dB[o0]t</code>.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.waf#ResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>A friendly name or description of the <a>RegexPatternSet</a>. You can't change <code>Name</code> after you create a <code>RegexPatternSet</code>.</p>"
           }
         }
       },
@@ -6397,12 +6398,6 @@
     "com.amazonaws.waf#Rule": {
       "type": "structure",
       "members": {
-        "MetricName": {
-          "target": "com.amazonaws.waf#MetricName",
-          "traits": {
-            "smithy.api#documentation": "<p>A friendly name or description for the metrics for this <code>Rule</code>. The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain\n         whitespace or metric names reserved for AWS WAF, including \"All\" and \"Default_Action.\" You can't change <code>MetricName</code> after you create the <code>Rule</code>.</p>"
-          }
-        },
         "RuleId": {
           "target": "com.amazonaws.waf#ResourceId",
           "traits": {
@@ -6414,6 +6409,12 @@
           "target": "com.amazonaws.waf#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The friendly name or description for the <code>Rule</code>. You can't change the name of a <code>Rule</code> after you create it.</p>"
+          }
+        },
+        "MetricName": {
+          "target": "com.amazonaws.waf#MetricName",
+          "traits": {
+            "smithy.api#documentation": "<p>A friendly name or description for the metrics for this <code>Rule</code>. The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain\n         whitespace or metric names reserved for AWS WAF, including \"All\" and \"Default_Action.\" You can't change <code>MetricName</code> after you create the <code>Rule</code>.</p>"
           }
         },
         "Predicates": {
@@ -6431,6 +6432,13 @@
     "com.amazonaws.waf#RuleGroup": {
       "type": "structure",
       "members": {
+        "RuleGroupId": {
+          "target": "com.amazonaws.waf#ResourceId",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for a <code>RuleGroup</code>. You use <code>RuleGroupId</code> to get more information about a <code>RuleGroup</code> (see <a>GetRuleGroup</a>), \n         update a <code>RuleGroup</code> (see <a>UpdateRuleGroup</a>), insert a <code>RuleGroup</code> into a <code>WebACL</code> or delete a \n         one from a <code>WebACL</code> (see <a>UpdateWebACL</a>), or delete a <code>RuleGroup</code> from AWS WAF (see <a>DeleteRuleGroup</a>).</p>\n         <p>\n            <code>RuleGroupId</code> is returned by <a>CreateRuleGroup</a> and by <a>ListRuleGroups</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "Name": {
           "target": "com.amazonaws.waf#ResourceName",
           "traits": {
@@ -6441,13 +6449,6 @@
           "target": "com.amazonaws.waf#MetricName",
           "traits": {
             "smithy.api#documentation": "<p>A friendly name or description for the metrics for this <code>RuleGroup</code>. The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain\n         whitespace or metric names reserved for AWS WAF, including \"All\" and \"Default_Action.\" You can't change the name of the metric after you create the <code>RuleGroup</code>.</p>"
-          }
-        },
-        "RuleGroupId": {
-          "target": "com.amazonaws.waf#ResourceId",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for a <code>RuleGroup</code>. You use <code>RuleGroupId</code> to get more information about a <code>RuleGroup</code> (see <a>GetRuleGroup</a>), \n         update a <code>RuleGroup</code> (see <a>UpdateRuleGroup</a>), insert a <code>RuleGroup</code> into a <code>WebACL</code> or delete a \n         one from a <code>WebACL</code> (see <a>UpdateWebACL</a>), or delete a <code>RuleGroup</code> from AWS WAF (see <a>DeleteRuleGroup</a>).</p>\n         <p>\n            <code>RuleGroupId</code> is returned by <a>CreateRuleGroup</a> and by <a>ListRuleGroups</a>.</p>",
-            "smithy.api#required": {}
           }
         }
       },
@@ -6464,17 +6465,17 @@
     "com.amazonaws.waf#RuleGroupSummary": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.waf#ResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>A friendly name or description of the <a>RuleGroup</a>. You can't change the name of a <code>RuleGroup</code> after you create it.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "RuleGroupId": {
           "target": "com.amazonaws.waf#ResourceId",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier for a <code>RuleGroup</code>. You use <code>RuleGroupId</code> to get more information about a <code>RuleGroup</code> (see <a>GetRuleGroup</a>), \n         update a <code>RuleGroup</code> (see <a>UpdateRuleGroup</a>), insert a <code>RuleGroup</code> into a <code>WebACL</code> or delete \n         one from a <code>WebACL</code> (see <a>UpdateWebACL</a>), or delete a <code>RuleGroup</code> from AWS WAF (see <a>DeleteRuleGroup</a>).</p>\n         <p>\n            <code>RuleGroupId</code> is returned by <a>CreateRuleGroup</a> and by <a>ListRuleGroups</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.waf#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>A friendly name or description of the <a>RuleGroup</a>. You can't change the name of a <code>RuleGroup</code> after you create it.</p>",
             "smithy.api#required": {}
           }
         }
@@ -6531,17 +6532,17 @@
     "com.amazonaws.waf#RuleSummary": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.waf#ResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>A friendly name or description of the <a>Rule</a>. You can't change the name of a <code>Rule</code> after you create it.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "RuleId": {
           "target": "com.amazonaws.waf#ResourceId",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier for a <code>Rule</code>. You use <code>RuleId</code> to get more information about a <code>Rule</code> (see <a>GetRule</a>), \n\t\t\tupdate a <code>Rule</code> (see <a>UpdateRule</a>), insert a <code>Rule</code> into a <code>WebACL</code> or delete \n\t\t\tone from a <code>WebACL</code> (see <a>UpdateWebACL</a>), or delete a <code>Rule</code> from AWS WAF (see <a>DeleteRule</a>).</p>\n\t\t       <p>\n            <code>RuleId</code> is returned by <a>CreateRule</a> and by <a>ListRules</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.waf#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>A friendly name or description of the <a>Rule</a>. You can't change the name of a <code>Rule</code> after you create it.</p>",
             "smithy.api#required": {}
           }
         }
@@ -6607,10 +6608,11 @@
     "com.amazonaws.waf#SampledHTTPRequest": {
       "type": "structure",
       "members": {
-        "Action": {
-          "target": "com.amazonaws.waf#Action",
+        "Request": {
+          "target": "com.amazonaws.waf#HTTPRequest",
           "traits": {
-            "smithy.api#documentation": "<p>The action for the <code>Rule</code> that the request matched: <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p>"
+            "smithy.api#documentation": "<p>A complex type that contains detailed information about the request.</p>",
+            "smithy.api#required": {}
           }
         },
         "Weight": {
@@ -6620,23 +6622,22 @@
             "smithy.api#required": {}
           }
         },
-        "RuleWithinRuleGroup": {
-          "target": "com.amazonaws.waf#ResourceId",
-          "traits": {
-            "smithy.api#documentation": "<p>This value is returned if the <code>GetSampledRequests</code>  request specifies the ID of a <code>RuleGroup</code> rather than the ID of an individual rule. <code>RuleWithinRuleGroup</code> is the rule within the specified <code>RuleGroup</code> that matched the request listed in the response.</p>"
-          }
-        },
         "Timestamp": {
           "target": "com.amazonaws.waf#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The time at which AWS WAF received the request from your AWS resource, in Unix time format (in seconds).</p>"
           }
         },
-        "Request": {
-          "target": "com.amazonaws.waf#HTTPRequest",
+        "Action": {
+          "target": "com.amazonaws.waf#Action",
           "traits": {
-            "smithy.api#documentation": "<p>A complex type that contains detailed information about the request.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The action for the <code>Rule</code> that the request matched: <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p>"
+          }
+        },
+        "RuleWithinRuleGroup": {
+          "target": "com.amazonaws.waf#ResourceId",
+          "traits": {
+            "smithy.api#documentation": "<p>This value is returned if the <code>GetSampledRequests</code>  request specifies the ID of a <code>RuleGroup</code> rather than the ID of an individual rule. <code>RuleWithinRuleGroup</code> is the rule within the specified <code>RuleGroup</code> that matched the request listed in the response.</p>"
           }
         }
       },
@@ -6662,10 +6663,10 @@
     "com.amazonaws.waf#SizeConstraint": {
       "type": "structure",
       "members": {
-        "Size": {
-          "target": "com.amazonaws.waf#Size",
+        "FieldToMatch": {
+          "target": "com.amazonaws.waf#FieldToMatch",
           "traits": {
-            "smithy.api#documentation": "<p>The size in bytes that you want AWS WAF to compare against the size of the specified <code>FieldToMatch</code>. AWS WAF uses this in combination \n\t\t\twith <code>ComparisonOperator</code> and <code>FieldToMatch</code> to build an expression in the form of \"<code>Size</code> \n            <code>ComparisonOperator</code> size \n\t\t\tin bytes of <code>FieldToMatch</code>\". If that expression is true, the <code>SizeConstraint</code> is considered to match.</p>\n\t\t       <p>Valid values for size are 0 - 21474836480 bytes (0 - 20 GB).</p>\n\t\t       <p>If you specify <code>URI</code> for the value of <code>Type</code>, the / in the URI counts as one character. \n\t\t\tFor example, the URI <code>/logo.jpg</code> is nine characters long.</p>",
+            "smithy.api#documentation": "<p>Specifies where in a web request to look for the size constraint.</p>",
             "smithy.api#required": {}
           }
         },
@@ -6676,17 +6677,17 @@
             "smithy.api#required": {}
           }
         },
-        "FieldToMatch": {
-          "target": "com.amazonaws.waf#FieldToMatch",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies where in a web request to look for the size constraint.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ComparisonOperator": {
           "target": "com.amazonaws.waf#ComparisonOperator",
           "traits": {
             "smithy.api#documentation": "<p>The type of comparison you want AWS WAF to perform. AWS WAF uses this in combination with the provided <code>Size</code> and <code>FieldToMatch</code>\n\t\t\tto build an expression in the form of \"<code>Size</code> \n            <code>ComparisonOperator</code> size in bytes of <code>FieldToMatch</code>\". If that expression\n\t\t\tis true, the <code>SizeConstraint</code> is considered to match.</p>\n\t\t       <p>\n            <b>EQ</b>: Used to test if the <code>Size</code> is equal to the size of the <code>FieldToMatch</code>\n         </p>\n\t\t       <p>\n            <b>NE</b>: Used to test if the <code>Size</code> is not equal to the size of the <code>FieldToMatch</code>\n         </p>\n\t\t       <p>\n            <b>LE</b>: Used to test if the <code>Size</code> is less than or equal to the size of the <code>FieldToMatch</code>\n         </p>\n\t\t       <p>\n            <b>LT</b>: Used to test if the <code>Size</code> is strictly less than the size of the <code>FieldToMatch</code>\n         </p>\n\t\t       <p>\n            <b>GE</b>: Used to test if the <code>Size</code> is greater than or equal to the size of the <code>FieldToMatch</code>\n         </p>\n\t\t       <p>\n            <b>GT</b>: Used to test if the <code>Size</code> is strictly greater than the size of the <code>FieldToMatch</code>\n         </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Size": {
+          "target": "com.amazonaws.waf#Size",
+          "traits": {
+            "smithy.api#documentation": "<p>The size in bytes that you want AWS WAF to compare against the size of the specified <code>FieldToMatch</code>. AWS WAF uses this in combination \n\t\t\twith <code>ComparisonOperator</code> and <code>FieldToMatch</code> to build an expression in the form of \"<code>Size</code> \n            <code>ComparisonOperator</code> size \n\t\t\tin bytes of <code>FieldToMatch</code>\". If that expression is true, the <code>SizeConstraint</code> is considered to match.</p>\n\t\t       <p>Valid values for size are 0 - 21474836480 bytes (0 - 20 GB).</p>\n\t\t       <p>If you specify <code>URI</code> for the value of <code>Type</code>, the / in the URI counts as one character. \n\t\t\tFor example, the URI <code>/logo.jpg</code> is nine characters long.</p>",
             "smithy.api#required": {}
           }
         }
@@ -6698,13 +6699,6 @@
     "com.amazonaws.waf#SizeConstraintSet": {
       "type": "structure",
       "members": {
-        "SizeConstraints": {
-          "target": "com.amazonaws.waf#SizeConstraints",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the parts of web requests that you want to inspect the size of.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "SizeConstraintSetId": {
           "target": "com.amazonaws.waf#ResourceId",
           "traits": {
@@ -6716,6 +6710,13 @@
           "target": "com.amazonaws.waf#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name, if any, of the <code>SizeConstraintSet</code>.</p>"
+          }
+        },
+        "SizeConstraints": {
+          "target": "com.amazonaws.waf#SizeConstraints",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the parts of web requests that you want to inspect the size of.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -6732,17 +6733,17 @@
     "com.amazonaws.waf#SizeConstraintSetSummary": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.waf#ResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the <code>SizeConstraintSet</code>, if any.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "SizeConstraintSetId": {
           "target": "com.amazonaws.waf#ResourceId",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier for a <code>SizeConstraintSet</code>. You use <code>SizeConstraintSetId</code> to get information about a \n\t\t\t<code>SizeConstraintSet</code> (see <a>GetSizeConstraintSet</a>), update a <code>SizeConstraintSet</code> \n\t\t\t(see <a>UpdateSizeConstraintSet</a>), insert a <code>SizeConstraintSet</code> into a <code>Rule</code> or \n\t\t\tdelete one from a <code>Rule</code> (see <a>UpdateRule</a>), and delete a <code>SizeConstraintSet</code> from AWS WAF \n\t\t\t(see <a>DeleteSizeConstraintSet</a>).</p>\n\t\t       <p>\n            <code>SizeConstraintSetId</code> is returned by <a>CreateSizeConstraintSet</a> and by <a>ListSizeConstraintSets</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.waf#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the <code>SizeConstraintSet</code>, if any.</p>",
             "smithy.api#required": {}
           }
         }
@@ -6800,17 +6801,17 @@
             "smithy.api#required": {}
           }
         },
+        "Name": {
+          "target": "com.amazonaws.waf#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name, if any, of the <code>SqlInjectionMatchSet</code>.</p>"
+          }
+        },
         "SqlInjectionMatchTuples": {
           "target": "com.amazonaws.waf#SqlInjectionMatchTuples",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the parts of web requests that you want to inspect for snippets of malicious SQL code.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.waf#ResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name, if any, of the <code>SqlInjectionMatchSet</code>.</p>"
           }
         }
       },
@@ -6916,17 +6917,17 @@
     "com.amazonaws.waf#SubscribedRuleGroupSummary": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.waf#ResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>A friendly name or description of the <code>RuleGroup</code>. You can't change the name of a <code>RuleGroup</code> after you create it.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "RuleGroupId": {
           "target": "com.amazonaws.waf#ResourceId",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier for a <code>RuleGroup</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.waf#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>A friendly name or description of the <code>RuleGroup</code>. You can't change the name of a <code>RuleGroup</code> after you create it.</p>",
             "smithy.api#required": {}
           }
         },
@@ -7054,15 +7055,15 @@
     "com.amazonaws.waf#TagResourceRequest": {
       "type": "structure",
       "members": {
-        "Tags": {
-          "target": "com.amazonaws.waf#TagList",
+        "ResourceARN": {
+          "target": "com.amazonaws.waf#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p></p>",
             "smithy.api#required": {}
           }
         },
-        "ResourceARN": {
-          "target": "com.amazonaws.waf#ResourceArn",
+        "Tags": {
+          "target": "com.amazonaws.waf#TagList",
           "traits": {
             "smithy.api#documentation": "<p></p>",
             "smithy.api#required": {}
@@ -7118,17 +7119,17 @@
     "com.amazonaws.waf#TimeWindow": {
       "type": "structure",
       "members": {
-        "EndTime": {
-          "target": "com.amazonaws.waf#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The end of the time range from which you want <code>GetSampledRequests</code> to return a sample of the \n                  requests that your AWS resource received. You must specify the date and time in Coordinated Universal Time (UTC) format. \n                  UTC format includes the special designator, <code>Z</code>. For example, <code>\"2016-09-27T14:50Z\"</code>. \n                      You can specify any time range in the previous three hours.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "StartTime": {
           "target": "com.amazonaws.waf#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The beginning of the time range from which you want <code>GetSampledRequests</code> to return a sample of the \n                  requests that your AWS resource received. You must specify the date and time in Coordinated Universal Time (UTC) format. \n                  UTC format includes the special designator, <code>Z</code>. For example, <code>\"2016-09-27T14:50Z\"</code>. \n                      You can specify any time range in the previous three hours.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "EndTime": {
+          "target": "com.amazonaws.waf#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The end of the time range from which you want <code>GetSampledRequests</code> to return a sample of the \n                  requests that your AWS resource received. You must specify the date and time in Coordinated Universal Time (UTC) format. \n                  UTC format includes the special designator, <code>Z</code>. For example, <code>\"2016-09-27T14:50Z\"</code>. \n                      You can specify any time range in the previous three hours.</p>",
             "smithy.api#required": {}
           }
         }
@@ -7239,17 +7240,17 @@
     "com.amazonaws.waf#UpdateByteMatchSetRequest": {
       "type": "structure",
       "members": {
-        "ChangeToken": {
-          "target": "com.amazonaws.waf#ChangeToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ByteMatchSetId": {
           "target": "com.amazonaws.waf#ResourceId",
           "traits": {
             "smithy.api#documentation": "<p>The <code>ByteMatchSetId</code> of the <a>ByteMatchSet</a> that you want to update. <code>ByteMatchSetId</code> is returned by <a>CreateByteMatchSet</a> and by \n\t\t\t<a>ListByteMatchSets</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ChangeToken": {
+          "target": "com.amazonaws.waf#ChangeToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -7324,17 +7325,17 @@
             "smithy.api#required": {}
           }
         },
-        "Updates": {
-          "target": "com.amazonaws.waf#GeoMatchSetUpdates",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of <code>GeoMatchSetUpdate</code> objects that you want to insert into or delete from an <a>GeoMatchSet</a>.\n\t\t\tFor more information, see the applicable data types:</p>\n\t\t       <ul>\n            <li>\n               <p>\n                  <a>GeoMatchSetUpdate</a>: Contains <code>Action</code> and <code>GeoMatchConstraint</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>GeoMatchConstraint</a>: Contains <code>Type</code> and <code>Value</code>\n               </p>\n\t\t\t            <p>You can have only one <code>Type</code> and <code>Value</code> per <code>GeoMatchConstraint</code>. To add multiple countries, include multiple <code>GeoMatchSetUpdate</code> objects in your request.</p>      \n            </li>\n         </ul>",
-            "smithy.api#required": {}
-          }
-        },
         "ChangeToken": {
           "target": "com.amazonaws.waf#ChangeToken",
           "traits": {
             "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Updates": {
+          "target": "com.amazonaws.waf#GeoMatchSetUpdates",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of <code>GeoMatchSetUpdate</code> objects that you want to insert into or delete from an <a>GeoMatchSet</a>.\n\t\t\tFor more information, see the applicable data types:</p>\n\t\t       <ul>\n            <li>\n               <p>\n                  <a>GeoMatchSetUpdate</a>: Contains <code>Action</code> and <code>GeoMatchConstraint</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>GeoMatchConstraint</a>: Contains <code>Type</code> and <code>Value</code>\n               </p>\n\t\t\t            <p>You can have only one <code>Type</code> and <code>Value</code> per <code>GeoMatchConstraint</code>. To add multiple countries, include multiple <code>GeoMatchSetUpdate</code> objects in your request.</p>      \n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         }
@@ -7395,13 +7396,6 @@
     "com.amazonaws.waf#UpdateIPSetRequest": {
       "type": "structure",
       "members": {
-        "Updates": {
-          "target": "com.amazonaws.waf#IPSetUpdates",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of <code>IPSetUpdate</code> objects that you want to insert into or delete from an <a>IPSet</a>. \n\t\t\tFor more information, see the applicable data types:</p>\n\t\t       <ul>\n            <li>\n               <p>\n                  <a>IPSetUpdate</a>: Contains <code>Action</code> and <code>IPSetDescriptor</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>IPSetDescriptor</a>: Contains <code>Type</code> and <code>Value</code>\n               </p>\n            </li>\n         </ul>\n\t        <p>You can insert a maximum of 1000 addresses in a single request.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "IPSetId": {
           "target": "com.amazonaws.waf#ResourceId",
           "traits": {
@@ -7413,6 +7407,13 @@
           "target": "com.amazonaws.waf#ChangeToken",
           "traits": {
             "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Updates": {
+          "target": "com.amazonaws.waf#IPSetUpdates",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of <code>IPSetUpdate</code> objects that you want to insert into or delete from an <a>IPSet</a>. \n\t\t\tFor more information, see the applicable data types:</p>\n\t\t       <ul>\n            <li>\n               <p>\n                  <a>IPSetUpdate</a>: Contains <code>Action</code> and <code>IPSetDescriptor</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>IPSetDescriptor</a>: Contains <code>Type</code> and <code>Value</code>\n               </p>\n            </li>\n         </ul>\n\t        <p>You can insert a maximum of 1000 addresses in a single request.</p>",
             "smithy.api#required": {}
           }
         }
@@ -7473,10 +7474,10 @@
     "com.amazonaws.waf#UpdateRateBasedRuleRequest": {
       "type": "structure",
       "members": {
-        "Updates": {
-          "target": "com.amazonaws.waf#RuleUpdates",
+        "RuleId": {
+          "target": "com.amazonaws.waf#ResourceId",
           "traits": {
-            "smithy.api#documentation": "<p>An array of <code>RuleUpdate</code> objects that you want to insert into or delete\n         from a <a>RateBasedRule</a>. </p>",
+            "smithy.api#documentation": "<p>The <code>RuleId</code> of the <code>RateBasedRule</code> that you want to update.\n            <code>RuleId</code> is returned by <code>CreateRateBasedRule</code> and by <a>ListRateBasedRules</a>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -7487,10 +7488,10 @@
             "smithy.api#required": {}
           }
         },
-        "RuleId": {
-          "target": "com.amazonaws.waf#ResourceId",
+        "Updates": {
+          "target": "com.amazonaws.waf#RuleUpdates",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>RuleId</code> of the <code>RateBasedRule</code> that you want to update.\n            <code>RuleId</code> is returned by <code>CreateRateBasedRule</code> and by <a>ListRateBasedRules</a>.</p>",
+            "smithy.api#documentation": "<p>An array of <code>RuleUpdate</code> objects that you want to insert into or delete\n         from a <a>RateBasedRule</a>. </p>",
             "smithy.api#required": {}
           }
         },
@@ -7555,6 +7556,13 @@
     "com.amazonaws.waf#UpdateRegexMatchSetRequest": {
       "type": "structure",
       "members": {
+        "RegexMatchSetId": {
+          "target": "com.amazonaws.waf#ResourceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>RegexMatchSetId</code> of the <a>RegexMatchSet</a> that you want to update. <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by \n\t\t\t<a>ListRegexMatchSets</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "Updates": {
           "target": "com.amazonaws.waf#RegexMatchSetUpdates",
           "traits": {
@@ -7566,13 +7574,6 @@
           "target": "com.amazonaws.waf#ChangeToken",
           "traits": {
             "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "RegexMatchSetId": {
-          "target": "com.amazonaws.waf#ResourceId",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>RegexMatchSetId</code> of the <a>RegexMatchSet</a> that you want to update. <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by \n\t\t\t<a>ListRegexMatchSets</a>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -7637,17 +7638,17 @@
             "smithy.api#required": {}
           }
         },
-        "ChangeToken": {
-          "target": "com.amazonaws.waf#ChangeToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Updates": {
           "target": "com.amazonaws.waf#RegexPatternSetUpdates",
           "traits": {
             "smithy.api#documentation": "<p>An array of <code>RegexPatternSetUpdate</code> objects that you want to insert into or delete from a <a>RegexPatternSet</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ChangeToken": {
+          "target": "com.amazonaws.waf#ChangeToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -7743,6 +7744,13 @@
     "com.amazonaws.waf#UpdateRuleGroupRequest": {
       "type": "structure",
       "members": {
+        "RuleGroupId": {
+          "target": "com.amazonaws.waf#ResourceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>RuleGroupId</code> of the <a>RuleGroup</a> that you want to update. <code>RuleGroupId</code> is returned by <a>CreateRuleGroup</a> and by \n         <a>ListRuleGroups</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "Updates": {
           "target": "com.amazonaws.waf#RuleGroupUpdates",
           "traits": {
@@ -7754,13 +7762,6 @@
           "target": "com.amazonaws.waf#ChangeToken",
           "traits": {
             "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "RuleGroupId": {
-          "target": "com.amazonaws.waf#ResourceId",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>RuleGroupId</code> of the <a>RuleGroup</a> that you want to update. <code>RuleGroupId</code> is returned by <a>CreateRuleGroup</a> and by \n         <a>ListRuleGroups</a>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -7865,17 +7866,17 @@
             "smithy.api#required": {}
           }
         },
-        "Updates": {
-          "target": "com.amazonaws.waf#SizeConstraintSetUpdates",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of <code>SizeConstraintSetUpdate</code> objects that you want to insert into or delete from a <a>SizeConstraintSet</a>. \n\t\t\tFor more information, see the applicable data types:</p>\n\t\t       <ul>\n            <li>\n               <p>\n                  <a>SizeConstraintSetUpdate</a>: Contains <code>Action</code> and <code>SizeConstraint</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>SizeConstraint</a>: Contains <code>FieldToMatch</code>, <code>TextTransformation</code>, <code>ComparisonOperator</code>, \n\t\t\t\tand <code>Size</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>FieldToMatch</a>: Contains <code>Data</code> and <code>Type</code>\n               </p>\n            </li>\n         </ul>",
-            "smithy.api#required": {}
-          }
-        },
         "ChangeToken": {
           "target": "com.amazonaws.waf#ChangeToken",
           "traits": {
             "smithy.api#documentation": "<p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Updates": {
+          "target": "com.amazonaws.waf#SizeConstraintSetUpdates",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of <code>SizeConstraintSetUpdate</code> objects that you want to insert into or delete from a <a>SizeConstraintSet</a>. \n\t\t\tFor more information, see the applicable data types:</p>\n\t\t       <ul>\n            <li>\n               <p>\n                  <a>SizeConstraintSetUpdate</a>: Contains <code>Action</code> and <code>SizeConstraint</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>SizeConstraint</a>: Contains <code>FieldToMatch</code>, <code>TextTransformation</code>, <code>ComparisonOperator</code>, \n\t\t\t\tand <code>Size</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>FieldToMatch</a>: Contains <code>Data</code> and <code>Type</code>\n               </p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         }
@@ -8020,12 +8021,6 @@
     "com.amazonaws.waf#UpdateWebACLRequest": {
       "type": "structure",
       "members": {
-        "DefaultAction": {
-          "target": "com.amazonaws.waf#WafAction",
-          "traits": {
-            "smithy.api#documentation": "<p>A default action for the web ACL, either ALLOW or BLOCK. AWS WAF performs the default\n         action if a request doesn't match the criteria in any of the rules in a web ACL.</p>"
-          }
-        },
         "WebACLId": {
           "target": "com.amazonaws.waf#ResourceId",
           "traits": {
@@ -8044,6 +8039,12 @@
           "target": "com.amazonaws.waf#WebACLUpdates",
           "traits": {
             "smithy.api#documentation": "<p>An array of updates to make to the <a>WebACL</a>.</p>\t\t\n\t\t       <p>An array of <code>WebACLUpdate</code> objects that you want to insert into or delete from a \n\t\t\t<a>WebACL</a>. For more information, see the applicable data types:</p>\n\t\t       <ul>\n            <li>\n               <p>\n                  <a>WebACLUpdate</a>: Contains <code>Action</code> and <code>ActivatedRule</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>ActivatedRule</a>: Contains <code>Action</code>,\n                  <code>OverrideAction</code>, <code>Priority</code>, <code>RuleId</code>, and\n                  <code>Type</code>. <code>ActivatedRule|OverrideAction</code> applies only when\n               updating or adding a <code>RuleGroup</code> to a <code>WebACL</code>. In this\n               case,\n               you do not use <code>ActivatedRule|Action</code>. For all other update requests,\n                  <code>ActivatedRule|Action</code> is used instead of\n                  <code>ActivatedRule|OverrideAction</code>. </p>\n            </li>\n            <li>\n               <p>\n                  <a>WafAction</a>: Contains <code>Type</code>\n               </p>\n            </li>\n         </ul>"
+          }
+        },
+        "DefaultAction": {
+          "target": "com.amazonaws.waf#WafAction",
+          "traits": {
+            "smithy.api#documentation": "<p>A default action for the web ACL, either ALLOW or BLOCK. AWS WAF performs the default\n         action if a request doesn't match the criteria in any of the rules in a web ACL.</p>"
           }
         }
       }
@@ -8100,10 +8101,10 @@
     "com.amazonaws.waf#UpdateXssMatchSetRequest": {
       "type": "structure",
       "members": {
-        "Updates": {
-          "target": "com.amazonaws.waf#XssMatchSetUpdates",
+        "XssMatchSetId": {
+          "target": "com.amazonaws.waf#ResourceId",
           "traits": {
-            "smithy.api#documentation": "<p>An array of <code>XssMatchSetUpdate</code> objects that you want to insert into or\n         delete from an\n         <a>XssMatchSet</a>. For more information, see the applicable data\n         types:</p>\n\t\t       <ul>\n            <li>\n               <p>\n                  <a>XssMatchSetUpdate</a>: Contains <code>Action</code> and <code>XssMatchTuple</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>XssMatchTuple</a>: Contains <code>FieldToMatch</code> and <code>TextTransformation</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>FieldToMatch</a>: Contains <code>Data</code> and <code>Type</code>\n               </p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The <code>XssMatchSetId</code> of the <code>XssMatchSet</code> that you want to update. \n\t\t\t<code>XssMatchSetId</code> is returned by <a>CreateXssMatchSet</a> and by <a>ListXssMatchSets</a>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -8114,10 +8115,10 @@
             "smithy.api#required": {}
           }
         },
-        "XssMatchSetId": {
-          "target": "com.amazonaws.waf#ResourceId",
+        "Updates": {
+          "target": "com.amazonaws.waf#XssMatchSetUpdates",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>XssMatchSetId</code> of the <code>XssMatchSet</code> that you want to update. \n\t\t\t<code>XssMatchSetId</code> is returned by <a>CreateXssMatchSet</a> and by <a>ListXssMatchSets</a>.</p>",
+            "smithy.api#documentation": "<p>An array of <code>XssMatchSetUpdate</code> objects that you want to insert into or\n         delete from an\n         <a>XssMatchSet</a>. For more information, see the applicable data\n         types:</p>\n\t\t       <ul>\n            <li>\n               <p>\n                  <a>XssMatchSetUpdate</a>: Contains <code>Action</code> and <code>XssMatchTuple</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>XssMatchTuple</a>: Contains <code>FieldToMatch</code> and <code>TextTransformation</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>FieldToMatch</a>: Contains <code>Data</code> and <code>Type</code>\n               </p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         }
@@ -8167,11 +8168,11 @@
     "com.amazonaws.waf#WAFEntityMigrationException": {
       "type": "structure",
       "members": {
-        "MigrationErrorType": {
-          "target": "com.amazonaws.waf#MigrationErrorType"
-        },
         "message": {
           "target": "com.amazonaws.waf#errorMessage"
+        },
+        "MigrationErrorType": {
+          "target": "com.amazonaws.waf#MigrationErrorType"
         },
         "MigrationErrorReason": {
           "target": "com.amazonaws.waf#ErrorReason"
@@ -8217,14 +8218,14 @@
     "com.amazonaws.waf#WAFInvalidParameterException": {
       "type": "structure",
       "members": {
+        "field": {
+          "target": "com.amazonaws.waf#ParameterExceptionField"
+        },
         "parameter": {
           "target": "com.amazonaws.waf#ParameterExceptionParameter"
         },
         "reason": {
           "target": "com.amazonaws.waf#ParameterExceptionReason"
-        },
-        "field": {
-          "target": "com.amazonaws.waf#ParameterExceptionField"
         }
       },
       "traits": {
@@ -8462,17 +8463,23 @@
     "com.amazonaws.waf#WebACL": {
       "type": "structure",
       "members": {
+        "WebACLId": {
+          "target": "com.amazonaws.waf#ResourceId",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for a <code>WebACL</code>. You use <code>WebACLId</code> to get information about a <code>WebACL</code> \n\t\t\t(see <a>GetWebACL</a>), update a <code>WebACL</code> (see <a>UpdateWebACL</a>), and delete a <code>WebACL</code> from AWS WAF \n\t\t\t(see <a>DeleteWebACL</a>).</p>\n\t\t       <p>\n            <code>WebACLId</code> is returned by <a>CreateWebACL</a> and by <a>ListWebACLs</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "Name": {
           "target": "com.amazonaws.waf#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>A friendly name or description of the <code>WebACL</code>. You can't change the name of a <code>WebACL</code> after you create it.</p>"
           }
         },
-        "WebACLId": {
-          "target": "com.amazonaws.waf#ResourceId",
+        "MetricName": {
+          "target": "com.amazonaws.waf#MetricName",
           "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for a <code>WebACL</code>. You use <code>WebACLId</code> to get information about a <code>WebACL</code> \n\t\t\t(see <a>GetWebACL</a>), update a <code>WebACL</code> (see <a>UpdateWebACL</a>), and delete a <code>WebACL</code> from AWS WAF \n\t\t\t(see <a>DeleteWebACL</a>).</p>\n\t\t       <p>\n            <code>WebACLId</code> is returned by <a>CreateWebACL</a> and by <a>ListWebACLs</a>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>A friendly name or description for the metrics for this <code>WebACL</code>. The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain\n         whitespace or metric names reserved for AWS WAF, including \"All\" and \"Default_Action.\" You can't change <code>MetricName</code> after you create the <code>WebACL</code>.</p>"
           }
         },
         "DefaultAction": {
@@ -8482,12 +8489,6 @@
             "smithy.api#required": {}
           }
         },
-        "WebACLArn": {
-          "target": "com.amazonaws.waf#ResourceArn",
-          "traits": {
-            "smithy.api#documentation": "<p>Tha Amazon Resource Name (ARN) of the web ACL.</p>"
-          }
-        },
         "Rules": {
           "target": "com.amazonaws.waf#ActivatedRules",
           "traits": {
@@ -8495,10 +8496,10 @@
             "smithy.api#required": {}
           }
         },
-        "MetricName": {
-          "target": "com.amazonaws.waf#MetricName",
+        "WebACLArn": {
+          "target": "com.amazonaws.waf#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>A friendly name or description for the metrics for this <code>WebACL</code>. The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain\n         whitespace or metric names reserved for AWS WAF, including \"All\" and \"Default_Action.\" You can't change <code>MetricName</code> after you create the <code>WebACL</code>.</p>"
+            "smithy.api#documentation": "<p>Tha Amazon Resource Name (ARN) of the web ACL.</p>"
           }
         }
       },
@@ -8537,17 +8538,17 @@
     "com.amazonaws.waf#WebACLUpdate": {
       "type": "structure",
       "members": {
-        "ActivatedRule": {
-          "target": "com.amazonaws.waf#ActivatedRule",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>ActivatedRule</code> object in an <a>UpdateWebACL</a> request specifies a <code>Rule</code> that you want to insert or delete, \n         the priority of the <code>Rule</code> in the <code>WebACL</code>, and the action that you want AWS WAF to take when a web request matches the <code>Rule</code> \n         (<code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>).</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Action": {
           "target": "com.amazonaws.waf#ChangeAction",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether to insert a <code>Rule</code> into or delete a <code>Rule</code> from a <code>WebACL</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ActivatedRule": {
+          "target": "com.amazonaws.waf#ActivatedRule",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>ActivatedRule</code> object in an <a>UpdateWebACL</a> request specifies a <code>Rule</code> that you want to insert or delete, \n         the priority of the <code>Rule</code> in the <code>WebACL</code>, and the action that you want AWS WAF to take when a web request matches the <code>Rule</code> \n         (<code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>).</p>",
             "smithy.api#required": {}
           }
         }
@@ -8565,17 +8566,17 @@
     "com.amazonaws.waf#XssMatchSet": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.waf#ResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name, if any, of the <code>XssMatchSet</code>.</p>"
-          }
-        },
         "XssMatchSetId": {
           "target": "com.amazonaws.waf#ResourceId",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier for an <code>XssMatchSet</code>. You use <code>XssMatchSetId</code> to get information about an \n\t\t\t<code>XssMatchSet</code> (see <a>GetXssMatchSet</a>), update an <code>XssMatchSet</code> \n\t\t\t(see <a>UpdateXssMatchSet</a>), insert an <code>XssMatchSet</code> into a <code>Rule</code> or \n\t\t\tdelete one from a <code>Rule</code> (see <a>UpdateRule</a>), and delete an <code>XssMatchSet</code> from AWS WAF \n\t\t\t(see <a>DeleteXssMatchSet</a>).</p>\n\t\t       <p>\n            <code>XssMatchSetId</code> is returned by <a>CreateXssMatchSet</a> and by <a>ListXssMatchSets</a>.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.waf#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name, if any, of the <code>XssMatchSet</code>.</p>"
           }
         },
         "XssMatchTuples": {
@@ -8599,17 +8600,17 @@
     "com.amazonaws.waf#XssMatchSetSummary": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.waf#ResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the <code>XssMatchSet</code>, if any, specified by <code>Id</code>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "XssMatchSetId": {
           "target": "com.amazonaws.waf#ResourceId",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier for an <code>XssMatchSet</code>. You use <code>XssMatchSetId</code> to get information about a \n\t\t\t<code>XssMatchSet</code> (see <a>GetXssMatchSet</a>), update an <code>XssMatchSet</code> \n\t\t\t(see <a>UpdateXssMatchSet</a>), insert an <code>XssMatchSet</code> into a <code>Rule</code> or \n\t\t\tdelete one from a <code>Rule</code> (see <a>UpdateRule</a>), and delete an <code>XssMatchSet</code> from AWS WAF \n\t\t\t(see <a>DeleteXssMatchSet</a>).</p>\n\t\t       <p>\n            <code>XssMatchSetId</code> is returned by <a>CreateXssMatchSet</a> and by <a>ListXssMatchSets</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.waf#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the <code>XssMatchSet</code>, if any, specified by <code>Id</code>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -8654,17 +8655,17 @@
     "com.amazonaws.waf#XssMatchTuple": {
       "type": "structure",
       "members": {
-        "TextTransformation": {
-          "target": "com.amazonaws.waf#TextTransformation",
-          "traits": {
-            "smithy.api#documentation": "<p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF. \n\t\t\tIf you specify a transformation, AWS WAF performs the transformation on <code>FieldToMatch</code> before inspecting it for a match.</p>\t\n         <p>You can only specify a single type of TextTransformation.</p>\t\t\t\n\t\t       <p>\n            <b>CMD_LINE</b>\n         </p>\n\t\t       <p>When you're concerned that attackers are injecting an operating system command line\n         command and using unusual formatting to disguise some or all of the command, use this\n         option to perform the following transformations:</p>\n\t\t       <ul>\n            <li>\n               <p>Delete the following characters: \\ \" ' ^</p>\n            </li>\n            <li>\n               <p>Delete spaces before the following characters: / (</p>\n            </li>\n            <li>\n               <p>Replace the following characters with a space: , ;</p>\n            </li>\n            <li>\n               <p>Replace multiple spaces with one space</p>\n            </li>\n            <li>\n               <p>Convert uppercase letters (A-Z) to lowercase (a-z)</p>\n            </li>\n         </ul>\t\t\n\t\t       <p>\n            <b>COMPRESS_WHITE_SPACE</b>\n         </p>\n\t\t       <p>Use this option to replace the following characters with a space character (decimal 32):</p>\n\t\t       <ul>\n            <li>\n               <p>\\f, formfeed, decimal 12</p>\n            </li>\n            <li>\n               <p>\\t, tab, decimal 9</p>\n            </li>\n            <li>\n               <p>\\n, newline, decimal 10</p>\n            </li>\n            <li>\n               <p>\\r, carriage return, decimal 13</p>\n            </li>\n            <li>\n               <p>\\v, vertical tab, decimal 11</p>\n            </li>\n            <li>\n               <p>non-breaking space, decimal 160</p>\n            </li>\n         </ul>\n\t\t       <p>\n            <code>COMPRESS_WHITE_SPACE</code> also replaces multiple spaces with one space.</p>\t\t\n\t\t       <p>\n            <b>HTML_ENTITY_DECODE</b>\n         </p>\n\t\t       <p>Use this option to replace HTML-encoded characters with unencoded characters. <code>HTML_ENTITY_DECODE</code> performs \n\t\t\tthe following operations:</p>\n\t\t       <ul>\n            <li>\n               <p>Replaces <code>(ampersand)quot;</code> with <code>\"</code>\n               </p>\n            </li>\n            <li>\n               <p>Replaces <code>(ampersand)nbsp;</code> with a non-breaking space, decimal 160</p>\n            </li>\n            <li>\n               <p>Replaces <code>(ampersand)lt;</code> with a \"less than\" symbol</p>\n            </li>\n            <li>\n               <p>Replaces <code>(ampersand)gt;</code> with <code>></code>\n               </p>\n            </li>\n            <li>\n               <p>Replaces characters that are represented in hexadecimal format, <code>(ampersand)#xhhhh;</code>, with the corresponding \n\t\t\t\tcharacters</p>\n            </li>\n            <li>\n               <p>Replaces characters that are represented in decimal format, <code>(ampersand)#nnnn;</code>, with the corresponding \n\t\t\t\tcharacters</p>\n            </li>\n         </ul>\t\t\n\t\t       <p>\n            <b>LOWERCASE</b>\n         </p>\n\t\t       <p>Use this option to convert uppercase letters (A-Z) to lowercase (a-z).</p>\t\t\n\t\t       <p>\n            <b>URL_DECODE</b>\n         </p>\n\t\t       <p>Use this option to decode a URL-encoded value.</p>\t\t\n\t\t       <p>\n            <b>NONE</b>\n         </p>\n\t\t       <p>Specify <code>NONE</code> if you don't want to perform any text transformations.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "FieldToMatch": {
           "target": "com.amazonaws.waf#FieldToMatch",
           "traits": {
             "smithy.api#documentation": "<p>Specifies where in a web request to look for cross-site scripting attacks.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TextTransformation": {
+          "target": "com.amazonaws.waf#TextTransformation",
+          "traits": {
+            "smithy.api#documentation": "<p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF. \n\t\t\tIf you specify a transformation, AWS WAF performs the transformation on <code>FieldToMatch</code> before inspecting it for a match.</p>\t\n         <p>You can only specify a single type of TextTransformation.</p>\t\t\t\n\t\t       <p>\n            <b>CMD_LINE</b>\n         </p>\n\t\t       <p>When you're concerned that attackers are injecting an operating system command line\n         command and using unusual formatting to disguise some or all of the command, use this\n         option to perform the following transformations:</p>\n\t\t       <ul>\n            <li>\n               <p>Delete the following characters: \\ \" ' ^</p>\n            </li>\n            <li>\n               <p>Delete spaces before the following characters: / (</p>\n            </li>\n            <li>\n               <p>Replace the following characters with a space: , ;</p>\n            </li>\n            <li>\n               <p>Replace multiple spaces with one space</p>\n            </li>\n            <li>\n               <p>Convert uppercase letters (A-Z) to lowercase (a-z)</p>\n            </li>\n         </ul>\t\t\n\t\t       <p>\n            <b>COMPRESS_WHITE_SPACE</b>\n         </p>\n\t\t       <p>Use this option to replace the following characters with a space character (decimal 32):</p>\n\t\t       <ul>\n            <li>\n               <p>\\f, formfeed, decimal 12</p>\n            </li>\n            <li>\n               <p>\\t, tab, decimal 9</p>\n            </li>\n            <li>\n               <p>\\n, newline, decimal 10</p>\n            </li>\n            <li>\n               <p>\\r, carriage return, decimal 13</p>\n            </li>\n            <li>\n               <p>\\v, vertical tab, decimal 11</p>\n            </li>\n            <li>\n               <p>non-breaking space, decimal 160</p>\n            </li>\n         </ul>\n\t\t       <p>\n            <code>COMPRESS_WHITE_SPACE</code> also replaces multiple spaces with one space.</p>\t\t\n\t\t       <p>\n            <b>HTML_ENTITY_DECODE</b>\n         </p>\n\t\t       <p>Use this option to replace HTML-encoded characters with unencoded characters. <code>HTML_ENTITY_DECODE</code> performs \n\t\t\tthe following operations:</p>\n\t\t       <ul>\n            <li>\n               <p>Replaces <code>(ampersand)quot;</code> with <code>\"</code>\n               </p>\n            </li>\n            <li>\n               <p>Replaces <code>(ampersand)nbsp;</code> with a non-breaking space, decimal 160</p>\n            </li>\n            <li>\n               <p>Replaces <code>(ampersand)lt;</code> with a \"less than\" symbol</p>\n            </li>\n            <li>\n               <p>Replaces <code>(ampersand)gt;</code> with <code>></code>\n               </p>\n            </li>\n            <li>\n               <p>Replaces characters that are represented in hexadecimal format, <code>(ampersand)#xhhhh;</code>, with the corresponding \n\t\t\t\tcharacters</p>\n            </li>\n            <li>\n               <p>Replaces characters that are represented in decimal format, <code>(ampersand)#nnnn;</code>, with the corresponding \n\t\t\t\tcharacters</p>\n            </li>\n         </ul>\t\t\n\t\t       <p>\n            <b>LOWERCASE</b>\n         </p>\n\t\t       <p>Use this option to convert uppercase letters (A-Z) to lowercase (a-z).</p>\t\t\n\t\t       <p>\n            <b>URL_DECODE</b>\n         </p>\n\t\t       <p>Use this option to decode a URL-encoded value.</p>\t\t\n\t\t       <p>\n            <b>NONE</b>\n         </p>\n\t\t       <p>Specify <code>NONE</code> if you don't want to perform any text transformations.</p>",
             "smithy.api#required": {}
           }
         }

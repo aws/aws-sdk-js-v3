@@ -108,17 +108,17 @@
             "smithy.api#required": {}
           }
         },
-        "SecurityGroupId": {
-          "target": "com.amazonaws.s3outposts#SecurityGroupId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the security group to use with the endpoint.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "SubnetId": {
           "target": "com.amazonaws.s3outposts#SubnetId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the subnet in the selected VPC.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SecurityGroupId": {
+          "target": "com.amazonaws.s3outposts#SecurityGroupId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the security group to use with the endpoint.</p>",
             "smithy.api#required": {}
           }
         }
@@ -190,22 +190,16 @@
     "com.amazonaws.s3outposts#Endpoint": {
       "type": "structure",
       "members": {
+        "EndpointArn": {
+          "target": "com.amazonaws.s3outposts#EndpointArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the endpoint.</p>"
+          }
+        },
         "OutpostsId": {
           "target": "com.amazonaws.s3outposts#OutpostId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the AWS Outpost.</p>"
-          }
-        },
-        "NetworkInterfaces": {
-          "target": "com.amazonaws.s3outposts#NetworkInterfaces",
-          "traits": {
-            "smithy.api#documentation": "<p>The network interface of the endpoint.</p>"
-          }
-        },
-        "Status": {
-          "target": "com.amazonaws.s3outposts#EndpointStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the endpoint.</p>"
           }
         },
         "CidrBlock": {
@@ -214,16 +208,22 @@
             "smithy.api#documentation": "<p>The VPC CIDR committed by this endpoint.</p>"
           }
         },
+        "Status": {
+          "target": "com.amazonaws.s3outposts#EndpointStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the endpoint.</p>"
+          }
+        },
         "CreationTime": {
           "target": "com.amazonaws.s3outposts#CreationTime",
           "traits": {
             "smithy.api#documentation": "<p>The time the endpoint was created.</p>"
           }
         },
-        "EndpointArn": {
-          "target": "com.amazonaws.s3outposts#EndpointArn",
+        "NetworkInterfaces": {
+          "target": "com.amazonaws.s3outposts#NetworkInterfaces",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the endpoint.</p>"
+            "smithy.api#documentation": "<p>The network interface of the endpoint.</p>"
           }
         }
       },
@@ -328,18 +328,18 @@
     "com.amazonaws.s3outposts#ListEndpointsRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.s3outposts#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The max number of endpoints that can be returned on the request.</p>",
-            "smithy.api#httpQuery": "maxResults"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.s3outposts#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The next endpoint requested in the list.</p>",
             "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.s3outposts#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The max number of endpoints that can be returned on the request.</p>",
+            "smithy.api#httpQuery": "maxResults"
           }
         }
       }
@@ -451,7 +451,8 @@
           "sdkId": "S3Outposts",
           "arnNamespace": "s3-outposts",
           "cloudFormationName": "S3Outposts",
-          "cloudTrailEventSource": "model.s3outposts.northstar.seaport.amazonaws.com"
+          "cloudTrailEventSource": "s3outposts.amazonaws.com",
+          "endpointPrefix": "s3-outposts"
         },
         "aws.auth#sigv4": {
           "name": "s3-outposts"

@@ -35,7 +35,8 @@ export async function* paginateDescribeIpv6Pools(
   input: DescribeIpv6PoolsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeIpv6PoolsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.NextToken
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeIpv6PoolsCommandOutput;
   while (hasNext) {

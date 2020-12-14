@@ -80,8 +80,8 @@ export const serializeAws_restJson1ListEndpointsCommand = async (
   const headers: any = {};
   let resolvedPath = "/S3Outposts/ListEndpoints";
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

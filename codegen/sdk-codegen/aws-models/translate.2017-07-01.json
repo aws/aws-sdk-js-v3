@@ -81,7 +81,8 @@
           "sdkId": "Translate",
           "arnNamespace": "translate",
           "cloudFormationName": "Translate",
-          "cloudTrailEventSource": "translate.amazonaws.com"
+          "cloudTrailEventSource": "translate.amazonaws.com",
+          "endpointPrefix": "translate"
         },
         "aws.auth#sigv4": {
           "name": "translate"

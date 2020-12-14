@@ -61,7 +61,8 @@
           "sdkId": "SageMaker FeatureStore Runtime",
           "arnNamespace": "sagemaker",
           "cloudFormationName": "SageMakerFeatureStoreRuntime",
-          "cloudTrailEventSource": "sagemakerfeaturestoreruntime.amazonaws.com"
+          "cloudTrailEventSource": "sagemakerfeaturestoreruntime.amazonaws.com",
+          "endpointPrefix": "featurestore-runtime.sagemaker"
         },
         "aws.auth#sigv4": {
           "name": "sagemaker"

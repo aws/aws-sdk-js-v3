@@ -12018,7 +12018,59 @@
         "target": "com.amazonaws.sagemaker#DescribeNotebookInstanceOutput"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Returns information about a notebook instance.</p>"
+        "smithy.api#documentation": "<p>Returns information about a notebook instance.</p>",
+        "smithy.waiters#waitable": {
+          "NotebookInstanceInService": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "NotebookInstanceStatus",
+                    "expected": "InService",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "NotebookInstanceStatus",
+                    "expected": "Failed",
+                    "comparator": "stringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 30
+          },
+          "NotebookInstanceStopped": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "NotebookInstanceStatus",
+                    "expected": "Stopped",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "NotebookInstanceStatus",
+                    "expected": "Failed",
+                    "comparator": "stringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 30
+          }
+        }
       }
     },
     "com.amazonaws.sagemaker#DescribeNotebookInstanceInput": {
@@ -30424,7 +30476,8 @@
           "sdkId": "SageMaker",
           "arnNamespace": "sagemaker",
           "cloudFormationName": "SageMaker",
-          "cloudTrailEventSource": "sagemaker.amazonaws.com"
+          "cloudTrailEventSource": "sagemaker.amazonaws.com",
+          "endpointPrefix": "api.sagemaker"
         },
         "aws.auth#sigv4": {
           "name": "sagemaker"

@@ -17,6 +17,7 @@ export * from "./pagination/DescribeBudgetActionsForAccountPaginator";
 export * from "./commands/DescribeBudgetActionsForBudgetCommand";
 export * from "./pagination/DescribeBudgetActionsForBudgetPaginator";
 export * from "./commands/DescribeBudgetPerformanceHistoryCommand";
+export * from "./pagination/DescribeBudgetPerformanceHistoryPaginator";
 export * from "./commands/DescribeBudgetsCommand";
 export * from "./pagination/DescribeBudgetsPaginator";
 export * from "./commands/DescribeNotificationsForBudgetCommand";

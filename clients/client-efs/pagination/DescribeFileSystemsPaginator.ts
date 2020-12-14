@@ -35,7 +35,8 @@ export async function* paginateDescribeFileSystems(
   input: DescribeFileSystemsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeFileSystemsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.Marker
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeFileSystemsCommandOutput;
   while (hasNext) {

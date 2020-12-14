@@ -35,7 +35,8 @@ export async function* paginateListTestGridProjects(
   input: ListTestGridProjectsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTestGridProjectsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.nextToken
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTestGridProjectsCommandOutput;
   while (hasNext) {

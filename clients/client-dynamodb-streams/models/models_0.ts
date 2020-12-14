@@ -11,15 +11,15 @@ export interface DescribeStreamInput {
   StreamArn: string | undefined;
 
   /**
+   * <p>The maximum number of shard objects to return. The upper limit is 100.</p>
+   */
+  Limit?: number;
+
+  /**
    * <p>The shard ID of the first item that this operation will evaluate. Use the value that was
    *       returned for <code>LastEvaluatedShardId</code> in the previous operation. </p>
    */
   ExclusiveStartShardId?: string;
-
-  /**
-   * <p>The maximum number of shard objects to return. The upper limit is 100.</p>
-   */
-  Limit?: number;
 }
 
 export namespace DescribeStreamInput {
@@ -45,6 +45,11 @@ export type KeyType = "HASH" | "RANGE";
  */
 export interface KeySchemaElement {
   /**
+   * <p>The name of a key attribute.</p>
+   */
+  AttributeName: string | undefined;
+
+  /**
    * <p>The role that this key attribute will assume:</p>
    *          <ul>
    *             <li>
@@ -68,11 +73,6 @@ export interface KeySchemaElement {
    *          </note>
    */
   KeyType: KeyType | string | undefined;
-
-  /**
-   * <p>The name of a key attribute.</p>
-   */
-  AttributeName: string | undefined;
 }
 
 export namespace KeySchemaElement {
@@ -86,14 +86,14 @@ export namespace KeySchemaElement {
  */
 export interface SequenceNumberRange {
   /**
-   * <p>The last sequence number for the stream records contained within a shard. String contains numeric characters only.</p>
-   */
-  EndingSequenceNumber?: string;
-
-  /**
    * <p>The first sequence number for the stream records contained within a shard. String contains numeric characters only.</p>
    */
   StartingSequenceNumber?: string;
+
+  /**
+   * <p>The last sequence number for the stream records contained within a shard. String contains numeric characters only.</p>
+   */
+  EndingSequenceNumber?: string;
 }
 
 export namespace SequenceNumberRange {
@@ -112,14 +112,14 @@ export interface Shard {
   ShardId?: string;
 
   /**
-   * <p>The shard ID of the current shard's parent.</p>
-   */
-  ParentShardId?: string;
-
-  /**
    * <p>The range of possible sequence numbers for the shard.</p>
    */
   SequenceNumberRange?: SequenceNumberRange;
+
+  /**
+   * <p>The shard ID of the current shard's parent.</p>
+   */
+  ParentShardId?: string;
 }
 
 export namespace Shard {
@@ -136,6 +136,31 @@ export type StreamViewType = "KEYS_ONLY" | "NEW_AND_OLD_IMAGES" | "NEW_IMAGE" | 
  * <p>Represents all of the data describing a particular stream.</p>
  */
 export interface StreamDescription {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the stream.</p>
+   */
+  StreamArn?: string;
+
+  /**
+   * <p>A timestamp, in ISO 8601 format, for this stream.</p>
+   *          <p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is
+   *       possible that a stream from another table might have the same timestamp. However, the
+   *       combination of the following three elements is guaranteed to be unique:</p>
+   *          <ul>
+   *             <li>
+   *                <p>the AWS customer ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>the table name</p>
+   *             </li>
+   *             <li>
+   *                <p>the <code>StreamLabel</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  StreamLabel?: string;
+
   /**
    * <p>Indicates the current status of the stream:</p>
    *          <ul>
@@ -188,14 +213,9 @@ export interface StreamDescription {
   CreationRequestDateTime?: Date;
 
   /**
-   * <p>The shards that comprise the stream.</p>
+   * <p>The DynamoDB table with which the stream is associated.</p>
    */
-  Shards?: Shard[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the stream.</p>
-   */
-  StreamArn?: string;
+  TableName?: string;
 
   /**
    * <p>The key attribute(s) of the stream's DynamoDB table.</p>
@@ -203,29 +223,9 @@ export interface StreamDescription {
   KeySchema?: KeySchemaElement[];
 
   /**
-   * <p>A timestamp, in ISO 8601 format, for this stream.</p>
-   *          <p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is
-   *       possible that a stream from another table might have the same timestamp. However, the
-   *       combination of the following three elements is guaranteed to be unique:</p>
-   *          <ul>
-   *             <li>
-   *                <p>the AWS customer ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>the table name</p>
-   *             </li>
-   *             <li>
-   *                <p>the <code>StreamLabel</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * <p>The shards that comprise the stream.</p>
    */
-  StreamLabel?: string;
-
-  /**
-   * <p>The DynamoDB table with which the stream is associated.</p>
-   */
-  TableName?: string;
+  Shards?: Shard[];
 
   /**
    * <p>The shard ID of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>
@@ -323,14 +323,14 @@ export namespace ExpiredIteratorException {
  */
 export interface GetRecordsInput {
   /**
-   * <p>The maximum number of records to return from the shard. The upper limit is 1000.</p>
-   */
-  Limit?: number;
-
-  /**
    * <p>A shard iterator that was retrieved from a previous GetShardIterator operation. This iterator can be used to access the stream records in this shard.</p>
    */
   ShardIterator: string | undefined;
+
+  /**
+   * <p>The maximum number of records to return from the shard. The upper limit is 1000.</p>
+   */
+  Limit?: number;
 }
 
 export namespace GetRecordsInput {
@@ -428,19 +428,14 @@ export type ShardIteratorType = "AFTER_SEQUENCE_NUMBER" | "AT_SEQUENCE_NUMBER" |
  */
 export interface GetShardIteratorInput {
   /**
-   * <p>The identifier of the shard. The iterator will be returned for this shard ID.</p>
-   */
-  ShardId: string | undefined;
-
-  /**
-   * <p>The sequence number of a stream record in the shard from which to start reading.</p>
-   */
-  SequenceNumber?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) for the stream.</p>
    */
   StreamArn: string | undefined;
+
+  /**
+   * <p>The identifier of the shard. The iterator will be returned for this shard ID.</p>
+   */
+  ShardId: string | undefined;
 
   /**
    * <p>Determines how the shard iterator is used to start reading stream records from the shard:</p>
@@ -470,6 +465,11 @@ export interface GetShardIteratorInput {
    *          </ul>
    */
   ShardIteratorType: ShardIteratorType | string | undefined;
+
+  /**
+   * <p>The sequence number of a stream record in the shard from which to start reading.</p>
+   */
+  SequenceNumber?: string;
 }
 
 export namespace GetShardIteratorInput {
@@ -499,6 +499,11 @@ export namespace GetShardIteratorOutput {
  */
 export interface ListStreamsInput {
   /**
+   * <p>If this parameter is provided, then only the streams associated with this table name are returned.</p>
+   */
+  TableName?: string;
+
+  /**
    * <p>The maximum number of streams to return. The upper limit is 100.</p>
    */
   Limit?: number;
@@ -509,11 +514,6 @@ export interface ListStreamsInput {
    *     </p>
    */
   ExclusiveStartStreamArn?: string;
-
-  /**
-   * <p>If this parameter is provided, then only the streams associated with this table name are returned.</p>
-   */
-  TableName?: string;
 }
 
 export namespace ListStreamsInput {
@@ -526,6 +526,16 @@ export namespace ListStreamsInput {
  * <p>Represents all of the data describing a particular stream.</p>
  */
 export interface _Stream {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the stream.</p>
+   */
+  StreamArn?: string;
+
+  /**
+   * <p>The DynamoDB table with which the stream is associated.</p>
+   */
+  TableName?: string;
+
   /**
    * <p>A timestamp, in ISO 8601 format, for this stream.</p>
    *          <p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is
@@ -545,16 +555,6 @@ export interface _Stream {
    *          </ul>
    */
   StreamLabel?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the stream.</p>
-   */
-  StreamArn?: string;
-
-  /**
-   * <p>The DynamoDB table with which the stream is associated.</p>
-   */
-  TableName?: string;
 }
 
 export namespace _Stream {
@@ -568,6 +568,11 @@ export namespace _Stream {
  */
 export interface ListStreamsOutput {
   /**
+   * <p>A list of stream descriptors associated with the current account and endpoint.</p>
+   */
+  Streams?: _Stream[];
+
+  /**
    * <p>The stream ARN of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>
    *          <p>If <code>LastEvaluatedStreamArn</code> is empty, then the "last page" of results has been
    *       processed and there is no more data to be retrieved.</p>
@@ -576,11 +581,6 @@ export interface ListStreamsOutput {
    *       result set is when <code>LastEvaluatedStreamArn</code> is empty.</p>
    */
   LastEvaluatedStreamArn?: string;
-
-  /**
-   * <p>A list of stream descriptors associated with the current account and endpoint.</p>
-   */
-  Streams?: _Stream[];
 }
 
 export namespace ListStreamsOutput {
@@ -595,22 +595,39 @@ export namespace ListStreamsOutput {
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes">Data Types</a> in the
  *                              <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
-export interface AttributeValue {
-  /**
-   * <p>An attribute of type String Set.  For example:</p>
-   *          <p>
-   *             <code>"SS": ["Giraffe", "Hippo" ,"Zebra"]</code>
-   *          </p>
-   */
-  SS?: string[];
+export type AttributeValue =
+  | AttributeValue.BMember
+  | AttributeValue.BOOLMember
+  | AttributeValue.BSMember
+  | AttributeValue.LMember
+  | AttributeValue.MMember
+  | AttributeValue.NMember
+  | AttributeValue.NSMember
+  | AttributeValue.NULLMember
+  | AttributeValue.SMember
+  | AttributeValue.SSMember
+  | AttributeValue.$UnknownMember;
 
+export namespace AttributeValue {
   /**
-   * <p>An attribute of type Binary Set.  For example:</p>
+   * <p>An attribute of type  String. For example:</p>
    *          <p>
-   *             <code>"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]</code>
+   *             <code>"S": "Hello"</code>
    *          </p>
    */
-  BS?: Uint8Array[];
+  export interface SMember {
+    S: string;
+    N?: never;
+    B?: never;
+    SS?: never;
+    NS?: never;
+    BS?: never;
+    M?: never;
+    L?: never;
+    NULL?: never;
+    BOOL?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>An attribute of type Number. For example:</p>
@@ -619,39 +636,59 @@ export interface AttributeValue {
    *          </p>
    *          <p>Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.</p>
    */
-  N?: string;
+  export interface NMember {
+    S?: never;
+    N: string;
+    B?: never;
+    SS?: never;
+    NS?: never;
+    BS?: never;
+    M?: never;
+    L?: never;
+    NULL?: never;
+    BOOL?: never;
+    $unknown?: never;
+  }
 
   /**
-   * <p>An attribute of type List.  For example:</p>
+   * <p>An attribute of type Binary.  For example:</p>
    *          <p>
-   *             <code>"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]</code>
+   *             <code>"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"</code>
    *          </p>
    */
-  L?: AttributeValue[];
+  export interface BMember {
+    S?: never;
+    N?: never;
+    B: Uint8Array;
+    SS?: never;
+    NS?: never;
+    BS?: never;
+    M?: never;
+    L?: never;
+    NULL?: never;
+    BOOL?: never;
+    $unknown?: never;
+  }
 
   /**
-   * <p>An attribute of type Boolean.  For example:</p>
+   * <p>An attribute of type String Set.  For example:</p>
    *          <p>
-   *             <code>"BOOL": true</code>
+   *             <code>"SS": ["Giraffe", "Hippo" ,"Zebra"]</code>
    *          </p>
    */
-  BOOL?: boolean;
-
-  /**
-   * <p>An attribute of type Map.  For example:</p>
-   *          <p>
-   *             <code>"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}</code>
-   *          </p>
-   */
-  M?: { [key: string]: AttributeValue };
-
-  /**
-   * <p>An attribute of type Null.  For example:</p>
-   *          <p>
-   *             <code>"NULL": true</code>
-   *          </p>
-   */
-  NULL?: boolean;
+  export interface SSMember {
+    S?: never;
+    N?: never;
+    B?: never;
+    SS: string[];
+    NS?: never;
+    BS?: never;
+    M?: never;
+    L?: never;
+    NULL?: never;
+    BOOL?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>An attribute of type Number Set.  For example:</p>
@@ -660,29 +697,184 @@ export interface AttributeValue {
    *          </p>
    *          <p>Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.</p>
    */
-  NS?: string[];
+  export interface NSMember {
+    S?: never;
+    N?: never;
+    B?: never;
+    SS?: never;
+    NS: string[];
+    BS?: never;
+    M?: never;
+    L?: never;
+    NULL?: never;
+    BOOL?: never;
+    $unknown?: never;
+  }
 
   /**
-   * <p>An attribute of type Binary.  For example:</p>
+   * <p>An attribute of type Binary Set.  For example:</p>
    *          <p>
-   *             <code>"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"</code>
+   *             <code>"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]</code>
    *          </p>
    */
-  B?: Uint8Array;
+  export interface BSMember {
+    S?: never;
+    N?: never;
+    B?: never;
+    SS?: never;
+    NS?: never;
+    BS: Uint8Array[];
+    M?: never;
+    L?: never;
+    NULL?: never;
+    BOOL?: never;
+    $unknown?: never;
+  }
 
   /**
-   * <p>An attribute of type  String. For example:</p>
+   * <p>An attribute of type Map.  For example:</p>
    *          <p>
-   *             <code>"S": "Hello"</code>
+   *             <code>"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}</code>
    *          </p>
    */
-  S?: string;
-}
+  export interface MMember {
+    S?: never;
+    N?: never;
+    B?: never;
+    SS?: never;
+    NS?: never;
+    BS?: never;
+    M: { [key: string]: AttributeValue };
+    L?: never;
+    NULL?: never;
+    BOOL?: never;
+    $unknown?: never;
+  }
 
-export namespace AttributeValue {
-  export const filterSensitiveLog = (obj: AttributeValue): any => ({
-    ...obj,
-  });
+  /**
+   * <p>An attribute of type List.  For example:</p>
+   *          <p>
+   *             <code>"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]</code>
+   *          </p>
+   */
+  export interface LMember {
+    S?: never;
+    N?: never;
+    B?: never;
+    SS?: never;
+    NS?: never;
+    BS?: never;
+    M?: never;
+    L: AttributeValue[];
+    NULL?: never;
+    BOOL?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An attribute of type Null.  For example:</p>
+   *          <p>
+   *             <code>"NULL": true</code>
+   *          </p>
+   */
+  export interface NULLMember {
+    S?: never;
+    N?: never;
+    B?: never;
+    SS?: never;
+    NS?: never;
+    BS?: never;
+    M?: never;
+    L?: never;
+    NULL: boolean;
+    BOOL?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An attribute of type Boolean.  For example:</p>
+   *          <p>
+   *             <code>"BOOL": true</code>
+   *          </p>
+   */
+  export interface BOOLMember {
+    S?: never;
+    N?: never;
+    B?: never;
+    SS?: never;
+    NS?: never;
+    BS?: never;
+    M?: never;
+    L?: never;
+    NULL?: never;
+    BOOL: boolean;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    S?: never;
+    N?: never;
+    B?: never;
+    SS?: never;
+    NS?: never;
+    BS?: never;
+    M?: never;
+    L?: never;
+    NULL?: never;
+    BOOL?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    S: (value: string) => T;
+    N: (value: string) => T;
+    B: (value: Uint8Array) => T;
+    SS: (value: string[]) => T;
+    NS: (value: string[]) => T;
+    BS: (value: Uint8Array[]) => T;
+    M: (value: { [key: string]: AttributeValue }) => T;
+    L: (value: AttributeValue[]) => T;
+    NULL: (value: boolean) => T;
+    BOOL: (value: boolean) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: AttributeValue, visitor: Visitor<T>): T => {
+    if (value.S !== undefined) return visitor.S(value.S);
+    if (value.N !== undefined) return visitor.N(value.N);
+    if (value.B !== undefined) return visitor.B(value.B);
+    if (value.SS !== undefined) return visitor.SS(value.SS);
+    if (value.NS !== undefined) return visitor.NS(value.NS);
+    if (value.BS !== undefined) return visitor.BS(value.BS);
+    if (value.M !== undefined) return visitor.M(value.M);
+    if (value.L !== undefined) return visitor.L(value.L);
+    if (value.NULL !== undefined) return visitor.NULL(value.NULL);
+    if (value.BOOL !== undefined) return visitor.BOOL(value.BOOL);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: AttributeValue): any => {
+    if (obj.S !== undefined) return { S: obj.S };
+    if (obj.N !== undefined) return { N: obj.N };
+    if (obj.B !== undefined) return { B: obj.B };
+    if (obj.SS !== undefined) return { SS: obj.SS };
+    if (obj.NS !== undefined) return { NS: obj.NS };
+    if (obj.BS !== undefined) return { BS: obj.BS };
+    if (obj.M !== undefined)
+      return {
+        M: Object.entries(obj.M).reduce(
+          (acc: any, [key, value]: [string, AttributeValue]) => ({
+            ...acc,
+            [key]: AttributeValue.filterSensitiveLog(value),
+          }),
+          {}
+        ),
+      };
+    if (obj.L !== undefined) return { L: obj.L.map((item) => AttributeValue.filterSensitiveLog(item)) };
+    if (obj.NULL !== undefined) return { NULL: obj.NULL };
+    if (obj.BOOL !== undefined) return { BOOL: obj.BOOL };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
 }
 
 /**
@@ -690,24 +882,9 @@ export namespace AttributeValue {
  */
 export interface StreamRecord {
   /**
-   * <p>The sequence number of the stream record.</p>
-   */
-  SequenceNumber?: string;
-
-  /**
-   * <p>The item in the DynamoDB table as it appeared before it was modified.</p>
-   */
-  OldImage?: { [key: string]: AttributeValue };
-
-  /**
    * <p>The approximate date and time when the stream record was created, in <a href="http://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    */
   ApproximateCreationDateTime?: Date;
-
-  /**
-   * <p>The size of the stream record, in bytes.</p>
-   */
-  SizeBytes?: number;
 
   /**
    * <p>The primary key attribute(s) for the DynamoDB item that was modified.</p>
@@ -718,6 +895,21 @@ export interface StreamRecord {
    * <p>The item in the DynamoDB table as it appeared after it was modified.</p>
    */
   NewImage?: { [key: string]: AttributeValue };
+
+  /**
+   * <p>The item in the DynamoDB table as it appeared before it was modified.</p>
+   */
+  OldImage?: { [key: string]: AttributeValue };
+
+  /**
+   * <p>The sequence number of the stream record.</p>
+   */
+  SequenceNumber?: string;
+
+  /**
+   * <p>The size of the stream record, in bytes.</p>
+   */
+  SizeBytes?: number;
 
   /**
    * <p>The type of data from the modified DynamoDB item that was captured in this stream record:</p>
@@ -746,6 +938,33 @@ export interface StreamRecord {
 export namespace StreamRecord {
   export const filterSensitiveLog = (obj: StreamRecord): any => ({
     ...obj,
+    ...(obj.Keys && {
+      Keys: Object.entries(obj.Keys).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+    ...(obj.NewImage && {
+      NewImage: Object.entries(obj.NewImage).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+    ...(obj.OldImage && {
+      OldImage: Object.entries(obj.OldImage).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -778,17 +997,17 @@ export interface _Record {
   eventName?: OperationType | string;
 
   /**
-   * <p>The AWS service from which the stream record originated.  For DynamoDB Streams, this is <code>aws:dynamodb</code>.</p>
-   */
-  eventSource?: string;
-
-  /**
    * <p>The version number of the stream record format.  This number is updated whenever the structure of <code>Record</code> is modified.</p>
    *          <p>Client applications must not assume that <code>eventVersion</code> will remain at a particular
    *       value, as this number is subject to change at any time. In general, <code>eventVersion</code> will
    *       only increase as the low-level DynamoDB Streams API evolves.</p>
    */
   eventVersion?: string;
+
+  /**
+   * <p>The AWS service from which the stream record originated.  For DynamoDB Streams, this is <code>aws:dynamodb</code>.</p>
+   */
+  eventSource?: string;
 
   /**
    * <p>The region in which the <code>GetRecords</code> request was received.</p>
@@ -819,6 +1038,7 @@ export interface _Record {
 export namespace _Record {
   export const filterSensitiveLog = (obj: _Record): any => ({
     ...obj,
+    ...(obj.dynamodb && { dynamodb: StreamRecord.filterSensitiveLog(obj.dynamodb) }),
   });
 }
 
@@ -842,5 +1062,6 @@ export interface GetRecordsOutput {
 export namespace GetRecordsOutput {
   export const filterSensitiveLog = (obj: GetRecordsOutput): any => ({
     ...obj,
+    ...(obj.Records && { Records: obj.Records.map((item) => _Record.filterSensitiveLog(item)) }),
   });
 }

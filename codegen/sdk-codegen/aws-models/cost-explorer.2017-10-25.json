@@ -126,7 +126,8 @@
           "sdkId": "Cost Explorer",
           "arnNamespace": "ce",
           "cloudFormationName": "CostExplorer",
-          "cloudTrailEventSource": "costexplorer.amazonaws.com"
+          "cloudTrailEventSource": "costexplorer.amazonaws.com",
+          "endpointPrefix": "ce"
         },
         "aws.auth#sigv4": {
           "name": "ce"

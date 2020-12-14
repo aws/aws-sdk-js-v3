@@ -40,11 +40,12 @@ export namespace AssociateMemberAccountRequest {
 export interface InternalException extends __SmithyException, $MetadataBearer {
   name: "InternalException";
   $fault: "server";
-  message?: string;
   /**
    * Error code for the exception
    */
   errorCode?: string;
+
+  message?: string;
 }
 
 export namespace InternalException {
@@ -61,16 +62,15 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
   name: "InvalidInputException";
   $fault: "client";
   /**
-   * Field that has invalid input
-   */
-  fieldName?: string;
-
-  /**
    * Error code for the exception
    */
   errorCode?: string;
 
   message?: string;
+  /**
+   * Field that has invalid input
+   */
+  fieldName?: string;
 }
 
 export namespace InvalidInputException {
@@ -91,12 +91,11 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
    */
   errorCode?: string;
 
+  message?: string;
   /**
    * Resource type that caused the exception
    */
   resourceType?: string;
-
-  message?: string;
 }
 
 export namespace LimitExceededException {
@@ -146,16 +145,16 @@ export namespace ClassificationType {
  */
 export interface S3ResourceClassification {
   /**
-   * <p>The prefix of the S3 bucket that you want to associate with Amazon Macie
-   *       Classic.</p>
-   */
-  prefix?: string;
-
-  /**
    * <p>The name of the S3 bucket that you want to associate with Amazon Macie
    *       Classic.</p>
    */
   bucketName: string | undefined;
+
+  /**
+   * <p>The prefix of the S3 bucket that you want to associate with Amazon Macie
+   *       Classic.</p>
+   */
+  prefix?: string;
 
   /**
    * <p>The classification type that you want to specify for the resource associated with
@@ -172,16 +171,16 @@ export namespace S3ResourceClassification {
 
 export interface AssociateS3ResourcesRequest {
   /**
-   * <p>The S3 resources that you want to associate with Amazon Macie Classic for monitoring
-   *       and data classification. </p>
-   */
-  s3Resources: S3ResourceClassification[] | undefined;
-
-  /**
    * <p>The ID of the Amazon Macie Classic member account whose resources you want to associate
    *       with Macie Classic. </p>
    */
   memberAccountId?: string;
+
+  /**
+   * <p>The S3 resources that you want to associate with Amazon Macie Classic for monitoring
+   *       and data classification. </p>
+   */
+  s3Resources: S3ResourceClassification[] | undefined;
 }
 
 export namespace AssociateS3ResourcesRequest {
@@ -218,6 +217,11 @@ export namespace S3Resource {
  */
 export interface FailedS3Resource {
   /**
+   * <p>The failed S3 resources.</p>
+   */
+  failedItem?: S3Resource;
+
+  /**
    * <p>The status code of a failed item.</p>
    */
   errorCode?: string;
@@ -226,11 +230,6 @@ export interface FailedS3Resource {
    * <p>The error message of a failed item.</p>
    */
   errorMessage?: string;
-
-  /**
-   * <p>The failed S3 resources.</p>
-   */
-  failedItem?: S3Resource;
 }
 
 export namespace FailedS3Resource {
@@ -260,17 +259,17 @@ export namespace AssociateS3ResourcesResult {
  */
 export interface ClassificationTypeUpdate {
   /**
+   * <p>A one-time classification of all of the existing objects in a specified S3 bucket.
+   *     </p>
+   */
+  oneTime?: S3OneTimeClassificationType | string;
+
+  /**
    * <p>A continuous classification of the objects that are added to a specified S3 bucket.
    *       Amazon Macie Classic begins performing continuous classification after a bucket is
    *       successfully associated with Amazon Macie Classic. </p>
    */
   continuous?: S3ContinuousClassificationType | string;
-
-  /**
-   * <p>A one-time classification of all of the existing objects in a specified S3 bucket.
-   *     </p>
-   */
-  oneTime?: S3OneTimeClassificationType | string;
 }
 
 export namespace ClassificationTypeUpdate {
@@ -396,17 +395,17 @@ export interface ListS3ResourcesRequest {
   memberAccountId?: string;
 
   /**
-   * <p>Use this parameter to indicate the maximum number of items that you want in the
-   *       response. The default value is 250. </p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>Use this parameter when paginating results. Set its value to null on your first call to
    *       the ListS3Resources action. Subsequent calls to the action fill nextToken in the request with
    *       the value of nextToken from the previous response to continue listing data. </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Use this parameter to indicate the maximum number of items that you want in the
+   *       response. The default value is 250. </p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListS3ResourcesRequest {
@@ -417,17 +416,17 @@ export namespace ListS3ResourcesRequest {
 
 export interface ListS3ResourcesResult {
   /**
+   * <p>A list of the associated S3 resources returned by the action.</p>
+   */
+  s3Resources?: S3ResourceClassification[];
+
+  /**
    * <p>When a response is generated, if there is more data to be listed, this parameter is
    *       present in the response and contains the value to use for the nextToken parameter in a
    *       subsequent pagination request. If there is no more data to be listed, this parameter is set to
    *       null. </p>
    */
   nextToken?: string;
-
-  /**
-   * <p>A list of the associated S3 resources returned by the action.</p>
-   */
-  s3Resources?: S3ResourceClassification[];
 }
 
 export namespace ListS3ResourcesResult {
@@ -442,14 +441,14 @@ export namespace ListS3ResourcesResult {
  */
 export interface S3ResourceClassificationUpdate {
   /**
-   * <p>The prefix of the S3 bucket whose classification types you want to update.</p>
-   */
-  prefix?: string;
-
-  /**
    * <p>The name of the S3 bucket whose classification types you want to update.</p>
    */
   bucketName: string | undefined;
+
+  /**
+   * <p>The prefix of the S3 bucket whose classification types you want to update.</p>
+   */
+  prefix?: string;
 
   /**
    * <p>The classification type that you want to update for the resource associated with Amazon

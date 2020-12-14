@@ -2021,7 +2021,8 @@
           "sdkId": "Honeycode",
           "arnNamespace": "honeycode",
           "cloudFormationName": "Honeycode",
-          "cloudTrailEventSource": "honeycode.amazonaws.com"
+          "cloudTrailEventSource": "honeycode.amazonaws.com",
+          "endpointPrefix": "honeycode"
         },
         "aws.auth#sigv4": {
           "name": "honeycode"

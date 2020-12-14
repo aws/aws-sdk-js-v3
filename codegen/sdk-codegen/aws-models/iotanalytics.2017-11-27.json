@@ -141,7 +141,8 @@
           "sdkId": "IoTAnalytics",
           "arnNamespace": "iotanalytics",
           "cloudFormationName": "IoTAnalytics",
-          "cloudTrailEventSource": "iotanalytics.amazonaws.com"
+          "cloudTrailEventSource": "iotanalytics.amazonaws.com",
+          "endpointPrefix": "iotanalytics"
         },
         "aws.auth#sigv4": {
           "name": "iotanalytics"
@@ -1819,7 +1820,7 @@
       }
     },
     "com.amazonaws.iotanalytics#DatastoreStorage": {
-      "type": "structure",
+      "type": "union",
       "members": {
         "serviceManagedS3": {
           "target": "com.amazonaws.iotanalytics#ServiceManagedDatastoreS3Storage",

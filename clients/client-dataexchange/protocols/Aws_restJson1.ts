@@ -193,14 +193,14 @@ export const serializeAws_restJson1DeleteAssetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {};
   let resolvedPath = "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets/{AssetId}";
-  if (input.RevisionId !== undefined) {
-    const labelValue: string = input.RevisionId;
+  if (input.AssetId !== undefined) {
+    const labelValue: string = input.AssetId;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: RevisionId.");
+      throw new Error("Empty value provided for input HTTP label: AssetId.");
     }
-    resolvedPath = resolvedPath.replace("{RevisionId}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{AssetId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: RevisionId.");
+    throw new Error("No value provided for input HTTP label: AssetId.");
   }
   if (input.DataSetId !== undefined) {
     const labelValue: string = input.DataSetId;
@@ -211,14 +211,14 @@ export const serializeAws_restJson1DeleteAssetCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
-  if (input.AssetId !== undefined) {
-    const labelValue: string = input.AssetId;
+  if (input.RevisionId !== undefined) {
+    const labelValue: string = input.RevisionId;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AssetId.");
+      throw new Error("Empty value provided for input HTTP label: RevisionId.");
     }
-    resolvedPath = resolvedPath.replace("{AssetId}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{RevisionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: AssetId.");
+    throw new Error("No value provided for input HTTP label: RevisionId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -267,15 +267,6 @@ export const serializeAws_restJson1DeleteRevisionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {};
   let resolvedPath = "/v1/data-sets/{DataSetId}/revisions/{RevisionId}";
-  if (input.RevisionId !== undefined) {
-    const labelValue: string = input.RevisionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: RevisionId.");
-    }
-    resolvedPath = resolvedPath.replace("{RevisionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: RevisionId.");
-  }
   if (input.DataSetId !== undefined) {
     const labelValue: string = input.DataSetId;
     if (labelValue.length <= 0) {
@@ -284,6 +275,15 @@ export const serializeAws_restJson1DeleteRevisionCommand = async (
     resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
+  }
+  if (input.RevisionId !== undefined) {
+    const labelValue: string = input.RevisionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RevisionId.");
+    }
+    resolvedPath = resolvedPath.replace("{RevisionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RevisionId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -304,14 +304,14 @@ export const serializeAws_restJson1GetAssetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {};
   let resolvedPath = "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets/{AssetId}";
-  if (input.RevisionId !== undefined) {
-    const labelValue: string = input.RevisionId;
+  if (input.AssetId !== undefined) {
+    const labelValue: string = input.AssetId;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: RevisionId.");
+      throw new Error("Empty value provided for input HTTP label: AssetId.");
     }
-    resolvedPath = resolvedPath.replace("{RevisionId}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{AssetId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: RevisionId.");
+    throw new Error("No value provided for input HTTP label: AssetId.");
   }
   if (input.DataSetId !== undefined) {
     const labelValue: string = input.DataSetId;
@@ -322,14 +322,14 @@ export const serializeAws_restJson1GetAssetCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
-  if (input.AssetId !== undefined) {
-    const labelValue: string = input.AssetId;
+  if (input.RevisionId !== undefined) {
+    const labelValue: string = input.RevisionId;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AssetId.");
+      throw new Error("Empty value provided for input HTTP label: RevisionId.");
     }
-    resolvedPath = resolvedPath.replace("{AssetId}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{RevisionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: AssetId.");
+    throw new Error("No value provided for input HTTP label: RevisionId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -453,8 +453,8 @@ export const serializeAws_restJson1ListDataSetRevisionsCommand = async (
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -477,8 +477,8 @@ export const serializeAws_restJson1ListDataSetsCommand = async (
   const headers: any = {};
   let resolvedPath = "/v1/data-sets";
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.Origin !== undefined && { origin: input.Origin }),
   };
   let body: any;
@@ -502,10 +502,10 @@ export const serializeAws_restJson1ListJobsCommand = async (
   const headers: any = {};
   let resolvedPath = "/v1/jobs";
   const query: any = {
-    ...(input.RevisionId !== undefined && { revisionId: input.RevisionId }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.DataSetId !== undefined && { dataSetId: input.DataSetId }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.RevisionId !== undefined && { revisionId: input.RevisionId }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -546,8 +546,8 @@ export const serializeAws_restJson1ListRevisionAssetsCommand = async (
     throw new Error("No value provided for input HTTP label: RevisionId.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -693,15 +693,6 @@ export const serializeAws_restJson1UpdateAssetCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets/{AssetId}";
-  if (input.RevisionId !== undefined) {
-    const labelValue: string = input.RevisionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: RevisionId.");
-    }
-    resolvedPath = resolvedPath.replace("{RevisionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: RevisionId.");
-  }
   if (input.AssetId !== undefined) {
     const labelValue: string = input.AssetId;
     if (labelValue.length <= 0) {
@@ -719,6 +710,15 @@ export const serializeAws_restJson1UpdateAssetCommand = async (
     resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
+  }
+  if (input.RevisionId !== undefined) {
+    const labelValue: string = input.RevisionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RevisionId.");
+    }
+    resolvedPath = resolvedPath.replace("{RevisionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RevisionId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -778,15 +778,6 @@ export const serializeAws_restJson1UpdateRevisionCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = "/v1/data-sets/{DataSetId}/revisions/{RevisionId}";
-  if (input.RevisionId !== undefined) {
-    const labelValue: string = input.RevisionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: RevisionId.");
-    }
-    resolvedPath = resolvedPath.replace("{RevisionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: RevisionId.");
-  }
   if (input.DataSetId !== undefined) {
     const labelValue: string = input.DataSetId;
     if (labelValue.length <= 0) {
@@ -795,6 +786,15 @@ export const serializeAws_restJson1UpdateRevisionCommand = async (
     resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
+  }
+  if (input.RevisionId !== undefined) {
+    const labelValue: string = input.RevisionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RevisionId.");
+    }
+    resolvedPath = resolvedPath.replace("{RevisionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RevisionId.");
   }
   let body: any;
   body = JSON.stringify({

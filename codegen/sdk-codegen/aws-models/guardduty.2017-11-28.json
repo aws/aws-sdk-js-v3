@@ -3741,7 +3741,8 @@
           "sdkId": "GuardDuty",
           "arnNamespace": "guardduty",
           "cloudFormationName": "GuardDuty",
-          "cloudTrailEventSource": "guardduty.amazonaws.com"
+          "cloudTrailEventSource": "guardduty.amazonaws.com",
+          "endpointPrefix": "guardduty"
         },
         "aws.auth#sigv4": {
           "name": "guardduty"

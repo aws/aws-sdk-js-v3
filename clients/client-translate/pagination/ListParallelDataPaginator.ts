@@ -35,7 +35,8 @@ export async function* paginateListParallelData(
   input: ListParallelDataCommandInput,
   ...additionalArguments: any
 ): Paginator<ListParallelDataCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.NextToken
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListParallelDataCommandOutput;
   while (hasNext) {

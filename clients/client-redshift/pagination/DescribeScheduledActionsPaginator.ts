@@ -35,7 +35,8 @@ export async function* paginateDescribeScheduledActions(
   input: DescribeScheduledActionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeScheduledActionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.Marker
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeScheduledActionsCommandOutput;
   while (hasNext) {

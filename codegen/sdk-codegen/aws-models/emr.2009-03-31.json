@@ -1695,7 +1695,89 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Provides cluster-level details including status, hardware and software configuration,\n         VPC settings, and so on. </p>"
+        "smithy.api#documentation": "<p>Provides cluster-level details including status, hardware and software configuration,\n         VPC settings, and so on. </p>",
+        "smithy.waiters#waitable": {
+          "ClusterRunning": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "Cluster.Status.State",
+                    "expected": "RUNNING",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "Cluster.Status.State",
+                    "expected": "WAITING",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "Cluster.Status.State",
+                    "expected": "TERMINATING",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "Cluster.Status.State",
+                    "expected": "TERMINATED",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "Cluster.Status.State",
+                    "expected": "TERMINATED_WITH_ERRORS",
+                    "comparator": "stringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 30
+          },
+          "ClusterTerminated": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "Cluster.Status.State",
+                    "expected": "TERMINATED",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "Cluster.Status.State",
+                    "expected": "TERMINATED_WITH_ERRORS",
+                    "comparator": "stringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 30
+          }
+        }
       }
     },
     "com.amazonaws.emr#DescribeClusterInput": {
@@ -1906,7 +1988,44 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Provides more detail about the cluster step.</p>"
+        "smithy.api#documentation": "<p>Provides more detail about the cluster step.</p>",
+        "smithy.waiters#waitable": {
+          "StepComplete": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "Step.Status.State",
+                    "expected": "COMPLETED",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "Step.Status.State",
+                    "expected": "FAILED",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "Step.Status.State",
+                    "expected": "CANCELLED",
+                    "comparator": "stringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 30
+          }
+        }
       }
     },
     "com.amazonaws.emr#DescribeStepInput": {
@@ -2321,7 +2440,8 @@
           "sdkId": "EMR",
           "arnNamespace": "elasticmapreduce",
           "cloudFormationName": "EMR",
-          "cloudTrailEventSource": "emr.amazonaws.com"
+          "cloudTrailEventSource": "emr.amazonaws.com",
+          "endpointPrefix": "elasticmapreduce"
         },
         "aws.auth#sigv4": {
           "name": "elasticmapreduce"

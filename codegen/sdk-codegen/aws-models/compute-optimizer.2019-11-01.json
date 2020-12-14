@@ -244,7 +244,8 @@
           "sdkId": "Compute Optimizer",
           "arnNamespace": "compute-optimizer",
           "cloudFormationName": "ComputeOptimizer",
-          "cloudTrailEventSource": "computeoptimizer.amazonaws.com"
+          "cloudTrailEventSource": "computeoptimizer.amazonaws.com",
+          "endpointPrefix": "compute-optimizer"
         },
         "aws.auth#sigv4": {
           "name": "compute-optimizer"

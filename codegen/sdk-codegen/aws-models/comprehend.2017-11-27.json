@@ -965,7 +965,8 @@
           "sdkId": "Comprehend",
           "arnNamespace": "comprehend",
           "cloudFormationName": "Comprehend",
-          "cloudTrailEventSource": "comprehend.amazonaws.com"
+          "cloudTrailEventSource": "comprehend.amazonaws.com",
+          "endpointPrefix": "comprehend"
         },
         "aws.auth#sigv4": {
           "name": "comprehend"

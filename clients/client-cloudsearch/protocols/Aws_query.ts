@@ -2717,31 +2717,31 @@ const deserializeAws_queryValidationExceptionResponse = async (
 
 const serializeAws_queryAnalysisOptions = (input: AnalysisOptions, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.Synonyms !== undefined && input.Synonyms !== null) {
+    entries["Synonyms"] = input.Synonyms;
+  }
   if (input.Stopwords !== undefined && input.Stopwords !== null) {
     entries["Stopwords"] = input.Stopwords;
+  }
+  if (input.StemmingDictionary !== undefined && input.StemmingDictionary !== null) {
+    entries["StemmingDictionary"] = input.StemmingDictionary;
   }
   if (input.JapaneseTokenizationDictionary !== undefined && input.JapaneseTokenizationDictionary !== null) {
     entries["JapaneseTokenizationDictionary"] = input.JapaneseTokenizationDictionary;
   }
-  if (input.Synonyms !== undefined && input.Synonyms !== null) {
-    entries["Synonyms"] = input.Synonyms;
-  }
   if (input.AlgorithmicStemming !== undefined && input.AlgorithmicStemming !== null) {
     entries["AlgorithmicStemming"] = input.AlgorithmicStemming;
-  }
-  if (input.StemmingDictionary !== undefined && input.StemmingDictionary !== null) {
-    entries["StemmingDictionary"] = input.StemmingDictionary;
   }
   return entries;
 };
 
 const serializeAws_queryAnalysisScheme = (input: AnalysisScheme, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AnalysisSchemeLanguage !== undefined && input.AnalysisSchemeLanguage !== null) {
-    entries["AnalysisSchemeLanguage"] = input.AnalysisSchemeLanguage;
-  }
   if (input.AnalysisSchemeName !== undefined && input.AnalysisSchemeName !== null) {
     entries["AnalysisSchemeName"] = input.AnalysisSchemeName;
+  }
+  if (input.AnalysisSchemeLanguage !== undefined && input.AnalysisSchemeLanguage !== null) {
+    entries["AnalysisSchemeLanguage"] = input.AnalysisSchemeLanguage;
   }
   if (input.AnalysisOptions !== undefined && input.AnalysisOptions !== null) {
     const memberEntries = serializeAws_queryAnalysisOptions(input.AnalysisOptions, context);
@@ -2774,40 +2774,40 @@ const serializeAws_queryDateArrayOptions = (input: DateArrayOptions, context: __
   if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
     entries["DefaultValue"] = input.DefaultValue;
   }
-  if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
-    entries["ReturnEnabled"] = input.ReturnEnabled;
-  }
-  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
-    entries["SearchEnabled"] = input.SearchEnabled;
-  }
   if (input.SourceFields !== undefined && input.SourceFields !== null) {
     entries["SourceFields"] = input.SourceFields;
   }
   if (input.FacetEnabled !== undefined && input.FacetEnabled !== null) {
     entries["FacetEnabled"] = input.FacetEnabled;
   }
+  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
+    entries["SearchEnabled"] = input.SearchEnabled;
+  }
+  if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
+    entries["ReturnEnabled"] = input.ReturnEnabled;
+  }
   return entries;
 };
 
 const serializeAws_queryDateOptions = (input: DateOptions, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
+    entries["DefaultValue"] = input.DefaultValue;
+  }
   if (input.SourceField !== undefined && input.SourceField !== null) {
     entries["SourceField"] = input.SourceField;
-  }
-  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
-    entries["SearchEnabled"] = input.SearchEnabled;
-  }
-  if (input.SortEnabled !== undefined && input.SortEnabled !== null) {
-    entries["SortEnabled"] = input.SortEnabled;
   }
   if (input.FacetEnabled !== undefined && input.FacetEnabled !== null) {
     entries["FacetEnabled"] = input.FacetEnabled;
   }
-  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
-    entries["DefaultValue"] = input.DefaultValue;
+  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
+    entries["SearchEnabled"] = input.SearchEnabled;
   }
   if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
+  }
+  if (input.SortEnabled !== undefined && input.SortEnabled !== null) {
+    entries["SortEnabled"] = input.SortEnabled;
   }
   return entries;
 };
@@ -2899,11 +2899,11 @@ const serializeAws_queryDeleteDomainRequest = (input: DeleteDomainRequest, conte
 
 const serializeAws_queryDeleteExpressionRequest = (input: DeleteExpressionRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ExpressionName !== undefined && input.ExpressionName !== null) {
-    entries["ExpressionName"] = input.ExpressionName;
-  }
   if (input.DomainName !== undefined && input.DomainName !== null) {
     entries["DomainName"] = input.DomainName;
+  }
+  if (input.ExpressionName !== undefined && input.ExpressionName !== null) {
+    entries["ExpressionName"] = input.ExpressionName;
   }
   return entries;
 };
@@ -2921,11 +2921,11 @@ const serializeAws_queryDeleteIndexFieldRequest = (input: DeleteIndexFieldReques
 
 const serializeAws_queryDeleteSuggesterRequest = (input: DeleteSuggesterRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SuggesterName !== undefined && input.SuggesterName !== null) {
-    entries["SuggesterName"] = input.SuggesterName;
-  }
   if (input.DomainName !== undefined && input.DomainName !== null) {
     entries["DomainName"] = input.DomainName;
+  }
+  if (input.SuggesterName !== undefined && input.SuggesterName !== null) {
+    entries["SuggesterName"] = input.SuggesterName;
   }
   return entries;
 };
@@ -3017,6 +3017,9 @@ const serializeAws_queryDescribeIndexFieldsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.DomainName !== undefined && input.DomainName !== null) {
+    entries["DomainName"] = input.DomainName;
+  }
   if (input.FieldNames !== undefined && input.FieldNames !== null) {
     const memberEntries = serializeAws_queryDynamicFieldNameList(input.FieldNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3026,9 +3029,6 @@ const serializeAws_queryDescribeIndexFieldsRequest = (
   }
   if (input.Deployed !== undefined && input.Deployed !== null) {
     entries["Deployed"] = input.Deployed;
-  }
-  if (input.DomainName !== undefined && input.DomainName !== null) {
-    entries["DomainName"] = input.DomainName;
   }
   return entries;
 };
@@ -3066,15 +3066,15 @@ const serializeAws_queryDescribeSuggestersRequest = (
   if (input.DomainName !== undefined && input.DomainName !== null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.Deployed !== undefined && input.Deployed !== null) {
-    entries["Deployed"] = input.Deployed;
-  }
   if (input.SuggesterNames !== undefined && input.SuggesterNames !== null) {
     const memberEntries = serializeAws_queryStandardNameList(input.SuggesterNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SuggesterNames.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.Deployed !== undefined && input.Deployed !== null) {
+    entries["Deployed"] = input.Deployed;
   }
   return entries;
 };
@@ -3084,22 +3084,22 @@ const serializeAws_queryDocumentSuggesterOptions = (input: DocumentSuggesterOpti
   if (input.SourceField !== undefined && input.SourceField !== null) {
     entries["SourceField"] = input.SourceField;
   }
-  if (input.SortExpression !== undefined && input.SortExpression !== null) {
-    entries["SortExpression"] = input.SortExpression;
-  }
   if (input.FuzzyMatching !== undefined && input.FuzzyMatching !== null) {
     entries["FuzzyMatching"] = input.FuzzyMatching;
+  }
+  if (input.SortExpression !== undefined && input.SortExpression !== null) {
+    entries["SortExpression"] = input.SortExpression;
   }
   return entries;
 };
 
 const serializeAws_queryDomainEndpointOptions = (input: DomainEndpointOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TLSSecurityPolicy !== undefined && input.TLSSecurityPolicy !== null) {
-    entries["TLSSecurityPolicy"] = input.TLSSecurityPolicy;
-  }
   if (input.EnforceHTTPS !== undefined && input.EnforceHTTPS !== null) {
     entries["EnforceHTTPS"] = input.EnforceHTTPS;
+  }
+  if (input.TLSSecurityPolicy !== undefined && input.TLSSecurityPolicy !== null) {
+    entries["TLSSecurityPolicy"] = input.TLSSecurityPolicy;
   }
   return entries;
 };
@@ -3119,43 +3119,43 @@ const serializeAws_queryDomainNameList = (input: string[], context: __SerdeConte
 
 const serializeAws_queryDoubleArrayOptions = (input: DoubleArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
+    entries["DefaultValue"] = input.DefaultValue;
+  }
+  if (input.SourceFields !== undefined && input.SourceFields !== null) {
+    entries["SourceFields"] = input.SourceFields;
+  }
   if (input.FacetEnabled !== undefined && input.FacetEnabled !== null) {
     entries["FacetEnabled"] = input.FacetEnabled;
   }
   if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
     entries["SearchEnabled"] = input.SearchEnabled;
   }
-  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
-    entries["DefaultValue"] = input.DefaultValue;
-  }
   if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
-  }
-  if (input.SourceFields !== undefined && input.SourceFields !== null) {
-    entries["SourceFields"] = input.SourceFields;
   }
   return entries;
 };
 
 const serializeAws_queryDoubleOptions = (input: DoubleOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
-    entries["SearchEnabled"] = input.SearchEnabled;
+  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
+    entries["DefaultValue"] = input.DefaultValue;
   }
   if (input.SourceField !== undefined && input.SourceField !== null) {
     entries["SourceField"] = input.SourceField;
+  }
+  if (input.FacetEnabled !== undefined && input.FacetEnabled !== null) {
+    entries["FacetEnabled"] = input.FacetEnabled;
+  }
+  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
+    entries["SearchEnabled"] = input.SearchEnabled;
   }
   if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
   }
   if (input.SortEnabled !== undefined && input.SortEnabled !== null) {
     entries["SortEnabled"] = input.SortEnabled;
-  }
-  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
-    entries["DefaultValue"] = input.DefaultValue;
-  }
-  if (input.FacetEnabled !== undefined && input.FacetEnabled !== null) {
-    entries["FacetEnabled"] = input.FacetEnabled;
   }
   return entries;
 };
@@ -3175,11 +3175,11 @@ const serializeAws_queryDynamicFieldNameList = (input: string[], context: __Serd
 
 const serializeAws_queryExpression = (input: Expression, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ExpressionValue !== undefined && input.ExpressionValue !== null) {
-    entries["ExpressionValue"] = input.ExpressionValue;
-  }
   if (input.ExpressionName !== undefined && input.ExpressionName !== null) {
     entries["ExpressionName"] = input.ExpressionName;
+  }
+  if (input.ExpressionValue !== undefined && input.ExpressionValue !== null) {
+    entries["ExpressionValue"] = input.ExpressionValue;
   }
   return entries;
 };
@@ -3194,6 +3194,9 @@ const serializeAws_queryIndexDocumentsRequest = (input: IndexDocumentsRequest, c
 
 const serializeAws_queryIndexField = (input: IndexField, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.IndexFieldName !== undefined && input.IndexFieldName !== null) {
+    entries["IndexFieldName"] = input.IndexFieldName;
+  }
   if (input.IndexFieldType !== undefined && input.IndexFieldType !== null) {
     entries["IndexFieldType"] = input.IndexFieldType;
   }
@@ -3204,55 +3207,10 @@ const serializeAws_queryIndexField = (input: IndexField, context: __SerdeContext
       entries[loc] = value;
     });
   }
-  if (input.IntArrayOptions !== undefined && input.IntArrayOptions !== null) {
-    const memberEntries = serializeAws_queryIntArrayOptions(input.IntArrayOptions, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `IntArrayOptions.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.TextOptions !== undefined && input.TextOptions !== null) {
-    const memberEntries = serializeAws_queryTextOptions(input.TextOptions, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `TextOptions.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.TextArrayOptions !== undefined && input.TextArrayOptions !== null) {
-    const memberEntries = serializeAws_queryTextArrayOptions(input.TextArrayOptions, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `TextArrayOptions.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.DateOptions !== undefined && input.DateOptions !== null) {
-    const memberEntries = serializeAws_queryDateOptions(input.DateOptions, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `DateOptions.${key}`;
-      entries[loc] = value;
-    });
-  }
   if (input.DoubleOptions !== undefined && input.DoubleOptions !== null) {
     const memberEntries = serializeAws_queryDoubleOptions(input.DoubleOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DoubleOptions.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.LatLonOptions !== undefined && input.LatLonOptions !== null) {
-    const memberEntries = serializeAws_queryLatLonOptions(input.LatLonOptions, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `LatLonOptions.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.IndexFieldName !== undefined && input.IndexFieldName !== null) {
-    entries["IndexFieldName"] = input.IndexFieldName;
-  }
-  if (input.DoubleArrayOptions !== undefined && input.DoubleArrayOptions !== null) {
-    const memberEntries = serializeAws_queryDoubleArrayOptions(input.DoubleArrayOptions, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `DoubleArrayOptions.${key}`;
       entries[loc] = value;
     });
   }
@@ -3263,10 +3221,38 @@ const serializeAws_queryIndexField = (input: IndexField, context: __SerdeContext
       entries[loc] = value;
     });
   }
-  if (input.DateArrayOptions !== undefined && input.DateArrayOptions !== null) {
-    const memberEntries = serializeAws_queryDateArrayOptions(input.DateArrayOptions, context);
+  if (input.TextOptions !== undefined && input.TextOptions !== null) {
+    const memberEntries = serializeAws_queryTextOptions(input.TextOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `DateArrayOptions.${key}`;
+      const loc = `TextOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DateOptions !== undefined && input.DateOptions !== null) {
+    const memberEntries = serializeAws_queryDateOptions(input.DateOptions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `DateOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.LatLonOptions !== undefined && input.LatLonOptions !== null) {
+    const memberEntries = serializeAws_queryLatLonOptions(input.LatLonOptions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `LatLonOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.IntArrayOptions !== undefined && input.IntArrayOptions !== null) {
+    const memberEntries = serializeAws_queryIntArrayOptions(input.IntArrayOptions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `IntArrayOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DoubleArrayOptions !== undefined && input.DoubleArrayOptions !== null) {
+    const memberEntries = serializeAws_queryDoubleArrayOptions(input.DoubleArrayOptions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `DoubleArrayOptions.${key}`;
       entries[loc] = value;
     });
   }
@@ -3277,13 +3263,27 @@ const serializeAws_queryIndexField = (input: IndexField, context: __SerdeContext
       entries[loc] = value;
     });
   }
+  if (input.TextArrayOptions !== undefined && input.TextArrayOptions !== null) {
+    const memberEntries = serializeAws_queryTextArrayOptions(input.TextArrayOptions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TextArrayOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DateArrayOptions !== undefined && input.DateArrayOptions !== null) {
+    const memberEntries = serializeAws_queryDateArrayOptions(input.DateArrayOptions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `DateArrayOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
 const serializeAws_queryIntArrayOptions = (input: IntArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
-    entries["SearchEnabled"] = input.SearchEnabled;
+  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
+    entries["DefaultValue"] = input.DefaultValue;
   }
   if (input.SourceFields !== undefined && input.SourceFields !== null) {
     entries["SourceFields"] = input.SourceFields;
@@ -3291,8 +3291,8 @@ const serializeAws_queryIntArrayOptions = (input: IntArrayOptions, context: __Se
   if (input.FacetEnabled !== undefined && input.FacetEnabled !== null) {
     entries["FacetEnabled"] = input.FacetEnabled;
   }
-  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
-    entries["DefaultValue"] = input.DefaultValue;
+  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
+    entries["SearchEnabled"] = input.SearchEnabled;
   }
   if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
@@ -3302,8 +3302,8 @@ const serializeAws_queryIntArrayOptions = (input: IntArrayOptions, context: __Se
 
 const serializeAws_queryIntOptions = (input: IntOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SortEnabled !== undefined && input.SortEnabled !== null) {
-    entries["SortEnabled"] = input.SortEnabled;
+  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
+    entries["DefaultValue"] = input.DefaultValue;
   }
   if (input.SourceField !== undefined && input.SourceField !== null) {
     entries["SourceField"] = input.SourceField;
@@ -3317,20 +3317,14 @@ const serializeAws_queryIntOptions = (input: IntOptions, context: __SerdeContext
   if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
   }
-  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
-    entries["DefaultValue"] = input.DefaultValue;
+  if (input.SortEnabled !== undefined && input.SortEnabled !== null) {
+    entries["SortEnabled"] = input.SortEnabled;
   }
   return entries;
 };
 
 const serializeAws_queryLatLonOptions = (input: LatLonOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
-    entries["ReturnEnabled"] = input.ReturnEnabled;
-  }
-  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
-    entries["SearchEnabled"] = input.SearchEnabled;
-  }
   if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
     entries["DefaultValue"] = input.DefaultValue;
   }
@@ -3339,6 +3333,12 @@ const serializeAws_queryLatLonOptions = (input: LatLonOptions, context: __SerdeC
   }
   if (input.FacetEnabled !== undefined && input.FacetEnabled !== null) {
     entries["FacetEnabled"] = input.FacetEnabled;
+  }
+  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
+    entries["SearchEnabled"] = input.SearchEnabled;
+  }
+  if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
+    entries["ReturnEnabled"] = input.ReturnEnabled;
   }
   if (input.SortEnabled !== undefined && input.SortEnabled !== null) {
     entries["SortEnabled"] = input.SortEnabled;
@@ -3348,8 +3348,8 @@ const serializeAws_queryLatLonOptions = (input: LatLonOptions, context: __SerdeC
 
 const serializeAws_queryLiteralArrayOptions = (input: LiteralArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
-    entries["SearchEnabled"] = input.SearchEnabled;
+  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
+    entries["DefaultValue"] = input.DefaultValue;
   }
   if (input.SourceFields !== undefined && input.SourceFields !== null) {
     entries["SourceFields"] = input.SourceFields;
@@ -3357,8 +3357,8 @@ const serializeAws_queryLiteralArrayOptions = (input: LiteralArrayOptions, conte
   if (input.FacetEnabled !== undefined && input.FacetEnabled !== null) {
     entries["FacetEnabled"] = input.FacetEnabled;
   }
-  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
-    entries["DefaultValue"] = input.DefaultValue;
+  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
+    entries["SearchEnabled"] = input.SearchEnabled;
   }
   if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
@@ -3368,14 +3368,14 @@ const serializeAws_queryLiteralArrayOptions = (input: LiteralArrayOptions, conte
 
 const serializeAws_queryLiteralOptions = (input: LiteralOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SortEnabled !== undefined && input.SortEnabled !== null) {
-    entries["SortEnabled"] = input.SortEnabled;
-  }
-  if (input.FacetEnabled !== undefined && input.FacetEnabled !== null) {
-    entries["FacetEnabled"] = input.FacetEnabled;
+  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
+    entries["DefaultValue"] = input.DefaultValue;
   }
   if (input.SourceField !== undefined && input.SourceField !== null) {
     entries["SourceField"] = input.SourceField;
+  }
+  if (input.FacetEnabled !== undefined && input.FacetEnabled !== null) {
+    entries["FacetEnabled"] = input.FacetEnabled;
   }
   if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
     entries["SearchEnabled"] = input.SearchEnabled;
@@ -3383,19 +3383,19 @@ const serializeAws_queryLiteralOptions = (input: LiteralOptions, context: __Serd
   if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
   }
-  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
-    entries["DefaultValue"] = input.DefaultValue;
+  if (input.SortEnabled !== undefined && input.SortEnabled !== null) {
+    entries["SortEnabled"] = input.SortEnabled;
   }
   return entries;
 };
 
 const serializeAws_queryScalingParameters = (input: ScalingParameters, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DesiredReplicationCount !== undefined && input.DesiredReplicationCount !== null) {
-    entries["DesiredReplicationCount"] = input.DesiredReplicationCount;
-  }
   if (input.DesiredInstanceType !== undefined && input.DesiredInstanceType !== null) {
     entries["DesiredInstanceType"] = input.DesiredInstanceType;
+  }
+  if (input.DesiredReplicationCount !== undefined && input.DesiredReplicationCount !== null) {
+    entries["DesiredReplicationCount"] = input.DesiredReplicationCount;
   }
   if (input.DesiredPartitionCount !== undefined && input.DesiredPartitionCount !== null) {
     entries["DesiredPartitionCount"] = input.DesiredPartitionCount;
@@ -3418,15 +3418,15 @@ const serializeAws_queryStandardNameList = (input: string[], context: __SerdeCon
 
 const serializeAws_querySuggester = (input: Suggester, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.SuggesterName !== undefined && input.SuggesterName !== null) {
+    entries["SuggesterName"] = input.SuggesterName;
+  }
   if (input.DocumentSuggesterOptions !== undefined && input.DocumentSuggesterOptions !== null) {
     const memberEntries = serializeAws_queryDocumentSuggesterOptions(input.DocumentSuggesterOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DocumentSuggesterOptions.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.SuggesterName !== undefined && input.SuggesterName !== null) {
-    entries["SuggesterName"] = input.SuggesterName;
   }
   return entries;
 };
@@ -3436,6 +3436,9 @@ const serializeAws_queryTextArrayOptions = (input: TextArrayOptions, context: __
   if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
     entries["DefaultValue"] = input.DefaultValue;
   }
+  if (input.SourceFields !== undefined && input.SourceFields !== null) {
+    entries["SourceFields"] = input.SourceFields;
+  }
   if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
   }
@@ -3444,9 +3447,6 @@ const serializeAws_queryTextArrayOptions = (input: TextArrayOptions, context: __
   }
   if (input.AnalysisScheme !== undefined && input.AnalysisScheme !== null) {
     entries["AnalysisScheme"] = input.AnalysisScheme;
-  }
-  if (input.SourceFields !== undefined && input.SourceFields !== null) {
-    entries["SourceFields"] = input.SourceFields;
   }
   return entries;
 };
@@ -3456,20 +3456,20 @@ const serializeAws_queryTextOptions = (input: TextOptions, context: __SerdeConte
   if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
     entries["DefaultValue"] = input.DefaultValue;
   }
+  if (input.SourceField !== undefined && input.SourceField !== null) {
+    entries["SourceField"] = input.SourceField;
+  }
   if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
+  }
+  if (input.SortEnabled !== undefined && input.SortEnabled !== null) {
+    entries["SortEnabled"] = input.SortEnabled;
   }
   if (input.HighlightEnabled !== undefined && input.HighlightEnabled !== null) {
     entries["HighlightEnabled"] = input.HighlightEnabled;
   }
-  if (input.SourceField !== undefined && input.SourceField !== null) {
-    entries["SourceField"] = input.SourceField;
-  }
   if (input.AnalysisScheme !== undefined && input.AnalysisScheme !== null) {
     entries["AnalysisScheme"] = input.AnalysisScheme;
-  }
-  if (input.SortEnabled !== undefined && input.SortEnabled !== null) {
-    entries["SortEnabled"] = input.SortEnabled;
   }
   return entries;
 };
@@ -3511,15 +3511,15 @@ const serializeAws_queryUpdateScalingParametersRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.DomainName !== undefined && input.DomainName !== null) {
+    entries["DomainName"] = input.DomainName;
+  }
   if (input.ScalingParameters !== undefined && input.ScalingParameters !== null) {
     const memberEntries = serializeAws_queryScalingParameters(input.ScalingParameters, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ScalingParameters.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.DomainName !== undefined && input.DomainName !== null) {
-    entries["DomainName"] = input.DomainName;
   }
   return entries;
 };
@@ -3529,11 +3529,11 @@ const serializeAws_queryUpdateServiceAccessPoliciesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.AccessPolicies !== undefined && input.AccessPolicies !== null) {
-    entries["AccessPolicies"] = input.AccessPolicies;
-  }
   if (input.DomainName !== undefined && input.DomainName !== null) {
     entries["DomainName"] = input.DomainName;
+  }
+  if (input.AccessPolicies !== undefined && input.AccessPolicies !== null) {
+    entries["AccessPolicies"] = input.AccessPolicies;
   }
   return entries;
 };
@@ -3554,41 +3554,41 @@ const deserializeAws_queryAccessPoliciesStatus = (output: any, context: __SerdeC
 
 const deserializeAws_queryAnalysisOptions = (output: any, context: __SerdeContext): AnalysisOptions => {
   let contents: any = {
-    Stopwords: undefined,
-    JapaneseTokenizationDictionary: undefined,
     Synonyms: undefined,
-    AlgorithmicStemming: undefined,
+    Stopwords: undefined,
     StemmingDictionary: undefined,
+    JapaneseTokenizationDictionary: undefined,
+    AlgorithmicStemming: undefined,
   };
+  if (output["Synonyms"] !== undefined) {
+    contents.Synonyms = output["Synonyms"];
+  }
   if (output["Stopwords"] !== undefined) {
     contents.Stopwords = output["Stopwords"];
+  }
+  if (output["StemmingDictionary"] !== undefined) {
+    contents.StemmingDictionary = output["StemmingDictionary"];
   }
   if (output["JapaneseTokenizationDictionary"] !== undefined) {
     contents.JapaneseTokenizationDictionary = output["JapaneseTokenizationDictionary"];
   }
-  if (output["Synonyms"] !== undefined) {
-    contents.Synonyms = output["Synonyms"];
-  }
   if (output["AlgorithmicStemming"] !== undefined) {
     contents.AlgorithmicStemming = output["AlgorithmicStemming"];
-  }
-  if (output["StemmingDictionary"] !== undefined) {
-    contents.StemmingDictionary = output["StemmingDictionary"];
   }
   return contents;
 };
 
 const deserializeAws_queryAnalysisScheme = (output: any, context: __SerdeContext): AnalysisScheme => {
   let contents: any = {
-    AnalysisSchemeLanguage: undefined,
     AnalysisSchemeName: undefined,
+    AnalysisSchemeLanguage: undefined,
     AnalysisOptions: undefined,
   };
-  if (output["AnalysisSchemeLanguage"] !== undefined) {
-    contents.AnalysisSchemeLanguage = output["AnalysisSchemeLanguage"];
-  }
   if (output["AnalysisSchemeName"] !== undefined) {
     contents.AnalysisSchemeName = output["AnalysisSchemeName"];
+  }
+  if (output["AnalysisSchemeLanguage"] !== undefined) {
+    contents.AnalysisSchemeLanguage = output["AnalysisSchemeLanguage"];
   }
   if (output["AnalysisOptions"] !== undefined) {
     contents.AnalysisOptions = deserializeAws_queryAnalysisOptions(output["AnalysisOptions"], context);
@@ -3598,14 +3598,14 @@ const deserializeAws_queryAnalysisScheme = (output: any, context: __SerdeContext
 
 const deserializeAws_queryAnalysisSchemeStatus = (output: any, context: __SerdeContext): AnalysisSchemeStatus => {
   let contents: any = {
-    Status: undefined,
     Options: undefined,
+    Status: undefined,
   };
-  if (output["Status"] !== undefined) {
-    contents.Status = deserializeAws_queryOptionStatus(output["Status"], context);
-  }
   if (output["Options"] !== undefined) {
     contents.Options = deserializeAws_queryAnalysisScheme(output["Options"], context);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = deserializeAws_queryOptionStatus(output["Status"], context);
   }
   return contents;
 };
@@ -3626,14 +3626,14 @@ const deserializeAws_queryAvailabilityOptionsStatus = (
   context: __SerdeContext
 ): AvailabilityOptionsStatus => {
   let contents: any = {
-    Status: undefined,
     Options: undefined,
+    Status: undefined,
   };
-  if (output["Status"] !== undefined) {
-    contents.Status = deserializeAws_queryOptionStatus(output["Status"], context);
-  }
   if (output["Options"] !== undefined) {
     contents.Options = output["Options"] == "true";
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = deserializeAws_queryOptionStatus(output["Status"], context);
   }
   return contents;
 };
@@ -3681,19 +3681,13 @@ const deserializeAws_queryCreateDomainResponse = (output: any, context: __SerdeC
 const deserializeAws_queryDateArrayOptions = (output: any, context: __SerdeContext): DateArrayOptions => {
   let contents: any = {
     DefaultValue: undefined,
-    ReturnEnabled: undefined,
-    SearchEnabled: undefined,
     SourceFields: undefined,
     FacetEnabled: undefined,
+    SearchEnabled: undefined,
+    ReturnEnabled: undefined,
   };
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = output["DefaultValue"];
-  }
-  if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled = output["ReturnEnabled"] == "true";
-  }
-  if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled = output["SearchEnabled"] == "true";
   }
   if (output["SourceFields"] !== undefined) {
     contents.SourceFields = output["SourceFields"];
@@ -3701,35 +3695,41 @@ const deserializeAws_queryDateArrayOptions = (output: any, context: __SerdeConte
   if (output["FacetEnabled"] !== undefined) {
     contents.FacetEnabled = output["FacetEnabled"] == "true";
   }
+  if (output["SearchEnabled"] !== undefined) {
+    contents.SearchEnabled = output["SearchEnabled"] == "true";
+  }
+  if (output["ReturnEnabled"] !== undefined) {
+    contents.ReturnEnabled = output["ReturnEnabled"] == "true";
+  }
   return contents;
 };
 
 const deserializeAws_queryDateOptions = (output: any, context: __SerdeContext): DateOptions => {
   let contents: any = {
-    SourceField: undefined,
-    SearchEnabled: undefined,
-    SortEnabled: undefined,
-    FacetEnabled: undefined,
     DefaultValue: undefined,
+    SourceField: undefined,
+    FacetEnabled: undefined,
+    SearchEnabled: undefined,
     ReturnEnabled: undefined,
+    SortEnabled: undefined,
   };
+  if (output["DefaultValue"] !== undefined) {
+    contents.DefaultValue = output["DefaultValue"];
+  }
   if (output["SourceField"] !== undefined) {
     contents.SourceField = output["SourceField"];
-  }
-  if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled = output["SearchEnabled"] == "true";
-  }
-  if (output["SortEnabled"] !== undefined) {
-    contents.SortEnabled = output["SortEnabled"] == "true";
   }
   if (output["FacetEnabled"] !== undefined) {
     contents.FacetEnabled = output["FacetEnabled"] == "true";
   }
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = output["DefaultValue"];
+  if (output["SearchEnabled"] !== undefined) {
+    contents.SearchEnabled = output["SearchEnabled"] == "true";
   }
   if (output["ReturnEnabled"] !== undefined) {
     contents.ReturnEnabled = output["ReturnEnabled"] == "true";
+  }
+  if (output["SortEnabled"] !== undefined) {
+    contents.SortEnabled = output["SortEnabled"] == "true";
   }
   return contents;
 };
@@ -4015,31 +4015,31 @@ const deserializeAws_queryDocumentSuggesterOptions = (
 ): DocumentSuggesterOptions => {
   let contents: any = {
     SourceField: undefined,
-    SortExpression: undefined,
     FuzzyMatching: undefined,
+    SortExpression: undefined,
   };
   if (output["SourceField"] !== undefined) {
     contents.SourceField = output["SourceField"];
   }
-  if (output["SortExpression"] !== undefined) {
-    contents.SortExpression = output["SortExpression"];
-  }
   if (output["FuzzyMatching"] !== undefined) {
     contents.FuzzyMatching = output["FuzzyMatching"];
+  }
+  if (output["SortExpression"] !== undefined) {
+    contents.SortExpression = output["SortExpression"];
   }
   return contents;
 };
 
 const deserializeAws_queryDomainEndpointOptions = (output: any, context: __SerdeContext): DomainEndpointOptions => {
   let contents: any = {
-    TLSSecurityPolicy: undefined,
     EnforceHTTPS: undefined,
+    TLSSecurityPolicy: undefined,
   };
-  if (output["TLSSecurityPolicy"] !== undefined) {
-    contents.TLSSecurityPolicy = output["TLSSecurityPolicy"];
-  }
   if (output["EnforceHTTPS"] !== undefined) {
     contents.EnforceHTTPS = output["EnforceHTTPS"] == "true";
+  }
+  if (output["TLSSecurityPolicy"] !== undefined) {
+    contents.TLSSecurityPolicy = output["TLSSecurityPolicy"];
   }
   return contents;
 };
@@ -4075,46 +4075,25 @@ const deserializeAws_queryDomainNameMap = (output: any, context: __SerdeContext)
 
 const deserializeAws_queryDomainStatus = (output: any, context: __SerdeContext): DomainStatus => {
   let contents: any = {
-    SearchPartitionCount: undefined,
-    SearchService: undefined,
     DomainId: undefined,
-    Limits: undefined,
-    RequiresIndexDocuments: undefined,
-    Deleted: undefined,
-    SearchInstanceCount: undefined,
-    Processing: undefined,
-    DocService: undefined,
+    DomainName: undefined,
     ARN: undefined,
     Created: undefined,
-    DomainName: undefined,
+    Deleted: undefined,
+    DocService: undefined,
+    SearchService: undefined,
+    RequiresIndexDocuments: undefined,
+    Processing: undefined,
     SearchInstanceType: undefined,
+    SearchPartitionCount: undefined,
+    SearchInstanceCount: undefined,
+    Limits: undefined,
   };
-  if (output["SearchPartitionCount"] !== undefined) {
-    contents.SearchPartitionCount = parseInt(output["SearchPartitionCount"]);
-  }
-  if (output["SearchService"] !== undefined) {
-    contents.SearchService = deserializeAws_queryServiceEndpoint(output["SearchService"], context);
-  }
   if (output["DomainId"] !== undefined) {
     contents.DomainId = output["DomainId"];
   }
-  if (output["Limits"] !== undefined) {
-    contents.Limits = deserializeAws_queryLimits(output["Limits"], context);
-  }
-  if (output["RequiresIndexDocuments"] !== undefined) {
-    contents.RequiresIndexDocuments = output["RequiresIndexDocuments"] == "true";
-  }
-  if (output["Deleted"] !== undefined) {
-    contents.Deleted = output["Deleted"] == "true";
-  }
-  if (output["SearchInstanceCount"] !== undefined) {
-    contents.SearchInstanceCount = parseInt(output["SearchInstanceCount"]);
-  }
-  if (output["Processing"] !== undefined) {
-    contents.Processing = output["Processing"] == "true";
-  }
-  if (output["DocService"] !== undefined) {
-    contents.DocService = deserializeAws_queryServiceEndpoint(output["DocService"], context);
+  if (output["DomainName"] !== undefined) {
+    contents.DomainName = output["DomainName"];
   }
   if (output["ARN"] !== undefined) {
     contents.ARN = output["ARN"];
@@ -4122,11 +4101,32 @@ const deserializeAws_queryDomainStatus = (output: any, context: __SerdeContext):
   if (output["Created"] !== undefined) {
     contents.Created = output["Created"] == "true";
   }
-  if (output["DomainName"] !== undefined) {
-    contents.DomainName = output["DomainName"];
+  if (output["Deleted"] !== undefined) {
+    contents.Deleted = output["Deleted"] == "true";
+  }
+  if (output["DocService"] !== undefined) {
+    contents.DocService = deserializeAws_queryServiceEndpoint(output["DocService"], context);
+  }
+  if (output["SearchService"] !== undefined) {
+    contents.SearchService = deserializeAws_queryServiceEndpoint(output["SearchService"], context);
+  }
+  if (output["RequiresIndexDocuments"] !== undefined) {
+    contents.RequiresIndexDocuments = output["RequiresIndexDocuments"] == "true";
+  }
+  if (output["Processing"] !== undefined) {
+    contents.Processing = output["Processing"] == "true";
   }
   if (output["SearchInstanceType"] !== undefined) {
     contents.SearchInstanceType = output["SearchInstanceType"];
+  }
+  if (output["SearchPartitionCount"] !== undefined) {
+    contents.SearchPartitionCount = parseInt(output["SearchPartitionCount"]);
+  }
+  if (output["SearchInstanceCount"] !== undefined) {
+    contents.SearchInstanceCount = parseInt(output["SearchInstanceCount"]);
+  }
+  if (output["Limits"] !== undefined) {
+    contents.Limits = deserializeAws_queryLimits(output["Limits"], context);
   }
   return contents;
 };
@@ -4144,44 +4144,50 @@ const deserializeAws_queryDomainStatusList = (output: any, context: __SerdeConte
 
 const deserializeAws_queryDoubleArrayOptions = (output: any, context: __SerdeContext): DoubleArrayOptions => {
   let contents: any = {
+    DefaultValue: undefined,
+    SourceFields: undefined,
     FacetEnabled: undefined,
     SearchEnabled: undefined,
-    DefaultValue: undefined,
     ReturnEnabled: undefined,
-    SourceFields: undefined,
   };
+  if (output["DefaultValue"] !== undefined) {
+    contents.DefaultValue = parseFloat(output["DefaultValue"]);
+  }
+  if (output["SourceFields"] !== undefined) {
+    contents.SourceFields = output["SourceFields"];
+  }
   if (output["FacetEnabled"] !== undefined) {
     contents.FacetEnabled = output["FacetEnabled"] == "true";
   }
   if (output["SearchEnabled"] !== undefined) {
     contents.SearchEnabled = output["SearchEnabled"] == "true";
   }
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = parseFloat(output["DefaultValue"]);
-  }
   if (output["ReturnEnabled"] !== undefined) {
     contents.ReturnEnabled = output["ReturnEnabled"] == "true";
-  }
-  if (output["SourceFields"] !== undefined) {
-    contents.SourceFields = output["SourceFields"];
   }
   return contents;
 };
 
 const deserializeAws_queryDoubleOptions = (output: any, context: __SerdeContext): DoubleOptions => {
   let contents: any = {
-    SearchEnabled: undefined,
+    DefaultValue: undefined,
     SourceField: undefined,
+    FacetEnabled: undefined,
+    SearchEnabled: undefined,
     ReturnEnabled: undefined,
     SortEnabled: undefined,
-    DefaultValue: undefined,
-    FacetEnabled: undefined,
   };
-  if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled = output["SearchEnabled"] == "true";
+  if (output["DefaultValue"] !== undefined) {
+    contents.DefaultValue = parseFloat(output["DefaultValue"]);
   }
   if (output["SourceField"] !== undefined) {
     contents.SourceField = output["SourceField"];
+  }
+  if (output["FacetEnabled"] !== undefined) {
+    contents.FacetEnabled = output["FacetEnabled"] == "true";
+  }
+  if (output["SearchEnabled"] !== undefined) {
+    contents.SearchEnabled = output["SearchEnabled"] == "true";
   }
   if (output["ReturnEnabled"] !== undefined) {
     contents.ReturnEnabled = output["ReturnEnabled"] == "true";
@@ -4189,39 +4195,33 @@ const deserializeAws_queryDoubleOptions = (output: any, context: __SerdeContext)
   if (output["SortEnabled"] !== undefined) {
     contents.SortEnabled = output["SortEnabled"] == "true";
   }
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = parseFloat(output["DefaultValue"]);
-  }
-  if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled = output["FacetEnabled"] == "true";
-  }
   return contents;
 };
 
 const deserializeAws_queryExpression = (output: any, context: __SerdeContext): Expression => {
   let contents: any = {
-    ExpressionValue: undefined,
     ExpressionName: undefined,
+    ExpressionValue: undefined,
   };
-  if (output["ExpressionValue"] !== undefined) {
-    contents.ExpressionValue = output["ExpressionValue"];
-  }
   if (output["ExpressionName"] !== undefined) {
     contents.ExpressionName = output["ExpressionName"];
+  }
+  if (output["ExpressionValue"] !== undefined) {
+    contents.ExpressionValue = output["ExpressionValue"];
   }
   return contents;
 };
 
 const deserializeAws_queryExpressionStatus = (output: any, context: __SerdeContext): ExpressionStatus => {
   let contents: any = {
-    Status: undefined,
     Options: undefined,
+    Status: undefined,
   };
-  if (output["Status"] !== undefined) {
-    contents.Status = deserializeAws_queryOptionStatus(output["Status"], context);
-  }
   if (output["Options"] !== undefined) {
     contents.Options = deserializeAws_queryExpression(output["Options"], context);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = deserializeAws_queryOptionStatus(output["Status"], context);
   }
   return contents;
 };
@@ -4266,58 +4266,58 @@ const deserializeAws_queryIndexDocumentsResponse = (output: any, context: __Serd
 
 const deserializeAws_queryIndexField = (output: any, context: __SerdeContext): IndexField => {
   let contents: any = {
+    IndexFieldName: undefined,
     IndexFieldType: undefined,
     IntOptions: undefined,
-    IntArrayOptions: undefined,
-    TextOptions: undefined,
-    TextArrayOptions: undefined,
-    DateOptions: undefined,
     DoubleOptions: undefined,
-    LatLonOptions: undefined,
-    IndexFieldName: undefined,
-    DoubleArrayOptions: undefined,
     LiteralOptions: undefined,
-    DateArrayOptions: undefined,
+    TextOptions: undefined,
+    DateOptions: undefined,
+    LatLonOptions: undefined,
+    IntArrayOptions: undefined,
+    DoubleArrayOptions: undefined,
     LiteralArrayOptions: undefined,
+    TextArrayOptions: undefined,
+    DateArrayOptions: undefined,
   };
+  if (output["IndexFieldName"] !== undefined) {
+    contents.IndexFieldName = output["IndexFieldName"];
+  }
   if (output["IndexFieldType"] !== undefined) {
     contents.IndexFieldType = output["IndexFieldType"];
   }
   if (output["IntOptions"] !== undefined) {
     contents.IntOptions = deserializeAws_queryIntOptions(output["IntOptions"], context);
   }
-  if (output["IntArrayOptions"] !== undefined) {
-    contents.IntArrayOptions = deserializeAws_queryIntArrayOptions(output["IntArrayOptions"], context);
-  }
-  if (output["TextOptions"] !== undefined) {
-    contents.TextOptions = deserializeAws_queryTextOptions(output["TextOptions"], context);
-  }
-  if (output["TextArrayOptions"] !== undefined) {
-    contents.TextArrayOptions = deserializeAws_queryTextArrayOptions(output["TextArrayOptions"], context);
-  }
-  if (output["DateOptions"] !== undefined) {
-    contents.DateOptions = deserializeAws_queryDateOptions(output["DateOptions"], context);
-  }
   if (output["DoubleOptions"] !== undefined) {
     contents.DoubleOptions = deserializeAws_queryDoubleOptions(output["DoubleOptions"], context);
-  }
-  if (output["LatLonOptions"] !== undefined) {
-    contents.LatLonOptions = deserializeAws_queryLatLonOptions(output["LatLonOptions"], context);
-  }
-  if (output["IndexFieldName"] !== undefined) {
-    contents.IndexFieldName = output["IndexFieldName"];
-  }
-  if (output["DoubleArrayOptions"] !== undefined) {
-    contents.DoubleArrayOptions = deserializeAws_queryDoubleArrayOptions(output["DoubleArrayOptions"], context);
   }
   if (output["LiteralOptions"] !== undefined) {
     contents.LiteralOptions = deserializeAws_queryLiteralOptions(output["LiteralOptions"], context);
   }
-  if (output["DateArrayOptions"] !== undefined) {
-    contents.DateArrayOptions = deserializeAws_queryDateArrayOptions(output["DateArrayOptions"], context);
+  if (output["TextOptions"] !== undefined) {
+    contents.TextOptions = deserializeAws_queryTextOptions(output["TextOptions"], context);
+  }
+  if (output["DateOptions"] !== undefined) {
+    contents.DateOptions = deserializeAws_queryDateOptions(output["DateOptions"], context);
+  }
+  if (output["LatLonOptions"] !== undefined) {
+    contents.LatLonOptions = deserializeAws_queryLatLonOptions(output["LatLonOptions"], context);
+  }
+  if (output["IntArrayOptions"] !== undefined) {
+    contents.IntArrayOptions = deserializeAws_queryIntArrayOptions(output["IntArrayOptions"], context);
+  }
+  if (output["DoubleArrayOptions"] !== undefined) {
+    contents.DoubleArrayOptions = deserializeAws_queryDoubleArrayOptions(output["DoubleArrayOptions"], context);
   }
   if (output["LiteralArrayOptions"] !== undefined) {
     contents.LiteralArrayOptions = deserializeAws_queryLiteralArrayOptions(output["LiteralArrayOptions"], context);
+  }
+  if (output["TextArrayOptions"] !== undefined) {
+    contents.TextArrayOptions = deserializeAws_queryTextArrayOptions(output["TextArrayOptions"], context);
+  }
+  if (output["DateArrayOptions"] !== undefined) {
+    contents.DateArrayOptions = deserializeAws_queryDateArrayOptions(output["DateArrayOptions"], context);
   }
   return contents;
 };
@@ -4349,14 +4349,14 @@ const deserializeAws_queryIndexFieldStatusList = (output: any, context: __SerdeC
 
 const deserializeAws_queryIntArrayOptions = (output: any, context: __SerdeContext): IntArrayOptions => {
   let contents: any = {
-    SearchEnabled: undefined,
+    DefaultValue: undefined,
     SourceFields: undefined,
     FacetEnabled: undefined,
-    DefaultValue: undefined,
+    SearchEnabled: undefined,
     ReturnEnabled: undefined,
   };
-  if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled = output["SearchEnabled"] == "true";
+  if (output["DefaultValue"] !== undefined) {
+    contents.DefaultValue = parseInt(output["DefaultValue"]);
   }
   if (output["SourceFields"] !== undefined) {
     contents.SourceFields = output["SourceFields"];
@@ -4364,8 +4364,8 @@ const deserializeAws_queryIntArrayOptions = (output: any, context: __SerdeContex
   if (output["FacetEnabled"] !== undefined) {
     contents.FacetEnabled = output["FacetEnabled"] == "true";
   }
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = parseInt(output["DefaultValue"]);
+  if (output["SearchEnabled"] !== undefined) {
+    contents.SearchEnabled = output["SearchEnabled"] == "true";
   }
   if (output["ReturnEnabled"] !== undefined) {
     contents.ReturnEnabled = output["ReturnEnabled"] == "true";
@@ -4375,29 +4375,29 @@ const deserializeAws_queryIntArrayOptions = (output: any, context: __SerdeContex
 
 const deserializeAws_queryInternalException = (output: any, context: __SerdeContext): InternalException => {
   let contents: any = {
-    Message: undefined,
     Code: undefined,
+    Message: undefined,
   };
-  if (output["Message"] !== undefined) {
-    contents.Message = output["Message"];
-  }
   if (output["Code"] !== undefined) {
     contents.Code = output["Code"];
+  }
+  if (output["Message"] !== undefined) {
+    contents.Message = output["Message"];
   }
   return contents;
 };
 
 const deserializeAws_queryIntOptions = (output: any, context: __SerdeContext): IntOptions => {
   let contents: any = {
-    SortEnabled: undefined,
+    DefaultValue: undefined,
     SourceField: undefined,
     FacetEnabled: undefined,
     SearchEnabled: undefined,
     ReturnEnabled: undefined,
-    DefaultValue: undefined,
+    SortEnabled: undefined,
   };
-  if (output["SortEnabled"] !== undefined) {
-    contents.SortEnabled = output["SortEnabled"] == "true";
+  if (output["DefaultValue"] !== undefined) {
+    contents.DefaultValue = parseInt(output["DefaultValue"]);
   }
   if (output["SourceField"] !== undefined) {
     contents.SourceField = output["SourceField"];
@@ -4411,8 +4411,8 @@ const deserializeAws_queryIntOptions = (output: any, context: __SerdeContext): I
   if (output["ReturnEnabled"] !== undefined) {
     contents.ReturnEnabled = output["ReturnEnabled"] == "true";
   }
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = parseInt(output["DefaultValue"]);
+  if (output["SortEnabled"] !== undefined) {
+    contents.SortEnabled = output["SortEnabled"] == "true";
   }
   return contents;
 };
@@ -4433,19 +4433,13 @@ const deserializeAws_queryInvalidTypeException = (output: any, context: __SerdeC
 
 const deserializeAws_queryLatLonOptions = (output: any, context: __SerdeContext): LatLonOptions => {
   let contents: any = {
-    ReturnEnabled: undefined,
-    SearchEnabled: undefined,
     DefaultValue: undefined,
     SourceField: undefined,
     FacetEnabled: undefined,
+    SearchEnabled: undefined,
+    ReturnEnabled: undefined,
     SortEnabled: undefined,
   };
-  if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled = output["ReturnEnabled"] == "true";
-  }
-  if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled = output["SearchEnabled"] == "true";
-  }
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = output["DefaultValue"];
   }
@@ -4454,6 +4448,12 @@ const deserializeAws_queryLatLonOptions = (output: any, context: __SerdeContext)
   }
   if (output["FacetEnabled"] !== undefined) {
     contents.FacetEnabled = output["FacetEnabled"] == "true";
+  }
+  if (output["SearchEnabled"] !== undefined) {
+    contents.SearchEnabled = output["SearchEnabled"] == "true";
+  }
+  if (output["ReturnEnabled"] !== undefined) {
+    contents.ReturnEnabled = output["ReturnEnabled"] == "true";
   }
   if (output["SortEnabled"] !== undefined) {
     contents.SortEnabled = output["SortEnabled"] == "true";
@@ -4477,14 +4477,14 @@ const deserializeAws_queryLimitExceededException = (output: any, context: __Serd
 
 const deserializeAws_queryLimits = (output: any, context: __SerdeContext): Limits => {
   let contents: any = {
-    MaximumPartitionCount: undefined,
     MaximumReplicationCount: undefined,
+    MaximumPartitionCount: undefined,
   };
-  if (output["MaximumPartitionCount"] !== undefined) {
-    contents.MaximumPartitionCount = parseInt(output["MaximumPartitionCount"]);
-  }
   if (output["MaximumReplicationCount"] !== undefined) {
     contents.MaximumReplicationCount = parseInt(output["MaximumReplicationCount"]);
+  }
+  if (output["MaximumPartitionCount"] !== undefined) {
+    contents.MaximumPartitionCount = parseInt(output["MaximumPartitionCount"]);
   }
   return contents;
 };
@@ -4507,14 +4507,14 @@ const deserializeAws_queryListDomainNamesResponse = (output: any, context: __Ser
 
 const deserializeAws_queryLiteralArrayOptions = (output: any, context: __SerdeContext): LiteralArrayOptions => {
   let contents: any = {
-    SearchEnabled: undefined,
+    DefaultValue: undefined,
     SourceFields: undefined,
     FacetEnabled: undefined,
-    DefaultValue: undefined,
+    SearchEnabled: undefined,
     ReturnEnabled: undefined,
   };
-  if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled = output["SearchEnabled"] == "true";
+  if (output["DefaultValue"] !== undefined) {
+    contents.DefaultValue = output["DefaultValue"];
   }
   if (output["SourceFields"] !== undefined) {
     contents.SourceFields = output["SourceFields"];
@@ -4522,8 +4522,8 @@ const deserializeAws_queryLiteralArrayOptions = (output: any, context: __SerdeCo
   if (output["FacetEnabled"] !== undefined) {
     contents.FacetEnabled = output["FacetEnabled"] == "true";
   }
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = output["DefaultValue"];
+  if (output["SearchEnabled"] !== undefined) {
+    contents.SearchEnabled = output["SearchEnabled"] == "true";
   }
   if (output["ReturnEnabled"] !== undefined) {
     contents.ReturnEnabled = output["ReturnEnabled"] == "true";
@@ -4533,21 +4533,21 @@ const deserializeAws_queryLiteralArrayOptions = (output: any, context: __SerdeCo
 
 const deserializeAws_queryLiteralOptions = (output: any, context: __SerdeContext): LiteralOptions => {
   let contents: any = {
-    SortEnabled: undefined,
-    FacetEnabled: undefined,
+    DefaultValue: undefined,
     SourceField: undefined,
+    FacetEnabled: undefined,
     SearchEnabled: undefined,
     ReturnEnabled: undefined,
-    DefaultValue: undefined,
+    SortEnabled: undefined,
   };
-  if (output["SortEnabled"] !== undefined) {
-    contents.SortEnabled = output["SortEnabled"] == "true";
-  }
-  if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled = output["FacetEnabled"] == "true";
+  if (output["DefaultValue"] !== undefined) {
+    contents.DefaultValue = output["DefaultValue"];
   }
   if (output["SourceField"] !== undefined) {
     contents.SourceField = output["SourceField"];
+  }
+  if (output["FacetEnabled"] !== undefined) {
+    contents.FacetEnabled = output["FacetEnabled"] == "true";
   }
   if (output["SearchEnabled"] !== undefined) {
     contents.SearchEnabled = output["SearchEnabled"] == "true";
@@ -4555,34 +4555,34 @@ const deserializeAws_queryLiteralOptions = (output: any, context: __SerdeContext
   if (output["ReturnEnabled"] !== undefined) {
     contents.ReturnEnabled = output["ReturnEnabled"] == "true";
   }
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = output["DefaultValue"];
+  if (output["SortEnabled"] !== undefined) {
+    contents.SortEnabled = output["SortEnabled"] == "true";
   }
   return contents;
 };
 
 const deserializeAws_queryOptionStatus = (output: any, context: __SerdeContext): OptionStatus => {
   let contents: any = {
-    UpdateDate: undefined,
-    PendingDeletion: undefined,
     CreationDate: undefined,
-    State: undefined,
+    UpdateDate: undefined,
     UpdateVersion: undefined,
+    State: undefined,
+    PendingDeletion: undefined,
   };
+  if (output["CreationDate"] !== undefined) {
+    contents.CreationDate = new Date(output["CreationDate"]);
+  }
   if (output["UpdateDate"] !== undefined) {
     contents.UpdateDate = new Date(output["UpdateDate"]);
   }
-  if (output["PendingDeletion"] !== undefined) {
-    contents.PendingDeletion = output["PendingDeletion"] == "true";
-  }
-  if (output["CreationDate"] !== undefined) {
-    contents.CreationDate = new Date(output["CreationDate"]);
+  if (output["UpdateVersion"] !== undefined) {
+    contents.UpdateVersion = parseInt(output["UpdateVersion"]);
   }
   if (output["State"] !== undefined) {
     contents.State = output["State"];
   }
-  if (output["UpdateVersion"] !== undefined) {
-    contents.UpdateVersion = parseInt(output["UpdateVersion"]);
+  if (output["PendingDeletion"] !== undefined) {
+    contents.PendingDeletion = output["PendingDeletion"] == "true";
   }
   return contents;
 };
@@ -4606,15 +4606,15 @@ const deserializeAws_queryResourceNotFoundException = (
 
 const deserializeAws_queryScalingParameters = (output: any, context: __SerdeContext): ScalingParameters => {
   let contents: any = {
-    DesiredReplicationCount: undefined,
     DesiredInstanceType: undefined,
+    DesiredReplicationCount: undefined,
     DesiredPartitionCount: undefined,
   };
-  if (output["DesiredReplicationCount"] !== undefined) {
-    contents.DesiredReplicationCount = parseInt(output["DesiredReplicationCount"]);
-  }
   if (output["DesiredInstanceType"] !== undefined) {
     contents.DesiredInstanceType = output["DesiredInstanceType"];
+  }
+  if (output["DesiredReplicationCount"] !== undefined) {
+    contents.DesiredReplicationCount = parseInt(output["DesiredReplicationCount"]);
   }
   if (output["DesiredPartitionCount"] !== undefined) {
     contents.DesiredPartitionCount = parseInt(output["DesiredPartitionCount"]);
@@ -4648,17 +4648,17 @@ const deserializeAws_queryServiceEndpoint = (output: any, context: __SerdeContex
 
 const deserializeAws_querySuggester = (output: any, context: __SerdeContext): Suggester => {
   let contents: any = {
-    DocumentSuggesterOptions: undefined,
     SuggesterName: undefined,
+    DocumentSuggesterOptions: undefined,
   };
+  if (output["SuggesterName"] !== undefined) {
+    contents.SuggesterName = output["SuggesterName"];
+  }
   if (output["DocumentSuggesterOptions"] !== undefined) {
     contents.DocumentSuggesterOptions = deserializeAws_queryDocumentSuggesterOptions(
       output["DocumentSuggesterOptions"],
       context
     );
-  }
-  if (output["SuggesterName"] !== undefined) {
-    contents.SuggesterName = output["SuggesterName"];
   }
   return contents;
 };
@@ -4691,13 +4691,16 @@ const deserializeAws_querySuggesterStatusList = (output: any, context: __SerdeCo
 const deserializeAws_queryTextArrayOptions = (output: any, context: __SerdeContext): TextArrayOptions => {
   let contents: any = {
     DefaultValue: undefined,
+    SourceFields: undefined,
     ReturnEnabled: undefined,
     HighlightEnabled: undefined,
     AnalysisScheme: undefined,
-    SourceFields: undefined,
   };
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = output["DefaultValue"];
+  }
+  if (output["SourceFields"] !== undefined) {
+    contents.SourceFields = output["SourceFields"];
   }
   if (output["ReturnEnabled"] !== undefined) {
     contents.ReturnEnabled = output["ReturnEnabled"] == "true";
@@ -4707,9 +4710,6 @@ const deserializeAws_queryTextArrayOptions = (output: any, context: __SerdeConte
   }
   if (output["AnalysisScheme"] !== undefined) {
     contents.AnalysisScheme = output["AnalysisScheme"];
-  }
-  if (output["SourceFields"] !== undefined) {
-    contents.SourceFields = output["SourceFields"];
   }
   return contents;
 };
@@ -4717,29 +4717,29 @@ const deserializeAws_queryTextArrayOptions = (output: any, context: __SerdeConte
 const deserializeAws_queryTextOptions = (output: any, context: __SerdeContext): TextOptions => {
   let contents: any = {
     DefaultValue: undefined,
-    ReturnEnabled: undefined,
-    HighlightEnabled: undefined,
     SourceField: undefined,
-    AnalysisScheme: undefined,
+    ReturnEnabled: undefined,
     SortEnabled: undefined,
+    HighlightEnabled: undefined,
+    AnalysisScheme: undefined,
   };
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = output["DefaultValue"];
   }
+  if (output["SourceField"] !== undefined) {
+    contents.SourceField = output["SourceField"];
+  }
   if (output["ReturnEnabled"] !== undefined) {
     contents.ReturnEnabled = output["ReturnEnabled"] == "true";
+  }
+  if (output["SortEnabled"] !== undefined) {
+    contents.SortEnabled = output["SortEnabled"] == "true";
   }
   if (output["HighlightEnabled"] !== undefined) {
     contents.HighlightEnabled = output["HighlightEnabled"] == "true";
   }
-  if (output["SourceField"] !== undefined) {
-    contents.SourceField = output["SourceField"];
-  }
   if (output["AnalysisScheme"] !== undefined) {
     contents.AnalysisScheme = output["AnalysisScheme"];
-  }
-  if (output["SortEnabled"] !== undefined) {
-    contents.SortEnabled = output["SortEnabled"] == "true";
   }
   return contents;
 };
@@ -4804,14 +4804,14 @@ const deserializeAws_queryUpdateServiceAccessPoliciesResponse = (
 
 const deserializeAws_queryValidationException = (output: any, context: __SerdeContext): ValidationException => {
   let contents: any = {
-    Message: undefined,
     Code: undefined,
+    Message: undefined,
   };
-  if (output["Message"] !== undefined) {
-    contents.Message = output["Message"];
-  }
   if (output["Code"] !== undefined) {
     contents.Code = output["Code"];
+  }
+  if (output["Message"] !== undefined) {
+    contents.Message = output["Message"];
   }
   return contents;
 };

@@ -43,14 +43,14 @@ export namespace EngineVersion {
  */
 export interface BrokerEngineType {
   /**
-   * The list of engine versions.
-   */
-  EngineVersions?: EngineVersion[];
-
-  /**
    * The type of broker engine.
    */
   EngineType?: EngineType | string;
+
+  /**
+   * The list of engine versions.
+   */
+  EngineVersions?: EngineVersion[];
 }
 
 export namespace BrokerEngineType {
@@ -69,14 +69,14 @@ export interface BrokerInstance {
   ConsoleURL?: string;
 
   /**
-   * The IP address of the Elastic Network Interface (ENI) attached to the broker. Does not apply to RabbitMQ brokers
-   */
-  IpAddress?: string;
-
-  /**
    * The broker's wire-level protocol endpoints.
    */
   Endpoints?: string[];
+
+  /**
+   * The IP address of the Elastic Network Interface (ENI) attached to the broker. Does not apply to RabbitMQ brokers
+   */
+  IpAddress?: string;
 }
 
 export namespace BrokerInstance {
@@ -101,14 +101,14 @@ export enum DeploymentMode {
  */
 export interface BrokerInstanceOption {
   /**
-   * The broker's storage type.
+   * The list of available az.
    */
-  StorageType?: BrokerStorageType | string;
+  AvailabilityZones?: AvailabilityZone[];
 
   /**
-   * The list of supported engine versions.
+   * The type of broker engine.
    */
-  SupportedEngineVersions?: string[];
+  EngineType?: EngineType | string;
 
   /**
    * The type of broker instance.
@@ -116,9 +116,9 @@ export interface BrokerInstanceOption {
   HostInstanceType?: string;
 
   /**
-   * The list of available az.
+   * The broker's storage type.
    */
-  AvailabilityZones?: AvailabilityZone[];
+  StorageType?: BrokerStorageType | string;
 
   /**
    * The list of supported deployment modes.
@@ -126,9 +126,9 @@ export interface BrokerInstanceOption {
   SupportedDeploymentModes?: (DeploymentMode | string)[];
 
   /**
-   * The type of broker engine.
+   * The list of supported engine versions.
    */
-  EngineType?: EngineType | string;
+  SupportedEngineVersions?: string[];
 }
 
 export namespace BrokerInstanceOption {
@@ -150,19 +150,14 @@ export enum BrokerState {
  */
 export interface BrokerSummary {
   /**
-   * Required. The type of broker engine.
+   * The Amazon Resource Name (ARN) of the broker.
    */
-  EngineType?: EngineType | string;
+  BrokerArn?: string;
 
   /**
-   * Required. The deployment mode of the broker.
+   * The unique ID that Amazon MQ generates for the broker.
    */
-  DeploymentMode?: DeploymentMode | string;
-
-  /**
-   * The time when the broker was created.
-   */
-  Created?: Date;
+  BrokerId?: string;
 
   /**
    * The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
@@ -170,24 +165,29 @@ export interface BrokerSummary {
   BrokerName?: string;
 
   /**
-   * The Amazon Resource Name (ARN) of the broker.
-   */
-  BrokerArn?: string;
-
-  /**
    * The status of the broker.
    */
   BrokerState?: BrokerState | string;
 
   /**
+   * The time when the broker was created.
+   */
+  Created?: Date;
+
+  /**
+   * Required. The deployment mode of the broker.
+   */
+  DeploymentMode?: DeploymentMode | string;
+
+  /**
+   * Required. The type of broker engine.
+   */
+  EngineType?: EngineType | string;
+
+  /**
    * The broker's instance type.
    */
   HostInstanceType?: string;
-
-  /**
-   * The unique ID that Amazon MQ generates for the broker.
-   */
-  BrokerId?: string;
 }
 
 export namespace BrokerSummary {
@@ -206,6 +206,11 @@ export enum AuthenticationStrategy {
  */
 export interface ConfigurationRevision {
   /**
+   * Required. The date and time of the configuration revision.
+   */
+  Created?: Date;
+
+  /**
    * The description of the configuration revision.
    */
   Description?: string;
@@ -214,11 +219,6 @@ export interface ConfigurationRevision {
    * Required. The revision number of the configuration.
    */
   Revision?: number;
-
-  /**
-   * Required. The date and time of the configuration revision.
-   */
-  Created?: Date;
 }
 
 export namespace ConfigurationRevision {
@@ -232,44 +232,9 @@ export namespace ConfigurationRevision {
  */
 export interface Configuration {
   /**
-   * Required. The date and time of the configuration revision.
-   */
-  Created?: Date;
-
-  /**
-   * The list of all tags associated with this configuration.
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   * Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
-   */
-  EngineVersion?: string;
-
-  /**
-   * Required. The description of the configuration.
-   */
-  Description?: string;
-
-  /**
-   * Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
-   */
-  Name?: string;
-
-  /**
    * Required. The ARN of the configuration.
    */
   Arn?: string;
-
-  /**
-   * Required. The unique ID that Amazon MQ generates for the configuration.
-   */
-  Id?: string;
-
-  /**
-   * Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
-   */
-  EngineType?: EngineType | string;
 
   /**
    * The authentication strategy associated with the configuration.
@@ -277,9 +242,44 @@ export interface Configuration {
   AuthenticationStrategy?: AuthenticationStrategy | string;
 
   /**
+   * Required. The date and time of the configuration revision.
+   */
+  Created?: Date;
+
+  /**
+   * Required. The description of the configuration.
+   */
+  Description?: string;
+
+  /**
+   * Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
+   */
+  EngineType?: EngineType | string;
+
+  /**
+   * Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+   */
+  EngineVersion?: string;
+
+  /**
+   * Required. The unique ID that Amazon MQ generates for the configuration.
+   */
+  Id?: string;
+
+  /**
    * Required. The latest revision of the configuration.
    */
   LatestRevision?: ConfigurationRevision;
+
+  /**
+   * Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
+   */
+  Name?: string;
+
+  /**
+   * The list of all tags associated with this configuration.
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace Configuration {
@@ -320,6 +320,11 @@ export enum SanitizationWarningReason {
  */
 export interface SanitizationWarning {
   /**
+   * The name of the XML attribute that has been sanitized.
+   */
+  AttributeName?: string;
+
+  /**
    * The name of the XML element that has been sanitized.
    */
   ElementName?: string;
@@ -328,11 +333,6 @@ export interface SanitizationWarning {
    * Required. The reason for which the XML elements or attributes were sanitized.
    */
   Reason?: SanitizationWarningReason | string;
-
-  /**
-   * The name of the XML attribute that has been sanitized.
-   */
-  AttributeName?: string;
 }
 
 export namespace SanitizationWarning {
@@ -346,9 +346,9 @@ export namespace SanitizationWarning {
  */
 export interface User {
   /**
-   * Required. The username of the broker user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+   * Enables access to the ActiveMQ Web Console for the ActiveMQ user (Does not apply to RabbitMQ brokers).
    */
-  Username?: string;
+  ConsoleAccess?: boolean;
 
   /**
    * The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
@@ -356,14 +356,14 @@ export interface User {
   Groups?: string[];
 
   /**
-   * Enables access to the ActiveMQ Web Console for the ActiveMQ user (Does not apply to RabbitMQ brokers).
-   */
-  ConsoleAccess?: boolean;
-
-  /**
    * Required. The password of the broker user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas.
    */
   Password?: string;
+
+  /**
+   * Required. The username of the broker user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+   */
+  Username?: string;
 }
 
 export namespace User {
@@ -406,14 +406,14 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   name: "BadRequestException";
   $fault: "client";
   /**
-   * The explanation of the error.
-   */
-  Message?: string;
-
-  /**
    * The attribute which caused the error.
    */
   ErrorAttribute?: string;
+
+  /**
+   * The explanation of the error.
+   */
+  Message?: string;
 }
 
 export namespace BadRequestException {
@@ -427,11 +427,6 @@ export namespace BadRequestException {
  */
 export interface Configurations {
   /**
-   * The pending configuration of the broker.
-   */
-  Pending?: ConfigurationId;
-
-  /**
    * The current configuration of the broker.
    */
   Current?: ConfigurationId;
@@ -440,6 +435,11 @@ export interface Configurations {
    * The history of configurations applied to the broker.
    */
   History?: ConfigurationId[];
+
+  /**
+   * The pending configuration of the broker.
+   */
+  Pending?: ConfigurationId;
 }
 
 export namespace Configurations {
@@ -455,14 +455,14 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   /**
-   * The explanation of the error.
-   */
-  Message?: string;
-
-  /**
    * The attribute which caused the error.
    */
   ErrorAttribute?: string;
+
+  /**
+   * The explanation of the error.
+   */
+  Message?: string;
 }
 
 export namespace ConflictException {
@@ -497,24 +497,9 @@ export namespace EncryptionOptions {
  */
 export interface LdapServerMetadataInput {
   /**
-   * The directory search scope for the user. If set to true, scope is to search the entire sub-tree.
-   */
-  UserSearchSubtree?: boolean;
-
-  /**
-   * Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
-   */
-  RoleName?: string;
-
-  /**
    * Fully qualified domain name of the LDAP server. Optional failover server.
    */
   Hosts?: string[];
-
-  /**
-   * Service account username.
-   */
-  ServiceAccountUsername?: string;
 
   /**
    * Fully qualified name of the directory to search for a user’s groups.
@@ -522,19 +507,34 @@ export interface LdapServerMetadataInput {
   RoleBase?: string;
 
   /**
-   * Service account password.
+   * Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
    */
-  ServiceAccountPassword?: string;
-
-  /**
-   * Fully qualified name of the directory where you want to search for users.
-   */
-  UserBase?: string;
+  RoleName?: string;
 
   /**
    * The search criteria for groups.
    */
   RoleSearchMatching?: string;
+
+  /**
+   * The directory search scope for the role. If set to true, scope is to search the entire sub-tree.
+   */
+  RoleSearchSubtree?: boolean;
+
+  /**
+   * Service account password.
+   */
+  ServiceAccountPassword?: string;
+
+  /**
+   * Service account username.
+   */
+  ServiceAccountUsername?: string;
+
+  /**
+   * Fully qualified name of the directory where you want to search for users.
+   */
+  UserBase?: string;
 
   /**
    * Specifies the name of the LDAP attribute for the user group membership.
@@ -547,9 +547,9 @@ export interface LdapServerMetadataInput {
   UserSearchMatching?: string;
 
   /**
-   * The directory search scope for the role. If set to true, scope is to search the entire sub-tree.
+   * The directory search scope for the user. If set to true, scope is to search the entire sub-tree.
    */
-  RoleSearchSubtree?: boolean;
+  UserSearchSubtree?: boolean;
 }
 
 export namespace LdapServerMetadataInput {
@@ -594,14 +594,14 @@ export enum DayOfWeek {
  */
 export interface WeeklyStartTime {
   /**
-   * Required. The time, in 24-hour format.
-   */
-  TimeOfDay?: string;
-
-  /**
    * Required. The day of the week.
    */
   DayOfWeek?: DayOfWeek | string;
+
+  /**
+   * Required. The time, in 24-hour format.
+   */
+  TimeOfDay?: string;
 
   /**
    * The time zone, UTC by default, in either the Country/City format, or the UTC offset format.
@@ -620,14 +620,19 @@ export namespace WeeklyStartTime {
  */
 export interface CreateBrokerRequest {
   /**
-   * Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+   * The authentication strategy used to secure the broker.
    */
-  EngineVersion?: string;
+  AuthenticationStrategy?: AuthenticationStrategy | string;
 
   /**
-   * The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment (ACTIVEMQ) requires two subnets. A CLUSTER_MULTI_AZ deployment (RABBITMQ) has no subnet requirements when deployed with public accessibility, deployment without public accessibility requires at least one subnet.
+   * Required. Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.
    */
-  SubnetIds?: string[];
+  AutoMinorVersionUpgrade?: boolean;
+
+  /**
+   * Required. The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
+   */
+  BrokerName?: string;
 
   /**
    * A list of information about the configuration.
@@ -635,19 +640,39 @@ export interface CreateBrokerRequest {
   Configuration?: ConfigurationId;
 
   /**
-   * The authentication strategy used to secure the broker.
-   */
-  AuthenticationStrategy?: AuthenticationStrategy | string;
-
-  /**
    * The unique ID that the requester receives for the created broker. Amazon MQ passes your ID with the API action. Note: We recommend using a Universally Unique Identifier (UUID) for the creatorRequestId. You may omit the creatorRequestId if your application doesn't require idempotency.
    */
   CreatorRequestId?: string;
 
   /**
-   * Required. The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
+   * Required. The deployment mode of the broker.
    */
-  BrokerName?: string;
+  DeploymentMode?: DeploymentMode | string;
+
+  /**
+   * Encryption options for the broker.
+   */
+  EncryptionOptions?: EncryptionOptions;
+
+  /**
+   * Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
+   */
+  EngineType?: EngineType | string;
+
+  /**
+   * Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+   */
+  EngineVersion?: string;
+
+  /**
+   * Required. The broker's instance type.
+   */
+  HostInstanceType?: string;
+
+  /**
+   * The metadata of the LDAP server used to authenticate and authorize connections to the broker.
+   */
+  LdapServerMetadata?: LdapServerMetadataInput;
 
   /**
    * Enables Amazon CloudWatch logging for brokers.
@@ -660,6 +685,11 @@ export interface CreateBrokerRequest {
   MaintenanceWindowStartTime?: WeeklyStartTime;
 
   /**
+   * Required. Enables connections from applications outside of the VPC that hosts the broker's subnets.
+   */
+  PubliclyAccessible?: boolean;
+
+  /**
    * The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
    */
   SecurityGroups?: string[];
@@ -670,24 +700,9 @@ export interface CreateBrokerRequest {
   StorageType?: BrokerStorageType | string;
 
   /**
-   * Required. Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.
+   * The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment (ACTIVEMQ) requires two subnets. A CLUSTER_MULTI_AZ deployment (RABBITMQ) has no subnet requirements when deployed with public accessibility, deployment without public accessibility requires at least one subnet.
    */
-  AutoMinorVersionUpgrade?: boolean;
-
-  /**
-   * Required. The list of broker users (persons or applications) who can access queues and topics. For RabbitMQ brokers, one and only one administrative user is accepted and created when a broker is first provisioned. All subsequent broker users are created by making RabbitMQ API calls directly to brokers or via the RabbitMQ Web Console. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
-   */
-  Users?: User[];
-
-  /**
-   * Encryption options for the broker.
-   */
-  EncryptionOptions?: EncryptionOptions;
-
-  /**
-   * The metadata of the LDAP server used to authenticate and authorize connections to the broker.
-   */
-  LdapServerMetadata?: LdapServerMetadataInput;
+  SubnetIds?: string[];
 
   /**
    * Create tags when creating the broker.
@@ -695,24 +710,9 @@ export interface CreateBrokerRequest {
   Tags?: { [key: string]: string };
 
   /**
-   * Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
+   * Required. The list of broker users (persons or applications) who can access queues and topics. For RabbitMQ brokers, one and only one administrative user is accepted and created when a broker is first provisioned. All subsequent broker users are created by making RabbitMQ API calls directly to brokers or via the RabbitMQ Web Console. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
    */
-  EngineType?: EngineType | string;
-
-  /**
-   * Required. Enables connections from applications outside of the VPC that hosts the broker's subnets.
-   */
-  PubliclyAccessible?: boolean;
-
-  /**
-   * Required. The broker's instance type.
-   */
-  HostInstanceType?: string;
-
-  /**
-   * Required. The deployment mode of the broker.
-   */
-  DeploymentMode?: DeploymentMode | string;
+  Users?: User[];
 }
 
 export namespace CreateBrokerRequest {
@@ -769,14 +769,14 @@ export interface InternalServerErrorException extends __SmithyException, $Metada
   name: "InternalServerErrorException";
   $fault: "server";
   /**
-   * The explanation of the error.
-   */
-  Message?: string;
-
-  /**
    * The attribute which caused the error.
    */
   ErrorAttribute?: string;
+
+  /**
+   * The explanation of the error.
+   */
+  Message?: string;
 }
 
 export namespace InternalServerErrorException {
@@ -823,9 +823,9 @@ export interface CreateConfigurationRequest {
   EngineType?: EngineType | string;
 
   /**
-   * Create tags when creating the configuration.
+   * Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
    */
-  Tags?: { [key: string]: string };
+  EngineVersion?: string;
 
   /**
    * Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
@@ -833,9 +833,9 @@ export interface CreateConfigurationRequest {
   Name?: string;
 
   /**
-   * Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+   * Create tags when creating the configuration.
    */
-  EngineVersion?: string;
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateConfigurationRequest {
@@ -846,14 +846,19 @@ export namespace CreateConfigurationRequest {
 
 export interface CreateConfigurationResponse {
   /**
+   * Required. The Amazon Resource Name (ARN) of the configuration.
+   */
+  Arn?: string;
+
+  /**
+   * The authentication strategy associated with the configuration.
+   */
+  AuthenticationStrategy?: AuthenticationStrategy | string;
+
+  /**
    * Required. The date and time of the configuration.
    */
   Created?: Date;
-
-  /**
-   * Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
-   */
-  Name?: string;
 
   /**
    * Required. The unique ID that Amazon MQ generates for the configuration.
@@ -866,14 +871,9 @@ export interface CreateConfigurationResponse {
   LatestRevision?: ConfigurationRevision;
 
   /**
-   * Required. The Amazon Resource Name (ARN) of the configuration.
+   * Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
    */
-  Arn?: string;
-
-  /**
-   * The authentication strategy associated with the configuration.
-   */
-  AuthenticationStrategy?: AuthenticationStrategy | string;
+  Name?: string;
 }
 
 export namespace CreateConfigurationResponse {
@@ -887,14 +887,14 @@ export namespace CreateConfigurationResponse {
  */
 export interface CreateTagsRequest {
   /**
-   * The key-value pair for the resource tag.
-   */
-  Tags?: { [key: string]: string };
-
-  /**
    * The Amazon Resource Name (ARN) of the resource tag.
    */
   ResourceArn: string | undefined;
+
+  /**
+   * The key-value pair for the resource tag.
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateTagsRequest {
@@ -910,14 +910,14 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   /**
-   * The explanation of the error.
-   */
-  Message?: string;
-
-  /**
    * The attribute which caused the error.
    */
   ErrorAttribute?: string;
+
+  /**
+   * The explanation of the error.
+   */
+  Message?: string;
 }
 
 export namespace NotFoundException {
@@ -931,19 +931,9 @@ export namespace NotFoundException {
  */
 export interface CreateUserRequest {
   /**
-   * The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
-   */
-  Username: string | undefined;
-
-  /**
    * The unique ID that Amazon MQ generates for the broker.
    */
   BrokerId: string | undefined;
-
-  /**
-   * The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
-   */
-  Groups?: string[];
 
   /**
    * Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
@@ -951,9 +941,19 @@ export interface CreateUserRequest {
   ConsoleAccess?: boolean;
 
   /**
+   * The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+   */
+  Groups?: string[];
+
+  /**
    * Required. The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas.
    */
   Password?: string;
+
+  /**
+   * The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+   */
+  Username: string | undefined;
 }
 
 export namespace CreateUserRequest {
@@ -1063,6 +1063,36 @@ export interface LdapServerMetadataOutput {
   Hosts?: string[];
 
   /**
+   * Fully qualified name of the directory to search for a user’s groups.
+   */
+  RoleBase?: string;
+
+  /**
+   * Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
+   */
+  RoleName?: string;
+
+  /**
+   * The search criteria for groups.
+   */
+  RoleSearchMatching?: string;
+
+  /**
+   * The directory search scope for the role. If set to true, scope is to search the entire sub-tree.
+   */
+  RoleSearchSubtree?: boolean;
+
+  /**
+   * Service account username.
+   */
+  ServiceAccountUsername?: string;
+
+  /**
+   * Fully qualified name of the directory where you want to search for users.
+   */
+  UserBase?: string;
+
+  /**
    * Specifies the name of the LDAP attribute for the user group membership.
    */
   UserRoleName?: string;
@@ -1073,39 +1103,9 @@ export interface LdapServerMetadataOutput {
   UserSearchMatching?: string;
 
   /**
-   * Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
-   */
-  RoleName?: string;
-
-  /**
-   * Fully qualified name of the directory where you want to search for users.
-   */
-  UserBase?: string;
-
-  /**
-   * The search criteria for groups.
-   */
-  RoleSearchMatching?: string;
-
-  /**
-   * Service account username.
-   */
-  ServiceAccountUsername?: string;
-
-  /**
-   * Fully qualified name of the directory to search for a user’s groups.
-   */
-  RoleBase?: string;
-
-  /**
    * The directory search scope for the user. If set to true, scope is to search the entire sub-tree.
    */
   UserSearchSubtree?: boolean;
-
-  /**
-   * The directory search scope for the role. If set to true, scope is to search the entire sub-tree.
-   */
-  RoleSearchSubtree?: boolean;
 }
 
 export namespace LdapServerMetadataOutput {
@@ -1119,14 +1119,14 @@ export namespace LdapServerMetadataOutput {
  */
 export interface PendingLogs {
   /**
-   * Enables general logging.
-   */
-  General?: boolean;
-
-  /**
    * Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged.
    */
   Audit?: boolean;
+
+  /**
+   * Enables general logging.
+   */
+  General?: boolean;
 }
 
 export namespace PendingLogs {
@@ -1145,6 +1145,11 @@ export interface LogsSummary {
   Audit?: boolean;
 
   /**
+   * The location of the CloudWatch Logs log group where audit logs are sent.
+   */
+  AuditLogGroup?: string;
+
+  /**
    * Enables general logging.
    */
   General?: boolean;
@@ -1153,11 +1158,6 @@ export interface LogsSummary {
    * The location of the CloudWatch Logs log group where general logs are sent.
    */
   GeneralLogGroup?: string;
-
-  /**
-   * The location of the CloudWatch Logs log group where audit logs are sent.
-   */
-  AuditLogGroup?: string;
 
   /**
    * The list of information about logs pending to be deployed for the specified broker.
@@ -1173,69 +1173,9 @@ export namespace LogsSummary {
 
 export interface DescribeBrokerResponse {
   /**
-   * The version of the broker engine to upgrade to. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+   * The authentication strategy used to secure the broker.
    */
-  PendingEngineVersion?: string;
-
-  /**
-   * The authentication strategy that will be applied when the broker is rebooted.
-   */
-  PendingAuthenticationStrategy?: AuthenticationStrategy | string;
-
-  /**
-   * The list of all revisions for the specified configuration.
-   */
-  Configurations?: Configurations;
-
-  /**
-   * The broker's instance type.
-   */
-  HostInstanceType?: string;
-
-  /**
-   * The unique ID that Amazon MQ generates for the broker.
-   */
-  BrokerId?: string;
-
-  /**
-   * The list of all tags associated with this broker.
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   * Encryption options for the broker.
-   */
-  EncryptionOptions?: EncryptionOptions;
-
-  /**
-   * The list of information about logs currently enabled and pending to be deployed for the specified broker.
-   */
-  Logs?: LogsSummary;
-
-  /**
-   * Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
-   */
-  EngineType?: EngineType | string;
-
-  /**
-   * The parameters that determine the WeeklyStartTime.
-   */
-  MaintenanceWindowStartTime?: WeeklyStartTime;
-
-  /**
-   * The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment (ACTIVEMQ) requires two subnets. A CLUSTER_MULTI_AZ deployment (RABBITMQ) has no subnet requirements when deployed with public accessibility, deployment without public accessibility requires at least one subnet.
-   */
-  SubnetIds?: string[];
-
-  /**
-   * The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
-   */
-  BrokerName?: string;
-
-  /**
-   * The host instance type of the broker to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
-   */
-  PendingHostInstanceType?: string;
+  AuthenticationStrategy?: AuthenticationStrategy | string;
 
   /**
    * Required. Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.
@@ -1243,49 +1183,14 @@ export interface DescribeBrokerResponse {
   AutoMinorVersionUpgrade?: boolean;
 
   /**
-   * The status of the broker.
-   */
-  BrokerState?: BrokerState | string;
-
-  /**
-   * The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
-   */
-  SecurityGroups?: string[];
-
-  /**
-   * The time when the broker was created.
-   */
-  Created?: Date;
-
-  /**
-   * The authentication strategy used to secure the broker.
-   */
-  AuthenticationStrategy?: AuthenticationStrategy | string;
-
-  /**
-   * Required. The deployment mode of the broker.
-   */
-  DeploymentMode?: DeploymentMode | string;
-
-  /**
    * The Amazon Resource Name (ARN) of the broker.
    */
   BrokerArn?: string;
 
   /**
-   * The list of pending security groups to authorize connections to brokers.
+   * The unique ID that Amazon MQ generates for the broker.
    */
-  PendingSecurityGroups?: string[];
-
-  /**
-   * The metadata of the LDAP server used to authenticate and authorize connections to the broker.
-   */
-  LdapServerMetadata?: LdapServerMetadataOutput;
-
-  /**
-   * Required. Enables connections from applications outside of the VPC that hosts the broker's subnets.
-   */
-  PubliclyAccessible?: boolean;
+  BrokerId?: string;
 
   /**
    * A list of information about allocated brokers.
@@ -1293,14 +1198,39 @@ export interface DescribeBrokerResponse {
   BrokerInstances?: BrokerInstance[];
 
   /**
-   * The metadata of the LDAP server that will be used to authenticate and authorize connections to the broker once it is rebooted.
+   * The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
    */
-  PendingLdapServerMetadata?: LdapServerMetadataOutput;
+  BrokerName?: string;
 
   /**
-   * The list of all broker usernames for the specified broker.
+   * The status of the broker.
    */
-  Users?: UserSummary[];
+  BrokerState?: BrokerState | string;
+
+  /**
+   * The list of all revisions for the specified configuration.
+   */
+  Configurations?: Configurations;
+
+  /**
+   * The time when the broker was created.
+   */
+  Created?: Date;
+
+  /**
+   * Required. The deployment mode of the broker.
+   */
+  DeploymentMode?: DeploymentMode | string;
+
+  /**
+   * Encryption options for the broker.
+   */
+  EncryptionOptions?: EncryptionOptions;
+
+  /**
+   * Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
+   */
+  EngineType?: EngineType | string;
 
   /**
    * The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
@@ -1308,9 +1238,79 @@ export interface DescribeBrokerResponse {
   EngineVersion?: string;
 
   /**
+   * The broker's instance type.
+   */
+  HostInstanceType?: string;
+
+  /**
+   * The metadata of the LDAP server used to authenticate and authorize connections to the broker.
+   */
+  LdapServerMetadata?: LdapServerMetadataOutput;
+
+  /**
+   * The list of information about logs currently enabled and pending to be deployed for the specified broker.
+   */
+  Logs?: LogsSummary;
+
+  /**
+   * The parameters that determine the WeeklyStartTime.
+   */
+  MaintenanceWindowStartTime?: WeeklyStartTime;
+
+  /**
+   * The authentication strategy that will be applied when the broker is rebooted.
+   */
+  PendingAuthenticationStrategy?: AuthenticationStrategy | string;
+
+  /**
+   * The version of the broker engine to upgrade to. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+   */
+  PendingEngineVersion?: string;
+
+  /**
+   * The host instance type of the broker to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
+   */
+  PendingHostInstanceType?: string;
+
+  /**
+   * The metadata of the LDAP server that will be used to authenticate and authorize connections to the broker once it is rebooted.
+   */
+  PendingLdapServerMetadata?: LdapServerMetadataOutput;
+
+  /**
+   * The list of pending security groups to authorize connections to brokers.
+   */
+  PendingSecurityGroups?: string[];
+
+  /**
+   * Required. Enables connections from applications outside of the VPC that hosts the broker's subnets.
+   */
+  PubliclyAccessible?: boolean;
+
+  /**
+   * The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
+   */
+  SecurityGroups?: string[];
+
+  /**
    * The broker's storage type.
    */
   StorageType?: BrokerStorageType | string;
+
+  /**
+   * The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment (ACTIVEMQ) requires two subnets. A CLUSTER_MULTI_AZ deployment (RABBITMQ) has no subnet requirements when deployed with public accessibility, deployment without public accessibility requires at least one subnet.
+   */
+  SubnetIds?: string[];
+
+  /**
+   * The list of all tags associated with this broker.
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * The list of all broker usernames for the specified broker.
+   */
+  Users?: UserSummary[];
 }
 
 export namespace DescribeBrokerResponse {
@@ -1321,6 +1321,11 @@ export namespace DescribeBrokerResponse {
 
 export interface DescribeBrokerEngineTypesRequest {
   /**
+   * Filter response by engine type.
+   */
+  EngineType?: string;
+
+  /**
    * The maximum number of engine types that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
    */
   MaxResults?: number;
@@ -1329,11 +1334,6 @@ export interface DescribeBrokerEngineTypesRequest {
    * The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
    */
   NextToken?: string;
-
-  /**
-   * Filter response by engine type.
-   */
-  EngineType?: string;
 }
 
 export namespace DescribeBrokerEngineTypesRequest {
@@ -1367,11 +1367,6 @@ export namespace DescribeBrokerEngineTypesResponse {
 
 export interface DescribeBrokerInstanceOptionsRequest {
   /**
-   * The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
-   */
-  NextToken?: string;
-
-  /**
    * Filter response by engine type.
    */
   EngineType?: string;
@@ -1387,6 +1382,11 @@ export interface DescribeBrokerInstanceOptionsRequest {
   MaxResults?: number;
 
   /**
+   * The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+   */
+  NextToken?: string;
+
+  /**
    * Filter response by storage type.
    */
   StorageType?: string;
@@ -1400,6 +1400,11 @@ export namespace DescribeBrokerInstanceOptionsRequest {
 
 export interface DescribeBrokerInstanceOptionsResponse {
   /**
+   * List of available broker instance options.
+   */
+  BrokerInstanceOptions?: BrokerInstanceOption[];
+
+  /**
    * Required. The maximum number of instance options that can be returned per page (20 by default). This value must be an integer from 5 to 100.
    */
   MaxResults?: number;
@@ -1408,11 +1413,6 @@ export interface DescribeBrokerInstanceOptionsResponse {
    * The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
    */
   NextToken?: string;
-
-  /**
-   * List of available broker instance options.
-   */
-  BrokerInstanceOptions?: BrokerInstanceOption[];
 }
 
 export namespace DescribeBrokerInstanceOptionsResponse {
@@ -1436,19 +1436,14 @@ export namespace DescribeConfigurationRequest {
 
 export interface DescribeConfigurationResponse {
   /**
-   * Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
+   * Required. The ARN of the configuration.
    */
-  EngineType?: EngineType | string;
+  Arn?: string;
 
   /**
-   * Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
+   * The authentication strategy associated with the configuration.
    */
-  Name?: string;
-
-  /**
-   * Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
-   */
-  EngineVersion?: string;
+  AuthenticationStrategy?: AuthenticationStrategy | string;
 
   /**
    * Required. The date and time of the configuration revision.
@@ -1456,24 +1451,19 @@ export interface DescribeConfigurationResponse {
   Created?: Date;
 
   /**
-   * The list of all tags associated with this configuration.
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   * Required. The ARN of the configuration.
-   */
-  Arn?: string;
-
-  /**
    * Required. The description of the configuration.
    */
   Description?: string;
 
   /**
-   * Required. The latest revision of the configuration.
+   * Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
    */
-  LatestRevision?: ConfigurationRevision;
+  EngineType?: EngineType | string;
+
+  /**
+   * Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+   */
+  EngineVersion?: string;
 
   /**
    * Required. The unique ID that Amazon MQ generates for the configuration.
@@ -1481,9 +1471,19 @@ export interface DescribeConfigurationResponse {
   Id?: string;
 
   /**
-   * The authentication strategy associated with the configuration.
+   * Required. The latest revision of the configuration.
    */
-  AuthenticationStrategy?: AuthenticationStrategy | string;
+  LatestRevision?: ConfigurationRevision;
+
+  /**
+   * Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
+   */
+  Name?: string;
+
+  /**
+   * The list of all tags associated with this configuration.
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace DescribeConfigurationResponse {
@@ -1512,16 +1512,6 @@ export namespace DescribeConfigurationRevisionRequest {
 
 export interface DescribeConfigurationRevisionResponse {
   /**
-   * Required. The base64-encoded XML configuration.
-   */
-  Data?: string;
-
-  /**
-   * The description of the configuration.
-   */
-  Description?: string;
-
-  /**
    * Required. The unique ID that Amazon MQ generates for the configuration.
    */
   ConfigurationId?: string;
@@ -1530,6 +1520,16 @@ export interface DescribeConfigurationRevisionResponse {
    * Required. The date and time of the configuration.
    */
   Created?: Date;
+
+  /**
+   * Required. The base64-encoded XML configuration.
+   */
+  Data?: string;
+
+  /**
+   * The description of the configuration.
+   */
+  Description?: string;
 }
 
 export namespace DescribeConfigurationRevisionResponse {
@@ -1540,14 +1540,14 @@ export namespace DescribeConfigurationRevisionResponse {
 
 export interface DescribeUserRequest {
   /**
-   * The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
-   */
-  Username: string | undefined;
-
-  /**
    * The unique ID that Amazon MQ generates for the broker.
    */
   BrokerId: string | undefined;
+
+  /**
+   * The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+   */
+  Username: string | undefined;
 }
 
 export namespace DescribeUserRequest {
@@ -1561,9 +1561,9 @@ export namespace DescribeUserRequest {
  */
 export interface UserPendingChanges {
   /**
-   * Required. The type of change pending for the ActiveMQ user.
+   * Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
    */
-  PendingChange?: ChangeType | string;
+  ConsoleAccess?: boolean;
 
   /**
    * The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
@@ -1571,9 +1571,9 @@ export interface UserPendingChanges {
   Groups?: string[];
 
   /**
-   * Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
+   * Required. The type of change pending for the ActiveMQ user.
    */
-  ConsoleAccess?: boolean;
+  PendingChange?: ChangeType | string;
 }
 
 export namespace UserPendingChanges {
@@ -1589,6 +1589,11 @@ export interface DescribeUserResponse {
   BrokerId?: string;
 
   /**
+   * Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
+   */
+  ConsoleAccess?: boolean;
+
+  /**
    * The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
    */
   Groups?: string[];
@@ -1602,11 +1607,6 @@ export interface DescribeUserResponse {
    * Required. The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
    */
   Username?: string;
-
-  /**
-   * Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
-   */
-  ConsoleAccess?: boolean;
 }
 
 export namespace DescribeUserResponse {
@@ -1653,11 +1653,6 @@ export namespace ListBrokersResponse {
 
 export interface ListConfigurationRevisionsRequest {
   /**
-   * The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
-   */
-  NextToken?: string;
-
-  /**
    * The unique ID that Amazon MQ generates for the configuration.
    */
   ConfigurationId: string | undefined;
@@ -1666,6 +1661,11 @@ export interface ListConfigurationRevisionsRequest {
    * The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
    */
   MaxResults?: number;
+
+  /**
+   * The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+   */
+  NextToken?: string;
 }
 
 export namespace ListConfigurationRevisionsRequest {
@@ -1676,24 +1676,24 @@ export namespace ListConfigurationRevisionsRequest {
 
 export interface ListConfigurationRevisionsResponse {
   /**
-   * The maximum number of configuration revisions that can be returned per page (20 by default). This value must be an integer from 5 to 100.
-   */
-  MaxResults?: number;
-
-  /**
    * The unique ID that Amazon MQ generates for the configuration.
    */
   ConfigurationId?: string;
 
   /**
-   * The list of all revisions for the specified configuration.
+   * The maximum number of configuration revisions that can be returned per page (20 by default). This value must be an integer from 5 to 100.
    */
-  Revisions?: ConfigurationRevision[];
+  MaxResults?: number;
 
   /**
    * The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
    */
   NextToken?: string;
+
+  /**
+   * The list of all revisions for the specified configuration.
+   */
+  Revisions?: ConfigurationRevision[];
 }
 
 export namespace ListConfigurationRevisionsResponse {
@@ -1704,14 +1704,14 @@ export namespace ListConfigurationRevisionsResponse {
 
 export interface ListConfigurationsRequest {
   /**
-   * The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
-   */
-  NextToken?: string;
-
-  /**
    * The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
    */
   MaxResults?: number;
+
+  /**
+   * The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+   */
+  NextToken?: string;
 }
 
 export namespace ListConfigurationsRequest {
@@ -1722,11 +1722,6 @@ export namespace ListConfigurationsRequest {
 
 export interface ListConfigurationsResponse {
   /**
-   * The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
-   */
-  NextToken?: string;
-
-  /**
    * The list of all revisions for the specified configuration.
    */
   Configurations?: Configuration[];
@@ -1735,6 +1730,11 @@ export interface ListConfigurationsResponse {
    * The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
    */
   MaxResults?: number;
+
+  /**
+   * The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+   */
+  NextToken?: string;
 }
 
 export namespace ListConfigurationsResponse {
@@ -1771,14 +1771,14 @@ export namespace ListTagsResponse {
 
 export interface ListUsersRequest {
   /**
-   * The maximum number of ActiveMQ users that can be returned per page (20 by default). This value must be an integer from 5 to 100.
-   */
-  MaxResults?: number;
-
-  /**
    * The unique ID that Amazon MQ generates for the broker.
    */
   BrokerId: string | undefined;
+
+  /**
+   * The maximum number of ActiveMQ users that can be returned per page (20 by default). This value must be an integer from 5 to 100.
+   */
+  MaxResults?: number;
 
   /**
    * The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
@@ -1794,14 +1794,14 @@ export namespace ListUsersRequest {
 
 export interface ListUsersResponse {
   /**
+   * Required. The unique ID that Amazon MQ generates for the broker.
+   */
+  BrokerId?: string;
+
+  /**
    * Required. The maximum number of ActiveMQ users that can be returned per page (20 by default). This value must be an integer from 5 to 100.
    */
   MaxResults?: number;
-
-  /**
-   * Required. The list of all ActiveMQ usernames for the specified broker.
-   */
-  Users?: UserSummary[];
 
   /**
    * The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
@@ -1809,9 +1809,9 @@ export interface ListUsersResponse {
   NextToken?: string;
 
   /**
-   * Required. The unique ID that Amazon MQ generates for the broker.
+   * Required. The list of all ActiveMQ usernames for the specified broker.
    */
-  BrokerId?: string;
+  Users?: UserSummary[];
 }
 
 export namespace ListUsersResponse {
@@ -1846,19 +1846,9 @@ export namespace RebootBrokerResponse {
  */
 export interface UpdateBrokerRequest {
   /**
-   * The metadata of the LDAP server used to authenticate and authorize connections to the broker.
+   * The authentication strategy used to secure the broker.
    */
-  LdapServerMetadata?: LdapServerMetadataInput;
-
-  /**
-   * The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
-   */
-  EngineVersion?: string;
-
-  /**
-   * The unique ID that Amazon MQ generates for the broker.
-   */
-  BrokerId: string | undefined;
+  AuthenticationStrategy?: AuthenticationStrategy | string;
 
   /**
    * Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.
@@ -1866,9 +1856,19 @@ export interface UpdateBrokerRequest {
   AutoMinorVersionUpgrade?: boolean;
 
   /**
-   * Enables Amazon CloudWatch logging for brokers.
+   * The unique ID that Amazon MQ generates for the broker.
    */
-  Logs?: Logs;
+  BrokerId: string | undefined;
+
+  /**
+   * A list of information about the configuration.
+   */
+  Configuration?: ConfigurationId;
+
+  /**
+   * The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+   */
+  EngineVersion?: string;
 
   /**
    * The host instance type of the broker to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
@@ -1876,19 +1876,19 @@ export interface UpdateBrokerRequest {
   HostInstanceType?: string;
 
   /**
-   * The authentication strategy used to secure the broker.
+   * The metadata of the LDAP server used to authenticate and authorize connections to the broker.
    */
-  AuthenticationStrategy?: AuthenticationStrategy | string;
+  LdapServerMetadata?: LdapServerMetadataInput;
+
+  /**
+   * Enables Amazon CloudWatch logging for brokers.
+   */
+  Logs?: Logs;
 
   /**
    * The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
    */
   SecurityGroups?: string[];
-
-  /**
-   * A list of information about the configuration.
-   */
-  Configuration?: ConfigurationId;
 }
 
 export namespace UpdateBrokerRequest {
@@ -1899,14 +1899,34 @@ export namespace UpdateBrokerRequest {
 
 export interface UpdateBrokerResponse {
   /**
-   * Required. The unique ID that Amazon MQ generates for the broker.
+   * The authentication strategy used to secure the broker.
    */
-  BrokerId?: string;
+  AuthenticationStrategy?: AuthenticationStrategy | string;
 
   /**
    * The new value of automatic upgrades to new minor version for brokers.
    */
   AutoMinorVersionUpgrade?: boolean;
+
+  /**
+   * Required. The unique ID that Amazon MQ generates for the broker.
+   */
+  BrokerId?: string;
+
+  /**
+   * The ID of the updated configuration.
+   */
+  Configuration?: ConfigurationId;
+
+  /**
+   * The version of the broker engine to upgrade to. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+   */
+  EngineVersion?: string;
+
+  /**
+   * The host instance type of the broker to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
+   */
+  HostInstanceType?: string;
 
   /**
    * The metadata of the LDAP server used to authenticate and authorize connections to the broker.
@@ -1917,26 +1937,6 @@ export interface UpdateBrokerResponse {
    * The list of information about logs to be enabled for the specified broker.
    */
   Logs?: Logs;
-
-  /**
-   * The host instance type of the broker to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
-   */
-  HostInstanceType?: string;
-
-  /**
-   * The version of the broker engine to upgrade to. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
-   */
-  EngineVersion?: string;
-
-  /**
-   * The ID of the updated configuration.
-   */
-  Configuration?: ConfigurationId;
-
-  /**
-   * The authentication strategy used to secure the broker.
-   */
-  AuthenticationStrategy?: AuthenticationStrategy | string;
 
   /**
    * The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
@@ -1978,14 +1978,14 @@ export namespace UpdateConfigurationRequest {
 
 export interface UpdateConfigurationResponse {
   /**
+   * Required. The Amazon Resource Name (ARN) of the configuration.
+   */
+  Arn?: string;
+
+  /**
    * Required. The date and time of the configuration.
    */
   Created?: Date;
-
-  /**
-   * Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
-   */
-  Name?: string;
 
   /**
    * Required. The unique ID that Amazon MQ generates for the configuration.
@@ -1993,19 +1993,19 @@ export interface UpdateConfigurationResponse {
   Id?: string;
 
   /**
-   * The list of the first 20 warnings about the configuration XML elements or attributes that were sanitized.
-   */
-  Warnings?: SanitizationWarning[];
-
-  /**
-   * Required. The Amazon Resource Name (ARN) of the configuration.
-   */
-  Arn?: string;
-
-  /**
    * The latest revision of the configuration.
    */
   LatestRevision?: ConfigurationRevision;
+
+  /**
+   * Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
+   */
+  Name?: string;
+
+  /**
+   * The list of the first 20 warnings about the configuration XML elements or attributes that were sanitized.
+   */
+  Warnings?: SanitizationWarning[];
 }
 
 export namespace UpdateConfigurationResponse {
@@ -2019,14 +2019,14 @@ export namespace UpdateConfigurationResponse {
  */
 export interface UpdateUserRequest {
   /**
+   * The unique ID that Amazon MQ generates for the broker.
+   */
+  BrokerId: string | undefined;
+
+  /**
    * Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
    */
   ConsoleAccess?: boolean;
-
-  /**
-   * Required. The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
-   */
-  Username: string | undefined;
 
   /**
    * The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
@@ -2034,14 +2034,14 @@ export interface UpdateUserRequest {
   Groups?: string[];
 
   /**
-   * The unique ID that Amazon MQ generates for the broker.
-   */
-  BrokerId: string | undefined;
-
-  /**
    * The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas.
    */
   Password?: string;
+
+  /**
+   * Required. The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+   */
+  Username: string | undefined;
 }
 
 export namespace UpdateUserRequest {

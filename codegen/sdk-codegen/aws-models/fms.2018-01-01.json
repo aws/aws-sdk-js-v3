@@ -127,7 +127,8 @@
           "sdkId": "FMS",
           "arnNamespace": "fms",
           "cloudFormationName": "FMS",
-          "cloudTrailEventSource": "fms.amazonaws.com"
+          "cloudTrailEventSource": "fms.amazonaws.com",
+          "endpointPrefix": "fms"
         },
         "aws.auth#sigv4": {
           "name": "fms"

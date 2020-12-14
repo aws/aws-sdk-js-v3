@@ -35,7 +35,8 @@ export async function* paginateDescribeClusterTracks(
   input: DescribeClusterTracksCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeClusterTracksCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.Marker
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeClusterTracksCommandOutput;
   while (hasNext) {

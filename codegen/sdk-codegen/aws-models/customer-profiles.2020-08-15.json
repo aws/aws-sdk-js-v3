@@ -619,7 +619,8 @@
           "sdkId": "Customer Profiles",
           "arnNamespace": "profile",
           "cloudFormationName": "CustomerProfiles",
-          "cloudTrailEventSource": "customerprofiles.amazonaws.com"
+          "cloudTrailEventSource": "customerprofiles.amazonaws.com",
+          "endpointPrefix": "profile"
         },
         "aws.auth#sigv4": {
           "name": "profile"

@@ -69,12 +69,6 @@
     "com.amazonaws.ioteventsdata#BatchPutMessageErrorEntry": {
       "type": "structure",
       "members": {
-        "errorMessage": {
-          "target": "com.amazonaws.ioteventsdata#ErrorMessage",
-          "traits": {
-            "smithy.api#documentation": "<p>More information about the error.</p>"
-          }
-        },
         "messageId": {
           "target": "com.amazonaws.ioteventsdata#MessageId",
           "traits": {
@@ -85,6 +79,12 @@
           "target": "com.amazonaws.ioteventsdata#ErrorCode",
           "traits": {
             "smithy.api#documentation": "<p>The code associated with the error.</p>"
+          }
+        },
+        "errorMessage": {
+          "target": "com.amazonaws.ioteventsdata#ErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>More information about the error.</p>"
           }
         }
       },
@@ -161,16 +161,16 @@
             "smithy.api#documentation": "<p>The <code>\"messageId\"</code> of the update request that caused the error. (The value of the \n       <code>\"messageId\"</code> in the update request <code>\"Detector\"</code> object.)</p>"
           }
         },
-        "errorMessage": {
-          "target": "com.amazonaws.ioteventsdata#ErrorMessage",
-          "traits": {
-            "smithy.api#documentation": "<p>A message describing the error.</p>"
-          }
-        },
         "errorCode": {
           "target": "com.amazonaws.ioteventsdata#ErrorCode",
           "traits": {
             "smithy.api#documentation": "<p>The code of the error.</p>"
+          }
+        },
+        "errorMessage": {
+          "target": "com.amazonaws.ioteventsdata#ErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>A message describing the error.</p>"
           }
         }
       },
@@ -269,6 +269,24 @@
     "com.amazonaws.ioteventsdata#Detector": {
       "type": "structure",
       "members": {
+        "detectorModelName": {
+          "target": "com.amazonaws.ioteventsdata#DetectorModelName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the detector model that created this detector (instance).</p>"
+          }
+        },
+        "keyValue": {
+          "target": "com.amazonaws.ioteventsdata#KeyValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The value of the key (identifying the device or system) that caused the creation of this \n        detector (instance).</p>"
+          }
+        },
+        "detectorModelVersion": {
+          "target": "com.amazonaws.ioteventsdata#DetectorModelVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the detector model that created this detector (instance).</p>"
+          }
+        },
         "state": {
           "target": "com.amazonaws.ioteventsdata#DetectorState",
           "traits": {
@@ -281,28 +299,10 @@
             "smithy.api#documentation": "<p>The time the detector (instance) was created.</p>"
           }
         },
-        "detectorModelName": {
-          "target": "com.amazonaws.ioteventsdata#DetectorModelName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the detector model that created this detector (instance).</p>"
-          }
-        },
         "lastUpdateTime": {
           "target": "com.amazonaws.ioteventsdata#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The time the detector (instance) was last updated.</p>"
-          }
-        },
-        "detectorModelVersion": {
-          "target": "com.amazonaws.ioteventsdata#DetectorModelVersion",
-          "traits": {
-            "smithy.api#documentation": "<p>The version of the detector model that created this detector (instance).</p>"
-          }
-        },
-        "keyValue": {
-          "target": "com.amazonaws.ioteventsdata#KeyValue",
-          "traits": {
-            "smithy.api#documentation": "<p>The value of the key (identifying the device or system) that caused the creation of this \n        detector (instance).</p>"
           }
         }
       },
@@ -368,17 +368,17 @@
             "smithy.api#required": {}
           }
         },
-        "timers": {
-          "target": "com.amazonaws.ioteventsdata#TimerDefinitions",
-          "traits": {
-            "smithy.api#documentation": "<p>The new values of the detector's timers. Any timer whose value isn't specified is \n       cleared, and its timeout event won't occur.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "variables": {
           "target": "com.amazonaws.ioteventsdata#VariableDefinitions",
           "traits": {
             "smithy.api#documentation": "<p>The new values of the detector's variables. Any variable whose value isn't specified is cleared.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "timers": {
+          "target": "com.amazonaws.ioteventsdata#TimerDefinitions",
+          "traits": {
+            "smithy.api#documentation": "<p>The new values of the detector's timers. Any timer whose value isn't specified is \n       cleared, and its timeout event won't occur.</p>",
             "smithy.api#required": {}
           }
         }
@@ -410,10 +410,16 @@
     "com.amazonaws.ioteventsdata#DetectorSummary": {
       "type": "structure",
       "members": {
-        "creationTime": {
-          "target": "com.amazonaws.ioteventsdata#Timestamp",
+        "detectorModelName": {
+          "target": "com.amazonaws.ioteventsdata#DetectorModelName",
           "traits": {
-            "smithy.api#documentation": "<p>The time the detector (instance) was created.</p>"
+            "smithy.api#documentation": "<p>The name of the detector model that created this detector (instance).</p>"
+          }
+        },
+        "keyValue": {
+          "target": "com.amazonaws.ioteventsdata#KeyValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The value of the key (identifying the device or system) that caused the creation of this \n        detector (instance).</p>"
           }
         },
         "detectorModelVersion": {
@@ -422,28 +428,22 @@
             "smithy.api#documentation": "<p>The version of the detector model that created this detector (instance).</p>"
           }
         },
-        "detectorModelName": {
-          "target": "com.amazonaws.ioteventsdata#DetectorModelName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the detector model that created this detector (instance).</p>"
-          }
-        },
-        "lastUpdateTime": {
-          "target": "com.amazonaws.ioteventsdata#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The time the detector (instance) was last updated.</p>"
-          }
-        },
         "state": {
           "target": "com.amazonaws.ioteventsdata#DetectorStateSummary",
           "traits": {
             "smithy.api#documentation": "<p>The current state of the detector (instance).</p>"
           }
         },
-        "keyValue": {
-          "target": "com.amazonaws.ioteventsdata#KeyValue",
+        "creationTime": {
+          "target": "com.amazonaws.ioteventsdata#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The value of the key (identifying the device or system) that caused the creation of this \n        detector (instance).</p>"
+            "smithy.api#documentation": "<p>The time the detector (instance) was created.</p>"
+          }
+        },
+        "lastUpdateTime": {
+          "target": "com.amazonaws.ioteventsdata#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time the detector (instance) was last updated.</p>"
           }
         }
       },
@@ -545,7 +545,8 @@
           "sdkId": "IoT Events Data",
           "arnNamespace": "ioteventsdata",
           "cloudFormationName": "IoTEventsData",
-          "cloudTrailEventSource": "ioteventsdata.amazonaws.com"
+          "cloudTrailEventSource": "ioteventsdata.amazonaws.com",
+          "endpointPrefix": "data.iotevents"
         },
         "aws.auth#sigv4": {
           "name": "ioteventsdata"
@@ -602,11 +603,12 @@
     "com.amazonaws.ioteventsdata#ListDetectorsRequest": {
       "type": "structure",
       "members": {
-        "maxResults": {
-          "target": "com.amazonaws.ioteventsdata#MaxResults",
+        "detectorModelName": {
+          "target": "com.amazonaws.ioteventsdata#DetectorModelName",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return at one time.</p>",
-            "smithy.api#httpQuery": "maxResults"
+            "smithy.api#documentation": "<p>The name of the detector model whose detectors (instances) are listed.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "stateName": {
@@ -616,19 +618,18 @@
             "smithy.api#httpQuery": "stateName"
           }
         },
-        "detectorModelName": {
-          "target": "com.amazonaws.ioteventsdata#DetectorModelName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the detector model whose detectors (instances) are listed.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.ioteventsdata#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next set of results.</p>",
             "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.ioteventsdata#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return at one time.</p>",
+            "smithy.api#httpQuery": "maxResults"
           }
         }
       }
@@ -636,16 +637,16 @@
     "com.amazonaws.ioteventsdata#ListDetectorsResponse": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.ioteventsdata#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A token to retrieve the next set of results, or <code>null</code> if there are no additional \n          results.</p>"
-          }
-        },
         "detectorSummaries": {
           "target": "com.amazonaws.ioteventsdata#DetectorSummaries",
           "traits": {
             "smithy.api#documentation": "<p>A list of summary information about the detectors (instances).</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.ioteventsdata#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A token to retrieve the next set of results, or <code>null</code> if there are no additional \n          results.</p>"
           }
         }
       }
@@ -782,17 +783,17 @@
     "com.amazonaws.ioteventsdata#Timer": {
       "type": "structure",
       "members": {
-        "timestamp": {
-          "target": "com.amazonaws.ioteventsdata#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of seconds which have elapsed on the timer.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "name": {
           "target": "com.amazonaws.ioteventsdata#TimerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the timer.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "timestamp": {
+          "target": "com.amazonaws.ioteventsdata#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of seconds which have elapsed on the timer.</p>",
             "smithy.api#required": {}
           }
         }
@@ -804,17 +805,17 @@
     "com.amazonaws.ioteventsdata#TimerDefinition": {
       "type": "structure",
       "members": {
-        "seconds": {
-          "target": "com.amazonaws.ioteventsdata#Seconds",
-          "traits": {
-            "smithy.api#documentation": "<p>The new setting of the timer (the number of seconds before the timer elapses).</p>",
-            "smithy.api#required": {}
-          }
-        },
         "name": {
           "target": "com.amazonaws.ioteventsdata#TimerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the timer.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "seconds": {
+          "target": "com.amazonaws.ioteventsdata#Seconds",
+          "traits": {
+            "smithy.api#documentation": "<p>The new setting of the timer (the number of seconds before the timer elapses).</p>",
             "smithy.api#required": {}
           }
         }
@@ -850,17 +851,17 @@
     "com.amazonaws.ioteventsdata#UpdateDetectorRequest": {
       "type": "structure",
       "members": {
-        "state": {
-          "target": "com.amazonaws.ioteventsdata#DetectorStateDefinition",
-          "traits": {
-            "smithy.api#documentation": "<p>The new state, variable values, and timer settings of the detector (instance).</p>",
-            "smithy.api#required": {}
-          }
-        },
         "messageId": {
           "target": "com.amazonaws.ioteventsdata#MessageId",
           "traits": {
             "smithy.api#documentation": "<p>The ID to assign to the detector update <code>\"message\"</code>. Each <code>\"messageId\"</code> \n       must be unique within each batch sent.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "detectorModelName": {
+          "target": "com.amazonaws.ioteventsdata#DetectorModelName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the detector model that created the detectors (instances).</p>",
             "smithy.api#required": {}
           }
         },
@@ -870,10 +871,10 @@
             "smithy.api#documentation": "<p>The value of the input key attribute (identifying the device or system) that caused the creation \n       of this detector (instance).</p>"
           }
         },
-        "detectorModelName": {
-          "target": "com.amazonaws.ioteventsdata#DetectorModelName",
+        "state": {
+          "target": "com.amazonaws.ioteventsdata#DetectorStateDefinition",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the detector model that created the detectors (instances).</p>",
+            "smithy.api#documentation": "<p>The new state, variable values, and timer settings of the detector (instance).</p>",
             "smithy.api#required": {}
           }
         }

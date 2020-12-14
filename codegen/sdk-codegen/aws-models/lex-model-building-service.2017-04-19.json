@@ -156,7 +156,8 @@
           "sdkId": "Lex Model Building Service",
           "arnNamespace": "lex",
           "cloudFormationName": "LexModelBuildingService",
-          "cloudTrailEventSource": "lexmodelbuildingservice.amazonaws.com"
+          "cloudTrailEventSource": "lexmodelbuildingservice.amazonaws.com",
+          "endpointPrefix": "models.lex"
         },
         "aws.auth#sigv4": {
           "name": "lex"

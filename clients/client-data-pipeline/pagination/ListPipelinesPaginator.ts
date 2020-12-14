@@ -35,7 +35,8 @@ export async function* paginateListPipelines(
   input: ListPipelinesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListPipelinesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.marker
+  let token: typeof input.marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListPipelinesCommandOutput;
   while (hasNext) {

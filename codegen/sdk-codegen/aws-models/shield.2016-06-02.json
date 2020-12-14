@@ -129,7 +129,8 @@
           "sdkId": "Shield",
           "arnNamespace": "shield",
           "cloudFormationName": "Shield",
-          "cloudTrailEventSource": "shield.amazonaws.com"
+          "cloudTrailEventSource": "shield.amazonaws.com",
+          "endpointPrefix": "shield"
         },
         "aws.auth#sigv4": {
           "name": "shield"

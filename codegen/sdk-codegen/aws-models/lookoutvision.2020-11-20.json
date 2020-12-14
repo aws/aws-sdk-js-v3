@@ -1579,7 +1579,8 @@
           "sdkId": "LookoutVision",
           "arnNamespace": "lookoutvision",
           "cloudFormationName": "LookoutVision",
-          "cloudTrailEventSource": "lookoutvision.amazonaws.com"
+          "cloudTrailEventSource": "lookoutvision.amazonaws.com",
+          "endpointPrefix": "lookoutvision"
         },
         "aws.auth#sigv4": {
           "name": "lookoutvision"

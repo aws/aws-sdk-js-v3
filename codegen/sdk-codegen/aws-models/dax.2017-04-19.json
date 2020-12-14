@@ -102,7 +102,8 @@
           "sdkId": "DAX",
           "arnNamespace": "dax",
           "cloudFormationName": "DAX",
-          "cloudTrailEventSource": "dax.amazonaws.com"
+          "cloudTrailEventSource": "dax.amazonaws.com",
+          "endpointPrefix": "dax"
         },
         "aws.auth#sigv4": {
           "name": "dax"
@@ -140,40 +141,10 @@
     "com.amazonaws.dax#Cluster": {
       "type": "structure",
       "members": {
-        "SubnetGroup": {
+        "ClusterName": {
           "target": "com.amazonaws.dax#String",
           "traits": {
-            "smithy.api#documentation": "<p>The subnet group where the DAX cluster is running.</p>"
-          }
-        },
-        "NodeType": {
-          "target": "com.amazonaws.dax#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The node type for the nodes in the cluster. (All nodes in a DAX cluster are of\n            the same type.)</p>"
-          }
-        },
-        "Nodes": {
-          "target": "com.amazonaws.dax#NodeList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of nodes that are currently in the cluster.</p>"
-          }
-        },
-        "NotificationConfiguration": {
-          "target": "com.amazonaws.dax#NotificationConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>Describes a notification topic and its status. Notification topics are used for\n            publishing DAX events to subscribers using Amazon Simple Notification Service\n            (SNS).</p>"
-          }
-        },
-        "PreferredMaintenanceWindow": {
-          "target": "com.amazonaws.dax#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A range of time when maintenance of DAX cluster software will be performed. For\n            example: <code>sun:01:00-sun:09:00</code>. Cluster maintenance normally takes less than\n            30 minutes, and is performed automatically within the maintenance window.</p>"
-          }
-        },
-        "SecurityGroups": {
-          "target": "com.amazonaws.dax#SecurityGroupMembershipList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of security groups, and the status of each, for the nodes in the cluster.</p>"
+            "smithy.api#documentation": "<p>The name of the DAX cluster.</p>"
           }
         },
         "Description": {
@@ -188,10 +159,10 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.\n        </p>"
           }
         },
-        "NodeIdsToRemove": {
-          "target": "com.amazonaws.dax#NodeIdentifierList",
+        "TotalNodes": {
+          "target": "com.amazonaws.dax#IntegerOptional",
           "traits": {
-            "smithy.api#documentation": "<p>A list of nodes to be removed from the cluster.</p>"
+            "smithy.api#documentation": "<p>The total number of nodes in the cluster.</p>"
           }
         },
         "ActiveNodes": {
@@ -200,28 +171,58 @@
             "smithy.api#documentation": "<p>The number of nodes in the cluster that are active (i.e., capable of serving\n            requests).</p>"
           }
         },
+        "NodeType": {
+          "target": "com.amazonaws.dax#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The node type for the nodes in the cluster. (All nodes in a DAX cluster are of\n            the same type.)</p>"
+          }
+        },
         "Status": {
           "target": "com.amazonaws.dax#String",
           "traits": {
             "smithy.api#documentation": "<p>The current status of the cluster.</p>"
           }
         },
-        "ParameterGroup": {
-          "target": "com.amazonaws.dax#ParameterGroupStatus",
+        "ClusterDiscoveryEndpoint": {
+          "target": "com.amazonaws.dax#Endpoint",
           "traits": {
-            "smithy.api#documentation": "<p>The parameter group being used by nodes in the cluster.</p>"
+            "smithy.api#documentation": "<p>The configuration endpoint for this DAX cluster, consisting of a DNS name and a\n            port number. Client applications can specify this endpoint, rather than an individual\n            node endpoint, and allow the DAX client software to intelligently route requests and\n            responses to nodes in the DAX cluster.</p>"
           }
         },
-        "ClusterName": {
+        "NodeIdsToRemove": {
+          "target": "com.amazonaws.dax#NodeIdentifierList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of nodes to be removed from the cluster.</p>"
+          }
+        },
+        "Nodes": {
+          "target": "com.amazonaws.dax#NodeList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of nodes that are currently in the cluster.</p>"
+          }
+        },
+        "PreferredMaintenanceWindow": {
           "target": "com.amazonaws.dax#String",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the DAX cluster.</p>"
+            "smithy.api#documentation": "<p>A range of time when maintenance of DAX cluster software will be performed. For\n            example: <code>sun:01:00-sun:09:00</code>. Cluster maintenance normally takes less than\n            30 minutes, and is performed automatically within the maintenance window.</p>"
           }
         },
-        "TotalNodes": {
-          "target": "com.amazonaws.dax#IntegerOptional",
+        "NotificationConfiguration": {
+          "target": "com.amazonaws.dax#NotificationConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>The total number of nodes in the cluster.</p>"
+            "smithy.api#documentation": "<p>Describes a notification topic and its status. Notification topics are used for\n            publishing DAX events to subscribers using Amazon Simple Notification Service\n            (SNS).</p>"
+          }
+        },
+        "SubnetGroup": {
+          "target": "com.amazonaws.dax#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The subnet group where the DAX cluster is running.</p>"
+          }
+        },
+        "SecurityGroups": {
+          "target": "com.amazonaws.dax#SecurityGroupMembershipList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of security groups, and the status of each, for the nodes in the cluster.</p>"
           }
         },
         "IamRoleArn": {
@@ -230,16 +231,16 @@
             "smithy.api#documentation": "<p>A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX\n            will assume this role and use the role's permissions to access DynamoDB on your\n            behalf.</p>"
           }
         },
+        "ParameterGroup": {
+          "target": "com.amazonaws.dax#ParameterGroupStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The parameter group being used by nodes in the cluster.</p>"
+          }
+        },
         "SSEDescription": {
           "target": "com.amazonaws.dax#SSEDescription",
           "traits": {
             "smithy.api#documentation": "<p>The description of the server-side encryption status on the specified DAX cluster.</p>"
-          }
-        },
-        "ClusterDiscoveryEndpoint": {
-          "target": "com.amazonaws.dax#Endpoint",
-          "traits": {
-            "smithy.api#documentation": "<p>The configuration endpoint for this DAX cluster, consisting of a DNS name and a\n            port number. Client applications can specify this endpoint, rather than an individual\n            node endpoint, and allow the DAX client software to intelligently route requests and\n            responses to nodes in the DAX cluster.</p>"
           }
         }
       },
@@ -357,10 +358,11 @@
     "com.amazonaws.dax#CreateClusterRequest": {
       "type": "structure",
       "members": {
-        "Tags": {
-          "target": "com.amazonaws.dax#TagList",
+        "ClusterName": {
+          "target": "com.amazonaws.dax#String",
           "traits": {
-            "smithy.api#documentation": "<p>A set of tags to associate with the DAX cluster.  </p>"
+            "smithy.api#documentation": "<p>The cluster identifier. This parameter is stored as a lowercase\n            string.</p>\n        <p>\n            <b>Constraints:</b>\n        </p>\n        <ul>\n            <li>\n                <p>A name must contain from 1 to 20 alphanumeric characters or\n                    hyphens.</p>\n            </li>\n            <li>\n                <p>The first character must be a letter.</p>\n            </li>\n            <li>\n                <p>A name cannot end with a hyphen or contain two consecutive\n                    hyphens.</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
           }
         },
         "NodeType": {
@@ -370,17 +372,10 @@
             "smithy.api#required": {}
           }
         },
-        "ClusterName": {
+        "Description": {
           "target": "com.amazonaws.dax#String",
           "traits": {
-            "smithy.api#documentation": "<p>The cluster identifier. This parameter is stored as a lowercase\n            string.</p>\n        <p>\n            <b>Constraints:</b>\n        </p>\n        <ul>\n            <li>\n                <p>A name must contain from 1 to 20 alphanumeric characters or\n                    hyphens.</p>\n            </li>\n            <li>\n                <p>The first character must be a letter.</p>\n            </li>\n            <li>\n                <p>A name cannot end with a hyphen or contain two consecutive\n                    hyphens.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": {}
-          }
-        },
-        "SSESpecification": {
-          "target": "com.amazonaws.dax#SSESpecification",
-          "traits": {
-            "smithy.api#documentation": "<p>Represents the settings used to enable server-side encryption on the cluster.</p>"
+            "smithy.api#documentation": "<p>A description of the cluster.</p>"
           }
         },
         "ReplicationFactor": {
@@ -390,41 +385,16 @@
             "smithy.api#required": {}
           }
         },
-        "IamRoleArn": {
-          "target": "com.amazonaws.dax#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX\n            will assume this role and use the role's permissions to access DynamoDB on your\n            behalf.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.dax#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A description of the cluster.</p>"
-          }
-        },
-        "SubnetGroupName": {
-          "target": "com.amazonaws.dax#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the subnet group to be used for the replication group.</p>\n        <important>\n            <p>DAX clusters can only run in an Amazon VPC environment. All of the subnets\n                that you specify in a subnet group must exist in the same VPC.</p>\n        </important>"
-          }
-        },
-        "NotificationTopicArn": {
-          "target": "com.amazonaws.dax#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications will\n            be sent.</p>\n        <note>\n            <p>The Amazon SNS topic owner must be same as the DAX cluster owner.</p>\n        </note>"
-          }
-        },
         "AvailabilityZones": {
           "target": "com.amazonaws.dax#AvailabilityZoneList",
           "traits": {
             "smithy.api#documentation": "<p>The Availability Zones (AZs) in which the cluster nodes will reside after the cluster\n         has been created or updated. If provided, the length of this list must equal the <code>ReplicationFactor</code> parameter.\n         If you omit this parameter, DAX will spread the nodes across Availability Zones for the highest availability.</p>"
           }
         },
-        "ParameterGroupName": {
+        "SubnetGroupName": {
           "target": "com.amazonaws.dax#String",
           "traits": {
-            "smithy.api#documentation": "<p>The parameter group to be associated with the DAX cluster.</p>"
+            "smithy.api#documentation": "<p>The name of the subnet group to be used for the replication group.</p>\n        <important>\n            <p>DAX clusters can only run in an Amazon VPC environment. All of the subnets\n                that you specify in a subnet group must exist in the same VPC.</p>\n        </important>"
           }
         },
         "SecurityGroupIds": {
@@ -437,6 +407,37 @@
           "target": "com.amazonaws.dax#String",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the weekly time range during which maintenance on the DAX cluster is\n            performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock\n            UTC). The minimum maintenance window is a 60 minute period. Valid values for\n                <code>ddd</code> are:</p>\n        <ul>\n            <li>\n                <p>\n                    <code>sun</code>\n                </p>\n            </li>\n            <li>\n                <p>\n                    <code>mon</code>\n                </p>\n            </li>\n            <li>\n                <p>\n                    <code>tue</code>\n                </p>\n            </li>\n            <li>\n                <p>\n                    <code>wed</code>\n                </p>\n            </li>\n            <li>\n                <p>\n                    <code>thu</code>\n                </p>\n            </li>\n            <li>\n                <p>\n                    <code>fri</code>\n                </p>\n            </li>\n            <li>\n                <p>\n                    <code>sat</code>\n                </p>\n            </li>\n         </ul>\n        <p>Example: <code>sun:05:00-sun:09:00</code>\n        </p>\n        <note>\n            <p>If you don't specify a preferred maintenance window when you create or modify a\n                cache cluster, DAX assigns a 60-minute maintenance window on a randomly selected day\n                of the week.</p>\n         </note>"
+          }
+        },
+        "NotificationTopicArn": {
+          "target": "com.amazonaws.dax#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications will\n            be sent.</p>\n        <note>\n            <p>The Amazon SNS topic owner must be same as the DAX cluster owner.</p>\n        </note>"
+          }
+        },
+        "IamRoleArn": {
+          "target": "com.amazonaws.dax#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX\n            will assume this role and use the role's permissions to access DynamoDB on your\n            behalf.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ParameterGroupName": {
+          "target": "com.amazonaws.dax#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The parameter group to be associated with the DAX cluster.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.dax#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>A set of tags to associate with the DAX cluster.  </p>"
+          }
+        },
+        "SSESpecification": {
+          "target": "com.amazonaws.dax#SSESpecification",
+          "traits": {
+            "smithy.api#documentation": "<p>Represents the settings used to enable server-side encryption on the cluster.</p>"
           }
         }
       }
@@ -487,17 +488,17 @@
     "com.amazonaws.dax#CreateParameterGroupRequest": {
       "type": "structure",
       "members": {
-        "Description": {
-          "target": "com.amazonaws.dax#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A description of the parameter group.</p>"
-          }
-        },
         "ParameterGroupName": {
           "target": "com.amazonaws.dax#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the parameter group to apply to all of the clusters in this replication\n            group.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.dax#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the parameter group.</p>"
           }
         }
       }
@@ -545,17 +546,17 @@
     "com.amazonaws.dax#CreateSubnetGroupRequest": {
       "type": "structure",
       "members": {
-        "Description": {
-          "target": "com.amazonaws.dax#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A description for the subnet group</p>"
-          }
-        },
         "SubnetGroupName": {
           "target": "com.amazonaws.dax#String",
           "traits": {
             "smithy.api#documentation": "<p>A name for the subnet group. This value is stored as a lowercase string. </p>",
             "smithy.api#required": {}
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.dax#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A description for the subnet group</p>"
           }
         },
         "SubnetIds": {
@@ -613,10 +614,11 @@
     "com.amazonaws.dax#DecreaseReplicationFactorRequest": {
       "type": "structure",
       "members": {
-        "NodeIdsToRemove": {
-          "target": "com.amazonaws.dax#NodeIdentifierList",
+        "ClusterName": {
+          "target": "com.amazonaws.dax#String",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifiers of the nodes to be removed from the cluster.</p>"
+            "smithy.api#documentation": "<p>The name of the DAX cluster from which you want to remove nodes.</p>",
+            "smithy.api#required": {}
           }
         },
         "NewReplicationFactor": {
@@ -632,11 +634,10 @@
             "smithy.api#documentation": "<p>The Availability Zone(s) from which to remove nodes.</p>"
           }
         },
-        "ClusterName": {
-          "target": "com.amazonaws.dax#String",
+        "NodeIdsToRemove": {
+          "target": "com.amazonaws.dax#NodeIdentifierList",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the DAX cluster from which you want to remove nodes.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The unique identifiers of the nodes to be removed from the cluster.</p>"
           }
         }
       }
@@ -837,16 +838,16 @@
             "smithy.api#documentation": "<p>The names of the DAX clusters being described.</p>"
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.dax#String",
-          "traits": {
-            "smithy.api#documentation": "<p>An optional token returned from a prior request. Use this token for pagination of\n            results from this action. If this parameter is specified, the response includes only\n            results beyond the token, up to the value specified by\n            <code>MaxResults</code>.</p>"
-          }
-        },
         "MaxResults": {
           "target": "com.amazonaws.dax#IntegerOptional",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to include in the response. If more results exist\n            than the specified <code>MaxResults</code> value, a token is included in the response so\n            that the remaining results can be retrieved.</p>\n        <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.dax#String",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional token returned from a prior request. Use this token for pagination of\n            results from this action. If this parameter is specified, the response includes only\n            results beyond the token, up to the value specified by\n            <code>MaxResults</code>.</p>"
           }
         }
       }
@@ -854,16 +855,16 @@
     "com.amazonaws.dax#DescribeClustersResponse": {
       "type": "structure",
       "members": {
-        "Clusters": {
-          "target": "com.amazonaws.dax#ClusterList",
-          "traits": {
-            "smithy.api#documentation": "<p>The descriptions of your DAX clusters, in response to a\n            <i>DescribeClusters</i> request.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.dax#String",
           "traits": {
             "smithy.api#documentation": "<p>Provides an identifier to allow retrieval of paginated results.</p>"
+          }
+        },
+        "Clusters": {
+          "target": "com.amazonaws.dax#ClusterList",
+          "traits": {
+            "smithy.api#documentation": "<p>The descriptions of your DAX clusters, in response to a\n            <i>DescribeClusters</i> request.</p>"
           }
         }
       }
@@ -894,16 +895,16 @@
     "com.amazonaws.dax#DescribeDefaultParametersRequest": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.dax#String",
-          "traits": {
-            "smithy.api#documentation": "<p>An optional token returned from a prior request. Use this token for pagination of\n            results from this action. If this parameter is specified, the response includes only\n            results beyond the token, up to the value specified by\n            <code>MaxResults</code>.</p>"
-          }
-        },
         "MaxResults": {
           "target": "com.amazonaws.dax#IntegerOptional",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to include in the response. If more results exist\n            than the specified <code>MaxResults</code> value, a token is included in the response so\n            that the remaining results can be retrieved.</p>\n        <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.dax#String",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional token returned from a prior request. Use this token for pagination of\n            results from this action. If this parameter is specified, the response includes only\n            results beyond the token, up to the value specified by\n            <code>MaxResults</code>.</p>"
           }
         }
       }
@@ -951,22 +952,10 @@
     "com.amazonaws.dax#DescribeEventsRequest": {
       "type": "structure",
       "members": {
-        "StartTime": {
-          "target": "com.amazonaws.dax#TStamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The beginning of the time interval to retrieve events for, specified in ISO 8601\n            format.</p>"
-          }
-        },
         "SourceName": {
           "target": "com.amazonaws.dax#String",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the event source for which events will be returned. If not\n            specified, then all sources are included in the response.</p>"
-          }
-        },
-        "MaxResults": {
-          "target": "com.amazonaws.dax#IntegerOptional",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to include in the response. If more results exist\n            than the specified <code>MaxResults</code> value, a token is included in the response so\n            that the remaining results can be retrieved.</p>\n        <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>"
           }
         },
         "SourceType": {
@@ -975,10 +964,10 @@
             "smithy.api#documentation": "<p>The event source to retrieve events for. If no value is specified, all events are\n            returned.</p>"
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.dax#String",
+        "StartTime": {
+          "target": "com.amazonaws.dax#TStamp",
           "traits": {
-            "smithy.api#documentation": "<p>An optional token returned from a prior request. Use this token for pagination of\n            results from this action. If this parameter is specified, the response includes only\n            results beyond the token, up to the value specified by\n            <code>MaxResults</code>.</p>"
+            "smithy.api#documentation": "<p>The beginning of the time interval to retrieve events for, specified in ISO 8601\n            format.</p>"
           }
         },
         "EndTime": {
@@ -991,6 +980,18 @@
           "target": "com.amazonaws.dax#IntegerOptional",
           "traits": {
             "smithy.api#documentation": "<p>The number of minutes' worth of events to retrieve.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.dax#IntegerOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to include in the response. If more results exist\n            than the specified <code>MaxResults</code> value, a token is included in the response so\n            that the remaining results can be retrieved.</p>\n        <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.dax#String",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional token returned from a prior request. Use this token for pagination of\n            results from this action. If this parameter is specified, the response includes only\n            results beyond the token, up to the value specified by\n            <code>MaxResults</code>.</p>"
           }
         }
       }
@@ -1114,6 +1115,12 @@
             "smithy.api#required": {}
           }
         },
+        "Source": {
+          "target": "com.amazonaws.dax#String",
+          "traits": {
+            "smithy.api#documentation": "<p>How the parameter is defined. For example, <code>system</code> denotes a\n            system-defined parameter.</p>"
+          }
+        },
         "MaxResults": {
           "target": "com.amazonaws.dax#IntegerOptional",
           "traits": {
@@ -1125,28 +1132,22 @@
           "traits": {
             "smithy.api#documentation": "<p>An optional token returned from a prior request. Use this token for pagination of\n            results from this action. If this parameter is specified, the response includes only\n            results beyond the token, up to the value specified by\n            <code>MaxResults</code>.</p>"
           }
-        },
-        "Source": {
-          "target": "com.amazonaws.dax#String",
-          "traits": {
-            "smithy.api#documentation": "<p>How the parameter is defined. For example, <code>system</code> denotes a\n            system-defined parameter.</p>"
-          }
         }
       }
     },
     "com.amazonaws.dax#DescribeParametersResponse": {
       "type": "structure",
       "members": {
-        "Parameters": {
-          "target": "com.amazonaws.dax#ParameterList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of parameters within a parameter group.  Each element in the list represents one parameter.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.dax#String",
           "traits": {
             "smithy.api#documentation": "<p>Provides an identifier to allow retrieval of paginated results.</p>"
+          }
+        },
+        "Parameters": {
+          "target": "com.amazonaws.dax#ParameterList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of parameters within a parameter group.  Each element in the list represents one parameter.</p>"
           }
         }
       }
@@ -1174,6 +1175,12 @@
     "com.amazonaws.dax#DescribeSubnetGroupsRequest": {
       "type": "structure",
       "members": {
+        "SubnetGroupNames": {
+          "target": "com.amazonaws.dax#SubnetGroupNameList",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the subnet group.</p>"
+          }
+        },
         "MaxResults": {
           "target": "com.amazonaws.dax#IntegerOptional",
           "traits": {
@@ -1184,12 +1191,6 @@
           "target": "com.amazonaws.dax#String",
           "traits": {
             "smithy.api#documentation": "<p>An optional token returned from a prior request. Use this token for pagination of\n            results from this action. If this parameter is specified, the response includes only\n            results beyond the token, up to the value specified by\n            <code>MaxResults</code>.</p>"
-          }
-        },
-        "SubnetGroupNames": {
-          "target": "com.amazonaws.dax#SubnetGroupNameList",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the subnet group.</p>"
           }
         }
       }
@@ -1554,16 +1555,22 @@
     "com.amazonaws.dax#Node": {
       "type": "structure",
       "members": {
+        "NodeId": {
+          "target": "com.amazonaws.dax#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A system-generated identifier for the node.</p>"
+          }
+        },
         "Endpoint": {
           "target": "com.amazonaws.dax#Endpoint",
           "traits": {
             "smithy.api#documentation": "<p>The endpoint for the node, consisting of a DNS name and a port number. Client\n            applications can connect directly to a node endpoint, if desired (as an alternative to\n            allowing DAX client software to intelligently route requests and responses to nodes in\n            the DAX cluster.</p>"
           }
         },
-        "NodeId": {
-          "target": "com.amazonaws.dax#String",
+        "NodeCreateTime": {
+          "target": "com.amazonaws.dax#TStamp",
           "traits": {
-            "smithy.api#documentation": "<p>A system-generated identifier for the node.</p>"
+            "smithy.api#documentation": "<p>The date and time (in UNIX epoch format) when the node was launched.</p>"
           }
         },
         "AvailabilityZone": {
@@ -1582,12 +1589,6 @@
           "target": "com.amazonaws.dax#String",
           "traits": {
             "smithy.api#documentation": "<p>The status of the parameter group associated with this node. For example,\n                <code>in-sync</code>.</p>"
-          }
-        },
-        "NodeCreateTime": {
-          "target": "com.amazonaws.dax#TStamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time (in UNIX epoch format) when the node was launched.</p>"
           }
         }
       },
@@ -1649,16 +1650,16 @@
     "com.amazonaws.dax#NodeTypeSpecificValue": {
       "type": "structure",
       "members": {
-        "Value": {
-          "target": "com.amazonaws.dax#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The parameter value for this node type.</p>"
-          }
-        },
         "NodeType": {
           "target": "com.amazonaws.dax#String",
           "traits": {
             "smithy.api#documentation": "<p>A node type to which the parameter value applies.</p>"
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.dax#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The parameter value for this node type.</p>"
           }
         }
       },
@@ -1695,40 +1696,10 @@
     "com.amazonaws.dax#Parameter": {
       "type": "structure",
       "members": {
-        "IsModifiable": {
-          "target": "com.amazonaws.dax#IsModifiable",
-          "traits": {
-            "smithy.api#documentation": "<p>Whether the customer is allowed to modify the parameter.</p>"
-          }
-        },
-        "NodeTypeSpecificValues": {
-          "target": "com.amazonaws.dax#NodeTypeSpecificValueList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of node types, and specific parameter values for each node.</p>"
-          }
-        },
-        "AllowedValues": {
+        "ParameterName": {
           "target": "com.amazonaws.dax#String",
           "traits": {
-            "smithy.api#documentation": "<p>A range of values within which the parameter can be set.</p>"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.dax#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A description of the parameter</p>"
-          }
-        },
-        "ChangeType": {
-          "target": "com.amazonaws.dax#ChangeType",
-          "traits": {
-            "smithy.api#documentation": "<p>The conditions under which changes to this parameter can be applied. For example,\n                <code>requires-reboot</code> indicates that a new value for this parameter will only\n            take effect if a node is rebooted.</p>"
-          }
-        },
-        "ParameterValue": {
-          "target": "com.amazonaws.dax#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The value for the parameter.</p>"
+            "smithy.api#documentation": "<p>The name of the parameter.</p>"
           }
         },
         "ParameterType": {
@@ -1737,10 +1708,22 @@
             "smithy.api#documentation": "<p>Determines whether the parameter can be applied to any nodes, or only nodes of a\n            particular type.</p>"
           }
         },
-        "DataType": {
+        "ParameterValue": {
           "target": "com.amazonaws.dax#String",
           "traits": {
-            "smithy.api#documentation": "<p>The data type of the parameter. For example, <code>integer</code>:</p>"
+            "smithy.api#documentation": "<p>The value for the parameter.</p>"
+          }
+        },
+        "NodeTypeSpecificValues": {
+          "target": "com.amazonaws.dax#NodeTypeSpecificValueList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of node types, and specific parameter values for each node.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.dax#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the parameter</p>"
           }
         },
         "Source": {
@@ -1749,10 +1732,28 @@
             "smithy.api#documentation": "<p>How the parameter is defined. For example, <code>system</code> denotes a\n            system-defined parameter.</p>"
           }
         },
-        "ParameterName": {
+        "DataType": {
           "target": "com.amazonaws.dax#String",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the parameter.</p>"
+            "smithy.api#documentation": "<p>The data type of the parameter. For example, <code>integer</code>:</p>"
+          }
+        },
+        "AllowedValues": {
+          "target": "com.amazonaws.dax#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A range of values within which the parameter can be set.</p>"
+          }
+        },
+        "IsModifiable": {
+          "target": "com.amazonaws.dax#IsModifiable",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether the customer is allowed to modify the parameter.</p>"
+          }
+        },
+        "ChangeType": {
+          "target": "com.amazonaws.dax#ChangeType",
+          "traits": {
+            "smithy.api#documentation": "<p>The conditions under which changes to this parameter can be applied. For example,\n                <code>requires-reboot</code> indicates that a new value for this parameter will only\n            take effect if a node is rebooted.</p>"
           }
         }
       },
@@ -1834,12 +1835,6 @@
     "com.amazonaws.dax#ParameterGroupStatus": {
       "type": "structure",
       "members": {
-        "NodeIdsToReboot": {
-          "target": "com.amazonaws.dax#NodeIdentifierList",
-          "traits": {
-            "smithy.api#documentation": "<p>The node IDs of one or more nodes to be rebooted.</p>"
-          }
-        },
         "ParameterGroupName": {
           "target": "com.amazonaws.dax#String",
           "traits": {
@@ -1850,6 +1845,12 @@
           "target": "com.amazonaws.dax#String",
           "traits": {
             "smithy.api#documentation": "<p>The status of parameter updates. </p>"
+          }
+        },
+        "NodeIdsToReboot": {
+          "target": "com.amazonaws.dax#NodeIdentifierList",
+          "traits": {
+            "smithy.api#documentation": "<p>The node IDs of one or more nodes to be rebooted.</p>"
           }
         }
       },
@@ -2085,16 +2086,16 @@
     "com.amazonaws.dax#Subnet": {
       "type": "structure",
       "members": {
-        "SubnetAvailabilityZone": {
-          "target": "com.amazonaws.dax#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The Availability Zone (AZ) for the subnet.</p>"
-          }
-        },
         "SubnetIdentifier": {
           "target": "com.amazonaws.dax#String",
           "traits": {
             "smithy.api#documentation": "<p>The system-assigned identifier for the subnet.</p>"
+          }
+        },
+        "SubnetAvailabilityZone": {
+          "target": "com.amazonaws.dax#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Availability Zone (AZ) for the subnet.</p>"
           }
         }
       },
@@ -2105,10 +2106,10 @@
     "com.amazonaws.dax#SubnetGroup": {
       "type": "structure",
       "members": {
-        "Subnets": {
-          "target": "com.amazonaws.dax#SubnetList",
+        "SubnetGroupName": {
+          "target": "com.amazonaws.dax#String",
           "traits": {
-            "smithy.api#documentation": "<p>A list of subnets associated with the subnet group. </p>"
+            "smithy.api#documentation": "<p>The name of the subnet group.</p>"
           }
         },
         "Description": {
@@ -2117,16 +2118,16 @@
             "smithy.api#documentation": "<p>The description of the subnet group.</p>"
           }
         },
-        "SubnetGroupName": {
-          "target": "com.amazonaws.dax#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the subnet group.</p>"
-          }
-        },
         "VpcId": {
           "target": "com.amazonaws.dax#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet group.</p>"
+          }
+        },
+        "Subnets": {
+          "target": "com.amazonaws.dax#SubnetList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of subnets associated with the subnet group. </p>"
           }
         }
       },
@@ -2242,16 +2243,16 @@
     "com.amazonaws.dax#Tag": {
       "type": "structure",
       "members": {
-        "Value": {
-          "target": "com.amazonaws.dax#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The value of the tag. Tag values are case-sensitive and can be null. </p>"
-          }
-        },
         "Key": {
           "target": "com.amazonaws.dax#String",
           "traits": {
             "smithy.api#documentation": "<p>The key for the tag.  Tag keys are case sensitive. Every DAX cluster can only have\n            one tag with the same key. If you try to add an existing tag (same key), the\n            existing tag value will be updated to the new value.</p>"
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.dax#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The value of the tag. Tag values are case-sensitive and can be null. </p>"
           }
         }
       },
@@ -2329,17 +2330,17 @@
     "com.amazonaws.dax#TagResourceRequest": {
       "type": "structure",
       "members": {
-        "Tags": {
-          "target": "com.amazonaws.dax#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags to be assigned to the DAX resource. </p>",
-            "smithy.api#required": {}
-          }
-        },
         "ResourceName": {
           "target": "com.amazonaws.dax#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the DAX resource to which tags should be added.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.dax#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to be assigned to the DAX resource. </p>",
             "smithy.api#required": {}
           }
         }
@@ -2394,17 +2395,17 @@
     "com.amazonaws.dax#UntagResourceRequest": {
       "type": "structure",
       "members": {
-        "TagKeys": {
-          "target": "com.amazonaws.dax#KeyList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of tag keys. If the DAX cluster has any tags with these keys, then the tags are removed from the cluster.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ResourceName": {
           "target": "com.amazonaws.dax#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the DAX resource from which the tags should be removed.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TagKeys": {
+          "target": "com.amazonaws.dax#KeyList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of tag keys. If the DAX cluster has any tags with these keys, then the tags are removed from the cluster.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2459,29 +2460,11 @@
     "com.amazonaws.dax#UpdateClusterRequest": {
       "type": "structure",
       "members": {
-        "PreferredMaintenanceWindow": {
-          "target": "com.amazonaws.dax#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A range of time when maintenance of DAX cluster software will be performed. For\n            example: <code>sun:01:00-sun:09:00</code>. Cluster maintenance normally takes less than\n            30 minutes, and is performed automatically within the maintenance window.</p>"
-          }
-        },
         "ClusterName": {
           "target": "com.amazonaws.dax#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the DAX cluster to be modified.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "ParameterGroupName": {
-          "target": "com.amazonaws.dax#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of a parameter group for this cluster.</p>"
-          }
-        },
-        "NotificationTopicStatus": {
-          "target": "com.amazonaws.dax#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The current state of the topic.</p>"
           }
         },
         "Description": {
@@ -2490,16 +2473,34 @@
             "smithy.api#documentation": "<p>A description of the changes being made to the cluster.</p>"
           }
         },
-        "SecurityGroupIds": {
-          "target": "com.amazonaws.dax#SecurityGroupIdentifierList",
+        "PreferredMaintenanceWindow": {
+          "target": "com.amazonaws.dax#String",
           "traits": {
-            "smithy.api#documentation": "<p>A list of user-specified security group IDs to be assigned to each node in the DAX cluster.  If this parameter is not \n            specified, DAX assigns the default VPC security group to each node.</p>"
+            "smithy.api#documentation": "<p>A range of time when maintenance of DAX cluster software will be performed. For\n            example: <code>sun:01:00-sun:09:00</code>. Cluster maintenance normally takes less than\n            30 minutes, and is performed automatically within the maintenance window.</p>"
           }
         },
         "NotificationTopicArn": {
           "target": "com.amazonaws.dax#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the topic.</p>"
+          }
+        },
+        "NotificationTopicStatus": {
+          "target": "com.amazonaws.dax#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The current state of the topic.</p>"
+          }
+        },
+        "ParameterGroupName": {
+          "target": "com.amazonaws.dax#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of a parameter group for this cluster.</p>"
+          }
+        },
+        "SecurityGroupIds": {
+          "target": "com.amazonaws.dax#SecurityGroupIdentifierList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of user-specified security group IDs to be assigned to each node in the DAX cluster.  If this parameter is not \n            specified, DAX assigns the default VPC security group to each node.</p>"
           }
         }
       }
@@ -2606,12 +2607,6 @@
     "com.amazonaws.dax#UpdateSubnetGroupRequest": {
       "type": "structure",
       "members": {
-        "SubnetIds": {
-          "target": "com.amazonaws.dax#SubnetIdentifierList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of subnet IDs in the subnet group.</p>"
-          }
-        },
         "SubnetGroupName": {
           "target": "com.amazonaws.dax#String",
           "traits": {
@@ -2623,6 +2618,12 @@
           "target": "com.amazonaws.dax#String",
           "traits": {
             "smithy.api#documentation": "<p>A description of the subnet group.</p>"
+          }
+        },
+        "SubnetIds": {
+          "target": "com.amazonaws.dax#SubnetIdentifierList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of subnet IDs in the subnet group.</p>"
           }
         }
       }

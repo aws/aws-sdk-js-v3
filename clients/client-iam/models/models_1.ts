@@ -4,26 +4,21 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface UploadServerCertificateRequest {
   /**
-   * <p>The contents of the certificate chain. This is typically a concatenation of the
-   *          PEM-encoded public key certificates of the chain.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
-   *     used to validate this parameter is a string of characters consisting of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Any printable ASCII
-   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
-   *             </li>
-   *             <li>
-   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
-   *     (through <code>\u00FF</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
-   *     carriage return (<code>\u000D</code>)</p>
-   *             </li>
-   *          </ul>
+   * <p>The path for the server certificate. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
+   *             Identifiers</a> in the <i>IAM User Guide</i>.</p>
+   *          <p>This parameter is optional. If it is not included, it defaults to a slash (/).
+   *          This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
+   *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
+   *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
+   *     most punctuation characters, digits, and upper and lowercased letters.</p>
+   *          <note>
+   *             <p> If you are uploading a server certificate specifically for use with Amazon
+   *             CloudFront distributions, you must specify a path using the <code>path</code> parameter.
+   *             The path must begin with <code>/cloudfront</code> and must include a trailing slash (for
+   *             example, <code>/cloudfront/test/</code>).</p>
+   *          </note>
    */
-  CertificateChain?: string;
+  Path?: string;
 
   /**
    * <p>The name for the server certificate. Do not include the path in this value. The name of
@@ -76,21 +71,26 @@ export interface UploadServerCertificateRequest {
   PrivateKey: string | undefined;
 
   /**
-   * <p>The path for the server certificate. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
-   *             Identifiers</a> in the <i>IAM User Guide</i>.</p>
-   *          <p>This parameter is optional. If it is not included, it defaults to a slash (/).
-   *          This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
-   *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
-   *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
-   *     most punctuation characters, digits, and upper and lowercased letters.</p>
-   *          <note>
-   *             <p> If you are uploading a server certificate specifically for use with Amazon
-   *             CloudFront distributions, you must specify a path using the <code>path</code> parameter.
-   *             The path must begin with <code>/cloudfront</code> and must include a trailing slash (for
-   *             example, <code>/cloudfront/test/</code>).</p>
-   *          </note>
+   * <p>The contents of the certificate chain. This is typically a concatenation of the
+   *          PEM-encoded public key certificates of the chain.</p>
+   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
+   *     used to validate this parameter is a string of characters consisting of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Any printable ASCII
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
+   *             </li>
+   *             <li>
+   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
+   *     (through <code>\u00FF</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
+   *             </li>
+   *          </ul>
    */
-  Path?: string;
+  CertificateChain?: string;
 }
 
 export namespace UploadServerCertificateRequest {
@@ -151,6 +151,13 @@ export namespace InvalidCertificateException {
 
 export interface UploadSigningCertificateRequest {
   /**
+   * <p>The name of the user the signing certificate is for.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   */
+  UserName?: string;
+
+  /**
    * <p>The contents of the signing certificate.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
    *     used to validate this parameter is a string of characters consisting of the following:</p>
@@ -170,13 +177,6 @@ export interface UploadSigningCertificateRequest {
    *          </ul>
    */
   CertificateBody: string | undefined;
-
-  /**
-   * <p>The name of the user the signing certificate is for.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  UserName?: string;
 }
 
 export namespace UploadSigningCertificateRequest {

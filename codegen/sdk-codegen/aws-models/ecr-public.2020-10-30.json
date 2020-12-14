@@ -2566,7 +2566,8 @@
           "sdkId": "ECR PUBLIC",
           "arnNamespace": "ecr-public",
           "cloudFormationName": "ECRPUBLIC",
-          "cloudTrailEventSource": "ecrpublic.amazonaws.com"
+          "cloudTrailEventSource": "ecrpublic.amazonaws.com",
+          "endpointPrefix": "api.ecr-public"
         },
         "aws.auth#sigv4": {
           "name": "ecr-public"

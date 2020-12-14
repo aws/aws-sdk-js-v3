@@ -35,7 +35,8 @@ export async function* paginateListRepositories(
   input: ListRepositoriesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListRepositoriesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.nextToken
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListRepositoriesCommandOutput;
   while (hasNext) {

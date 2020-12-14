@@ -35,7 +35,8 @@ export async function* paginateListSmartHomeAppliances(
   input: ListSmartHomeAppliancesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSmartHomeAppliancesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.NextToken
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSmartHomeAppliancesCommandOutput;
   while (hasNext) {

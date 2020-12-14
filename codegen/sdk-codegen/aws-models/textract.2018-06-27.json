@@ -1628,7 +1628,8 @@
           "sdkId": "Textract",
           "arnNamespace": "textract",
           "cloudFormationName": "Textract",
-          "cloudTrailEventSource": "textract.amazonaws.com"
+          "cloudTrailEventSource": "textract.amazonaws.com",
+          "endpointPrefix": "textract"
         },
         "aws.auth#sigv4": {
           "name": "textract"

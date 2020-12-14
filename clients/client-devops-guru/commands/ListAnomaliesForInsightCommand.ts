@@ -20,11 +20,6 @@ import {
 export type ListAnomaliesForInsightCommandInput = ListAnomaliesForInsightRequest;
 export type ListAnomaliesForInsightCommandOutput = ListAnomaliesForInsightResponse & __MetadataBearer;
 
-/**
- * <p>
- *    		Returns a list of the anomalies that belong to an insight that you specify using its ID.
- *    	</p>
- */
 export class ListAnomaliesForInsightCommand extends $Command<
   ListAnomaliesForInsightCommandInput,
   ListAnomaliesForInsightCommandOutput,

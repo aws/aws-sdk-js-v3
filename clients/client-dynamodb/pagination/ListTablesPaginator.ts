@@ -31,7 +31,8 @@ export async function* paginateListTables(
   input: ListTablesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTablesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.ExclusiveStartTableName
+  let token: typeof input.ExclusiveStartTableName | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTablesCommandOutput;
   while (hasNext) {

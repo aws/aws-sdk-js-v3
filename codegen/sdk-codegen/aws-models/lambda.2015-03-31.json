@@ -213,7 +213,8 @@
           "sdkId": "Lambda",
           "arnNamespace": "lambda",
           "cloudFormationName": "Lambda",
-          "cloudTrailEventSource": "lambda.amazonaws.com"
+          "cloudTrailEventSource": "lambda.amazonaws.com",
+          "endpointPrefix": "lambda"
         },
         "aws.auth#sigv4": {
           "name": "lambda"
@@ -2742,6 +2743,25 @@
           "method": "GET",
           "uri": "/2015-03-31/functions/{FunctionName}",
           "code": 200
+        },
+        "smithy.waiters#waitable": {
+          "FunctionExists": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "success": true
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "errorType": "ResourceNotFoundException"
+                }
+              }
+            ],
+            "minDelay": 1
+          }
         }
       }
     },
@@ -2891,6 +2911,80 @@
           "method": "GET",
           "uri": "/2015-03-31/functions/{FunctionName}/configuration",
           "code": 200
+        },
+        "smithy.waiters#waitable": {
+          "FunctionActive": {
+            "documentation": "Waits for the function's State to be Active.",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "Active",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "Failed",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "Pending",
+                    "comparator": "stringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 5
+          },
+          "FunctionUpdated": {
+            "documentation": "Waits for the function's LastUpdateStatus to be Successful.",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "LastUpdateStatus",
+                    "expected": "Successful",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "LastUpdateStatus",
+                    "expected": "Failed",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "output": {
+                    "path": "LastUpdateStatus",
+                    "expected": "InProgress",
+                    "comparator": "stringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 5
+          }
         }
       }
     },

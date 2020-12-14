@@ -58,10 +58,10 @@ export namespace KeyValuePair {
 export interface AcceleratorType {
   /**
    * <p>
-   *             The throughput information of the Elastic Inference Accelerator type.
+   *             The name of the Elastic Inference Accelerator type.
    *         </p>
    */
-  throughputInfo?: KeyValuePair[];
+  acceleratorTypeName?: string;
 
   /**
    * <p>
@@ -72,10 +72,10 @@ export interface AcceleratorType {
 
   /**
    * <p>
-   *             The name of the Elastic Inference Accelerator type.
+   *             The throughput information of the Elastic Inference Accelerator type.
    *         </p>
    */
-  acceleratorTypeName?: string;
+  throughputInfo?: KeyValuePair[];
 }
 
 export namespace AcceleratorType {
@@ -101,14 +101,6 @@ export interface AcceleratorTypeOffering {
 
   /**
    * <p>
-   *             The location for the offering.
-   *             It will return either the region, availability zone or availability zone id for the offering depending on the locationType value.
-   *         </p>
-   */
-  location?: string;
-
-  /**
-   * <p>
    *             The location type for the offering. It can assume the following values:
    *             region: defines that the offering is at the regional level.
    *             availability-zone: defines that the offering is at the availability zone level.
@@ -116,6 +108,14 @@ export interface AcceleratorTypeOffering {
    *         </p>
    */
   locationType?: LocationType | string;
+
+  /**
+   * <p>
+   *             The location for the offering.
+   *             It will return either the region, availability zone or availability zone id for the offering depending on the locationType value.
+   *         </p>
+   */
+  location?: string;
 }
 
 export namespace AcceleratorTypeOffering {
@@ -223,19 +223,19 @@ export namespace ResourceNotFoundException {
 export interface Filter {
   /**
    * <p>
-   *             The values for the filter of the Elastic Inference Accelerator list.
-   *         </p>
-   */
-  values?: string[];
-
-  /**
-   * <p>
    *             The filter name for the Elastic Inference Accelerator list. It can assume the following values:
    *             accelerator-type: the type of Elastic Inference Accelerator to filter for.
    *             instance-id: an EC2 instance id to filter for.
    *         </p>
    */
   name?: string;
+
+  /**
+   * <p>
+   *             The values for the filter of the Elastic Inference Accelerator list.
+   *         </p>
+   */
+  values?: string[];
 }
 
 export namespace Filter {
@@ -247,12 +247,10 @@ export namespace Filter {
 export interface DescribeAcceleratorsRequest {
   /**
    * <p>
-   *             The total number of items to return in the command's output. If the total number of items available is more than the value specified, a NextToken is provided in the command's output.
-   *             To resume pagination, provide the NextToken value in the starting-token argument of a subsequent command.
-   *             Do not use the NextToken response element directly outside of the AWS CLI.
+   *             The IDs of the accelerators to describe.
    *         </p>
    */
-  maxResults?: number;
+  acceleratorIds?: string[];
 
   /**
    * <p>
@@ -265,17 +263,19 @@ export interface DescribeAcceleratorsRequest {
 
   /**
    * <p>
+   *             The total number of items to return in the command's output. If the total number of items available is more than the value specified, a NextToken is provided in the command's output.
+   *             To resume pagination, provide the NextToken value in the starting-token argument of a subsequent command.
+   *             Do not use the NextToken response element directly outside of the AWS CLI.
+   *         </p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>
    *             A token to specify where to start paginating. This is the NextToken from a previously truncated response.
    *         </p>
    */
   nextToken?: string;
-
-  /**
-   * <p>
-   *             The IDs of the accelerators to describe.
-   *         </p>
-   */
-  acceleratorIds?: string[];
 }
 
 export namespace DescribeAcceleratorsRequest {
@@ -312,10 +312,24 @@ export namespace ElasticInferenceAcceleratorHealth {
 export interface ElasticInferenceAccelerator {
   /**
    * <p>
+   *             The health of the Elastic Inference Accelerator.
+   *         </p>
+   */
+  acceleratorHealth?: ElasticInferenceAcceleratorHealth;
+
+  /**
+   * <p>
    *             The type of the Elastic Inference Accelerator.
    *         </p>
    */
   acceleratorType?: string;
+
+  /**
+   * <p>
+   *             The ID of the Elastic Inference Accelerator.
+   *         </p>
+   */
+  acceleratorId?: string;
 
   /**
    * <p>
@@ -330,20 +344,6 @@ export interface ElasticInferenceAccelerator {
    *         </p>
    */
   attachedResource?: string;
-
-  /**
-   * <p>
-   *             The health of the Elastic Inference Accelerator.
-   *         </p>
-   */
-  acceleratorHealth?: ElasticInferenceAcceleratorHealth;
-
-  /**
-   * <p>
-   *             The ID of the Elastic Inference Accelerator.
-   *         </p>
-   */
-  acceleratorId?: string;
 }
 
 export namespace ElasticInferenceAccelerator {
@@ -430,17 +430,17 @@ export namespace ListTagsForResourceResult {
 export interface TagResourceRequest {
   /**
    * <p>
-   *             The tags to add to the Elastic Inference Accelerator.
-   *         </p>
-   */
-  tags: { [key: string]: string } | undefined;
-
-  /**
-   * <p>
    *             The ARN of the Elastic Inference Accelerator to tag.
    *         </p>
    */
   resourceArn: string | undefined;
+
+  /**
+   * <p>
+   *             The tags to add to the Elastic Inference Accelerator.
+   *         </p>
+   */
+  tags: { [key: string]: string } | undefined;
 }
 
 export namespace TagResourceRequest {

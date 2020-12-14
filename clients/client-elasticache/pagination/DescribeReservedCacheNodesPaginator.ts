@@ -35,7 +35,8 @@ export async function* paginateDescribeReservedCacheNodes(
   input: DescribeReservedCacheNodesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeReservedCacheNodesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.Marker
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeReservedCacheNodesCommandOutput;
   while (hasNext) {

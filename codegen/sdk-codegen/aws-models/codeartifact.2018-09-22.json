@@ -338,7 +338,8 @@
           "sdkId": "codeartifact",
           "arnNamespace": "codeartifact",
           "cloudFormationName": "Codeartifact",
-          "cloudTrailEventSource": "codeartifact.amazonaws.com"
+          "cloudTrailEventSource": "codeartifact.amazonaws.com",
+          "endpointPrefix": "codeartifact"
         },
         "aws.auth#sigv4": {
           "name": "codeartifact"

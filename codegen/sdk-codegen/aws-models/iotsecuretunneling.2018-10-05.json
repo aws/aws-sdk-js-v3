@@ -239,7 +239,8 @@
           "sdkId": "IoTSecureTunneling",
           "arnNamespace": "iotsecuredtunneling",
           "cloudFormationName": "IoTSecureTunneling",
-          "cloudTrailEventSource": "iotsecuretunneling.amazonaws.com"
+          "cloudTrailEventSource": "iotsecuretunneling.amazonaws.com",
+          "endpointPrefix": "api.tunneling.iot"
         },
         "aws.auth#sigv4": {
           "name": "iotsecuredtunneling"

@@ -283,8 +283,8 @@ export const serializeAws_restJson1ListJobsByPipelineCommand = async (
     throw new Error("No value provided for input HTTP label: PipelineId.");
   }
   const query: any = {
-    ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
     ...(input.Ascending !== undefined && { Ascending: input.Ascending }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -316,8 +316,8 @@ export const serializeAws_restJson1ListJobsByStatusCommand = async (
     throw new Error("No value provided for input HTTP label: Status.");
   }
   const query: any = {
-    ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
     ...(input.Ascending !== undefined && { Ascending: input.Ascending }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -364,8 +364,8 @@ export const serializeAws_restJson1ListPresetsCommand = async (
   const headers: any = {};
   let resolvedPath = "/2012-09-25/presets";
   const query: any = {
-    ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
     ...(input.Ascending !== undefined && { Ascending: input.Ascending }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

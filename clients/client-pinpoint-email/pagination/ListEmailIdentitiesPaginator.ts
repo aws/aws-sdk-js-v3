@@ -35,7 +35,8 @@ export async function* paginateListEmailIdentities(
   input: ListEmailIdentitiesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListEmailIdentitiesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.NextToken
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListEmailIdentitiesCommandOutput;
   while (hasNext) {

@@ -6,14 +6,14 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  */
 export interface AddTagsToStreamInput {
   /**
-   * <p>A set of up to 10 key-value pairs to use to create the tags.</p>
-   */
-  Tags: { [key: string]: string } | undefined;
-
-  /**
    * <p>The name of the stream.</p>
    */
   StreamName: string | undefined;
+
+  /**
+   * <p>A set of up to 10 key-value pairs to use to create the tags.</p>
+   */
+  Tags: { [key: string]: string } | undefined;
 }
 
 export namespace AddTagsToStreamInput {
@@ -121,8 +121,8 @@ export namespace HashKeyRange {
 }
 
 export interface ChildShard {
-  ParentShards: string[] | undefined;
   ShardId: string | undefined;
+  ParentShards: string[] | undefined;
   /**
    * <p>The range of possible hash key values for the shard, which is a set of ordered
    *             contiguous positive integers.</p>
@@ -186,11 +186,6 @@ export namespace Consumer {
  */
 export interface ConsumerDescription {
   /**
-   * <p>The ARN of the stream with which you registered the consumer.</p>
-   */
-  StreamARN: string | undefined;
-
-  /**
    * <p>The name of the consumer is something you choose when you register the
    *             consumer.</p>
    */
@@ -215,6 +210,11 @@ export interface ConsumerDescription {
    * <p></p>
    */
   ConsumerCreationTimestamp: Date | undefined;
+
+  /**
+   * <p>The ARN of the stream with which you registered the consumer.</p>
+   */
+  StreamARN: string | undefined;
 }
 
 export namespace ConsumerDescription {
@@ -254,15 +254,15 @@ export namespace CreateStreamInput {
  */
 export interface DecreaseStreamRetentionPeriodInput {
   /**
+   * <p>The name of the stream to modify.</p>
+   */
+  StreamName: string | undefined;
+
+  /**
    * <p>The new retention period of the stream, in hours. Must be less than the current
    *             retention period.</p>
    */
   RetentionPeriodHours: number | undefined;
-
-  /**
-   * <p>The name of the stream to modify.</p>
-   */
-  StreamName: string | undefined;
 }
 
 export namespace DecreaseStreamRetentionPeriodInput {
@@ -332,14 +332,14 @@ export namespace DescribeLimitsInput {
 
 export interface DescribeLimitsOutput {
   /**
-   * <p>The number of open shards.</p>
-   */
-  OpenShardCount: number | undefined;
-
-  /**
    * <p>The maximum number of shards.</p>
    */
   ShardLimit: number | undefined;
+
+  /**
+   * <p>The number of open shards.</p>
+   */
+  OpenShardCount: number | undefined;
 }
 
 export namespace DescribeLimitsOutput {
@@ -358,15 +358,15 @@ export interface DescribeStreamInput {
   StreamName: string | undefined;
 
   /**
-   * <p>The shard ID of the shard to start with.</p>
-   */
-  ExclusiveStartShardId?: string;
-
-  /**
    * <p>The maximum number of shards to return in a single call. The default value is 100.
    *             If you specify a value greater than 100, at most 100 shards are returned.</p>
    */
   Limit?: number;
+
+  /**
+   * <p>The shard ID of the shard to start with.</p>
+   */
+  ExclusiveStartShardId?: string;
 }
 
 export namespace DescribeStreamInput {
@@ -481,14 +481,19 @@ export namespace SequenceNumberRange {
  */
 export interface Shard {
   /**
-   * <p>The range of possible sequence numbers for the shard.</p>
-   */
-  SequenceNumberRange: SequenceNumberRange | undefined;
-
-  /**
    * <p>The unique identifier of the shard within the stream.</p>
    */
   ShardId: string | undefined;
+
+  /**
+   * <p>The shard ID of the shard's parent.</p>
+   */
+  ParentShardId?: string;
+
+  /**
+   * <p>The shard ID of the shard adjacent to the shard's parent.</p>
+   */
+  AdjacentParentShardId?: string;
 
   /**
    * <p>The range of possible hash key values for the shard, which is a set of ordered
@@ -497,14 +502,9 @@ export interface Shard {
   HashKeyRange: HashKeyRange | undefined;
 
   /**
-   * <p>The shard ID of the shard adjacent to the shard's parent.</p>
+   * <p>The range of possible sequence numbers for the shard.</p>
    */
-  AdjacentParentShardId?: string;
-
-  /**
-   * <p>The shard ID of the shard's parent.</p>
-   */
-  ParentShardId?: string;
+  SequenceNumberRange: SequenceNumberRange | undefined;
 }
 
 export namespace Shard {
@@ -525,28 +525,6 @@ export enum StreamStatus {
  */
 export interface StreamDescription {
   /**
-   * <p>The server-side encryption type used on the stream. This parameter can be one of
-   *             the following values:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>NONE</code>: Do not encrypt the records in the stream.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>KMS</code>: Use server-side encryption on the records in the stream
-   *                     using a customer-managed AWS KMS key.</p>
-   *             </li>
-   *          </ul>
-   */
-  EncryptionType?: EncryptionType | string;
-
-  /**
-   * <p>Represents the current enhanced monitoring settings of the stream.</p>
-   */
-  EnhancedMonitoring: EnhancedMetrics[] | undefined;
-
-  /**
    * <p>The name of the stream being described.</p>
    */
   StreamName: string | undefined;
@@ -555,57 +533,6 @@ export interface StreamDescription {
    * <p>The Amazon Resource Name (ARN) for the stream being described.</p>
    */
   StreamARN: string | undefined;
-
-  /**
-   * <p>The shards that comprise the stream.</p>
-   */
-  Shards: Shard[] | undefined;
-
-  /**
-   * <p>The current retention period, in hours. Minimum value of 24. Maximum value of
-   *             168.</p>
-   */
-  RetentionPeriodHours: number | undefined;
-
-  /**
-   * <p>If set to <code>true</code>, more shards in the stream are available to
-   *             describe.</p>
-   */
-  HasMoreShards: boolean | undefined;
-
-  /**
-   * <p>The GUID for the customer-managed AWS KMS key to use for encryption. This value can
-   *             be a globally unique identifier, a fully specified ARN to either an alias or a key, or
-   *             an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data
-   *             Streams by specifying the alias <code>aws/kinesis</code>.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>Key ARN example:
-   *                         <code>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>Alias ARN example:
-   *                         <code>arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>Globally unique key ID example:
-   *                         <code>12345678-1234-1234-1234-123456789012</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>Alias name example: <code>alias/MyAliasName</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>Master key owned by Kinesis Data Streams:
-   *                     <code>alias/aws/kinesis</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  KeyId?: string;
 
   /**
    * <p>The current status of the stream being described. The stream status is one of the
@@ -640,9 +567,82 @@ export interface StreamDescription {
   StreamStatus: StreamStatus | string | undefined;
 
   /**
+   * <p>The shards that comprise the stream.</p>
+   */
+  Shards: Shard[] | undefined;
+
+  /**
+   * <p>If set to <code>true</code>, more shards in the stream are available to
+   *             describe.</p>
+   */
+  HasMoreShards: boolean | undefined;
+
+  /**
+   * <p>The current retention period, in hours. Minimum value of 24. Maximum value of
+   *             168.</p>
+   */
+  RetentionPeriodHours: number | undefined;
+
+  /**
    * <p>The approximate time that the stream was created.</p>
    */
   StreamCreationTimestamp: Date | undefined;
+
+  /**
+   * <p>Represents the current enhanced monitoring settings of the stream.</p>
+   */
+  EnhancedMonitoring: EnhancedMetrics[] | undefined;
+
+  /**
+   * <p>The server-side encryption type used on the stream. This parameter can be one of
+   *             the following values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>NONE</code>: Do not encrypt the records in the stream.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>KMS</code>: Use server-side encryption on the records in the stream
+   *                     using a customer-managed AWS KMS key.</p>
+   *             </li>
+   *          </ul>
+   */
+  EncryptionType?: EncryptionType | string;
+
+  /**
+   * <p>The GUID for the customer-managed AWS KMS key to use for encryption. This value can
+   *             be a globally unique identifier, a fully specified ARN to either an alias or a key, or
+   *             an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data
+   *             Streams by specifying the alias <code>aws/kinesis</code>.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Key ARN example:
+   *                         <code>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>Alias ARN example:
+   *                         <code>arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>Globally unique key ID example:
+   *                         <code>12345678-1234-1234-1234-123456789012</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>Alias name example: <code>alias/MyAliasName</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>Master key owned by Kinesis Data Streams:
+   *                     <code>alias/aws/kinesis</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  KeyId?: string;
 }
 
 export namespace StreamDescription {
@@ -725,38 +725,14 @@ export namespace DescribeStreamSummaryInput {
  */
 export interface StreamDescriptionSummary {
   /**
-   * <p>The GUID for the customer-managed AWS KMS key to use for encryption. This value can
-   *             be a globally unique identifier, a fully specified ARN to either an alias or a key, or
-   *             an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data
-   *             Streams by specifying the alias <code>aws/kinesis</code>.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>Key ARN example:
-   *                         <code>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>Alias ARN example: <code>
-   *                         arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>Globally unique key ID example:
-   *                         <code>12345678-1234-1234-1234-123456789012</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>Alias name example: <code>alias/MyAliasName</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>Master key owned by Kinesis Data Streams:
-   *                     <code>alias/aws/kinesis</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * <p>The name of the stream being described.</p>
    */
-  KeyId?: string;
+  StreamName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the stream being described.</p>
+   */
+  StreamARN: string | undefined;
 
   /**
    * <p>The current status of the stream being described. The stream status is one of the
@@ -791,24 +767,19 @@ export interface StreamDescriptionSummary {
   StreamStatus: StreamStatus | string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the stream being described.</p>
+   * <p>The current retention period, in hours.</p>
    */
-  StreamARN: string | undefined;
-
-  /**
-   * <p>The number of enhanced fan-out consumers registered with the stream.</p>
-   */
-  ConsumerCount?: number;
-
-  /**
-   * <p>The number of open shards in the stream.</p>
-   */
-  OpenShardCount: number | undefined;
+  RetentionPeriodHours: number | undefined;
 
   /**
    * <p>The approximate time that the stream was created.</p>
    */
   StreamCreationTimestamp: Date | undefined;
+
+  /**
+   * <p>Represents the current enhanced monitoring settings of the stream.</p>
+   */
+  EnhancedMonitoring: EnhancedMetrics[] | undefined;
 
   /**
    * <p>The encryption type used. This value is one of the following:</p>
@@ -828,19 +799,48 @@ export interface StreamDescriptionSummary {
   EncryptionType?: EncryptionType | string;
 
   /**
-   * <p>The name of the stream being described.</p>
+   * <p>The GUID for the customer-managed AWS KMS key to use for encryption. This value can
+   *             be a globally unique identifier, a fully specified ARN to either an alias or a key, or
+   *             an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data
+   *             Streams by specifying the alias <code>aws/kinesis</code>.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Key ARN example:
+   *                         <code>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>Alias ARN example: <code>
+   *                         arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>Globally unique key ID example:
+   *                         <code>12345678-1234-1234-1234-123456789012</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>Alias name example: <code>alias/MyAliasName</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>Master key owned by Kinesis Data Streams:
+   *                     <code>alias/aws/kinesis</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
-  StreamName: string | undefined;
+  KeyId?: string;
 
   /**
-   * <p>The current retention period, in hours.</p>
+   * <p>The number of open shards in the stream.</p>
    */
-  RetentionPeriodHours: number | undefined;
+  OpenShardCount: number | undefined;
 
   /**
-   * <p>Represents the current enhanced monitoring settings of the stream.</p>
+   * <p>The number of enhanced fan-out consumers registered with the stream.</p>
    */
-  EnhancedMonitoring: EnhancedMetrics[] | undefined;
+  ConsumerCount?: number;
 }
 
 export namespace StreamDescriptionSummary {
@@ -867,6 +867,12 @@ export namespace DescribeStreamSummaryOutput {
  * <p>Represents the input for <a>DisableEnhancedMonitoring</a>.</p>
  */
 export interface DisableEnhancedMonitoringInput {
+  /**
+   * <p>The name of the Kinesis data stream for which to disable enhanced
+   *             monitoring.</p>
+   */
+  StreamName: string | undefined;
+
   /**
    * <p>List of shard-level metrics to disable.</p>
    *         <p>The following are the valid shard-level metrics. The value "<code>ALL</code>"
@@ -918,12 +924,6 @@ export interface DisableEnhancedMonitoringInput {
    *                 Kinesis Data Streams Developer Guide</i>.</p>
    */
   ShardLevelMetrics: (MetricsName | string)[] | undefined;
-
-  /**
-   * <p>The name of the Kinesis data stream for which to disable enhanced
-   *             monitoring.</p>
-   */
-  StreamName: string | undefined;
 }
 
 export namespace DisableEnhancedMonitoringInput {
@@ -937,12 +937,6 @@ export namespace DisableEnhancedMonitoringInput {
  */
 export interface EnhancedMonitoringOutput {
   /**
-   * <p>Represents the list of all the metrics that would be in the enhanced state after
-   *             the operation.</p>
-   */
-  DesiredShardLevelMetrics?: (MetricsName | string)[];
-
-  /**
    * <p>The name of the Kinesis data stream.</p>
    */
   StreamName?: string;
@@ -952,6 +946,12 @@ export interface EnhancedMonitoringOutput {
    *             the operation.</p>
    */
   CurrentShardLevelMetrics?: (MetricsName | string)[];
+
+  /**
+   * <p>Represents the list of all the metrics that would be in the enhanced state after
+   *             the operation.</p>
+   */
+  DesiredShardLevelMetrics?: (MetricsName | string)[];
 }
 
 export namespace EnhancedMonitoringOutput {
@@ -1097,6 +1097,24 @@ export interface _Record {
   SequenceNumber: string | undefined;
 
   /**
+   * <p>The approximate time that the record was inserted into the stream.</p>
+   */
+  ApproximateArrivalTimestamp?: Date;
+
+  /**
+   * <p>The data blob. The data in the blob is both opaque and immutable to Kinesis Data
+   *             Streams, which does not inspect, interpret, or change the data in the blob in any way.
+   *             When the data blob (the payload before base64-encoding) is added to the partition key
+   *             size, the total size must not exceed the maximum record size (1 MiB).</p>
+   */
+  Data: Uint8Array | undefined;
+
+  /**
+   * <p>Identifies which shard in the stream the data record is assigned to.</p>
+   */
+  PartitionKey: string | undefined;
+
+  /**
    * <p>The encryption type used on the record. This parameter can be one of the following
    *             values:</p>
    *         <ul>
@@ -1112,24 +1130,6 @@ export interface _Record {
    *          </ul>
    */
   EncryptionType?: EncryptionType | string;
-
-  /**
-   * <p>The data blob. The data in the blob is both opaque and immutable to Kinesis Data
-   *             Streams, which does not inspect, interpret, or change the data in the blob in any way.
-   *             When the data blob (the payload before base64-encoding) is added to the partition key
-   *             size, the total size must not exceed the maximum record size (1 MiB).</p>
-   */
-  Data: Uint8Array | undefined;
-
-  /**
-   * <p>The approximate time that the record was inserted into the stream.</p>
-   */
-  ApproximateArrivalTimestamp?: Date;
-
-  /**
-   * <p>Identifies which shard in the stream the data record is assigned to.</p>
-   */
-  PartitionKey: string | undefined;
 }
 
 export namespace _Record {
@@ -1143,16 +1143,16 @@ export namespace _Record {
  */
 export interface GetRecordsOutput {
   /**
+   * <p>The data records retrieved from the shard.</p>
+   */
+  Records: _Record[] | undefined;
+
+  /**
    * <p>The next position in the shard from which to start sequentially reading data
    *             records. If set to <code>null</code>, the shard has been closed and the requested
    *             iterator does not return any more data. </p>
    */
   NextShardIterator?: string;
-
-  /**
-   * <p>The data records retrieved from the shard.</p>
-   */
-  Records: _Record[] | undefined;
 
   /**
    * <p>The number of milliseconds the <a>GetRecords</a> response is from the
@@ -1323,6 +1323,16 @@ export enum ShardIteratorType {
  */
 export interface GetShardIteratorInput {
   /**
+   * <p>The name of the Amazon Kinesis data stream.</p>
+   */
+  StreamName: string | undefined;
+
+  /**
+   * <p>The shard ID of the Kinesis Data Streams shard to get the iterator for.</p>
+   */
+  ShardId: string | undefined;
+
+  /**
    * <p>Determines how the shard iterator is used to start reading data records from the
    *             shard.</p>
    *         <p>The following are the valid Amazon Kinesis shard iterator types:</p>
@@ -1359,11 +1369,6 @@ export interface GetShardIteratorInput {
   ShardIteratorType: ShardIteratorType | string | undefined;
 
   /**
-   * <p>The shard ID of the Kinesis Data Streams shard to get the iterator for.</p>
-   */
-  ShardId: string | undefined;
-
-  /**
    * <p>The sequence number of the data record in the shard from which to start reading.
    *             Used with shard iterator type AT_SEQUENCE_NUMBER and AFTER_SEQUENCE_NUMBER.</p>
    */
@@ -1379,11 +1384,6 @@ export interface GetShardIteratorInput {
    *             (TRIM_HORIZON).</p>
    */
   Timestamp?: Date;
-
-  /**
-   * <p>The name of the Amazon Kinesis data stream.</p>
-   */
-  StreamName: string | undefined;
 }
 
 export namespace GetShardIteratorInput {
@@ -1415,15 +1415,15 @@ export namespace GetShardIteratorOutput {
  */
 export interface IncreaseStreamRetentionPeriodInput {
   /**
+   * <p>The name of the stream to modify.</p>
+   */
+  StreamName: string | undefined;
+
+  /**
    * <p>The new retention period of the stream, in hours. Must be more than the current
    *             retention period.</p>
    */
   RetentionPeriodHours: number | undefined;
-
-  /**
-   * <p>The name of the stream to modify.</p>
-   */
-  StreamName: string | undefined;
 }
 
 export namespace IncreaseStreamRetentionPeriodInput {
@@ -1458,9 +1458,9 @@ export enum ShardFilterType {
 }
 
 export interface ShardFilter {
+  Type: ShardFilterType | string | undefined;
   ShardId?: string;
   Timestamp?: Date;
-  Type: ShardFilterType | string | undefined;
 }
 
 export namespace ShardFilter {
@@ -1471,25 +1471,11 @@ export namespace ShardFilter {
 
 export interface ListShardsInput {
   /**
-   * <p>The maximum number of shards to return in a single call to <code>ListShards</code>.
-   *             The minimum value you can specify for this parameter is 1, and the maximum is 10,000,
-   *             which is also the default.</p>
-   *         <p>When the number of shards to be listed is greater than the value of
-   *                 <code>MaxResults</code>, the response contains a <code>NextToken</code> value that
-   *             you can use in a subsequent call to <code>ListShards</code> to list the next set of
-   *             shards.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Specify this input parameter to distinguish data streams that have the same name.
-   *             For example, if you create a data stream and then delete it, and you later create
-   *             another data stream with the same name, you can use this input parameter to specify
-   *             which of the two streams you want to list the shards for.</p>
+   * <p>The name of the data stream whose shards you want to list. </p>
    *         <p>You cannot specify this parameter if you specify the <code>NextToken</code>
    *             parameter.</p>
    */
-  StreamCreationTimestamp?: Date;
+  StreamName?: string;
 
   /**
    * <p>When the number of shards in the data stream is greater than the default value for
@@ -1527,13 +1513,28 @@ export interface ListShardsInput {
    */
   ExclusiveStartShardId?: string;
 
-  ShardFilter?: ShardFilter;
   /**
-   * <p>The name of the data stream whose shards you want to list. </p>
+   * <p>The maximum number of shards to return in a single call to <code>ListShards</code>.
+   *             The minimum value you can specify for this parameter is 1, and the maximum is 10,000,
+   *             which is also the default.</p>
+   *         <p>When the number of shards to be listed is greater than the value of
+   *                 <code>MaxResults</code>, the response contains a <code>NextToken</code> value that
+   *             you can use in a subsequent call to <code>ListShards</code> to list the next set of
+   *             shards.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Specify this input parameter to distinguish data streams that have the same name.
+   *             For example, if you create a data stream and then delete it, and you later create
+   *             another data stream with the same name, you can use this input parameter to specify
+   *             which of the two streams you want to list the shards for.</p>
    *         <p>You cannot specify this parameter if you specify the <code>NextToken</code>
    *             parameter.</p>
    */
-  StreamName?: string;
+  StreamCreationTimestamp?: Date;
+
+  ShardFilter?: ShardFilter;
 }
 
 export namespace ListShardsInput {
@@ -1543,6 +1544,14 @@ export namespace ListShardsInput {
 }
 
 export interface ListShardsOutput {
+  /**
+   * <p>An array of JSON objects. Each object represents one shard and specifies the IDs of
+   *             the shard, the shard's parent, and the shard that's adjacent to the shard's parent. Each
+   *             object also contains the starting and ending hash keys and the starting and ending
+   *             sequence numbers for the shard.</p>
+   */
+  Shards?: Shard[];
+
   /**
    * <p>When the number of shards in the data stream is greater than the default value for
    *             the <code>MaxResults</code> parameter, or if you explicitly specify a value for
@@ -1560,14 +1569,6 @@ export interface ListShardsOutput {
    *         </important>
    */
   NextToken?: string;
-
-  /**
-   * <p>An array of JSON objects. Each object represents one shard and specifies the IDs of
-   *             the shard, the shard's parent, and the shard that's adjacent to the shard's parent. Each
-   *             object also contains the starting and ending hash keys and the starting and ending
-   *             sequence numbers for the shard.</p>
-   */
-  Shards?: Shard[];
 }
 
 export namespace ListShardsOutput {
@@ -1577,6 +1578,12 @@ export namespace ListShardsOutput {
 }
 
 export interface ListStreamConsumersInput {
+  /**
+   * <p>The ARN of the Kinesis data stream for which you want to list the registered
+   *             consumers. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   */
+  StreamARN: string | undefined;
+
   /**
    * <p>When the number of consumers that are registered with the data stream is greater than
    *             the default value for the <code>MaxResults</code> parameter, or if you explicitly
@@ -1605,6 +1612,12 @@ export interface ListStreamConsumersInput {
   NextToken?: string;
 
   /**
+   * <p>The maximum number of consumers that you want a single call of
+   *                 <code>ListStreamConsumers</code> to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>Specify this input parameter to distinguish data streams that have the same name. For
    *             example, if you create a data stream and then delete it, and you later create another
    *             data stream with the same name, you can use this input parameter to specify which of the
@@ -1612,18 +1625,6 @@ export interface ListStreamConsumersInput {
    *         <p>You can't specify this parameter if you specify the NextToken parameter. </p>
    */
   StreamCreationTimestamp?: Date;
-
-  /**
-   * <p>The ARN of the Kinesis data stream for which you want to list the registered
-   *             consumers. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
-   */
-  StreamARN: string | undefined;
-
-  /**
-   * <p>The maximum number of consumers that you want a single call of
-   *                 <code>ListStreamConsumers</code> to return.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListStreamConsumersInput {
@@ -1712,12 +1713,9 @@ export namespace ListStreamsOutput {
  */
 export interface ListTagsForStreamInput {
   /**
-   * <p>The number of tags to return. If this number is less than the total number of tags
-   *             associated with the stream, <code>HasMoreTags</code> is set to <code>true</code>. To
-   *             list additional tags, set <code>ExclusiveStartTagKey</code> to the last key in the
-   *             response.</p>
+   * <p>The name of the stream.</p>
    */
-  Limit?: number;
+  StreamName: string | undefined;
 
   /**
    * <p>The key to use as the starting point for the list of tags. If this parameter is
@@ -1727,9 +1725,12 @@ export interface ListTagsForStreamInput {
   ExclusiveStartTagKey?: string;
 
   /**
-   * <p>The name of the stream.</p>
+   * <p>The number of tags to return. If this number is less than the total number of tags
+   *             associated with the stream, <code>HasMoreTags</code> is set to <code>true</code>. To
+   *             list additional tags, set <code>ExclusiveStartTagKey</code> to the last key in the
+   *             response.</p>
    */
-  StreamName: string | undefined;
+  Limit?: number;
 }
 
 export namespace ListTagsForStreamInput {
@@ -1743,17 +1744,17 @@ export namespace ListTagsForStreamInput {
  */
 export interface Tag {
   /**
+   * <p>A unique identifier for the tag. Maximum length: 128 characters. Valid characters:
+   *             Unicode letters, digits, white space, _ . / = + - % @</p>
+   */
+  Key: string | undefined;
+
+  /**
    * <p>An optional string, typically used to describe or define the tag. Maximum length:
    *             256 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - %
    *             @</p>
    */
   Value?: string;
-
-  /**
-   * <p>A unique identifier for the tag. Maximum length: 128 characters. Valid characters:
-   *             Unicode letters, digits, white space, _ . / = + - % @</p>
-   */
-  Key: string | undefined;
 }
 
 export namespace Tag {
@@ -1791,11 +1792,6 @@ export namespace ListTagsForStreamOutput {
  */
 export interface MergeShardsInput {
   /**
-   * <p>The shard ID of the adjacent shard for the merge.</p>
-   */
-  AdjacentShardToMerge: string | undefined;
-
-  /**
    * <p>The name of the stream for the merge.</p>
    */
   StreamName: string | undefined;
@@ -1805,6 +1801,11 @@ export interface MergeShardsInput {
    *             merge.</p>
    */
   ShardToMerge: string | undefined;
+
+  /**
+   * <p>The shard ID of the adjacent shard for the merge.</p>
+   */
+  AdjacentShardToMerge: string | undefined;
 }
 
 export namespace MergeShardsInput {
@@ -1823,19 +1824,12 @@ export interface PutRecordInput {
   StreamName: string | undefined;
 
   /**
-   * <p>The hash value used to explicitly determine the shard the data record is assigned
-   *             to by overriding the partition key hash.</p>
+   * <p>The data blob to put into the record, which is base64-encoded when the blob is
+   *             serialized. When the data blob (the payload before base64-encoding) is added to the
+   *             partition key size, the total size must not exceed the maximum record size (1
+   *             MiB).</p>
    */
-  ExplicitHashKey?: string;
-
-  /**
-   * <p>Guarantees strictly increasing sequence numbers, for puts from the same client and
-   *             to the same partition key. Usage: set the <code>SequenceNumberForOrdering</code> of
-   *             record <i>n</i> to the sequence number of record <i>n-1</i>
-   *             (as returned in the result when putting record <i>n-1</i>). If this
-   *             parameter is not set, records are coarsely ordered based on arrival time.</p>
-   */
-  SequenceNumberForOrdering?: string;
+  Data: Uint8Array | undefined;
 
   /**
    * <p>Determines which shard in the stream the data record is assigned to. Partition keys
@@ -1849,12 +1843,19 @@ export interface PutRecordInput {
   PartitionKey: string | undefined;
 
   /**
-   * <p>The data blob to put into the record, which is base64-encoded when the blob is
-   *             serialized. When the data blob (the payload before base64-encoding) is added to the
-   *             partition key size, the total size must not exceed the maximum record size (1
-   *             MiB).</p>
+   * <p>The hash value used to explicitly determine the shard the data record is assigned
+   *             to by overriding the partition key hash.</p>
    */
-  Data: Uint8Array | undefined;
+  ExplicitHashKey?: string;
+
+  /**
+   * <p>Guarantees strictly increasing sequence numbers, for puts from the same client and
+   *             to the same partition key. Usage: set the <code>SequenceNumberForOrdering</code> of
+   *             record <i>n</i> to the sequence number of record <i>n-1</i>
+   *             (as returned in the result when putting record <i>n-1</i>). If this
+   *             parameter is not set, records are coarsely ordered based on arrival time.</p>
+   */
+  SequenceNumberForOrdering?: string;
 }
 
 export namespace PutRecordInput {
@@ -1916,6 +1917,12 @@ export interface PutRecordsRequestEntry {
   Data: Uint8Array | undefined;
 
   /**
+   * <p>The hash value used to determine explicitly the shard that the data record is
+   *             assigned to by overriding the partition key hash.</p>
+   */
+  ExplicitHashKey?: string;
+
+  /**
    * <p>Determines which shard in the stream the data record is assigned to. Partition keys
    *             are Unicode strings with a maximum length limit of 256 characters for each key. Amazon
    *             Kinesis Data Streams uses the partition key as input to a hash function that maps the
@@ -1925,12 +1932,6 @@ export interface PutRecordsRequestEntry {
    *             same partition key map to the same shard within the stream.</p>
    */
   PartitionKey: string | undefined;
-
-  /**
-   * <p>The hash value used to determine explicitly the shard that the data record is
-   *             assigned to by overriding the partition key hash.</p>
-   */
-  ExplicitHashKey?: string;
 }
 
 export namespace PutRecordsRequestEntry {
@@ -1969,16 +1970,21 @@ export namespace PutRecordsInput {
  */
 export interface PutRecordsResultEntry {
   /**
-   * <p>The error code for an individual record result. <code>ErrorCodes</code> can be
-   *             either <code>ProvisionedThroughputExceededException</code> or
-   *                 <code>InternalFailure</code>.</p>
+   * <p>The sequence number for an individual record result.</p>
    */
-  ErrorCode?: string;
+  SequenceNumber?: string;
 
   /**
    * <p>The shard ID for an individual record result.</p>
    */
   ShardId?: string;
+
+  /**
+   * <p>The error code for an individual record result. <code>ErrorCodes</code> can be
+   *             either <code>ProvisionedThroughputExceededException</code> or
+   *                 <code>InternalFailure</code>.</p>
+   */
+  ErrorCode?: string;
 
   /**
    * <p>The error message for an individual record result. An <code>ErrorCode</code> value
@@ -1988,11 +1994,6 @@ export interface PutRecordsResultEntry {
    *                 Failure"</code>.</p>
    */
   ErrorMessage?: string;
-
-  /**
-   * <p>The sequence number for an individual record result.</p>
-   */
-  SequenceNumber?: string;
 }
 
 export namespace PutRecordsResultEntry {
@@ -2006,6 +2007,12 @@ export namespace PutRecordsResultEntry {
  *             <code>PutRecords</code> results.</p>
  */
 export interface PutRecordsOutput {
+  /**
+   * <p>The number of unsuccessfully processed records in a <code>PutRecords</code>
+   *             request.</p>
+   */
+  FailedRecordCount?: number;
+
   /**
    * <p>An array of successfully and unsuccessfully processed record results, correlated
    *             with the request by natural ordering. A record that is successfully added to a stream
@@ -2031,12 +2038,6 @@ export interface PutRecordsOutput {
    *          </ul>
    */
   EncryptionType?: EncryptionType | string;
-
-  /**
-   * <p>The number of unsuccessfully processed records in a <code>PutRecords</code>
-   *             request.</p>
-   */
-  FailedRecordCount?: number;
 }
 
 export namespace PutRecordsOutput {
@@ -2047,16 +2048,16 @@ export namespace PutRecordsOutput {
 
 export interface RegisterStreamConsumerInput {
   /**
-   * <p>For a given Kinesis data stream, each consumer must have a unique name. However,
-   *             consumer names don't have to be unique across data streams.</p>
-   */
-  ConsumerName: string | undefined;
-
-  /**
    * <p>The ARN of the Kinesis data stream that you want to register the consumer with. For
    *             more info, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
    */
   StreamARN: string | undefined;
+
+  /**
+   * <p>For a given Kinesis data stream, each consumer must have a unique name. However,
+   *             consumer names don't have to be unique across data streams.</p>
+   */
+  ConsumerName: string | undefined;
 }
 
 export namespace RegisterStreamConsumerInput {
@@ -2084,14 +2085,14 @@ export namespace RegisterStreamConsumerOutput {
  */
 export interface RemoveTagsFromStreamInput {
   /**
-   * <p>A list of tag keys. Each corresponding tag is removed from the stream.</p>
-   */
-  TagKeys: string[] | undefined;
-
-  /**
    * <p>The name of the stream.</p>
    */
   StreamName: string | undefined;
+
+  /**
+   * <p>A list of tag keys. Each corresponding tag is removed from the stream.</p>
+   */
+  TagKeys: string[] | undefined;
 }
 
 export namespace RemoveTagsFromStreamInput {
@@ -2104,6 +2105,11 @@ export namespace RemoveTagsFromStreamInput {
  * <p>Represents the input for <code>SplitShard</code>.</p>
  */
 export interface SplitShardInput {
+  /**
+   * <p>The name of the stream for the shard split.</p>
+   */
+  StreamName: string | undefined;
+
   /**
    * <p>The shard ID of the shard to split.</p>
    */
@@ -2119,11 +2125,6 @@ export interface SplitShardInput {
    *             child shard.</p>
    */
   NewStartingHashKey: string | undefined;
-
-  /**
-   * <p>The name of the stream for the shard split.</p>
-   */
-  StreamName: string | undefined;
 }
 
 export namespace SplitShardInput {
@@ -2243,24 +2244,6 @@ export namespace StopStreamEncryptionInput {
  */
 export interface StartingPosition {
   /**
-   * <p>The time stamp of the data record from which to start reading. To specify a time
-   *             stamp, set <code>StartingPosition</code> to <code>Type AT_TIMESTAMP</code>. A time stamp
-   *             is the Unix epoch date with precision in milliseconds. For example,
-   *                 <code>2016-04-04T19:58:46.480-00:00</code> or <code>1459799926.480</code>. If a
-   *             record with this exact time stamp does not exist, records will be streamed from the next
-   *             (later) record. If the time stamp is older than the current trim horizon, records will
-   *             be streamed from the oldest untrimmed data record (<code>TRIM_HORIZON</code>).</p>
-   */
-  Timestamp?: Date;
-
-  /**
-   * <p>The sequence number of the data record in the shard from which to start streaming. To
-   *             specify a sequence number, set <code>StartingPosition</code> to
-   *                 <code>AT_SEQUENCE_NUMBER</code> or <code>AFTER_SEQUENCE_NUMBER</code>.</p>
-   */
-  SequenceNumber?: string;
-
-  /**
    * <p>You can set the starting position to one of the following values:</p>
    *         <p>
    *             <code>AT_SEQUENCE_NUMBER</code>: Start streaming from the position denoted by the
@@ -2279,6 +2262,24 @@ export interface StartingPosition {
    *             so that you always read the most recent data in the shard.</p>
    */
   Type: ShardIteratorType | string | undefined;
+
+  /**
+   * <p>The sequence number of the data record in the shard from which to start streaming. To
+   *             specify a sequence number, set <code>StartingPosition</code> to
+   *                 <code>AT_SEQUENCE_NUMBER</code> or <code>AFTER_SEQUENCE_NUMBER</code>.</p>
+   */
+  SequenceNumber?: string;
+
+  /**
+   * <p>The time stamp of the data record from which to start reading. To specify a time
+   *             stamp, set <code>StartingPosition</code> to <code>Type AT_TIMESTAMP</code>. A time stamp
+   *             is the Unix epoch date with precision in milliseconds. For example,
+   *                 <code>2016-04-04T19:58:46.480-00:00</code> or <code>1459799926.480</code>. If a
+   *             record with this exact time stamp does not exist, records will be streamed from the next
+   *             (later) record. If the time stamp is older than the current trim horizon, records will
+   *             be streamed from the oldest untrimmed data record (<code>TRIM_HORIZON</code>).</p>
+   */
+  Timestamp?: Date;
 }
 
 export namespace StartingPosition {
@@ -2289,6 +2290,11 @@ export namespace StartingPosition {
 
 export interface SubscribeToShardInput {
   /**
+   * <p>For this parameter, use the value you obtained when you called <a>RegisterStreamConsumer</a>.</p>
+   */
+  ConsumerARN: string | undefined;
+
+  /**
    * <p>The ID of the shard you want to subscribe to. To see a list of all the shards for a
    *             given stream, use <a>ListShards</a>.</p>
    */
@@ -2298,11 +2304,6 @@ export interface SubscribeToShardInput {
    * <p></p>
    */
   StartingPosition: StartingPosition | undefined;
-
-  /**
-   * <p>For this parameter, use the value you obtained when you called <a>RegisterStreamConsumer</a>.</p>
-   */
-  ConsumerARN: string | undefined;
 }
 
 export namespace SubscribeToShardInput {
@@ -2364,39 +2365,39 @@ export type SubscribeToShardEventStream =
 
 export namespace SubscribeToShardEventStream {
   /**
-   * <p>The request was denied due to request throttling. For more information about
-   *             throttling, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in
-   *             the <i>AWS Key Management Service Developer Guide</i>.</p>
+   * <p>After you call <a>SubscribeToShard</a>, Kinesis Data Streams sends events
+   *             of this type to your consumer. For an example of how to handle these events, see <a href="/streams/latest/dev/building-enhanced-consumers-api.html">Enhanced Fan-Out
+   *                 Using the Kinesis Data Streams API</a>.</p>
    */
-  export interface KMSThrottlingExceptionMember {
-    KMSThrottlingException: KMSThrottlingException;
-    InternalFailureException?: never;
-    ResourceInUseException?: never;
-    KMSOptInRequired?: never;
-    KMSDisabledException?: never;
-    KMSAccessDeniedException?: never;
-    KMSInvalidStateException?: never;
-    KMSNotFoundException?: never;
+  export interface SubscribeToShardEventMember {
+    SubscribeToShardEvent: SubscribeToShardEvent;
     ResourceNotFoundException?: never;
-    SubscribeToShardEvent?: never;
+    ResourceInUseException?: never;
+    KMSDisabledException?: never;
+    KMSInvalidStateException?: never;
+    KMSAccessDeniedException?: never;
+    KMSNotFoundException?: never;
+    KMSOptInRequired?: never;
+    KMSThrottlingException?: never;
+    InternalFailureException?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>The processing of the request failed because of an unknown error, exception, or
-   *             failure.</p>
+   * <p>The requested resource could not be found. The stream might not be specified
+   *             correctly.</p>
    */
-  export interface InternalFailureExceptionMember {
-    KMSThrottlingException?: never;
-    InternalFailureException: InternalFailureException;
-    ResourceInUseException?: never;
-    KMSOptInRequired?: never;
-    KMSDisabledException?: never;
-    KMSAccessDeniedException?: never;
-    KMSInvalidStateException?: never;
-    KMSNotFoundException?: never;
-    ResourceNotFoundException?: never;
+  export interface ResourceNotFoundExceptionMember {
     SubscribeToShardEvent?: never;
+    ResourceNotFoundException: ResourceNotFoundException;
+    ResourceInUseException?: never;
+    KMSDisabledException?: never;
+    KMSInvalidStateException?: never;
+    KMSAccessDeniedException?: never;
+    KMSNotFoundException?: never;
+    KMSOptInRequired?: never;
+    KMSThrottlingException?: never;
+    InternalFailureException?: never;
     $unknown?: never;
   }
 
@@ -2405,33 +2406,16 @@ export namespace SubscribeToShardEventStream {
    *             resource must be in the <code>ACTIVE</code> state.</p>
    */
   export interface ResourceInUseExceptionMember {
-    KMSThrottlingException?: never;
-    InternalFailureException?: never;
+    SubscribeToShardEvent?: never;
+    ResourceNotFoundException?: never;
     ResourceInUseException: ResourceInUseException;
-    KMSOptInRequired?: never;
     KMSDisabledException?: never;
-    KMSAccessDeniedException?: never;
     KMSInvalidStateException?: never;
+    KMSAccessDeniedException?: never;
     KMSNotFoundException?: never;
-    ResourceNotFoundException?: never;
-    SubscribeToShardEvent?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The AWS access key ID needs a subscription for the service.</p>
-   */
-  export interface KMSOptInRequiredMember {
+    KMSOptInRequired?: never;
     KMSThrottlingException?: never;
     InternalFailureException?: never;
-    ResourceInUseException?: never;
-    KMSOptInRequired: KMSOptInRequired;
-    KMSDisabledException?: never;
-    KMSAccessDeniedException?: never;
-    KMSInvalidStateException?: never;
-    KMSNotFoundException?: never;
-    ResourceNotFoundException?: never;
-    SubscribeToShardEvent?: never;
     $unknown?: never;
   }
 
@@ -2440,34 +2424,16 @@ export namespace SubscribeToShardEventStream {
    *             enabled.</p>
    */
   export interface KMSDisabledExceptionMember {
-    KMSThrottlingException?: never;
-    InternalFailureException?: never;
+    SubscribeToShardEvent?: never;
+    ResourceNotFoundException?: never;
     ResourceInUseException?: never;
-    KMSOptInRequired?: never;
     KMSDisabledException: KMSDisabledException;
-    KMSAccessDeniedException?: never;
     KMSInvalidStateException?: never;
+    KMSAccessDeniedException?: never;
     KMSNotFoundException?: never;
-    ResourceNotFoundException?: never;
-    SubscribeToShardEvent?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The ciphertext references a key that doesn't exist or that you don't have access
-   *             to.</p>
-   */
-  export interface KMSAccessDeniedExceptionMember {
+    KMSOptInRequired?: never;
     KMSThrottlingException?: never;
     InternalFailureException?: never;
-    ResourceInUseException?: never;
-    KMSOptInRequired?: never;
-    KMSDisabledException?: never;
-    KMSAccessDeniedException: KMSAccessDeniedException;
-    KMSInvalidStateException?: never;
-    KMSNotFoundException?: never;
-    ResourceNotFoundException?: never;
-    SubscribeToShardEvent?: never;
     $unknown?: never;
   }
 
@@ -2478,16 +2444,34 @@ export namespace SubscribeToShardEventStream {
    *                 Guide</i>.</p>
    */
   export interface KMSInvalidStateExceptionMember {
+    SubscribeToShardEvent?: never;
+    ResourceNotFoundException?: never;
+    ResourceInUseException?: never;
+    KMSDisabledException?: never;
+    KMSInvalidStateException: KMSInvalidStateException;
+    KMSAccessDeniedException?: never;
+    KMSNotFoundException?: never;
+    KMSOptInRequired?: never;
     KMSThrottlingException?: never;
     InternalFailureException?: never;
-    ResourceInUseException?: never;
-    KMSOptInRequired?: never;
-    KMSDisabledException?: never;
-    KMSAccessDeniedException?: never;
-    KMSInvalidStateException: KMSInvalidStateException;
-    KMSNotFoundException?: never;
-    ResourceNotFoundException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The ciphertext references a key that doesn't exist or that you don't have access
+   *             to.</p>
+   */
+  export interface KMSAccessDeniedExceptionMember {
     SubscribeToShardEvent?: never;
+    ResourceNotFoundException?: never;
+    ResourceInUseException?: never;
+    KMSDisabledException?: never;
+    KMSInvalidStateException?: never;
+    KMSAccessDeniedException: KMSAccessDeniedException;
+    KMSNotFoundException?: never;
+    KMSOptInRequired?: never;
+    KMSThrottlingException?: never;
+    InternalFailureException?: never;
     $unknown?: never;
   }
 
@@ -2496,123 +2480,140 @@ export namespace SubscribeToShardEventStream {
    *             found.</p>
    */
   export interface KMSNotFoundExceptionMember {
-    KMSThrottlingException?: never;
-    InternalFailureException?: never;
+    SubscribeToShardEvent?: never;
+    ResourceNotFoundException?: never;
     ResourceInUseException?: never;
-    KMSOptInRequired?: never;
     KMSDisabledException?: never;
-    KMSAccessDeniedException?: never;
     KMSInvalidStateException?: never;
+    KMSAccessDeniedException?: never;
     KMSNotFoundException: KMSNotFoundException;
-    ResourceNotFoundException?: never;
-    SubscribeToShardEvent?: never;
+    KMSOptInRequired?: never;
+    KMSThrottlingException?: never;
+    InternalFailureException?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>The requested resource could not be found. The stream might not be specified
-   *             correctly.</p>
+   * <p>The AWS access key ID needs a subscription for the service.</p>
    */
-  export interface ResourceNotFoundExceptionMember {
+  export interface KMSOptInRequiredMember {
+    SubscribeToShardEvent?: never;
+    ResourceNotFoundException?: never;
+    ResourceInUseException?: never;
+    KMSDisabledException?: never;
+    KMSInvalidStateException?: never;
+    KMSAccessDeniedException?: never;
+    KMSNotFoundException?: never;
+    KMSOptInRequired: KMSOptInRequired;
     KMSThrottlingException?: never;
     InternalFailureException?: never;
-    ResourceInUseException?: never;
-    KMSOptInRequired?: never;
-    KMSDisabledException?: never;
-    KMSAccessDeniedException?: never;
-    KMSInvalidStateException?: never;
-    KMSNotFoundException?: never;
-    ResourceNotFoundException: ResourceNotFoundException;
-    SubscribeToShardEvent?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>After you call <a>SubscribeToShard</a>, Kinesis Data Streams sends events
-   *             of this type to your consumer. For an example of how to handle these events, see <a href="/streams/latest/dev/building-enhanced-consumers-api.html">Enhanced Fan-Out
-   *                 Using the Kinesis Data Streams API</a>.</p>
+   * <p>The request was denied due to request throttling. For more information about
+   *             throttling, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in
+   *             the <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  export interface SubscribeToShardEventMember {
-    KMSThrottlingException?: never;
-    InternalFailureException?: never;
-    ResourceInUseException?: never;
-    KMSOptInRequired?: never;
-    KMSDisabledException?: never;
-    KMSAccessDeniedException?: never;
-    KMSInvalidStateException?: never;
-    KMSNotFoundException?: never;
+  export interface KMSThrottlingExceptionMember {
+    SubscribeToShardEvent?: never;
     ResourceNotFoundException?: never;
-    SubscribeToShardEvent: SubscribeToShardEvent;
+    ResourceInUseException?: never;
+    KMSDisabledException?: never;
+    KMSInvalidStateException?: never;
+    KMSAccessDeniedException?: never;
+    KMSNotFoundException?: never;
+    KMSOptInRequired?: never;
+    KMSThrottlingException: KMSThrottlingException;
+    InternalFailureException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The processing of the request failed because of an unknown error, exception, or
+   *             failure.</p>
+   */
+  export interface InternalFailureExceptionMember {
+    SubscribeToShardEvent?: never;
+    ResourceNotFoundException?: never;
+    ResourceInUseException?: never;
+    KMSDisabledException?: never;
+    KMSInvalidStateException?: never;
+    KMSAccessDeniedException?: never;
+    KMSNotFoundException?: never;
+    KMSOptInRequired?: never;
+    KMSThrottlingException?: never;
+    InternalFailureException: InternalFailureException;
     $unknown?: never;
   }
 
   export interface $UnknownMember {
+    SubscribeToShardEvent?: never;
+    ResourceNotFoundException?: never;
+    ResourceInUseException?: never;
+    KMSDisabledException?: never;
+    KMSInvalidStateException?: never;
+    KMSAccessDeniedException?: never;
+    KMSNotFoundException?: never;
+    KMSOptInRequired?: never;
     KMSThrottlingException?: never;
     InternalFailureException?: never;
-    ResourceInUseException?: never;
-    KMSOptInRequired?: never;
-    KMSDisabledException?: never;
-    KMSAccessDeniedException?: never;
-    KMSInvalidStateException?: never;
-    KMSNotFoundException?: never;
-    ResourceNotFoundException?: never;
-    SubscribeToShardEvent?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
+    SubscribeToShardEvent: (value: SubscribeToShardEvent) => T;
+    ResourceNotFoundException: (value: ResourceNotFoundException) => T;
+    ResourceInUseException: (value: ResourceInUseException) => T;
+    KMSDisabledException: (value: KMSDisabledException) => T;
+    KMSInvalidStateException: (value: KMSInvalidStateException) => T;
+    KMSAccessDeniedException: (value: KMSAccessDeniedException) => T;
+    KMSNotFoundException: (value: KMSNotFoundException) => T;
+    KMSOptInRequired: (value: KMSOptInRequired) => T;
     KMSThrottlingException: (value: KMSThrottlingException) => T;
     InternalFailureException: (value: InternalFailureException) => T;
-    ResourceInUseException: (value: ResourceInUseException) => T;
-    KMSOptInRequired: (value: KMSOptInRequired) => T;
-    KMSDisabledException: (value: KMSDisabledException) => T;
-    KMSAccessDeniedException: (value: KMSAccessDeniedException) => T;
-    KMSInvalidStateException: (value: KMSInvalidStateException) => T;
-    KMSNotFoundException: (value: KMSNotFoundException) => T;
-    ResourceNotFoundException: (value: ResourceNotFoundException) => T;
-    SubscribeToShardEvent: (value: SubscribeToShardEvent) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: SubscribeToShardEventStream, visitor: Visitor<T>): T => {
+    if (value.SubscribeToShardEvent !== undefined) return visitor.SubscribeToShardEvent(value.SubscribeToShardEvent);
+    if (value.ResourceNotFoundException !== undefined)
+      return visitor.ResourceNotFoundException(value.ResourceNotFoundException);
+    if (value.ResourceInUseException !== undefined) return visitor.ResourceInUseException(value.ResourceInUseException);
+    if (value.KMSDisabledException !== undefined) return visitor.KMSDisabledException(value.KMSDisabledException);
+    if (value.KMSInvalidStateException !== undefined)
+      return visitor.KMSInvalidStateException(value.KMSInvalidStateException);
+    if (value.KMSAccessDeniedException !== undefined)
+      return visitor.KMSAccessDeniedException(value.KMSAccessDeniedException);
+    if (value.KMSNotFoundException !== undefined) return visitor.KMSNotFoundException(value.KMSNotFoundException);
+    if (value.KMSOptInRequired !== undefined) return visitor.KMSOptInRequired(value.KMSOptInRequired);
     if (value.KMSThrottlingException !== undefined) return visitor.KMSThrottlingException(value.KMSThrottlingException);
     if (value.InternalFailureException !== undefined)
       return visitor.InternalFailureException(value.InternalFailureException);
-    if (value.ResourceInUseException !== undefined) return visitor.ResourceInUseException(value.ResourceInUseException);
-    if (value.KMSOptInRequired !== undefined) return visitor.KMSOptInRequired(value.KMSOptInRequired);
-    if (value.KMSDisabledException !== undefined) return visitor.KMSDisabledException(value.KMSDisabledException);
-    if (value.KMSAccessDeniedException !== undefined)
-      return visitor.KMSAccessDeniedException(value.KMSAccessDeniedException);
-    if (value.KMSInvalidStateException !== undefined)
-      return visitor.KMSInvalidStateException(value.KMSInvalidStateException);
-    if (value.KMSNotFoundException !== undefined) return visitor.KMSNotFoundException(value.KMSNotFoundException);
-    if (value.ResourceNotFoundException !== undefined)
-      return visitor.ResourceNotFoundException(value.ResourceNotFoundException);
-    if (value.SubscribeToShardEvent !== undefined) return visitor.SubscribeToShardEvent(value.SubscribeToShardEvent);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
   export const filterSensitiveLog = (obj: SubscribeToShardEventStream): any => {
+    if (obj.SubscribeToShardEvent !== undefined)
+      return { SubscribeToShardEvent: SubscribeToShardEvent.filterSensitiveLog(obj.SubscribeToShardEvent) };
+    if (obj.ResourceNotFoundException !== undefined)
+      return { ResourceNotFoundException: ResourceNotFoundException.filterSensitiveLog(obj.ResourceNotFoundException) };
+    if (obj.ResourceInUseException !== undefined)
+      return { ResourceInUseException: ResourceInUseException.filterSensitiveLog(obj.ResourceInUseException) };
+    if (obj.KMSDisabledException !== undefined)
+      return { KMSDisabledException: KMSDisabledException.filterSensitiveLog(obj.KMSDisabledException) };
+    if (obj.KMSInvalidStateException !== undefined)
+      return { KMSInvalidStateException: KMSInvalidStateException.filterSensitiveLog(obj.KMSInvalidStateException) };
+    if (obj.KMSAccessDeniedException !== undefined)
+      return { KMSAccessDeniedException: KMSAccessDeniedException.filterSensitiveLog(obj.KMSAccessDeniedException) };
+    if (obj.KMSNotFoundException !== undefined)
+      return { KMSNotFoundException: KMSNotFoundException.filterSensitiveLog(obj.KMSNotFoundException) };
+    if (obj.KMSOptInRequired !== undefined)
+      return { KMSOptInRequired: KMSOptInRequired.filterSensitiveLog(obj.KMSOptInRequired) };
     if (obj.KMSThrottlingException !== undefined)
       return { KMSThrottlingException: KMSThrottlingException.filterSensitiveLog(obj.KMSThrottlingException) };
     if (obj.InternalFailureException !== undefined)
       return { InternalFailureException: InternalFailureException.filterSensitiveLog(obj.InternalFailureException) };
-    if (obj.ResourceInUseException !== undefined)
-      return { ResourceInUseException: ResourceInUseException.filterSensitiveLog(obj.ResourceInUseException) };
-    if (obj.KMSOptInRequired !== undefined)
-      return { KMSOptInRequired: KMSOptInRequired.filterSensitiveLog(obj.KMSOptInRequired) };
-    if (obj.KMSDisabledException !== undefined)
-      return { KMSDisabledException: KMSDisabledException.filterSensitiveLog(obj.KMSDisabledException) };
-    if (obj.KMSAccessDeniedException !== undefined)
-      return { KMSAccessDeniedException: KMSAccessDeniedException.filterSensitiveLog(obj.KMSAccessDeniedException) };
-    if (obj.KMSInvalidStateException !== undefined)
-      return { KMSInvalidStateException: KMSInvalidStateException.filterSensitiveLog(obj.KMSInvalidStateException) };
-    if (obj.KMSNotFoundException !== undefined)
-      return { KMSNotFoundException: KMSNotFoundException.filterSensitiveLog(obj.KMSNotFoundException) };
-    if (obj.ResourceNotFoundException !== undefined)
-      return { ResourceNotFoundException: ResourceNotFoundException.filterSensitiveLog(obj.ResourceNotFoundException) };
-    if (obj.SubscribeToShardEvent !== undefined)
-      return { SubscribeToShardEvent: SubscribeToShardEvent.filterSensitiveLog(obj.SubscribeToShardEvent) };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
@@ -2636,11 +2637,6 @@ export enum ScalingType {
 }
 
 export interface UpdateShardCountInput {
-  /**
-   * <p>The scaling type. Uniform scaling creates shards of equal size.</p>
-   */
-  ScalingType: ScalingType | string | undefined;
-
   /**
    * <p>The name of the stream.</p>
    */
@@ -2669,6 +2665,11 @@ export interface UpdateShardCountInput {
    *          </ul>
    */
   TargetShardCount: number | undefined;
+
+  /**
+   * <p>The scaling type. Uniform scaling creates shards of equal size.</p>
+   */
+  ScalingType: ScalingType | string | undefined;
 }
 
 export namespace UpdateShardCountInput {
@@ -2684,14 +2685,14 @@ export interface UpdateShardCountOutput {
   StreamName?: string;
 
   /**
-   * <p>The updated number of shards.</p>
-   */
-  TargetShardCount?: number;
-
-  /**
    * <p>The current number of shards.</p>
    */
   CurrentShardCount?: number;
+
+  /**
+   * <p>The updated number of shards.</p>
+   */
+  TargetShardCount?: number;
 }
 
 export namespace UpdateShardCountOutput {

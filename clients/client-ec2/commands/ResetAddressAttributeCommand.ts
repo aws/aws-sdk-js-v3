@@ -1,9 +1,9 @@
-import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
-import { TagResourceRequest, TagResourceResponse } from "../models/models_0";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { ResetAddressAttributeRequest, ResetAddressAttributeResult } from "../models/models_4";
 import {
-  deserializeAws_json1_1TagResourceCommand,
-  serializeAws_json1_1TagResourceCommand,
-} from "../protocols/Aws_json1_1";
+  deserializeAws_ec2ResetAddressAttributeCommand,
+  serializeAws_ec2ResetAddressAttributeCommand,
+} from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -17,22 +17,18 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TagResourceCommandInput = TagResourceRequest;
-export type TagResourceCommandOutput = TagResourceResponse & __MetadataBearer;
+export type ResetAddressAttributeCommandInput = ResetAddressAttributeRequest;
+export type ResetAddressAttributeCommandOutput = ResetAddressAttributeResult & __MetadataBearer;
 
-/**
- * <p>Applies the specified tags to the specified Amazon WorkMail organization
- *          resource.</p>
- */
-export class TagResourceCommand extends $Command<
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-  WorkMailClientResolvedConfig
+export class ResetAddressAttributeCommand extends $Command<
+  ResetAddressAttributeCommandInput,
+  ResetAddressAttributeCommandOutput,
+  EC2ClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: TagResourceCommandInput) {
+  constructor(readonly input: ResetAddressAttributeCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -43,22 +39,22 @@ export class TagResourceCommand extends $Command<
    */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: WorkMailClientResolvedConfig,
+    configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<TagResourceCommandInput, TagResourceCommandOutput> {
+  ): Handler<ResetAddressAttributeCommandInput, ResetAddressAttributeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
-    const clientName = "WorkMailClient";
-    const commandName = "TagResourceCommand";
+    const clientName = "EC2Client";
+    const commandName = "ResetAddressAttributeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: TagResourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ResetAddressAttributeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ResetAddressAttributeResult.filterSensitiveLog,
     };
 
     if (typeof logger.info === "function") {
@@ -76,12 +72,12 @@ export class TagResourceCommand extends $Command<
     );
   }
 
-  private serialize(input: TagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TagResourceCommand(input, context);
+  private serialize(input: ResetAddressAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_ec2ResetAddressAttributeCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourceCommandOutput> {
-    return deserializeAws_json1_1TagResourceCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetAddressAttributeCommandOutput> {
+    return deserializeAws_ec2ResetAddressAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -34,20 +34,6 @@ export enum DataSetType {
  */
 export interface GenerateDataSetRequest {
   /**
-   * Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an
-   *         error has occurred.
-   */
-  snsTopicArn: string | undefined;
-
-  /**
-   * (Optional) Key-value pairs which will be returned, unmodified, in the
-   *         Amazon SNS notification message and the data set metadata file. These
-   *         key-value pairs can be used to correlated responses with tracking
-   *         information from other systems.
-   */
-  customerDefinedValues?: { [key: string]: string };
-
-  /**
    * <p>The desired data set type.</p>
    *         <p>
    *             <ul>
@@ -183,6 +169,20 @@ export interface GenerateDataSetRequest {
    *         If no prefix is provided, the data set will be published to the S3 bucket root.
    */
   destinationS3Prefix?: string;
+
+  /**
+   * Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an
+   *         error has occurred.
+   */
+  snsTopicArn: string | undefined;
+
+  /**
+   * (Optional) Key-value pairs which will be returned, unmodified, in the
+   *         Amazon SNS notification message and the data set metadata file. These
+   *         key-value pairs can be used to correlated responses with tracking
+   *         information from other systems.
+   */
+  customerDefinedValues?: { [key: string]: string };
 }
 
 export namespace GenerateDataSetRequest {
@@ -233,28 +233,6 @@ export type SupportDataSetType = "customer_support_contacts_data" | "test_custom
  */
 export interface StartSupportDataExportRequest {
   /**
-   * Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an
-   *         error has occurred.
-   */
-  snsTopicArn: string | undefined;
-
-  /**
-   * (Optional) Key-value pairs which will be returned, unmodified, in the
-   *         Amazon SNS notification message and the data set metadata file.
-   */
-  customerDefinedValues?: { [key: string]: string };
-
-  /**
-   * The start date from which to retrieve the data set in UTC.  This parameter only affects the customer_support_contacts_data data set type.
-   */
-  fromDate: Date | undefined;
-
-  /**
-   * The name (friendly name, not ARN) of the destination S3 bucket.
-   */
-  destinationS3BucketName: string | undefined;
-
-  /**
    * <p>
    *            Specifies the data set type to be written to the output csv file. The data set types customer_support_contacts_data and
    *            test_customer_support_contacts_data both result in a csv file containing the following fields: Product Id, Product Code, Customer Guid,
@@ -271,10 +249,20 @@ export interface StartSupportDataExportRequest {
   dataSetType: SupportDataSetType | string | undefined;
 
   /**
+   * The start date from which to retrieve the data set in UTC.  This parameter only affects the customer_support_contacts_data data set type.
+   */
+  fromDate: Date | undefined;
+
+  /**
    * The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided
    *         AWS services.
    */
   roleNameArn: string | undefined;
+
+  /**
+   * The name (friendly name, not ARN) of the destination S3 bucket.
+   */
+  destinationS3BucketName: string | undefined;
 
   /**
    * (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems.
@@ -284,6 +272,18 @@ export interface StartSupportDataExportRequest {
    *         If no prefix is provided, the data set will be published to the S3 bucket root.
    */
   destinationS3Prefix?: string;
+
+  /**
+   * Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an
+   *         error has occurred.
+   */
+  snsTopicArn: string | undefined;
+
+  /**
+   * (Optional) Key-value pairs which will be returned, unmodified, in the
+   *         Amazon SNS notification message and the data set metadata file.
+   */
+  customerDefinedValues?: { [key: string]: string };
 }
 
 export namespace StartSupportDataExportRequest {

@@ -20,11 +20,6 @@ import {
 export type AddNotificationChannelCommandInput = AddNotificationChannelRequest;
 export type AddNotificationChannelCommandOutput = AddNotificationChannelResponse & __MetadataBearer;
 
-/**
- * <p>
- * 			Adds a notification channel to DevOps Guru. A notification channel is used to notify you about important DevOps Guru events, such as when an insight is generated.
- * 		</p>
- */
 export class AddNotificationChannelCommand extends $Command<
   AddNotificationChannelCommandInput,
   AddNotificationChannelCommandOutput,

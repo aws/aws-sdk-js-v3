@@ -5274,7 +5274,8 @@
           "sdkId": "GameLift",
           "arnNamespace": "gamelift",
           "cloudFormationName": "GameLift",
-          "cloudTrailEventSource": "gamelift.amazonaws.com"
+          "cloudTrailEventSource": "gamelift.amazonaws.com",
+          "endpointPrefix": "gamelift"
         },
         "aws.auth#sigv4": {
           "name": "gamelift"

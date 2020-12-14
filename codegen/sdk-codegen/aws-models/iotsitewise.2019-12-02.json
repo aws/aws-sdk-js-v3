@@ -220,7 +220,8 @@
           "sdkId": "IoTSiteWise",
           "arnNamespace": "iotsitewise",
           "cloudFormationName": "IoTSiteWise",
-          "cloudTrailEventSource": "iotsitewise.amazonaws.com"
+          "cloudTrailEventSource": "iotsitewise.amazonaws.com",
+          "endpointPrefix": "iotsitewise"
         },
         "aws.auth#sigv4": {
           "name": "iotsitewise"
@@ -3201,6 +3202,44 @@
           "method": "GET",
           "uri": "/assets/{assetId}",
           "code": 200
+        },
+        "smithy.waiters#waitable": {
+          "AssetActive": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "assetStatus.state",
+                    "expected": "ACTIVE",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "assetStatus.state",
+                    "expected": "FAILED",
+                    "comparator": "stringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 3
+          },
+          "AssetNotExists": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "errorType": "ResourceNotFoundException"
+                }
+              }
+            ],
+            "minDelay": 3
+          }
         }
       }
     },
@@ -3235,6 +3274,44 @@
           "method": "GET",
           "uri": "/asset-models/{assetModelId}",
           "code": 200
+        },
+        "smithy.waiters#waitable": {
+          "AssetModelActive": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "assetModelStatus.state",
+                    "expected": "ACTIVE",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "assetModelStatus.state",
+                    "expected": "FAILED",
+                    "comparator": "stringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 3
+          },
+          "AssetModelNotExists": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "errorType": "ResourceNotFoundException"
+                }
+              }
+            ],
+            "minDelay": 3
+          }
         }
       }
     },
@@ -3938,6 +4015,34 @@
           "method": "GET",
           "uri": "/portals/{portalId}",
           "code": 200
+        },
+        "smithy.waiters#waitable": {
+          "PortalActive": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "portalStatus.state",
+                    "expected": "ACTIVE",
+                    "comparator": "stringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 3
+          },
+          "PortalNotExists": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "errorType": "ResourceNotFoundException"
+                }
+              }
+            ],
+            "minDelay": 3
+          }
         }
       }
     },

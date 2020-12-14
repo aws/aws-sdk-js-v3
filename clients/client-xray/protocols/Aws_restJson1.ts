@@ -3049,11 +3049,22 @@ const deserializeAws_restJson1Annotations = (
 };
 
 const deserializeAws_restJson1AnnotationValue = (output: any, context: __SerdeContext): AnnotationValue => {
-  return {
-    BooleanValue: output.BooleanValue !== undefined && output.BooleanValue !== null ? output.BooleanValue : undefined,
-    NumberValue: output.NumberValue !== undefined && output.NumberValue !== null ? output.NumberValue : undefined,
-    StringValue: output.StringValue !== undefined && output.StringValue !== null ? output.StringValue : undefined,
-  } as any;
+  if (output.BooleanValue !== undefined && output.BooleanValue !== null) {
+    return {
+      BooleanValue: output.BooleanValue,
+    };
+  }
+  if (output.NumberValue !== undefined && output.NumberValue !== null) {
+    return {
+      NumberValue: output.NumberValue,
+    };
+  }
+  if (output.StringValue !== undefined && output.StringValue !== null) {
+    return {
+      StringValue: output.StringValue,
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restJson1AnomalousService = (output: any, context: __SerdeContext): AnomalousService => {

@@ -926,6 +926,38 @@
           "inputToken": "NextToken",
           "outputToken": "NextToken",
           "pageSize": "MaxRecords"
+        },
+        "smithy.waiters#waitable": {
+          "AlarmExists": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "length(MetricAlarms[]) > `0`",
+                    "expected": "true",
+                    "comparator": "booleanEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 5
+          },
+          "CompositeAlarmExists": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "length(CompositeAlarms[]) > `0`",
+                    "expected": "true",
+                    "comparator": "booleanEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 5
+          }
         }
       }
     },
@@ -2006,7 +2038,8 @@
           "sdkId": "CloudWatch",
           "arnNamespace": "monitoring",
           "cloudFormationName": "CloudWatch",
-          "cloudTrailEventSource": "cloudwatch.amazonaws.com"
+          "cloudTrailEventSource": "cloudwatch.amazonaws.com",
+          "endpointPrefix": "monitoring"
         },
         "aws.auth#sigv4": {
           "name": "monitoring"
