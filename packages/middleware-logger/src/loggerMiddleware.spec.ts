@@ -64,61 +64,69 @@ describe("loggerMiddleware", () => {
     expect(response).toStrictEqual(mockResponse);
   });
 
-  it("logs metadata if context.logger has info function", async () => {
-    mockNext.mockResolvedValueOnce(mockResponse);
-    const logger = ({ info: jest.fn() } as unknown) as Logger;
+  describe("logs if context.logger has info function", () => {
+    it("success case with clientName, commandName, metadata", async () => {
+      mockNext.mockResolvedValueOnce(mockResponse);
+      const logger = ({ info: jest.fn() } as unknown) as Logger;
+      const clientName = "mockClientName";
+      const commandName = "mockCommandName";
 
-    const context = {
-      logger,
-    };
+      const context = {
+        logger,
+        clientName,
+        commandName,
+      };
 
-    const response = await loggerMiddleware()(mockNext, context)(mockArgs);
-    expect(mockNext).toHaveBeenCalledTimes(1);
-    expect(response).toStrictEqual(mockResponse);
+      const response = await loggerMiddleware()(mockNext, context)(mockArgs);
+      expect(mockNext).toHaveBeenCalledTimes(1);
+      expect(response).toStrictEqual(mockResponse);
 
-    expect(logger.info).toHaveBeenCalledTimes(1);
+      expect(logger.info).toHaveBeenCalledTimes(1);
 
-    expect(logger.info).toHaveBeenCalledWith({
-      metadata: {
-        statusCode: mockResponse.response.statusCode,
-        requestId: mockResponse.response.headers["x-amzn-requestid"],
-        extendedRequestId: mockResponse.response.headers["x-amz-id-2"],
-        cfId: mockResponse.response.headers["x-amz-cf-id"],
-      },
-    });
-  });
-
-  it("logs header x-amzn-request-id as requestId if x-amzn-requestid is not present", async () => {
-    const requestIdBackup = "requestIdBackup";
-    const customResponse = {
-      ...mockResponse,
-      response: {
-        ...mockResponse.response,
-        headers: {
-          "x-amzn-request-id": requestIdBackup,
+      expect(logger.info).toHaveBeenCalledWith({
+        clientName,
+        commandName,
+        metadata: {
+          statusCode: mockResponse.response.statusCode,
+          requestId: mockResponse.response.headers["x-amzn-requestid"],
+          extendedRequestId: mockResponse.response.headers["x-amz-id-2"],
+          cfId: mockResponse.response.headers["x-amz-cf-id"],
         },
-      },
-    };
-    mockNext.mockResolvedValueOnce(customResponse);
-    const logger = ({ info: jest.fn() } as unknown) as Logger;
+      });
+    });
 
-    const context = {
-      logger,
-    };
+    it("header x-amzn-request-id as requestId if x-amzn-requestid is not present", async () => {
+      const requestIdBackup = "requestIdBackup";
+      const customResponse = {
+        ...mockResponse,
+        response: {
+          ...mockResponse.response,
+          headers: {
+            "x-amzn-request-id": requestIdBackup,
+          },
+        },
+      };
+      mockNext.mockResolvedValueOnce(customResponse);
+      const logger = ({ info: jest.fn() } as unknown) as Logger;
 
-    const response = await loggerMiddleware()(mockNext, context)(mockArgs);
-    expect(mockNext).toHaveBeenCalledTimes(1);
-    expect(response).toStrictEqual(customResponse);
+      const context = {
+        logger,
+      };
 
-    expect(logger.info).toHaveBeenCalledTimes(1);
+      const response = await loggerMiddleware()(mockNext, context)(mockArgs);
+      expect(mockNext).toHaveBeenCalledTimes(1);
+      expect(response).toStrictEqual(customResponse);
 
-    expect(logger.info).toHaveBeenCalledWith({
-      metadata: {
-        statusCode: customResponse.response.statusCode,
-        requestId: requestIdBackup,
-        extendedRequestId: undefined,
-        cfId: undefined,
-      },
+      expect(logger.info).toHaveBeenCalledTimes(1);
+
+      expect(logger.info).toHaveBeenCalledWith({
+        metadata: {
+          statusCode: customResponse.response.statusCode,
+          requestId: requestIdBackup,
+          extendedRequestId: undefined,
+          cfId: undefined,
+        },
+      });
     });
   });
 });
