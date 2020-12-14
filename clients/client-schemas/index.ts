@@ -9,6 +9,7 @@ export * from "./commands/DeleteResourcePolicyCommand";
 export * from "./commands/DeleteSchemaCommand";
 export * from "./commands/DeleteSchemaVersionCommand";
 export * from "./commands/DescribeCodeBindingCommand";
+export * from "./waiters/waitForCodeBindingExists";
 export * from "./commands/DescribeDiscovererCommand";
 export * from "./commands/DescribeRegistryCommand";
 export * from "./commands/DescribeSchemaCommand";

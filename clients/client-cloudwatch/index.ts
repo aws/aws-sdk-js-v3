@@ -8,6 +8,8 @@ export * from "./commands/DescribeAlarmHistoryCommand";
 export * from "./pagination/DescribeAlarmHistoryPaginator";
 export * from "./commands/DescribeAlarmsCommand";
 export * from "./pagination/DescribeAlarmsPaginator";
+export * from "./waiters/waitForAlarmExists";
+export * from "./waiters/waitForCompositeAlarmExists";
 export * from "./commands/DescribeAlarmsForMetricCommand";
 export * from "./commands/DescribeAnomalyDetectorsCommand";
 export * from "./commands/DescribeInsightRulesCommand";

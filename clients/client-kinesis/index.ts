@@ -7,6 +7,8 @@ export * from "./commands/DeleteStreamCommand";
 export * from "./commands/DeregisterStreamConsumerCommand";
 export * from "./commands/DescribeLimitsCommand";
 export * from "./commands/DescribeStreamCommand";
+export * from "./waiters/waitForStreamExists";
+export * from "./waiters/waitForStreamNotExists";
 export * from "./commands/DescribeStreamConsumerCommand";
 export * from "./commands/DescribeStreamSummaryCommand";
 export * from "./commands/DisableEnhancedMonitoringCommand";

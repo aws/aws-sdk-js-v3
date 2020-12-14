@@ -12,6 +12,8 @@ export * from "./commands/DeleteVaultAccessPolicyCommand";
 export * from "./commands/DeleteVaultNotificationsCommand";
 export * from "./commands/DescribeJobCommand";
 export * from "./commands/DescribeVaultCommand";
+export * from "./waiters/waitForVaultExists";
+export * from "./waiters/waitForVaultNotExists";
 export * from "./commands/GetDataRetrievalPolicyCommand";
 export * from "./commands/GetJobOutputCommand";
 export * from "./commands/GetVaultAccessPolicyCommand";

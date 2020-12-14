@@ -3,6 +3,7 @@ export * from "./ACM";
 export * from "./commands/AddTagsToCertificateCommand";
 export * from "./commands/DeleteCertificateCommand";
 export * from "./commands/DescribeCertificateCommand";
+export * from "./waiters/waitForCertificateValidated";
 export * from "./commands/ExportCertificateCommand";
 export * from "./commands/GetCertificateCommand";
 export * from "./commands/ImportCertificateCommand";

@@ -64,6 +64,7 @@ export * from "./commands/GetGroupCommand";
 export * from "./pagination/GetGroupPaginator";
 export * from "./commands/GetGroupPolicyCommand";
 export * from "./commands/GetInstanceProfileCommand";
+export * from "./waiters/waitForInstanceProfileExists";
 export * from "./commands/GetLoginProfileCommand";
 export * from "./commands/GetOpenIDConnectProviderCommand";
 export * from "./commands/GetOrganizationsAccessReportCommand";

@@ -34,6 +34,7 @@ export * from "./commands/DescribeDBEngineVersionsCommand";
 export * from "./pagination/DescribeDBEngineVersionsPaginator";
 export * from "./commands/DescribeDBInstancesCommand";
 export * from "./pagination/DescribeDBInstancesPaginator";
+export * from "./waiters/waitForDBInstanceAvailable";
 export * from "./commands/DescribeDBParameterGroupsCommand";
 export * from "./pagination/DescribeDBParameterGroupsPaginator";
 export * from "./commands/DescribeDBParametersCommand";

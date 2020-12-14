@@ -15,6 +15,7 @@ export * from "./commands/DeleteLoadBalancerPolicyCommand";
 export * from "./commands/DeregisterInstancesFromLoadBalancerCommand";
 export * from "./commands/DescribeAccountLimitsCommand";
 export * from "./commands/DescribeInstanceHealthCommand";
+export * from "./waiters/waitForAnyInstanceInService";
 export * from "./commands/DescribeLoadBalancerAttributesCommand";
 export * from "./commands/DescribeLoadBalancerPoliciesCommand";
 export * from "./commands/DescribeLoadBalancerPolicyTypesCommand";
