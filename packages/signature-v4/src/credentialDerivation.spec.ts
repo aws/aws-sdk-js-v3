@@ -46,27 +46,27 @@ describe("getSigningKey", () => {
   });
 
   describe("caching", () => {
-    it("should return the same promise when called with the same date, region, service, and credentials", () => {
-      const promise1 = getSigningKey(Sha256, credentials, shortDate, region, service);
-      const promise2 = getSigningKey(Sha256, credentials, shortDate, region, service);
+    it("should return the same promise when called with the same date, region, service, and credentials", async () => {
+      const promise1 = await getSigningKey(Sha256, credentials, shortDate, region, service);
+      const promise2 = await getSigningKey(Sha256, credentials, shortDate, region, service);
       expect(promise1).toBe(promise2);
     });
 
-    it("should cache a maximum of 50 entries", () => {
-      const keyPromises: Array<Promise<Uint8Array>> = new Array(50);
+    it("should cache a maximum of 50 entries", async () => {
+      const keys: Array<Uint8Array> = new Array(50);
       // fill the cache
       for (let i = 0; i < 50; i++) {
-        keyPromises[i] = getSigningKey(Sha256, credentials, shortDate, `us-foo-${i.toString(10)}`, service);
+        keys[i] = await getSigningKey(Sha256, credentials, shortDate, `us-foo-${i.toString(10)}`, service);
       }
 
       // evict the oldest member from the cache
-      getSigningKey(Sha256, credentials, shortDate, `us-foo-50`, service);
+      await getSigningKey(Sha256, credentials, shortDate, `us-foo-50`, service);
 
       // the second oldest member should still be in cache
-      expect(keyPromises[1]).toBe(getSigningKey(Sha256, credentials, shortDate, `us-foo-1`, service));
+      expect(keys[1]).toBe(await getSigningKey(Sha256, credentials, shortDate, `us-foo-1`, service));
 
       // the oldest member should not be in the cache
-      expect(keyPromises[0]).not.toBe(getSigningKey(Sha256, credentials, shortDate, `us-foo-0`, service));
+      expect(keys[0]).not.toBe(await getSigningKey(Sha256, credentials, shortDate, `us-foo-0`, service));
     });
   });
 });

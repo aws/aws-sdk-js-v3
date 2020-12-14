@@ -1,8 +1,9 @@
 import { Credentials, HashConstructor, SourceData } from "@aws-sdk/types";
+import { toHex } from "@aws-sdk/util-hex-encoding";
 
 import { KEY_TYPE_IDENTIFIER, MAX_CACHE_SIZE } from "./constants";
 
-const signingKeyCache: { [key: string]: Promise<Uint8Array> } = {};
+const signingKeyCache: { [key: string]: Uint8Array } = {};
 const cacheQueue: Array<string> = [];
 
 /**
@@ -28,14 +29,15 @@ export function createScope(shortDate: string, region: string, service: string):
  * @param service           The service to which the signed request is being
  *                          sent.
  */
-export function getSigningKey(
+export const getSigningKey = async (
   sha256Constructor: HashConstructor,
   credentials: Credentials,
   shortDate: string,
   region: string,
   service: string
-): Promise<Uint8Array> {
-  const cacheKey = `${shortDate}:${region}:${service}:` + `${credentials.accessKeyId}:${credentials.sessionToken}`;
+): Promise<Uint8Array> => {
+  const credsHash = await hmac(sha256Constructor, credentials.secretAccessKey, credentials.accessKeyId);
+  const cacheKey = `${shortDate}:${region}:${service}:${toHex(credsHash)}:${credentials.sessionToken}`;
   if (cacheKey in signingKeyCache) {
     return signingKeyCache[cacheKey];
   }
@@ -45,20 +47,12 @@ export function getSigningKey(
     delete signingKeyCache[cacheQueue.shift() as string];
   }
 
-  return (signingKeyCache[cacheKey] = new Promise((resolve, reject) => {
-    let keyPromise: Promise<SourceData> = Promise.resolve(`AWS4${credentials.secretAccessKey}`);
-
-    for (const signable of [shortDate, region, service, KEY_TYPE_IDENTIFIER]) {
-      keyPromise = keyPromise.then<Uint8Array>((intermediateKey) => hmac(sha256Constructor, intermediateKey, signable));
-      keyPromise.catch(() => {});
-    }
-
-    (keyPromise as Promise<Uint8Array>).then(resolve, (reason) => {
-      delete signingKeyCache[cacheKey];
-      reject(reason);
-    });
-  }));
-}
+  let key: SourceData = `AWS4${credentials.secretAccessKey}`;
+  for (const signable of [shortDate, region, service, KEY_TYPE_IDENTIFIER]) {
+    key = await hmac(sha256Constructor, key, signable);
+  }
+  return (signingKeyCache[cacheKey] = key as Uint8Array);
+};
 
 /**
  * @internal
