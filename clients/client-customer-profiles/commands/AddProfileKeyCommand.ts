@@ -1,4 +1,4 @@
-import { ProfileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProfileClient";
+import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { AddProfileKeyRequest, AddProfileKeyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AddProfileKeyCommand,
@@ -29,7 +29,7 @@ export type AddProfileKeyCommandOutput = AddProfileKeyResponse & __MetadataBeare
 export class AddProfileKeyCommand extends $Command<
   AddProfileKeyCommandInput,
   AddProfileKeyCommandOutput,
-  ProfileClientResolvedConfig
+  CustomerProfilesClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -45,7 +45,7 @@ export class AddProfileKeyCommand extends $Command<
    */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ProfileClientResolvedConfig,
+    configuration: CustomerProfilesClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AddProfileKeyCommandInput, AddProfileKeyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
@@ -53,7 +53,7 @@ export class AddProfileKeyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
-    const clientName = "ProfileClient";
+    const clientName = "CustomerProfilesClient";
     const commandName = "AddProfileKeyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
