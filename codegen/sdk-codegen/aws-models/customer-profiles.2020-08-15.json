@@ -616,9 +616,9 @@
       ],
       "traits": {
         "aws.api#service": {
-          "sdkId": "Profile",
+          "sdkId": "Customer Profiles",
           "arnNamespace": "profile",
-          "cloudFormationName": "Profile",
+          "cloudFormationName": "CustomerProfiles",
           "cloudTrailEventSource": "customerprofiles.amazonaws.com",
           "endpointPrefix": "profile"
         },
