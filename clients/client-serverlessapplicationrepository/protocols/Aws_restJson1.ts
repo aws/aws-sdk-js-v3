@@ -390,9 +390,9 @@ export const serializeAws_restJson1ListApplicationDependenciesCommand = async (
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   const query: any = {
+    ...(input.MaxItems !== undefined && { maxItems: input.MaxItems.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.SemanticVersion !== undefined && { semanticVersion: input.SemanticVersion }),
-    ...(input.MaxItems !== undefined && { maxItems: input.MaxItems.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -415,8 +415,8 @@ export const serializeAws_restJson1ListApplicationsCommand = async (
   const headers: any = {};
   let resolvedPath = "/applications";
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxItems !== undefined && { maxItems: input.MaxItems.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

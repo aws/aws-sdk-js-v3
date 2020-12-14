@@ -27,9 +27,9 @@ export namespace ParameterValue {
  */
 export interface ActivatePipelineInput {
   /**
-   * <p>The date and time to resume the pipeline. By default, the pipeline resumes from the last completed execution.</p>
+   * <p>The ID of the pipeline.</p>
    */
-  startTimestamp?: Date;
+  pipelineId: string | undefined;
 
   /**
    * <p>A list of parameter values to pass to the pipeline at activation.</p>
@@ -37,9 +37,9 @@ export interface ActivatePipelineInput {
   parameterValues?: ParameterValue[];
 
   /**
-   * <p>The ID of the pipeline.</p>
+   * <p>The date and time to resume the pipeline. By default, the pipeline resumes from the last completed execution.</p>
    */
-  pipelineId: string | undefined;
+  startTimestamp?: Date;
 }
 
 export namespace ActivatePipelineInput {
@@ -137,16 +137,16 @@ export namespace PipelineNotFoundException {
  */
 export interface Tag {
   /**
-   * <p>The optional value portion of a tag defined by a user.
-   *             For more information, see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>
-   */
-  value: string | undefined;
-
-  /**
    * <p>The key name of a tag defined by a user.
    *             For more information, see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>
    */
   key: string | undefined;
+
+  /**
+   * <p>The optional value portion of a tag defined by a user.
+   *             For more information, see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>
+   */
+  value: string | undefined;
 }
 
 export namespace Tag {
@@ -192,11 +192,9 @@ export namespace AddTagsOutput {
  */
 export interface CreatePipelineInput {
   /**
-   * <p>A list of tags to associate with the pipeline at creation. Tags let you control access to pipelines.
-   *             For more information, see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html">Controlling User Access to Pipelines</a>
-   *             in the <i>AWS Data Pipeline Developer Guide</i>.</p>
+   * <p>The name for the pipeline. You can use the same name for multiple pipelines associated with your AWS account, because AWS Data Pipeline assigns each pipeline a unique pipeline identifier.</p>
    */
-  tags?: Tag[];
+  name: string | undefined;
 
   /**
    * <p>A unique identifier. This identifier is not the same as the pipeline identifier assigned by AWS Data Pipeline.
@@ -216,9 +214,11 @@ export interface CreatePipelineInput {
   description?: string;
 
   /**
-   * <p>The name for the pipeline. You can use the same name for multiple pipelines associated with your AWS account, because AWS Data Pipeline assigns each pipeline a unique pipeline identifier.</p>
+   * <p>A list of tags to associate with the pipeline at creation. Tags let you control access to pipelines.
+   *             For more information, see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html">Controlling User Access to Pipelines</a>
+   *             in the <i>AWS Data Pipeline Developer Guide</i>.</p>
    */
-  name: string | undefined;
+  tags?: Tag[];
 }
 
 export namespace CreatePipelineInput {
@@ -248,17 +248,17 @@ export namespace CreatePipelineOutput {
  */
 export interface DeactivatePipelineInput {
   /**
+   * <p>The ID of the pipeline.</p>
+   */
+  pipelineId: string | undefined;
+
+  /**
    * <p>Indicates whether to cancel any running objects. The default is true,
    *           which sets the state of any running objects to <code>CANCELED</code>.
    *           If this value is false, the pipeline is deactivated after all
    *           running objects finish.</p>
    */
   cancelActive?: boolean;
-
-  /**
-   * <p>The ID of the pipeline.</p>
-   */
-  pipelineId: string | undefined;
 }
 
 export namespace DeactivatePipelineInput {
@@ -299,6 +299,16 @@ export namespace DeletePipelineInput {
  */
 export interface DescribeObjectsInput {
   /**
+   * <p>The ID of the pipeline that contains the object definitions.</p>
+   */
+  pipelineId: string | undefined;
+
+  /**
+   * <p>The IDs of the pipeline objects that contain the definitions to be described. You can pass as many as 25 identifiers in a single call to <code>DescribeObjects</code>.</p>
+   */
+  objectIds: string[] | undefined;
+
+  /**
    * <p>Indicates whether any expressions in the object should be evaluated when the object descriptions are returned.</p>
    */
   evaluateExpressions?: boolean;
@@ -309,16 +319,6 @@ export interface DescribeObjectsInput {
    *            the marker value from the previous call to retrieve the next set of results.</p>
    */
   marker?: string;
-
-  /**
-   * <p>The ID of the pipeline that contains the object definitions.</p>
-   */
-  pipelineId: string | undefined;
-
-  /**
-   * <p>The IDs of the pipeline objects that contain the definitions to be described. You can pass as many as 25 identifiers in a single call to <code>DescribeObjects</code>.</p>
-   */
-  objectIds: string[] | undefined;
 }
 
 export namespace DescribeObjectsInput {
@@ -337,14 +337,14 @@ export interface Field {
   key: string | undefined;
 
   /**
-   * <p>The field value, expressed as the identifier of another object.</p>
-   */
-  refValue?: string;
-
-  /**
    * <p>The field value, expressed as a String.</p>
    */
   stringValue?: string;
+
+  /**
+   * <p>The field value, expressed as the identifier of another object.</p>
+   */
+  refValue?: string;
 }
 
 export namespace Field {
@@ -358,9 +358,9 @@ export namespace Field {
  */
 export interface PipelineObject {
   /**
-   * <p>Key-value pairs that define the properties of the object.</p>
+   * <p>The ID of the object.</p>
    */
-  fields: Field[] | undefined;
+  id: string | undefined;
 
   /**
    * <p>The name of the object.</p>
@@ -368,9 +368,9 @@ export interface PipelineObject {
   name: string | undefined;
 
   /**
-   * <p>The ID of the object.</p>
+   * <p>Key-value pairs that define the properties of the object.</p>
    */
-  id: string | undefined;
+  fields: Field[] | undefined;
 }
 
 export namespace PipelineObject {
@@ -384,9 +384,9 @@ export namespace PipelineObject {
  */
 export interface DescribeObjectsOutput {
   /**
-   * <p>Indicates whether there are more results to return.</p>
+   * <p>An array of object definitions.</p>
    */
-  hasMoreResults?: boolean;
+  pipelineObjects: PipelineObject[] | undefined;
 
   /**
    * <p>The starting point for the next page of results. To view the next page of results, call <code>DescribeObjects</code>
@@ -395,9 +395,9 @@ export interface DescribeObjectsOutput {
   marker?: string;
 
   /**
-   * <p>An array of object definitions.</p>
+   * <p>Indicates whether there are more results to return.</p>
    */
-  pipelineObjects: PipelineObject[] | undefined;
+  hasMoreResults?: boolean;
 }
 
 export namespace DescribeObjectsOutput {
@@ -428,9 +428,9 @@ export namespace DescribePipelinesInput {
  */
 export interface PipelineDescription {
   /**
-   * <p>A list of read-only fields that contain metadata about the pipeline: @userId, @accountId, and @pipelineState.</p>
+   * <p>The pipeline identifier that was assigned by AWS Data Pipeline. This is a string of the form <code>df-297EG78HU43EEXAMPLE</code>.</p>
    */
-  fields: Field[] | undefined;
+  pipelineId: string | undefined;
 
   /**
    * <p>The name of the pipeline.</p>
@@ -438,20 +438,20 @@ export interface PipelineDescription {
   name: string | undefined;
 
   /**
-   * <p>A list of tags to associated with a pipeline. Tags let you control access to pipelines.
-   *             For more information, see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>
+   * <p>A list of read-only fields that contain metadata about the pipeline: @userId, @accountId, and @pipelineState.</p>
    */
-  tags?: Tag[];
-
-  /**
-   * <p>The pipeline identifier that was assigned by AWS Data Pipeline. This is a string of the form <code>df-297EG78HU43EEXAMPLE</code>.</p>
-   */
-  pipelineId: string | undefined;
+  fields: Field[] | undefined;
 
   /**
    * <p>Description of the pipeline.</p>
    */
   description?: string;
+
+  /**
+   * <p>A list of tags to associated with a pipeline. Tags let you control access to pipelines.
+   *             For more information, see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>
+   */
+  tags?: Tag[];
 }
 
 export namespace PipelineDescription {
@@ -486,14 +486,14 @@ export interface EvaluateExpressionInput {
   pipelineId: string | undefined;
 
   /**
-   * <p>The expression to evaluate.</p>
-   */
-  expression: string | undefined;
-
-  /**
    * <p>The ID of the object.</p>
    */
   objectId: string | undefined;
+
+  /**
+   * <p>The expression to evaluate.</p>
+   */
+  expression: string | undefined;
 }
 
 export namespace EvaluateExpressionInput {
@@ -585,14 +585,14 @@ export namespace ParameterAttribute {
  */
 export interface ParameterObject {
   /**
-   * <p>The attributes of the parameter object.</p>
-   */
-  attributes: ParameterAttribute[] | undefined;
-
-  /**
    * <p>The ID of the parameter object.</p>
    */
   id: string | undefined;
+
+  /**
+   * <p>The attributes of the parameter object.</p>
+   */
+  attributes: ParameterAttribute[] | undefined;
 }
 
 export namespace ParameterObject {
@@ -606,9 +606,9 @@ export namespace ParameterObject {
  */
 export interface GetPipelineDefinitionOutput {
   /**
-   * <p>The parameter values used in the pipeline definition.</p>
+   * <p>The objects defined in the pipeline.</p>
    */
-  parameterValues?: ParameterValue[];
+  pipelineObjects?: PipelineObject[];
 
   /**
    * <p>The parameter objects used in the pipeline definition.</p>
@@ -616,9 +616,9 @@ export interface GetPipelineDefinitionOutput {
   parameterObjects?: ParameterObject[];
 
   /**
-   * <p>The objects defined in the pipeline.</p>
+   * <p>The parameter values used in the pipeline definition.</p>
    */
-  pipelineObjects?: PipelineObject[];
+  parameterValues?: ParameterValue[];
 }
 
 export namespace GetPipelineDefinitionOutput {
@@ -650,14 +650,14 @@ export namespace ListPipelinesInput {
  */
 export interface PipelineIdName {
   /**
-   * <p>The name of the pipeline.</p>
-   */
-  name?: string;
-
-  /**
    * <p>The ID of the pipeline that was assigned by AWS Data Pipeline. This is a string of the form <code>df-297EG78HU43EEXAMPLE</code>.</p>
    */
   id?: string;
+
+  /**
+   * <p>The name of the pipeline.</p>
+   */
+  name?: string;
 }
 
 export namespace PipelineIdName {
@@ -671,6 +671,12 @@ export namespace PipelineIdName {
  */
 export interface ListPipelinesOutput {
   /**
+   * <p>The pipeline identifiers. If you require additional information about the pipelines, you can use these identifiers to call
+   *             <a>DescribePipelines</a> and <a>GetPipelineDefinition</a>.</p>
+   */
+  pipelineIdList: PipelineIdName[] | undefined;
+
+  /**
    * <p>The starting point for the next page of results. To view the next page of results, call <code>ListPipelinesOutput</code>
    *            again with this marker value. If the value is null, there are no more results.</p>
    */
@@ -680,12 +686,6 @@ export interface ListPipelinesOutput {
    * <p>Indicates whether there are more results that can be obtained by a subsequent call.</p>
    */
   hasMoreResults?: boolean;
-
-  /**
-   * <p>The pipeline identifiers. If you require additional information about the pipelines, you can use these identifiers to call
-   *             <a>DescribePipelines</a> and <a>GetPipelineDefinition</a>.</p>
-   */
-  pipelineIdList: PipelineIdName[] | undefined;
 }
 
 export namespace ListPipelinesOutput {
@@ -701,14 +701,14 @@ export namespace ListPipelinesOutput {
  */
 export interface InstanceIdentity {
   /**
-   * <p>A signature which can be used to verify the accuracy and authenticity of the information provided in the instance identity document.</p>
-   */
-  signature?: string;
-
-  /**
    * <p>A description of an EC2 instance that is generated when the instance is launched and exposed to the instance via the instance metadata service in the form of a JSON representation of an object.</p>
    */
   document?: string;
+
+  /**
+   * <p>A signature which can be used to verify the accuracy and authenticity of the information provided in the instance identity document.</p>
+   */
+  signature?: string;
 }
 
 export namespace InstanceIdentity {
@@ -750,11 +750,6 @@ export namespace PollForTaskInput {
  */
 export interface TaskObject {
   /**
-   * <p>The ID of the pipeline task attempt object. AWS Data Pipeline uses this value to track how many times a task is attempted.</p>
-   */
-  attemptId?: string;
-
-  /**
    * <p>An internal identifier for the task. This ID is passed to the <a>SetTaskStatus</a> and <a>ReportTaskProgress</a> actions.</p>
    */
   taskId?: string;
@@ -763,6 +758,11 @@ export interface TaskObject {
    * <p>The ID of the pipeline that provided the task.</p>
    */
   pipelineId?: string;
+
+  /**
+   * <p>The ID of the pipeline task attempt object. AWS Data Pipeline uses this value to track how many times a task is attempted.</p>
+   */
+  attemptId?: string;
 
   /**
    * <p>Connection information for the location where the task runner will publish the output of the task.</p>
@@ -804,6 +804,11 @@ export interface PutPipelineDefinitionInput {
   pipelineId: string | undefined;
 
   /**
+   * <p>The objects that define the pipeline. These objects overwrite the existing pipeline definition.</p>
+   */
+  pipelineObjects: PipelineObject[] | undefined;
+
+  /**
    * <p>The parameter objects used with the pipeline.</p>
    */
   parameterObjects?: ParameterObject[];
@@ -812,11 +817,6 @@ export interface PutPipelineDefinitionInput {
    * <p>The parameter values used with the pipeline.</p>
    */
   parameterValues?: ParameterValue[];
-
-  /**
-   * <p>The objects that define the pipeline. These objects overwrite the existing pipeline definition.</p>
-   */
-  pipelineObjects: PipelineObject[] | undefined;
 }
 
 export namespace PutPipelineDefinitionInput {
@@ -830,14 +830,14 @@ export namespace PutPipelineDefinitionInput {
  */
 export interface ValidationError {
   /**
-   * <p>A description of the validation error.</p>
-   */
-  errors?: string[];
-
-  /**
    * <p>The identifier of the object that contains the validation error.</p>
    */
   id?: string;
+
+  /**
+   * <p>A description of the validation error.</p>
+   */
+  errors?: string[];
 }
 
 export namespace ValidationError {
@@ -851,14 +851,14 @@ export namespace ValidationError {
  */
 export interface ValidationWarning {
   /**
-   * <p>A description of the validation warning.</p>
-   */
-  warnings?: string[];
-
-  /**
    * <p>The identifier of the object that contains the validation warning.</p>
    */
   id?: string;
+
+  /**
+   * <p>A description of the validation warning.</p>
+   */
+  warnings?: string[];
 }
 
 export namespace ValidationWarning {
@@ -872,6 +872,11 @@ export namespace ValidationWarning {
  */
 export interface PutPipelineDefinitionOutput {
   /**
+   * <p>The validation errors that are associated with the objects defined in <code>pipelineObjects</code>.</p>
+   */
+  validationErrors?: ValidationError[];
+
+  /**
    * <p>The validation warnings that are associated with the objects defined in <code>pipelineObjects</code>.</p>
    */
   validationWarnings?: ValidationWarning[];
@@ -881,11 +886,6 @@ export interface PutPipelineDefinitionOutput {
    *             activated until you correct the pipeline and call <code>PutPipelineDefinition</code> to commit the corrected pipeline.</p>
    */
   errored: boolean | undefined;
-
-  /**
-   * <p>The validation errors that are associated with the objects defined in <code>pipelineObjects</code>.</p>
-   */
-  validationErrors?: ValidationError[];
 }
 
 export namespace PutPipelineDefinitionOutput {
@@ -906,11 +906,6 @@ export enum OperatorType {
  * <p>Contains a logical operation for comparing the value of a field with a specified value.</p>
  */
 export interface Operator {
-  /**
-   * <p>The value that the actual field value will be compared with.</p>
-   */
-  values?: string[];
-
   /**
    * <p>
    *             The logical operation to be performed: equal (<code>EQ</code>), equal reference (<code>REF_EQ</code>), less than or equal (<code>LE</code>), greater than or equal (<code>GE</code>), or between (<code>BETWEEN</code>). Equal reference (<code>REF_EQ</code>) can be used only with reference fields. The other comparison types can be used only with String fields. The comparison types you can use apply only to certain object fields, as detailed below.
@@ -969,6 +964,11 @@ export interface Operator {
    *         <p>Note that fields beginning with the at sign (@) are read-only and set by the web service. When you name fields, you should choose names containing only alpha-numeric values, as symbols may be reserved by AWS Data Pipeline. User-defined fields that you add to a pipeline should prefix their name with the string "my".</p>
    */
   type?: OperatorType | string;
+
+  /**
+   * <p>The value that the actual field value will be compared with.</p>
+   */
+  values?: string[];
 }
 
 export namespace Operator {
@@ -1019,6 +1019,18 @@ export namespace Query {
  */
 export interface QueryObjectsInput {
   /**
+   * <p>The ID of the pipeline.</p>
+   */
+  pipelineId: string | undefined;
+
+  /**
+   * <p>The query that defines the objects to be returned. The <code>Query</code> object can contain a maximum of ten selectors.
+   *             The conditions in the query are limited to top-level String fields in the object.
+   *             These filters can be applied to components, instances, and attempts.</p>
+   */
+  query?: Query;
+
+  /**
    * <p>Indicates whether the query applies to components or instances. The possible values are:
    *             <code>COMPONENT</code>, <code>INSTANCE</code>, and <code>ATTEMPT</code>.</p>
    */
@@ -1030,18 +1042,6 @@ export interface QueryObjectsInput {
    *            the marker value from the previous call to retrieve the next set of results.</p>
    */
   marker?: string;
-
-  /**
-   * <p>The query that defines the objects to be returned. The <code>Query</code> object can contain a maximum of ten selectors.
-   *             The conditions in the query are limited to top-level String fields in the object.
-   *             These filters can be applied to components, instances, and attempts.</p>
-   */
-  query?: Query;
-
-  /**
-   * <p>The ID of the pipeline.</p>
-   */
-  pipelineId: string | undefined;
 
   /**
    * <p>The maximum number of object names that <code>QueryObjects</code> will return in a single call. The default value is 100. </p>
@@ -1060,6 +1060,11 @@ export namespace QueryObjectsInput {
  */
 export interface QueryObjectsOutput {
   /**
+   * <p>The identifiers that match the query selectors.</p>
+   */
+  ids?: string[];
+
+  /**
    * <p>The starting point for the next page of results. To view the next page of results, call <code>QueryObjects</code>
    *            again with this marker value. If the value is null, there are no more results.</p>
    */
@@ -1069,11 +1074,6 @@ export interface QueryObjectsOutput {
    * <p>Indicates whether there are more results that can be obtained by a subsequent call.</p>
    */
   hasMoreResults?: boolean;
-
-  /**
-   * <p>The identifiers that match the query selectors.</p>
-   */
-  ids?: string[];
 }
 
 export namespace QueryObjectsOutput {
@@ -1087,14 +1087,14 @@ export namespace QueryObjectsOutput {
  */
 export interface RemoveTagsInput {
   /**
-   * <p>The keys of the tags to remove.</p>
-   */
-  tagKeys: string[] | undefined;
-
-  /**
    * <p>The ID of the pipeline.</p>
    */
   pipelineId: string | undefined;
+
+  /**
+   * <p>The keys of the tags to remove.</p>
+   */
+  tagKeys: string[] | undefined;
 }
 
 export namespace RemoveTagsInput {
@@ -1156,16 +1156,16 @@ export namespace ReportTaskProgressOutput {
  */
 export interface ReportTaskRunnerHeartbeatInput {
   /**
+   * <p>The ID of the task runner. This value should be unique across your AWS account. In the case of AWS Data Pipeline Task Runner launched on a resource managed by AWS Data Pipeline, the web service provides a unique identifier when it launches the application. If you have written a custom task runner, you should assign a unique identifier for the task runner.</p>
+   */
+  taskrunnerId: string | undefined;
+
+  /**
    * <p>The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created.
    *             You can only specify a single value for <code>workerGroup</code>. There are no wildcard values permitted in <code>workerGroup</code>; the string
    *             must be an exact, case-sensitive, match.</p>
    */
   workerGroup?: string;
-
-  /**
-   * <p>The ID of the task runner. This value should be unique across your AWS account. In the case of AWS Data Pipeline Task Runner launched on a resource managed by AWS Data Pipeline, the web service provides a unique identifier when it launches the application. If you have written a custom task runner, you should assign a unique identifier for the task runner.</p>
-   */
-  taskrunnerId: string | undefined;
 
   /**
    * <p>The public DNS name of the task runner.</p>
@@ -1205,15 +1205,15 @@ export interface SetStatusInput {
   pipelineId: string | undefined;
 
   /**
+   * <p>The IDs of the objects. The corresponding objects can be either physical or components, but not a mix of both types.</p>
+   */
+  objectIds: string[] | undefined;
+
+  /**
    * <p>The status to be set on all the objects specified in <code>objectIds</code>. For components, use <code>PAUSE</code> or <code>RESUME</code>.
    *             For instances, use <code>TRY_CANCEL</code>, <code>RERUN</code>, or <code>MARK_FINISHED</code>.</p>
    */
   status: string | undefined;
-
-  /**
-   * <p>The IDs of the objects. The corresponding objects can be either physical or components, but not a mix of both types.</p>
-   */
-  objectIds: string[] | undefined;
 }
 
 export namespace SetStatusInput {
@@ -1233,6 +1233,16 @@ export enum TaskStatus {
  */
 export interface SetTaskStatusInput {
   /**
+   * <p>The ID of the task assigned to the task runner. This value is provided in the response for <a>PollForTask</a>.</p>
+   */
+  taskId: string | undefined;
+
+  /**
+   * <p>If <code>FINISHED</code>, the task successfully completed. If <code>FAILED</code>, the task ended unsuccessfully. Preconditions use false.</p>
+   */
+  taskStatus: TaskStatus | string | undefined;
+
+  /**
    * <p>If an error occurred during the task, this value specifies the error code. This value is set on the physical attempt object. It is used to display error information to the user. It should not start with string "Service_" which is reserved by the system.</p>
    */
   errorId?: string;
@@ -1246,16 +1256,6 @@ export interface SetTaskStatusInput {
    * <p>If an error occurred during the task, this value specifies the stack trace associated with the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.</p>
    */
   errorStackTrace?: string;
-
-  /**
-   * <p>The ID of the task assigned to the task runner. This value is provided in the response for <a>PollForTask</a>.</p>
-   */
-  taskId: string | undefined;
-
-  /**
-   * <p>If <code>FINISHED</code>, the task successfully completed. If <code>FAILED</code>, the task ended unsuccessfully. Preconditions use false.</p>
-   */
-  taskStatus: TaskStatus | string | undefined;
 }
 
 export namespace SetTaskStatusInput {
@@ -1280,16 +1280,6 @@ export namespace SetTaskStatusOutput {
  */
 export interface ValidatePipelineDefinitionInput {
   /**
-   * <p>The parameter values used with the pipeline.</p>
-   */
-  parameterValues?: ParameterValue[];
-
-  /**
-   * <p>The parameter objects used with the pipeline.</p>
-   */
-  parameterObjects?: ParameterObject[];
-
-  /**
    * <p>The ID of the pipeline.</p>
    */
   pipelineId: string | undefined;
@@ -1298,6 +1288,16 @@ export interface ValidatePipelineDefinitionInput {
    * <p>The objects that define the pipeline changes to validate against the pipeline.</p>
    */
   pipelineObjects: PipelineObject[] | undefined;
+
+  /**
+   * <p>The parameter objects used with the pipeline.</p>
+   */
+  parameterObjects?: ParameterObject[];
+
+  /**
+   * <p>The parameter values used with the pipeline.</p>
+   */
+  parameterValues?: ParameterValue[];
 }
 
 export namespace ValidatePipelineDefinitionInput {
@@ -1311,9 +1311,9 @@ export namespace ValidatePipelineDefinitionInput {
  */
 export interface ValidatePipelineDefinitionOutput {
   /**
-   * <p>Indicates whether there were validation errors.</p>
+   * <p>Any validation errors that were found.</p>
    */
-  errored: boolean | undefined;
+  validationErrors?: ValidationError[];
 
   /**
    * <p>Any validation warnings that were found.</p>
@@ -1321,9 +1321,9 @@ export interface ValidatePipelineDefinitionOutput {
   validationWarnings?: ValidationWarning[];
 
   /**
-   * <p>Any validation errors that were found.</p>
+   * <p>Indicates whether there were validation errors.</p>
    */
-  validationErrors?: ValidationError[];
+  errored: boolean | undefined;
 }
 
 export namespace ValidatePipelineDefinitionOutput {

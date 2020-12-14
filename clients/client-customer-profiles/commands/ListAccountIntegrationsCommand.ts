@@ -1,4 +1,4 @@
-import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
+import { ProfileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProfileClient";
 import { ListAccountIntegrationsRequest, ListAccountIntegrationsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListAccountIntegrationsCommand,
@@ -26,7 +26,7 @@ export type ListAccountIntegrationsCommandOutput = ListAccountIntegrationsRespon
 export class ListAccountIntegrationsCommand extends $Command<
   ListAccountIntegrationsCommandInput,
   ListAccountIntegrationsCommandOutput,
-  CustomerProfilesClientResolvedConfig
+  ProfileClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -42,7 +42,7 @@ export class ListAccountIntegrationsCommand extends $Command<
    */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CustomerProfilesClientResolvedConfig,
+    configuration: ProfileClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListAccountIntegrationsCommandInput, ListAccountIntegrationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
@@ -50,7 +50,7 @@ export class ListAccountIntegrationsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
-    const clientName = "CustomerProfilesClient";
+    const clientName = "ProfileClient";
     const commandName = "ListAccountIntegrationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,

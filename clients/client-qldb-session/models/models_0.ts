@@ -45,17 +45,17 @@ export namespace BadRequestException {
  */
 export interface CommitTransactionRequest {
   /**
+   * <p>Specifies the transaction ID of the transaction to commit.</p>
+   */
+  TransactionId: string | undefined;
+
+  /**
    * <p>Specifies the commit digest for the transaction to commit. For every active transaction,
    *          the commit digest must be passed. QLDB validates <code>CommitDigest</code> and rejects
    *          the commit with an error if the digest computed on the client does not match the digest
    *          computed by QLDB.</p>
    */
   CommitDigest: Uint8Array | undefined;
-
-  /**
-   * <p>Specifies the transaction ID of the transaction to commit.</p>
-   */
-  TransactionId: string | undefined;
 }
 
 export namespace CommitTransactionRequest {
@@ -112,14 +112,14 @@ export namespace EndSessionResult {
  */
 export interface ValueHolder {
   /**
-   * <p>An Amazon Ion plaintext value contained in a <code>ValueHolder</code> structure.</p>
-   */
-  IonText?: string;
-
-  /**
    * <p>An Amazon Ion binary value contained in a <code>ValueHolder</code> structure.</p>
    */
   IonBinary?: Uint8Array;
+
+  /**
+   * <p>An Amazon Ion plaintext value contained in a <code>ValueHolder</code> structure.</p>
+   */
+  IonText?: string;
 }
 
 export namespace ValueHolder {
@@ -138,14 +138,14 @@ export interface ExecuteStatementRequest {
   TransactionId: string | undefined;
 
   /**
-   * <p>Specifies the parameters for the parameterized statement in the request.</p>
-   */
-  Parameters?: ValueHolder[];
-
-  /**
    * <p>Specifies the statement of the request.</p>
    */
   Statement: string | undefined;
+
+  /**
+   * <p>Specifies the parameters for the parameterized statement in the request.</p>
+   */
+  Parameters?: ValueHolder[];
 }
 
 export namespace ExecuteStatementRequest {
@@ -159,14 +159,14 @@ export namespace ExecuteStatementRequest {
  */
 export interface Page {
   /**
-   * <p>The token of the next page.</p>
-   */
-  NextPageToken?: string;
-
-  /**
    * <p>A structure that contains values in multiple encoding formats.</p>
    */
   Values?: ValueHolder[];
+
+  /**
+   * <p>The token of the next page.</p>
+   */
+  NextPageToken?: string;
 }
 
 export namespace Page {
@@ -196,14 +196,14 @@ export namespace ExecuteStatementResult {
  */
 export interface FetchPageRequest {
   /**
-   * <p>Specifies the next page token of the page to be fetched.</p>
-   */
-  NextPageToken: string | undefined;
-
-  /**
    * <p>Specifies the transaction ID of the page to be fetched.</p>
    */
   TransactionId: string | undefined;
+
+  /**
+   * <p>Specifies the next page token of the page to be fetched.</p>
+   */
+  NextPageToken: string | undefined;
 }
 
 export namespace FetchPageRequest {
@@ -319,26 +319,6 @@ export namespace StartTransactionRequest {
 
 export interface SendCommandRequest {
   /**
-   * <p>Command to start a new transaction.</p>
-   */
-  StartTransaction?: StartTransactionRequest;
-
-  /**
-   * <p>Command to abort the current transaction.</p>
-   */
-  AbortTransaction?: AbortTransactionRequest;
-
-  /**
-   * <p>Command to end the current session.</p>
-   */
-  EndSession?: EndSessionRequest;
-
-  /**
-   * <p>Command to fetch a page.</p>
-   */
-  FetchPage?: FetchPageRequest;
-
-  /**
    * <p>Specifies the session token for the current command. A session token is constant
    *          throughout the life of the session.</p>
    *          <p>To obtain a session token, run the <code>StartSession</code> command. This
@@ -354,14 +334,34 @@ export interface SendCommandRequest {
   StartSession?: StartSessionRequest;
 
   /**
+   * <p>Command to start a new transaction.</p>
+   */
+  StartTransaction?: StartTransactionRequest;
+
+  /**
+   * <p>Command to end the current session.</p>
+   */
+  EndSession?: EndSessionRequest;
+
+  /**
    * <p>Command to commit the specified transaction.</p>
    */
   CommitTransaction?: CommitTransactionRequest;
 
   /**
+   * <p>Command to abort the current transaction.</p>
+   */
+  AbortTransaction?: AbortTransactionRequest;
+
+  /**
    * <p>Command to execute a statement in the specified transaction.</p>
    */
   ExecuteStatement?: ExecuteStatementRequest;
+
+  /**
+   * <p>Command to fetch a page.</p>
+   */
+  FetchPage?: FetchPageRequest;
 }
 
 export namespace SendCommandRequest {
@@ -405,16 +405,6 @@ export namespace StartTransactionResult {
 
 export interface SendCommandResult {
   /**
-   * <p>Contains the details of the committed transaction.</p>
-   */
-  CommitTransaction?: CommitTransactionResult;
-
-  /**
-   * <p>Contains the details of the ended session.</p>
-   */
-  EndSession?: EndSessionResult;
-
-  /**
    * <p>Contains the details of the started session that includes a session token. This
    *             <code>SessionToken</code> is required for every subsequent command that is issued during
    *          the current session.</p>
@@ -427,19 +417,29 @@ export interface SendCommandResult {
   StartTransaction?: StartTransactionResult;
 
   /**
+   * <p>Contains the details of the ended session.</p>
+   */
+  EndSession?: EndSessionResult;
+
+  /**
+   * <p>Contains the details of the committed transaction.</p>
+   */
+  CommitTransaction?: CommitTransactionResult;
+
+  /**
    * <p>Contains the details of the aborted transaction.</p>
    */
   AbortTransaction?: AbortTransactionResult;
 
   /**
-   * <p>Contains the details of the fetched page.</p>
-   */
-  FetchPage?: FetchPageResult;
-
-  /**
    * <p>Contains the details of the executed statement.</p>
    */
   ExecuteStatement?: ExecuteStatementResult;
+
+  /**
+   * <p>Contains the details of the fetched page.</p>
+   */
+  FetchPage?: FetchPageResult;
 }
 
 export namespace SendCommandResult {

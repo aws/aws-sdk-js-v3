@@ -57,11 +57,6 @@ export enum ErrorCode {
  */
 export interface BatchPutMessageErrorEntry {
   /**
-   * <p>More information about the error.</p>
-   */
-  errorMessage?: string;
-
-  /**
    * <p>The ID of the message that caused the error. (See the value corresponding to the
    *           <code>"messageId"</code> key in the <code>"message"</code> object.)</p>
    */
@@ -71,6 +66,11 @@ export interface BatchPutMessageErrorEntry {
    * <p>The code associated with the error.</p>
    */
   errorCode?: ErrorCode | string;
+
+  /**
+   * <p>More information about the error.</p>
+   */
+  errorMessage?: string;
 }
 
 export namespace BatchPutMessageErrorEntry {
@@ -169,14 +169,14 @@ export namespace ThrottlingException {
  */
 export interface TimerDefinition {
   /**
-   * <p>The new setting of the timer (the number of seconds before the timer elapses).</p>
-   */
-  seconds: number | undefined;
-
-  /**
    * <p>The name of the timer.</p>
    */
   name: string | undefined;
+
+  /**
+   * <p>The new setting of the timer (the number of seconds before the timer elapses).</p>
+   */
+  seconds: number | undefined;
 }
 
 export namespace TimerDefinition {
@@ -216,15 +216,15 @@ export interface DetectorStateDefinition {
   stateName: string | undefined;
 
   /**
+   * <p>The new values of the detector's variables. Any variable whose value isn't specified is cleared.</p>
+   */
+  variables: VariableDefinition[] | undefined;
+
+  /**
    * <p>The new values of the detector's timers. Any timer whose value isn't specified is
    *        cleared, and its timeout event won't occur.</p>
    */
   timers: TimerDefinition[] | undefined;
-
-  /**
-   * <p>The new values of the detector's variables. Any variable whose value isn't specified is cleared.</p>
-   */
-  variables: VariableDefinition[] | undefined;
 }
 
 export namespace DetectorStateDefinition {
@@ -238,15 +238,15 @@ export namespace DetectorStateDefinition {
  */
 export interface UpdateDetectorRequest {
   /**
-   * <p>The new state, variable values, and timer settings of the detector (instance).</p>
-   */
-  state: DetectorStateDefinition | undefined;
-
-  /**
    * <p>The ID to assign to the detector update <code>"message"</code>. Each <code>"messageId"</code>
    *        must be unique within each batch sent.</p>
    */
   messageId: string | undefined;
+
+  /**
+   * <p>The name of the detector model that created the detectors (instances).</p>
+   */
+  detectorModelName: string | undefined;
 
   /**
    * <p>The value of the input key attribute (identifying the device or system) that caused the creation
@@ -255,9 +255,9 @@ export interface UpdateDetectorRequest {
   keyValue?: string;
 
   /**
-   * <p>The name of the detector model that created the detectors (instances).</p>
+   * <p>The new state, variable values, and timer settings of the detector (instance).</p>
    */
-  detectorModelName: string | undefined;
+  state: DetectorStateDefinition | undefined;
 }
 
 export namespace UpdateDetectorRequest {
@@ -290,14 +290,14 @@ export interface BatchUpdateDetectorErrorEntry {
   messageId?: string;
 
   /**
-   * <p>A message describing the error.</p>
-   */
-  errorMessage?: string;
-
-  /**
    * <p>The code of the error.</p>
    */
   errorCode?: ErrorCode | string;
+
+  /**
+   * <p>A message describing the error.</p>
+   */
+  errorMessage?: string;
 }
 
 export namespace BatchUpdateDetectorErrorEntry {
@@ -343,14 +343,14 @@ export namespace DescribeDetectorRequest {
  */
 export interface Timer {
   /**
-   * <p>The number of seconds which have elapsed on the timer.</p>
-   */
-  timestamp: Date | undefined;
-
-  /**
    * <p>The name of the timer.</p>
    */
   name: string | undefined;
+
+  /**
+   * <p>The number of seconds which have elapsed on the timer.</p>
+   */
+  timestamp: Date | undefined;
 }
 
 export namespace Timer {
@@ -411,6 +411,22 @@ export namespace DetectorState {
  */
 export interface Detector {
   /**
+   * <p>The name of the detector model that created this detector (instance).</p>
+   */
+  detectorModelName?: string;
+
+  /**
+   * <p>The value of the key (identifying the device or system) that caused the creation of this
+   *         detector (instance).</p>
+   */
+  keyValue?: string;
+
+  /**
+   * <p>The version of the detector model that created this detector (instance).</p>
+   */
+  detectorModelVersion?: string;
+
+  /**
    * <p>The current state of the detector (instance).</p>
    */
   state?: DetectorState;
@@ -421,25 +437,9 @@ export interface Detector {
   creationTime?: Date;
 
   /**
-   * <p>The name of the detector model that created this detector (instance).</p>
-   */
-  detectorModelName?: string;
-
-  /**
    * <p>The time the detector (instance) was last updated.</p>
    */
   lastUpdateTime?: Date;
-
-  /**
-   * <p>The version of the detector model that created this detector (instance).</p>
-   */
-  detectorModelVersion?: string;
-
-  /**
-   * <p>The value of the key (identifying the device or system) that caused the creation of this
-   *         detector (instance).</p>
-   */
-  keyValue?: string;
 }
 
 export namespace Detector {
@@ -500,9 +500,15 @@ export namespace DetectorStateSummary {
  */
 export interface DetectorSummary {
   /**
-   * <p>The time the detector (instance) was created.</p>
+   * <p>The name of the detector model that created this detector (instance).</p>
    */
-  creationTime?: Date;
+  detectorModelName?: string;
+
+  /**
+   * <p>The value of the key (identifying the device or system) that caused the creation of this
+   *         detector (instance).</p>
+   */
+  keyValue?: string;
 
   /**
    * <p>The version of the detector model that created this detector (instance).</p>
@@ -510,25 +516,19 @@ export interface DetectorSummary {
   detectorModelVersion?: string;
 
   /**
-   * <p>The name of the detector model that created this detector (instance).</p>
-   */
-  detectorModelName?: string;
-
-  /**
-   * <p>The time the detector (instance) was last updated.</p>
-   */
-  lastUpdateTime?: Date;
-
-  /**
    * <p>The current state of the detector (instance).</p>
    */
   state?: DetectorStateSummary;
 
   /**
-   * <p>The value of the key (identifying the device or system) that caused the creation of this
-   *         detector (instance).</p>
+   * <p>The time the detector (instance) was created.</p>
    */
-  keyValue?: string;
+  creationTime?: Date;
+
+  /**
+   * <p>The time the detector (instance) was last updated.</p>
+   */
+  lastUpdateTime?: Date;
 }
 
 export namespace DetectorSummary {
@@ -539,9 +539,9 @@ export namespace DetectorSummary {
 
 export interface ListDetectorsRequest {
   /**
-   * <p>The maximum number of results to return at one time.</p>
+   * <p>The name of the detector model whose detectors (instances) are listed.</p>
    */
-  maxResults?: number;
+  detectorModelName: string | undefined;
 
   /**
    * <p>A filter that limits results to those detectors (instances) in the given state.</p>
@@ -549,14 +549,14 @@ export interface ListDetectorsRequest {
   stateName?: string;
 
   /**
-   * <p>The name of the detector model whose detectors (instances) are listed.</p>
-   */
-  detectorModelName: string | undefined;
-
-  /**
    * <p>The token for the next set of results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListDetectorsRequest {
@@ -567,15 +567,15 @@ export namespace ListDetectorsRequest {
 
 export interface ListDetectorsResponse {
   /**
+   * <p>A list of summary information about the detectors (instances).</p>
+   */
+  detectorSummaries?: DetectorSummary[];
+
+  /**
    * <p>A token to retrieve the next set of results, or <code>null</code> if there are no additional
    *           results.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>A list of summary information about the detectors (instances).</p>
-   */
-  detectorSummaries?: DetectorSummary[];
 }
 
 export namespace ListDetectorsResponse {

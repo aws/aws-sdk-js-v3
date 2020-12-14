@@ -128,6 +128,15 @@ export enum OperationType {
  */
 export interface BillingRecord {
   /**
+   * <p>The name of the domain that the billing record applies to. If the domain name contains characters
+   * 			other than a-z, 0-9, and - (hyphen), such as an internationalized domain name, then this value is in Punycode.
+   * 			For more information, see
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html">DNS Domain Name Format</a>
+   * 			in the <i>Amazon Route 53 Developer Guide</i>.</p>
+   */
+  DomainName?: string;
+
+  /**
    * <p>The operation that you were charged for.</p>
    */
   Operation?: OperationType | string;
@@ -138,24 +147,15 @@ export interface BillingRecord {
   InvoiceId?: string;
 
   /**
-   * <p>The name of the domain that the billing record applies to. If the domain name contains characters
-   * 			other than a-z, 0-9, and - (hyphen), such as an internationalized domain name, then this value is in Punycode.
-   * 			For more information, see
-   * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html">DNS Domain Name Format</a>
-   * 			in the <i>Amazon Route 53 Developer Guide</i>.</p>
+   * <p>The date that the operation was billed, in Unix format.</p>
    */
-  DomainName?: string;
+  BillDate?: Date;
 
   /**
    * <p>The price that you were charged for the operation, in US dollars.</p>
    * 		       <p>Example value: 12.0</p>
    */
   Price?: number;
-
-  /**
-   * <p>The date that the operation was billed, in Unix format.</p>
-   */
-  BillDate?: Date;
 }
 
 export namespace BillingRecord {
@@ -699,11 +699,6 @@ export enum ExtraParamName {
  * <p>ExtraParam includes the following elements.</p>
  */
 export interface ExtraParam {
-  /**
-   * <p>The value that corresponds with the name of an extra parameter.</p>
-   */
-  Value: string | undefined;
-
   /**
    * <p>The name of an additional parameter that is required by a top-level domain. Here are the top-level domains that require
    * 			additional parameters and the names of the parameters that they require:</p>
@@ -1473,6 +1468,11 @@ export interface ExtraParam {
    * 		       <p>In addition, many TLDs require a <code>VAT_NUMBER</code>.</p>
    */
   Name: ExtraParamName | string | undefined;
+
+  /**
+   * <p>The value that corresponds with the name of an extra parameter.</p>
+   */
+  Value: string | undefined;
 }
 
 export namespace ExtraParam {
@@ -1486,73 +1486,14 @@ export namespace ExtraParam {
  */
 export interface ContactDetail {
   /**
-   * <p>Fax number of the contact.</p>
-   * 		       <p>Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-   * 			For example, a US phone number might appear as <code>"+1.1234567890"</code>.</p>
-   */
-  Fax?: string;
-
-  /**
    * <p>First name of contact.</p>
    */
   FirstName?: string;
 
   /**
-   * <p>Name of the organization for contact types other than <code>PERSON</code>.</p>
-   */
-  OrganizationName?: string;
-
-  /**
-   * <p>Email address of the contact.</p>
-   */
-  Email?: string;
-
-  /**
-   * <p>First line of the contact's address.</p>
-   */
-  AddressLine1?: string;
-
-  /**
-   * <p>Second line of contact's address, if any.</p>
-   */
-  AddressLine2?: string;
-
-  /**
-   * <p>Code for the country of the contact's address.</p>
-   */
-  CountryCode?: CountryCode | string;
-
-  /**
-   * <p>The state or province of the contact's city.</p>
-   */
-  State?: string;
-
-  /**
-   * <p>The phone number of the contact.</p>
-   * 		       <p>Constraints: Phone number must be specified in the format "+[country	dialing code].[number including any area code>]".
-   * 			For example, a US phone number might appear as <code>"+1.1234567890"</code>.</p>
-   */
-  PhoneNumber?: string;
-
-  /**
    * <p>Last name of contact.</p>
    */
   LastName?: string;
-
-  /**
-   * <p>A list of name-value pairs for parameters required by certain top-level domains.</p>
-   */
-  ExtraParams?: ExtraParam[];
-
-  /**
-   * <p>The city of the contact's address.</p>
-   */
-  City?: string;
-
-  /**
-   * <p>The zip or postal code of the contact's address.</p>
-   */
-  ZipCode?: string;
 
   /**
    * <p>Indicates whether the contact is a person, company, association, or public organization. Note the following:</p>
@@ -1575,6 +1516,65 @@ export interface ContactDetail {
    *          </ul>
    */
   ContactType?: ContactType | string;
+
+  /**
+   * <p>Name of the organization for contact types other than <code>PERSON</code>.</p>
+   */
+  OrganizationName?: string;
+
+  /**
+   * <p>First line of the contact's address.</p>
+   */
+  AddressLine1?: string;
+
+  /**
+   * <p>Second line of contact's address, if any.</p>
+   */
+  AddressLine2?: string;
+
+  /**
+   * <p>The city of the contact's address.</p>
+   */
+  City?: string;
+
+  /**
+   * <p>The state or province of the contact's city.</p>
+   */
+  State?: string;
+
+  /**
+   * <p>Code for the country of the contact's address.</p>
+   */
+  CountryCode?: CountryCode | string;
+
+  /**
+   * <p>The zip or postal code of the contact's address.</p>
+   */
+  ZipCode?: string;
+
+  /**
+   * <p>The phone number of the contact.</p>
+   * 		       <p>Constraints: Phone number must be specified in the format "+[country	dialing code].[number including any area code>]".
+   * 			For example, a US phone number might appear as <code>"+1.1234567890"</code>.</p>
+   */
+  PhoneNumber?: string;
+
+  /**
+   * <p>Email address of the contact.</p>
+   */
+  Email?: string;
+
+  /**
+   * <p>Fax number of the contact.</p>
+   * 		       <p>Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+   * 			For example, a US phone number might appear as <code>"+1.1234567890"</code>.</p>
+   */
+  Fax?: string;
+
+  /**
+   * <p>A list of name-value pairs for parameters required by certain top-level domains.</p>
+   */
+  ExtraParams?: ExtraParam[];
 }
 
 export namespace ContactDetail {
@@ -1588,14 +1588,14 @@ export namespace ContactDetail {
  */
 export interface DeleteTagsForDomainRequest {
   /**
-   * <p>A list of tag keys to delete.</p>
-   */
-  TagsToDelete: string[] | undefined;
-
-  /**
    * <p>The domain for which you want to delete one or more tags.</p>
    */
   DomainName: string | undefined;
+
+  /**
+   * <p>A list of tag keys to delete.</p>
+   */
+  TagsToDelete: string[] | undefined;
 }
 
 export namespace DeleteTagsForDomainRequest {
@@ -1707,6 +1707,11 @@ export namespace TLDRulesViolation {
  */
 export interface DomainSuggestion {
   /**
+   * <p>A suggested domain name.</p>
+   */
+  DomainName?: string;
+
+  /**
    * <p>Whether the domain name is available for registering.</p>
    * 		       <note>
    *             <p>You can register only the domains that are designated as <code>AVAILABLE</code>.</p>
@@ -1755,11 +1760,6 @@ export interface DomainSuggestion {
    *          </dl>
    */
   Availability?: string;
-
-  /**
-   * <p>A suggested domain name.</p>
-   */
-  DomainName?: string;
 }
 
 export namespace DomainSuggestion {
@@ -1773,9 +1773,9 @@ export namespace DomainSuggestion {
  */
 export interface DomainSummary {
   /**
-   * <p>Expiration date of the domain in Unix time format and Coordinated Universal Time (UTC).</p>
+   * <p>The name of the domain that the summary information applies to.</p>
    */
-  Expiry?: Date;
+  DomainName: string | undefined;
 
   /**
    * <p>Indicates whether the domain is automatically renewed upon expiration.</p>
@@ -1783,14 +1783,14 @@ export interface DomainSummary {
   AutoRenew?: boolean;
 
   /**
-   * <p>The name of the domain that the summary information applies to.</p>
-   */
-  DomainName: string | undefined;
-
-  /**
    * <p>Indicates whether a domain is locked from unauthorized transfer to another party.</p>
    */
   TransferLock?: boolean;
+
+  /**
+   * <p>Expiration date of the domain in Unix time format and Coordinated Universal Time (UTC).</p>
+   */
+  Expiry?: Date;
 }
 
 export namespace DomainSummary {
@@ -1873,6 +1873,11 @@ export enum ReachabilityStatus {
 
 export interface GetContactReachabilityStatusResponse {
   /**
+   * <p>The domain name for which you requested the reachability status.</p>
+   */
+  domainName?: string;
+
+  /**
    * <p>Whether the registrant contact has responded. Values include the following:</p>
    * 		       <dl>
    *             <dt>PENDING</dt>
@@ -1890,11 +1895,6 @@ export interface GetContactReachabilityStatusResponse {
    *          </dl>
    */
   status?: ReachabilityStatus | string;
-
-  /**
-   * <p>The domain name for which you requested the reachability status.</p>
-   */
-  domainName?: string;
 }
 
 export namespace GetContactReachabilityStatusResponse {
@@ -1949,9 +1949,34 @@ export namespace Nameserver {
  */
 export interface GetDomainDetailResponse {
   /**
+   * <p>The name of a domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The name of the domain.</p>
+   */
+  Nameservers: Nameserver[] | undefined;
+
+  /**
    * <p>Specifies whether the domain registration is set to renew automatically.</p>
    */
   AutoRenew?: boolean;
+
+  /**
+   * <p>Provides details about the domain administrative contact.</p>
+   */
+  AdminContact: ContactDetail | undefined;
+
+  /**
+   * <p>Provides details about the domain registrant.</p>
+   */
+  RegistrantContact: ContactDetail | undefined;
+
+  /**
+   * <p>Provides details about the domain technical contact.</p>
+   */
+  TechContact: ContactDetail | undefined;
 
   /**
    * <p>Specifies whether contact information is concealed from WHOIS queries. If the value is <code>true</code>,
@@ -1962,10 +1987,37 @@ export interface GetDomainDetailResponse {
   AdminPrivacy?: boolean;
 
   /**
-   * <p>The date when the domain was created as found in the response to a WHOIS query. The date and time is in
-   * 			Unix time format and Coordinated Universal time (UTC).</p>
+   * <p>Specifies whether contact information is concealed from WHOIS queries. If the value is <code>true</code>,
+   * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
+   * 			or for our registrar associate, Gandi (for all other TLDs). If the value is <code>false</code>,
+   * 			WHOIS queries return the information that you entered for the registrant contact (domain owner).</p>
    */
-  CreationDate?: Date;
+  RegistrantPrivacy?: boolean;
+
+  /**
+   * <p>Specifies whether contact information is concealed from WHOIS queries. If the value is <code>true</code>,
+   * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
+   * 			or for our registrar associate, Gandi (for all other TLDs). If the value is <code>false</code>,
+   * 			WHOIS queries return the information that you entered for the technical contact.</p>
+   */
+  TechPrivacy?: boolean;
+
+  /**
+   * <p>Name of the registrar of the domain as identified in the registry. Domains with a .com, .net, or .org TLD are registered by
+   * 			Amazon Registrar. All other domains are registered by our registrar associate, Gandi. The value for domains that are registered by
+   * 			Gandi is <code>"GANDI SAS"</code>. </p>
+   */
+  RegistrarName?: string;
+
+  /**
+   * <p>The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.</p>
+   */
+  WhoIsServer?: string;
+
+  /**
+   * <p>Web address of the registrar.</p>
+   */
+  RegistrarUrl?: string;
 
   /**
    * <p>Email address to contact to report incorrect contact information for a domain, to report that the domain
@@ -1974,15 +2026,32 @@ export interface GetDomainDetailResponse {
   AbuseContactEmail?: string;
 
   /**
-   * <p>The name of a domain.</p>
+   * <p>Phone number for reporting abuse.</p>
    */
-  DomainName: string | undefined;
+  AbuseContactPhone?: string;
+
+  /**
+   * <p>Reserved for future use.</p>
+   */
+  RegistryDomainId?: string;
+
+  /**
+   * <p>The date when the domain was created as found in the response to a WHOIS query. The date and time is in
+   * 			Unix time format and Coordinated Universal time (UTC).</p>
+   */
+  CreationDate?: Date;
 
   /**
    * <p>The last updated date of the domain as found in the response to a WHOIS query. The date and time is in
    * 			Unix time format and Coordinated Universal time (UTC).</p>
    */
   UpdatedDate?: Date;
+
+  /**
+   * <p>The date when the registration for the domain is set to expire. The date and time is in
+   * 			Unix time format and Coordinated Universal time (UTC).</p>
+   */
+  ExpirationDate?: Date;
 
   /**
    * <p>Reseller of the domain. Domains registered or transferred using Route 53 domains will have <code>"Amazon"</code>
@@ -1996,58 +2065,6 @@ export interface GetDomainDetailResponse {
   DnsSec?: string;
 
   /**
-   * <p>Provides details about the domain registrant.</p>
-   */
-  RegistrantContact: ContactDetail | undefined;
-
-  /**
-   * <p>Specifies whether contact information is concealed from WHOIS queries. If the value is <code>true</code>,
-   * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
-   * 			or for our registrar associate, Gandi (for all other TLDs). If the value is <code>false</code>,
-   * 			WHOIS queries return the information that you entered for the technical contact.</p>
-   */
-  TechPrivacy?: boolean;
-
-  /**
-   * <p>Specifies whether contact information is concealed from WHOIS queries. If the value is <code>true</code>,
-   * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
-   * 			or for our registrar associate, Gandi (for all other TLDs). If the value is <code>false</code>,
-   * 			WHOIS queries return the information that you entered for the registrant contact (domain owner).</p>
-   */
-  RegistrantPrivacy?: boolean;
-
-  /**
-   * <p>The name of the domain.</p>
-   */
-  Nameservers: Nameserver[] | undefined;
-
-  /**
-   * <p>Provides details about the domain technical contact.</p>
-   */
-  TechContact: ContactDetail | undefined;
-
-  /**
-   * <p>The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.</p>
-   */
-  WhoIsServer?: string;
-
-  /**
-   * <p>Web address of the registrar.</p>
-   */
-  RegistrarUrl?: string;
-
-  /**
-   * <p>The date when the registration for the domain is set to expire. The date and time is in
-   * 			Unix time format and Coordinated Universal time (UTC).</p>
-   */
-  ExpirationDate?: Date;
-
-  /**
-   * <p>Phone number for reporting abuse.</p>
-   */
-  AbuseContactPhone?: string;
-
-  /**
    * <p>An array of domain name status codes, also known as Extensible Provisioning Protocol (EPP) status codes.</p>
    * 		       <p>ICANN, the organization that maintains a central database of domain names, has developed a set of domain name
    * 			status codes that tell you the status of a variety of operations on a domain name, for example, registering a domain name,
@@ -2058,31 +2075,14 @@ export interface GetDomainDetailResponse {
    * 			(Search on the ICANN website; web searches sometimes return an old version of the document.)</p>
    */
   StatusList?: string[];
-
-  /**
-   * <p>Reserved for future use.</p>
-   */
-  RegistryDomainId?: string;
-
-  /**
-   * <p>Name of the registrar of the domain as identified in the registry. Domains with a .com, .net, or .org TLD are registered by
-   * 			Amazon Registrar. All other domains are registered by our registrar associate, Gandi. The value for domains that are registered by
-   * 			Gandi is <code>"GANDI SAS"</code>. </p>
-   */
-  RegistrarName?: string;
-
-  /**
-   * <p>Provides details about the domain administrative contact.</p>
-   */
-  AdminContact: ContactDetail | undefined;
 }
 
 export namespace GetDomainDetailResponse {
   export const filterSensitiveLog = (obj: GetDomainDetailResponse): any => ({
     ...obj,
+    ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
     ...(obj.RegistrantContact && { RegistrantContact: SENSITIVE_STRING }),
     ...(obj.TechContact && { TechContact: SENSITIVE_STRING }),
-    ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
   });
 }
 
@@ -2174,9 +2174,9 @@ export type OperationStatus = "ERROR" | "FAILED" | "IN_PROGRESS" | "SUBMITTED" |
  */
 export interface GetOperationDetailResponse {
   /**
-   * <p>The type of operation that was requested.</p>
+   * <p>The identifier for the operation.</p>
    */
-  Type?: OperationType | string;
+  OperationId?: string;
 
   /**
    * <p>The current status of the requested operation in the system.</p>
@@ -2184,14 +2184,9 @@ export interface GetOperationDetailResponse {
   Status?: OperationStatus | string;
 
   /**
-   * <p>The date when the request was submitted.</p>
+   * <p>Detailed information on the status including possible errors.</p>
    */
-  SubmittedDate?: Date;
-
-  /**
-   * <p>The identifier for the operation.</p>
-   */
-  OperationId?: string;
+  Message?: string;
 
   /**
    * <p>The name of a domain.</p>
@@ -2199,9 +2194,14 @@ export interface GetOperationDetailResponse {
   DomainName?: string;
 
   /**
-   * <p>Detailed information on the status including possible errors.</p>
+   * <p>The type of operation that was requested.</p>
    */
-  Message?: string;
+  Type?: OperationType | string;
+
+  /**
+   * <p>The date when the request was submitted.</p>
+   */
+  SubmittedDate?: Date;
 }
 
 export namespace GetOperationDetailResponse {
@@ -2242,15 +2242,15 @@ export namespace ListDomainsRequest {
  */
 export interface ListDomainsResponse {
   /**
+   * <p>A summary of domains.</p>
+   */
+  Domains: DomainSummary[] | undefined;
+
+  /**
    * <p>If there are more domains than you specified for <code>MaxItems</code> in the request, submit another
    * 			request and include the value of <code>NextPageMarker</code> in the value of <code>Marker</code>.</p>
    */
   NextPageMarker?: string;
-
-  /**
-   * <p>A summary of domains.</p>
-   */
-  Domains: DomainSummary[] | undefined;
 }
 
 export namespace ListDomainsResponse {
@@ -2264,18 +2264,18 @@ export namespace ListDomainsResponse {
  */
 export interface ListOperationsRequest {
   /**
+   * <p>An optional parameter that lets you get information about all the operations that you submitted after a specified date and time.
+   * 			Specify the date and time in Unix time format and Coordinated Universal time (UTC).</p>
+   */
+  SubmittedSince?: Date;
+
+  /**
    * <p>For an initial request for a list of operations, omit this element. If the number of operations that are
    * 			not yet complete is greater than the value that you specified for <code>MaxItems</code>, you can use <code>Marker</code>
    * 			to return additional operations. Get the value of <code>NextPageMarker</code> from the previous response,
    * 			and submit another request that includes the value of <code>NextPageMarker</code> in the <code>Marker</code> element.</p>
    */
   Marker?: string;
-
-  /**
-   * <p>An optional parameter that lets you get information about all the operations that you submitted after a specified date and time.
-   * 			Specify the date and time in Unix time format and Coordinated Universal time (UTC).</p>
-   */
-  SubmittedSince?: Date;
 
   /**
    * <p>Number of domains to be returned.</p>
@@ -2295,14 +2295,9 @@ export namespace ListOperationsRequest {
  */
 export interface OperationSummary {
   /**
-   * <p>The date when the request was submitted.</p>
+   * <p>Identifier returned to track the requested action.</p>
    */
-  SubmittedDate: Date | undefined;
-
-  /**
-   * <p>Type of the action requested.</p>
-   */
-  Type: OperationType | string | undefined;
+  OperationId: string | undefined;
 
   /**
    * <p>The current status of the requested operation in the system.</p>
@@ -2310,9 +2305,14 @@ export interface OperationSummary {
   Status: OperationStatus | string | undefined;
 
   /**
-   * <p>Identifier returned to track the requested action.</p>
+   * <p>Type of the action requested.</p>
    */
-  OperationId: string | undefined;
+  Type: OperationType | string | undefined;
+
+  /**
+   * <p>The date when the request was submitted.</p>
+   */
+  SubmittedDate: Date | undefined;
 }
 
 export namespace OperationSummary {
@@ -2326,15 +2326,15 @@ export namespace OperationSummary {
  */
 export interface ListOperationsResponse {
   /**
+   * <p>Lists summaries of the operations.</p>
+   */
+  Operations: OperationSummary[] | undefined;
+
+  /**
    * <p>If there are more operations than you specified for <code>MaxItems</code> in the request, submit another
    * 			request and include the value of <code>NextPageMarker</code> in the value of <code>Marker</code>.</p>
    */
   NextPageMarker?: string;
-
-  /**
-   * <p>Lists summaries of the operations.</p>
-   */
-  Operations: OperationSummary[] | undefined;
 }
 
 export namespace ListOperationsResponse {
@@ -2364,18 +2364,18 @@ export namespace ListTagsForDomainRequest {
  */
 export interface Tag {
   /**
-   * <p>The value of a tag.</p>
-   * 		       <p>Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@"</p>
-   * 		       <p>Constraints: Each value can be 0-256 characters long.</p>
-   */
-  Value?: string;
-
-  /**
    * <p>The key (name) of a tag.</p>
    * 		       <p>Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@"</p>
    * 		       <p>Constraints: Each key can be 1-128 characters long.</p>
    */
   Key?: string;
+
+  /**
+   * <p>The value of a tag.</p>
+   * 		       <p>Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@"</p>
+   * 		       <p>Constraints: Each value can be 0-256 characters long.</p>
+   */
+  Value?: string;
 }
 
 export namespace Tag {
@@ -2404,15 +2404,6 @@ export namespace ListTagsForDomainResponse {
  * <p>The RegisterDomain request includes the following elements.</p>
  */
 export interface RegisterDomainRequest {
-  /**
-   * <p>The number of years that you want to register the domain for. Domains are registered for a minimum of one year.
-   * 			The maximum period depends on the top-level domain. For the range of valid values for your domain, see
-   * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can Register with Amazon Route 53</a> in the
-   * 			<i>Amazon Route 53 Developer Guide</i>.</p>
-   * 		       <p>Default: 1</p>
-   */
-  DurationInYears: number | undefined;
-
   /**
    * <p>The domain name that you want to register. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports.
    * 			For a list of supported TLDs, see
@@ -2443,24 +2434,18 @@ export interface RegisterDomainRequest {
   DomainName: string | undefined;
 
   /**
-   * <p>Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>,
-   * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
-   * 			or for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>,
-   * 			WHOIS queries return the information that you entered for the registrant contact (the domain owner).</p>
-   * 		       <p>Default: <code>true</code>
-   *          </p>
+   * <p>Reserved for future use.</p>
    */
-  PrivacyProtectRegistrantContact?: boolean;
+  IdnLangCode?: string;
 
   /**
-   * <p>Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>,
-   * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
-   * 			or for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>,
-   * 			WHOIS queries return the information that you entered for the admin contact.</p>
-   * 		       <p>Default: <code>true</code>
-   *          </p>
+   * <p>The number of years that you want to register the domain for. Domains are registered for a minimum of one year.
+   * 			The maximum period depends on the top-level domain. For the range of valid values for your domain, see
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can Register with Amazon Route 53</a> in the
+   * 			<i>Amazon Route 53 Developer Guide</i>.</p>
+   * 		       <p>Default: 1</p>
    */
-  PrivacyProtectAdminContact?: boolean;
+  DurationInYears: number | undefined;
 
   /**
    * <p>Indicates whether the domain will be automatically renewed (<code>true</code>) or not (<code>false</code>).
@@ -2477,21 +2462,6 @@ export interface RegisterDomainRequest {
   AdminContact: ContactDetail | undefined;
 
   /**
-   * <p>Reserved for future use.</p>
-   */
-  IdnLangCode?: string;
-
-  /**
-   * <p>Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>,
-   * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
-   * 			or for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>,
-   * 			WHOIS queries return the information that you entered for the technical contact.</p>
-   * 		       <p>Default: <code>true</code>
-   *          </p>
-   */
-  PrivacyProtectTechContact?: boolean;
-
-  /**
    * <p>Provides detailed contact information. For information about the values that you specify for each element, see
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html">ContactDetail</a>.</p>
    */
@@ -2502,6 +2472,36 @@ export interface RegisterDomainRequest {
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html">ContactDetail</a>.</p>
    */
   TechContact: ContactDetail | undefined;
+
+  /**
+   * <p>Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>,
+   * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
+   * 			or for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>,
+   * 			WHOIS queries return the information that you entered for the admin contact.</p>
+   * 		       <p>Default: <code>true</code>
+   *          </p>
+   */
+  PrivacyProtectAdminContact?: boolean;
+
+  /**
+   * <p>Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>,
+   * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
+   * 			or for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>,
+   * 			WHOIS queries return the information that you entered for the registrant contact (the domain owner).</p>
+   * 		       <p>Default: <code>true</code>
+   *          </p>
+   */
+  PrivacyProtectRegistrantContact?: boolean;
+
+  /**
+   * <p>Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>,
+   * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
+   * 			or for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>,
+   * 			WHOIS queries return the information that you entered for the technical contact.</p>
+   * 		       <p>Default: <code>true</code>
+   *          </p>
+   */
+  PrivacyProtectTechContact?: boolean;
 }
 
 export namespace RegisterDomainRequest {
@@ -2626,14 +2626,14 @@ export namespace ResendContactReachabilityEmailRequest {
 
 export interface ResendContactReachabilityEmailResponse {
   /**
-   * <p>The email address for the registrant contact at the time that we sent the verification email.</p>
-   */
-  emailAddress?: string;
-
-  /**
    * <p>The domain name for which you requested a confirmation email.</p>
    */
   domainName?: string;
+
+  /**
+   * <p>The email address for the registrant contact at the time that we sent the verification email.</p>
+   */
+  emailAddress?: string;
 
   /**
    * <p>
@@ -2688,18 +2688,6 @@ export namespace RetrieveDomainAuthCodeResponse {
  */
 export interface TransferDomainRequest {
   /**
-   * <p>The number of years that you want to register the domain for. Domains are registered for a minimum of one year.
-   * 			The maximum period depends on the top-level domain.</p>
-   * 		       <p>Default: 1</p>
-   */
-  DurationInYears: number | undefined;
-
-  /**
-   * <p>The authorization code for the domain. You get this value from the current registrar.</p>
-   */
-  AuthCode?: string;
-
-  /**
    * <p>The name of the domain that you want to transfer to Route 53. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports.
    * 			For a list of supported TLDs, see
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can Register with Amazon Route 53</a> in the
@@ -2723,6 +2711,28 @@ export interface TransferDomainRequest {
   DomainName: string | undefined;
 
   /**
+   * <p>Reserved for future use.</p>
+   */
+  IdnLangCode?: string;
+
+  /**
+   * <p>The number of years that you want to register the domain for. Domains are registered for a minimum of one year.
+   * 			The maximum period depends on the top-level domain.</p>
+   * 		       <p>Default: 1</p>
+   */
+  DurationInYears: number | undefined;
+
+  /**
+   * <p>Contains details for the host and glue IP addresses.</p>
+   */
+  Nameservers?: Nameserver[];
+
+  /**
+   * <p>The authorization code for the domain. You get this value from the current registrar.</p>
+   */
+  AuthCode?: string;
+
+  /**
    * <p>Indicates whether the domain will be automatically renewed (true) or not (false). Autorenewal only takes effect
    * 			after the account is charged.</p>
    * 		       <p>Default: true</p>
@@ -2733,6 +2743,26 @@ export interface TransferDomainRequest {
    * <p>Provides detailed contact information.</p>
    */
   AdminContact: ContactDetail | undefined;
+
+  /**
+   * <p>Provides detailed contact information.</p>
+   */
+  RegistrantContact: ContactDetail | undefined;
+
+  /**
+   * <p>Provides detailed contact information.</p>
+   */
+  TechContact: ContactDetail | undefined;
+
+  /**
+   * <p>Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>,
+   * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
+   * 			or for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>,
+   * 			WHOIS queries return the information that you entered for the admin contact.</p>
+   * 		       <p>Default: <code>true</code>
+   *          </p>
+   */
+  PrivacyProtectAdminContact?: boolean;
 
   /**
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>,
@@ -2748,41 +2778,11 @@ export interface TransferDomainRequest {
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>,
    * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
    * 			or for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>,
-   * 			WHOIS queries return the information that you entered for the admin contact.</p>
-   * 		       <p>Default: <code>true</code>
-   *          </p>
-   */
-  PrivacyProtectAdminContact?: boolean;
-
-  /**
-   * <p>Contains details for the host and glue IP addresses.</p>
-   */
-  Nameservers?: Nameserver[];
-
-  /**
-   * <p>Reserved for future use.</p>
-   */
-  IdnLangCode?: string;
-
-  /**
-   * <p>Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>,
-   * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
-   * 			or for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>,
    * 			WHOIS queries return the information that you entered for the technical contact.</p>
    * 		       <p>Default: <code>true</code>
    *          </p>
    */
   PrivacyProtectTechContact?: boolean;
-
-  /**
-   * <p>Provides detailed contact information.</p>
-   */
-  TechContact: ContactDetail | undefined;
-
-  /**
-   * <p>Provides detailed contact information.</p>
-   */
-  RegistrantContact: ContactDetail | undefined;
 }
 
 export namespace TransferDomainRequest {
@@ -2790,8 +2790,8 @@ export namespace TransferDomainRequest {
     ...obj,
     ...(obj.AuthCode && { AuthCode: SENSITIVE_STRING }),
     ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
-    ...(obj.TechContact && { TechContact: SENSITIVE_STRING }),
     ...(obj.RegistrantContact && { RegistrantContact: SENSITIVE_STRING }),
+    ...(obj.TechContact && { TechContact: SENSITIVE_STRING }),
   });
 }
 
@@ -2817,14 +2817,14 @@ export namespace TransferDomainResponse {
  */
 export interface TransferDomainToAnotherAwsAccountRequest {
   /**
-   * <p>The account ID of the AWS account that you want to transfer the domain to, for example, <code>111122223333</code>.</p>
-   */
-  AccountId: string | undefined;
-
-  /**
    * <p>The name of the domain that you want to transfer from the current AWS account to another account.</p>
    */
   DomainName: string | undefined;
+
+  /**
+   * <p>The account ID of the AWS account that you want to transfer the domain to, for example, <code>111122223333</code>.</p>
+   */
+  AccountId: string | undefined;
 }
 
 export namespace TransferDomainToAnotherAwsAccountRequest {
@@ -2863,14 +2863,14 @@ export namespace TransferDomainToAnotherAwsAccountResponse {
  */
 export interface UpdateDomainContactRequest {
   /**
-   * <p>Provides detailed contact information.</p>
-   */
-  AdminContact?: ContactDetail;
-
-  /**
    * <p>The name of the domain that you want to update contact information for.</p>
    */
   DomainName: string | undefined;
+
+  /**
+   * <p>Provides detailed contact information.</p>
+   */
+  AdminContact?: ContactDetail;
 
   /**
    * <p>Provides detailed contact information.</p>
@@ -2914,6 +2914,11 @@ export namespace UpdateDomainContactResponse {
  */
 export interface UpdateDomainContactPrivacyRequest {
   /**
+   * <p>The name of the domain that you want to update the privacy setting for.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>,
    * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
    * 			or for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>,
@@ -2928,11 +2933,6 @@ export interface UpdateDomainContactPrivacyRequest {
    * 			WHOIS queries return the information that you entered for the registrant contact (domain owner).</p>
    */
   RegistrantPrivacy?: boolean;
-
-  /**
-   * <p>The name of the domain that you want to update the privacy setting for.</p>
-   */
-  DomainName: string | undefined;
 
   /**
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>,
@@ -2973,14 +2973,14 @@ export namespace UpdateDomainContactPrivacyResponse {
  */
 export interface UpdateDomainNameserversRequest {
   /**
-   * <p>The authorization key for .fi domains</p>
-   */
-  FIAuthKey?: string;
-
-  /**
    * <p>The name of the domain that you want to change name servers for.</p>
    */
   DomainName: string | undefined;
+
+  /**
+   * <p>The authorization key for .fi domains</p>
+   */
+  FIAuthKey?: string;
 
   /**
    * <p>A list of new name servers for the domain.</p>
@@ -3046,10 +3046,10 @@ export namespace UpdateTagsForDomainResponse {
  */
 export interface ViewBillingRequest {
   /**
-   * <p>The number of billing records to be returned.</p>
-   * 		       <p>Default: 20</p>
+   * <p>The beginning date and time for the time period for which you want a list of billing records. Specify the date and time
+   * 			in Unix time format and Coordinated Universal time (UTC).</p>
    */
-  MaxItems?: number;
+  Start?: Date;
 
   /**
    * <p>The end date and time for the time period for which you want a list of billing records. Specify the date and time
@@ -3069,10 +3069,10 @@ export interface ViewBillingRequest {
   Marker?: string;
 
   /**
-   * <p>The beginning date and time for the time period for which you want a list of billing records. Specify the date and time
-   * 			in Unix time format and Coordinated Universal time (UTC).</p>
+   * <p>The number of billing records to be returned.</p>
+   * 		       <p>Default: 20</p>
    */
-  Start?: Date;
+  MaxItems?: number;
 }
 
 export namespace ViewBillingRequest {

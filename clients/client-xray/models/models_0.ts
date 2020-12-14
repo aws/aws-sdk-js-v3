@@ -30,27 +30,70 @@ export namespace Alias {
 /**
  * <p>Value of a segment annotation. Has one of three value types: Number, Boolean, or String.</p>
  */
-export interface AnnotationValue {
+export type AnnotationValue =
+  | AnnotationValue.BooleanValueMember
+  | AnnotationValue.NumberValueMember
+  | AnnotationValue.StringValueMember
+  | AnnotationValue.$UnknownMember;
+
+export namespace AnnotationValue {
   /**
    * <p>Value for a Number annotation.</p>
    */
-  NumberValue?: number;
+  export interface NumberValueMember {
+    NumberValue: number;
+    BooleanValue?: never;
+    StringValue?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>Value for a Boolean annotation.</p>
    */
-  BooleanValue?: boolean;
+  export interface BooleanValueMember {
+    NumberValue?: never;
+    BooleanValue: boolean;
+    StringValue?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>Value for a String annotation.</p>
    */
-  StringValue?: string;
-}
+  export interface StringValueMember {
+    NumberValue?: never;
+    BooleanValue?: never;
+    StringValue: string;
+    $unknown?: never;
+  }
 
-export namespace AnnotationValue {
-  export const filterSensitiveLog = (obj: AnnotationValue): any => ({
-    ...obj,
-  });
+  export interface $UnknownMember {
+    NumberValue?: never;
+    BooleanValue?: never;
+    StringValue?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    NumberValue: (value: number) => T;
+    BooleanValue: (value: boolean) => T;
+    StringValue: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: AnnotationValue, visitor: Visitor<T>): T => {
+    if (value.NumberValue !== undefined) return visitor.NumberValue(value.NumberValue);
+    if (value.BooleanValue !== undefined) return visitor.BooleanValue(value.BooleanValue);
+    if (value.StringValue !== undefined) return visitor.StringValue(value.StringValue);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: AnnotationValue): any => {
+    if (obj.NumberValue !== undefined) return { NumberValue: obj.NumberValue };
+    if (obj.BooleanValue !== undefined) return { BooleanValue: obj.BooleanValue };
+    if (obj.StringValue !== undefined) return { StringValue: obj.StringValue };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
 }
 
 /**
@@ -102,6 +145,7 @@ export interface ValueWithServiceIds {
 export namespace ValueWithServiceIds {
   export const filterSensitiveLog = (obj: ValueWithServiceIds): any => ({
     ...obj,
+    ...(obj.AnnotationValue && { AnnotationValue: AnnotationValue.filterSensitiveLog(obj.AnnotationValue) }),
   });
 }
 
@@ -2697,6 +2741,15 @@ export interface TraceSummary {
 export namespace TraceSummary {
   export const filterSensitiveLog = (obj: TraceSummary): any => ({
     ...obj,
+    ...(obj.Annotations && {
+      Annotations: Object.entries(obj.Annotations).reduce(
+        (acc: any, [key, value]: [string, ValueWithServiceIds[]]) => ({
+          ...acc,
+          [key]: value.map((item) => ValueWithServiceIds.filterSensitiveLog(item)),
+        }),
+        {}
+      ),
+    }),
   });
 }
 

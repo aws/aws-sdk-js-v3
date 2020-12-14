@@ -142,13 +142,6 @@ export namespace ServiceQuotaExceededException {
 
 export interface CreateMembersRequest {
   /**
-   * <p>The list of AWS accounts to invite to become member accounts in the behavior graph.
-   *          For each invited account, the account list contains the account identifier and the AWS
-   *          account root user email address.</p>
-   */
-  Accounts: Account[] | undefined;
-
-  /**
    * <p>The ARN of the behavior graph to invite the member accounts to contribute their data
    *          to.</p>
    */
@@ -159,6 +152,13 @@ export interface CreateMembersRequest {
    *          accounts.</p>
    */
   Message?: string;
+
+  /**
+   * <p>The list of AWS accounts to invite to become member accounts in the behavior graph.
+   *          For each invited account, the account list contains the account identifier and the AWS
+   *          account root user email address.</p>
+   */
+  Accounts: Account[] | undefined;
 }
 
 export namespace CreateMembersRequest {
@@ -185,6 +185,26 @@ export enum MemberStatus {
  *          graph.</p>
  */
 export interface MemberDetail {
+  /**
+   * <p>The AWS account identifier for the member account.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The AWS account root user email address for the member account.</p>
+   */
+  EmailAddress?: string;
+
+  /**
+   * <p>The ARN of the behavior graph that the member account was invited to.</p>
+   */
+  GraphArn?: string;
+
+  /**
+   * <p>The AWS account identifier of the master account for the behavior graph.</p>
+   */
+  MasterId?: string;
+
   /**
    * <p>The current membership status of the member account. The status can have one of the
    *          following values:</p>
@@ -226,21 +246,6 @@ export interface MemberDetail {
   Status?: MemberStatus | string;
 
   /**
-   * <p>The AWS account identifier for the member account.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * <p>The date and time when the graph utilization percentage was last updated.</p>
-   */
-  PercentOfGraphUtilizationUpdatedTime?: Date;
-
-  /**
-   * <p>The ARN of the behavior graph that the member account was invited to.</p>
-   */
-  GraphArn?: string;
-
-  /**
    * <p>For member accounts with a status of <code>ACCEPTED_BUT_DISABLED</code>, the reason that
    *          the member account is not enabled.</p>
    *          <p>The reason can have one of the following values:</p>
@@ -261,11 +266,6 @@ export interface MemberDetail {
   DisabledReason?: MemberDisabledReason | string;
 
   /**
-   * <p>The AWS account identifier of the master account for the behavior graph.</p>
-   */
-  MasterId?: string;
-
-  /**
    * <p>The date and time that Detective sent the invitation to the member account. The value is in
    *          milliseconds since the epoch.</p>
    */
@@ -278,11 +278,6 @@ export interface MemberDetail {
   UpdatedTime?: Date;
 
   /**
-   * <p>The AWS account root user email address for the member account.</p>
-   */
-  EmailAddress?: string;
-
-  /**
    * <p>The member account data volume as a percentage of the maximum allowed data volume. 0
    *          indicates 0 percent, and 100 indicates 100 percent.</p>
    *          <p>Note that this is not the percentage of the behavior graph data volume.</p>
@@ -292,6 +287,11 @@ export interface MemberDetail {
    *          data volume. </p>
    */
   PercentOfGraphUtilization?: number;
+
+  /**
+   * <p>The date and time when the graph utilization percentage was last updated.</p>
+   */
+  PercentOfGraphUtilizationUpdatedTime?: Date;
 }
 
 export namespace MemberDetail {
@@ -306,14 +306,14 @@ export namespace MemberDetail {
  */
 export interface UnprocessedAccount {
   /**
-   * <p>The reason that the member account request could not be processed.</p>
-   */
-  Reason?: string;
-
-  /**
    * <p>The AWS account identifier of the member account that was not processed.</p>
    */
   AccountId?: string;
+
+  /**
+   * <p>The reason that the member account request could not be processed.</p>
+   */
+  Reason?: string;
 }
 
 export namespace UnprocessedAccount {
@@ -324,18 +324,18 @@ export namespace UnprocessedAccount {
 
 export interface CreateMembersResponse {
   /**
-   * <p>The list of accounts for which Detective was unable to process the invitation request. For
-   *          each account, the list provides the reason why the request could not be processed. The list
-   *          includes accounts that are already member accounts in the behavior graph.</p>
-   */
-  UnprocessedAccounts?: UnprocessedAccount[];
-
-  /**
    * <p>The set of member account invitation requests that Detective was able to process. This
    *          includes accounts that are being verified, that failed verification, and that passed
    *          verification and are being sent an invitation.</p>
    */
   Members?: MemberDetail[];
+
+  /**
+   * <p>The list of accounts for which Detective was unable to process the invitation request. For
+   *          each account, the list provides the reason why the request could not be processed. The list
+   *          includes accounts that are already member accounts in the behavior graph.</p>
+   */
+  UnprocessedAccounts?: UnprocessedAccount[];
 }
 
 export namespace CreateMembersResponse {
@@ -359,15 +359,15 @@ export namespace DeleteGraphRequest {
 
 export interface DeleteMembersRequest {
   /**
+   * <p>The ARN of the behavior graph to delete members from.</p>
+   */
+  GraphArn: string | undefined;
+
+  /**
    * <p>The list of AWS account identifiers for the member accounts to delete from the
    *          behavior graph.</p>
    */
   AccountIds: string[] | undefined;
-
-  /**
-   * <p>The ARN of the behavior graph to delete members from.</p>
-   */
-  GraphArn: string | undefined;
 }
 
 export namespace DeleteMembersRequest {
@@ -479,15 +479,15 @@ export namespace ListGraphsRequest {
  */
 export interface Graph {
   /**
+   * <p>The ARN of the behavior graph.</p>
+   */
+  Arn?: string;
+
+  /**
    * <p>The date and time that the behavior graph was created. The value is in milliseconds
    *          since the epoch.</p>
    */
   CreatedTime?: Date;
-
-  /**
-   * <p>The ARN of the behavior graph.</p>
-   */
-  Arn?: string;
 }
 
 export namespace Graph {
@@ -517,18 +517,18 @@ export namespace ListGraphsResponse {
 
 export interface ListInvitationsRequest {
   /**
-   * <p>The maximum number of behavior graph invitations to return in the response. The total
-   *          must be less than the overall limit on the number of results to return, which is currently
-   *          200.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>For requests to retrieve the next page of results, the pagination token that was
    *          returned with the previous page of results.  The initial request does not include a
    *          pagination token.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of behavior graph invitations to return in the response. The total
+   *          must be less than the overall limit on the number of results to return, which is currently
+   *          200.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListInvitationsRequest {
@@ -539,16 +539,16 @@ export namespace ListInvitationsRequest {
 
 export interface ListInvitationsResponse {
   /**
-   * <p>If there are more behavior graphs remaining in the results, then this is the pagination
-   *          token to use to request the next page of behavior graphs.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The list of behavior graphs for which the member account has open or accepted
    *          invitations.</p>
    */
   Invitations?: MemberDetail[];
+
+  /**
+   * <p>If there are more behavior graphs remaining in the results, then this is the pagination
+   *          token to use to request the next page of behavior graphs.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListInvitationsResponse {
@@ -558,12 +558,6 @@ export namespace ListInvitationsResponse {
 }
 
 export interface ListMembersRequest {
-  /**
-   * <p>The maximum number of member accounts to include in the response. The total must be less
-   *          than the overall limit on the number of results to return, which is currently 200.</p>
-   */
-  MaxResults?: number;
-
   /**
    * <p>The ARN of the behavior graph for which to retrieve the list of member accounts.</p>
    */
@@ -575,6 +569,12 @@ export interface ListMembersRequest {
    *          pagination token.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of member accounts to include in the response. The total must be less
+   *          than the overall limit on the number of results to return, which is currently 200.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListMembersRequest {
@@ -622,16 +622,16 @@ export namespace RejectInvitationRequest {
 
 export interface StartMonitoringMemberRequest {
   /**
+   * <p>The ARN of the behavior graph.</p>
+   */
+  GraphArn: string | undefined;
+
+  /**
    * <p>The account ID of the member account to try to enable.</p>
    *          <p>The account must be an invited member account with a status of
    *          <code>ACCEPTED_BUT_DISABLED</code>. </p>
    */
   AccountId: string | undefined;
-
-  /**
-   * <p>The ARN of the behavior graph.</p>
-   */
-  GraphArn: string | undefined;
 }
 
 export namespace StartMonitoringMemberRequest {

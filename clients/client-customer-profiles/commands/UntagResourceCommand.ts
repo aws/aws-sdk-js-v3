@@ -1,4 +1,4 @@
-import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
+import { ProfileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProfileClient";
 import { UntagResourceRequest, UntagResourceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UntagResourceCommand,
@@ -28,7 +28,7 @@ export type UntagResourceCommandOutput = UntagResourceResponse & __MetadataBeare
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
-  CustomerProfilesClientResolvedConfig
+  ProfileClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -44,7 +44,7 @@ export class UntagResourceCommand extends $Command<
    */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CustomerProfilesClientResolvedConfig,
+    configuration: ProfileClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UntagResourceCommandInput, UntagResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
@@ -52,7 +52,7 @@ export class UntagResourceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
-    const clientName = "CustomerProfilesClient";
+    const clientName = "ProfileClient";
     const commandName = "UntagResourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,

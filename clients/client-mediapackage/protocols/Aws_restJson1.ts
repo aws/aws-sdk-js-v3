@@ -403,10 +403,10 @@ export const serializeAws_restJson1ListHarvestJobsCommand = async (
   const headers: any = {};
   let resolvedPath = "/harvest_jobs";
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.IncludeChannelId !== undefined && { includeChannelId: input.IncludeChannelId }),
     ...(input.IncludeStatus !== undefined && { includeStatus: input.IncludeStatus }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.IncludeChannelId !== undefined && { includeChannelId: input.IncludeChannelId }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -429,9 +429,9 @@ export const serializeAws_restJson1ListOriginEndpointsCommand = async (
   const headers: any = {};
   let resolvedPath = "/origin_endpoints";
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.ChannelId !== undefined && { channelId: input.ChannelId }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -509,15 +509,6 @@ export const serializeAws_restJson1RotateIngestEndpointCredentialsCommand = asyn
 ): Promise<__HttpRequest> => {
   const headers: any = {};
   let resolvedPath = "/channels/{Id}/ingest_endpoints/{IngestEndpointId}/credentials";
-  if (input.IngestEndpointId !== undefined) {
-    const labelValue: string = input.IngestEndpointId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: IngestEndpointId.");
-    }
-    resolvedPath = resolvedPath.replace("{IngestEndpointId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: IngestEndpointId.");
-  }
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
@@ -526,6 +517,15 @@ export const serializeAws_restJson1RotateIngestEndpointCredentialsCommand = asyn
     resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
+  }
+  if (input.IngestEndpointId !== undefined) {
+    const labelValue: string = input.IngestEndpointId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: IngestEndpointId.");
+    }
+    resolvedPath = resolvedPath.replace("{IngestEndpointId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: IngestEndpointId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

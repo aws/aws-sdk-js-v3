@@ -55,23 +55,11 @@ export namespace UsageAllocation {
  */
 export interface UsageRecord {
   /**
-   * <p>The set of UsageAllocations to submit. The sum of all UsageAllocation quantities
-   *             must equal the Quantity of the UsageRecord.</p>
-   */
-  UsageAllocations?: UsageAllocation[];
-
-  /**
    * <p>Timestamp, in UTC, for which the usage is being reported.</p>
    *         <p>Your application can meter usage for up to one hour in the past. Make sure the
    *             timestamp value is not before the start of the software usage.</p>
    */
   Timestamp: Date | undefined;
-
-  /**
-   * <p>The quantity of usage consumed by the customer for the given dimension and time.
-   *             Defaults to <code>0</code> if not specified.</p>
-   */
-  Quantity?: number;
 
   /**
    * <p>The CustomerIdentifier is obtained through the ResolveCustomer operation and
@@ -85,6 +73,18 @@ export interface UsageRecord {
    *             application.</p>
    */
   Dimension: string | undefined;
+
+  /**
+   * <p>The quantity of usage consumed by the customer for the given dimension and time.
+   *             Defaults to <code>0</code> if not specified.</p>
+   */
+  Quantity?: number;
+
+  /**
+   * <p>The set of UsageAllocations to submit. The sum of all UsageAllocation quantities
+   *             must equal the Quantity of the UsageRecord.</p>
+   */
+  UsageAllocations?: UsageAllocation[];
 }
 
 export namespace UsageRecord {
@@ -130,6 +130,11 @@ export enum UsageRecordResultStatus {
  */
 export interface UsageRecordResult {
   /**
+   * <p>The UsageRecord that was part of the BatchMeterUsage request.</p>
+   */
+  UsageRecord?: UsageRecord;
+
+  /**
    * <p>The MeteringRecordId is a unique identifier for this metering event.</p>
    */
   MeteringRecordId?: string;
@@ -159,11 +164,6 @@ export interface UsageRecordResult {
    *          </ul>
    */
   Status?: UsageRecordResultStatus | string;
-
-  /**
-   * <p>The UsageRecord that was part of the BatchMeterUsage request.</p>
-   */
-  UsageRecord?: UsageRecord;
 }
 
 export namespace UsageRecordResult {
@@ -388,6 +388,13 @@ export namespace InvalidEndpointRegionException {
 
 export interface MeterUsageRequest {
   /**
+   * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product
+   *             code should be the same as the one used during the publishing of a new
+   *             product.</p>
+   */
+  ProductCode: string | undefined;
+
+  /**
    * <p>Timestamp, in UTC, for which the usage is being reported. Your application can
    *             meter usage for up to one hour in the past. Make sure the timestamp value is not before
    *             the start of the software usage.</p>
@@ -401,25 +408,10 @@ export interface MeterUsageRequest {
   UsageDimension: string | undefined;
 
   /**
-   * <p>The set of UsageAllocations to submit.</p>
-   *         <p>The sum of all UsageAllocation quantities must equal the
-   *             UsageQuantity of the MeterUsage request, and each UsageAllocation must have a
-   *             unique set of tags (include no tags).</p>
-   */
-  UsageAllocations?: UsageAllocation[];
-
-  /**
    * <p>Consumption value for the hour. Defaults to <code>0</code> if not
    *             specified.</p>
    */
   UsageQuantity?: number;
-
-  /**
-   * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product
-   *             code should be the same as the one used during the publishing of a new
-   *             product.</p>
-   */
-  ProductCode: string | undefined;
 
   /**
    * <p>Checks whether you have the permissions required for the action, but does not make
@@ -428,6 +420,14 @@ export interface MeterUsageRequest {
    *             specified.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The set of UsageAllocations to submit.</p>
+   *         <p>The sum of all UsageAllocation quantities must equal the
+   *             UsageQuantity of the MeterUsage request, and each UsageAllocation must have a
+   *             unique set of tags (include no tags).</p>
+   */
+  UsageAllocations?: UsageAllocation[];
 }
 
 export namespace MeterUsageRequest {
@@ -499,6 +499,13 @@ export namespace PlatformNotSupportedException {
 
 export interface RegisterUsageRequest {
   /**
+   * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product
+   *             code should be the same as the one used during the publishing of a new
+   *             product.</p>
+   */
+  ProductCode: string | undefined;
+
+  /**
    * <p>Public Key Version provided by AWS Marketplace</p>
    */
   PublicKeyVersion: number | undefined;
@@ -508,13 +515,6 @@ export interface RegisterUsageRequest {
    *             and guard against replay attacks.</p>
    */
   Nonce?: string;
-
-  /**
-   * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product
-   *             code should be the same as the one used during the publishing of a new
-   *             product.</p>
-   */
-  ProductCode: string | undefined;
 }
 
 export namespace RegisterUsageRequest {
@@ -599,18 +599,18 @@ export namespace ResolveCustomerRequest {
  */
 export interface ResolveCustomerResult {
   /**
-   * <p>The product code is returned to confirm that the buyer is registering for your
-   *             product. Subsequent BatchMeterUsage calls should be made using this product
-   *             code.</p>
-   */
-  ProductCode?: string;
-
-  /**
    * <p>The CustomerIdentifier is used to identify an individual customer in your
    *             application. Calls to BatchMeterUsage require CustomerIdentifiers for each
    *             UsageRecord.</p>
    */
   CustomerIdentifier?: string;
+
+  /**
+   * <p>The product code is returned to confirm that the buyer is registering for your
+   *             product. Subsequent BatchMeterUsage calls should be made using this product
+   *             code.</p>
+   */
+  ProductCode?: string;
 }
 
 export namespace ResolveCustomerResult {

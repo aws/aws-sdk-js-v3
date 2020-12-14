@@ -21,8 +21,7 @@ export type CreateImagePipelineCommandInput = CreateImagePipelineRequest;
 export type CreateImagePipelineCommandOutput = CreateImagePipelineResponse & __MetadataBearer;
 
 /**
- * <p> Creates a new image pipeline. Image pipelines enable you to automate the creation and
- *       distribution of images. </p>
+ * <p> Creates a new image pipeline. Image pipelines enable you to automate the creation and distribution of images. </p>
  */
 export class CreateImagePipelineCommand extends $Command<
   CreateImagePipelineCommandInput,

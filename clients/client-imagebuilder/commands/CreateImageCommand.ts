@@ -21,8 +21,7 @@ export type CreateImageCommandInput = CreateImageRequest;
 export type CreateImageCommandOutput = CreateImageResponse & __MetadataBearer;
 
 /**
- * <p> Creates a new image. This request will create a new image along with all of the
- *       configured output resources defined in the distribution configuration. </p>
+ * <p> Creates a new image. This request will create a new image along with all of the configured output resources defined in the distribution configuration. </p>
  */
 export class CreateImageCommand extends $Command<
   CreateImageCommandInput,

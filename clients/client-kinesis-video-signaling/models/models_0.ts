@@ -23,9 +23,10 @@ export enum Service {
 
 export interface GetIceServerConfigRequest {
   /**
-   * <p>An optional user ID to be associated with the credentials.</p>
+   * <p>The ARN of the signaling channel to be used for the peer-to-peer connection between
+   *             configured peers. </p>
    */
-  Username?: string;
+  ChannelARN: string | undefined;
 
   /**
    * <p>Unique identifier for the viewer. Must be unique within the signaling channel.</p>
@@ -39,10 +40,9 @@ export interface GetIceServerConfigRequest {
   Service?: Service | string;
 
   /**
-   * <p>The ARN of the signaling channel to be used for the peer-to-peer connection between
-   *             configured peers. </p>
+   * <p>An optional user ID to be associated with the credentials.</p>
    */
-  ChannelARN: string | undefined;
+  Username?: string;
 }
 
 export namespace GetIceServerConfigRequest {
@@ -56,15 +56,10 @@ export namespace GetIceServerConfigRequest {
  */
 export interface IceServer {
   /**
-   * <p>The period of time, in seconds, during which the username and password are
-   *             valid.</p>
+   * <p>An array of URIs, in the form specified in the <a href="https://tools.ietf.org/html/draft-petithuguenin-behave-turn-uris-03">I-D.petithuguenin-behave-turn-uris</a> spec. These URIs provide the different
+   *             addresses and/or protocols that can be used to reach the TURN server.</p>
    */
-  Ttl?: number;
-
-  /**
-   * <p>A password to login to the ICE server.</p>
-   */
-  Password?: string;
+  Uris?: string[];
 
   /**
    * <p>A username to login to the ICE server.</p>
@@ -72,10 +67,15 @@ export interface IceServer {
   Username?: string;
 
   /**
-   * <p>An array of URIs, in the form specified in the <a href="https://tools.ietf.org/html/draft-petithuguenin-behave-turn-uris-03">I-D.petithuguenin-behave-turn-uris</a> spec. These URIs provide the different
-   *             addresses and/or protocols that can be used to reach the TURN server.</p>
+   * <p>A password to login to the ICE server.</p>
    */
-  Uris?: string[];
+  Password?: string;
+
+  /**
+   * <p>The period of time, in seconds, during which the username and password are
+   *             valid.</p>
+   */
+  Ttl?: number;
 }
 
 export namespace IceServer {
@@ -176,6 +176,12 @@ export namespace SessionExpiredException {
 
 export interface SendAlexaOfferToMasterRequest {
   /**
+   * <p>The ARN of the signaling channel by which Alexa and the master peer
+   *             communicate.</p>
+   */
+  ChannelARN: string | undefined;
+
+  /**
    * <p>The unique identifier for the sender client.</p>
    */
   SenderClientId: string | undefined;
@@ -184,12 +190,6 @@ export interface SendAlexaOfferToMasterRequest {
    * <p>The base64-encoded SDP offer content.</p>
    */
   MessagePayload: string | undefined;
-
-  /**
-   * <p>The ARN of the signaling channel by which Alexa and the master peer
-   *             communicate.</p>
-   */
-  ChannelARN: string | undefined;
 }
 
 export namespace SendAlexaOfferToMasterRequest {

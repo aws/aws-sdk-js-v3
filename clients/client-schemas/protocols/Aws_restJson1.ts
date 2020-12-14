@@ -269,15 +269,6 @@ export const serializeAws_restJson1DeleteSchemaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {};
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}";
-  if (input.SchemaName !== undefined) {
-    const labelValue: string = input.SchemaName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: SchemaName.");
-    }
-    resolvedPath = resolvedPath.replace("{SchemaName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: SchemaName.");
-  }
   if (input.RegistryName !== undefined) {
     const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
@@ -286,6 +277,15 @@ export const serializeAws_restJson1DeleteSchemaCommand = async (
     resolvedPath = resolvedPath.replace("{RegistryName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
+  }
+  if (input.SchemaName !== undefined) {
+    const labelValue: string = input.SchemaName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: SchemaName.");
+    }
+    resolvedPath = resolvedPath.replace("{SchemaName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: SchemaName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -306,15 +306,6 @@ export const serializeAws_restJson1DeleteSchemaVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {};
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/version/{SchemaVersion}";
-  if (input.SchemaName !== undefined) {
-    const labelValue: string = input.SchemaName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: SchemaName.");
-    }
-    resolvedPath = resolvedPath.replace("{SchemaName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: SchemaName.");
-  }
   if (input.RegistryName !== undefined) {
     const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
@@ -323,6 +314,15 @@ export const serializeAws_restJson1DeleteSchemaVersionCommand = async (
     resolvedPath = resolvedPath.replace("{RegistryName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
+  }
+  if (input.SchemaName !== undefined) {
+    const labelValue: string = input.SchemaName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: SchemaName.");
+    }
+    resolvedPath = resolvedPath.replace("{SchemaName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: SchemaName.");
   }
   if (input.SchemaVersion !== undefined) {
     const labelValue: string = input.SchemaVersion;
@@ -352,15 +352,6 @@ export const serializeAws_restJson1DescribeCodeBindingCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {};
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}";
-  if (input.SchemaName !== undefined) {
-    const labelValue: string = input.SchemaName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: SchemaName.");
-    }
-    resolvedPath = resolvedPath.replace("{SchemaName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: SchemaName.");
-  }
   if (input.Language !== undefined) {
     const labelValue: string = input.Language;
     if (labelValue.length <= 0) {
@@ -378,6 +369,15 @@ export const serializeAws_restJson1DescribeCodeBindingCommand = async (
     resolvedPath = resolvedPath.replace("{RegistryName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
+  }
+  if (input.SchemaName !== undefined) {
+    const labelValue: string = input.SchemaName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: SchemaName.");
+    }
+    resolvedPath = resolvedPath.replace("{SchemaName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: SchemaName.");
   }
   const query: any = {
     ...(input.SchemaVersion !== undefined && { schemaVersion: input.SchemaVersion }),
@@ -458,15 +458,6 @@ export const serializeAws_restJson1DescribeSchemaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {};
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}";
-  if (input.SchemaName !== undefined) {
-    const labelValue: string = input.SchemaName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: SchemaName.");
-    }
-    resolvedPath = resolvedPath.replace("{SchemaName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: SchemaName.");
-  }
   if (input.RegistryName !== undefined) {
     const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
@@ -475,6 +466,15 @@ export const serializeAws_restJson1DescribeSchemaCommand = async (
     resolvedPath = resolvedPath.replace("{RegistryName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
+  }
+  if (input.SchemaName !== undefined) {
+    const labelValue: string = input.SchemaName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: SchemaName.");
+    }
+    resolvedPath = resolvedPath.replace("{SchemaName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: SchemaName.");
   }
   const query: any = {
     ...(input.SchemaVersion !== undefined && { schemaVersion: input.SchemaVersion }),
@@ -499,15 +499,6 @@ export const serializeAws_restJson1ExportSchemaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {};
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/export";
-  if (input.SchemaName !== undefined) {
-    const labelValue: string = input.SchemaName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: SchemaName.");
-    }
-    resolvedPath = resolvedPath.replace("{SchemaName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: SchemaName.");
-  }
   if (input.RegistryName !== undefined) {
     const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
@@ -516,6 +507,15 @@ export const serializeAws_restJson1ExportSchemaCommand = async (
     resolvedPath = resolvedPath.replace("{RegistryName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
+  }
+  if (input.SchemaName !== undefined) {
+    const labelValue: string = input.SchemaName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: SchemaName.");
+    }
+    resolvedPath = resolvedPath.replace("{SchemaName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: SchemaName.");
   }
   const query: any = {
     ...(input.SchemaVersion !== undefined && { schemaVersion: input.SchemaVersion }),
@@ -541,15 +541,6 @@ export const serializeAws_restJson1GetCodeBindingSourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {};
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}/source";
-  if (input.SchemaName !== undefined) {
-    const labelValue: string = input.SchemaName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: SchemaName.");
-    }
-    resolvedPath = resolvedPath.replace("{SchemaName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: SchemaName.");
-  }
   if (input.Language !== undefined) {
     const labelValue: string = input.Language;
     if (labelValue.length <= 0) {
@@ -567,6 +558,15 @@ export const serializeAws_restJson1GetCodeBindingSourceCommand = async (
     resolvedPath = resolvedPath.replace("{RegistryName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
+  }
+  if (input.SchemaName !== undefined) {
+    const labelValue: string = input.SchemaName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: SchemaName.");
+    }
+    resolvedPath = resolvedPath.replace("{SchemaName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: SchemaName.");
   }
   const query: any = {
     ...(input.SchemaVersion !== undefined && { schemaVersion: input.SchemaVersion }),
@@ -645,8 +645,8 @@ export const serializeAws_restJson1ListDiscoverersCommand = async (
   const query: any = {
     ...(input.DiscovererIdPrefix !== undefined && { discovererIdPrefix: input.DiscovererIdPrefix }),
     ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
-    ...(input.SourceArnPrefix !== undefined && { sourceArnPrefix: input.SourceArnPrefix }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.SourceArnPrefix !== undefined && { sourceArnPrefix: input.SourceArnPrefix }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -669,10 +669,10 @@ export const serializeAws_restJson1ListRegistriesCommand = async (
   const headers: any = {};
   let resolvedPath = "/v1/registries";
   const query: any = {
-    ...(input.Scope !== undefined && { scope: input.Scope }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.RegistryNamePrefix !== undefined && { registryNamePrefix: input.RegistryNamePrefix }),
+    ...(input.Scope !== undefined && { scope: input.Scope }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -704,8 +704,8 @@ export const serializeAws_restJson1ListSchemasCommand = async (
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.SchemaNamePrefix !== undefined && { schemaNamePrefix: input.SchemaNamePrefix }),
   };
   let body: any;
@@ -747,8 +747,8 @@ export const serializeAws_restJson1ListSchemaVersionsCommand = async (
     throw new Error("No value provided for input HTTP label: SchemaName.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -798,6 +798,15 @@ export const serializeAws_restJson1PutCodeBindingCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {};
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}";
+  if (input.Language !== undefined) {
+    const labelValue: string = input.Language;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Language.");
+    }
+    resolvedPath = resolvedPath.replace("{Language}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Language.");
+  }
   if (input.RegistryName !== undefined) {
     const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
@@ -815,15 +824,6 @@ export const serializeAws_restJson1PutCodeBindingCommand = async (
     resolvedPath = resolvedPath.replace("{SchemaName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
-  }
-  if (input.Language !== undefined) {
-    const labelValue: string = input.Language;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Language.");
-    }
-    resolvedPath = resolvedPath.replace("{Language}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Language.");
   }
   const query: any = {
     ...(input.SchemaVersion !== undefined && { schemaVersion: input.SchemaVersion }),
@@ -887,8 +887,8 @@ export const serializeAws_restJson1SearchSchemasCommand = async (
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   const query: any = {
-    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
     ...(input.Keywords !== undefined && { keywords: input.Keywords }),
+    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;

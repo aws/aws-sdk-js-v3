@@ -1,4 +1,4 @@
-import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
+import { ProfileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProfileClient";
 import { DeleteProfileRequest, DeleteProfileResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteProfileCommand,
@@ -26,7 +26,7 @@ export type DeleteProfileCommandOutput = DeleteProfileResponse & __MetadataBeare
 export class DeleteProfileCommand extends $Command<
   DeleteProfileCommandInput,
   DeleteProfileCommandOutput,
-  CustomerProfilesClientResolvedConfig
+  ProfileClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -42,7 +42,7 @@ export class DeleteProfileCommand extends $Command<
    */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CustomerProfilesClientResolvedConfig,
+    configuration: ProfileClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteProfileCommandInput, DeleteProfileCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
@@ -50,7 +50,7 @@ export class DeleteProfileCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
-    const clientName = "CustomerProfilesClient";
+    const clientName = "ProfileClient";
     const commandName = "DeleteProfileCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,

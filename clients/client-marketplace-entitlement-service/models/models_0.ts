@@ -12,18 +12,6 @@ export enum GetEntitlementFilterName {
  */
 export interface GetEntitlementsRequest {
   /**
-   * <p>For paginated calls to GetEntitlements, pass the NextToken from the previous
-   *    GetEntitlementsResult.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of items to retrieve from the GetEntitlements operation. For
-   *    pagination, use the NextToken field in subsequent calls to GetEntitlements.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product code
    *    will be provided by AWS Marketplace when the product listing is created.</p>
    */
@@ -36,6 +24,18 @@ export interface GetEntitlementsRequest {
    *         <i>intersected</i> for each filter key.</p>
    */
   Filter?: { [key: string]: string[] };
+
+  /**
+   * <p>For paginated calls to GetEntitlements, pass the NextToken from the previous
+   *    GetEntitlementsResult.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to retrieve from the GetEntitlements operation. For
+   *    pagination, use the NextToken field in subsequent calls to GetEntitlements.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace GetEntitlementsRequest {
@@ -48,36 +48,93 @@ export namespace GetEntitlementsRequest {
  * <p>The EntitlementValue represents the amount of capacity that the customer is entitled to
  *    for the product.</p>
  */
-export interface EntitlementValue {
+export type EntitlementValue =
+  | EntitlementValue.BooleanValueMember
+  | EntitlementValue.DoubleValueMember
+  | EntitlementValue.IntegerValueMember
+  | EntitlementValue.StringValueMember
+  | EntitlementValue.$UnknownMember;
+
+export namespace EntitlementValue {
+  /**
+   * <p>The IntegerValue field will be populated with an integer value when the entitlement is an
+   *    integer type. Otherwise, the field will not be set.</p>
+   */
+  export interface IntegerValueMember {
+    IntegerValue: number;
+    DoubleValue?: never;
+    BooleanValue?: never;
+    StringValue?: never;
+    $unknown?: never;
+  }
+
   /**
    * <p>The DoubleValue field will be populated with a double value when the entitlement is a
    *    double type. Otherwise, the field will not be set.</p>
    */
-  DoubleValue?: number;
+  export interface DoubleValueMember {
+    IntegerValue?: never;
+    DoubleValue: number;
+    BooleanValue?: never;
+    StringValue?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>The BooleanValue field will be populated with a boolean value when the entitlement is a
    *       boolean type. Otherwise, the field will not be set.</p>
    */
-  BooleanValue?: boolean;
-
-  /**
-   * <p>The IntegerValue field will be populated with an integer value when the entitlement is an
-   *    integer type. Otherwise, the field will not be set.</p>
-   */
-  IntegerValue?: number;
+  export interface BooleanValueMember {
+    IntegerValue?: never;
+    DoubleValue?: never;
+    BooleanValue: boolean;
+    StringValue?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>The StringValue field will be populated with a string value when the entitlement is a
    *    string type. Otherwise, the field will not be set.</p>
    */
-  StringValue?: string;
-}
+  export interface StringValueMember {
+    IntegerValue?: never;
+    DoubleValue?: never;
+    BooleanValue?: never;
+    StringValue: string;
+    $unknown?: never;
+  }
 
-export namespace EntitlementValue {
-  export const filterSensitiveLog = (obj: EntitlementValue): any => ({
-    ...obj,
-  });
+  export interface $UnknownMember {
+    IntegerValue?: never;
+    DoubleValue?: never;
+    BooleanValue?: never;
+    StringValue?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    IntegerValue: (value: number) => T;
+    DoubleValue: (value: number) => T;
+    BooleanValue: (value: boolean) => T;
+    StringValue: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: EntitlementValue, visitor: Visitor<T>): T => {
+    if (value.IntegerValue !== undefined) return visitor.IntegerValue(value.IntegerValue);
+    if (value.DoubleValue !== undefined) return visitor.DoubleValue(value.DoubleValue);
+    if (value.BooleanValue !== undefined) return visitor.BooleanValue(value.BooleanValue);
+    if (value.StringValue !== undefined) return visitor.StringValue(value.StringValue);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: EntitlementValue): any => {
+    if (obj.IntegerValue !== undefined) return { IntegerValue: obj.IntegerValue };
+    if (obj.DoubleValue !== undefined) return { DoubleValue: obj.DoubleValue };
+    if (obj.BooleanValue !== undefined) return { BooleanValue: obj.BooleanValue };
+    if (obj.StringValue !== undefined) return { StringValue: obj.StringValue };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
 }
 
 /**
@@ -87,25 +144,17 @@ export namespace EntitlementValue {
  */
 export interface Entitlement {
   /**
-   * <p>The dimension for which the given entitlement applies. Dimensions represent categories of
-   *       capacity in a product and are specified when the product is listed in AWS
-   *       Marketplace.</p>
-   */
-  Dimension?: string;
-
-  /**
    * <p>The product code for which the given entitlement applies. Product codes are provided by
    *    AWS Marketplace when the product listing is created.</p>
    */
   ProductCode?: string;
 
   /**
-   * <p>The expiration date represents the minimum date through which this entitlement is
-   *    expected to remain valid. For contractual products listed on AWS Marketplace, the expiration date
-   *    is the date at which the customer will renew or cancel their contract. Customers who are opting
-   *    to renew their contract will still have entitlements with an expiration date.</p>
+   * <p>The dimension for which the given entitlement applies. Dimensions represent categories of
+   *       capacity in a product and are specified when the product is listed in AWS
+   *       Marketplace.</p>
    */
-  ExpirationDate?: Date;
+  Dimension?: string;
 
   /**
    * <p>The customer identifier is a handle to each unique customer in an application. Customer
@@ -119,11 +168,20 @@ export interface Entitlement {
    *    for the product.</p>
    */
   Value?: EntitlementValue;
+
+  /**
+   * <p>The expiration date represents the minimum date through which this entitlement is
+   *    expected to remain valid. For contractual products listed on AWS Marketplace, the expiration date
+   *    is the date at which the customer will renew or cancel their contract. Customers who are opting
+   *    to renew their contract will still have entitlements with an expiration date.</p>
+   */
+  ExpirationDate?: Date;
 }
 
 export namespace Entitlement {
   export const filterSensitiveLog = (obj: Entitlement): any => ({
     ...obj,
+    ...(obj.Value && { Value: EntitlementValue.filterSensitiveLog(obj.Value) }),
   });
 }
 
@@ -149,6 +207,7 @@ export interface GetEntitlementsResult {
 export namespace GetEntitlementsResult {
   export const filterSensitiveLog = (obj: GetEntitlementsResult): any => ({
     ...obj,
+    ...(obj.Entitlements && { Entitlements: obj.Entitlements.map((item) => Entitlement.filterSensitiveLog(item)) }),
   });
 }
 

@@ -21,8 +21,7 @@ export type UpdateImagePipelineCommandInput = UpdateImagePipelineRequest;
 export type UpdateImagePipelineCommandOutput = UpdateImagePipelineResponse & __MetadataBearer;
 
 /**
- * <p> Updates a new image pipeline. Image pipelines enable you to automate the creation and
- *       distribution of images. </p>
+ * <p> Updates a new image pipeline. Image pipelines enable you to automate the creation and distribution of images. </p>
  */
 export class UpdateImagePipelineCommand extends $Command<
   UpdateImagePipelineCommandInput,

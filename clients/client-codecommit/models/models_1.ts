@@ -31,9 +31,11 @@ export enum SortByEnum {
  */
 export interface ListRepositoriesInput {
   /**
-   * <p>The order in which to sort the results of a list repositories operation.</p>
+   * <p>An enumeration token that allows the operation to batch the results of the operation.
+   *             Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit,
+   *             another page of 1,000 records is retrieved.</p>
    */
-  order?: OrderEnum | string;
+  nextToken?: string;
 
   /**
    * <p>The criteria used to sort the results of a list repositories operation.</p>
@@ -41,11 +43,9 @@ export interface ListRepositoriesInput {
   sortBy?: SortByEnum | string;
 
   /**
-   * <p>An enumeration token that allows the operation to batch the results of the operation.
-   *             Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit,
-   *             another page of 1,000 records is retrieved.</p>
+   * <p>The order in which to sort the results of a list repositories operation.</p>
    */
-  nextToken?: string;
+  order?: OrderEnum | string;
 }
 
 export namespace ListRepositoriesInput {
@@ -80,16 +80,16 @@ export namespace RepositoryNameIdPair {
  */
 export interface ListRepositoriesOutput {
   /**
+   * <p>Lists the repositories called by the list repositories operation.</p>
+   */
+  repositories?: RepositoryNameIdPair[];
+
+  /**
    * <p>An enumeration token that allows the operation to batch the results of the operation.
    *             Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit,
    *             another page of 1,000 records is retrieved.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>Lists the repositories called by the list repositories operation.</p>
-   */
-  repositories?: RepositoryNameIdPair[];
 }
 
 export namespace ListRepositoriesOutput {
@@ -100,9 +100,9 @@ export namespace ListRepositoriesOutput {
 
 export interface ListRepositoriesForApprovalRuleTemplateInput {
   /**
-   * <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
+   * <p>The name of the approval rule template for which you want to list repositories that are associated with that template.</p>
    */
-  maxResults?: number;
+  approvalRuleTemplateName: string | undefined;
 
   /**
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
@@ -111,9 +111,9 @@ export interface ListRepositoriesForApprovalRuleTemplateInput {
   nextToken?: string;
 
   /**
-   * <p>The name of the approval rule template for which you want to list repositories that are associated with that template.</p>
+   * <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
    */
-  approvalRuleTemplateName: string | undefined;
+  maxResults?: number;
 }
 
 export namespace ListRepositoriesForApprovalRuleTemplateInput {
@@ -182,14 +182,14 @@ export namespace ListTagsForResourceInput {
 
 export interface ListTagsForResourceOutput {
   /**
-   * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>A list of tag key and value pairs associated with the specified resource.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListTagsForResourceOutput {
@@ -238,12 +238,6 @@ export namespace InvalidTargetBranchException {
 
 export interface MergeBranchesByFastForwardInput {
   /**
-   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
-   *             (for example, a branch name or a full commit ID).</p>
-   */
-  destinationCommitSpecifier: string | undefined;
-
-  /**
    * <p>The name of the repository where you want to merge two branches.</p>
    */
   repositoryName: string | undefined;
@@ -253,6 +247,12 @@ export interface MergeBranchesByFastForwardInput {
    *             (for example, a branch name or a full commit ID).</p>
    */
   sourceCommitSpecifier: string | undefined;
+
+  /**
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   *             (for example, a branch name or a full commit ID).</p>
+   */
+  destinationCommitSpecifier: string | undefined;
 
   /**
    * <p>The branch where the merge is applied.</p>
@@ -268,14 +268,14 @@ export namespace MergeBranchesByFastForwardInput {
 
 export interface MergeBranchesByFastForwardOutput {
   /**
-   * <p>The tree ID of the merge in the destination or target branch.</p>
-   */
-  treeId?: string;
-
-  /**
    * <p>The commit ID of the merge in the destination or target branch.</p>
    */
   commitId?: string;
+
+  /**
+   * <p>The tree ID of the merge in the destination or target branch.</p>
+   */
+  treeId?: string;
 }
 
 export namespace MergeBranchesByFastForwardOutput {
@@ -286,35 +286,26 @@ export namespace MergeBranchesByFastForwardOutput {
 
 export interface MergeBranchesBySquashInput {
   /**
-   * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
-   *             automatically merging two versions of a file. The default is NONE, which requires any
-   *             conflicts to be resolved manually before the merge operation is successful.</p>
-   */
-  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
-
-  /**
-   * <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
-   *             resolving conflicts during a merge.</p>
-   */
-  conflictResolution?: ConflictResolution;
-
-  /**
    * <p>The name of the repository where you want to merge two branches.</p>
    */
   repositoryName: string | undefined;
-
-  /**
-   * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
-   *             changes leave the folders empty. If this is specified as true, a .gitkeep file is
-   *             created for empty folders. The default is false.</p>
-   */
-  keepEmptyFolders?: boolean;
 
   /**
    * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
    */
   sourceCommitSpecifier: string | undefined;
+
+  /**
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   *             (for example, a branch name or a full commit ID).</p>
+   */
+  destinationCommitSpecifier: string | undefined;
+
+  /**
+   * <p>The branch where the merge is applied. </p>
+   */
+  targetBranch?: string;
 
   /**
    * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
@@ -325,10 +316,11 @@ export interface MergeBranchesBySquashInput {
   conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
 
   /**
-   * <p>The email address of the person merging the branches. This information is used in the
-   *             commit information for the merge.</p>
+   * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
+   *             automatically merging two versions of a file. The default is NONE, which requires any
+   *             conflicts to be resolved manually before the merge operation is successful.</p>
    */
-  email?: string;
+  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
 
   /**
    * <p>The name of the author who created the commit. This information is used as both the
@@ -337,10 +329,10 @@ export interface MergeBranchesBySquashInput {
   authorName?: string;
 
   /**
-   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
-   *             (for example, a branch name or a full commit ID).</p>
+   * <p>The email address of the person merging the branches. This information is used in the
+   *             commit information for the merge.</p>
    */
-  destinationCommitSpecifier: string | undefined;
+  email?: string;
 
   /**
    * <p>The commit message for the merge.</p>
@@ -348,9 +340,17 @@ export interface MergeBranchesBySquashInput {
   commitMessage?: string;
 
   /**
-   * <p>The branch where the merge is applied. </p>
+   * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
+   *             changes leave the folders empty. If this is specified as true, a .gitkeep file is
+   *             created for empty folders. The default is false.</p>
    */
-  targetBranch?: string;
+  keepEmptyFolders?: boolean;
+
+  /**
+   * <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
+   *             resolving conflicts during a merge.</p>
+   */
+  conflictResolution?: ConflictResolution;
 }
 
 export namespace MergeBranchesBySquashInput {
@@ -379,9 +379,34 @@ export namespace MergeBranchesBySquashOutput {
 
 export interface MergeBranchesByThreeWayInput {
   /**
+   * <p>The name of the repository where you want to merge two branches.</p>
+   */
+  repositoryName: string | undefined;
+
+  /**
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   *             (for example, a branch name or a full commit ID).</p>
+   */
+  sourceCommitSpecifier: string | undefined;
+
+  /**
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   *             (for example, a branch name or a full commit ID).</p>
+   */
+  destinationCommitSpecifier: string | undefined;
+
+  /**
    * <p>The branch where the merge is applied. </p>
    */
   targetBranch?: string;
+
+  /**
+   * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
+   *             which returns a not-mergeable result if the same file has differences in both branches.
+   *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
+   *             both branches has differences on the same line.</p>
+   */
+  conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
 
   /**
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
@@ -391,10 +416,21 @@ export interface MergeBranchesByThreeWayInput {
   conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
 
   /**
-   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
-   *             (for example, a branch name or a full commit ID).</p>
+   * <p>The name of the author who created the commit. This information is used as both the
+   *             author and committer for the commit.</p>
    */
-  sourceCommitSpecifier: string | undefined;
+  authorName?: string;
+
+  /**
+   * <p>The email address of the person merging the branches. This information is used in the
+   *             commit information for the merge.</p>
+   */
+  email?: string;
+
+  /**
+   * <p>The commit message to include in the commit information for the merge.</p>
+   */
+  commitMessage?: string;
 
   /**
    * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
@@ -408,42 +444,6 @@ export interface MergeBranchesByThreeWayInput {
    *             resolving conflicts during a merge.</p>
    */
   conflictResolution?: ConflictResolution;
-
-  /**
-   * <p>The name of the repository where you want to merge two branches.</p>
-   */
-  repositoryName: string | undefined;
-
-  /**
-   * <p>The email address of the person merging the branches. This information is used in the
-   *             commit information for the merge.</p>
-   */
-  email?: string;
-
-  /**
-   * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
-   *             which returns a not-mergeable result if the same file has differences in both branches.
-   *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
-   *             both branches has differences on the same line.</p>
-   */
-  conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
-
-  /**
-   * <p>The name of the author who created the commit. This information is used as both the
-   *             author and committer for the commit.</p>
-   */
-  authorName?: string;
-
-  /**
-   * <p>The commit message to include in the commit information for the merge.</p>
-   */
-  commitMessage?: string;
-
-  /**
-   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
-   *             (for example, a branch name or a full commit ID).</p>
-   */
-  destinationCommitSpecifier: string | undefined;
 }
 
 export namespace MergeBranchesByThreeWayInput {
@@ -454,14 +454,14 @@ export namespace MergeBranchesByThreeWayInput {
 
 export interface MergeBranchesByThreeWayOutput {
   /**
-   * <p>The tree ID of the merge in the destination or target branch.</p>
-   */
-  treeId?: string;
-
-  /**
    * <p>The commit ID of the merge in the destination or target branch.</p>
    */
   commitId?: string;
+
+  /**
+   * <p>The tree ID of the merge in the destination or target branch.</p>
+   */
+  treeId?: string;
 }
 
 export namespace MergeBranchesByThreeWayOutput {
@@ -546,47 +546,20 @@ export namespace TipOfSourceReferenceIsDifferentException {
 
 export interface MergePullRequestBySquashInput {
   /**
-   * <p>The email address of the person merging the branches. This information is used in the
-   *             commit information for the merge.</p>
+   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
    */
-  email?: string;
+  pullRequestId: string | undefined;
 
   /**
-   * <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
-   *             resolving conflicts during a merge.</p>
+   * <p>The name of the repository where the pull request was created.</p>
    */
-  conflictResolution?: ConflictResolution;
+  repositoryName: string | undefined;
 
   /**
    * <p>The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an
    *             exception thrown if the current commit ID of the tip of the source branch does not match this commit ID.</p>
    */
   sourceCommitId?: string;
-
-  /**
-   * <p>The name of the author who created the commit. This information is used as both the
-   *             author and committer for the commit.</p>
-   */
-  authorName?: string;
-
-  /**
-   * <p>The commit message to include in the commit information for the merge.</p>
-   */
-  commitMessage?: string;
-
-  /**
-   * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
-   *             automatically merging two versions of a file. The default is NONE, which requires any
-   *             conflicts to be resolved manually before the merge operation is successful.</p>
-   */
-  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
-
-  /**
-   * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
-   *             changes leave the folders empty. If true, a .gitkeep file is created for empty folders.
-   *             The default is false.</p>
-   */
-  keepEmptyFolders?: boolean;
 
   /**
    * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
@@ -597,14 +570,41 @@ export interface MergePullRequestBySquashInput {
   conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
 
   /**
-   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
+   * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
+   *             automatically merging two versions of a file. The default is NONE, which requires any
+   *             conflicts to be resolved manually before the merge operation is successful.</p>
    */
-  pullRequestId: string | undefined;
+  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
 
   /**
-   * <p>The name of the repository where the pull request was created.</p>
+   * <p>The commit message to include in the commit information for the merge.</p>
    */
-  repositoryName: string | undefined;
+  commitMessage?: string;
+
+  /**
+   * <p>The name of the author who created the commit. This information is used as both the
+   *             author and committer for the commit.</p>
+   */
+  authorName?: string;
+
+  /**
+   * <p>The email address of the person merging the branches. This information is used in the
+   *             commit information for the merge.</p>
+   */
+  email?: string;
+
+  /**
+   * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
+   *             changes leave the folders empty. If true, a .gitkeep file is created for empty folders.
+   *             The default is false.</p>
+   */
+  keepEmptyFolders?: boolean;
+
+  /**
+   * <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
+   *             resolving conflicts during a merge.</p>
+   */
+  conflictResolution?: ConflictResolution;
 }
 
 export namespace MergePullRequestBySquashInput {
@@ -628,10 +628,20 @@ export namespace MergePullRequestBySquashOutput {
 
 export interface MergePullRequestByThreeWayInput {
   /**
-   * <p>The name of the author who created the commit. This information is used as both the
-   *             author and committer for the commit.</p>
+   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
    */
-  authorName?: string;
+  pullRequestId: string | undefined;
+
+  /**
+   * <p>The name of the repository where the pull request was created.</p>
+   */
+  repositoryName: string | undefined;
+
+  /**
+   * <p>The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an
+   *             exception thrown if the current commit ID of the tip of the source branch does not match this commit ID.</p>
+   */
+  sourceCommitId?: string;
 
   /**
    * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
@@ -642,18 +652,6 @@ export interface MergePullRequestByThreeWayInput {
   conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
 
   /**
-   * <p>The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an
-   *             exception thrown if the current commit ID of the tip of the source branch does not match this commit ID.</p>
-   */
-  sourceCommitId?: string;
-
-  /**
-   * <p>The email address of the person merging the branches. This information is used in the
-   *             commit information for the merge.</p>
-   */
-  email?: string;
-
-  /**
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
@@ -661,14 +659,21 @@ export interface MergePullRequestByThreeWayInput {
   conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
 
   /**
-   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
+   * <p>The commit message to include in the commit information for the merge.</p>
    */
-  pullRequestId: string | undefined;
+  commitMessage?: string;
 
   /**
-   * <p>The name of the repository where the pull request was created.</p>
+   * <p>The name of the author who created the commit. This information is used as both the
+   *             author and committer for the commit.</p>
    */
-  repositoryName: string | undefined;
+  authorName?: string;
+
+  /**
+   * <p>The email address of the person merging the branches. This information is used in the
+   *             commit information for the merge.</p>
+   */
+  email?: string;
 
   /**
    * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
@@ -682,11 +687,6 @@ export interface MergePullRequestByThreeWayInput {
    *             resolving conflicts during a merge.</p>
    */
   conflictResolution?: ConflictResolution;
-
-  /**
-   * <p>The commit message to include in the commit information for the merge.</p>
-   */
-  commitMessage?: string;
 }
 
 export namespace MergePullRequestByThreeWayInput {
@@ -746,17 +746,17 @@ export namespace OverrideAlreadySetException {
 
 export interface OverridePullRequestApprovalRulesInput {
   /**
-   * <p>The system-generated ID of the most recent revision of the pull request. You cannot override approval rules for anything but the most recent revision of a pull request.
-   *             To get the revision ID, use GetPullRequest.</p>
-   */
-  revisionId: string | undefined;
-
-  /**
    * <p>The system-generated ID of the pull request for which you want to override all
    *             approval rule requirements. To get this information, use
    *             <a>GetPullRequest</a>.</p>
    */
   pullRequestId: string | undefined;
+
+  /**
+   * <p>The system-generated ID of the most recent revision of the pull request. You cannot override approval rules for anything but the most recent revision of a pull request.
+   *             To get the revision ID, use GetPullRequest.</p>
+   */
+  revisionId: string | undefined;
 
   /**
    * <p>Whether you want to set aside approval rule requirements for the pull request (OVERRIDE) or revoke a previous override and apply
@@ -882,12 +882,22 @@ export namespace InvalidRelativeFileVersionEnumException {
 
 export interface PostCommentForComparedCommitInput {
   /**
-   * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
-   *             the request cannot be repeated with a changed parameter. If a request is received with
-   *             the same parameters and a token is included, the request returns information about the
-   *             initial request that used that token.</p>
+   * <p>The name of the repository where you want to post a comment on the comparison between commits.</p>
    */
-  clientRequestToken?: string;
+  repositoryName: string | undefined;
+
+  /**
+   * <p>To establish the directionality of the comparison, the full commit ID of the before
+   *             commit. Required for commenting on any commit unless that commit is the initial
+   *             commit.</p>
+   */
+  beforeCommitId?: string;
+
+  /**
+   * <p>To establish the directionality of the comparison, the full commit ID of the after
+   *             commit.</p>
+   */
+  afterCommitId: string | undefined;
 
   /**
    * <p>The location of the comparison where you want to comment.</p>
@@ -900,22 +910,12 @@ export interface PostCommentForComparedCommitInput {
   content: string | undefined;
 
   /**
-   * <p>The name of the repository where you want to post a comment on the comparison between commits.</p>
+   * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
+   *             the request cannot be repeated with a changed parameter. If a request is received with
+   *             the same parameters and a token is included, the request returns information about the
+   *             initial request that used that token.</p>
    */
-  repositoryName: string | undefined;
-
-  /**
-   * <p>To establish the directionality of the comparison, the full commit ID of the after
-   *             commit.</p>
-   */
-  afterCommitId: string | undefined;
-
-  /**
-   * <p>To establish the directionality of the comparison, the full commit ID of the before
-   *             commit. Required for commenting on any commit unless that commit is the initial
-   *             commit.</p>
-   */
-  beforeCommitId?: string;
+  clientRequestToken?: string;
 }
 
 export namespace PostCommentForComparedCommitInput {
@@ -926,19 +926,9 @@ export namespace PostCommentForComparedCommitInput {
 
 export interface PostCommentForComparedCommitOutput {
   /**
-   * <p>In the directionality you established, the full commit ID of the after commit.</p>
+   * <p>The name of the repository where you posted a comment on the comparison between commits.</p>
    */
-  afterCommitId?: string;
-
-  /**
-   * <p>The content of the comment you posted.</p>
-   */
-  comment?: Comment;
-
-  /**
-   * <p>The location of the comment in the comparison between the two commits.</p>
-   */
-  location?: Location;
+  repositoryName?: string;
 
   /**
    * <p>In the directionality you established, the full commit ID of the before commit.</p>
@@ -946,9 +936,9 @@ export interface PostCommentForComparedCommitOutput {
   beforeCommitId?: string;
 
   /**
-   * <p>The name of the repository where you posted a comment on the comparison between commits.</p>
+   * <p>In the directionality you established, the full commit ID of the after commit.</p>
    */
-  repositoryName?: string;
+  afterCommitId?: string;
 
   /**
    * <p>In the directionality you established, the blob ID of the before blob.</p>
@@ -959,6 +949,16 @@ export interface PostCommentForComparedCommitOutput {
    * <p>In the directionality you established, the blob ID of the after blob.</p>
    */
   afterBlobId?: string;
+
+  /**
+   * <p>The location of the comment in the comparison between the two commits.</p>
+   */
+  location?: Location;
+
+  /**
+   * <p>The content of the comment you posted.</p>
+   */
+  comment?: Comment;
 }
 
 export namespace PostCommentForComparedCommitOutput {
@@ -968,11 +968,6 @@ export namespace PostCommentForComparedCommitOutput {
 }
 
 export interface PostCommentForPullRequestInput {
-  /**
-   * <p>The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was created.</p>
-   */
-  beforeCommitId: string | undefined;
-
   /**
    * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
    */
@@ -984,14 +979,26 @@ export interface PostCommentForPullRequestInput {
   repositoryName: string | undefined;
 
   /**
-   * <p>The content of your comment on the change.</p>
+   * <p>The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was created.</p>
    */
-  content: string | undefined;
+  beforeCommitId: string | undefined;
 
   /**
    * <p>The full commit ID of the commit in the source branch that is the current tip of the branch for the pull request when you post the comment.</p>
    */
   afterCommitId: string | undefined;
+
+  /**
+   * <p>The location of the change where you want to post your comment. If no location is
+   *             provided, the comment is posted as a general comment on the pull request difference
+   *             between the before commit ID and the after commit ID.</p>
+   */
+  location?: Location;
+
+  /**
+   * <p>The content of your comment on the change.</p>
+   */
+  content: string | undefined;
 
   /**
    * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
@@ -1000,13 +1007,6 @@ export interface PostCommentForPullRequestInput {
    *             initial request that used that token.</p>
    */
   clientRequestToken?: string;
-
-  /**
-   * <p>The location of the change where you want to post your comment. If no location is
-   *             provided, the comment is posted as a general comment on the pull request difference
-   *             between the before commit ID and the after commit ID.</p>
-   */
-  location?: Location;
 }
 
 export namespace PostCommentForPullRequestInput {
@@ -1016,12 +1016,6 @@ export namespace PostCommentForPullRequestInput {
 }
 
 export interface PostCommentForPullRequestOutput {
-  /**
-   * <p>The full commit ID of the commit in the source branch used to create the pull request,
-   *             or in the case of an updated pull request, the full commit ID of the commit used to update the pull request.</p>
-   */
-  beforeCommitId?: string;
-
   /**
    * <p>The name of the repository where you posted a comment on a pull request.</p>
    */
@@ -1033,9 +1027,16 @@ export interface PostCommentForPullRequestOutput {
   pullRequestId?: string;
 
   /**
-   * <p>In the directionality of the pull request, the blob ID of the after blob.</p>
+   * <p>The full commit ID of the commit in the source branch used to create the pull request,
+   *             or in the case of an updated pull request, the full commit ID of the commit used to update the pull request.</p>
    */
-  afterBlobId?: string;
+  beforeCommitId?: string;
+
+  /**
+   * <p>The full commit ID of the commit in the destination branch where the pull request is
+   *             merged.</p>
+   */
+  afterCommitId?: string;
 
   /**
    * <p>In the directionality of the pull request, the blob ID of the before blob.</p>
@@ -1043,10 +1044,9 @@ export interface PostCommentForPullRequestOutput {
   beforeBlobId?: string;
 
   /**
-   * <p>The full commit ID of the commit in the destination branch where the pull request is
-   *             merged.</p>
+   * <p>In the directionality of the pull request, the blob ID of the after blob.</p>
    */
-  afterCommitId?: string;
+  afterBlobId?: string;
 
   /**
    * <p>The location of the change where you posted your comment.</p>
@@ -1067,6 +1067,12 @@ export namespace PostCommentForPullRequestOutput {
 
 export interface PostCommentReplyInput {
   /**
+   * <p>The system-generated ID of the comment to which you want to reply. To get this ID, use <a>GetCommentsForComparedCommit</a>
+   *         or <a>GetCommentsForPullRequest</a>.</p>
+   */
+  inReplyTo: string | undefined;
+
+  /**
    * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
    *             the request cannot be repeated with a changed parameter. If a request is received with
    *             the same parameters and a token is included, the request returns information about the
@@ -1078,12 +1084,6 @@ export interface PostCommentReplyInput {
    * <p>The contents of your reply to a comment.</p>
    */
   content: string | undefined;
-
-  /**
-   * <p>The system-generated ID of the comment to which you want to reply. To get this ID, use <a>GetCommentsForComparedCommit</a>
-   *         or <a>GetCommentsForPullRequest</a>.</p>
-   */
-  inReplyTo: string | undefined;
 }
 
 export namespace PostCommentReplyInput {
@@ -1198,23 +1198,9 @@ export namespace FileContentRequiredException {
 
 export interface PutFileInput {
   /**
-   * <p>The full commit ID of the head commit in the branch where you want to add or update the file. If this is an empty repository,
-   *             no commit ID is required. If this is not an empty repository, a commit ID is required. </p>
-   *         <p>The commit ID must match the ID of the head commit at the time of the operation.
-   *             Otherwise, an error occurs, and the file is not added or updated.</p>
+   * <p>The name of the repository where you want to add or update the file.</p>
    */
-  parentCommitId?: string;
-
-  /**
-   * <p>The name of the person adding or updating the file. Although it is optional, a name
-   *             makes the commit history for your repository more useful.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The content of the file, in binary object format. </p>
-   */
-  fileContent: Uint8Array | undefined;
+  repositoryName: string | undefined;
 
   /**
    * <p>The name of the branch where you want to add or update the file. If this is an empty
@@ -1223,15 +1209,9 @@ export interface PutFileInput {
   branchName: string | undefined;
 
   /**
-   * <p>The name of the repository where you want to add or update the file.</p>
+   * <p>The content of the file, in binary object format. </p>
    */
-  repositoryName: string | undefined;
-
-  /**
-   * <p>A message about why this file was added or updated. Although it is optional, a message
-   *             makes the commit history for your repository more useful.</p>
-   */
-  commitMessage?: string;
+  fileContent: Uint8Array | undefined;
 
   /**
    * <p>The name of the file you want to add or update, including the relative path to the file in the repository.</p>
@@ -1243,15 +1223,35 @@ export interface PutFileInput {
   filePath: string | undefined;
 
   /**
-   * <p>An email address for the person adding or updating the file.</p>
-   */
-  email?: string;
-
-  /**
    * <p>The file mode permissions of the blob. Valid file mode permissions are listed
    *             here.</p>
    */
   fileMode?: FileModeTypeEnum | string;
+
+  /**
+   * <p>The full commit ID of the head commit in the branch where you want to add or update the file. If this is an empty repository,
+   *             no commit ID is required. If this is not an empty repository, a commit ID is required. </p>
+   *         <p>The commit ID must match the ID of the head commit at the time of the operation.
+   *             Otherwise, an error occurs, and the file is not added or updated.</p>
+   */
+  parentCommitId?: string;
+
+  /**
+   * <p>A message about why this file was added or updated. Although it is optional, a message
+   *             makes the commit history for your repository more useful.</p>
+   */
+  commitMessage?: string;
+
+  /**
+   * <p>The name of the person adding or updating the file. Although it is optional, a name
+   *             makes the commit history for your repository more useful.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>An email address for the person adding or updating the file.</p>
+   */
+  email?: string;
 }
 
 export namespace PutFileInput {
@@ -1453,14 +1453,14 @@ export namespace MaximumRepositoryTriggersExceededException {
  */
 export interface PutRepositoryTriggersInput {
   /**
-   * <p>The JSON block of configuration information for each trigger.</p>
-   */
-  triggers: RepositoryTrigger[] | undefined;
-
-  /**
    * <p>The name of the repository where you want to create or update the trigger.</p>
    */
   repositoryName: string | undefined;
+
+  /**
+   * <p>The JSON block of configuration information for each trigger.</p>
+   */
+  triggers: RepositoryTrigger[] | undefined;
 }
 
 export namespace PutRepositoryTriggersInput {
@@ -1579,14 +1579,14 @@ export namespace RepositoryTriggersListRequiredException {
 
 export interface TagResourceInput {
   /**
-   * <p>The key-value pair to use when tagging this repository.</p>
-   */
-  tags: { [key: string]: string } | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the resource to which you want to add or update tags.</p>
    */
   resourceArn: string | undefined;
+
+  /**
+   * <p>The key-value pair to use when tagging this repository.</p>
+   */
+  tags: { [key: string]: string } | undefined;
 }
 
 export namespace TagResourceInput {
@@ -1639,14 +1639,14 @@ export namespace TestRepositoryTriggersInput {
  */
 export interface RepositoryTriggerExecutionFailure {
   /**
-   * <p>Message information about the trigger that did not run.</p>
-   */
-  failureMessage?: string;
-
-  /**
    * <p>The name of the trigger that did not run.</p>
    */
   trigger?: string;
+
+  /**
+   * <p>Message information about the trigger that did not run.</p>
+   */
+  failureMessage?: string;
 }
 
 export namespace RepositoryTriggerExecutionFailure {
@@ -1821,14 +1821,14 @@ export namespace UpdateApprovalRuleTemplateDescriptionOutput {
 
 export interface UpdateApprovalRuleTemplateNameInput {
   /**
-   * <p>The new name you want to apply to the approval rule template.</p>
-   */
-  newApprovalRuleTemplateName: string | undefined;
-
-  /**
    * <p>The current name of the approval rule template.</p>
    */
   oldApprovalRuleTemplateName: string | undefined;
+
+  /**
+   * <p>The new name you want to apply to the approval rule template.</p>
+   */
+  newApprovalRuleTemplateName: string | undefined;
 }
 
 export namespace UpdateApprovalRuleTemplateNameInput {
@@ -1923,9 +1923,21 @@ export namespace UpdateDefaultBranchInput {
 
 export interface UpdatePullRequestApprovalRuleContentInput {
   /**
+   * <p>The system-generated ID of the pull request.</p>
+   */
+  pullRequestId: string | undefined;
+
+  /**
    * <p>The name of the approval rule you want to update.</p>
    */
   approvalRuleName: string | undefined;
+
+  /**
+   * <p>The SHA-256 hash signature for the content of the approval rule. You can retrieve this
+   *             information by using
+   *             <a>GetPullRequest</a>.</p>
+   */
+  existingRuleContentSha256?: string;
 
   /**
    * <p>The updated content for the approval rule.</p>
@@ -1971,18 +1983,6 @@ export interface UpdatePullRequestApprovalRuleContentInput {
    *         </note>
    */
   newRuleContent: string | undefined;
-
-  /**
-   * <p>The SHA-256 hash signature for the content of the approval rule. You can retrieve this
-   *             information by using
-   *             <a>GetPullRequest</a>.</p>
-   */
-  existingRuleContentSha256?: string;
-
-  /**
-   * <p>The system-generated ID of the pull request.</p>
-   */
-  pullRequestId: string | undefined;
 }
 
 export namespace UpdatePullRequestApprovalRuleContentInput {
@@ -2061,6 +2061,11 @@ export namespace PullRequestCannotBeApprovedByAuthorException {
 
 export interface UpdatePullRequestApprovalStateInput {
   /**
+   * <p>The system-generated ID of the pull request.</p>
+   */
+  pullRequestId: string | undefined;
+
+  /**
    * <p>The system-generated ID of the revision.</p>
    */
   revisionId: string | undefined;
@@ -2069,11 +2074,6 @@ export interface UpdatePullRequestApprovalStateInput {
    * <p>The approval state to associate with the user on the pull request.</p>
    */
   approvalState: ApprovalState | string | undefined;
-
-  /**
-   * <p>The system-generated ID of the pull request.</p>
-   */
-  pullRequestId: string | undefined;
 }
 
 export namespace UpdatePullRequestApprovalStateInput {
@@ -2084,15 +2084,15 @@ export namespace UpdatePullRequestApprovalStateInput {
 
 export interface UpdatePullRequestDescriptionInput {
   /**
+   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
+   */
+  pullRequestId: string | undefined;
+
+  /**
    * <p>The updated content of the description for the pull request. This content replaces the
    *             existing description.</p>
    */
   description: string | undefined;
-
-  /**
-   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
-   */
-  pullRequestId: string | undefined;
 }
 
 export namespace UpdatePullRequestDescriptionInput {
@@ -2240,14 +2240,14 @@ export namespace UpdateRepositoryDescriptionInput {
  */
 export interface UpdateRepositoryNameInput {
   /**
-   * <p>The new name for the repository.</p>
-   */
-  newName: string | undefined;
-
-  /**
    * <p>The current name of the repository.</p>
    */
   oldName: string | undefined;
+
+  /**
+   * <p>The new name for the repository.</p>
+   */
+  newName: string | undefined;
 }
 
 export namespace UpdateRepositoryNameInput {

@@ -623,15 +623,6 @@ export const serializeAws_restJson1CreateEmailIdentityPolicyCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = "/v2/email/identities/{EmailIdentity}/policies/{PolicyName}";
-  if (input.PolicyName !== undefined) {
-    const labelValue: string = input.PolicyName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: PolicyName.");
-    }
-    resolvedPath = resolvedPath.replace("{PolicyName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: PolicyName.");
-  }
   if (input.EmailIdentity !== undefined) {
     const labelValue: string = input.EmailIdentity;
     if (labelValue.length <= 0) {
@@ -640,6 +631,15 @@ export const serializeAws_restJson1CreateEmailIdentityPolicyCommand = async (
     resolvedPath = resolvedPath.replace("{EmailIdentity}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: EmailIdentity.");
+  }
+  if (input.PolicyName !== undefined) {
+    const labelValue: string = input.PolicyName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: PolicyName.");
+    }
+    resolvedPath = resolvedPath.replace("{PolicyName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: PolicyName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -1130,15 +1130,6 @@ export const serializeAws_restJson1GetContactCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {};
   let resolvedPath = "/v2/email/contact-lists/{ContactListName}/contacts/{EmailAddress}";
-  if (input.EmailAddress !== undefined) {
-    const labelValue: string = input.EmailAddress;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: EmailAddress.");
-    }
-    resolvedPath = resolvedPath.replace("{EmailAddress}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: EmailAddress.");
-  }
   if (input.ContactListName !== undefined) {
     const labelValue: string = input.ContactListName;
     if (labelValue.length <= 0) {
@@ -1147,6 +1138,15 @@ export const serializeAws_restJson1GetContactCommand = async (
     resolvedPath = resolvedPath.replace("{ContactListName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ContactListName.");
+  }
+  if (input.EmailAddress !== undefined) {
+    const labelValue: string = input.EmailAddress;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: EmailAddress.");
+    }
+    resolvedPath = resolvedPath.replace("{EmailAddress}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: EmailAddress.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1252,9 +1252,9 @@ export const serializeAws_restJson1GetDedicatedIpsCommand = async (
   const headers: any = {};
   let resolvedPath = "/v2/email/dedicated-ips";
   const query: any = {
-    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
     ...(input.PoolName !== undefined && { PoolName: input.PoolName }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1585,8 +1585,8 @@ export const serializeAws_restJson1ListContactsCommand = async (
     throw new Error("No value provided for input HTTP label: ContactListName.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   body = JSON.stringify({
@@ -1637,8 +1637,8 @@ export const serializeAws_restJson1ListDedicatedIpPoolsCommand = async (
   const headers: any = {};
   let resolvedPath = "/v2/email/dedicated-ip-pools";
   const query: any = {
-    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1694,10 +1694,10 @@ export const serializeAws_restJson1ListDomainDeliverabilityCampaignsCommand = as
     throw new Error("No value provided for input HTTP label: SubscribedDomain.");
   }
   const query: any = {
-    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.EndDate !== undefined && { EndDate: (input.EndDate.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.StartDate !== undefined && { StartDate: (input.StartDate.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.EndDate !== undefined && { EndDate: (input.EndDate.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1720,8 +1720,8 @@ export const serializeAws_restJson1ListEmailIdentitiesCommand = async (
   const headers: any = {};
   let resolvedPath = "/v2/email/identities";
   const query: any = {
-    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1770,8 +1770,8 @@ export const serializeAws_restJson1ListImportJobsCommand = async (
   };
   let resolvedPath = "/v2/email/import-jobs";
   const query: any = {
-    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
   };
   let body: any;
   body = JSON.stringify({
@@ -1799,10 +1799,10 @@ export const serializeAws_restJson1ListSuppressedDestinationsCommand = async (
   let resolvedPath = "/v2/email/suppression/addresses";
   const query: any = {
     ...(input.Reasons !== undefined && { Reason: (input.Reasons || []).map((_entry) => _entry) }),
-    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
     ...(input.StartDate !== undefined && { StartDate: (input.StartDate.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.EndDate !== undefined && { EndDate: (input.EndDate.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2590,8 +2590,8 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   const headers: any = {};
   let resolvedPath = "/v2/email/tags";
   const query: any = {
-    ...(input.TagKeys !== undefined && { TagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys !== undefined && { TagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2615,15 +2615,6 @@ export const serializeAws_restJson1UpdateConfigurationSetEventDestinationCommand
     "content-type": "application/json",
   };
   let resolvedPath = "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}";
-  if (input.EventDestinationName !== undefined) {
-    const labelValue: string = input.EventDestinationName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: EventDestinationName.");
-    }
-    resolvedPath = resolvedPath.replace("{EventDestinationName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: EventDestinationName.");
-  }
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
@@ -2632,6 +2623,15 @@ export const serializeAws_restJson1UpdateConfigurationSetEventDestinationCommand
     resolvedPath = resolvedPath.replace("{ConfigurationSetName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
+  }
+  if (input.EventDestinationName !== undefined) {
+    const labelValue: string = input.EventDestinationName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: EventDestinationName.");
+    }
+    resolvedPath = resolvedPath.replace("{EventDestinationName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: EventDestinationName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -2660,15 +2660,6 @@ export const serializeAws_restJson1UpdateContactCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = "/v2/email/contact-lists/{ContactListName}/contacts/{EmailAddress}";
-  if (input.EmailAddress !== undefined) {
-    const labelValue: string = input.EmailAddress;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: EmailAddress.");
-    }
-    resolvedPath = resolvedPath.replace("{EmailAddress}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: EmailAddress.");
-  }
   if (input.ContactListName !== undefined) {
     const labelValue: string = input.ContactListName;
     if (labelValue.length <= 0) {
@@ -2677,6 +2668,15 @@ export const serializeAws_restJson1UpdateContactCommand = async (
     resolvedPath = resolvedPath.replace("{ContactListName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ContactListName.");
+  }
+  if (input.EmailAddress !== undefined) {
+    const labelValue: string = input.EmailAddress;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: EmailAddress.");
+    }
+    resolvedPath = resolvedPath.replace("{EmailAddress}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: EmailAddress.");
   }
   let body: any;
   body = JSON.stringify({

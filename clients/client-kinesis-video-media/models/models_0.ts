@@ -97,11 +97,10 @@ export interface StartSelector {
   StartSelectorType: StartSelectorType | string | undefined;
 
   /**
-   * <p>Continuation token that Kinesis Video Streams returned in the previous
-   *         <code>GetMedia</code> response. The <code>GetMedia</code> API then starts with the chunk
-   *       identified by the continuation token.</p>
+   * <p>Specifies the fragment number from where you want the <code>GetMedia</code> API to
+   *       start returning the fragments. </p>
    */
-  ContinuationToken?: string;
+  AfterFragmentNumber?: string;
 
   /**
    * <p>A timestamp value. This value is required if you choose the PRODUCER_TIMESTAMP or the
@@ -111,10 +110,11 @@ export interface StartSelector {
   StartTimestamp?: Date;
 
   /**
-   * <p>Specifies the fragment number from where you want the <code>GetMedia</code> API to
-   *       start returning the fragments. </p>
+   * <p>Continuation token that Kinesis Video Streams returned in the previous
+   *         <code>GetMedia</code> response. The <code>GetMedia</code> API then starts with the chunk
+   *       identified by the continuation token.</p>
    */
-  AfterFragmentNumber?: string;
+  ContinuationToken?: string;
 }
 
 export namespace StartSelector {
@@ -124,11 +124,6 @@ export namespace StartSelector {
 }
 
 export interface GetMediaInput {
-  /**
-   * <p>Identifies the starting chunk to get from the specified stream. </p>
-   */
-  StartSelector: StartSelector | undefined;
-
   /**
    * <p>The Kinesis video stream name from where you want to get the media content. If you
    *       don't specify the <code>streamName</code>, you must specify the
@@ -141,6 +136,11 @@ export interface GetMediaInput {
    *       specify the <code>streamARN</code>, you must specify the <code>streamName</code>.</p>
    */
   StreamARN?: string;
+
+  /**
+   * <p>Identifies the starting chunk to get from the specified stream. </p>
+   */
+  StartSelector: StartSelector | undefined;
 }
 
 export namespace GetMediaInput {
@@ -150,6 +150,11 @@ export namespace GetMediaInput {
 }
 
 export interface GetMediaOutput {
+  /**
+   * <p>The content type of the requested media.</p>
+   */
+  ContentType?: string;
+
   /**
    * <p> The payload Kinesis Video Streams returns is a sequence of chunks from the specified
    *       stream. For information about the chunks, see . The
@@ -221,11 +226,6 @@ export interface GetMediaOutput {
    *          </ul>
    */
   Payload?: Readable | ReadableStream | Blob;
-
-  /**
-   * <p>The content type of the requested media.</p>
-   */
-  ContentType?: string;
 }
 
 export namespace GetMediaOutput {

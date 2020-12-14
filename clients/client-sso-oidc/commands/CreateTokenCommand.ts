@@ -20,6 +20,11 @@ import {
 export type CreateTokenCommandInput = CreateTokenRequest;
 export type CreateTokenCommandOutput = CreateTokenResponse & __MetadataBearer;
 
+/**
+ * <p>Creates and returns an access token for the authorized client. The access token issued
+ *       will be used to fetch short-term credentials for the assigned roles in the AWS
+ *       account.</p>
+ */
 export class CreateTokenCommand extends $Command<
   CreateTokenCommandInput,
   CreateTokenCommandOutput,

@@ -1,4 +1,4 @@
-import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
+import { ProfileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProfileClient";
 import { UpdateDomainRequest, UpdateDomainResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateDomainCommand,
@@ -28,7 +28,7 @@ export type UpdateDomainCommandOutput = UpdateDomainResponse & __MetadataBearer;
 export class UpdateDomainCommand extends $Command<
   UpdateDomainCommandInput,
   UpdateDomainCommandOutput,
-  CustomerProfilesClientResolvedConfig
+  ProfileClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -44,7 +44,7 @@ export class UpdateDomainCommand extends $Command<
    */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CustomerProfilesClientResolvedConfig,
+    configuration: ProfileClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateDomainCommandInput, UpdateDomainCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
@@ -52,7 +52,7 @@ export class UpdateDomainCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
-    const clientName = "CustomerProfilesClient";
+    const clientName = "ProfileClient";
     const commandName = "UpdateDomainCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,

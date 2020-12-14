@@ -20,6 +20,18 @@ export enum ContainerStatus {
  */
 export interface Container {
   /**
+   * <p>The DNS endpoint of the container. Use the endpoint to identify the specific
+   *          container when sending requests to the data plane. The service assigns this value when the
+   *          container is created. Once the value has been assigned, it does not change.</p>
+   */
+  Endpoint?: string;
+
+  /**
+   * <p>Unix timestamp.</p>
+   */
+  CreationTime?: Date;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the container. The ARN has the following
    *          format:</p>
    *          <p>arn:aws:<region>:<account that owns this container>:container/<name of
@@ -29,9 +41,9 @@ export interface Container {
   ARN?: string;
 
   /**
-   * <p>Unix timestamp.</p>
+   * <p>The name of the container.</p>
    */
-  CreationTime?: Date;
+  Name?: string;
 
   /**
    * <p>The status of container creation or deletion. The status is one of the following:
@@ -45,18 +57,6 @@ export interface Container {
    * <p>The state of access logging on the container. This value is <code>false</code> by default, indicating that AWS Elemental MediaStore does not send access logs to Amazon CloudWatch Logs. When you enable access logging on the container, MediaStore changes this value to <code>true</code>, indicating that the service delivers access logs for objects stored in that container to CloudWatch Logs.</p>
    */
   AccessLoggingEnabled?: boolean;
-
-  /**
-   * <p>The DNS endpoint of the container. Use the endpoint to identify the specific
-   *          container when sending requests to the data plane. The service assigns this value when the
-   *          container is created. Once the value has been assigned, it does not change.</p>
-   */
-  Endpoint?: string;
-
-  /**
-   * <p>The name of the container.</p>
-   */
-  Name?: string;
 }
 
 export namespace Container {
@@ -107,15 +107,6 @@ export namespace ContainerNotFoundException {
  */
 export interface CorsRule {
   /**
-   * <p>Specifies which headers are allowed in a preflight <code>OPTIONS</code> request
-   *          through the <code>Access-Control-Request-Headers</code> header. Each header name that is
-   *          specified in <code>Access-Control-Request-Headers</code> must have a corresponding entry in
-   *          the rule. Only the headers that were requested are sent back. </p>
-   *          <p>This element can contain only one wildcard character (*).</p>
-   */
-  AllowedHeaders: string[] | undefined;
-
-  /**
    * <p>One or more response headers that you want users to be able to access from their
    *          applications (for example, from a JavaScript <code>XMLHttpRequest</code> object).</p>
    *          <p>Each CORS rule must have at least one <code>AllowedOrigins</code> element. The string
@@ -134,12 +125,13 @@ export interface CorsRule {
   AllowedMethods?: (MethodName | string)[];
 
   /**
-   * <p>One or more headers in the response that you want users to be able to access from
-   *          their applications (for example, from a JavaScript <code>XMLHttpRequest</code>
-   *          object).</p>
-   *          <p>This element is optional for each rule.</p>
+   * <p>Specifies which headers are allowed in a preflight <code>OPTIONS</code> request
+   *          through the <code>Access-Control-Request-Headers</code> header. Each header name that is
+   *          specified in <code>Access-Control-Request-Headers</code> must have a corresponding entry in
+   *          the rule. Only the headers that were requested are sent back. </p>
+   *          <p>This element can contain only one wildcard character (*).</p>
    */
-  ExposeHeaders?: string[];
+  AllowedHeaders: string[] | undefined;
 
   /**
    * <p>The time in seconds that your browser caches the preflight response for the specified
@@ -147,6 +139,14 @@ export interface CorsRule {
    *          <p>A CORS rule can have only one <code>MaxAgeSeconds</code> element.</p>
    */
   MaxAgeSeconds?: number;
+
+  /**
+   * <p>One or more headers in the response that you want users to be able to access from
+   *          their applications (for example, from a JavaScript <code>XMLHttpRequest</code>
+   *          object).</p>
+   *          <p>This element is optional for each rule.</p>
+   */
+  ExposeHeaders?: string[];
 }
 
 export namespace CorsRule {
@@ -515,14 +515,14 @@ export namespace GetMetricPolicyInput {
  */
 export interface MetricPolicyRule {
   /**
-   * <p>A name that allows you to refer to the object group.</p>
-   */
-  ObjectGroupName: string | undefined;
-
-  /**
    * <p>A path or file name that defines which objects to include in the group. Wildcards (*) are acceptable.</p>
    */
   ObjectGroup: string | undefined;
+
+  /**
+   * <p>A name that allows you to refer to the object group.</p>
+   */
+  ObjectGroupName: string | undefined;
 }
 
 export namespace MetricPolicyRule {
@@ -568,17 +568,17 @@ export namespace GetMetricPolicyOutput {
 
 export interface ListContainersInput {
   /**
-   * <p>Enter the maximum number of containers in the response. Use from 1 to 255 characters.
-   *       </p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>Only if you used <code>MaxResults</code> in the first command, enter the token (which
    *          was included in the previous response) to obtain the next set of containers. This token is
    *          included in a response only if there actually are more containers to list.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Enter the maximum number of containers in the response. Use from 1 to 255 characters.
+   *       </p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListContainersInput {
@@ -589,17 +589,17 @@ export namespace ListContainersInput {
 
 export interface ListContainersOutput {
   /**
+   * <p>The names of the containers.</p>
+   */
+  Containers: Container[] | undefined;
+
+  /**
    * <p>
    *             <code>NextToken</code> is the token to use in the next call to <code>ListContainers</code>.
    *          This token is returned only if you included the <code>MaxResults</code> tag in the original
    *          command, and only if there are still containers to return. </p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The names of the containers.</p>
-   */
-  Containers: Container[] | undefined;
 }
 
 export namespace ListContainersOutput {
@@ -723,6 +723,11 @@ export namespace PutLifecyclePolicyOutput {
 
 export interface PutMetricPolicyInput {
   /**
+   * <p>The name of the container that you want to add the metric policy to.</p>
+   */
+  ContainerName: string | undefined;
+
+  /**
    * <p>The metric policy that you want to associate with the container. In the policy, you must indicate whether you want MediaStore to send container-level metrics. You can also include up to five rules to define groups of objects that you want MediaStore to send object-level metrics for.  If you include rules in the policy, construct each rule with both of the following:</p>
    *          <ul>
    *             <li>
@@ -734,11 +739,6 @@ export interface PutMetricPolicyInput {
    *          </ul>
    */
   MetricPolicy: MetricPolicy | undefined;
-
-  /**
-   * <p>The name of the container that you want to add the metric policy to.</p>
-   */
-  ContainerName: string | undefined;
 }
 
 export namespace PutMetricPolicyInput {
@@ -828,16 +828,16 @@ export namespace TagResourceOutput {
 
 export interface UntagResourceInput {
   /**
+   * <p>The Amazon Resource Name (ARN) for the container.</p>
+   */
+  Resource: string | undefined;
+
+  /**
    * <p>A comma-separated list of keys for tags that you want to remove from the container. For example, if your container has two tags (customer:CompanyA
    *             and priority:High) and you want to remove one of the tags (priority:High), you specify the key for the tag that you want to remove
    *             (priority).</p>
    */
   TagKeys: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the container.</p>
-   */
-  Resource: string | undefined;
 }
 
 export namespace UntagResourceInput {

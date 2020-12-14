@@ -17,34 +17,14 @@ export enum KeyType {
  */
 export interface Encryption {
   /**
-   * The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-   */
-  Region?: string;
-
-  /**
-   * A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
-   */
-  ConstantInitializationVector?: string;
-
-  /**
    * The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
    */
   Algorithm: Algorithm | string | undefined;
 
   /**
-   * An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+   * A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
    */
-  ResourceId?: string;
-
-  /**
-   * The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-   */
-  Url?: string;
+  ConstantInitializationVector?: string;
 
   /**
    * The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
@@ -57,9 +37,29 @@ export interface Encryption {
   KeyType?: KeyType | string;
 
   /**
+   * The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+   */
+  Region?: string;
+
+  /**
+   * An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+   */
+  ResourceId?: string;
+
+  /**
+   * The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
+   */
+  RoleArn: string | undefined;
+
+  /**
    * The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
    */
   SecretArn?: string;
+
+  /**
+   * The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+   */
+  Url?: string;
 }
 
 export namespace Encryption {
@@ -97,19 +97,14 @@ export namespace VpcInterfaceAttachment {
  */
 export interface AddOutputRequest {
   /**
-   * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
+   * The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
    */
-  StreamId?: string;
+  CidrAllowList?: string[];
 
   /**
-   * The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
+   * A description of the output. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the end user.
    */
-  SmoothingLatency?: number;
-
-  /**
-   * The protocol to use for the output.
-   */
-  Protocol: Protocol | string | undefined;
+  Description?: string;
 
   /**
    * The IP address from which video will be sent to output destinations.
@@ -117,29 +112,9 @@ export interface AddOutputRequest {
   Destination?: string;
 
   /**
-   * The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
-   */
-  CidrAllowList?: string[];
-
-  /**
-   * The name of the output. This value must be unique within the current flow.
-   */
-  Name?: string;
-
-  /**
-   * The remote ID for the Zixi-pull output stream.
-   */
-  RemoteId?: string;
-
-  /**
    * The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
    */
   Encryption?: Encryption;
-
-  /**
-   * The port to use when content is distributed to this output.
-   */
-  Port?: number;
 
   /**
    * The maximum latency in milliseconds for Zixi-based streams.
@@ -147,9 +122,34 @@ export interface AddOutputRequest {
   MaxLatency?: number;
 
   /**
-   * A description of the output. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the end user.
+   * The name of the output. This value must be unique within the current flow.
    */
-  Description?: string;
+  Name?: string;
+
+  /**
+   * The port to use when content is distributed to this output.
+   */
+  Port?: number;
+
+  /**
+   * The protocol to use for the output.
+   */
+  Protocol: Protocol | string | undefined;
+
+  /**
+   * The remote ID for the Zixi-pull output stream.
+   */
+  RemoteId?: string;
+
+  /**
+   * The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
+   */
+  SmoothingLatency?: number;
+
+  /**
+   * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
+   */
+  StreamId?: string;
 
   /**
    * The name of the VPC interface attachment to use for this output.
@@ -173,6 +173,31 @@ export enum EntitlementStatus {
  */
 export interface Entitlement {
   /**
+   * Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
+   */
+  DataTransferSubscriberFeePercent?: number;
+
+  /**
+   * A description of the entitlement.
+   */
+  Description?: string;
+
+  /**
+   * The type of encryption that will be used on the output that is associated with this entitlement.
+   */
+  Encryption?: Encryption;
+
+  /**
+   * The ARN of the entitlement.
+   */
+  EntitlementArn: string | undefined;
+
+  /**
+   * An indication of whether the entitlement is enabled.
+   */
+  EntitlementStatus?: EntitlementStatus | string;
+
+  /**
    * The name of the entitlement.
    */
   Name: string | undefined;
@@ -181,31 +206,6 @@ export interface Entitlement {
    * The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
    */
   Subscribers: string[] | undefined;
-
-  /**
-   * The type of encryption that will be used on the output that is associated with this entitlement.
-   */
-  Encryption?: Encryption;
-
-  /**
-   * A description of the entitlement.
-   */
-  Description?: string;
-
-  /**
-   * Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
-   */
-  DataTransferSubscriberFeePercent?: number;
-
-  /**
-   * An indication of whether the entitlement is enabled.
-   */
-  EntitlementStatus?: EntitlementStatus | string;
-
-  /**
-   * The ARN of the entitlement.
-   */
-  EntitlementArn: string | undefined;
 }
 
 export namespace Entitlement {
@@ -219,11 +219,6 @@ export namespace Entitlement {
  */
 export interface GrantEntitlementRequest {
   /**
-   * The type of encryption that will be used on the output that is associated with this entitlement.
-   */
-  Encryption?: Encryption;
-
-  /**
    * Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
    */
   DataTransferSubscriberFeePercent?: number;
@@ -234,9 +229,14 @@ export interface GrantEntitlementRequest {
   Description?: string;
 
   /**
-   * The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flows using your content as the source.
+   * The type of encryption that will be used on the output that is associated with this entitlement.
    */
-  Subscribers: string[] | undefined;
+  Encryption?: Encryption;
+
+  /**
+   * An indication of whether the new entitlement should be enabled or disabled as soon as it is created. If you don’t specify the entitlementStatus field in your request, MediaConnect sets it to ENABLED.
+   */
+  EntitlementStatus?: EntitlementStatus | string;
 
   /**
    * The name of the entitlement. This value must be unique within the current flow.
@@ -244,9 +244,9 @@ export interface GrantEntitlementRequest {
   Name?: string;
 
   /**
-   * An indication of whether the new entitlement should be enabled or disabled as soon as it is created. If you don’t specify the entitlementStatus field in your request, MediaConnect sets it to ENABLED.
+   * The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flows using your content as the source.
    */
-  EntitlementStatus?: EntitlementStatus | string;
+  Subscribers: string[] | undefined;
 }
 
 export namespace GrantEntitlementRequest {
@@ -265,14 +265,14 @@ export interface ListedEntitlement {
   DataTransferSubscriberFeePercent?: number;
 
   /**
-   * The name of the entitlement.
-   */
-  EntitlementName: string | undefined;
-
-  /**
    * The ARN of the entitlement.
    */
   EntitlementArn: string | undefined;
+
+  /**
+   * The name of the entitlement.
+   */
+  EntitlementName: string | undefined;
 }
 
 export namespace ListedEntitlement {
@@ -301,19 +301,19 @@ export enum Status {
  */
 export interface ListedFlow {
   /**
+   * The Availability Zone that the flow was created in.
+   */
+  AvailabilityZone: string | undefined;
+
+  /**
    * A description of the flow.
    */
   Description: string | undefined;
 
   /**
-   * The current status of the flow.
+   * The ARN of the flow.
    */
-  Status: Status | string | undefined;
-
-  /**
-   * The type of source. This value is either owned (originated somewhere other than an AWS Elemental MediaConnect flow owned by another AWS account) or entitled (originated at an AWS Elemental MediaConnect flow owned by another AWS account).
-   */
-  SourceType: SourceType | string | undefined;
+  FlowArn: string | undefined;
 
   /**
    * The name of the flow.
@@ -321,14 +321,14 @@ export interface ListedFlow {
   Name: string | undefined;
 
   /**
-   * The Availability Zone that the flow was created in.
+   * The type of source. This value is either owned (originated somewhere other than an AWS Elemental MediaConnect flow owned by another AWS account) or entitled (originated at an AWS Elemental MediaConnect flow owned by another AWS account).
    */
-  AvailabilityZone: string | undefined;
+  SourceType: SourceType | string | undefined;
 
   /**
-   * The ARN of the flow.
+   * The current status of the flow.
    */
-  FlowArn: string | undefined;
+  Status: Status | string | undefined;
 }
 
 export namespace ListedFlow {
@@ -375,6 +375,36 @@ export namespace ResourceSpecification {
  */
 export interface Offering {
   /**
+   * The type of currency that is used for billing. The currencyCode used for all reservations is US dollars.
+   */
+  CurrencyCode: string | undefined;
+
+  /**
+   * The length of time that your reservation would be active.
+   */
+  Duration: number | undefined;
+
+  /**
+   * The unit of measurement for the duration of the offering.
+   */
+  DurationUnits: DurationUnits | string | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) that MediaConnect assigns to the offering.
+   */
+  OfferingArn: string | undefined;
+
+  /**
+   * A description of the offering.
+   */
+  OfferingDescription: string | undefined;
+
+  /**
+   * The cost of a single unit. This value, in combination with priceUnits, makes up the rate.
+   */
+  PricePerUnit: string | undefined;
+
+  /**
    * The unit of measurement that is used for billing. This value, in combination with pricePerUnit, makes up the rate.
    */
   PriceUnits: PriceUnits | string | undefined;
@@ -383,36 +413,6 @@ export interface Offering {
    * A definition of the amount of outbound bandwidth that you would be reserving if you purchase the offering.
    */
   ResourceSpecification: ResourceSpecification | undefined;
-
-  /**
-   * A description of the offering.
-   */
-  OfferingDescription: string | undefined;
-
-  /**
-   * The length of time that your reservation would be active.
-   */
-  Duration: number | undefined;
-
-  /**
-   * The cost of a single unit. This value, in combination with priceUnits, makes up the rate.
-   */
-  PricePerUnit: string | undefined;
-
-  /**
-   * The Amazon Resource Name (ARN) that MediaConnect assigns to the offering.
-   */
-  OfferingArn: string | undefined;
-
-  /**
-   * The unit of measurement for the duration of the offering.
-   */
-  DurationUnits: DurationUnits | string | undefined;
-
-  /**
-   * The type of currency that is used for billing. The currencyCode used for all reservations is US dollars.
-   */
-  CurrencyCode: string | undefined;
 }
 
 export namespace Offering {
@@ -426,16 +426,6 @@ export namespace Offering {
  */
 export interface Transport {
   /**
-   * The protocol that is used by the source or output.
-   */
-  Protocol: Protocol | string | undefined;
-
-  /**
-   * The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
-   */
-  MaxLatency?: number;
-
-  /**
    * The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
    */
   CidrAllowList?: string[];
@@ -446,19 +436,29 @@ export interface Transport {
   MaxBitrate?: number;
 
   /**
+   * The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
+   */
+  MaxLatency?: number;
+
+  /**
+   * The protocol that is used by the source or output.
+   */
+  Protocol: Protocol | string | undefined;
+
+  /**
    * The remote ID for the Zixi-pull stream.
    */
   RemoteId?: string;
 
   /**
-   * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
-   */
-  StreamId?: string;
-
-  /**
    * The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
    */
   SmoothingLatency?: number;
+
+  /**
+   * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
+   */
+  StreamId?: string;
 }
 
 export namespace Transport {
@@ -472,19 +472,9 @@ export namespace Transport {
  */
 export interface Output {
   /**
-   * The name of the output. This value must be unique within the current flow.
+   * Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
    */
-  Name: string | undefined;
-
-  /**
-   * The port to use when content is distributed to this output.
-   */
-  Port?: number;
-
-  /**
-   * The input ARN of the AWS Elemental MediaLive channel. This parameter is relevant only for outputs that were added by creating a MediaLive input.
-   */
-  MediaLiveInputArn?: string;
+  DataTransferSubscriberFeePercent?: number;
 
   /**
    * A description of the output.
@@ -492,24 +482,9 @@ export interface Output {
   Description?: string;
 
   /**
-   * Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
+   * The address where you want to send the output.
    */
-  DataTransferSubscriberFeePercent?: number;
-
-  /**
-   * The ARN of the output.
-   */
-  OutputArn: string | undefined;
-
-  /**
-   * The name of the VPC interface attachment to use for this output.
-   */
-  VpcInterfaceAttachment?: VpcInterfaceAttachment;
-
-  /**
-   * The ARN of the entitlement on the originator''s flow. This value is relevant only on entitled flows.
-   */
-  EntitlementArn?: string;
+  Destination?: string;
 
   /**
    * The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
@@ -517,14 +492,39 @@ export interface Output {
   Encryption?: Encryption;
 
   /**
+   * The ARN of the entitlement on the originator''s flow. This value is relevant only on entitled flows.
+   */
+  EntitlementArn?: string;
+
+  /**
+   * The input ARN of the AWS Elemental MediaLive channel. This parameter is relevant only for outputs that were added by creating a MediaLive input.
+   */
+  MediaLiveInputArn?: string;
+
+  /**
+   * The name of the output. This value must be unique within the current flow.
+   */
+  Name: string | undefined;
+
+  /**
+   * The ARN of the output.
+   */
+  OutputArn: string | undefined;
+
+  /**
+   * The port to use when content is distributed to this output.
+   */
+  Port?: number;
+
+  /**
    * Attributes related to the transport stream that are used in the output.
    */
   Transport?: Transport;
 
   /**
-   * The address where you want to send the output.
+   * The name of the VPC interface attachment to use for this output.
    */
-  Destination?: string;
+  VpcInterfaceAttachment?: VpcInterfaceAttachment;
 }
 
 export namespace Output {
@@ -545,14 +545,9 @@ export enum ReservationState {
  */
 export interface Reservation {
   /**
-   * A description of the offering. MediaConnect defines this value in the offering.
+   * The type of currency that is used for billing. The currencyCode used for your reservation is US dollars.
    */
-  OfferingDescription: string | undefined;
-
-  /**
-   * The Amazon Resource Name (ARN) that MediaConnect assigns to the reservation when you purchase an offering.
-   */
-  ReservationArn: string | undefined;
+  CurrencyCode: string | undefined;
 
   /**
    * The length of time that this reservation is active. MediaConnect defines this value in the offering.
@@ -560,19 +555,9 @@ export interface Reservation {
   Duration: number | undefined;
 
   /**
-   * A definition of the amount of outbound bandwidth that you would be reserving if you purchase the offering. MediaConnect defines the values that make up the resourceSpecification in the offering.
+   * The unit of measurement for the duration of the reservation. MediaConnect defines this value in the offering.
    */
-  ResourceSpecification: ResourceSpecification | undefined;
-
-  /**
-   * The cost of a single unit. This value, in combination with priceUnits, makes up the rate. MediaConnect defines this value in the offering.
-   */
-  PricePerUnit: string | undefined;
-
-  /**
-   * The Amazon Resource Name (ARN) that MediaConnect assigns to the offering.
-   */
-  OfferingArn: string | undefined;
+  DurationUnits: DurationUnits | string | undefined;
 
   /**
    * The day and time that this reservation expires. This value is calculated based on the start date and time that you set and the offering's duration.
@@ -580,19 +565,19 @@ export interface Reservation {
   End: string | undefined;
 
   /**
-   * The status of your reservation.
+   * The Amazon Resource Name (ARN) that MediaConnect assigns to the offering.
    */
-  ReservationState: ReservationState | string | undefined;
+  OfferingArn: string | undefined;
 
   /**
-   * The unit of measurement for the duration of the reservation. MediaConnect defines this value in the offering.
+   * A description of the offering. MediaConnect defines this value in the offering.
    */
-  DurationUnits: DurationUnits | string | undefined;
+  OfferingDescription: string | undefined;
 
   /**
-   * The name that you assigned to the reservation when you purchased the offering.
+   * The cost of a single unit. This value, in combination with priceUnits, makes up the rate. MediaConnect defines this value in the offering.
    */
-  ReservationName: string | undefined;
+  PricePerUnit: string | undefined;
 
   /**
    * The unit of measurement that is used for billing. This value, in combination with pricePerUnit, makes up the rate. MediaConnect defines this value in the offering.
@@ -600,14 +585,29 @@ export interface Reservation {
   PriceUnits: PriceUnits | string | undefined;
 
   /**
+   * The Amazon Resource Name (ARN) that MediaConnect assigns to the reservation when you purchase an offering.
+   */
+  ReservationArn: string | undefined;
+
+  /**
+   * The name that you assigned to the reservation when you purchased the offering.
+   */
+  ReservationName: string | undefined;
+
+  /**
+   * The status of your reservation.
+   */
+  ReservationState: ReservationState | string | undefined;
+
+  /**
+   * A definition of the amount of outbound bandwidth that you would be reserving if you purchase the offering. MediaConnect defines the values that make up the resourceSpecification in the offering.
+   */
+  ResourceSpecification: ResourceSpecification | undefined;
+
+  /**
    * The day and time that the reservation becomes active. You set this value when you purchase the offering.
    */
   Start: string | undefined;
-
-  /**
-   * The type of currency that is used for billing. The currencyCode used for your reservation is US dollars.
-   */
-  CurrencyCode: string | undefined;
 }
 
 export namespace Reservation {
@@ -621,24 +621,9 @@ export namespace Reservation {
  */
 export interface SetSourceRequest {
   /**
-   * The ARN of the entitlement that allows you to subscribe to this flow. The entitlement is set by the flow originator, and the ARN is generated as part of the originator's flow.
+   * The type of encryption that is used on the content ingested from this source.
    */
-  EntitlementArn?: string;
-
-  /**
-   * The name of the VPC interface to use for this source.
-   */
-  VpcInterfaceName?: string;
-
-  /**
-   * The protocol that is used by the source.
-   */
-  Protocol?: Protocol | string;
-
-  /**
-   * The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
-   */
-  MaxBitrate?: number;
+  Decryption?: Encryption;
 
   /**
    * A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
@@ -646,24 +631,9 @@ export interface SetSourceRequest {
   Description?: string;
 
   /**
-   * The name of the source.
+   * The ARN of the entitlement that allows you to subscribe to this flow. The entitlement is set by the flow originator, and the ARN is generated as part of the originator's flow.
    */
-  Name?: string;
-
-  /**
-   * The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
-   */
-  MaxLatency?: number;
-
-  /**
-   * The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
-   */
-  WhitelistCidr?: string;
-
-  /**
-   * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
-   */
-  StreamId?: string;
+  EntitlementArn?: string;
 
   /**
    * The port that the flow will be listening on for incoming content.
@@ -671,9 +641,39 @@ export interface SetSourceRequest {
   IngestPort?: number;
 
   /**
-   * The type of encryption that is used on the content ingested from this source.
+   * The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
    */
-  Decryption?: Encryption;
+  MaxBitrate?: number;
+
+  /**
+   * The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
+   */
+  MaxLatency?: number;
+
+  /**
+   * The name of the source.
+   */
+  Name?: string;
+
+  /**
+   * The protocol that is used by the source.
+   */
+  Protocol?: Protocol | string;
+
+  /**
+   * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
+   */
+  StreamId?: string;
+
+  /**
+   * The name of the VPC interface to use for this source.
+   */
+  VpcInterfaceName?: string;
+
+  /**
+   * The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+   */
+  WhitelistCidr?: string;
 }
 
 export namespace SetSourceRequest {
@@ -687,49 +687,9 @@ export namespace SetSourceRequest {
  */
 export interface Source {
   /**
-   * The IP address that the flow will be listening on for incoming content.
-   */
-  IngestIp?: string;
-
-  /**
-   * The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
-   */
-  EntitlementArn?: string;
-
-  /**
-   * A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
-   */
-  Description?: string;
-
-  /**
    * Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
    */
   DataTransferSubscriberFeePercent?: number;
-
-  /**
-   * The ARN of the source.
-   */
-  SourceArn: string | undefined;
-
-  /**
-   * The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
-   */
-  WhitelistCidr?: string;
-
-  /**
-   * The port that the flow will be listening on for incoming content.
-   */
-  IngestPort?: number;
-
-  /**
-   * The name of the VPC Interface this Source is configured with.
-   */
-  VpcInterfaceName?: string;
-
-  /**
-   * Attributes related to the transport stream that are used in the source.
-   */
-  Transport?: Transport;
 
   /**
    * The type of encryption that is used on the content ingested from this source.
@@ -737,9 +697,49 @@ export interface Source {
   Decryption?: Encryption;
 
   /**
+   * A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
+   */
+  Description?: string;
+
+  /**
+   * The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
+   */
+  EntitlementArn?: string;
+
+  /**
+   * The IP address that the flow will be listening on for incoming content.
+   */
+  IngestIp?: string;
+
+  /**
+   * The port that the flow will be listening on for incoming content.
+   */
+  IngestPort?: number;
+
+  /**
    * The name of the source.
    */
   Name: string | undefined;
+
+  /**
+   * The ARN of the source.
+   */
+  SourceArn: string | undefined;
+
+  /**
+   * Attributes related to the transport stream that are used in the source.
+   */
+  Transport?: Transport;
+
+  /**
+   * The name of the VPC Interface this Source is configured with.
+   */
+  VpcInterfaceName?: string;
+
+  /**
+   * The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+   */
+  WhitelistCidr?: string;
 }
 
 export namespace Source {
@@ -753,14 +753,14 @@ export namespace Source {
  */
 export interface VpcInterface {
   /**
-   * IDs of the network interfaces created in customer's account by MediaConnect.
-   */
-  NetworkInterfaceIds: string[] | undefined;
-
-  /**
    * Immutable and has to be a unique against other VpcInterfaces in this Flow
    */
   Name: string | undefined;
+
+  /**
+   * IDs of the network interfaces created in customer's account by MediaConnect.
+   */
+  NetworkInterfaceIds: string[] | undefined;
 
   /**
    * Role Arn MediaConnect can assumes to create ENIs in customer's account
@@ -789,6 +789,11 @@ export namespace VpcInterface {
  */
 export interface VpcInterfaceRequest {
   /**
+   * The name of the VPC Interface. This value must be unique within the current flow.
+   */
+  Name: string | undefined;
+
+  /**
    * Role Arn MediaConnect can assumes to create ENIs in customer's account
    */
   RoleArn: string | undefined;
@@ -797,11 +802,6 @@ export interface VpcInterfaceRequest {
    * Security Group IDs to be used on ENI.
    */
   SecurityGroupIds: string[] | undefined;
-
-  /**
-   * The name of the VPC Interface. This value must be unique within the current flow.
-   */
-  Name: string | undefined;
 
   /**
    * Subnet must be in the AZ of the Flow
@@ -856,14 +856,14 @@ export namespace AddFlowOutputsRequest {
 
 export interface AddFlowOutputsResponse {
   /**
-   * The details of the newly added outputs.
-   */
-  Outputs?: Output[];
-
-  /**
    * The ARN of the flow that these outputs were added to.
    */
   FlowArn?: string;
+
+  /**
+   * The details of the newly added outputs.
+   */
+  Outputs?: Output[];
 }
 
 export namespace AddFlowOutputsResponse {
@@ -985,14 +985,14 @@ export namespace TooManyRequestsException {
  */
 export interface AddFlowSourcesRequest {
   /**
-   * A list of sources that you want to add.
-   */
-  Sources: SetSourceRequest[] | undefined;
-
-  /**
    * The flow that you want to mutate.
    */
   FlowArn: string | undefined;
+
+  /**
+   * A list of sources that you want to add.
+   */
+  Sources: SetSourceRequest[] | undefined;
 }
 
 export namespace AddFlowSourcesRequest {
@@ -1003,14 +1003,14 @@ export namespace AddFlowSourcesRequest {
 
 export interface AddFlowSourcesResponse {
   /**
-   * The details of the newly added sources.
-   */
-  Sources?: Source[];
-
-  /**
    * The ARN of the flow that these sources were added to.
    */
   FlowArn?: string;
+
+  /**
+   * The details of the newly added sources.
+   */
+  Sources?: Source[];
 }
 
 export namespace AddFlowSourcesResponse {
@@ -1042,14 +1042,14 @@ export namespace AddFlowVpcInterfacesRequest {
 
 export interface AddFlowVpcInterfacesResponse {
   /**
-   * The details of the newly added VPC interfaces.
-   */
-  VpcInterfaces?: VpcInterface[];
-
-  /**
    * The ARN of the flow that these VPC interfaces were added to.
    */
   FlowArn?: string;
+
+  /**
+   * The details of the newly added VPC interfaces.
+   */
+  VpcInterfaces?: VpcInterface[];
 }
 
 export namespace AddFlowVpcInterfacesResponse {
@@ -1085,11 +1085,12 @@ export enum State {
  * The settings for source failover
  */
 export interface FailoverConfig {
-  State?: State | string;
   /**
    * Search window time to look for dash-7 packets
    */
   RecoveryWindow?: number;
+
+  State?: State | string;
 }
 
 export namespace FailoverConfig {
@@ -1102,26 +1103,10 @@ export namespace FailoverConfig {
  * Creates a new flow. The request must include one source. The request optionally can include outputs (up to 50) and entitlements (up to 50).
  */
 export interface CreateFlowRequest {
-  Sources?: SetSourceRequest[];
-  /**
-   * The settings for the source of the flow.
-   */
-  Source?: SetSourceRequest;
-
   /**
    * The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS Region.
    */
   AvailabilityZone?: string;
-
-  /**
-   * The outputs that you want to add to this flow.
-   */
-  Outputs?: AddOutputRequest[];
-
-  /**
-   * The name of the flow.
-   */
-  Name: string | undefined;
 
   /**
    * The entitlements that you want to grant on a flow.
@@ -1129,14 +1114,30 @@ export interface CreateFlowRequest {
   Entitlements?: GrantEntitlementRequest[];
 
   /**
-   * The VPC interfaces you want on the flow.
+   * The name of the flow.
    */
-  VpcInterfaces?: VpcInterfaceRequest[];
+  Name: string | undefined;
+
+  /**
+   * The outputs that you want to add to this flow.
+   */
+  Outputs?: AddOutputRequest[];
+
+  /**
+   * The settings for the source of the flow.
+   */
+  Source?: SetSourceRequest;
 
   /**
    * The settings for source failover
    */
   SourceFailoverConfig?: FailoverConfig;
+
+  Sources?: SetSourceRequest[];
+  /**
+   * The VPC interfaces you want on the flow.
+   */
+  VpcInterfaces?: VpcInterfaceRequest[];
 }
 
 export namespace CreateFlowRequest {
@@ -1150,14 +1151,9 @@ export namespace CreateFlowRequest {
  */
 export interface Flow {
   /**
-   * The IP address from which video will be sent to output destinations.
+   * The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
    */
-  EgressIp?: string;
-
-  /**
-   * The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
-   */
-  FlowArn: string | undefined;
+  AvailabilityZone: string | undefined;
 
   /**
    * A description of the flow. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
@@ -1165,35 +1161,19 @@ export interface Flow {
   Description?: string;
 
   /**
-   * The VPC Interfaces for this flow.
+   * The IP address from which video will be sent to output destinations.
    */
-  VpcInterfaces?: VpcInterface[];
-
-  /**
-   * The current status of the flow.
-   */
-  Status: Status | string | undefined;
-
-  /**
-   * The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
-   */
-  AvailabilityZone: string | undefined;
+  EgressIp?: string;
 
   /**
    * The entitlements in this flow.
    */
   Entitlements: Entitlement[] | undefined;
 
-  Sources?: Source[];
   /**
-   * The settings for source failover
+   * The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
    */
-  SourceFailoverConfig?: FailoverConfig;
-
-  /**
-   * The settings for the source of the flow.
-   */
-  Source: Source | undefined;
+  FlowArn: string | undefined;
 
   /**
    * The name of the flow.
@@ -1204,6 +1184,27 @@ export interface Flow {
    * The outputs in this flow.
    */
   Outputs: Output[] | undefined;
+
+  /**
+   * The settings for the source of the flow.
+   */
+  Source: Source | undefined;
+
+  /**
+   * The settings for source failover
+   */
+  SourceFailoverConfig?: FailoverConfig;
+
+  Sources?: Source[];
+  /**
+   * The current status of the flow.
+   */
+  Status: Status | string | undefined;
+
+  /**
+   * The VPC Interfaces for this flow.
+   */
+  VpcInterfaces?: VpcInterface[];
 }
 
 export namespace Flow {
@@ -1378,14 +1379,14 @@ export namespace GrantFlowEntitlements420Exception {
  */
 export interface GrantFlowEntitlementsRequest {
   /**
-   * The flow that you want to grant entitlements on.
-   */
-  FlowArn: string | undefined;
-
-  /**
    * The list of entitlements that you want to grant.
    */
   Entitlements: GrantEntitlementRequest[] | undefined;
+
+  /**
+   * The flow that you want to grant entitlements on.
+   */
+  FlowArn: string | undefined;
 }
 
 export namespace GrantFlowEntitlementsRequest {
@@ -1396,14 +1397,14 @@ export namespace GrantFlowEntitlementsRequest {
 
 export interface GrantFlowEntitlementsResponse {
   /**
-   * The ARN of the flow that these entitlements were granted to.
-   */
-  FlowArn?: string;
-
-  /**
    * The entitlements that were just granted.
    */
   Entitlements?: Entitlement[];
+
+  /**
+   * The ARN of the flow that these entitlements were granted to.
+   */
+  FlowArn?: string;
 }
 
 export namespace GrantFlowEntitlementsResponse {
@@ -1486,14 +1487,14 @@ export namespace ListFlowsResponse {
 
 export interface ListOfferingsRequest {
   /**
-   * The token that identifies which batch of results that you want to see. For example, you submit a ListOfferings request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListOfferings request a second time and specify the NextToken value.
-   */
-  NextToken?: string;
-
-  /**
    * The maximum number of results to return per API request. For example, you submit a ListOfferings request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 10 results per page.
    */
   MaxResults?: number;
+
+  /**
+   * The token that identifies which batch of results that you want to see. For example, you submit a ListOfferings request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListOfferings request a second time and specify the NextToken value.
+   */
+  NextToken?: string;
 }
 
 export namespace ListOfferingsRequest {
@@ -1540,14 +1541,14 @@ export namespace ListReservationsRequest {
 
 export interface ListReservationsResponse {
   /**
-   * A list of all reservations that have been purchased by this account in the current AWS Region.
-   */
-  Reservations?: Reservation[];
-
-  /**
    * The token that identifies which batch of results that you want to see. For example, you submit a ListReservations request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListReservations request a second time and specify the NextToken value.
    */
   NextToken?: string;
+
+  /**
+   * A list of all reservations that have been purchased by this account in the current AWS Region.
+   */
+  Reservations?: Reservation[];
 }
 
 export namespace ListReservationsResponse {
@@ -1592,14 +1593,14 @@ export interface PurchaseOfferingRequest {
   OfferingArn: string | undefined;
 
   /**
-   * The date and time that you want the reservation to begin, in Coordinated Universal Time (UTC). You can specify any date and time between 12:00am on the first day of the current month to the current time on today's date, inclusive. Specify the start in a 24-hour notation. Use the following format: YYYY-MM-DDTHH:mm:SSZ, where T and Z are literal characters. For example, to specify 11:30pm on March 5, 2020, enter 2020-03-05T23:30:00Z.
-   */
-  Start: string | undefined;
-
-  /**
    * The name that you want to use for the reservation.
    */
   ReservationName: string | undefined;
+
+  /**
+   * The date and time that you want the reservation to begin, in Coordinated Universal Time (UTC). You can specify any date and time between 12:00am on the first day of the current month to the current time on today's date, inclusive. Specify the start in a 24-hour notation. Use the following format: YYYY-MM-DDTHH:mm:SSZ, where T and Z are literal characters. For example, to specify 11:30pm on March 5, 2020, enter 2020-03-05T23:30:00Z.
+   */
+  Start: string | undefined;
 }
 
 export namespace PurchaseOfferingRequest {
@@ -1641,14 +1642,14 @@ export namespace RemoveFlowOutputRequest {
 
 export interface RemoveFlowOutputResponse {
   /**
-   * The ARN of the output that was removed.
-   */
-  OutputArn?: string;
-
-  /**
    * The ARN of the flow that is associated with the output you removed.
    */
   FlowArn?: string;
+
+  /**
+   * The ARN of the output that was removed.
+   */
+  OutputArn?: string;
 }
 
 export namespace RemoveFlowOutputResponse {
@@ -1713,6 +1714,11 @@ export namespace RemoveFlowVpcInterfaceRequest {
 
 export interface RemoveFlowVpcInterfaceResponse {
   /**
+   * The ARN of the flow that is associated with the VPC interface you removed.
+   */
+  FlowArn?: string;
+
+  /**
    * IDs of network interfaces associated with the removed VPC interface that Media Connect was unable to remove.
    */
   NonDeletedNetworkInterfaceIds?: string[];
@@ -1721,11 +1727,6 @@ export interface RemoveFlowVpcInterfaceResponse {
    * The name of the VPC interface that was removed.
    */
   VpcInterfaceName?: string;
-
-  /**
-   * The ARN of the flow that is associated with the VPC interface you removed.
-   */
-  FlowArn?: string;
 }
 
 export namespace RemoveFlowVpcInterfaceResponse {
@@ -1736,14 +1737,14 @@ export namespace RemoveFlowVpcInterfaceResponse {
 
 export interface RevokeFlowEntitlementRequest {
   /**
-   * The flow that you want to revoke an entitlement from.
-   */
-  FlowArn: string | undefined;
-
-  /**
    * The ARN of the entitlement that you want to revoke.
    */
   EntitlementArn: string | undefined;
+
+  /**
+   * The flow that you want to revoke an entitlement from.
+   */
+  FlowArn: string | undefined;
 }
 
 export namespace RevokeFlowEntitlementRequest {
@@ -1754,14 +1755,14 @@ export namespace RevokeFlowEntitlementRequest {
 
 export interface RevokeFlowEntitlementResponse {
   /**
-   * The ARN of the flow that the entitlement was revoked from.
-   */
-  FlowArn?: string;
-
-  /**
    * The ARN of the entitlement that was revoked.
    */
   EntitlementArn?: string;
+
+  /**
+   * The ARN of the flow that the entitlement was revoked from.
+   */
+  FlowArn?: string;
 }
 
 export namespace RevokeFlowEntitlementResponse {
@@ -1855,14 +1856,14 @@ export namespace TagResourceRequest {
 
 export interface UntagResourceRequest {
   /**
-   * The keys of the tags to be removed.
-   */
-  TagKeys: string[] | undefined;
-
-  /**
    * The Amazon Resource Name (ARN) that identifies the AWS Elemental MediaConnect resource from which to delete tags.
    */
   ResourceArn: string | undefined;
+
+  /**
+   * The keys of the tags to be removed.
+   */
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -1875,11 +1876,12 @@ export namespace UntagResourceRequest {
  * The settings for source failover
  */
 export interface UpdateFailoverConfig {
-  State?: State | string;
   /**
    * Recovery window time to look for dash-7 packets
    */
   RecoveryWindow?: number;
+
+  State?: State | string;
 }
 
 export namespace UpdateFailoverConfig {
@@ -1927,39 +1929,9 @@ export namespace UpdateFlowResponse {
  */
 export interface UpdateEncryption {
   /**
-   * The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-   */
-  Region?: string;
-
-  /**
-   * The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-   */
-  Url?: string;
-
-  /**
-   * The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
-   */
-  RoleArn?: string;
-
-  /**
    * The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
    */
   Algorithm?: Algorithm | string;
-
-  /**
-   * The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
-   */
-  SecretArn?: string;
-
-  /**
-   * The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
-   */
-  KeyType?: KeyType | string;
-
-  /**
-   * The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-   */
-  DeviceId?: string;
 
   /**
    * A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
@@ -1967,9 +1939,39 @@ export interface UpdateEncryption {
   ConstantInitializationVector?: string;
 
   /**
+   * The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+   */
+  DeviceId?: string;
+
+  /**
+   * The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+   */
+  KeyType?: KeyType | string;
+
+  /**
+   * The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+   */
+  Region?: string;
+
+  /**
    * An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
    */
   ResourceId?: string;
+
+  /**
+   * The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
+   */
+  RoleArn?: string;
+
+  /**
+   * The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+   */
+  SecretArn?: string;
+
+  /**
+   * The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+   */
+  Url?: string;
 }
 
 export namespace UpdateEncryption {
@@ -1983,19 +1985,14 @@ export namespace UpdateEncryption {
  */
 export interface UpdateFlowEntitlementRequest {
   /**
-   * The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
-   */
-  Subscribers?: string[];
-
-  /**
    * A description of the entitlement. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the subscriber or end user.
    */
   Description?: string;
 
   /**
-   * An indication of whether you want to enable the entitlement to allow access, or disable it to stop streaming content to the subscriber’s flow temporarily. If you don’t specify the entitlementStatus field in your request, MediaConnect leaves the value unchanged.
+   * The type of encryption that will be used on the output associated with this entitlement.
    */
-  EntitlementStatus?: EntitlementStatus | string;
+  Encryption?: UpdateEncryption;
 
   /**
    * The ARN of the entitlement that you want to update.
@@ -2003,14 +2000,19 @@ export interface UpdateFlowEntitlementRequest {
   EntitlementArn: string | undefined;
 
   /**
+   * An indication of whether you want to enable the entitlement to allow access, or disable it to stop streaming content to the subscriber’s flow temporarily. If you don’t specify the entitlementStatus field in your request, MediaConnect leaves the value unchanged.
+   */
+  EntitlementStatus?: EntitlementStatus | string;
+
+  /**
    * The flow that is associated with the entitlement that you want to update.
    */
   FlowArn: string | undefined;
 
   /**
-   * The type of encryption that will be used on the output associated with this entitlement.
+   * The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
    */
-  Encryption?: UpdateEncryption;
+  Subscribers?: string[];
 }
 
 export namespace UpdateFlowEntitlementRequest {
@@ -2021,14 +2023,14 @@ export namespace UpdateFlowEntitlementRequest {
 
 export interface UpdateFlowEntitlementResponse {
   /**
-   * The ARN of the flow that this entitlement was granted on.
-   */
-  FlowArn?: string;
-
-  /**
    * The new configuration of the entitlement that you updated.
    */
   Entitlement?: Entitlement;
+
+  /**
+   * The ARN of the flow that this entitlement was granted on.
+   */
+  FlowArn?: string;
 }
 
 export namespace UpdateFlowEntitlementResponse {
@@ -2042,34 +2044,9 @@ export namespace UpdateFlowEntitlementResponse {
  */
 export interface UpdateFlowOutputRequest {
   /**
-   * The maximum latency in milliseconds for Zixi-based streams.
+   * The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
    */
-  MaxLatency?: number;
-
-  /**
-   * The protocol to use for the output.
-   */
-  Protocol?: Protocol | string;
-
-  /**
-   * The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
-   */
-  Encryption?: UpdateEncryption;
-
-  /**
-   * The port to use when content is distributed to this output.
-   */
-  Port?: number;
-
-  /**
-   * The remote ID for the Zixi-pull stream.
-   */
-  RemoteId?: string;
-
-  /**
-   * The IP address where you want to send the output.
-   */
-  Destination?: string;
+  CidrAllowList?: string[];
 
   /**
    * A description of the output. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the end user.
@@ -2077,9 +2054,14 @@ export interface UpdateFlowOutputRequest {
   Description?: string;
 
   /**
-   * The ARN of the output that you want to update.
+   * The IP address where you want to send the output.
    */
-  OutputArn: string | undefined;
+  Destination?: string;
+
+  /**
+   * The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+   */
+  Encryption?: UpdateEncryption;
 
   /**
    * The flow that is associated with the output that you want to update.
@@ -2087,14 +2069,34 @@ export interface UpdateFlowOutputRequest {
   FlowArn: string | undefined;
 
   /**
-   * The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+   * The maximum latency in milliseconds for Zixi-based streams.
    */
-  CidrAllowList?: string[];
+  MaxLatency?: number;
 
   /**
-   * The name of the VPC interface attachment to use for this output.
+   * The ARN of the output that you want to update.
    */
-  VpcInterfaceAttachment?: VpcInterfaceAttachment;
+  OutputArn: string | undefined;
+
+  /**
+   * The port to use when content is distributed to this output.
+   */
+  Port?: number;
+
+  /**
+   * The protocol to use for the output.
+   */
+  Protocol?: Protocol | string;
+
+  /**
+   * The remote ID for the Zixi-pull stream.
+   */
+  RemoteId?: string;
+
+  /**
+   * The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
+   */
+  SmoothingLatency?: number;
 
   /**
    * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
@@ -2102,9 +2104,9 @@ export interface UpdateFlowOutputRequest {
   StreamId?: string;
 
   /**
-   * The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
+   * The name of the VPC interface attachment to use for this output.
    */
-  SmoothingLatency?: number;
+  VpcInterfaceAttachment?: VpcInterfaceAttachment;
 }
 
 export namespace UpdateFlowOutputRequest {
@@ -2136,14 +2138,19 @@ export namespace UpdateFlowOutputResponse {
  */
 export interface UpdateFlowSourceRequest {
   /**
+   * The type of encryption used on the content ingested from this source.
+   */
+  Decryption?: UpdateEncryption;
+
+  /**
+   * A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
+   */
+  Description?: string;
+
+  /**
    * The ARN of the entitlement that allows you to subscribe to this flow. The entitlement is set by the flow originator, and the ARN is generated as part of the originator's flow.
    */
   EntitlementArn?: string;
-
-  /**
-   * The ARN of the source that you want to update.
-   */
-  SourceArn: string | undefined;
 
   /**
    * The flow that is associated with the source that you want to update.
@@ -2151,29 +2158,14 @@ export interface UpdateFlowSourceRequest {
   FlowArn: string | undefined;
 
   /**
-   * The type of encryption used on the content ingested from this source.
+   * The port that the flow will be listening on for incoming content.
    */
-  Decryption?: UpdateEncryption;
-
-  /**
-   * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
-   */
-  StreamId?: string;
-
-  /**
-   * The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
-   */
-  WhitelistCidr?: string;
+  IngestPort?: number;
 
   /**
    * The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
    */
   MaxBitrate?: number;
-
-  /**
-   * The port that the flow will be listening on for incoming content.
-   */
-  IngestPort?: number;
 
   /**
    * The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
@@ -2186,14 +2178,24 @@ export interface UpdateFlowSourceRequest {
   Protocol?: Protocol | string;
 
   /**
+   * The ARN of the source that you want to update.
+   */
+  SourceArn: string | undefined;
+
+  /**
+   * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
+   */
+  StreamId?: string;
+
+  /**
    * The name of the VPC Interface to configure this Source with.
    */
   VpcInterfaceName?: string;
 
   /**
-   * A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
+   * The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
    */
-  Description?: string;
+  WhitelistCidr?: string;
 }
 
 export namespace UpdateFlowSourceRequest {

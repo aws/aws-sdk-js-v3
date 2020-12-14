@@ -1,9 +1,9 @@
-import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
-import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { ModifyAddressAttributeRequest, ModifyAddressAttributeResult } from "../models/models_4";
 import {
-  deserializeAws_json1_1ListTagsForResourceCommand,
-  serializeAws_json1_1ListTagsForResourceCommand,
-} from "../protocols/Aws_json1_1";
+  deserializeAws_ec2ModifyAddressAttributeCommand,
+  serializeAws_ec2ModifyAddressAttributeCommand,
+} from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -17,21 +17,18 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTagsForResourceCommandInput = ListTagsForResourceRequest;
-export type ListTagsForResourceCommandOutput = ListTagsForResourceResponse & __MetadataBearer;
+export type ModifyAddressAttributeCommandInput = ModifyAddressAttributeRequest;
+export type ModifyAddressAttributeCommandOutput = ModifyAddressAttributeResult & __MetadataBearer;
 
-/**
- * <p>Lists the tags applied to an Amazon WorkMail organization resource.</p>
- */
-export class ListTagsForResourceCommand extends $Command<
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
-  WorkMailClientResolvedConfig
+export class ModifyAddressAttributeCommand extends $Command<
+  ModifyAddressAttributeCommandInput,
+  ModifyAddressAttributeCommandOutput,
+  EC2ClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: ListTagsForResourceCommandInput) {
+  constructor(readonly input: ModifyAddressAttributeCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -42,22 +39,22 @@ export class ListTagsForResourceCommand extends $Command<
    */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: WorkMailClientResolvedConfig,
+    configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListTagsForResourceCommandInput, ListTagsForResourceCommandOutput> {
+  ): Handler<ModifyAddressAttributeCommandInput, ModifyAddressAttributeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
-    const clientName = "WorkMailClient";
-    const commandName = "ListTagsForResourceCommand";
+    const clientName = "EC2Client";
+    const commandName = "ModifyAddressAttributeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsForResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsForResourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyAddressAttributeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyAddressAttributeResult.filterSensitiveLog,
     };
 
     if (typeof logger.info === "function") {
@@ -75,12 +72,12 @@ export class ListTagsForResourceCommand extends $Command<
     );
   }
 
-  private serialize(input: ListTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTagsForResourceCommand(input, context);
+  private serialize(input: ModifyAddressAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_ec2ModifyAddressAttributeCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForResourceCommandOutput> {
-    return deserializeAws_json1_1ListTagsForResourceCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyAddressAttributeCommandOutput> {
+    return deserializeAws_ec2ModifyAddressAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

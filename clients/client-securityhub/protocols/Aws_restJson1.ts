@@ -806,8 +806,8 @@ export const serializeAws_restJson1DescribeProductsCommand = async (
   const headers: any = {};
   let resolvedPath = "/products";
   const query: any = {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -869,8 +869,8 @@ export const serializeAws_restJson1DescribeStandardsControlsCommand = async (
     throw new Error("No value provided for input HTTP label: StandardsSubscriptionArn.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1304,8 +1304,8 @@ export const serializeAws_restJson1ListEnabledProductsForImportCommand = async (
   const headers: any = {};
   let resolvedPath = "/productSubscriptions";
   const query: any = {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1352,9 +1352,9 @@ export const serializeAws_restJson1ListMembersCommand = async (
   const headers: any = {};
   let resolvedPath = "/members";
   const query: any = {
+    ...(input.OnlyAssociated !== undefined && { OnlyAssociated: input.OnlyAssociated.toString() }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.OnlyAssociated !== undefined && { OnlyAssociated: input.OnlyAssociated.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

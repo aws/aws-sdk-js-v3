@@ -81,6 +81,7 @@ export * from "./commands/ListUserImportJobsCommand";
 export * from "./commands/ListUserPoolClientsCommand";
 export * from "./pagination/ListUserPoolClientsPaginator";
 export * from "./commands/ListUserPoolsCommand";
+export * from "./pagination/ListUserPoolsPaginator";
 export * from "./commands/ListUsersCommand";
 export * from "./pagination/ListUsersPaginator";
 export * from "./commands/ListUsersInGroupCommand";

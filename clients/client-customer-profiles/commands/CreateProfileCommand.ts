@@ -1,4 +1,4 @@
-import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
+import { ProfileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProfileClient";
 import { CreateProfileRequest, CreateProfileResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateProfileCommand,
@@ -28,7 +28,7 @@ export type CreateProfileCommandOutput = CreateProfileResponse & __MetadataBeare
 export class CreateProfileCommand extends $Command<
   CreateProfileCommandInput,
   CreateProfileCommandOutput,
-  CustomerProfilesClientResolvedConfig
+  ProfileClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -44,7 +44,7 @@ export class CreateProfileCommand extends $Command<
    */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CustomerProfilesClientResolvedConfig,
+    configuration: ProfileClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateProfileCommandInput, CreateProfileCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
@@ -52,7 +52,7 @@ export class CreateProfileCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
-    const clientName = "CustomerProfilesClient";
+    const clientName = "ProfileClient";
     const commandName = "CreateProfileCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,

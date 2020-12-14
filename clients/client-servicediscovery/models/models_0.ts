@@ -6,15 +6,15 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  */
 export interface Tag {
   /**
+   * <p>The key identifier, or name, of the tag.</p>
+   */
+  Key: string | undefined;
+
+  /**
    * <p>The string value associated with the key of the tag. You can set the value of a tag to an empty string, but you
    *    can't set the value of a tag to null.</p>
    */
   Value: string | undefined;
-
-  /**
-   * <p>The key identifier, or name, of the tag.</p>
-   */
-  Key: string | undefined;
 }
 
 export namespace Tag {
@@ -24,6 +24,11 @@ export namespace Tag {
 }
 
 export interface CreateHttpNamespaceRequest {
+  /**
+   * <p>The name that you want to assign to this namespace.</p>
+   */
+  Name: string | undefined;
+
   /**
    * <p>A unique string that identifies the request and that allows failed <code>CreateHttpNamespace</code> requests to
    *    be retried without the risk of executing the operation twice. <code>CreatorRequestId</code> can be any unique string,
@@ -35,11 +40,6 @@ export interface CreateHttpNamespaceRequest {
    * <p>A description for the namespace.</p>
    */
   Description?: string;
-
-  /**
-   * <p>The name that you want to assign to this namespace.</p>
-   */
-  Name: string | undefined;
 
   /**
    * <p>The tags to add to the namespace. Each tag consists of a key and an optional value, both of which you define.
@@ -110,12 +110,12 @@ export namespace InvalidInput {
 export interface NamespaceAlreadyExists extends __SmithyException, $MetadataBearer {
   name: "NamespaceAlreadyExists";
   $fault: "client";
+  Message?: string;
   /**
    * <p>The <code>CreatorRequestId</code> that was used to create the namespace.</p>
    */
   CreatorRequestId?: string;
 
-  Message?: string;
   /**
    * <p>The ID of the existing namespace.</p>
    */
@@ -150,12 +150,11 @@ export namespace ResourceLimitExceeded {
 export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
   name: "TooManyTagsException";
   $fault: "client";
+  Message?: string;
   /**
    * <p>The name of the resource.</p>
    */
   ResourceName?: string;
-
-  Message?: string;
 }
 
 export namespace TooManyTagsException {
@@ -166,9 +165,10 @@ export namespace TooManyTagsException {
 
 export interface CreatePrivateDnsNamespaceRequest {
   /**
-   * <p>A description for the namespace.</p>
+   * <p>The name that you want to assign to this namespace. When you create a private DNS namespace, AWS Cloud Map
+   *    automatically creates an Amazon Route 53 private hosted zone that has the same name as the namespace.</p>
    */
-  Description?: string;
+  Name: string | undefined;
 
   /**
    * <p>A unique string that identifies the request and that allows failed <code>CreatePrivateDnsNamespace</code>
@@ -178,22 +178,21 @@ export interface CreatePrivateDnsNamespaceRequest {
   CreatorRequestId?: string;
 
   /**
-   * <p>The tags to add to the namespace. Each tag consists of a key and an optional value, both of which you define.
-   *    Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum
-   *                      length of 256 characters.</p>
+   * <p>A description for the namespace.</p>
    */
-  Tags?: Tag[];
-
-  /**
-   * <p>The name that you want to assign to this namespace. When you create a private DNS namespace, AWS Cloud Map
-   *    automatically creates an Amazon Route 53 private hosted zone that has the same name as the namespace.</p>
-   */
-  Name: string | undefined;
+  Description?: string;
 
   /**
    * <p>The ID of the Amazon VPC that you want to associate the namespace with.</p>
    */
   Vpc: string | undefined;
+
+  /**
+   * <p>The tags to add to the namespace. Each tag consists of a key and an optional value, both of which you define.
+   *    Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum
+   *                      length of 256 characters.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace CreatePrivateDnsNamespaceRequest {
@@ -218,6 +217,11 @@ export namespace CreatePrivateDnsNamespaceResponse {
 
 export interface CreatePublicDnsNamespaceRequest {
   /**
+   * <p>The name that you want to assign to this namespace.</p>
+   */
+  Name: string | undefined;
+
+  /**
    * <p>A unique string that identifies the request and that allows failed <code>CreatePublicDnsNamespace</code>
    *    requests to be retried without the risk of executing the operation twice. <code>CreatorRequestId</code> can be any
    *    unique string, for example, a date/time stamp.</p>
@@ -228,11 +232,6 @@ export interface CreatePublicDnsNamespaceRequest {
    * <p>A description for the namespace.</p>
    */
   Description?: string;
-
-  /**
-   * <p>The name that you want to assign to this namespace.</p>
-   */
-  Name: string | undefined;
 
   /**
    * <p>The tags to add to the namespace. Each tag consists of a key and an optional value, both of which you define.
@@ -428,12 +427,6 @@ export enum RoutingPolicy {
  */
 export interface DnsConfig {
   /**
-   * <p>An array that contains one <code>DnsRecord</code> object for each Route 53 DNS record that you want AWS Cloud Map to
-   *    create when you register an instance.</p>
-   */
-  DnsRecords: DnsRecord[] | undefined;
-
-  /**
    * <p>The ID of the namespace to use for DNS configuration.</p>
    */
   NamespaceId?: string;
@@ -475,6 +468,12 @@ export interface DnsConfig {
    *     <i>Route 53 Developer Guide</i>.</p>
    */
   RoutingPolicy?: RoutingPolicy | string;
+
+  /**
+   * <p>An array that contains one <code>DnsRecord</code> object for each Route 53 DNS record that you want AWS Cloud Map to
+   *    create when you register an instance.</p>
+   */
+  DnsRecords: DnsRecord[] | undefined;
 }
 
 export namespace DnsConfig {
@@ -709,6 +708,11 @@ export interface CreateServiceRequest {
   Name: string | undefined;
 
   /**
+   * <p>The ID of the namespace that you want to use to create the service.</p>
+   */
+  NamespaceId?: string;
+
+  /**
    * <p>A unique string that identifies the request and that allows failed <code>CreateService</code> requests to be
    *    retried without the risk of executing the operation twice. <code>CreatorRequestId</code> can be any unique string,
    *    for example, a date/time stamp.</p>
@@ -716,9 +720,15 @@ export interface CreateServiceRequest {
   CreatorRequestId?: string;
 
   /**
-   * <p>The ID of the namespace that you want to use to create the service.</p>
+   * <p>A description for the service.</p>
    */
-  NamespaceId?: string;
+  Description?: string;
+
+  /**
+   * <p>A complex type that contains information about the Amazon Route 53 records that you want AWS Cloud Map to create when you
+   *    register an instance. </p>
+   */
+  DnsConfig?: DnsConfig;
 
   /**
    * <p>
@@ -734,18 +744,6 @@ export interface CreateServiceRequest {
   HealthCheckConfig?: HealthCheckConfig;
 
   /**
-   * <p>A description for the service.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The tags to add to the service. Each tag consists of a key and an optional value, both of which you define.
-   *    Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum
-   *                      length of 256 characters.</p>
-   */
-  Tags?: Tag[];
-
-  /**
    * <p>A complex type that contains information about an optional custom health check.</p>
    *          <important>
    *             <p>If you specify a health check configuration, you can specify either <code>HealthCheckCustomConfig</code> or
@@ -757,10 +755,11 @@ export interface CreateServiceRequest {
   HealthCheckCustomConfig?: HealthCheckCustomConfig;
 
   /**
-   * <p>A complex type that contains information about the Amazon Route 53 records that you want AWS Cloud Map to create when you
-   *    register an instance. </p>
+   * <p>The tags to add to the service. Each tag consists of a key and an optional value, both of which you define.
+   *    Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum
+   *                      length of 256 characters.</p>
    */
-  DnsConfig?: DnsConfig;
+  Tags?: Tag[];
 }
 
 export namespace CreateServiceRequest {
@@ -774,18 +773,19 @@ export namespace CreateServiceRequest {
  */
 export interface Service {
   /**
+   * <p>The ID that AWS Cloud Map assigned to the service when you created it.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service when you create it.</p>
+   */
+  Arn?: string;
+
+  /**
    * <p>The name of the service.</p>
    */
   Name?: string;
-
-  /**
-   * <p>A complex type that contains information about an optional custom health check.</p>
-   *          <important>
-   *             <p>If you specify a health check configuration, you can specify either <code>HealthCheckCustomConfig</code> or
-   *      <code>HealthCheckConfig</code> but not both.</p>
-   *          </important>
-   */
-  HealthCheckCustomConfig?: HealthCheckCustomConfig;
 
   /**
    * <p>The ID of the namespace that was used to create the service.</p>
@@ -793,13 +793,9 @@ export interface Service {
   NamespaceId?: string;
 
   /**
-   * <p>
-   *             <i>Public DNS and HTTP namespaces only.</i> A complex type that contains settings for an optional
-   *    health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records
-   *    that you specify in <code>DnsConfig</code>.</p>
-   *          <p>For information about the charges for health checks, see <a href="http://aws.amazon.com/route53/pricing/">Amazon Route 53 Pricing</a>.</p>
+   * <p>The description of the service.</p>
    */
-  HealthCheckConfig?: HealthCheckConfig;
+  Description?: string;
 
   /**
    * <p>The number of instances that are currently associated with the service. Instances that were previously
@@ -815,21 +811,22 @@ export interface Service {
   DnsConfig?: DnsConfig;
 
   /**
-   * <p>The ID that AWS Cloud Map assigned to the service when you created it.</p>
+   * <p>
+   *             <i>Public DNS and HTTP namespaces only.</i> A complex type that contains settings for an optional
+   *    health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records
+   *    that you specify in <code>DnsConfig</code>.</p>
+   *          <p>For information about the charges for health checks, see <a href="http://aws.amazon.com/route53/pricing/">Amazon Route 53 Pricing</a>.</p>
    */
-  Id?: string;
+  HealthCheckConfig?: HealthCheckConfig;
 
   /**
-   * <p>The description of the service.</p>
+   * <p>A complex type that contains information about an optional custom health check.</p>
+   *          <important>
+   *             <p>If you specify a health check configuration, you can specify either <code>HealthCheckCustomConfig</code> or
+   *      <code>HealthCheckConfig</code> but not both.</p>
+   *          </important>
    */
-  Description?: string;
-
-  /**
-   * <p>A unique string that identifies the request and that allows failed requests to be retried without the risk of
-   *    executing the operation twice. <code>CreatorRequestId</code> can be any unique string, for example, a date/time
-   *    stamp.</p>
-   */
-  CreatorRequestId?: string;
+  HealthCheckCustomConfig?: HealthCheckCustomConfig;
 
   /**
    * <p>The date and time that the service was created, in Unix format and Coordinated Universal Time (UTC). The value
@@ -839,9 +836,11 @@ export interface Service {
   CreateDate?: Date;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service when you create it.</p>
+   * <p>A unique string that identifies the request and that allows failed requests to be retried without the risk of
+   *    executing the operation twice. <code>CreatorRequestId</code> can be any unique string, for example, a date/time
+   *    stamp.</p>
    */
-  Arn?: string;
+  CreatorRequestId?: string;
 }
 
 export namespace Service {
@@ -1058,15 +1057,9 @@ export enum HealthStatusFilter {
 
 export interface DiscoverInstancesRequest {
   /**
-   * <p>Filters to scope the results based on custom attributes for the instance. For example, <code>{version=v1,
-   *          az=1a}</code>. Only instances that match all the specified key-value pairs will be returned.</p>
+   * <p>The name of the namespace that you specified when you registered the instance.</p>
    */
-  QueryParameters?: { [key: string]: string };
-
-  /**
-   * <p>The health status of the instances that you want to discover.</p>
-   */
-  HealthStatus?: HealthStatusFilter | string;
+  NamespaceName: string | undefined;
 
   /**
    * <p>The name of the service that you specified when you registered the instance.</p>
@@ -1081,6 +1074,12 @@ export interface DiscoverInstancesRequest {
   MaxResults?: number;
 
   /**
+   * <p>Filters to scope the results based on custom attributes for the instance. For example, <code>{version=v1,
+   *          az=1a}</code>. Only instances that match all the specified key-value pairs will be returned.</p>
+   */
+  QueryParameters?: { [key: string]: string };
+
+  /**
    * <p>Opportunistic filters to scope the results based on custom attributes. If there are instances that match
    *          both the filters specified in both the <code>QueryParameters</code> parameter and this parameter, they are
    *          returned. Otherwise, these filters are ignored and only instances that match the filters specified in the
@@ -1089,9 +1088,9 @@ export interface DiscoverInstancesRequest {
   OptionalParameters?: { [key: string]: string };
 
   /**
-   * <p>The name of the namespace that you specified when you registered the instance.</p>
+   * <p>The health status of the instances that you want to discover.</p>
    */
-  NamespaceName: string | undefined;
+  HealthStatus?: HealthStatusFilter | string;
 }
 
 export namespace DiscoverInstancesRequest {
@@ -1112,9 +1111,9 @@ export enum HealthStatus {
  */
 export interface HttpInstanceSummary {
   /**
-   * <p>If you configured health checking in the service, the current health status of the service instance.</p>
+   * <p>The ID of an instance that matches the values that you specified in the request.</p>
    */
-  HealthStatus?: HealthStatus | string;
+  InstanceId?: string;
 
   /**
    * <p>The name of the namespace that you specified when you registered the instance.</p>
@@ -1122,19 +1121,19 @@ export interface HttpInstanceSummary {
   NamespaceName?: string;
 
   /**
-   * <p>The ID of an instance that matches the values that you specified in the request.</p>
+   * <p>The name of the service that you specified when you registered the instance.</p>
    */
-  InstanceId?: string;
+  ServiceName?: string;
+
+  /**
+   * <p>If you configured health checking in the service, the current health status of the service instance.</p>
+   */
+  HealthStatus?: HealthStatus | string;
 
   /**
    * <p>If you included any attributes when you registered the instance, the values of those attributes.</p>
    */
   Attributes?: { [key: string]: string };
-
-  /**
-   * <p>The name of the service that you specified when you registered the instance.</p>
-   */
-  ServiceName?: string;
 }
 
 export namespace HttpInstanceSummary {
@@ -1216,14 +1215,14 @@ export enum FilterCondition {
 
 export interface GetInstanceRequest {
   /**
-   * <p>The ID of the instance that you want to get information about.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
    * <p>The ID of the service that the instance is associated with.</p>
    */
   ServiceId: string | undefined;
+
+  /**
+   * <p>The ID of the instance that you want to get information about.</p>
+   */
+  InstanceId: string | undefined;
 }
 
 export namespace GetInstanceRequest {
@@ -1237,6 +1236,42 @@ export namespace GetInstanceRequest {
  *     <code>RegisterInstance</code> request.</p>
  */
 export interface Instance {
+  /**
+   * <p>An identifier that you want to associate with the instance. Note the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the service that is specified by <code>ServiceId</code> includes settings for an <code>SRV</code> record,
+   *      the value of <code>InstanceId</code> is automatically included as part of the value for the <code>SRV</code>
+   *      record. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DnsRecord.html#cloudmap-Type-DnsRecord-Type">DnsRecord > Type</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>You can use this value to update an existing instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>To register a new instance, you must specify a value that is unique among instances that you register by using
+   *      the same service. </p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, AWS Cloud Map updates the existing
+   *      DNS records. If there's also an existing health check, AWS Cloud Map deletes the old health check and creates a new
+   *      one. </p>
+   *                <note>
+   *                   <p>The health check isn't deleted immediately, so it will still appear for a while if you submit a
+   *        <code>ListHealthChecks</code> request, for example.</p>
+   *                </note>
+   *             </li>
+   *          </ul>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>A unique string that identifies the request and that allows failed <code>RegisterInstance</code> requests to be
+   *    retried without the risk of executing the operation twice. You must use a unique <code>CreatorRequestId</code> string
+   *    every time you submit a <code>RegisterInstance</code> request if you're registering additional instances for the same
+   *    namespace and service. <code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp.</p>
+   */
+  CreatorRequestId?: string;
+
   /**
    * <p>A string map that contains the following information for the service that you specify in
    *                 <code>ServiceId</code>:</p>
@@ -1324,42 +1359,6 @@ export interface Instance {
    *             when you created the service.</p>
    */
   Attributes?: { [key: string]: string };
-
-  /**
-   * <p>An identifier that you want to associate with the instance. Note the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If the service that is specified by <code>ServiceId</code> includes settings for an <code>SRV</code> record,
-   *      the value of <code>InstanceId</code> is automatically included as part of the value for the <code>SRV</code>
-   *      record. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DnsRecord.html#cloudmap-Type-DnsRecord-Type">DnsRecord > Type</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>You can use this value to update an existing instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>To register a new instance, you must specify a value that is unique among instances that you register by using
-   *      the same service. </p>
-   *             </li>
-   *             <li>
-   *                <p>If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, AWS Cloud Map updates the existing
-   *      DNS records. If there's also an existing health check, AWS Cloud Map deletes the old health check and creates a new
-   *      one. </p>
-   *                <note>
-   *                   <p>The health check isn't deleted immediately, so it will still appear for a while if you submit a
-   *        <code>ListHealthChecks</code> request, for example.</p>
-   *                </note>
-   *             </li>
-   *          </ul>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>A unique string that identifies the request and that allows failed <code>RegisterInstance</code> requests to be
-   *    retried without the risk of executing the operation twice. You must use a unique <code>CreatorRequestId</code> string
-   *    every time you submit a <code>RegisterInstance</code> request if you're registering additional instances for the same
-   *    namespace and service. <code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp.</p>
-   */
-  CreatorRequestId?: string;
 }
 
 export namespace Instance {
@@ -1383,6 +1382,11 @@ export namespace GetInstanceResponse {
 
 export interface GetInstancesHealthStatusRequest {
   /**
+   * <p>The ID of the service that the instance is associated with.</p>
+   */
+  ServiceId: string | undefined;
+
+  /**
    * <p>An array that contains the IDs of all the instances that you want to get the health status for.</p>
    *          <p>If you omit <code>Instances</code>, AWS Cloud Map returns the health status for all the instances that are
    *    associated with the specified service.</p>
@@ -1393,14 +1397,6 @@ export interface GetInstancesHealthStatusRequest {
   Instances?: string[];
 
   /**
-   * <p>For the first <code>GetInstancesHealthStatus</code> request, omit this value.</p>
-   *          <p>If more than <code>MaxResults</code> instances match the specified criteria, you can submit another
-   *     <code>GetInstancesHealthStatus</code> request to get the next group of results. Specify the value of
-   *     <code>NextToken</code> from the previous response in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of instances that you want AWS Cloud Map to return in the response to a
    *     <code>GetInstancesHealthStatus</code> request. If you don't specify a value for <code>MaxResults</code>, AWS Cloud Map
    *    returns up to 100 instances.</p>
@@ -1408,9 +1404,12 @@ export interface GetInstancesHealthStatusRequest {
   MaxResults?: number;
 
   /**
-   * <p>The ID of the service that the instance is associated with.</p>
+   * <p>For the first <code>GetInstancesHealthStatus</code> request, omit this value.</p>
+   *          <p>If more than <code>MaxResults</code> instances match the specified criteria, you can submit another
+   *     <code>GetInstancesHealthStatus</code> request to get the next group of results. Specify the value of
+   *     <code>NextToken</code> from the previous response in the next request.</p>
    */
-  ServiceId: string | undefined;
+  NextToken?: string;
 }
 
 export namespace GetInstancesHealthStatusRequest {
@@ -1474,15 +1473,15 @@ export namespace HttpProperties {
  */
 export interface NamespaceProperties {
   /**
-   * <p>A complex type that contains the name of an HTTP namespace.</p>
-   */
-  HttpProperties?: HttpProperties;
-
-  /**
    * <p>A complex type that contains the ID for the Route 53 hosted zone that AWS Cloud Map creates when you create a
    *    namespace.</p>
    */
   DnsProperties?: DnsProperties;
+
+  /**
+   * <p>A complex type that contains the name of an HTTP namespace.</p>
+   */
+  HttpProperties?: HttpProperties;
 }
 
 export namespace NamespaceProperties {
@@ -1502,20 +1501,19 @@ export enum NamespaceType {
  */
 export interface Namespace {
   /**
-   * <p>A unique string that identifies the request and that allows failed requests to be retried without the risk of
-   *    executing an operation twice. </p>
-   */
-  CreatorRequestId?: string;
-
-  /**
    * <p>The ID of a namespace.</p>
    */
   Id?: string;
 
   /**
-   * <p>The description that you specify for the namespace when you create it.</p>
+   * <p>The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the namespace when you create it.</p>
    */
-  Description?: string;
+  Arn?: string;
+
+  /**
+   * <p>The name of the namespace, such as <code>example.com</code>.</p>
+   */
+  Name?: string;
 
   /**
    * <p>The type of the namespace. The methods for discovering instances depends on the value that you specify:</p>
@@ -1540,11 +1538,14 @@ export interface Namespace {
   Type?: NamespaceType | string;
 
   /**
-   * <p>The date that the namespace was created, in Unix date/time format and Coordinated Universal Time (UTC). The
-   *    value of <code>CreateDate</code> is accurate to milliseconds. For example, the value <code>1516925490.087</code>
-   *    represents Friday, January 26, 2018 12:11:30.087 AM.</p>
+   * <p>The description that you specify for the namespace when you create it.</p>
    */
-  CreateDate?: Date;
+  Description?: string;
+
+  /**
+   * <p>The number of services that are associated with the namespace.</p>
+   */
+  ServiceCount?: number;
 
   /**
    * <p>A complex type that contains information that's specific to the type of the namespace.</p>
@@ -1552,19 +1553,17 @@ export interface Namespace {
   Properties?: NamespaceProperties;
 
   /**
-   * <p>The name of the namespace, such as <code>example.com</code>.</p>
+   * <p>The date that the namespace was created, in Unix date/time format and Coordinated Universal Time (UTC). The
+   *    value of <code>CreateDate</code> is accurate to milliseconds. For example, the value <code>1516925490.087</code>
+   *    represents Friday, January 26, 2018 12:11:30.087 AM.</p>
    */
-  Name?: string;
+  CreateDate?: Date;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the namespace when you create it.</p>
+   * <p>A unique string that identifies the request and that allows failed requests to be retried without the risk of
+   *    executing an operation twice. </p>
    */
-  Arn?: string;
-
-  /**
-   * <p>The number of services that are associated with the namespace.</p>
-   */
-  ServiceCount?: number;
+  CreatorRequestId?: string;
 }
 
 export namespace Namespace {
@@ -1625,35 +1624,6 @@ export enum OperationType {
  */
 export interface Operation {
   /**
-   * <p>The date and time that the value of <code>Status</code> changed to the current value, in Unix date/time format
-   *    and Coordinated Universal Time (UTC). The value of <code>UpdateDate</code> is accurate to milliseconds. For example,
-   *    the value <code>1516925490.087</code> represents Friday, January 26, 2018 12:11:30.087 AM.</p>
-   */
-  UpdateDate?: Date;
-
-  /**
-   * <p>The name of the target entity that is associated with the operation:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>NAMESPACE</b>: The namespace ID is returned in the <code>ResourceId</code>
-   *      property.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>SERVICE</b>: The service ID is returned in the <code>ResourceId</code>
-   *      property.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>INSTANCE</b>: The instance ID is returned in the <code>ResourceId</code>
-   *      property.</p>
-   *             </li>
-   *          </ul>
-   */
-  Targets?: { [key: string]: string };
-
-  /**
    * <p>The ID of the operation that you want to get information about.</p>
    */
   Id?: string;
@@ -1662,18 +1632,6 @@ export interface Operation {
    * <p>The name of the operation that is associated with the specified ID.</p>
    */
   Type?: OperationType | string;
-
-  /**
-   * <p>The date and time that the request was submitted, in Unix date/time format and Coordinated Universal Time (UTC).
-   *    The value of <code>CreateDate</code> is accurate to milliseconds. For example, the value <code>1516925490.087</code>
-   *    represents Friday, January 26, 2018 12:11:30.087 AM.</p>
-   */
-  CreateDate?: Date;
-
-  /**
-   * <p>If the value of <code>Status</code> is <code>FAIL</code>, the reason that the operation failed.</p>
-   */
-  ErrorMessage?: string;
 
   /**
    * <p>The status of the operation. Values include the following:</p>
@@ -1699,6 +1657,11 @@ export interface Operation {
    *          </ul>
    */
   Status?: OperationStatus | string;
+
+  /**
+   * <p>If the value of <code>Status</code> is <code>FAIL</code>, the reason that the operation failed.</p>
+   */
+  ErrorMessage?: string;
 
   /**
    * <p>The code associated with <code>ErrorMessage</code>. Values for <code>ErrorCode</code> include the
@@ -1742,6 +1705,42 @@ export interface Operation {
    *          </ul>
    */
   ErrorCode?: string;
+
+  /**
+   * <p>The date and time that the request was submitted, in Unix date/time format and Coordinated Universal Time (UTC).
+   *    The value of <code>CreateDate</code> is accurate to milliseconds. For example, the value <code>1516925490.087</code>
+   *    represents Friday, January 26, 2018 12:11:30.087 AM.</p>
+   */
+  CreateDate?: Date;
+
+  /**
+   * <p>The date and time that the value of <code>Status</code> changed to the current value, in Unix date/time format
+   *    and Coordinated Universal Time (UTC). The value of <code>UpdateDate</code> is accurate to milliseconds. For example,
+   *    the value <code>1516925490.087</code> represents Friday, January 26, 2018 12:11:30.087 AM.</p>
+   */
+  UpdateDate?: Date;
+
+  /**
+   * <p>The name of the target entity that is associated with the operation:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>NAMESPACE</b>: The namespace ID is returned in the <code>ResourceId</code>
+   *      property.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>SERVICE</b>: The service ID is returned in the <code>ResourceId</code>
+   *      property.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>INSTANCE</b>: The instance ID is returned in the <code>ResourceId</code>
+   *      property.</p>
+   *             </li>
+   *          </ul>
+   */
+  Targets?: { [key: string]: string };
 }
 
 export namespace Operation {
@@ -1873,6 +1872,11 @@ export namespace InstanceSummary {
 
 export interface ListInstancesRequest {
   /**
+   * <p>The ID of the service that you want to list instances for.</p>
+   */
+  ServiceId: string | undefined;
+
+  /**
    * <p>For the first <code>ListInstances</code> request, omit this value.</p>
    *          <p>If more than <code>MaxResults</code> instances match the specified criteria, you can submit another
    *     <code>ListInstances</code> request to get the next group of results. Specify the value of <code>NextToken</code>
@@ -1886,11 +1890,6 @@ export interface ListInstancesRequest {
    *    to 100 instances.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>The ID of the service that you want to list instances for.</p>
-   */
-  ServiceId: string | undefined;
 }
 
 export namespace ListInstancesRequest {
@@ -1901,16 +1900,16 @@ export namespace ListInstancesRequest {
 
 export interface ListInstancesResponse {
   /**
+   * <p>Summary information about the instances that are associated with the specified service.</p>
+   */
+  Instances?: InstanceSummary[];
+
+  /**
    * <p>If more than <code>MaxResults</code> instances match the specified criteria, you can submit another
    *     <code>ListInstances</code> request to get the next group of results. Specify the value of <code>NextToken</code>
    *    from the previous response in the next request.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Summary information about the instances that are associated with the specified service.</p>
-   */
-  Instances?: InstanceSummary[];
 }
 
 export namespace ListInstancesResponse {
@@ -1928,6 +1927,19 @@ export enum NamespaceFilterName {
  *    namespaces.</p>
  */
 export interface NamespaceFilter {
+  /**
+   * <p>Specify <code>TYPE</code>.</p>
+   */
+  Name: NamespaceFilterName | string | undefined;
+
+  /**
+   * <p>If you specify <code>EQ</code> for <code>Condition</code>, specify either <code>DNS_PUBLIC</code> or
+   *     <code>DNS_PRIVATE</code>.</p>
+   *          <p>If you specify <code>IN</code> for <code>Condition</code>, you can specify <code>DNS_PUBLIC</code>,
+   *     <code>DNS_PRIVATE</code>, or both.</p>
+   */
+  Values: string[] | undefined;
+
   /**
    * <p>The operator that you want to use to determine whether <code>ListNamespaces</code> returns a namespace. Valid
    *    values for <code>condition</code> include:</p>
@@ -1949,19 +1961,6 @@ export interface NamespaceFilter {
    *          </ul>
    */
   Condition?: FilterCondition | string;
-
-  /**
-   * <p>Specify <code>TYPE</code>.</p>
-   */
-  Name: NamespaceFilterName | string | undefined;
-
-  /**
-   * <p>If you specify <code>EQ</code> for <code>Condition</code>, specify either <code>DNS_PUBLIC</code> or
-   *     <code>DNS_PRIVATE</code>.</p>
-   *          <p>If you specify <code>IN</code> for <code>Condition</code>, you can specify <code>DNS_PUBLIC</code>,
-   *     <code>DNS_PRIVATE</code>, or both.</p>
-   */
-  Values: string[] | undefined;
 }
 
 export namespace NamespaceFilter {
@@ -1985,18 +1984,18 @@ export interface ListNamespacesRequest {
   NextToken?: string;
 
   /**
-   * <p>A complex type that contains specifications for the namespaces that you want to list.</p>
-   *          <p>If you specify more than one filter, a namespace must match all filters to be returned by
-   *     <code>ListNamespaces</code>.</p>
-   */
-  Filters?: NamespaceFilter[];
-
-  /**
    * <p>The maximum number of namespaces that you want AWS Cloud Map to return in the response to a
    *     <code>ListNamespaces</code> request. If you don't specify a value for <code>MaxResults</code>, AWS Cloud Map returns up
    *    to 100 namespaces.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>A complex type that contains specifications for the namespaces that you want to list.</p>
+   *          <p>If you specify more than one filter, a namespace must match all filters to be returned by
+   *     <code>ListNamespaces</code>.</p>
+   */
+  Filters?: NamespaceFilter[];
 }
 
 export namespace ListNamespacesRequest {
@@ -2010,25 +2009,9 @@ export namespace ListNamespacesRequest {
  */
 export interface NamespaceSummary {
   /**
-   * <p>The name of the namespace. When you create a namespace, AWS Cloud Map automatically creates a Route 53 hosted zone
-   *    that has the same name as the namespace.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The number of services that were created using the namespace.</p>
-   */
-  ServiceCount?: number;
-
-  /**
    * <p>The ID of the namespace.</p>
    */
   Id?: string;
-
-  /**
-   * <p>A description for the namespace.</p>
-   */
-  Description?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the namespace when you create it.</p>
@@ -2036,9 +2019,10 @@ export interface NamespaceSummary {
   Arn?: string;
 
   /**
-   * <p>The date and time that the namespace was created.</p>
+   * <p>The name of the namespace. When you create a namespace, AWS Cloud Map automatically creates a Route 53 hosted zone
+   *    that has the same name as the namespace.</p>
    */
-  CreateDate?: Date;
+  Name?: string;
 
   /**
    * <p>The type of the namespace, either public or private.</p>
@@ -2046,9 +2030,24 @@ export interface NamespaceSummary {
   Type?: NamespaceType | string;
 
   /**
+   * <p>A description for the namespace.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The number of services that were created using the namespace.</p>
+   */
+  ServiceCount?: number;
+
+  /**
    * <p>A complex type that contains information that is specific to the namespace type.</p>
    */
   Properties?: NamespaceProperties;
+
+  /**
+   * <p>The date and time that the namespace was created.</p>
+   */
+  CreateDate?: Date;
 }
 
 export namespace NamespaceSummary {
@@ -2096,6 +2095,35 @@ export enum OperationFilterName {
  */
 export interface OperationFilter {
   /**
+   * <p>Specify the operations that you want to get:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>NAMESPACE_ID</b>: Gets operations related to specified namespaces.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>SERVICE_ID</b>: Gets operations related to specified services.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>STATUS</b>: Gets operations based on the status of the operations:
+   *       <code>SUBMITTED</code>, <code>PENDING</code>, <code>SUCCEED</code>, or <code>FAIL</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>TYPE</b>: Gets specified types of operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>UPDATE_DATE</b>: Gets operations that changed status during a specified date/time
+   *      range. </p>
+   *             </li>
+   *          </ul>
+   */
+  Name: OperationFilterName | string | undefined;
+
+  /**
    * <p>Specify values that are applicable to the value that you specify for <code>Name</code>: </p>
    *          <ul>
    *             <li>
@@ -2125,35 +2153,6 @@ export interface OperationFilter {
    *          </ul>
    */
   Values: string[] | undefined;
-
-  /**
-   * <p>Specify the operations that you want to get:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>NAMESPACE_ID</b>: Gets operations related to specified namespaces.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>SERVICE_ID</b>: Gets operations related to specified services.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>STATUS</b>: Gets operations based on the status of the operations:
-   *       <code>SUBMITTED</code>, <code>PENDING</code>, <code>SUCCEED</code>, or <code>FAIL</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>TYPE</b>: Gets specified types of operation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>UPDATE_DATE</b>: Gets operations that changed status during a specified date/time
-   *      range. </p>
-   *             </li>
-   *          </ul>
-   */
-  Name: OperationFilterName | string | undefined;
 
   /**
    * <p>The operator that you want to use to determine whether an operation matches the specified value. Valid values
@@ -2190,20 +2189,6 @@ export namespace OperationFilter {
 
 export interface ListOperationsRequest {
   /**
-   * <p>A complex type that contains specifications for the operations that you want to list, for example, operations
-   *    that you started between a specified start date and end date.</p>
-   *          <p>If you specify more than one filter, an operation must match all filters to be returned by
-   *     <code>ListOperations</code>.</p>
-   */
-  Filters?: OperationFilter[];
-
-  /**
-   * <p>The maximum number of items that you want AWS Cloud Map to return in the response to a <code>ListOperations</code>
-   *    request. If you don't specify a value for <code>MaxResults</code>, AWS Cloud Map returns up to 100 operations.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>For the first <code>ListOperations</code> request, omit this value.</p>
    *          <p>If the response contains <code>NextToken</code>, submit another <code>ListOperations</code> request to get the
    *    next group of results. Specify the value of <code>NextToken</code> from the previous response in the next
@@ -2215,6 +2200,20 @@ export interface ListOperationsRequest {
    *          </note>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of items that you want AWS Cloud Map to return in the response to a <code>ListOperations</code>
+   *    request. If you don't specify a value for <code>MaxResults</code>, AWS Cloud Map returns up to 100 operations.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A complex type that contains specifications for the operations that you want to list, for example, operations
+   *    that you started between a specified start date and end date.</p>
+   *          <p>If you specify more than one filter, an operation must match all filters to be returned by
+   *     <code>ListOperations</code>.</p>
+   */
+  Filters?: OperationFilter[];
 }
 
 export namespace ListOperationsRequest {
@@ -2229,6 +2228,11 @@ export namespace ListOperationsRequest {
  *    request.</p>
  */
 export interface OperationSummary {
+  /**
+   * <p>The ID for an operation.</p>
+   */
+  Id?: string;
+
   /**
    * <p>The status of the operation. Values include the following:</p>
    *          <ul>
@@ -2253,11 +2257,6 @@ export interface OperationSummary {
    *          </ul>
    */
   Status?: OperationStatus | string;
-
-  /**
-   * <p>The ID for an operation.</p>
-   */
-  Id?: string;
 }
 
 export namespace OperationSummary {
@@ -2305,6 +2304,12 @@ export interface ServiceFilter {
   Name: ServiceFilterName | string | undefined;
 
   /**
+   * <p>The values that are applicable to the value that you specify for <code>Condition</code> to filter the list of
+   *    services.</p>
+   */
+  Values: string[] | undefined;
+
+  /**
    * <p>The operator that you want to use to determine whether a service is returned by <code>ListServices</code>. Valid
    *    values for <code>Condition</code> include the following:</p>
    *          <ul>
@@ -2325,12 +2330,6 @@ export interface ServiceFilter {
    *          </ul>
    */
   Condition?: FilterCondition | string;
-
-  /**
-   * <p>The values that are applicable to the value that you specify for <code>Condition</code> to filter the list of
-   *    services.</p>
-   */
-  Values: string[] | undefined;
 }
 
 export namespace ServiceFilter {
@@ -2377,6 +2376,39 @@ export namespace ListServicesRequest {
  * <p>A complex type that contains information about a specified service.</p>
  */
 export interface ServiceSummary {
+  /**
+   * <p>The ID that AWS Cloud Map assigned to the service when you created it.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service when you create it.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the service.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description that you specify when you create the service.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The number of instances that are currently associated with the service. Instances that were previously
+   *    associated with the service but that have been deleted are not included in the count. The count might not reflect
+   *    pending registrations and deregistrations.</p>
+   */
+  InstanceCount?: number;
+
+  /**
+   * <p>A complex type that contains information about the Amazon Route 53 DNS records that you want AWS Cloud Map to create when
+   *    you register an instance.</p>
+   */
+  DnsConfig?: DnsConfig;
+
   /**
    * <p>
    *             <i>Public DNS and HTTP namespaces only.</i> A complex type that contains settings for an optional
@@ -2441,27 +2473,6 @@ export interface ServiceSummary {
   HealthCheckConfig?: HealthCheckConfig;
 
   /**
-   * <p>The name of the service.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>A complex type that contains information about the Amazon Route 53 DNS records that you want AWS Cloud Map to create when
-   *    you register an instance.</p>
-   */
-  DnsConfig?: DnsConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service when you create it.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The ID that AWS Cloud Map assigned to the service when you created it.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>A complex type that contains information about an optional custom health check. A custom health check, which
    *    requires that you use a third-party health checker to evaluate the health of your resources, is useful in the
    *    following circumstances:</p>
@@ -2517,21 +2528,9 @@ export interface ServiceSummary {
   HealthCheckCustomConfig?: HealthCheckCustomConfig;
 
   /**
-   * <p>The description that you specify when you create the service.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>The date and time that the service was created.</p>
    */
   CreateDate?: Date;
-
-  /**
-   * <p>The number of instances that are currently associated with the service. Instances that were previously
-   *    associated with the service but that have been deleted are not included in the count. The count might not reflect
-   *    pending registrations and deregistrations.</p>
-   */
-  InstanceCount?: number;
 }
 
 export namespace ServiceSummary {
@@ -2609,17 +2608,45 @@ export namespace ResourceNotFoundException {
 
 export interface RegisterInstanceRequest {
   /**
+   * <p>The ID of the service that you want to use for settings for the instance.</p>
+   */
+  ServiceId: string | undefined;
+
+  /**
+   * <p>An identifier that you want to associate with the instance. Note the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the service that is specified by <code>ServiceId</code> includes settings for an <code>SRV</code> record,
+   *      the value of <code>InstanceId</code> is automatically included as part of the value for the <code>SRV</code>
+   *      record. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DnsRecord.html#cloudmap-Type-DnsRecord-Type">DnsRecord > Type</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>You can use this value to update an existing instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>To register a new instance, you must specify a value that is unique among instances that you register by using
+   *      the same service. </p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, AWS Cloud Map updates the existing
+   *      DNS records, if any. If there's also an existing health check, AWS Cloud Map deletes the old health check and creates
+   *      a new one. </p>
+   *                <note>
+   *                   <p>The health check isn't deleted immediately, so it will still appear for a while if you submit a
+   *        <code>ListHealthChecks</code> request, for example.</p>
+   *                </note>
+   *             </li>
+   *          </ul>
+   */
+  InstanceId: string | undefined;
+
+  /**
    * <p>A unique string that identifies the request and that allows failed <code>RegisterInstance</code> requests to be
    *    retried without the risk of executing the operation twice. You must use a unique <code>CreatorRequestId</code> string
    *    every time you submit a <code>RegisterInstance</code> request if you're registering additional instances for the same
    *    namespace and service. <code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp.</p>
    */
   CreatorRequestId?: string;
-
-  /**
-   * <p>The ID of the service that you want to use for settings for the instance.</p>
-   */
-  ServiceId: string | undefined;
 
   /**
    * <p>A string map that contains the following information for the service that you specify in
@@ -2722,34 +2749,6 @@ export interface RegisterInstanceRequest {
    *             provided attributes (sum of all keys and values) must not exceed 5,000 characters.</p>
    */
   Attributes: { [key: string]: string } | undefined;
-
-  /**
-   * <p>An identifier that you want to associate with the instance. Note the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If the service that is specified by <code>ServiceId</code> includes settings for an <code>SRV</code> record,
-   *      the value of <code>InstanceId</code> is automatically included as part of the value for the <code>SRV</code>
-   *      record. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DnsRecord.html#cloudmap-Type-DnsRecord-Type">DnsRecord > Type</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>You can use this value to update an existing instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>To register a new instance, you must specify a value that is unique among instances that you register by using
-   *      the same service. </p>
-   *             </li>
-   *             <li>
-   *                <p>If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, AWS Cloud Map updates the existing
-   *      DNS records, if any. If there's also an existing health check, AWS Cloud Map deletes the old health check and creates
-   *      a new one. </p>
-   *                <note>
-   *                   <p>The health check isn't deleted immediately, so it will still appear for a while if you submit a
-   *        <code>ListHealthChecks</code> request, for example.</p>
-   *                </note>
-   *             </li>
-   *          </ul>
-   */
-  InstanceId: string | undefined;
 }
 
 export namespace RegisterInstanceRequest {
@@ -2774,15 +2773,15 @@ export namespace RegisterInstanceResponse {
 
 export interface TagResourceRequest {
   /**
+   * <p>The Amazon Resource Name (ARN) of the resource that you want to retrieve tags for.</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
    * <p>The tags to add to the specified resource. Specifying the tag key is required. You can set the value of a tag to
    *    an empty string, but you can't set the value of a tag to null.</p>
    */
   Tags: Tag[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource that you want to retrieve tags for.</p>
-   */
-  ResourceARN: string | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -2801,14 +2800,14 @@ export namespace TagResourceResponse {
 
 export interface UntagResourceRequest {
   /**
-   * <p>The tag keys to remove from the specified resource.</p>
-   */
-  TagKeys: string[] | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to retrieve tags for.</p>
    */
   ResourceARN: string | undefined;
+
+  /**
+   * <p>The tag keys to remove from the specified resource.</p>
+   */
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -2827,6 +2826,12 @@ export namespace UntagResourceResponse {
 
 export interface UpdateInstanceCustomHealthStatusRequest {
   /**
+   * <p>The ID of the service that includes the configuration for the custom health check that you want to change the
+   *    status for.</p>
+   */
+  ServiceId: string | undefined;
+
+  /**
    * <p>The ID of the instance that you want to change the health status for.</p>
    */
   InstanceId: string | undefined;
@@ -2835,12 +2840,6 @@ export interface UpdateInstanceCustomHealthStatusRequest {
    * <p>The new status of the instance, <code>HEALTHY</code> or <code>UNHEALTHY</code>.</p>
    */
   Status: CustomHealthStatus | string | undefined;
-
-  /**
-   * <p>The ID of the service that includes the configuration for the custom health check that you want to change the
-   *    status for.</p>
-   */
-  ServiceId: string | undefined;
 }
 
 export namespace UpdateInstanceCustomHealthStatusRequest {
@@ -2854,15 +2853,15 @@ export namespace UpdateInstanceCustomHealthStatusRequest {
  */
 export interface ServiceChange {
   /**
+   * <p>A description for the service.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you
    *    register an instance.</p>
    */
   DnsConfig?: DnsConfigChange;
-
-  /**
-   * <p>A description for the service.</p>
-   */
-  Description?: string;
 
   /**
    * <p>
@@ -2936,14 +2935,14 @@ export namespace ServiceChange {
 
 export interface UpdateServiceRequest {
   /**
-   * <p>A complex type that contains the new settings for the service.</p>
-   */
-  Service: ServiceChange | undefined;
-
-  /**
    * <p>The ID of the service that you want to update.</p>
    */
   Id: string | undefined;
+
+  /**
+   * <p>A complex type that contains the new settings for the service.</p>
+   */
+  Service: ServiceChange | undefined;
 }
 
 export namespace UpdateServiceRequest {

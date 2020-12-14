@@ -1,4 +1,4 @@
-import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
+import { ProfileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProfileClient";
 import { ListProfileObjectsRequest, ListProfileObjectsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListProfileObjectsCommand,
@@ -26,7 +26,7 @@ export type ListProfileObjectsCommandOutput = ListProfileObjectsResponse & __Met
 export class ListProfileObjectsCommand extends $Command<
   ListProfileObjectsCommandInput,
   ListProfileObjectsCommandOutput,
-  CustomerProfilesClientResolvedConfig
+  ProfileClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -42,7 +42,7 @@ export class ListProfileObjectsCommand extends $Command<
    */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CustomerProfilesClientResolvedConfig,
+    configuration: ProfileClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListProfileObjectsCommandInput, ListProfileObjectsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
@@ -50,7 +50,7 @@ export class ListProfileObjectsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
-    const clientName = "CustomerProfilesClient";
+    const clientName = "ProfileClient";
     const commandName = "ListProfileObjectsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,

@@ -1,5 +1,5 @@
-export * from "./CustomerProfilesClient";
-export * from "./CustomerProfiles";
+export * from "./ProfileClient";
+export * from "./Profile";
 export * from "./commands/AddProfileKeyCommand";
 export * from "./commands/CreateDomainCommand";
 export * from "./commands/CreateProfileCommand";

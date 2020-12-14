@@ -1,9 +1,9 @@
-import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
-import { GetDefaultRetentionPolicyRequest, GetDefaultRetentionPolicyResponse } from "../models/models_0";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeAddressesAttributeRequest, DescribeAddressesAttributeResult } from "../models/models_2";
 import {
-  deserializeAws_json1_1GetDefaultRetentionPolicyCommand,
-  serializeAws_json1_1GetDefaultRetentionPolicyCommand,
-} from "../protocols/Aws_json1_1";
+  deserializeAws_ec2DescribeAddressesAttributeCommand,
+  serializeAws_ec2DescribeAddressesAttributeCommand,
+} from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -17,21 +17,18 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDefaultRetentionPolicyCommandInput = GetDefaultRetentionPolicyRequest;
-export type GetDefaultRetentionPolicyCommandOutput = GetDefaultRetentionPolicyResponse & __MetadataBearer;
+export type DescribeAddressesAttributeCommandInput = DescribeAddressesAttributeRequest;
+export type DescribeAddressesAttributeCommandOutput = DescribeAddressesAttributeResult & __MetadataBearer;
 
-/**
- * <p>Gets the default retention policy details for the specified organization.</p>
- */
-export class GetDefaultRetentionPolicyCommand extends $Command<
-  GetDefaultRetentionPolicyCommandInput,
-  GetDefaultRetentionPolicyCommandOutput,
-  WorkMailClientResolvedConfig
+export class DescribeAddressesAttributeCommand extends $Command<
+  DescribeAddressesAttributeCommandInput,
+  DescribeAddressesAttributeCommandOutput,
+  EC2ClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: GetDefaultRetentionPolicyCommandInput) {
+  constructor(readonly input: DescribeAddressesAttributeCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -42,22 +39,22 @@ export class GetDefaultRetentionPolicyCommand extends $Command<
    */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: WorkMailClientResolvedConfig,
+    configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetDefaultRetentionPolicyCommandInput, GetDefaultRetentionPolicyCommandOutput> {
+  ): Handler<DescribeAddressesAttributeCommandInput, DescribeAddressesAttributeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
-    const clientName = "WorkMailClient";
-    const commandName = "GetDefaultRetentionPolicyCommand";
+    const clientName = "EC2Client";
+    const commandName = "DescribeAddressesAttributeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDefaultRetentionPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDefaultRetentionPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAddressesAttributeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAddressesAttributeResult.filterSensitiveLog,
     };
 
     if (typeof logger.info === "function") {
@@ -75,15 +72,15 @@ export class GetDefaultRetentionPolicyCommand extends $Command<
     );
   }
 
-  private serialize(input: GetDefaultRetentionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDefaultRetentionPolicyCommand(input, context);
+  private serialize(input: DescribeAddressesAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_ec2DescribeAddressesAttributeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<GetDefaultRetentionPolicyCommandOutput> {
-    return deserializeAws_json1_1GetDefaultRetentionPolicyCommand(output, context);
+  ): Promise<DescribeAddressesAttributeCommandOutput> {
+    return deserializeAws_ec2DescribeAddressesAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

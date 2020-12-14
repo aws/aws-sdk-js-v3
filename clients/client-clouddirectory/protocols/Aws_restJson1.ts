@@ -486,8 +486,8 @@ export const serializeAws_restJson1BatchReadCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/batchread";
   let body: any;
@@ -1105,8 +1105,8 @@ export const serializeAws_restJson1GetObjectAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/attributes/get";
   let body: any;
@@ -1478,8 +1478,8 @@ export const serializeAws_restJson1ListObjectAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/attributes";
   let body: any;
@@ -11521,15 +11521,14 @@ const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): a
 };
 
 const serializeAws_restJson1TypedAttributeValue = (input: TypedAttributeValue, context: __SerdeContext): any => {
-  return {
-    ...(input.BinaryValue !== undefined &&
-      input.BinaryValue !== null && { BinaryValue: context.base64Encoder(input.BinaryValue) }),
-    ...(input.BooleanValue !== undefined && input.BooleanValue !== null && { BooleanValue: input.BooleanValue }),
-    ...(input.DatetimeValue !== undefined &&
-      input.DatetimeValue !== null && { DatetimeValue: Math.round(input.DatetimeValue.getTime() / 1000) }),
-    ...(input.NumberValue !== undefined && input.NumberValue !== null && { NumberValue: input.NumberValue }),
-    ...(input.StringValue !== undefined && input.StringValue !== null && { StringValue: input.StringValue }),
-  };
+  return TypedAttributeValue.visit(input, {
+    BinaryValue: (value) => ({ BinaryValue: context.base64Encoder(value) }),
+    BooleanValue: (value) => ({ BooleanValue: value }),
+    DatetimeValue: (value) => ({ DatetimeValue: Math.round(value.getTime() / 1000) }),
+    NumberValue: (value) => ({ NumberValue: value }),
+    StringValue: (value) => ({ StringValue: value }),
+    _: (name, value) => ({ name: value } as any),
+  });
 };
 
 const serializeAws_restJson1TypedAttributeValueRange = (
@@ -12600,19 +12599,32 @@ const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_restJson1TypedAttributeValue = (output: any, context: __SerdeContext): TypedAttributeValue => {
-  return {
-    BinaryValue:
-      output.BinaryValue !== undefined && output.BinaryValue !== null
-        ? context.base64Decoder(output.BinaryValue)
-        : undefined,
-    BooleanValue: output.BooleanValue !== undefined && output.BooleanValue !== null ? output.BooleanValue : undefined,
-    DatetimeValue:
-      output.DatetimeValue !== undefined && output.DatetimeValue !== null
-        ? new Date(Math.round(output.DatetimeValue * 1000))
-        : undefined,
-    NumberValue: output.NumberValue !== undefined && output.NumberValue !== null ? output.NumberValue : undefined,
-    StringValue: output.StringValue !== undefined && output.StringValue !== null ? output.StringValue : undefined,
-  } as any;
+  if (output.BinaryValue !== undefined && output.BinaryValue !== null) {
+    return {
+      BinaryValue: context.base64Decoder(output.BinaryValue),
+    };
+  }
+  if (output.BooleanValue !== undefined && output.BooleanValue !== null) {
+    return {
+      BooleanValue: output.BooleanValue,
+    };
+  }
+  if (output.DatetimeValue !== undefined && output.DatetimeValue !== null) {
+    return {
+      DatetimeValue: new Date(Math.round(output.DatetimeValue * 1000)),
+    };
+  }
+  if (output.NumberValue !== undefined && output.NumberValue !== null) {
+    return {
+      NumberValue: output.NumberValue,
+    };
+  }
+  if (output.StringValue !== undefined && output.StringValue !== null) {
+    return {
+      StringValue: output.StringValue,
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restJson1TypedLinkAttributeDefinition = (

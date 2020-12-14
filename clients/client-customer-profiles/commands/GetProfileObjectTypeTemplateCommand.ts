@@ -1,4 +1,4 @@
-import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
+import { ProfileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProfileClient";
 import { GetProfileObjectTypeTemplateRequest, GetProfileObjectTypeTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetProfileObjectTypeTemplateCommand,
@@ -30,7 +30,7 @@ export type GetProfileObjectTypeTemplateCommandOutput = GetProfileObjectTypeTemp
 export class GetProfileObjectTypeTemplateCommand extends $Command<
   GetProfileObjectTypeTemplateCommandInput,
   GetProfileObjectTypeTemplateCommandOutput,
-  CustomerProfilesClientResolvedConfig
+  ProfileClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -46,7 +46,7 @@ export class GetProfileObjectTypeTemplateCommand extends $Command<
    */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CustomerProfilesClientResolvedConfig,
+    configuration: ProfileClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetProfileObjectTypeTemplateCommandInput, GetProfileObjectTypeTemplateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
@@ -54,7 +54,7 @@ export class GetProfileObjectTypeTemplateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
-    const clientName = "CustomerProfilesClient";
+    const clientName = "ProfileClient";
     const commandName = "GetProfileObjectTypeTemplateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,

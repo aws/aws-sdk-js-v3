@@ -787,15 +787,6 @@ export const serializeAws_restJson1DeleteApiMappingCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {};
   let resolvedPath = "/v2/domainnames/{DomainName}/apimappings/{ApiMappingId}";
-  if (input.DomainName !== undefined) {
-    const labelValue: string = input.DomainName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DomainName.");
-    }
-    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DomainName.");
-  }
   if (input.ApiMappingId !== undefined) {
     const labelValue: string = input.ApiMappingId;
     if (labelValue.length <= 0) {
@@ -804,6 +795,15 @@ export const serializeAws_restJson1DeleteApiMappingCommand = async (
     resolvedPath = resolvedPath.replace("{ApiMappingId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiMappingId.");
+  }
+  if (input.DomainName !== undefined) {
+    const labelValue: string = input.DomainName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DomainName.");
+    }
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DomainName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -824,15 +824,6 @@ export const serializeAws_restJson1DeleteAuthorizerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {};
   let resolvedPath = "/v2/apis/{ApiId}/authorizers/{AuthorizerId}";
-  if (input.AuthorizerId !== undefined) {
-    const labelValue: string = input.AuthorizerId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AuthorizerId.");
-    }
-    resolvedPath = resolvedPath.replace("{AuthorizerId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AuthorizerId.");
-  }
   if (input.ApiId !== undefined) {
     const labelValue: string = input.ApiId;
     if (labelValue.length <= 0) {
@@ -841,6 +832,15 @@ export const serializeAws_restJson1DeleteAuthorizerCommand = async (
     resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
+  }
+  if (input.AuthorizerId !== undefined) {
+    const labelValue: string = input.AuthorizerId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AuthorizerId.");
+    }
+    resolvedPath = resolvedPath.replace("{AuthorizerId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AuthorizerId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -889,15 +889,6 @@ export const serializeAws_restJson1DeleteDeploymentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {};
   let resolvedPath = "/v2/apis/{ApiId}/deployments/{DeploymentId}";
-  if (input.DeploymentId !== undefined) {
-    const labelValue: string = input.DeploymentId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DeploymentId.");
-    }
-    resolvedPath = resolvedPath.replace("{DeploymentId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DeploymentId.");
-  }
   if (input.ApiId !== undefined) {
     const labelValue: string = input.ApiId;
     if (labelValue.length <= 0) {
@@ -906,6 +897,15 @@ export const serializeAws_restJson1DeleteDeploymentCommand = async (
     resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
+  }
+  if (input.DeploymentId !== undefined) {
+    const labelValue: string = input.DeploymentId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DeploymentId.");
+    }
+    resolvedPath = resolvedPath.replace("{DeploymentId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DeploymentId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -991,6 +991,15 @@ export const serializeAws_restJson1DeleteIntegrationResponseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {};
   let resolvedPath = "/v2/apis/{ApiId}/integrations/{IntegrationId}/integrationresponses/{IntegrationResponseId}";
+  if (input.ApiId !== undefined) {
+    const labelValue: string = input.ApiId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApiId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApiId.");
+  }
   if (input.IntegrationId !== undefined) {
     const labelValue: string = input.IntegrationId;
     if (labelValue.length <= 0) {
@@ -1008,15 +1017,6 @@ export const serializeAws_restJson1DeleteIntegrationResponseCommand = async (
     resolvedPath = resolvedPath.replace("{IntegrationResponseId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IntegrationResponseId.");
-  }
-  if (input.ApiId !== undefined) {
-    const labelValue: string = input.ApiId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApiId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApiId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1037,15 +1037,6 @@ export const serializeAws_restJson1DeleteModelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {};
   let resolvedPath = "/v2/apis/{ApiId}/models/{ModelId}";
-  if (input.ModelId !== undefined) {
-    const labelValue: string = input.ModelId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ModelId.");
-    }
-    resolvedPath = resolvedPath.replace("{ModelId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ModelId.");
-  }
   if (input.ApiId !== undefined) {
     const labelValue: string = input.ApiId;
     if (labelValue.length <= 0) {
@@ -1054,6 +1045,15 @@ export const serializeAws_restJson1DeleteModelCommand = async (
     resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
+  }
+  if (input.ModelId !== undefined) {
+    const labelValue: string = input.ModelId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ModelId.");
+    }
+    resolvedPath = resolvedPath.replace("{ModelId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ModelId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1120,15 +1120,6 @@ export const serializeAws_restJson1DeleteRouteRequestParameterCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
-  if (input.RouteId !== undefined) {
-    const labelValue: string = input.RouteId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: RouteId.");
-    }
-    resolvedPath = resolvedPath.replace("{RouteId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: RouteId.");
-  }
   if (input.RequestParameterKey !== undefined) {
     const labelValue: string = input.RequestParameterKey;
     if (labelValue.length <= 0) {
@@ -1137,6 +1128,15 @@ export const serializeAws_restJson1DeleteRouteRequestParameterCommand = async (
     resolvedPath = resolvedPath.replace("{RequestParameterKey}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RequestParameterKey.");
+  }
+  if (input.RouteId !== undefined) {
+    const labelValue: string = input.RouteId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RouteId.");
+    }
+    resolvedPath = resolvedPath.replace("{RouteId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RouteId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1157,6 +1157,15 @@ export const serializeAws_restJson1DeleteRouteResponseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {};
   let resolvedPath = "/v2/apis/{ApiId}/routes/{RouteId}/routeresponses/{RouteResponseId}";
+  if (input.ApiId !== undefined) {
+    const labelValue: string = input.ApiId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApiId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApiId.");
+  }
   if (input.RouteId !== undefined) {
     const labelValue: string = input.RouteId;
     if (labelValue.length <= 0) {
@@ -1174,15 +1183,6 @@ export const serializeAws_restJson1DeleteRouteResponseCommand = async (
     resolvedPath = resolvedPath.replace("{RouteResponseId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RouteResponseId.");
-  }
-  if (input.ApiId !== undefined) {
-    const labelValue: string = input.ApiId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApiId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApiId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1203,6 +1203,15 @@ export const serializeAws_restJson1DeleteRouteSettingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {};
   let resolvedPath = "/v2/apis/{ApiId}/stages/{StageName}/routesettings/{RouteKey}";
+  if (input.ApiId !== undefined) {
+    const labelValue: string = input.ApiId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApiId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApiId.");
+  }
   if (input.RouteKey !== undefined) {
     const labelValue: string = input.RouteKey;
     if (labelValue.length <= 0) {
@@ -1220,15 +1229,6 @@ export const serializeAws_restJson1DeleteRouteSettingsCommand = async (
     resolvedPath = resolvedPath.replace("{StageName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: StageName.");
-  }
-  if (input.ApiId !== undefined) {
-    const labelValue: string = input.ApiId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApiId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApiId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1249,15 +1249,6 @@ export const serializeAws_restJson1DeleteStageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {};
   let resolvedPath = "/v2/apis/{ApiId}/stages/{StageName}";
-  if (input.StageName !== undefined) {
-    const labelValue: string = input.StageName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: StageName.");
-    }
-    resolvedPath = resolvedPath.replace("{StageName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: StageName.");
-  }
   if (input.ApiId !== undefined) {
     const labelValue: string = input.ApiId;
     if (labelValue.length <= 0) {
@@ -1266,6 +1257,15 @@ export const serializeAws_restJson1DeleteStageCommand = async (
     resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
+  }
+  if (input.StageName !== undefined) {
+    const labelValue: string = input.StageName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: StageName.");
+    }
+    resolvedPath = resolvedPath.replace("{StageName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: StageName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1333,10 +1333,10 @@ export const serializeAws_restJson1ExportApiCommand = async (
     throw new Error("No value provided for input HTTP label: Specification.");
   }
   const query: any = {
-    ...(input.IncludeExtensions !== undefined && { includeExtensions: input.IncludeExtensions.toString() }),
-    ...(input.StageName !== undefined && { stageName: input.StageName }),
-    ...(input.OutputType !== undefined && { outputType: input.OutputType }),
     ...(input.ExportVersion !== undefined && { exportVersion: input.ExportVersion }),
+    ...(input.IncludeExtensions !== undefined && { includeExtensions: input.IncludeExtensions.toString() }),
+    ...(input.OutputType !== undefined && { outputType: input.OutputType }),
+    ...(input.StageName !== undefined && { stageName: input.StageName }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1433,8 +1433,8 @@ export const serializeAws_restJson1GetApiMappingsCommand = async (
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1457,8 +1457,8 @@ export const serializeAws_restJson1GetApisCommand = async (
   const headers: any = {};
   let resolvedPath = "/v2/apis";
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1480,15 +1480,6 @@ export const serializeAws_restJson1GetAuthorizerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {};
   let resolvedPath = "/v2/apis/{ApiId}/authorizers/{AuthorizerId}";
-  if (input.AuthorizerId !== undefined) {
-    const labelValue: string = input.AuthorizerId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AuthorizerId.");
-    }
-    resolvedPath = resolvedPath.replace("{AuthorizerId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AuthorizerId.");
-  }
   if (input.ApiId !== undefined) {
     const labelValue: string = input.ApiId;
     if (labelValue.length <= 0) {
@@ -1497,6 +1488,15 @@ export const serializeAws_restJson1GetAuthorizerCommand = async (
     resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
+  }
+  if (input.AuthorizerId !== undefined) {
+    const labelValue: string = input.AuthorizerId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AuthorizerId.");
+    }
+    resolvedPath = resolvedPath.replace("{AuthorizerId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AuthorizerId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1527,8 +1527,8 @@ export const serializeAws_restJson1GetAuthorizersCommand = async (
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1550,15 +1550,6 @@ export const serializeAws_restJson1GetDeploymentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {};
   let resolvedPath = "/v2/apis/{ApiId}/deployments/{DeploymentId}";
-  if (input.DeploymentId !== undefined) {
-    const labelValue: string = input.DeploymentId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DeploymentId.");
-    }
-    resolvedPath = resolvedPath.replace("{DeploymentId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DeploymentId.");
-  }
   if (input.ApiId !== undefined) {
     const labelValue: string = input.ApiId;
     if (labelValue.length <= 0) {
@@ -1567,6 +1558,15 @@ export const serializeAws_restJson1GetDeploymentCommand = async (
     resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
+  }
+  if (input.DeploymentId !== undefined) {
+    const labelValue: string = input.DeploymentId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DeploymentId.");
+    }
+    resolvedPath = resolvedPath.replace("{DeploymentId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DeploymentId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1649,8 +1649,8 @@ export const serializeAws_restJson1GetDomainNamesCommand = async (
   const headers: any = {};
   let resolvedPath = "/v2/domainnames";
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1718,15 +1718,6 @@ export const serializeAws_restJson1GetIntegrationResponseCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
-  if (input.IntegrationResponseId !== undefined) {
-    const labelValue: string = input.IntegrationResponseId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: IntegrationResponseId.");
-    }
-    resolvedPath = resolvedPath.replace("{IntegrationResponseId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: IntegrationResponseId.");
-  }
   if (input.IntegrationId !== undefined) {
     const labelValue: string = input.IntegrationId;
     if (labelValue.length <= 0) {
@@ -1735,6 +1726,15 @@ export const serializeAws_restJson1GetIntegrationResponseCommand = async (
     resolvedPath = resolvedPath.replace("{IntegrationId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IntegrationId.");
+  }
+  if (input.IntegrationResponseId !== undefined) {
+    const labelValue: string = input.IntegrationResponseId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: IntegrationResponseId.");
+    }
+    resolvedPath = resolvedPath.replace("{IntegrationResponseId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: IntegrationResponseId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1755,15 +1755,6 @@ export const serializeAws_restJson1GetIntegrationResponsesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {};
   let resolvedPath = "/v2/apis/{ApiId}/integrations/{IntegrationId}/integrationresponses";
-  if (input.IntegrationId !== undefined) {
-    const labelValue: string = input.IntegrationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: IntegrationId.");
-    }
-    resolvedPath = resolvedPath.replace("{IntegrationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: IntegrationId.");
-  }
   if (input.ApiId !== undefined) {
     const labelValue: string = input.ApiId;
     if (labelValue.length <= 0) {
@@ -1773,9 +1764,18 @@ export const serializeAws_restJson1GetIntegrationResponsesCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
+  if (input.IntegrationId !== undefined) {
+    const labelValue: string = input.IntegrationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: IntegrationId.");
+    }
+    resolvedPath = resolvedPath.replace("{IntegrationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: IntegrationId.");
+  }
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1974,15 +1974,6 @@ export const serializeAws_restJson1GetRouteResponseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {};
   let resolvedPath = "/v2/apis/{ApiId}/routes/{RouteId}/routeresponses/{RouteResponseId}";
-  if (input.RouteId !== undefined) {
-    const labelValue: string = input.RouteId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: RouteId.");
-    }
-    resolvedPath = resolvedPath.replace("{RouteId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: RouteId.");
-  }
   if (input.ApiId !== undefined) {
     const labelValue: string = input.ApiId;
     if (labelValue.length <= 0) {
@@ -1991,6 +1982,15 @@ export const serializeAws_restJson1GetRouteResponseCommand = async (
     resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
+  }
+  if (input.RouteId !== undefined) {
+    const labelValue: string = input.RouteId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RouteId.");
+    }
+    resolvedPath = resolvedPath.replace("{RouteId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RouteId.");
   }
   if (input.RouteResponseId !== undefined) {
     const labelValue: string = input.RouteResponseId;
@@ -2039,8 +2039,8 @@ export const serializeAws_restJson1GetRouteResponsesCommand = async (
     throw new Error("No value provided for input HTTP label: RouteId.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2072,8 +2072,8 @@ export const serializeAws_restJson1GetRoutesCommand = async (
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2248,8 +2248,8 @@ export const serializeAws_restJson1ImportApiCommand = async (
   };
   let resolvedPath = "/v2/apis";
   const query: any = {
-    ...(input.FailOnWarnings !== undefined && { failOnWarnings: input.FailOnWarnings.toString() }),
     ...(input.Basepath !== undefined && { basepath: input.Basepath }),
+    ...(input.FailOnWarnings !== undefined && { failOnWarnings: input.FailOnWarnings.toString() }),
   };
   let body: any;
   body = JSON.stringify({
@@ -2286,8 +2286,8 @@ export const serializeAws_restJson1ReimportApiCommand = async (
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
   const query: any = {
-    ...(input.FailOnWarnings !== undefined && { failOnWarnings: input.FailOnWarnings.toString() }),
     ...(input.Basepath !== undefined && { basepath: input.Basepath }),
+    ...(input.FailOnWarnings !== undefined && { failOnWarnings: input.FailOnWarnings.toString() }),
   };
   let body: any;
   body = JSON.stringify({
@@ -2467,15 +2467,6 @@ export const serializeAws_restJson1UpdateApiMappingCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = "/v2/domainnames/{DomainName}/apimappings/{ApiMappingId}";
-  if (input.DomainName !== undefined) {
-    const labelValue: string = input.DomainName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DomainName.");
-    }
-    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DomainName.");
-  }
   if (input.ApiMappingId !== undefined) {
     const labelValue: string = input.ApiMappingId;
     if (labelValue.length <= 0) {
@@ -2484,6 +2475,15 @@ export const serializeAws_restJson1UpdateApiMappingCommand = async (
     resolvedPath = resolvedPath.replace("{ApiMappingId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiMappingId.");
+  }
+  if (input.DomainName !== undefined) {
+    const labelValue: string = input.DomainName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DomainName.");
+    }
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DomainName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -2743,6 +2743,15 @@ export const serializeAws_restJson1UpdateIntegrationResponseCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = "/v2/apis/{ApiId}/integrations/{IntegrationId}/integrationresponses/{IntegrationResponseId}";
+  if (input.ApiId !== undefined) {
+    const labelValue: string = input.ApiId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApiId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApiId.");
+  }
   if (input.IntegrationId !== undefined) {
     const labelValue: string = input.IntegrationId;
     if (labelValue.length <= 0) {
@@ -2760,15 +2769,6 @@ export const serializeAws_restJson1UpdateIntegrationResponseCommand = async (
     resolvedPath = resolvedPath.replace("{IntegrationResponseId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IntegrationResponseId.");
-  }
-  if (input.ApiId !== undefined) {
-    const labelValue: string = input.ApiId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApiId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApiId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -2919,6 +2919,15 @@ export const serializeAws_restJson1UpdateRouteResponseCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = "/v2/apis/{ApiId}/routes/{RouteId}/routeresponses/{RouteResponseId}";
+  if (input.ApiId !== undefined) {
+    const labelValue: string = input.ApiId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApiId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApiId.");
+  }
   if (input.RouteId !== undefined) {
     const labelValue: string = input.RouteId;
     if (labelValue.length <= 0) {
@@ -2936,15 +2945,6 @@ export const serializeAws_restJson1UpdateRouteResponseCommand = async (
     resolvedPath = resolvedPath.replace("{RouteResponseId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RouteResponseId.");
-  }
-  if (input.ApiId !== undefined) {
-    const labelValue: string = input.ApiId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApiId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApiId.");
   }
   let body: any;
   body = JSON.stringify({

@@ -20,9 +20,9 @@ export namespace RouteFilterPrefix {
 
 export interface AcceptDirectConnectGatewayAssociationProposalRequest {
   /**
-   * <p>The ID of the AWS account that owns the virtual private gateway or transit gateway.</p>
+   * <p>The ID of the Direct Connect gateway.</p>
    */
-  associatedGatewayOwnerAccount: string | undefined;
+  directConnectGatewayId: string | undefined;
 
   /**
    * <p>The ID of the request proposal.</p>
@@ -30,9 +30,9 @@ export interface AcceptDirectConnectGatewayAssociationProposalRequest {
   proposalId: string | undefined;
 
   /**
-   * <p>The ID of the Direct Connect gateway.</p>
+   * <p>The ID of the AWS account that owns the virtual private gateway or transit gateway.</p>
    */
-  directConnectGatewayId: string | undefined;
+  associatedGatewayOwnerAccount: string | undefined;
 
   /**
    * <p>Overrides the Amazon VPC prefixes advertised to the Direct Connect gateway.</p>
@@ -57,9 +57,9 @@ export enum GatewayType {
  */
 export interface AssociatedGateway {
   /**
-   * <p>The ID of the AWS account that owns the associated virtual private gateway or transit gateway.</p>
+   * <p>The ID of the associated gateway.</p>
    */
-  ownerAccount?: string;
+  id?: string;
 
   /**
    * <p>The type of associated gateway.</p>
@@ -67,9 +67,9 @@ export interface AssociatedGateway {
   type?: GatewayType | string;
 
   /**
-   * <p>The ID of the associated gateway.</p>
+   * <p>The ID of the AWS account that owns the associated virtual private gateway or transit gateway.</p>
    */
-  id?: string;
+  ownerAccount?: string;
 
   /**
    * <p>The Region where the associated gateway is located.</p>
@@ -94,6 +94,16 @@ export type DirectConnectGatewayAssociationState =
  * <p>Information about an association between a Direct Connect gateway and a virtual private gateway or transit gateway.</p>
  */
 export interface DirectConnectGatewayAssociation {
+  /**
+   * <p>The ID of the Direct Connect gateway.</p>
+   */
+  directConnectGatewayId?: string;
+
+  /**
+   * <p>The ID of the AWS account that owns the associated gateway.</p>
+   */
+  directConnectGatewayOwnerAccount?: string;
+
   /**
    * <p>The state of the association. The following are the possible values:</p>
    *          <ul>
@@ -123,31 +133,6 @@ export interface DirectConnectGatewayAssociation {
   stateChangeError?: string;
 
   /**
-   * <p>The AWS Region where the virtual private gateway is located.</p>
-   */
-  virtualGatewayRegion?: string;
-
-  /**
-   * <p>The ID of the AWS account that owns the virtual private gateway.</p>
-   */
-  virtualGatewayOwnerAccount?: string;
-
-  /**
-   * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
-   */
-  allowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
-
-  /**
-   * <p>The ID of the AWS account that owns the associated gateway.</p>
-   */
-  directConnectGatewayOwnerAccount?: string;
-
-  /**
-   * <p>The ID of the virtual private gateway. Applies only to private virtual interfaces.</p>
-   */
-  virtualGatewayId?: string;
-
-  /**
    * <p>Information about the associated gateway.</p>
    */
   associatedGateway?: AssociatedGateway;
@@ -158,9 +143,24 @@ export interface DirectConnectGatewayAssociation {
   associationId?: string;
 
   /**
-   * <p>The ID of the Direct Connect gateway.</p>
+   * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
    */
-  directConnectGatewayId?: string;
+  allowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
+
+  /**
+   * <p>The ID of the virtual private gateway. Applies only to private virtual interfaces.</p>
+   */
+  virtualGatewayId?: string;
+
+  /**
+   * <p>The AWS Region where the virtual private gateway is located.</p>
+   */
+  virtualGatewayRegion?: string;
+
+  /**
+   * <p>The ID of the AWS account that owns the virtual private gateway.</p>
+   */
+  virtualGatewayOwnerAccount?: string;
 }
 
 export namespace DirectConnectGatewayAssociation {
@@ -219,14 +219,12 @@ export enum AddressFamily {
 
 export interface AllocateConnectionOnInterconnectRequest {
   /**
-   * <p>The ID of the AWS account of the customer for whom the connection will be provisioned.</p>
+   * <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps,
+   *       300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those AWS Direct Connect Partners
+   *       who have met specific requirements
+   *     are allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection.</p>
    */
-  ownerAccount: string | undefined;
-
-  /**
-   * <p>The dedicated VLAN provisioned to the connection.</p>
-   */
-  vlan: number | undefined;
+  bandwidth: string | undefined;
 
   /**
    * <p>The name of the provisioned connection.</p>
@@ -234,17 +232,19 @@ export interface AllocateConnectionOnInterconnectRequest {
   connectionName: string | undefined;
 
   /**
+   * <p>The ID of the AWS account of the customer for whom the connection will be provisioned.</p>
+   */
+  ownerAccount: string | undefined;
+
+  /**
    * <p>The ID of the interconnect on which the connection will be provisioned.</p>
    */
   interconnectId: string | undefined;
 
   /**
-   * <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps,
-   *       300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those AWS Direct Connect Partners
-   *       who have met specific requirements
-   *     are allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection.</p>
+   * <p>The dedicated VLAN provisioned to the connection.</p>
    */
-  bandwidth: string | undefined;
+  vlan: number | undefined;
 }
 
 export namespace AllocateConnectionOnInterconnectRequest {
@@ -275,14 +275,14 @@ export enum HasLogicalRedundancy {
  */
 export interface Tag {
   /**
-   * <p>The value.</p>
-   */
-  value?: string;
-
-  /**
    * <p>The key.</p>
    */
   key: string | undefined;
+
+  /**
+   * <p>The value.</p>
+   */
+  value?: string;
 }
 
 export namespace Tag {
@@ -296,34 +296,9 @@ export namespace Tag {
  */
 export interface Connection {
   /**
-   * <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
+   * <p>The ID of the AWS account that owns the connection.</p>
    */
-  jumboFrameCapable?: boolean;
-
-  /**
-   * <p>The ID of the LAG.</p>
-   */
-  lagId?: string;
-
-  /**
-   * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
-   */
-  awsDeviceV2?: string;
-
-  /**
-   * <p>The name of the connection.</p>
-   */
-  connectionName?: string;
-
-  /**
-   * <p>The AWS Region where the connection is located.</p>
-   */
-  region?: string;
-
-  /**
-   * <p>The ID of the VLAN.</p>
-   */
-  vlan?: number;
+  ownerAccount?: string;
 
   /**
    * <p>The ID of the connection.</p>
@@ -331,39 +306,9 @@ export interface Connection {
   connectionId?: string;
 
   /**
-   * <p>The tags associated with the connection.</p>
+   * <p>The name of the connection.</p>
    */
-  tags?: Tag[];
-
-  /**
-   * <p>The ID of the AWS account that owns the connection.</p>
-   */
-  ownerAccount?: string;
-
-  /**
-   * <p>The time of the most recent call to <a>DescribeLoa</a> for this connection.</p>
-   */
-  loaIssueTime?: Date;
-
-  /**
-   * <p>Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).</p>
-   */
-  hasLogicalRedundancy?: HasLogicalRedundancy | string;
-
-  /**
-   * <p>The name of the service provider associated with the connection.</p>
-   */
-  providerName?: string;
-
-  /**
-   * <p>The name of the AWS Direct Connect service provider associated with the connection.</p>
-   */
-  partnerName?: string;
-
-  /**
-   * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
-   */
-  awsDevice?: string;
+  connectionName?: string;
 
   /**
    * <p>The state of the connection. The following are the possible values:</p>
@@ -409,6 +354,11 @@ export interface Connection {
   connectionState?: ConnectionState | string;
 
   /**
+   * <p>The AWS Region where the connection is located.</p>
+   */
+  region?: string;
+
+  /**
    * <p>The location of the connection.</p>
    */
   location?: string;
@@ -417,6 +367,56 @@ export interface Connection {
    * <p>The bandwidth of the connection.</p>
    */
   bandwidth?: string;
+
+  /**
+   * <p>The ID of the VLAN.</p>
+   */
+  vlan?: number;
+
+  /**
+   * <p>The name of the AWS Direct Connect service provider associated with the connection.</p>
+   */
+  partnerName?: string;
+
+  /**
+   * <p>The time of the most recent call to <a>DescribeLoa</a> for this connection.</p>
+   */
+  loaIssueTime?: Date;
+
+  /**
+   * <p>The ID of the LAG.</p>
+   */
+  lagId?: string;
+
+  /**
+   * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
+   */
+  awsDevice?: string;
+
+  /**
+   * <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
+   */
+  jumboFrameCapable?: boolean;
+
+  /**
+   * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
+   */
+  awsDeviceV2?: string;
+
+  /**
+   * <p>Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).</p>
+   */
+  hasLogicalRedundancy?: HasLogicalRedundancy | string;
+
+  /**
+   * <p>The tags associated with the connection.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>The name of the service provider associated with the connection.</p>
+   */
+  providerName?: string;
 }
 
 export namespace Connection {
@@ -427,9 +427,9 @@ export namespace Connection {
 
 export interface AllocateHostedConnectionRequest {
   /**
-   * <p>The tags associated with the connection.</p>
+   * <p>The ID of the interconnect or LAG.</p>
    */
-  tags?: Tag[];
+  connectionId: string | undefined;
 
   /**
    * <p>The ID of the AWS account ID of the customer for the connection.</p>
@@ -437,14 +437,14 @@ export interface AllocateHostedConnectionRequest {
   ownerAccount: string | undefined;
 
   /**
+   * <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those AWS Direct Connect Partners who have met specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection. </p>
+   */
+  bandwidth: string | undefined;
+
+  /**
    * <p>The name of the hosted connection.</p>
    */
   connectionName: string | undefined;
-
-  /**
-   * <p>The ID of the interconnect or LAG.</p>
-   */
-  connectionId: string | undefined;
 
   /**
    * <p>The dedicated VLAN provisioned to the hosted connection.</p>
@@ -452,9 +452,9 @@ export interface AllocateHostedConnectionRequest {
   vlan: number | undefined;
 
   /**
-   * <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those AWS Direct Connect Partners who have met specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection. </p>
+   * <p>The tags associated with the connection.</p>
    */
-  bandwidth: string | undefined;
+  tags?: Tag[];
 }
 
 export namespace AllocateHostedConnectionRequest {
@@ -498,6 +498,22 @@ export namespace TooManyTagsException {
  */
 export interface NewPrivateVirtualInterfaceAllocation {
   /**
+   * <p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>
+   */
+  virtualInterfaceName: string | undefined;
+
+  /**
+   * <p>The ID of the VLAN.</p>
+   */
+  vlan: number | undefined;
+
+  /**
+   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
+   *          <p>The valid values are 1-2147483647.</p>
+   */
+  asn: number | undefined;
+
+  /**
    * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
    */
   mtu?: number;
@@ -508,20 +524,9 @@ export interface NewPrivateVirtualInterfaceAllocation {
   authKey?: string;
 
   /**
-   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
-   *          <p>The valid values are 1-2147483647.</p>
-   */
-  asn: number | undefined;
-
-  /**
    * <p>The IP address assigned to the Amazon interface.</p>
    */
   amazonAddress?: string;
-
-  /**
-   * <p>The IP address assigned to the customer interface.</p>
-   */
-  customerAddress?: string;
 
   /**
    * <p>The address family for the BGP peer.</p>
@@ -529,19 +534,14 @@ export interface NewPrivateVirtualInterfaceAllocation {
   addressFamily?: AddressFamily | string;
 
   /**
-   * <p>The ID of the VLAN.</p>
+   * <p>The IP address assigned to the customer interface.</p>
    */
-  vlan: number | undefined;
+  customerAddress?: string;
 
   /**
    * <p>The tags associated with the private virtual interface.</p>
    */
   tags?: Tag[];
-
-  /**
-   * <p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>
-   */
-  virtualInterfaceName: string | undefined;
 }
 
 export namespace NewPrivateVirtualInterfaceAllocation {
@@ -592,31 +592,6 @@ export enum BGPStatus {
  */
 export interface BGPPeer {
   /**
-   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
-   */
-  authKey?: string;
-
-  /**
-   * <p>The IP address assigned to the Amazon interface.</p>
-   */
-  amazonAddress?: string;
-
-  /**
-   * <p>The address family for the BGP peer.</p>
-   */
-  addressFamily?: AddressFamily | string;
-
-  /**
-   * <p>The IP address assigned to the customer interface.</p>
-   */
-  customerAddress?: string;
-
-  /**
-   * <p>The Direct Connect endpoint on which the BGP peer terminates.</p>
-   */
-  awsDeviceV2?: string;
-
-  /**
    * <p>The ID of the BGP peer.</p>
    */
   bgpPeerId?: string;
@@ -627,24 +602,24 @@ export interface BGPPeer {
   asn?: number;
 
   /**
-   * <p>The status of the BGP peer. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>up</code>: The BGP peer is established. This state does not indicate the
-   *         state of the routing function. Ensure that you are receiving routes over the BGP session.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>down</code>: The BGP peer is down.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>unknown</code>: The BGP peer status is not available.</p>
-   *             </li>
-   *          </ul>
+   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
    */
-  bgpStatus?: BGPStatus | string;
+  authKey?: string;
+
+  /**
+   * <p>The address family for the BGP peer.</p>
+   */
+  addressFamily?: AddressFamily | string;
+
+  /**
+   * <p>The IP address assigned to the Amazon interface.</p>
+   */
+  amazonAddress?: string;
+
+  /**
+   * <p>The IP address assigned to the customer interface.</p>
+   */
+  customerAddress?: string;
 
   /**
    * <p>The state of the BGP peer. The following are the possible values:</p>
@@ -672,6 +647,31 @@ export interface BGPPeer {
    *          </ul>
    */
   bgpPeerState?: BGPPeerState | string;
+
+  /**
+   * <p>The status of the BGP peer. The following are the possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>up</code>: The BGP peer is established. This state does not indicate the
+   *         state of the routing function. Ensure that you are receiving routes over the BGP session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>down</code>: The BGP peer is down.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unknown</code>: The BGP peer status is not available.</p>
+   *             </li>
+   *          </ul>
+   */
+  bgpStatus?: BGPStatus | string;
+
+  /**
+   * <p>The Direct Connect endpoint on which the BGP peer terminates.</p>
+   */
+  awsDeviceV2?: string;
 }
 
 export namespace BGPPeer {
@@ -696,9 +696,19 @@ export type VirtualInterfaceState =
  */
 export interface VirtualInterface {
   /**
-   * <p>The BGP peers configured on this virtual interface.</p>
+   * <p>The ID of the AWS account that owns the virtual interface.</p>
    */
-  bgpPeers?: BGPPeer[];
+  ownerAccount?: string;
+
+  /**
+   * <p>The ID of the virtual interface.</p>
+   */
+  virtualInterfaceId?: string;
+
+  /**
+   * <p>The location of the connection.</p>
+   */
+  location?: string;
 
   /**
    * <p>The ID of the connection.</p>
@@ -711,24 +721,45 @@ export interface VirtualInterface {
   virtualInterfaceType?: string;
 
   /**
-   * <p>The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.</p>
+   * <p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>
    */
-  routeFilterPrefixes?: RouteFilterPrefix[];
+  virtualInterfaceName?: string;
 
   /**
-   * <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
+   * <p>The ID of the VLAN.</p>
    */
-  jumboFrameCapable?: boolean;
+  vlan?: number;
 
   /**
-   * <p>The tags associated with the virtual interface.</p>
+   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
+   *          <p>The valid values are 1-2147483647.</p>
    */
-  tags?: Tag[];
+  asn?: number;
 
   /**
-   * <p>The ID of the AWS account that owns the virtual interface.</p>
+   * <p>The autonomous system number (ASN) for the Amazon side of the connection.</p>
    */
-  ownerAccount?: string;
+  amazonSideAsn?: number;
+
+  /**
+   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
+   */
+  authKey?: string;
+
+  /**
+   * <p>The IP address assigned to the Amazon interface.</p>
+   */
+  amazonAddress?: string;
+
+  /**
+   * <p>The IP address assigned to the customer interface.</p>
+   */
+  customerAddress?: string;
+
+  /**
+   * <p>The address family for the BGP peer.</p>
+   */
+  addressFamily?: AddressFamily | string;
 
   /**
    * <p>The state of the virtual interface. The following are the possible values:</p>
@@ -774,25 +805,9 @@ export interface VirtualInterface {
   virtualInterfaceState?: VirtualInterfaceState | string;
 
   /**
-   * <p>The
-   *       Direct Connect endpoint on which the virtual interface terminates.</p>
+   * <p>The customer router configuration.</p>
    */
-  awsDeviceV2?: string;
-
-  /**
-   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
-   */
-  authKey?: string;
-
-  /**
-   * <p>The IP address assigned to the customer interface.</p>
-   */
-  customerAddress?: string;
-
-  /**
-   * <p>The ID of the VLAN.</p>
-   */
-  vlan?: number;
+  customerRouterConfig?: string;
 
   /**
    * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
@@ -800,29 +815,9 @@ export interface VirtualInterface {
   mtu?: number;
 
   /**
-   * <p>The ID of the Direct Connect gateway.</p>
+   * <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
    */
-  directConnectGatewayId?: string;
-
-  /**
-   * <p>The customer router configuration.</p>
-   */
-  customerRouterConfig?: string;
-
-  /**
-   * <p>The location of the connection.</p>
-   */
-  location?: string;
-
-  /**
-   * <p>The IP address assigned to the Amazon interface.</p>
-   */
-  amazonAddress?: string;
-
-  /**
-   * <p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>
-   */
-  virtualInterfaceName?: string;
+  jumboFrameCapable?: boolean;
 
   /**
    * <p>The ID of the virtual private gateway. Applies only to private virtual interfaces.</p>
@@ -830,14 +825,19 @@ export interface VirtualInterface {
   virtualGatewayId?: string;
 
   /**
-   * <p>The autonomous system number (ASN) for the Amazon side of the connection.</p>
+   * <p>The ID of the Direct Connect gateway.</p>
    */
-  amazonSideAsn?: number;
+  directConnectGatewayId?: string;
 
   /**
-   * <p>The ID of the virtual interface.</p>
+   * <p>The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.</p>
    */
-  virtualInterfaceId?: string;
+  routeFilterPrefixes?: RouteFilterPrefix[];
+
+  /**
+   * <p>The BGP peers configured on this virtual interface.</p>
+   */
+  bgpPeers?: BGPPeer[];
 
   /**
    * <p>The AWS Region where the virtual interface is located.</p>
@@ -845,15 +845,15 @@ export interface VirtualInterface {
   region?: string;
 
   /**
-   * <p>The address family for the BGP peer.</p>
+   * <p>The
+   *       Direct Connect endpoint on which the virtual interface terminates.</p>
    */
-  addressFamily?: AddressFamily | string;
+  awsDeviceV2?: string;
 
   /**
-   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
-   *          <p>The valid values are 1-2147483647.</p>
+   * <p>The tags associated with the virtual interface.</p>
    */
-  asn?: number;
+  tags?: Tag[];
 }
 
 export namespace VirtualInterface {
@@ -867,14 +867,9 @@ export namespace VirtualInterface {
  */
 export interface NewPublicVirtualInterfaceAllocation {
   /**
-   * <p>The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.</p>
+   * <p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>
    */
-  routeFilterPrefixes?: RouteFilterPrefix[];
-
-  /**
-   * <p>The IP address assigned to the customer interface.</p>
-   */
-  customerAddress?: string;
+  virtualInterfaceName: string | undefined;
 
   /**
    * <p>The ID of the VLAN.</p>
@@ -888,94 +883,9 @@ export interface NewPublicVirtualInterfaceAllocation {
   asn: number | undefined;
 
   /**
-   * <p>The address family for the BGP peer.</p>
-   */
-  addressFamily?: AddressFamily | string;
-
-  /**
-   * <p>The tags associated with the public virtual interface.</p>
-   */
-  tags?: Tag[];
-
-  /**
-   * <p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>
-   */
-  virtualInterfaceName: string | undefined;
-
-  /**
    * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
    */
   authKey?: string;
-
-  /**
-   * <p>The IP address assigned to the Amazon interface.</p>
-   */
-  amazonAddress?: string;
-}
-
-export namespace NewPublicVirtualInterfaceAllocation {
-  export const filterSensitiveLog = (obj: NewPublicVirtualInterfaceAllocation): any => ({
-    ...obj,
-  });
-}
-
-export interface AllocatePublicVirtualInterfaceRequest {
-  /**
-   * <p>The ID of the AWS account that owns the public virtual interface.</p>
-   */
-  ownerAccount: string | undefined;
-
-  /**
-   * <p>Information about the public virtual interface.</p>
-   */
-  newPublicVirtualInterfaceAllocation: NewPublicVirtualInterfaceAllocation | undefined;
-
-  /**
-   * <p>The ID of the connection on which the public virtual interface is provisioned.</p>
-   */
-  connectionId: string | undefined;
-}
-
-export namespace AllocatePublicVirtualInterfaceRequest {
-  export const filterSensitiveLog = (obj: AllocatePublicVirtualInterfaceRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about a transit virtual interface to be provisioned on a connection.</p>
- */
-export interface NewTransitVirtualInterfaceAllocation {
-  /**
-   * <p>The tags associated with the transitive virtual interface.</p>
-   */
-  tags?: Tag[];
-
-  /**
-   * <p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>
-   */
-  virtualInterfaceName?: string;
-
-  /**
-   * <p>The ID of the VLAN.</p>
-   */
-  vlan?: number;
-
-  /**
-   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500. </p>
-   */
-  mtu?: number;
-
-  /**
-   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
-   */
-  authKey?: string;
-
-  /**
-   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
-   *          <p>The valid values are 1-2147483647.</p>
-   */
-  asn?: number;
 
   /**
    * <p>The IP address assigned to the Amazon interface.</p>
@@ -991,6 +901,96 @@ export interface NewTransitVirtualInterfaceAllocation {
    * <p>The address family for the BGP peer.</p>
    */
   addressFamily?: AddressFamily | string;
+
+  /**
+   * <p>The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.</p>
+   */
+  routeFilterPrefixes?: RouteFilterPrefix[];
+
+  /**
+   * <p>The tags associated with the public virtual interface.</p>
+   */
+  tags?: Tag[];
+}
+
+export namespace NewPublicVirtualInterfaceAllocation {
+  export const filterSensitiveLog = (obj: NewPublicVirtualInterfaceAllocation): any => ({
+    ...obj,
+  });
+}
+
+export interface AllocatePublicVirtualInterfaceRequest {
+  /**
+   * <p>The ID of the connection on which the public virtual interface is provisioned.</p>
+   */
+  connectionId: string | undefined;
+
+  /**
+   * <p>The ID of the AWS account that owns the public virtual interface.</p>
+   */
+  ownerAccount: string | undefined;
+
+  /**
+   * <p>Information about the public virtual interface.</p>
+   */
+  newPublicVirtualInterfaceAllocation: NewPublicVirtualInterfaceAllocation | undefined;
+}
+
+export namespace AllocatePublicVirtualInterfaceRequest {
+  export const filterSensitiveLog = (obj: AllocatePublicVirtualInterfaceRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about a transit virtual interface to be provisioned on a connection.</p>
+ */
+export interface NewTransitVirtualInterfaceAllocation {
+  /**
+   * <p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>
+   */
+  virtualInterfaceName?: string;
+
+  /**
+   * <p>The ID of the VLAN.</p>
+   */
+  vlan?: number;
+
+  /**
+   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
+   *          <p>The valid values are 1-2147483647.</p>
+   */
+  asn?: number;
+
+  /**
+   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500. </p>
+   */
+  mtu?: number;
+
+  /**
+   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
+   */
+  authKey?: string;
+
+  /**
+   * <p>The IP address assigned to the Amazon interface.</p>
+   */
+  amazonAddress?: string;
+
+  /**
+   * <p>The IP address assigned to the customer interface.</p>
+   */
+  customerAddress?: string;
+
+  /**
+   * <p>The address family for the BGP peer.</p>
+   */
+  addressFamily?: AddressFamily | string;
+
+  /**
+   * <p>The tags associated with the transitive virtual interface.</p>
+   */
+  tags?: Tag[];
 }
 
 export namespace NewTransitVirtualInterfaceAllocation {
@@ -1001,6 +1001,11 @@ export namespace NewTransitVirtualInterfaceAllocation {
 
 export interface AllocateTransitVirtualInterfaceRequest {
   /**
+   * <p>The ID of the connection on which the transit virtual interface is provisioned.</p>
+   */
+  connectionId: string | undefined;
+
+  /**
    * <p>The ID of the AWS account that owns the transit virtual interface.</p>
    */
   ownerAccount: string | undefined;
@@ -1009,11 +1014,6 @@ export interface AllocateTransitVirtualInterfaceRequest {
    * <p>Information about the transit virtual interface.</p>
    */
   newTransitVirtualInterfaceAllocation: NewTransitVirtualInterfaceAllocation | undefined;
-
-  /**
-   * <p>The ID of the connection on which the transit virtual interface is provisioned.</p>
-   */
-  connectionId: string | undefined;
 }
 
 export namespace AllocateTransitVirtualInterfaceRequest {
@@ -1037,14 +1037,14 @@ export namespace AllocateTransitVirtualInterfaceResult {
 
 export interface AssociateConnectionWithLagRequest {
   /**
-   * <p>The ID of the LAG with which to associate the connection.</p>
-   */
-  lagId: string | undefined;
-
-  /**
    * <p>The ID of the connection.</p>
    */
   connectionId: string | undefined;
+
+  /**
+   * <p>The ID of the LAG with which to associate the connection.</p>
+   */
+  lagId: string | undefined;
 }
 
 export namespace AssociateConnectionWithLagRequest {
@@ -1155,6 +1155,11 @@ export namespace ConfirmConnectionResponse {
 
 export interface ConfirmPrivateVirtualInterfaceRequest {
   /**
+   * <p>The ID of the virtual interface.</p>
+   */
+  virtualInterfaceId: string | undefined;
+
+  /**
    * <p>The ID of the virtual private gateway.</p>
    */
   virtualGatewayId?: string;
@@ -1163,11 +1168,6 @@ export interface ConfirmPrivateVirtualInterfaceRequest {
    * <p>The ID of the Direct Connect gateway.</p>
    */
   directConnectGatewayId?: string;
-
-  /**
-   * <p>The ID of the virtual interface.</p>
-   */
-  virtualInterfaceId: string | undefined;
 }
 
 export namespace ConfirmPrivateVirtualInterfaceRequest {
@@ -1378,9 +1378,9 @@ export namespace Connections {
  */
 export interface NewBGPPeer {
   /**
-   * <p>The IP address assigned to the customer interface.</p>
+   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
    */
-  customerAddress?: string;
+  asn?: number;
 
   /**
    * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
@@ -1388,19 +1388,19 @@ export interface NewBGPPeer {
   authKey?: string;
 
   /**
+   * <p>The address family for the BGP peer.</p>
+   */
+  addressFamily?: AddressFamily | string;
+
+  /**
    * <p>The IP address assigned to the Amazon interface.</p>
    */
   amazonAddress?: string;
 
   /**
-   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
+   * <p>The IP address assigned to the customer interface.</p>
    */
-  asn?: number;
-
-  /**
-   * <p>The address family for the BGP peer.</p>
-   */
-  addressFamily?: AddressFamily | string;
+  customerAddress?: string;
 }
 
 export namespace NewBGPPeer {
@@ -1411,14 +1411,14 @@ export namespace NewBGPPeer {
 
 export interface CreateBGPPeerRequest {
   /**
-   * <p>Information about the BGP peer.</p>
-   */
-  newBGPPeer?: NewBGPPeer;
-
-  /**
    * <p>The ID of the virtual interface.</p>
    */
   virtualInterfaceId?: string;
+
+  /**
+   * <p>Information about the BGP peer.</p>
+   */
+  newBGPPeer?: NewBGPPeer;
 }
 
 export namespace CreateBGPPeerRequest {
@@ -1452,11 +1452,6 @@ export interface CreateConnectionRequest {
   bandwidth: string | undefined;
 
   /**
-   * <p>The tags to associate with the lag.</p>
-   */
-  tags?: Tag[];
-
-  /**
    * <p>The name of the connection.</p>
    */
   connectionName: string | undefined;
@@ -1465,6 +1460,11 @@ export interface CreateConnectionRequest {
    * <p>The ID of the LAG.</p>
    */
   lagId?: string;
+
+  /**
+   * <p>The tags to associate with the lag.</p>
+   */
+  tags?: Tag[];
 
   /**
    * <p>The name of the service provider associated with the requested connection.</p>
@@ -1505,14 +1505,14 @@ export type DirectConnectGatewayState = "available" | "deleted" | "deleting" | "
  */
 export interface DirectConnectGateway {
   /**
-   * <p>The error message if the state of an object failed to advance.</p>
-   */
-  stateChangeError?: string;
-
-  /**
    * <p>The ID of the Direct Connect gateway.</p>
    */
   directConnectGatewayId?: string;
+
+  /**
+   * <p>The name of the Direct Connect gateway.</p>
+   */
+  directConnectGatewayName?: string;
 
   /**
    * <p>The autonomous system number (ASN) for the Amazon side of the connection.</p>
@@ -1520,9 +1520,9 @@ export interface DirectConnectGateway {
   amazonSideAsn?: number;
 
   /**
-   * <p>The name of the Direct Connect gateway.</p>
+   * <p>The ID of the AWS account that owns the Direct Connect gateway.</p>
    */
-  directConnectGatewayName?: string;
+  ownerAccount?: string;
 
   /**
    * <p>The state of the Direct Connect gateway. The following are the possible values:</p>
@@ -1548,9 +1548,9 @@ export interface DirectConnectGateway {
   directConnectGatewayState?: DirectConnectGatewayState | string;
 
   /**
-   * <p>The ID of the AWS account that owns the Direct Connect gateway.</p>
+   * <p>The error message if the state of an object failed to advance.</p>
    */
-  ownerAccount?: string;
+  stateChangeError?: string;
 }
 
 export namespace DirectConnectGateway {
@@ -1574,14 +1574,14 @@ export namespace CreateDirectConnectGatewayResult {
 
 export interface CreateDirectConnectGatewayAssociationRequest {
   /**
-   * <p>The ID of the virtual private gateway or transit gateway.</p>
-   */
-  gatewayId?: string;
-
-  /**
    * <p>The ID of the Direct Connect gateway.</p>
    */
   directConnectGatewayId: string | undefined;
+
+  /**
+   * <p>The ID of the virtual private gateway or transit gateway.</p>
+   */
+  gatewayId?: string;
 
   /**
    * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway</p>
@@ -1617,6 +1617,16 @@ export namespace CreateDirectConnectGatewayAssociationResult {
 
 export interface CreateDirectConnectGatewayAssociationProposalRequest {
   /**
+   * <p>The ID of the Direct Connect gateway.</p>
+   */
+  directConnectGatewayId: string | undefined;
+
+  /**
+   * <p>The ID of the AWS account that owns the Direct Connect gateway.</p>
+   */
+  directConnectGatewayOwnerAccount: string | undefined;
+
+  /**
    * <p>The ID of the virtual private gateway or transit gateway.</p>
    */
   gatewayId: string | undefined;
@@ -1630,16 +1640,6 @@ export interface CreateDirectConnectGatewayAssociationProposalRequest {
    * <p>The Amazon VPC prefixes to no longer advertise to the Direct Connect gateway.</p>
    */
   removeAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
-
-  /**
-   * <p>The ID of the Direct Connect gateway.</p>
-   */
-  directConnectGatewayId: string | undefined;
-
-  /**
-   * <p>The ID of the AWS account that owns the Direct Connect gateway.</p>
-   */
-  directConnectGatewayOwnerAccount: string | undefined;
 }
 
 export namespace CreateDirectConnectGatewayAssociationProposalRequest {
@@ -1655,19 +1655,9 @@ export type DirectConnectGatewayAssociationProposalState = "accepted" | "deleted
  */
 export interface DirectConnectGatewayAssociationProposal {
   /**
-   * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
+   * <p>The ID of the association proposal.</p>
    */
-  requestedAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
-
-  /**
-   * <p>The existing Amazon VPC prefixes advertised to the Direct Connect gateway.</p>
-   */
-  existingAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
-
-  /**
-   * <p>The ID of the AWS account that owns the Direct Connect gateway.</p>
-   */
-  directConnectGatewayOwnerAccount?: string;
+  proposalId?: string;
 
   /**
    * <p>The ID of the Direct Connect gateway.</p>
@@ -1675,9 +1665,9 @@ export interface DirectConnectGatewayAssociationProposal {
   directConnectGatewayId?: string;
 
   /**
-   * <p>The ID of the association proposal.</p>
+   * <p>The ID of the AWS account that owns the Direct Connect gateway.</p>
    */
-  proposalId?: string;
+  directConnectGatewayOwnerAccount?: string;
 
   /**
    * <p>The state of the proposal. The following are possible values:</p>
@@ -1702,6 +1692,16 @@ export interface DirectConnectGatewayAssociationProposal {
    * <p>Information about the associated gateway.</p>
    */
   associatedGateway?: AssociatedGateway;
+
+  /**
+   * <p>The existing Amazon VPC prefixes advertised to the Direct Connect gateway.</p>
+   */
+  existingAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
+
+  /**
+   * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
+   */
+  requestedAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
 }
 
 export namespace DirectConnectGatewayAssociationProposal {
@@ -1725,9 +1725,9 @@ export namespace CreateDirectConnectGatewayAssociationProposalResult {
 
 export interface CreateInterconnectRequest {
   /**
-   * <p>The ID of the LAG.</p>
+   * <p>The name of the interconnect.</p>
    */
-  lagId?: string;
+  interconnectName: string | undefined;
 
   /**
    * <p>The port bandwidth, in Gbps. The possible values are 1 and 10.</p>
@@ -1735,19 +1735,19 @@ export interface CreateInterconnectRequest {
   bandwidth: string | undefined;
 
   /**
-   * <p>The name of the interconnect.</p>
+   * <p>The location of the interconnect.</p>
    */
-  interconnectName: string | undefined;
+  location: string | undefined;
+
+  /**
+   * <p>The ID of the LAG.</p>
+   */
+  lagId?: string;
 
   /**
    * <p>The tags to associate with the interconnect.</p>
    */
   tags?: Tag[];
-
-  /**
-   * <p>The location of the interconnect.</p>
-   */
-  location: string | undefined;
 
   /**
    * <p>The name of the service provider associated with the interconnect.</p>
@@ -1768,44 +1768,14 @@ export type InterconnectState = "available" | "deleted" | "deleting" | "down" | 
  */
 export interface Interconnect {
   /**
-   * <p>The bandwidth of the connection.</p>
-   */
-  bandwidth?: string;
-
-  /**
-   * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
-   */
-  awsDevice?: string;
-
-  /**
    * <p>The ID of the interconnect.</p>
    */
   interconnectId?: string;
 
   /**
-   * <p>Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).</p>
+   * <p>The name of the interconnect.</p>
    */
-  hasLogicalRedundancy?: HasLogicalRedundancy | string;
-
-  /**
-   * <p>The name of the service provider associated with the interconnect.</p>
-   */
-  providerName?: string;
-
-  /**
-   * <p>The time of the most recent call to <a>DescribeLoa</a> for this connection.</p>
-   */
-  loaIssueTime?: Date;
-
-  /**
-   * <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
-   */
-  jumboFrameCapable?: boolean;
-
-  /**
-   * <p>The tags associated with the interconnect.</p>
-   */
-  tags?: Tag[];
+  interconnectName?: string;
 
   /**
    * <p>The state of the interconnect. The following are the possible values:</p>
@@ -1844,19 +1814,9 @@ export interface Interconnect {
   interconnectState?: InterconnectState | string;
 
   /**
-   * <p>The ID of the LAG.</p>
-   */
-  lagId?: string;
-
-  /**
    * <p>The AWS Region where the connection is located.</p>
    */
   region?: string;
-
-  /**
-   * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
-   */
-  awsDeviceV2?: string;
 
   /**
    * <p>The location of the connection.</p>
@@ -1864,9 +1824,49 @@ export interface Interconnect {
   location?: string;
 
   /**
-   * <p>The name of the interconnect.</p>
+   * <p>The bandwidth of the connection.</p>
    */
-  interconnectName?: string;
+  bandwidth?: string;
+
+  /**
+   * <p>The time of the most recent call to <a>DescribeLoa</a> for this connection.</p>
+   */
+  loaIssueTime?: Date;
+
+  /**
+   * <p>The ID of the LAG.</p>
+   */
+  lagId?: string;
+
+  /**
+   * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
+   */
+  awsDevice?: string;
+
+  /**
+   * <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
+   */
+  jumboFrameCapable?: boolean;
+
+  /**
+   * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
+   */
+  awsDeviceV2?: string;
+
+  /**
+   * <p>Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).</p>
+   */
+  hasLogicalRedundancy?: HasLogicalRedundancy | string;
+
+  /**
+   * <p>The tags associated with the interconnect.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>The name of the service provider associated with the interconnect.</p>
+   */
+  providerName?: string;
 }
 
 export namespace Interconnect {
@@ -1877,30 +1877,15 @@ export namespace Interconnect {
 
 export interface CreateLagRequest {
   /**
-   * <p>The ID of an existing dedicated connection to migrate to the LAG.</p>
-   */
-  connectionId?: string;
-
-  /**
    * <p>The number of physical dedicated connections initially provisioned and bundled by the
    *       LAG.</p>
    */
   numberOfConnections: number | undefined;
 
   /**
-   * <p>The name of the service provider associated with the LAG.</p>
+   * <p>The location for the LAG.</p>
    */
-  providerName?: string;
-
-  /**
-   * <p>The tags to associate with the LAG.</p>
-   */
-  tags?: Tag[];
-
-  /**
-   * <p>The tags to associate with the automtically created LAGs.</p>
-   */
-  childConnectionTags?: Tag[];
+  location: string | undefined;
 
   /**
    * <p>The bandwidth of the individual physical dedicated connections bundled by the LAG. The
@@ -1914,9 +1899,24 @@ export interface CreateLagRequest {
   lagName: string | undefined;
 
   /**
-   * <p>The location for the LAG.</p>
+   * <p>The ID of an existing dedicated connection to migrate to the LAG.</p>
    */
-  location: string | undefined;
+  connectionId?: string;
+
+  /**
+   * <p>The tags to associate with the LAG.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>The tags to associate with the automtically created LAGs.</p>
+   */
+  childConnectionTags?: Tag[];
+
+  /**
+   * <p>The name of the service provider associated with the LAG.</p>
+   */
+  providerName?: string;
 }
 
 export namespace CreateLagRequest {
@@ -1931,6 +1931,32 @@ export type LagState = "available" | "deleted" | "deleting" | "down" | "pending"
  * <p>Information about a link aggregation group (LAG).</p>
  */
 export interface Lag {
+  /**
+   * <p>The individual bandwidth of the physical connections bundled by the LAG. The possible
+   *       values are 1Gbps and 10Gbps. </p>
+   */
+  connectionsBandwidth?: string;
+
+  /**
+   * <p>The number of physical dedicated connections bundled by the LAG, up to a maximum of 10.</p>
+   */
+  numberOfConnections?: number;
+
+  /**
+   * <p>The ID of the LAG.</p>
+   */
+  lagId?: string;
+
+  /**
+   * <p>The ID of the AWS account that owns the LAG.</p>
+   */
+  ownerAccount?: string;
+
+  /**
+   * <p>The name of the LAG.</p>
+   */
+  lagName?: string;
+
   /**
    * <p>The state of the LAG. The following are the possible values:</p>
    *         <ul>
@@ -1968,75 +1994,9 @@ export interface Lag {
   lagState?: LagState | string;
 
   /**
-   * <p>The name of the service provider associated with the LAG.</p>
-   */
-  providerName?: string;
-
-  /**
-   * <p>Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).</p>
-   */
-  hasLogicalRedundancy?: HasLogicalRedundancy | string;
-
-  /**
-   * <p>The ID of the LAG.</p>
-   */
-  lagId?: string;
-
-  /**
-   * <p>Indicates whether the LAG can host other connections.</p>
-   */
-  allowsHostedConnections?: boolean;
-
-  /**
-   * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
-   */
-  awsDeviceV2?: string;
-
-  /**
-   * <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
-   */
-  jumboFrameCapable?: boolean;
-
-  /**
-   * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
-   */
-  awsDevice?: string;
-
-  /**
-   * <p>The name of the LAG.</p>
-   */
-  lagName?: string;
-
-  /**
-   * <p>The individual bandwidth of the physical connections bundled by the LAG. The possible
-   *       values are 1Gbps and 10Gbps. </p>
-   */
-  connectionsBandwidth?: string;
-
-  /**
    * <p>The location of the LAG.</p>
    */
   location?: string;
-
-  /**
-   * <p>The connections bundled by the LAG.</p>
-   */
-  connections?: Connection[];
-
-  /**
-   * <p>The tags associated with the LAG.</p>
-   */
-  tags?: Tag[];
-
-  /**
-   * <p>The ID of the AWS account that owns the LAG.</p>
-   */
-  ownerAccount?: string;
-
-  /**
-   * <p>The number of physical dedicated connections bundled by the LAG, up to a maximum of 10.</p>
-   */
-  numberOfConnections?: number;
 
   /**
    * <p>The AWS Region where the connection is located.</p>
@@ -2047,6 +2007,46 @@ export interface Lag {
    * <p>The minimum number of physical dedicated connections that must be operational for the LAG itself to be operational.</p>
    */
   minimumLinks?: number;
+
+  /**
+   * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
+   */
+  awsDevice?: string;
+
+  /**
+   * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
+   */
+  awsDeviceV2?: string;
+
+  /**
+   * <p>The connections bundled by the LAG.</p>
+   */
+  connections?: Connection[];
+
+  /**
+   * <p>Indicates whether the LAG can host other connections.</p>
+   */
+  allowsHostedConnections?: boolean;
+
+  /**
+   * <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
+   */
+  jumboFrameCapable?: boolean;
+
+  /**
+   * <p>Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).</p>
+   */
+  hasLogicalRedundancy?: HasLogicalRedundancy | string;
+
+  /**
+   * <p>The tags associated with the LAG.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>The name of the service provider associated with the LAG.</p>
+   */
+  providerName?: string;
 }
 
 export namespace Lag {
@@ -2065,9 +2065,35 @@ export interface NewPrivateVirtualInterface {
   virtualInterfaceName: string | undefined;
 
   /**
+   * <p>The ID of the VLAN.</p>
+   */
+  vlan: number | undefined;
+
+  /**
+   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
+   *          <p>The valid values are 1-2147483647.</p>
+   */
+  asn: number | undefined;
+
+  /**
+   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
+   */
+  mtu?: number;
+
+  /**
+   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
+   */
+  authKey?: string;
+
+  /**
    * <p>The IP address assigned to the Amazon interface.</p>
    */
   amazonAddress?: string;
+
+  /**
+   * <p>The IP address assigned to the customer interface.</p>
+   */
+  customerAddress?: string;
 
   /**
    * <p>The address family for the BGP peer.</p>
@@ -2083,32 +2109,6 @@ export interface NewPrivateVirtualInterface {
    * <p>The ID of the Direct Connect gateway.</p>
    */
   directConnectGatewayId?: string;
-
-  /**
-   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
-   *          <p>The valid values are 1-2147483647.</p>
-   */
-  asn: number | undefined;
-
-  /**
-   * <p>The ID of the VLAN.</p>
-   */
-  vlan: number | undefined;
-
-  /**
-   * <p>The IP address assigned to the customer interface.</p>
-   */
-  customerAddress?: string;
-
-  /**
-   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
-   */
-  mtu?: number;
-
-  /**
-   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
-   */
-  authKey?: string;
 
   /**
    * <p>The tags associated with the private virtual interface.</p>
@@ -2145,30 +2145,20 @@ export namespace CreatePrivateVirtualInterfaceRequest {
  */
 export interface NewPublicVirtualInterface {
   /**
-   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
-   *          <p>The valid values are 1-2147483647.</p>
-   */
-  asn: number | undefined;
-
-  /**
-   * <p>The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.</p>
-   */
-  routeFilterPrefixes?: RouteFilterPrefix[];
-
-  /**
-   * <p>The IP address assigned to the Amazon interface.</p>
-   */
-  amazonAddress?: string;
-
-  /**
    * <p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>
    */
   virtualInterfaceName: string | undefined;
 
   /**
-   * <p>The address family for the BGP peer.</p>
+   * <p>The ID of the VLAN.</p>
    */
-  addressFamily?: AddressFamily | string;
+  vlan: number | undefined;
+
+  /**
+   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
+   *          <p>The valid values are 1-2147483647.</p>
+   */
+  asn: number | undefined;
 
   /**
    * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
@@ -2176,9 +2166,9 @@ export interface NewPublicVirtualInterface {
   authKey?: string;
 
   /**
-   * <p>The tags associated with the public virtual interface.</p>
+   * <p>The IP address assigned to the Amazon interface.</p>
    */
-  tags?: Tag[];
+  amazonAddress?: string;
 
   /**
    * <p>The IP address assigned to the customer interface.</p>
@@ -2186,9 +2176,19 @@ export interface NewPublicVirtualInterface {
   customerAddress?: string;
 
   /**
-   * <p>The ID of the VLAN.</p>
+   * <p>The address family for the BGP peer.</p>
    */
-  vlan: number | undefined;
+  addressFamily?: AddressFamily | string;
+
+  /**
+   * <p>The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.</p>
+   */
+  routeFilterPrefixes?: RouteFilterPrefix[];
+
+  /**
+   * <p>The tags associated with the public virtual interface.</p>
+   */
+  tags?: Tag[];
 }
 
 export namespace NewPublicVirtualInterface {
@@ -2220,24 +2220,9 @@ export namespace CreatePublicVirtualInterfaceRequest {
  */
 export interface NewTransitVirtualInterface {
   /**
-   * <p>The IP address assigned to the customer interface.</p>
+   * <p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>
    */
-  customerAddress?: string;
-
-  /**
-   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
-   */
-  authKey?: string;
-
-  /**
-   * <p>The IP address assigned to the Amazon interface.</p>
-   */
-  amazonAddress?: string;
-
-  /**
-   * <p>The address family for the BGP peer.</p>
-   */
-  addressFamily?: AddressFamily | string;
+  virtualInterfaceName?: string;
 
   /**
    * <p>The ID of the VLAN.</p>
@@ -2251,9 +2236,29 @@ export interface NewTransitVirtualInterface {
   asn?: number;
 
   /**
-   * <p>The tags associated with the transitive virtual interface.</p>
+   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
    */
-  tags?: Tag[];
+  mtu?: number;
+
+  /**
+   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
+   */
+  authKey?: string;
+
+  /**
+   * <p>The IP address assigned to the Amazon interface.</p>
+   */
+  amazonAddress?: string;
+
+  /**
+   * <p>The IP address assigned to the customer interface.</p>
+   */
+  customerAddress?: string;
+
+  /**
+   * <p>The address family for the BGP peer.</p>
+   */
+  addressFamily?: AddressFamily | string;
 
   /**
    * <p>The ID of the Direct Connect gateway.</p>
@@ -2261,14 +2266,9 @@ export interface NewTransitVirtualInterface {
   directConnectGatewayId?: string;
 
   /**
-   * <p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>
+   * <p>The tags associated with the transitive virtual interface.</p>
    */
-  virtualInterfaceName?: string;
-
-  /**
-   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
-   */
-  mtu?: number;
+  tags?: Tag[];
 }
 
 export namespace NewTransitVirtualInterface {
@@ -2279,14 +2279,14 @@ export namespace NewTransitVirtualInterface {
 
 export interface CreateTransitVirtualInterfaceRequest {
   /**
-   * <p>Information about the transit virtual interface.</p>
-   */
-  newTransitVirtualInterface: NewTransitVirtualInterface | undefined;
-
-  /**
    * <p>The ID of the connection.</p>
    */
   connectionId: string | undefined;
+
+  /**
+   * <p>Information about the transit virtual interface.</p>
+   */
+  newTransitVirtualInterface: NewTransitVirtualInterface | undefined;
 }
 
 export namespace CreateTransitVirtualInterfaceRequest {
@@ -2315,9 +2315,9 @@ export interface DeleteBGPPeerRequest {
   virtualInterfaceId?: string;
 
   /**
-   * <p>The ID of the BGP peer.</p>
+   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
    */
-  bgpPeerId?: string;
+  asn?: number;
 
   /**
    * <p>The IP address assigned to the customer interface.</p>
@@ -2325,9 +2325,9 @@ export interface DeleteBGPPeerRequest {
   customerAddress?: string;
 
   /**
-   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
+   * <p>The ID of the BGP peer.</p>
    */
-  asn?: number;
+  bgpPeerId?: string;
 }
 
 export namespace DeleteBGPPeerRequest {
@@ -2390,9 +2390,9 @@ export namespace DeleteDirectConnectGatewayResult {
 
 export interface DeleteDirectConnectGatewayAssociationRequest {
   /**
-   * <p>The ID of the virtual private gateway.</p>
+   * <p>The ID of the Direct Connect gateway association.</p>
    */
-  virtualGatewayId?: string;
+  associationId?: string;
 
   /**
    * <p>The ID of the Direct Connect gateway.</p>
@@ -2400,9 +2400,9 @@ export interface DeleteDirectConnectGatewayAssociationRequest {
   directConnectGatewayId?: string;
 
   /**
-   * <p>The ID of the Direct Connect gateway association.</p>
+   * <p>The ID of the virtual private gateway.</p>
    */
-  associationId?: string;
+  virtualGatewayId?: string;
 }
 
 export namespace DeleteDirectConnectGatewayAssociationRequest {
@@ -2590,6 +2590,11 @@ export enum LoaContentType {
 
 export interface DescribeConnectionLoaRequest {
   /**
+   * <p>The ID of the connection.</p>
+   */
+  connectionId: string | undefined;
+
+  /**
    * <p>The name of the APN partner or service provider who establishes connectivity on your behalf. If you specify this parameter,
    *       the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.</p>
    */
@@ -2599,11 +2604,6 @@ export interface DescribeConnectionLoaRequest {
    * <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
    */
   loaContentType?: LoaContentType | string;
-
-  /**
-   * <p>The ID of the connection.</p>
-   */
-  connectionId: string | undefined;
 }
 
 export namespace DescribeConnectionLoaRequest {
@@ -2674,14 +2674,6 @@ export namespace DescribeConnectionsOnInterconnectRequest {
 
 export interface DescribeDirectConnectGatewayAssociationProposalsRequest {
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * 	        <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
-   *       returned.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>The ID of the Direct Connect gateway.</p>
    */
   directConnectGatewayId?: string;
@@ -2692,14 +2684,22 @@ export interface DescribeDirectConnectGatewayAssociationProposalsRequest {
   proposalId?: string;
 
   /**
-   * <p>The token for the next page of results.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The ID of the associated gateway.</p>
    */
   associatedGatewayId?: string;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * 	        <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
+   *       returned.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace DescribeDirectConnectGatewayAssociationProposalsRequest {
@@ -2728,14 +2728,19 @@ export namespace DescribeDirectConnectGatewayAssociationProposalsResult {
 
 export interface DescribeDirectConnectGatewayAssociationsRequest {
   /**
-   * <p>The ID of the Direct Connect gateway.</p>
-   */
-  directConnectGatewayId?: string;
-
-  /**
    * <p>The ID of the Direct Connect gateway association.</p>
    */
   associationId?: string;
+
+  /**
+   * <p>The ID of the associated gateway.</p>
+   */
+  associatedGatewayId?: string;
+
+  /**
+   * <p>The ID of the Direct Connect gateway.</p>
+   */
+  directConnectGatewayId?: string;
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -2749,11 +2754,6 @@ export interface DescribeDirectConnectGatewayAssociationsRequest {
    * <p>The token provided in the previous call to retrieve the next page.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>The ID of the associated gateway.</p>
-   */
-  associatedGatewayId?: string;
 
   /**
    * <p>The ID of the virtual private gateway.</p>
@@ -2769,14 +2769,14 @@ export namespace DescribeDirectConnectGatewayAssociationsRequest {
 
 export interface DescribeDirectConnectGatewayAssociationsResult {
   /**
-   * <p>The token to retrieve the next page.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>Information about the associations.</p>
    */
   directConnectGatewayAssociations?: DirectConnectGatewayAssociation[];
+
+  /**
+   * <p>The token to retrieve the next page.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace DescribeDirectConnectGatewayAssociationsResult {
@@ -2792,9 +2792,9 @@ export interface DescribeDirectConnectGatewayAttachmentsRequest {
   directConnectGatewayId?: string;
 
   /**
-   * <p>The token provided in the previous call to retrieve the next page.</p>
+   * <p>The ID of the virtual interface.</p>
    */
-  nextToken?: string;
+  virtualInterfaceId?: string;
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -2805,9 +2805,9 @@ export interface DescribeDirectConnectGatewayAttachmentsRequest {
   maxResults?: number;
 
   /**
-   * <p>The ID of the virtual interface.</p>
+   * <p>The token provided in the previous call to retrieve the next page.</p>
    */
-  virtualInterfaceId?: string;
+  nextToken?: string;
 }
 
 export namespace DescribeDirectConnectGatewayAttachmentsRequest {
@@ -2825,24 +2825,24 @@ export type DirectConnectGatewayAttachmentType = "PrivateVirtualInterface" | "Tr
  */
 export interface DirectConnectGatewayAttachment {
   /**
-   * <p>The ID of the virtual interface.</p>
-   */
-  virtualInterfaceId?: string;
-
-  /**
-   * <p>The ID of the AWS account that owns the virtual interface.</p>
-   */
-  virtualInterfaceOwnerAccount?: string;
-
-  /**
    * <p>The ID of the Direct Connect gateway.</p>
    */
   directConnectGatewayId?: string;
 
   /**
-   * <p>The type of attachment.</p>
+   * <p>The ID of the virtual interface.</p>
    */
-  attachmentType?: DirectConnectGatewayAttachmentType | string;
+  virtualInterfaceId?: string;
+
+  /**
+   * <p>The AWS Region where the virtual interface is located.</p>
+   */
+  virtualInterfaceRegion?: string;
+
+  /**
+   * <p>The ID of the AWS account that owns the virtual interface.</p>
+   */
+  virtualInterfaceOwnerAccount?: string;
 
   /**
    * <p>The state of the attachment. The following are the possible values:</p>
@@ -2868,14 +2868,14 @@ export interface DirectConnectGatewayAttachment {
   attachmentState?: DirectConnectGatewayAttachmentState | string;
 
   /**
+   * <p>The type of attachment.</p>
+   */
+  attachmentType?: DirectConnectGatewayAttachmentType | string;
+
+  /**
    * <p>The error message if the state of an object failed to advance.</p>
    */
   stateChangeError?: string;
-
-  /**
-   * <p>The AWS Region where the virtual interface is located.</p>
-   */
-  virtualInterfaceRegion?: string;
 }
 
 export namespace DirectConnectGatewayAttachment {
@@ -2886,14 +2886,14 @@ export namespace DirectConnectGatewayAttachment {
 
 export interface DescribeDirectConnectGatewayAttachmentsResult {
   /**
-   * <p>The token to retrieve the next page.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The attachments.</p>
    */
   directConnectGatewayAttachments?: DirectConnectGatewayAttachment[];
+
+  /**
+   * <p>The token to retrieve the next page.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace DescribeDirectConnectGatewayAttachmentsResult {
@@ -3049,11 +3049,6 @@ export namespace Lags {
 
 export interface DescribeLoaRequest {
   /**
-   * <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
-   */
-  loaContentType?: LoaContentType | string;
-
-  /**
    * <p>The ID of a connection, LAG, or interconnect.</p>
    */
   connectionId: string | undefined;
@@ -3063,6 +3058,11 @@ export interface DescribeLoaRequest {
    *       LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.</p>
    */
   providerName?: string;
+
+  /**
+   * <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
+   */
+  loaContentType?: LoaContentType | string;
 }
 
 export namespace DescribeLoaRequest {
@@ -3076,9 +3076,14 @@ export namespace DescribeLoaRequest {
  */
 export interface Location {
   /**
-   * <p>The name of the service provider for the location.</p>
+   * <p>The code for the location.</p>
    */
-  availableProviders?: string[];
+  locationCode?: string;
+
+  /**
+   * <p>The name of the location. This includes the name of the colocation partner and the physical site of the building.</p>
+   */
+  locationName?: string;
 
   /**
    * <p>The AWS Region for the location.</p>
@@ -3091,14 +3096,9 @@ export interface Location {
   availablePortSpeeds?: string[];
 
   /**
-   * <p>The name of the location. This includes the name of the colocation partner and the physical site of the building.</p>
+   * <p>The name of the service provider for the location.</p>
    */
-  locationName?: string;
-
-  /**
-   * <p>The code for the location.</p>
-   */
-  locationCode?: string;
+  availableProviders?: string[];
 }
 
 export namespace Location {
@@ -3138,14 +3138,14 @@ export namespace DescribeTagsRequest {
  */
 export interface ResourceTag {
   /**
-   * <p>The tags.</p>
-   */
-  tags?: Tag[];
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   resourceArn?: string;
+
+  /**
+   * <p>The tags.</p>
+   */
+  tags?: Tag[];
 }
 
 export namespace ResourceTag {
@@ -3172,6 +3172,11 @@ export namespace DescribeTagsResponse {
  */
 export interface VirtualGateway {
   /**
+   * <p>The ID of the virtual private gateway.</p>
+   */
+  virtualGatewayId?: string;
+
+  /**
    * <p>The state of the virtual private gateway. The following are the possible values:</p>
    *          <ul>
    *             <li>
@@ -3193,11 +3198,6 @@ export interface VirtualGateway {
    *          </ul>
    */
   virtualGatewayState?: string;
-
-  /**
-   * <p>The ID of the virtual private gateway.</p>
-   */
-  virtualGatewayId?: string;
 }
 
 export namespace VirtualGateway {
@@ -3221,14 +3221,14 @@ export namespace VirtualGateways {
 
 export interface DescribeVirtualInterfacesRequest {
   /**
-   * <p>The ID of the virtual interface.</p>
-   */
-  virtualInterfaceId?: string;
-
-  /**
    * <p>The ID of the connection.</p>
    */
   connectionId?: string;
+
+  /**
+   * <p>The ID of the virtual interface.</p>
+   */
+  virtualInterfaceId?: string;
 }
 
 export namespace DescribeVirtualInterfacesRequest {
@@ -3270,22 +3270,14 @@ export namespace DisassociateConnectionFromLagRequest {
 
 export interface ListVirtualInterfaceTestHistoryRequest {
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * 	        <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
-   *       returned.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>The ID of the virtual interface failover test.</p>
    */
   testId?: string;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The ID of the virtual interface that was tested.</p>
    */
-  nextToken?: string;
+  virtualInterfaceId?: string;
 
   /**
    * <p>The BGP peers that were placed in the DOWN state during the virtual interface failover test.</p>
@@ -3298,9 +3290,17 @@ export interface ListVirtualInterfaceTestHistoryRequest {
   status?: string;
 
   /**
-   * <p>The ID of the virtual interface that was tested.</p>
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * 	        <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
+   *       returned.</p>
    */
-  virtualInterfaceId?: string;
+  maxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListVirtualInterfaceTestHistoryRequest {
@@ -3314,19 +3314,9 @@ export namespace ListVirtualInterfaceTestHistoryRequest {
  */
 export interface VirtualInterfaceTestHistory {
   /**
-   * <p>The status of the virtual interface failover test.</p>
+   * <p>The ID of the virtual interface failover test.</p>
    */
-  status?: string;
-
-  /**
-   * <p>The owner ID of the tested virtual interface.</p>
-   */
-  ownerAccount?: string;
-
-  /**
-   * <p>The time that the virtual interface moves out of the DOWN state.</p>
-   */
-  endTime?: Date;
+  testId?: string;
 
   /**
    * <p>The ID of the tested virtual interface.</p>
@@ -3339,19 +3329,29 @@ export interface VirtualInterfaceTestHistory {
   bgpPeers?: string[];
 
   /**
+   * <p>The status of the virtual interface failover test.</p>
+   */
+  status?: string;
+
+  /**
+   * <p>The owner ID of the tested virtual interface.</p>
+   */
+  ownerAccount?: string;
+
+  /**
    * <p>The time that the virtual interface failover test ran in minutes.</p>
    */
   testDurationInMinutes?: number;
 
   /**
-   * <p>The ID of the virtual interface failover test.</p>
-   */
-  testId?: string;
-
-  /**
    * <p>The time that the virtual interface moves to the DOWN state.</p>
    */
   startTime?: Date;
+
+  /**
+   * <p>The time that the virtual interface moves out of the DOWN state.</p>
+   */
+  endTime?: Date;
 }
 
 export namespace VirtualInterfaceTestHistory {
@@ -3362,14 +3362,14 @@ export namespace VirtualInterfaceTestHistory {
 
 export interface ListVirtualInterfaceTestHistoryResponse {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The ID of the tested virtual interface.</p>
    */
   virtualInterfaceTestHistory?: VirtualInterfaceTestHistory[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListVirtualInterfaceTestHistoryResponse {
@@ -3380,13 +3380,6 @@ export namespace ListVirtualInterfaceTestHistoryResponse {
 
 export interface StartBgpFailoverTestRequest {
   /**
-   * <p>The time in minutes that the virtual interface failover test will last.</p>
-   *          <p>Maximum value: 180 minutes (3 hours).</p>
-   *          <p>Default: 180 minutes (3 hours).</p>
-   */
-  testDurationInMinutes?: number;
-
-  /**
    * <p>The ID of the virtual interface you want to test.</p>
    */
   virtualInterfaceId: string | undefined;
@@ -3395,6 +3388,13 @@ export interface StartBgpFailoverTestRequest {
    * <p>The BGP peers to place in the DOWN state.</p>
    */
   bgpPeers?: string[];
+
+  /**
+   * <p>The time in minutes that the virtual interface failover test will last.</p>
+   *          <p>Maximum value: 180 minutes (3 hours).</p>
+   *          <p>Default: 180 minutes (3 hours).</p>
+   */
+  testDurationInMinutes?: number;
 }
 
 export namespace StartBgpFailoverTestRequest {
@@ -3444,14 +3444,14 @@ export namespace StopBgpFailoverTestResponse {
 
 export interface TagResourceRequest {
   /**
-   * <p>The tags to add.</p>
-   */
-  tags: Tag[] | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   resourceArn: string | undefined;
+
+  /**
+   * <p>The tags to add.</p>
+   */
+  tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -3470,14 +3470,14 @@ export namespace TagResourceResponse {
 
 export interface UntagResourceRequest {
   /**
-   * <p>The tag keys of the tags to remove.</p>
-   */
-  tagKeys: string[] | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   resourceArn: string | undefined;
+
+  /**
+   * <p>The tag keys of the tags to remove.</p>
+   */
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -3496,9 +3496,9 @@ export namespace UntagResourceResponse {
 
 export interface UpdateDirectConnectGatewayAssociationRequest {
   /**
-   * <p>The Amazon VPC prefixes to no longer advertise to the Direct Connect gateway.</p>
+   * <p>The ID of the Direct Connect gateway association.</p>
    */
-  removeAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
+  associationId?: string;
 
   /**
    * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
@@ -3506,9 +3506,9 @@ export interface UpdateDirectConnectGatewayAssociationRequest {
   addAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
 
   /**
-   * <p>The ID of the Direct Connect gateway association.</p>
+   * <p>The Amazon VPC prefixes to no longer advertise to the Direct Connect gateway.</p>
    */
-  associationId?: string;
+  removeAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
 }
 
 export namespace UpdateDirectConnectGatewayAssociationRequest {
@@ -3532,6 +3532,11 @@ export namespace UpdateDirectConnectGatewayAssociationResult {
 
 export interface UpdateLagRequest {
   /**
+   * <p>The ID of the LAG.</p>
+   */
+  lagId: string | undefined;
+
+  /**
    * <p>The name of the LAG.</p>
    */
   lagName?: string;
@@ -3540,11 +3545,6 @@ export interface UpdateLagRequest {
    * <p>The minimum number of physical connections that must be operational for the LAG itself to be operational.</p>
    */
   minimumLinks?: number;
-
-  /**
-   * <p>The ID of the LAG.</p>
-   */
-  lagId: string | undefined;
 }
 
 export namespace UpdateLagRequest {

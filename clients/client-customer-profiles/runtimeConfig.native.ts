@@ -2,7 +2,7 @@ import packageInfo from "./package.json";
 
 import { Sha256 } from "@aws-crypto/sha256-js";
 import { parseUrl } from "@aws-sdk/url-parser-node";
-import { ClientDefaults } from "./CustomerProfilesClient";
+import { ClientDefaults } from "./ProfileClient";
 import { ClientDefaultValues as BrowserDefaults } from "./runtimeConfig.browser";
 
 /**

@@ -20,6 +20,10 @@ import {
 export type RegisterClientCommandInput = RegisterClientRequest;
 export type RegisterClientCommandOutput = RegisterClientResponse & __MetadataBearer;
 
+/**
+ * <p>Registers a client with AWS SSO. This allows clients to initiate device authorization.
+ *       The output should be persisted for reuse through many authentication requests.</p>
+ */
 export class RegisterClientCommand extends $Command<
   RegisterClientCommandInput,
   RegisterClientCommandOutput,

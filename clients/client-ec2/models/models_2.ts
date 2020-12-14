@@ -3,6 +3,8 @@ import {
   AccountAttributeName,
   ActiveInstance,
   Address,
+  AddressAttribute,
+  AddressAttributeName,
   AllocationState,
   AllowsMultipleInstanceTypes,
   AssociationStatus,
@@ -65,6 +67,52 @@ import {
   TransitGatewayRoute,
   TransitGatewayRouteTable,
 } from "./models_1";
+
+export interface DeleteNetworkInsightsAnalysisResult {
+  /**
+   * <p>The ID of the network insights analysis.</p>
+   */
+  NetworkInsightsAnalysisId?: string;
+}
+
+export namespace DeleteNetworkInsightsAnalysisResult {
+  export const filterSensitiveLog = (obj: DeleteNetworkInsightsAnalysisResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteNetworkInsightsPathRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the path.</p>
+   */
+  NetworkInsightsPathId: string | undefined;
+}
+
+export namespace DeleteNetworkInsightsPathRequest {
+  export const filterSensitiveLog = (obj: DeleteNetworkInsightsPathRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteNetworkInsightsPathResult {
+  /**
+   * <p>The ID of the path.</p>
+   */
+  NetworkInsightsPathId?: string;
+}
+
+export namespace DeleteNetworkInsightsPathResult {
+  export const filterSensitiveLog = (obj: DeleteNetworkInsightsPathResult): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Contains the parameters for DeleteNetworkInterface.</p>
@@ -1583,6 +1631,31 @@ export interface DescribeAddressesResult {
 
 export namespace DescribeAddressesResult {
   export const filterSensitiveLog = (obj: DescribeAddressesResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAddressesAttributeRequest {
+  AllocationIds?: string[];
+  Attribute?: AddressAttributeName | string;
+  NextToken?: string;
+  MaxResults?: number;
+  DryRun?: boolean;
+}
+
+export namespace DescribeAddressesAttributeRequest {
+  export const filterSensitiveLog = (obj: DescribeAddressesAttributeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAddressesAttributeResult {
+  Addresses?: AddressAttribute[];
+  NextToken?: string;
+}
+
+export namespace DescribeAddressesAttributeResult {
+  export const filterSensitiveLog = (obj: DescribeAddressesAttributeResult): any => ({
     ...obj,
   });
 }
@@ -6431,6 +6504,7 @@ export namespace DescribeIdFormatResult {
 
 export type ImageAttributeName =
   | "blockDeviceMapping"
+  | "bootMode"
   | "description"
   | "kernel"
   | "launchPermission"
@@ -6534,6 +6608,11 @@ export interface ImageAttribute {
    * <p>Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.</p>
    */
   SriovNetSupport?: AttributeValue;
+
+  /**
+   * <p>Describes a value for a resource attribute that is a String.</p>
+   */
+  BootMode?: AttributeValue;
 }
 
 export namespace ImageAttribute {
@@ -6731,6 +6810,8 @@ export namespace DescribeImagesRequest {
 }
 
 export type ArchitectureValues = "arm64" | "i386" | "x86_64";
+
+export type BootModeValues = "legacy-bios" | "uefi";
 
 export type HypervisorType = "ovm" | "xen";
 
@@ -6971,6 +7052,8 @@ export interface Image {
    * <p>The type of virtualization of the AMI.</p>
    */
   VirtualizationType?: VirtualizationType | string;
+
+  BootMode?: BootModeValues | string;
 }
 
 export namespace Image {
@@ -9804,129 +9887,4 @@ export namespace FpgaDeviceMemoryInfo {
   export const filterSensitiveLog = (obj: FpgaDeviceMemoryInfo): any => ({
     ...obj,
   });
-}
-
-/**
- * <p>Describes the FPGA accelerator for the instance type.</p>
- */
-export interface FpgaDeviceInfo {
-  /**
-   * <p>The name of the FPGA accelerator.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The manufacturer of the FPGA accelerator.</p>
-   */
-  Manufacturer?: string;
-
-  /**
-   * <p>The count of FPGA accelerators for the instance type.</p>
-   */
-  Count?: number;
-
-  /**
-   * <p>Describes the memory for the FPGA accelerator for the instance type.</p>
-   */
-  MemoryInfo?: FpgaDeviceMemoryInfo;
-}
-
-export namespace FpgaDeviceInfo {
-  export const filterSensitiveLog = (obj: FpgaDeviceInfo): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the FPGAs for the instance type.</p>
- */
-export interface FpgaInfo {
-  /**
-   * <p>Describes the FPGAs for the instance type.</p>
-   */
-  Fpgas?: FpgaDeviceInfo[];
-
-  /**
-   * <p>The total memory of all FPGA accelerators for the instance type.</p>
-   */
-  TotalFpgaMemoryInMiB?: number;
-}
-
-export namespace FpgaInfo {
-  export const filterSensitiveLog = (obj: FpgaInfo): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the memory available to the GPU accelerator.</p>
- */
-export interface GpuDeviceMemoryInfo {
-  /**
-   * <p>The size of the memory available to the GPU accelerator, in MiB.</p>
-   */
-  SizeInMiB?: number;
-}
-
-export namespace GpuDeviceMemoryInfo {
-  export const filterSensitiveLog = (obj: GpuDeviceMemoryInfo): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the GPU accelerators for the instance type.</p>
- */
-export interface GpuDeviceInfo {
-  /**
-   * <p>The name of the GPU accelerator.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The manufacturer of the GPU accelerator.</p>
-   */
-  Manufacturer?: string;
-
-  /**
-   * <p>The number of GPUs for the instance type.</p>
-   */
-  Count?: number;
-
-  /**
-   * <p>Describes the memory available to the GPU accelerator.</p>
-   */
-  MemoryInfo?: GpuDeviceMemoryInfo;
-}
-
-export namespace GpuDeviceInfo {
-  export const filterSensitiveLog = (obj: GpuDeviceInfo): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the GPU accelerators for the instance type.</p>
- */
-export interface GpuInfo {
-  /**
-   * <p>Describes the GPU accelerators for the instance type.</p>
-   */
-  Gpus?: GpuDeviceInfo[];
-
-  /**
-   * <p>The total size of the memory for the GPU accelerators for the instance type, in MiB.</p>
-   */
-  TotalGpuMemoryInMiB?: number;
-}
-
-export namespace GpuInfo {
-  export const filterSensitiveLog = (obj: GpuInfo): any => ({
-    ...obj,
-  });
-}
-
-export enum InstanceTypeHypervisor {
-  NITRO = "nitro",
-  XEN = "xen",
 }

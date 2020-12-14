@@ -1,4 +1,4 @@
-import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
+import { ProfileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProfileClient";
 import { GetIntegrationRequest, GetIntegrationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetIntegrationCommand,
@@ -26,7 +26,7 @@ export type GetIntegrationCommandOutput = GetIntegrationResponse & __MetadataBea
 export class GetIntegrationCommand extends $Command<
   GetIntegrationCommandInput,
   GetIntegrationCommandOutput,
-  CustomerProfilesClientResolvedConfig
+  ProfileClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -42,7 +42,7 @@ export class GetIntegrationCommand extends $Command<
    */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CustomerProfilesClientResolvedConfig,
+    configuration: ProfileClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetIntegrationCommandInput, GetIntegrationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
@@ -50,7 +50,7 @@ export class GetIntegrationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
-    const clientName = "CustomerProfilesClient";
+    const clientName = "ProfileClient";
     const commandName = "GetIntegrationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,

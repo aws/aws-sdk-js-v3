@@ -1,4 +1,4 @@
-import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
+import { ProfileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProfileClient";
 import { TagResourceRequest, TagResourceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1TagResourceCommand,
@@ -37,7 +37,7 @@ export type TagResourceCommandOutput = TagResourceResponse & __MetadataBearer;
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,
   TagResourceCommandOutput,
-  CustomerProfilesClientResolvedConfig
+  ProfileClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -53,7 +53,7 @@ export class TagResourceCommand extends $Command<
    */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CustomerProfilesClientResolvedConfig,
+    configuration: ProfileClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TagResourceCommandInput, TagResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
@@ -61,7 +61,7 @@ export class TagResourceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
-    const clientName = "CustomerProfilesClient";
+    const clientName = "ProfileClient";
     const commandName = "TagResourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,

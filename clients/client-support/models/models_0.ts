@@ -172,11 +172,12 @@ export namespace InternalServerError {
 
 export interface AddCommunicationToCaseRequest {
   /**
-   * <p>The ID of a set of one or more attachments for the communication to add to the case.
-   *             Create the set by calling <a>AddAttachmentsToSet</a>
+   * <p>The AWS Support case ID requested or returned in the call. The case ID is an
+   *             alphanumeric string formatted as shown in this example:
+   *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
    *         </p>
    */
-  attachmentSetId?: string;
+  caseId?: string;
 
   /**
    * <p>The body of an email communication to add to the support case.</p>
@@ -189,12 +190,11 @@ export interface AddCommunicationToCaseRequest {
   ccEmailAddresses?: string[];
 
   /**
-   * <p>The AWS Support case ID requested or returned in the call. The case ID is an
-   *             alphanumeric string formatted as shown in this example:
-   *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
+   * <p>The ID of a set of one or more attachments for the communication to add to the case.
+   *             Create the set by calling <a>AddAttachmentsToSet</a>
    *         </p>
    */
-  caseId?: string;
+  attachmentSetId?: string;
 }
 
 export namespace AddCommunicationToCaseRequest {
@@ -299,43 +299,9 @@ export namespace CaseCreationLimitExceeded {
 
 export interface CreateCaseRequest {
   /**
-   * <p>The type of issue for the case. You can specify <code>customer-service</code> or
-   *                 <code>technical</code>. If you don't specify a value, the default is
-   *                 <code>technical</code>.</p>
-   */
-  issueType?: string;
-
-  /**
    * <p>The title of the AWS Support case. The title appears in the <b>Subject</b> field on the AWS Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create Case</a> page.</p>
    */
   subject: string | undefined;
-
-  /**
-   * <p>The communication body text that describes the issue. This text appears in the
-   *                 <b>Description</b> field on the AWS Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create Case</a> page.</p>
-   */
-  communicationBody: string | undefined;
-
-  /**
-   * <p>The language in which AWS Support handles the case. You must specify the ISO 639-1
-   *             code for the <code>language</code> parameter if you want support in that language.
-   *             Currently, English ("en") and Japanese ("ja") are supported.</p>
-   */
-  language?: string;
-
-  /**
-   * <p>The ID of a set of one or more attachments for the case. Create the set by using the
-   *                 <a>AddAttachmentsToSet</a> operation.</p>
-   */
-  attachmentSetId?: string;
-
-  /**
-   * <p>A list of email addresses that AWS Support copies on case correspondence. AWS Support
-   *             identifies the account that creates the case when you specify your AWS credentials in an
-   *             HTTP POST method or use the <a href="http://aws.amazon.com/tools/">AWS SDKs</a>.
-   *         </p>
-   */
-  ccEmailAddresses?: string[];
 
   /**
    * <p>The code for the AWS service. You can use the <a>DescribeServices</a>
@@ -361,6 +327,40 @@ export interface CreateCaseRequest {
    *             AWS service defines its own set of category codes.</p>
    */
   categoryCode?: string;
+
+  /**
+   * <p>The communication body text that describes the issue. This text appears in the
+   *                 <b>Description</b> field on the AWS Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create Case</a> page.</p>
+   */
+  communicationBody: string | undefined;
+
+  /**
+   * <p>A list of email addresses that AWS Support copies on case correspondence. AWS Support
+   *             identifies the account that creates the case when you specify your AWS credentials in an
+   *             HTTP POST method or use the <a href="http://aws.amazon.com/tools/">AWS SDKs</a>.
+   *         </p>
+   */
+  ccEmailAddresses?: string[];
+
+  /**
+   * <p>The language in which AWS Support handles the case. You must specify the ISO 639-1
+   *             code for the <code>language</code> parameter if you want support in that language.
+   *             Currently, English ("en") and Japanese ("ja") are supported.</p>
+   */
+  language?: string;
+
+  /**
+   * <p>The type of issue for the case. You can specify <code>customer-service</code> or
+   *                 <code>technical</code>. If you don't specify a value, the default is
+   *                 <code>technical</code>.</p>
+   */
+  issueType?: string;
+
+  /**
+   * <p>The ID of a set of one or more attachments for the case. Create the set by using the
+   *                 <a>AddAttachmentsToSet</a> operation.</p>
+   */
+  attachmentSetId?: string;
 }
 
 export namespace CreateCaseRequest {
@@ -443,43 +443,15 @@ export namespace DescribeAttachmentResponse {
 
 export interface DescribeCasesRequest {
   /**
-   * <p>A resumption point for pagination.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The ID displayed for a case in the AWS Support Center user interface.</p>
-   */
-  displayId?: string;
-
-  /**
-   * <p>Specifies whether to include communications in the <code>DescribeCases</code>
-   *             response. By default, communications are incuded.</p>
-   */
-  includeCommunications?: boolean;
-
-  /**
-   * <p>The end date for a filtered date search on support case communications. Case
-   *             communications are available for 12 months after creation.</p>
-   */
-  beforeTime?: string;
-
-  /**
    * <p>A list of ID numbers of the support cases you want returned. The maximum number of
    *             cases is 100.</p>
    */
   caseIdList?: string[];
 
   /**
-   * <p>Specifies whether to include resolved support cases in the <code>DescribeCases</code>
-   *             response. By default, resolved cases aren't included.</p>
+   * <p>The ID displayed for a case in the AWS Support Center user interface.</p>
    */
-  includeResolvedCases?: boolean;
-
-  /**
-   * <p>The maximum number of results to return before paginating.</p>
-   */
-  maxResults?: number;
+  displayId?: string;
 
   /**
    * <p>The start date for a filtered date search on support case communications. Case
@@ -488,11 +460,39 @@ export interface DescribeCasesRequest {
   afterTime?: string;
 
   /**
+   * <p>The end date for a filtered date search on support case communications. Case
+   *             communications are available for 12 months after creation.</p>
+   */
+  beforeTime?: string;
+
+  /**
+   * <p>Specifies whether to include resolved support cases in the <code>DescribeCases</code>
+   *             response. By default, resolved cases aren't included.</p>
+   */
+  includeResolvedCases?: boolean;
+
+  /**
+   * <p>A resumption point for pagination.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return before paginating.</p>
+   */
+  maxResults?: number;
+
+  /**
    * <p>The ISO 639-1 code for the language in which AWS provides support. AWS Support
    *             currently supports English ("en") and Japanese ("ja"). Language parameters must be
    *             passed explicitly for operations that take them.</p>
    */
   language?: string;
+
+  /**
+   * <p>Specifies whether to include communications in the <code>DescribeCases</code>
+   *             response. By default, communications are incuded.</p>
+   */
+  includeCommunications?: boolean;
 }
 
 export namespace DescribeCasesRequest {
@@ -508,9 +508,17 @@ export namespace DescribeCasesRequest {
  */
 export interface Communication {
   /**
-   * <p>Information about the attachments to the case communication.</p>
+   * <p>The AWS Support case ID requested or returned in the call. The case ID is an
+   *             alphanumeric string formatted as shown in this example:
+   *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
+   *         </p>
    */
-  attachmentSet?: AttachmentDetails[];
+  caseId?: string;
+
+  /**
+   * <p>The text of the communication between the customer and AWS Support.</p>
+   */
+  body?: string;
 
   /**
    * <p>The identity of the account that submitted, or responded to, the support case.
@@ -522,22 +530,14 @@ export interface Communication {
   submittedBy?: string;
 
   /**
-   * <p>The AWS Support case ID requested or returned in the call. The case ID is an
-   *             alphanumeric string formatted as shown in this example:
-   *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
-   *         </p>
-   */
-  caseId?: string;
-
-  /**
    * <p>The time the communication was created.</p>
    */
   timeCreated?: string;
 
   /**
-   * <p>The text of the communication between the customer and AWS Support.</p>
+   * <p>Information about the attachments to the case communication.</p>
    */
-  body?: string;
+  attachmentSet?: AttachmentDetails[];
 }
 
 export namespace Communication {
@@ -551,14 +551,14 @@ export namespace Communication {
  */
 export interface RecentCaseCommunications {
   /**
-   * <p>A resumption point for pagination.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The five most recent communications associated with the case.</p>
    */
   communications?: Communication[];
+
+  /**
+   * <p>A resumption point for pagination.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace RecentCaseCommunications {
@@ -674,33 +674,6 @@ export namespace RecentCaseCommunications {
  */
 export interface CaseDetails {
   /**
-   * <p>The code for the AWS service. You can get a list of codes and the corresponding
-   *             service names by calling <a>DescribeServices</a>.</p>
-   */
-  serviceCode?: string;
-
-  /**
-   * <p>The ID displayed for the case in the AWS Support Center. This is a numeric
-   *             string.</p>
-   */
-  displayId?: string;
-
-  /**
-   * <p>The category of problem for the AWS Support case.</p>
-   */
-  categoryCode?: string;
-
-  /**
-   * <p>The code for the severity level returned by the call to <a>DescribeSeverityLevels</a>.</p>
-   */
-  severityCode?: string;
-
-  /**
-   * <p>The time that the case was created in the AWS Support Center.</p>
-   */
-  timeCreated?: string;
-
-  /**
    * <p>The AWS Support case ID requested or returned in the call. The case ID is an
    *             alphanumeric string formatted as shown in this example:
    *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
@@ -709,26 +682,15 @@ export interface CaseDetails {
   caseId?: string;
 
   /**
-   * <p>The email addresses that receive copies of communication about the case.</p>
+   * <p>The ID displayed for the case in the AWS Support Center. This is a numeric
+   *             string.</p>
    */
-  ccEmailAddresses?: string[];
-
-  /**
-   * <p>The ISO 639-1 code for the language in which AWS provides support. AWS Support
-   *             currently supports English ("en") and Japanese ("ja"). Language parameters must be
-   *             passed explicitly for operations that take them.</p>
-   */
-  language?: string;
+  displayId?: string;
 
   /**
    * <p>The subject line for the case in the AWS Support Center.</p>
    */
   subject?: string;
-
-  /**
-   * <p>The email address of the account that submitted the case.</p>
-   */
-  submittedBy?: string;
 
   /**
    * <p>The status of the case.</p>
@@ -769,11 +731,49 @@ export interface CaseDetails {
   status?: string;
 
   /**
+   * <p>The code for the AWS service. You can get a list of codes and the corresponding
+   *             service names by calling <a>DescribeServices</a>.</p>
+   */
+  serviceCode?: string;
+
+  /**
+   * <p>The category of problem for the AWS Support case.</p>
+   */
+  categoryCode?: string;
+
+  /**
+   * <p>The code for the severity level returned by the call to <a>DescribeSeverityLevels</a>.</p>
+   */
+  severityCode?: string;
+
+  /**
+   * <p>The email address of the account that submitted the case.</p>
+   */
+  submittedBy?: string;
+
+  /**
+   * <p>The time that the case was created in the AWS Support Center.</p>
+   */
+  timeCreated?: string;
+
+  /**
    * <p>The five most recent communications between you and AWS Support Center, including the
    *             IDs of any attachments to the communications. Also includes a <code>nextToken</code>
    *             that you can use to retrieve earlier communications.</p>
    */
   recentCommunications?: RecentCaseCommunications;
+
+  /**
+   * <p>The email addresses that receive copies of communication about the case.</p>
+   */
+  ccEmailAddresses?: string[];
+
+  /**
+   * <p>The ISO 639-1 code for the language in which AWS provides support. AWS Support
+   *             currently supports English ("en") and Japanese ("ja"). Language parameters must be
+   *             passed explicitly for operations that take them.</p>
+   */
+  language?: string;
 }
 
 export namespace CaseDetails {
@@ -789,14 +789,14 @@ export namespace CaseDetails {
  */
 export interface DescribeCasesResponse {
   /**
-   * <p>A resumption point for pagination.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The details for the cases that match the request.</p>
    */
   cases?: CaseDetails[];
+
+  /**
+   * <p>A resumption point for pagination.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace DescribeCasesResponse {
@@ -807,17 +807,18 @@ export namespace DescribeCasesResponse {
 
 export interface DescribeCommunicationsRequest {
   /**
-   * <p>The maximum number of results to return before paginating.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>The AWS Support case ID requested or returned in the call. The case ID is an
    *             alphanumeric string formatted as shown in this example:
    *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
    *         </p>
    */
   caseId: string | undefined;
+
+  /**
+   * <p>The end date for a filtered date search on support case communications. Case
+   *             communications are available for 12 months after creation.</p>
+   */
+  beforeTime?: string;
 
   /**
    * <p>The start date for a filtered date search on support case communications. Case
@@ -831,10 +832,9 @@ export interface DescribeCommunicationsRequest {
   nextToken?: string;
 
   /**
-   * <p>The end date for a filtered date search on support case communications. Case
-   *             communications are available for 12 months after creation.</p>
+   * <p>The maximum number of results to return before paginating.</p>
    */
-  beforeTime?: string;
+  maxResults?: number;
 }
 
 export namespace DescribeCommunicationsRequest {
@@ -867,16 +867,16 @@ export namespace DescribeCommunicationsResponse {
 
 export interface DescribeServicesRequest {
   /**
+   * <p>A JSON-formatted list of service codes available for AWS services.</p>
+   */
+  serviceCodeList?: string[];
+
+  /**
    * <p>The ISO 639-1 code for the language in which AWS provides support. AWS Support
    *             currently supports English ("en") and Japanese ("ja"). Language parameters must be
    *             passed explicitly for operations that take them.</p>
    */
   language?: string;
-
-  /**
-   * <p>A JSON-formatted list of service codes available for AWS services.</p>
-   */
-  serviceCodeList?: string[];
 }
 
 export namespace DescribeServicesRequest {
@@ -914,6 +914,12 @@ export namespace Category {
  */
 export interface Service {
   /**
+   * <p>The code for an AWS service returned by the <a>DescribeServices</a>
+   *             response. The <code>name</code> element contains the corresponding friendly name.</p>
+   */
+  code?: string;
+
+  /**
    * <p>The friendly name for an AWS service. The <code>code</code> element contains the
    *             corresponding code.</p>
    */
@@ -925,12 +931,6 @@ export interface Service {
    *             passed to AWS Support when you call <a>CreateCase</a>.</p>
    */
   categories?: Category[];
-
-  /**
-   * <p>The code for an AWS service returned by the <a>DescribeServices</a>
-   *             response. The <code>name</code> element contains the corresponding friendly name.</p>
-   */
-  code?: string;
 }
 
 export namespace Service {
@@ -979,6 +979,14 @@ export namespace DescribeSeverityLevelsRequest {
  */
 export interface SeverityLevel {
   /**
+   * <p>The code for case severity level.</p>
+   *         <p>Valid values: <code>low</code> | <code>normal</code> | <code>high</code> |
+   *                 <code>urgent</code> | <code>critical</code>
+   *          </p>
+   */
+  code?: string;
+
+  /**
    * <p>The name of the severity level that corresponds to the severity level code.</p>
    *         <note>
    *             <p>The values returned by the API differ from the values that are displayed in the
@@ -1012,14 +1020,6 @@ export interface SeverityLevel {
    *                 severity</a> in the <i>AWS Support User Guide</i>.</p>
    */
   name?: string;
-
-  /**
-   * <p>The code for case severity level.</p>
-   *         <p>Valid values: <code>low</code> | <code>normal</code> | <code>high</code> |
-   *                 <code>urgent</code> | <code>critical</code>
-   *          </p>
-   */
-  code?: string;
 }
 
 export namespace SeverityLevel {
@@ -1068,12 +1068,6 @@ export namespace DescribeTrustedAdvisorCheckRefreshStatusesRequest {
  */
 export interface TrustedAdvisorCheckRefreshStatus {
   /**
-   * <p>The amount of time, in milliseconds, until the Trusted Advisor check is eligible for
-   *             refresh.</p>
-   */
-  millisUntilNextRefreshable: number | undefined;
-
-  /**
    * <p>The unique identifier for the Trusted Advisor check.</p>
    */
   checkId: string | undefined;
@@ -1108,6 +1102,12 @@ export interface TrustedAdvisorCheckRefreshStatus {
    *          </ul>
    */
   status: string | undefined;
+
+  /**
+   * <p>The amount of time, in milliseconds, until the Trusted Advisor check is eligible for
+   *             refresh.</p>
+   */
+  millisUntilNextRefreshable: number | undefined;
 }
 
 export namespace TrustedAdvisorCheckRefreshStatus {
@@ -1137,16 +1137,16 @@ export namespace DescribeTrustedAdvisorCheckRefreshStatusesResponse {
  */
 export interface DescribeTrustedAdvisorCheckResultRequest {
   /**
+   * <p>The unique identifier for the Trusted Advisor check.</p>
+   */
+  checkId: string | undefined;
+
+  /**
    * <p>The ISO 639-1 code for the language in which AWS provides support. AWS Support
    *             currently supports English ("en") and Japanese ("ja"). Language parameters must be
    *             passed explicitly for operations that take them.</p>
    */
   language?: string;
-
-  /**
-   * <p>The unique identifier for the Trusted Advisor check.</p>
-   */
-  checkId: string | undefined;
 }
 
 export namespace DescribeTrustedAdvisorCheckResultRequest {
@@ -1161,16 +1161,16 @@ export namespace DescribeTrustedAdvisorCheckResultRequest {
  */
 export interface TrustedAdvisorCostOptimizingSummary {
   /**
-   * <p>The estimated percentage of savings that might be realized if the recommended
-   *             operations are taken.</p>
-   */
-  estimatedPercentMonthlySavings: number | undefined;
-
-  /**
    * <p>The estimated monthly savings that might be realized if the recommended operations are
    *             taken.</p>
    */
   estimatedMonthlySavings: number | undefined;
+
+  /**
+   * <p>The estimated percentage of savings that might be realized if the recommended
+   *             operations are taken.</p>
+   */
+  estimatedPercentMonthlySavings: number | undefined;
 }
 
 export namespace TrustedAdvisorCostOptimizingSummary {
@@ -1202,17 +1202,19 @@ export namespace TrustedAdvisorCategorySpecificSummary {
  */
 export interface TrustedAdvisorResourceDetail {
   /**
+   * <p>The status code for the resource identified in the Trusted Advisor check.</p>
+   */
+  status: string | undefined;
+
+  /**
+   * <p>The AWS region in which the identified resource is located.</p>
+   */
+  region?: string;
+
+  /**
    * <p>The unique identifier for the identified resource.</p>
    */
   resourceId: string | undefined;
-
-  /**
-   * <p>Additional information about the identified resource. The exact metadata and its order
-   *             can be obtained by inspecting the <a>TrustedAdvisorCheckDescription</a>
-   *             object returned by the call to <a>DescribeTrustedAdvisorChecks</a>. <b>Metadata</b> contains all the data that is shown in the Excel
-   *             download, even in those cases where the UI shows just summary data.</p>
-   */
-  metadata: string[] | undefined;
 
   /**
    * <p>Specifies whether the AWS resource was ignored by Trusted Advisor because it was
@@ -1221,14 +1223,12 @@ export interface TrustedAdvisorResourceDetail {
   isSuppressed?: boolean;
 
   /**
-   * <p>The AWS region in which the identified resource is located.</p>
+   * <p>Additional information about the identified resource. The exact metadata and its order
+   *             can be obtained by inspecting the <a>TrustedAdvisorCheckDescription</a>
+   *             object returned by the call to <a>DescribeTrustedAdvisorChecks</a>. <b>Metadata</b> contains all the data that is shown in the Excel
+   *             download, even in those cases where the UI shows just summary data.</p>
    */
-  region?: string;
-
-  /**
-   * <p>The status code for the resource identified in the Trusted Advisor check.</p>
-   */
-  status: string | undefined;
+  metadata: string[] | undefined;
 }
 
 export namespace TrustedAdvisorResourceDetail {
@@ -1242,18 +1242,6 @@ export namespace TrustedAdvisorResourceDetail {
  */
 export interface TrustedAdvisorResourcesSummary {
   /**
-   * <p>The number of AWS resources ignored by Trusted Advisor because they were marked as
-   *             suppressed by the user.</p>
-   */
-  resourcesSuppressed: number | undefined;
-
-  /**
-   * <p>The number of AWS resources ignored by Trusted Advisor because information was
-   *             unavailable.</p>
-   */
-  resourcesIgnored: number | undefined;
-
-  /**
    * <p>The number of AWS resources that were analyzed by the Trusted Advisor check.</p>
    */
   resourcesProcessed: number | undefined;
@@ -1263,6 +1251,18 @@ export interface TrustedAdvisorResourcesSummary {
    *             check.</p>
    */
   resourcesFlagged: number | undefined;
+
+  /**
+   * <p>The number of AWS resources ignored by Trusted Advisor because information was
+   *             unavailable.</p>
+   */
+  resourcesIgnored: number | undefined;
+
+  /**
+   * <p>The number of AWS resources ignored by Trusted Advisor because they were marked as
+   *             suppressed by the user.</p>
+   */
+  resourcesSuppressed: number | undefined;
 }
 
 export namespace TrustedAdvisorResourcesSummary {
@@ -1276,9 +1276,20 @@ export namespace TrustedAdvisorResourcesSummary {
  */
 export interface TrustedAdvisorCheckResult {
   /**
-   * <p>The details about each resource listed in the check result.</p>
+   * <p>The unique identifier for the Trusted Advisor check.</p>
    */
-  flaggedResources: TrustedAdvisorResourceDetail[] | undefined;
+  checkId: string | undefined;
+
+  /**
+   * <p>The time of the last refresh of the check.</p>
+   */
+  timestamp: string | undefined;
+
+  /**
+   * <p>The alert status of the check: "ok" (green), "warning" (yellow), "error" (red), or
+   *             "not_available".</p>
+   */
+  status: string | undefined;
 
   /**
    * <p>Details about AWS resources that were analyzed in a call to Trusted Advisor <a>DescribeTrustedAdvisorCheckSummaries</a>.</p>
@@ -1292,20 +1303,9 @@ export interface TrustedAdvisorCheckResult {
   categorySpecificSummary: TrustedAdvisorCategorySpecificSummary | undefined;
 
   /**
-   * <p>The time of the last refresh of the check.</p>
+   * <p>The details about each resource listed in the check result.</p>
    */
-  timestamp: string | undefined;
-
-  /**
-   * <p>The unique identifier for the Trusted Advisor check.</p>
-   */
-  checkId: string | undefined;
-
-  /**
-   * <p>The alert status of the check: "ok" (green), "warning" (yellow), "error" (red), or
-   *             "not_available".</p>
-   */
-  status: string | undefined;
+  flaggedResources: TrustedAdvisorResourceDetail[] | undefined;
 }
 
 export namespace TrustedAdvisorCheckResult {
@@ -1350,11 +1350,6 @@ export namespace DescribeTrustedAdvisorChecksRequest {
  */
 export interface TrustedAdvisorCheckDescription {
   /**
-   * <p>The category of the Trusted Advisor check.</p>
-   */
-  category: string | undefined;
-
-  /**
    * <p>The unique identifier for the Trusted Advisor check.</p>
    */
   id: string | undefined;
@@ -1369,6 +1364,11 @@ export interface TrustedAdvisorCheckDescription {
    *             recommended operations (contains HTML markup).</p>
    */
   description: string | undefined;
+
+  /**
+   * <p>The category of the Trusted Advisor check.</p>
+   */
+  category: string | undefined;
 
   /**
    * <p>The column headings for the data returned by the Trusted Advisor check. The order of
@@ -1421,25 +1421,14 @@ export namespace DescribeTrustedAdvisorCheckSummariesRequest {
  */
 export interface TrustedAdvisorCheckSummary {
   /**
-   * <p>Summary information that relates to the category of the check. Cost Optimizing is the
-   *             only category that is currently supported.</p>
+   * <p>The unique identifier for the Trusted Advisor check.</p>
    */
-  categorySpecificSummary: TrustedAdvisorCategorySpecificSummary | undefined;
-
-  /**
-   * <p>Details about AWS resources that were analyzed in a call to Trusted Advisor <a>DescribeTrustedAdvisorCheckSummaries</a>.</p>
-   */
-  resourcesSummary: TrustedAdvisorResourcesSummary | undefined;
+  checkId: string | undefined;
 
   /**
    * <p>The time of the last refresh of the check.</p>
    */
   timestamp: string | undefined;
-
-  /**
-   * <p>The unique identifier for the Trusted Advisor check.</p>
-   */
-  checkId: string | undefined;
 
   /**
    * <p>The alert status of the check: "ok" (green), "warning" (yellow), "error" (red), or
@@ -1451,6 +1440,17 @@ export interface TrustedAdvisorCheckSummary {
    * <p>Specifies whether the Trusted Advisor check has flagged resources.</p>
    */
   hasFlaggedResources?: boolean;
+
+  /**
+   * <p>Details about AWS resources that were analyzed in a call to Trusted Advisor <a>DescribeTrustedAdvisorCheckSummaries</a>.</p>
+   */
+  resourcesSummary: TrustedAdvisorResourcesSummary | undefined;
+
+  /**
+   * <p>Summary information that relates to the category of the check. Cost Optimizing is the
+   *             only category that is currently supported.</p>
+   */
+  categorySpecificSummary: TrustedAdvisorCategorySpecificSummary | undefined;
 }
 
 export namespace TrustedAdvisorCheckSummary {

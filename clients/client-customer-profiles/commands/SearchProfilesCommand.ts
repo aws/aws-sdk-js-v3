@@ -1,4 +1,4 @@
-import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
+import { ProfileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProfileClient";
 import { SearchProfilesRequest, SearchProfilesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1SearchProfilesCommand,
@@ -27,7 +27,7 @@ export type SearchProfilesCommandOutput = SearchProfilesResponse & __MetadataBea
 export class SearchProfilesCommand extends $Command<
   SearchProfilesCommandInput,
   SearchProfilesCommandOutput,
-  CustomerProfilesClientResolvedConfig
+  ProfileClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -43,7 +43,7 @@ export class SearchProfilesCommand extends $Command<
    */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CustomerProfilesClientResolvedConfig,
+    configuration: ProfileClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SearchProfilesCommandInput, SearchProfilesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
@@ -51,7 +51,7 @@ export class SearchProfilesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
-    const clientName = "CustomerProfilesClient";
+    const clientName = "ProfileClient";
     const commandName = "SearchProfilesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,

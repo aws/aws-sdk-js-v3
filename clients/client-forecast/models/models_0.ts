@@ -476,38 +476,9 @@ export interface CreateDatasetImportJobRequest {
    */
   TimestampFormat?: string;
 
-  /**
-   * <p>A single time zone for every item in your dataset. This option is ideal for datasets
-   *             with all timestamps within a single time zone, or if all timestamps are normalized to a
-   *             single time zone. </p>
-   *         <p>Refer to the <a href="http://joda-time.sourceforge.net/timezones.html">Joda-Time
-   *                 API</a> for a complete list of valid time zone names.</p>
-   */
   TimeZone?: string;
-
-  /**
-   * <p>Automatically derive time zone information from the geolocation attribute. This option
-   *             is ideal for datasets that contain timestamps in multiple time zones and those
-   *             timestamps are expressed in local time.</p>
-   */
   UseGeolocationForTimeZone?: boolean;
-
-  /**
-   * <p>The format of the geolocation attribute. The geolocation attribute can be formatted in
-   *             one of two ways:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>LAT_LONG</code> - the latitude and longitude in decimal format (Example: 47.61_-122.33).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>CC_POSTALCODE</code> (US Only) - the country code (US), followed by the 5-digit ZIP code (Example: US_98121).</p>
-   *             </li>
-   *          </ul>
-   */
   GeolocationFormat?: string;
-
   /**
    * <p>The optional metadata that you apply to the dataset import job to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
    *          <p>The following basic restrictions apply to tags:</p>
@@ -629,8 +600,8 @@ export namespace CreateForecastResponse {
 }
 
 /**
- * <p>The destination for an export job. Provide an S3 path, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
- *       to access the location, and an AWS Key Management Service (KMS) key (optional). </p>
+ * <p>The destination for an export job, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
+ *       to access the location and, optionally, an AWS Key Management Service (KMS) key. </p>
  */
 export interface DataDestination {
   /**
@@ -1138,40 +1109,19 @@ export namespace HyperParameterTuningJobConfig {
 }
 
 /**
- * <p>Describes a supplementary feature of a dataset group. This object is part of the <a>InputDataConfig</a> object. Forecast supports the Weather Index and Holidays built-in
- *       featurizations.</p>
- *          <p>
- *             <b>Weather Index</b>
- *          </p>
- *          <p>The Amazon Forecast Weather Index is a built-in featurization that incorporates historical and
- *       projected weather information into your model. The Weather Index supplements your datasets
- *       with over two years of historical weather data and up to 14 days of projected weather data.
- *       For more information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/weather.html">Amazon Forecast Weather Index</a>.</p>
- *          <p>
- *             <b>Holidays</b>
- *          </p>
- *          <p>Holidays is a built-in featurization that incorporates a feature-engineered dataset of
- *       national holiday information into your model. It provides native support for the holiday
- *       calendars of 66 countries. To view the holiday calendars, refer to the <a href="http://jollyday.sourceforge.net/data.html">Jollyday</a> library. For more
- *       information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/holidays.html">Holidays Featurization</a>.</p>
+ * <p>Describes a supplementary feature of a dataset group. This object is part of the <a>InputDataConfig</a> object.</p>
+ *          <p>The only supported feature is Holidays. If you use the calendar, all data in the
+ *       datasets should belong to the same country as the calendar. For the holiday calendar data, see
+ *       the <a href="http://jollyday.sourceforge.net/data.html">Jollyday</a> website.</p>
  */
 export interface SupplementaryFeature {
   /**
-   * <p>The name of the feature. Valid values: <code>"holiday"</code> and <code>"weather"</code>.</p>
+   * <p>The name of the feature. This must be "holiday".</p>
    */
   Name: string | undefined;
 
   /**
-   * <p>
-   *             <b>Weather Index</b>
-   *          </p>
-   *          <p>To enable the Weather Index, set the value to <code>"true"</code>
-   *          </p>
-   *          <p>
-   *             <b>Holidays</b>
-   *          </p>
-   *          <p>To enable Holidays, specify a country with one of the following two-letter country
-   *       codes:</p>
+   * <p>One of the following 2 letter country codes:</p>
    *          <ul>
    *             <li>
    *                <p>"AL" - ALBANIA</p>
@@ -1608,8 +1558,8 @@ export interface CreatePredictorBacktestExportJobRequest {
   PredictorArn: string | undefined;
 
   /**
-   * <p>The destination for an export job. Provide an S3 path, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
-   *       to access the location, and an AWS Key Management Service (KMS) key (optional). </p>
+   * <p>The destination for an export job, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
+   *       to access the location and, optionally, an AWS Key Management Service (KMS) key. </p>
    */
   Destination: DataDestination | undefined;
 
@@ -2064,23 +2014,9 @@ export interface DescribeDatasetImportJobResponse {
    */
   TimestampFormat?: string;
 
-  /**
-   * <p>The single time zone applied to every item in the dataset</p>
-   */
   TimeZone?: string;
-
-  /**
-   * <p>Whether <code>TimeZone</code> is automatically derived from the geolocation
-   *             attribute.</p>
-   */
   UseGeolocationForTimeZone?: boolean;
-
-  /**
-   * <p>The format of the geolocation attribute. Valid Values:<code>"LAT_LONG"</code> and
-   *                 <code>"CC_POSTALCODE"</code>.</p>
-   */
   GeolocationFormat?: string;
-
   /**
    * <p>The location of the training data to import and an AWS Identity and Access Management (IAM) role that Amazon Forecast
    *       can assume to access the data.</p>
@@ -2623,8 +2559,8 @@ export interface DescribePredictorBacktestExportJobResponse {
   PredictorArn?: string;
 
   /**
-   * <p>The destination for an export job. Provide an S3 path, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
-   *       to access the location, and an AWS Key Management Service (KMS) key (optional). </p>
+   * <p>The destination for an export job, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
+   *       to access the location and, optionally, an AWS Key Management Service (KMS) key. </p>
    */
   Destination?: DataDestination;
 
@@ -3622,8 +3558,8 @@ export interface PredictorBacktestExportJobSummary {
   PredictorBacktestExportJobName?: string;
 
   /**
-   * <p>The destination for an export job. Provide an S3 path, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
-   *       to access the location, and an AWS Key Management Service (KMS) key (optional). </p>
+   * <p>The destination for an export job, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
+   *       to access the location and, optionally, an AWS Key Management Service (KMS) key. </p>
    */
   Destination?: DataDestination;
 

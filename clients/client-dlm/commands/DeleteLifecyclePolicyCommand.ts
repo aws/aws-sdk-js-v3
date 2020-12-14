@@ -21,8 +21,7 @@ export type DeleteLifecyclePolicyCommandInput = DeleteLifecyclePolicyRequest;
 export type DeleteLifecyclePolicyCommandOutput = DeleteLifecyclePolicyResponse & __MetadataBearer;
 
 /**
- * <p>Deletes the specified lifecycle policy and halts the automated operations that the
- * 			policy specified.</p>
+ * <p>Deletes the specified lifecycle policy and halts the automated operations that the policy specified.</p>
  */
 export class DeleteLifecyclePolicyCommand extends $Command<
   DeleteLifecyclePolicyCommandInput,

@@ -31,6 +31,15 @@ export enum ClipFragmentSelectorType {
  */
 export interface ClipTimestampRange {
   /**
+   * <p>The starting timestamp in the range of timestamps for which to return fragments. </p>
+   *         <p>This value is inclusive. Fragments that start before the <code>StartTimestamp</code>
+   *             and continue past it are included in the session. If <code>FragmentSelectorType</code>
+   *             is <code>SERVER_TIMESTAMP</code>, the <code>StartTimestamp</code> must be later than the
+   *             stream head. </p>
+   */
+  StartTimestamp: Date | undefined;
+
+  /**
    * <p>The end of the timestamp range for the requested media.</p>
    *         <p>This value must be within 3 hours of the specified <code>StartTimestamp</code>, and it
    *             must be later than the <code>StartTimestamp</code> value. If
@@ -41,15 +50,6 @@ export interface ClipTimestampRange {
    *             value and continue past it are included in the session. </p>
    */
   EndTimestamp: Date | undefined;
-
-  /**
-   * <p>The starting timestamp in the range of timestamps for which to return fragments. </p>
-   *         <p>This value is inclusive. Fragments that start before the <code>StartTimestamp</code>
-   *             and continue past it are included in the session. If <code>FragmentSelectorType</code>
-   *             is <code>SERVER_TIMESTAMP</code>, the <code>StartTimestamp</code> must be later than the
-   *             stream head. </p>
-   */
-  StartTimestamp: Date | undefined;
 }
 
 export namespace ClipTimestampRange {
@@ -69,14 +69,14 @@ export namespace ClipTimestampRange {
  */
 export interface ClipFragmentSelector {
   /**
-   * <p>The range of timestamps to return.</p>
-   */
-  TimestampRange: ClipTimestampRange | undefined;
-
-  /**
    * <p>The origin of the timestamps to use (Server or Producer).</p>
    */
   FragmentSelectorType: ClipFragmentSelectorType | string | undefined;
+
+  /**
+   * <p>The range of timestamps to return.</p>
+   */
+  TimestampRange: ClipTimestampRange | undefined;
 }
 
 export namespace ClipFragmentSelector {
@@ -87,6 +87,12 @@ export namespace ClipFragmentSelector {
 
 export interface GetClipInput {
   /**
+   * <p>The name of the stream for which to retrieve the media clip. </p>
+   *         <p>You must specify either the StreamName or the StreamARN. </p>
+   */
+  StreamName?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the stream for which to retrieve the media clip. </p>
    *         <p>You must specify either the StreamName or the StreamARN. </p>
    */
@@ -96,12 +102,6 @@ export interface GetClipInput {
    * <p>The time range of the requested clip and the source of the timestamps.</p>
    */
   ClipFragmentSelector: ClipFragmentSelector | undefined;
-
-  /**
-   * <p>The name of the stream for which to retrieve the media clip. </p>
-   *         <p>You must specify either the StreamName or the StreamARN. </p>
-   */
-  StreamName?: string;
 }
 
 export namespace GetClipInput {
@@ -112,17 +112,17 @@ export namespace GetClipInput {
 
 export interface GetClipOutput {
   /**
+   * <p>The content type of the media in the requested clip.</p>
+   */
+  ContentType?: string;
+
+  /**
    * <p>Traditional MP4 file that contains the media clip from the specified video stream. The
    *             output will contain the first 100 MB or the first 200 fragments from the specified start
    *             timestamp. For more information, see <a href="Kinesis Video Streams Limits">Kinesis
    *                 Video Streams Limits</a>. </p>
    */
   Payload?: Readable | ReadableStream | Blob;
-
-  /**
-   * <p>The content type of the media in the requested clip.</p>
-   */
-  ContentType?: string;
 }
 
 export namespace GetClipOutput {
@@ -386,6 +386,13 @@ export enum DASHPlaybackMode {
 
 export interface GetDASHStreamingSessionURLInput {
   /**
+   * <p>The name of the stream for which to retrieve the MPEG-DASH manifest URL.</p>
+   *         <p>You must specify either the <code>StreamName</code> or the
+   *             <code>StreamARN</code>.</p>
+   */
+  StreamName?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the stream for which to retrieve the MPEG-DASH
    *             manifest URL.</p>
    *         <p>You must specify either the <code>StreamName</code> or the
@@ -459,6 +466,24 @@ export interface GetDASHStreamingSessionURLInput {
   PlaybackMode?: DASHPlaybackMode | string;
 
   /**
+   * <p>Per the MPEG-DASH specification, the wall-clock time of fragments in the manifest file
+   *             can be derived using attributes in the manifest itself. However, typically, MPEG-DASH
+   *             compatible media players do not properly handle gaps in the media timeline. Kinesis
+   *             Video Streams adjusts the media timeline in the manifest file to enable playback of
+   *             media with discontinuities. Therefore, the wall-clock time derived from the manifest
+   *             file may be inaccurate. If DisplayFragmentTimestamp is set to <code>ALWAYS</code>, the
+   *             accurate fragment timestamp is added to each S element in the manifest file with the
+   *             attribute name “kvs:ts”. A custom MPEG-DASH media player is necessary to leverage this
+   *             custom attribute.</p>
+   *         <p>The default value is <code>NEVER</code>. When <a>DASHFragmentSelector</a>
+   *             is <code>SERVER_TIMESTAMP</code>, the timestamps will be the server start timestamps.
+   *             Similarly, when <a>DASHFragmentSelector</a> is
+   *                 <code>PRODUCER_TIMESTAMP</code>, the timestamps will be the producer start
+   *             timestamps. </p>
+   */
+  DisplayFragmentTimestamp?: DASHDisplayFragmentTimestamp | string;
+
+  /**
    * <p>Fragments are identified in the manifest file based on their sequence number in the
    *             session. If DisplayFragmentNumber is set to <code>ALWAYS</code>, the Kinesis Video
    *             Streams fragment number is added to each S element in the manifest file with the
@@ -471,11 +496,16 @@ export interface GetDASHStreamingSessionURLInput {
   DisplayFragmentNumber?: DASHDisplayFragmentNumber | string;
 
   /**
-   * <p>The name of the stream for which to retrieve the MPEG-DASH manifest URL.</p>
-   *         <p>You must specify either the <code>StreamName</code> or the
-   *             <code>StreamARN</code>.</p>
+   * <p>The time range of the requested fragment and the source of the timestamps.</p>
+   *         <p>This parameter is required if <code>PlaybackMode</code> is <code>ON_DEMAND</code> or
+   *                 <code>LIVE_REPLAY</code>. This parameter is optional if PlaybackMode is<code></code>
+   *             <code>LIVE</code>. If <code>PlaybackMode</code> is <code>LIVE</code>, the
+   *                 <code>FragmentSelectorType</code> can be set, but the <code>TimestampRange</code>
+   *             should not be set. If <code>PlaybackMode</code> is <code>ON_DEMAND</code> or
+   *                 <code>LIVE_REPLAY</code>, both <code>FragmentSelectorType</code> and
+   *                 <code>TimestampRange</code> must be set.</p>
    */
-  StreamName?: string;
+  DASHFragmentSelector?: DASHFragmentSelector;
 
   /**
    * <p>The time in seconds until the requested session expires. This value can be between 300
@@ -505,36 +535,6 @@ export interface GetDASHStreamingSessionURLInput {
    *             10-second fragments.</p>
    */
   MaxManifestFragmentResults?: number;
-
-  /**
-   * <p>Per the MPEG-DASH specification, the wall-clock time of fragments in the manifest file
-   *             can be derived using attributes in the manifest itself. However, typically, MPEG-DASH
-   *             compatible media players do not properly handle gaps in the media timeline. Kinesis
-   *             Video Streams adjusts the media timeline in the manifest file to enable playback of
-   *             media with discontinuities. Therefore, the wall-clock time derived from the manifest
-   *             file may be inaccurate. If DisplayFragmentTimestamp is set to <code>ALWAYS</code>, the
-   *             accurate fragment timestamp is added to each S element in the manifest file with the
-   *             attribute name “kvs:ts”. A custom MPEG-DASH media player is necessary to leverage this
-   *             custom attribute.</p>
-   *         <p>The default value is <code>NEVER</code>. When <a>DASHFragmentSelector</a>
-   *             is <code>SERVER_TIMESTAMP</code>, the timestamps will be the server start timestamps.
-   *             Similarly, when <a>DASHFragmentSelector</a> is
-   *                 <code>PRODUCER_TIMESTAMP</code>, the timestamps will be the producer start
-   *             timestamps. </p>
-   */
-  DisplayFragmentTimestamp?: DASHDisplayFragmentTimestamp | string;
-
-  /**
-   * <p>The time range of the requested fragment and the source of the timestamps.</p>
-   *         <p>This parameter is required if <code>PlaybackMode</code> is <code>ON_DEMAND</code> or
-   *                 <code>LIVE_REPLAY</code>. This parameter is optional if PlaybackMode is<code></code>
-   *             <code>LIVE</code>. If <code>PlaybackMode</code> is <code>LIVE</code>, the
-   *                 <code>FragmentSelectorType</code> can be set, but the <code>TimestampRange</code>
-   *             should not be set. If <code>PlaybackMode</code> is <code>ON_DEMAND</code> or
-   *                 <code>LIVE_REPLAY</code>, both <code>FragmentSelectorType</code> and
-   *                 <code>TimestampRange</code> must be set.</p>
-   */
-  DASHFragmentSelector?: DASHFragmentSelector;
 }
 
 export namespace GetDASHStreamingSessionURLInput {
@@ -590,6 +590,19 @@ export enum HLSFragmentSelectorType {
  */
 export interface HLSTimestampRange {
   /**
+   * <p>The start of the timestamp range for the requested media.</p>
+   *         <p>If the <code>HLSTimestampRange</code> value is specified, the
+   *                 <code>StartTimestamp</code> value is required.</p>
+   *         <note>
+   *             <p>This value is inclusive. Fragments that start before the
+   *                     <code>StartTimestamp</code> and continue past it are included in the session. If
+   *                     <code>FragmentSelectorType</code> is <code>SERVER_TIMESTAMP</code>, the
+   *                     <code>StartTimestamp</code> must be later than the stream head.</p>
+   *         </note>
+   */
+  StartTimestamp?: Date;
+
+  /**
    * <p>The end of the timestamp range for the requested media. This value must be within 3
    *             hours of the specified <code>StartTimestamp</code>, and it must be later than the
    *                 <code>StartTimestamp</code> value.</p>
@@ -607,19 +620,6 @@ export interface HLSTimestampRange {
    *         </note>
    */
   EndTimestamp?: Date;
-
-  /**
-   * <p>The start of the timestamp range for the requested media.</p>
-   *         <p>If the <code>HLSTimestampRange</code> value is specified, the
-   *                 <code>StartTimestamp</code> value is required.</p>
-   *         <note>
-   *             <p>This value is inclusive. Fragments that start before the
-   *                     <code>StartTimestamp</code> and continue past it are included in the session. If
-   *                     <code>FragmentSelectorType</code> is <code>SERVER_TIMESTAMP</code>, the
-   *                     <code>StartTimestamp</code> must be later than the stream head.</p>
-   *         </note>
-   */
-  StartTimestamp?: Date;
 }
 
 export namespace HLSTimestampRange {
@@ -633,13 +633,6 @@ export namespace HLSTimestampRange {
  *             timestamps.</p>
  */
 export interface HLSFragmentSelector {
-  /**
-   * <p>The start and end of the timestamp range for the requested media.</p>
-   *         <p>This value should not be present if <code>PlaybackType</code> is
-   *             <code>LIVE</code>.</p>
-   */
-  TimestampRange?: HLSTimestampRange;
-
   /**
    * <p>The source of the timestamps for the requested media.</p>
    *         <p>When <code>FragmentSelectorType</code> is set to <code>PRODUCER_TIMESTAMP</code> and
@@ -664,6 +657,13 @@ export interface HLSFragmentSelector {
    *         <p>The default is <code>SERVER_TIMESTAMP</code>.</p>
    */
   FragmentSelectorType?: HLSFragmentSelectorType | string;
+
+  /**
+   * <p>The start and end of the timestamp range for the requested media.</p>
+   *         <p>This value should not be present if <code>PlaybackType</code> is
+   *             <code>LIVE</code>.</p>
+   */
+  TimestampRange?: HLSTimestampRange;
 }
 
 export namespace HLSFragmentSelector {
@@ -679,6 +679,13 @@ export enum HLSPlaybackMode {
 }
 
 export interface GetHLSStreamingSessionURLInput {
+  /**
+   * <p>The name of the stream for which to retrieve the HLS master playlist URL.</p>
+   *         <p>You must specify either the <code>StreamName</code> or the
+   *             <code>StreamARN</code>.</p>
+   */
+  StreamName?: string;
+
   /**
    * <p>The Amazon Resource Name (ARN) of the stream for which to retrieve the HLS master
    *             playlist URL.</p>
@@ -753,24 +760,6 @@ export interface GetHLSStreamingSessionURLInput {
   PlaybackMode?: HLSPlaybackMode | string;
 
   /**
-   * <p>The time in seconds until the requested session expires. This value can be between 300
-   *             (5 minutes) and 43200 (12 hours).</p>
-   *         <p>When a session expires, no new calls to <code>GetHLSMasterPlaylist</code>,
-   *                 <code>GetHLSMediaPlaylist</code>, <code>GetMP4InitFragment</code>,
-   *                 <code>GetMP4MediaFragment</code>, or <code>GetTSFragment</code> can be made for that
-   *             session.</p>
-   *         <p>The default is 300 (5 minutes).</p>
-   */
-  Expires?: number;
-
-  /**
-   * <p>The name of the stream for which to retrieve the HLS master playlist URL.</p>
-   *         <p>You must specify either the <code>StreamName</code> or the
-   *             <code>StreamARN</code>.</p>
-   */
-  StreamName?: string;
-
-  /**
    * <p>The time range of the requested fragment and the source of the timestamps.</p>
    *         <p>This parameter is required if <code>PlaybackMode</code> is <code>ON_DEMAND</code> or
    *                 <code>LIVE_REPLAY</code>. This parameter is optional if PlaybackMode is<code></code>
@@ -783,23 +772,16 @@ export interface GetHLSStreamingSessionURLInput {
   HLSFragmentSelector?: HLSFragmentSelector;
 
   /**
-   * <p>The maximum number of fragments that are returned in the HLS media playlists.</p>
-   *         <p>When the <code>PlaybackMode</code> is <code>LIVE</code>, the most recent fragments are
-   *             returned up to this value. When the <code>PlaybackMode</code> is <code>ON_DEMAND</code>,
-   *             the oldest fragments are returned, up to this maximum number.</p>
-   *         <p>When there are a higher number of fragments available in a live HLS media playlist,
-   *             video players often buffer content before starting playback. Increasing the buffer size
-   *             increases the playback latency, but it decreases the likelihood that rebuffering will
-   *             occur during playback. We recommend that a live HLS media playlist have a minimum of 3
-   *             fragments and a maximum of 10 fragments.</p>
-   *         <p>The default is 5 fragments if <code>PlaybackMode</code> is <code>LIVE</code> or
-   *                 <code>LIVE_REPLAY</code>, and 1,000 if <code>PlaybackMode</code> is
-   *                 <code>ON_DEMAND</code>. </p>
-   *         <p>The maximum value of 1,000 fragments corresponds to more than 16 minutes of video on
-   *             streams with 1-second fragments, and more than 2 1/2 hours of video on streams with
-   *             10-second fragments.</p>
+   * <p>Specifies which format should be used for packaging the media. Specifying the
+   *                 <code>FRAGMENTED_MP4</code> container format packages the media into MP4 fragments
+   *             (fMP4 or CMAF). This is the recommended packaging because there is minimal packaging
+   *             overhead. The other container format option is <code>MPEG_TS</code>. HLS has supported
+   *             MPEG TS chunks since it was released and is sometimes the only supported packaging on
+   *             older HLS players. MPEG TS typically has a 5-25 percent packaging overhead. This means
+   *             MPEG TS typically requires 5-25 percent more bandwidth and cost than fMP4.</p>
+   *         <p>The default is <code>FRAGMENTED_MP4</code>.</p>
    */
-  MaxMediaPlaylistFragmentResults?: number;
+  ContainerFormat?: ContainerFormat | string;
 
   /**
    * <p>Specifies when flags marking discontinuities between fragments are added to the media
@@ -844,18 +826,6 @@ export interface GetHLSStreamingSessionURLInput {
   DiscontinuityMode?: HLSDiscontinuityMode | string;
 
   /**
-   * <p>Specifies which format should be used for packaging the media. Specifying the
-   *                 <code>FRAGMENTED_MP4</code> container format packages the media into MP4 fragments
-   *             (fMP4 or CMAF). This is the recommended packaging because there is minimal packaging
-   *             overhead. The other container format option is <code>MPEG_TS</code>. HLS has supported
-   *             MPEG TS chunks since it was released and is sometimes the only supported packaging on
-   *             older HLS players. MPEG TS typically has a 5-25 percent packaging overhead. This means
-   *             MPEG TS typically requires 5-25 percent more bandwidth and cost than fMP4.</p>
-   *         <p>The default is <code>FRAGMENTED_MP4</code>.</p>
-   */
-  ContainerFormat?: ContainerFormat | string;
-
-  /**
    * <p>Specifies when the fragment start timestamps should be included in the HLS media
    *             playlist. Typically, media players report the playhead position as a time relative to
    *             the start of the first fragment in the playback session. However, when the start
@@ -870,6 +840,36 @@ export interface GetHLSStreamingSessionURLInput {
    *         </p>
    */
   DisplayFragmentTimestamp?: HLSDisplayFragmentTimestamp | string;
+
+  /**
+   * <p>The time in seconds until the requested session expires. This value can be between 300
+   *             (5 minutes) and 43200 (12 hours).</p>
+   *         <p>When a session expires, no new calls to <code>GetHLSMasterPlaylist</code>,
+   *                 <code>GetHLSMediaPlaylist</code>, <code>GetMP4InitFragment</code>,
+   *                 <code>GetMP4MediaFragment</code>, or <code>GetTSFragment</code> can be made for that
+   *             session.</p>
+   *         <p>The default is 300 (5 minutes).</p>
+   */
+  Expires?: number;
+
+  /**
+   * <p>The maximum number of fragments that are returned in the HLS media playlists.</p>
+   *         <p>When the <code>PlaybackMode</code> is <code>LIVE</code>, the most recent fragments are
+   *             returned up to this value. When the <code>PlaybackMode</code> is <code>ON_DEMAND</code>,
+   *             the oldest fragments are returned, up to this maximum number.</p>
+   *         <p>When there are a higher number of fragments available in a live HLS media playlist,
+   *             video players often buffer content before starting playback. Increasing the buffer size
+   *             increases the playback latency, but it decreases the likelihood that rebuffering will
+   *             occur during playback. We recommend that a live HLS media playlist have a minimum of 3
+   *             fragments and a maximum of 10 fragments.</p>
+   *         <p>The default is 5 fragments if <code>PlaybackMode</code> is <code>LIVE</code> or
+   *                 <code>LIVE_REPLAY</code>, and 1,000 if <code>PlaybackMode</code> is
+   *                 <code>ON_DEMAND</code>. </p>
+   *         <p>The maximum value of 1,000 fragments corresponds to more than 16 minutes of video on
+   *             streams with 1-second fragments, and more than 2 1/2 hours of video on streams with
+   *             10-second fragments.</p>
+   */
+  MaxMediaPlaylistFragmentResults?: number;
 }
 
 export namespace GetHLSStreamingSessionURLInput {
@@ -894,15 +894,15 @@ export namespace GetHLSStreamingSessionURLOutput {
 
 export interface GetMediaForFragmentListInput {
   /**
+   * <p>The name of the stream from which to retrieve fragment media.</p>
+   */
+  StreamName: string | undefined;
+
+  /**
    * <p>A list of the numbers of fragments for which to retrieve media. You retrieve these
    *             values with <a>ListFragments</a>.</p>
    */
   Fragments: string[] | undefined;
-
-  /**
-   * <p>The name of the stream from which to retrieve fragment media.</p>
-   */
-  StreamName: string | undefined;
 }
 
 export namespace GetMediaForFragmentListInput {
@@ -912,6 +912,11 @@ export namespace GetMediaForFragmentListInput {
 }
 
 export interface GetMediaForFragmentListOutput {
+  /**
+   * <p>The content type of the requested media.</p>
+   */
+  ContentType?: string;
+
   /**
    * <p>The payload that Kinesis Video Streams returns is a sequence of chunks from the
    *             specified stream. For information about the chunks, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_PutMedia.html">PutMedia</a>. The chunks that
@@ -948,11 +953,6 @@ export interface GetMediaForFragmentListOutput {
    *          </ul>
    */
   Payload?: Readable | ReadableStream | Blob;
-
-  /**
-   * <p>The content type of the requested media.</p>
-   */
-  ContentType?: string;
 }
 
 export namespace GetMediaForFragmentListOutput {
@@ -971,15 +971,15 @@ export enum FragmentSelectorType {
  */
 export interface TimestampRange {
   /**
-   * <p>The ending timestamp in the range of timestamps for which to return fragments.</p>
-   */
-  EndTimestamp: Date | undefined;
-
-  /**
    * <p>The starting timestamp in the range of timestamps for which to return
    *             fragments.</p>
    */
   StartTimestamp: Date | undefined;
+
+  /**
+   * <p>The ending timestamp in the range of timestamps for which to return fragments.</p>
+   */
+  EndTimestamp: Date | undefined;
 }
 
 export namespace TimestampRange {
@@ -1030,10 +1030,9 @@ export namespace FragmentSelector {
 
 export interface ListFragmentsInput {
   /**
-   * <p>Describes the timestamp range and timestamp origin for the range of fragments to
-   *             return.</p>
+   * <p>The name of the stream from which to retrieve a fragment list.</p>
    */
-  FragmentSelector?: FragmentSelector;
+  StreamName: string | undefined;
 
   /**
    * <p>The total number of fragments to return. If the total number of fragments available is
@@ -1049,9 +1048,10 @@ export interface ListFragmentsInput {
   NextToken?: string;
 
   /**
-   * <p>The name of the stream from which to retrieve a fragment list.</p>
+   * <p>Describes the timestamp range and timestamp origin for the range of fragments to
+   *             return.</p>
    */
-  StreamName: string | undefined;
+  FragmentSelector?: FragmentSelector;
 }
 
 export namespace ListFragmentsInput {
@@ -1065,15 +1065,16 @@ export namespace ListFragmentsInput {
  */
 export interface Fragment {
   /**
-   * <p>The timestamp from the AWS server corresponding to the fragment.</p>
-   */
-  ServerTimestamp?: Date;
-
-  /**
    * <p>The unique identifier of the fragment. This value monotonically increases based on the
    *             ingestion order.</p>
    */
   FragmentNumber?: string;
+
+  /**
+   * <p>The total fragment size, including information about the fragment and contained media
+   *             data.</p>
+   */
+  FragmentSizeInBytes?: number;
 
   /**
    * <p>The timestamp from the producer corresponding to the fragment.</p>
@@ -1081,15 +1082,14 @@ export interface Fragment {
   ProducerTimestamp?: Date;
 
   /**
+   * <p>The timestamp from the AWS server corresponding to the fragment.</p>
+   */
+  ServerTimestamp?: Date;
+
+  /**
    * <p>The playback duration or other time value associated with the fragment.</p>
    */
   FragmentLengthInMilliseconds?: number;
-
-  /**
-   * <p>The total fragment size, including information about the fragment and contained media
-   *             data.</p>
-   */
-  FragmentSizeInBytes?: number;
 }
 
 export namespace Fragment {

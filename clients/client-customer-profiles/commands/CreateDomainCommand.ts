@@ -1,4 +1,4 @@
-import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
+import { ProfileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProfileClient";
 import { CreateDomainRequest, CreateDomainResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDomainCommand,
@@ -30,7 +30,7 @@ export type CreateDomainCommandOutput = CreateDomainResponse & __MetadataBearer;
 export class CreateDomainCommand extends $Command<
   CreateDomainCommandInput,
   CreateDomainCommandOutput,
-  CustomerProfilesClientResolvedConfig
+  ProfileClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -46,7 +46,7 @@ export class CreateDomainCommand extends $Command<
    */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CustomerProfilesClientResolvedConfig,
+    configuration: ProfileClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDomainCommandInput, CreateDomainCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
@@ -54,7 +54,7 @@ export class CreateDomainCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
-    const clientName = "CustomerProfilesClient";
+    const clientName = "ProfileClient";
     const commandName = "CreateDomainCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,

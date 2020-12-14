@@ -217,12 +217,27 @@ const deserializeAws_json1_1EntitlementList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1EntitlementValue = (output: any, context: __SerdeContext): EntitlementValue => {
-  return {
-    BooleanValue: output.BooleanValue !== undefined && output.BooleanValue !== null ? output.BooleanValue : undefined,
-    DoubleValue: output.DoubleValue !== undefined && output.DoubleValue !== null ? output.DoubleValue : undefined,
-    IntegerValue: output.IntegerValue !== undefined && output.IntegerValue !== null ? output.IntegerValue : undefined,
-    StringValue: output.StringValue !== undefined && output.StringValue !== null ? output.StringValue : undefined,
-  } as any;
+  if (output.BooleanValue !== undefined && output.BooleanValue !== null) {
+    return {
+      BooleanValue: output.BooleanValue,
+    };
+  }
+  if (output.DoubleValue !== undefined && output.DoubleValue !== null) {
+    return {
+      DoubleValue: output.DoubleValue,
+    };
+  }
+  if (output.IntegerValue !== undefined && output.IntegerValue !== null) {
+    return {
+      IntegerValue: output.IntegerValue,
+    };
+  }
+  if (output.StringValue !== undefined && output.StringValue !== null) {
+    return {
+      StringValue: output.StringValue,
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_json1_1GetEntitlementsResult = (output: any, context: __SerdeContext): GetEntitlementsResult => {
