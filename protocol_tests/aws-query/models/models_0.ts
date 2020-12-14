@@ -17,7 +17,13 @@ export namespace EmptyInputAndEmptyOutputOutput {
   });
 }
 
-export type FooEnum = "0" | "1" | "Bar" | "Baz" | "Foo";
+export enum FooEnum {
+  BAR = "Bar",
+  BAZ = "Baz",
+  FOO = "Foo",
+  ONE = "1",
+  ZERO = "0",
+}
 
 export interface FlattenedXmlMapOutput {
   myMap?: { [key: string]: FooEnum | string };
@@ -35,6 +41,16 @@ export interface FlattenedXmlMapWithXmlNameOutput {
 
 export namespace FlattenedXmlMapWithXmlNameOutput {
   export const filterSensitiveLog = (obj: FlattenedXmlMapWithXmlNameOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface FlattenedXmlMapWithXmlNamespaceOutput {
+  myMap?: { [key: string]: string };
+}
+
+export namespace FlattenedXmlMapWithXmlNamespaceOutput {
+  export const filterSensitiveLog = (obj: FlattenedXmlMapWithXmlNamespaceOutput): any => ({
     ...obj,
   });
 }
@@ -215,21 +231,6 @@ export namespace XmlBlobsOutput {
   });
 }
 
-export interface XmlEnumsOutput {
-  fooEnum1?: FooEnum | string;
-  fooEnum2?: FooEnum | string;
-  fooEnum3?: FooEnum | string;
-  fooEnumList?: (FooEnum | string)[];
-  fooEnumSet?: (FooEnum | string)[];
-  fooEnumMap?: { [key: string]: FooEnum | string };
-}
-
-export namespace XmlEnumsOutput {
-  export const filterSensitiveLog = (obj: XmlEnumsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface StructureListMember {
   a?: string;
   b?: string;
@@ -256,6 +257,8 @@ export interface XmlListsOutput {
   renamedListMembers?: string[];
   flattenedList?: string[];
   flattenedList2?: string[];
+  flattenedListWithMemberNamespace?: string[];
+  flattenedListWithNamespace?: string[];
   structureList?: StructureListMember[];
 }
 
@@ -271,6 +274,21 @@ export interface XmlMapsOutput {
 
 export namespace XmlMapsOutput {
   export const filterSensitiveLog = (obj: XmlMapsOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface XmlEnumsOutput {
+  fooEnum1?: FooEnum | string;
+  fooEnum2?: FooEnum | string;
+  fooEnum3?: FooEnum | string;
+  fooEnumList?: (FooEnum | string)[];
+  fooEnumSet?: (FooEnum | string)[];
+  fooEnumMap?: { [key: string]: FooEnum | string };
+}
+
+export namespace XmlEnumsOutput {
+  export const filterSensitiveLog = (obj: XmlEnumsOutput): any => ({
     ...obj,
   });
 }

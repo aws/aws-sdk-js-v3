@@ -21,7 +21,7 @@ export type TimestampFormatHeadersCommandInput = TimestampFormatHeadersIO;
 export type TimestampFormatHeadersCommandOutput = TimestampFormatHeadersIO & __MetadataBearer;
 
 /**
- * The example tests how timestamp request and response headers are serialized.
+ * This example tests how timestamp request and response headers are serialized.
  */
 export class TimestampFormatHeadersCommand extends $Command<
   TimestampFormatHeadersCommandInput,

@@ -19,6 +19,10 @@ import {
   FlattenedXmlMapWithXmlNameCommandInput,
   FlattenedXmlMapWithXmlNameCommandOutput,
 } from "./commands/FlattenedXmlMapWithXmlNameCommand";
+import {
+  FlattenedXmlMapWithXmlNamespaceCommandInput,
+  FlattenedXmlMapWithXmlNamespaceCommandOutput,
+} from "./commands/FlattenedXmlMapWithXmlNamespaceCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "./commands/GreetingWithErrorsCommand";
 import { HttpPayloadTraitsCommandInput, HttpPayloadTraitsCommandOutput } from "./commands/HttpPayloadTraitsCommand";
 import {
@@ -54,6 +58,7 @@ import {
   HttpRequestWithLabelsCommandInput,
   HttpRequestWithLabelsCommandOutput,
 } from "./commands/HttpRequestWithLabelsCommand";
+import { HttpResponseCodeCommandInput, HttpResponseCodeCommandOutput } from "./commands/HttpResponseCodeCommand";
 import {
   IgnoreQueryParamsInResponseCommandInput,
   IgnoreQueryParamsInResponseCommandOutput,
@@ -95,6 +100,10 @@ import {
   XmlAttributesOnPayloadCommandOutput,
 } from "./commands/XmlAttributesOnPayloadCommand";
 import { XmlBlobsCommandInput, XmlBlobsCommandOutput } from "./commands/XmlBlobsCommand";
+import { XmlEmptyBlobsCommandInput, XmlEmptyBlobsCommandOutput } from "./commands/XmlEmptyBlobsCommand";
+import { XmlEmptyListsCommandInput, XmlEmptyListsCommandOutput } from "./commands/XmlEmptyListsCommand";
+import { XmlEmptyMapsCommandInput, XmlEmptyMapsCommandOutput } from "./commands/XmlEmptyMapsCommand";
+import { XmlEmptyStringsCommandInput, XmlEmptyStringsCommandOutput } from "./commands/XmlEmptyStringsCommand";
 import { XmlEnumsCommandInput, XmlEnumsCommandOutput } from "./commands/XmlEnumsCommand";
 import { XmlListsCommandInput, XmlListsCommandOutput } from "./commands/XmlListsCommand";
 import { XmlMapsCommandInput, XmlMapsCommandOutput } from "./commands/XmlMapsCommand";
@@ -157,6 +166,7 @@ export type ServiceInputTypes =
   | EmptyInputAndEmptyOutputCommandInput
   | FlattenedXmlMapCommandInput
   | FlattenedXmlMapWithXmlNameCommandInput
+  | FlattenedXmlMapWithXmlNamespaceCommandInput
   | GreetingWithErrorsCommandInput
   | HttpPayloadTraitsCommandInput
   | HttpPayloadTraitsWithMediaTypeCommandInput
@@ -168,6 +178,7 @@ export type ServiceInputTypes =
   | HttpRequestWithGreedyLabelInPathCommandInput
   | HttpRequestWithLabelsAndTimestampFormatCommandInput
   | HttpRequestWithLabelsCommandInput
+  | HttpResponseCodeCommandInput
   | IgnoreQueryParamsInResponseCommandInput
   | InputAndOutputWithHeadersCommandInput
   | NoInputAndNoOutputCommandInput
@@ -182,6 +193,10 @@ export type ServiceInputTypes =
   | XmlAttributesCommandInput
   | XmlAttributesOnPayloadCommandInput
   | XmlBlobsCommandInput
+  | XmlEmptyBlobsCommandInput
+  | XmlEmptyListsCommandInput
+  | XmlEmptyMapsCommandInput
+  | XmlEmptyStringsCommandInput
   | XmlEnumsCommandInput
   | XmlListsCommandInput
   | XmlMapsCommandInput
@@ -196,6 +211,7 @@ export type ServiceOutputTypes =
   | EmptyInputAndEmptyOutputCommandOutput
   | FlattenedXmlMapCommandOutput
   | FlattenedXmlMapWithXmlNameCommandOutput
+  | FlattenedXmlMapWithXmlNamespaceCommandOutput
   | GreetingWithErrorsCommandOutput
   | HttpPayloadTraitsCommandOutput
   | HttpPayloadTraitsWithMediaTypeCommandOutput
@@ -207,6 +223,7 @@ export type ServiceOutputTypes =
   | HttpRequestWithGreedyLabelInPathCommandOutput
   | HttpRequestWithLabelsAndTimestampFormatCommandOutput
   | HttpRequestWithLabelsCommandOutput
+  | HttpResponseCodeCommandOutput
   | IgnoreQueryParamsInResponseCommandOutput
   | InputAndOutputWithHeadersCommandOutput
   | NoInputAndNoOutputCommandOutput
@@ -221,6 +238,10 @@ export type ServiceOutputTypes =
   | XmlAttributesCommandOutput
   | XmlAttributesOnPayloadCommandOutput
   | XmlBlobsCommandOutput
+  | XmlEmptyBlobsCommandOutput
+  | XmlEmptyListsCommandOutput
+  | XmlEmptyMapsCommandOutput
+  | XmlEmptyStringsCommandOutput
   | XmlEnumsCommandOutput
   | XmlListsCommandOutput
   | XmlMapsCommandOutput

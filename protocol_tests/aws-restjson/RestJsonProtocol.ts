@@ -45,6 +45,11 @@ import {
   HttpPrefixHeadersCommandOutput,
 } from "./commands/HttpPrefixHeadersCommand";
 import {
+  HttpPrefixHeadersResponseCommand,
+  HttpPrefixHeadersResponseCommandInput,
+  HttpPrefixHeadersResponseCommandOutput,
+} from "./commands/HttpPrefixHeadersResponseCommand";
+import {
   HttpRequestWithGreedyLabelInPathCommand,
   HttpRequestWithGreedyLabelInPathCommandInput,
   HttpRequestWithGreedyLabelInPathCommandOutput,
@@ -60,10 +65,25 @@ import {
   HttpRequestWithLabelsCommandOutput,
 } from "./commands/HttpRequestWithLabelsCommand";
 import {
+  HttpResponseCodeCommand,
+  HttpResponseCodeCommandInput,
+  HttpResponseCodeCommandOutput,
+} from "./commands/HttpResponseCodeCommand";
+import {
   IgnoreQueryParamsInResponseCommand,
   IgnoreQueryParamsInResponseCommandInput,
   IgnoreQueryParamsInResponseCommandOutput,
 } from "./commands/IgnoreQueryParamsInResponseCommand";
+import {
+  InlineDocumentAsPayloadCommand,
+  InlineDocumentAsPayloadCommandInput,
+  InlineDocumentAsPayloadCommandOutput,
+} from "./commands/InlineDocumentAsPayloadCommand";
+import {
+  InlineDocumentCommand,
+  InlineDocumentCommandInput,
+  InlineDocumentCommandOutput,
+} from "./commands/InlineDocumentCommand";
 import {
   InputAndOutputWithHeadersCommand,
   InputAndOutputWithHeadersCommandInput,
@@ -78,6 +98,12 @@ import {
   JsonTimestampsCommandInput,
   JsonTimestampsCommandOutput,
 } from "./commands/JsonTimestampsCommand";
+import { JsonUnionsCommand, JsonUnionsCommandInput, JsonUnionsCommandOutput } from "./commands/JsonUnionsCommand";
+import {
+  MediaTypeHeaderCommand,
+  MediaTypeHeaderCommandInput,
+  MediaTypeHeaderCommandOutput,
+} from "./commands/MediaTypeHeaderCommand";
 import {
   NoInputAndNoOutputCommand,
   NoInputAndNoOutputCommandInput,
@@ -118,6 +144,21 @@ import {
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
 } from "./commands/SimpleScalarPropertiesCommand";
+import {
+  StreamingTraitsCommand,
+  StreamingTraitsCommandInput,
+  StreamingTraitsCommandOutput,
+} from "./commands/StreamingTraitsCommand";
+import {
+  StreamingTraitsRequireLengthCommand,
+  StreamingTraitsRequireLengthCommandInput,
+  StreamingTraitsRequireLengthCommandOutput,
+} from "./commands/StreamingTraitsRequireLengthCommand";
+import {
+  StreamingTraitsWithMediaTypeCommand,
+  StreamingTraitsWithMediaTypeCommandInput,
+  StreamingTraitsWithMediaTypeCommandOutput,
+} from "./commands/StreamingTraitsWithMediaTypeCommand";
 import {
   TimestampFormatHeadersCommand,
   TimestampFormatHeadersCommandInput,
@@ -441,6 +482,38 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * Clients that perform this test extract all headers from the response.
+   */
+  public httpPrefixHeadersResponse(
+    args: HttpPrefixHeadersResponseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<HttpPrefixHeadersResponseCommandOutput>;
+  public httpPrefixHeadersResponse(
+    args: HttpPrefixHeadersResponseCommandInput,
+    cb: (err: any, data?: HttpPrefixHeadersResponseCommandOutput) => void
+  ): void;
+  public httpPrefixHeadersResponse(
+    args: HttpPrefixHeadersResponseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: HttpPrefixHeadersResponseCommandOutput) => void
+  ): void;
+  public httpPrefixHeadersResponse(
+    args: HttpPrefixHeadersResponseCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: HttpPrefixHeadersResponseCommandOutput) => void),
+    cb?: (err: any, data?: HttpPrefixHeadersResponseCommandOutput) => void
+  ): Promise<HttpPrefixHeadersResponseCommandOutput> | void {
+    const command = new HttpPrefixHeadersResponseCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   public httpRequestWithGreedyLabelInPath(
     args: HttpRequestWithGreedyLabelInPathCommandInput,
     options?: __HttpHandlerOptions
@@ -538,6 +611,35 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  public httpResponseCode(
+    args: HttpResponseCodeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<HttpResponseCodeCommandOutput>;
+  public httpResponseCode(
+    args: HttpResponseCodeCommandInput,
+    cb: (err: any, data?: HttpResponseCodeCommandOutput) => void
+  ): void;
+  public httpResponseCode(
+    args: HttpResponseCodeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: HttpResponseCodeCommandOutput) => void
+  ): void;
+  public httpResponseCode(
+    args: HttpResponseCodeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: HttpResponseCodeCommandOutput) => void),
+    cb?: (err: any, data?: HttpResponseCodeCommandOutput) => void
+  ): Promise<HttpResponseCodeCommandOutput> | void {
+    const command = new HttpResponseCodeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * This example ensures that query string bound request parameters are
    * serialized in the body of responses if the structure is used in both
@@ -562,6 +664,70 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     cb?: (err: any, data?: IgnoreQueryParamsInResponseCommandOutput) => void
   ): Promise<IgnoreQueryParamsInResponseCommandOutput> | void {
     const command = new IgnoreQueryParamsInResponseCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * This example serializes an inline document as part of the payload.
+   */
+  public inlineDocument(
+    args: InlineDocumentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InlineDocumentCommandOutput>;
+  public inlineDocument(
+    args: InlineDocumentCommandInput,
+    cb: (err: any, data?: InlineDocumentCommandOutput) => void
+  ): void;
+  public inlineDocument(
+    args: InlineDocumentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: InlineDocumentCommandOutput) => void
+  ): void;
+  public inlineDocument(
+    args: InlineDocumentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InlineDocumentCommandOutput) => void),
+    cb?: (err: any, data?: InlineDocumentCommandOutput) => void
+  ): Promise<InlineDocumentCommandOutput> | void {
+    const command = new InlineDocumentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * This example serializes an inline document as the entire HTTP payload.
+   */
+  public inlineDocumentAsPayload(
+    args: InlineDocumentAsPayloadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InlineDocumentAsPayloadCommandOutput>;
+  public inlineDocumentAsPayload(
+    args: InlineDocumentAsPayloadCommandInput,
+    cb: (err: any, data?: InlineDocumentAsPayloadCommandOutput) => void
+  ): void;
+  public inlineDocumentAsPayload(
+    args: InlineDocumentAsPayloadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: InlineDocumentAsPayloadCommandOutput) => void
+  ): void;
+  public inlineDocumentAsPayload(
+    args: InlineDocumentAsPayloadCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InlineDocumentAsPayloadCommandOutput) => void),
+    cb?: (err: any, data?: InlineDocumentAsPayloadCommandOutput) => void
+  ): Promise<InlineDocumentAsPayloadCommandOutput> | void {
+    const command = new InlineDocumentAsPayloadCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -739,6 +905,64 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     cb?: (err: any, data?: JsonTimestampsCommandOutput) => void
   ): Promise<JsonTimestampsCommandOutput> | void {
     const command = new JsonTimestampsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * This operation uses unions for inputs and outputs.
+   */
+  public jsonUnions(args: JsonUnionsCommandInput, options?: __HttpHandlerOptions): Promise<JsonUnionsCommandOutput>;
+  public jsonUnions(args: JsonUnionsCommandInput, cb: (err: any, data?: JsonUnionsCommandOutput) => void): void;
+  public jsonUnions(
+    args: JsonUnionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: JsonUnionsCommandOutput) => void
+  ): void;
+  public jsonUnions(
+    args: JsonUnionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: JsonUnionsCommandOutput) => void),
+    cb?: (err: any, data?: JsonUnionsCommandOutput) => void
+  ): Promise<JsonUnionsCommandOutput> | void {
+    const command = new JsonUnionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * This example ensures that mediaType strings are base64 encoded in headers.
+   */
+  public mediaTypeHeader(
+    args: MediaTypeHeaderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MediaTypeHeaderCommandOutput>;
+  public mediaTypeHeader(
+    args: MediaTypeHeaderCommandInput,
+    cb: (err: any, data?: MediaTypeHeaderCommandOutput) => void
+  ): void;
+  public mediaTypeHeader(
+    args: MediaTypeHeaderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MediaTypeHeaderCommandOutput) => void
+  ): void;
+  public mediaTypeHeader(
+    args: MediaTypeHeaderCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MediaTypeHeaderCommandOutput) => void),
+    cb?: (err: any, data?: MediaTypeHeaderCommandOutput) => void
+  ): Promise<MediaTypeHeaderCommandOutput> | void {
+    const command = new MediaTypeHeaderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1008,7 +1232,113 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
-   * The example tests how timestamp request and response headers are serialized.
+   * This examples serializes a streaming blob shape in the request body.
+   *
+   * In this example, no JSON document is synthesized because the payload is
+   * not a structure or a union type.
+   */
+  public streamingTraits(
+    args: StreamingTraitsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StreamingTraitsCommandOutput>;
+  public streamingTraits(
+    args: StreamingTraitsCommandInput,
+    cb: (err: any, data?: StreamingTraitsCommandOutput) => void
+  ): void;
+  public streamingTraits(
+    args: StreamingTraitsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StreamingTraitsCommandOutput) => void
+  ): void;
+  public streamingTraits(
+    args: StreamingTraitsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StreamingTraitsCommandOutput) => void),
+    cb?: (err: any, data?: StreamingTraitsCommandOutput) => void
+  ): Promise<StreamingTraitsCommandOutput> | void {
+    const command = new StreamingTraitsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * This examples serializes a streaming blob shape with a required content
+   * length in the request body.
+   *
+   * In this example, no JSON document is synthesized because the payload is
+   * not a structure or a union type.
+   */
+  public streamingTraitsRequireLength(
+    args: StreamingTraitsRequireLengthCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StreamingTraitsRequireLengthCommandOutput>;
+  public streamingTraitsRequireLength(
+    args: StreamingTraitsRequireLengthCommandInput,
+    cb: (err: any, data?: StreamingTraitsRequireLengthCommandOutput) => void
+  ): void;
+  public streamingTraitsRequireLength(
+    args: StreamingTraitsRequireLengthCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StreamingTraitsRequireLengthCommandOutput) => void
+  ): void;
+  public streamingTraitsRequireLength(
+    args: StreamingTraitsRequireLengthCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StreamingTraitsRequireLengthCommandOutput) => void),
+    cb?: (err: any, data?: StreamingTraitsRequireLengthCommandOutput) => void
+  ): Promise<StreamingTraitsRequireLengthCommandOutput> | void {
+    const command = new StreamingTraitsRequireLengthCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * This examples serializes a streaming media-typed blob shape in the request body.
+   *
+   * This examples uses a `@mediaType` trait on the payload to force a custom
+   * content-type to be serialized.
+   */
+  public streamingTraitsWithMediaType(
+    args: StreamingTraitsWithMediaTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StreamingTraitsWithMediaTypeCommandOutput>;
+  public streamingTraitsWithMediaType(
+    args: StreamingTraitsWithMediaTypeCommandInput,
+    cb: (err: any, data?: StreamingTraitsWithMediaTypeCommandOutput) => void
+  ): void;
+  public streamingTraitsWithMediaType(
+    args: StreamingTraitsWithMediaTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StreamingTraitsWithMediaTypeCommandOutput) => void
+  ): void;
+  public streamingTraitsWithMediaType(
+    args: StreamingTraitsWithMediaTypeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StreamingTraitsWithMediaTypeCommandOutput) => void),
+    cb?: (err: any, data?: StreamingTraitsWithMediaTypeCommandOutput) => void
+  ): Promise<StreamingTraitsWithMediaTypeCommandOutput> | void {
+    const command = new StreamingTraitsWithMediaTypeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * This example tests how timestamp request and response headers are serialized.
    */
   public timestampFormatHeaders(
     args: TimestampFormatHeadersCommandInput,

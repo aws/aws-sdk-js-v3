@@ -24,6 +24,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
 import software.amazon.smithy.typescript.codegen.integration.HttpRpcProtocolGenerator;
+import software.amazon.smithy.utils.IoUtils;
 
 /**
  * Handles general components across the AWS JSON protocols that have do not have
@@ -73,6 +74,10 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
         super.generateSharedComponents(context);
         AwsProtocolUtils.generateJsonParseBody(context);
         AwsProtocolUtils.addItempotencyAutofillImport(context);
+
+        TypeScriptWriter writer = context.getWriter();
+        writer.addUseImports(getApplicationProtocol().getResponseType());
+        writer.write(IoUtils.readUtf8Resource(getClass(), "load-json-error-code-stub.ts"));
     }
 
     @Override
@@ -105,9 +110,9 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
     @Override
     protected void writeErrorCodeParser(GenerationContext context) {
         TypeScriptWriter writer = context.getWriter();
-        // parsedOutput is in scope because HttpRpcProtocolGenerator.isErrorCodeInBody is true
-        writer.write("const errorTypeParts: String = parsedOutput.body[\"__type\"].split('#');");
-        writer.write("errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];");
+
+        // Outsource error code parsing since it's complex for this protocol.
+        writer.write("errorCode = loadRestJsonErrorCode(output, parsedOutput.body);");
     }
 
     @Override

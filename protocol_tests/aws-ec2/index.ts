@@ -12,6 +12,8 @@ export * from "./commands/RecursiveXmlShapesCommand";
 export * from "./commands/SimpleInputParamsCommand";
 export * from "./commands/SimpleScalarXmlPropertiesCommand";
 export * from "./commands/XmlBlobsCommand";
+export * from "./commands/XmlEmptyBlobsCommand";
+export * from "./commands/XmlEmptyListsCommand";
 export * from "./commands/XmlEnumsCommand";
 export * from "./commands/XmlListsCommand";
 export * from "./commands/XmlNamespacesCommand";

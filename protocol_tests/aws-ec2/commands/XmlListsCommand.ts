@@ -27,7 +27,8 @@ export type XmlListsCommandOutput = XmlListsOutput & __MetadataBearer;
  * 4. XML lists with @xmlName on its members
  * 5. Flattened XML lists.
  * 6. Flattened XML lists with @xmlName.
- * 7. Lists of structures.
+ * 7. Flattened XML lists with @xmlNamespace.
+ * 8. Lists of structures.
  */
 export class XmlListsCommand extends $Command<
   XmlListsCommandInput,

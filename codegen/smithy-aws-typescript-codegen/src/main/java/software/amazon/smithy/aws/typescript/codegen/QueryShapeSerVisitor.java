@@ -24,6 +24,7 @@ import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
+import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.model.traits.XmlFlattenedTrait;
@@ -67,6 +68,16 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
         // Set up a counter to increment the member entries.
         writer.write("let counter = 1;");
         writer.openBlock("for (let entry of input) {", "}", () -> {
+            writer.openBlock("if (entry === null) {", "}", () -> {
+                // Handle the sparse trait by short circuiting null values
+                // from serialization, and not including them if encountered
+                // when not sparse.
+                if (shape.hasTrait(SparseTrait.ID)) {
+                    writer.write("entries[`$L.$${counter}`] = null as any }", locationName);
+                }
+                writer.write("continue;");
+            });
+
             QueryMemberSerVisitor inputVisitor = getMemberVisitor("entry");
             if (inputVisitor.visitSuppliesEntryList(target)) {
                 // Dispatch to the input value provider for any additional handling.
@@ -91,19 +102,24 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
         TypeScriptWriter writer = context.getWriter();
         Model model = context.getModel();
 
+        // Filter out null entries if we don't have the sparse trait.
+        String potentialFilter = "";
+        if (!shape.hasTrait(SparseTrait.ID)) {
+            potentialFilter = ".filter((key) => input[key] != null)";
+        }
+
         // Set up a location to store all of the entry pairs.
         writer.write("const entries: any = {};");
         // Set up a counter to increment the member entries.
         writer.write("let counter = 1;");
         // Use the keys as an iteration point to dispatch to the input value providers.
-        writer.openBlock("Object.keys(input).forEach(key => {", "});", () -> {
+        writer.openBlock("Object.keys(input)$L.forEach(key => {", "});", potentialFilter, () -> {
             // Prepare the key's entry.
             // Use the @xmlName trait if present on the member, otherwise use "key".
             MemberShape keyMember = shape.getKey();
             Shape keyTarget = model.expectShape(keyMember.getTarget());
             String keyName = getMemberSerializedLocationName(keyMember, "key");
             writer.write("entries[`entry.$${counter}.$L`] = $L;", keyName, keyTarget.accept(getMemberVisitor("key")));
-
 
             // Prepare the value's entry.
             // Use the @xmlName trait if present on the member, otherwise use "value".
@@ -153,7 +169,7 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
             // Handle if the member is an idempotency token that should be auto-filled.
             AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
 
-            writer.openBlock("if ($L !== undefined) {", "}", inputLocation,
+            writer.openBlock("if ($1L !== undefined && $1L !== null) {", "}", inputLocation,
                     () -> serializeNamedMember(context, memberName, memberShape, inputLocation));
         });
 

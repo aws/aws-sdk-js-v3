@@ -51,6 +51,16 @@ import {
   SimpleScalarXmlPropertiesCommandOutput,
 } from "./commands/SimpleScalarXmlPropertiesCommand";
 import { XmlBlobsCommand, XmlBlobsCommandInput, XmlBlobsCommandOutput } from "./commands/XmlBlobsCommand";
+import {
+  XmlEmptyBlobsCommand,
+  XmlEmptyBlobsCommandInput,
+  XmlEmptyBlobsCommandOutput,
+} from "./commands/XmlEmptyBlobsCommand";
+import {
+  XmlEmptyListsCommand,
+  XmlEmptyListsCommandInput,
+  XmlEmptyListsCommandOutput,
+} from "./commands/XmlEmptyListsCommand";
 import { XmlEnumsCommand, XmlEnumsCommandInput, XmlEnumsCommandOutput } from "./commands/XmlEnumsCommand";
 import { XmlListsCommand, XmlListsCommandInput, XmlListsCommandOutput } from "./commands/XmlListsCommand";
 import {
@@ -454,6 +464,64 @@ export class EC2Protocol extends EC2ProtocolClient {
     }
   }
 
+  public xmlEmptyBlobs(
+    args: XmlEmptyBlobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<XmlEmptyBlobsCommandOutput>;
+  public xmlEmptyBlobs(
+    args: XmlEmptyBlobsCommandInput,
+    cb: (err: any, data?: XmlEmptyBlobsCommandOutput) => void
+  ): void;
+  public xmlEmptyBlobs(
+    args: XmlEmptyBlobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: XmlEmptyBlobsCommandOutput) => void
+  ): void;
+  public xmlEmptyBlobs(
+    args: XmlEmptyBlobsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: XmlEmptyBlobsCommandOutput) => void),
+    cb?: (err: any, data?: XmlEmptyBlobsCommandOutput) => void
+  ): Promise<XmlEmptyBlobsCommandOutput> | void {
+    const command = new XmlEmptyBlobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public xmlEmptyLists(
+    args: XmlEmptyListsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<XmlEmptyListsCommandOutput>;
+  public xmlEmptyLists(
+    args: XmlEmptyListsCommandInput,
+    cb: (err: any, data?: XmlEmptyListsCommandOutput) => void
+  ): void;
+  public xmlEmptyLists(
+    args: XmlEmptyListsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: XmlEmptyListsCommandOutput) => void
+  ): void;
+  public xmlEmptyLists(
+    args: XmlEmptyListsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: XmlEmptyListsCommandOutput) => void),
+    cb?: (err: any, data?: XmlEmptyListsCommandOutput) => void
+  ): Promise<XmlEmptyListsCommandOutput> | void {
+    const command = new XmlEmptyListsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * This example serializes enums as top level properties, in lists, sets, and maps.
    */
@@ -490,7 +558,8 @@ export class EC2Protocol extends EC2ProtocolClient {
    * 4. XML lists with @xmlName on its members
    * 5. Flattened XML lists.
    * 6. Flattened XML lists with @xmlName.
-   * 7. Lists of structures.
+   * 7. Flattened XML lists with @xmlNamespace.
+   * 8. Lists of structures.
    */
   public xmlLists(args: XmlListsCommandInput, options?: __HttpHandlerOptions): Promise<XmlListsCommandOutput>;
   public xmlLists(args: XmlListsCommandInput, cb: (err: any, data?: XmlListsCommandOutput) => void): void;

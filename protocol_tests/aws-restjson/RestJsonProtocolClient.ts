@@ -26,6 +26,10 @@ import {
 } from "./commands/HttpPayloadWithStructureCommand";
 import { HttpPrefixHeadersCommandInput, HttpPrefixHeadersCommandOutput } from "./commands/HttpPrefixHeadersCommand";
 import {
+  HttpPrefixHeadersResponseCommandInput,
+  HttpPrefixHeadersResponseCommandOutput,
+} from "./commands/HttpPrefixHeadersResponseCommand";
+import {
   HttpRequestWithGreedyLabelInPathCommandInput,
   HttpRequestWithGreedyLabelInPathCommandOutput,
 } from "./commands/HttpRequestWithGreedyLabelInPathCommand";
@@ -37,10 +41,16 @@ import {
   HttpRequestWithLabelsCommandInput,
   HttpRequestWithLabelsCommandOutput,
 } from "./commands/HttpRequestWithLabelsCommand";
+import { HttpResponseCodeCommandInput, HttpResponseCodeCommandOutput } from "./commands/HttpResponseCodeCommand";
 import {
   IgnoreQueryParamsInResponseCommandInput,
   IgnoreQueryParamsInResponseCommandOutput,
 } from "./commands/IgnoreQueryParamsInResponseCommand";
+import {
+  InlineDocumentAsPayloadCommandInput,
+  InlineDocumentAsPayloadCommandOutput,
+} from "./commands/InlineDocumentAsPayloadCommand";
+import { InlineDocumentCommandInput, InlineDocumentCommandOutput } from "./commands/InlineDocumentCommand";
 import {
   InputAndOutputWithHeadersCommandInput,
   InputAndOutputWithHeadersCommandOutput,
@@ -50,6 +60,8 @@ import { JsonEnumsCommandInput, JsonEnumsCommandOutput } from "./commands/JsonEn
 import { JsonListsCommandInput, JsonListsCommandOutput } from "./commands/JsonListsCommand";
 import { JsonMapsCommandInput, JsonMapsCommandOutput } from "./commands/JsonMapsCommand";
 import { JsonTimestampsCommandInput, JsonTimestampsCommandOutput } from "./commands/JsonTimestampsCommand";
+import { JsonUnionsCommandInput, JsonUnionsCommandOutput } from "./commands/JsonUnionsCommand";
+import { MediaTypeHeaderCommandInput, MediaTypeHeaderCommandOutput } from "./commands/MediaTypeHeaderCommand";
 import { NoInputAndNoOutputCommandInput, NoInputAndNoOutputCommandOutput } from "./commands/NoInputAndNoOutputCommand";
 import { NoInputAndOutputCommandInput, NoInputAndOutputCommandOutput } from "./commands/NoInputAndOutputCommand";
 import {
@@ -73,6 +85,15 @@ import {
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
 } from "./commands/SimpleScalarPropertiesCommand";
+import { StreamingTraitsCommandInput, StreamingTraitsCommandOutput } from "./commands/StreamingTraitsCommand";
+import {
+  StreamingTraitsRequireLengthCommandInput,
+  StreamingTraitsRequireLengthCommandOutput,
+} from "./commands/StreamingTraitsRequireLengthCommand";
+import {
+  StreamingTraitsWithMediaTypeCommandInput,
+  StreamingTraitsWithMediaTypeCommandOutput,
+} from "./commands/StreamingTraitsWithMediaTypeCommand";
 import {
   TimestampFormatHeadersCommandInput,
   TimestampFormatHeadersCommandOutput,
@@ -136,16 +157,22 @@ export type ServiceInputTypes =
   | HttpPayloadTraitsWithMediaTypeCommandInput
   | HttpPayloadWithStructureCommandInput
   | HttpPrefixHeadersCommandInput
+  | HttpPrefixHeadersResponseCommandInput
   | HttpRequestWithGreedyLabelInPathCommandInput
   | HttpRequestWithLabelsAndTimestampFormatCommandInput
   | HttpRequestWithLabelsCommandInput
+  | HttpResponseCodeCommandInput
   | IgnoreQueryParamsInResponseCommandInput
+  | InlineDocumentAsPayloadCommandInput
+  | InlineDocumentCommandInput
   | InputAndOutputWithHeadersCommandInput
   | JsonBlobsCommandInput
   | JsonEnumsCommandInput
   | JsonListsCommandInput
   | JsonMapsCommandInput
   | JsonTimestampsCommandInput
+  | JsonUnionsCommandInput
+  | MediaTypeHeaderCommandInput
   | NoInputAndNoOutputCommandInput
   | NoInputAndOutputCommandInput
   | NullAndEmptyHeadersClientCommandInput
@@ -154,6 +181,9 @@ export type ServiceInputTypes =
   | QueryIdempotencyTokenAutoFillCommandInput
   | RecursiveShapesCommandInput
   | SimpleScalarPropertiesCommandInput
+  | StreamingTraitsCommandInput
+  | StreamingTraitsRequireLengthCommandInput
+  | StreamingTraitsWithMediaTypeCommandInput
   | TimestampFormatHeadersCommandInput;
 
 export type ServiceOutputTypes =
@@ -166,16 +196,22 @@ export type ServiceOutputTypes =
   | HttpPayloadTraitsWithMediaTypeCommandOutput
   | HttpPayloadWithStructureCommandOutput
   | HttpPrefixHeadersCommandOutput
+  | HttpPrefixHeadersResponseCommandOutput
   | HttpRequestWithGreedyLabelInPathCommandOutput
   | HttpRequestWithLabelsAndTimestampFormatCommandOutput
   | HttpRequestWithLabelsCommandOutput
+  | HttpResponseCodeCommandOutput
   | IgnoreQueryParamsInResponseCommandOutput
+  | InlineDocumentAsPayloadCommandOutput
+  | InlineDocumentCommandOutput
   | InputAndOutputWithHeadersCommandOutput
   | JsonBlobsCommandOutput
   | JsonEnumsCommandOutput
   | JsonListsCommandOutput
   | JsonMapsCommandOutput
   | JsonTimestampsCommandOutput
+  | JsonUnionsCommandOutput
+  | MediaTypeHeaderCommandOutput
   | NoInputAndNoOutputCommandOutput
   | NoInputAndOutputCommandOutput
   | NullAndEmptyHeadersClientCommandOutput
@@ -184,6 +220,9 @@ export type ServiceOutputTypes =
   | QueryIdempotencyTokenAutoFillCommandOutput
   | RecursiveShapesCommandOutput
   | SimpleScalarPropertiesCommandOutput
+  | StreamingTraitsCommandOutput
+  | StreamingTraitsRequireLengthCommandOutput
+  | StreamingTraitsWithMediaTypeCommandOutput
   | TimestampFormatHeadersCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

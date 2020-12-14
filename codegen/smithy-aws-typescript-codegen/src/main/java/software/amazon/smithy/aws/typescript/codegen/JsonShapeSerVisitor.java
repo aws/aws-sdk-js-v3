@@ -28,6 +28,7 @@ import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
 import software.amazon.smithy.model.traits.IdempotencyTokenTrait;
 import software.amazon.smithy.model.traits.JsonNameTrait;
+import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
@@ -60,9 +61,19 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
         TypeScriptWriter writer = context.getWriter();
         Shape target = context.getModel().expectShape(shape.getMember().getTarget());
 
-        writer.openBlock("return input.map(entry => ", ");", () ->
-                // Dispatch to the input value provider for any additional handling.
-                writer.write("$L", target.accept(getMemberVisitor("entry"))));
+        // Filter out null entries if we don't have the sparse trait.
+        String potentialFilter = "";
+        if (!shape.hasTrait(SparseTrait.ID)) {
+            potentialFilter = ".filter((e: any) => e != null)";
+        }
+
+        writer.openBlock("return input$L.map(entry => {", "});", potentialFilter, () -> {
+            // Short circuit null values from serialization.
+            writer.write("if (entry === null) { return null as any; }");
+
+            // Dispatch to the input value provider for any additional handling.
+            writer.write("return $L;", target.accept(getMemberVisitor("entry")));
+        });
     }
 
     @Override
@@ -80,14 +91,27 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
 
         // Get the right serialization for each entry in the map. Undefined
         // inputs won't have this serializer invoked.
-        writer.openBlock("return Object.entries(input).reduce((acc: $T, [key, value]: [$T, any]) => ({",
-            "}), {});",
+        writer.openBlock("return Object.entries(input).reduce((acc: $T, [key, value]: [$T, any]) => {",
+            "}, {});",
             symbolProvider.toSymbol(shape),
             symbolProvider.toSymbol(shape.getKey()),
             () -> {
-                writer.write("...acc,");
-                // Dispatch to the input value provider for any additional handling.
-                writer.write("[key]: $L", target.accept(getMemberVisitor("value")));
+                writer.openBlock("if (value === null) {", "}", () -> {
+                    // Handle the sparse trait by short circuiting null values
+                    // from serialization, and not including them if encountered
+                    // when not sparse.
+                    if (shape.hasTrait(SparseTrait.ID)) {
+                        writer.write("return { ...acc, [key]: null as any }");
+                    } else {
+                        writer.write("return acc;");
+                    }
+                });
+
+                writer.openBlock("return {", "};", () -> {
+                    writer.write("...acc,");
+                    // Dispatch to the input value provider for any additional handling.
+                    writer.write("[key]: $L", target.accept(getMemberVisitor("value")));
+                });
             }
         );
     }
@@ -116,7 +140,8 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
                 if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
                     writer.write("'$L': $L ?? generateIdempotencyToken(),", locationName, valueProvider);
                 } else {
-                    writer.write("...($L !== undefined && { $S: $L }),", inputLocation, locationName, valueProvider);
+                    writer.write("...($1L !== undefined && $1L !== null && { $2S: $3L }),",
+                            inputLocation, locationName, valueProvider);
                 }
             });
 

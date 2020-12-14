@@ -1,12 +1,20 @@
 import { EmptyOperationCommandInput, EmptyOperationCommandOutput } from "./commands/EmptyOperationCommand";
+import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "./commands/GreetingWithErrorsCommand";
+import { JsonEnumsCommandInput, JsonEnumsCommandOutput } from "./commands/JsonEnumsCommand";
+import { JsonUnionsCommandInput, JsonUnionsCommandOutput } from "./commands/JsonUnionsCommand";
 import {
   KitchenSinkOperationCommandInput,
   KitchenSinkOperationCommandOutput,
 } from "./commands/KitchenSinkOperationCommand";
+import { NullOperationCommandInput, NullOperationCommandOutput } from "./commands/NullOperationCommand";
 import {
   OperationWithOptionalInputOutputCommandInput,
   OperationWithOptionalInputOutputCommandOutput,
 } from "./commands/OperationWithOptionalInputOutputCommand";
+import {
+  PutAndGetInlineDocumentsCommandInput,
+  PutAndGetInlineDocumentsCommandOutput,
+} from "./commands/PutAndGetInlineDocumentsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -58,13 +66,23 @@ import {
 
 export type ServiceInputTypes =
   | EmptyOperationCommandInput
+  | GreetingWithErrorsCommandInput
+  | JsonEnumsCommandInput
+  | JsonUnionsCommandInput
   | KitchenSinkOperationCommandInput
-  | OperationWithOptionalInputOutputCommandInput;
+  | NullOperationCommandInput
+  | OperationWithOptionalInputOutputCommandInput
+  | PutAndGetInlineDocumentsCommandInput;
 
 export type ServiceOutputTypes =
   | EmptyOperationCommandOutput
+  | GreetingWithErrorsCommandOutput
+  | JsonEnumsCommandOutput
+  | JsonUnionsCommandOutput
   | KitchenSinkOperationCommandOutput
-  | OperationWithOptionalInputOutputCommandOutput;
+  | NullOperationCommandOutput
+  | OperationWithOptionalInputOutputCommandOutput
+  | PutAndGetInlineDocumentsCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

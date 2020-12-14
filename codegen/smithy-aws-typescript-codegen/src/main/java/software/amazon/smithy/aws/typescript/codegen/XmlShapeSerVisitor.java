@@ -26,6 +26,7 @@ import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
+import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.model.traits.XmlAttributeTrait;
@@ -70,7 +71,16 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
                 .map(XmlNameTrait::getValue)
                 .orElse("member");
 
-        writer.openBlock("return input.map(entry => {", "});", () -> {
+        // Filter out null entries if we don't have the sparse trait.
+        String potentialFilter = "";
+        if (!shape.hasTrait(SparseTrait.ID)) {
+            potentialFilter = ".filter((e: any) => e != null)";
+        }
+
+        writer.openBlock("return input$L.map(entry => {", "});", potentialFilter, () -> {
+            // Short circuit null values from serialization.
+            writer.write("if (entry === null) { return null as any; }");
+
             // Dispatch to the input value provider for any additional handling.
             writer.write("const node = $L;", target.accept(getMemberVisitor("entry")));
             // Handle proper unwrapping of target nodes.
@@ -101,8 +111,14 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
         Model model = context.getModel();
         writer.addImport("XmlNode", "__XmlNode", "@aws-sdk/xml-builder");
 
+        // Filter out null entries if we don't have the sparse trait.
+        String potentialFilter = "";
+        if (!shape.hasTrait(SparseTrait.ID)) {
+            potentialFilter = ".filter((key) => input[key] != null)";
+        }
+
         // Use the keys as an iteration point to dispatch to the input value providers.
-        writer.openBlock("return Object.keys(input).map(key => {", "});", () -> {
+        writer.openBlock("return Object.keys(input)$L.map(key => {", "});", potentialFilter, () -> {
             // Prepare a containing node for each entry's k/v pair.
             writer.write("const entryNode = new __XmlNode(\"entry\");");
 
@@ -125,8 +141,25 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
             String valueName = valueMember.getTrait(XmlNameTrait.class)
                     .map(XmlNameTrait::getValue)
                     .orElse("value");
+
+            // Handle the sparse trait by short circuiting null values
+            // from serialization, and not including them if encountered
+            // when not sparse.
+            writer.write("var node;");
+            if (shape.hasTrait(SparseTrait.ID)) {
+                writer.openBlock("if (value === null) {", "} else {", () ->
+                        writer.write("node = new __XmlNode($S).addChildNode(new __XmlText(null));", valueName));
+                writer.indent();
+            }
+
             // Dispatch to the input value provider for any additional handling.
-            writer.write("const node = $L;", valueTarget.accept(getMemberVisitor("input[key]")));
+            writer.write("node = $L;", valueTarget.accept(getMemberVisitor("input[key]")));
+
+            if (shape.hasTrait(SparseTrait.ID)) {
+                writer.dedent();
+                writer.write("}");
+            }
+
             // Handle proper unwrapping of target nodes.
             if (serializationReturnsArray(valueTarget)) {
                 writer.openBlock("entryNode.addChildNode(", ");", () -> {
@@ -168,7 +201,7 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
             // Handle if the member is an idempotency token that should be auto-filled.
             AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
 
-            writer.openBlock("if ($L !== undefined) {", "}", inputLocation, () -> {
+            writer.openBlock("if ($1L !== undefined && $1L !== null) {", "}", inputLocation, () -> {
                 serializeNamedMember(context, memberName, memberShape, () -> inputLocation);
             });
         });

@@ -15,6 +15,11 @@ import {
   FlattenedXmlMapWithXmlNameCommandOutput,
 } from "./commands/FlattenedXmlMapWithXmlNameCommand";
 import {
+  FlattenedXmlMapWithXmlNamespaceCommand,
+  FlattenedXmlMapWithXmlNamespaceCommandInput,
+  FlattenedXmlMapWithXmlNamespaceCommandOutput,
+} from "./commands/FlattenedXmlMapWithXmlNamespaceCommand";
+import {
   GreetingWithErrorsCommand,
   GreetingWithErrorsCommandInput,
   GreetingWithErrorsCommandOutput,
@@ -67,6 +72,21 @@ import {
   SimpleScalarXmlPropertiesCommandOutput,
 } from "./commands/SimpleScalarXmlPropertiesCommand";
 import { XmlBlobsCommand, XmlBlobsCommandInput, XmlBlobsCommandOutput } from "./commands/XmlBlobsCommand";
+import {
+  XmlEmptyBlobsCommand,
+  XmlEmptyBlobsCommandInput,
+  XmlEmptyBlobsCommandOutput,
+} from "./commands/XmlEmptyBlobsCommand";
+import {
+  XmlEmptyListsCommand,
+  XmlEmptyListsCommandInput,
+  XmlEmptyListsCommandOutput,
+} from "./commands/XmlEmptyListsCommand";
+import {
+  XmlEmptyMapsCommand,
+  XmlEmptyMapsCommandInput,
+  XmlEmptyMapsCommandOutput,
+} from "./commands/XmlEmptyMapsCommand";
 import { XmlEnumsCommand, XmlEnumsCommandInput, XmlEnumsCommandOutput } from "./commands/XmlEnumsCommand";
 import { XmlListsCommand, XmlListsCommandInput, XmlListsCommandOutput } from "./commands/XmlListsCommand";
 import { XmlMapsCommand, XmlMapsCommandInput, XmlMapsCommandOutput } from "./commands/XmlMapsCommand";
@@ -180,6 +200,38 @@ export class QueryProtocol extends QueryProtocolClient {
     cb?: (err: any, data?: FlattenedXmlMapWithXmlNameCommandOutput) => void
   ): Promise<FlattenedXmlMapWithXmlNameCommandOutput> | void {
     const command = new FlattenedXmlMapWithXmlNameCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Flattened maps with @xmlNamespace and @xmlName
+   */
+  public flattenedXmlMapWithXmlNamespace(
+    args: FlattenedXmlMapWithXmlNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<FlattenedXmlMapWithXmlNamespaceCommandOutput>;
+  public flattenedXmlMapWithXmlNamespace(
+    args: FlattenedXmlMapWithXmlNamespaceCommandInput,
+    cb: (err: any, data?: FlattenedXmlMapWithXmlNamespaceCommandOutput) => void
+  ): void;
+  public flattenedXmlMapWithXmlNamespace(
+    args: FlattenedXmlMapWithXmlNamespaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: FlattenedXmlMapWithXmlNamespaceCommandOutput) => void
+  ): void;
+  public flattenedXmlMapWithXmlNamespace(
+    args: FlattenedXmlMapWithXmlNamespaceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: FlattenedXmlMapWithXmlNamespaceCommandOutput) => void),
+    cb?: (err: any, data?: FlattenedXmlMapWithXmlNamespaceCommandOutput) => void
+  ): Promise<FlattenedXmlMapWithXmlNamespaceCommandOutput> | void {
+    const command = new FlattenedXmlMapWithXmlNamespaceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -592,6 +644,90 @@ export class QueryProtocol extends QueryProtocolClient {
     cb?: (err: any, data?: XmlBlobsCommandOutput) => void
   ): Promise<XmlBlobsCommandOutput> | void {
     const command = new XmlBlobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public xmlEmptyBlobs(
+    args: XmlEmptyBlobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<XmlEmptyBlobsCommandOutput>;
+  public xmlEmptyBlobs(
+    args: XmlEmptyBlobsCommandInput,
+    cb: (err: any, data?: XmlEmptyBlobsCommandOutput) => void
+  ): void;
+  public xmlEmptyBlobs(
+    args: XmlEmptyBlobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: XmlEmptyBlobsCommandOutput) => void
+  ): void;
+  public xmlEmptyBlobs(
+    args: XmlEmptyBlobsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: XmlEmptyBlobsCommandOutput) => void),
+    cb?: (err: any, data?: XmlEmptyBlobsCommandOutput) => void
+  ): Promise<XmlEmptyBlobsCommandOutput> | void {
+    const command = new XmlEmptyBlobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public xmlEmptyLists(
+    args: XmlEmptyListsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<XmlEmptyListsCommandOutput>;
+  public xmlEmptyLists(
+    args: XmlEmptyListsCommandInput,
+    cb: (err: any, data?: XmlEmptyListsCommandOutput) => void
+  ): void;
+  public xmlEmptyLists(
+    args: XmlEmptyListsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: XmlEmptyListsCommandOutput) => void
+  ): void;
+  public xmlEmptyLists(
+    args: XmlEmptyListsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: XmlEmptyListsCommandOutput) => void),
+    cb?: (err: any, data?: XmlEmptyListsCommandOutput) => void
+  ): Promise<XmlEmptyListsCommandOutput> | void {
+    const command = new XmlEmptyListsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public xmlEmptyMaps(
+    args: XmlEmptyMapsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<XmlEmptyMapsCommandOutput>;
+  public xmlEmptyMaps(args: XmlEmptyMapsCommandInput, cb: (err: any, data?: XmlEmptyMapsCommandOutput) => void): void;
+  public xmlEmptyMaps(
+    args: XmlEmptyMapsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: XmlEmptyMapsCommandOutput) => void
+  ): void;
+  public xmlEmptyMaps(
+    args: XmlEmptyMapsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: XmlEmptyMapsCommandOutput) => void),
+    cb?: (err: any, data?: XmlEmptyMapsCommandOutput) => void
+  ): Promise<XmlEmptyMapsCommandOutput> | void {
+    const command = new XmlEmptyMapsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
