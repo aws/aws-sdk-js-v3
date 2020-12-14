@@ -43,5 +43,5 @@ export interface MetadataBearer {
   /**
    * Metadata pertaining to this request.
    */
-  $metadata: ResponseMetadata;
+  $metadata?: ResponseMetadata;
 }
