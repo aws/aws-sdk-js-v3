@@ -161,7 +161,8 @@ final class EndpointGenerator implements Runnable {
                     writePartitionEndpointResolver(partitions.get("aws")); });
                 writer.dedent();
             });
-            writer.write("return Promise.resolve({ signingService: $S, ...regionInfo });", serviceTrait.getArnNamespace());
+            writer.write("return Promise.resolve({ signingService: $S, ...regionInfo });",
+                    serviceTrait.getArnNamespace());
         });
     }
 
