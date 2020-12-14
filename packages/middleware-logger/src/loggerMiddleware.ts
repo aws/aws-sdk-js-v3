@@ -45,6 +45,9 @@ export const loggerMiddleware = () => <Output extends MetadataBearer = MetadataB
     });
   }
 
+  // ToDo: remove $metadata altogether from output and log it in logger.
+  delete response.output.$metadata;
+
   return response;
 };
 
