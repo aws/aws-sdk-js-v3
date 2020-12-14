@@ -627,10 +627,71 @@
         "smithy.api#documentation": "<p>Describes an Elastic IP address, or a carrier IP address.</p>"
       }
     },
+    "com.amazonaws.ec2#AddressAttribute": {
+      "type": "structure",
+      "members": {
+        "PublicIp": {
+          "target": "com.amazonaws.ec2#PublicIpAddress",
+          "traits": {
+            "aws.protocols#ec2QueryName": "PublicIp",
+            "smithy.api#xmlName": "publicIp"
+          }
+        },
+        "AllocationId": {
+          "target": "com.amazonaws.ec2#AllocationId",
+          "traits": {
+            "aws.protocols#ec2QueryName": "AllocationId",
+            "smithy.api#xmlName": "allocationId"
+          }
+        },
+        "PtrRecord": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "PtrRecord",
+            "smithy.api#xmlName": "ptrRecord"
+          }
+        },
+        "PtrRecordUpdate": {
+          "target": "com.amazonaws.ec2#PtrUpdateStatus",
+          "traits": {
+            "aws.protocols#ec2QueryName": "PtrRecordUpdate",
+            "smithy.api#xmlName": "ptrRecordUpdate"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#AddressAttributeName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "domain-name"
+          }
+        ]
+      }
+    },
     "com.amazonaws.ec2#AddressList": {
       "type": "list",
       "member": {
         "target": "com.amazonaws.ec2#Address",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
+    },
+    "com.amazonaws.ec2#AddressMaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1,
+          "max": 1000
+        }
+      }
+    },
+    "com.amazonaws.ec2#AddressSet": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#AddressAttribute",
         "traits": {
           "smithy.api#xmlName": "item"
         }
@@ -919,6 +980,15 @@
         "target": "com.amazonaws.ec2#AllocationId",
         "traits": {
           "smithy.api#xmlName": "AllocationId"
+        }
+      }
+    },
+    "com.amazonaws.ec2#AllocationIds": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#AllocationId",
+        "traits": {
+          "smithy.api#xmlName": "item"
         }
       }
     },
@@ -1539,6 +1609,9 @@
           "target": "com.amazonaws.ec2#DescribeAddresses"
         },
         {
+          "target": "com.amazonaws.ec2#DescribeAddressesAttribute"
+        },
+        {
           "target": "com.amazonaws.ec2#DescribeAggregateIdFormat"
         },
         {
@@ -2064,6 +2137,9 @@
           "target": "com.amazonaws.ec2#ImportVolume"
         },
         {
+          "target": "com.amazonaws.ec2#ModifyAddressAttribute"
+        },
+        {
           "target": "com.amazonaws.ec2#ModifyAvailabilityZoneGroup"
         },
         {
@@ -2274,6 +2350,9 @@
           "target": "com.amazonaws.ec2#RequestSpotInstances"
         },
         {
+          "target": "com.amazonaws.ec2#ResetAddressAttribute"
+        },
+        {
           "target": "com.amazonaws.ec2#ResetEbsDefaultKmsKeyId"
         },
         {
@@ -2366,7 +2445,8 @@
           "sdkId": "EC2",
           "arnNamespace": "ec2",
           "cloudFormationName": "EC2",
-          "cloudTrailEventSource": "ec2.amazonaws.com"
+          "cloudTrailEventSource": "ec2.amazonaws.com",
+          "endpointPrefix": "ec2"
         },
         "aws.auth#sigv4": {
           "name": "ec2"
@@ -4830,6 +4910,41 @@
     },
     "com.amazonaws.ec2#Boolean": {
       "type": "boolean"
+    },
+    "com.amazonaws.ec2#BootModeType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "legacy-bios"
+          },
+          {
+            "value": "uefi"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.ec2#BootModeTypeList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#BootModeType",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
+    },
+    "com.amazonaws.ec2#BootModeValues": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "legacy-bios"
+          },
+          {
+            "value": "uefi"
+          }
+        ]
+      }
     },
     "com.amazonaws.ec2#BundleId": {
       "type": "string"
@@ -15740,6 +15855,57 @@
         "smithy.api#documentation": "<p>Describes the specified Elastic IP addresses or all of your Elastic IP addresses.</p>\n         <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC.\n\t\t\t\tFor more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
     },
+    "com.amazonaws.ec2#DescribeAddressesAttribute": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#DescribeAddressesAttributeRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#DescribeAddressesAttributeResult"
+      }
+    },
+    "com.amazonaws.ec2#DescribeAddressesAttributeRequest": {
+      "type": "structure",
+      "members": {
+        "AllocationIds": {
+          "target": "com.amazonaws.ec2#AllocationIds",
+          "traits": {
+            "smithy.api#xmlName": "AllocationId"
+          }
+        },
+        "Attribute": {
+          "target": "com.amazonaws.ec2#AddressAttributeName"
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ec2#NextToken"
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.ec2#AddressMaxResults"
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean"
+        }
+      }
+    },
+    "com.amazonaws.ec2#DescribeAddressesAttributeResult": {
+      "type": "structure",
+      "members": {
+        "Addresses": {
+          "target": "com.amazonaws.ec2#AddressSet",
+          "traits": {
+            "aws.protocols#ec2QueryName": "AddressSet",
+            "smithy.api#xmlName": "addressSet"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ec2#NextToken",
+          "traits": {
+            "aws.protocols#ec2QueryName": "NextToken",
+            "smithy.api#xmlName": "nextToken"
+          }
+        }
+      }
+    },
     "com.amazonaws.ec2#DescribeAddressesRequest": {
       "type": "structure",
       "members": {
@@ -15905,7 +16071,34 @@
         "target": "com.amazonaws.ec2#DescribeBundleTasksResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the specified bundle tasks or all of your bundle tasks.</p>\n         <note>\n            <p>Completed bundle tasks are listed for only a limited time. If your bundle task is no longer in the list, you can still register an AMI from it. Just use <code>RegisterImage</code> with the Amazon S3 bucket name and image manifest name you provided to the bundle task.</p>\n         </note>"
+        "smithy.api#documentation": "<p>Describes the specified bundle tasks or all of your bundle tasks.</p>\n         <note>\n            <p>Completed bundle tasks are listed for only a limited time. If your bundle task is no longer in the list, you can still register an AMI from it. Just use <code>RegisterImage</code> with the Amazon S3 bucket name and image manifest name you provided to the bundle task.</p>\n         </note>",
+        "smithy.waiters#waitable": {
+          "BundleTaskComplete": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "BundleTasks[].State",
+                    "expected": "complete",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "BundleTasks[].State",
+                    "expected": "failed",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 15
+          }
+        }
       }
     },
     "com.amazonaws.ec2#DescribeBundleTasksRequest": {
@@ -16797,7 +16990,74 @@
         "target": "com.amazonaws.ec2#DescribeConversionTasksResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the specified conversion tasks or all your conversion tasks. For more information, see the\n   <a href=\"https://docs.aws.amazon.com/vm-import/latest/userguide/\">VM Import/Export User Guide</a>.</p>\n         <p>For information about the import manifest referenced by this API action, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html\">VM Import Manifest</a>.</p>"
+        "smithy.api#documentation": "<p>Describes the specified conversion tasks or all your conversion tasks. For more information, see the\n   <a href=\"https://docs.aws.amazon.com/vm-import/latest/userguide/\">VM Import/Export User Guide</a>.</p>\n         <p>For information about the import manifest referenced by this API action, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html\">VM Import Manifest</a>.</p>",
+        "smithy.waiters#waitable": {
+          "ConversionTaskCancelled": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "ConversionTasks[].State",
+                    "expected": "cancelled",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 15
+          },
+          "ConversionTaskCompleted": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "ConversionTasks[].State",
+                    "expected": "completed",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ConversionTasks[].State",
+                    "expected": "cancelled",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ConversionTasks[].State",
+                    "expected": "cancelling",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 15
+          },
+          "ConversionTaskDeleted": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "ConversionTasks[].State",
+                    "expected": "deleted",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 15
+          }
+        }
       }
     },
     "com.amazonaws.ec2#DescribeConversionTasksRequest": {
@@ -16843,7 +17103,44 @@
         "target": "com.amazonaws.ec2#DescribeCustomerGatewaysResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes one or more of your VPN customer gateways.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Describes one or more of your VPN customer gateways.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>",
+        "smithy.waiters#waitable": {
+          "CustomerGatewayAvailable": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "CustomerGateways[].State",
+                    "expected": "available",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "CustomerGateways[].State",
+                    "expected": "deleted",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "CustomerGateways[].State",
+                    "expected": "deleting",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 15
+          }
+        }
       }
     },
     "com.amazonaws.ec2#DescribeCustomerGatewaysRequest": {
@@ -17245,7 +17542,39 @@
         "target": "com.amazonaws.ec2#DescribeExportTasksResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the specified export instance tasks or all of your export instance tasks.</p>"
+        "smithy.api#documentation": "<p>Describes the specified export instance tasks or all of your export instance tasks.</p>",
+        "smithy.waiters#waitable": {
+          "ExportTaskCancelled": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "ExportTasks[].State",
+                    "expected": "cancelled",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 15
+          },
+          "ExportTaskCompleted": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "ExportTasks[].State",
+                    "expected": "completed",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 15
+          }
+        }
       }
     },
     "com.amazonaws.ec2#DescribeExportTasksRequest": {
@@ -18488,7 +18817,34 @@
         "target": "com.amazonaws.ec2#DescribeImagesResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of the images available to you.</p> \n         <p>The images available to you include public images, private images that you own, and private images owned by other AWS accounts for which you have explicit launch permissions.</p>\n         <p>Recently deregistered images appear in the returned results for a short interval and then return empty results. \n        After all instances that reference a deregistered AMI are terminated, specifying the ID of the image results\n        in an error indicating that the AMI ID cannot be found.</p>"
+        "smithy.api#documentation": "<p>Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of the images available to you.</p> \n         <p>The images available to you include public images, private images that you own, and private images owned by other AWS accounts for which you have explicit launch permissions.</p>\n         <p>Recently deregistered images appear in the returned results for a short interval and then return empty results. \n        After all instances that reference a deregistered AMI are terminated, specifying the ID of the image results\n        in an error indicating that the AMI ID cannot be found.</p>",
+        "smithy.waiters#waitable": {
+          "ImageAvailable": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "Images[].State",
+                    "expected": "available",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "Images[].State",
+                    "expected": "failed",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 15
+          }
+        }
       }
     },
     "com.amazonaws.ec2#DescribeImagesRequest": {
@@ -18876,6 +19232,23 @@
           "outputToken": "NextToken",
           "items": "InstanceStatuses",
           "pageSize": "MaxResults"
+        },
+        "smithy.waiters#waitable": {
+          "SystemStatusOk": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "InstanceStatuses[].SystemStatus.Status",
+                    "expected": "ok",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 15
+          }
         }
       }
     },
@@ -19113,6 +19486,78 @@
           "outputToken": "NextToken",
           "items": "Reservations",
           "pageSize": "MaxResults"
+        },
+        "smithy.waiters#waitable": {
+          "InstanceStopped": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "Reservations[].Instances[].State.Name",
+                    "expected": "stopped",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "Reservations[].Instances[].State.Name",
+                    "expected": "pending",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "Reservations[].Instances[].State.Name",
+                    "expected": "terminated",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 15
+          },
+          "InstanceTerminated": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "Reservations[].Instances[].State.Name",
+                    "expected": "terminated",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "Reservations[].Instances[].State.Name",
+                    "expected": "pending",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "Reservations[].Instances[].State.Name",
+                    "expected": "stopping",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 15
+          }
         }
       }
     },
@@ -22037,6 +22482,23 @@
           "outputToken": "NextToken",
           "items": "Snapshots",
           "pageSize": "MaxResults"
+        },
+        "smithy.waiters#waitable": {
+          "SnapshotCompleted": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "Snapshots[].State",
+                    "expected": "completed",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 15
+          }
         }
       }
     },
@@ -22766,6 +23228,23 @@
           "outputToken": "NextToken",
           "items": "Subnets",
           "pageSize": "MaxResults"
+        },
+        "smithy.waiters#waitable": {
+          "SubnetAvailable": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "Subnets[].State",
+                    "expected": "available",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 15
+          }
         }
       }
     },
@@ -23902,6 +24381,58 @@
           "outputToken": "NextToken",
           "items": "Volumes",
           "pageSize": "MaxResults"
+        },
+        "smithy.waiters#waitable": {
+          "VolumeAvailable": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "Volumes[].State",
+                    "expected": "available",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "Volumes[].State",
+                    "expected": "deleted",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 15
+          },
+          "VolumeInUse": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "Volumes[].State",
+                    "expected": "in-use",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "Volumes[].State",
+                    "expected": "deleted",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 15
+          }
         }
       }
     },
@@ -24814,6 +25345,23 @@
           "outputToken": "NextToken",
           "items": "Vpcs",
           "pageSize": "MaxResults"
+        },
+        "smithy.waiters#waitable": {
+          "VpcAvailable": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "Vpcs[].State",
+                    "expected": "available",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 15
+          }
         }
       }
     },
@@ -24895,7 +25443,69 @@
         "target": "com.amazonaws.ec2#DescribeVpnConnectionsResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes one or more of your VPN connections.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Describes one or more of your VPN connections.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>",
+        "smithy.waiters#waitable": {
+          "VpnConnectionAvailable": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "VpnConnections[].State",
+                    "expected": "available",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "VpnConnections[].State",
+                    "expected": "deleting",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "VpnConnections[].State",
+                    "expected": "deleted",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 15
+          },
+          "VpnConnectionDeleted": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "VpnConnections[].State",
+                    "expected": "deleted",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "VpnConnections[].State",
+                    "expected": "pending",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 15
+          }
+        }
       }
     },
     "com.amazonaws.ec2#DescribeVpnConnectionsRequest": {
@@ -31170,7 +31780,24 @@
         "target": "com.amazonaws.ec2#GetPasswordDataResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Retrieves the encrypted administrator password for a running Windows instance.</p>\n        <p>The Windows password is generated at boot by the <code>EC2Config</code> service or\n                <code>EC2Launch</code> scripts (Windows Server 2016 and later). This usually only\n            happens the first time an instance is launched. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/UsingConfig_WinAMI.html\">EC2Config</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2launch.html\">EC2Launch</a> in the\n            Amazon Elastic Compute Cloud User Guide.</p>\n        <p>For the <code>EC2Config</code> service, the password is not generated for rebundled\n            AMIs unless <code>Ec2SetPassword</code> is enabled before bundling.</p>\n        <p>The password is encrypted using the key pair that you specified when you launched the\n            instance. You must provide the corresponding key pair file.</p>\n        <p>When you launch an instance, password generation and encryption may take a few\n            minutes. If you try to retrieve the password before it's available, the output returns\n            an empty string. We recommend that you wait up to 15 minutes after launching an instance\n            before trying to retrieve the generated password.</p>"
+        "smithy.api#documentation": "<p>Retrieves the encrypted administrator password for a running Windows instance.</p>\n        <p>The Windows password is generated at boot by the <code>EC2Config</code> service or\n                <code>EC2Launch</code> scripts (Windows Server 2016 and later). This usually only\n            happens the first time an instance is launched. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/UsingConfig_WinAMI.html\">EC2Config</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2launch.html\">EC2Launch</a> in the\n            Amazon Elastic Compute Cloud User Guide.</p>\n        <p>For the <code>EC2Config</code> service, the password is not generated for rebundled\n            AMIs unless <code>Ec2SetPassword</code> is enabled before bundling.</p>\n        <p>The password is encrypted using the key pair that you specified when you launched the\n            instance. You must provide the corresponding key pair file.</p>\n        <p>When you launch an instance, password generation and encryption may take a few\n            minutes. If you try to retrieve the password before it's available, the output returns\n            an empty string. We recommend that you wait up to 15 minutes after launching an instance\n            before trying to retrieve the generated password.</p>",
+        "smithy.waiters#waitable": {
+          "PasswordDataAvailable": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "length(PasswordData) > `0`",
+                    "expected": "true",
+                    "comparator": "booleanEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 15
+          }
+        }
       }
     },
     "com.amazonaws.ec2#GetPasswordDataRequest": {
@@ -32993,6 +33620,13 @@
             "smithy.api#documentation": "<p>The type of virtualization of the AMI.</p>",
             "smithy.api#xmlName": "virtualizationType"
           }
+        },
+        "BootMode": {
+          "target": "com.amazonaws.ec2#BootModeValues",
+          "traits": {
+            "aws.protocols#ec2QueryName": "BootMode",
+            "smithy.api#xmlName": "bootMode"
+          }
         }
       },
       "traits": {
@@ -33065,6 +33699,13 @@
             "smithy.api#documentation": "<p>Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.</p>",
             "smithy.api#xmlName": "sriovNetSupport"
           }
+        },
+        "BootMode": {
+          "target": "com.amazonaws.ec2#AttributeValue",
+          "traits": {
+            "aws.protocols#ec2QueryName": "BootMode",
+            "smithy.api#xmlName": "bootMode"
+          }
         }
       },
       "traits": {
@@ -33095,6 +33736,9 @@
           },
           {
             "value": "sriovNetSupport"
+          },
+          {
+            "value": "bootMode"
           }
         ]
       }
@@ -36979,6 +37623,9 @@
             "value": "c5n.18xlarge"
           },
           {
+            "value": "c5n.metal"
+          },
+          {
             "value": "c6g.metal"
           },
           {
@@ -37033,6 +37680,33 @@
             "value": "c6gd.16xlarge"
           },
           {
+            "value": "c6gn.medium"
+          },
+          {
+            "value": "c6gn.large"
+          },
+          {
+            "value": "c6gn.xlarge"
+          },
+          {
+            "value": "c6gn.2xlarge"
+          },
+          {
+            "value": "c6gn.4xlarge"
+          },
+          {
+            "value": "c6gn.8xlarge"
+          },
+          {
+            "value": "c6gn.12xlarge"
+          },
+          {
+            "value": "c6gn.16xlarge"
+          },
+          {
+            "value": "c6gn.metal"
+          },
+          {
             "value": "cc1.4xlarge"
           },
           {
@@ -37055,6 +37729,12 @@
           },
           {
             "value": "g3s.xlarge"
+          },
+          {
+            "value": "g4ad.xlarge"
+          },
+          {
+            "value": "g4ad.2xlarge"
           },
           {
             "value": "g4ad.4xlarge"
@@ -37138,6 +37818,12 @@
             "value": "d3.8xlarge"
           },
           {
+            "value": "d3.metal"
+          },
+          {
+            "value": "d3en.large"
+          },
+          {
             "value": "d3en.xlarge"
           },
           {
@@ -37154,6 +37840,9 @@
           },
           {
             "value": "d3en.12xlarge"
+          },
+          {
+            "value": "d3en.metal"
           },
           {
             "value": "f1.2xlarge"
@@ -37298,6 +37987,9 @@
           },
           {
             "value": "h1.16xlarge"
+          },
+          {
+            "value": "hpc5a.48xlarge"
           },
           {
             "value": "z1d.large"
@@ -37721,6 +38413,13 @@
             "aws.protocols#ec2QueryName": "AutoRecoverySupported",
             "smithy.api#documentation": "<p>Indicates whether auto recovery is supported.</p>",
             "smithy.api#xmlName": "autoRecoverySupported"
+          }
+        },
+        "SupportedBootModes": {
+          "target": "com.amazonaws.ec2#BootModeTypeList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "SupportedBootModes",
+            "smithy.api#xmlName": "supportedBootModes"
           }
         }
       },
@@ -41239,6 +41938,44 @@
     "com.amazonaws.ec2#MillisecondDateTime": {
       "type": "timestamp"
     },
+    "com.amazonaws.ec2#ModifyAddressAttribute": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#ModifyAddressAttributeRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#ModifyAddressAttributeResult"
+      }
+    },
+    "com.amazonaws.ec2#ModifyAddressAttributeRequest": {
+      "type": "structure",
+      "members": {
+        "AllocationId": {
+          "target": "com.amazonaws.ec2#AllocationId",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "DomainName": {
+          "target": "com.amazonaws.ec2#String"
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean"
+        }
+      }
+    },
+    "com.amazonaws.ec2#ModifyAddressAttributeResult": {
+      "type": "structure",
+      "members": {
+        "Address": {
+          "target": "com.amazonaws.ec2#AddressAttribute",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Address",
+            "smithy.api#xmlName": "address"
+          }
+        }
+      }
+    },
     "com.amazonaws.ec2#ModifyAvailabilityZoneGroup": {
       "type": "operation",
       "input": {
@@ -43430,6 +44167,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The target throughput of the volume, in MiB/s. This parameter is valid only for <code>gp3</code> volumes. \n      The maximum value is 1,000.</p>\n         <p>Default: If no throughput value is specified, the existing value is retained.</p>\n  \t      <p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>"
           }
+        },
+        "MultiAttachEnabled": {
+          "target": "com.amazonaws.ec2#Boolean"
         }
       }
     },
@@ -47766,6 +48506,32 @@
         "smithy.api#documentation": "<p>Reserved. If you need to sustain traffic greater than the <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html\">documented limits</a>, contact us through the <a href=\"https://console.aws.amazon.com/support/home?\">Support Center</a>.</p>"
       }
     },
+    "com.amazonaws.ec2#PtrUpdateStatus": {
+      "type": "structure",
+      "members": {
+        "Value": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Value",
+            "smithy.api#xmlName": "value"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Status",
+            "smithy.api#xmlName": "status"
+          }
+        },
+        "Reason": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Reason",
+            "smithy.api#xmlName": "reason"
+          }
+        }
+      }
+    },
     "com.amazonaws.ec2#PublicIpAddress": {
       "type": "string"
     },
@@ -48534,6 +49300,9 @@
             "smithy.api#documentation": "<p>The type of virtualization (<code>hvm</code> | <code>paravirtual</code>).</p>\n         <p>Default: <code>paravirtual</code>\n         </p>",
             "smithy.api#xmlName": "virtualizationType"
           }
+        },
+        "BootMode": {
+          "target": "com.amazonaws.ec2#BootModeValues"
         }
       },
       "traits": {
@@ -51046,6 +51815,47 @@
         "target": "com.amazonaws.ec2#ReservedInstancesId",
         "traits": {
           "smithy.api#xmlName": "item"
+        }
+      }
+    },
+    "com.amazonaws.ec2#ResetAddressAttribute": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#ResetAddressAttributeRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#ResetAddressAttributeResult"
+      }
+    },
+    "com.amazonaws.ec2#ResetAddressAttributeRequest": {
+      "type": "structure",
+      "members": {
+        "AllocationId": {
+          "target": "com.amazonaws.ec2#AllocationId",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "Attribute": {
+          "target": "com.amazonaws.ec2#AddressAttributeName",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean"
+        }
+      }
+    },
+    "com.amazonaws.ec2#ResetAddressAttributeResult": {
+      "type": "structure",
+      "members": {
+        "Address": {
+          "target": "com.amazonaws.ec2#AddressAttribute",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Address",
+            "smithy.api#xmlName": "address"
+          }
         }
       }
     },
@@ -61599,6 +62409,13 @@
             "smithy.api#xmlName": "targetThroughput"
           }
         },
+        "TargetMultiAttachEnabled": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TargetMultiAttachEnabled",
+            "smithy.api#xmlName": "targetMultiAttachEnabled"
+          }
+        },
         "OriginalSize": {
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
@@ -61629,6 +62446,13 @@
             "aws.protocols#ec2QueryName": "OriginalThroughput",
             "smithy.api#documentation": "<p>The original throughput of the volume, in MiB/s.</p>",
             "smithy.api#xmlName": "originalThroughput"
+          }
+        },
+        "OriginalMultiAttachEnabled": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "aws.protocols#ec2QueryName": "OriginalMultiAttachEnabled",
+            "smithy.api#xmlName": "originalMultiAttachEnabled"
           }
         },
         "Progress": {

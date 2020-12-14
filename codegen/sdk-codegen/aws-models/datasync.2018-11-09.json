@@ -2038,7 +2038,8 @@
           "sdkId": "DataSync",
           "arnNamespace": "datasync",
           "cloudFormationName": "DataSync",
-          "cloudTrailEventSource": "datasync.amazonaws.com"
+          "cloudTrailEventSource": "datasync.amazonaws.com",
+          "endpointPrefix": "datasync"
         },
         "aws.auth#sigv4": {
           "name": "datasync"

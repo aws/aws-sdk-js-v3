@@ -1507,7 +1507,8 @@
           "sdkId": "CodePipeline",
           "arnNamespace": "codepipeline",
           "cloudFormationName": "CodePipeline",
-          "cloudTrailEventSource": "codepipeline.amazonaws.com"
+          "cloudTrailEventSource": "codepipeline.amazonaws.com",
+          "endpointPrefix": "codepipeline"
         },
         "aws.auth#sigv4": {
           "name": "codepipeline"

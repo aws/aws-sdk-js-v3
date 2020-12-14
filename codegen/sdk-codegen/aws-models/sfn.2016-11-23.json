@@ -108,7 +108,8 @@
           "sdkId": "SFN",
           "arnNamespace": "states",
           "cloudFormationName": "StepFunctions",
-          "cloudTrailEventSource": "sfn.amazonaws.com"
+          "cloudTrailEventSource": "sfn.amazonaws.com",
+          "endpointPrefix": "states"
         },
         "aws.auth#sigv4": {
           "name": "states"

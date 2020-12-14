@@ -256,7 +256,8 @@
           "sdkId": "CloudHSM V2",
           "arnNamespace": "cloudhsm",
           "cloudFormationName": "CloudHSMV2",
-          "cloudTrailEventSource": "cloudhsmv2.amazonaws.com"
+          "cloudTrailEventSource": "cloudhsmv2.amazonaws.com",
+          "endpointPrefix": "cloudhsmv2"
         },
         "aws.auth#sigv4": {
           "name": "cloudhsm"

@@ -510,7 +510,8 @@
           "sdkId": "Glue",
           "arnNamespace": "glue",
           "cloudFormationName": "Glue",
-          "cloudTrailEventSource": "glue.amazonaws.com"
+          "cloudTrailEventSource": "glue.amazonaws.com",
+          "endpointPrefix": "glue"
         },
         "aws.auth#sigv4": {
           "name": "glue"

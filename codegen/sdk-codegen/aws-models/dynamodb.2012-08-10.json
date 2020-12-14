@@ -2710,7 +2710,41 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns information about the table, including the current status of the table, when it was created, the primary key schema, and any indexes on the table.</p>\n         <note>\n            <p>If you issue a <code>DescribeTable</code> request immediately after a <code>CreateTable</code> request, DynamoDB might\n        return a <code>ResourceNotFoundException</code>. This is because <code>DescribeTable</code> uses an eventually\n        consistent query, and the metadata for your table might not be available at that moment.\n        Wait for a few seconds, and then try the <code>DescribeTable</code> request again.</p>\n         </note>"
+        "smithy.api#documentation": "<p>Returns information about the table, including the current status of the table, when it was created, the primary key schema, and any indexes on the table.</p>\n         <note>\n            <p>If you issue a <code>DescribeTable</code> request immediately after a <code>CreateTable</code> request, DynamoDB might\n        return a <code>ResourceNotFoundException</code>. This is because <code>DescribeTable</code> uses an eventually\n        consistent query, and the metadata for your table might not be available at that moment.\n        Wait for a few seconds, and then try the <code>DescribeTable</code> request again.</p>\n         </note>",
+        "smithy.waiters#waitable": {
+          "TableExists": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "Table.TableStatus",
+                    "expected": "ACTIVE",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "errorType": "ResourceNotFoundException"
+                }
+              }
+            ],
+            "minDelay": 20
+          },
+          "TableNotExists": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "errorType": "ResourceNotFoundException"
+                }
+              }
+            ],
+            "minDelay": 20
+          }
+        }
       }
     },
     "com.amazonaws.dynamodb#DescribeTableInput": {
@@ -3064,7 +3098,8 @@
           "sdkId": "DynamoDB",
           "arnNamespace": "dynamodb",
           "cloudFormationName": "DynamoDB",
-          "cloudTrailEventSource": "dynamodb.amazonaws.com"
+          "cloudTrailEventSource": "dynamodb.amazonaws.com",
+          "endpointPrefix": "dynamodb"
         },
         "aws.auth#sigv4": {
           "name": "dynamodb"
@@ -5789,7 +5824,14 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>The <code>Query</code> operation finds items based on primary key values.\n            You can query any table or secondary index that has a composite primary key (a partition\n            key and a sort key).\n        </p>\n        <p>Use the <code>KeyConditionExpression</code> parameter to provide a specific value\n            for the partition key. The <code>Query</code> operation will return all of the items\n            from the table or index with that partition key value. You can optionally narrow the\n            scope of the <code>Query</code> operation by specifying a sort key value and a\n            comparison operator in <code>KeyConditionExpression</code>. To further refine the <code>Query</code> results,\n            you can optionally provide a <code>FilterExpression</code>. A <code>FilterExpression</code> determines which items\n            within the results should be returned to you. All of the other results are discarded.\n        </p>\n        <p>\n            A <code>Query</code> operation always returns a result set. If no matching items are found,\n            the result set will be empty. Queries that do not return results consume the minimum number of\n            read capacity units for that type of read operation.\n        </p>\n        <note>\n            <p>\n                DynamoDB calculates the number of read capacity units consumed based on item size,\n                not on the amount of data that is returned to an application. The number of capacity\n                units consumed will be the same whether you request all of the attributes (the default behavior)\n                or just some of them (using a projection expression). The number will also be the same\n                whether or not you use a <code>FilterExpression</code>.\n            </p>\n        </note>\n        <p>\n            <code>Query</code> results are always sorted by the sort key value. If the data type of the sort key is Number,\n            the results are returned in numeric order; otherwise, the results are returned in order of UTF-8 bytes.\n            By default, the sort order is ascending. To reverse the order, set the <code>ScanIndexForward</code> parameter\n            to false.\n        </p>\n        <p> A single <code>Query</code> operation will read up to the maximum number of items\n            set (if using the <code>Limit</code> parameter) or a maximum of 1 MB of data and then\n            apply any filtering to the results using <code>FilterExpression</code>. If\n                <code>LastEvaluatedKey</code> is present in the response, you will need to paginate\n            the result set. For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.html#Query.Pagination\">Paginating\n                the Results</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p>\n        <p>\n            <code>FilterExpression</code> is applied after a <code>Query</code> finishes, but before\n            the results are returned.\n            A <code>FilterExpression</code> cannot contain partition key or sort key attributes.\n            You need to specify those attributes in the <code>KeyConditionExpression</code>.\n        </p>\n        <note>\n            <p>\n                A <code>Query</code> operation can return an empty result set and a <code>LastEvaluatedKey</code>\n                if all the items read for the page of results are filtered out.\n            </p>\n        </note>\n        <p>You can query a table, a local secondary index, or a global secondary index. For a\n            query on a table or on a local secondary index, you can set the\n                <code>ConsistentRead</code> parameter to <code>true</code> and obtain a\n            strongly consistent result. Global secondary indexes support eventually consistent reads\n            only, so do not specify <code>ConsistentRead</code> when querying a global\n            secondary index.</p>"
+        "smithy.api#documentation": "<p>The <code>Query</code> operation finds items based on primary key values.\n            You can query any table or secondary index that has a composite primary key (a partition\n            key and a sort key).\n        </p>\n        <p>Use the <code>KeyConditionExpression</code> parameter to provide a specific value\n            for the partition key. The <code>Query</code> operation will return all of the items\n            from the table or index with that partition key value. You can optionally narrow the\n            scope of the <code>Query</code> operation by specifying a sort key value and a\n            comparison operator in <code>KeyConditionExpression</code>. To further refine the <code>Query</code> results,\n            you can optionally provide a <code>FilterExpression</code>. A <code>FilterExpression</code> determines which items\n            within the results should be returned to you. All of the other results are discarded.\n        </p>\n        <p>\n            A <code>Query</code> operation always returns a result set. If no matching items are found,\n            the result set will be empty. Queries that do not return results consume the minimum number of\n            read capacity units for that type of read operation.\n        </p>\n        <note>\n            <p>\n                DynamoDB calculates the number of read capacity units consumed based on item size,\n                not on the amount of data that is returned to an application. The number of capacity\n                units consumed will be the same whether you request all of the attributes (the default behavior)\n                or just some of them (using a projection expression). The number will also be the same\n                whether or not you use a <code>FilterExpression</code>.\n            </p>\n        </note>\n        <p>\n            <code>Query</code> results are always sorted by the sort key value. If the data type of the sort key is Number,\n            the results are returned in numeric order; otherwise, the results are returned in order of UTF-8 bytes.\n            By default, the sort order is ascending. To reverse the order, set the <code>ScanIndexForward</code> parameter\n            to false.\n        </p>\n        <p> A single <code>Query</code> operation will read up to the maximum number of items\n            set (if using the <code>Limit</code> parameter) or a maximum of 1 MB of data and then\n            apply any filtering to the results using <code>FilterExpression</code>. If\n                <code>LastEvaluatedKey</code> is present in the response, you will need to paginate\n            the result set. For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.html#Query.Pagination\">Paginating\n                the Results</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p>\n        <p>\n            <code>FilterExpression</code> is applied after a <code>Query</code> finishes, but before\n            the results are returned.\n            A <code>FilterExpression</code> cannot contain partition key or sort key attributes.\n            You need to specify those attributes in the <code>KeyConditionExpression</code>.\n        </p>\n        <note>\n            <p>\n                A <code>Query</code> operation can return an empty result set and a <code>LastEvaluatedKey</code>\n                if all the items read for the page of results are filtered out.\n            </p>\n        </note>\n        <p>You can query a table, a local secondary index, or a global secondary index. For a\n            query on a table or on a local secondary index, you can set the\n                <code>ConsistentRead</code> parameter to <code>true</code> and obtain a\n            strongly consistent result. Global secondary indexes support eventually consistent reads\n            only, so do not specify <code>ConsistentRead</code> when querying a global\n            secondary index.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "ExclusiveStartKey",
+          "outputToken": "LastEvaluatedKey",
+          "items": "Items",
+          "pageSize": "Limit"
+        },
+        "smithy.api#suppress": ["PaginatedTrait"]
       }
     },
     "com.amazonaws.dynamodb#QueryInput": {
@@ -7066,7 +7108,14 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>The <code>Scan</code> operation returns one or more items and item attributes by accessing every\n      item in a table or a secondary index. To have DynamoDB return fewer items, you can provide a <code>FilterExpression</code> operation.</p>\n         <p>If the total number of scanned items exceeds the maximum dataset size limit of 1 MB, the\n            scan stops and results are returned to the user as a <code>LastEvaluatedKey</code> value\n            to continue the scan in a subsequent operation. The results also include the number of\n            items exceeding the limit. A scan can result in no table data meeting the filter\n            criteria. </p>\n         <p>A single <code>Scan</code> operation reads up to the maximum number of items set (if\n            using the <code>Limit</code> parameter) or a maximum of 1 MB of data and then apply any\n            filtering to the results using <code>FilterExpression</code>. If\n                <code>LastEvaluatedKey</code> is present in the response, you need to paginate the\n            result set. For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.Pagination\">Paginating the\n                Results</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p>\n         <p>\n            <code>Scan</code> operations proceed sequentially; however, for faster performance on\n            a large table or secondary index, applications can request a parallel <code>Scan</code>\n            operation by providing the <code>Segment</code> and <code>TotalSegments</code>\n            parameters. For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.ParallelScan\">Parallel\n                Scan</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>\n         <p>\n            <code>Scan</code> uses eventually consistent reads when accessing the data in a\n            table; therefore, the result set might not include the changes to data in the table\n            immediately before the operation began. If you need a consistent copy of the data, as of\n            the time that the <code>Scan</code> begins, you can set the <code>ConsistentRead</code>\n            parameter to <code>true</code>.</p>"
+        "smithy.api#documentation": "<p>The <code>Scan</code> operation returns one or more items and item attributes by accessing every\n      item in a table or a secondary index. To have DynamoDB return fewer items, you can provide a <code>FilterExpression</code> operation.</p>\n         <p>If the total number of scanned items exceeds the maximum dataset size limit of 1 MB, the\n            scan stops and results are returned to the user as a <code>LastEvaluatedKey</code> value\n            to continue the scan in a subsequent operation. The results also include the number of\n            items exceeding the limit. A scan can result in no table data meeting the filter\n            criteria. </p>\n         <p>A single <code>Scan</code> operation reads up to the maximum number of items set (if\n            using the <code>Limit</code> parameter) or a maximum of 1 MB of data and then apply any\n            filtering to the results using <code>FilterExpression</code>. If\n                <code>LastEvaluatedKey</code> is present in the response, you need to paginate the\n            result set. For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.Pagination\">Paginating the\n                Results</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p>\n         <p>\n            <code>Scan</code> operations proceed sequentially; however, for faster performance on\n            a large table or secondary index, applications can request a parallel <code>Scan</code>\n            operation by providing the <code>Segment</code> and <code>TotalSegments</code>\n            parameters. For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.ParallelScan\">Parallel\n                Scan</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>\n         <p>\n            <code>Scan</code> uses eventually consistent reads when accessing the data in a\n            table; therefore, the result set might not include the changes to data in the table\n            immediately before the operation began. If you need a consistent copy of the data, as of\n            the time that the <code>Scan</code> begins, you can set the <code>ConsistentRead</code>\n            parameter to <code>true</code>.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "ExclusiveStartKey",
+          "outputToken": "LastEvaluatedKey",
+          "items": "Items",
+          "pageSize": "Limit"
+        },
+        "smithy.api#suppress": ["PaginatedTrait"]
       }
     },
     "com.amazonaws.dynamodb#ScanInput": {

@@ -726,7 +726,8 @@
           "sdkId": "CloudFormation",
           "arnNamespace": "cloudformation",
           "cloudFormationName": "CloudFormation",
-          "cloudTrailEventSource": "cloudformation.amazonaws.com"
+          "cloudTrailEventSource": "cloudformation.amazonaws.com",
+          "endpointPrefix": "cloudformation"
         },
         "aws.auth#sigv4": {
           "name": "cloudformation"
@@ -2517,7 +2518,35 @@
       ],
       "traits": {
         "smithy.api#documentation": "<p>Returns information about a type's registration, including its current status and type and version identifiers.</p>\n         <p>When you initiate a registration request using <code>\n               <a>RegisterType</a>\n            </code>, you can then use <code>\n               <a>DescribeTypeRegistration</a>\n            </code> to monitor the progress of that registration request.</p>\n         <p>Once the registration request has completed, use <code>\n               <a>DescribeType</a>\n            </code> to return detailed informaiton about a type.</p>",
-        "smithy.api#idempotent": {}
+        "smithy.api#idempotent": {},
+        "smithy.waiters#waitable": {
+          "TypeRegistrationComplete": {
+            "documentation": "Wait until type registration is COMPLETE.",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "ProgressStatus",
+                    "expected": "COMPLETE",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ProgressStatus",
+                    "expected": "FAILED",
+                    "comparator": "stringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 30
+          }
+        }
       }
     },
     "com.amazonaws.cloudformation#DescribeTypeRegistrationInput": {

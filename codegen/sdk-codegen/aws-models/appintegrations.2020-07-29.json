@@ -79,7 +79,8 @@
           "sdkId": "AppIntegrations",
           "arnNamespace": "app-integrations",
           "cloudFormationName": "AppIntegrations",
-          "cloudTrailEventSource": "appintegrations.amazonaws.com"
+          "cloudTrailEventSource": "appintegrations.amazonaws.com",
+          "endpointPrefix": "app-integrations"
         },
         "aws.auth#sigv4": {
           "name": "app-integrations"

@@ -156,7 +156,8 @@
           "sdkId": "S3 Control",
           "arnNamespace": "s3",
           "cloudFormationName": "S3Control",
-          "cloudTrailEventSource": "s3control.amazonaws.com"
+          "cloudTrailEventSource": "s3control.amazonaws.com",
+          "endpointPrefix": "s3-control"
         },
         "aws.auth#sigv4": {
           "name": "s3"

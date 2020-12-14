@@ -95,7 +95,8 @@
           "sdkId": "CodeStar connections",
           "arnNamespace": "codestar-connections",
           "cloudFormationName": "CodeStarconnections",
-          "cloudTrailEventSource": "codestarconnections.amazonaws.com"
+          "cloudTrailEventSource": "codestarconnections.amazonaws.com",
+          "endpointPrefix": "codestar-connections"
         },
         "aws.auth#sigv4": {
           "name": "codestar-connections"

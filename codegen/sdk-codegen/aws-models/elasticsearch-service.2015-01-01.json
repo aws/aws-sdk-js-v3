@@ -448,7 +448,8 @@
           "sdkId": "Elasticsearch Service",
           "arnNamespace": "es",
           "cloudFormationName": "Elasticsearch",
-          "cloudTrailEventSource": "elasticsearchservice.amazonaws.com"
+          "cloudTrailEventSource": "elasticsearchservice.amazonaws.com",
+          "endpointPrefix": "es"
         },
         "aws.auth#sigv4": {
           "name": "es"

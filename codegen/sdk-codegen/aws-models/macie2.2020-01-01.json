@@ -6093,7 +6093,8 @@
           "sdkId": "Macie2",
           "arnNamespace": "macie2",
           "cloudFormationName": "Macie2",
-          "cloudTrailEventSource": "macie2.amazonaws.com"
+          "cloudTrailEventSource": "macie2.amazonaws.com",
+          "endpointPrefix": "macie2"
         },
         "aws.auth#sigv4": {
           "name": "macie2"

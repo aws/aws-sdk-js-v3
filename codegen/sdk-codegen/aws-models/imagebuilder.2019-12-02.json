@@ -50,8 +50,17 @@
     "com.amazonaws.imagebuilder#Ami": {
       "type": "structure",
       "members": {
-        "state": {
-          "target": "com.amazonaws.imagebuilder#ImageState"
+        "region": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS Region of the EC2 AMI. </p>"
+          }
+        },
+        "image": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The AMI ID of the EC2 AMI. </p>"
+          }
         },
         "name": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
@@ -65,22 +74,13 @@
             "smithy.api#documentation": "<p>The description of the EC2 AMI. Minimum and maximum length are in characters.</p>"
           }
         },
+        "state": {
+          "target": "com.amazonaws.imagebuilder#ImageState"
+        },
         "accountId": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>\n      The account ID of the owner of the AMI.\n    </p>"
-          }
-        },
-        "region": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS Region of the EC2 AMI. </p>"
-          }
-        },
-        "image": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The AMI ID of the EC2 AMI. </p>"
+            "smithy.api#documentation": "<p> The account ID of the owner of the AMI. </p>"
           }
         }
       },
@@ -91,40 +91,40 @@
     "com.amazonaws.imagebuilder#AmiDistributionConfiguration": {
       "type": "structure",
       "members": {
-        "amiTags": {
-          "target": "com.amazonaws.imagebuilder#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags to apply to AMIs distributed to this Region. </p>"
-          }
-        },
         "name": {
           "target": "com.amazonaws.imagebuilder#AmiNameString",
           "traits": {
             "smithy.api#documentation": "<p>The name of the distribution configuration. </p>"
           }
         },
+        "description": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the distribution configuration. Minimum and maximum length are in characters.</p>"
+          }
+        },
         "targetAccountIds": {
           "target": "com.amazonaws.imagebuilder#AccountList",
           "traits": {
-            "smithy.api#documentation": "<p>\n      The ID of an account to which you want to distribute an image.\n    </p>"
+            "smithy.api#documentation": "<p> The ID of an account to which you want to distribute an image. </p>"
           }
         },
-        "launchPermission": {
-          "target": "com.amazonaws.imagebuilder#LaunchPermissionConfiguration",
+        "amiTags": {
+          "target": "com.amazonaws.imagebuilder#TagMap",
           "traits": {
-            "smithy.api#documentation": "<p> Launch permissions can be used to configure which AWS accounts can use the AMI to launch\n      instances. </p>"
+            "smithy.api#documentation": "<p>The tags to apply to AMIs distributed to this Region. </p>"
           }
         },
         "kmsKeyId": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>\n      The KMS key identifier used to encrypt the distributed image. \n    </p>"
+            "smithy.api#documentation": "<p> The KMS key identifier used to encrypt the distributed image. </p>"
           }
         },
-        "description": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+        "launchPermission": {
+          "target": "com.amazonaws.imagebuilder#LaunchPermissionConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>The description of the distribution configuration. Minimum and maximum length are in characters.</p>"
+            "smithy.api#documentation": "<p> Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances. </p>"
           }
         }
       },
@@ -199,7 +199,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>CancelImageCreation cancels the creation of Image. This operation can only be used on\n      images in a non-terminal state.</p>",
+        "smithy.api#documentation": "<p>CancelImageCreation cancels the creation of Image. This operation can only be used on images in a non-terminal state.</p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/CancelImageCreation",
@@ -210,18 +210,18 @@
     "com.amazonaws.imagebuilder#CancelImageCreationRequest": {
       "type": "structure",
       "members": {
+        "imageBuildVersionArn": {
+          "target": "com.amazonaws.imagebuilder#ImageBuildVersionArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image whose creation you want to cancel.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "clientToken": {
           "target": "com.amazonaws.imagebuilder#ClientToken",
           "traits": {
             "smithy.api#documentation": "<p>The idempotency token used to make this request idempotent.</p>",
             "smithy.api#idempotencyToken": {},
-            "smithy.api#required": {}
-          }
-        },
-        "imageBuildVersionArn": {
-          "target": "com.amazonaws.imagebuilder#ImageBuildVersionArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image whose creation you want to cancel.</p>",
             "smithy.api#required": {}
           }
         }
@@ -258,7 +258,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>These errors are usually caused by a client action, such as using an action or resource on\n      behalf of a user that doesn't have permissions to use the action or resource, or specifying an\n      invalid resource identifier.</p>",
+        "smithy.api#documentation": "<p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -275,34 +275,10 @@
     "com.amazonaws.imagebuilder#Component": {
       "type": "structure",
       "members": {
-        "description": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+        "arn": {
+          "target": "com.amazonaws.imagebuilder#ImageBuilderArn",
           "traits": {
-            "smithy.api#documentation": "<p>The description of the component.</p>"
-          }
-        },
-        "version": {
-          "target": "com.amazonaws.imagebuilder#VersionNumber",
-          "traits": {
-            "smithy.api#documentation": "<p>The version of the component.</p>"
-          }
-        },
-        "dateCreated": {
-          "target": "com.amazonaws.imagebuilder#DateTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The date that the component was created.</p>"
-          }
-        },
-        "owner": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The owner of the component.</p>"
-          }
-        },
-        "supportedOsVersions": {
-          "target": "com.amazonaws.imagebuilder#OsVersionList",
-          "traits": {
-            "smithy.api#documentation": "<p>The operating system (OS) version supported by the component. If the OS information is\n      available, a prefix match is performed against the parent image OS version during image recipe\n      creation. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the component.</p>"
           }
         },
         "name": {
@@ -311,28 +287,16 @@
             "smithy.api#documentation": "<p>The name of the component.</p>"
           }
         },
-        "data": {
-          "target": "com.amazonaws.imagebuilder#ComponentData",
+        "version": {
+          "target": "com.amazonaws.imagebuilder#VersionNumber",
           "traits": {
-            "smithy.api#documentation": "<p>The data of the component.</p>"
+            "smithy.api#documentation": "<p>The version of the component.</p>"
           }
         },
-        "platform": {
-          "target": "com.amazonaws.imagebuilder#Platform",
-          "traits": {
-            "smithy.api#documentation": "<p>The platform of the component.</p>"
-          }
-        },
-        "arn": {
-          "target": "com.amazonaws.imagebuilder#ImageBuilderArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the component.</p>"
-          }
-        },
-        "kmsKeyId": {
+        "description": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>The KMS key identifier used to encrypt the component.</p>"
+            "smithy.api#documentation": "<p>The description of the component.</p>"
           }
         },
         "changeDescription": {
@@ -341,22 +305,58 @@
             "smithy.api#documentation": "<p>The change description of the component.</p>"
           }
         },
-        "tags": {
-          "target": "com.amazonaws.imagebuilder#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags associated with the component.</p>"
-          }
-        },
         "type": {
           "target": "com.amazonaws.imagebuilder#ComponentType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of the component denotes whether the component is used to build the image or only\n      to test it.</p>"
+            "smithy.api#documentation": "<p>The type of the component denotes whether the component is used to build the image or only to test it.</p>"
+          }
+        },
+        "platform": {
+          "target": "com.amazonaws.imagebuilder#Platform",
+          "traits": {
+            "smithy.api#documentation": "<p>The platform of the component.</p>"
+          }
+        },
+        "supportedOsVersions": {
+          "target": "com.amazonaws.imagebuilder#OsVersionList",
+          "traits": {
+            "smithy.api#documentation": "<p>The operating system (OS) version supported by the component. If the OS information is available, a prefix match is performed against the parent image OS version during image recipe creation. </p>"
+          }
+        },
+        "owner": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The owner of the component.</p>"
+          }
+        },
+        "data": {
+          "target": "com.amazonaws.imagebuilder#ComponentData",
+          "traits": {
+            "smithy.api#documentation": "<p>The data of the component.</p>"
+          }
+        },
+        "kmsKeyId": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The KMS key identifier used to encrypt the component.</p>"
           }
         },
         "encrypted": {
           "target": "com.amazonaws.imagebuilder#NullableBoolean",
           "traits": {
             "smithy.api#documentation": "<p>The encryption status of the component.</p>"
+          }
+        },
+        "dateCreated": {
+          "target": "com.amazonaws.imagebuilder#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date that the component was created.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.imagebuilder#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags associated with the component.</p>"
           }
         }
       },
@@ -413,40 +413,10 @@
     "com.amazonaws.imagebuilder#ComponentSummary": {
       "type": "structure",
       "members": {
-        "supportedOsVersions": {
-          "target": "com.amazonaws.imagebuilder#OsVersionList",
+        "arn": {
+          "target": "com.amazonaws.imagebuilder#ImageBuilderArn",
           "traits": {
-            "smithy.api#documentation": "<p>The operating system (OS) version supported by the component. If the OS information is\n      available, a prefix match is performed against the parent image OS version during image recipe\n      creation. </p>"
-          }
-        },
-        "version": {
-          "target": "com.amazonaws.imagebuilder#VersionNumber",
-          "traits": {
-            "smithy.api#documentation": "<p>The version of the component.</p>"
-          }
-        },
-        "type": {
-          "target": "com.amazonaws.imagebuilder#ComponentType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of the component denotes whether the component is used to build the image or only\n      to test it.</p>"
-          }
-        },
-        "owner": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The owner of the component.</p>"
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.imagebuilder#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags associated with the component.</p>"
-          }
-        },
-        "changeDescription": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The change description of the component.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the component.</p>"
           }
         },
         "name": {
@@ -455,10 +425,10 @@
             "smithy.api#documentation": "<p>The name of the component.</p>"
           }
         },
-        "arn": {
-          "target": "com.amazonaws.imagebuilder#ImageBuilderArn",
+        "version": {
+          "target": "com.amazonaws.imagebuilder#VersionNumber",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the component.</p>"
+            "smithy.api#documentation": "<p>The version of the component.</p>"
           }
         },
         "platform": {
@@ -467,16 +437,46 @@
             "smithy.api#documentation": "<p>The platform of the component.</p>"
           }
         },
+        "supportedOsVersions": {
+          "target": "com.amazonaws.imagebuilder#OsVersionList",
+          "traits": {
+            "smithy.api#documentation": "<p>The operating system (OS) version supported by the component. If the OS information is available, a prefix match is performed against the parent image OS version during image recipe creation. </p>"
+          }
+        },
+        "type": {
+          "target": "com.amazonaws.imagebuilder#ComponentType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the component denotes whether the component is used to build the image or only to test it.</p>"
+          }
+        },
+        "owner": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The owner of the component.</p>"
+          }
+        },
         "description": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The description of the component.</p>"
           }
         },
+        "changeDescription": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The change description of the component.</p>"
+          }
+        },
         "dateCreated": {
           "target": "com.amazonaws.imagebuilder#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The date that the component was created.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.imagebuilder#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags associated with the component.</p>"
           }
         }
       },
@@ -508,22 +508,10 @@
     "com.amazonaws.imagebuilder#ComponentVersion": {
       "type": "structure",
       "members": {
-        "platform": {
-          "target": "com.amazonaws.imagebuilder#Platform",
+        "arn": {
+          "target": "com.amazonaws.imagebuilder#ImageBuilderArn",
           "traits": {
-            "smithy.api#documentation": "<p>The platform of the component.</p>"
-          }
-        },
-        "description": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The description of the component.</p>"
-          }
-        },
-        "type": {
-          "target": "com.amazonaws.imagebuilder#ComponentType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of the component denotes whether the component is used to build the image or only\n      to test it.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the component.</p>"
           }
         },
         "name": {
@@ -532,16 +520,34 @@
             "smithy.api#documentation": "<p>The name of the component.</p>"
           }
         },
-        "dateCreated": {
-          "target": "com.amazonaws.imagebuilder#DateTime",
+        "version": {
+          "target": "com.amazonaws.imagebuilder#VersionNumber",
           "traits": {
-            "smithy.api#documentation": "<p>The date that the component was created.</p>"
+            "smithy.api#documentation": "<p>The semantic version of the component.</p>"
           }
         },
-        "arn": {
-          "target": "com.amazonaws.imagebuilder#ImageBuilderArn",
+        "description": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the component.</p>"
+            "smithy.api#documentation": "<p>The description of the component.</p>"
+          }
+        },
+        "platform": {
+          "target": "com.amazonaws.imagebuilder#Platform",
+          "traits": {
+            "smithy.api#documentation": "<p>The platform of the component.</p>"
+          }
+        },
+        "supportedOsVersions": {
+          "target": "com.amazonaws.imagebuilder#OsVersionList",
+          "traits": {
+            "smithy.api#documentation": "<p> The operating system (OS) version supported by the component. If the OS information is available, a prefix match is performed against the parent image OS version during image recipe creation. </p>"
+          }
+        },
+        "type": {
+          "target": "com.amazonaws.imagebuilder#ComponentType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the component denotes whether the component is used to build the image or only to test it.</p>"
           }
         },
         "owner": {
@@ -550,16 +556,10 @@
             "smithy.api#documentation": "<p>The owner of the component.</p>"
           }
         },
-        "supportedOsVersions": {
-          "target": "com.amazonaws.imagebuilder#OsVersionList",
+        "dateCreated": {
+          "target": "com.amazonaws.imagebuilder#DateTime",
           "traits": {
-            "smithy.api#documentation": "<p>\n      The operating system (OS) version supported by the component. If the OS information is\n      available, a prefix match is performed against the parent image OS version during image recipe\n      creation. \n    </p>"
-          }
-        },
-        "version": {
-          "target": "com.amazonaws.imagebuilder#VersionNumber",
-          "traits": {
-            "smithy.api#documentation": "<p>The semantic version of the component.</p>"
+            "smithy.api#documentation": "<p>The date that the component was created.</p>"
           }
         }
       },
@@ -629,7 +629,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a new component that can be used to build, validate, test, and assess your\n      image.</p>",
+        "smithy.api#documentation": "<p>Creates a new component that can be used to build, validate, test, and assess your image.</p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/CreateComponent",
@@ -640,49 +640,17 @@
     "com.amazonaws.imagebuilder#CreateComponentRequest": {
       "type": "structure",
       "members": {
-        "changeDescription": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+        "name": {
+          "target": "com.amazonaws.imagebuilder#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The change description of the component. Describes what change has been made in this\n      version, or what makes this version different from other versions of this component.</p>"
-          }
-        },
-        "data": {
-          "target": "com.amazonaws.imagebuilder#InlineComponentData",
-          "traits": {
-            "smithy.api#documentation": "<p>The data of the component. Used to specify the data inline. Either <code>data</code> or\n        <code>uri</code> can be used to specify the data within the component.</p>"
-          }
-        },
-        "supportedOsVersions": {
-          "target": "com.amazonaws.imagebuilder#OsVersionList",
-          "traits": {
-            "smithy.api#documentation": "<p> The operating system (OS) version supported by the component. If the OS information is\n      available, a prefix match is performed against the parent image OS version during image recipe\n      creation. </p>"
-          }
-        },
-        "clientToken": {
-          "target": "com.amazonaws.imagebuilder#ClientToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The idempotency token of the component.</p>",
-            "smithy.api#idempotencyToken": {},
+            "smithy.api#documentation": "<p>The name of the component.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "kmsKeyId": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the KMS key that should be used to encrypt this component.</p>"
           }
         },
         "semanticVersion": {
           "target": "com.amazonaws.imagebuilder#VersionNumber",
           "traits": {
-            "smithy.api#documentation": "<p>The semantic version of the component. This version follows the semantic version syntax.\n      For example, major.minor.patch. This could be versioned like software (2.0.1) or like a date\n      (2019.12.01).</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.imagebuilder#ResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the component.</p>",
+            "smithy.api#documentation": "<p>The semantic version of the component. This version follows the semantic version syntax. For example, major.minor.patch. This could be versioned like software (2.0.1) or like a date (2019.12.01).</p>",
             "smithy.api#required": {}
           }
         },
@@ -692,6 +660,12 @@
             "smithy.api#documentation": "<p>The description of the component. Describes the contents of the component.</p>"
           }
         },
+        "changeDescription": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The change description of the component. Describes what change has been made in this version, or what makes this version different from other versions of this component.</p>"
+          }
+        },
         "platform": {
           "target": "com.amazonaws.imagebuilder#Platform",
           "traits": {
@@ -699,10 +673,28 @@
             "smithy.api#required": {}
           }
         },
+        "supportedOsVersions": {
+          "target": "com.amazonaws.imagebuilder#OsVersionList",
+          "traits": {
+            "smithy.api#documentation": "<p> The operating system (OS) version supported by the component. If the OS information is available, a prefix match is performed against the parent image OS version during image recipe creation. </p>"
+          }
+        },
+        "data": {
+          "target": "com.amazonaws.imagebuilder#InlineComponentData",
+          "traits": {
+            "smithy.api#documentation": "<p>The data of the component. Used to specify the data inline. Either <code>data</code> or <code>uri</code> can be used to specify the data within the component.</p>"
+          }
+        },
         "uri": {
           "target": "com.amazonaws.imagebuilder#Uri",
           "traits": {
-            "smithy.api#documentation": "<p>The uri of the component. Must be an S3 URL and the requester must have permission to\n      access the S3 bucket. If you use S3, you can specify component content up to your service\n      quota. Either <code>data</code> or <code>uri</code> can be used to specify the data within the\n      component.</p>"
+            "smithy.api#documentation": "<p>The uri of the component. Must be an S3 URL and the requester must have permission to access the S3 bucket. If you use S3, you can specify component content up to your service quota. Either <code>data</code> or <code>uri</code> can be used to specify the data within the component.</p>"
+          }
+        },
+        "kmsKeyId": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the KMS key that should be used to encrypt this component.</p>"
           }
         },
         "tags": {
@@ -710,22 +702,30 @@
           "traits": {
             "smithy.api#documentation": "<p>The tags of the component.</p>"
           }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.imagebuilder#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The idempotency token of the component.</p>",
+            "smithy.api#idempotencyToken": {},
+            "smithy.api#required": {}
+          }
         }
       }
     },
     "com.amazonaws.imagebuilder#CreateComponentResponse": {
       "type": "structure",
       "members": {
-        "clientToken": {
-          "target": "com.amazonaws.imagebuilder#ClientToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The idempotency token used to make this request idempotent.</p>"
-          }
-        },
         "requestId": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The request ID that uniquely identifies this request.</p>"
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.imagebuilder#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The idempotency token used to make this request idempotent.</p>"
           }
         },
         "componentBuildVersionArn": {
@@ -780,7 +780,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a new distribution configuration. Distribution configurations define and configure\n      the outputs of your pipeline. </p>",
+        "smithy.api#documentation": "<p>Creates a new distribution configuration. Distribution configurations define and configure the outputs of your pipeline. </p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/CreateDistributionConfiguration",
@@ -791,12 +791,6 @@
     "com.amazonaws.imagebuilder#CreateDistributionConfigurationRequest": {
       "type": "structure",
       "members": {
-        "tags": {
-          "target": "com.amazonaws.imagebuilder#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p> The tags of the distribution configuration. </p>"
-          }
-        },
         "name": {
           "target": "com.amazonaws.imagebuilder#ResourceName",
           "traits": {
@@ -804,12 +798,10 @@
             "smithy.api#required": {}
           }
         },
-        "clientToken": {
-          "target": "com.amazonaws.imagebuilder#ClientToken",
+        "description": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p> The idempotency token of the distribution configuration. </p>",
-            "smithy.api#idempotencyToken": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p> The description of the distribution configuration. </p>"
           }
         },
         "distributions": {
@@ -819,10 +811,18 @@
             "smithy.api#required": {}
           }
         },
-        "description": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+        "tags": {
+          "target": "com.amazonaws.imagebuilder#TagMap",
           "traits": {
-            "smithy.api#documentation": "<p> The description of the distribution configuration. </p>"
+            "smithy.api#documentation": "<p> The tags of the distribution configuration. </p>"
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.imagebuilder#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p> The idempotency token of the distribution configuration. </p>",
+            "smithy.api#idempotencyToken": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -845,7 +845,7 @@
         "distributionConfigurationArn": {
           "target": "com.amazonaws.imagebuilder#DistributionConfigurationArn",
           "traits": {
-            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the distribution configuration that was created by this\n      request. </p>"
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the distribution configuration that was created by this request. </p>"
           }
         }
       }
@@ -888,7 +888,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p> Creates a new image. This request will create a new image along with all of the\n      configured output resources defined in the distribution configuration. </p>",
+        "smithy.api#documentation": "<p> Creates a new image. This request will create a new image along with all of the configured output resources defined in the distribution configuration. </p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/CreateImage",
@@ -937,7 +937,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p> Creates a new image pipeline. Image pipelines enable you to automate the creation and\n      distribution of images. </p>",
+        "smithy.api#documentation": "<p> Creates a new image pipeline. Image pipelines enable you to automate the creation and distribution of images. </p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/CreateImagePipeline",
@@ -948,10 +948,10 @@
     "com.amazonaws.imagebuilder#CreateImagePipelineRequest": {
       "type": "structure",
       "members": {
-        "imageRecipeArn": {
-          "target": "com.amazonaws.imagebuilder#ImageRecipeArn",
+        "name": {
+          "target": "com.amazonaws.imagebuilder#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the image recipe that will be used to configure images\n      created by this image pipeline. </p>",
+            "smithy.api#documentation": "<p> The name of the image pipeline. </p>",
             "smithy.api#required": {}
           }
         },
@@ -961,19 +961,42 @@
             "smithy.api#documentation": "<p> The description of the image pipeline. </p>"
           }
         },
-        "clientToken": {
-          "target": "com.amazonaws.imagebuilder#ClientToken",
+        "imageRecipeArn": {
+          "target": "com.amazonaws.imagebuilder#ImageRecipeArn",
           "traits": {
-            "smithy.api#documentation": "<p> The idempotency token used to make this request idempotent. </p>",
-            "smithy.api#idempotencyToken": {},
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the image recipe that will be used to configure images created by this image pipeline. </p>",
             "smithy.api#required": {}
           }
         },
-        "name": {
-          "target": "com.amazonaws.imagebuilder#ResourceName",
+        "infrastructureConfigurationArn": {
+          "target": "com.amazonaws.imagebuilder#InfrastructureConfigurationArn",
           "traits": {
-            "smithy.api#documentation": "<p> The name of the image pipeline. </p>",
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the infrastructure configuration that will be used to build images created by this image pipeline. </p>",
             "smithy.api#required": {}
+          }
+        },
+        "distributionConfigurationArn": {
+          "target": "com.amazonaws.imagebuilder#DistributionConfigurationArn",
+          "traits": {
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the distribution configuration that will be used to configure and distribute images created by this image pipeline. </p>"
+          }
+        },
+        "imageTestsConfiguration": {
+          "target": "com.amazonaws.imagebuilder#ImageTestsConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p> The image test configuration of the image pipeline. </p>"
+          }
+        },
+        "enhancedImageMetadataEnabled": {
+          "target": "com.amazonaws.imagebuilder#NullableBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p> Collects additional information about the image being created, including the operating system (OS) version and package list. This information is used to enhance the overall experience of using EC2 Image Builder. Enabled by default. </p>"
+          }
+        },
+        "schedule": {
+          "target": "com.amazonaws.imagebuilder#Schedule",
+          "traits": {
+            "smithy.api#documentation": "<p> The schedule of the image pipeline. </p>"
           }
         },
         "status": {
@@ -988,35 +1011,12 @@
             "smithy.api#documentation": "<p> The tags of the image pipeline. </p>"
           }
         },
-        "enhancedImageMetadataEnabled": {
-          "target": "com.amazonaws.imagebuilder#NullableBoolean",
+        "clientToken": {
+          "target": "com.amazonaws.imagebuilder#ClientToken",
           "traits": {
-            "smithy.api#documentation": "<p> Collects additional information about the image being created, including the operating\n      system (OS) version and package list. This information is used to enhance the overall\n      experience of using EC2 Image Builder. Enabled by default. </p>"
-          }
-        },
-        "infrastructureConfigurationArn": {
-          "target": "com.amazonaws.imagebuilder#InfrastructureConfigurationArn",
-          "traits": {
-            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the infrastructure configuration that will be used to\n      build images created by this image pipeline. </p>",
+            "smithy.api#documentation": "<p> The idempotency token used to make this request idempotent. </p>",
+            "smithy.api#idempotencyToken": {},
             "smithy.api#required": {}
-          }
-        },
-        "distributionConfigurationArn": {
-          "target": "com.amazonaws.imagebuilder#DistributionConfigurationArn",
-          "traits": {
-            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the distribution configuration that will be used to\n      configure and distribute images created by this image pipeline. </p>"
-          }
-        },
-        "schedule": {
-          "target": "com.amazonaws.imagebuilder#Schedule",
-          "traits": {
-            "smithy.api#documentation": "<p> The schedule of the image pipeline. </p>"
-          }
-        },
-        "imageTestsConfiguration": {
-          "target": "com.amazonaws.imagebuilder#ImageTestsConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p> The image test configuration of the image pipeline. </p>"
           }
         }
       }
@@ -1024,12 +1024,6 @@
     "com.amazonaws.imagebuilder#CreateImagePipelineResponse": {
       "type": "structure",
       "members": {
-        "imagePipelineArn": {
-          "target": "com.amazonaws.imagebuilder#ImagePipelineArn",
-          "traits": {
-            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the image pipeline that was created by this request.\n    </p>"
-          }
-        },
         "requestId": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
@@ -1040,6 +1034,12 @@
           "target": "com.amazonaws.imagebuilder#ClientToken",
           "traits": {
             "smithy.api#documentation": "<p> The idempotency token used to make this request idempotent. </p>"
+          }
+        },
+        "imagePipelineArn": {
+          "target": "com.amazonaws.imagebuilder#ImagePipelineArn",
+          "traits": {
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the image pipeline that was created by this request. </p>"
           }
         }
       }
@@ -1088,7 +1088,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p> Creates a new image recipe. Image recipes define how images are configured, tested, and\n      assessed. </p>",
+        "smithy.api#documentation": "<p> Creates a new image recipe. Image recipes define how images are configured, tested, and assessed. </p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/CreateImageRecipe",
@@ -1099,16 +1099,10 @@
     "com.amazonaws.imagebuilder#CreateImageRecipeRequest": {
       "type": "structure",
       "members": {
-        "blockDeviceMappings": {
-          "target": "com.amazonaws.imagebuilder#InstanceBlockDeviceMappings",
+        "name": {
+          "target": "com.amazonaws.imagebuilder#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The block device mappings of the image recipe. </p>"
-          }
-        },
-        "semanticVersion": {
-          "target": "com.amazonaws.imagebuilder#VersionNumber",
-          "traits": {
-            "smithy.api#documentation": "<p>The semantic version of the image recipe. </p>",
+            "smithy.api#documentation": "<p> The name of the image recipe. </p>",
             "smithy.api#required": {}
           }
         },
@@ -1118,11 +1112,31 @@
             "smithy.api#documentation": "<p> The description of the image recipe. </p>"
           }
         },
-        "name": {
-          "target": "com.amazonaws.imagebuilder#ResourceName",
+        "semanticVersion": {
+          "target": "com.amazonaws.imagebuilder#VersionNumber",
           "traits": {
-            "smithy.api#documentation": "<p> The name of the image recipe. </p>",
+            "smithy.api#documentation": "<p>The semantic version of the image recipe. </p>",
             "smithy.api#required": {}
+          }
+        },
+        "components": {
+          "target": "com.amazonaws.imagebuilder#ComponentConfigurationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The components of the image recipe. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "parentImage": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The parent image of the image recipe. The value of the string can be the ARN of the parent image or an AMI ID. The format for the ARN follows this example: <code>arn:aws:imagebuilder:us-west-2:aws:image/windows-server-2016-english-full-base-x86/xxxx.x.x</code>. You can provide the specific version that you want to use, or you can use a wildcard in all of the fields. If you enter an AMI ID for the string value, you must have access to the AMI, and the AMI must be in the same Region in which you are using Image Builder. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "blockDeviceMappings": {
+          "target": "com.amazonaws.imagebuilder#InstanceBlockDeviceMappings",
+          "traits": {
+            "smithy.api#documentation": "<p>The block device mappings of the image recipe. </p>"
           }
         },
         "tags": {
@@ -1137,25 +1151,11 @@
             "smithy.api#documentation": "<p>The working directory to be used during build and test workflows.</p>"
           }
         },
-        "components": {
-          "target": "com.amazonaws.imagebuilder#ComponentConfigurationList",
-          "traits": {
-            "smithy.api#documentation": "<p>The components of the image recipe. </p>",
-            "smithy.api#required": {}
-          }
-        },
         "clientToken": {
           "target": "com.amazonaws.imagebuilder#ClientToken",
           "traits": {
             "smithy.api#documentation": "<p>The idempotency token used to make this request idempotent. </p>",
             "smithy.api#idempotencyToken": {},
-            "smithy.api#required": {}
-          }
-        },
-        "parentImage": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The parent image of the image recipe. The value of the string can be the ARN of the parent\n      image or an AMI ID. The format for the ARN follows this example:\n        <code>arn:aws:imagebuilder:us-west-2:aws:image/windows-server-2016-english-full-base-x86/xxxx.x.x</code>.\n      You can provide the specific version that you want to use, or you can use a wildcard in all of\n      the fields. If you enter an AMI ID for the string value, you must have access to the AMI, and\n      the AMI must be in the same Region in which you are using Image Builder. </p>",
             "smithy.api#required": {}
           }
         }
@@ -1164,6 +1164,12 @@
     "com.amazonaws.imagebuilder#CreateImageRecipeResponse": {
       "type": "structure",
       "members": {
+        "requestId": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The request ID that uniquely identifies this request. </p>"
+          }
+        },
         "clientToken": {
           "target": "com.amazonaws.imagebuilder#ClientToken",
           "traits": {
@@ -1175,12 +1181,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image recipe that was created by this request. </p>"
           }
-        },
-        "requestId": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The request ID that uniquely identifies this request. </p>"
-          }
         }
       }
     },
@@ -1190,7 +1190,20 @@
         "imageRecipeArn": {
           "target": "com.amazonaws.imagebuilder#ImageRecipeArn",
           "traits": {
-            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the image recipe that defines how images are\n      configured, tested, and assessed. </p>",
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "distributionConfigurationArn": {
+          "target": "com.amazonaws.imagebuilder#DistributionConfigurationArn",
+          "traits": {
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the distribution configuration that defines and configures the outputs of your pipeline. </p>"
+          }
+        },
+        "infrastructureConfigurationArn": {
+          "target": "com.amazonaws.imagebuilder#InfrastructureConfigurationArn",
+          "traits": {
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the infrastructure configuration that defines the environment in which your image will be built and tested. </p>",
             "smithy.api#required": {}
           }
         },
@@ -1198,6 +1211,12 @@
           "target": "com.amazonaws.imagebuilder#ImageTestsConfiguration",
           "traits": {
             "smithy.api#documentation": "<p> The image tests configuration of the image. </p>"
+          }
+        },
+        "enhancedImageMetadataEnabled": {
+          "target": "com.amazonaws.imagebuilder#NullableBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p> Collects additional information about the image being created, including the operating system (OS) version and package list. This information is used to enhance the overall experience of using EC2 Image Builder. Enabled by default. </p>"
           }
         },
         "tags": {
@@ -1213,35 +1232,16 @@
             "smithy.api#idempotencyToken": {},
             "smithy.api#required": {}
           }
-        },
-        "distributionConfigurationArn": {
-          "target": "com.amazonaws.imagebuilder#DistributionConfigurationArn",
-          "traits": {
-            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the distribution configuration that defines and\n      configures the outputs of your pipeline. </p>"
-          }
-        },
-        "infrastructureConfigurationArn": {
-          "target": "com.amazonaws.imagebuilder#InfrastructureConfigurationArn",
-          "traits": {
-            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the infrastructure configuration that defines the\n      environment in which your image will be built and tested. </p>",
-            "smithy.api#required": {}
-          }
-        },
-        "enhancedImageMetadataEnabled": {
-          "target": "com.amazonaws.imagebuilder#NullableBoolean",
-          "traits": {
-            "smithy.api#documentation": "<p> Collects additional information about the image being created, including the operating\n      system (OS) version and package list. This information is used to enhance the overall\n      experience of using EC2 Image Builder. Enabled by default. </p>"
-          }
         }
       }
     },
     "com.amazonaws.imagebuilder#CreateImageResponse": {
       "type": "structure",
       "members": {
-        "imageBuildVersionArn": {
-          "target": "com.amazonaws.imagebuilder#ImageBuildVersionArn",
+        "requestId": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the image that was created by this request. </p>"
+            "smithy.api#documentation": "<p> The request ID that uniquely identifies this request. </p>"
           }
         },
         "clientToken": {
@@ -1250,10 +1250,10 @@
             "smithy.api#documentation": "<p> The idempotency token used to make this request idempotent. </p>"
           }
         },
-        "requestId": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+        "imageBuildVersionArn": {
+          "target": "com.amazonaws.imagebuilder#ImageBuildVersionArn",
           "traits": {
-            "smithy.api#documentation": "<p> The request ID that uniquely identifies this request. </p>"
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the image that was created by this request. </p>"
           }
         }
       }
@@ -1299,7 +1299,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p> Creates a new infrastructure configuration. An infrastructure configuration defines the\n      environment in which your image will be built and tested. </p>",
+        "smithy.api#documentation": "<p> Creates a new infrastructure configuration. An infrastructure configuration defines the environment in which your image will be built and tested. </p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/CreateInfrastructureConfiguration",
@@ -1310,10 +1310,11 @@
     "com.amazonaws.imagebuilder#CreateInfrastructureConfigurationRequest": {
       "type": "structure",
       "members": {
-        "securityGroupIds": {
-          "target": "com.amazonaws.imagebuilder#SecurityGroupIds",
+        "name": {
+          "target": "com.amazonaws.imagebuilder#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The security group IDs to associate with the instance used to customize your EC2 AMI. </p>"
+            "smithy.api#documentation": "<p>The name of the infrastructure configuration. </p>",
+            "smithy.api#required": {}
           }
         },
         "description": {
@@ -1322,30 +1323,10 @@
             "smithy.api#documentation": "<p>The description of the infrastructure configuration. </p>"
           }
         },
-        "clientToken": {
-          "target": "com.amazonaws.imagebuilder#ClientToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The idempotency token used to make this request idempotent. </p>",
-            "smithy.api#idempotencyToken": {},
-            "smithy.api#required": {}
-          }
-        },
         "instanceTypes": {
           "target": "com.amazonaws.imagebuilder#InstanceTypeList",
           "traits": {
-            "smithy.api#documentation": "<p>The instance types of the infrastructure configuration. You can specify one or more\n      instance types to use for this build. The service will pick one of these instance types based\n      on availability. </p>"
-          }
-        },
-        "subnetId": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The subnet ID in which to place the instance used to customize your EC2 AMI. </p>"
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.imagebuilder#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags of the infrastructure configuration. </p>"
+            "smithy.api#documentation": "<p>The instance types of the infrastructure configuration. You can specify one or more instance types to use for this build. The service will pick one of these instance types based on availability. </p>"
           }
         },
         "instanceProfileName": {
@@ -1355,10 +1336,34 @@
             "smithy.api#required": {}
           }
         },
+        "securityGroupIds": {
+          "target": "com.amazonaws.imagebuilder#SecurityGroupIds",
+          "traits": {
+            "smithy.api#documentation": "<p>The security group IDs to associate with the instance used to customize your EC2 AMI. </p>"
+          }
+        },
+        "subnetId": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The subnet ID in which to place the instance used to customize your EC2 AMI. </p>"
+          }
+        },
         "logging": {
           "target": "com.amazonaws.imagebuilder#Logging",
           "traits": {
             "smithy.api#documentation": "<p>The logging configuration of the infrastructure configuration. </p>"
+          }
+        },
+        "keyPair": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The key pair of the infrastructure configuration. This can be used to log on to and debug the instance used to create your image. </p>"
+          }
+        },
+        "terminateInstanceOnFailure": {
+          "target": "com.amazonaws.imagebuilder#NullableBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p>The terminate instance on failure setting of the infrastructure configuration. Set to false if you want Image Builder to retain the instance used to configure your AMI if the build or test phase of your workflow fails. </p>"
           }
         },
         "snsTopicArn": {
@@ -1367,29 +1372,24 @@
             "smithy.api#documentation": "<p>The SNS topic on which to send image build events. </p>"
           }
         },
-        "terminateInstanceOnFailure": {
-          "target": "com.amazonaws.imagebuilder#NullableBoolean",
-          "traits": {
-            "smithy.api#documentation": "<p>The terminate instance on failure setting of the infrastructure configuration. Set to\n      false if you want Image Builder to retain the instance used to configure your AMI if the build\n      or test phase of your workflow fails. </p>"
-          }
-        },
-        "keyPair": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The key pair of the infrastructure configuration. This can be used to log on to and debug\n      the instance used to create your image. </p>"
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.imagebuilder#ResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the infrastructure configuration. </p>",
-            "smithy.api#required": {}
-          }
-        },
         "resourceTags": {
           "target": "com.amazonaws.imagebuilder#ResourceTagMap",
           "traits": {
             "smithy.api#documentation": "<p>The tags attached to the resource created by Image Builder.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.imagebuilder#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags of the infrastructure configuration. </p>"
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.imagebuilder#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The idempotency token used to make this request idempotent. </p>",
+            "smithy.api#idempotencyToken": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -1412,7 +1412,7 @@
         "infrastructureConfigurationArn": {
           "target": "com.amazonaws.imagebuilder#InfrastructureConfigurationArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the infrastructure configuration that was created by\n      this request. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the infrastructure configuration that was created by this request. </p>"
           }
         }
       }
@@ -1546,16 +1546,16 @@
     "com.amazonaws.imagebuilder#DeleteDistributionConfigurationResponse": {
       "type": "structure",
       "members": {
-        "distributionConfigurationArn": {
-          "target": "com.amazonaws.imagebuilder#DistributionConfigurationArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the distribution configuration that was deleted. </p>"
-          }
-        },
         "requestId": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The request ID that uniquely identifies this request. </p>"
+          }
+        },
+        "distributionConfigurationArn": {
+          "target": "com.amazonaws.imagebuilder#DistributionConfigurationArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the distribution configuration that was deleted. </p>"
           }
         }
       }
@@ -1843,12 +1843,6 @@
     "com.amazonaws.imagebuilder#Distribution": {
       "type": "structure",
       "members": {
-        "amiDistributionConfiguration": {
-          "target": "com.amazonaws.imagebuilder#AmiDistributionConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>The specific AMI settings (for example, launch permissions, AMI tags). </p>"
-          }
-        },
         "region": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
@@ -1856,10 +1850,16 @@
             "smithy.api#required": {}
           }
         },
+        "amiDistributionConfiguration": {
+          "target": "com.amazonaws.imagebuilder#AmiDistributionConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The specific AMI settings (for example, launch permissions, AMI tags). </p>"
+          }
+        },
         "licenseConfigurationArns": {
           "target": "com.amazonaws.imagebuilder#LicenseConfigurationArnList",
           "traits": {
-            "smithy.api#documentation": "<p>The License Manager Configuration to associate with the AMI in the specified\n      Region.</p>"
+            "smithy.api#documentation": "<p>The License Manager Configuration to associate with the AMI in the specified Region.</p>"
           }
         }
       },
@@ -1870,24 +1870,6 @@
     "com.amazonaws.imagebuilder#DistributionConfiguration": {
       "type": "structure",
       "members": {
-        "dateCreated": {
-          "target": "com.amazonaws.imagebuilder#DateTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The date on which this distribution configuration was created.</p>"
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.imagebuilder#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags of the distribution configuration.</p>"
-          }
-        },
-        "dateUpdated": {
-          "target": "com.amazonaws.imagebuilder#DateTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The date on which this distribution configuration was last updated.</p>"
-          }
-        },
         "arn": {
           "target": "com.amazonaws.imagebuilder#ImageBuilderArn",
           "traits": {
@@ -1900,16 +1882,16 @@
             "smithy.api#documentation": "<p>The name of the distribution configuration.</p>"
           }
         },
-        "distributions": {
-          "target": "com.amazonaws.imagebuilder#DistributionList",
-          "traits": {
-            "smithy.api#documentation": "<p>The distributions of the distribution configuration.</p>"
-          }
-        },
         "description": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The description of the distribution configuration.</p>"
+          }
+        },
+        "distributions": {
+          "target": "com.amazonaws.imagebuilder#DistributionList",
+          "traits": {
+            "smithy.api#documentation": "<p>The distributions of the distribution configuration.</p>"
           }
         },
         "timeoutMinutes": {
@@ -1917,6 +1899,24 @@
           "traits": {
             "smithy.api#documentation": "<p>The maximum duration in minutes for this distribution configuration.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "dateCreated": {
+          "target": "com.amazonaws.imagebuilder#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date on which this distribution configuration was created.</p>"
+          }
+        },
+        "dateUpdated": {
+          "target": "com.amazonaws.imagebuilder#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date on which this distribution configuration was last updated.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.imagebuilder#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags of the distribution configuration.</p>"
           }
         }
       },
@@ -1933,22 +1933,10 @@
     "com.amazonaws.imagebuilder#DistributionConfigurationSummary": {
       "type": "structure",
       "members": {
-        "description": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+        "arn": {
+          "target": "com.amazonaws.imagebuilder#ImageBuilderArn",
           "traits": {
-            "smithy.api#documentation": "<p>The description of the distribution configuration.</p>"
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.imagebuilder#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags associated with the distribution configuration.</p>"
-          }
-        },
-        "dateUpdated": {
-          "target": "com.amazonaws.imagebuilder#DateTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The date on which the distribution configuration was updated.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the distribution configuration.</p>"
           }
         },
         "name": {
@@ -1957,16 +1945,28 @@
             "smithy.api#documentation": "<p>The name of the distribution configuration.</p>"
           }
         },
-        "arn": {
-          "target": "com.amazonaws.imagebuilder#ImageBuilderArn",
+        "description": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the distribution configuration.</p>"
+            "smithy.api#documentation": "<p>The description of the distribution configuration.</p>"
           }
         },
         "dateCreated": {
           "target": "com.amazonaws.imagebuilder#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The date on which the distribution configuration was created.</p>"
+          }
+        },
+        "dateUpdated": {
+          "target": "com.amazonaws.imagebuilder#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date on which the distribution configuration was updated.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.imagebuilder#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags associated with the distribution configuration.</p>"
           }
         }
       },
@@ -1989,7 +1989,6 @@
     "com.amazonaws.imagebuilder#DistributionTimeoutMinutes": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 30,
           "max": 720
@@ -1999,22 +1998,16 @@
     "com.amazonaws.imagebuilder#EbsInstanceBlockDeviceSpecification": {
       "type": "structure",
       "members": {
-        "volumeSize": {
-          "target": "com.amazonaws.imagebuilder#EbsVolumeSizeInteger",
-          "traits": {
-            "smithy.api#documentation": "<p>Use to override the device's volume size.</p>"
-          }
-        },
         "encrypted": {
           "target": "com.amazonaws.imagebuilder#NullableBoolean",
           "traits": {
             "smithy.api#documentation": "<p>Use to configure device encryption.</p>"
           }
         },
-        "volumeType": {
-          "target": "com.amazonaws.imagebuilder#EbsVolumeType",
+        "deleteOnTermination": {
+          "target": "com.amazonaws.imagebuilder#NullableBoolean",
           "traits": {
-            "smithy.api#documentation": "<p>Use to override the device's volume type.</p>"
+            "smithy.api#documentation": "<p>Use to configure delete on termination of the associated device.</p>"
           }
         },
         "iops": {
@@ -2029,16 +2022,22 @@
             "smithy.api#documentation": "<p>Use to configure the KMS key to use when encrypting the device.</p>"
           }
         },
-        "deleteOnTermination": {
-          "target": "com.amazonaws.imagebuilder#NullableBoolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Use to configure delete on termination of the associated device.</p>"
-          }
-        },
         "snapshotId": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The snapshot that defines the device contents.</p>"
+          }
+        },
+        "volumeSize": {
+          "target": "com.amazonaws.imagebuilder#EbsVolumeSizeInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>Use to override the device's volume size.</p>"
+          }
+        },
+        "volumeType": {
+          "target": "com.amazonaws.imagebuilder#EbsVolumeType",
+          "traits": {
+            "smithy.api#documentation": "<p>Use to override the device's volume type.</p>"
           }
         }
       },
@@ -2049,7 +2048,6 @@
     "com.amazonaws.imagebuilder#EbsIopsInteger": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 100,
           "max": 10000
@@ -2059,7 +2057,6 @@
     "com.amazonaws.imagebuilder#EbsVolumeSizeInteger": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 16000
@@ -2072,27 +2069,27 @@
         "smithy.api#enum": [
           {
             "value": "standard",
-            "name": "STANDARD"
+            "name": "standard"
           },
           {
             "value": "io1",
-            "name": "IO1"
+            "name": "io1"
           },
           {
             "value": "io2",
-            "name": "IO2"
+            "name": "io2"
           },
           {
             "value": "gp2",
-            "name": "GP2"
+            "name": "gp2"
           },
           {
             "value": "sc1",
-            "name": "SC1"
+            "name": "sc1"
           },
           {
             "value": "st1",
-            "name": "ST1"
+            "name": "st1"
           }
         ]
       }
@@ -2126,7 +2123,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>A filter name and value pair that is used to return a more specific list of results from a\n      list operation. Filters can be used to match a set of resources by specific criteria, such as\n      tags, attributes, or IDs. </p>"
+        "smithy.api#documentation": "<p>A filter name and value pair that is used to return a more specific list of results from a list operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs. </p>"
       }
     },
     "com.amazonaws.imagebuilder#FilterList": {
@@ -2268,16 +2265,16 @@
     "com.amazonaws.imagebuilder#GetComponentPolicyResponse": {
       "type": "structure",
       "members": {
-        "policy": {
-          "target": "com.amazonaws.imagebuilder#ResourcePolicyDocument",
-          "traits": {
-            "smithy.api#documentation": "<p>The component policy. </p>"
-          }
-        },
         "requestId": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The request ID that uniquely identifies this request. </p>"
+          }
+        },
+        "policy": {
+          "target": "com.amazonaws.imagebuilder#ResourcePolicyDocument",
+          "traits": {
+            "smithy.api#documentation": "<p>The component policy. </p>"
           }
         }
       }
@@ -2288,7 +2285,7 @@
         "componentBuildVersionArn": {
           "target": "com.amazonaws.imagebuilder#ComponentVersionArnOrBuildVersionArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the component that you want to retrieve. Regex requires\n      \"/\\d+$\" suffix.</p>",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the component that you want to retrieve. Regex requires \"/\\d+$\" suffix.</p>",
             "smithy.api#httpQuery": "componentBuildVersionArn",
             "smithy.api#required": {}
           }
@@ -2355,7 +2352,7 @@
         "distributionConfigurationArn": {
           "target": "com.amazonaws.imagebuilder#DistributionConfigurationArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the distribution configuration that you want to\n      retrieve. </p>",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the distribution configuration that you want to retrieve. </p>",
             "smithy.api#httpQuery": "distributionConfigurationArn",
             "smithy.api#required": {}
           }
@@ -2365,16 +2362,16 @@
     "com.amazonaws.imagebuilder#GetDistributionConfigurationResponse": {
       "type": "structure",
       "members": {
-        "distributionConfiguration": {
-          "target": "com.amazonaws.imagebuilder#DistributionConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>The distribution configuration object. </p>"
-          }
-        },
         "requestId": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The request ID that uniquely identifies this request. </p>"
+          }
+        },
+        "distributionConfiguration": {
+          "target": "com.amazonaws.imagebuilder#DistributionConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The distribution configuration object. </p>"
           }
         }
       }
@@ -2469,16 +2466,16 @@
     "com.amazonaws.imagebuilder#GetImagePipelineResponse": {
       "type": "structure",
       "members": {
-        "imagePipeline": {
-          "target": "com.amazonaws.imagebuilder#ImagePipeline",
-          "traits": {
-            "smithy.api#documentation": "<p>The image pipeline object. </p>"
-          }
-        },
         "requestId": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The request ID that uniquely identifies this request. </p>"
+          }
+        },
+        "imagePipeline": {
+          "target": "com.amazonaws.imagebuilder#ImagePipeline",
+          "traits": {
+            "smithy.api#documentation": "<p>The image pipeline object. </p>"
           }
         }
       }
@@ -2670,16 +2667,16 @@
     "com.amazonaws.imagebuilder#GetImageRecipeResponse": {
       "type": "structure",
       "members": {
-        "imageRecipe": {
-          "target": "com.amazonaws.imagebuilder#ImageRecipe",
-          "traits": {
-            "smithy.api#documentation": "<p>The image recipe object. </p>"
-          }
-        },
         "requestId": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The request ID that uniquely identifies this request. </p>"
+          }
+        },
+        "imageRecipe": {
+          "target": "com.amazonaws.imagebuilder#ImageRecipe",
+          "traits": {
+            "smithy.api#documentation": "<p>The image recipe object. </p>"
           }
         }
       }
@@ -2757,7 +2754,7 @@
         "infrastructureConfigurationArn": {
           "target": "com.amazonaws.imagebuilder#InfrastructureConfigurationArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the infrastructure configuration that you want to\n      retrieve. </p>",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the infrastructure configuration that you want to retrieve. </p>",
             "smithy.api#httpQuery": "infrastructureConfigurationArn",
             "smithy.api#required": {}
           }
@@ -2770,16 +2767,16 @@
     "com.amazonaws.imagebuilder#GetInfrastructureConfigurationResponse": {
       "type": "structure",
       "members": {
-        "infrastructureConfiguration": {
-          "target": "com.amazonaws.imagebuilder#InfrastructureConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>The infrastructure configuration object. </p>"
-          }
-        },
         "requestId": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The request ID that uniquely identifies this request. </p>"
+          }
+        },
+        "infrastructureConfiguration": {
+          "target": "com.amazonaws.imagebuilder#InfrastructureConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The infrastructure configuration object. </p>"
           }
         }
       },
@@ -2795,7 +2792,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>You have specified a client token for an operation using parameter values that differ from\n      a previous request that used the same client token.</p>",
+        "smithy.api#documentation": "<p>You have specified a client token for an operation using parameter values that differ from a previous request that used the same client token.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -2803,58 +2800,10 @@
     "com.amazonaws.imagebuilder#Image": {
       "type": "structure",
       "members": {
-        "state": {
-          "target": "com.amazonaws.imagebuilder#ImageState",
+        "arn": {
+          "target": "com.amazonaws.imagebuilder#ImageBuilderArn",
           "traits": {
-            "smithy.api#documentation": "<p>The state of the image.</p>"
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.imagebuilder#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags of the image.</p>"
-          }
-        },
-        "outputResources": {
-          "target": "com.amazonaws.imagebuilder#OutputResources",
-          "traits": {
-            "smithy.api#documentation": "<p>The output resources produced when creating this image.</p>"
-          }
-        },
-        "imageRecipe": {
-          "target": "com.amazonaws.imagebuilder#ImageRecipe",
-          "traits": {
-            "smithy.api#documentation": "<p>The image recipe used when creating the image.</p>"
-          }
-        },
-        "imageTestsConfiguration": {
-          "target": "com.amazonaws.imagebuilder#ImageTestsConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>The image tests configuration used when creating this image.</p>"
-          }
-        },
-        "version": {
-          "target": "com.amazonaws.imagebuilder#VersionNumber",
-          "traits": {
-            "smithy.api#documentation": "<p>The semantic version of the image.</p>"
-          }
-        },
-        "dateCreated": {
-          "target": "com.amazonaws.imagebuilder#DateTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The date on which this image was created.</p>"
-          }
-        },
-        "distributionConfiguration": {
-          "target": "com.amazonaws.imagebuilder#DistributionConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>The distribution configuration used when creating this image.</p>"
-          }
-        },
-        "sourcePipelineName": {
-          "target": "com.amazonaws.imagebuilder#ResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the image pipeline that created this image.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image.</p>"
           }
         },
         "name": {
@@ -2863,22 +2812,10 @@
             "smithy.api#documentation": "<p>The name of the image.</p>"
           }
         },
-        "sourcePipelineArn": {
-          "target": "com.amazonaws.imagebuilder#Arn",
+        "version": {
+          "target": "com.amazonaws.imagebuilder#VersionNumber",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image pipeline that created this image.</p>"
-          }
-        },
-        "arn": {
-          "target": "com.amazonaws.imagebuilder#ImageBuilderArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image.</p>"
-          }
-        },
-        "enhancedImageMetadataEnabled": {
-          "target": "com.amazonaws.imagebuilder#NullableBoolean",
-          "traits": {
-            "smithy.api#documentation": "<p> Collects additional information about the image being created, including the operating\n      system (OS) version and package list. This information is used to enhance the overall\n      experience of using EC2 Image Builder. Enabled by default. </p>"
+            "smithy.api#documentation": "<p>The semantic version of the image.</p>"
           }
         },
         "platform": {
@@ -2887,16 +2824,76 @@
             "smithy.api#documentation": "<p>The platform of the image.</p>"
           }
         },
+        "enhancedImageMetadataEnabled": {
+          "target": "com.amazonaws.imagebuilder#NullableBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p> Collects additional information about the image being created, including the operating system (OS) version and package list. This information is used to enhance the overall experience of using EC2 Image Builder. Enabled by default. </p>"
+          }
+        },
         "osVersion": {
           "target": "com.amazonaws.imagebuilder#OsVersion",
           "traits": {
-            "smithy.api#documentation": "<p>The operating system version of the instance. For example, Amazon Linux 2, Ubuntu 18, or\n      Microsoft Windows Server 2019. </p>"
+            "smithy.api#documentation": "<p>The operating system version of the instance. For example, Amazon Linux 2, Ubuntu 18, or Microsoft Windows Server 2019. </p>"
+          }
+        },
+        "state": {
+          "target": "com.amazonaws.imagebuilder#ImageState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the image.</p>"
+          }
+        },
+        "imageRecipe": {
+          "target": "com.amazonaws.imagebuilder#ImageRecipe",
+          "traits": {
+            "smithy.api#documentation": "<p>The image recipe used when creating the image.</p>"
+          }
+        },
+        "sourcePipelineName": {
+          "target": "com.amazonaws.imagebuilder#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the image pipeline that created this image.</p>"
+          }
+        },
+        "sourcePipelineArn": {
+          "target": "com.amazonaws.imagebuilder#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image pipeline that created this image.</p>"
           }
         },
         "infrastructureConfiguration": {
           "target": "com.amazonaws.imagebuilder#InfrastructureConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The infrastructure used when creating this image.</p>"
+          }
+        },
+        "distributionConfiguration": {
+          "target": "com.amazonaws.imagebuilder#DistributionConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The distribution configuration used when creating this image.</p>"
+          }
+        },
+        "imageTestsConfiguration": {
+          "target": "com.amazonaws.imagebuilder#ImageTestsConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The image tests configuration used when creating this image.</p>"
+          }
+        },
+        "dateCreated": {
+          "target": "com.amazonaws.imagebuilder#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date on which this image was created.</p>"
+          }
+        },
+        "outputResources": {
+          "target": "com.amazonaws.imagebuilder#OutputResources",
+          "traits": {
+            "smithy.api#documentation": "<p>The output resources produced when creating this image.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.imagebuilder#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags of the image.</p>"
           }
         }
       },
@@ -2919,88 +2916,16 @@
     "com.amazonaws.imagebuilder#ImagePipeline": {
       "type": "structure",
       "members": {
-        "distributionConfigurationArn": {
-          "target": "com.amazonaws.imagebuilder#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the distribution configuration associated with this\n      image pipeline.</p>"
-          }
-        },
-        "dateUpdated": {
-          "target": "com.amazonaws.imagebuilder#DateTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The date on which this image pipeline was last updated.</p>"
-          }
-        },
-        "status": {
-          "target": "com.amazonaws.imagebuilder#PipelineStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the image pipeline.</p>"
-          }
-        },
-        "schedule": {
-          "target": "com.amazonaws.imagebuilder#Schedule",
-          "traits": {
-            "smithy.api#documentation": "<p>The schedule of the image pipeline.</p>"
-          }
-        },
-        "dateCreated": {
-          "target": "com.amazonaws.imagebuilder#DateTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The date on which this image pipeline was created.</p>"
-          }
-        },
-        "enhancedImageMetadataEnabled": {
-          "target": "com.amazonaws.imagebuilder#NullableBoolean",
-          "traits": {
-            "smithy.api#documentation": "<p> Collects additional information about the image being created, including the operating\n      system (OS) version and package list. This information is used to enhance the overall\n      experience of using EC2 Image Builder. Enabled by default. </p>"
-          }
-        },
-        "dateLastRun": {
-          "target": "com.amazonaws.imagebuilder#DateTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The date on which this image pipeline was last run.</p>"
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.imagebuilder#ResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the image pipeline.</p>"
-          }
-        },
         "arn": {
           "target": "com.amazonaws.imagebuilder#ImageBuilderArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image pipeline.</p>"
           }
         },
-        "dateNextRun": {
-          "target": "com.amazonaws.imagebuilder#DateTime",
+        "name": {
+          "target": "com.amazonaws.imagebuilder#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The date on which this image pipeline will next be run.</p>"
-          }
-        },
-        "infrastructureConfigurationArn": {
-          "target": "com.amazonaws.imagebuilder#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the infrastructure configuration associated with this\n      image pipeline.</p>"
-          }
-        },
-        "imageTestsConfiguration": {
-          "target": "com.amazonaws.imagebuilder#ImageTestsConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>The image tests configuration of the image pipeline.</p>"
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.imagebuilder#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags of this image pipeline.</p>"
-          }
-        },
-        "imageRecipeArn": {
-          "target": "com.amazonaws.imagebuilder#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image recipe associated with this image\n      pipeline.</p>"
+            "smithy.api#documentation": "<p>The name of the image pipeline.</p>"
           }
         },
         "description": {
@@ -3013,6 +2938,78 @@
           "target": "com.amazonaws.imagebuilder#Platform",
           "traits": {
             "smithy.api#documentation": "<p>The platform of the image pipeline.</p>"
+          }
+        },
+        "enhancedImageMetadataEnabled": {
+          "target": "com.amazonaws.imagebuilder#NullableBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p> Collects additional information about the image being created, including the operating system (OS) version and package list. This information is used to enhance the overall experience of using EC2 Image Builder. Enabled by default. </p>"
+          }
+        },
+        "imageRecipeArn": {
+          "target": "com.amazonaws.imagebuilder#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image recipe associated with this image pipeline.</p>"
+          }
+        },
+        "infrastructureConfigurationArn": {
+          "target": "com.amazonaws.imagebuilder#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.</p>"
+          }
+        },
+        "distributionConfigurationArn": {
+          "target": "com.amazonaws.imagebuilder#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the distribution configuration associated with this image pipeline.</p>"
+          }
+        },
+        "imageTestsConfiguration": {
+          "target": "com.amazonaws.imagebuilder#ImageTestsConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The image tests configuration of the image pipeline.</p>"
+          }
+        },
+        "schedule": {
+          "target": "com.amazonaws.imagebuilder#Schedule",
+          "traits": {
+            "smithy.api#documentation": "<p>The schedule of the image pipeline.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.imagebuilder#PipelineStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the image pipeline.</p>"
+          }
+        },
+        "dateCreated": {
+          "target": "com.amazonaws.imagebuilder#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date on which this image pipeline was created.</p>"
+          }
+        },
+        "dateUpdated": {
+          "target": "com.amazonaws.imagebuilder#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date on which this image pipeline was last updated.</p>"
+          }
+        },
+        "dateLastRun": {
+          "target": "com.amazonaws.imagebuilder#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date on which this image pipeline was last run.</p>"
+          }
+        },
+        "dateNextRun": {
+          "target": "com.amazonaws.imagebuilder#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date on which this image pipeline will next be run.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.imagebuilder#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags of this image pipeline.</p>"
           }
         }
       },
@@ -3035,10 +3032,10 @@
     "com.amazonaws.imagebuilder#ImageRecipe": {
       "type": "structure",
       "members": {
-        "blockDeviceMappings": {
-          "target": "com.amazonaws.imagebuilder#InstanceBlockDeviceMappings",
+        "arn": {
+          "target": "com.amazonaws.imagebuilder#ImageBuilderArn",
           "traits": {
-            "smithy.api#documentation": "<p>The block device mappings to apply when creating images from this recipe.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image recipe.</p>"
           }
         },
         "name": {
@@ -3047,10 +3044,10 @@
             "smithy.api#documentation": "<p>The name of the image recipe.</p>"
           }
         },
-        "arn": {
-          "target": "com.amazonaws.imagebuilder#ImageBuilderArn",
+        "description": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image recipe.</p>"
+            "smithy.api#documentation": "<p>The description of the image recipe.</p>"
           }
         },
         "platform": {
@@ -3059,22 +3056,10 @@
             "smithy.api#documentation": "<p>The platform of the image recipe.</p>"
           }
         },
-        "description": {
+        "owner": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>The description of the image recipe.</p>"
-          }
-        },
-        "dateCreated": {
-          "target": "com.amazonaws.imagebuilder#DateTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The date on which this image recipe was created.</p>"
-          }
-        },
-        "components": {
-          "target": "com.amazonaws.imagebuilder#ComponentConfigurationList",
-          "traits": {
-            "smithy.api#documentation": "<p>The components of the image recipe.</p>"
+            "smithy.api#documentation": "<p>The owner of the image recipe.</p>"
           }
         },
         "version": {
@@ -3083,10 +3068,28 @@
             "smithy.api#documentation": "<p>The version of the image recipe.</p>"
           }
         },
-        "workingDirectory": {
+        "components": {
+          "target": "com.amazonaws.imagebuilder#ComponentConfigurationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The components of the image recipe.</p>"
+          }
+        },
+        "parentImage": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>The working directory to be used during build and test workflows.</p>"
+            "smithy.api#documentation": "<p>The parent image of the image recipe.</p>"
+          }
+        },
+        "blockDeviceMappings": {
+          "target": "com.amazonaws.imagebuilder#InstanceBlockDeviceMappings",
+          "traits": {
+            "smithy.api#documentation": "<p>The block device mappings to apply when creating images from this recipe.</p>"
+          }
+        },
+        "dateCreated": {
+          "target": "com.amazonaws.imagebuilder#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date on which this image recipe was created.</p>"
           }
         },
         "tags": {
@@ -3095,16 +3098,10 @@
             "smithy.api#documentation": "<p>The tags of the image recipe.</p>"
           }
         },
-        "owner": {
+        "workingDirectory": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>The owner of the image recipe.</p>"
-          }
-        },
-        "parentImage": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The parent image of the image recipe.</p>"
+            "smithy.api#documentation": "<p>The working directory to be used during build and test workflows.</p>"
           }
         }
       },
@@ -3121,22 +3118,10 @@
     "com.amazonaws.imagebuilder#ImageRecipeSummary": {
       "type": "structure",
       "members": {
-        "owner": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+        "arn": {
+          "target": "com.amazonaws.imagebuilder#ImageBuilderArn",
           "traits": {
-            "smithy.api#documentation": "<p>The owner of the image recipe.</p>"
-          }
-        },
-        "dateCreated": {
-          "target": "com.amazonaws.imagebuilder#DateTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The date on which this image recipe was created.</p>"
-          }
-        },
-        "parentImage": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The parent image of the image recipe.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image recipe.</p>"
           }
         },
         "name": {
@@ -3151,10 +3136,22 @@
             "smithy.api#documentation": "<p>The platform of the image recipe.</p>"
           }
         },
-        "arn": {
-          "target": "com.amazonaws.imagebuilder#ImageBuilderArn",
+        "owner": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image recipe.</p>"
+            "smithy.api#documentation": "<p>The owner of the image recipe.</p>"
+          }
+        },
+        "parentImage": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The parent image of the image recipe.</p>"
+          }
+        },
+        "dateCreated": {
+          "target": "com.amazonaws.imagebuilder#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date on which this image recipe was created.</p>"
           }
         },
         "tags": {
@@ -3177,16 +3174,16 @@
     "com.amazonaws.imagebuilder#ImageState": {
       "type": "structure",
       "members": {
-        "reason": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The reason for the image's status. </p>"
-          }
-        },
         "status": {
           "target": "com.amazonaws.imagebuilder#ImageStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the image. </p>"
+          }
+        },
+        "reason": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The reason for the image's status. </p>"
           }
         }
       },
@@ -3260,28 +3257,34 @@
             "smithy.api#documentation": "<p>The name of the image.</p>"
           }
         },
-        "state": {
-          "target": "com.amazonaws.imagebuilder#ImageState",
-          "traits": {
-            "smithy.api#documentation": "<p>The state of the image.</p>"
-          }
-        },
         "version": {
           "target": "com.amazonaws.imagebuilder#VersionNumber",
           "traits": {
             "smithy.api#documentation": "<p>The version of the image.</p>"
           }
         },
-        "tags": {
-          "target": "com.amazonaws.imagebuilder#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags of the image.</p>"
-          }
-        },
         "platform": {
           "target": "com.amazonaws.imagebuilder#Platform",
           "traits": {
             "smithy.api#documentation": "<p>The platform of the image.</p>"
+          }
+        },
+        "osVersion": {
+          "target": "com.amazonaws.imagebuilder#OsVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>The operating system version of the instance. For example, Amazon Linux 2, Ubuntu 18, or Microsoft Windows Server 2019. </p>"
+          }
+        },
+        "state": {
+          "target": "com.amazonaws.imagebuilder#ImageState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the image.</p>"
+          }
+        },
+        "owner": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The owner of the image.</p>"
           }
         },
         "dateCreated": {
@@ -3296,16 +3299,10 @@
             "smithy.api#documentation": "<p>The output resources produced when creating this image.</p>"
           }
         },
-        "owner": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+        "tags": {
+          "target": "com.amazonaws.imagebuilder#TagMap",
           "traits": {
-            "smithy.api#documentation": "<p>The owner of the image.</p>"
-          }
-        },
-        "osVersion": {
-          "target": "com.amazonaws.imagebuilder#OsVersion",
-          "traits": {
-            "smithy.api#documentation": "<p>The operating system version of the instance. For example, Amazon Linux 2, Ubuntu 18, or\n      Microsoft Windows Server 2019. </p>"
+            "smithy.api#documentation": "<p>The tags of the image.</p>"
           }
         }
       },
@@ -3342,7 +3339,6 @@
     "com.amazonaws.imagebuilder#ImageTestsTimeoutMinutes": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 60,
           "max": 1440
@@ -3352,22 +3348,10 @@
     "com.amazonaws.imagebuilder#ImageVersion": {
       "type": "structure",
       "members": {
-        "dateCreated": {
-          "target": "com.amazonaws.imagebuilder#DateTime",
+        "arn": {
+          "target": "com.amazonaws.imagebuilder#ImageBuilderArn",
           "traits": {
-            "smithy.api#documentation": "<p>The date at which this image semantic version was created.</p>"
-          }
-        },
-        "owner": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The owner of the image semantic version.</p>"
-          }
-        },
-        "osVersion": {
-          "target": "com.amazonaws.imagebuilder#OsVersion",
-          "traits": {
-            "smithy.api#documentation": "<p>\n      The operating system version of the instance. For example, Amazon Linux 2, Ubuntu 18, or\n      Microsoft Windows Server 2019. \n    </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image semantic version.</p>"
           }
         },
         "name": {
@@ -3376,22 +3360,34 @@
             "smithy.api#documentation": "<p>The name of the image semantic version.</p>"
           }
         },
+        "version": {
+          "target": "com.amazonaws.imagebuilder#VersionNumber",
+          "traits": {
+            "smithy.api#documentation": "<p>The semantic version of the image semantic version.</p>"
+          }
+        },
         "platform": {
           "target": "com.amazonaws.imagebuilder#Platform",
           "traits": {
             "smithy.api#documentation": "<p>The platform of the image semantic version.</p>"
           }
         },
-        "arn": {
-          "target": "com.amazonaws.imagebuilder#ImageBuilderArn",
+        "osVersion": {
+          "target": "com.amazonaws.imagebuilder#OsVersion",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image semantic version.</p>"
+            "smithy.api#documentation": "<p> The operating system version of the instance. For example, Amazon Linux 2, Ubuntu 18, or Microsoft Windows Server 2019. </p>"
           }
         },
-        "version": {
-          "target": "com.amazonaws.imagebuilder#VersionNumber",
+        "owner": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>The semantic version of the image semantic version.</p>"
+            "smithy.api#documentation": "<p>The owner of the image semantic version.</p>"
+          }
+        },
+        "dateCreated": {
+          "target": "com.amazonaws.imagebuilder#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date at which this image semantic version was created.</p>"
           }
         }
       },
@@ -3469,18 +3465,18 @@
     "com.amazonaws.imagebuilder#ImportComponentRequest": {
       "type": "structure",
       "members": {
-        "clientToken": {
-          "target": "com.amazonaws.imagebuilder#ClientToken",
+        "name": {
+          "target": "com.amazonaws.imagebuilder#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The idempotency token of the component. </p>",
-            "smithy.api#idempotencyToken": {},
+            "smithy.api#documentation": "<p> The name of the component. </p>",
             "smithy.api#required": {}
           }
         },
-        "tags": {
-          "target": "com.amazonaws.imagebuilder#TagMap",
+        "semanticVersion": {
+          "target": "com.amazonaws.imagebuilder#VersionNumber",
           "traits": {
-            "smithy.api#documentation": "<p>The tags of the component. </p>"
+            "smithy.api#documentation": "<p>The semantic version of the component. This version follows the semantic version syntax. For example, major.minor.patch. This could be versioned like software (2.0.1) or like a date (2019.12.01).</p>",
+            "smithy.api#required": {}
           }
         },
         "description": {
@@ -3489,10 +3485,23 @@
             "smithy.api#documentation": "<p>The description of the component. Describes the contents of the component. </p>"
           }
         },
+        "changeDescription": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The change description of the component. Describes what change has been made in this version, or what makes this version different from other versions of this component. </p>"
+          }
+        },
         "type": {
           "target": "com.amazonaws.imagebuilder#ComponentType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of the component denotes whether the component is used to build the image or only\n      to test it. </p>",
+            "smithy.api#documentation": "<p>The type of the component denotes whether the component is used to build the image or only to test it. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "format": {
+          "target": "com.amazonaws.imagebuilder#ComponentFormat",
+          "traits": {
+            "smithy.api#documentation": "<p>The format of the resource that you want to import as a component. </p>",
             "smithy.api#required": {}
           }
         },
@@ -3503,17 +3512,16 @@
             "smithy.api#required": {}
           }
         },
-        "name": {
-          "target": "com.amazonaws.imagebuilder#ResourceName",
+        "data": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p> The name of the component. </p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The data of the component. Used to specify the data inline. Either <code>data</code> or <code>uri</code> can be used to specify the data within the component.</p>"
           }
         },
         "uri": {
           "target": "com.amazonaws.imagebuilder#Uri",
           "traits": {
-            "smithy.api#documentation": "<p>The uri of the component. Must be an S3 URL and the requester must have permission to\n      access the S3 bucket. If you use S3, you can specify component content up to your service\n      quota. Either <code>data</code> or <code>uri</code> can be used to specify the data within the\n      component. </p>"
+            "smithy.api#documentation": "<p>The uri of the component. Must be an S3 URL and the requester must have permission to access the S3 bucket. If you use S3, you can specify component content up to your service quota. Either <code>data</code> or <code>uri</code> can be used to specify the data within the component. </p>"
           }
         },
         "kmsKeyId": {
@@ -3522,29 +3530,17 @@
             "smithy.api#documentation": "<p>The ID of the KMS key that should be used to encrypt this component. </p>"
           }
         },
-        "semanticVersion": {
-          "target": "com.amazonaws.imagebuilder#VersionNumber",
+        "tags": {
+          "target": "com.amazonaws.imagebuilder#TagMap",
           "traits": {
-            "smithy.api#documentation": "<p>The semantic version of the component. This version follows the semantic version syntax.\n      For example, major.minor.patch. This could be versioned like software (2.0.1) or like a date\n      (2019.12.01).</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The tags of the component. </p>"
           }
         },
-        "changeDescription": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+        "clientToken": {
+          "target": "com.amazonaws.imagebuilder#ClientToken",
           "traits": {
-            "smithy.api#documentation": "<p>The change description of the component. Describes what change has been made in this\n      version, or what makes this version different from other versions of this component. </p>"
-          }
-        },
-        "data": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The data of the component. Used to specify the data inline. Either <code>data</code> or\n        <code>uri</code> can be used to specify the data within the component.</p>"
-          }
-        },
-        "format": {
-          "target": "com.amazonaws.imagebuilder#ComponentFormat",
-          "traits": {
-            "smithy.api#documentation": "<p>The format of the resource that you want to import as a component. </p>",
+            "smithy.api#documentation": "<p>The idempotency token of the component. </p>",
+            "smithy.api#idempotencyToken": {},
             "smithy.api#required": {}
           }
         }
@@ -3553,10 +3549,10 @@
     "com.amazonaws.imagebuilder#ImportComponentResponse": {
       "type": "structure",
       "members": {
-        "componentBuildVersionArn": {
-          "target": "com.amazonaws.imagebuilder#ComponentBuildVersionArn",
+        "requestId": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the imported component. </p>"
+            "smithy.api#documentation": "<p>The request ID that uniquely identifies this request. </p>"
           }
         },
         "clientToken": {
@@ -3565,10 +3561,10 @@
             "smithy.api#documentation": "<p>The idempotency token used to make this request idempotent. </p>"
           }
         },
-        "requestId": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+        "componentBuildVersionArn": {
+          "target": "com.amazonaws.imagebuilder#ComponentBuildVersionArn",
           "traits": {
-            "smithy.api#documentation": "<p>The request ID that uniquely identifies this request. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the imported component. </p>"
           }
         }
       }
@@ -3576,28 +3572,28 @@
     "com.amazonaws.imagebuilder#InfrastructureConfiguration": {
       "type": "structure",
       "members": {
-        "resourceTags": {
-          "target": "com.amazonaws.imagebuilder#ResourceTagMap",
+        "arn": {
+          "target": "com.amazonaws.imagebuilder#ImageBuilderArn",
           "traits": {
-            "smithy.api#documentation": "<p>The tags attached to the resource created by Image Builder.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the infrastructure configuration.</p>"
           }
         },
-        "snsTopicArn": {
+        "name": {
+          "target": "com.amazonaws.imagebuilder#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the infrastructure configuration.</p>"
+          }
+        },
+        "description": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>The SNS topic Amazon Resource Name (ARN) of the infrastructure configuration.</p>"
+            "smithy.api#documentation": "<p>The description of the infrastructure configuration.</p>"
           }
         },
-        "terminateInstanceOnFailure": {
-          "target": "com.amazonaws.imagebuilder#NullableBoolean",
+        "instanceTypes": {
+          "target": "com.amazonaws.imagebuilder#InstanceTypeList",
           "traits": {
-            "smithy.api#documentation": "<p>The terminate instance on failure configuration of the infrastructure\n      configuration.</p>"
-          }
-        },
-        "dateCreated": {
-          "target": "com.amazonaws.imagebuilder#DateTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The date on which the infrastructure configuration was created.</p>"
+            "smithy.api#documentation": "<p>The instance types of the infrastructure configuration.</p>"
           }
         },
         "instanceProfileName": {
@@ -3612,34 +3608,10 @@
             "smithy.api#documentation": "<p>The security group IDs of the infrastructure configuration.</p>"
           }
         },
-        "description": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The description of the infrastructure configuration.</p>"
-          }
-        },
         "subnetId": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The subnet ID of the infrastructure configuration.</p>"
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.imagebuilder#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags of the infrastructure configuration.</p>"
-          }
-        },
-        "dateUpdated": {
-          "target": "com.amazonaws.imagebuilder#DateTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The date on which the infrastructure configuration was last updated.</p>"
-          }
-        },
-        "instanceTypes": {
-          "target": "com.amazonaws.imagebuilder#InstanceTypeList",
-          "traits": {
-            "smithy.api#documentation": "<p>The instance types of the infrastructure configuration.</p>"
           }
         },
         "logging": {
@@ -3654,16 +3626,40 @@
             "smithy.api#documentation": "<p>The EC2 key pair of the infrastructure configuration.</p>"
           }
         },
-        "arn": {
-          "target": "com.amazonaws.imagebuilder#ImageBuilderArn",
+        "terminateInstanceOnFailure": {
+          "target": "com.amazonaws.imagebuilder#NullableBoolean",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the infrastructure configuration.</p>"
+            "smithy.api#documentation": "<p>The terminate instance on failure configuration of the infrastructure configuration.</p>"
           }
         },
-        "name": {
-          "target": "com.amazonaws.imagebuilder#ResourceName",
+        "snsTopicArn": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the infrastructure configuration.</p>"
+            "smithy.api#documentation": "<p>The SNS topic Amazon Resource Name (ARN) of the infrastructure configuration.</p>"
+          }
+        },
+        "dateCreated": {
+          "target": "com.amazonaws.imagebuilder#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date on which the infrastructure configuration was created.</p>"
+          }
+        },
+        "dateUpdated": {
+          "target": "com.amazonaws.imagebuilder#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date on which the infrastructure configuration was last updated.</p>"
+          }
+        },
+        "resourceTags": {
+          "target": "com.amazonaws.imagebuilder#ResourceTagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags attached to the resource created by Image Builder.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.imagebuilder#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags of the infrastructure configuration.</p>"
           }
         }
       },
@@ -3680,16 +3676,10 @@
     "com.amazonaws.imagebuilder#InfrastructureConfigurationSummary": {
       "type": "structure",
       "members": {
-        "dateCreated": {
-          "target": "com.amazonaws.imagebuilder#DateTime",
+        "arn": {
+          "target": "com.amazonaws.imagebuilder#ImageBuilderArn",
           "traits": {
-            "smithy.api#documentation": "<p>The date on which the infrastructure configuration was created.</p>"
-          }
-        },
-        "resourceTags": {
-          "target": "com.amazonaws.imagebuilder#ResourceTagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags attached to the image created by Image Builder.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the infrastructure configuration.</p>"
           }
         },
         "name": {
@@ -3698,28 +3688,34 @@
             "smithy.api#documentation": "<p>The name of the infrastructure configuration.</p>"
           }
         },
-        "arn": {
-          "target": "com.amazonaws.imagebuilder#ImageBuilderArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the infrastructure configuration.</p>"
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.imagebuilder#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags of the infrastructure configuration.</p>"
-          }
-        },
         "description": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The description of the infrastructure configuration.</p>"
           }
         },
+        "dateCreated": {
+          "target": "com.amazonaws.imagebuilder#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date on which the infrastructure configuration was created.</p>"
+          }
+        },
         "dateUpdated": {
           "target": "com.amazonaws.imagebuilder#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The date on which the infrastructure configuration was last updated.</p>"
+          }
+        },
+        "resourceTags": {
+          "target": "com.amazonaws.imagebuilder#ResourceTagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags attached to the image created by Image Builder.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.imagebuilder#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags of the infrastructure configuration.</p>"
           }
         }
       },
@@ -3745,10 +3741,10 @@
     "com.amazonaws.imagebuilder#InstanceBlockDeviceMapping": {
       "type": "structure",
       "members": {
-        "virtualName": {
+        "deviceName": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>Use to manage instance ephemeral devices.</p>"
+            "smithy.api#documentation": "<p>The device to which these mappings apply.</p>"
           }
         },
         "ebs": {
@@ -3757,16 +3753,16 @@
             "smithy.api#documentation": "<p>Use to manage Amazon EBS-specific configuration for this mapping.</p>"
           }
         },
+        "virtualName": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>Use to manage instance ephemeral devices.</p>"
+          }
+        },
         "noDevice": {
           "target": "com.amazonaws.imagebuilder#EmptyString",
           "traits": {
             "smithy.api#documentation": "<p>Use to remove a mapping from the parent image.</p>"
-          }
-        },
-        "deviceName": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The device to which these mappings apply.</p>"
           }
         }
       },
@@ -3810,7 +3806,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>You have specified two or more mutually exclusive parameters. Review the error message for\n      details.</p>",
+        "smithy.api#documentation": "<p>You have specified two or more mutually exclusive parameters. Review the error message for details.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -3823,7 +3819,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The specified parameter is invalid. Review the available parameters for the API\n      request.</p>",
+        "smithy.api#documentation": "<p>The specified parameter is invalid. Review the available parameters for the API request.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -3870,21 +3866,21 @@
     "com.amazonaws.imagebuilder#LaunchPermissionConfiguration": {
       "type": "structure",
       "members": {
-        "userGroups": {
-          "target": "com.amazonaws.imagebuilder#StringList",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the group. </p>"
-          }
-        },
         "userIds": {
           "target": "com.amazonaws.imagebuilder#AccountList",
           "traits": {
             "smithy.api#documentation": "<p>The AWS account ID. </p>"
           }
+        },
+        "userGroups": {
+          "target": "com.amazonaws.imagebuilder#StringList",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the group. </p>"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the configuration for a launch permission. The launch permission modification\n      request is sent to the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html\">EC2 ModifyImageAttribute</a> API on behalf of the user for each Region they have\n      selected to distribute the AMI. To make an AMI public, set the launch permission authorized accounts to <code>all</code>. See the examples for making an AMI public at <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html\">EC2 ModifyImageAttribute</a>. </p>"
+        "smithy.api#documentation": "<p>Describes the configuration for a launch permission. The launch permission modification request is sent to the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html\">EC2 ModifyImageAttribute</a> API on behalf of the user for each Region they have selected to distribute the AMI. To make an AMI public, set the launch permission authorized accounts to <code>all</code>. See the examples for making an AMI public at <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html\">EC2 ModifyImageAttribute</a>. </p>"
       }
     },
     "com.amazonaws.imagebuilder#LicenseConfigurationArn": {
@@ -3942,23 +3938,12 @@
           "method": "POST",
           "uri": "/ListComponentBuildVersions",
           "code": 200
-        },
-        "smithy.api#paginated": {
-          "inputToken": "nextToken",
-          "outputToken": "nextToken",
-          "pageSize": "maxResults"
         }
       }
     },
     "com.amazonaws.imagebuilder#ListComponentBuildVersionsRequest": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.imagebuilder#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A token to specify where to start paginating. This is the NextToken from a previously\n      truncated response. </p>"
-          }
-        },
         "componentVersionArn": {
           "target": "com.amazonaws.imagebuilder#ComponentVersionArn",
           "traits": {
@@ -3972,28 +3957,34 @@
             "smithy.api#box": {},
             "smithy.api#documentation": "<p>The maximum items to return in a request. </p>"
           }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.imagebuilder#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A token to specify where to start paginating. This is the NextToken from a previously truncated response. </p>"
+          }
         }
       }
     },
     "com.amazonaws.imagebuilder#ListComponentBuildVersionsResponse": {
       "type": "structure",
       "members": {
-        "componentSummaryList": {
-          "target": "com.amazonaws.imagebuilder#ComponentSummaryList",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of component summaries for the specified semantic version. </p>"
-          }
-        },
         "requestId": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The request ID that uniquely identifies this request. </p>"
           }
         },
+        "componentSummaryList": {
+          "target": "com.amazonaws.imagebuilder#ComponentSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of component summaries for the specified semantic version. </p>"
+          }
+        },
         "nextToken": {
           "target": "com.amazonaws.imagebuilder#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>The next token used for paginated responses. When this is not empty, there are additional\n      elements that the service has not included in this request. Use this token with the next\n      request to retrieve additional objects. </p>"
+            "smithy.api#documentation": "<p>The next token used for paginated responses. When this is not empty, there are additional elements that the service has not included in this request. Use this token with the next request to retrieve additional objects. </p>"
           }
         }
       }
@@ -4035,33 +4026,22 @@
           "method": "POST",
           "uri": "/ListComponents",
           "code": 200
-        },
-        "smithy.api#paginated": {
-          "inputToken": "nextToken",
-          "outputToken": "nextToken",
-          "pageSize": "maxResults"
         }
       }
     },
     "com.amazonaws.imagebuilder#ListComponentsRequest": {
       "type": "structure",
       "members": {
+        "owner": {
+          "target": "com.amazonaws.imagebuilder#Ownership",
+          "traits": {
+            "smithy.api#documentation": "<p>The owner defines which components you want to list. By default, this request will only show components owned by your account. You can use this field to specify if you want to view components owned by yourself, by Amazon, or those components that have been shared with you by other customers. </p>"
+          }
+        },
         "filters": {
           "target": "com.amazonaws.imagebuilder#FilterList",
           "traits": {
             "smithy.api#documentation": "<p>The filters. </p>"
-          }
-        },
-        "owner": {
-          "target": "com.amazonaws.imagebuilder#Ownership",
-          "traits": {
-            "smithy.api#documentation": "<p>The owner defines which components you want to list. By default, this request will only\n      show components owned by your account. You can use this field to specify if you want to view\n      components owned by yourself, by Amazon, or those components that have been shared with you by\n      other customers. </p>"
-          }
-        },
-        "nextToken": {
-          "target": "com.amazonaws.imagebuilder#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A token to specify where to start paginating. This is the NextToken from a previously\n      truncated response. </p>"
           }
         },
         "maxResults": {
@@ -4069,6 +4049,12 @@
           "traits": {
             "smithy.api#box": {},
             "smithy.api#documentation": "<p>The maximum items to return in a request. </p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.imagebuilder#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A token to specify where to start paginating. This is the NextToken from a previously truncated response. </p>"
           }
         }
       }
@@ -4091,7 +4077,7 @@
         "nextToken": {
           "target": "com.amazonaws.imagebuilder#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>The next token used for paginated responses. When this is not empty, there are additional\n      elements that the service has not included in this request. Use this token with the next\n      request to retrieve additional objects. </p>"
+            "smithy.api#documentation": "<p>The next token used for paginated responses. When this is not empty, there are additional elements that the service has not included in this request. Use this token with the next request to retrieve additional objects. </p>"
           }
         }
       }
@@ -4133,21 +4119,16 @@
           "method": "POST",
           "uri": "/ListDistributionConfigurations",
           "code": 200
-        },
-        "smithy.api#paginated": {
-          "inputToken": "nextToken",
-          "outputToken": "nextToken",
-          "pageSize": "maxResults"
         }
       }
     },
     "com.amazonaws.imagebuilder#ListDistributionConfigurationsRequest": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.imagebuilder#PaginationToken",
+        "filters": {
+          "target": "com.amazonaws.imagebuilder#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>A token to specify where to start paginating. This is the NextToken from a previously\n      truncated response. </p>"
+            "smithy.api#documentation": "<p>The filters. </p> <ul> <li> <p> <code>name</code> - The name of this distribution configuration.</p> </li> </ul>"
           }
         },
         "maxResults": {
@@ -4157,10 +4138,10 @@
             "smithy.api#documentation": "<p>The maximum items to return in a request. </p>"
           }
         },
-        "filters": {
-          "target": "com.amazonaws.imagebuilder#FilterList",
+        "nextToken": {
+          "target": "com.amazonaws.imagebuilder#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>The filters. </p>\n         <ul>\n            <li>\n               <p>\n                  <code>name</code> - The name of this distribution configuration.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>A token to specify where to start paginating. This is the NextToken from a previously truncated response. </p>"
           }
         }
       }
@@ -4168,22 +4149,22 @@
     "com.amazonaws.imagebuilder#ListDistributionConfigurationsResponse": {
       "type": "structure",
       "members": {
-        "distributionConfigurationSummaryList": {
-          "target": "com.amazonaws.imagebuilder#DistributionConfigurationSummaryList",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of distributions. </p>"
-          }
-        },
         "requestId": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The request ID that uniquely identifies this request. </p>"
           }
         },
+        "distributionConfigurationSummaryList": {
+          "target": "com.amazonaws.imagebuilder#DistributionConfigurationSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of distributions. </p>"
+          }
+        },
         "nextToken": {
           "target": "com.amazonaws.imagebuilder#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>The next token used for paginated responses. When this is not empty, there are additional\n      elements that the service has not included in this request. Use this token with the next\n      request to retrieve additional objects. </p>"
+            "smithy.api#documentation": "<p>The next token used for paginated responses. When this is not empty, there are additional elements that the service has not included in this request. Use this token with the next request to retrieve additional objects. </p>"
           }
         }
       }
@@ -4225,21 +4206,23 @@
           "method": "POST",
           "uri": "/ListImageBuildVersions",
           "code": 200
-        },
-        "smithy.api#paginated": {
-          "inputToken": "nextToken",
-          "outputToken": "nextToken",
-          "pageSize": "maxResults"
         }
       }
     },
     "com.amazonaws.imagebuilder#ListImageBuildVersionsRequest": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.imagebuilder#PaginationToken",
+        "imageVersionArn": {
+          "target": "com.amazonaws.imagebuilder#ImageVersionArn",
           "traits": {
-            "smithy.api#documentation": "<p>A token to specify where to start paginating. This is the NextToken from a previously\n      truncated response. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image whose build versions you want to retrieve. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "filters": {
+          "target": "com.amazonaws.imagebuilder#FilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>The filters. </p>"
           }
         },
         "maxResults": {
@@ -4249,17 +4232,10 @@
             "smithy.api#documentation": "<p>The maximum items to return in a request. </p>"
           }
         },
-        "filters": {
-          "target": "com.amazonaws.imagebuilder#FilterList",
+        "nextToken": {
+          "target": "com.amazonaws.imagebuilder#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>The filters. </p>"
-          }
-        },
-        "imageVersionArn": {
-          "target": "com.amazonaws.imagebuilder#ImageVersionArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image whose build versions you want to retrieve. </p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>A token to specify where to start paginating. This is the NextToken from a previously truncated response. </p>"
           }
         }
       }
@@ -4267,12 +4243,6 @@
     "com.amazonaws.imagebuilder#ListImageBuildVersionsResponse": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.imagebuilder#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The next token used for paginated responses. When this is not empty, there are additional\n      elements that the service has not included in this request. Use this token with the next\n      request to retrieve additional objects. </p>"
-          }
-        },
         "requestId": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
@@ -4283,6 +4253,12 @@
           "target": "com.amazonaws.imagebuilder#ImageSummaryList",
           "traits": {
             "smithy.api#documentation": "<p>The list of image build versions. </p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.imagebuilder#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The next token used for paginated responses. When this is not empty, there are additional elements that the service has not included in this request. Use this token with the next request to retrieve additional objects. </p>"
           }
         }
       }
@@ -4327,27 +4303,23 @@
           "method": "POST",
           "uri": "/ListImagePipelineImages",
           "code": 200
-        },
-        "smithy.api#paginated": {
-          "inputToken": "nextToken",
-          "outputToken": "nextToken",
-          "pageSize": "maxResults"
         }
       }
     },
     "com.amazonaws.imagebuilder#ListImagePipelineImagesRequest": {
       "type": "structure",
       "members": {
+        "imagePipelineArn": {
+          "target": "com.amazonaws.imagebuilder#ImagePipelineArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image pipeline whose images you want to view. </p>",
+            "smithy.api#required": {}
+          }
+        },
         "filters": {
           "target": "com.amazonaws.imagebuilder#FilterList",
           "traits": {
             "smithy.api#documentation": "<p>The filters. </p>"
-          }
-        },
-        "nextToken": {
-          "target": "com.amazonaws.imagebuilder#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A token to specify where to start paginating. This is the NextToken from a previously\n      truncated response. </p>"
           }
         },
         "maxResults": {
@@ -4357,11 +4329,10 @@
             "smithy.api#documentation": "<p>The maximum items to return in a request. </p>"
           }
         },
-        "imagePipelineArn": {
-          "target": "com.amazonaws.imagebuilder#ImagePipelineArn",
+        "nextToken": {
+          "target": "com.amazonaws.imagebuilder#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image pipeline whose images you want to view. </p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>A token to specify where to start paginating. This is the NextToken from a previously truncated response. </p>"
           }
         }
       }
@@ -4375,16 +4346,16 @@
             "smithy.api#documentation": "<p>The request ID that uniquely identifies this request. </p>"
           }
         },
-        "nextToken": {
-          "target": "com.amazonaws.imagebuilder#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The next token used for paginated responses. When this is not empty, there are additional\n      elements that the service has not included in this request. Use this token with the next\n      request to retrieve additional objects. </p>"
-          }
-        },
         "imageSummaryList": {
           "target": "com.amazonaws.imagebuilder#ImageSummaryList",
           "traits": {
             "smithy.api#documentation": "<p>The list of images built by this pipeline. </p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.imagebuilder#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The next token used for paginated responses. When this is not empty, there are additional elements that the service has not included in this request. Use this token with the next request to retrieve additional objects. </p>"
           }
         }
       }
@@ -4426,17 +4397,18 @@
           "method": "POST",
           "uri": "/ListImagePipelines",
           "code": 200
-        },
-        "smithy.api#paginated": {
-          "inputToken": "nextToken",
-          "outputToken": "nextToken",
-          "pageSize": "maxResults"
         }
       }
     },
     "com.amazonaws.imagebuilder#ListImagePipelinesRequest": {
       "type": "structure",
       "members": {
+        "filters": {
+          "target": "com.amazonaws.imagebuilder#FilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>The filters. </p>"
+          }
+        },
         "maxResults": {
           "target": "com.amazonaws.imagebuilder#RestrictedInteger",
           "traits": {
@@ -4444,16 +4416,10 @@
             "smithy.api#documentation": "<p>The maximum items to return in a request. </p>"
           }
         },
-        "filters": {
-          "target": "com.amazonaws.imagebuilder#FilterList",
-          "traits": {
-            "smithy.api#documentation": "<p>The filters. </p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.imagebuilder#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>A token to specify where to start paginating. This is the NextToken from a previously\n      truncated response. </p>"
+            "smithy.api#documentation": "<p>A token to specify where to start paginating. This is the NextToken from a previously truncated response. </p>"
           }
         }
       }
@@ -4461,22 +4427,22 @@
     "com.amazonaws.imagebuilder#ListImagePipelinesResponse": {
       "type": "structure",
       "members": {
-        "imagePipelineList": {
-          "target": "com.amazonaws.imagebuilder#ImagePipelineList",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of image pipelines. </p>"
-          }
-        },
         "requestId": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The request ID that uniquely identifies this request. </p>"
           }
         },
+        "imagePipelineList": {
+          "target": "com.amazonaws.imagebuilder#ImagePipelineList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of image pipelines. </p>"
+          }
+        },
         "nextToken": {
           "target": "com.amazonaws.imagebuilder#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>The next token used for paginated responses. When this is not empty, there are additional\n      elements that the service has not included in this request. Use this token with the next\n      request to retrieve additional objects. </p>"
+            "smithy.api#documentation": "<p>The next token used for paginated responses. When this is not empty, there are additional elements that the service has not included in this request. Use this token with the next request to retrieve additional objects. </p>"
           }
         }
       }
@@ -4518,33 +4484,22 @@
           "method": "POST",
           "uri": "/ListImageRecipes",
           "code": 200
-        },
-        "smithy.api#paginated": {
-          "inputToken": "nextToken",
-          "outputToken": "nextToken",
-          "pageSize": "maxResults"
         }
       }
     },
     "com.amazonaws.imagebuilder#ListImageRecipesRequest": {
       "type": "structure",
       "members": {
+        "owner": {
+          "target": "com.amazonaws.imagebuilder#Ownership",
+          "traits": {
+            "smithy.api#documentation": "<p>The owner defines which image recipes you want to list. By default, this request will only show image recipes owned by your account. You can use this field to specify if you want to view image recipes owned by yourself, by Amazon, or those image recipes that have been shared with you by other customers. </p>"
+          }
+        },
         "filters": {
           "target": "com.amazonaws.imagebuilder#FilterList",
           "traits": {
             "smithy.api#documentation": "<p>The filters. </p>"
-          }
-        },
-        "owner": {
-          "target": "com.amazonaws.imagebuilder#Ownership",
-          "traits": {
-            "smithy.api#documentation": "<p>The owner defines which image recipes you want to list. By default, this request will only\n      show image recipes owned by your account. You can use this field to specify if you want to\n      view image recipes owned by yourself, by Amazon, or those image recipes that have been shared\n      with you by other customers. </p>"
-          }
-        },
-        "nextToken": {
-          "target": "com.amazonaws.imagebuilder#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A token to specify where to start paginating. This is the NextToken from a previously\n      truncated response. </p>"
           }
         },
         "maxResults": {
@@ -4553,28 +4508,34 @@
             "smithy.api#box": {},
             "smithy.api#documentation": "<p>The maximum items to return in a request. </p>"
           }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.imagebuilder#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A token to specify where to start paginating. This is the NextToken from a previously truncated response. </p>"
+          }
         }
       }
     },
     "com.amazonaws.imagebuilder#ListImageRecipesResponse": {
       "type": "structure",
       "members": {
-        "imageRecipeSummaryList": {
-          "target": "com.amazonaws.imagebuilder#ImageRecipeSummaryList",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of image pipelines. </p>"
-          }
-        },
         "requestId": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The request ID that uniquely identifies this request. </p>"
           }
         },
+        "imageRecipeSummaryList": {
+          "target": "com.amazonaws.imagebuilder#ImageRecipeSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of image pipelines. </p>"
+          }
+        },
         "nextToken": {
           "target": "com.amazonaws.imagebuilder#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>The next token used for paginated responses. When this is not empty, there are additional\n      elements that the service has not included in this request. Use this token with the next\n      request to retrieve additional objects. </p>"
+            "smithy.api#documentation": "<p>The next token used for paginated responses. When this is not empty, there are additional elements that the service has not included in this request. Use this token with the next request to retrieve additional objects. </p>"
           }
         }
       }
@@ -4616,22 +4577,16 @@
           "method": "POST",
           "uri": "/ListImages",
           "code": 200
-        },
-        "smithy.api#paginated": {
-          "inputToken": "nextToken",
-          "outputToken": "nextToken",
-          "pageSize": "maxResults"
         }
       }
     },
     "com.amazonaws.imagebuilder#ListImagesRequest": {
       "type": "structure",
       "members": {
-        "maxResults": {
-          "target": "com.amazonaws.imagebuilder#RestrictedInteger",
+        "owner": {
+          "target": "com.amazonaws.imagebuilder#Ownership",
           "traits": {
-            "smithy.api#box": {},
-            "smithy.api#documentation": "<p>The maximum items to return in a request. </p>"
+            "smithy.api#documentation": "<p>The owner defines which images you want to list. By default, this request will only show images owned by your account. You can use this field to specify if you want to view images owned by yourself, by Amazon, or those images that have been shared with you by other customers. </p>"
           }
         },
         "filters": {
@@ -4640,16 +4595,17 @@
             "smithy.api#documentation": "<p>The filters. </p>"
           }
         },
+        "maxResults": {
+          "target": "com.amazonaws.imagebuilder#RestrictedInteger",
+          "traits": {
+            "smithy.api#box": {},
+            "smithy.api#documentation": "<p>The maximum items to return in a request. </p>"
+          }
+        },
         "nextToken": {
           "target": "com.amazonaws.imagebuilder#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>A token to specify where to start paginating. This is the NextToken from a previously\n      truncated response. </p>"
-          }
-        },
-        "owner": {
-          "target": "com.amazonaws.imagebuilder#Ownership",
-          "traits": {
-            "smithy.api#documentation": "<p>The owner defines which images you want to list. By default, this request will only show\n      images owned by your account. You can use this field to specify if you want to view images\n      owned by yourself, by Amazon, or those images that have been shared with you by other\n      customers. </p>"
+            "smithy.api#documentation": "<p>A token to specify where to start paginating. This is the NextToken from a previously truncated response. </p>"
           }
         }
       }
@@ -4657,22 +4613,22 @@
     "com.amazonaws.imagebuilder#ListImagesResponse": {
       "type": "structure",
       "members": {
-        "imageVersionList": {
-          "target": "com.amazonaws.imagebuilder#ImageVersionList",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of image semantic versions. </p>"
-          }
-        },
         "requestId": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The request ID that uniquely identifies this request. </p>"
           }
         },
+        "imageVersionList": {
+          "target": "com.amazonaws.imagebuilder#ImageVersionList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of image semantic versions. </p>"
+          }
+        },
         "nextToken": {
           "target": "com.amazonaws.imagebuilder#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>The next token used for paginated responses. When this is not empty, there are additional\n      elements that the service has not included in this request. Use this token with the next\n      request to retrieve additional objects. </p>"
+            "smithy.api#documentation": "<p>The next token used for paginated responses. When this is not empty, there are additional elements that the service has not included in this request. Use this token with the next request to retrieve additional objects. </p>"
           }
         }
       }
@@ -4714,21 +4670,16 @@
           "method": "POST",
           "uri": "/ListInfrastructureConfigurations",
           "code": 200
-        },
-        "smithy.api#paginated": {
-          "inputToken": "nextToken",
-          "outputToken": "nextToken",
-          "pageSize": "maxResults"
         }
       }
     },
     "com.amazonaws.imagebuilder#ListInfrastructureConfigurationsRequest": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.imagebuilder#PaginationToken",
+        "filters": {
+          "target": "com.amazonaws.imagebuilder#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>A token to specify where to start paginating. This is the NextToken from a previously\n      truncated response. </p>"
+            "smithy.api#documentation": "<p>The filters. </p>"
           }
         },
         "maxResults": {
@@ -4738,10 +4689,10 @@
             "smithy.api#documentation": "<p>The maximum items to return in a request. </p>"
           }
         },
-        "filters": {
-          "target": "com.amazonaws.imagebuilder#FilterList",
+        "nextToken": {
+          "target": "com.amazonaws.imagebuilder#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>The filters. </p>"
+            "smithy.api#documentation": "<p>A token to specify where to start paginating. This is the NextToken from a previously truncated response. </p>"
           }
         }
       }
@@ -4749,12 +4700,6 @@
     "com.amazonaws.imagebuilder#ListInfrastructureConfigurationsResponse": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.imagebuilder#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The next token used for paginated responses. When this is not empty, there are additional\n      elements that the service has not included in this request. Use this token with the next\n      request to retrieve additional objects.</p>"
-          }
-        },
         "requestId": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
@@ -4765,6 +4710,12 @@
           "target": "com.amazonaws.imagebuilder#InfrastructureConfigurationSummaryList",
           "traits": {
             "smithy.api#documentation": "<p>The list of infrastructure configurations. </p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.imagebuilder#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The next token used for paginated responses. When this is not empty, there are additional elements that the service has not included in this request. Use this token with the next request to retrieve additional objects.</p>"
           }
         }
       }
@@ -4845,10 +4796,7 @@
       }
     },
     "com.amazonaws.imagebuilder#NullableBoolean": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.imagebuilder#OsVersion": {
       "type": "string",
@@ -4890,15 +4838,15 @@
         "smithy.api#enum": [
           {
             "value": "Self",
-            "name": "SELF"
+            "name": "Self"
           },
           {
             "value": "Shared",
-            "name": "SHARED"
+            "name": "Shared"
           },
           {
             "value": "Amazon",
-            "name": "AMAZON"
+            "name": "Amazon"
           }
         ]
       }
@@ -4948,11 +4896,11 @@
         "smithy.api#enum": [
           {
             "value": "Windows",
-            "name": "WINDOWS"
+            "name": "Windows"
           },
           {
             "value": "Linux",
-            "name": "LINUX"
+            "name": "Linux"
           }
         ]
       }
@@ -4992,7 +4940,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p> Applies a policy to a component. We recommend that you call the RAM API <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html\">CreateResourceShare</a> to share resources. If you call the Image Builder API\n        <code>PutComponentPolicy</code>, you must also call the RAM API <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html\">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to\n      all principals with whom the resource is shared. </p>",
+        "smithy.api#documentation": "<p> Applies a policy to a component. We recommend that you call the RAM API <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html\">CreateResourceShare</a> to share resources. If you call the Image Builder API <code>PutComponentPolicy</code>, you must also call the RAM API <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html\">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to all principals with whom the resource is shared. </p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/PutComponentPolicy",
@@ -5003,17 +4951,17 @@
     "com.amazonaws.imagebuilder#PutComponentPolicyRequest": {
       "type": "structure",
       "members": {
-        "policy": {
-          "target": "com.amazonaws.imagebuilder#ResourcePolicyDocument",
-          "traits": {
-            "smithy.api#documentation": "<p>The policy to apply. </p>",
-            "smithy.api#required": {}
-          }
-        },
         "componentArn": {
           "target": "com.amazonaws.imagebuilder#ComponentBuildVersionArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the component that this policy should be applied to. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "policy": {
+          "target": "com.amazonaws.imagebuilder#ResourcePolicyDocument",
+          "traits": {
+            "smithy.api#documentation": "<p>The policy to apply. </p>",
             "smithy.api#required": {}
           }
         }
@@ -5071,7 +5019,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Applies a policy to an image. We recommend that you call the RAM API <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html\">CreateResourceShare</a> to share resources. If you call the Image Builder API\n        <code>PutImagePolicy</code>, you must also call the RAM API <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html\">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to\n      all principals with whom the resource is shared. </p>",
+        "smithy.api#documentation": "<p>Applies a policy to an image. We recommend that you call the RAM API <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html\">CreateResourceShare</a> to share resources. If you call the Image Builder API <code>PutImagePolicy</code>, you must also call the RAM API <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html\">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to all principals with whom the resource is shared. </p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/PutImagePolicy",
@@ -5150,7 +5098,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p> Applies a policy to an image recipe. We recommend that you call the RAM API <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html\">CreateResourceShare</a> to share resources. If you call the Image Builder API\n        <code>PutImageRecipePolicy</code>, you must also call the RAM API <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html\">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to\n      all principals with whom the resource is shared. </p>",
+        "smithy.api#documentation": "<p> Applies a policy to an image recipe. We recommend that you call the RAM API <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html\">CreateResourceShare</a> to share resources. If you call the Image Builder API <code>PutImageRecipePolicy</code>, you must also call the RAM API <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html\">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to all principals with whom the resource is shared. </p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/PutImageRecipePolicy",
@@ -5180,16 +5128,16 @@
     "com.amazonaws.imagebuilder#PutImageRecipePolicyResponse": {
       "type": "structure",
       "members": {
-        "imageRecipeArn": {
-          "target": "com.amazonaws.imagebuilder#ImageRecipeArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image recipe that this policy was applied to. </p>"
-          }
-        },
         "requestId": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The request ID that uniquely identifies this request. </p>"
+          }
+        },
+        "imageRecipeArn": {
+          "target": "com.amazonaws.imagebuilder#ImageRecipeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image recipe that this policy was applied to. </p>"
           }
         }
       }
@@ -5215,7 +5163,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>You have attempted to mutate or delete a resource with a dependency that prohibits this\n      action. See the error message for more details.</p>",
+        "smithy.api#documentation": "<p>You have attempted to mutate or delete a resource with a dependency that prohibits this action. See the error message for more details.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -5228,7 +5176,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The resource that you are trying to operate on is currently in use. Review the message\n      details and retry later.</p>",
+        "smithy.api#documentation": "<p>The resource that you are trying to operate on is currently in use. Review the message details and retry later.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -5308,16 +5256,16 @@
     "com.amazonaws.imagebuilder#Schedule": {
       "type": "structure",
       "members": {
-        "pipelineExecutionStartCondition": {
-          "target": "com.amazonaws.imagebuilder#PipelineExecutionStartCondition",
-          "traits": {
-            "smithy.api#documentation": "<p>The condition configures when the pipeline should trigger a new image build. When the\n        <code>pipelineExecutionStartCondition</code> is set to\n        <code>EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE</code>, and you use semantic version\n      filters on the source image or components in your image recipe, EC2 Image Builder will build a\n      new image only when there are new versions of the image or components in your recipe that\n      match the semantic version filter. When it is set to <code>EXPRESSION_MATCH_ONLY</code>, it\n      will build a new image every time the CRON expression matches the current time. For semantic\n      version syntax, see <a href=\"https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html\">CreateComponent</a> in the <i> EC2 Image Builder API\n      Reference</i>.</p>"
-          }
-        },
         "scheduleExpression": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>The cron expression determines how often EC2 Image Builder evaluates your\n        <code>pipelineExecutionStartCondition</code>.</p>\n         <p>For information on how to format a cron expression in Image Builder, see <a href=\"https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-cron.html\">Use cron\n        expressions in EC2 Image Builder</a>.</p>"
+            "smithy.api#documentation": "<p>The cron expression determines how often EC2 Image Builder evaluates your <code>pipelineExecutionStartCondition</code>.</p> <p>For information on how to format a cron expression in Image Builder, see <a href=\"https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-cron.html\">Use cron expressions in EC2 Image Builder</a>.</p>"
+          }
+        },
+        "pipelineExecutionStartCondition": {
+          "target": "com.amazonaws.imagebuilder#PipelineExecutionStartCondition",
+          "traits": {
+            "smithy.api#documentation": "<p>The condition configures when the pipeline should trigger a new image build. When the <code>pipelineExecutionStartCondition</code> is set to <code>EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE</code>, and you use semantic version filters on the source image or components in your image recipe, EC2 Image Builder will build a new image only when there are new versions of the image or components in your recipe that match the semantic version filter. When it is set to <code>EXPRESSION_MATCH_ONLY</code>, it will build a new image every time the CRON expression matches the current time. For semantic version syntax, see <a href=\"https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html\">CreateComponent</a> in the <i> EC2 Image Builder API Reference</i>.</p>"
           }
         }
       },
@@ -5425,18 +5373,18 @@
     "com.amazonaws.imagebuilder#StartImagePipelineExecutionRequest": {
       "type": "structure",
       "members": {
+        "imagePipelineArn": {
+          "target": "com.amazonaws.imagebuilder#ImagePipelineArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image pipeline that you want to manually invoke. </p>",
+            "smithy.api#required": {}
+          }
+        },
         "clientToken": {
           "target": "com.amazonaws.imagebuilder#ClientToken",
           "traits": {
             "smithy.api#documentation": "<p>The idempotency token used to make this request idempotent. </p>",
             "smithy.api#idempotencyToken": {},
-            "smithy.api#required": {}
-          }
-        },
-        "imagePipelineArn": {
-          "target": "com.amazonaws.imagebuilder#ImagePipelineArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image pipeline that you want to manually invoke. </p>",
             "smithy.api#required": {}
           }
         }
@@ -5445,12 +5393,6 @@
     "com.amazonaws.imagebuilder#StartImagePipelineExecutionResponse": {
       "type": "structure",
       "members": {
-        "imageBuildVersionArn": {
-          "target": "com.amazonaws.imagebuilder#ImageBuildVersionArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image that was created by this request.</p>"
-          }
-        },
         "requestId": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
@@ -5461,6 +5403,12 @@
           "target": "com.amazonaws.imagebuilder#ClientToken",
           "traits": {
             "smithy.api#documentation": "<p>The idempotency token used to make this request idempotent.</p>"
+          }
+        },
+        "imageBuildVersionArn": {
+          "target": "com.amazonaws.imagebuilder#ImageBuildVersionArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image that was created by this request.</p>"
           }
         }
       }
@@ -5539,18 +5487,18 @@
     "com.amazonaws.imagebuilder#TagResourceRequest": {
       "type": "structure",
       "members": {
-        "tags": {
-          "target": "com.amazonaws.imagebuilder#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags to apply to the resource. </p>",
-            "smithy.api#required": {}
-          }
-        },
         "resourceArn": {
           "target": "com.amazonaws.imagebuilder#ImageBuilderArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource that you want to tag. </p>",
             "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.imagebuilder#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to apply to the resource. </p>",
             "smithy.api#required": {}
           }
         }
@@ -5660,7 +5608,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p> Updates a new distribution configuration. Distribution configurations define and\n      configure the outputs of your pipeline. </p>",
+        "smithy.api#documentation": "<p> Updates a new distribution configuration. Distribution configurations define and configure the outputs of your pipeline. </p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/UpdateDistributionConfiguration",
@@ -5671,10 +5619,24 @@
     "com.amazonaws.imagebuilder#UpdateDistributionConfigurationRequest": {
       "type": "structure",
       "members": {
+        "distributionConfigurationArn": {
+          "target": "com.amazonaws.imagebuilder#DistributionConfigurationArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the distribution configuration that you want to update. </p>",
+            "smithy.api#required": {}
+          }
+        },
         "description": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The description of the distribution configuration. </p>"
+          }
+        },
+        "distributions": {
+          "target": "com.amazonaws.imagebuilder#DistributionList",
+          "traits": {
+            "smithy.api#documentation": "<p>The distributions of the distribution configuration. </p>",
+            "smithy.api#required": {}
           }
         },
         "clientToken": {
@@ -5684,42 +5646,28 @@
             "smithy.api#idempotencyToken": {},
             "smithy.api#required": {}
           }
-        },
-        "distributionConfigurationArn": {
-          "target": "com.amazonaws.imagebuilder#DistributionConfigurationArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the distribution configuration that you want to update. </p>",
-            "smithy.api#required": {}
-          }
-        },
-        "distributions": {
-          "target": "com.amazonaws.imagebuilder#DistributionList",
-          "traits": {
-            "smithy.api#documentation": "<p>The distributions of the distribution configuration. </p>",
-            "smithy.api#required": {}
-          }
         }
       }
     },
     "com.amazonaws.imagebuilder#UpdateDistributionConfigurationResponse": {
       "type": "structure",
       "members": {
-        "clientToken": {
-          "target": "com.amazonaws.imagebuilder#ClientToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The idempotency token used to make this request idempotent. </p>"
-          }
-        },
         "requestId": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The request ID that uniquely identifies this request. </p>"
           }
         },
+        "clientToken": {
+          "target": "com.amazonaws.imagebuilder#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The idempotency token used to make this request idempotent. </p>"
+          }
+        },
         "distributionConfigurationArn": {
           "target": "com.amazonaws.imagebuilder#DistributionConfigurationArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the distribution configuration that was updated by this\n      request. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the distribution configuration that was updated by this request. </p>"
           }
         }
       }
@@ -5759,7 +5707,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p> Updates a new image pipeline. Image pipelines enable you to automate the creation and\n      distribution of images. </p>",
+        "smithy.api#documentation": "<p> Updates a new image pipeline. Image pipelines enable you to automate the creation and distribution of images. </p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/UpdateImagePipeline",
@@ -5770,17 +5718,61 @@
     "com.amazonaws.imagebuilder#UpdateImagePipelineRequest": {
       "type": "structure",
       "members": {
+        "imagePipelineArn": {
+          "target": "com.amazonaws.imagebuilder#ImagePipelineArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image pipeline that you want to update. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the image pipeline. </p>"
+          }
+        },
+        "imageRecipeArn": {
+          "target": "com.amazonaws.imagebuilder#ImageRecipeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image recipe that will be used to configure images updated by this image pipeline. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "infrastructureConfigurationArn": {
+          "target": "com.amazonaws.imagebuilder#InfrastructureConfigurationArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the infrastructure configuration that will be used to build images updated by this image pipeline. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "distributionConfigurationArn": {
+          "target": "com.amazonaws.imagebuilder#DistributionConfigurationArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the distribution configuration that will be used to configure and distribute images updated by this image pipeline. </p>"
+          }
+        },
         "imageTestsConfiguration": {
           "target": "com.amazonaws.imagebuilder#ImageTestsConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The image test configuration of the image pipeline. </p>"
           }
         },
-        "imageRecipeArn": {
-          "target": "com.amazonaws.imagebuilder#ImageRecipeArn",
+        "enhancedImageMetadataEnabled": {
+          "target": "com.amazonaws.imagebuilder#NullableBoolean",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image recipe that will be used to configure images\n      updated by this image pipeline. </p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p> Collects additional information about the image being created, including the operating system (OS) version and package list. This information is used to enhance the overall experience of using EC2 Image Builder. Enabled by default. </p>"
+          }
+        },
+        "schedule": {
+          "target": "com.amazonaws.imagebuilder#Schedule",
+          "traits": {
+            "smithy.api#documentation": "<p>The schedule of the image pipeline. </p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.imagebuilder#PipelineStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the image pipeline. </p>"
           }
         },
         "clientToken": {
@@ -5790,62 +5782,12 @@
             "smithy.api#idempotencyToken": {},
             "smithy.api#required": {}
           }
-        },
-        "infrastructureConfigurationArn": {
-          "target": "com.amazonaws.imagebuilder#InfrastructureConfigurationArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the infrastructure configuration that will be used to\n      build images updated by this image pipeline. </p>",
-            "smithy.api#required": {}
-          }
-        },
-        "distributionConfigurationArn": {
-          "target": "com.amazonaws.imagebuilder#DistributionConfigurationArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the distribution configuration that will be used to\n      configure and distribute images updated by this image pipeline. </p>"
-          }
-        },
-        "description": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The description of the image pipeline. </p>"
-          }
-        },
-        "imagePipelineArn": {
-          "target": "com.amazonaws.imagebuilder#ImagePipelineArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image pipeline that you want to update. </p>",
-            "smithy.api#required": {}
-          }
-        },
-        "status": {
-          "target": "com.amazonaws.imagebuilder#PipelineStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the image pipeline. </p>"
-          }
-        },
-        "schedule": {
-          "target": "com.amazonaws.imagebuilder#Schedule",
-          "traits": {
-            "smithy.api#documentation": "<p>The schedule of the image pipeline. </p>"
-          }
-        },
-        "enhancedImageMetadataEnabled": {
-          "target": "com.amazonaws.imagebuilder#NullableBoolean",
-          "traits": {
-            "smithy.api#documentation": "<p> Collects additional information about the image being created, including the operating\n      system (OS) version and package list. This information is used to enhance the overall\n      experience of using EC2 Image Builder. Enabled by default. </p>"
-          }
         }
       }
     },
     "com.amazonaws.imagebuilder#UpdateImagePipelineResponse": {
       "type": "structure",
       "members": {
-        "imagePipelineArn": {
-          "target": "com.amazonaws.imagebuilder#ImagePipelineArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image pipeline that was updated by this request. </p>"
-          }
-        },
         "requestId": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
@@ -5856,6 +5798,12 @@
           "target": "com.amazonaws.imagebuilder#ClientToken",
           "traits": {
             "smithy.api#documentation": "<p>The idempotency token used to make this request idempotent. </p>"
+          }
+        },
+        "imagePipelineArn": {
+          "target": "com.amazonaws.imagebuilder#ImagePipelineArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the image pipeline that was updated by this request. </p>"
           }
         }
       }
@@ -5895,7 +5843,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p> Updates a new infrastructure configuration. An infrastructure configuration defines the\n      environment in which your image will be built and tested. </p>",
+        "smithy.api#documentation": "<p> Updates a new infrastructure configuration. An infrastructure configuration defines the environment in which your image will be built and tested. </p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/UpdateInfrastructureConfiguration",
@@ -5906,29 +5854,10 @@
     "com.amazonaws.imagebuilder#UpdateInfrastructureConfigurationRequest": {
       "type": "structure",
       "members": {
-        "securityGroupIds": {
-          "target": "com.amazonaws.imagebuilder#SecurityGroupIds",
-          "traits": {
-            "smithy.api#documentation": "<p>The security group IDs to associate with the instance used to customize your EC2 AMI. </p>"
-          }
-        },
         "infrastructureConfigurationArn": {
           "target": "com.amazonaws.imagebuilder#InfrastructureConfigurationArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the infrastructure configuration that you want to\n      update. </p>",
-            "smithy.api#required": {}
-          }
-        },
-        "logging": {
-          "target": "com.amazonaws.imagebuilder#Logging",
-          "traits": {
-            "smithy.api#documentation": "<p>The logging configuration of the infrastructure configuration. </p>"
-          }
-        },
-        "instanceProfileName": {
-          "target": "com.amazonaws.imagebuilder#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The instance profile to associate with the instance used to customize your EC2 AMI. </p>",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the infrastructure configuration that you want to update. </p>",
             "smithy.api#required": {}
           }
         },
@@ -5938,28 +5867,47 @@
             "smithy.api#documentation": "<p>The description of the infrastructure configuration. </p>"
           }
         },
-        "keyPair": {
+        "instanceTypes": {
+          "target": "com.amazonaws.imagebuilder#InstanceTypeList",
+          "traits": {
+            "smithy.api#documentation": "<p>The instance types of the infrastructure configuration. You can specify one or more instance types to use for this build. The service will pick one of these instance types based on availability. </p>"
+          }
+        },
+        "instanceProfileName": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>The key pair of the infrastructure configuration. This can be used to log on to and debug\n      the instance used to create your image. </p>"
+            "smithy.api#documentation": "<p>The instance profile to associate with the instance used to customize your EC2 AMI. </p>",
+            "smithy.api#required": {}
           }
         },
-        "terminateInstanceOnFailure": {
-          "target": "com.amazonaws.imagebuilder#NullableBoolean",
+        "securityGroupIds": {
+          "target": "com.amazonaws.imagebuilder#SecurityGroupIds",
           "traits": {
-            "smithy.api#documentation": "<p>The terminate instance on failure setting of the infrastructure configuration. Set to\n      false if you want Image Builder to retain the instance used to configure your AMI if the build\n      or test phase of your workflow fails. </p>"
-          }
-        },
-        "resourceTags": {
-          "target": "com.amazonaws.imagebuilder#ResourceTagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags attached to the resource created by Image Builder.</p>"
+            "smithy.api#documentation": "<p>The security group IDs to associate with the instance used to customize your EC2 AMI. </p>"
           }
         },
         "subnetId": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The subnet ID to place the instance used to customize your EC2 AMI in. </p>"
+          }
+        },
+        "logging": {
+          "target": "com.amazonaws.imagebuilder#Logging",
+          "traits": {
+            "smithy.api#documentation": "<p>The logging configuration of the infrastructure configuration. </p>"
+          }
+        },
+        "keyPair": {
+          "target": "com.amazonaws.imagebuilder#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The key pair of the infrastructure configuration. This can be used to log on to and debug the instance used to create your image. </p>"
+          }
+        },
+        "terminateInstanceOnFailure": {
+          "target": "com.amazonaws.imagebuilder#NullableBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p>The terminate instance on failure setting of the infrastructure configuration. Set to false if you want Image Builder to retain the instance used to configure your AMI if the build or test phase of your workflow fails. </p>"
           }
         },
         "snsTopicArn": {
@@ -5976,10 +5924,10 @@
             "smithy.api#required": {}
           }
         },
-        "instanceTypes": {
-          "target": "com.amazonaws.imagebuilder#InstanceTypeList",
+        "resourceTags": {
+          "target": "com.amazonaws.imagebuilder#ResourceTagMap",
           "traits": {
-            "smithy.api#documentation": "<p>The instance types of the infrastructure configuration. You can specify one or more\n      instance types to use for this build. The service will pick one of these instance types based\n      on availability. </p>"
+            "smithy.api#documentation": "<p>The tags attached to the resource created by Image Builder.</p>"
           }
         }
       }
@@ -5987,22 +5935,22 @@
     "com.amazonaws.imagebuilder#UpdateInfrastructureConfigurationResponse": {
       "type": "structure",
       "members": {
-        "clientToken": {
-          "target": "com.amazonaws.imagebuilder#ClientToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The idempotency token used to make this request idempotent. </p>"
-          }
-        },
         "requestId": {
           "target": "com.amazonaws.imagebuilder#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The request ID that uniquely identifies this request. </p>"
           }
         },
+        "clientToken": {
+          "target": "com.amazonaws.imagebuilder#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The idempotency token used to make this request idempotent. </p>"
+          }
+        },
         "infrastructureConfigurationArn": {
           "target": "com.amazonaws.imagebuilder#InfrastructureConfigurationArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the infrastructure configuration that was updated by\n      this request. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the infrastructure configuration that was updated by this request. </p>"
           }
         }
       }
@@ -6152,13 +6100,14 @@
           "sdkId": "imagebuilder",
           "arnNamespace": "imagebuilder",
           "cloudFormationName": "Imagebuilder",
-          "cloudTrailEventSource": "imagebuilder.amazonaws.com"
+          "cloudTrailEventSource": "imagebuilder.amazonaws.com",
+          "endpointPrefix": "imagebuilder"
         },
         "aws.auth#sigv4": {
           "name": "imagebuilder"
         },
         "aws.protocols#restJson1": {},
-        "smithy.api#documentation": "<p>EC2 Image Builder is a fully managed AWS service that makes it easier to automate the\n      creation, management, and deployment of customized, secure, and up-to-date “golden” server\n      images that are pre-installed and pre-configured with software and settings to meet specific\n      IT standards.</p>",
+        "smithy.api#documentation": "<p>EC2 Image Builder is a fully managed AWS service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date “golden” server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.</p>",
         "smithy.api#title": "EC2 Image Builder"
       }
     }

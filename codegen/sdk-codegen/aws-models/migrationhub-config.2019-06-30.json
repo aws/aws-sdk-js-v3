@@ -48,7 +48,8 @@
           "sdkId": "MigrationHub Config",
           "arnNamespace": "mgh",
           "cloudFormationName": "MigrationHubConfig",
-          "cloudTrailEventSource": "migrationhubconfig.amazonaws.com"
+          "cloudTrailEventSource": "migrationhubconfig.amazonaws.com",
+          "endpointPrefix": "migrationhub-config"
         },
         "aws.auth#sigv4": {
           "name": "mgh"
@@ -122,17 +123,17 @@
             "smithy.api#required": {}
           }
         },
-        "DryRun": {
-          "target": "com.amazonaws.migrationhubconfig#DryRun",
-          "traits": {
-            "smithy.api#documentation": "<p>Optional Boolean flag to indicate whether any effect should take place. It tests whether\n      the caller has permission to make the call.</p>"
-          }
-        },
         "Target": {
           "target": "com.amazonaws.migrationhubconfig#Target",
           "traits": {
             "smithy.api#documentation": "<p>The account for which this command sets up a home region control. The <code>Target</code>\n      is always of type <code>ACCOUNT</code>.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.migrationhubconfig#DryRun",
+          "traits": {
+            "smithy.api#documentation": "<p>Optional Boolean flag to indicate whether any effect should take place. It tests whether\n      the caller has permission to make the call.</p>"
           }
         }
       }
@@ -195,10 +196,10 @@
     "com.amazonaws.migrationhubconfig#DescribeHomeRegionControlsRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.migrationhubconfig#DescribeHomeRegionControlsMaxResults",
+        "ControlId": {
+          "target": "com.amazonaws.migrationhubconfig#ControlId",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of filtering results to display per page. </p>"
+            "smithy.api#documentation": "<p>The <code>ControlID</code> is a unique identifier string of your\n        <code>HomeRegionControl</code> object.</p>"
           }
         },
         "HomeRegion": {
@@ -207,22 +208,22 @@
             "smithy.api#documentation": "<p>The name of the home region you'd like to view.</p>"
           }
         },
-        "ControlId": {
-          "target": "com.amazonaws.migrationhubconfig#ControlId",
+        "Target": {
+          "target": "com.amazonaws.migrationhubconfig#Target",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>ControlID</code> is a unique identifier string of your\n        <code>HomeRegionControl</code> object.</p>"
+            "smithy.api#documentation": "<p>The target parameter specifies the identifier to which the home region is applied, which\n      is always of type <code>ACCOUNT</code>. It applies the home region to the current\n        <code>ACCOUNT</code>.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.migrationhubconfig#DescribeHomeRegionControlsMaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of filtering results to display per page. </p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.migrationhubconfig#Token",
           "traits": {
             "smithy.api#documentation": "<p>If a <code>NextToken</code> was returned by a previous call, more results are available.\n      To retrieve the next page of results, make the call again using the returned token in\n        <code>NextToken</code>.</p>"
-          }
-        },
-        "Target": {
-          "target": "com.amazonaws.migrationhubconfig#Target",
-          "traits": {
-            "smithy.api#documentation": "<p>The target parameter specifies the identifier to which the home region is applied, which\n      is always of type <code>ACCOUNT</code>. It applies the home region to the current\n        <code>ACCOUNT</code>.</p>"
           }
         }
       }
@@ -230,16 +231,16 @@
     "com.amazonaws.migrationhubconfig#DescribeHomeRegionControlsResult": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.migrationhubconfig#Token",
-          "traits": {
-            "smithy.api#documentation": "<p>If a <code>NextToken</code> was returned by a previous call, more results are available.\n      To retrieve the next page of results, make the call again using the returned token in\n        <code>NextToken</code>.</p>"
-          }
-        },
         "HomeRegionControls": {
           "target": "com.amazonaws.migrationhubconfig#HomeRegionControls",
           "traits": {
             "smithy.api#documentation": "<p>An array that contains your <code>HomeRegionControl</code> objects.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.migrationhubconfig#Token",
+          "traits": {
+            "smithy.api#documentation": "<p>If a <code>NextToken</code> was returned by a previous call, more results are available.\n      To retrieve the next page of results, make the call again using the returned token in\n        <code>NextToken</code>.</p>"
           }
         }
       }
@@ -319,16 +320,16 @@
     "com.amazonaws.migrationhubconfig#HomeRegionControl": {
       "type": "structure",
       "members": {
+        "ControlId": {
+          "target": "com.amazonaws.migrationhubconfig#ControlId",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier that's generated for each home region control. It's always a string\n      that begins with \"hrc-\" followed by 12 lowercase letters and numbers.</p>"
+          }
+        },
         "HomeRegion": {
           "target": "com.amazonaws.migrationhubconfig#HomeRegion",
           "traits": {
             "smithy.api#documentation": "<p>The AWS Region that's been set as home region. For example, \"us-west-2\" or \"eu-central-1\"\n      are valid home regions.</p>"
-          }
-        },
-        "RequestedTime": {
-          "target": "com.amazonaws.migrationhubconfig#RequestedTime",
-          "traits": {
-            "smithy.api#documentation": "<p>A timestamp representing the time when the customer called\n        <code>CreateHomeregionControl</code> and set the home region for the account.</p>"
           }
         },
         "Target": {
@@ -337,10 +338,10 @@
             "smithy.api#documentation": "<p>The target parameter specifies the identifier to which the home region is applied, which\n      is always an <code>ACCOUNT</code>. It applies the home region to the current\n        <code>ACCOUNT</code>.</p>"
           }
         },
-        "ControlId": {
-          "target": "com.amazonaws.migrationhubconfig#ControlId",
+        "RequestedTime": {
+          "target": "com.amazonaws.migrationhubconfig#RequestedTime",
           "traits": {
-            "smithy.api#documentation": "<p>A unique identifier that's generated for each home region control. It's always a string\n      that begins with \"hrc-\" followed by 12 lowercase letters and numbers.</p>"
+            "smithy.api#documentation": "<p>A timestamp representing the time when the customer called\n        <code>CreateHomeregionControl</code> and set the home region for the account.</p>"
           }
         }
       },
@@ -447,17 +448,17 @@
     "com.amazonaws.migrationhubconfig#ThrottlingException": {
       "type": "structure",
       "members": {
+        "Message": {
+          "target": "com.amazonaws.migrationhubconfig#ErrorMessage",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
         "RetryAfterSeconds": {
           "target": "com.amazonaws.migrationhubconfig#RetryAfterSeconds",
           "traits": {
             "smithy.api#documentation": "<p>The number of seconds the caller should wait before retrying.</p>",
             "smithy.api#httpHeader": "Retry-After"
-          }
-        },
-        "Message": {
-          "target": "com.amazonaws.migrationhubconfig#ErrorMessage",
-          "traits": {
-            "smithy.api#required": {}
           }
         }
       },

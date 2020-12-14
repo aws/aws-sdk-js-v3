@@ -58,7 +58,8 @@
           "sdkId": "Connect Contact Lens",
           "arnNamespace": "connect",
           "cloudFormationName": "ConnectContactLens",
-          "cloudTrailEventSource": "connectcontactlens.amazonaws.com"
+          "cloudTrailEventSource": "connectcontactlens.amazonaws.com",
+          "endpointPrefix": "contact-lens"
         },
         "aws.auth#sigv4": {
           "name": "connect"

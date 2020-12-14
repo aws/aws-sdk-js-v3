@@ -209,7 +209,8 @@
           "sdkId": "SNS",
           "arnNamespace": "sns",
           "cloudFormationName": "SNS",
-          "cloudTrailEventSource": "sns.amazonaws.com"
+          "cloudTrailEventSource": "sns.amazonaws.com",
+          "endpointPrefix": "sns"
         },
         "aws.auth#sigv4": {
           "name": "sns"

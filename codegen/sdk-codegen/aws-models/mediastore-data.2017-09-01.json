@@ -143,11 +143,11 @@
     "com.amazonaws.mediastoredata#DescribeObjectResponse": {
       "type": "structure",
       "members": {
-        "LastModified": {
-          "target": "com.amazonaws.mediastoredata#TimeStamp",
+        "ETag": {
+          "target": "com.amazonaws.mediastoredata#ETag",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time that the object was last modified.</p>",
-            "smithy.api#httpHeader": "Last-Modified"
+            "smithy.api#documentation": "<p>The ETag that represents a unique instance of the object.</p>",
+            "smithy.api#httpHeader": "ETag"
           }
         },
         "ContentType": {
@@ -157,6 +157,13 @@
             "smithy.api#httpHeader": "Content-Type"
           }
         },
+        "ContentLength": {
+          "target": "com.amazonaws.mediastoredata#NonNegativeLong",
+          "traits": {
+            "smithy.api#documentation": "<p>The length of the object in bytes.</p>",
+            "smithy.api#httpHeader": "Content-Length"
+          }
+        },
         "CacheControl": {
           "target": "com.amazonaws.mediastoredata#StringPrimitive",
           "traits": {
@@ -164,18 +171,11 @@
             "smithy.api#httpHeader": "Cache-Control"
           }
         },
-        "ETag": {
-          "target": "com.amazonaws.mediastoredata#ETag",
+        "LastModified": {
+          "target": "com.amazonaws.mediastoredata#TimeStamp",
           "traits": {
-            "smithy.api#documentation": "<p>The ETag that represents a unique instance of the object.</p>",
-            "smithy.api#httpHeader": "ETag"
-          }
-        },
-        "ContentLength": {
-          "target": "com.amazonaws.mediastoredata#NonNegativeLong",
-          "traits": {
-            "smithy.api#documentation": "<p>The length of the object in bytes.</p>",
-            "smithy.api#httpHeader": "Content-Length"
+            "smithy.api#documentation": "<p>The date and time that the object was last modified.</p>",
+            "smithy.api#httpHeader": "Last-Modified"
           }
         }
       }
@@ -254,11 +254,25 @@
     "com.amazonaws.mediastoredata#GetObjectResponse": {
       "type": "structure",
       "members": {
+        "Body": {
+          "target": "com.amazonaws.mediastoredata#PayloadBlob",
+          "traits": {
+            "smithy.api#documentation": "<p>The bytes of the object. </p>",
+            "smithy.api#httpPayload": {}
+          }
+        },
         "CacheControl": {
           "target": "com.amazonaws.mediastoredata#StringPrimitive",
           "traits": {
             "smithy.api#documentation": "<p>An optional <code>CacheControl</code> header that allows the caller to control the\n         object's cache behavior. Headers can be passed in as specified in the HTTP spec at <a href=\"https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9\">https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</p>\n         <p>Headers with a custom user-defined value are also accepted.</p>",
             "smithy.api#httpHeader": "Cache-Control"
+          }
+        },
+        "ContentRange": {
+          "target": "com.amazonaws.mediastoredata#ContentRangePattern",
+          "traits": {
+            "smithy.api#documentation": "<p>The range of bytes to retrieve.</p>",
+            "smithy.api#httpHeader": "Content-Range"
           }
         },
         "ContentLength": {
@@ -275,11 +289,11 @@
             "smithy.api#httpHeader": "Content-Type"
           }
         },
-        "ContentRange": {
-          "target": "com.amazonaws.mediastoredata#ContentRangePattern",
+        "ETag": {
+          "target": "com.amazonaws.mediastoredata#ETag",
           "traits": {
-            "smithy.api#documentation": "<p>The range of bytes to retrieve.</p>",
-            "smithy.api#httpHeader": "Content-Range"
+            "smithy.api#documentation": "<p>The ETag that represents a unique instance of the object.</p>",
+            "smithy.api#httpHeader": "ETag"
           }
         },
         "LastModified": {
@@ -289,26 +303,12 @@
             "smithy.api#httpHeader": "Last-Modified"
           }
         },
-        "ETag": {
-          "target": "com.amazonaws.mediastoredata#ETag",
-          "traits": {
-            "smithy.api#documentation": "<p>The ETag that represents a unique instance of the object.</p>",
-            "smithy.api#httpHeader": "ETag"
-          }
-        },
         "StatusCode": {
           "target": "com.amazonaws.mediastoredata#statusCode",
           "traits": {
             "smithy.api#documentation": "<p>The HTML status code of the request. Status codes ranging from 200 to 299 indicate\n         success. All other status codes indicate the type of error that occurred.</p>",
             "smithy.api#httpResponseCode": {},
             "smithy.api#required": {}
-          }
-        },
-        "Body": {
-          "target": "com.amazonaws.mediastoredata#PayloadBlob",
-          "traits": {
-            "smithy.api#documentation": "<p>The bytes of the object. </p>",
-            "smithy.api#httpPayload": {}
           }
         }
       }
@@ -328,12 +328,6 @@
     "com.amazonaws.mediastoredata#Item": {
       "type": "structure",
       "members": {
-        "ETag": {
-          "target": "com.amazonaws.mediastoredata#ETag",
-          "traits": {
-            "smithy.api#documentation": "<p>The ETag that represents a unique instance of the item.</p>"
-          }
-        },
         "Name": {
           "target": "com.amazonaws.mediastoredata#ItemName",
           "traits": {
@@ -346,10 +340,16 @@
             "smithy.api#documentation": "<p>The item type (folder or object).</p>"
           }
         },
-        "ContentLength": {
-          "target": "com.amazonaws.mediastoredata#NonNegativeLong",
+        "ETag": {
+          "target": "com.amazonaws.mediastoredata#ETag",
           "traits": {
-            "smithy.api#documentation": "<p>The length of the item in bytes.</p>"
+            "smithy.api#documentation": "<p>The ETag that represents a unique instance of the item.</p>"
+          }
+        },
+        "LastModified": {
+          "target": "com.amazonaws.mediastoredata#TimeStamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time that the item was last modified.</p>"
           }
         },
         "ContentType": {
@@ -358,10 +358,10 @@
             "smithy.api#documentation": "<p>The content type of the item.</p>"
           }
         },
-        "LastModified": {
-          "target": "com.amazonaws.mediastoredata#TimeStamp",
+        "ContentLength": {
+          "target": "com.amazonaws.mediastoredata#NonNegativeLong",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time that the item was last modified.</p>"
+            "smithy.api#documentation": "<p>The length of the item in bytes.</p>"
           }
         }
       },
@@ -431,18 +431,18 @@
             "smithy.api#httpQuery": "Path"
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.mediastoredata#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The token that identifies which batch of results that you want to see. For example,\n         you submit a <code>ListItems</code> request with <code>MaxResults</code> set at 500. The\n         service returns the first batch of results (up to 500) and a <code>NextToken</code> value.\n         To see the next batch of results, you can submit the <code>ListItems</code> request a\n         second time and specify the <code>NextToken</code> value.</p>\n         <p>Tokens expire after 15 minutes.</p>",
-            "smithy.api#httpQuery": "NextToken"
-          }
-        },
         "MaxResults": {
           "target": "com.amazonaws.mediastoredata#ListLimit",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return per API request. For example, you submit a\n            <code>ListItems</code> request with <code>MaxResults</code> set at 500. Although 2,000\n         items match your request, the service returns no more than the first 500 items. (The\n         service also returns a <code>NextToken</code> value that you can use to fetch the next\n         batch of results.) The service might return fewer results than the <code>MaxResults</code>\n         value.</p>\n         <p>If <code>MaxResults</code> is not included in the request, the service defaults to\n         pagination with a maximum of 1,000 results per page.</p>",
             "smithy.api#httpQuery": "MaxResults"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.mediastoredata#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token that identifies which batch of results that you want to see. For example,\n         you submit a <code>ListItems</code> request with <code>MaxResults</code> set at 500. The\n         service returns the first batch of results (up to 500) and a <code>NextToken</code> value.\n         To see the next batch of results, you can submit the <code>ListItems</code> request a\n         second time and specify the <code>NextToken</code> value.</p>\n         <p>Tokens expire after 15 minutes.</p>",
+            "smithy.api#httpQuery": "NextToken"
           }
         }
       }
@@ -509,7 +509,8 @@
           "sdkId": "MediaStore Data",
           "arnNamespace": "mediastore",
           "cloudFormationName": "MediaStoreData",
-          "cloudTrailEventSource": "mediastoredata.amazonaws.com"
+          "cloudTrailEventSource": "mediastoredata.amazonaws.com",
+          "endpointPrefix": "data.mediastore"
         },
         "aws.auth#sigv4": {
           "name": "mediastore"
@@ -593,19 +594,20 @@
     "com.amazonaws.mediastoredata#PutObjectRequest": {
       "type": "structure",
       "members": {
+        "Body": {
+          "target": "com.amazonaws.mediastoredata#PayloadBlob",
+          "traits": {
+            "smithy.api#documentation": "<p>The bytes to be stored. </p>",
+            "smithy.api#httpPayload": {},
+            "smithy.api#required": {}
+          }
+        },
         "Path": {
           "target": "com.amazonaws.mediastoredata#PathNaming",
           "traits": {
             "smithy.api#documentation": "<p>The path (including the file name) where the object is stored in the container.\n         Format: <folder name>/<folder name>/<file name></p>\n         <p>For example, to upload the file <code>mlaw.avi</code> to the folder path\n            <code>premium\\canada</code> in the container <code>movies</code>, enter the path\n            <code>premium/canada/mlaw.avi</code>.</p>\n         <p>Do not include the container name in this path.</p>\n         <p>If the path includes any folders that don't exist yet, the service creates them. For\n         example, suppose you have an existing <code>premium/usa</code> subfolder. If you specify\n            <code>premium/canada</code>, the service creates a <code>canada</code> subfolder in the\n            <code>premium</code> folder. You then have two subfolders, <code>usa</code> and\n            <code>canada</code>, in the <code>premium</code> folder. </p>\n         <p>There is no correlation between the path to the source and the path (folders) in the\n         container in AWS Elemental MediaStore.</p>\n         <p>For more information about folders and how they exist in a container, see the <a href=\"http://docs.aws.amazon.com/mediastore/latest/ug/\">AWS Elemental MediaStore User\n            Guide</a>.</p>\n         <p>The file name is the name that is assigned to the file that you upload. The file can\n         have the same name inside and outside of AWS Elemental MediaStore, or it can have the same\n         name. The file name can include or omit an extension. </p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
-          }
-        },
-        "StorageClass": {
-          "target": "com.amazonaws.mediastoredata#StorageClass",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates the storage class of a <code>Put</code> request. Defaults to\n         high-performance temporal storage class, and objects are persisted into durable storage\n         shortly after being received.</p>",
-            "smithy.api#httpHeader": "x-amz-storage-class"
           }
         },
         "ContentType": {
@@ -622,12 +624,11 @@
             "smithy.api#httpHeader": "Cache-Control"
           }
         },
-        "Body": {
-          "target": "com.amazonaws.mediastoredata#PayloadBlob",
+        "StorageClass": {
+          "target": "com.amazonaws.mediastoredata#StorageClass",
           "traits": {
-            "smithy.api#documentation": "<p>The bytes to be stored. </p>",
-            "smithy.api#httpPayload": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Indicates the storage class of a <code>Put</code> request. Defaults to\n         high-performance temporal storage class, and objects are persisted into durable storage\n         shortly after being received.</p>",
+            "smithy.api#httpHeader": "x-amz-storage-class"
           }
         }
       }
@@ -635,12 +636,6 @@
     "com.amazonaws.mediastoredata#PutObjectResponse": {
       "type": "structure",
       "members": {
-        "StorageClass": {
-          "target": "com.amazonaws.mediastoredata#StorageClass",
-          "traits": {
-            "smithy.api#documentation": "<p>The storage class where the object was persisted. The class should be\n         “Temporal”.</p>"
-          }
-        },
         "ContentSHA256": {
           "target": "com.amazonaws.mediastoredata#SHA256Hash",
           "traits": {
@@ -651,6 +646,12 @@
           "target": "com.amazonaws.mediastoredata#ETag",
           "traits": {
             "smithy.api#documentation": "<p>Unique identifier of the object in the container.</p>"
+          }
+        },
+        "StorageClass": {
+          "target": "com.amazonaws.mediastoredata#StorageClass",
+          "traits": {
+            "smithy.api#documentation": "<p>The storage class where the object was persisted. The class should be\n         “Temporal”.</p>"
           }
         }
       }

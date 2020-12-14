@@ -323,7 +323,8 @@
           "sdkId": "Connect",
           "arnNamespace": "connect",
           "cloudFormationName": "Connect",
-          "cloudTrailEventSource": "connect.amazonaws.com"
+          "cloudTrailEventSource": "connect.amazonaws.com",
+          "endpointPrefix": "connect"
         },
         "aws.auth#sigv4": {
           "name": "connect"

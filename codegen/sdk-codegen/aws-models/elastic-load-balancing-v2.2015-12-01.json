@@ -2184,7 +2184,8 @@
           "sdkId": "Elastic Load Balancing v2",
           "arnNamespace": "elasticloadbalancing",
           "cloudFormationName": "ElasticLoadBalancingV2",
-          "cloudTrailEventSource": "elasticloadbalancingv2.amazonaws.com"
+          "cloudTrailEventSource": "elasticloadbalancingv2.amazonaws.com",
+          "endpointPrefix": "elasticloadbalancing"
         },
         "aws.auth#sigv4": {
           "name": "elasticloadbalancing"

@@ -297,7 +297,8 @@
           "sdkId": "Database Migration Service",
           "arnNamespace": "dms",
           "cloudFormationName": "DMS",
-          "cloudTrailEventSource": "databasemigrationservice.amazonaws.com"
+          "cloudTrailEventSource": "databasemigrationservice.amazonaws.com",
+          "endpointPrefix": "dms"
         },
         "aws.auth#sigv4": {
           "name": "dms"
@@ -2060,6 +2061,34 @@
           "inputToken": "Marker",
           "outputToken": "Marker",
           "pageSize": "MaxRecords"
+        },
+        "smithy.waiters#waitable": {
+          "TestConnectionSucceeds": {
+            "documentation": "Wait until testing connection succeeds.",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "Connections[].Status",
+                    "expected": "successful",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "Connections[].Status",
+                    "expected": "failed",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 5
+          }
         }
       }
     },
@@ -2191,6 +2220,40 @@
           "inputToken": "Marker",
           "outputToken": "Marker",
           "pageSize": "MaxRecords"
+        },
+        "smithy.waiters#waitable": {
+          "EndpointDeleted": {
+            "documentation": "Wait until testing endpoint is deleted.",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "errorType": "ResourceNotFoundFault"
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "Endpoints[].Status",
+                    "expected": "active",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "Endpoints[].Status",
+                    "expected": "creating",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 5
+          }
         }
       }
     },
@@ -2730,6 +2793,86 @@
           "inputToken": "Marker",
           "outputToken": "Marker",
           "pageSize": "MaxRecords"
+        },
+        "smithy.waiters#waitable": {
+          "ReplicationInstanceAvailable": {
+            "documentation": "Wait until DMS replication instance is available.",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationInstances[].ReplicationInstanceStatus",
+                    "expected": "available",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationInstances[].ReplicationInstanceStatus",
+                    "expected": "deleting",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationInstances[].ReplicationInstanceStatus",
+                    "expected": "incompatible-credentials",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationInstances[].ReplicationInstanceStatus",
+                    "expected": "incompatible-network",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationInstances[].ReplicationInstanceStatus",
+                    "expected": "inaccessible-encryption-credentials",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 60
+          },
+          "ReplicationInstanceDeleted": {
+            "documentation": "Wait until DMS replication instance is deleted.",
+            "acceptors": [
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationInstances[].ReplicationInstanceStatus",
+                    "expected": "available",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "success",
+                "matcher": {
+                  "errorType": "ResourceNotFoundFault"
+                }
+              }
+            ],
+            "minDelay": 15
+          }
         }
       }
     },
@@ -3076,6 +3219,358 @@
           "inputToken": "Marker",
           "outputToken": "Marker",
           "pageSize": "MaxRecords"
+        },
+        "smithy.waiters#waitable": {
+          "ReplicationTaskDeleted": {
+            "documentation": "Wait until DMS replication task is deleted.",
+            "acceptors": [
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "ready",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "creating",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "stopped",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "running",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "failed",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "success",
+                "matcher": {
+                  "errorType": "ResourceNotFoundFault"
+                }
+              }
+            ],
+            "minDelay": 15
+          },
+          "ReplicationTaskReady": {
+            "documentation": "Wait until DMS replication task is ready.",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "ready",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "starting",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "running",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "stopping",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "stopped",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "failed",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "modifying",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "testing",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "deleting",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 15
+          },
+          "ReplicationTaskRunning": {
+            "documentation": "Wait until DMS replication task is running.",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "running",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "ready",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "creating",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "stopping",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "stopped",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "failed",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "modifying",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "testing",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "deleting",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 15
+          },
+          "ReplicationTaskStopped": {
+            "documentation": "Wait until DMS replication task is stopped.",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "stopped",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "ready",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "creating",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "starting",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "running",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "failed",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "modifying",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "testing",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ReplicationTasks[].Status",
+                    "expected": "deleting",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 15
+          }
         }
       }
     },

@@ -15840,7 +15840,8 @@
           "sdkId": "Chime",
           "arnNamespace": "chime",
           "cloudFormationName": "Chime",
-          "cloudTrailEventSource": "chime.amazonaws.com"
+          "cloudTrailEventSource": "chime.amazonaws.com",
+          "endpointPrefix": "chime"
         },
         "aws.auth#sigv4": {
           "name": "chime"

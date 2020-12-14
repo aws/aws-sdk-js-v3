@@ -81,7 +81,8 @@
           "sdkId": "CodeGuru Reviewer",
           "arnNamespace": "codeguru-reviewer",
           "cloudFormationName": "CodeGuruReviewer",
-          "cloudTrailEventSource": "codegurureviewer.amazonaws.com"
+          "cloudTrailEventSource": "codegurureviewer.amazonaws.com",
+          "endpointPrefix": "codeguru-reviewer"
         },
         "aws.auth#sigv4": {
           "name": "codeguru-reviewer"

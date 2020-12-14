@@ -616,10 +616,11 @@
       ],
       "traits": {
         "aws.api#service": {
-          "sdkId": "Customer Profiles",
+          "sdkId": "Profile",
           "arnNamespace": "profile",
-          "cloudFormationName": "CustomerProfiles",
-          "cloudTrailEventSource": "customerprofiles.amazonaws.com"
+          "cloudFormationName": "Profile",
+          "cloudTrailEventSource": "customerprofiles.amazonaws.com",
+          "endpointPrefix": "profile"
         },
         "aws.auth#sigv4": {
           "name": "profile"

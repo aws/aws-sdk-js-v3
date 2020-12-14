@@ -45,7 +45,8 @@
           "sdkId": "Kinesis Video Signaling",
           "arnNamespace": "kinesisvideo",
           "cloudFormationName": "KinesisVideoSignaling",
-          "cloudTrailEventSource": "kinesisvideosignaling.amazonaws.com"
+          "cloudTrailEventSource": "kinesisvideosignaling.amazonaws.com",
+          "endpointPrefix": "kinesisvideo"
         },
         "aws.auth#sigv4": {
           "name": "kinesisvideo"
@@ -130,10 +131,11 @@
     "com.amazonaws.kinesisvideosignaling#GetIceServerConfigRequest": {
       "type": "structure",
       "members": {
-        "Username": {
-          "target": "com.amazonaws.kinesisvideosignaling#Username",
+        "ChannelARN": {
+          "target": "com.amazonaws.kinesisvideosignaling#ResourceARN",
           "traits": {
-            "smithy.api#documentation": "<p>An optional user ID to be associated with the credentials.</p>"
+            "smithy.api#documentation": "<p>The ARN of the signaling channel to be used for the peer-to-peer connection between\n            configured peers. </p>",
+            "smithy.api#required": {}
           }
         },
         "ClientId": {
@@ -148,11 +150,10 @@
             "smithy.api#documentation": "<p>Specifies the desired service. Currently, <code>TURN</code> is the only valid\n            value.</p>"
           }
         },
-        "ChannelARN": {
-          "target": "com.amazonaws.kinesisvideosignaling#ResourceARN",
+        "Username": {
+          "target": "com.amazonaws.kinesisvideosignaling#Username",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the signaling channel to be used for the peer-to-peer connection between\n            configured peers. </p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>An optional user ID to be associated with the credentials.</p>"
           }
         }
       }
@@ -171,16 +172,10 @@
     "com.amazonaws.kinesisvideosignaling#IceServer": {
       "type": "structure",
       "members": {
-        "Ttl": {
-          "target": "com.amazonaws.kinesisvideosignaling#Ttl",
+        "Uris": {
+          "target": "com.amazonaws.kinesisvideosignaling#Uris",
           "traits": {
-            "smithy.api#documentation": "<p>The period of time, in seconds, during which the username and password are\n            valid.</p>"
-          }
-        },
-        "Password": {
-          "target": "com.amazonaws.kinesisvideosignaling#Password",
-          "traits": {
-            "smithy.api#documentation": "<p>A password to login to the ICE server.</p>"
+            "smithy.api#documentation": "<p>An array of URIs, in the form specified in the <a href=\"https://tools.ietf.org/html/draft-petithuguenin-behave-turn-uris-03\">I-D.petithuguenin-behave-turn-uris</a> spec. These URIs provide the different\n            addresses and/or protocols that can be used to reach the TURN server.</p>"
           }
         },
         "Username": {
@@ -189,10 +184,16 @@
             "smithy.api#documentation": "<p>A username to login to the ICE server.</p>"
           }
         },
-        "Uris": {
-          "target": "com.amazonaws.kinesisvideosignaling#Uris",
+        "Password": {
+          "target": "com.amazonaws.kinesisvideosignaling#Password",
           "traits": {
-            "smithy.api#documentation": "<p>An array of URIs, in the form specified in the <a href=\"https://tools.ietf.org/html/draft-petithuguenin-behave-turn-uris-03\">I-D.petithuguenin-behave-turn-uris</a> spec. These URIs provide the different\n            addresses and/or protocols that can be used to reach the TURN server.</p>"
+            "smithy.api#documentation": "<p>A password to login to the ICE server.</p>"
+          }
+        },
+        "Ttl": {
+          "target": "com.amazonaws.kinesisvideosignaling#Ttl",
+          "traits": {
+            "smithy.api#documentation": "<p>The period of time, in seconds, during which the username and password are\n            valid.</p>"
           }
         }
       },
@@ -322,6 +323,13 @@
     "com.amazonaws.kinesisvideosignaling#SendAlexaOfferToMasterRequest": {
       "type": "structure",
       "members": {
+        "ChannelARN": {
+          "target": "com.amazonaws.kinesisvideosignaling#ResourceARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the signaling channel by which Alexa and the master peer\n            communicate.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "SenderClientId": {
           "target": "com.amazonaws.kinesisvideosignaling#ClientId",
           "traits": {
@@ -333,13 +341,6 @@
           "target": "com.amazonaws.kinesisvideosignaling#MessagePayload",
           "traits": {
             "smithy.api#documentation": "<p>The base64-encoded SDP offer content.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "ChannelARN": {
-          "target": "com.amazonaws.kinesisvideosignaling#ResourceARN",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the signaling channel by which Alexa and the master peer\n            communicate.</p>",
             "smithy.api#required": {}
           }
         }

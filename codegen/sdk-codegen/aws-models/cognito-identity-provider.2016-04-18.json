@@ -342,7 +342,8 @@
           "sdkId": "Cognito Identity Provider",
           "arnNamespace": "cognito-idp",
           "cloudFormationName": "Cognito",
-          "cloudTrailEventSource": "cognitoidentityprovider.amazonaws.com"
+          "cloudTrailEventSource": "cognitoidentityprovider.amazonaws.com",
+          "endpointPrefix": "cognito-idp"
         },
         "aws.auth#sigv4": {
           "name": "cognito-idp"
@@ -8370,7 +8371,13 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists the user pools associated with an AWS account.</p>"
+        "smithy.api#documentation": "<p>Lists the user pools associated with an AWS account.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "UserPools",
+          "pageSize": "MaxResults"
+        }
       }
     },
     "com.amazonaws.cognitoidentityprovider#ListUserPoolsRequest": {

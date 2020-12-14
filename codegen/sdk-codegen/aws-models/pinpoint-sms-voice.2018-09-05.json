@@ -75,16 +75,16 @@
     "com.amazonaws.pinpointsmsvoice#CloudWatchLogsDestination": {
       "type": "structure",
       "members": {
-        "LogGroupArn": {
-          "target": "com.amazonaws.pinpointsmsvoice#String",
-          "traits": {
-            "smithy.api#documentation": "The name of the Amazon CloudWatch Log Group that you want to record events in."
-          }
-        },
         "IamRoleArn": {
           "target": "com.amazonaws.pinpointsmsvoice#String",
           "traits": {
             "smithy.api#documentation": "The Amazon Resource Name (ARN) of an Amazon Identity and Access Management (IAM) role that is able to write event data to an Amazon CloudWatch destination."
+          }
+        },
+        "LogGroupArn": {
+          "target": "com.amazonaws.pinpointsmsvoice#String",
+          "traits": {
+            "smithy.api#documentation": "The name of the Amazon CloudWatch Log Group that you want to record events in."
           }
         }
       },
@@ -175,6 +175,14 @@
     "com.amazonaws.pinpointsmsvoice#CreateConfigurationSetEventDestinationRequest": {
       "type": "structure",
       "members": {
+        "ConfigurationSetName": {
+          "target": "com.amazonaws.pinpointsmsvoice#__string",
+          "traits": {
+            "smithy.api#documentation": "ConfigurationSetName",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
         "EventDestination": {
           "target": "com.amazonaws.pinpointsmsvoice#EventDestinationDefinition"
         },
@@ -182,14 +190,6 @@
           "target": "com.amazonaws.pinpointsmsvoice#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "A name that identifies the event destination."
-          }
-        },
-        "ConfigurationSetName": {
-          "target": "com.amazonaws.pinpointsmsvoice#__string",
-          "traits": {
-            "smithy.api#documentation": "ConfigurationSetName",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
           }
         }
       },
@@ -290,18 +290,18 @@
     "com.amazonaws.pinpointsmsvoice#DeleteConfigurationSetEventDestinationRequest": {
       "type": "structure",
       "members": {
-        "EventDestinationName": {
-          "target": "com.amazonaws.pinpointsmsvoice#__string",
-          "traits": {
-            "smithy.api#documentation": "EventDestinationName",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "ConfigurationSetName": {
           "target": "com.amazonaws.pinpointsmsvoice#__string",
           "traits": {
             "smithy.api#documentation": "ConfigurationSetName",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "EventDestinationName": {
+          "target": "com.amazonaws.pinpointsmsvoice#__string",
+          "traits": {
+            "smithy.api#documentation": "EventDestinationName",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -338,11 +338,8 @@
     "com.amazonaws.pinpointsmsvoice#EventDestination": {
       "type": "structure",
       "members": {
-        "KinesisFirehoseDestination": {
-          "target": "com.amazonaws.pinpointsmsvoice#KinesisFirehoseDestination"
-        },
-        "MatchingEventTypes": {
-          "target": "com.amazonaws.pinpointsmsvoice#EventTypes"
+        "CloudWatchLogsDestination": {
+          "target": "com.amazonaws.pinpointsmsvoice#CloudWatchLogsDestination"
         },
         "Enabled": {
           "target": "com.amazonaws.pinpointsmsvoice#Boolean",
@@ -350,8 +347,11 @@
             "smithy.api#documentation": "Indicates whether or not the event destination is enabled. If the event destination is enabled, then Amazon Pinpoint sends response data to the specified event destination."
           }
         },
-        "CloudWatchLogsDestination": {
-          "target": "com.amazonaws.pinpointsmsvoice#CloudWatchLogsDestination"
+        "KinesisFirehoseDestination": {
+          "target": "com.amazonaws.pinpointsmsvoice#KinesisFirehoseDestination"
+        },
+        "MatchingEventTypes": {
+          "target": "com.amazonaws.pinpointsmsvoice#EventTypes"
         },
         "Name": {
           "target": "com.amazonaws.pinpointsmsvoice#String",
@@ -373,6 +373,12 @@
         "CloudWatchLogsDestination": {
           "target": "com.amazonaws.pinpointsmsvoice#CloudWatchLogsDestination"
         },
+        "Enabled": {
+          "target": "com.amazonaws.pinpointsmsvoice#Boolean",
+          "traits": {
+            "smithy.api#documentation": "Indicates whether or not the event destination is enabled. If the event destination is enabled, then Amazon Pinpoint sends response data to the specified event destination."
+          }
+        },
         "KinesisFirehoseDestination": {
           "target": "com.amazonaws.pinpointsmsvoice#KinesisFirehoseDestination"
         },
@@ -381,12 +387,6 @@
         },
         "SnsDestination": {
           "target": "com.amazonaws.pinpointsmsvoice#SnsDestination"
-        },
-        "Enabled": {
-          "target": "com.amazonaws.pinpointsmsvoice#Boolean",
-          "traits": {
-            "smithy.api#documentation": "Indicates whether or not the event destination is enabled. If the event destination is enabled, then Amazon Pinpoint sends response data to the specified event destination."
-          }
         }
       },
       "traits": {
@@ -518,16 +518,16 @@
     "com.amazonaws.pinpointsmsvoice#KinesisFirehoseDestination": {
       "type": "structure",
       "members": {
-        "IamRoleArn": {
-          "target": "com.amazonaws.pinpointsmsvoice#String",
-          "traits": {
-            "smithy.api#documentation": "The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose destination that you want to use in the event destination."
-          }
-        },
         "DeliveryStreamArn": {
           "target": "com.amazonaws.pinpointsmsvoice#String",
           "traits": {
             "smithy.api#documentation": "The Amazon Resource Name (ARN) of an IAM role that can write data to an Amazon Kinesis Data Firehose stream."
+          }
+        },
+        "IamRoleArn": {
+          "target": "com.amazonaws.pinpointsmsvoice#String",
+          "traits": {
+            "smithy.api#documentation": "The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose destination that you want to use in the event destination."
           }
         }
       },
@@ -579,18 +579,18 @@
     "com.amazonaws.pinpointsmsvoice#ListConfigurationSetsRequest": {
       "type": "structure",
       "members": {
-        "PageSize": {
-          "target": "com.amazonaws.pinpointsmsvoice#__string",
-          "traits": {
-            "smithy.api#documentation": "Used to specify the number of items that should be returned in the response.",
-            "smithy.api#httpQuery": "PageSize"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.pinpointsmsvoice#__string",
           "traits": {
             "smithy.api#documentation": "A token returned from a previous call to the API that indicates the position in the list of results.",
             "smithy.api#httpQuery": "NextToken"
+          }
+        },
+        "PageSize": {
+          "target": "com.amazonaws.pinpointsmsvoice#__string",
+          "traits": {
+            "smithy.api#documentation": "Used to specify the number of items that should be returned in the response.",
+            "smithy.api#httpQuery": "PageSize"
           }
         }
       }
@@ -598,16 +598,16 @@
     "com.amazonaws.pinpointsmsvoice#ListConfigurationSetsResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.pinpointsmsvoice#NextTokenString",
-          "traits": {
-            "smithy.api#documentation": "A token returned from a previous call to ListConfigurationSets to indicate the position in the list of configuration sets."
-          }
-        },
         "ConfigurationSets": {
           "target": "com.amazonaws.pinpointsmsvoice#ConfigurationSets",
           "traits": {
             "smithy.api#documentation": "An object that contains a list of configuration sets for your account in the current region."
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.pinpointsmsvoice#NextTokenString",
+          "traits": {
+            "smithy.api#documentation": "A token returned from a previous call to ListConfigurationSets to indicate the position in the list of configuration sets."
           }
         }
       },
@@ -668,7 +668,8 @@
           "sdkId": "Pinpoint SMS Voice",
           "arnNamespace": "sms-voice",
           "cloudFormationName": "PinpointSMSVoice",
-          "cloudTrailEventSource": "pinpointsmsvoice.amazonaws.com"
+          "cloudTrailEventSource": "pinpointsmsvoice.amazonaws.com",
+          "endpointPrefix": "sms-voice.pinpoint"
         },
         "aws.auth#sigv4": {
           "name": "sms-voice"
@@ -681,6 +682,12 @@
     "com.amazonaws.pinpointsmsvoice#PlainTextMessageType": {
       "type": "structure",
       "members": {
+        "LanguageCode": {
+          "target": "com.amazonaws.pinpointsmsvoice#String",
+          "traits": {
+            "smithy.api#documentation": "The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide."
+          }
+        },
         "Text": {
           "target": "com.amazonaws.pinpointsmsvoice#NonEmptyString",
           "traits": {
@@ -692,12 +699,6 @@
           "traits": {
             "smithy.api#documentation": "The name of the voice that you want to use to deliver the message. For a complete list of supported voices, see the Amazon Polly Developer Guide."
           }
-        },
-        "LanguageCode": {
-          "target": "com.amazonaws.pinpointsmsvoice#String",
-          "traits": {
-            "smithy.api#documentation": "The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide."
-          }
         }
       },
       "traits": {
@@ -707,6 +708,12 @@
     "com.amazonaws.pinpointsmsvoice#SSMLMessageType": {
       "type": "structure",
       "members": {
+        "LanguageCode": {
+          "target": "com.amazonaws.pinpointsmsvoice#String",
+          "traits": {
+            "smithy.api#documentation": "The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide."
+          }
+        },
         "Text": {
           "target": "com.amazonaws.pinpointsmsvoice#NonEmptyString",
           "traits": {
@@ -717,12 +724,6 @@
           "target": "com.amazonaws.pinpointsmsvoice#String",
           "traits": {
             "smithy.api#documentation": "The name of the voice that you want to use to deliver the message. For a complete list of supported voices, see the Amazon Polly Developer Guide."
-          }
-        },
-        "LanguageCode": {
-          "target": "com.amazonaws.pinpointsmsvoice#String",
-          "traits": {
-            "smithy.api#documentation": "The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide."
           }
         }
       },
@@ -761,11 +762,20 @@
     "com.amazonaws.pinpointsmsvoice#SendVoiceMessageRequest": {
       "type": "structure",
       "members": {
+        "CallerId": {
+          "target": "com.amazonaws.pinpointsmsvoice#String",
+          "traits": {
+            "smithy.api#documentation": "The phone number that appears on recipients' devices when they receive the message."
+          }
+        },
         "ConfigurationSetName": {
           "target": "com.amazonaws.pinpointsmsvoice#WordCharactersWithDelimiters",
           "traits": {
             "smithy.api#documentation": "The name of the configuration set that you want to use to send the message."
           }
+        },
+        "Content": {
+          "target": "com.amazonaws.pinpointsmsvoice#VoiceMessageContent"
         },
         "DestinationPhoneNumber": {
           "target": "com.amazonaws.pinpointsmsvoice#NonEmptyString",
@@ -773,20 +783,11 @@
             "smithy.api#documentation": "The phone number that you want to send the voice message to."
           }
         },
-        "CallerId": {
-          "target": "com.amazonaws.pinpointsmsvoice#String",
-          "traits": {
-            "smithy.api#documentation": "The phone number that appears on recipients' devices when they receive the message."
-          }
-        },
         "OriginationPhoneNumber": {
           "target": "com.amazonaws.pinpointsmsvoice#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "The phone number that Amazon Pinpoint should use to send the voice message. This isn't necessarily the phone number that appears on recipients' devices when they receive the message, because you can specify a CallerId parameter in the request."
           }
-        },
-        "Content": {
-          "target": "com.amazonaws.pinpointsmsvoice#VoiceMessageContent"
         }
       },
       "traits": {
@@ -905,14 +906,14 @@
     "com.amazonaws.pinpointsmsvoice#VoiceMessageContent": {
       "type": "structure",
       "members": {
-        "SSMLMessage": {
-          "target": "com.amazonaws.pinpointsmsvoice#SSMLMessageType"
-        },
         "CallInstructionsMessage": {
           "target": "com.amazonaws.pinpointsmsvoice#CallInstructionsMessageType"
         },
         "PlainTextMessage": {
           "target": "com.amazonaws.pinpointsmsvoice#PlainTextMessageType"
+        },
+        "SSMLMessage": {
+          "target": "com.amazonaws.pinpointsmsvoice#SSMLMessageType"
         }
       },
       "traits": {

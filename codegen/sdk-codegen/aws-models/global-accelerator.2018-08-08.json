@@ -2547,7 +2547,8 @@
           "sdkId": "Global Accelerator",
           "arnNamespace": "globalaccelerator",
           "cloudFormationName": "GlobalAccelerator",
-          "cloudTrailEventSource": "globalaccelerator.amazonaws.com"
+          "cloudTrailEventSource": "globalaccelerator.amazonaws.com",
+          "endpointPrefix": "globalaccelerator"
         },
         "aws.auth#sigv4": {
           "name": "globalaccelerator"

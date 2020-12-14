@@ -32,17 +32,17 @@
     "com.amazonaws.rekognition#AccessDeniedException": {
       "type": "structure",
       "members": {
-        "Logref": {
-          "target": "com.amazonaws.rekognition#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A universally unique identifier (UUID) for the request.</p>"
-          }
-        },
         "Message": {
           "target": "com.amazonaws.rekognition#String"
         },
         "Code": {
           "target": "com.amazonaws.rekognition#String"
+        },
+        "Logref": {
+          "target": "com.amazonaws.rekognition#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A universally unique identifier (UUID) for the request.</p>"
+          }
         }
       },
       "traits": {
@@ -111,6 +111,12 @@
     "com.amazonaws.rekognition#AudioMetadata": {
       "type": "structure",
       "members": {
+        "Codec": {
+          "target": "com.amazonaws.rekognition#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The audio codec used to encode or decode the audio stream. </p>"
+          }
+        },
         "DurationMillis": {
           "target": "com.amazonaws.rekognition#ULong",
           "traits": {
@@ -121,12 +127,6 @@
           "target": "com.amazonaws.rekognition#ULong",
           "traits": {
             "smithy.api#documentation": "<p>The sample rate for the audio stream.</p>"
-          }
-        },
-        "Codec": {
-          "target": "com.amazonaws.rekognition#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The audio codec used to encode or decode the audio stream. </p>"
           }
         },
         "NumberOfChannels": {
@@ -149,16 +149,16 @@
     "com.amazonaws.rekognition#Beard": {
       "type": "structure",
       "members": {
-        "Confidence": {
-          "target": "com.amazonaws.rekognition#Percent",
-          "traits": {
-            "smithy.api#documentation": "<p>Level of confidence in the determination.</p>"
-          }
-        },
         "Value": {
           "target": "com.amazonaws.rekognition#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Boolean value that indicates whether the face has beard or not.</p>"
+          }
+        },
+        "Confidence": {
+          "target": "com.amazonaws.rekognition#Percent",
+          "traits": {
+            "smithy.api#documentation": "<p>Level of confidence in the determination.</p>"
           }
         }
       },
@@ -201,18 +201,6 @@
     "com.amazonaws.rekognition#BoundingBox": {
       "type": "structure",
       "members": {
-        "Left": {
-          "target": "com.amazonaws.rekognition#Float",
-          "traits": {
-            "smithy.api#documentation": "<p>Left coordinate of the bounding box as a ratio of overall image width.</p>"
-          }
-        },
-        "Top": {
-          "target": "com.amazonaws.rekognition#Float",
-          "traits": {
-            "smithy.api#documentation": "<p>Top coordinate of the bounding box as a ratio of overall image height.</p>"
-          }
-        },
         "Width": {
           "target": "com.amazonaws.rekognition#Float",
           "traits": {
@@ -223,6 +211,18 @@
           "target": "com.amazonaws.rekognition#Float",
           "traits": {
             "smithy.api#documentation": "<p>Height of the bounding box as a ratio of the overall image height.</p>"
+          }
+        },
+        "Left": {
+          "target": "com.amazonaws.rekognition#Float",
+          "traits": {
+            "smithy.api#documentation": "<p>Left coordinate of the bounding box as a ratio of overall image width.</p>"
+          }
+        },
+        "Top": {
+          "target": "com.amazonaws.rekognition#Float",
+          "traits": {
+            "smithy.api#documentation": "<p>Top coordinate of the bounding box as a ratio of overall image height.</p>"
           }
         }
       },
@@ -259,10 +259,10 @@
             "smithy.api#documentation": "<p>An array of URLs pointing to additional information about the celebrity. If there is no\n      additional information about the celebrity, this list is empty.</p>"
           }
         },
-        "Face": {
-          "target": "com.amazonaws.rekognition#ComparedFace",
+        "Name": {
+          "target": "com.amazonaws.rekognition#String",
           "traits": {
-            "smithy.api#documentation": "<p>Provides information about the celebrity's face, such as its location on the\n      image.</p>"
+            "smithy.api#documentation": "<p>The name of the celebrity.</p>"
           }
         },
         "Id": {
@@ -271,10 +271,10 @@
             "smithy.api#documentation": "<p>A unique identifier for the celebrity. </p>"
           }
         },
-        "Name": {
-          "target": "com.amazonaws.rekognition#String",
+        "Face": {
+          "target": "com.amazonaws.rekognition#ComparedFace",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the celebrity.</p>"
+            "smithy.api#documentation": "<p>Provides information about the celebrity's face, such as its location on the\n      image.</p>"
           }
         },
         "MatchConfidence": {
@@ -291,24 +291,6 @@
     "com.amazonaws.rekognition#CelebrityDetail": {
       "type": "structure",
       "members": {
-        "Id": {
-          "target": "com.amazonaws.rekognition#RekognitionUniqueId",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the celebrity. </p>"
-          }
-        },
-        "Confidence": {
-          "target": "com.amazonaws.rekognition#Percent",
-          "traits": {
-            "smithy.api#documentation": "<p>The confidence, in percentage, that Amazon Rekognition has that the recognized face is the celebrity. </p>"
-          }
-        },
-        "Face": {
-          "target": "com.amazonaws.rekognition#FaceDetail",
-          "traits": {
-            "smithy.api#documentation": "<p>Face details for the recognized celebrity.</p>"
-          }
-        },
         "Urls": {
           "target": "com.amazonaws.rekognition#Urls",
           "traits": {
@@ -321,10 +303,28 @@
             "smithy.api#documentation": "<p>The name of the celebrity.</p>"
           }
         },
+        "Id": {
+          "target": "com.amazonaws.rekognition#RekognitionUniqueId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the celebrity. </p>"
+          }
+        },
+        "Confidence": {
+          "target": "com.amazonaws.rekognition#Percent",
+          "traits": {
+            "smithy.api#documentation": "<p>The confidence, in percentage, that Amazon Rekognition has that the recognized face is the celebrity. </p>"
+          }
+        },
         "BoundingBox": {
           "target": "com.amazonaws.rekognition#BoundingBox",
           "traits": {
             "smithy.api#documentation": "<p>Bounding box around the body of a celebrity.</p>"
+          }
+        },
+        "Face": {
+          "target": "com.amazonaws.rekognition#FaceDetail",
+          "traits": {
+            "smithy.api#documentation": "<p>Face details for the recognized celebrity.</p>"
           }
         }
       },
@@ -446,16 +446,16 @@
     "com.amazonaws.rekognition#CompareFacesMatch": {
       "type": "structure",
       "members": {
-        "Face": {
-          "target": "com.amazonaws.rekognition#ComparedFace",
-          "traits": {
-            "smithy.api#documentation": "<p>Provides face metadata (bounding box and confidence that the bounding box actually\n      contains a face).</p>"
-          }
-        },
         "Similarity": {
           "target": "com.amazonaws.rekognition#Percent",
           "traits": {
             "smithy.api#documentation": "<p>Level of confidence that the faces match.</p>"
+          }
+        },
+        "Face": {
+          "target": "com.amazonaws.rekognition#ComparedFace",
+          "traits": {
+            "smithy.api#documentation": "<p>Provides face metadata (bounding box and confidence that the bounding box actually\n      contains a face).</p>"
           }
         }
       },
@@ -472,12 +472,6 @@
     "com.amazonaws.rekognition#CompareFacesRequest": {
       "type": "structure",
       "members": {
-        "QualityFilter": {
-          "target": "com.amazonaws.rekognition#QualityFilter",
-          "traits": {
-            "smithy.api#documentation": "<p>A filter that specifies a quality bar for how much filtering is done to identify faces.\n      Filtered faces aren't compared. If you specify <code>AUTO</code>, Amazon Rekognition chooses the quality bar.\n      If you specify <code>LOW</code>, \n      <code>MEDIUM</code>, or <code>HIGH</code>, filtering removes all faces that\n      don’t meet the chosen quality bar.\n      \n      The quality bar is based on a variety of common use cases. Low-quality\n      detections can occur for a number of reasons. Some examples are an object that's misidentified\n      as a face, a face that's too blurry, or a face with a\n      pose that's too extreme to use. If you specify <code>NONE</code>, no\n      filtering is performed. The default value is <code>NONE</code>.\n    </p>\n         <p>To use quality filtering, the collection you are using must be associated with version 3 of the face model or higher.</p>"
-          }
-        },
         "SourceImage": {
           "target": "com.amazonaws.rekognition#Image",
           "traits": {
@@ -497,16 +491,28 @@
           "traits": {
             "smithy.api#documentation": "<p>The minimum level of confidence in the face matches that a match must meet to be\n      included in the <code>FaceMatches</code> array.</p>"
           }
+        },
+        "QualityFilter": {
+          "target": "com.amazonaws.rekognition#QualityFilter",
+          "traits": {
+            "smithy.api#documentation": "<p>A filter that specifies a quality bar for how much filtering is done to identify faces.\n      Filtered faces aren't compared. If you specify <code>AUTO</code>, Amazon Rekognition chooses the quality bar.\n      If you specify <code>LOW</code>, \n      <code>MEDIUM</code>, or <code>HIGH</code>, filtering removes all faces that\n      don’t meet the chosen quality bar.\n      \n      The quality bar is based on a variety of common use cases. Low-quality\n      detections can occur for a number of reasons. Some examples are an object that's misidentified\n      as a face, a face that's too blurry, or a face with a\n      pose that's too extreme to use. If you specify <code>NONE</code>, no\n      filtering is performed. The default value is <code>NONE</code>.\n    </p>\n         <p>To use quality filtering, the collection you are using must be associated with version 3 of the face model or higher.</p>"
+          }
         }
       }
     },
     "com.amazonaws.rekognition#CompareFacesResponse": {
       "type": "structure",
       "members": {
-        "TargetImageOrientationCorrection": {
-          "target": "com.amazonaws.rekognition#OrientationCorrection",
+        "SourceImageFace": {
+          "target": "com.amazonaws.rekognition#ComparedSourceImageFace",
           "traits": {
-            "smithy.api#documentation": "<p>The value of <code>TargetImageOrientationCorrection</code> is always null.</p>\n         <p>If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata\n      that includes the image's orientation. Amazon Rekognition uses this orientation information to perform \n      image correction. The bounding box coordinates are translated to represent object locations\n      after the orientation information in the Exif metadata is used to correct the image orientation. \n      Images in .png format don't contain Exif metadata.</p>\n         <p>Amazon Rekognition doesn’t perform image correction for images in .png format and\n      .jpeg images without orientation information in the image Exif metadata. The bounding box\n      coordinates aren't translated and represent the object locations before the image is rotated.\n    </p>"
+            "smithy.api#documentation": "<p>The face in the source image that was used for comparison.</p>"
+          }
+        },
+        "FaceMatches": {
+          "target": "com.amazonaws.rekognition#CompareFacesMatchList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of faces in the target image that match the source image face. Each\n        <code>CompareFacesMatch</code> object provides the bounding box, the confidence level that\n      the bounding box contains a face, and the similarity score for the face in the bounding box\n      and the face in the source image.</p>"
           }
         },
         "UnmatchedFaces": {
@@ -521,16 +527,10 @@
             "smithy.api#documentation": "<p>The value of <code>SourceImageOrientationCorrection</code> is always null.</p>\n         <p>If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata\n      that includes the image's orientation. Amazon Rekognition uses this orientation information to perform \n      image correction. The bounding box coordinates are translated to represent object locations\n      after the orientation information in the Exif metadata is used to correct the image orientation. \n      Images in .png format don't contain Exif metadata.</p>\n         <p>Amazon Rekognition doesn’t perform image correction for images in .png format and\n      .jpeg images without orientation information in the image Exif metadata. The bounding box\n      coordinates aren't translated and represent the object locations before the image is rotated.\n    </p>"
           }
         },
-        "SourceImageFace": {
-          "target": "com.amazonaws.rekognition#ComparedSourceImageFace",
+        "TargetImageOrientationCorrection": {
+          "target": "com.amazonaws.rekognition#OrientationCorrection",
           "traits": {
-            "smithy.api#documentation": "<p>The face in the source image that was used for comparison.</p>"
-          }
-        },
-        "FaceMatches": {
-          "target": "com.amazonaws.rekognition#CompareFacesMatchList",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of faces in the target image that match the source image face. Each\n        <code>CompareFacesMatch</code> object provides the bounding box, the confidence level that\n      the bounding box contains a face, and the similarity score for the face in the bounding box\n      and the face in the source image.</p>"
+            "smithy.api#documentation": "<p>The value of <code>TargetImageOrientationCorrection</code> is always null.</p>\n         <p>If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata\n      that includes the image's orientation. Amazon Rekognition uses this orientation information to perform \n      image correction. The bounding box coordinates are translated to represent object locations\n      after the orientation information in the Exif metadata is used to correct the image orientation. \n      Images in .png format don't contain Exif metadata.</p>\n         <p>Amazon Rekognition doesn’t perform image correction for images in .png format and\n      .jpeg images without orientation information in the image Exif metadata. The bounding box\n      coordinates aren't translated and represent the object locations before the image is rotated.\n    </p>"
           }
         }
       }
@@ -544,6 +544,12 @@
     "com.amazonaws.rekognition#ComparedFace": {
       "type": "structure",
       "members": {
+        "BoundingBox": {
+          "target": "com.amazonaws.rekognition#BoundingBox",
+          "traits": {
+            "smithy.api#documentation": "<p>Bounding box of the face.</p>"
+          }
+        },
         "Confidence": {
           "target": "com.amazonaws.rekognition#Percent",
           "traits": {
@@ -556,22 +562,16 @@
             "smithy.api#documentation": "<p>An array of facial landmarks.</p>"
           }
         },
-        "Quality": {
-          "target": "com.amazonaws.rekognition#ImageQuality",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifies face image brightness and sharpness. </p>"
-          }
-        },
         "Pose": {
           "target": "com.amazonaws.rekognition#Pose",
           "traits": {
             "smithy.api#documentation": "<p>Indicates the pose of the face as determined by its pitch, roll, and yaw.</p>"
           }
         },
-        "BoundingBox": {
-          "target": "com.amazonaws.rekognition#BoundingBox",
+        "Quality": {
+          "target": "com.amazonaws.rekognition#ImageQuality",
           "traits": {
-            "smithy.api#documentation": "<p>Bounding box of the face.</p>"
+            "smithy.api#documentation": "<p>Identifies face image brightness and sharpness. </p>"
           }
         }
       },
@@ -740,6 +740,12 @@
     "com.amazonaws.rekognition#CreateCollectionResponse": {
       "type": "structure",
       "members": {
+        "StatusCode": {
+          "target": "com.amazonaws.rekognition#UInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>HTTP status code indicating the result of the operation.</p>"
+          }
+        },
         "CollectionArn": {
           "target": "com.amazonaws.rekognition#String",
           "traits": {
@@ -750,12 +756,6 @@
           "target": "com.amazonaws.rekognition#String",
           "traits": {
             "smithy.api#documentation": "<p>Version number of the face detection model associated with the collection you are creating.</p>"
-          }
-        },
-        "StatusCode": {
-          "target": "com.amazonaws.rekognition#UInteger",
-          "traits": {
-            "smithy.api#documentation": "<p>HTTP status code indicating the result of the operation.</p>"
           }
         }
       }
@@ -859,6 +859,13 @@
     "com.amazonaws.rekognition#CreateProjectVersionRequest": {
       "type": "structure",
       "members": {
+        "ProjectArn": {
+          "target": "com.amazonaws.rekognition#ProjectArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the Amazon Rekognition Custom Labels project that \n         manages the model that you want to train.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "VersionName": {
           "target": "com.amazonaws.rekognition#VersionName",
           "traits": {
@@ -873,13 +880,6 @@
             "smithy.api#required": {}
           }
         },
-        "TestingData": {
-          "target": "com.amazonaws.rekognition#TestingData",
-          "traits": {
-            "smithy.api#documentation": "<p>The dataset to use for testing.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "TrainingData": {
           "target": "com.amazonaws.rekognition#TrainingData",
           "traits": {
@@ -887,10 +887,10 @@
             "smithy.api#required": {}
           }
         },
-        "ProjectArn": {
-          "target": "com.amazonaws.rekognition#ProjectArn",
+        "TestingData": {
+          "target": "com.amazonaws.rekognition#TestingData",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the Amazon Rekognition Custom Labels project that \n         manages the model that you want to train.</p>",
+            "smithy.api#documentation": "<p>The dataset to use for testing.</p>",
             "smithy.api#required": {}
           }
         }
@@ -945,17 +945,17 @@
     "com.amazonaws.rekognition#CreateStreamProcessorRequest": {
       "type": "structure",
       "members": {
-        "Output": {
-          "target": "com.amazonaws.rekognition#StreamProcessorOutput",
-          "traits": {
-            "smithy.api#documentation": "<p>Kinesis data stream stream to which Amazon Rekognition Video puts the analysis results. If you are using the AWS CLI, the parameter name is <code>StreamProcessorOutput</code>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Input": {
           "target": "com.amazonaws.rekognition#StreamProcessorInput",
           "traits": {
             "smithy.api#documentation": "<p>Kinesis video stream stream that provides the source streaming video. If you are using the AWS CLI, the parameter name is <code>StreamProcessorInput</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Output": {
+          "target": "com.amazonaws.rekognition#StreamProcessorOutput",
+          "traits": {
+            "smithy.api#documentation": "<p>Kinesis data stream stream to which Amazon Rekognition Video puts the analysis results. If you are using the AWS CLI, the parameter name is <code>StreamProcessorOutput</code>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -996,16 +996,16 @@
     "com.amazonaws.rekognition#CustomLabel": {
       "type": "structure",
       "members": {
-        "Confidence": {
-          "target": "com.amazonaws.rekognition#Percent",
-          "traits": {
-            "smithy.api#documentation": "<p>The confidence that the model has in the detection of the custom label. The \n      range is 0-100. A higher value indicates a higher confidence.</p>"
-          }
-        },
         "Name": {
           "target": "com.amazonaws.rekognition#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the custom label.</p>"
+          }
+        },
+        "Confidence": {
+          "target": "com.amazonaws.rekognition#Percent",
+          "traits": {
+            "smithy.api#documentation": "<p>The confidence that the model has in the detection of the custom label. The \n      range is 0-100. A higher value indicates a higher confidence.</p>"
           }
         },
         "Geometry": {
@@ -1369,18 +1369,6 @@
     "com.amazonaws.rekognition#DescribeCollectionResponse": {
       "type": "structure",
       "members": {
-        "CollectionARN": {
-          "target": "com.amazonaws.rekognition#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the collection.</p>"
-          }
-        },
-        "CreationTimestamp": {
-          "target": "com.amazonaws.rekognition#DateTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of milliseconds since the Unix epoch time until the creation of the collection.\n         The Unix epoch time is 00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970.</p>"
-          }
-        },
         "FaceCount": {
           "target": "com.amazonaws.rekognition#ULong",
           "traits": {
@@ -1391,6 +1379,18 @@
           "target": "com.amazonaws.rekognition#String",
           "traits": {
             "smithy.api#documentation": "<p>The version of the face model that's used by the collection for face detection.</p>\n      \n         <p>For more information, see Model Versioning in the \n     Amazon Rekognition Developer Guide.</p>"
+          }
+        },
+        "CollectionARN": {
+          "target": "com.amazonaws.rekognition#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the collection.</p>"
+          }
+        },
+        "CreationTimestamp": {
+          "target": "com.amazonaws.rekognition#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of milliseconds since the Unix epoch time until the creation of the collection.\n         The Unix epoch time is 00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970.</p>"
           }
         }
       }
@@ -1433,6 +1433,60 @@
           "outputToken": "NextToken",
           "items": "ProjectVersionDescriptions",
           "pageSize": "MaxResults"
+        },
+        "smithy.waiters#waitable": {
+          "ProjectVersionRunning": {
+            "documentation": "Wait until the ProjectVersion is running.",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "ProjectVersionDescriptions[].Status",
+                    "expected": "RUNNING",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ProjectVersionDescriptions[].Status",
+                    "expected": "FAILED",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 30
+          },
+          "ProjectVersionTrainingCompleted": {
+            "documentation": "Wait until the ProjectVersion training completes.",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "ProjectVersionDescriptions[].Status",
+                    "expected": "TRAINING_COMPLETED",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "ProjectVersionDescriptions[].Status",
+                    "expected": "TRAINING_FAILED",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 120
+          }
         }
       }
     },
@@ -1446,10 +1500,10 @@
             "smithy.api#required": {}
           }
         },
-        "MaxResults": {
-          "target": "com.amazonaws.rekognition#ProjectVersionsPageSize",
+        "VersionNames": {
+          "target": "com.amazonaws.rekognition#VersionNames",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return per paginated call. \n          The largest value you can specify is 100. If you specify a value greater than 100, a ValidationException\n          error occurs. The default value is 100. </p>"
+            "smithy.api#documentation": "<p>A list of model version names that you want to describe. You can add up to 10 model version names\n         to the list. If you don't specify a value, all model descriptions are returned.  A version name is part of a\n         model (ProjectVersion) ARN. For example, <code>my-model.2020-01-21T09.10.15</code> is the version name in the following ARN.\n               <code>arn:aws:rekognition:us-east-1:123456789012:project/getting-started/version/<i>my-model.2020-01-21T09.10.15</i>/1234567890123</code>.</p>"
           }
         },
         "NextToken": {
@@ -1458,10 +1512,10 @@
             "smithy.api#documentation": "<p>If the previous response was incomplete (because there is more\n           results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. \n           You can use this pagination token to retrieve the next set of results. </p>"
           }
         },
-        "VersionNames": {
-          "target": "com.amazonaws.rekognition#VersionNames",
+        "MaxResults": {
+          "target": "com.amazonaws.rekognition#ProjectVersionsPageSize",
           "traits": {
-            "smithy.api#documentation": "<p>A list of model version names that you want to describe. You can add up to 10 model version names\n         to the list. If you don't specify a value, all model descriptions are returned.  A version name is part of a\n         model (ProjectVersion) ARN. For example, <code>my-model.2020-01-21T09.10.15</code> is the version name in the following ARN.\n               <code>arn:aws:rekognition:us-east-1:123456789012:project/getting-started/version/<i>my-model.2020-01-21T09.10.15</i>/1234567890123</code>.</p>"
+            "smithy.api#documentation": "<p>The maximum number of results to return per paginated call. \n          The largest value you can specify is 100. If you specify a value greater than 100, a ValidationException\n          error occurs. The default value is 100. </p>"
           }
         }
       }
@@ -1469,16 +1523,16 @@
     "com.amazonaws.rekognition#DescribeProjectVersionsResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.rekognition#ExtendedPaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If the previous response was incomplete (because there is more\n         results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. \n         You can use this pagination token to retrieve the next set of results. </p>"
-          }
-        },
         "ProjectVersionDescriptions": {
           "target": "com.amazonaws.rekognition#ProjectVersionDescriptions",
           "traits": {
             "smithy.api#documentation": "<p>A list of model descriptions. The list is sorted by the creation date and time of\n         the model versions, latest to earliest.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.rekognition#ExtendedPaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If the previous response was incomplete (because there is more\n         results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. \n         You can use this pagination token to retrieve the next set of results. </p>"
           }
         }
       }
@@ -1602,6 +1656,12 @@
     "com.amazonaws.rekognition#DescribeStreamProcessorResponse": {
       "type": "structure",
       "members": {
+        "Name": {
+          "target": "com.amazonaws.rekognition#StreamProcessorName",
+          "traits": {
+            "smithy.api#documentation": "<p>Name of the stream processor. </p>"
+          }
+        },
         "StreamProcessorArn": {
           "target": "com.amazonaws.rekognition#StreamProcessorArn",
           "traits": {
@@ -1614,10 +1674,16 @@
             "smithy.api#documentation": "<p>Current status of the stream processor.</p>"
           }
         },
-        "RoleArn": {
-          "target": "com.amazonaws.rekognition#RoleArn",
+        "StatusMessage": {
+          "target": "com.amazonaws.rekognition#String",
           "traits": {
-            "smithy.api#documentation": "<p>ARN of the IAM role that allows access to the stream processor.</p>"
+            "smithy.api#documentation": "<p>Detailed status message about the stream processor.</p>"
+          }
+        },
+        "CreationTimestamp": {
+          "target": "com.amazonaws.rekognition#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>Date and time the stream processor was created</p>"
           }
         },
         "LastUpdateTimestamp": {
@@ -1632,34 +1698,22 @@
             "smithy.api#documentation": "<p>Kinesis video stream that provides the source streaming video.</p>"
           }
         },
-        "StatusMessage": {
-          "target": "com.amazonaws.rekognition#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Detailed status message about the stream processor.</p>"
-          }
-        },
-        "Settings": {
-          "target": "com.amazonaws.rekognition#StreamProcessorSettings",
-          "traits": {
-            "smithy.api#documentation": "<p>Face recognition input parameters that are being used by the stream processor.\n            Includes the collection to use for face recognition and the face\n            attributes to detect.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.rekognition#StreamProcessorName",
-          "traits": {
-            "smithy.api#documentation": "<p>Name of the stream processor. </p>"
-          }
-        },
         "Output": {
           "target": "com.amazonaws.rekognition#StreamProcessorOutput",
           "traits": {
             "smithy.api#documentation": "<p>Kinesis data stream to which Amazon Rekognition Video puts the analysis results.</p>"
           }
         },
-        "CreationTimestamp": {
-          "target": "com.amazonaws.rekognition#DateTime",
+        "RoleArn": {
+          "target": "com.amazonaws.rekognition#RoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>Date and time the stream processor was created</p>"
+            "smithy.api#documentation": "<p>ARN of the IAM role that allows access to the stream processor.</p>"
+          }
+        },
+        "Settings": {
+          "target": "com.amazonaws.rekognition#StreamProcessorSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>Face recognition input parameters that are being used by the stream processor.\n            Includes the collection to use for face recognition and the face\n            attributes to detect.</p>"
           }
         }
       }
@@ -1714,18 +1768,6 @@
     "com.amazonaws.rekognition#DetectCustomLabelsRequest": {
       "type": "structure",
       "members": {
-        "MinConfidence": {
-          "target": "com.amazonaws.rekognition#Percent",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the minimum confidence level for the labels to return. \n         Amazon Rekognition doesn't return any labels with a confidence lower than this specified value. If you specify a\n      value of 0, all labels are return, regardless of the default thresholds that the model version applies.</p>"
-          }
-        },
-        "MaxResults": {
-          "target": "com.amazonaws.rekognition#UInteger",
-          "traits": {
-            "smithy.api#documentation": "<p>Maximum number of results you want the service to return in the response. \n         The service returns the specified number of highest confidence labels ranked from highest confidence \n      to lowest.</p>"
-          }
-        },
         "ProjectVersionArn": {
           "target": "com.amazonaws.rekognition#ProjectVersionArn",
           "traits": {
@@ -1737,6 +1779,18 @@
           "target": "com.amazonaws.rekognition#Image",
           "traits": {
             "smithy.api#required": {}
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.rekognition#UInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>Maximum number of results you want the service to return in the response. \n         The service returns the specified number of highest confidence labels ranked from highest confidence \n      to lowest.</p>"
+          }
+        },
+        "MinConfidence": {
+          "target": "com.amazonaws.rekognition#Percent",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the minimum confidence level for the labels to return. \n         Amazon Rekognition doesn't return any labels with a confidence lower than this specified value. If you specify a\n      value of 0, all labels are return, regardless of the default thresholds that the model version applies.</p>"
           }
         }
       }
@@ -1811,16 +1865,16 @@
     "com.amazonaws.rekognition#DetectFacesResponse": {
       "type": "structure",
       "members": {
-        "OrientationCorrection": {
-          "target": "com.amazonaws.rekognition#OrientationCorrection",
-          "traits": {
-            "smithy.api#documentation": "<p>The value of <code>OrientationCorrection</code> is always null.</p>\n         <p>If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata\n      that includes the image's orientation. Amazon Rekognition uses this orientation information to perform \n      image correction. The bounding box coordinates are translated to represent object locations\n      after the orientation information in the Exif metadata is used to correct the image orientation. \n      Images in .png format don't contain Exif metadata.</p>\n         <p>Amazon Rekognition doesn’t perform image correction for images in .png format and\n      .jpeg images without orientation information in the image Exif metadata. The bounding box\n      coordinates aren't translated and represent the object locations before the image is rotated.\n    </p>"
-          }
-        },
         "FaceDetails": {
           "target": "com.amazonaws.rekognition#FaceDetailList",
           "traits": {
             "smithy.api#documentation": "<p>Details of each face found in the image. </p>"
+          }
+        },
+        "OrientationCorrection": {
+          "target": "com.amazonaws.rekognition#OrientationCorrection",
+          "traits": {
+            "smithy.api#documentation": "<p>The value of <code>OrientationCorrection</code> is always null.</p>\n         <p>If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata\n      that includes the image's orientation. Amazon Rekognition uses this orientation information to perform \n      image correction. The bounding box coordinates are translated to represent object locations\n      after the orientation information in the Exif metadata is used to correct the image orientation. \n      Images in .png format don't contain Exif metadata.</p>\n         <p>Amazon Rekognition doesn’t perform image correction for images in .png format and\n      .jpeg images without orientation information in the image Exif metadata. The bounding box\n      coordinates aren't translated and represent the object locations before the image is rotated.\n    </p>"
           }
         }
       }
@@ -1866,12 +1920,6 @@
     "com.amazonaws.rekognition#DetectLabelsRequest": {
       "type": "structure",
       "members": {
-        "MinConfidence": {
-          "target": "com.amazonaws.rekognition#Percent",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't\n      return any labels with confidence lower than this specified value.</p>\n         <p>If <code>MinConfidence</code> is not specified, the operation returns labels with a\n      confidence values greater than or equal to 55 percent.</p>"
-          }
-        },
         "Image": {
           "target": "com.amazonaws.rekognition#Image",
           "traits": {
@@ -1884,16 +1932,22 @@
           "traits": {
             "smithy.api#documentation": "<p>Maximum number of labels you want the service to return in the response. The service\n      returns the specified number of highest confidence labels. </p>"
           }
+        },
+        "MinConfidence": {
+          "target": "com.amazonaws.rekognition#Percent",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't\n      return any labels with confidence lower than this specified value.</p>\n         <p>If <code>MinConfidence</code> is not specified, the operation returns labels with a\n      confidence values greater than or equal to 55 percent.</p>"
+          }
         }
       }
     },
     "com.amazonaws.rekognition#DetectLabelsResponse": {
       "type": "structure",
       "members": {
-        "LabelModelVersion": {
-          "target": "com.amazonaws.rekognition#String",
+        "Labels": {
+          "target": "com.amazonaws.rekognition#Labels",
           "traits": {
-            "smithy.api#documentation": "<p>Version number of the label detection model that was used to detect labels.</p>"
+            "smithy.api#documentation": "<p>An array of labels for the real-world objects detected. </p>"
           }
         },
         "OrientationCorrection": {
@@ -1902,10 +1956,10 @@
             "smithy.api#documentation": "<p>The value of <code>OrientationCorrection</code> is always null.</p>\n         <p>If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata\n      that includes the image's orientation. Amazon Rekognition uses this orientation information to perform \n      image correction. The bounding box coordinates are translated to represent object locations\n      after the orientation information in the Exif metadata is used to correct the image orientation. \n      Images in .png format don't contain Exif metadata.</p>\n         <p>Amazon Rekognition doesn’t perform image correction for images in .png format and\n         .jpeg images without orientation information in the image Exif metadata. The bounding box\n         coordinates aren't translated and represent the object locations before the image is rotated.\n      </p>"
           }
         },
-        "Labels": {
-          "target": "com.amazonaws.rekognition#Labels",
+        "LabelModelVersion": {
+          "target": "com.amazonaws.rekognition#String",
           "traits": {
-            "smithy.api#documentation": "<p>An array of labels for the real-world objects detected. </p>"
+            "smithy.api#documentation": "<p>Version number of the label detection model that was used to detect labels.</p>"
           }
         }
       }
@@ -1961,16 +2015,16 @@
             "smithy.api#required": {}
           }
         },
-        "HumanLoopConfig": {
-          "target": "com.amazonaws.rekognition#HumanLoopConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>Sets up the configuration for human evaluation, including the FlowDefinition\n      the image will be sent to.</p>"
-          }
-        },
         "MinConfidence": {
           "target": "com.amazonaws.rekognition#Percent",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't\n      return any labels with a confidence level lower than this specified value.</p>\n         <p>If you don't specify <code>MinConfidence</code>, the operation returns labels with\n      confidence values greater than or equal to 50 percent.</p>"
+          }
+        },
+        "HumanLoopConfig": {
+          "target": "com.amazonaws.rekognition#HumanLoopConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Sets up the configuration for human evaluation, including the FlowDefinition\n      the image will be sent to.</p>"
           }
         }
       }
@@ -1978,6 +2032,12 @@
     "com.amazonaws.rekognition#DetectModerationLabelsResponse": {
       "type": "structure",
       "members": {
+        "ModerationLabels": {
+          "target": "com.amazonaws.rekognition#ModerationLabels",
+          "traits": {
+            "smithy.api#documentation": "<p>Array of detected Moderation labels and the time, in milliseconds from the\n      start of the video, they were detected.</p>"
+          }
+        },
         "ModerationModelVersion": {
           "target": "com.amazonaws.rekognition#String",
           "traits": {
@@ -1988,12 +2048,6 @@
           "target": "com.amazonaws.rekognition#HumanLoopActivationOutput",
           "traits": {
             "smithy.api#documentation": "<p>Shows the results of the human in the loop evaluation.</p>"
-          }
-        },
-        "ModerationLabels": {
-          "target": "com.amazonaws.rekognition#ModerationLabels",
-          "traits": {
-            "smithy.api#documentation": "<p>Array of detected Moderation labels and the time, in milliseconds from the\n      start of the video, they were detected.</p>"
           }
         }
       }
@@ -2039,17 +2093,17 @@
     "com.amazonaws.rekognition#DetectProtectiveEquipmentRequest": {
       "type": "structure",
       "members": {
-        "SummarizationAttributes": {
-          "target": "com.amazonaws.rekognition#ProtectiveEquipmentSummarizationAttributes",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of PPE types that you want to summarize.</p>"
-          }
-        },
         "Image": {
           "target": "com.amazonaws.rekognition#Image",
           "traits": {
             "smithy.api#documentation": "<p>The image in which you want to detect PPE on detected persons. The image can be passed as image bytes or you can \n         reference an image stored in an Amazon S3 bucket. </p>",
             "smithy.api#required": {}
+          }
+        },
+        "SummarizationAttributes": {
+          "target": "com.amazonaws.rekognition#ProtectiveEquipmentSummarizationAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of PPE types that you want to summarize.</p>"
           }
         }
       }
@@ -2057,16 +2111,16 @@
     "com.amazonaws.rekognition#DetectProtectiveEquipmentResponse": {
       "type": "structure",
       "members": {
-        "Persons": {
-          "target": "com.amazonaws.rekognition#ProtectiveEquipmentPersons",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of persons detected in the image (including persons not wearing PPE).</p>"
-          }
-        },
         "ProtectiveEquipmentModelVersion": {
           "target": "com.amazonaws.rekognition#String",
           "traits": {
             "smithy.api#documentation": "<p>The version number of the PPE detection model used to detect PPE in the image.</p>"
+          }
+        },
+        "Persons": {
+          "target": "com.amazonaws.rekognition#ProtectiveEquipmentPersons",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of persons detected in the image (including persons not wearing PPE).</p>"
           }
         },
         "Summary": {
@@ -2118,14 +2172,14 @@
     "com.amazonaws.rekognition#DetectTextFilters": {
       "type": "structure",
       "members": {
+        "WordFilter": {
+          "target": "com.amazonaws.rekognition#DetectionFilter"
+        },
         "RegionsOfInterest": {
           "target": "com.amazonaws.rekognition#RegionsOfInterest",
           "traits": {
             "smithy.api#documentation": "<p> A Filter focusing on a certain area of the image. Uses a <code>BoundingBox</code> object to set the region\n      of the image.</p>"
           }
-        },
-        "WordFilter": {
-          "target": "com.amazonaws.rekognition#DetectionFilter"
         }
       },
       "traits": {
@@ -2135,17 +2189,17 @@
     "com.amazonaws.rekognition#DetectTextRequest": {
       "type": "structure",
       "members": {
-        "Filters": {
-          "target": "com.amazonaws.rekognition#DetectTextFilters",
-          "traits": {
-            "smithy.api#documentation": "<p>Optional parameters that let you set the criteria that the text must meet to be included in your response.</p>"
-          }
-        },
         "Image": {
           "target": "com.amazonaws.rekognition#Image",
           "traits": {
             "smithy.api#documentation": "<p>The input image as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI\n      to call Amazon Rekognition operations, you can't pass image bytes. </p>\n         <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes\n      passed using the <code>Bytes</code> field. \n      For more information, see Images in the Amazon Rekognition developer guide.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "Filters": {
+          "target": "com.amazonaws.rekognition#DetectTextFilters",
+          "traits": {
+            "smithy.api#documentation": "<p>Optional parameters that let you set the criteria that the text must meet to be included in your response.</p>"
           }
         }
       }
@@ -2196,16 +2250,16 @@
     "com.amazonaws.rekognition#Emotion": {
       "type": "structure",
       "members": {
-        "Confidence": {
-          "target": "com.amazonaws.rekognition#Percent",
-          "traits": {
-            "smithy.api#documentation": "<p>Level of confidence in the determination.</p>"
-          }
-        },
         "Type": {
           "target": "com.amazonaws.rekognition#EmotionName",
           "traits": {
             "smithy.api#documentation": "<p>Type of emotion detected.</p>"
+          }
+        },
+        "Confidence": {
+          "target": "com.amazonaws.rekognition#Percent",
+          "traits": {
+            "smithy.api#documentation": "<p>Level of confidence in the determination.</p>"
           }
         }
       },
@@ -2268,16 +2322,16 @@
             "smithy.api#documentation": "<p>The confidence that Amazon Rekognition has that the bounding box (<code>BoundingBox</code>) contains an item of PPE.</p>"
           }
         },
-        "CoversBodyPart": {
-          "target": "com.amazonaws.rekognition#CoversBodyPart",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the body part covered by the detected PPE.</p>"
-          }
-        },
         "Type": {
           "target": "com.amazonaws.rekognition#ProtectiveEquipmentType",
           "traits": {
             "smithy.api#documentation": "<p>The type of detected PPE.</p>"
+          }
+        },
+        "CoversBodyPart": {
+          "target": "com.amazonaws.rekognition#CoversBodyPart",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the body part covered by the detected PPE.</p>"
           }
         }
       },
@@ -2294,16 +2348,16 @@
     "com.amazonaws.rekognition#EvaluationResult": {
       "type": "structure",
       "members": {
-        "Summary": {
-          "target": "com.amazonaws.rekognition#Summary",
-          "traits": {
-            "smithy.api#documentation": "<p>The S3 bucket that contains the training summary.</p>"
-          }
-        },
         "F1Score": {
           "target": "com.amazonaws.rekognition#Float",
           "traits": {
             "smithy.api#documentation": "<p>The F1 score for the evaluation of all labels. The F1 score metric evaluates the overall precision\n         and recall performance of the model as a single value. A higher value indicates better precision\n         and recall performance. A lower score indicates that precision, recall, or both are performing poorly.\n         \n  </p>"
+          }
+        },
+        "Summary": {
+          "target": "com.amazonaws.rekognition#Summary",
+          "traits": {
+            "smithy.api#documentation": "<p>The S3 bucket that contains the training summary.</p>"
           }
         }
       },
@@ -2373,16 +2427,16 @@
     "com.amazonaws.rekognition#Face": {
       "type": "structure",
       "members": {
+        "FaceId": {
+          "target": "com.amazonaws.rekognition#FaceId",
+          "traits": {
+            "smithy.api#documentation": "<p>Unique identifier that Amazon Rekognition assigns to the face.</p>"
+          }
+        },
         "BoundingBox": {
           "target": "com.amazonaws.rekognition#BoundingBox",
           "traits": {
             "smithy.api#documentation": "<p>Bounding box of the face.</p>"
-          }
-        },
-        "Confidence": {
-          "target": "com.amazonaws.rekognition#Percent",
-          "traits": {
-            "smithy.api#documentation": "<p>Confidence level that the bounding box contains a face (and not a different object such\n      as a tree).</p>"
           }
         },
         "ImageId": {
@@ -2397,10 +2451,10 @@
             "smithy.api#documentation": "<p>Identifier that you assign to all the faces in the input image.</p>"
           }
         },
-        "FaceId": {
-          "target": "com.amazonaws.rekognition#FaceId",
+        "Confidence": {
+          "target": "com.amazonaws.rekognition#Percent",
           "traits": {
-            "smithy.api#documentation": "<p>Unique identifier that Amazon Rekognition assigns to the face.</p>"
+            "smithy.api#documentation": "<p>Confidence level that the bounding box contains a face (and not a different object such\n      as a tree).</p>"
           }
         }
       },
@@ -2426,52 +2480,10 @@
     "com.amazonaws.rekognition#FaceDetail": {
       "type": "structure",
       "members": {
-        "EyesOpen": {
-          "target": "com.amazonaws.rekognition#EyeOpen",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates whether or not the eyes on the face are open, and the confidence level in the\n      determination.</p>"
-          }
-        },
-        "Quality": {
-          "target": "com.amazonaws.rekognition#ImageQuality",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifies image brightness and sharpness. Default attribute.</p>"
-          }
-        },
-        "MouthOpen": {
-          "target": "com.amazonaws.rekognition#MouthOpen",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates whether or not the mouth on the face is open, and the confidence level in the\n      determination.</p>"
-          }
-        },
         "BoundingBox": {
           "target": "com.amazonaws.rekognition#BoundingBox",
           "traits": {
             "smithy.api#documentation": "<p>Bounding box of the face. Default attribute.</p>"
-          }
-        },
-        "Pose": {
-          "target": "com.amazonaws.rekognition#Pose",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates the pose of the face as determined by its pitch, roll, and yaw. Default attribute.</p>"
-          }
-        },
-        "Landmarks": {
-          "target": "com.amazonaws.rekognition#Landmarks",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates the location of landmarks on the face. Default attribute.</p>"
-          }
-        },
-        "Emotions": {
-          "target": "com.amazonaws.rekognition#Emotions",
-          "traits": {
-            "smithy.api#documentation": "<p>The emotions that appear to be expressed on the face, and the confidence level in the determination. \n      The API is only making a determination of the physical appearance of a person's face. It is not a determination\n      of the person’s internal emotional state and should not be used in such a way. For example, a person pretending to have\n      a sad face might not be sad emotionally.</p>"
-          }
-        },
-        "Beard": {
-          "target": "com.amazonaws.rekognition#Beard",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates whether or not the face has a beard, and the confidence level in the\n      determination.</p>"
           }
         },
         "AgeRange": {
@@ -2480,28 +2492,10 @@
             "smithy.api#documentation": "<p>The estimated age range, in years, for the face. Low represents the lowest estimated\n      age and High represents the highest estimated age.</p>"
           }
         },
-        "Sunglasses": {
-          "target": "com.amazonaws.rekognition#Sunglasses",
+        "Smile": {
+          "target": "com.amazonaws.rekognition#Smile",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether or not the face is wearing sunglasses, and the confidence level in\n      the determination.</p>"
-          }
-        },
-        "Mustache": {
-          "target": "com.amazonaws.rekognition#Mustache",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates whether or not the face has a mustache, and the confidence level in the\n      determination.</p>"
-          }
-        },
-        "Confidence": {
-          "target": "com.amazonaws.rekognition#Percent",
-          "traits": {
-            "smithy.api#documentation": "<p>Confidence level that the bounding box contains a face (and not a different object such\n      as a tree). Default attribute.</p>"
-          }
-        },
-        "Gender": {
-          "target": "com.amazonaws.rekognition#Gender",
-          "traits": {
-            "smithy.api#documentation": "<p>The predicted gender of a detected face.\n    </p>"
+            "smithy.api#documentation": "<p>Indicates whether or not the face is smiling, and the confidence level in the\n      determination.</p>"
           }
         },
         "Eyeglasses": {
@@ -2510,10 +2504,70 @@
             "smithy.api#documentation": "<p>Indicates whether or not the face is wearing eye glasses, and the confidence level in\n      the determination.</p>"
           }
         },
-        "Smile": {
-          "target": "com.amazonaws.rekognition#Smile",
+        "Sunglasses": {
+          "target": "com.amazonaws.rekognition#Sunglasses",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether or not the face is smiling, and the confidence level in the\n      determination.</p>"
+            "smithy.api#documentation": "<p>Indicates whether or not the face is wearing sunglasses, and the confidence level in\n      the determination.</p>"
+          }
+        },
+        "Gender": {
+          "target": "com.amazonaws.rekognition#Gender",
+          "traits": {
+            "smithy.api#documentation": "<p>The predicted gender of a detected face.\n    </p>"
+          }
+        },
+        "Beard": {
+          "target": "com.amazonaws.rekognition#Beard",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether or not the face has a beard, and the confidence level in the\n      determination.</p>"
+          }
+        },
+        "Mustache": {
+          "target": "com.amazonaws.rekognition#Mustache",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether or not the face has a mustache, and the confidence level in the\n      determination.</p>"
+          }
+        },
+        "EyesOpen": {
+          "target": "com.amazonaws.rekognition#EyeOpen",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether or not the eyes on the face are open, and the confidence level in the\n      determination.</p>"
+          }
+        },
+        "MouthOpen": {
+          "target": "com.amazonaws.rekognition#MouthOpen",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether or not the mouth on the face is open, and the confidence level in the\n      determination.</p>"
+          }
+        },
+        "Emotions": {
+          "target": "com.amazonaws.rekognition#Emotions",
+          "traits": {
+            "smithy.api#documentation": "<p>The emotions that appear to be expressed on the face, and the confidence level in the determination. \n      The API is only making a determination of the physical appearance of a person's face. It is not a determination\n      of the person’s internal emotional state and should not be used in such a way. For example, a person pretending to have\n      a sad face might not be sad emotionally.</p>"
+          }
+        },
+        "Landmarks": {
+          "target": "com.amazonaws.rekognition#Landmarks",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the location of landmarks on the face. Default attribute.</p>"
+          }
+        },
+        "Pose": {
+          "target": "com.amazonaws.rekognition#Pose",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the pose of the face as determined by its pitch, roll, and yaw. Default attribute.</p>"
+          }
+        },
+        "Quality": {
+          "target": "com.amazonaws.rekognition#ImageQuality",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifies image brightness and sharpness. Default attribute.</p>"
+          }
+        },
+        "Confidence": {
+          "target": "com.amazonaws.rekognition#Percent",
+          "traits": {
+            "smithy.api#documentation": "<p>Confidence level that the bounding box contains a face (and not a different object such\n      as a tree). Default attribute.</p>"
           }
         }
       },
@@ -2530,16 +2584,16 @@
     "com.amazonaws.rekognition#FaceDetection": {
       "type": "structure",
       "members": {
-        "Face": {
-          "target": "com.amazonaws.rekognition#FaceDetail",
-          "traits": {
-            "smithy.api#documentation": "<p>The face properties for the detected face.</p>"
-          }
-        },
         "Timestamp": {
           "target": "com.amazonaws.rekognition#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>Time, in milliseconds from the start of the video, that the face was detected.</p>"
+          }
+        },
+        "Face": {
+          "target": "com.amazonaws.rekognition#FaceDetail",
+          "traits": {
+            "smithy.api#documentation": "<p>The face properties for the detected face.</p>"
           }
         }
       },
@@ -2580,16 +2634,16 @@
     "com.amazonaws.rekognition#FaceMatch": {
       "type": "structure",
       "members": {
-        "Face": {
-          "target": "com.amazonaws.rekognition#Face",
-          "traits": {
-            "smithy.api#documentation": "<p>Describes the face properties such as the bounding box, face ID, image ID of the source\n      image, and external image ID that you assigned.</p>"
-          }
-        },
         "Similarity": {
           "target": "com.amazonaws.rekognition#Percent",
           "traits": {
             "smithy.api#documentation": "<p>Confidence in the match of this face with the input face.</p>"
+          }
+        },
+        "Face": {
+          "target": "com.amazonaws.rekognition#Face",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the face properties such as the bounding box, face ID, image ID of the source\n      image, and external image ID that you assigned.</p>"
           }
         }
       },
@@ -2612,16 +2666,16 @@
     "com.amazonaws.rekognition#FaceRecord": {
       "type": "structure",
       "members": {
-        "FaceDetail": {
-          "target": "com.amazonaws.rekognition#FaceDetail",
-          "traits": {
-            "smithy.api#documentation": "<p>Structure containing attributes of the face that the algorithm detected.</p>"
-          }
-        },
         "Face": {
           "target": "com.amazonaws.rekognition#Face",
           "traits": {
             "smithy.api#documentation": "<p>Describes the face properties such as the bounding box, face ID, image ID of the input\n      image, and external image ID that you assigned. </p>"
+          }
+        },
+        "FaceDetail": {
+          "target": "com.amazonaws.rekognition#FaceDetail",
+          "traits": {
+            "smithy.api#documentation": "<p>Structure containing attributes of the face that the algorithm detected.</p>"
           }
         }
       },
@@ -2723,16 +2777,16 @@
     "com.amazonaws.rekognition#Geometry": {
       "type": "structure",
       "members": {
-        "Polygon": {
-          "target": "com.amazonaws.rekognition#Polygon",
-          "traits": {
-            "smithy.api#documentation": "<p>Within the bounding box, a fine-grained polygon around the detected item.</p>"
-          }
-        },
         "BoundingBox": {
           "target": "com.amazonaws.rekognition#BoundingBox",
           "traits": {
             "smithy.api#documentation": "<p>An axis-aligned coarse representation of the detected item's location on the\n      image.</p>"
+          }
+        },
+        "Polygon": {
+          "target": "com.amazonaws.rekognition#Polygon",
+          "traits": {
+            "smithy.api#documentation": "<p>Within the bounding box, a fine-grained polygon around the detected item.</p>"
           }
         }
       },
@@ -2874,16 +2928,10 @@
     "com.amazonaws.rekognition#GetCelebrityRecognitionResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.rekognition#PaginationToken",
+        "JobStatus": {
+          "target": "com.amazonaws.rekognition#VideoJobStatus",
           "traits": {
-            "smithy.api#documentation": "<p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request\n      to retrieve the next set of celebrities.</p>"
-          }
-        },
-        "VideoMetadata": {
-          "target": "com.amazonaws.rekognition#VideoMetadata",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in\n      every page of paginated responses from a Amazon Rekognition Video operation.</p>"
+            "smithy.api#documentation": "<p>The current status of the celebrity recognition job.</p>"
           }
         },
         "StatusMessage": {
@@ -2892,16 +2940,22 @@
             "smithy.api#documentation": "<p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>"
           }
         },
+        "VideoMetadata": {
+          "target": "com.amazonaws.rekognition#VideoMetadata",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in\n      every page of paginated responses from a Amazon Rekognition Video operation.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.rekognition#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request\n      to retrieve the next set of celebrities.</p>"
+          }
+        },
         "Celebrities": {
           "target": "com.amazonaws.rekognition#CelebrityRecognitions",
           "traits": {
             "smithy.api#documentation": "<p>Array of celebrities recognized in the video.</p>"
-          }
-        },
-        "JobStatus": {
-          "target": "com.amazonaws.rekognition#VideoJobStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The current status of the celebrity recognition job.</p>"
           }
         }
       }
@@ -2949,16 +3003,17 @@
     "com.amazonaws.rekognition#GetContentModerationRequest": {
       "type": "structure",
       "members": {
+        "JobId": {
+          "target": "com.amazonaws.rekognition#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the unsafe content job. Use <code>JobId</code> to identify the job in\n       a subsequent call to <code>GetContentModeration</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "MaxResults": {
           "target": "com.amazonaws.rekognition#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>Maximum number of results to return per paginated call. The largest value you can specify is 1000. \n    If you specify a value greater than 1000, a maximum of 1000 results is returned.\n    The default value is 1000.</p>"
-          }
-        },
-        "SortBy": {
-          "target": "com.amazonaws.rekognition#ContentModerationSortBy",
-          "traits": {
-            "smithy.api#documentation": "<p>Sort to use for elements in the <code>ModerationLabelDetections</code> array.\n       Use <code>TIMESTAMP</code> to sort array elements by the time labels are detected.\n       Use <code>NAME</code> to alphabetically group elements for a label together.\n       Within each label group, the array element are sorted by detection confidence.\n       The default sort is by <code>TIMESTAMP</code>.</p>"
           }
         },
         "NextToken": {
@@ -2967,11 +3022,10 @@
             "smithy.api#documentation": "<p>If the previous response was incomplete (because there is more data to retrieve), Amazon Rekognition\n        returns a pagination token in the response. You can use this pagination token\n        to retrieve the next set of unsafe content labels.</p>"
           }
         },
-        "JobId": {
-          "target": "com.amazonaws.rekognition#JobId",
+        "SortBy": {
+          "target": "com.amazonaws.rekognition#ContentModerationSortBy",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier for the unsafe content job. Use <code>JobId</code> to identify the job in\n       a subsequent call to <code>GetContentModeration</code>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Sort to use for elements in the <code>ModerationLabelDetections</code> array.\n       Use <code>TIMESTAMP</code> to sort array elements by the time labels are detected.\n       Use <code>NAME</code> to alphabetically group elements for a label together.\n       Within each label group, the array element are sorted by detection confidence.\n       The default sort is by <code>TIMESTAMP</code>.</p>"
           }
         }
       }
@@ -2979,22 +3033,16 @@
     "com.amazonaws.rekognition#GetContentModerationResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.rekognition#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent\n     request to retrieve the next set of unsafe content labels. </p>"
-          }
-        },
-        "ModerationModelVersion": {
-          "target": "com.amazonaws.rekognition#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Version number of the moderation detection model that was used to detect unsafe content.</p>"
-          }
-        },
         "JobStatus": {
           "target": "com.amazonaws.rekognition#VideoJobStatus",
           "traits": {
             "smithy.api#documentation": "<p>The current status of the unsafe content analysis job.</p>"
+          }
+        },
+        "StatusMessage": {
+          "target": "com.amazonaws.rekognition#StatusMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>"
           }
         },
         "VideoMetadata": {
@@ -3009,10 +3057,16 @@
             "smithy.api#documentation": "<p>The detected unsafe content labels and the time(s) they were detected.</p>"
           }
         },
-        "StatusMessage": {
-          "target": "com.amazonaws.rekognition#StatusMessage",
+        "NextToken": {
+          "target": "com.amazonaws.rekognition#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>"
+            "smithy.api#documentation": "<p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent\n     request to retrieve the next set of unsafe content labels. </p>"
+          }
+        },
+        "ModerationModelVersion": {
+          "target": "com.amazonaws.rekognition#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Version number of the moderation detection model that was used to detect unsafe content.</p>"
           }
         }
       }
@@ -3067,16 +3121,16 @@
             "smithy.api#required": {}
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.rekognition#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If the previous response was incomplete (because there are more faces to retrieve), Amazon Rekognition Video returns a pagination\n       token in the response. You can use this pagination token to retrieve the next set of faces.</p>"
-          }
-        },
         "MaxResults": {
           "target": "com.amazonaws.rekognition#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>Maximum number of results to return per paginated call. The largest value you can specify is 1000. \n       If you specify a value greater than 1000, a maximum of 1000 results is returned.\n       The default value is 1000.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.rekognition#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If the previous response was incomplete (because there are more faces to retrieve), Amazon Rekognition Video returns a pagination\n       token in the response. You can use this pagination token to retrieve the next set of faces.</p>"
           }
         }
       }
@@ -3084,28 +3138,28 @@
     "com.amazonaws.rekognition#GetFaceDetectionResponse": {
       "type": "structure",
       "members": {
-        "StatusMessage": {
-          "target": "com.amazonaws.rekognition#StatusMessage",
-          "traits": {
-            "smithy.api#documentation": "<p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>"
-          }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.rekognition#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces. </p>"
-          }
-        },
         "JobStatus": {
           "target": "com.amazonaws.rekognition#VideoJobStatus",
           "traits": {
             "smithy.api#documentation": "<p>The current status of the face detection job.</p>"
           }
         },
+        "StatusMessage": {
+          "target": "com.amazonaws.rekognition#StatusMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>"
+          }
+        },
         "VideoMetadata": {
           "target": "com.amazonaws.rekognition#VideoMetadata",
           "traits": {
             "smithy.api#documentation": "<p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in\n       every page of paginated responses from a Amazon Rekognition video operation.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.rekognition#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces. </p>"
           }
         },
         "Faces": {
@@ -3159,16 +3213,11 @@
     "com.amazonaws.rekognition#GetFaceSearchRequest": {
       "type": "structure",
       "members": {
-        "SortBy": {
-          "target": "com.amazonaws.rekognition#FaceSearchSortBy",
+        "JobId": {
+          "target": "com.amazonaws.rekognition#JobId",
           "traits": {
-            "smithy.api#documentation": "<p>Sort to use for grouping faces in the response. Use <code>TIMESTAMP</code> to group faces by the time\n      that they are recognized. Use <code>INDEX</code> to sort by recognized faces. </p>"
-          }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.rekognition#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If the previous response was incomplete (because there is more search results to retrieve), Amazon Rekognition Video returns a pagination\n      token in the response. You can use this pagination token to retrieve the next set of search results. </p>"
+            "smithy.api#documentation": "<p>The job identifer for the search request. You get the job identifier from an initial call to <code>StartFaceSearch</code>.</p>",
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
@@ -3177,11 +3226,16 @@
             "smithy.api#documentation": "<p>Maximum number of results to return per paginated call. The largest value you can specify is 1000. \n      If you specify a value greater than 1000, a maximum of 1000 results is returned.\n      The default value is 1000.</p>"
           }
         },
-        "JobId": {
-          "target": "com.amazonaws.rekognition#JobId",
+        "NextToken": {
+          "target": "com.amazonaws.rekognition#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>The job identifer for the search request. You get the job identifier from an initial call to <code>StartFaceSearch</code>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>If the previous response was incomplete (because there is more search results to retrieve), Amazon Rekognition Video returns a pagination\n      token in the response. You can use this pagination token to retrieve the next set of search results. </p>"
+          }
+        },
+        "SortBy": {
+          "target": "com.amazonaws.rekognition#FaceSearchSortBy",
+          "traits": {
+            "smithy.api#documentation": "<p>Sort to use for grouping faces in the response. Use <code>TIMESTAMP</code> to group faces by the time\n      that they are recognized. Use <code>INDEX</code> to sort by recognized faces. </p>"
           }
         }
       }
@@ -3189,10 +3243,22 @@
     "com.amazonaws.rekognition#GetFaceSearchResponse": {
       "type": "structure",
       "members": {
+        "JobStatus": {
+          "target": "com.amazonaws.rekognition#VideoJobStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the face search job.</p>"
+          }
+        },
         "StatusMessage": {
           "target": "com.amazonaws.rekognition#StatusMessage",
           "traits": {
             "smithy.api#documentation": "<p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.rekognition#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of search results. </p>"
           }
         },
         "VideoMetadata": {
@@ -3201,22 +3267,10 @@
             "smithy.api#documentation": "<p>Information about a video that Amazon Rekognition analyzed. <code>Videometadata</code> is returned in every page of paginated responses\n      from a Amazon Rekognition Video operation. </p>"
           }
         },
-        "JobStatus": {
-          "target": "com.amazonaws.rekognition#VideoJobStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The current status of the face search job.</p>"
-          }
-        },
         "Persons": {
           "target": "com.amazonaws.rekognition#PersonMatches",
           "traits": {
             "smithy.api#documentation": "<p>An array of persons,  <a>PersonMatch</a>,\n      in the video whose face(s) match the face(s) in an Amazon Rekognition collection. It also includes time information\n       for when persons are matched in the video.\n      You specify the input collection in an initial call to <code>StartFaceSearch</code>.\n      Each  <code>Persons</code> element includes a time the person was matched,\n      face match details (<code>FaceMatches</code>) for matching faces in the collection,\n       and person information (<code>Person</code>) for the matched person. </p>"
-          }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.rekognition#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of search results. </p>"
           }
         }
       }
@@ -3264,12 +3318,6 @@
     "com.amazonaws.rekognition#GetLabelDetectionRequest": {
       "type": "structure",
       "members": {
-        "SortBy": {
-          "target": "com.amazonaws.rekognition#LabelDetectionSortBy",
-          "traits": {
-            "smithy.api#documentation": "<p>Sort to use for elements in the <code>Labels</code> array.\n      Use <code>TIMESTAMP</code> to sort array elements by the time labels are detected.\n      Use <code>NAME</code> to alphabetically group elements for a label together.\n      Within each label group, the array element are sorted by detection confidence.\n      The default sort is by <code>TIMESTAMP</code>.</p>"
-          }
-        },
         "JobId": {
           "target": "com.amazonaws.rekognition#JobId",
           "traits": {
@@ -3288,22 +3336,34 @@
           "traits": {
             "smithy.api#documentation": "<p>If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns a pagination\n         token in the response. You can use this pagination token to retrieve the next set of labels. </p>"
           }
+        },
+        "SortBy": {
+          "target": "com.amazonaws.rekognition#LabelDetectionSortBy",
+          "traits": {
+            "smithy.api#documentation": "<p>Sort to use for elements in the <code>Labels</code> array.\n      Use <code>TIMESTAMP</code> to sort array elements by the time labels are detected.\n      Use <code>NAME</code> to alphabetically group elements for a label together.\n      Within each label group, the array element are sorted by detection confidence.\n      The default sort is by <code>TIMESTAMP</code>.</p>"
+          }
         }
       }
     },
     "com.amazonaws.rekognition#GetLabelDetectionResponse": {
       "type": "structure",
       "members": {
+        "JobStatus": {
+          "target": "com.amazonaws.rekognition#VideoJobStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the label detection job.</p>"
+          }
+        },
         "StatusMessage": {
           "target": "com.amazonaws.rekognition#StatusMessage",
           "traits": {
             "smithy.api#documentation": "<p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>"
           }
         },
-        "Labels": {
-          "target": "com.amazonaws.rekognition#LabelDetections",
+        "VideoMetadata": {
+          "target": "com.amazonaws.rekognition#VideoMetadata",
           "traits": {
-            "smithy.api#documentation": "<p>An array of labels detected in the video. Each element contains the detected label and the time,\n        in milliseconds from the start of the video, that the label was detected. </p>"
+            "smithy.api#documentation": "<p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in\n       every page of paginated responses from a Amazon Rekognition video operation.</p>"
           }
         },
         "NextToken": {
@@ -3312,16 +3372,10 @@
             "smithy.api#documentation": "<p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request\n        to retrieve the next set of labels.</p>"
           }
         },
-        "JobStatus": {
-          "target": "com.amazonaws.rekognition#VideoJobStatus",
+        "Labels": {
+          "target": "com.amazonaws.rekognition#LabelDetections",
           "traits": {
-            "smithy.api#documentation": "<p>The current status of the label detection job.</p>"
-          }
-        },
-        "VideoMetadata": {
-          "target": "com.amazonaws.rekognition#VideoMetadata",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in\n       every page of paginated responses from a Amazon Rekognition video operation.</p>"
+            "smithy.api#documentation": "<p>An array of labels detected in the video. Each element contains the detected label and the time,\n        in milliseconds from the start of the video, that the label was detected. </p>"
           }
         },
         "LabelModelVersion": {
@@ -3375,10 +3429,11 @@
     "com.amazonaws.rekognition#GetPersonTrackingRequest": {
       "type": "structure",
       "members": {
-        "SortBy": {
-          "target": "com.amazonaws.rekognition#PersonTrackingSortBy",
+        "JobId": {
+          "target": "com.amazonaws.rekognition#JobId",
           "traits": {
-            "smithy.api#documentation": "<p>Sort to use for elements in the <code>Persons</code> array. Use <code>TIMESTAMP</code> to sort array elements\n       by the time persons are detected. Use <code>INDEX</code> to sort by the tracked persons.\n       If you sort by <code>INDEX</code>, the array elements for each person are sorted by detection confidence.\n       The default sort is by <code>TIMESTAMP</code>.</p>"
+            "smithy.api#documentation": "<p>The identifier for a job that tracks persons in a video. You get the <code>JobId</code> from a call to <code>StartPersonTracking</code>.\n        </p>",
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
@@ -3393,11 +3448,10 @@
             "smithy.api#documentation": "<p>If the previous response was incomplete (because there are more persons to retrieve), Amazon Rekognition Video returns a pagination\n       token in the response. You can use this pagination token to retrieve the next set of persons. </p>"
           }
         },
-        "JobId": {
-          "target": "com.amazonaws.rekognition#JobId",
+        "SortBy": {
+          "target": "com.amazonaws.rekognition#PersonTrackingSortBy",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier for a job that tracks persons in a video. You get the <code>JobId</code> from a call to <code>StartPersonTracking</code>.\n        </p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Sort to use for elements in the <code>Persons</code> array. Use <code>TIMESTAMP</code> to sort array elements\n       by the time persons are detected. Use <code>INDEX</code> to sort by the tracked persons.\n       If you sort by <code>INDEX</code>, the array elements for each person are sorted by detection confidence.\n       The default sort is by <code>TIMESTAMP</code>.</p>"
           }
         }
       }
@@ -3411,10 +3465,10 @@
             "smithy.api#documentation": "<p>The current status of the person tracking job.</p>"
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.rekognition#PaginationToken",
+        "StatusMessage": {
+          "target": "com.amazonaws.rekognition#StatusMessage",
           "traits": {
-            "smithy.api#documentation": "<p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of persons. </p>"
+            "smithy.api#documentation": "<p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>"
           }
         },
         "VideoMetadata": {
@@ -3423,10 +3477,10 @@
             "smithy.api#documentation": "<p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in\n       every page of paginated responses from a Amazon Rekognition Video operation.</p>"
           }
         },
-        "StatusMessage": {
-          "target": "com.amazonaws.rekognition#StatusMessage",
+        "NextToken": {
+          "target": "com.amazonaws.rekognition#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>"
+            "smithy.api#documentation": "<p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of persons. </p>"
           }
         },
         "Persons": {
@@ -3480,6 +3534,13 @@
     "com.amazonaws.rekognition#GetSegmentDetectionRequest": {
       "type": "structure",
       "members": {
+        "JobId": {
+          "target": "com.amazonaws.rekognition#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>Job identifier for the text detection operation for which you want results returned. \n      You get the job identifer from an initial call to <code>StartSegmentDetection</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "MaxResults": {
           "target": "com.amazonaws.rekognition#MaxResults",
           "traits": {
@@ -3491,49 +3552,12 @@
           "traits": {
             "smithy.api#documentation": "<p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent \n      request to retrieve the next set of text.</p>"
           }
-        },
-        "JobId": {
-          "target": "com.amazonaws.rekognition#JobId",
-          "traits": {
-            "smithy.api#documentation": "<p>Job identifier for the text detection operation for which you want results returned. \n      You get the job identifer from an initial call to <code>StartSegmentDetection</code>.</p>",
-            "smithy.api#required": {}
-          }
         }
       }
     },
     "com.amazonaws.rekognition#GetSegmentDetectionResponse": {
       "type": "structure",
       "members": {
-        "AudioMetadata": {
-          "target": "com.amazonaws.rekognition#AudioMetadataList",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of \n       objects. There can be multiple audio streams. \n      Each <code>AudioMetadata</code> object contains metadata for a single audio stream.\n      Audio information in an <code>AudioMetadata</code> objects includes \n      the audio codec, the number of audio channels, the duration of the audio stream,\n      and the sample rate. Audio metadata is returned in each page of information returned\n      by <code>GetSegmentDetection</code>.</p>"
-          }
-        },
-        "VideoMetadata": {
-          "target": "com.amazonaws.rekognition#VideoMetadataList",
-          "traits": {
-            "smithy.api#documentation": "<p>Currently, Amazon Rekognition Video returns a single   object in the\n      <code>VideoMetadata</code> array. The object\n      contains information about the video stream in the input file that Amazon Rekognition Video chose to analyze.  \n      The <code>VideoMetadata</code> object includes the video codec, video format and other information.\n      Video metadata is returned in each page of information returned by <code>GetSegmentDetection</code>.</p>"
-          }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.rekognition#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns \n      a pagination token in the response. You can use this pagination token to retrieve the next set of text.</p>"
-          }
-        },
-        "SelectedSegmentTypes": {
-          "target": "com.amazonaws.rekognition#SegmentTypesInfo",
-          "traits": {
-            "smithy.api#documentation": "<p>An array containing the segment types requested in the call to <code>StartSegmentDetection</code>.\n    </p>"
-          }
-        },
-        "Segments": {
-          "target": "com.amazonaws.rekognition#SegmentDetections",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of segments detected in a video.  The array is sorted by the segment types (TECHNICAL_CUE or SHOT) \n      specified in the <code>SegmentTypes</code> input parameter of <code>StartSegmentDetection</code>. Within\n      each segment type the array is sorted by timestamp values.</p>"
-          }
-        },
         "JobStatus": {
           "target": "com.amazonaws.rekognition#VideoJobStatus",
           "traits": {
@@ -3544,6 +3568,36 @@
           "target": "com.amazonaws.rekognition#StatusMessage",
           "traits": {
             "smithy.api#documentation": "<p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>"
+          }
+        },
+        "VideoMetadata": {
+          "target": "com.amazonaws.rekognition#VideoMetadataList",
+          "traits": {
+            "smithy.api#documentation": "<p>Currently, Amazon Rekognition Video returns a single   object in the\n      <code>VideoMetadata</code> array. The object\n      contains information about the video stream in the input file that Amazon Rekognition Video chose to analyze.  \n      The <code>VideoMetadata</code> object includes the video codec, video format and other information.\n      Video metadata is returned in each page of information returned by <code>GetSegmentDetection</code>.</p>"
+          }
+        },
+        "AudioMetadata": {
+          "target": "com.amazonaws.rekognition#AudioMetadataList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of \n       objects. There can be multiple audio streams. \n      Each <code>AudioMetadata</code> object contains metadata for a single audio stream.\n      Audio information in an <code>AudioMetadata</code> objects includes \n      the audio codec, the number of audio channels, the duration of the audio stream,\n      and the sample rate. Audio metadata is returned in each page of information returned\n      by <code>GetSegmentDetection</code>.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.rekognition#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns \n      a pagination token in the response. You can use this pagination token to retrieve the next set of text.</p>"
+          }
+        },
+        "Segments": {
+          "target": "com.amazonaws.rekognition#SegmentDetections",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of segments detected in a video.  The array is sorted by the segment types (TECHNICAL_CUE or SHOT) \n      specified in the <code>SegmentTypes</code> input parameter of <code>StartSegmentDetection</code>. Within\n      each segment type the array is sorted by timestamp values.</p>"
+          }
+        },
+        "SelectedSegmentTypes": {
+          "target": "com.amazonaws.rekognition#SegmentTypesInfo",
+          "traits": {
+            "smithy.api#documentation": "<p>An array containing the segment types requested in the call to <code>StartSegmentDetection</code>.\n    </p>"
           }
         }
       }
@@ -3591,10 +3645,11 @@
     "com.amazonaws.rekognition#GetTextDetectionRequest": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.rekognition#PaginationToken",
+        "JobId": {
+          "target": "com.amazonaws.rekognition#JobId",
           "traits": {
-            "smithy.api#documentation": "<p>If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns \n      a pagination token in the response. You can use this pagination token to retrieve the next set of text.</p>"
+            "smithy.api#documentation": "<p>Job identifier for the text detection operation for which you want results returned. \n        You get the job identifer from an initial call to <code>StartTextDetection</code>.</p>",
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
@@ -3603,11 +3658,10 @@
             "smithy.api#documentation": "<p>Maximum number of results to return per paginated call. The largest value you can specify is 1000.</p>"
           }
         },
-        "JobId": {
-          "target": "com.amazonaws.rekognition#JobId",
+        "NextToken": {
+          "target": "com.amazonaws.rekognition#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>Job identifier for the text detection operation for which you want results returned. \n        You get the job identifer from an initial call to <code>StartTextDetection</code>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns \n      a pagination token in the response. You can use this pagination token to retrieve the next set of text.</p>"
           }
         }
       }
@@ -3615,27 +3669,6 @@
     "com.amazonaws.rekognition#GetTextDetectionResponse": {
       "type": "structure",
       "members": {
-        "VideoMetadata": {
-          "target": "com.amazonaws.rekognition#VideoMetadata"
-        },
-        "TextModelVersion": {
-          "target": "com.amazonaws.rekognition#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Version number of the text detection model that was used to detect text.</p>"
-          }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.rekognition#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent \n        request to retrieve the next set of text.</p>"
-          }
-        },
-        "TextDetections": {
-          "target": "com.amazonaws.rekognition#TextDetectionResults",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of text detected in the video. Each element contains the detected text, the time in milliseconds\n      from the start of the video that the text was detected, and where it was detected on the screen.</p>"
-          }
-        },
         "JobStatus": {
           "target": "com.amazonaws.rekognition#VideoJobStatus",
           "traits": {
@@ -3646,6 +3679,27 @@
           "target": "com.amazonaws.rekognition#StatusMessage",
           "traits": {
             "smithy.api#documentation": "<p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>"
+          }
+        },
+        "VideoMetadata": {
+          "target": "com.amazonaws.rekognition#VideoMetadata"
+        },
+        "TextDetections": {
+          "target": "com.amazonaws.rekognition#TextDetectionResults",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of text detected in the video. Each element contains the detected text, the time in milliseconds\n      from the start of the video that the text was detected, and where it was detected on the screen.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.rekognition#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent \n        request to retrieve the next set of text.</p>"
+          }
+        },
+        "TextModelVersion": {
+          "target": "com.amazonaws.rekognition#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Version number of the text detection model that was used to detect text.</p>"
           }
         }
       }
@@ -3713,12 +3767,6 @@
     "com.amazonaws.rekognition#HumanLoopConfig": {
       "type": "structure",
       "members": {
-        "DataAttributes": {
-          "target": "com.amazonaws.rekognition#HumanLoopDataAttributes",
-          "traits": {
-            "smithy.api#documentation": "<p>Sets attributes of the input data.</p>"
-          }
-        },
         "HumanLoopName": {
           "target": "com.amazonaws.rekognition#HumanLoopName",
           "traits": {
@@ -3731,6 +3779,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the flow definition. You can create a flow definition by using the Amazon Sagemaker\n      <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateFlowDefinition.html\">CreateFlowDefinition</a>\n     Operation. </p>",
             "smithy.api#required": {}
+          }
+        },
+        "DataAttributes": {
+          "target": "com.amazonaws.rekognition#HumanLoopDataAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>Sets attributes of the input data.</p>"
           }
         }
       },
@@ -3765,6 +3819,12 @@
     "com.amazonaws.rekognition#HumanLoopQuotaExceededException": {
       "type": "structure",
       "members": {
+        "ResourceType": {
+          "target": "com.amazonaws.rekognition#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource type.</p>"
+          }
+        },
         "QuotaCode": {
           "target": "com.amazonaws.rekognition#String",
           "traits": {
@@ -3777,22 +3837,16 @@
             "smithy.api#documentation": "<p>The service code.</p>"
           }
         },
-        "Logref": {
-          "target": "com.amazonaws.rekognition#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A universally unique identifier (UUID) for the request.</p>"
-          }
+        "Message": {
+          "target": "com.amazonaws.rekognition#String"
         },
         "Code": {
           "target": "com.amazonaws.rekognition#String"
         },
-        "Message": {
-          "target": "com.amazonaws.rekognition#String"
-        },
-        "ResourceType": {
+        "Logref": {
           "target": "com.amazonaws.rekognition#String",
           "traits": {
-            "smithy.api#documentation": "<p>The resource type.</p>"
+            "smithy.api#documentation": "<p>A universally unique identifier (UUID) for the request.</p>"
           }
         }
       },
@@ -3808,14 +3862,14 @@
         "Message": {
           "target": "com.amazonaws.rekognition#String"
         },
+        "Code": {
+          "target": "com.amazonaws.rekognition#String"
+        },
         "Logref": {
           "target": "com.amazonaws.rekognition#String",
           "traits": {
             "smithy.api#documentation": "<p>A universally unique identifier (UUID) for the request.</p>"
           }
-        },
-        "Code": {
-          "target": "com.amazonaws.rekognition#String"
         }
       },
       "traits": {
@@ -3946,22 +4000,11 @@
     "com.amazonaws.rekognition#IndexFacesRequest": {
       "type": "structure",
       "members": {
-        "ExternalImageId": {
-          "target": "com.amazonaws.rekognition#ExternalImageId",
+        "CollectionId": {
+          "target": "com.amazonaws.rekognition#CollectionId",
           "traits": {
-            "smithy.api#documentation": "<p>The ID you want to assign to all the faces detected in the image.</p>"
-          }
-        },
-        "MaxFaces": {
-          "target": "com.amazonaws.rekognition#MaxFacesToIndex",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of faces to index. The value of <code>MaxFaces</code> must be greater\n      than or equal to 1. <code>IndexFaces</code> returns no more than 100 detected faces in an\n      image, even if you specify a larger value for <code>MaxFaces</code>.</p>\n         <p>If <code>IndexFaces</code> detects more faces than the value of <code>MaxFaces</code>, the\n      faces with the lowest quality are filtered out first. If there are still more faces than the\n      value of <code>MaxFaces</code>, the faces with the smallest bounding boxes are filtered out\n      (up to the number that's needed to satisfy the value of <code>MaxFaces</code>). Information\n      about the unindexed faces is available in the <code>UnindexedFaces</code> array. </p>\n         <p>The faces that are returned by <code>IndexFaces</code> are sorted by the largest face\n      bounding box size to the smallest size, in descending order.</p>\n         <p>\n            <code>MaxFaces</code> can be used with a collection associated with any version of \n      the face model.</p>"
-          }
-        },
-        "DetectionAttributes": {
-          "target": "com.amazonaws.rekognition#Attributes",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of facial attributes that you want to be returned. This can be the default\n      list of attributes or all attributes. If you don't specify a value for <code>Attributes</code>\n      or if you specify <code>[\"DEFAULT\"]</code>, the API returns the following subset of facial\n      attributes: <code>BoundingBox</code>, <code>Confidence</code>, <code>Pose</code>,\n        <code>Quality</code>, and <code>Landmarks</code>. If you provide <code>[\"ALL\"]</code>, all\n      facial attributes are returned, but the operation takes longer to complete.</p>\n         <p>If you provide both, <code>[\"ALL\", \"DEFAULT\"]</code>, the service uses a logical AND\n      operator to determine which attributes to return (in this case, all attributes). </p>"
+            "smithy.api#documentation": "<p>The ID of an existing collection to which you want to add the faces that are detected\n      in the input images.</p>",
+            "smithy.api#required": {}
           }
         },
         "Image": {
@@ -3971,11 +4014,22 @@
             "smithy.api#required": {}
           }
         },
-        "CollectionId": {
-          "target": "com.amazonaws.rekognition#CollectionId",
+        "ExternalImageId": {
+          "target": "com.amazonaws.rekognition#ExternalImageId",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of an existing collection to which you want to add the faces that are detected\n      in the input images.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The ID you want to assign to all the faces detected in the image.</p>"
+          }
+        },
+        "DetectionAttributes": {
+          "target": "com.amazonaws.rekognition#Attributes",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of facial attributes that you want to be returned. This can be the default\n      list of attributes or all attributes. If you don't specify a value for <code>Attributes</code>\n      or if you specify <code>[\"DEFAULT\"]</code>, the API returns the following subset of facial\n      attributes: <code>BoundingBox</code>, <code>Confidence</code>, <code>Pose</code>,\n        <code>Quality</code>, and <code>Landmarks</code>. If you provide <code>[\"ALL\"]</code>, all\n      facial attributes are returned, but the operation takes longer to complete.</p>\n         <p>If you provide both, <code>[\"ALL\", \"DEFAULT\"]</code>, the service uses a logical AND\n      operator to determine which attributes to return (in this case, all attributes). </p>"
+          }
+        },
+        "MaxFaces": {
+          "target": "com.amazonaws.rekognition#MaxFacesToIndex",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of faces to index. The value of <code>MaxFaces</code> must be greater\n      than or equal to 1. <code>IndexFaces</code> returns no more than 100 detected faces in an\n      image, even if you specify a larger value for <code>MaxFaces</code>.</p>\n         <p>If <code>IndexFaces</code> detects more faces than the value of <code>MaxFaces</code>, the\n      faces with the lowest quality are filtered out first. If there are still more faces than the\n      value of <code>MaxFaces</code>, the faces with the smallest bounding boxes are filtered out\n      (up to the number that's needed to satisfy the value of <code>MaxFaces</code>). Information\n      about the unindexed faces is available in the <code>UnindexedFaces</code> array. </p>\n         <p>The faces that are returned by <code>IndexFaces</code> are sorted by the largest face\n      bounding box size to the smallest size, in descending order.</p>\n         <p>\n            <code>MaxFaces</code> can be used with a collection associated with any version of \n      the face model.</p>"
           }
         },
         "QualityFilter": {
@@ -3989,6 +4043,12 @@
     "com.amazonaws.rekognition#IndexFacesResponse": {
       "type": "structure",
       "members": {
+        "FaceRecords": {
+          "target": "com.amazonaws.rekognition#FaceRecordList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of faces detected and added to the collection.\n      For more information, see Searching Faces in a Collection in the Amazon Rekognition Developer Guide.\n    </p>"
+          }
+        },
         "OrientationCorrection": {
           "target": "com.amazonaws.rekognition#OrientationCorrection",
           "traits": {
@@ -3999,12 +4059,6 @@
           "target": "com.amazonaws.rekognition#String",
           "traits": {
             "smithy.api#documentation": "<p>The version number of the face detection model that's associated with the input\n      collection (<code>CollectionId</code>).</p>"
-          }
-        },
-        "FaceRecords": {
-          "target": "com.amazonaws.rekognition#FaceRecordList",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of faces detected and added to the collection.\n      For more information, see Searching Faces in a Collection in the Amazon Rekognition Developer Guide.\n    </p>"
           }
         },
         "UnindexedFaces": {
@@ -4056,14 +4110,14 @@
         "Message": {
           "target": "com.amazonaws.rekognition#String"
         },
+        "Code": {
+          "target": "com.amazonaws.rekognition#String"
+        },
         "Logref": {
           "target": "com.amazonaws.rekognition#String",
           "traits": {
             "smithy.api#documentation": "<p>A universally unique identifier (UUID) for the request.</p>"
           }
-        },
-        "Code": {
-          "target": "com.amazonaws.rekognition#String"
         }
       },
       "traits": {
@@ -4074,10 +4128,10 @@
     "com.amazonaws.rekognition#InvalidImageFormatException": {
       "type": "structure",
       "members": {
-        "Code": {
+        "Message": {
           "target": "com.amazonaws.rekognition#String"
         },
-        "Message": {
+        "Code": {
           "target": "com.amazonaws.rekognition#String"
         },
         "Logref": {
@@ -4098,14 +4152,14 @@
         "Message": {
           "target": "com.amazonaws.rekognition#String"
         },
+        "Code": {
+          "target": "com.amazonaws.rekognition#String"
+        },
         "Logref": {
           "target": "com.amazonaws.rekognition#String",
           "traits": {
             "smithy.api#documentation": "<p>A universally unique identifier (UUID) for the request.</p>"
           }
-        },
-        "Code": {
-          "target": "com.amazonaws.rekognition#String"
         }
       },
       "traits": {
@@ -4116,6 +4170,9 @@
     "com.amazonaws.rekognition#InvalidParameterException": {
       "type": "structure",
       "members": {
+        "Message": {
+          "target": "com.amazonaws.rekognition#String"
+        },
         "Code": {
           "target": "com.amazonaws.rekognition#String"
         },
@@ -4124,9 +4181,6 @@
           "traits": {
             "smithy.api#documentation": "<p>A universally unique identifier (UUID) for the request.</p>"
           }
-        },
-        "Message": {
-          "target": "com.amazonaws.rekognition#String"
         }
       },
       "traits": {
@@ -4137,6 +4191,9 @@
     "com.amazonaws.rekognition#InvalidS3ObjectException": {
       "type": "structure",
       "members": {
+        "Message": {
+          "target": "com.amazonaws.rekognition#String"
+        },
         "Code": {
           "target": "com.amazonaws.rekognition#String"
         },
@@ -4145,9 +4202,6 @@
           "traits": {
             "smithy.api#documentation": "<p>A universally unique identifier (UUID) for the request.</p>"
           }
-        },
-        "Message": {
-          "target": "com.amazonaws.rekognition#String"
         }
       },
       "traits": {
@@ -4218,16 +4272,16 @@
     "com.amazonaws.rekognition#Label": {
       "type": "structure",
       "members": {
-        "Parents": {
-          "target": "com.amazonaws.rekognition#Parents",
-          "traits": {
-            "smithy.api#documentation": "<p>The parent labels for a label. The response includes all ancestor labels.</p>"
-          }
-        },
         "Name": {
           "target": "com.amazonaws.rekognition#String",
           "traits": {
             "smithy.api#documentation": "<p>The name (label) of the object or scene.</p>"
+          }
+        },
+        "Confidence": {
+          "target": "com.amazonaws.rekognition#Percent",
+          "traits": {
+            "smithy.api#documentation": "<p>Level of confidence.</p>"
           }
         },
         "Instances": {
@@ -4236,10 +4290,10 @@
             "smithy.api#documentation": "<p>If <code>Label</code> represents an object, <code>Instances</code> contains the bounding boxes for each instance of the detected object.\n      Bounding boxes are returned for common object labels such as people, cars, furniture, apparel or pets.</p>"
           }
         },
-        "Confidence": {
-          "target": "com.amazonaws.rekognition#Percent",
+        "Parents": {
+          "target": "com.amazonaws.rekognition#Parents",
           "traits": {
-            "smithy.api#documentation": "<p>Level of confidence.</p>"
+            "smithy.api#documentation": "<p>The parent labels for a label. The response includes all ancestor labels.</p>"
           }
         }
       },
@@ -4250,16 +4304,16 @@
     "com.amazonaws.rekognition#LabelDetection": {
       "type": "structure",
       "members": {
-        "Label": {
-          "target": "com.amazonaws.rekognition#Label",
-          "traits": {
-            "smithy.api#documentation": "<p>Details about the detected label.</p>"
-          }
-        },
         "Timestamp": {
           "target": "com.amazonaws.rekognition#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>Time, in milliseconds from the start of the video, that the label was detected.</p>"
+          }
+        },
+        "Label": {
+          "target": "com.amazonaws.rekognition#Label",
+          "traits": {
+            "smithy.api#documentation": "<p>Details about the detected label.</p>"
           }
         }
       },
@@ -4456,17 +4510,17 @@
     "com.amazonaws.rekognition#LimitExceededException": {
       "type": "structure",
       "members": {
-        "Logref": {
-          "target": "com.amazonaws.rekognition#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A universally unique identifier (UUID) for the request.</p>"
-          }
-        },
         "Message": {
           "target": "com.amazonaws.rekognition#String"
         },
         "Code": {
           "target": "com.amazonaws.rekognition#String"
+        },
+        "Logref": {
+          "target": "com.amazonaws.rekognition#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A universally unique identifier (UUID) for the request.</p>"
+          }
         }
       },
       "traits": {
@@ -4599,17 +4653,17 @@
     "com.amazonaws.rekognition#ListFacesRequest": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.rekognition#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If the previous response was incomplete (because there is more data to retrieve),\n      Amazon Rekognition returns a pagination token in the response. You can use this pagination token to\n      retrieve the next set of faces.</p>"
-          }
-        },
         "CollectionId": {
           "target": "com.amazonaws.rekognition#CollectionId",
           "traits": {
             "smithy.api#documentation": "<p>ID of the collection from which to list the faces.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.rekognition#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If the previous response was incomplete (because there is more data to retrieve),\n      Amazon Rekognition returns a pagination token in the response. You can use this pagination token to\n      retrieve the next set of faces.</p>"
           }
         },
         "MaxResults": {
@@ -4623,10 +4677,10 @@
     "com.amazonaws.rekognition#ListFacesResponse": {
       "type": "structure",
       "members": {
-        "FaceModelVersion": {
-          "target": "com.amazonaws.rekognition#String",
+        "Faces": {
+          "target": "com.amazonaws.rekognition#FaceList",
           "traits": {
-            "smithy.api#documentation": "<p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>"
+            "smithy.api#documentation": "<p>An array of <code>Face</code> objects. </p>"
           }
         },
         "NextToken": {
@@ -4635,10 +4689,10 @@
             "smithy.api#documentation": "<p>If the response is truncated, Amazon Rekognition returns this token that you can use in the\n      subsequent request to retrieve the next set of faces.</p>"
           }
         },
-        "Faces": {
-          "target": "com.amazonaws.rekognition#FaceList",
+        "FaceModelVersion": {
+          "target": "com.amazonaws.rekognition#String",
           "traits": {
-            "smithy.api#documentation": "<p>An array of <code>Face</code> objects. </p>"
+            "smithy.api#documentation": "<p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>"
           }
         }
       }
@@ -4683,16 +4737,16 @@
     "com.amazonaws.rekognition#ListStreamProcessorsRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.rekognition#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>Maximum number of stream processors you want Amazon Rekognition Video to return in the response. The default is 1000. </p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.rekognition#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>If the previous response was incomplete (because there are more stream processors to retrieve), Amazon Rekognition Video\n            returns a pagination token in the response. You can use this pagination token to retrieve the next set of stream processors. </p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.rekognition#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>Maximum number of stream processors you want Amazon Rekognition Video to return in the response. The default is 1000. </p>"
           }
         }
       }
@@ -4700,16 +4754,16 @@
     "com.amazonaws.rekognition#ListStreamProcessorsResponse": {
       "type": "structure",
       "members": {
-        "StreamProcessors": {
-          "target": "com.amazonaws.rekognition#StreamProcessorList",
-          "traits": {
-            "smithy.api#documentation": "<p>List of stream processors that you have created.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.rekognition#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent\n            request to retrieve the next set of stream processors. </p>"
+          }
+        },
+        "StreamProcessors": {
+          "target": "com.amazonaws.rekognition#StreamProcessorList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of stream processors that you have created.</p>"
           }
         }
       }
@@ -4777,16 +4831,16 @@
     "com.amazonaws.rekognition#MouthOpen": {
       "type": "structure",
       "members": {
-        "Confidence": {
-          "target": "com.amazonaws.rekognition#Percent",
-          "traits": {
-            "smithy.api#documentation": "<p>Level of confidence in the determination.</p>"
-          }
-        },
         "Value": {
           "target": "com.amazonaws.rekognition#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Boolean value that indicates whether the mouth on the face is open or not.</p>"
+          }
+        },
+        "Confidence": {
+          "target": "com.amazonaws.rekognition#Percent",
+          "traits": {
+            "smithy.api#documentation": "<p>Level of confidence in the determination.</p>"
           }
         }
       },
@@ -4797,16 +4851,16 @@
     "com.amazonaws.rekognition#Mustache": {
       "type": "structure",
       "members": {
-        "Confidence": {
-          "target": "com.amazonaws.rekognition#Percent",
-          "traits": {
-            "smithy.api#documentation": "<p>Level of confidence in the determination.</p>"
-          }
-        },
         "Value": {
           "target": "com.amazonaws.rekognition#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Boolean value that indicates whether the face has mustache or not.</p>"
+          }
+        },
+        "Confidence": {
+          "target": "com.amazonaws.rekognition#Percent",
+          "traits": {
+            "smithy.api#documentation": "<p>Level of confidence in the determination.</p>"
           }
         }
       },
@@ -4817,17 +4871,17 @@
     "com.amazonaws.rekognition#NotificationChannel": {
       "type": "structure",
       "members": {
-        "RoleArn": {
-          "target": "com.amazonaws.rekognition#RoleArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of an IAM role that gives Amazon Rekognition publishing permissions to the Amazon SNS topic. </p>",
-            "smithy.api#required": {}
-          }
-        },
         "SNSTopicArn": {
           "target": "com.amazonaws.rekognition#SNSTopicArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon SNS topic to which Amazon Rekognition to posts the completion status.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "RoleArn": {
+          "target": "com.amazonaws.rekognition#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of an IAM role that gives Amazon Rekognition publishing permissions to the Amazon SNS topic. </p>",
             "smithy.api#required": {}
           }
         }
@@ -4937,16 +4991,16 @@
             "smithy.api#documentation": "<p>Identifier for the person detected person within a video. Use to keep track of the person throughout the video. The identifier is not stored by Amazon Rekognition.</p>"
           }
         },
-        "Face": {
-          "target": "com.amazonaws.rekognition#FaceDetail",
-          "traits": {
-            "smithy.api#documentation": "<p>Face details for the detected person.</p>"
-          }
-        },
         "BoundingBox": {
           "target": "com.amazonaws.rekognition#BoundingBox",
           "traits": {
             "smithy.api#documentation": "<p>Bounding box around the detected person.</p>"
+          }
+        },
+        "Face": {
+          "target": "com.amazonaws.rekognition#FaceDetail",
+          "traits": {
+            "smithy.api#documentation": "<p>Face details for the detected person.</p>"
           }
         }
       },
@@ -4986,6 +5040,12 @@
     "com.amazonaws.rekognition#PersonMatch": {
       "type": "structure",
       "members": {
+        "Timestamp": {
+          "target": "com.amazonaws.rekognition#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time, in milliseconds from the beginning of the video, that the person was matched in the video.</p>"
+          }
+        },
         "Person": {
           "target": "com.amazonaws.rekognition#PersonDetail",
           "traits": {
@@ -4996,12 +5056,6 @@
           "target": "com.amazonaws.rekognition#FaceMatchList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the faces in the input collection that match the face of a person in the video.</p>"
-          }
-        },
-        "Timestamp": {
-          "target": "com.amazonaws.rekognition#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The time, in milliseconds from the beginning of the video, that the person was matched in the video.</p>"
           }
         }
       },
@@ -5059,16 +5113,16 @@
     "com.amazonaws.rekognition#Pose": {
       "type": "structure",
       "members": {
-        "Yaw": {
-          "target": "com.amazonaws.rekognition#Degree",
-          "traits": {
-            "smithy.api#documentation": "<p>Value representing the face rotation on the yaw axis.</p>"
-          }
-        },
         "Roll": {
           "target": "com.amazonaws.rekognition#Degree",
           "traits": {
             "smithy.api#documentation": "<p>Value representing the face rotation on the roll axis.</p>"
+          }
+        },
+        "Yaw": {
+          "target": "com.amazonaws.rekognition#Degree",
+          "traits": {
+            "smithy.api#documentation": "<p>Value representing the face rotation on the yaw axis.</p>"
           }
         },
         "Pitch": {
@@ -5166,40 +5220,16 @@
     "com.amazonaws.rekognition#ProjectVersionDescription": {
       "type": "structure",
       "members": {
-        "ManifestSummary": {
-          "target": "com.amazonaws.rekognition#GroundTruthManifest",
+        "ProjectVersionArn": {
+          "target": "com.amazonaws.rekognition#ProjectVersionArn",
           "traits": {
-            "smithy.api#documentation": "<p>The location of the summary manifest. The summary manifest provides aggregate data validation results for the training\n         and test datasets.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the model version. </p>"
           }
         },
-        "EvaluationResult": {
-          "target": "com.amazonaws.rekognition#EvaluationResult",
-          "traits": {
-            "smithy.api#documentation": "<p>The training results. <code>EvaluationResult</code> is only returned if training is successful.</p>"
-          }
-        },
-        "Status": {
-          "target": "com.amazonaws.rekognition#ProjectVersionStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The current status of the model version.</p>"
-          }
-        },
-        "OutputConfig": {
-          "target": "com.amazonaws.rekognition#OutputConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>The location where training results are saved.</p>"
-          }
-        },
-        "TrainingDataResult": {
-          "target": "com.amazonaws.rekognition#TrainingDataResult",
-          "traits": {
-            "smithy.api#documentation": "<p>Contains information about the training results.</p>"
-          }
-        },
-        "TrainingEndTimestamp": {
+        "CreationTimestamp": {
           "target": "com.amazonaws.rekognition#DateTime",
           "traits": {
-            "smithy.api#documentation": "<p>The Unix date and time that training of the model ended.</p>"
+            "smithy.api#documentation": "<p>The Unix datetime for the date and time that training started.</p>"
           }
         },
         "MinInferenceUnits": {
@@ -5208,16 +5238,10 @@
             "smithy.api#documentation": "<p>The minimum number of inference units used by the model. For more information,\n      see <a>StartProjectVersion</a>.</p>"
           }
         },
-        "TestingDataResult": {
-          "target": "com.amazonaws.rekognition#TestingDataResult",
+        "Status": {
+          "target": "com.amazonaws.rekognition#ProjectVersionStatus",
           "traits": {
-            "smithy.api#documentation": "<p>Contains information about the testing results.</p>"
-          }
-        },
-        "ProjectVersionArn": {
-          "target": "com.amazonaws.rekognition#ProjectVersionArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the model version. </p>"
+            "smithy.api#documentation": "<p>The current status of the model version.</p>"
           }
         },
         "StatusMessage": {
@@ -5232,10 +5256,40 @@
             "smithy.api#documentation": "<p>The duration, in seconds, that the model version has been billed for training. \n      This value is only returned if the model version has been successfully trained.</p>"
           }
         },
-        "CreationTimestamp": {
+        "TrainingEndTimestamp": {
           "target": "com.amazonaws.rekognition#DateTime",
           "traits": {
-            "smithy.api#documentation": "<p>The Unix datetime for the date and time that training started.</p>"
+            "smithy.api#documentation": "<p>The Unix date and time that training of the model ended.</p>"
+          }
+        },
+        "OutputConfig": {
+          "target": "com.amazonaws.rekognition#OutputConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The location where training results are saved.</p>"
+          }
+        },
+        "TrainingDataResult": {
+          "target": "com.amazonaws.rekognition#TrainingDataResult",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains information about the training results.</p>"
+          }
+        },
+        "TestingDataResult": {
+          "target": "com.amazonaws.rekognition#TestingDataResult",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains information about the testing results.</p>"
+          }
+        },
+        "EvaluationResult": {
+          "target": "com.amazonaws.rekognition#EvaluationResult",
+          "traits": {
+            "smithy.api#documentation": "<p>The training results. <code>EvaluationResult</code> is only returned if training is successful.</p>"
+          }
+        },
+        "ManifestSummary": {
+          "target": "com.amazonaws.rekognition#GroundTruthManifest",
+          "traits": {
+            "smithy.api#documentation": "<p>The location of the summary manifest. The summary manifest provides aggregate data validation results for the training\n         and test datasets.</p>"
           }
         }
       },
@@ -5321,16 +5375,16 @@
             "smithy.api#documentation": "<p>The detected body part.</p>"
           }
         },
-        "EquipmentDetections": {
-          "target": "com.amazonaws.rekognition#EquipmentDetections",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of Personal Protective Equipment items detected around a body part.</p>"
-          }
-        },
         "Confidence": {
           "target": "com.amazonaws.rekognition#Percent",
           "traits": {
             "smithy.api#documentation": "<p>The confidence that Amazon Rekognition has in the detection accuracy of the detected body part.\n      </p>"
+          }
+        },
+        "EquipmentDetections": {
+          "target": "com.amazonaws.rekognition#EquipmentDetections",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of Personal Protective Equipment items detected around a body part.</p>"
           }
         }
       },
@@ -5341,28 +5395,28 @@
     "com.amazonaws.rekognition#ProtectiveEquipmentPerson": {
       "type": "structure",
       "members": {
-        "BoundingBox": {
-          "target": "com.amazonaws.rekognition#BoundingBox",
-          "traits": {
-            "smithy.api#documentation": "<p>A bounding box around the detected person.</p>"
-          }
-        },
         "BodyParts": {
           "target": "com.amazonaws.rekognition#BodyParts",
           "traits": {
             "smithy.api#documentation": "<p>An array of body parts detected on a person's body (including body parts without PPE). </p>"
           }
         },
-        "Id": {
-          "target": "com.amazonaws.rekognition#UInteger",
+        "BoundingBox": {
+          "target": "com.amazonaws.rekognition#BoundingBox",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier for the detected person. The identifier is only unique for a single call to\n         <code>DetectProtectiveEquipment</code>.</p>"
+            "smithy.api#documentation": "<p>A bounding box around the detected person.</p>"
           }
         },
         "Confidence": {
           "target": "com.amazonaws.rekognition#Percent",
           "traits": {
             "smithy.api#documentation": "<p>The confidence that Amazon Rekognition has that the bounding box contains a person.</p>"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.rekognition#UInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the detected person. The identifier is only unique for a single call to\n         <code>DetectProtectiveEquipment</code>.</p>"
           }
         }
       },
@@ -5407,16 +5461,16 @@
     "com.amazonaws.rekognition#ProtectiveEquipmentSummary": {
       "type": "structure",
       "members": {
-        "PersonsWithoutRequiredEquipment": {
-          "target": "com.amazonaws.rekognition#ProtectiveEquipmentPersonIds",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of IDs for persons who are not wearing all of the types of PPE specified in the RequiredEquipmentTypes field of\n         the detected personal protective equipment.\n      </p>"
-          }
-        },
         "PersonsWithRequiredEquipment": {
           "target": "com.amazonaws.rekognition#ProtectiveEquipmentPersonIds",
           "traits": {
             "smithy.api#documentation": "<p>An array of IDs for persons who are wearing detected personal protective equipment.\n      </p>"
+          }
+        },
+        "PersonsWithoutRequiredEquipment": {
+          "target": "com.amazonaws.rekognition#ProtectiveEquipmentPersonIds",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of IDs for persons who are not wearing all of the types of PPE specified in the RequiredEquipmentTypes field of\n         the detected personal protective equipment.\n      </p>"
           }
         },
         "PersonsIndeterminate": {
@@ -5458,17 +5512,17 @@
     "com.amazonaws.rekognition#ProvisionedThroughputExceededException": {
       "type": "structure",
       "members": {
-        "Logref": {
-          "target": "com.amazonaws.rekognition#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A universally unique identifier (UUID) for the request.</p>"
-          }
-        },
         "Message": {
           "target": "com.amazonaws.rekognition#String"
         },
         "Code": {
           "target": "com.amazonaws.rekognition#String"
+        },
+        "Logref": {
+          "target": "com.amazonaws.rekognition#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A universally unique identifier (UUID) for the request.</p>"
+          }
         }
       },
       "traits": {
@@ -5597,10 +5651,10 @@
     "com.amazonaws.rekognition#RecognizeCelebritiesResponse": {
       "type": "structure",
       "members": {
-        "OrientationCorrection": {
-          "target": "com.amazonaws.rekognition#OrientationCorrection",
+        "CelebrityFaces": {
+          "target": "com.amazonaws.rekognition#CelebrityList",
           "traits": {
-            "smithy.api#documentation": "<p>The orientation of the input image (counterclockwise direction). If your application\n      displays the image, you can use this value to correct the orientation. The bounding box\n      coordinates returned in <code>CelebrityFaces</code> and <code>UnrecognizedFaces</code>\n      represent face locations before the image orientation is corrected. </p>\n         <note>\n            <p>If the input image is in .jpeg format, it might contain exchangeable image (Exif)\n        metadata that includes the image's orientation. If so, and the Exif metadata for the input\n        image populates the orientation field, the value of <code>OrientationCorrection</code> is\n        null. The <code>CelebrityFaces</code> and <code>UnrecognizedFaces</code> bounding box\n        coordinates represent face locations after Exif metadata is used to correct the image\n        orientation. Images in .png format don't contain Exif metadata. </p>\n         </note>"
+            "smithy.api#documentation": "<p>Details about each celebrity found in the image. Amazon Rekognition can detect a maximum of 64\n      celebrities in an image.</p>"
           }
         },
         "UnrecognizedFaces": {
@@ -5609,10 +5663,10 @@
             "smithy.api#documentation": "<p>Details about each unrecognized face in the image.</p>"
           }
         },
-        "CelebrityFaces": {
-          "target": "com.amazonaws.rekognition#CelebrityList",
+        "OrientationCorrection": {
+          "target": "com.amazonaws.rekognition#OrientationCorrection",
           "traits": {
-            "smithy.api#documentation": "<p>Details about each celebrity found in the image. Amazon Rekognition can detect a maximum of 64\n      celebrities in an image.</p>"
+            "smithy.api#documentation": "<p>The orientation of the input image (counterclockwise direction). If your application\n      displays the image, you can use this value to correct the orientation. The bounding box\n      coordinates returned in <code>CelebrityFaces</code> and <code>UnrecognizedFaces</code>\n      represent face locations before the image orientation is corrected. </p>\n         <note>\n            <p>If the input image is in .jpeg format, it might contain exchangeable image (Exif)\n        metadata that includes the image's orientation. If so, and the Exif metadata for the input\n        image populates the orientation field, the value of <code>OrientationCorrection</code> is\n        null. The <code>CelebrityFaces</code> and <code>UnrecognizedFaces</code> bounding box\n        coordinates represent face locations after Exif metadata is used to correct the image\n        orientation. Images in .png format don't contain Exif metadata. </p>\n         </note>"
           }
         }
       }
@@ -5797,7 +5851,8 @@
           "sdkId": "Rekognition",
           "arnNamespace": "rekognition",
           "cloudFormationName": "Rekognition",
-          "cloudTrailEventSource": "rekognition.amazonaws.com"
+          "cloudTrailEventSource": "rekognition.amazonaws.com",
+          "endpointPrefix": "rekognition"
         },
         "aws.auth#sigv4": {
           "name": "rekognition"
@@ -5816,10 +5871,10 @@
     "com.amazonaws.rekognition#ResourceAlreadyExistsException": {
       "type": "structure",
       "members": {
-        "Code": {
+        "Message": {
           "target": "com.amazonaws.rekognition#String"
         },
-        "Message": {
+        "Code": {
           "target": "com.amazonaws.rekognition#String"
         },
         "Logref": {
@@ -5837,17 +5892,17 @@
     "com.amazonaws.rekognition#ResourceInUseException": {
       "type": "structure",
       "members": {
+        "Message": {
+          "target": "com.amazonaws.rekognition#String"
+        },
+        "Code": {
+          "target": "com.amazonaws.rekognition#String"
+        },
         "Logref": {
           "target": "com.amazonaws.rekognition#String",
           "traits": {
             "smithy.api#documentation": "<p>A universally unique identifier (UUID) for the request.</p>"
           }
-        },
-        "Code": {
-          "target": "com.amazonaws.rekognition#String"
-        },
-        "Message": {
-          "target": "com.amazonaws.rekognition#String"
         }
       },
       "traits": {
@@ -5858,17 +5913,17 @@
     "com.amazonaws.rekognition#ResourceNotFoundException": {
       "type": "structure",
       "members": {
-        "Logref": {
-          "target": "com.amazonaws.rekognition#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A universally unique identifier (UUID) for the request.</p>"
-          }
-        },
         "Message": {
           "target": "com.amazonaws.rekognition#String"
         },
         "Code": {
           "target": "com.amazonaws.rekognition#String"
+        },
+        "Logref": {
+          "target": "com.amazonaws.rekognition#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A universally unique identifier (UUID) for the request.</p>"
+          }
         }
       },
       "traits": {
@@ -5882,14 +5937,14 @@
         "Message": {
           "target": "com.amazonaws.rekognition#String"
         },
+        "Code": {
+          "target": "com.amazonaws.rekognition#String"
+        },
         "Logref": {
           "target": "com.amazonaws.rekognition#String",
           "traits": {
             "smithy.api#documentation": "<p>A universally unique identifier (UUID) for the request.</p>"
           }
-        },
-        "Code": {
-          "target": "com.amazonaws.rekognition#String"
         }
       },
       "traits": {
@@ -5925,12 +5980,6 @@
     "com.amazonaws.rekognition#S3Object": {
       "type": "structure",
       "members": {
-        "Version": {
-          "target": "com.amazonaws.rekognition#S3ObjectVersion",
-          "traits": {
-            "smithy.api#documentation": "<p>If the bucket is versioning enabled, you can specify the object version. </p>"
-          }
-        },
         "Bucket": {
           "target": "com.amazonaws.rekognition#S3Bucket",
           "traits": {
@@ -5941,6 +5990,12 @@
           "target": "com.amazonaws.rekognition#S3ObjectName",
           "traits": {
             "smithy.api#documentation": "<p>S3 object key name.</p>"
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.rekognition#S3ObjectVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>If the bucket is versioning enabled, you can specify the object version. </p>"
           }
         }
       },
@@ -6048,10 +6103,11 @@
     "com.amazonaws.rekognition#SearchFacesByImageRequest": {
       "type": "structure",
       "members": {
-        "FaceMatchThreshold": {
-          "target": "com.amazonaws.rekognition#Percent",
+        "CollectionId": {
+          "target": "com.amazonaws.rekognition#CollectionId",
           "traits": {
-            "smithy.api#documentation": "<p>(Optional) Specifies the minimum confidence in the face match to return. For example,\n      don't return any matches where confidence in matches is less than 70%.\n    The default value is 80%.</p>"
+            "smithy.api#documentation": "<p>ID of the collection to search.</p>",
+            "smithy.api#required": {}
           }
         },
         "Image": {
@@ -6061,23 +6117,22 @@
             "smithy.api#required": {}
           }
         },
-        "CollectionId": {
-          "target": "com.amazonaws.rekognition#CollectionId",
+        "MaxFaces": {
+          "target": "com.amazonaws.rekognition#MaxFaces",
           "traits": {
-            "smithy.api#documentation": "<p>ID of the collection to search.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Maximum number of faces to return. The operation returns the maximum number of faces\n      with the highest confidence in the match.</p>"
+          }
+        },
+        "FaceMatchThreshold": {
+          "target": "com.amazonaws.rekognition#Percent",
+          "traits": {
+            "smithy.api#documentation": "<p>(Optional) Specifies the minimum confidence in the face match to return. For example,\n      don't return any matches where confidence in matches is less than 70%.\n    The default value is 80%.</p>"
           }
         },
         "QualityFilter": {
           "target": "com.amazonaws.rekognition#QualityFilter",
           "traits": {
             "smithy.api#documentation": "<p>A filter that specifies a quality bar for how much filtering is done to identify faces.\n      Filtered faces aren't searched for in the collection. If you specify <code>AUTO</code>, Amazon Rekognition \n      chooses the quality bar.  If you specify <code>LOW</code>, \n      <code>MEDIUM</code>, or <code>HIGH</code>, filtering removes all faces that\n      don’t meet the chosen quality bar.  \n      \n      The quality bar is based on a variety of common use cases. Low-quality\n      detections can occur for a number of reasons. Some examples are an object that's misidentified\n      as a face, a face that's too blurry, or a face with a\n      pose that's too extreme to use. If you specify <code>NONE</code>, no\n      filtering is performed.  The default value is <code>NONE</code>.\n    </p>\n         <p>To use quality filtering, the collection you are using must be associated with version 3 of the face model or higher.</p>"
-          }
-        },
-        "MaxFaces": {
-          "target": "com.amazonaws.rekognition#MaxFaces",
-          "traits": {
-            "smithy.api#documentation": "<p>Maximum number of faces to return. The operation returns the maximum number of faces\n      with the highest confidence in the match.</p>"
           }
         }
       }
@@ -6091,12 +6146,6 @@
             "smithy.api#documentation": "<p>The bounding box around the face in the input image that Amazon Rekognition used for the\n      search.</p>"
           }
         },
-        "FaceModelVersion": {
-          "target": "com.amazonaws.rekognition#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>"
-          }
-        },
         "SearchedFaceConfidence": {
           "target": "com.amazonaws.rekognition#Percent",
           "traits": {
@@ -6108,16 +6157,23 @@
           "traits": {
             "smithy.api#documentation": "<p>An array of faces that match the input face, along with the confidence in the\n      match.</p>"
           }
+        },
+        "FaceModelVersion": {
+          "target": "com.amazonaws.rekognition#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>"
+          }
         }
       }
     },
     "com.amazonaws.rekognition#SearchFacesRequest": {
       "type": "structure",
       "members": {
-        "FaceMatchThreshold": {
-          "target": "com.amazonaws.rekognition#Percent",
+        "CollectionId": {
+          "target": "com.amazonaws.rekognition#CollectionId",
           "traits": {
-            "smithy.api#documentation": "<p>Optional value specifying the minimum confidence in the face match to return. For\n      example, don't return any matches where confidence in matches is less than 70%. \n      The default value is 80%.\n    </p>"
+            "smithy.api#documentation": "<p>ID of the collection the face belongs to.</p>",
+            "smithy.api#required": {}
           }
         },
         "FaceId": {
@@ -6127,17 +6183,16 @@
             "smithy.api#required": {}
           }
         },
-        "CollectionId": {
-          "target": "com.amazonaws.rekognition#CollectionId",
-          "traits": {
-            "smithy.api#documentation": "<p>ID of the collection the face belongs to.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "MaxFaces": {
           "target": "com.amazonaws.rekognition#MaxFaces",
           "traits": {
             "smithy.api#documentation": "<p>Maximum number of faces to return. The operation returns the maximum number of faces\n      with the highest confidence in the match.</p>"
+          }
+        },
+        "FaceMatchThreshold": {
+          "target": "com.amazonaws.rekognition#Percent",
+          "traits": {
+            "smithy.api#documentation": "<p>Optional value specifying the minimum confidence in the face match to return. For\n      example, don't return any matches where confidence in matches is less than 70%. \n      The default value is 80%.\n    </p>"
           }
         }
       }
@@ -6178,10 +6233,10 @@
     "com.amazonaws.rekognition#SegmentDetection": {
       "type": "structure",
       "members": {
-        "DurationMillis": {
-          "target": "com.amazonaws.rekognition#ULong",
+        "Type": {
+          "target": "com.amazonaws.rekognition#SegmentType",
           "traits": {
-            "smithy.api#documentation": "<p>The duration of the detected segment in milliseconds. </p>"
+            "smithy.api#documentation": "<p>The type of the  segment. Valid values are <code>TECHNICAL_CUE</code> and <code>SHOT</code>.</p>"
           }
         },
         "StartTimestampMillis": {
@@ -6196,10 +6251,16 @@
             "smithy.api#documentation": "<p>The end time of the detected segment, in milliseconds, from the start of the video.\n    This value is rounded down.</p>"
           }
         },
-        "ShotSegment": {
-          "target": "com.amazonaws.rekognition#ShotSegment",
+        "DurationMillis": {
+          "target": "com.amazonaws.rekognition#ULong",
           "traits": {
-            "smithy.api#documentation": "<p>If the segment is a shot detection, contains information about the shot detection.</p>"
+            "smithy.api#documentation": "<p>The duration of the detected segment in milliseconds. </p>"
+          }
+        },
+        "StartTimecodeSMPTE": {
+          "target": "com.amazonaws.rekognition#Timecode",
+          "traits": {
+            "smithy.api#documentation": "<p>The frame-accurate SMPTE timecode, from the start of a video, for the start of a detected segment.\n      <code>StartTimecode</code> is in <i>HH:MM:SS:fr</i> format\n      (and <i>;fr</i> for drop frame-rates). </p>"
           }
         },
         "EndTimecodeSMPTE": {
@@ -6220,16 +6281,10 @@
             "smithy.api#documentation": "<p>If the segment is a technical cue, contains information about the technical cue.</p>"
           }
         },
-        "StartTimecodeSMPTE": {
-          "target": "com.amazonaws.rekognition#Timecode",
+        "ShotSegment": {
+          "target": "com.amazonaws.rekognition#ShotSegment",
           "traits": {
-            "smithy.api#documentation": "<p>The frame-accurate SMPTE timecode, from the start of a video, for the start of a detected segment.\n      <code>StartTimecode</code> is in <i>HH:MM:SS:fr</i> format\n      (and <i>;fr</i> for drop frame-rates). </p>"
-          }
-        },
-        "Type": {
-          "target": "com.amazonaws.rekognition#SegmentType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of the  segment. Valid values are <code>TECHNICAL_CUE</code> and <code>SHOT</code>.</p>"
+            "smithy.api#documentation": "<p>If the segment is a shot detection, contains information about the shot detection.</p>"
           }
         }
       },
@@ -6298,10 +6353,10 @@
     "com.amazonaws.rekognition#ServiceQuotaExceededException": {
       "type": "structure",
       "members": {
-        "Code": {
+        "Message": {
           "target": "com.amazonaws.rekognition#String"
         },
-        "Message": {
+        "Code": {
           "target": "com.amazonaws.rekognition#String"
         },
         "Logref": {
@@ -6339,16 +6394,16 @@
     "com.amazonaws.rekognition#Smile": {
       "type": "structure",
       "members": {
-        "Confidence": {
-          "target": "com.amazonaws.rekognition#Percent",
-          "traits": {
-            "smithy.api#documentation": "<p>Level of confidence in the determination.</p>"
-          }
-        },
         "Value": {
           "target": "com.amazonaws.rekognition#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Boolean value that indicates whether the face is smiling or not.</p>"
+          }
+        },
+        "Confidence": {
+          "target": "com.amazonaws.rekognition#Percent",
+          "traits": {
+            "smithy.api#documentation": "<p>Level of confidence in the determination.</p>"
           }
         }
       },
@@ -6414,16 +6469,16 @@
             "smithy.api#documentation": "<p>Idempotent token used to identify the start request. If you use the same token with multiple\n    <code>StartCelebrityRecognition</code> requests, the same <code>JobId</code> is returned. Use\n      <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>"
           }
         },
-        "JobTag": {
-          "target": "com.amazonaws.rekognition#JobTag",
-          "traits": {
-            "smithy.api#documentation": "<p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.\n      For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>"
-          }
-        },
         "NotificationChannel": {
           "target": "com.amazonaws.rekognition#NotificationChannel",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the\n      celebrity recognition analysis to.</p>"
+          }
+        },
+        "JobTag": {
+          "target": "com.amazonaws.rekognition#JobTag",
+          "traits": {
+            "smithy.api#documentation": "<p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.\n      For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>"
           }
         }
       }
@@ -6497,16 +6552,16 @@
             "smithy.api#documentation": "<p>Specifies the minimum confidence that Amazon Rekognition must have in order to return a moderated content label. Confidence\n      represents how certain Amazon Rekognition is that the moderated content is correctly identified. 0 is the lowest confidence.\n      100 is the highest confidence.  Amazon Rekognition doesn't return any moderated content labels with a confidence level\n      lower than this specified value. If you don't specify <code>MinConfidence</code>, <code>GetContentModeration</code>\n       returns labels with confidence values greater than or equal to 50 percent.</p>"
           }
         },
-        "NotificationChannel": {
-          "target": "com.amazonaws.rekognition#NotificationChannel",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the\n      unsafe content analysis to.</p>"
-          }
-        },
         "ClientRequestToken": {
           "target": "com.amazonaws.rekognition#ClientRequestToken",
           "traits": {
             "smithy.api#documentation": "<p>Idempotent token used to identify the start request. If you use the same token with multiple\n      <code>StartContentModeration</code> requests, the same <code>JobId</code> is returned. Use\n      <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>"
+          }
+        },
+        "NotificationChannel": {
+          "target": "com.amazonaws.rekognition#NotificationChannel",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the\n      unsafe content analysis to.</p>"
           }
         },
         "JobTag": {
@@ -6573,12 +6628,6 @@
     "com.amazonaws.rekognition#StartFaceDetectionRequest": {
       "type": "structure",
       "members": {
-        "FaceAttributes": {
-          "target": "com.amazonaws.rekognition#FaceAttributes",
-          "traits": {
-            "smithy.api#documentation": "<p>The face attributes you want returned.</p>\n         <p>\n            <code>DEFAULT</code> - The following subset of facial attributes are returned: BoundingBox, Confidence, Pose, Quality and Landmarks. </p>\n         <p>\n            <code>ALL</code> - All facial attributes are returned.</p>"
-          }
-        },
         "Video": {
           "target": "com.amazonaws.rekognition#Video",
           "traits": {
@@ -6596,6 +6645,12 @@
           "target": "com.amazonaws.rekognition#NotificationChannel",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the\n         face detection operation.</p>"
+          }
+        },
+        "FaceAttributes": {
+          "target": "com.amazonaws.rekognition#FaceAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>The face attributes you want returned.</p>\n         <p>\n            <code>DEFAULT</code> - The following subset of facial attributes are returned: BoundingBox, Confidence, Pose, Quality and Landmarks. </p>\n         <p>\n            <code>ALL</code> - All facial attributes are returned.</p>"
           }
         },
         "JobTag": {
@@ -6665,17 +6720,11 @@
     "com.amazonaws.rekognition#StartFaceSearchRequest": {
       "type": "structure",
       "members": {
-        "CollectionId": {
-          "target": "com.amazonaws.rekognition#CollectionId",
+        "Video": {
+          "target": "com.amazonaws.rekognition#Video",
           "traits": {
-            "smithy.api#documentation": "<p>ID of the collection that contains the faces you want to search for.</p>",
+            "smithy.api#documentation": "<p>The video you want to search. The video must be stored in an Amazon S3 bucket. </p>",
             "smithy.api#required": {}
-          }
-        },
-        "JobTag": {
-          "target": "com.amazonaws.rekognition#JobTag",
-          "traits": {
-            "smithy.api#documentation": "<p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.\n      For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>"
           }
         },
         "ClientRequestToken": {
@@ -6684,23 +6733,29 @@
             "smithy.api#documentation": "<p>Idempotent token used to identify the start request. If you use the same token with multiple\n      <code>StartFaceSearch</code> requests, the same <code>JobId</code> is returned. Use\n      <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>"
           }
         },
+        "FaceMatchThreshold": {
+          "target": "com.amazonaws.rekognition#Percent",
+          "traits": {
+            "smithy.api#documentation": "<p>The minimum confidence in the person match to return. For example, don't return any matches where confidence in matches is less than 70%.\n      The default value is 80%.</p>"
+          }
+        },
+        "CollectionId": {
+          "target": "com.amazonaws.rekognition#CollectionId",
+          "traits": {
+            "smithy.api#documentation": "<p>ID of the collection that contains the faces you want to search for.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "NotificationChannel": {
           "target": "com.amazonaws.rekognition#NotificationChannel",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the search. </p>"
           }
         },
-        "Video": {
-          "target": "com.amazonaws.rekognition#Video",
+        "JobTag": {
+          "target": "com.amazonaws.rekognition#JobTag",
           "traits": {
-            "smithy.api#documentation": "<p>The video you want to search. The video must be stored in an Amazon S3 bucket. </p>",
-            "smithy.api#required": {}
-          }
-        },
-        "FaceMatchThreshold": {
-          "target": "com.amazonaws.rekognition#Percent",
-          "traits": {
-            "smithy.api#documentation": "<p>The minimum confidence in the person match to return. For example, don't return any matches where confidence in matches is less than 70%.\n      The default value is 80%.</p>"
+            "smithy.api#documentation": "<p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.\n      For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>"
           }
         }
       }
@@ -6761,6 +6816,13 @@
     "com.amazonaws.rekognition#StartLabelDetectionRequest": {
       "type": "structure",
       "members": {
+        "Video": {
+          "target": "com.amazonaws.rekognition#Video",
+          "traits": {
+            "smithy.api#documentation": "<p>The video in which you want to detect labels. The video must be stored\n      in an Amazon S3 bucket.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "ClientRequestToken": {
           "target": "com.amazonaws.rekognition#ClientRequestToken",
           "traits": {
@@ -6773,23 +6835,16 @@
             "smithy.api#documentation": "<p>Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected label. Confidence\n       represents how certain Amazon Rekognition is that a label is correctly identified.0 is the lowest confidence.\n       100 is the highest confidence.  Amazon Rekognition Video doesn't return any labels with a confidence level\n       lower than this specified value.</p>\n         <p>If you don't specify <code>MinConfidence</code>, the operation returns labels with confidence\n     values greater than or equal to 50 percent.</p>"
           }
         },
-        "JobTag": {
-          "target": "com.amazonaws.rekognition#JobTag",
-          "traits": {
-            "smithy.api#documentation": "<p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.\n      For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>"
-          }
-        },
-        "Video": {
-          "target": "com.amazonaws.rekognition#Video",
-          "traits": {
-            "smithy.api#documentation": "<p>The video in which you want to detect labels. The video must be stored\n      in an Amazon S3 bucket.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "NotificationChannel": {
           "target": "com.amazonaws.rekognition#NotificationChannel",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the label detection\n        operation to. </p>"
+          }
+        },
+        "JobTag": {
+          "target": "com.amazonaws.rekognition#JobTag",
+          "traits": {
+            "smithy.api#documentation": "<p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.\n      For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>"
           }
         }
       }
@@ -6850,17 +6905,17 @@
     "com.amazonaws.rekognition#StartPersonTrackingRequest": {
       "type": "structure",
       "members": {
-        "ClientRequestToken": {
-          "target": "com.amazonaws.rekognition#ClientRequestToken",
-          "traits": {
-            "smithy.api#documentation": "<p>Idempotent token used to identify the start request. If you use the same token with multiple\n      <code>StartPersonTracking</code> requests, the same <code>JobId</code> is returned. Use\n      <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>"
-          }
-        },
         "Video": {
           "target": "com.amazonaws.rekognition#Video",
           "traits": {
             "smithy.api#documentation": "<p>The video in which you want to detect people. The video must be stored\n      in an Amazon S3 bucket.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "ClientRequestToken": {
+          "target": "com.amazonaws.rekognition#ClientRequestToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Idempotent token used to identify the start request. If you use the same token with multiple\n      <code>StartPersonTracking</code> requests, the same <code>JobId</code> is returned. Use\n      <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>"
           }
         },
         "NotificationChannel": {
@@ -7021,19 +7076,6 @@
     "com.amazonaws.rekognition#StartSegmentDetectionRequest": {
       "type": "structure",
       "members": {
-        "Filters": {
-          "target": "com.amazonaws.rekognition#StartSegmentDetectionFilters",
-          "traits": {
-            "smithy.api#documentation": "<p>Filters for technical cue or shot detection.</p>"
-          }
-        },
-        "SegmentTypes": {
-          "target": "com.amazonaws.rekognition#SegmentTypes",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of segment types to detect in the video. Valid values are TECHNICAL_CUE and SHOT.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Video": {
           "target": "com.amazonaws.rekognition#Video",
           "traits": {
@@ -7046,16 +7088,29 @@
             "smithy.api#documentation": "<p>Idempotent token used to identify the start request. If you use the same token with multiple\n      <code>StartSegmentDetection</code> requests, the same <code>JobId</code> is returned. Use\n      <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>"
           }
         },
+        "NotificationChannel": {
+          "target": "com.amazonaws.rekognition#NotificationChannel",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the\n      segment detection operation.</p>"
+          }
+        },
         "JobTag": {
           "target": "com.amazonaws.rekognition#JobTag",
           "traits": {
             "smithy.api#documentation": "<p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.\n      For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>"
           }
         },
-        "NotificationChannel": {
-          "target": "com.amazonaws.rekognition#NotificationChannel",
+        "Filters": {
+          "target": "com.amazonaws.rekognition#StartSegmentDetectionFilters",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the\n      segment detection operation.</p>"
+            "smithy.api#documentation": "<p>Filters for technical cue or shot detection.</p>"
+          }
+        },
+        "SegmentTypes": {
+          "target": "com.amazonaws.rekognition#SegmentTypes",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of segment types to detect in the video. Valid values are TECHNICAL_CUE and SHOT.</p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -7215,16 +7270,16 @@
     "com.amazonaws.rekognition#StartTextDetectionRequest": {
       "type": "structure",
       "members": {
-        "ClientRequestToken": {
-          "target": "com.amazonaws.rekognition#ClientRequestToken",
-          "traits": {
-            "smithy.api#documentation": "<p>Idempotent token used to identify the start request. If you use the same token with multiple <code>StartTextDetection</code>\n      requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job \n        from being accidentaly started more than once.</p>"
-          }
-        },
         "Video": {
           "target": "com.amazonaws.rekognition#Video",
           "traits": {
             "smithy.api#required": {}
+          }
+        },
+        "ClientRequestToken": {
+          "target": "com.amazonaws.rekognition#ClientRequestToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Idempotent token used to identify the start request. If you use the same token with multiple <code>StartTextDetection</code>\n      requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job \n        from being accidentaly started more than once.</p>"
           }
         },
         "NotificationChannel": {
@@ -7370,16 +7425,16 @@
     "com.amazonaws.rekognition#StreamProcessor": {
       "type": "structure",
       "members": {
-        "Status": {
-          "target": "com.amazonaws.rekognition#StreamProcessorStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>Current status of the Amazon Rekognition stream processor.</p>"
-          }
-        },
         "Name": {
           "target": "com.amazonaws.rekognition#StreamProcessorName",
           "traits": {
             "smithy.api#documentation": "<p>Name of the Amazon Rekognition stream processor. </p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.rekognition#StreamProcessorStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Current status of the Amazon Rekognition stream processor.</p>"
           }
         }
       },
@@ -7564,16 +7619,16 @@
     "com.amazonaws.rekognition#TestingData": {
       "type": "structure",
       "members": {
-        "AutoCreate": {
-          "target": "com.amazonaws.rekognition#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>If specified, Amazon Rekognition Custom Labels creates a testing dataset with an 80/20 split of the training dataset.</p>"
-          }
-        },
         "Assets": {
           "target": "com.amazonaws.rekognition#Assets",
           "traits": {
             "smithy.api#documentation": "<p>The assets used for testing.</p>"
+          }
+        },
+        "AutoCreate": {
+          "target": "com.amazonaws.rekognition#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>If specified, Amazon Rekognition Custom Labels creates a testing dataset with an 80/20 split of the training dataset.</p>"
           }
         }
       },
@@ -7584,12 +7639,6 @@
     "com.amazonaws.rekognition#TestingDataResult": {
       "type": "structure",
       "members": {
-        "Validation": {
-          "target": "com.amazonaws.rekognition#ValidationData",
-          "traits": {
-            "smithy.api#documentation": "<p>The location of the data validation manifest. The data validation manifest is created for the test dataset during model training.</p>"
-          }
-        },
         "Input": {
           "target": "com.amazonaws.rekognition#TestingData",
           "traits": {
@@ -7601,6 +7650,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The subset of the dataset that was actually tested. Some images (assets) might not be tested due to \n         file formatting and other issues. </p>"
           }
+        },
+        "Validation": {
+          "target": "com.amazonaws.rekognition#ValidationData",
+          "traits": {
+            "smithy.api#documentation": "<p>The location of the data validation manifest. The data validation manifest is created for the test dataset during model training.</p>"
+          }
         }
       },
       "traits": {
@@ -7610,10 +7665,10 @@
     "com.amazonaws.rekognition#TextDetection": {
       "type": "structure",
       "members": {
-        "ParentId": {
-          "target": "com.amazonaws.rekognition#UInteger",
+        "DetectedText": {
+          "target": "com.amazonaws.rekognition#String",
           "traits": {
-            "smithy.api#documentation": "<p>The Parent identifier for the detected text identified by the value of <code>ID</code>.\n      If the type of detected text is <code>LINE</code>, the value of <code>ParentId</code> is\n        <code>Null</code>. </p>"
+            "smithy.api#documentation": "<p>The word or line of text recognized by Amazon Rekognition. </p>"
           }
         },
         "Type": {
@@ -7622,16 +7677,16 @@
             "smithy.api#documentation": "<p>The type of text that was detected.</p>"
           }
         },
-        "Geometry": {
-          "target": "com.amazonaws.rekognition#Geometry",
-          "traits": {
-            "smithy.api#documentation": "<p>The location of the detected text on the image. Includes an axis aligned coarse\n      bounding box surrounding the text and a finer grain polygon for more accurate spatial\n      information.</p>"
-          }
-        },
         "Id": {
           "target": "com.amazonaws.rekognition#UInteger",
           "traits": {
             "smithy.api#documentation": "<p>The identifier for the detected text. The identifier is only unique for a single call\n      to <code>DetectText</code>. </p>"
+          }
+        },
+        "ParentId": {
+          "target": "com.amazonaws.rekognition#UInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>The Parent identifier for the detected text identified by the value of <code>ID</code>.\n      If the type of detected text is <code>LINE</code>, the value of <code>ParentId</code> is\n        <code>Null</code>. </p>"
           }
         },
         "Confidence": {
@@ -7640,10 +7695,10 @@
             "smithy.api#documentation": "<p>The confidence that Amazon Rekognition has in the accuracy of the detected text and the accuracy\n      of the geometry points around the detected text.</p>"
           }
         },
-        "DetectedText": {
-          "target": "com.amazonaws.rekognition#String",
+        "Geometry": {
+          "target": "com.amazonaws.rekognition#Geometry",
           "traits": {
-            "smithy.api#documentation": "<p>The word or line of text recognized by Amazon Rekognition. </p>"
+            "smithy.api#documentation": "<p>The location of the detected text on the image. Includes an axis aligned coarse\n      bounding box surrounding the text and a finer grain polygon for more accurate spatial\n      information.</p>"
           }
         }
       },
@@ -7701,6 +7756,9 @@
     "com.amazonaws.rekognition#ThrottlingException": {
       "type": "structure",
       "members": {
+        "Message": {
+          "target": "com.amazonaws.rekognition#String"
+        },
         "Code": {
           "target": "com.amazonaws.rekognition#String"
         },
@@ -7709,9 +7767,6 @@
           "traits": {
             "smithy.api#documentation": "<p>A universally unique identifier (UUID) for the request.</p>"
           }
-        },
-        "Message": {
-          "target": "com.amazonaws.rekognition#String"
         }
       },
       "traits": {
@@ -7748,16 +7803,16 @@
             "smithy.api#documentation": "<p>The training assets that you supplied for training.</p>"
           }
         },
-        "Validation": {
-          "target": "com.amazonaws.rekognition#ValidationData",
-          "traits": {
-            "smithy.api#documentation": "<p>The location of the data validation manifest. The data validation manifest is created for the training dataset during model training.</p>"
-          }
-        },
         "Output": {
           "target": "com.amazonaws.rekognition#TrainingData",
           "traits": {
             "smithy.api#documentation": "<p>The images (assets) that were actually trained by Amazon Rekognition Custom Labels. </p>"
+          }
+        },
+        "Validation": {
+          "target": "com.amazonaws.rekognition#ValidationData",
+          "traits": {
+            "smithy.api#documentation": "<p>The location of the data validation manifest. The data validation manifest is created for the training dataset during model training.</p>"
           }
         }
       },
@@ -7786,16 +7841,16 @@
     "com.amazonaws.rekognition#UnindexedFace": {
       "type": "structure",
       "members": {
-        "FaceDetail": {
-          "target": "com.amazonaws.rekognition#FaceDetail",
-          "traits": {
-            "smithy.api#documentation": "<p>The\n      structure that contains attributes of a face that\n      <code>IndexFaces</code>detected, but didn't index. </p>"
-          }
-        },
         "Reasons": {
           "target": "com.amazonaws.rekognition#Reasons",
           "traits": {
             "smithy.api#documentation": "<p>An array of reasons that specify why a face wasn't indexed. </p>\n         <ul>\n            <li>\n               <p>EXTREME_POSE - The face is at a pose that can't be detected. For example, the head is turned\n          too far away from the camera.</p>\n            </li>\n            <li>\n               <p>EXCEEDS_MAX_FACES - The number of faces detected is already higher than that specified by the \n      <code>MaxFaces</code> input parameter for <code>IndexFaces</code>.</p>\n            </li>\n            <li>\n               <p>LOW_BRIGHTNESS - The image is too dark.</p>\n            </li>\n            <li>\n               <p>LOW_SHARPNESS - The image is too blurry.</p>\n            </li>\n            <li>\n               <p>LOW_CONFIDENCE - The face was detected with a low confidence.</p>\n            </li>\n            <li>\n               <p>SMALL_BOUNDING_BOX - The bounding box around the face is too small.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "FaceDetail": {
+          "target": "com.amazonaws.rekognition#FaceDetail",
+          "traits": {
+            "smithy.api#documentation": "<p>The\n      structure that contains attributes of a face that\n      <code>IndexFaces</code>detected, but didn't index. </p>"
           }
         }
       },
@@ -7890,24 +7945,6 @@
     "com.amazonaws.rekognition#VideoMetadata": {
       "type": "structure",
       "members": {
-        "FrameHeight": {
-          "target": "com.amazonaws.rekognition#ULong",
-          "traits": {
-            "smithy.api#documentation": "<p>Vertical pixel dimension of the video.</p>"
-          }
-        },
-        "FrameWidth": {
-          "target": "com.amazonaws.rekognition#ULong",
-          "traits": {
-            "smithy.api#documentation": "<p>Horizontal pixel dimension of the video.</p>"
-          }
-        },
-        "Format": {
-          "target": "com.amazonaws.rekognition#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Format of the analyzed video. Possible values are MP4, MOV and AVI. </p>"
-          }
-        },
         "Codec": {
           "target": "com.amazonaws.rekognition#String",
           "traits": {
@@ -7920,10 +7957,28 @@
             "smithy.api#documentation": "<p>Length of the video in milliseconds.</p>"
           }
         },
+        "Format": {
+          "target": "com.amazonaws.rekognition#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Format of the analyzed video. Possible values are MP4, MOV and AVI. </p>"
+          }
+        },
         "FrameRate": {
           "target": "com.amazonaws.rekognition#Float",
           "traits": {
             "smithy.api#documentation": "<p>Number of frames per second in the video.</p>"
+          }
+        },
+        "FrameHeight": {
+          "target": "com.amazonaws.rekognition#ULong",
+          "traits": {
+            "smithy.api#documentation": "<p>Vertical pixel dimension of the video.</p>"
+          }
+        },
+        "FrameWidth": {
+          "target": "com.amazonaws.rekognition#ULong",
+          "traits": {
+            "smithy.api#documentation": "<p>Horizontal pixel dimension of the video.</p>"
           }
         }
       },
@@ -7940,17 +7995,17 @@
     "com.amazonaws.rekognition#VideoTooLargeException": {
       "type": "structure",
       "members": {
-        "Logref": {
-          "target": "com.amazonaws.rekognition#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A universally unique identifier (UUID) for the request.</p>"
-          }
-        },
         "Message": {
           "target": "com.amazonaws.rekognition#String"
         },
         "Code": {
           "target": "com.amazonaws.rekognition#String"
+        },
+        "Logref": {
+          "target": "com.amazonaws.rekognition#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A universally unique identifier (UUID) for the request.</p>"
+          }
         }
       },
       "traits": {

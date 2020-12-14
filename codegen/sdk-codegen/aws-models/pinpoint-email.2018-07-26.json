@@ -191,7 +191,8 @@
           "sdkId": "Pinpoint Email",
           "arnNamespace": "ses",
           "cloudFormationName": "PinpointEmail",
-          "cloudTrailEventSource": "pinpointemail.amazonaws.com"
+          "cloudTrailEventSource": "pinpointemail.amazonaws.com",
+          "endpointPrefix": "email"
         },
         "aws.auth#sigv4": {
           "name": "ses"
@@ -242,12 +243,6 @@
     "com.amazonaws.pinpointemail#BlacklistEntry": {
       "type": "structure",
       "members": {
-        "Description": {
-          "target": "com.amazonaws.pinpointemail#BlacklistingDescription",
-          "traits": {
-            "smithy.api#documentation": "<p>Additional information about the blacklisting event, as provided by the blacklist\n            maintainer.</p>"
-          }
-        },
         "RblName": {
           "target": "com.amazonaws.pinpointemail#RblName",
           "traits": {
@@ -258,6 +253,12 @@
           "target": "com.amazonaws.pinpointemail#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The time when the blacklisting event occurred, shown in Unix time format.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.pinpointemail#BlacklistingDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>Additional information about the blacklisting event, as provided by the blacklist\n            maintainer.</p>"
           }
         }
       },
@@ -336,10 +337,10 @@
     "com.amazonaws.pinpointemail#CloudWatchDimensionConfiguration": {
       "type": "structure",
       "members": {
-        "DefaultDimensionValue": {
-          "target": "com.amazonaws.pinpointemail#DefaultDimensionValue",
+        "DimensionName": {
+          "target": "com.amazonaws.pinpointemail#DimensionName",
           "traits": {
-            "smithy.api#documentation": "<p>The default value of the dimension that is published to Amazon CloudWatch if you don't provide the\n            value of the dimension when you send an email. This value has to meet the following\n            criteria:</p>\n        <ul>\n            <li>\n                <p>It can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_),\n                    or dashes (-).</p>\n            </li>\n            <li>\n                <p>It can contain no more than 256 characters.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The name of an Amazon CloudWatch dimension associated with an email sending metric. The name has to\n            meet the following criteria:</p>\n        <ul>\n            <li>\n                <p>It can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_),\n                    or dashes (-).</p>\n            </li>\n            <li>\n                <p>It can contain no more than 256 characters.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         },
@@ -350,10 +351,10 @@
             "smithy.api#required": {}
           }
         },
-        "DimensionName": {
-          "target": "com.amazonaws.pinpointemail#DimensionName",
+        "DefaultDimensionValue": {
+          "target": "com.amazonaws.pinpointemail#DefaultDimensionValue",
           "traits": {
-            "smithy.api#documentation": "<p>The name of an Amazon CloudWatch dimension associated with an email sending metric. The name has to\n            meet the following criteria:</p>\n        <ul>\n            <li>\n                <p>It can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_),\n                    or dashes (-).</p>\n            </li>\n            <li>\n                <p>It can contain no more than 256 characters.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The default value of the dimension that is published to Amazon CloudWatch if you don't provide the\n            value of the dimension when you send an email. This value has to meet the following\n            criteria:</p>\n        <ul>\n            <li>\n                <p>It can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_),\n                    or dashes (-).</p>\n            </li>\n            <li>\n                <p>It can contain no more than 256 characters.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         }
@@ -496,17 +497,17 @@
             "smithy.api#required": {}
           }
         },
-        "EventDestination": {
-          "target": "com.amazonaws.pinpointemail#EventDestinationDefinition",
-          "traits": {
-            "smithy.api#documentation": "<p>An object that defines the event destination.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "EventDestinationName": {
           "target": "com.amazonaws.pinpointemail#EventDestinationName",
           "traits": {
             "smithy.api#documentation": "<p>A name that identifies the event destination within the configuration set.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "EventDestination": {
+          "target": "com.amazonaws.pinpointemail#EventDestinationDefinition",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that defines the event destination.</p>",
             "smithy.api#required": {}
           }
         }
@@ -525,22 +526,11 @@
     "com.amazonaws.pinpointemail#CreateConfigurationSetRequest": {
       "type": "structure",
       "members": {
-        "SendingOptions": {
-          "target": "com.amazonaws.pinpointemail#SendingOptions",
+        "ConfigurationSetName": {
+          "target": "com.amazonaws.pinpointemail#ConfigurationSetName",
           "traits": {
-            "smithy.api#documentation": "<p>An object that defines whether or not Amazon Pinpoint can send email that you send using the\n            configuration set.</p>"
-          }
-        },
-        "DeliveryOptions": {
-          "target": "com.amazonaws.pinpointemail#DeliveryOptions",
-          "traits": {
-            "smithy.api#documentation": "<p>An object that defines the dedicated IP pool that is used to send emails that you send\n            using the configuration set.</p>"
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.pinpointemail#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of objects that define the tags (keys and values) that you want to associate\n            with the configuration set.</p>"
+            "smithy.api#documentation": "<p>The name of the configuration set.</p>",
+            "smithy.api#required": {}
           }
         },
         "TrackingOptions": {
@@ -549,17 +539,28 @@
             "smithy.api#documentation": "<p>An object that defines the open and click tracking options for emails that you send\n            using the configuration set.</p>"
           }
         },
-        "ConfigurationSetName": {
-          "target": "com.amazonaws.pinpointemail#ConfigurationSetName",
+        "DeliveryOptions": {
+          "target": "com.amazonaws.pinpointemail#DeliveryOptions",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the configuration set.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>An object that defines the dedicated IP pool that is used to send emails that you send\n            using the configuration set.</p>"
           }
         },
         "ReputationOptions": {
           "target": "com.amazonaws.pinpointemail#ReputationOptions",
           "traits": {
             "smithy.api#documentation": "<p>An object that defines whether or not Amazon Pinpoint collects reputation metrics for the emails\n            that you send that use the configuration set.</p>"
+          }
+        },
+        "SendingOptions": {
+          "target": "com.amazonaws.pinpointemail#SendingOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that defines whether or not Amazon Pinpoint can send email that you send using the\n            configuration set.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.pinpointemail#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of objects that define the tags (keys and values) that you want to associate\n            with the configuration set.</p>"
           }
         }
       },
@@ -691,12 +692,6 @@
             "smithy.api#documentation": "<p>A unique name that helps you to identify the predictive inbox placement test when you retrieve the\n            results.</p>"
           }
         },
-        "Tags": {
-          "target": "com.amazonaws.pinpointemail#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of objects that define the tags (keys and values) that you want to associate\n            with the predictive inbox placement test.</p>"
-          }
-        },
         "FromEmailAddress": {
           "target": "com.amazonaws.pinpointemail#EmailAddress",
           "traits": {
@@ -710,6 +705,12 @@
             "smithy.api#documentation": "<p>The HTML body of the message that you sent when you performed the predictive inbox placement test.</p>",
             "smithy.api#required": {}
           }
+        },
+        "Tags": {
+          "target": "com.amazonaws.pinpointemail#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of objects that define the tags (keys and values) that you want to associate\n            with the predictive inbox placement test.</p>"
+          }
         }
       },
       "traits": {
@@ -719,17 +720,17 @@
     "com.amazonaws.pinpointemail#CreateDeliverabilityTestReportResponse": {
       "type": "structure",
       "members": {
-        "DeliverabilityTestStatus": {
-          "target": "com.amazonaws.pinpointemail#DeliverabilityTestStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the predictive inbox placement test. If the status is <code>IN_PROGRESS</code>, then the predictive inbox placement test\n            is currently running. Predictive inbox placement tests are usually complete within 24 hours of creating the\n            test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use\n            the <code>GetDeliverabilityTestReport</code> to view the results of the test.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ReportId": {
           "target": "com.amazonaws.pinpointemail#ReportId",
           "traits": {
             "smithy.api#documentation": "<p>A unique string that identifies the predictive inbox placement test.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DeliverabilityTestStatus": {
+          "target": "com.amazonaws.pinpointemail#DeliverabilityTestStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the predictive inbox placement test. If the status is <code>IN_PROGRESS</code>, then the predictive inbox placement test\n            is currently running. Predictive inbox placement tests are usually complete within 24 hours of creating the\n            test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use\n            the <code>GetDeliverabilityTestReport</code> to view the results of the test.</p>",
             "smithy.api#required": {}
           }
         }
@@ -772,17 +773,17 @@
     "com.amazonaws.pinpointemail#CreateEmailIdentityRequest": {
       "type": "structure",
       "members": {
-        "Tags": {
-          "target": "com.amazonaws.pinpointemail#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of objects that define the tags (keys and values) that you want to associate\n            with the email identity.</p>"
-          }
-        },
         "EmailIdentity": {
           "target": "com.amazonaws.pinpointemail#Identity",
           "traits": {
             "smithy.api#documentation": "<p>The email address or domain that you want to verify.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.pinpointemail#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of objects that define the tags (keys and values) that you want to associate\n            with the email identity.</p>"
           }
         }
       },
@@ -793,12 +794,6 @@
     "com.amazonaws.pinpointemail#CreateEmailIdentityResponse": {
       "type": "structure",
       "members": {
-        "DkimAttributes": {
-          "target": "com.amazonaws.pinpointemail#DkimAttributes",
-          "traits": {
-            "smithy.api#documentation": "<p>An object that contains information about the DKIM attributes for the identity. This\n            object includes the tokens that you use to create the CNAME records that are required to\n            complete the DKIM verification process.</p>"
-          }
-        },
         "IdentityType": {
           "target": "com.amazonaws.pinpointemail#IdentityType",
           "traits": {
@@ -809,6 +804,12 @@
           "target": "com.amazonaws.pinpointemail#Enabled",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether or not the identity is verified. In Amazon Pinpoint, you can only send email\n            from verified email addresses or domains. For more information about verifying\n            identities, see the <a href=\"https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html\">Amazon Pinpoint User Guide</a>.</p>"
+          }
+        },
+        "DkimAttributes": {
+          "target": "com.amazonaws.pinpointemail#DkimAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that contains information about the DKIM attributes for the identity. This\n            object includes the tokens that you use to create the CNAME records that are required to\n            complete the DKIM verification process.</p>"
           }
         }
       },
@@ -831,16 +832,16 @@
             "smithy.api#documentation": "<p>The date that the DailyVolume metrics apply to, in Unix time.</p>"
           }
         },
-        "DomainIspPlacements": {
-          "target": "com.amazonaws.pinpointemail#DomainIspPlacements",
-          "traits": {
-            "smithy.api#documentation": "<p>An object that contains inbox placement metrics for a specified day in the analysis\n            period, broken out by the recipient's email provider.</p>"
-          }
-        },
         "VolumeStatistics": {
           "target": "com.amazonaws.pinpointemail#VolumeStatistics",
           "traits": {
             "smithy.api#documentation": "<p>An object that contains inbox placement metrics for a specific day in the analysis\n            period.</p>"
+          }
+        },
+        "DomainIspPlacements": {
+          "target": "com.amazonaws.pinpointemail#DomainIspPlacements",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that contains inbox placement metrics for a specified day in the analysis\n            period, broken out by the recipient's email provider.</p>"
           }
         }
       },
@@ -857,10 +858,11 @@
     "com.amazonaws.pinpointemail#DedicatedIp": {
       "type": "structure",
       "members": {
-        "PoolName": {
-          "target": "com.amazonaws.pinpointemail#PoolName",
+        "Ip": {
+          "target": "com.amazonaws.pinpointemail#Ip",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the dedicated IP pool that the IP address is associated with.</p>"
+            "smithy.api#documentation": "<p>An IP address that is reserved for use by your Amazon Pinpoint account.</p>",
+            "smithy.api#required": {}
           }
         },
         "WarmupStatus": {
@@ -877,11 +879,10 @@
             "smithy.api#required": {}
           }
         },
-        "Ip": {
-          "target": "com.amazonaws.pinpointemail#Ip",
+        "PoolName": {
+          "target": "com.amazonaws.pinpointemail#PoolName",
           "traits": {
-            "smithy.api#documentation": "<p>An IP address that is reserved for use by your Amazon Pinpoint account.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The name of the dedicated IP pool that the IP address is associated with.</p>"
           }
         }
       },
@@ -1148,16 +1149,28 @@
     "com.amazonaws.pinpointemail#DeliverabilityTestReport": {
       "type": "structure",
       "members": {
-        "FromEmailAddress": {
-          "target": "com.amazonaws.pinpointemail#EmailAddress",
+        "ReportId": {
+          "target": "com.amazonaws.pinpointemail#ReportId",
           "traits": {
-            "smithy.api#documentation": "<p>The sender address that you specified for the predictive inbox placement test.</p>"
+            "smithy.api#documentation": "<p>A unique string that identifies the predictive inbox placement test.</p>"
           }
         },
         "ReportName": {
           "target": "com.amazonaws.pinpointemail#ReportName",
           "traits": {
             "smithy.api#documentation": "<p>A name that helps you identify a predictive inbox placement test report.</p>"
+          }
+        },
+        "Subject": {
+          "target": "com.amazonaws.pinpointemail#DeliverabilityTestSubject",
+          "traits": {
+            "smithy.api#documentation": "<p>The subject line for an email that you submitted in a predictive inbox placement test.</p>"
+          }
+        },
+        "FromEmailAddress": {
+          "target": "com.amazonaws.pinpointemail#EmailAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>The sender address that you specified for the predictive inbox placement test.</p>"
           }
         },
         "CreateDate": {
@@ -1170,18 +1183,6 @@
           "target": "com.amazonaws.pinpointemail#DeliverabilityTestStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the predictive inbox placement test. If the status is <code>IN_PROGRESS</code>, then the predictive inbox placement test\n            is currently running. Predictive inbox placement tests are usually complete within 24 hours of creating the\n            test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use\n            the <code>GetDeliverabilityTestReport</code> to view the results of the test.</p>"
-          }
-        },
-        "ReportId": {
-          "target": "com.amazonaws.pinpointemail#ReportId",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique string that identifies the predictive inbox placement test.</p>"
-          }
-        },
-        "Subject": {
-          "target": "com.amazonaws.pinpointemail#DeliverabilityTestSubject",
-          "traits": {
-            "smithy.api#documentation": "<p>The subject line for an email that you submitted in a predictive inbox placement test.</p>"
           }
         }
       },
@@ -1220,16 +1221,16 @@
     "com.amazonaws.pinpointemail#DeliveryOptions": {
       "type": "structure",
       "members": {
-        "SendingPoolName": {
-          "target": "com.amazonaws.pinpointemail#PoolName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the dedicated IP pool that you want to associate with the configuration\n            set.</p>"
-          }
-        },
         "TlsPolicy": {
           "target": "com.amazonaws.pinpointemail#TlsPolicy",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether messages that use the configuration set are required to use\n            Transport Layer Security (TLS). If the value is <code>Require</code>, messages are only\n            delivered if a TLS connection can be established. If the value is <code>Optional</code>,\n            messages can be delivered in plain text if a TLS connection can't be established.</p>"
+          }
+        },
+        "SendingPoolName": {
+          "target": "com.amazonaws.pinpointemail#PoolName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the dedicated IP pool that you want to associate with the configuration\n            set.</p>"
           }
         }
       },
@@ -1240,10 +1241,10 @@
     "com.amazonaws.pinpointemail#Destination": {
       "type": "structure",
       "members": {
-        "BccAddresses": {
+        "ToAddresses": {
           "target": "com.amazonaws.pinpointemail#EmailAddressList",
           "traits": {
-            "smithy.api#documentation": "<p>An array that contains the email addresses of the \"BCC\" (blind carbon copy) recipients\n            for the email.</p>"
+            "smithy.api#documentation": "<p>An array that contains the email addresses of the \"To\" recipients for the\n            email.</p>"
           }
         },
         "CcAddresses": {
@@ -1252,10 +1253,10 @@
             "smithy.api#documentation": "<p>An array that contains the email addresses of the \"CC\" (carbon copy) recipients for\n            the email.</p>"
           }
         },
-        "ToAddresses": {
+        "BccAddresses": {
           "target": "com.amazonaws.pinpointemail#EmailAddressList",
           "traits": {
-            "smithy.api#documentation": "<p>An array that contains the email addresses of the \"To\" recipients for the\n            email.</p>"
+            "smithy.api#documentation": "<p>An array that contains the email addresses of the \"BCC\" (blind carbon copy) recipients\n            for the email.</p>"
           }
         }
       },
@@ -1358,10 +1359,10 @@
     "com.amazonaws.pinpointemail#DomainDeliverabilityCampaign": {
       "type": "structure",
       "members": {
-        "InboxCount": {
-          "target": "com.amazonaws.pinpointemail#Volume",
+        "CampaignId": {
+          "target": "com.amazonaws.pinpointemail#CampaignId",
           "traits": {
-            "smithy.api#documentation": "<p>The number of email messages that were delivered to recipients’ inboxes.</p>"
+            "smithy.api#documentation": "<p>The unique identifier for the campaign. Amazon Pinpoint automatically generates and assigns this\n            identifier to a campaign. This value is not the same as the campaign identifier that\n            Amazon Pinpoint assigns to campaigns that you create and manage by using the Amazon Pinpoint API or the\n            Amazon Pinpoint console.</p>"
           }
         },
         "ImageUrl": {
@@ -1376,28 +1377,22 @@
             "smithy.api#documentation": "<p>The subject line, or title, of the email message.</p>"
           }
         },
+        "FromAddress": {
+          "target": "com.amazonaws.pinpointemail#Identity",
+          "traits": {
+            "smithy.api#documentation": "<p>The verified email address that the email message was sent from.</p>"
+          }
+        },
+        "SendingIps": {
+          "target": "com.amazonaws.pinpointemail#IpList",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP addresses that were used to send the email message.</p>"
+          }
+        },
         "FirstSeenDateTime": {
           "target": "com.amazonaws.pinpointemail#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The first time, in Unix time format, when the email message was delivered to any\n            recipient's inbox. This value can help you determine how long it took for a campaign to\n            deliver an email message.</p>"
-          }
-        },
-        "Esps": {
-          "target": "com.amazonaws.pinpointemail#Esps",
-          "traits": {
-            "smithy.api#documentation": "<p>The major email providers who handled the email message.</p>"
-          }
-        },
-        "CampaignId": {
-          "target": "com.amazonaws.pinpointemail#CampaignId",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the campaign. Amazon Pinpoint automatically generates and assigns this\n            identifier to a campaign. This value is not the same as the campaign identifier that\n            Amazon Pinpoint assigns to campaigns that you create and manage by using the Amazon Pinpoint API or the\n            Amazon Pinpoint console.</p>"
-          }
-        },
-        "DeleteRate": {
-          "target": "com.amazonaws.pinpointemail#Percentage",
-          "traits": {
-            "smithy.api#documentation": "<p>The percentage of email messages that were deleted by recipients, without being opened\n            first. Due to technical limitations, this value only includes recipients who opened the\n            message by using an email client that supports images.</p>"
           }
         },
         "LastSeenDateTime": {
@@ -1406,22 +1401,10 @@
             "smithy.api#documentation": "<p>The last time, in Unix time format, when the email message was delivered to any\n            recipient's inbox. This value can help you determine how long it took for a campaign to\n            deliver an email message.</p>"
           }
         },
-        "FromAddress": {
-          "target": "com.amazonaws.pinpointemail#Identity",
-          "traits": {
-            "smithy.api#documentation": "<p>The verified email address that the email message was sent from.</p>"
-          }
-        },
-        "ProjectedVolume": {
+        "InboxCount": {
           "target": "com.amazonaws.pinpointemail#Volume",
           "traits": {
-            "smithy.api#documentation": "<p>The projected number of recipients that the email message was sent to.</p>"
-          }
-        },
-        "ReadRate": {
-          "target": "com.amazonaws.pinpointemail#Percentage",
-          "traits": {
-            "smithy.api#documentation": "<p>The percentage of email messages that were opened by recipients. Due to technical\n            limitations, this value only includes recipients who opened the message by using an\n            email client that supports images.</p>"
+            "smithy.api#documentation": "<p>The number of email messages that were delivered to recipients’ inboxes.</p>"
           }
         },
         "SpamCount": {
@@ -1430,16 +1413,34 @@
             "smithy.api#documentation": "<p>The number of email messages that were delivered to recipients' spam or junk mail\n            folders.</p>"
           }
         },
+        "ReadRate": {
+          "target": "com.amazonaws.pinpointemail#Percentage",
+          "traits": {
+            "smithy.api#documentation": "<p>The percentage of email messages that were opened by recipients. Due to technical\n            limitations, this value only includes recipients who opened the message by using an\n            email client that supports images.</p>"
+          }
+        },
+        "DeleteRate": {
+          "target": "com.amazonaws.pinpointemail#Percentage",
+          "traits": {
+            "smithy.api#documentation": "<p>The percentage of email messages that were deleted by recipients, without being opened\n            first. Due to technical limitations, this value only includes recipients who opened the\n            message by using an email client that supports images.</p>"
+          }
+        },
         "ReadDeleteRate": {
           "target": "com.amazonaws.pinpointemail#Percentage",
           "traits": {
             "smithy.api#documentation": "<p>The percentage of email messages that were opened and then deleted by recipients. Due\n            to technical limitations, this value only includes recipients who opened the message by\n            using an email client that supports images.</p>"
           }
         },
-        "SendingIps": {
-          "target": "com.amazonaws.pinpointemail#IpList",
+        "ProjectedVolume": {
+          "target": "com.amazonaws.pinpointemail#Volume",
           "traits": {
-            "smithy.api#documentation": "<p>The IP addresses that were used to send the email message.</p>"
+            "smithy.api#documentation": "<p>The projected number of recipients that the email message was sent to.</p>"
+          }
+        },
+        "Esps": {
+          "target": "com.amazonaws.pinpointemail#Esps",
+          "traits": {
+            "smithy.api#documentation": "<p>The major email providers who handled the email message.</p>"
           }
         }
       },
@@ -1459,6 +1460,12 @@
     "com.amazonaws.pinpointemail#DomainDeliverabilityTrackingOption": {
       "type": "structure",
       "members": {
+        "Domain": {
+          "target": "com.amazonaws.pinpointemail#Domain",
+          "traits": {
+            "smithy.api#documentation": "<p>A verified domain that’s associated with your AWS account and currently has an\n            active Deliverability dashboard subscription.</p>"
+          }
+        },
         "SubscriptionStartDate": {
           "target": "com.amazonaws.pinpointemail#Timestamp",
           "traits": {
@@ -1469,12 +1476,6 @@
           "target": "com.amazonaws.pinpointemail#InboxPlacementTrackingOption",
           "traits": {
             "smithy.api#documentation": "<p>An object that contains information about the inbox placement data settings for the\n            domain.</p>"
-          }
-        },
-        "Domain": {
-          "target": "com.amazonaws.pinpointemail#Domain",
-          "traits": {
-            "smithy.api#documentation": "<p>A verified domain that’s associated with your AWS account and currently has an\n            active Deliverability dashboard subscription.</p>"
           }
         }
       },
@@ -1494,16 +1495,16 @@
     "com.amazonaws.pinpointemail#DomainIspPlacement": {
       "type": "structure",
       "members": {
-        "InboxPercentage": {
-          "target": "com.amazonaws.pinpointemail#Percentage",
-          "traits": {
-            "smithy.api#documentation": "<p>The percentage of messages that were sent from the selected domain to the specified\n            email provider that arrived in recipients' inboxes.</p>"
-          }
-        },
         "IspName": {
           "target": "com.amazonaws.pinpointemail#IspName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the email provider that the inbox placement data applies to.</p>"
+          }
+        },
+        "InboxRawCount": {
+          "target": "com.amazonaws.pinpointemail#Volume",
+          "traits": {
+            "smithy.api#documentation": "<p>The total number of messages that were sent from the selected domain to the specified\n            email provider that arrived in recipients' inboxes.</p>"
           }
         },
         "SpamRawCount": {
@@ -1512,16 +1513,16 @@
             "smithy.api#documentation": "<p>The total number of messages that were sent from the selected domain to the specified\n            email provider that arrived in recipients' spam or junk mail folders.</p>"
           }
         },
+        "InboxPercentage": {
+          "target": "com.amazonaws.pinpointemail#Percentage",
+          "traits": {
+            "smithy.api#documentation": "<p>The percentage of messages that were sent from the selected domain to the specified\n            email provider that arrived in recipients' inboxes.</p>"
+          }
+        },
         "SpamPercentage": {
           "target": "com.amazonaws.pinpointemail#Percentage",
           "traits": {
             "smithy.api#documentation": "<p>The percentage of messages that were sent from the selected domain to the specified\n            email provider that arrived in recipients' spam or junk mail folders.</p>"
-          }
-        },
-        "InboxRawCount": {
-          "target": "com.amazonaws.pinpointemail#Volume",
-          "traits": {
-            "smithy.api#documentation": "<p>The total number of messages that were sent from the selected domain to the specified\n            email provider that arrived in recipients' inboxes.</p>"
           }
         }
       },
@@ -1547,12 +1548,6 @@
     "com.amazonaws.pinpointemail#EmailContent": {
       "type": "structure",
       "members": {
-        "Template": {
-          "target": "com.amazonaws.pinpointemail#Template",
-          "traits": {
-            "smithy.api#documentation": "<p>The template to use for the email message.</p>"
-          }
-        },
         "Simple": {
           "target": "com.amazonaws.pinpointemail#Message",
           "traits": {
@@ -1563,6 +1558,12 @@
           "target": "com.amazonaws.pinpointemail#RawMessage",
           "traits": {
             "smithy.api#documentation": "<p>The raw email message. The message has to meet the following criteria:</p>\n        <ul>\n            <li>\n                <p>The message has to contain a header and a body, separated by one blank\n                    line.</p>\n            </li>\n            <li>\n                <p>All of the required header fields must be present in the message.</p>\n            </li>\n            <li>\n                <p>Each part of a multipart MIME message must be formatted properly.</p>\n            </li>\n            <li>\n                <p>If you include attachments, they must be in a file format that Amazon Pinpoint supports.\n                    </p>\n            </li>\n            <li>\n                <p>The entire message must be Base64 encoded.</p>\n            </li>\n            <li>\n                <p>If any of the MIME parts in your message contain content that is outside of\n                    the 7-bit ASCII character range, you should encode that content to ensure that\n                    recipients' email clients render the message properly.</p>\n            </li>\n            <li>\n                <p>The length of any single line of text in the message can't exceed 1,000\n                    characters. This restriction is defined in <a href=\"https://tools.ietf.org/html/rfc5321\">RFC 5321</a>.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "Template": {
+          "target": "com.amazonaws.pinpointemail#Template",
+          "traits": {
+            "smithy.api#documentation": "<p>The template to use for the email message.</p>"
           }
         }
       },
@@ -1588,6 +1589,32 @@
     "com.amazonaws.pinpointemail#EventDestination": {
       "type": "structure",
       "members": {
+        "Name": {
+          "target": "com.amazonaws.pinpointemail#EventDestinationName",
+          "traits": {
+            "smithy.api#documentation": "<p>A name that identifies the event destination.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Enabled": {
+          "target": "com.amazonaws.pinpointemail#Enabled",
+          "traits": {
+            "smithy.api#documentation": "<p>If <code>true</code>, the event destination is enabled. When the event destination is\n            enabled, the specified event types are sent to the destinations in this\n                <code>EventDestinationDefinition</code>.</p>\n        <p>If <code>false</code>, the event destination is disabled. When the event destination\n            is disabled, events aren't sent to the specified destinations.</p>"
+          }
+        },
+        "MatchingEventTypes": {
+          "target": "com.amazonaws.pinpointemail#EventTypes",
+          "traits": {
+            "smithy.api#documentation": "<p>The types of events that Amazon Pinpoint sends to the specified event destinations.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "KinesisFirehoseDestination": {
+          "target": "com.amazonaws.pinpointemail#KinesisFirehoseDestination",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to\n            stream data to other services, such as Amazon S3 and Amazon Redshift.</p>"
+          }
+        },
         "CloudWatchDestination": {
           "target": "com.amazonaws.pinpointemail#CloudWatchDestination",
           "traits": {
@@ -1600,36 +1627,10 @@
             "smithy.api#documentation": "<p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to\n            send notification when certain email events occur.</p>"
           }
         },
-        "KinesisFirehoseDestination": {
-          "target": "com.amazonaws.pinpointemail#KinesisFirehoseDestination",
-          "traits": {
-            "smithy.api#documentation": "<p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to\n            stream data to other services, such as Amazon S3 and Amazon Redshift.</p>"
-          }
-        },
         "PinpointDestination": {
           "target": "com.amazonaws.pinpointemail#PinpointDestination",
           "traits": {
             "smithy.api#documentation": "<p>An object that defines a Amazon Pinpoint destination for email events. You can use Amazon Pinpoint events\n            to create attributes in Amazon Pinpoint projects. You can use these attributes to create segments\n            for your campaigns.</p>"
-          }
-        },
-        "Enabled": {
-          "target": "com.amazonaws.pinpointemail#Enabled",
-          "traits": {
-            "smithy.api#documentation": "<p>If <code>true</code>, the event destination is enabled. When the event destination is\n            enabled, the specified event types are sent to the destinations in this\n                <code>EventDestinationDefinition</code>.</p>\n        <p>If <code>false</code>, the event destination is disabled. When the event destination\n            is disabled, events aren't sent to the specified destinations.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.pinpointemail#EventDestinationName",
-          "traits": {
-            "smithy.api#documentation": "<p>A name that identifies the event destination.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "MatchingEventTypes": {
-          "target": "com.amazonaws.pinpointemail#EventTypes",
-          "traits": {
-            "smithy.api#documentation": "<p>The types of events that Amazon Pinpoint sends to the specified event destinations.</p>",
-            "smithy.api#required": {}
           }
         }
       },
@@ -1640,22 +1641,10 @@
     "com.amazonaws.pinpointemail#EventDestinationDefinition": {
       "type": "structure",
       "members": {
-        "KinesisFirehoseDestination": {
-          "target": "com.amazonaws.pinpointemail#KinesisFirehoseDestination",
-          "traits": {
-            "smithy.api#documentation": "<p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to\n            stream data to other services, such as Amazon S3 and Amazon Redshift.</p>"
-          }
-        },
         "Enabled": {
           "target": "com.amazonaws.pinpointemail#Enabled",
           "traits": {
             "smithy.api#documentation": "<p>If <code>true</code>, the event destination is enabled. When the event destination is\n            enabled, the specified event types are sent to the destinations in this\n                <code>EventDestinationDefinition</code>.</p>\n        <p>If <code>false</code>, the event destination is disabled. When the event destination\n            is disabled, events aren't sent to the specified destinations.</p>"
-          }
-        },
-        "PinpointDestination": {
-          "target": "com.amazonaws.pinpointemail#PinpointDestination",
-          "traits": {
-            "smithy.api#documentation": "<p>An object that defines a Amazon Pinpoint destination for email events. You can use Amazon Pinpoint events\n            to create attributes in Amazon Pinpoint projects. You can use these attributes to create segments\n            for your campaigns.</p>"
           }
         },
         "MatchingEventTypes": {
@@ -1664,16 +1653,28 @@
             "smithy.api#documentation": "<p>An array that specifies which events Amazon Pinpoint should send to the destinations in this\n                <code>EventDestinationDefinition</code>.</p>"
           }
         },
-        "SnsDestination": {
-          "target": "com.amazonaws.pinpointemail#SnsDestination",
+        "KinesisFirehoseDestination": {
+          "target": "com.amazonaws.pinpointemail#KinesisFirehoseDestination",
           "traits": {
-            "smithy.api#documentation": "<p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to\n            send notification when certain email events occur.</p>"
+            "smithy.api#documentation": "<p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to\n            stream data to other services, such as Amazon S3 and Amazon Redshift.</p>"
           }
         },
         "CloudWatchDestination": {
           "target": "com.amazonaws.pinpointemail#CloudWatchDestination",
           "traits": {
             "smithy.api#documentation": "<p>An object that defines an Amazon CloudWatch destination for email events. You can use Amazon CloudWatch to\n            monitor and gain insights on your email sending metrics.</p>"
+          }
+        },
+        "SnsDestination": {
+          "target": "com.amazonaws.pinpointemail#SnsDestination",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to\n            send notification when certain email events occur.</p>"
+          }
+        },
+        "PinpointDestination": {
+          "target": "com.amazonaws.pinpointemail#PinpointDestination",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that defines a Amazon Pinpoint destination for email events. You can use Amazon Pinpoint events\n            to create attributes in Amazon Pinpoint projects. You can use these attributes to create segments\n            for your campaigns.</p>"
           }
         }
       },
@@ -1777,10 +1778,16 @@
     "com.amazonaws.pinpointemail#GetAccountResponse": {
       "type": "structure",
       "members": {
-        "ProductionAccessEnabled": {
+        "SendQuota": {
+          "target": "com.amazonaws.pinpointemail#SendQuota",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that contains information about the per-day and per-second sending limits\n            for your Amazon Pinpoint account in the current AWS Region.</p>"
+          }
+        },
+        "SendingEnabled": {
           "target": "com.amazonaws.pinpointemail#Enabled",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether or not your account has production access in the current AWS\n            Region.</p>\n        <p>If the value is <code>false</code>, then your account is in the\n                <i>sandbox</i>. When your account is in the sandbox, you can only send\n            email to verified identities. Additionally, the maximum number of emails you can send in\n            a 24-hour period (your sending quota) is 200, and the maximum number of emails you can\n            send per second (your maximum sending rate) is 1.</p>\n        <p>If the value is <code>true</code>, then your account has production access. When your\n            account has production access, you can send email to any address. The sending quota and\n            maximum sending rate for your account vary based on your specific use case.</p>"
+            "smithy.api#documentation": "<p>Indicates whether or not email sending is enabled for your Amazon Pinpoint account in the\n            current AWS Region.</p>"
           }
         },
         "DedicatedIpAutoWarmupEnabled": {
@@ -1795,16 +1802,10 @@
             "smithy.api#documentation": "<p>The reputation status of your Amazon Pinpoint account. The status can be one of the\n            following:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>HEALTHY</code> – There are no reputation-related issues that\n                    currently impact your account.</p>\n            </li>\n            <li>\n                <p>\n                  <code>PROBATION</code> – We've identified some issues with your Amazon Pinpoint\n                    account. We're placing your account under review while you work on correcting\n                    these issues.</p>\n            </li>\n            <li>\n                <p>\n                  <code>SHUTDOWN</code> – Your account's ability to send email is\n                    currently paused because of an issue with the email sent from your account. When\n                    you correct the issue, you can contact us and request that your account's\n                    ability to send email is resumed.</p>\n            </li>\n         </ul>"
           }
         },
-        "SendingEnabled": {
+        "ProductionAccessEnabled": {
           "target": "com.amazonaws.pinpointemail#Enabled",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether or not email sending is enabled for your Amazon Pinpoint account in the\n            current AWS Region.</p>"
-          }
-        },
-        "SendQuota": {
-          "target": "com.amazonaws.pinpointemail#SendQuota",
-          "traits": {
-            "smithy.api#documentation": "<p>An object that contains information about the per-day and per-second sending limits\n            for your Amazon Pinpoint account in the current AWS Region.</p>"
+            "smithy.api#documentation": "<p>Indicates whether or not your account has production access in the current AWS\n            Region.</p>\n        <p>If the value is <code>false</code>, then your account is in the\n                <i>sandbox</i>. When your account is in the sandbox, you can only send\n            email to verified identities. Additionally, the maximum number of emails you can send in\n            a 24-hour period (your sending quota) is 200, and the maximum number of emails you can\n            send per second (your maximum sending rate) is 1.</p>\n        <p>If the value is <code>true</code>, then your account has production access. When your\n            account has production access, you can send email to any address. The sending quota and\n            maximum sending rate for your account vary based on your specific use case.</p>"
           }
         }
       },
@@ -1976,6 +1977,18 @@
     "com.amazonaws.pinpointemail#GetConfigurationSetResponse": {
       "type": "structure",
       "members": {
+        "ConfigurationSetName": {
+          "target": "com.amazonaws.pinpointemail#ConfigurationSetName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the configuration set.</p>"
+          }
+        },
+        "TrackingOptions": {
+          "target": "com.amazonaws.pinpointemail#TrackingOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that defines the open and click tracking options for emails that you send\n            using the configuration set.</p>"
+          }
+        },
         "DeliveryOptions": {
           "target": "com.amazonaws.pinpointemail#DeliveryOptions",
           "traits": {
@@ -1988,28 +2001,16 @@
             "smithy.api#documentation": "<p>An object that defines whether or not Amazon Pinpoint collects reputation metrics for the emails\n            that you send that use the configuration set.</p>"
           }
         },
-        "Tags": {
-          "target": "com.amazonaws.pinpointemail#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of objects that define the tags (keys and values) that are associated with\n            the configuration set.</p>"
-          }
-        },
-        "ConfigurationSetName": {
-          "target": "com.amazonaws.pinpointemail#ConfigurationSetName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the configuration set.</p>"
-          }
-        },
         "SendingOptions": {
           "target": "com.amazonaws.pinpointemail#SendingOptions",
           "traits": {
             "smithy.api#documentation": "<p>An object that defines whether or not Amazon Pinpoint can send email that you send using the\n            configuration set.</p>"
           }
         },
-        "TrackingOptions": {
-          "target": "com.amazonaws.pinpointemail#TrackingOptions",
+        "Tags": {
+          "target": "com.amazonaws.pinpointemail#TagList",
           "traits": {
-            "smithy.api#documentation": "<p>An object that defines the open and click tracking options for emails that you send\n            using the configuration set.</p>"
+            "smithy.api#documentation": "<p>An array of objects that define the tags (keys and values) that are associated with\n            the configuration set.</p>"
           }
         }
       },
@@ -2118,18 +2119,18 @@
             "smithy.api#httpQuery": "PoolName"
           }
         },
-        "PageSize": {
-          "target": "com.amazonaws.pinpointemail#MaxItems",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of results to show in a single call to <code>GetDedicatedIpsRequest</code>.\n            If the number of results is larger than the number you specified in this parameter, then\n            the response includes a <code>NextToken</code> element, which you can use to obtain\n            additional results.</p>",
-            "smithy.api#httpQuery": "PageSize"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.pinpointemail#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>A token returned from a previous call to <code>GetDedicatedIps</code> to indicate the\n            position of the dedicated IP pool in the list of IP pools.</p>",
             "smithy.api#httpQuery": "NextToken"
+          }
+        },
+        "PageSize": {
+          "target": "com.amazonaws.pinpointemail#MaxItems",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of results to show in a single call to <code>GetDedicatedIpsRequest</code>.\n            If the number of results is larger than the number you specified in this parameter, then\n            the response includes a <code>NextToken</code> element, which you can use to obtain\n            additional results.</p>",
+            "smithy.api#httpQuery": "PageSize"
           }
         }
       },
@@ -2140,16 +2141,16 @@
     "com.amazonaws.pinpointemail#GetDedicatedIpsResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.pinpointemail#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A token that indicates that there are additional dedicated IP addresses to list. To\n            view additional addresses, issue another request to <code>GetDedicatedIps</code>,\n            passing this token in the <code>NextToken</code> parameter.</p>"
-          }
-        },
         "DedicatedIps": {
           "target": "com.amazonaws.pinpointemail#DedicatedIpList",
           "traits": {
             "smithy.api#documentation": "<p>A list of dedicated IP addresses that are reserved for use by your Amazon Pinpoint\n            account.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.pinpointemail#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A token that indicates that there are additional dedicated IP addresses to list. To\n            view additional addresses, issue another request to <code>GetDedicatedIps</code>,\n            passing this token in the <code>NextToken</code> parameter.</p>"
           }
         }
       },
@@ -2195,16 +2196,23 @@
     "com.amazonaws.pinpointemail#GetDeliverabilityDashboardOptionsResponse": {
       "type": "structure",
       "members": {
-        "AccountStatus": {
-          "target": "com.amazonaws.pinpointemail#DeliverabilityDashboardAccountStatus",
+        "DashboardEnabled": {
+          "target": "com.amazonaws.pinpointemail#Enabled",
           "traits": {
-            "smithy.api#documentation": "<p>The current status of your Deliverability dashboard subscription. If this value is\n                <code>PENDING_EXPIRATION</code>, your subscription is scheduled to expire at the end\n            of the current calendar month.</p>"
+            "smithy.api#documentation": "<p>Specifies whether the Deliverability dashboard is enabled for your Amazon Pinpoint account. If this value\n            is <code>true</code>, the dashboard is enabled.</p>",
+            "smithy.api#required": {}
           }
         },
         "SubscriptionExpiryDate": {
           "target": "com.amazonaws.pinpointemail#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date, in Unix time format, when your current subscription to the Deliverability dashboard\n            is scheduled to expire, if your subscription is scheduled to expire at the end of the\n            current calendar month. This value is null if you have an active subscription that isn’t\n            due to expire at the end of the month.</p>"
+          }
+        },
+        "AccountStatus": {
+          "target": "com.amazonaws.pinpointemail#DeliverabilityDashboardAccountStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of your Deliverability dashboard subscription. If this value is\n                <code>PENDING_EXPIRATION</code>, your subscription is scheduled to expire at the end\n            of the current calendar month.</p>"
           }
         },
         "ActiveSubscribedDomains": {
@@ -2217,13 +2225,6 @@
           "target": "com.amazonaws.pinpointemail#DomainDeliverabilityTrackingOptions",
           "traits": {
             "smithy.api#documentation": "<p>An array of objects, one for each verified domain that you use to send email and\n            currently has an active Deliverability dashboard subscription that's scheduled to expire at the\n            end of the current calendar month.</p>"
-          }
-        },
-        "DashboardEnabled": {
-          "target": "com.amazonaws.pinpointemail#Enabled",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the Deliverability dashboard is enabled for your Amazon Pinpoint account. If this value\n            is <code>true</code>, the dashboard is enabled.</p>",
-            "smithy.api#required": {}
           }
         }
       },
@@ -2278,6 +2279,20 @@
     "com.amazonaws.pinpointemail#GetDeliverabilityTestReportResponse": {
       "type": "structure",
       "members": {
+        "DeliverabilityTestReport": {
+          "target": "com.amazonaws.pinpointemail#DeliverabilityTestReport",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that contains the results of the predictive inbox placement test.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "OverallPlacement": {
+          "target": "com.amazonaws.pinpointemail#PlacementStatistics",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that specifies how many test messages that were sent during the predictive inbox placement test were\n            delivered to recipients' inboxes, how many were sent to recipients' spam folders, and\n            how many weren't delivered.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "IspPlacements": {
           "target": "com.amazonaws.pinpointemail#IspPlacements",
           "traits": {
@@ -2291,24 +2306,10 @@
             "smithy.api#documentation": "<p>An object that contains the message that you sent when you performed this\n            predictive inbox placement test.</p>"
           }
         },
-        "DeliverabilityTestReport": {
-          "target": "com.amazonaws.pinpointemail#DeliverabilityTestReport",
-          "traits": {
-            "smithy.api#documentation": "<p>An object that contains the results of the predictive inbox placement test.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Tags": {
           "target": "com.amazonaws.pinpointemail#TagList",
           "traits": {
             "smithy.api#documentation": "<p>An array of objects that define the tags (keys and values) that are associated with\n            the predictive inbox placement test.</p>"
-          }
-        },
-        "OverallPlacement": {
-          "target": "com.amazonaws.pinpointemail#PlacementStatistics",
-          "traits": {
-            "smithy.api#documentation": "<p>An object that specifies how many test messages that were sent during the predictive inbox placement test were\n            delivered to recipients' inboxes, how many were sent to recipients' spam folders, and\n            how many weren't delivered.</p>",
-            "smithy.api#required": {}
           }
         }
       },
@@ -2406,19 +2407,19 @@
     "com.amazonaws.pinpointemail#GetDomainStatisticsReportRequest": {
       "type": "structure",
       "members": {
-        "StartDate": {
-          "target": "com.amazonaws.pinpointemail#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The first day (in Unix time) that you want to obtain domain deliverability metrics\n            for.</p>",
-            "smithy.api#httpQuery": "StartDate",
-            "smithy.api#required": {}
-          }
-        },
         "Domain": {
           "target": "com.amazonaws.pinpointemail#Identity",
           "traits": {
             "smithy.api#documentation": "<p>The domain that you want to obtain deliverability metrics for.</p>",
             "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "StartDate": {
+          "target": "com.amazonaws.pinpointemail#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The first day (in Unix time) that you want to obtain domain deliverability metrics\n            for.</p>",
+            "smithy.api#httpQuery": "StartDate",
             "smithy.api#required": {}
           }
         },
@@ -2438,17 +2439,17 @@
     "com.amazonaws.pinpointemail#GetDomainStatisticsReportResponse": {
       "type": "structure",
       "members": {
-        "DailyVolumes": {
-          "target": "com.amazonaws.pinpointemail#DailyVolumes",
-          "traits": {
-            "smithy.api#documentation": "<p>An object that contains deliverability metrics for the domain that you specified. This\n            object contains data for each day, starting on the <code>StartDate</code> and ending on\n            the <code>EndDate</code>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "OverallVolume": {
           "target": "com.amazonaws.pinpointemail#OverallVolume",
           "traits": {
             "smithy.api#documentation": "<p>An object that contains deliverability metrics for the domain that you specified. The\n            data in this object is a summary of all of the data that was collected from the\n                <code>StartDate</code> to the <code>EndDate</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DailyVolumes": {
+          "target": "com.amazonaws.pinpointemail#DailyVolumes",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that contains deliverability metrics for the domain that you specified. This\n            object contains data for each day, starting on the <code>StartDate</code> and ending on\n            the <code>EndDate</code>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2504,16 +2505,16 @@
     "com.amazonaws.pinpointemail#GetEmailIdentityResponse": {
       "type": "structure",
       "members": {
-        "FeedbackForwardingStatus": {
-          "target": "com.amazonaws.pinpointemail#Enabled",
-          "traits": {
-            "smithy.api#documentation": "<p>The feedback forwarding configuration for the identity.</p>\n        <p>If the value is <code>true</code>, Amazon Pinpoint sends you email notifications when bounce or\n            complaint events occur. Amazon Pinpoint sends this notification to the address that you specified\n            in the Return-Path header of the original email.</p>\n        <p>When you set this value to <code>false</code>, Amazon Pinpoint sends notifications through other\n            mechanisms, such as by notifying an Amazon SNS topic or another event destination. You're\n            required to have a method of tracking bounces and complaints. If you haven't set up\n            another mechanism for receiving bounce or complaint notifications, Amazon Pinpoint sends an email\n            notification when these events occur (even if this setting is disabled).</p>"
-          }
-        },
         "IdentityType": {
           "target": "com.amazonaws.pinpointemail#IdentityType",
           "traits": {
             "smithy.api#documentation": "<p>The email identity type.</p>"
+          }
+        },
+        "FeedbackForwardingStatus": {
+          "target": "com.amazonaws.pinpointemail#Enabled",
+          "traits": {
+            "smithy.api#documentation": "<p>The feedback forwarding configuration for the identity.</p>\n        <p>If the value is <code>true</code>, Amazon Pinpoint sends you email notifications when bounce or\n            complaint events occur. Amazon Pinpoint sends this notification to the address that you specified\n            in the Return-Path header of the original email.</p>\n        <p>When you set this value to <code>false</code>, Amazon Pinpoint sends notifications through other\n            mechanisms, such as by notifying an Amazon SNS topic or another event destination. You're\n            required to have a method of tracking bounces and complaints. If you haven't set up\n            another mechanism for receiving bounce or complaint notifications, Amazon Pinpoint sends an email\n            notification when these events occur (even if this setting is disabled).</p>"
           }
         },
         "VerifiedForSendingStatus": {
@@ -2522,10 +2523,10 @@
             "smithy.api#documentation": "<p>Specifies whether or not the identity is verified. In Amazon Pinpoint, you can only send email\n            from verified email addresses or domains. For more information about verifying\n            identities, see the <a href=\"https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html\">Amazon Pinpoint User Guide</a>.</p>"
           }
         },
-        "Tags": {
-          "target": "com.amazonaws.pinpointemail#TagList",
+        "DkimAttributes": {
+          "target": "com.amazonaws.pinpointemail#DkimAttributes",
           "traits": {
-            "smithy.api#documentation": "<p>An array of objects that define the tags (keys and values) that are associated with\n            the email identity.</p>"
+            "smithy.api#documentation": "<p>An object that contains information about the DKIM attributes for the identity. This\n            object includes the tokens that you use to create the CNAME records that are required to\n            complete the DKIM verification process.</p>"
           }
         },
         "MailFromAttributes": {
@@ -2534,10 +2535,10 @@
             "smithy.api#documentation": "<p>An object that contains information about the Mail-From attributes for the email\n            identity.</p>"
           }
         },
-        "DkimAttributes": {
-          "target": "com.amazonaws.pinpointemail#DkimAttributes",
+        "Tags": {
+          "target": "com.amazonaws.pinpointemail#TagList",
           "traits": {
-            "smithy.api#documentation": "<p>An object that contains information about the DKIM attributes for the identity. This\n            object includes the tokens that you use to create the CNAME records that are required to\n            complete the DKIM verification process.</p>"
+            "smithy.api#documentation": "<p>An array of objects that define the tags (keys and values) that are associated with\n            the email identity.</p>"
           }
         }
       },
@@ -2606,16 +2607,16 @@
     "com.amazonaws.pinpointemail#InboxPlacementTrackingOption": {
       "type": "structure",
       "members": {
-        "TrackedIsps": {
-          "target": "com.amazonaws.pinpointemail#IspNameList",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of strings, one for each major email provider that the inbox placement data\n            applies to.</p>"
-          }
-        },
         "Global": {
           "target": "com.amazonaws.pinpointemail#Enabled",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether inbox placement data is being tracked for the domain.</p>"
+          }
+        },
+        "TrackedIsps": {
+          "target": "com.amazonaws.pinpointemail#IspNameList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of strings, one for each major email provider that the inbox placement data\n            applies to.</p>"
           }
         }
       },
@@ -2676,17 +2677,17 @@
     "com.amazonaws.pinpointemail#KinesisFirehoseDestination": {
       "type": "structure",
       "members": {
-        "DeliveryStreamArn": {
-          "target": "com.amazonaws.pinpointemail#AmazonResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that Amazon Pinpoint sends email events\n            to.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "IamRoleArn": {
           "target": "com.amazonaws.pinpointemail#AmazonResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role that Amazon Pinpoint uses when sending email\n            events to the Amazon Kinesis Data Firehose stream.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DeliveryStreamArn": {
+          "target": "com.amazonaws.pinpointemail#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that Amazon Pinpoint sends email events\n            to.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2841,16 +2842,16 @@
     "com.amazonaws.pinpointemail#ListDedicatedIpPoolsResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.pinpointemail#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A token that indicates that there are additional IP pools to list. To view additional\n            IP pools, issue another request to <code>ListDedicatedIpPools</code>, passing this token\n            in the <code>NextToken</code> parameter.</p>"
-          }
-        },
         "DedicatedIpPools": {
           "target": "com.amazonaws.pinpointemail#ListOfDedicatedIpPools",
           "traits": {
             "smithy.api#documentation": "<p>A list of all of the dedicated IP pools that are associated with your Amazon Pinpoint\n            account.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.pinpointemail#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A token that indicates that there are additional IP pools to list. To view additional\n            IP pools, issue another request to <code>ListDedicatedIpPools</code>, passing this token\n            in the <code>NextToken</code> parameter.</p>"
           }
         }
       },
@@ -2916,17 +2917,17 @@
     "com.amazonaws.pinpointemail#ListDeliverabilityTestReportsResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.pinpointemail#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A token that indicates that there are additional predictive inbox placement tests to list. To view additional\n            predictive inbox placement tests, issue another request to <code>ListDeliverabilityTestReports</code>, and pass\n            this token in the <code>NextToken</code> parameter.</p>"
-          }
-        },
         "DeliverabilityTestReports": {
           "target": "com.amazonaws.pinpointemail#DeliverabilityTestReports",
           "traits": {
             "smithy.api#documentation": "<p>An object that contains a lists of predictive inbox placement tests that you've performed.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.pinpointemail#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A token that indicates that there are additional predictive inbox placement tests to list. To view additional\n            predictive inbox placement tests, issue another request to <code>ListDeliverabilityTestReports</code>, and pass\n            this token in the <code>NextToken</code> parameter.</p>"
           }
         }
       },
@@ -2970,25 +2971,19 @@
     "com.amazonaws.pinpointemail#ListDomainDeliverabilityCampaignsRequest": {
       "type": "structure",
       "members": {
-        "PageSize": {
-          "target": "com.amazonaws.pinpointemail#MaxItems",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to include in response to a single call to the\n                <code>ListDomainDeliverabilityCampaigns</code> operation. If the number of results\n            is larger than the number that you specify in this parameter, the response includes a\n                <code>NextToken</code> element, which you can use to obtain additional\n            results.</p>",
-            "smithy.api#httpQuery": "PageSize"
-          }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.pinpointemail#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A token that’s returned from a previous call to the\n                <code>ListDomainDeliverabilityCampaigns</code> operation. This token indicates the\n            position of a campaign in the list of campaigns.</p>",
-            "smithy.api#httpQuery": "NextToken"
-          }
-        },
         "StartDate": {
           "target": "com.amazonaws.pinpointemail#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The first day, in Unix time format, that you want to obtain deliverability data\n            for.</p>",
             "smithy.api#httpQuery": "StartDate",
+            "smithy.api#required": {}
+          }
+        },
+        "EndDate": {
+          "target": "com.amazonaws.pinpointemail#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The last day, in Unix time format, that you want to obtain deliverability data for.\n            This value has to be less than or equal to 30 days after the value of the\n                <code>StartDate</code> parameter.</p>",
+            "smithy.api#httpQuery": "EndDate",
             "smithy.api#required": {}
           }
         },
@@ -3000,12 +2995,18 @@
             "smithy.api#required": {}
           }
         },
-        "EndDate": {
-          "target": "com.amazonaws.pinpointemail#Timestamp",
+        "NextToken": {
+          "target": "com.amazonaws.pinpointemail#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The last day, in Unix time format, that you want to obtain deliverability data for.\n            This value has to be less than or equal to 30 days after the value of the\n                <code>StartDate</code> parameter.</p>",
-            "smithy.api#httpQuery": "EndDate",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>A token that’s returned from a previous call to the\n                <code>ListDomainDeliverabilityCampaigns</code> operation. This token indicates the\n            position of a campaign in the list of campaigns.</p>",
+            "smithy.api#httpQuery": "NextToken"
+          }
+        },
+        "PageSize": {
+          "target": "com.amazonaws.pinpointemail#MaxItems",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to include in response to a single call to the\n                <code>ListDomainDeliverabilityCampaigns</code> operation. If the number of results\n            is larger than the number that you specify in this parameter, the response includes a\n                <code>NextToken</code> element, which you can use to obtain additional\n            results.</p>",
+            "smithy.api#httpQuery": "PageSize"
           }
         }
       },
@@ -3016,17 +3017,17 @@
     "com.amazonaws.pinpointemail#ListDomainDeliverabilityCampaignsResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.pinpointemail#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A token that’s returned from a previous call to the\n                <code>ListDomainDeliverabilityCampaigns</code> operation. This token indicates the\n            position of the campaign in the list of campaigns.</p>"
-          }
-        },
         "DomainDeliverabilityCampaigns": {
           "target": "com.amazonaws.pinpointemail#DomainDeliverabilityCampaignList",
           "traits": {
             "smithy.api#documentation": "<p>An array of responses, one for each campaign that used the domain to send email during\n            the specified time range.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.pinpointemail#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A token that’s returned from a previous call to the\n                <code>ListDomainDeliverabilityCampaigns</code> operation. This token indicates the\n            position of the campaign in the list of campaigns.</p>"
           }
         }
       },
@@ -3067,18 +3068,18 @@
     "com.amazonaws.pinpointemail#ListEmailIdentitiesRequest": {
       "type": "structure",
       "members": {
-        "PageSize": {
-          "target": "com.amazonaws.pinpointemail#MaxItems",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of results to show in a single call to <code>ListEmailIdentities</code>. If\n            the number of results is larger than the number you specified in this parameter, then\n            the response includes a <code>NextToken</code> element, which you can use to obtain\n            additional results.</p>\n        <p>The value you specify has to be at least 0, and can be no more than 1000.</p>",
-            "smithy.api#httpQuery": "PageSize"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.pinpointemail#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>A token returned from a previous call to <code>ListEmailIdentities</code> to indicate\n            the position in the list of identities.</p>",
             "smithy.api#httpQuery": "NextToken"
+          }
+        },
+        "PageSize": {
+          "target": "com.amazonaws.pinpointemail#MaxItems",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of results to show in a single call to <code>ListEmailIdentities</code>. If\n            the number of results is larger than the number you specified in this parameter, then\n            the response includes a <code>NextToken</code> element, which you can use to obtain\n            additional results.</p>\n        <p>The value you specify has to be at least 0, and can be no more than 1000.</p>",
+            "smithy.api#httpQuery": "PageSize"
           }
         }
       },
@@ -3171,10 +3172,10 @@
     "com.amazonaws.pinpointemail#MailFromAttributes": {
       "type": "structure",
       "members": {
-        "BehaviorOnMxFailure": {
-          "target": "com.amazonaws.pinpointemail#BehaviorOnMxFailure",
+        "MailFromDomain": {
+          "target": "com.amazonaws.pinpointemail#MailFromDomainName",
           "traits": {
-            "smithy.api#documentation": "<p>The action that Amazon Pinpoint to takes if it can't read the required MX record for a custom\n            MAIL FROM domain. When you set this value to <code>UseDefaultValue</code>, Amazon Pinpoint uses\n                <i>amazonses.com</i> as the MAIL FROM domain. When you set this value\n            to <code>RejectMessage</code>, Amazon Pinpoint returns a <code>MailFromDomainNotVerified</code>\n            error, and doesn't attempt to deliver the email.</p>\n        <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the\n                <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>\n            states.</p>",
+            "smithy.api#documentation": "<p>The name of a domain that an email identity uses as a custom MAIL FROM domain.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3185,10 +3186,10 @@
             "smithy.api#required": {}
           }
         },
-        "MailFromDomain": {
-          "target": "com.amazonaws.pinpointemail#MailFromDomainName",
+        "BehaviorOnMxFailure": {
+          "target": "com.amazonaws.pinpointemail#BehaviorOnMxFailure",
           "traits": {
-            "smithy.api#documentation": "<p>The name of a domain that an email identity uses as a custom MAIL FROM domain.</p>",
+            "smithy.api#documentation": "<p>The action that Amazon Pinpoint to takes if it can't read the required MX record for a custom\n            MAIL FROM domain. When you set this value to <code>UseDefaultValue</code>, Amazon Pinpoint uses\n                <i>amazonses.com</i> as the MAIL FROM domain. When you set this value\n            to <code>RejectMessage</code>, Amazon Pinpoint returns a <code>MailFromDomainNotVerified</code>\n            error, and doesn't attempt to deliver the email.</p>\n        <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the\n                <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>\n            states.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3361,6 +3362,12 @@
     "com.amazonaws.pinpointemail#OverallVolume": {
       "type": "structure",
       "members": {
+        "VolumeStatistics": {
+          "target": "com.amazonaws.pinpointemail#VolumeStatistics",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that contains information about the numbers of messages that arrived in\n            recipients' inboxes and junk mail folders.</p>"
+          }
+        },
         "ReadRatePercent": {
           "target": "com.amazonaws.pinpointemail#Percentage",
           "traits": {
@@ -3371,12 +3378,6 @@
           "target": "com.amazonaws.pinpointemail#DomainIspPlacements",
           "traits": {
             "smithy.api#documentation": "<p>An object that contains inbox and junk mail placement metrics for individual email\n            providers.</p>"
-          }
-        },
-        "VolumeStatistics": {
-          "target": "com.amazonaws.pinpointemail#VolumeStatistics",
-          "traits": {
-            "smithy.api#documentation": "<p>An object that contains information about the numbers of messages that arrived in\n            recipients' inboxes and junk mail folders.</p>"
           }
         }
       },
@@ -3414,16 +3415,16 @@
     "com.amazonaws.pinpointemail#PlacementStatistics": {
       "type": "structure",
       "members": {
-        "SpfPercentage": {
-          "target": "com.amazonaws.pinpointemail#Percentage",
-          "traits": {
-            "smithy.api#documentation": "<p>The percentage of emails that were authenticated by using Sender Policy Framework\n            (SPF) during the predictive inbox placement test.</p>"
-          }
-        },
         "InboxPercentage": {
           "target": "com.amazonaws.pinpointemail#Percentage",
           "traits": {
             "smithy.api#documentation": "<p>The percentage of emails that arrived in recipients' inboxes during the predictive inbox placement test.</p>"
+          }
+        },
+        "SpamPercentage": {
+          "target": "com.amazonaws.pinpointemail#Percentage",
+          "traits": {
+            "smithy.api#documentation": "<p>The percentage of emails that arrived in recipients' spam or junk mail folders during\n            the predictive inbox placement test.</p>"
           }
         },
         "MissingPercentage": {
@@ -3432,10 +3433,10 @@
             "smithy.api#documentation": "<p>The percentage of emails that didn't arrive in recipients' inboxes at all during the\n            predictive inbox placement test.</p>"
           }
         },
-        "SpamPercentage": {
+        "SpfPercentage": {
           "target": "com.amazonaws.pinpointemail#Percentage",
           "traits": {
-            "smithy.api#documentation": "<p>The percentage of emails that arrived in recipients' spam or junk mail folders during\n            the predictive inbox placement test.</p>"
+            "smithy.api#documentation": "<p>The percentage of emails that were authenticated by using Sender Policy Framework\n            (SPF) during the predictive inbox placement test.</p>"
           }
         },
         "DkimPercentage": {
@@ -3578,10 +3579,12 @@
     "com.amazonaws.pinpointemail#PutConfigurationSetDeliveryOptionsRequest": {
       "type": "structure",
       "members": {
-        "SendingPoolName": {
-          "target": "com.amazonaws.pinpointemail#SendingPoolName",
+        "ConfigurationSetName": {
+          "target": "com.amazonaws.pinpointemail#ConfigurationSetName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the dedicated IP pool that you want to associate with the configuration\n            set.</p>"
+            "smithy.api#documentation": "<p>The name of the configuration set that you want to associate with a dedicated IP\n            pool.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "TlsPolicy": {
@@ -3590,12 +3593,10 @@
             "smithy.api#documentation": "<p>Specifies whether messages that use the configuration set are required to use\n            Transport Layer Security (TLS). If the value is <code>Require</code>, messages are only\n            delivered if a TLS connection can be established. If the value is <code>Optional</code>,\n            messages can be delivered in plain text if a TLS connection can't be established.</p>"
           }
         },
-        "ConfigurationSetName": {
-          "target": "com.amazonaws.pinpointemail#ConfigurationSetName",
+        "SendingPoolName": {
+          "target": "com.amazonaws.pinpointemail#SendingPoolName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the configuration set that you want to associate with a dedicated IP\n            pool.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The name of the dedicated IP pool that you want to associate with the configuration\n            set.</p>"
           }
         }
       },
@@ -3641,18 +3642,18 @@
     "com.amazonaws.pinpointemail#PutConfigurationSetReputationOptionsRequest": {
       "type": "structure",
       "members": {
-        "ReputationMetricsEnabled": {
-          "target": "com.amazonaws.pinpointemail#Enabled",
-          "traits": {
-            "smithy.api#documentation": "<p>If <code>true</code>, tracking of reputation metrics is enabled for the configuration\n            set. If <code>false</code>, tracking of reputation metrics is disabled for the\n            configuration set.</p>"
-          }
-        },
         "ConfigurationSetName": {
           "target": "com.amazonaws.pinpointemail#ConfigurationSetName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the configuration set that you want to enable or disable reputation metric\n            tracking for.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "ReputationMetricsEnabled": {
+          "target": "com.amazonaws.pinpointemail#Enabled",
+          "traits": {
+            "smithy.api#documentation": "<p>If <code>true</code>, tracking of reputation metrics is enabled for the configuration\n            set. If <code>false</code>, tracking of reputation metrics is disabled for the\n            configuration set.</p>"
           }
         }
       },
@@ -3698,18 +3699,18 @@
     "com.amazonaws.pinpointemail#PutConfigurationSetSendingOptionsRequest": {
       "type": "structure",
       "members": {
-        "SendingEnabled": {
-          "target": "com.amazonaws.pinpointemail#Enabled",
-          "traits": {
-            "smithy.api#documentation": "<p>If <code>true</code>, email sending is enabled for the configuration set. If\n                <code>false</code>, email sending is disabled for the configuration set.</p>"
-          }
-        },
         "ConfigurationSetName": {
           "target": "com.amazonaws.pinpointemail#ConfigurationSetName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the configuration set that you want to enable or disable email sending\n            for.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "SendingEnabled": {
+          "target": "com.amazonaws.pinpointemail#Enabled",
+          "traits": {
+            "smithy.api#documentation": "<p>If <code>true</code>, email sending is enabled for the configuration set. If\n                <code>false</code>, email sending is disabled for the configuration set.</p>"
           }
         }
       },
@@ -3755,18 +3756,18 @@
     "com.amazonaws.pinpointemail#PutConfigurationSetTrackingOptionsRequest": {
       "type": "structure",
       "members": {
-        "CustomRedirectDomain": {
-          "target": "com.amazonaws.pinpointemail#CustomRedirectDomain",
-          "traits": {
-            "smithy.api#documentation": "<p>The domain that you want to use to track open and click events.</p>"
-          }
-        },
         "ConfigurationSetName": {
           "target": "com.amazonaws.pinpointemail#ConfigurationSetName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the configuration set that you want to add a custom tracking domain\n            to.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "CustomRedirectDomain": {
+          "target": "com.amazonaws.pinpointemail#CustomRedirectDomain",
+          "traits": {
+            "smithy.api#documentation": "<p>The domain that you want to use to track open and click events.</p>"
           }
         }
       },
@@ -3870,18 +3871,18 @@
     "com.amazonaws.pinpointemail#PutDedicatedIpWarmupAttributesRequest": {
       "type": "structure",
       "members": {
-        "WarmupPercentage": {
-          "target": "com.amazonaws.pinpointemail#Percentage100Wrapper",
-          "traits": {
-            "smithy.api#documentation": "<p>The warm-up percentage that you want to associate with the dedicated IP\n            address.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Ip": {
           "target": "com.amazonaws.pinpointemail#Ip",
           "traits": {
             "smithy.api#documentation": "<p>The dedicated IP address that you want to update the warm-up attributes for.</p>",
             "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "WarmupPercentage": {
+          "target": "com.amazonaws.pinpointemail#Percentage100Wrapper",
+          "traits": {
+            "smithy.api#documentation": "<p>The warm-up percentage that you want to associate with the dedicated IP\n            address.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3934,17 +3935,17 @@
     "com.amazonaws.pinpointemail#PutDeliverabilityDashboardOptionRequest": {
       "type": "structure",
       "members": {
-        "SubscribedDomains": {
-          "target": "com.amazonaws.pinpointemail#DomainDeliverabilityTrackingOptions",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of objects, one for each verified domain that you use to send email and\n            enabled the Deliverability dashboard for.</p>"
-          }
-        },
         "DashboardEnabled": {
           "target": "com.amazonaws.pinpointemail#Enabled",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether to enable the Deliverability dashboard for your Amazon Pinpoint account. To enable the\n            dashboard, set this value to <code>true</code>.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "SubscribedDomains": {
+          "target": "com.amazonaws.pinpointemail#DomainDeliverabilityTrackingOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of objects, one for each verified domain that you use to send email and\n            enabled the Deliverability dashboard for.</p>"
           }
         }
       },
@@ -4104,6 +4105,14 @@
     "com.amazonaws.pinpointemail#PutEmailIdentityMailFromAttributesRequest": {
       "type": "structure",
       "members": {
+        "EmailIdentity": {
+          "target": "com.amazonaws.pinpointemail#Identity",
+          "traits": {
+            "smithy.api#documentation": "<p>The verified email identity that you want to set up the custom MAIL FROM domain\n            for.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
         "MailFromDomain": {
           "target": "com.amazonaws.pinpointemail#MailFromDomainName",
           "traits": {
@@ -4114,14 +4123,6 @@
           "target": "com.amazonaws.pinpointemail#BehaviorOnMxFailure",
           "traits": {
             "smithy.api#documentation": "<p>The action that you want Amazon Pinpoint to take if it can't read the required MX record when\n            you send an email. When you set this value to <code>UseDefaultValue</code>, Amazon Pinpoint uses\n                <i>amazonses.com</i> as the MAIL FROM domain. When you set this value\n            to <code>RejectMessage</code>, Amazon Pinpoint returns a <code>MailFromDomainNotVerified</code>\n            error, and doesn't attempt to deliver the email.</p>\n        <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the\n                <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>\n            states.</p>"
-          }
-        },
-        "EmailIdentity": {
-          "target": "com.amazonaws.pinpointemail#Identity",
-          "traits": {
-            "smithy.api#documentation": "<p>The verified email identity that you want to set up the custom MAIL FROM domain\n            for.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
           }
         }
       },
@@ -4241,10 +4242,16 @@
     "com.amazonaws.pinpointemail#SendEmailRequest": {
       "type": "structure",
       "members": {
-        "Content": {
-          "target": "com.amazonaws.pinpointemail#EmailContent",
+        "FromEmailAddress": {
+          "target": "com.amazonaws.pinpointemail#EmailAddress",
           "traits": {
-            "smithy.api#documentation": "<p>An object that contains the body of the message. You can send either a Simple message\n            or a Raw message.</p>",
+            "smithy.api#documentation": "<p>The email address that you want to use as the \"From\" address for the email. The\n            address that you specify has to be verified.\n            </p>"
+          }
+        },
+        "Destination": {
+          "target": "com.amazonaws.pinpointemail#Destination",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that contains the recipients of the email message.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4254,22 +4261,17 @@
             "smithy.api#documentation": "<p>The \"Reply-to\" email addresses for the message. When the recipient replies to the\n            message, each Reply-to address receives the reply.</p>"
           }
         },
-        "ConfigurationSetName": {
-          "target": "com.amazonaws.pinpointemail#ConfigurationSetName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the configuration set that you want to use when sending the email.</p>"
-          }
-        },
         "FeedbackForwardingEmailAddress": {
           "target": "com.amazonaws.pinpointemail#EmailAddress",
           "traits": {
             "smithy.api#documentation": "<p>The address that Amazon Pinpoint should send bounce and complaint notifications to.</p>"
           }
         },
-        "FromEmailAddress": {
-          "target": "com.amazonaws.pinpointemail#EmailAddress",
+        "Content": {
+          "target": "com.amazonaws.pinpointemail#EmailContent",
           "traits": {
-            "smithy.api#documentation": "<p>The email address that you want to use as the \"From\" address for the email. The\n            address that you specify has to be verified.\n            </p>"
+            "smithy.api#documentation": "<p>An object that contains the body of the message. You can send either a Simple message\n            or a Raw message.</p>",
+            "smithy.api#required": {}
           }
         },
         "EmailTags": {
@@ -4278,11 +4280,10 @@
             "smithy.api#documentation": "<p>A list of tags, in the form of name/value pairs, to apply to an email that you send\n            using the <code>SendEmail</code> operation. Tags correspond to characteristics of the\n            email that you define, so that you can publish email sending events. </p>"
           }
         },
-        "Destination": {
-          "target": "com.amazonaws.pinpointemail#Destination",
+        "ConfigurationSetName": {
+          "target": "com.amazonaws.pinpointemail#ConfigurationSetName",
           "traits": {
-            "smithy.api#documentation": "<p>An object that contains the recipients of the email message.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The name of the configuration set that you want to use when sending the email.</p>"
           }
         }
       },
@@ -4313,16 +4314,16 @@
             "smithy.api#documentation": "<p>The maximum number of emails that you can send in the current AWS Region over a\n            24-hour period. This value is also called your <i>sending\n            quota</i>.</p>"
           }
         },
-        "SentLast24Hours": {
-          "target": "com.amazonaws.pinpointemail#SentLast24Hours",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of emails sent from your Amazon Pinpoint account in the current AWS Region over the\n            past 24 hours.</p>"
-          }
-        },
         "MaxSendRate": {
           "target": "com.amazonaws.pinpointemail#MaxSendRate",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of emails that you can send per second in the current AWS Region.\n            This value is also called your <i>maximum sending rate</i> or your\n                <i>maximum TPS (transactions per second) rate</i>.</p>"
+          }
+        },
+        "SentLast24Hours": {
+          "target": "com.amazonaws.pinpointemail#SentLast24Hours",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of emails sent from your Amazon Pinpoint account in the current AWS Region over the\n            past 24 hours.</p>"
           }
         }
       },
@@ -4387,17 +4388,17 @@
     "com.amazonaws.pinpointemail#Tag": {
       "type": "structure",
       "members": {
-        "Value": {
-          "target": "com.amazonaws.pinpointemail#TagValue",
-          "traits": {
-            "smithy.api#documentation": "<p>The optional part of a key-value pair that defines a tag. The maximum length of a tag\n            value is 256 characters. The minimum length is 0 characters. If you don’t want a\n            resource to have a specific tag value, don’t specify a value for this parameter. Amazon Pinpoint\n            will set the value to an empty string.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Key": {
           "target": "com.amazonaws.pinpointemail#TagKey",
           "traits": {
             "smithy.api#documentation": "<p>One part of a key-value pair that defines a tag. The maximum length of a tag key is\n            128 characters. The minimum length is 1 character.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.pinpointemail#TagValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The optional part of a key-value pair that defines a tag. The maximum length of a tag\n            value is 256 characters. The minimum length is 0 characters. If you don’t want a\n            resource to have a specific tag value, don’t specify a value for this parameter. Amazon Pinpoint\n            will set the value to an empty string.</p>",
             "smithy.api#required": {}
           }
         }
@@ -4455,17 +4456,17 @@
     "com.amazonaws.pinpointemail#TagResourceRequest": {
       "type": "structure",
       "members": {
-        "Tags": {
-          "target": "com.amazonaws.pinpointemail#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of the tags that you want to add to the resource. A tag consists of a required\n            tag key (<code>Key</code>) and an associated tag value (<code>Value</code>). The maximum\n            length of a tag key is 128 characters. The maximum length of a tag value is 256\n            characters.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ResourceArn": {
           "target": "com.amazonaws.pinpointemail#AmazonResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource that you want to add one or more tags\n            to.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.pinpointemail#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of the tags that you want to add to the resource. A tag consists of a required\n            tag key (<code>Key</code>) and an associated tag value (<code>Value</code>). The maximum\n            length of a tag key is 128 characters. The maximum length of a tag value is 256\n            characters.</p>",
             "smithy.api#required": {}
           }
         }
@@ -4481,16 +4482,16 @@
     "com.amazonaws.pinpointemail#Template": {
       "type": "structure",
       "members": {
-        "TemplateData": {
-          "target": "com.amazonaws.pinpointemail#TemplateData",
-          "traits": {
-            "smithy.api#documentation": "<p>An object that defines the values to use for message variables in the template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the value to use for that variable.</p>"
-          }
-        },
         "TemplateArn": {
           "target": "com.amazonaws.pinpointemail#TemplateArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the template.</p>"
+          }
+        },
+        "TemplateData": {
+          "target": "com.amazonaws.pinpointemail#TemplateData",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that defines the values to use for message variables in the template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the value to use for that variable.</p>"
           }
         }
       }
@@ -4641,18 +4642,18 @@
     "com.amazonaws.pinpointemail#UpdateConfigurationSetEventDestinationRequest": {
       "type": "structure",
       "members": {
-        "EventDestinationName": {
-          "target": "com.amazonaws.pinpointemail#EventDestinationName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the event destination that you want to modify.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "ConfigurationSetName": {
           "target": "com.amazonaws.pinpointemail#ConfigurationSetName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the configuration set that contains the event destination that you want to\n            modify.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "EventDestinationName": {
+          "target": "com.amazonaws.pinpointemail#EventDestinationName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the event destination that you want to modify.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }

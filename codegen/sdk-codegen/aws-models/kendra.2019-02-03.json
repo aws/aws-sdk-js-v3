@@ -126,7 +126,8 @@
           "sdkId": "kendra",
           "arnNamespace": "kendra",
           "cloudFormationName": "Kendra",
-          "cloudTrailEventSource": "kendra.amazonaws.com"
+          "cloudTrailEventSource": "kendra.amazonaws.com",
+          "endpointPrefix": "kendra"
         },
         "aws.auth#sigv4": {
           "name": "kendra"

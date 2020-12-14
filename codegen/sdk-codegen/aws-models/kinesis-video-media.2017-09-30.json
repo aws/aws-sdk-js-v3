@@ -42,7 +42,8 @@
           "sdkId": "Kinesis Video Media",
           "arnNamespace": "kinesisvideo",
           "cloudFormationName": "KinesisVideoMedia",
-          "cloudTrailEventSource": "kinesisvideomedia.amazonaws.com"
+          "cloudTrailEventSource": "kinesisvideomedia.amazonaws.com",
+          "endpointPrefix": "kinesisvideo"
         },
         "aws.auth#sigv4": {
           "name": "kinesisvideo"
@@ -151,13 +152,6 @@
     "com.amazonaws.kinesisvideomedia#GetMediaInput": {
       "type": "structure",
       "members": {
-        "StartSelector": {
-          "target": "com.amazonaws.kinesisvideomedia#StartSelector",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifies the starting chunk to get from the specified stream. </p>",
-            "smithy.api#required": {}
-          }
-        },
         "StreamName": {
           "target": "com.amazonaws.kinesisvideomedia#StreamName",
           "traits": {
@@ -169,24 +163,31 @@
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the stream from where you want to get the media content. If you don't\n      specify the <code>streamARN</code>, you must specify the <code>streamName</code>.</p>"
           }
+        },
+        "StartSelector": {
+          "target": "com.amazonaws.kinesisvideomedia#StartSelector",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifies the starting chunk to get from the specified stream. </p>",
+            "smithy.api#required": {}
+          }
         }
       }
     },
     "com.amazonaws.kinesisvideomedia#GetMediaOutput": {
       "type": "structure",
       "members": {
-        "Payload": {
-          "target": "com.amazonaws.kinesisvideomedia#Payload",
-          "traits": {
-            "smithy.api#documentation": "<p> The payload Kinesis Video Streams returns is a sequence of chunks from the specified\n      stream. For information about the chunks, see . The\n      chunks that Kinesis Video Streams returns in the <code>GetMedia</code> call also include the\n      following additional Matroska (MKV) tags: </p>\n         <ul>\n            <li>\n               <p>AWS_KINESISVIDEO_CONTINUATION_TOKEN (UTF-8 string) - In the event your\n            <code>GetMedia</code> call terminates, you can use this continuation token in your next\n          request to get the next chunk where the last request terminated.</p>\n            </li>\n            <li>\n               <p>AWS_KINESISVIDEO_MILLIS_BEHIND_NOW (UTF-8 string) - Client applications can use\n          this tag value to determine how far behind the chunk returned in the response is from the\n          latest chunk on the stream. </p>\n            </li>\n            <li>\n               <p>AWS_KINESISVIDEO_FRAGMENT_NUMBER - Fragment number returned in the chunk.</p>\n            </li>\n            <li>\n               <p>AWS_KINESISVIDEO_SERVER_TIMESTAMP - Server timestamp of the fragment.</p>\n            </li>\n            <li>\n               <p>AWS_KINESISVIDEO_PRODUCER_TIMESTAMP - Producer timestamp of the fragment.</p>\n            </li>\n         </ul>\n         <p>The following tags will be present if an error occurs:</p>\n         <ul>\n            <li>\n               <p>AWS_KINESISVIDEO_ERROR_CODE - String description of an error that caused GetMedia\n          to stop.</p>\n            </li>\n            <li>\n               <p>AWS_KINESISVIDEO_ERROR_ID: Integer code of the error.</p>\n            </li>\n         </ul>\n         <p>The error codes are as follows:</p>\n         <ul>\n            <li>\n               <p>3002 - Error writing to the stream</p>\n            </li>\n            <li>\n               <p>4000 - Requested fragment is not found</p>\n            </li>\n            <li>\n               <p>4500 - Access denied for the stream's KMS key</p>\n            </li>\n            <li>\n               <p>4501 - Stream's KMS key is disabled</p>\n            </li>\n            <li>\n               <p>4502 - Validation error on the stream's KMS key</p>\n            </li>\n            <li>\n               <p>4503 - KMS key specified in the stream is unavailable</p>\n            </li>\n            <li>\n               <p>4504 - Invalid usage of the KMS key specified in the stream</p>\n            </li>\n            <li>\n               <p>4505 - Invalid state of the KMS key specified in the stream</p>\n            </li>\n            <li>\n               <p>4506 - Unable to find the KMS key specified in the stream</p>\n            </li>\n            <li>\n               <p>5000 - Internal error</p>\n            </li>\n         </ul>",
-            "smithy.api#httpPayload": {}
-          }
-        },
         "ContentType": {
           "target": "com.amazonaws.kinesisvideomedia#ContentType",
           "traits": {
             "smithy.api#documentation": "<p>The content type of the requested media.</p>",
             "smithy.api#httpHeader": "Content-Type"
+          }
+        },
+        "Payload": {
+          "target": "com.amazonaws.kinesisvideomedia#Payload",
+          "traits": {
+            "smithy.api#documentation": "<p> The payload Kinesis Video Streams returns is a sequence of chunks from the specified\n      stream. For information about the chunks, see . The\n      chunks that Kinesis Video Streams returns in the <code>GetMedia</code> call also include the\n      following additional Matroska (MKV) tags: </p>\n         <ul>\n            <li>\n               <p>AWS_KINESISVIDEO_CONTINUATION_TOKEN (UTF-8 string) - In the event your\n            <code>GetMedia</code> call terminates, you can use this continuation token in your next\n          request to get the next chunk where the last request terminated.</p>\n            </li>\n            <li>\n               <p>AWS_KINESISVIDEO_MILLIS_BEHIND_NOW (UTF-8 string) - Client applications can use\n          this tag value to determine how far behind the chunk returned in the response is from the\n          latest chunk on the stream. </p>\n            </li>\n            <li>\n               <p>AWS_KINESISVIDEO_FRAGMENT_NUMBER - Fragment number returned in the chunk.</p>\n            </li>\n            <li>\n               <p>AWS_KINESISVIDEO_SERVER_TIMESTAMP - Server timestamp of the fragment.</p>\n            </li>\n            <li>\n               <p>AWS_KINESISVIDEO_PRODUCER_TIMESTAMP - Producer timestamp of the fragment.</p>\n            </li>\n         </ul>\n         <p>The following tags will be present if an error occurs:</p>\n         <ul>\n            <li>\n               <p>AWS_KINESISVIDEO_ERROR_CODE - String description of an error that caused GetMedia\n          to stop.</p>\n            </li>\n            <li>\n               <p>AWS_KINESISVIDEO_ERROR_ID: Integer code of the error.</p>\n            </li>\n         </ul>\n         <p>The error codes are as follows:</p>\n         <ul>\n            <li>\n               <p>3002 - Error writing to the stream</p>\n            </li>\n            <li>\n               <p>4000 - Requested fragment is not found</p>\n            </li>\n            <li>\n               <p>4500 - Access denied for the stream's KMS key</p>\n            </li>\n            <li>\n               <p>4501 - Stream's KMS key is disabled</p>\n            </li>\n            <li>\n               <p>4502 - Validation error on the stream's KMS key</p>\n            </li>\n            <li>\n               <p>4503 - KMS key specified in the stream is unavailable</p>\n            </li>\n            <li>\n               <p>4504 - Invalid usage of the KMS key specified in the stream</p>\n            </li>\n            <li>\n               <p>4505 - Invalid state of the KMS key specified in the stream</p>\n            </li>\n            <li>\n               <p>4506 - Unable to find the KMS key specified in the stream</p>\n            </li>\n            <li>\n               <p>5000 - Internal error</p>\n            </li>\n         </ul>",
+            "smithy.api#httpPayload": {}
           }
         }
       }
@@ -269,10 +270,10 @@
             "smithy.api#required": {}
           }
         },
-        "ContinuationToken": {
-          "target": "com.amazonaws.kinesisvideomedia#ContinuationToken",
+        "AfterFragmentNumber": {
+          "target": "com.amazonaws.kinesisvideomedia#FragmentNumberString",
           "traits": {
-            "smithy.api#documentation": "<p>Continuation token that Kinesis Video Streams returned in the previous\n        <code>GetMedia</code> response. The <code>GetMedia</code> API then starts with the chunk\n      identified by the continuation token.</p>"
+            "smithy.api#documentation": "<p>Specifies the fragment number from where you want the <code>GetMedia</code> API to\n      start returning the fragments. </p>"
           }
         },
         "StartTimestamp": {
@@ -281,10 +282,10 @@
             "smithy.api#documentation": "<p>A timestamp value. This value is required if you choose the PRODUCER_TIMESTAMP or the\n      SERVER_TIMESTAMP as the <code>startSelectorType</code>. The <code>GetMedia</code> API then\n      starts with the chunk containing the fragment that has the specified timestamp.</p>"
           }
         },
-        "AfterFragmentNumber": {
-          "target": "com.amazonaws.kinesisvideomedia#FragmentNumberString",
+        "ContinuationToken": {
+          "target": "com.amazonaws.kinesisvideomedia#ContinuationToken",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the fragment number from where you want the <code>GetMedia</code> API to\n      start returning the fragments. </p>"
+            "smithy.api#documentation": "<p>Continuation token that Kinesis Video Streams returned in the previous\n        <code>GetMedia</code> response. The <code>GetMedia</code> API then starts with the chunk\n      identified by the continuation token.</p>"
           }
         }
       },

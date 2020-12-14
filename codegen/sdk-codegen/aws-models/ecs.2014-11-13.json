@@ -232,7 +232,8 @@
           "sdkId": "ECS",
           "arnNamespace": "ecs",
           "cloudFormationName": "ECS",
-          "cloudTrailEventSource": "ecs.amazonaws.com"
+          "cloudTrailEventSource": "ecs.amazonaws.com",
+          "endpointPrefix": "ecs"
         },
         "aws.auth#sigv4": {
           "name": "ecs"
@@ -2932,7 +2933,34 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Describes the specified services running in your cluster.</p>"
+        "smithy.api#documentation": "<p>Describes the specified services running in your cluster.</p>",
+        "smithy.waiters#waitable": {
+          "ServicesInactive": {
+            "acceptors": [
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "failures[].reason",
+                    "expected": "MISSING",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "services[].status",
+                    "expected": "INACTIVE",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 15
+          }
+        }
       }
     },
     "com.amazonaws.ecs#DescribeServicesRequest": {
@@ -3143,7 +3171,59 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Describes a specified task or tasks.</p>"
+        "smithy.api#documentation": "<p>Describes a specified task or tasks.</p>",
+        "smithy.waiters#waitable": {
+          "TasksRunning": {
+            "acceptors": [
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "tasks[].lastStatus",
+                    "expected": "STOPPED",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "failures[].reason",
+                    "expected": "MISSING",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "tasks[].lastStatus",
+                    "expected": "RUNNING",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 6
+          },
+          "TasksStopped": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "tasks[].lastStatus",
+                    "expected": "STOPPED",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 6
+          }
+        }
       }
     },
     "com.amazonaws.ecs#DescribeTasksRequest": {

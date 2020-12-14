@@ -281,6 +281,39 @@
           "method": "GET",
           "uri": "/signing-jobs/{jobId}",
           "code": 200
+        },
+        "smithy.waiters#waitable": {
+          "SuccessfulSigningJob": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "status",
+                    "expected": "Succeeded",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "status",
+                    "expected": "Failed",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "errorType": "ResourceNotFoundException"
+                }
+              }
+            ],
+            "minDelay": 20
+          }
         }
       }
     },
@@ -2651,7 +2684,8 @@
           "sdkId": "signer",
           "arnNamespace": "signer",
           "cloudFormationName": "Signer",
-          "cloudTrailEventSource": "signer.amazonaws.com"
+          "cloudTrailEventSource": "signer.amazonaws.com",
+          "endpointPrefix": "signer"
         },
         "aws.auth#sigv4": {
           "name": "signer"

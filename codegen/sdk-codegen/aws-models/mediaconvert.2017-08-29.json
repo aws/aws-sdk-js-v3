@@ -11778,7 +11778,8 @@
           "sdkId": "MediaConvert",
           "arnNamespace": "mediaconvert",
           "cloudFormationName": "MediaConvert",
-          "cloudTrailEventSource": "mediaconvert.amazonaws.com"
+          "cloudTrailEventSource": "mediaconvert.amazonaws.com",
+          "endpointPrefix": "mediaconvert"
         },
         "aws.auth#sigv4": {
           "name": "mediaconvert"

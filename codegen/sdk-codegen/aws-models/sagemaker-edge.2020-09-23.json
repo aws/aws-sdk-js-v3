@@ -45,7 +45,8 @@
           "sdkId": "Sagemaker Edge",
           "arnNamespace": "sagemaker",
           "cloudFormationName": "SagemakerEdge",
-          "cloudTrailEventSource": "sagemakeredge.amazonaws.com"
+          "cloudTrailEventSource": "sagemakeredge.amazonaws.com",
+          "endpointPrefix": "edge.sagemaker"
         },
         "aws.auth#sigv4": {
           "name": "sagemaker"

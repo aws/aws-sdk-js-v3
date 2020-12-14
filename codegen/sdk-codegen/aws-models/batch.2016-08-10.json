@@ -96,7 +96,8 @@
           "sdkId": "Batch",
           "arnNamespace": "batch",
           "cloudFormationName": "Batch",
-          "cloudTrailEventSource": "batch.amazonaws.com"
+          "cloudTrailEventSource": "batch.amazonaws.com",
+          "endpointPrefix": "batch"
         },
         "aws.auth#sigv4": {
           "name": "batch"

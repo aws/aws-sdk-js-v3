@@ -32,10 +32,34 @@
     "com.amazonaws.iotevents#Action": {
       "type": "structure",
       "members": {
+        "setVariable": {
+          "target": "com.amazonaws.iotevents#SetVariableAction",
+          "traits": {
+            "smithy.api#documentation": "<p>Sets a variable to a specified value.</p>"
+          }
+        },
+        "sns": {
+          "target": "com.amazonaws.iotevents#SNSTopicPublishAction",
+          "traits": {
+            "smithy.api#documentation": "<p>Sends an Amazon SNS message.</p>"
+          }
+        },
+        "iotTopicPublish": {
+          "target": "com.amazonaws.iotevents#IotTopicPublishAction",
+          "traits": {
+            "smithy.api#documentation": "<p>Publishes an MQTT message with the given topic to the AWS IoT message broker.</p>"
+          }
+        },
         "setTimer": {
           "target": "com.amazonaws.iotevents#SetTimerAction",
           "traits": {
             "smithy.api#documentation": "<p>Information needed to set the timer.</p>"
+          }
+        },
+        "clearTimer": {
+          "target": "com.amazonaws.iotevents#ClearTimerAction",
+          "traits": {
+            "smithy.api#documentation": "<p>Information needed to clear the timer.</p>"
           }
         },
         "resetTimer": {
@@ -44,28 +68,10 @@
             "smithy.api#documentation": "<p>Information needed to reset the timer.</p>"
           }
         },
-        "dynamoDB": {
-          "target": "com.amazonaws.iotevents#DynamoDBAction",
+        "lambda": {
+          "target": "com.amazonaws.iotevents#LambdaAction",
           "traits": {
-            "smithy.api#documentation": "<p>Writes to the DynamoDB table that you created. The default action payload contains all\n      attribute-value pairs that have the information about the detector model instance and the\n      event that triggered the action. You can also customize the <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html\">payload</a>. One column of the\n      DynamoDB table receives all attribute-value pairs in the payload that you specify. For more\n      information, see <a href=\"https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html\">Actions</a> in\n        <i>AWS IoT Events Developer Guide</i>.</p>"
-          }
-        },
-        "dynamoDBv2": {
-          "target": "com.amazonaws.iotevents#DynamoDBv2Action",
-          "traits": {
-            "smithy.api#documentation": "<p>Writes to the DynamoDB table that you created. The default action payload contains all\n      attribute-value pairs that have the information about the detector model instance and the\n      event that triggered the action. You can also customize the <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html\">payload</a>. A separate column of\n      the DynamoDB table receives one attribute-value pair in the payload that you specify. For more\n      information, see <a href=\"https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html\">Actions</a> in\n        <i>AWS IoT Events Developer Guide</i>.</p>"
-          }
-        },
-        "setVariable": {
-          "target": "com.amazonaws.iotevents#SetVariableAction",
-          "traits": {
-            "smithy.api#documentation": "<p>Sets a variable to a specified value.</p>"
-          }
-        },
-        "clearTimer": {
-          "target": "com.amazonaws.iotevents#ClearTimerAction",
-          "traits": {
-            "smithy.api#documentation": "<p>Information needed to clear the timer.</p>"
+            "smithy.api#documentation": "<p>Calls a Lambda function, passing in information about the detector model instance and the\n      event that triggered the action.</p>"
           }
         },
         "iotEvents": {
@@ -80,34 +86,28 @@
             "smithy.api#documentation": "<p>Sends information about the detector model instance and the event that triggered the\n      action to an Amazon SQS queue.</p>"
           }
         },
-        "iotTopicPublish": {
-          "target": "com.amazonaws.iotevents#IotTopicPublishAction",
-          "traits": {
-            "smithy.api#documentation": "<p>Publishes an MQTT message with the given topic to the AWS IoT message broker.</p>"
-          }
-        },
-        "iotSiteWise": {
-          "target": "com.amazonaws.iotevents#IotSiteWiseAction",
-          "traits": {
-            "smithy.api#documentation": "<p>Sends information about the detector model instance and the event that triggered the\n      action to an asset property in AWS IoT SiteWise .</p>"
-          }
-        },
         "firehose": {
           "target": "com.amazonaws.iotevents#FirehoseAction",
           "traits": {
             "smithy.api#documentation": "<p>Sends information about the detector model instance and the event that triggered the\n      action to an Amazon Kinesis Data Firehose delivery stream.</p>"
           }
         },
-        "sns": {
-          "target": "com.amazonaws.iotevents#SNSTopicPublishAction",
+        "dynamoDB": {
+          "target": "com.amazonaws.iotevents#DynamoDBAction",
           "traits": {
-            "smithy.api#documentation": "<p>Sends an Amazon SNS message.</p>"
+            "smithy.api#documentation": "<p>Writes to the DynamoDB table that you created. The default action payload contains all\n      attribute-value pairs that have the information about the detector model instance and the\n      event that triggered the action. You can also customize the <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html\">payload</a>. One column of the\n      DynamoDB table receives all attribute-value pairs in the payload that you specify. For more\n      information, see <a href=\"https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html\">Actions</a> in\n        <i>AWS IoT Events Developer Guide</i>.</p>"
           }
         },
-        "lambda": {
-          "target": "com.amazonaws.iotevents#LambdaAction",
+        "dynamoDBv2": {
+          "target": "com.amazonaws.iotevents#DynamoDBv2Action",
           "traits": {
-            "smithy.api#documentation": "<p>Calls a Lambda function, passing in information about the detector model instance and the\n      event that triggered the action.</p>"
+            "smithy.api#documentation": "<p>Writes to the DynamoDB table that you created. The default action payload contains all\n      attribute-value pairs that have the information about the detector model instance and the\n      event that triggered the action. You can also customize the <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html\">payload</a>. A separate column of\n      the DynamoDB table receives one attribute-value pair in the payload that you specify. For more\n      information, see <a href=\"https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html\">Actions</a> in\n        <i>AWS IoT Events Developer Guide</i>.</p>"
+          }
+        },
+        "iotSiteWise": {
+          "target": "com.amazonaws.iotevents#IotSiteWiseAction",
+          "traits": {
+            "smithy.api#documentation": "<p>Sends information about the detector model instance and the event that triggered the\n      action to an asset property in AWS IoT SiteWise .</p>"
           }
         }
       },
@@ -166,17 +166,17 @@
     "com.amazonaws.iotevents#AssetPropertyTimestamp": {
       "type": "structure",
       "members": {
-        "offsetInNanos": {
-          "target": "com.amazonaws.iotevents#AssetPropertyOffsetInNanos",
-          "traits": {
-            "smithy.api#documentation": "<p>The nanosecond offset converted from <code>timeInSeconds</code>. The valid range is\n      between 0-999999999. You can also specify an expression.</p>"
-          }
-        },
         "timeInSeconds": {
           "target": "com.amazonaws.iotevents#AssetPropertyTimeInSeconds",
           "traits": {
             "smithy.api#documentation": "<p>The timestamp, in seconds, in the Unix epoch format. The valid range is between\n      1-31556889864403199. You can also specify an expression.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "offsetInNanos": {
+          "target": "com.amazonaws.iotevents#AssetPropertyOffsetInNanos",
+          "traits": {
+            "smithy.api#documentation": "<p>The nanosecond offset converted from <code>timeInSeconds</code>. The valid range is\n      between 0-999999999. You can also specify an expression.</p>"
           }
         }
       },
@@ -187,10 +187,11 @@
     "com.amazonaws.iotevents#AssetPropertyValue": {
       "type": "structure",
       "members": {
-        "quality": {
-          "target": "com.amazonaws.iotevents#AssetPropertyQuality",
+        "value": {
+          "target": "com.amazonaws.iotevents#AssetPropertyVariant",
           "traits": {
-            "smithy.api#documentation": "<p>The quality of the asset property value. The value must be <code>GOOD</code>,\n        <code>BAD</code>, or <code>UNCERTAIN</code>. You can also specify an expression.</p>"
+            "smithy.api#documentation": "<p>The value to send to an asset property.</p>",
+            "smithy.api#required": {}
           }
         },
         "timestamp": {
@@ -199,11 +200,10 @@
             "smithy.api#documentation": "<p>The timestamp associated with the asset property value. The default is the current event\n      time.</p>"
           }
         },
-        "value": {
-          "target": "com.amazonaws.iotevents#AssetPropertyVariant",
+        "quality": {
+          "target": "com.amazonaws.iotevents#AssetPropertyQuality",
           "traits": {
-            "smithy.api#documentation": "<p>The value to send to an asset property.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The quality of the asset property value. The value must be <code>GOOD</code>,\n        <code>BAD</code>, or <code>UNCERTAIN</code>. You can also specify an expression.</p>"
           }
         }
       },
@@ -355,29 +355,11 @@
     "com.amazonaws.iotevents#CreateDetectorModelRequest": {
       "type": "structure",
       "members": {
-        "roleArn": {
-          "target": "com.amazonaws.iotevents#AmazonResourceName",
+        "detectorModelName": {
+          "target": "com.amazonaws.iotevents#DetectorModelName",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the role that grants permission to AWS IoT Events to perform its operations.</p>",
+            "smithy.api#documentation": "<p>The name of the detector model.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "detectorModelDescription": {
-          "target": "com.amazonaws.iotevents#DetectorModelDescription",
-          "traits": {
-            "smithy.api#documentation": "<p>A brief description of the detector model.</p>"
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.iotevents#Tags",
-          "traits": {
-            "smithy.api#documentation": "<p>Metadata that can be used to manage the detector model.</p>"
-          }
-        },
-        "key": {
-          "target": "com.amazonaws.iotevents#AttributeJsonPath",
-          "traits": {
-            "smithy.api#documentation": "<p>The input attribute key used to identify a device or system to create a detector (an\n      instance of the detector model) and then to route each input received to the appropriate\n      detector (instance). This parameter uses a JSON-path expression in the message payload of each\n      input to specify the attribute-value pair that is used to identify the device associated with\n      the input.</p>"
           }
         },
         "detectorModelDefinition": {
@@ -387,11 +369,29 @@
             "smithy.api#required": {}
           }
         },
-        "detectorModelName": {
-          "target": "com.amazonaws.iotevents#DetectorModelName",
+        "detectorModelDescription": {
+          "target": "com.amazonaws.iotevents#DetectorModelDescription",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the detector model.</p>",
+            "smithy.api#documentation": "<p>A brief description of the detector model.</p>"
+          }
+        },
+        "key": {
+          "target": "com.amazonaws.iotevents#AttributeJsonPath",
+          "traits": {
+            "smithy.api#documentation": "<p>The input attribute key used to identify a device or system to create a detector (an\n      instance of the detector model) and then to route each input received to the appropriate\n      detector (instance). This parameter uses a JSON-path expression in the message payload of each\n      input to specify the attribute-value pair that is used to identify the device associated with\n      the input.</p>"
+          }
+        },
+        "roleArn": {
+          "target": "com.amazonaws.iotevents#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the role that grants permission to AWS IoT Events to perform its operations.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.iotevents#Tags",
+          "traits": {
+            "smithy.api#documentation": "<p>Metadata that can be used to manage the detector model.</p>"
           }
         },
         "evaluationMethod": {
@@ -450,19 +450,6 @@
     "com.amazonaws.iotevents#CreateInputRequest": {
       "type": "structure",
       "members": {
-        "tags": {
-          "target": "com.amazonaws.iotevents#Tags",
-          "traits": {
-            "smithy.api#documentation": "<p>Metadata that can be used to manage the input.</p>"
-          }
-        },
-        "inputDefinition": {
-          "target": "com.amazonaws.iotevents#InputDefinition",
-          "traits": {
-            "smithy.api#documentation": "<p>The definition of the input.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "inputName": {
           "target": "com.amazonaws.iotevents#InputName",
           "traits": {
@@ -474,6 +461,19 @@
           "target": "com.amazonaws.iotevents#InputDescription",
           "traits": {
             "smithy.api#documentation": "<p>A brief description of the input.</p>"
+          }
+        },
+        "inputDefinition": {
+          "target": "com.amazonaws.iotevents#InputDefinition",
+          "traits": {
+            "smithy.api#documentation": "<p>The definition of the input.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.iotevents#Tags",
+          "traits": {
+            "smithy.api#documentation": "<p>Metadata that can be used to manage the input.</p>"
           }
         }
       }
@@ -637,19 +637,19 @@
     "com.amazonaws.iotevents#DescribeDetectorModelRequest": {
       "type": "structure",
       "members": {
-        "detectorModelVersion": {
-          "target": "com.amazonaws.iotevents#DetectorModelVersion",
-          "traits": {
-            "smithy.api#documentation": "<p>The version of the detector model.</p>",
-            "smithy.api#httpQuery": "version"
-          }
-        },
         "detectorModelName": {
           "target": "com.amazonaws.iotevents#DetectorModelName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the detector model.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "detectorModelVersion": {
+          "target": "com.amazonaws.iotevents#DetectorModelVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the detector model.</p>",
+            "smithy.api#httpQuery": "version"
           }
         }
       }
@@ -778,17 +778,17 @@
     "com.amazonaws.iotevents#DetectorDebugOption": {
       "type": "structure",
       "members": {
-        "keyValue": {
-          "target": "com.amazonaws.iotevents#KeyValue",
-          "traits": {
-            "smithy.api#documentation": "<p>The value of the input attribute key used to create the detector (the instance of the\n      detector model).</p>"
-          }
-        },
         "detectorModelName": {
           "target": "com.amazonaws.iotevents#DetectorModelName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the detector model.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "keyValue": {
+          "target": "com.amazonaws.iotevents#KeyValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The value of the input attribute key used to create the detector (the instance of the\n      detector model).</p>"
           }
         }
       },
@@ -810,16 +810,16 @@
     "com.amazonaws.iotevents#DetectorModel": {
       "type": "structure",
       "members": {
-        "detectorModelConfiguration": {
-          "target": "com.amazonaws.iotevents#DetectorModelConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about how the detector is configured.</p>"
-          }
-        },
         "detectorModelDefinition": {
           "target": "com.amazonaws.iotevents#DetectorModelDefinition",
           "traits": {
             "smithy.api#documentation": "<p>Information that defines how a detector operates.</p>"
+          }
+        },
+        "detectorModelConfiguration": {
+          "target": "com.amazonaws.iotevents#DetectorModelConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about how the detector is configured.</p>"
           }
         }
       },
@@ -833,6 +833,30 @@
     "com.amazonaws.iotevents#DetectorModelConfiguration": {
       "type": "structure",
       "members": {
+        "detectorModelName": {
+          "target": "com.amazonaws.iotevents#DetectorModelName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the detector model.</p>"
+          }
+        },
+        "detectorModelVersion": {
+          "target": "com.amazonaws.iotevents#DetectorModelVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the detector model.</p>"
+          }
+        },
+        "detectorModelDescription": {
+          "target": "com.amazonaws.iotevents#DetectorModelDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>A brief description of the detector model.</p>"
+          }
+        },
+        "detectorModelArn": {
+          "target": "com.amazonaws.iotevents#DetectorModelArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the detector model.</p>"
+          }
+        },
         "roleArn": {
           "target": "com.amazonaws.iotevents#AmazonResourceName",
           "traits": {
@@ -845,10 +869,16 @@
             "smithy.api#documentation": "<p>The time the detector model was created.</p>"
           }
         },
-        "evaluationMethod": {
-          "target": "com.amazonaws.iotevents#EvaluationMethod",
+        "lastUpdateTime": {
+          "target": "com.amazonaws.iotevents#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>Information about the order in which events are evaluated and how actions are executed.\n    </p>"
+            "smithy.api#documentation": "<p>The time the detector model was last updated.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.iotevents#DetectorModelVersionStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the detector model.</p>"
           }
         },
         "key": {
@@ -857,40 +887,10 @@
             "smithy.api#documentation": "<p>The value used to identify a detector instance. When a device or system sends input, a new\n      detector instance with a unique key value is created. AWS IoT Events can continue to route input to its\n      corresponding detector instance based on this identifying information. </p>\n         <p>This parameter uses a JSON-path expression to select the attribute-value pair in the\n      message payload that is used for identification. To route the message to the correct detector\n      instance, the device must send a message payload that contains the same\n      attribute-value.</p>"
           }
         },
-        "lastUpdateTime": {
-          "target": "com.amazonaws.iotevents#Timestamp",
+        "evaluationMethod": {
+          "target": "com.amazonaws.iotevents#EvaluationMethod",
           "traits": {
-            "smithy.api#documentation": "<p>The time the detector model was last updated.</p>"
-          }
-        },
-        "detectorModelVersion": {
-          "target": "com.amazonaws.iotevents#DetectorModelVersion",
-          "traits": {
-            "smithy.api#documentation": "<p>The version of the detector model.</p>"
-          }
-        },
-        "detectorModelName": {
-          "target": "com.amazonaws.iotevents#DetectorModelName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the detector model.</p>"
-          }
-        },
-        "detectorModelArn": {
-          "target": "com.amazonaws.iotevents#DetectorModelArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the detector model.</p>"
-          }
-        },
-        "detectorModelDescription": {
-          "target": "com.amazonaws.iotevents#DetectorModelDescription",
-          "traits": {
-            "smithy.api#documentation": "<p>A brief description of the detector model.</p>"
-          }
-        },
-        "status": {
-          "target": "com.amazonaws.iotevents#DetectorModelVersionStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the detector model.</p>"
+            "smithy.api#documentation": "<p>Information about the order in which events are evaluated and how actions are executed.\n    </p>"
           }
         }
       },
@@ -901,17 +901,17 @@
     "com.amazonaws.iotevents#DetectorModelDefinition": {
       "type": "structure",
       "members": {
-        "initialStateName": {
-          "target": "com.amazonaws.iotevents#StateName",
-          "traits": {
-            "smithy.api#documentation": "<p>The state that is entered at the creation of each detector (instance).</p>",
-            "smithy.api#required": {}
-          }
-        },
         "states": {
           "target": "com.amazonaws.iotevents#States",
           "traits": {
             "smithy.api#documentation": "<p>Information about the states of the detector.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "initialStateName": {
+          "target": "com.amazonaws.iotevents#StateName",
+          "traits": {
+            "smithy.api#documentation": "<p>The state that is entered at the creation of each detector (instance).</p>",
             "smithy.api#required": {}
           }
         }
@@ -948,6 +948,12 @@
     "com.amazonaws.iotevents#DetectorModelSummary": {
       "type": "structure",
       "members": {
+        "detectorModelName": {
+          "target": "com.amazonaws.iotevents#DetectorModelName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the detector model.</p>"
+          }
+        },
         "detectorModelDescription": {
           "target": "com.amazonaws.iotevents#DetectorModelDescription",
           "traits": {
@@ -958,12 +964,6 @@
           "target": "com.amazonaws.iotevents#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The time the detector model was created.</p>"
-          }
-        },
-        "detectorModelName": {
-          "target": "com.amazonaws.iotevents#DetectorModelName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the detector model.</p>"
           }
         }
       },
@@ -1024,24 +1024,6 @@
     "com.amazonaws.iotevents#DetectorModelVersionSummary": {
       "type": "structure",
       "members": {
-        "detectorModelArn": {
-          "target": "com.amazonaws.iotevents#DetectorModelArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the detector model version.</p>"
-          }
-        },
-        "creationTime": {
-          "target": "com.amazonaws.iotevents#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The time the detector model version was created.</p>"
-          }
-        },
-        "status": {
-          "target": "com.amazonaws.iotevents#DetectorModelVersionStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the detector model version.</p>"
-          }
-        },
         "detectorModelName": {
           "target": "com.amazonaws.iotevents#DetectorModelName",
           "traits": {
@@ -1054,22 +1036,40 @@
             "smithy.api#documentation": "<p>The ID of the detector model version.</p>"
           }
         },
-        "lastUpdateTime": {
-          "target": "com.amazonaws.iotevents#Timestamp",
+        "detectorModelArn": {
+          "target": "com.amazonaws.iotevents#DetectorModelArn",
           "traits": {
-            "smithy.api#documentation": "<p>The last time the detector model version was updated.</p>"
-          }
-        },
-        "evaluationMethod": {
-          "target": "com.amazonaws.iotevents#EvaluationMethod",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the order in which events are evaluated and how actions are executed.\n    </p>"
+            "smithy.api#documentation": "<p>The ARN of the detector model version.</p>"
           }
         },
         "roleArn": {
           "target": "com.amazonaws.iotevents#AmazonResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the role that grants the detector model permission to perform its tasks.</p>"
+          }
+        },
+        "creationTime": {
+          "target": "com.amazonaws.iotevents#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time the detector model version was created.</p>"
+          }
+        },
+        "lastUpdateTime": {
+          "target": "com.amazonaws.iotevents#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The last time the detector model version was updated.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.iotevents#DetectorModelVersionStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the detector model version.</p>"
+          }
+        },
+        "evaluationMethod": {
+          "target": "com.amazonaws.iotevents#EvaluationMethod",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the order in which events are evaluated and how actions are executed.\n    </p>"
           }
         }
       },
@@ -1080,10 +1080,42 @@
     "com.amazonaws.iotevents#DynamoDBAction": {
       "type": "structure",
       "members": {
+        "hashKeyType": {
+          "target": "com.amazonaws.iotevents#DynamoKeyType",
+          "traits": {
+            "smithy.api#documentation": "<p>The data type for the hash key (also called the partition key). You can specify the\n      following values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>STRING</code> - The hash key is a string.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NUMBER</code> - The hash key is a number.</p>\n            </li>\n         </ul>\n         <p>If you don't specify <code>hashKeyType</code>, the default value is\n      <code>STRING</code>.</p>"
+          }
+        },
+        "hashKeyField": {
+          "target": "com.amazonaws.iotevents#DynamoKeyField",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the hash key (also called the partition key).</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "hashKeyValue": {
+          "target": "com.amazonaws.iotevents#DynamoKeyValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The value of the hash key (also called the partition key).</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "rangeKeyType": {
+          "target": "com.amazonaws.iotevents#DynamoKeyType",
+          "traits": {
+            "smithy.api#documentation": "<p>The data type for the range key (also called the sort key), You can specify the following\n      values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>STRING</code> - The range key is a string.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NUMBER</code> - The range key is number.</p>\n            </li>\n         </ul>\n         <p>If you don't specify <code>rangeKeyField</code>, the default value is\n      <code>STRING</code>.</p>"
+          }
+        },
         "rangeKeyField": {
           "target": "com.amazonaws.iotevents#DynamoKeyField",
           "traits": {
             "smithy.api#documentation": "<p>The name of the range key (also called the sort key).</p>"
+          }
+        },
+        "rangeKeyValue": {
+          "target": "com.amazonaws.iotevents#DynamoKeyValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The value of the range key (also called the sort key).</p>"
           }
         },
         "operation": {
@@ -1098,25 +1130,6 @@
             "smithy.api#documentation": "<p>The name of the DynamoDB column that receives the action payload.</p>\n         <p>If you don't specify this parameter, the name of the DynamoDB column is\n      <code>payload</code>.</p>"
           }
         },
-        "hashKeyField": {
-          "target": "com.amazonaws.iotevents#DynamoKeyField",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the hash key (also called the partition key).</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "rangeKeyType": {
-          "target": "com.amazonaws.iotevents#DynamoKeyType",
-          "traits": {
-            "smithy.api#documentation": "<p>The data type for the range key (also called the sort key), You can specify the following\n      values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>STRING</code> - The range key is a string.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NUMBER</code> - The range key is number.</p>\n            </li>\n         </ul>\n         <p>If you don't specify <code>rangeKeyField</code>, the default value is\n      <code>STRING</code>.</p>"
-          }
-        },
-        "hashKeyType": {
-          "target": "com.amazonaws.iotevents#DynamoKeyType",
-          "traits": {
-            "smithy.api#documentation": "<p>The data type for the hash key (also called the partition key). You can specify the\n      following values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>STRING</code> - The hash key is a string.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NUMBER</code> - The hash key is a number.</p>\n            </li>\n         </ul>\n         <p>If you don't specify <code>hashKeyType</code>, the default value is\n      <code>STRING</code>.</p>"
-          }
-        },
         "tableName": {
           "target": "com.amazonaws.iotevents#DynamoTableName",
           "traits": {
@@ -1124,21 +1137,8 @@
             "smithy.api#required": {}
           }
         },
-        "rangeKeyValue": {
-          "target": "com.amazonaws.iotevents#DynamoKeyValue",
-          "traits": {
-            "smithy.api#documentation": "<p>The value of the range key (also called the sort key).</p>"
-          }
-        },
         "payload": {
           "target": "com.amazonaws.iotevents#Payload"
-        },
-        "hashKeyValue": {
-          "target": "com.amazonaws.iotevents#DynamoKeyValue",
-          "traits": {
-            "smithy.api#documentation": "<p>The value of the hash key (also called the partition key).</p>",
-            "smithy.api#required": {}
-          }
         }
       },
       "traits": {
@@ -1196,6 +1196,13 @@
     "com.amazonaws.iotevents#Event": {
       "type": "structure",
       "members": {
+        "eventName": {
+          "target": "com.amazonaws.iotevents#EventName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the event.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "condition": {
           "target": "com.amazonaws.iotevents#Condition",
           "traits": {
@@ -1206,13 +1213,6 @@
           "target": "com.amazonaws.iotevents#Actions",
           "traits": {
             "smithy.api#documentation": "<p>The actions to be performed.</p>"
-          }
-        },
-        "eventName": {
-          "target": "com.amazonaws.iotevents#EventName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the event.</p>",
-            "smithy.api#required": {}
           }
         }
       },
@@ -1271,16 +1271,16 @@
     "com.amazonaws.iotevents#Input": {
       "type": "structure",
       "members": {
-        "inputDefinition": {
-          "target": "com.amazonaws.iotevents#InputDefinition",
-          "traits": {
-            "smithy.api#documentation": "<p>The definition of the input.</p>"
-          }
-        },
         "inputConfiguration": {
           "target": "com.amazonaws.iotevents#InputConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>Information about the configuration of an input.</p>"
+          }
+        },
+        "inputDefinition": {
+          "target": "com.amazonaws.iotevents#InputDefinition",
+          "traits": {
+            "smithy.api#documentation": "<p>The definition of the input.</p>"
           }
         }
       },
@@ -1301,6 +1301,26 @@
             "smithy.api#required": {}
           }
         },
+        "inputDescription": {
+          "target": "com.amazonaws.iotevents#InputDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>A brief description of the input.</p>"
+          }
+        },
+        "inputArn": {
+          "target": "com.amazonaws.iotevents#InputArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the input.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "creationTime": {
+          "target": "com.amazonaws.iotevents#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time the input was created.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "lastUpdateTime": {
           "target": "com.amazonaws.iotevents#Timestamp",
           "traits": {
@@ -1313,26 +1333,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The status of the input.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "creationTime": {
-          "target": "com.amazonaws.iotevents#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The time the input was created.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "inputArn": {
-          "target": "com.amazonaws.iotevents#InputArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the input.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "inputDescription": {
-          "target": "com.amazonaws.iotevents#InputDescription",
-          "traits": {
-            "smithy.api#documentation": "<p>A brief description of the input.</p>"
           }
         }
       },
@@ -1406,10 +1406,16 @@
     "com.amazonaws.iotevents#InputSummary": {
       "type": "structure",
       "members": {
-        "lastUpdateTime": {
-          "target": "com.amazonaws.iotevents#Timestamp",
+        "inputName": {
+          "target": "com.amazonaws.iotevents#InputName",
           "traits": {
-            "smithy.api#documentation": "<p>The last time the input was updated.</p>"
+            "smithy.api#documentation": "<p>The name of the input.</p>"
+          }
+        },
+        "inputDescription": {
+          "target": "com.amazonaws.iotevents#InputDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>A brief description of the input.</p>"
           }
         },
         "inputArn": {
@@ -1418,28 +1424,22 @@
             "smithy.api#documentation": "<p>The ARN of the input.</p>"
           }
         },
-        "inputName": {
-          "target": "com.amazonaws.iotevents#InputName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the input.</p>"
-          }
-        },
-        "status": {
-          "target": "com.amazonaws.iotevents#InputStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the input.</p>"
-          }
-        },
         "creationTime": {
           "target": "com.amazonaws.iotevents#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The time the input was created.</p>"
           }
         },
-        "inputDescription": {
-          "target": "com.amazonaws.iotevents#InputDescription",
+        "lastUpdateTime": {
+          "target": "com.amazonaws.iotevents#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>A brief description of the input.</p>"
+            "smithy.api#documentation": "<p>The last time the input was updated.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.iotevents#InputStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the input.</p>"
           }
         }
       },
@@ -1537,7 +1537,8 @@
           "sdkId": "IoT Events",
           "arnNamespace": "iotevents",
           "cloudFormationName": "IoTEvents",
-          "cloudTrailEventSource": "iotevents.amazonaws.com"
+          "cloudTrailEventSource": "iotevents.amazonaws.com",
+          "endpointPrefix": "iotevents"
         },
         "aws.auth#sigv4": {
           "name": "iotevents"
@@ -1571,6 +1572,18 @@
     "com.amazonaws.iotevents#IotSiteWiseAction": {
       "type": "structure",
       "members": {
+        "entryId": {
+          "target": "com.amazonaws.iotevents#AssetPropertyEntryId",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for this entry. You can use the entry ID to track which data entry\n      causes an error in case of failure. The default is a new unique identifier. You can also\n      specify an expression.</p>"
+          }
+        },
+        "assetId": {
+          "target": "com.amazonaws.iotevents#AssetId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the asset that has the specified property. You can specify an expression.</p>"
+          }
+        },
         "propertyId": {
           "target": "com.amazonaws.iotevents#AssetPropertyId",
           "traits": {
@@ -1589,18 +1602,6 @@
             "smithy.api#documentation": "<p>The value to send to the asset property. This value contains timestamp, quality, and value\n      (TQV) information. </p>",
             "smithy.api#required": {}
           }
-        },
-        "entryId": {
-          "target": "com.amazonaws.iotevents#AssetPropertyEntryId",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for this entry. You can use the entry ID to track which data entry\n      causes an error in case of failure. The default is a new unique identifier. You can also\n      specify an expression.</p>"
-          }
-        },
-        "assetId": {
-          "target": "com.amazonaws.iotevents#AssetId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the asset that has the specified property. You can specify an expression.</p>"
-          }
         }
       },
       "traits": {
@@ -1610,17 +1611,17 @@
     "com.amazonaws.iotevents#IotTopicPublishAction": {
       "type": "structure",
       "members": {
-        "payload": {
-          "target": "com.amazonaws.iotevents#Payload",
-          "traits": {
-            "smithy.api#documentation": "<p>You can configure the action payload when you publish a message to an AWS IoT Core\n      topic.</p>"
-          }
-        },
         "mqttTopic": {
           "target": "com.amazonaws.iotevents#MQTTTopic",
           "traits": {
             "smithy.api#documentation": "<p>The MQTT topic of the message. You can use a string expression that includes variables\n        (<code>$variable.<variable-name></code>) and input values\n        (<code>$input.<input-name>.<path-to-datum></code>) as the topic string.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "payload": {
+          "target": "com.amazonaws.iotevents#Payload",
+          "traits": {
+            "smithy.api#documentation": "<p>You can configure the action payload when you publish a message to an AWS IoT Core\n      topic.</p>"
           }
         }
       },
@@ -1641,17 +1642,17 @@
     "com.amazonaws.iotevents#LambdaAction": {
       "type": "structure",
       "members": {
-        "payload": {
-          "target": "com.amazonaws.iotevents#Payload",
-          "traits": {
-            "smithy.api#documentation": "<p>You can configure the action payload when you send a message to a Lambda function.</p>"
-          }
-        },
         "functionArn": {
           "target": "com.amazonaws.iotevents#AmazonResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the Lambda function that is executed.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "payload": {
+          "target": "com.amazonaws.iotevents#Payload",
+          "traits": {
+            "smithy.api#documentation": "<p>You can configure the action payload when you send a message to a Lambda function.</p>"
           }
         }
       },
@@ -1712,19 +1713,19 @@
     "com.amazonaws.iotevents#ListDetectorModelVersionsRequest": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.iotevents#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The token for the next set of results.</p>",
-            "smithy.api#httpQuery": "nextToken"
-          }
-        },
         "detectorModelName": {
           "target": "com.amazonaws.iotevents#DetectorModelName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the detector model whose versions are returned.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.iotevents#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next set of results.</p>",
+            "smithy.api#httpQuery": "nextToken"
           }
         },
         "maxResults": {
@@ -1739,16 +1740,16 @@
     "com.amazonaws.iotevents#ListDetectorModelVersionsResponse": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.iotevents#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A token to retrieve the next set of results, or <code>null</code> if there are no\n      additional results.</p>"
-          }
-        },
         "detectorModelVersionSummaries": {
           "target": "com.amazonaws.iotevents#DetectorModelVersionSummaries",
           "traits": {
             "smithy.api#documentation": "<p>Summary information about the detector model versions.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.iotevents#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A token to retrieve the next set of results, or <code>null</code> if there are no\n      additional results.</p>"
           }
         }
       }
@@ -1787,18 +1788,18 @@
     "com.amazonaws.iotevents#ListDetectorModelsRequest": {
       "type": "structure",
       "members": {
-        "maxResults": {
-          "target": "com.amazonaws.iotevents#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return at one time.</p>",
-            "smithy.api#httpQuery": "maxResults"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.iotevents#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next set of results.</p>",
             "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.iotevents#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return at one time.</p>",
+            "smithy.api#httpQuery": "maxResults"
           }
         }
       }
@@ -2055,16 +2056,16 @@
     "com.amazonaws.iotevents#OnInputLifecycle": {
       "type": "structure",
       "members": {
-        "transitionEvents": {
-          "target": "com.amazonaws.iotevents#TransitionEvents",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the actions performed, and the next state entered, when a <code>condition</code>\n      evaluates to TRUE.</p>"
-          }
-        },
         "events": {
           "target": "com.amazonaws.iotevents#Events",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the actions performed when the <code>condition</code> evaluates to TRUE.</p>"
+          }
+        },
+        "transitionEvents": {
+          "target": "com.amazonaws.iotevents#TransitionEvents",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the actions performed, and the next state entered, when a <code>condition</code>\n      evaluates to TRUE.</p>"
           }
         }
       },
@@ -2176,12 +2177,6 @@
     "com.amazonaws.iotevents#ResourceAlreadyExistsException": {
       "type": "structure",
       "members": {
-        "resourceArn": {
-          "target": "com.amazonaws.iotevents#resourceArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the resource.</p>"
-          }
-        },
         "message": {
           "target": "com.amazonaws.iotevents#errorMessage",
           "traits": {
@@ -2192,6 +2187,12 @@
           "target": "com.amazonaws.iotevents#resourceId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the resource.</p>"
+          }
+        },
+        "resourceArn": {
+          "target": "com.amazonaws.iotevents#resourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the resource.</p>"
           }
         }
       },
@@ -2290,12 +2291,6 @@
             "smithy.api#required": {}
           }
         },
-        "durationExpression": {
-          "target": "com.amazonaws.iotevents#VariableValue",
-          "traits": {
-            "smithy.api#documentation": "<p>The duration of the timer, in seconds. You can use a string expression that includes\n      numbers, variables (<code>$variable.<variable-name></code>), and input values\n        (<code>$input.<input-name>.<path-to-datum></code>) as the duration. The range of\n      the duration is 1-31622400 seconds. To ensure accuracy, the minimum duration is 60 seconds.\n      The evaluated result of the duration is rounded down to the nearest whole number. </p>"
-          }
-        },
         "seconds": {
           "target": "com.amazonaws.iotevents#Seconds",
           "traits": {
@@ -2303,6 +2298,12 @@
               "message": "seconds is deprecated. You can use durationExpression for SetTimerAction. The value of seconds can be used as a string expression for durationExpression."
             },
             "smithy.api#documentation": "<p>The number of seconds until the timer expires. The minimum value is 60 seconds to ensure\n      accuracy. The maximum value is 31622400 seconds. </p>"
+          }
+        },
+        "durationExpression": {
+          "target": "com.amazonaws.iotevents#VariableValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The duration of the timer, in seconds. You can use a string expression that includes\n      numbers, variables (<code>$variable.<variable-name></code>), and input values\n        (<code>$input.<input-name>.<path-to-datum></code>) as the duration. The range of\n      the duration is 1-31622400 seconds. To ensure accuracy, the minimum duration is 60 seconds.\n      The evaluated result of the duration is rounded down to the nearest whole number. </p>"
           }
         }
       },
@@ -2313,17 +2314,17 @@
     "com.amazonaws.iotevents#SetVariableAction": {
       "type": "structure",
       "members": {
-        "value": {
-          "target": "com.amazonaws.iotevents#VariableValue",
-          "traits": {
-            "smithy.api#documentation": "<p>The new value of the variable.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "variableName": {
           "target": "com.amazonaws.iotevents#VariableName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the variable.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "value": {
+          "target": "com.amazonaws.iotevents#VariableValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The new value of the variable.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2369,16 +2370,16 @@
             "smithy.api#required": {}
           }
         },
-        "onEnter": {
-          "target": "com.amazonaws.iotevents#OnEnterLifecycle",
-          "traits": {
-            "smithy.api#documentation": "<p>When entering this state, perform these <code>actions</code> if the <code>condition</code>\n      is TRUE.</p>"
-          }
-        },
         "onInput": {
           "target": "com.amazonaws.iotevents#OnInputLifecycle",
           "traits": {
             "smithy.api#documentation": "<p>When an input is received and the <code>condition</code> is TRUE, perform the specified\n        <code>actions</code>.</p>"
+          }
+        },
+        "onEnter": {
+          "target": "com.amazonaws.iotevents#OnEnterLifecycle",
+          "traits": {
+            "smithy.api#documentation": "<p>When entering this state, perform these <code>actions</code> if the <code>condition</code>\n      is TRUE.</p>"
           }
         },
         "onExit": {
@@ -2556,17 +2557,17 @@
     "com.amazonaws.iotevents#TransitionEvent": {
       "type": "structure",
       "members": {
-        "nextState": {
-          "target": "com.amazonaws.iotevents#StateName",
-          "traits": {
-            "smithy.api#documentation": "<p>The next state to enter.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "eventName": {
           "target": "com.amazonaws.iotevents#EventName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the transition event.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "condition": {
+          "target": "com.amazonaws.iotevents#Condition",
+          "traits": {
+            "smithy.api#documentation": "<p>Required. A Boolean expression that when TRUE causes the actions to be performed and the\n        <code>nextState</code> to be entered.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2576,10 +2577,10 @@
             "smithy.api#documentation": "<p>The actions to be performed.</p>"
           }
         },
-        "condition": {
-          "target": "com.amazonaws.iotevents#Condition",
+        "nextState": {
+          "target": "com.amazonaws.iotevents#StateName",
           "traits": {
-            "smithy.api#documentation": "<p>Required. A Boolean expression that when TRUE causes the actions to be performed and the\n        <code>nextState</code> to be entered.</p>",
+            "smithy.api#documentation": "<p>The next state to enter.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2730,17 +2731,17 @@
             "smithy.api#documentation": "<p>A brief description of the detector model.</p>"
           }
         },
-        "evaluationMethod": {
-          "target": "com.amazonaws.iotevents#EvaluationMethod",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the order in which events are evaluated and how actions are executed.\n    </p>"
-          }
-        },
         "roleArn": {
           "target": "com.amazonaws.iotevents#AmazonResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the role that grants permission to AWS IoT Events to perform its operations.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "evaluationMethod": {
+          "target": "com.amazonaws.iotevents#EvaluationMethod",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the order in which events are evaluated and how actions are executed.\n    </p>"
           }
         }
       }

@@ -96,7 +96,8 @@
           "sdkId": "Service Catalog AppRegistry",
           "arnNamespace": "servicecatalog",
           "cloudFormationName": "ServiceCatalogAppRegistry",
-          "cloudTrailEventSource": "servicecatalogappregistry.amazonaws.com"
+          "cloudTrailEventSource": "servicecatalogappregistry.amazonaws.com",
+          "endpointPrefix": "servicecatalog-appregistry"
         },
         "aws.auth#sigv4": {
           "name": "servicecatalog"

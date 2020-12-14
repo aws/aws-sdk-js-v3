@@ -1389,7 +1389,8 @@
           "sdkId": "Timestream Write",
           "arnNamespace": "timestream",
           "cloudFormationName": "TimestreamWrite",
-          "cloudTrailEventSource": "timestreamwrite.amazonaws.com"
+          "cloudTrailEventSource": "timestreamwrite.amazonaws.com",
+          "endpointPrefix": "ingest.timestream"
         },
         "aws.auth#sigv4": {
           "name": "timestream"

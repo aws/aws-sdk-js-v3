@@ -101,7 +101,8 @@
           "sdkId": "FSx",
           "arnNamespace": "fsx",
           "cloudFormationName": "FSx",
-          "cloudTrailEventSource": "fsx.amazonaws.com"
+          "cloudTrailEventSource": "fsx.amazonaws.com",
+          "endpointPrefix": "fsx"
         },
         "aws.auth#sigv4": {
           "name": "fsx"

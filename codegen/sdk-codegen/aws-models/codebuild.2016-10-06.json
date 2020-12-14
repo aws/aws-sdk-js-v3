@@ -1417,7 +1417,8 @@
           "sdkId": "CodeBuild",
           "arnNamespace": "codebuild",
           "cloudFormationName": "CodeBuild",
-          "cloudTrailEventSource": "codebuild.amazonaws.com"
+          "cloudTrailEventSource": "codebuild.amazonaws.com",
+          "endpointPrefix": "codebuild"
         },
         "aws.auth#sigv4": {
           "name": "codebuild"

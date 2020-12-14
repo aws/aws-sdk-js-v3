@@ -198,7 +198,8 @@
           "sdkId": "FraudDetector",
           "arnNamespace": "frauddetector",
           "cloudFormationName": "FraudDetector",
-          "cloudTrailEventSource": "frauddetector.amazonaws.com"
+          "cloudTrailEventSource": "frauddetector.amazonaws.com",
+          "endpointPrefix": "frauddetector"
         },
         "aws.auth#sigv4": {
           "name": "frauddetector"

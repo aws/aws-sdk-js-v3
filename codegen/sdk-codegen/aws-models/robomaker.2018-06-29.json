@@ -8294,7 +8294,8 @@
           "sdkId": "RoboMaker",
           "arnNamespace": "robomaker",
           "cloudFormationName": "RoboMaker",
-          "cloudTrailEventSource": "robomaker.amazonaws.com"
+          "cloudTrailEventSource": "robomaker.amazonaws.com",
+          "endpointPrefix": "robomaker"
         },
         "aws.auth#sigv4": {
           "name": "robomaker"

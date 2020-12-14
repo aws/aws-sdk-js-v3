@@ -1468,7 +1468,8 @@
           "sdkId": "Backup",
           "arnNamespace": "backup",
           "cloudFormationName": "Backup",
-          "cloudTrailEventSource": "backup.amazonaws.com"
+          "cloudTrailEventSource": "backup.amazonaws.com",
+          "endpointPrefix": "backup"
         },
         "aws.auth#sigv4": {
           "name": "backup"

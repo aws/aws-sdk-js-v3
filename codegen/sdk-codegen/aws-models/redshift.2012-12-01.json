@@ -3982,6 +3982,43 @@
           "outputToken": "Marker",
           "items": "Snapshots",
           "pageSize": "MaxRecords"
+        },
+        "smithy.waiters#waitable": {
+          "SnapshotAvailable": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "Snapshots[].Status",
+                    "expected": "available",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "Snapshots[].Status",
+                    "expected": "failed",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "Snapshots[].Status",
+                    "expected": "deleted",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 15
+          }
         }
       }
     },
@@ -4251,6 +4288,33 @@
           "outputToken": "Marker",
           "items": "Clusters",
           "pageSize": "MaxRecords"
+        },
+        "smithy.waiters#waitable": {
+          "ClusterRestored": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "Clusters[].RestoreStatus.Status",
+                    "expected": "completed",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "Clusters[].ClusterStatus",
+                    "expected": "deleting",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 60
+          }
         }
       }
     },
@@ -8753,7 +8817,8 @@
           "sdkId": "Redshift",
           "arnNamespace": "redshift",
           "cloudFormationName": "Redshift",
-          "cloudTrailEventSource": "redshift.amazonaws.com"
+          "cloudTrailEventSource": "redshift.amazonaws.com",
+          "endpointPrefix": "redshift"
         },
         "aws.auth#sigv4": {
           "name": "redshift"

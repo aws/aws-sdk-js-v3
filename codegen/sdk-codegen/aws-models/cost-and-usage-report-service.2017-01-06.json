@@ -51,7 +51,8 @@
           "sdkId": "Cost and Usage Report Service",
           "arnNamespace": "cur",
           "cloudFormationName": "CostandUsageReportService",
-          "cloudTrailEventSource": "costandusagereportservice.amazonaws.com"
+          "cloudTrailEventSource": "costandusagereportservice.amazonaws.com",
+          "endpointPrefix": "cur"
         },
         "aws.auth#sigv4": {
           "name": "cur"
@@ -286,11 +287,11 @@
     "com.amazonaws.costandusagereportservice#DescribeReportDefinitionsRequest": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.costandusagereportservice#GenericString"
-        },
         "MaxResults": {
           "target": "com.amazonaws.costandusagereportservice#MaxResults"
+        },
+        "NextToken": {
+          "target": "com.amazonaws.costandusagereportservice#GenericString"
         }
       },
       "traits": {
@@ -464,18 +465,6 @@
     "com.amazonaws.costandusagereportservice#ReportDefinition": {
       "type": "structure",
       "members": {
-        "ReportVersioning": {
-          "target": "com.amazonaws.costandusagereportservice#ReportVersioning",
-          "traits": {
-            "smithy.api#documentation": "<p>Whether you want Amazon Web Services to overwrite the previous version of each report or \n         to deliver the report in addition to the previous versions.</p>"
-          }
-        },
-        "Format": {
-          "target": "com.amazonaws.costandusagereportservice#ReportFormat",
-          "traits": {
-            "smithy.api#required": {}
-          }
-        },
         "ReportName": {
           "target": "com.amazonaws.costandusagereportservice#ReportName",
           "traits": {
@@ -488,20 +477,14 @@
             "smithy.api#required": {}
           }
         },
-        "S3Prefix": {
-          "target": "com.amazonaws.costandusagereportservice#S3Prefix",
+        "Format": {
+          "target": "com.amazonaws.costandusagereportservice#ReportFormat",
           "traits": {
             "smithy.api#required": {}
           }
         },
         "Compression": {
           "target": "com.amazonaws.costandusagereportservice#CompressionFormat",
-          "traits": {
-            "smithy.api#required": {}
-          }
-        },
-        "S3Bucket": {
-          "target": "com.amazonaws.costandusagereportservice#S3Bucket",
           "traits": {
             "smithy.api#required": {}
           }
@@ -513,10 +496,22 @@
             "smithy.api#required": {}
           }
         },
-        "RefreshClosedReports": {
-          "target": "com.amazonaws.costandusagereportservice#RefreshClosedReports",
+        "S3Bucket": {
+          "target": "com.amazonaws.costandusagereportservice#S3Bucket",
           "traits": {
-            "smithy.api#documentation": "<p>Whether you want Amazon Web Services to update your reports after they have been finalized if Amazon Web Services detects charges related to \n      previous months. These charges can include refunds, credits, or support fees.</p>"
+            "smithy.api#required": {}
+          }
+        },
+        "S3Prefix": {
+          "target": "com.amazonaws.costandusagereportservice#S3Prefix",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "S3Region": {
+          "target": "com.amazonaws.costandusagereportservice#AWSRegion",
+          "traits": {
+            "smithy.api#required": {}
           }
         },
         "AdditionalArtifacts": {
@@ -525,10 +520,16 @@
             "smithy.api#documentation": "<p>A list of manifests that you want Amazon Web Services to create for this report.</p>"
           }
         },
-        "S3Region": {
-          "target": "com.amazonaws.costandusagereportservice#AWSRegion",
+        "RefreshClosedReports": {
+          "target": "com.amazonaws.costandusagereportservice#RefreshClosedReports",
           "traits": {
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Whether you want Amazon Web Services to update your reports after they have been finalized if Amazon Web Services detects charges related to \n      previous months. These charges can include refunds, credits, or support fees.</p>"
+          }
+        },
+        "ReportVersioning": {
+          "target": "com.amazonaws.costandusagereportservice#ReportVersioning",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether you want Amazon Web Services to overwrite the previous version of each report or \n         to deliver the report in addition to the previous versions.</p>"
           }
         }
       },

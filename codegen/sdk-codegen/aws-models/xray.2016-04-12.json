@@ -120,7 +120,8 @@
           "sdkId": "XRay",
           "arnNamespace": "xray",
           "cloudFormationName": "XRay",
-          "cloudTrailEventSource": "xray.amazonaws.com"
+          "cloudTrailEventSource": "xray.amazonaws.com",
+          "endpointPrefix": "xray"
         },
         "aws.auth#sigv4": {
           "name": "xray"
@@ -181,7 +182,7 @@
       "type": "string"
     },
     "com.amazonaws.xray#AnnotationValue": {
-      "type": "structure",
+      "type": "union",
       "members": {
         "NumberValue": {
           "target": "com.amazonaws.xray#NullableDouble",

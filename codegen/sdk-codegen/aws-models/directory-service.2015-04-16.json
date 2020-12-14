@@ -3338,7 +3338,8 @@
           "sdkId": "Directory Service",
           "arnNamespace": "ds",
           "cloudFormationName": "DirectoryService",
-          "cloudTrailEventSource": "directoryservice.amazonaws.com"
+          "cloudTrailEventSource": "directoryservice.amazonaws.com",
+          "endpointPrefix": "ds"
         },
         "aws.auth#sigv4": {
           "name": "ds"

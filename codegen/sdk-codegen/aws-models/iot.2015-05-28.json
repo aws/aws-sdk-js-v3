@@ -675,7 +675,8 @@
           "sdkId": "IoT",
           "arnNamespace": "iot",
           "cloudFormationName": "IoT",
-          "cloudTrailEventSource": "iot.amazonaws.com"
+          "cloudTrailEventSource": "iot.amazonaws.com",
+          "endpointPrefix": "iot"
         },
         "aws.auth#sigv4": {
           "name": "execute-api"

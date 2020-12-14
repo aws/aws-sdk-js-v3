@@ -627,7 +627,8 @@
           "sdkId": "Timestream Query",
           "arnNamespace": "timestream",
           "cloudFormationName": "TimestreamQuery",
-          "cloudTrailEventSource": "timestreamquery.amazonaws.com"
+          "cloudTrailEventSource": "timestreamquery.amazonaws.com",
+          "endpointPrefix": "query.timestream"
         },
         "aws.auth#sigv4": {
           "name": "timestream"

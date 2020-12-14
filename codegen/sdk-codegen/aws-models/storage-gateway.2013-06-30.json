@@ -6958,7 +6958,8 @@
           "sdkId": "Storage Gateway",
           "arnNamespace": "storagegateway",
           "cloudFormationName": "StorageGateway",
-          "cloudTrailEventSource": "storagegateway.amazonaws.com"
+          "cloudTrailEventSource": "storagegateway.amazonaws.com",
+          "endpointPrefix": "storagegateway"
         },
         "aws.auth#sigv4": {
           "name": "storagegateway"

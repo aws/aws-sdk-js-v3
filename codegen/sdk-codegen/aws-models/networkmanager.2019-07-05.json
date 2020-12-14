@@ -3068,7 +3068,8 @@
           "sdkId": "NetworkManager",
           "arnNamespace": "networkmanager",
           "cloudFormationName": "NetworkManager",
-          "cloudTrailEventSource": "networkmanager.amazonaws.com"
+          "cloudTrailEventSource": "networkmanager.amazonaws.com",
+          "endpointPrefix": "networkmanager"
         },
         "aws.auth#sigv4": {
           "name": "networkmanager"

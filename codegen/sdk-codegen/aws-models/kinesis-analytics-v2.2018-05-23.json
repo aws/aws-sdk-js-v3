@@ -3017,7 +3017,8 @@
           "sdkId": "Kinesis Analytics V2",
           "arnNamespace": "kinesisanalytics",
           "cloudFormationName": "KinesisAnalyticsV2",
-          "cloudTrailEventSource": "kinesisanalyticsv2.amazonaws.com"
+          "cloudTrailEventSource": "kinesisanalyticsv2.amazonaws.com",
+          "endpointPrefix": "kinesisanalytics"
         },
         "aws.auth#sigv4": {
           "name": "kinesisanalytics"

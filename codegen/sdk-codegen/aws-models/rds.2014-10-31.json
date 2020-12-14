@@ -711,7 +711,8 @@
           "sdkId": "RDS",
           "arnNamespace": "rds",
           "cloudFormationName": "RDS",
-          "cloudTrailEventSource": "rds.amazonaws.com"
+          "cloudTrailEventSource": "rds.amazonaws.com",
+          "endpointPrefix": "rds"
         },
         "aws.auth#sigv4": {
           "name": "rds"
@@ -7922,6 +7923,134 @@
           "outputToken": "Marker",
           "items": "DBClusterSnapshots",
           "pageSize": "MaxRecords"
+        },
+        "smithy.waiters#waitable": {
+          "DBClusterSnapshotAvailable": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "DBClusterSnapshots[].Status",
+                    "expected": "available",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "DBClusterSnapshots[].Status",
+                    "expected": "deleted",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "DBClusterSnapshots[].Status",
+                    "expected": "deleting",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "DBClusterSnapshots[].Status",
+                    "expected": "failed",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "DBClusterSnapshots[].Status",
+                    "expected": "incompatible-restore",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "DBClusterSnapshots[].Status",
+                    "expected": "incompatible-parameters",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 30
+          },
+          "DBClusterSnapshotDeleted": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "length(DBClusterSnapshots) == `0`",
+                    "expected": "true",
+                    "comparator": "booleanEquals"
+                  }
+                }
+              },
+              {
+                "state": "success",
+                "matcher": {
+                  "errorType": "DBClusterSnapshotNotFoundFault"
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "DBClusterSnapshots[].Status",
+                    "expected": "creating",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "DBClusterSnapshots[].Status",
+                    "expected": "modifying",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "DBClusterSnapshots[].Status",
+                    "expected": "rebooting",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "DBClusterSnapshots[].Status",
+                    "expected": "resetting-master-credentials",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 30
+          }
         }
       }
     },
@@ -8212,6 +8341,73 @@
           "outputToken": "Marker",
           "items": "DBInstances",
           "pageSize": "MaxRecords"
+        },
+        "smithy.waiters#waitable": {
+          "DBInstanceAvailable": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "DBInstances[].DBInstanceStatus",
+                    "expected": "available",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "DBInstances[].DBInstanceStatus",
+                    "expected": "deleted",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "DBInstances[].DBInstanceStatus",
+                    "expected": "deleting",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "DBInstances[].DBInstanceStatus",
+                    "expected": "failed",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "DBInstances[].DBInstanceStatus",
+                    "expected": "incompatible-restore",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "DBInstances[].DBInstanceStatus",
+                    "expected": "incompatible-parameters",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 30
+          }
         }
       }
     },
@@ -8841,6 +9037,73 @@
           "outputToken": "Marker",
           "items": "DBSnapshots",
           "pageSize": "MaxRecords"
+        },
+        "smithy.waiters#waitable": {
+          "DBSnapshotAvailable": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "DBSnapshots[].Status",
+                    "expected": "available",
+                    "comparator": "allStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "DBSnapshots[].Status",
+                    "expected": "deleted",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "DBSnapshots[].Status",
+                    "expected": "deleting",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "DBSnapshots[].Status",
+                    "expected": "failed",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "DBSnapshots[].Status",
+                    "expected": "incompatible-restore",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "DBSnapshots[].Status",
+                    "expected": "incompatible-parameters",
+                    "comparator": "anyStringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 30
+          }
         }
       }
     },
