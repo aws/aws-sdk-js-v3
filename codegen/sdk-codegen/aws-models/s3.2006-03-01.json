@@ -5566,23 +5566,6 @@
                 "matcher": {
                   "success": true
                 }
-              },
-              {
-                "state": "retry",
-                "matcher": {
-                  "errorType": "NoSuchBucket"
-                }
-              }
-            ],
-            "minDelay": 5
-          },
-          "BucketNotExists": {
-            "acceptors": [
-              {
-                "state": "success",
-                "matcher": {
-                  "errorType": "NoSuchBucket"
-                }
               }
             ],
             "minDelay": 5
@@ -5637,23 +5620,6 @@
                 "state": "success",
                 "matcher": {
                   "success": true
-                }
-              },
-              {
-                "state": "retry",
-                "matcher": {
-                  "errorType": "NoSuchKey"
-                }
-              }
-            ],
-            "minDelay": 5
-          },
-          "ObjectNotExists": {
-            "acceptors": [
-              {
-                "state": "success",
-                "matcher": {
-                  "errorType": "NoSuchKey"
                 }
               }
             ],
